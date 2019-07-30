@@ -367,29 +367,21 @@ tracks {
     }
     //Quote - Delete Event
     "/quote/seller/delete/action"(platform: "/", type: TrackType.Event) {
-        demandItemGroup
-        action(required: true, type: PropertyType.String, description: "reject reason selected")
+        action(required: true, type: PropertyType.String, description: "delete reason selected")
     }
 
     //Quote - Delete Congrats
-    "/quote/seller/delete/congrats"(platform: "/", type: TrackType.View) {
-        demandItemGroup
-    }
+    "/quote/seller/delete/congrats"(platform: "/", type: TrackType.View) {}
 
     //Quote - Delete Congrats Event
-    "/quote/seller/delete/congrats/go_listing"(platform: "/", type: TrackType.Event) {
-        demandItemGroup
-    }
+    "/quote/seller/delete/congrats/go_listing"(platform: "/", type: TrackType.Event) {}
 
     //Quote - Delete Congrats Error
-    "/quote/seller/delete/congrats_error"(platform: "/", type: TrackType.View) {
-        demandItemGroup
-    }
+    "/quote/seller/delete/congrats_error"(platform: "/", type: TrackType.View) {}
 
     //Quote - Delete Congrats Error Event
-    "/quote/seller/delete/congrats_error/go_listing"(platform: "/", type: TrackType.Event) {
-        demandItemGroup
-    }
+    "/quote/seller/delete/congrats_error/go_listing"(platform: "/", type: TrackType.Event) {}
+
     /***** Listing onBoarding ******/
 
     //Onboarding View
