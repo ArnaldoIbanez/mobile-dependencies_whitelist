@@ -12,7 +12,7 @@ tracks {
 
     "/advertising/landings/pads2/mail"(platform: "/", isAbstract: true) {}
 
-    "/advertising/landings/pads2/mail/congrats"(platform: "/", type: TrackType.View) {
+    "/advertising/landings/pads2/mail/congrats"(platform: "/web", type: TrackType.View) {
         user_id(required:true, description: "User id")
         items_id(required:true, description: "Items ids")
     }
