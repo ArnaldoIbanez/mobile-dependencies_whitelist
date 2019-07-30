@@ -862,6 +862,40 @@ trackTests {
             attributable_to = "server"
         }
 
+        //QR Tip
+        "/instore/tip"(platform: "/mobile", type: TrackType.View) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            pos_id = "146763"
+            collector_id = "378051896"
+            brand_name = "KWIK-E-MART"
+            currency = "ARS"
+        }
+        "/instore/tip/selectedTip"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            pos_id = "146763"
+            collector_id = "378051896"
+            brand_name = "KWIK-E-MART"
+            currency = "ARS"
+            tip_amount = 100
+            tip_percentage = "10"
+            purchase_amount = 1000
+        }
+        "/instore/tip/skipTip"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            pos_id = "146763"
+            collector_id = "378051896"
+            brand_name = "KWIK-E-MART"
+            currency = "ARS"
+            purchase_amount = 1000
+        }
+        "/instore/tip/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            pos_id = "146763"
+            collector_id = "378051896"
+            brand_name = "KWIK-E-MART"
+            currency = "ARS"
+        }
+
         "/instore/my_qr"(platform: "/mobile", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
         }
@@ -1747,6 +1781,41 @@ trackTests {
             message = "server error"
             attributable_to = "server"
         }
+
+        //QR Tip
+        "/instore/tip"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            pos_id = "146763"
+            collector_id = "378051896"
+            brand_name = "KWIK-E-MART"
+            currency = "ARS"
+        }
+        "/instore/tip/selectedTip"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            pos_id = "146763"
+            collector_id = "378051896"
+            brand_name = "KWIK-E-MART"
+            currency = "ARS"
+            tip_amount = 100
+            tip_percentage = "10"
+            purchase_amount = 1000
+        }
+        "/instore/tip/skipTip"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            pos_id = "146763"
+            collector_id = "378051896"
+            brand_name = "KWIK-E-MART"
+            currency = "ARS"
+            purchase_amount = 1000
+        }
+        "/instore/tip/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            pos_id = "146763"
+            collector_id = "378051896"
+            brand_name = "KWIK-E-MART"
+            currency = "ARS"
+        }
+
         "/instore/my_qr"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
         }
