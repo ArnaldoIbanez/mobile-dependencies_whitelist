@@ -554,8 +554,8 @@ trackTests {
         "/myml/invoices/documents/success/btn/listings"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/documents/success/btn/download"(platform: "/", type: TrackType.Event) {}
 
-        "/myml/invoices/opt-in/difal"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/opt-in/difal/button/save"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/opt_in/difal"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/opt_in/difal/button/save"(platform: "/", type: TrackType.Event) {}
     }
 
 
