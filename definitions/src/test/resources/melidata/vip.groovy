@@ -964,4 +964,34 @@ trackTests {
             properties()
         }
     }
+
+    test("VIP preload MainAction Contact from search"){
+        def properties = {
+            item_id = "MLA792156560"
+        }
+
+        "/vip/contact_seller/preload"(platform: "/mobile", type: TrackType.Event){
+            properties()
+        }
+    }
+
+    test("VIP preload MainAction Call from search"){
+        def properties = {
+            item_id = "MLA792156560"
+        }
+
+        "/vip/call_seller/preload"(platform: "/mobile", type: TrackType.Event){
+            properties()
+        }
+    }
+
+    test("VIP preload MainAction Reservation from search"){
+        def properties = {
+            item_id = "MLA792156560"
+        }
+
+        "/vip/reservation_intention/preload"(platform: "/mobile", type: TrackType.Event){
+            properties()
+        }
+    }
 }
