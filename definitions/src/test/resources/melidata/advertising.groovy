@@ -158,7 +158,7 @@ trackTests {
     }
 
     test("Landing congrats") {
-        "/advertising/pads2/manager/upselling/modal/show"(platform: "/web", type: TrackType.View) {
+        "/advertising/landings/pads2/mail/congrats"(platform: "/web", type: TrackType.View) {
             user_id = "2222222"
             items_id = "MLA1,MLA2,MLA3,MLA4,MLA5"
         }
