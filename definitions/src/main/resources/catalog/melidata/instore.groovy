@@ -411,7 +411,9 @@ tracks {
         purchase_amount(required: true, PropertyType.Numeric, description: "the amount of the purchase being paid")
 
     }
-    "/instore/tip/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/tip/back"(platform: "/mobile", type: TrackType.Event) {
+        
+    }
 
     "/instore/my_qr"(platform: "/mobile", type: TrackType.Event) {
         session_id(required: false, PropertyType.String, description: "this flow is outside instore, does not have session_id")
