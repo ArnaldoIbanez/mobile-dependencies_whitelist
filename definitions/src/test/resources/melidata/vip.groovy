@@ -132,7 +132,6 @@ trackTests {
             item_seller_type = "AB001"
             from_view="vip"
             event_source="modal"
-            source=""
         })
 
         "/vip/call_seller"(platform:"/web/desktop", type: TrackType.Event, {
@@ -160,7 +159,6 @@ trackTests {
             item_seller_type="normal"
             event_source="button"
             from_view="vip"
-            source="param"
         })
 
         "/vip/contact_whatsapp"(platform: "/web/mobile", type: TrackType.Event, {
@@ -168,7 +166,7 @@ trackTests {
             item_seller_type="normal"
             event_source="button"
             from_view="vip"
-            source="param"
+            event_source = "link"
         })
 
         "/vip/show_phone"(platform: "/mobile", type: TrackType.Event, {
