@@ -405,6 +405,7 @@ trackTests {
                     "MLA123456": "inactive",
                     "MLA1234567": "low_score"
             ]
+            is_in_seo_whitelist = true
         }
     }
 
