@@ -47,7 +47,7 @@ If you want to run all available tests **```make test CATALOG=${All}```**
 
 ### REFERENCES
 
-1. [Tracking Definitions](https://github.com/mercadolibre/melidata-catalog/wiki/Tracking-Style-Guide)
+1. [**Tracking Definitions**](https://github.com/mercadolibre/melidata-catalog/wiki/Tracking-Style-Guide)
 
 2. [Metrics Definitions](https://github.com/mercadolibre/melidata-catalog/wiki/New-Metric)
 
