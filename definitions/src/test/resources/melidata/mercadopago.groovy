@@ -496,6 +496,10 @@ trackTests {
         "/landing/promotions" (platform: "/web") {}
     }
 
+    test("Landing form comercial") {
+        "/landing/formcomercial"(platform: "/", type: TrackType.View) {}
+    }
+
     test("Growth Frontend Login") {
         "/growth/login"(platform: "/", type: TrackType.View) {
           view = "split"

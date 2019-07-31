@@ -55,6 +55,8 @@ tracks {
     // MP Promotions
     "/landing/promotions"(platform: "/web"){}
 
+    "/landing/formcomercial"(platform: "/", type: TrackType.View) {}
+
     "/growth"(platform: "/", isAbstract: true) {}
     "/growth/login"(platform: "/", type: TrackType.View) {
       view (type: PropertyType.String, required: true, description: "Name of view", values: ["split", "guest"])
