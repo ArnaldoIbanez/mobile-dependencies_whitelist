@@ -690,6 +690,9 @@ tracks {
     "/sell/item_data/item_condition"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/item_condition/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/item_condition/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/main_variation"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/main_variation/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/main_variation/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/variations"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/variations/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/variations/confirm"(platform: "/web", type: TrackType.Event) {}
