@@ -306,7 +306,37 @@ trackTests {
             shop_name = "Test Shop"
             ref = ""
         }
-    } 
+        "/mercado_shops/marketing/google-analytics"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
+    }
+
+    test("Mercadoshops Merketing Tools events") {
+        "/mercado_shops/marketing/google-analytics/save"(platform: "/", type: TrackType.event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            success = true
+        }
+        "/mercado_shops/marketing/google-analytics/open-faqs"(platform: "/", type: TrackType.event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+        "/mercado_shops/marketing/google-analytics/cancel"(platform: "/", type: TrackType.event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+        "/mercado_shops/marketing/google-analytics/context-help"(platform: "/", type: TrackType.event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MYML Mercadoshops migration flow
