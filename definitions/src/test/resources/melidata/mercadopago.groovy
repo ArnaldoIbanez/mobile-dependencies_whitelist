@@ -884,6 +884,18 @@ trackTests {
         "/merchant_acquisition/point-landings/app-chinese/success"(platform:"/", type: TrackType.View) {}
     }
 
+    test("Merchant Acquisition Widgets") {
+        //reverse label
+        "/merchant_acquisition/widget" (platform: "/") {
+            type = "reverse-label"
+        }
+
+        // Widget de envíos
+        "/merchant_acquisition/widget" (platform: "/") {
+            type = "shipping"
+        }
+    }
+
     test("Landing mercadopago point") {
         "/point/landings" (platform: "/") {
             product = "point-h"
