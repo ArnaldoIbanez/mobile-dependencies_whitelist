@@ -220,7 +220,7 @@ tracks {
 
     //Merchant Acqusition - widgets
     "/merchant_acquisition/widget"(platform:"/", type: TrackType.View) {
-        type (type: PropertyType.String, required: true, description: "Widget name, could be reverse-label, bobinas, shipping & more")
+        type (type: PropertyType.String, required: true, values: ["reverse-label", "reset-chip"], description: "Widget name, could be reverse-label, bobinas, shipping & more")
     }
 
     // Merchant Acquisition Point Landings

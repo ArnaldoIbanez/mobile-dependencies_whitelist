@@ -892,7 +892,7 @@ trackTests {
 
         // Widget de envíos
         "/merchant_acquisition/widget" (platform: "/") {
-            type = "shipping"
+            type = "reset-chip"
         }
     }
 
