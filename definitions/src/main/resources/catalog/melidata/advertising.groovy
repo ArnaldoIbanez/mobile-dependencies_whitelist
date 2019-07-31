@@ -6,6 +6,17 @@ tracks {
     //ADVERTISING FLOW
     "/advertising"(platform: "/", isAbstract: true) {}
 
+    "/advertising/landings"(platform: "/", isAbstract: true) {}
+
+    "/advertising/landings/pads2"(platform: "/", isAbstract: true) {}
+
+    "/advertising/landings/pads2/mail"(platform: "/", isAbstract: true) {}
+
+    "/advertising/landings/pads2/mail/congrats"(platform: "/web", type: TrackType.View) {
+        user_id(required:true, description: "User id")
+        items_id(required:true, description: "Items ids")
+    }
+
     "/advertising/pads2"(platform: "/", isAbstract: true) {}
 
     "/advertising/pads2/manager"(platform: "/web", type: TrackType.View) {
