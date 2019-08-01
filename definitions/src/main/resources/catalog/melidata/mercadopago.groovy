@@ -218,6 +218,11 @@ tracks {
     "/merchant_acquisition/point-landings/app-chinese/error"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/point-landings/app-chinese/success"(platform:"/", type: TrackType.View) {}
 
+    //Merchant Acqusition - widgets
+    "/merchant_acquisition/widget"(platform:"/", type: TrackType.View) {
+        type (type: PropertyType.String, required: true, values: ["reverse-label", "reset-chip"], description: "Widget name, could be reverse-label, bobinas, shipping & more")
+    }
+
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
         product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
