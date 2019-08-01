@@ -525,10 +525,10 @@ tracks {
         type(required: true, type: PropertyType.String, values: ["single", "bundle"], description: "Type of fiscal information")
     }
 
-    //:::: MYML - INVOICES
+    //:::: SELLER - INVOICES
     "/myml/invoices"(platform: "/", isAbstract: true) {}
 
-    //:::: MYML - Invoices Documents
+    // Invoices Documents
     "/myml/invoices/documents"(platform: "/", isAbstract: true) {}
     "/myml/invoices/documents/mobile"(platform: "/", type: TrackType.View) {}
     "/myml/invoices/documents/not_found"(platform: "/", type: TrackType.View) {}
@@ -903,6 +903,17 @@ tracks {
     "/myml/invoices/backoffice/search/invoiceslist"(platform: "/") {
         search_filter(required: true, description: "Search filter used on massive invoices search")
     }
+
+    //Opt-in pages
+    
+    "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/opt_in/difal"(platform: "/") {}
+
+    "/myml/invoices/opt_in/difal/button"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/difal/button/save"(platform: "/") {}
+
+    //:::: SELLER - INVOICES
 
     "/myml/buy_it_again"(platform: "/mobile") {}
 
