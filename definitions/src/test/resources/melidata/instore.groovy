@@ -870,7 +870,7 @@ trackTests {
             brand_name = "KWIK-E-MART"
             currency = "ARS"
         }
-        "/instore/tip/selectedTip"(platform: "/mobile", type: TrackType.Event) {
+        "/instore/tip/selected_tip"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             pos_id = "146763"
             collector_id = "378051896"
@@ -880,7 +880,7 @@ trackTests {
             tip_percentage = "10"
             purchase_amount = 1000
         }
-        "/instore/tip/skipTip"(platform: "/mobile", type: TrackType.Event) {
+        "/instore/tip/skip_tip"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             pos_id = "146763"
             collector_id = "378051896"
@@ -1790,7 +1790,7 @@ trackTests {
             brand_name = "KWIK-E-MART"
             currency = "ARS"
         }
-        "/instore/tip/selectedTip"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+        "/instore/tip/selected_tip"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             pos_id = "146763"
             collector_id = "378051896"
@@ -1800,7 +1800,7 @@ trackTests {
             tip_percentage = "10"
             purchase_amount = 1000
         }
-        "/instore/tip/skipTip"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+        "/instore/tip/skip_tip"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             pos_id = "146763"
             collector_id = "378051896"

@@ -402,18 +402,16 @@ tracks {
         currency(required: true, PropertyType.String)
 
     }
-    "/instore/tip/selectedTip"(platform: "/mobile", type: TrackType.Event) {
+    "/instore/tip/selected_tip"(platform: "/mobile", type: TrackType.Event) {
         tip_amount(required: true, PropertyType.Numeric, description: "the amount of tip selected to be paid")
         tip_percentage(required: true, PropertyType.String, description: "the percentage of tip selected")
         purchase_amount(required: true, PropertyType.Numeric, description: "the amount of the purchase being paid")
     }
-    "/instore/tip/skipTip"(platform: "/mobile", type: TrackType.Event) {
+    "/instore/tip/skip_tip"(platform: "/mobile", type: TrackType.Event) {
         purchase_amount(required: true, PropertyType.Numeric, description: "the amount of the purchase being paid")
 
     }
-    "/instore/tip/back"(platform: "/mobile", type: TrackType.Event) {
-        
-    }
+    "/instore/tip/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/my_qr"(platform: "/mobile", type: TrackType.Event) {
         session_id(required: false, PropertyType.String, description: "this flow is outside instore, does not have session_id")
