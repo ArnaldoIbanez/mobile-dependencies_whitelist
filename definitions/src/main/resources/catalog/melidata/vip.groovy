@@ -740,4 +740,8 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
+    "/vip/reservation_intention"(platform: "/", type: TrackType.Event, isAbstract: true){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
 }
