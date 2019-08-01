@@ -455,6 +455,27 @@ tracks {
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
     }
 
+    "/seller_central/modify/technical_specifications/hidden_attributes"(platform: "/", isAbstract: true) {
+        sellerCentralModifyGroup
+        seller_id(required: true, type: PropertyType.Numeric)
+        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
+        type(required: true, type: PropertyType.String, description: "Trigger action", values: ["CONFIRM", "CANCEL"])
+    }
+    
+    "/seller_central/modify/technical_specifications/hidden_attributes/open"(platform: "/", type: TrackType.Event) {
+        times_showed(required: true, type: PropertyType.Numeric, description: "Number of views")
+        attributes(required: true, type: PropertyType.Numeric, description: "Attributes available")
+    }
+
+    "/seller_central/modify/technical_specifications/hidden_attributes/add"(platform: "/", type: TrackType.Event) {
+        attribute(required: true, type: PropertyType.String, description: "ID of the attribute")
+    }
+
+    "/seller_central/modify/technical_specifications/hidden_attributes/change"(platform: "/", type: TrackType.Event) {
+        attribute(required: true, type: PropertyType.String, description: "ID of the attribute")
+        value(required: true, type: PropertyType.String, description: "New attribute value")
+    }
+
     // SETTINGS SECTION
 
     "/seller_central/settings"(platform: "/", type: TrackType.View) {
