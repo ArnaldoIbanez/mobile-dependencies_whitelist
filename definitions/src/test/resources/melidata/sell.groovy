@@ -774,6 +774,22 @@ trackTests {
             session_id = "123-update-abc123"
         }
     }
+    test("SYI v4 main variation card showed"){
+        "/sell/item_data/main_variation/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 main variation card confirmed"){
+        "/sell/item_data/main_variation/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
     test("SYI v4 item variations card showed"){
         "/sell/item_data/variations/show"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
@@ -884,6 +900,22 @@ trackTests {
     }
     test("SYI v4 listing types card confirmed"){
         "/sell/item_conditions/listing_types/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 free shipping card showed"){
+        "/sell/item_conditions/free_shipping/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+        }
+    }
+    test("SYI v4 free shipping card confirmed"){
+        "/sell/item_conditions/free_shipping/confirm"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"

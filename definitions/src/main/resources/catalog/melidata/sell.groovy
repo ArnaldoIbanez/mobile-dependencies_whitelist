@@ -690,6 +690,9 @@ tracks {
     "/sell/item_data/item_condition"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/item_condition/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/item_condition/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/main_variation"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/main_variation/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/main_variation/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/variations"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/variations/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/variations/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -726,6 +729,9 @@ tracks {
         has_free(required: true, type: PropertyType.Boolean)
     }
     "/sell/item_conditions/listing_types/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/free_shipping"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/free_shipping/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/free_shipping/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/consequences_modal"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/consequences_modal/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/consequences_modal/confirm"(platform: "/web", type: TrackType.Event) {}
