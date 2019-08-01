@@ -498,11 +498,11 @@ trackTests {
 
     test("Point Buying Flow") {
         "/point/buyingflow"(platform: "/", type: TrackType.View) {
-          view = "init"
-          flow_id = "000001"
-          product = "point-i"
-          currency = "R\$"
-          price = 401
+          view = "shippingOptions"
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
           is_guest = true
         }
     }

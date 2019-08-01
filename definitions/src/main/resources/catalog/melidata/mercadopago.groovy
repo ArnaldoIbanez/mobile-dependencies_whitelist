@@ -58,15 +58,15 @@ tracks {
     }
 
     "/point/buyingflow"(platform: "/", type: TrackType.View) {
-      view (type: PropertyType.String, required: true, description: "Initial step")
-      flow_id (type: PropertyType.String, required: true, description: "Flow id.")
-      product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
-      currency (type: PropertyType.String, required: true, description: "Currency")
+      view (type: PropertyType.String, required: true, values: ["shippingOptions", "addressesCreate", "paymentMethods", "paymentNewCard", "paymentInstallments", "paymentCardSecurityCode", "paymentReview"], description: "View identifier")
+      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
+      product (type: PropertyType.String, required: true, description: "Product identifier")
+      currency (type: PropertyType.String, required: true, description: "ISO Currency")
       price (type: PropertyType.Numeric, required: true, description: "Price of device")
       is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
       has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
       coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
-      coupon_type (type: PropertyType.String, required: false, values: ["default", "mgm", "campaign"], description: "Kind of MGM Coupon: default | mgm | campaign")
+      coupon_type (type: PropertyType.String, required: false, values: ["default", "mgm", "campaign"], description: "Type of discount coupon")
       discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
       price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
