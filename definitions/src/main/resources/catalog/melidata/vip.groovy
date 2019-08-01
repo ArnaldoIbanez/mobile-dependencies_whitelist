@@ -728,6 +728,10 @@ tracks {
         item_seller_type(required: true, values: ['real_estate_agency'], description: "Seller type: normal, real_estate_user, etc")
     }
 
+    "/vip/reservation_intention"(platform: "/", type: TrackType.Event, isAbstract: true){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
     "/vip/contact_seller/preload"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
         item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
@@ -737,10 +741,6 @@ tracks {
     }
 
     "/vip/reservation_intention/preload"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
-    }
-
-    "/vip/reservation_intention"(platform: "/", type: TrackType.Event, isAbstract: true){
         item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
