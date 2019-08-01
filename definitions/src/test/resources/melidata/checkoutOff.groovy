@@ -98,6 +98,10 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/card/split_first"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -203,6 +207,10 @@ trackTests {
         }
 
         "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
         
