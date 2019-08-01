@@ -189,10 +189,13 @@ tracks {
         mshopsEventGroup
     }
 
-    "/mercado_shops/marketing/google_analytics/open-faqs"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/google_analytics/open_faqs"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/google_analytics/cancel"(platform: "/", type: TrackType.Event){}
 
-    "/mercado_shops/marketing/google_analytics/context-help"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/google_analytics/context_help"(platform: "/", type: TrackType.Event){}
 
+    "/mercado_shops/marketing/google_analytics/delete"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
 }
