@@ -137,6 +137,10 @@ tracks {
     "/sell/list/draft"(platform:"/mobile", type: TrackType.View, isAbstract: true){}
     "/sell/list/draft/sip"(platform:"/mobile", type: TrackType.View){
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+        total_pictures(required: false, description: "Total pictures", type: PropertyType.Numeric)
+        pending_pictures(required: false, description: "Pending pictures", type: PropertyType.Numeric)
+        fail_pictures(required: false, description: "Failed pictures", type: PropertyType.Numeric)
+        pictures_errors(required: false, description: "Array of pictures error", type: PropertyType.ArrayList)
     }
     "/sell/list/draft/congrats"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/location_suggestion"(platform:"/mobile", type: TrackType.View){}
