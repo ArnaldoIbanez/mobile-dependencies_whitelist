@@ -222,7 +222,7 @@ tracks {
     "/sell/list/sip/publish/abandonment"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/sip/section"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
-        has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
+        section_id(required: false, description: "Id of disabled section", type: PropertyType.String)
     }
     "/sell/list/sip/update" (platform: "/mobile", type: TrackType.Event){
         has_selected_pictures(required: false, description: "boolean - true if the user has selected pictures", type: PropertyType.Boolean)
