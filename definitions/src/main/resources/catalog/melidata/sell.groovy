@@ -781,6 +781,7 @@ tracks {
     "/sell/congrats/listing_types"(platform: "/web", isAbstract: true) {}
     "/sell/congrats/listing_types/show"(platform: "/web", type: TrackType.Event) {}
 
+
     "/sell/sip"(platform: "/web", type: TrackType.View) {
         sellGroup
     }
