@@ -767,6 +767,15 @@ tracks {
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_id(required: false, type: PropertyType.String)
+        category_prediction(required: false, description: "Category prediction path result", type: PropertyType.ArrayList)
+        category_prediction_score(required: false, description: "Category prediction scores result", type: PropertyType.ArrayList)
+        category_prediction_zordon(required: false, description: "Category prediction path result from zordon", type: PropertyType.ArrayList)
+        category_prediction_zordon_score(required: false, description: "Category prediction scores result from zordon", type: PropertyType.ArrayList)
+        predictor_chosen(required: false, description: "Which predictor we used to predict category: ZORDON/DEFAULT/etc...", type: PropertyType.String)
+        attributes_values_predicted(required: false, description: "Attributes values that we predict by matchers", type: PropertyType.ArrayList)
+        attributes_ids_predicted(required: false, description: "Attributes ids that we predict by matchers", type: PropertyType.ArrayList)
+        attributes_selected_in_tree(required: false, description: "Attributes values selected by user", type: PropertyType.ArrayList)
+        title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
     }
     "/sell/congrats/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/congrats/listing_types"(platform: "/web", isAbstract: true) {}
