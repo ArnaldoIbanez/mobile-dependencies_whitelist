@@ -17,12 +17,15 @@ tracks {
     "/asset_management/onboarding_bcra"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/onboarding"(platform: "/web", type: TrackType.View) {}
     "/asset_management/start_investing"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/legal_entity_continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/legal_entity_block"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/know_more"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/optin"(platform: "/mobile", type: TrackType.Event) {}
 
     // Blocking screen
     "/asset_management/blocker"(platform: "/web", type: TrackType.View) {}
     "/asset_management/blocker"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/legal_entity_selector"(platform: "/mobile", type: TrackType.View) {}
 
     // Challenges
     "/asset_management/challenge_pep"(platform: "/mobile", type: TrackType.View) {}
@@ -81,6 +84,7 @@ tracks {
     "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing"(platform: "/web", type: TrackType.View) {}
     "/asset_management/result_investing_company"(platform: "/mobile", isAbstract: true) {}
+    "/asset_management/result_unavailable"(platform: "/mobile", isAbstract: true) {}
     "/asset_management/result_investing_company/approved"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/pending"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/rejected"(platform: "/mobile", type: TrackType.View) {}
