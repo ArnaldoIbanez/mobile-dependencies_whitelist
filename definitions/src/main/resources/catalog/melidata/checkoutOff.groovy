@@ -2,7 +2,6 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
-
 tracks {
         "/checkout_off"(platform: "/", isAbstract: true){
         checkout_flow_id(required: true, description: "Unique ID of the current flow")
