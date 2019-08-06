@@ -198,4 +198,20 @@ tracks {
     "/mercado_shops/marketing/google_analytics/delete"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
+
+    "/mercado_shops/marketing/facebook_pixel"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/facebook_pixel/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/facebook_pixel/open_faqs"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/facebook_pixel/cancel"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/facebook_pixel/context_help"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/facebook_pixel/delete"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
 }
