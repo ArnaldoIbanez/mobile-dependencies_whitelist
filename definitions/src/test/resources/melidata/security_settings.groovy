@@ -39,6 +39,7 @@ trackTests {
         "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
             context = "forgot"
             delete_sessions = false
+            lowend = true
         }
 
         "/security_settings/password/success"(platform: "/", type: TrackType.Event) {

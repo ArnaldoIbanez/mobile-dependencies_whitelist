@@ -2913,6 +2913,7 @@ trackTests {
         "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
             context = "feedback"
             delete_sessions = true
+            lowend = true
         }
     }
 
