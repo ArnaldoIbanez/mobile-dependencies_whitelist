@@ -302,6 +302,7 @@ tracks {
 
     /******************************************
      *    Start: Merchant Contacts
+     *    We can´t declare values as a numeric
      ******************************************/
 
     "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
@@ -326,18 +327,7 @@ tracks {
         milestone(
             description: "Number of days overdue of the contact", 
             type: PropertyType.Numeric, 
-            required: false, 
-            values: [
-                -27, 
-                -7, 
-                -5, 
-                -2, 
-                3, 
-                6, 
-                10, 
-                16, 
-                20
-            ]
+            required: false
         )
         stage(
             description: "Credit stage of the contact", 
