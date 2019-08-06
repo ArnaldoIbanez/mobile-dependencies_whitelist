@@ -241,8 +241,14 @@ trackTests {
         }
 
         //Events
-        "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/", type: TrackType.Event) {
+        "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/mobile", type: TrackType.Event) {
             page_status = 'overdue'
+            total_installments = 3
+            paid_installments = 2
+        }
+
+        //Events
+        "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/web", type: TrackType.Event) {
             total_installments = 3
             paid_installments = 2
         }
