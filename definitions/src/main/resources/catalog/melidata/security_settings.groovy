@@ -29,6 +29,6 @@ tracks {
 
     "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
         delete_sessions(type: PropertyType.Boolean, required: true, description: "Whether the user chose to delete sessions or not")
-        lowend(type: PropertyType.Boolean, required: false, default: false, description: "Whether the user accessed from a lowend device or not")
+        lowend(type: PropertyType.Boolean, required: false, description: "Whether the user accessed from a lowend device or not")
     }
 }
