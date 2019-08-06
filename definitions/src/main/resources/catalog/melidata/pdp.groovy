@@ -89,7 +89,7 @@ tracks {
         previous_catalog_product_id(required: false, type: PropertyType.String, description: "Previous Catalog Product ID")
 
         //picker definition
-        pickers(required: true, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
+        pickers(required: false, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
 
         category_path(required: false, type: PropertyType.ArrayList, description: "Category path of the the item")
         vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
@@ -307,7 +307,7 @@ tracks {
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
-        pickers(required: true, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
+        pickers(required: false, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_info_definition)), description: "Items listed on the page")
     }
 
