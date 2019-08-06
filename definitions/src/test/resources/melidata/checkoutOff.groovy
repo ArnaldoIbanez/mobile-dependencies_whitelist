@@ -23,6 +23,7 @@ trackTests {
             is_split = true
             payment_quantity = 1
             collector_id = 1010101001
+            available_methods = ["credit_card", "account_money"]
         }
 
         def finishDefaultProperties = {

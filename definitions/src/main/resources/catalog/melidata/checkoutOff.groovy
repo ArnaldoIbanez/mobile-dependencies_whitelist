@@ -18,7 +18,7 @@ tracks {
         payment_type_id(required: false, description: "Current selected payment type")
         is_split(required: true, description: "True if the flow was split", type: PropertyType.Boolean)
         payment_quantity(required: true, description: "Payments quantity selected", type: PropertyType.Numeric)
-        available_methods(required: false, description: "Available payment methods types")
+        available_methods(required: false, description: "Available payment methods types", type: PropertyType.ArrayList(PropertyType.String))
     }
 
     // EVENTS
