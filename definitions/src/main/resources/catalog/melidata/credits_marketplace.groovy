@@ -158,7 +158,7 @@ tracks {
                             required: true, 
                             description: "Current status of the Dashboard", 
                             type: PropertyType.String, 
-                            values: [
+                            values: [ 
                                         "empty_state", 
                                         "on_time", 
                                         "overdue"
@@ -178,8 +178,7 @@ tracks {
     "/credits/consumer/administrator_v2/suggested_product"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/home"(platform: "/", type: TrackType.Event) {}
 
-
-    //Events Mobile
+    //Mobile Events 
     "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
         installments_group
     }
