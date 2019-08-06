@@ -27,8 +27,8 @@ tracks {
         collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
         balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
         cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
-        assets(required: false, type: PropertyType.Map(cards_definition), description: "The assets section information")
-        credits(required: false, type: PropertyType.Map(cards_definition), description: "The credits section information")
+        assets(required: false, type: PropertyType.Map(assets_definition), description: "The assets section information")
+        credits(required: false, type: PropertyType.Map(credits_definition), description: "The credits section information")
     }
 
     def item_value_definition = objectSchemaDefinitions {
@@ -269,4 +269,5 @@ tracks {
     "/wallet_home/notification/tap" (platform: "/mobile", type: TrackType.Event) {
         badge_count(required: true, type: PropertyType.Numeric, description: "The amount of notifications that's been showed in the notification label icon")
     } 
+    
 }
