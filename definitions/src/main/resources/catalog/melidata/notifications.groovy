@@ -106,6 +106,15 @@ tracks {
         sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
     }
+    "/notification_center/campaigns-generic"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+        item_id(required: false, type: PropertyType.String, description: "Id of item")
+        items(required: false, type: PropertyType.String, description: "List of items")
+        variation_id(required: false, type: PropertyType.String, description: "Id of variaton of the item.")
+    }
     "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/", type: TrackType.Event) {
         campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
         item_id(required: true, type: PropertyType.String, description: "Id of item.")
@@ -786,6 +795,16 @@ tracks {
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+      }
+
+      "/notification/campaigns_generic"(platform: "/") {
+          campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+          test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+          sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+          batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+          item_id(required: false, type: PropertyType.String, description: "Id of item")
+          items(required: false, type: PropertyType.String, description: "List of items")
+          variation_id(required: false, type: PropertyType.String, description: "Id of variaton of the item.")
       }
 
       //MKT Deals
