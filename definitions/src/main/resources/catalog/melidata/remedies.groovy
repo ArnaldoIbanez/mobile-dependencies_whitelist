@@ -29,6 +29,10 @@ tracks {
         api_call_identificator(type: PropertyType.Numeric, required: true, description: "Api call identificator")
     }
 
+    "/remedies/business_error"(platform: "/mobile/ios", type: TrackType.Event) {
+        error_message(type: PropertyType.String, required: true, description: "error message returned from frapi")
+    }
+
     "/remedies/on_back_pressed"(platform: "/mobile", type: TrackType.Event) {
         on_back_go_check_step(type: PropertyType.Boolean, required: true, description: "onBackGoCheckStep parameter")
         skip_landing(type: PropertyType.Boolean, required: true, description: "skipLanding parameter")
@@ -56,23 +60,23 @@ tracks {
         executed_camera_action(type: PropertyType.String, required: true, description: "Executed camera action")
     }
 
-    "/remedies/ask_permissions"(platform: "/mobile/android", type: TrackType.Event) {
+    "/remedies/ask_permissions"(platform: "/mobile", type: TrackType.Event) {
         permissions(type: PropertyType.String, required: true, description: "Asked permissions")
     }
 
-    "/remedies/permissions_fallback"(platform: "/mobile/android", type: TrackType.Event) {
+    "/remedies/permissions_fallback"(platform: "/mobile", type: TrackType.Event) {
         permissions(type: PropertyType.String, required: true, description: "Permissions fallback")
     }
 
-    "/remedies/permission_denied"(platform: "/mobile/android", type: TrackType.Event) {
+    "/remedies/permission_denied"(platform: "/mobile", type: TrackType.Event) {
         permissions(type: PropertyType.String, required: true, description: "Denied permissions")
     }
 
-    "/remedies/permission_accepted"(platform: "/mobile/android", type: TrackType.Event) {
+    "/remedies/permission_accepted"(platform: "/mobile", type: TrackType.Event) {
         permissions(type: PropertyType.String, required: true, description: "Accepted permissions")
     }
 
-    "/remedies/camera_init_state"(platform: "/mobile/android", type: TrackType.Event) {
+    "/remedies/camera_init_state"(platform: "/mobile", type: TrackType.Event) {
         default_flash(type: PropertyType.String, required: true, description: "Default flash configuration")
         switch_flash(type: PropertyType.Boolean, required: true, description: "Possibility of switch flash enable")
         default_lens(type: PropertyType.String, required: true, description: "Default camera mode")
@@ -81,27 +85,32 @@ tracks {
         max_size(type: PropertyType.Numeric, required: true, description: "Max side size")
     }
 
-    "/remedies/activity/check_step"(platform: "/mobile/android", type: TrackType.View) {}
-    "/remedies/activity/landing"(platform: "/mobile/android", type: TrackType.View) {}
-    "/remedies/activity/phone_landing"(platform: "/mobile/android", type: TrackType.View) {}
-    "/remedies/activity/phone_validation"(platform: "/mobile/android", type: TrackType.View) {}
-    "/remedies/activity/image_upload"(platform: "/mobile/android", type: TrackType.View) {}
-    "/remedies/activity/image_upload/landing"(platform: "/mobile/android", type: TrackType.View) {
+    "/remedies/activity/check_step"(platform: "/mobile", type: TrackType.View) {}
+    "/remedies/activity/landing"(platform: "/mobile", type: TrackType.View) {}
+    "/remedies/activity/phone_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/remedies/activity/phone_validation"(platform: "/mobile", type: TrackType.View) {}
+    "/remedies/activity/image_upload"(platform: "/mobile", type: TrackType.View) {}
+    "/remedies/activity/image_upload/landing"(platform: "/mobile", type: TrackType.View) {
         doc_type(type: PropertyType.String, required: true, description: "Type of document")
         model_id(type: PropertyType.String, required: true, description: "Model id")
     }
-    "/remedies/activity/image_upload/uploading"(platform: "/mobile/android", type: TrackType.View) {
+    "/remedies/activity/image_upload/uploading"(platform: "/mobile", type: TrackType.View) {
         doc_type(type: PropertyType.String, required: true, description: "Type of document")
         model_id(type: PropertyType.String, required: true, description: "Model id")
     }
-    "/remedies/activity/image_upload/result"(platform: "/mobile/android", type: TrackType.View) {
+    "/remedies/activity/image_upload/result"(platform: "/mobile", type: TrackType.View) {
         doc_type(type: PropertyType.String, required: true, description: "Type of document")
         model_id(type: PropertyType.String, required: true, description: "Model id")
     }
-    "/remedies/activity/congrats"(platform: "/mobile/android", type: TrackType.View) {}
-    "/remedies/activity/documentation_number"(platform: "/mobile/android", type: TrackType.View) {}
-    "/remedies/activity/custom_camera"(platform: "/mobile/android", type: TrackType.View) {}
-    "/remedies/activity/picture_confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/remedies/activity/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/remedies/activity/documentation_number"(platform: "/mobile", type: TrackType.View) {}
+    "/remedies/activity/custom_camera"(platform: "/mobile", type: TrackType.View) {}
+    "/remedies/activity/picture_confirmation"(platform: "/mobile", type: TrackType.View) {}
+
+    // Mobile tracks
+    "/remedies/center/row"(platform: "/mobile", type: TrackType.View) {
+        status(type: PropertyType.String, required: true, description: "Remedy center status of user")
+    }
 
     // Web desktop and web mobile tracks
     "/remedies/landing"(platform: "/web", type: TrackType.View) {
@@ -146,5 +155,18 @@ tracks {
     "/remedies/company"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
-    "/remedies/center/card"(platform: "/web", type: TrackType.View) {}
+    "/remedies/center/card"(platform: "/web", type: TrackType.View) {
+        status(type: PropertyType.String, required: true, description: "Remedy center status of user")
+    }
+
+    "/remedies/camera"(platform: "/web", isAbstract: true) {}
+
+    "/remedies/camera/open_camera"(platform: "/web", type: TrackType.Event) {
+        devices(type: PropertyType.Numeric, required: true, description: "The number of camera devices the user has")
+    }
+    "/remedies/camera/capture_image"(platform: "/web", type: TrackType.Event) {
+        is_landscape(type: PropertyType.Boolean, required: true, description: "Indicates if the picture was taken on landscape mode")
+    }
+    "/remedies/camera/pick_from_gallery"(platform: "/web", type: TrackType.Event) {}
+    "/remedies/camera/unavailable"(platform: "/web", type: TrackType.Event) {}
 }

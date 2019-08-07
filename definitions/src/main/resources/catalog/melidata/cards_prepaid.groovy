@@ -93,6 +93,11 @@ tracks {
     "/prepaid/acquisition/occupation"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/preview"(platform: "/mobile", type: TrackType.View) {}
 
+    // CNPJ MLB Flow
+    "/prepaid/acquisition/legal_representative" (platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/no_complies" (platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/welcome_company" (platform: "/", type: TrackType.View) {}
+
     // Activation Flow
     // MLA => https://www.mercadopago.com.ar/prepaid/activation
     // MLB => https://www.mercadopago.com.br/prepaid/activation
@@ -131,9 +136,6 @@ tracks {
             description: "Webview trigger."
         )
     }
-
-
-
 
     //-----------------
     // PREPAID MLM

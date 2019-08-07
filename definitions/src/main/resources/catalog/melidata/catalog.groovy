@@ -147,6 +147,7 @@ catalog {
 
     mercadopago.each { business ->
         include business, "activities.groovy"
+        include business, "mpfrontcore.groovy"
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
@@ -166,8 +167,11 @@ catalog {
         include business, "remedy.groovy"
         include business, "digital_account.groovy"
         include business, "front_core.groovy"
+        include business, "mplayer.groovy"
         include business, "money_in.groovy"
+        include business, "money_out.groovy"
         include business, "pos_seller.groovy"
+        include business, "preference.groovy"
     }
 
     mercadoshops.each { business ->

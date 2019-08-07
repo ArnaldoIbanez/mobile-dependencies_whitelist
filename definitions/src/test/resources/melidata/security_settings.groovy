@@ -26,4 +26,25 @@ trackTests {
             target = "confirm_unlink_button"
         }
     }
+
+    test("Change Password") {
+        "/security_settings/password"(platform: "/", type: TrackType.View) {
+            context = "feedback"
+        }
+
+        "/security_settings/password"(platform: "/", type: TrackType.View) {
+            context = "security_settings"
+        }
+
+        "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
+            context = "forgot"
+            delete_sessions = false
+            lowend = true
+        }
+
+        "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
+            context = "feedback"
+            delete_sessions = true
+        }
+    }
 }

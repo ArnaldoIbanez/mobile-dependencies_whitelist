@@ -46,11 +46,16 @@ tracks {
     // MP Sellers Social
     "/landing/sellers/social"(platform: "/web"){}
 
+    // MP Sellers Merchant Services
+    "/landing/sellers/mss"(platform: "/web"){}
+
     // MP Buyers
     "/landing/buyers"(platform: "/web"){}
 
     // MP Promotions
     "/landing/promotions"(platform: "/web"){}
+
+    "/landing/formcomercial"(platform: "/", type: TrackType.View) {}
 
     "/growth"(platform: "/", isAbstract: true) {}
     "/growth/login"(platform: "/", type: TrackType.View) {
@@ -139,6 +144,39 @@ tracks {
     "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/after_sales"(platform:"/", type: TrackType.View) {}
+    
+    // Share MGM Web > Pageviews
+    "/merchant_acquisition/flows"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition/flows/share_mgm"(platform: "/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/share_mgm/device"(platform: "/", isAbstract: true) {}
+
+    // Share MGM Web > Events
+    "/merchant_acquisition/flows/share_mgm/about_share"(platform: "/", type: TrackType.Event) {}
+
+    "/merchant_acquisition/flows/share_mgm/share_device_button"(platform: "/", type: TrackType.Event) {
+      product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
+    }
+
+    "/merchant_acquisition/flows/share_mgm/more_info_device"(platform: "/", type: TrackType.Event) {
+      product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
+    }
+
+    "/merchant_acquisition/flows/share_mgm/device/invite"(platform: "/", type: TrackType.Event) {
+      media (type: PropertyType.String, required: true, description: "In which channel did the user shared the coupon (ex: Whatsapp)")
+      product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
+    }
+
+    "/merchant_acquisition/flows/share_mgm/device/invite/send_email"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}
+
+    "/merchant_acquisition/flows/share_mgm/banner"(platform: "/", type: TrackType.Event) {
+      banner_name (type: PropertyType.String, required: true, description: "Name of banner (ex: Kit promotional)")
+    }
+
+    // Associar Point - Micrositio - reseller
+    "/merchant_acquisition/flows/resellers/point_register"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/point_register/associate"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/point_register/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/point_register/no_account"(platform:"/", type: TrackType.View) {}
 
 
     // QR Landing > Pageviews
@@ -179,6 +217,11 @@ tracks {
     "/merchant_acquisition/point-landings/app-chinese"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/point-landings/app-chinese/error"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/point-landings/app-chinese/success"(platform:"/", type: TrackType.View) {}
+
+    //Merchant Acqusition - widgets
+    "/merchant_acquisition/widget"(platform:"/", type: TrackType.View) {
+        type (type: PropertyType.String, required: true, values: ["reverse-label", "reset-chip"], description: "Widget name, could be reverse-label, bobinas, shipping & more")
+    }
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
@@ -778,13 +821,14 @@ tracks {
     "/tfs_dashboard/home/general"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/home/offline"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/home/online"(platform: "/", type: TrackType.View) {}
+    "/tfs_dashboard/home/meli"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/detail"(platform: "/", type: TrackType.View) {
         chart_id (required: true, type: PropertyType.String, description: "The chart ID of the detail")
         section (required: true, type: PropertyType.String, description: "The section owner of the chart")
     }
     "/tfs_dashboard/compare"(platform: "/", type: TrackType.View) {}
     "/tfs_dashboard/filters"(platform: "/", type: TrackType.View) {}
-
+ 
     // Events for dashboard section
     "/tfs_dashboard/tab_selection"(platform: "/", type: TrackType.Event) {
         section (required: true, type: PropertyType.String, description: "The selected section")

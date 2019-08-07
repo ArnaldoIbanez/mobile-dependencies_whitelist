@@ -71,9 +71,9 @@ tracks {
         address_id(required: false, type: PropertyType.String, description: "Address id")
         damaged_quantity(required: false, type: PropertyType.Numeric, description: "Damaged quantity")
         quantity(required: false, type: PropertyType.Numeric, description: "Item quantity")
-        from_count_around(required: false, 
-            type: PropertyType.String, 
-            values: ["true", "false"], 
+        from_count_around(required: false,
+            type: PropertyType.String,
+            values: ["true", "false"],
             description: "From count around")
     }
     "/wms/inbound_audit/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
@@ -102,19 +102,19 @@ tracks {
     "/wms/picking/scan_container"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/picking/scan_shelf"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/picking/item"(platform: "/mobile/android", type: TrackType.View) {
-        inventory_id(required: false, type: PropertyType.String, 
+        inventory_id(required: false, type: PropertyType.String,
             description: "Id of the picked up item")
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to where the item is picked up")
-        checkpoint_status(required: false, type: PropertyType.String, 
+        checkpoint_status(required: false, type: PropertyType.String,
             description: "Status of the current checkpoint")
     }
     "/wms/picking/scan_destination"(platform: "/mobile/android", type: TrackType.View) {
-        inventory_id(required: false, type: PropertyType.String, 
+        inventory_id(required: false, type: PropertyType.String,
             description: "Id of the picked up item")
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to where the item is picked up")
-        checkpoint_status(required: false, type: PropertyType.String, 
+        checkpoint_status(required: false, type: PropertyType.String,
             description: "Status of the current checkpoint")
     }
     "/wms/picking/change_floor_confirmation"(platform: "/mobile/android", type: TrackType.View) {}
@@ -164,17 +164,17 @@ tracks {
     "/wms/receiving/inbound_shipment_rejection/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
 
     "/wms/receiving/receiving_finished"(platform: "/mobile/android", type: TrackType.Event) {
-        receiving_id(required: true, type: PropertyType.Numeric, description: "Id of the receiving to track")
+        receiving_id(required: true, type: PropertyType.String, description: "Id of the receiving to track")
     }
 
     "/wms/receiving/volume_rejection"(platform: "/mobile/android", type: TrackType.Event) {
-        receiving_id(required: false, type: PropertyType.Numeric, description: "Id of the receiving to track")
+        receiving_id(required: false, type: PropertyType.String, description: "Id of the receiving to track")
         rejection_reason(required: false, type: PropertyType.String, description: "Rejection reason selected to track")
         volume_label(required: false, type: PropertyType.String, description: "Volume label to track")
     }
 
     "/wms/receiving/inbound_shipment_rejection"(platform: "/mobile/android", type: TrackType.Event) {
-        receiving_id(required: false, type: PropertyType.Numeric, description: "Id of the receiving to track")
+        receiving_id(required: false, type: PropertyType.String, description: "Id of the receiving to track")
         rejection_reason(required: false, type: PropertyType.String, description: "Rejection reason selected to track")
         inbound_id(required: false, type: PropertyType.Numeric, description: "Inbound Shipment id to track")
     }
@@ -325,7 +325,7 @@ tracks {
     }
     "/wms/problem_solver_inbound_tasks/take/scan_destination"(platform: "/mobile/android", type: TrackType.View) {
         inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to put the items. Is sent after the scan action")
     }
 
@@ -333,31 +333,32 @@ tracks {
     "/wms/problem_solver_inbound_tasks/returns"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/problem_solver_inbound_tasks/returns/scan_destination"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/problem_solver_inbound_tasks/returns/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to put the items. Is sent after the scan action")
     }
     "/wms/problem_solver_inbound_tasks/returns/single_selection"(platform: "/mobile/android", type: TrackType.View) {
         inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to put the items. Is sent after the scan action")
     }
 
     "/wms/problem_solver_inbound_tasks/returns/single_selection/confirmation"(platform: "/mobile/android", type: TrackType.Event) {
         inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to put the items. Is sent after the scan action")
-        return_type(required: false, type: PropertyType.String, 
+        return_type(required: false, type: PropertyType.String,
             description: "Return type selected by the user")
     }
 
     "/wms/problem_solver_inbound_tasks/returns/scan_stage_in_destination"(platform: "/mobile/android", type: TrackType.View) {
         inbound_id(required: true, type: PropertyType.String, description: "Inbound id")
-        destination_address(required: false, type: PropertyType.String, 
+        destination_address(required: false, type: PropertyType.String,
             description: "Address to put the items. Is sent after the scan action")
-        return_type(required: false, type: PropertyType.String, 
+        return_type(required: false, type: PropertyType.String,
             description: "Return type selected by the user")
     }
 
+    /* Stock audit*/
     "/wms/stock_audit/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/stock_audit/confirmation/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/stock_audit/confirmation/cancel"(platform: "/mobile/android", type: TrackType.Event) {}
@@ -446,4 +447,131 @@ tracks {
         section_address(required: true, type: PropertyType.String, description: "Wall out section address.")
     }
     "/wms/wall_out/empty_wall/retry"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    /* Quarantine */
+    "/wms/quarantine"(platform: "/mobile/android", isAbstract: true) {}
+
+    /* Report */
+    "/wms/quarantine/report"(platform: "/mobile/android", isAbstract: true) {}
+
+    "/wms/quarantine/report/scan_address_from"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/quarantine/report/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {
+        address_from_id(required: true, type: PropertyType.String, description: "Address id")
+    }
+    "/wms/quarantine/report/scan_inventory/cancel"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/report/select_problem"(platform: "/mobile/android", type: TrackType.View) {
+        address_from_id(required: true, type: PropertyType.String, description: "Address id")
+        inventory_id(required: true, type: PropertyType.String, description: "Inventory id")
+    }
+    "/wms/quarantine/report/select_problem/confirm"(platform: "/mobile/android", type: TrackType.Event) {
+        problem_type(required: true, type: PropertyType.String, description: "Problem type")
+    }
+    "/wms/quarantine/report/select_problem/cancel"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/report/select_problem/other"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/quarantine/report/select_problem/other/confirm"(platform: "/mobile/android", type: TrackType.Event) {
+        description(required: true, type: PropertyType.String, description: "Manual input problem type description")
+    }
+    "/wms/quarantine/report/confirmation"(platform: "/mobile/android", type: TrackType.View) {
+        address_from_id(required: true, type: PropertyType.String, description: "Address id")
+        inventory_id(required: true, type: PropertyType.String, description: "Inventory id")
+        problem_type(required: true, type: PropertyType.String, description: "Problem type")
+    }
+    "/wms/quarantine/report/confirmation/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/report/confirmation/cancel"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/report/scan_inventory/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    /* Picking */
+    "/wms/quarantine/picking"(platform: "/mobile/android", isAbstract: true) {
+        pickup_id(required: true, type: PropertyType.String, description: "Pickup id")
+        checkpoint_id(required: true, type: PropertyType.String, description: "Checkpoint id")
+    }
+
+    "/wms/quarantine/picking/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/quarantine/picking/scan_inventory/cancel"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/picking/select_problem"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/quarantine/picking/select_problem/confirm"(platform: "/mobile/android", type: TrackType.Event) {
+        problem_type(required: true, type: PropertyType.String, description: "Problem type")
+    }
+    "/wms/quarantine/picking/select_problem/cancel"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/picking/select_problem/other"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/quarantine/picking/select_problem/other/confirm"(platform: "/mobile/android", type: TrackType.Event) {
+        description(required: true, type: PropertyType.String, description: "Manual input problem type description")
+    }
+    "/wms/quarantine/picking/confirmation"(platform: "/mobile/android", type: TrackType.View) {
+        problem_type(required: true, type: PropertyType.String, description: "Problem type")
+    }
+    "/wms/quarantine/picking/confirmation/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/picking/confirmation/cancel"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    /* Transfer */
+    "/wms/quarantine/transfer"(platform: "/mobile/android", isAbstract: true) {}
+
+    "/wms/quarantine/transfer/scan_address_from"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/quarantine/transfer/scan_inventory"(platform: "/mobile/android", type: TrackType.View) {
+        address_from_id(required: true, type: PropertyType.String, description: "Address id")
+    }
+    "/wms/quarantine/transfer/scan_address_destination"(platform: "/mobile/android", type: TrackType.View) {
+        address_from_id(required: true, type: PropertyType.String, description: "Address from id")
+        inventory_id(required: true, type: PropertyType.String, description: "Inventory id")
+    }
+    "/wms/quarantine/transfer/select_problem"(platform: "/mobile/android", type: TrackType.View) {
+        address_from_id(required: true, type: PropertyType.String, description: "Address from id")
+        inventory_id(required: true, type: PropertyType.String, description: "Inventory id")
+    }
+    "/wms/quarantine/transfer/select_problem/confirm"(platform: "/mobile/android", type: TrackType.Event) {
+        problem_type(required: true, type: PropertyType.String, description: "Problem type")
+    }
+    "/wms/quarantine/transfer/select_problem/other"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/quarantine/transfer/select_problem/other/confirm"(platform: "/mobile/android", type: TrackType.Event) {
+        description(required: true, type: PropertyType.String, description: "Manual input problem type description")
+    }
+
+    /* Resolve */
+    "/wms/quarantine/resolve"(platform: "/mobile/android", isAbstract: true) {}
+
+    "/wms/quarantine/resolve/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/quarantine/resolve/confirmation/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/resolve/confirmation/cancel"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/resolve/scan_address_from"(platform: "/mobile/android", type: TrackType.View) {
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+
+    }
+    "/wms/quarantine/resolve/item"(platform: "/mobile/android", type: TrackType.View) {
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+
+    }
+    "/wms/quarantine/resolve/item/not_found"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/resolve/confirm_problem"(platform: "/mobile/android", type: TrackType.View) {
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+
+    }
+    "/wms/quarantine/resolve/confirm_problem/continue"(platform: "/mobile/android", type: TrackType.Event) {
+        confirmed(required: true, type: PropertyType.Boolean, description: "Whether problem is confirmed or not")
+    }
+    "/wms/quarantine/resolve/select_problem"(platform: "/mobile/android", type: TrackType.View) {
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+    }
+    "/wms/quarantine/resolve/select_problem/confirm"(platform: "/mobile/android", type: TrackType.Event) {
+        problem_type(required: true, type: PropertyType.String, description: "Problem type")
+    }
+    "/wms/quarantine/resolve/select_subtype"(platform: "/mobile/android", type: TrackType.View) {
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+        problem_type(required: true, type: PropertyType.String, description: "Problem type")
+    }
+    "/wms/quarantine/resolve/select_subtype/confirm"(platform: "/mobile/android", type: TrackType.Event) {
+        problem_sub_type(required: false, type: PropertyType.String, description: "Problem type")
+    }
+    "/wms/quarantine/resolve/select_subtype/other"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/resolve/select_subtype/other/confirm"(platform: "/mobile/android", type: TrackType.Event) {
+        description(required: true, type: PropertyType.String, description: "Manual input problem type description")
+    }
+    "/wms/quarantine/resolve/summary"(platform: "/mobile/android", type: TrackType.View) {
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+        problem_type(required: false, type: PropertyType.String, description: "Problem type")
+        sub_problem_type(required: false, type: PropertyType.String, description: "Sub Problem type")
+    }
+    "/wms/quarantine/resolve/summary/confirm"(platform: "/mobile/android", type: TrackType.Event) {}
+    "/wms/quarantine/resolve/scan_address_destination"(platform: "/mobile/android", type: TrackType.View) {
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+    }
 }
