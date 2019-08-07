@@ -7,6 +7,13 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
+    test("Recommendations click see more tracks") {
+        "/recommendations/see_more"(platform: "/", type: TrackType.Event) {
+            backend_id = "prod.recommendations-algorithm-product"
+            client = "pdp_similar"
+        }
+    }
+
     test("Recommendations add to cart tracks") {
         "/recommendations/add_to_cart"(platform: "/web/desktop", type: TrackType.Event) {
             backend_id = "l3_l7-ngrams"

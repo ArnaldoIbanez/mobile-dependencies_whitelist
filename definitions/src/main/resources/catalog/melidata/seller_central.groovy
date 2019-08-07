@@ -10,6 +10,7 @@ tracks {
         winner_premium(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has listing type premium")
         winner_free_shipping(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has free shipping")
         winner_flex(required: true, type: PropertyType.Boolean, description: "True if the item winner of the buy box has flex")
+        winner_fulfillment(required: true, PropertyType.Boolean, description: "True if the item winner of the buy box has fulfillment")
     }
 
     def itemData = objectSchemaDefinitions {
@@ -18,6 +19,7 @@ tracks {
         item_premium(required: true, type: PropertyType.Boolean, description: "True if the item has listing type premium")
         item_free_shipping(required: true, type: PropertyType.Boolean, description: "True if the item has free shipping")
         item_flex(required: true, type: PropertyType.Boolean, description: "True if the item has flex")
+        item_fulfillment(required: true, type: PropertyType.Boolean, description: "True if the item has fulfillment")
     }
 
     def comparisonTable = objectSchemaDefinitions {
@@ -35,60 +37,88 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Type of hint", values: ["info", "actionable"])
         attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
         reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
-        item_type(required: false, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
+        item_type(required: true, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
 
-        comparison_table(required: true, type: PropertyType.Map(comparisonTable), description: "Information about the winner and the original item")
-        buy_box_status(required: true, type: PropertyType.String, description: "The actual buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
-        new_buy_box_status(required: true, type: PropertyType.String, description: "The new buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
-        product_title(required: true, type: PropertyType.String, description: "The product title")
-        product_id(required: true, type: PropertyType.String, description: "The product id")
-        products_quantity(required: true, type: PropertyType.Numeric, description: "The product available quantity")
+        comparison_table(required: false, type: PropertyType.Map(comparisonTable), description: "Information about the winner and the original item")
+        competition_status(required: false, type: PropertyType.String, description: "The actual buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
+        new_competition_status(required: false, type: PropertyType.String, description: "The new buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
+        catalog_product_id(required: false, type: PropertyType.String, description: "The product id")
         listing_type(required: true, type: PropertyType.String, description: "The product listing type")
-        shipping_local_pickup(required: true, type: PropertyType.String, description: "The product local pick up")
+        shipping_local_pickup(required: true, type: PropertyType.Boolean, description: "The product local pick up")
+        winner_item_id(required: false, type: PropertyType.String, description: "The item id of the winner")
+        price_to_win(required: false, type: PropertyType.Numeric, description: "The price to win that we suggest to the user")
 
         to(required: true, type: PropertyType.String, description: "The new value of a field, for example quantity, warranty,etc")
         from(required: false, type: PropertyType.String, description: "The original value of a field, for example quantity, warranty,etc")
 
         hierarchy(required: true, type: PropertyType.String, description: "Attribute type")
+
+        original_catalog_product_id(required: true, type: PropertyType.String, description: "The original item catalog product id")
+        selected_catalog_product_id(required: false, type: PropertyType.String, description: "The optined item catalog product id")
+        variation_id(required: false, type: PropertyType.Numeric, description: "The variation id of the original item")
+        has_variations_already_opt_in(required: true, type: PropertyType.Boolean, description: "True if the item has a variation optined")
+        invalid_product_cause(required: false, type: PropertyType.String, description: "The invalid product causes")
+        opt_in_item_id(required: false, type: PropertyType.String, description: "The optined item id")
+        children_catalog_products_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of the children catalog products ids")
+        has_variations(required: true, type: PropertyType.Boolean, description: "True if the item has variations")
+        task_id(required: true, type: PropertyType.String, description: "The task id that has been modified")
     }
 
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
-        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path)
-        sellerCentralModifyGroupTableForPdp(comparison_table, buy_box_status, new_buy_box_status, product_title, product_id, products_quantity, listing_type, shipping_local_pickup)
+        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup)
+        sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
         hintsGroup(type, attribute)
+
+        sellerCentralCatalogOptinGroup(item_id, session_id, category_id, category_path, category_domain, original_catalog_product_id, variation_id, has_variations_already_opt_in, children_catalog_products_ids, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause)
+        sellerCentralCatalogOptinTaskGroup(task_id, to, from)
     }
 
     //LISTING SECTION
     "/seller_central"(platform: "/", isAbstract: true) {}
     "/seller_central/listings"(platform: "/", isAbstract: true) {}
-    "/seller_central/listings/list"(platform: "/", type: TrackType.View) {}
+    "/seller_central/listings/quantity"(platform: "/", isAbstract: true) {}
+    "/seller_central/listings/inventory_status"(platform: "/", isAbstract: true) {}
+    "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
+      view_id(required:false, type: PropertyType.String, descritpion: "View that has been called")
+    }
 
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
 
     "/seller_central/listings/onboarding/action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
+        viewId(required:false, type: PropertyType.String, descritpion: "Onboarding id if applies")
+    }
+
+    "/seller_central/listings/onboarding/pdp"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/listings/onboarding/pdp/action"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Id of the action", values: ["accept", "cancel"])
     }
 
     "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
+        action(required:false, type: PropertyType.String, description: "The action used in the communication if applies")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: false, description: "Adevrtasement segmentation ")
         reputation_level(required: false, description: "Reputation for Pads")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: false, description: "Adevrtasement segmentation ")
         reputation_level(required: false, description: "Reputation for Pads")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {}
@@ -101,29 +131,54 @@ tracks {
 
     "/seller_central/listings/filters/action"(platform: "/") {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
-    "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+    }
 
     "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "Action id")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/preferences"(platform: "/", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Preference id", values:["shipping", "advertising"])
     }
 
+    "/seller_central/listings/quantity/info"(platform: "/", type: TrackType.Event) {
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+    }
+
+    "/seller_central/listings/inventory_status/remedy"(platform: "/", type: TrackType.Event) {
+        id(required:true, type: PropertyType.String, descritpion: "Id of the remedy applied to solve moderation")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+    }
+
     //LISTING SECTION - TABS
     "/seller_central/listings/list/promos"(platform: "/", type: TrackType.Event) {}
 
-    //BULK SECTION
+    //LISTING - Item Description
+    "/seller_central/listings/list/item_description"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/listings/list/health"(platform: "/", type: TrackType.Event) {
+        health_id(required: true, type: PropertyType.String, description: "Health id")
+    }
 
+    //LISTING - Secondary Actions Click
+    "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+    }
+
+    //BULK SECTION
     "/seller_central/bulk"(platform: "/", isAbstract: true) {}
     "/seller_central/bulk/list"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/onboarding"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Id of the action", values:["start","close", "rollback", "dismiss"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
+        viewId(required:false, type: PropertyType.String, descritpion: "Onboarding id if applies")
+
     }
 
     "/seller_central/bulk/domain"(platform: "/", type: TrackType.Event) {
@@ -141,6 +196,20 @@ tracks {
 
     "/seller_central/bulk/columns"(platform: "/", type: TrackType.Event){
         columns(required: true, type: PropertyType.ArrayList, description: "List of the available columns and his order")
+    }
+
+    "/seller_central/bulk/changes"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/changes/price"(platform: "/", type: TrackType.Event) {
+        oldValue(required: true, type: PropertyType.String, description: "Old value of the price cell")
+        newValue(required: true, type: PropertyType.String, description: "New value")
+        itemId(required: true, type: PropertyType.String, description: "Id of the modified item")
+    }
+
+    "/seller_central/bulk/shipping"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
+        itemId(required: true, type: PropertyType.String, description: "item's id that showed the tooltip")
     }
 
     "/seller_central/bulk/offline"(platform: "/", isAbstract: true) {}
@@ -222,6 +291,7 @@ tracks {
 
     "/seller_central/modify/detail"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/variations"(platform: "/", type: TrackType.View) {
@@ -234,71 +304,66 @@ tracks {
 
     "/seller_central/modify/listing_type"(platform: "/", type: TrackType.View) {
         sellerCentralModifyCardsGroup
+        sellerCentralModifyGroupTableForPdp
+    }
+
+    "/seller_central/modify/subflow"(platform: "/", type: TrackType.View) {
+        sellerCentralModifyCardsGroup
     }
 
     "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_quantity"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_localpickup_options"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_warranty"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_listing_types"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_item_condition"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_shipping_flex"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
     }
 
     "/seller_central/modify/update_size_chart"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
-    }
-
-    //------------------------------------------------------------------------------------------------------------------------------------------------------
-    // TRACKS Seller central modify pdp items
-    //------------------------------------------------------------------------------------------------------------------------------------------------------
-
-    "/seller_central/modify/product_detail"(platform: "/", isAbstract: true) {
-        sellerCentralModifyCardsGroup
         sellerCentralModifyGroupTableForPdp
-        sellerCentralModifyCardsGroupValue
     }
 
-    "/seller_central/modify/product_detail/update_price"(platform: "/", type: TrackType.Event) {}
-
-    "/seller_central/modify/product_detail/update_quantity"(platform: "/", type: TrackType.Event) {}
-
-    "/seller_central/modify/product_detail/update_localpickup_options"(platform: "/", type: TrackType.Event) {}
-
-    "/seller_central/modify/product_detail/update_warranty"(platform: "/", type: TrackType.Event) {}
-
-    "/seller_central/modify/product_detail/update_invoice"(platform: "/", type: TrackType.Event) {}
-
-    "/seller_central/modify/product_detail/update_listing_types"(platform: "/", type: TrackType.Event) {}
-
-    "/seller_central/modify/product_detail/update_shipping_flex"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/update_price_push_winner_pdp"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+    }
 
     /**
      * La idea es trackear en el snackbar informacion
@@ -309,7 +374,7 @@ tracks {
         original_goals_not_completed(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals available to complete ordered by source.")
         original_goals_completed(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals completed ordered by source.")
         original_goals_not_applied(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Original goals that not applied for this item, ordered by source.")
-        goal_order(required: true, type: PropertyType.String, description: "Goals order source.", values: ["random", "health-api"])
+        goal_order(required: true, type: PropertyType.String, description: "Goals order source.")
         original_price(required: true, type: PropertyType.Numeric, description: "Original item price")
         original_currency(required: true, type: PropertyType.String, description: "Original item currency")
         original_listing_type(required: true, type: PropertyType.String, description: "Original item listing type", values: ['free', 'bronze', 'silver', 'gold', 'gold_premium', 'gold_special', 'gold_pro'])
@@ -390,6 +455,27 @@ tracks {
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
     }
 
+    "/seller_central/modify/technical_specifications/hidden_attributes"(platform: "/", isAbstract: true) {
+        sellerCentralModifyGroup
+        seller_id(required: true, type: PropertyType.Numeric)
+        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
+        type(required: true, type: PropertyType.String, description: "Trigger action", values: ["CONFIRM", "CANCEL"])
+    }
+    
+    "/seller_central/modify/technical_specifications/hidden_attributes/open"(platform: "/", type: TrackType.Event) {
+        times_showed(required: true, type: PropertyType.Numeric, description: "Number of views")
+        attributes(required: true, type: PropertyType.Numeric, description: "Attributes available")
+    }
+
+    "/seller_central/modify/technical_specifications/hidden_attributes/add"(platform: "/", type: TrackType.Event) {
+        attribute(required: true, type: PropertyType.String, description: "ID of the attribute")
+    }
+
+    "/seller_central/modify/technical_specifications/hidden_attributes/change"(platform: "/", type: TrackType.Event) {
+        attribute(required: true, type: PropertyType.String, description: "ID of the attribute")
+        value(required: true, type: PropertyType.String, description: "New attribute value")
+    }
+
     // SETTINGS SECTION
 
     "/seller_central/settings"(platform: "/", type: TrackType.View) {
@@ -421,6 +507,12 @@ tracks {
 
     "/seller_central/sales/list/onboarding"(platform: "/", isAbstract: true) {}
     "/seller_central/sales/list/onboarding/action"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "start"])
+        page(required: false, type: PropertyType.Numeric, description: "Page number")
+    }
+
+    "/seller_central/sales/list/nfe_onboarding"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/nfe_onboarding/action"(platform: "/", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "start"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
     }
@@ -499,4 +591,29 @@ tracks {
     "/seller_central/sales/detail/modal_action/apply"(platform: "/web", type: TrackType.Event) {
         option(required: false, type: PropertyType.String, description: "Option selected")
     }
+
+    // CATALOG OPTIN SECTION
+
+    "/seller_central/catalog"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/optin"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroup
+    }
+
+    "/seller_central/catalog/optin/invalid_product"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroup
+    }
+
+    "/seller_central/catalog/optin/congrats"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroup
+    }
+
+    "/seller_central/catalog/optin/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        sellerCentralCatalogOptinTaskGroup
+    }
+
+
 }
+
+

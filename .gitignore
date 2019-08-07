@@ -10,6 +10,7 @@ build/
 catalog.json
 catalog.csv
 metrics.json
+.project
 
 definitions/build
 

@@ -43,6 +43,7 @@ trackTests {
             }
             catalog_product_id="MLA123"
             show_supermarket_carousel=true
+            show_apparel_carousel=false
             items_with_logos=["MLA1234", "MLA12345"]
         }
 
@@ -109,6 +110,14 @@ trackTests {
                             item_id:"MLA1234"
                     ]
             ]
+            carousel_filters = []
+            pdp_tracking_info = [
+                    "MLA1234": "shown",
+                    "MLA12345": "no_winner",
+                    "MLA123456": "inactive",
+                    "MLA1234567": "low_score"
+            ]
+            is_in_seo_whitelist = true
         }
 
         "/search"(platform: "/web"){
@@ -186,6 +195,14 @@ trackTests {
                             item_id:"MLA1234"
                     ]
             ]
+            carousel_filters=["BRAND", "official_store", "STYLE"]
+            pdp_tracking_info = [
+                    "MLA1234": "shown",
+                    "MLA12345": "no_winner",
+                    "MLA123456": "inactive",
+                    "MLA1234567": "low_score"
+            ]
+            is_in_seo_whitelist = true
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -209,8 +226,15 @@ trackTests {
                 printed_positions=[]
                 printed_positions_size=0
             }
+            carousel_filters=["BRAND", "official_store", "STYLE"]
         })
 
+        "/search/color_picker"(platform: "/web"){
+            defaultWebTrack()
+            item_id = "MLM1234"
+            previous_product_id = "MLA101021"
+            product_id = "MLA101022"
+        }
 
         "/search/input"(platform: "/mobile") {}
 
@@ -225,8 +249,19 @@ trackTests {
         "/search/filters_carousel/click"(platform: "/web", type: TrackType.Event){
             defaultWebTrack()
             filter_name = "shoes"
+            filter = "STYLE"
             position = 4
         }
+        
+        
+        "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event){
+            defaultSearchInformation()
+        }
+        "/search/breadcrumb/apply"(platform: "/mobile", type: TrackType.Event){
+            defaultSearchInformation()
+            filter_id="9997262-AMLA_7262_2"
+        }
+        
         "/search/back"(platform: "/mobile", defaultSearchInformation)
         "/search/long_press"(platform: "/mobile"){
             item_id = "MLA170232"
@@ -336,7 +371,6 @@ trackTests {
         }
     }
 
-
     test("Search carousel next"){
         "/search/carousel"(platform: "/web") {
             carousel_used="next"
@@ -364,7 +398,14 @@ trackTests {
             query="iphone"
             user_zone = ""
             pdp_rows = []
-
+            carousel_filters = []
+            pdp_tracking_info = [
+                    "MLA1234": "shown",
+                    "MLA12345": "no_winner",
+                    "MLA123456": "inactive",
+                    "MLA1234567": "low_score"
+            ]
+            is_in_seo_whitelist = true
         }
     }
 
@@ -380,5 +421,4 @@ trackTests {
 
         }
     }
-
 }

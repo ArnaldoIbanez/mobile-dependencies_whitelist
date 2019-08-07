@@ -83,6 +83,8 @@ catalog {
         include business, "esc_manager.groovy"
         include business, "traffic.groovy"
         include business, "coupon.groovy"
+        include business, "notifications.groovy"
+        include business, "dynamic_stop_landing.groovy"
     }
 
     marketplace.each { business ->
@@ -109,7 +111,6 @@ catalog {
         include business, "myml.groovy"
         include business, "myml_mercadoshops.groovy"
         include business, "seller_central.groovy"
-        include business, "notifications.groovy"
         include business, "onboarding.groovy"
         include business, "orders_feed.groovy"
         include business, "pushNotifications.groovy"
@@ -146,6 +147,7 @@ catalog {
 
     mercadopago.each { business ->
         include business, "activities.groovy"
+        include business, "mpfrontcore.groovy"
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
@@ -163,7 +165,13 @@ catalog {
         include business, "sube_recharge.groovy"
         include business, "transport.groovy"
         include business, "remedy.groovy"
+        include business, "digital_account.groovy"
         include business, "front_core.groovy"
+        include business, "mplayer.groovy"
+        include business, "money_in.groovy"
+        include business, "money_out.groovy"
+        include business, "pos_seller.groovy"
+        include business, "preference.groovy"
     }
 
     mercadoshops.each { business ->

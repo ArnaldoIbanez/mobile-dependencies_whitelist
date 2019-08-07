@@ -4,8 +4,18 @@ import com.ml.melidata.TrackType
 
 tracks {
     //ADVERTISING FLOW
-
     "/advertising"(platform: "/", isAbstract: true) {}
+
+    "/advertising/landings"(platform: "/", isAbstract: true) {}
+
+    "/advertising/landings/pads2"(platform: "/", isAbstract: true) {}
+
+    "/advertising/landings/pads2/mail"(platform: "/", isAbstract: true) {}
+
+    "/advertising/landings/pads2/mail/congrats"(platform: "/web", type: TrackType.View) {
+        user_id(required:true, description: "User id")
+        items_id(required:true, description: "Items ids")
+    }
 
     "/advertising/pads2"(platform: "/", isAbstract: true) {}
 
@@ -51,7 +61,7 @@ tracks {
 
     "/advertising/pads2/manager/onboarding/modal/close"(platform: "/web", type: TrackType.Event) {}
 
-//    Generic landing
+    //Generic landing
     "/advertising/pads2/landing"(platform: "/web", type: TrackType.View) {
         free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
         budget(required: true, description: "Budget related to the landing", inheritable:false)
@@ -87,4 +97,25 @@ tracks {
     "/advertising/pads2/landing/contract_confirmation/change_budget/confirm"(platform: "/web", type: TrackType.Event) {
         budget(required: true, description: "Budget defined before hiring, it's related to the campaign")
     }
+
+    //Upselling
+    "/advertising/pads2/manager/upselling"(platform: "/", isAbstract: true) {
+        budget_new(required: true, description: "New budget assigned to the user")
+    }
+
+    "/advertising/pads2/manager/upselling/banner"(platform: "/", isAbstract: true) {}
+    "/advertising/pads2/manager/upselling/modal"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/manager/upselling/modal/show"(platform: "/web", type: TrackType.View) {}
+
+    "/advertising/pads2/manager/upselling/modal/go"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/upselling/modal/close"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/upselling/banner/show"(platform: "/web", type: TrackType.View) {}
+
+    "/advertising/pads2/manager/upselling/banner/go"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/upselling/banner/close"(platform: "/web", type: TrackType.Event) {}
+
 }

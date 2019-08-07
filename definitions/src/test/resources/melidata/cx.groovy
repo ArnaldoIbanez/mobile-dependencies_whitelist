@@ -124,6 +124,10 @@ trackTests {
 
     test("Support Widget") {
         "/support/widget/folder"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_source_id = 999
+        }
+        "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
             portal_source_id = 999
         }
         "/support/widget/faq"(platform: "/", type: TrackType.View) {
@@ -143,6 +147,12 @@ trackTests {
             portal_content_id = 987
             portal_problem_id = 456
         }
+        "/support/widget/create_case"(platform: "/", type: TrackType.Event) {
+            portal_form_id = 56
+            portal_source_id = 123
+            portal_content_id = 987
+            portal_problem_id = 456
+        }
     }
 
     test("Support Widget having Content Type") {
@@ -154,7 +164,6 @@ trackTests {
         "/support/widget/folder"(platform: "/", type: TrackType.View) {
             portal_content_id = 123
             portal_content_type = 'FOLDER'
-            portal_has_channels_configured = false
             portal_source_id = 999
         }
         "/support/widget/faq"(platform: "/", type: TrackType.View) {
@@ -177,6 +186,13 @@ trackTests {
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
         }
         "/support/widget/form"(platform: "/", type: TrackType.View) {
+            portal_form_id = 56
+            portal_content_type = 'SHOW_CONTACT'
+            portal_source_id = 123
+            portal_content_id = 987
+            portal_problem_id = 456
+        }
+        "/support/widget/create_case"(platform: "/", type: TrackType.Event) {
             portal_form_id = 56
             portal_content_type = 'SHOW_CONTACT'
             portal_source_id = 123
@@ -273,6 +289,10 @@ trackTests {
 
     test("Support Widget") {
         "/support/widget/folder"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_source_id = 999
+        }
+        "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
             portal_source_id = 999
         }
         "/support/widget/faq"(platform: "/", type: TrackType.View) {
@@ -287,6 +307,12 @@ trackTests {
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
         }
         "/support/widget/form"(platform: "/", type: TrackType.View) {
+            portal_form_id = 56
+            portal_source_id = 123
+            portal_content_id = 987
+            portal_problem_id = 456
+        }
+        "/support/widget/create_case"(platform: "/", type: TrackType.Event) {
             portal_form_id = 56
             portal_source_id = 123
             portal_content_id = 987

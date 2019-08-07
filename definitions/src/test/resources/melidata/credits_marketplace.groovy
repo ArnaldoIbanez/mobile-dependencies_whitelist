@@ -157,6 +157,33 @@ trackTests {
         "/credits/consumer/administrator_v2/suggested_product"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/home"(platform: "/web/desktop", type: TrackType.Event) {}
 
+        //Event Mobile
+        "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
+            dashboard_status = 'on_time'
+        }
+        "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+            installments_qty = 3
+        }
+        "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'overdue'
+        }
+        "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
+        "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'empty_state'
+        }
+        "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'overdue'
+        }
+        "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
+        "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
+
         //Admin History (Compras Finalizadas)
 
         // Views
@@ -186,7 +213,7 @@ trackTests {
         "/credits/consumer/administrator/detail/see_loan_conditions"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/detail/see_tac"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/detail/see_voucher"(platform: "/web/desktop", type: TrackType.Event) {}
-        "/credits/consumer/administrator/detail/see_ccb"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator/detail/see_contract"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/detail/download_plan"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/detail/get_help"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/detail/purchase_detail"(platform: "/web/desktop", type: TrackType.Event) {}
@@ -209,15 +236,23 @@ trackTests {
          ****************************************************/
 
         //Views
-        "/credits/consumer/administrator_v2/installment_selection"(platform: "/web/desktop", type: TrackType.View) {
+        "/credits/consumer/administrator_v2/installment_selection"(platform: "/", type: TrackType.View) {
             page_status = 'overdue'
         }
 
         //Events
-        "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+        "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/mobile", type: TrackType.Event) {
+            page_status = 'overdue'
             total_installments = 3
             paid_installments = 2
         }
+
+        //Events
+        "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/web", type: TrackType.Event) {
+            total_installments = 3
+            paid_installments = 2
+        }
+
         "/credits/consumer/administrator_v2/installment_selection/back_to_dashboard"(platform: "/web/desktop", type: TrackType.Event) {}
 
         /****************************************************
@@ -441,6 +476,79 @@ trackTests {
        /******************************************
         *    End: Consumers Enhance Adoption
         ******************************************/
+
+        /******************************************
+         *   Start: Personal Loans Adoption
+         ******************************************/
+
+        "/credits/consumer/administrator/summary/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
+            summary_status = "on_time"
+        }
+
+        "/credits/consumer/personal"(platform: "/mobile", type: TrackType.View) {
+        }
+
+        "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
+            prepaid = true
+        }
+
+        "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
+            prepaid = false
+            page = 1
+        }
+
+        "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+            page = 4
+        }
+
+        "/credits/consumer/personal/adoption/onboarding/close"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = true
+        }
+
+        "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review"(platform: "/mobile", type: TrackType.View) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/general_terms"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/particular_terms"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/above_confirm"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/below_confirm"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
+            status = 'no_prepaid'
+        }
+
+        "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_enabled'
+        }
+
+        "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_disabled'
+        }
+
+        /******************************************
+         *   End: Personal Loans Adoption
+         ******************************************/
 
         /******************************************
          *    Start: Consumers Experiments

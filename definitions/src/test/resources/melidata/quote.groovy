@@ -32,6 +32,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -43,6 +44,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -54,12 +56,19 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
         }
 
         /******  Create Similar Quote **********/
+        "/quote/seller/create_similar"(platform: "/") {}
+
+        // Quote Create -  Loading
+        "/quote/seller/create_similar/loading"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+        }
 
         // Quote  Create Similar - Price form
         "/quote/seller/create/edit_price"(platform: "/mobile", type: TrackType.View) {
@@ -67,6 +76,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -78,6 +88,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -89,6 +100,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -101,6 +113,7 @@ trackTests {
             item_id = "MLA782192768"
             quote_demand_id = 109654
             category_id = "MLA91072"
+            category_path = ["MLA123", "MLA123"]
             vertical = "services"
             quote_demand_status = "pending_by_seller"
             seller_id = 427851517
@@ -112,6 +125,7 @@ trackTests {
             item_id = "MLA782192768"
             quote_demand_id = 109654
             category_id = "MLA91072"
+            category_path = ["MLA123", "MLA123"]
             vertical = "services"
             quote_demand_status = "pending_by_seller"
             seller_id = 427851517
@@ -125,6 +139,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -140,6 +155,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -150,6 +166,7 @@ trackTests {
             item_id = "MLA698669764"
             quote_demand_id = 698669764
             category_id = "MLA1540"
+            category_path = ["MLA123", "MLA123"]
             vertical = "services"
             quote_demand_status = "answered"
             seller_id = 33624088
@@ -161,6 +178,7 @@ trackTests {
             item_id = "MLA698669764"
             quote_demand_id = 698669764
             category_id = "MLA1540"
+            category_path = ["MLA123", "MLA123"]
             vertical = "services"
             quote_demand_status = "answered"
             seller_id = 33624088
@@ -176,6 +194,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -187,6 +206,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -200,6 +220,7 @@ trackTests {
             quote_demand_id = 698669764
             quote_id = 65732
             category_id = "MLA1540"
+            category_path = ["MLA123", "MLA123"]
             vertical = "services"
             quote_demand_status = "pending_by_seller"
             quote_status = "sent"
@@ -215,6 +236,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_id = 65732
             quote_status = "sent"
@@ -232,9 +254,8 @@ trackTests {
             quote_demand_id = 23423423
             quote_demand_status = "answered"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
-            quote_id = 23423423
-            quote_status = "accepted"
         }
 
         // Quote  Create  - Congrats Error
@@ -245,9 +266,8 @@ trackTests {
             quote_demand_id = 23423423
             quote_demand_status = "answered"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
-            quote_id = 23423423
-            quote_status = "accepted"
         }
 
         /***** Quote Demands Listing ******/
@@ -264,6 +284,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -276,10 +297,24 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
             action = "go_reject"
+        }
+
+        // Quote Listing Seller Events (three dots web listing)
+        "/quote/seller/listing/options"(platform: "/web", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            action = "go_delete"
         }
 
         // Quote Listing Seller Event News
@@ -318,6 +353,7 @@ trackTests {
         "/quote/seller/quote_listing"(platform: "/", type: TrackType.View) {
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status ="answered"
@@ -330,6 +366,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -343,6 +380,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -368,6 +406,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -383,6 +422,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -401,6 +441,7 @@ trackTests {
             vertical = "services"
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -412,6 +453,7 @@ trackTests {
             vertical = "services"
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -423,10 +465,24 @@ trackTests {
             vertical = "services"
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
             action = "go_create_similar"
+        }
+
+        // Quote Seller Messages Options Events
+        "/quote/seller/messages/options"(platform: "/web", type: TrackType.Event) {
+            seller_id = 33624088
+            vertical = "services"
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            action = "go_delete"
         }
 
         /***** Quote Cancel ******/
@@ -441,6 +497,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -453,6 +510,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -466,6 +524,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -481,6 +540,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -496,6 +556,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -511,6 +572,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -532,6 +594,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -543,6 +606,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -556,6 +620,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -567,6 +632,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -578,6 +644,7 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -589,6 +656,87 @@ trackTests {
             seller_id = 33624088
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        /***** Quote Demand Delete ******/
+        // Delete Quote -  Loading
+        "/quote/seller/delete/loading"(platform: "/mobile", type: TrackType.View) {
+            vertical = "services"
+        }
+
+        //Quote - Delete
+        "/quote/seller/delete"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        //Quote - Delete Event
+        "/quote/seller/delete/action"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+            action = "MLA_DELETE_001"
+        }
+
+
+        //Quote - Delete Congrats
+        "/quote/seller/delete/congrats"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        //Quote - Delete Congrats Event
+        "/quote/seller/delete/congrats/go_listing"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        //Quote - Delete Congrats Error
+        "/quote/seller/delete/congrats_error"(platform: "/", type: TrackType.View) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
+            buyer_id = 64567088
+            quote_demand_id = 698669764
+            quote_demand_status = "answered"
+        }
+
+        //Quote - Delete Congrats Error Event
+        "/quote/seller/delete/congrats_error/go_listing"(platform: "/", type: TrackType.Event) {
+            vertical = "services"
+            seller_id = 33624088
+            item_id = "MLA698669764"
+            category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status = "answered"
@@ -650,6 +798,7 @@ trackTests {
         "/quote_demand/buyer/create"(platform: "/",type: TrackType.View) {
             vertical = "services"
             category_id= "MLA123214"
+            category_path = ["MLA123", "MLA123"]
             item_id = "MLA77777"
             buyer_id= 234234324
             seller_id = 23423423
@@ -659,8 +808,27 @@ trackTests {
         "/quote_demand/buyer/create/submit_quote_demand"(platform: "/",type: TrackType.Event) {
             vertical = "services"
             category_id= "MLA123214"
+            category_path = ["MLA123", "MLA123"]
             item_id = "MLA77777"
             buyer_id= 234234324
+            seller_id = 23423423
+        }
+
+        //Create Quote Demand
+        "/quote_demand/buyer/create"(platform: "/",type: TrackType.View) {
+            vertical = "services"
+            category_id= "MLA123214"
+            category_path = ["MLA123", "MLA123"]
+            item_id = "MLA77777"
+            seller_id = 23423423
+        }
+
+        //Create Quote Demand Event
+        "/quote_demand/buyer/create/submit_quote_demand"(platform: "/",type: TrackType.Event) {
+            vertical = "services"
+            category_id= "MLA123214"
+            category_path = ["MLA123", "MLA123"]
+            item_id = "MLA77777"
             seller_id = 23423423
         }
 
@@ -676,6 +844,7 @@ trackTests {
         "/quote/buyer/listing/action"(platform: "/", type: TrackType.Event) {
             item_id = "MLA77777"
             category_id= "MLA123214"
+            category_path = ["MLA123", "MLA123"]
             buyer_id= 234234324
             seller_id= 234234324
             vertical = "services"
@@ -687,6 +856,7 @@ trackTests {
         "/quote/buyer/listing/action"(platform: "/", type: TrackType.Event) {
             item_id = "MLA77777"
             category_id= "MLA123214"
+            category_path = ["MLA123", "MLA123"]
             buyer_id= 234234324
             seller_id= 234234324
             vertical = "services"
@@ -731,6 +901,7 @@ trackTests {
         "/quote/buyer/quote_listing"(platform: "/", type: TrackType.View) {
             item_id = "MLA698669764"
             category_id = "MLA43718"
+            category_path = ["MLA123", "MLA123"]
             buyer_id = 64567088
             quote_demand_id = 698669764
             quote_demand_status ="answered"
@@ -743,6 +914,7 @@ trackTests {
         "/quote/buyer/quote_listing/go_quote_detail"(platform: "/", type: TrackType.Event) {
             item_id = "MLA77777"
             category_id= "MLA123214"
+            category_path = ["MLA123", "MLA123"]
             buyer_id=3234
             quote_demand_id=34243
             quote_demand_status ="answered"
@@ -756,6 +928,7 @@ trackTests {
         "/quote/buyer/quote_listing/contract_quote"(platform: "/web", type: TrackType.Event) {
             item_id = "MLA77777"
             category_id= "MLA123214"
+            category_path = ["MLA123", "MLA123"]
             buyer_id=3234
             quote_demand_id=34243
             quote_demand_status ="answered"
@@ -771,6 +944,7 @@ trackTests {
         "/quote/buyer/detail"(platform: "/", type: TrackType.View) {
             item_id = "MLA77777"
             category_id= "MLA123214"
+            category_path = ["MLA123", "MLA123"]
             buyer_id=3234
             quote_demand_id=34243
             quote_id=323423
@@ -786,6 +960,7 @@ trackTests {
         "/quote/buyer/detail/action"(platform: "/", type: TrackType.Event) {
             item_id = "MLA77777"
             category_id= "MLA123214"
+            category_path = ["MLA123", "MLA123"]
             buyer_id=3234
             quote_demand_id=34243
             quote_id=323423
@@ -804,6 +979,7 @@ trackTests {
         "/quote/buyer/messages"(platform: "/web", type: TrackType.View) {
             item_id = "MLA782192768"
             category_id = "MLA91072"
+            category_path = ["MLA123", "MLA123"]
             vertical = "services"
             quote_demand_id = 107004
             quote_demand_status = "answered"
@@ -815,6 +991,7 @@ trackTests {
         "/quote/buyer/messages/go_detail"(platform: "/web", type: TrackType.Event) {
             item_id = "MLA782192768"
             category_id = "MLA91072"
+            category_path = ["MLA123", "MLA123"]
             vertical = "services"
             quote_demand_id = 107004
             quote_demand_status = "answered"

@@ -35,15 +35,18 @@ trackTests {
         "/prepaid/acquisition/confirmation_account"(platform: "/web/desktop") {}
         "/prepaid/acquisition/registration/congrats"(platform: "/web/desktop") {}
         "/prepaid/acquisition/juridical_info"(platform: "/web/desktop") {}
-        "/prepaid/acquisition/personal_info"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/personal_info"(platform: "/") {}
         "/prepaid/acquisition/personal_info/identity"(platform: "/web/mobile") {}
         "/prepaid/acquisition/personal_info/gender"(platform: "/web/mobile") {}
         "/prepaid/acquisition/personal_info/activity"(platform: "/web/mobile") {}
-        "/prepaid/acquisition/review"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/review"(platform: "/") {}
         "/prepaid/acquisition/review/welcome"(platform: "/web/desktop") {}
         "/prepaid/acquisition/need_fund"(platform: "/web/desktop") {}
+        "/prepaid/acquisition/legal_representative" (platform: "/") {}
+        "/prepaid/acquisition/no_complies" (platform: "/") {}
+        "/prepaid/acquisition/welcome_company" (platform: "/") {}
 
-        "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) {congrats_type = "prepaid" }
+        "/prepaid/acquisition/congrats"(platform: "/", type: TrackType.View) {congrats_type = "prepaid" }
         "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) {congrats_type = "prepaid_delay" }
         "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) {congrats_type = "prepaid_point_different_address" }
         "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) {congrats_type = "prepaid_point_same_address" }
@@ -60,15 +63,15 @@ trackTests {
         "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "identification" }
         "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "denied" }
 
-        "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
-        "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) { error_type = "identification" }
-        "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
-        "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
+        "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) {}
 
-        "/prepaid/acquisition/init-point"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
-        "/prepaid/acquisition/occupation"(platform: "/mobile", type: TrackType.View) { error_type = "identification" }
-        "/prepaid/acquisition/preview"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
-        "/prepaid/acquisition/review"(platform: "/mobile", type: TrackType.View) { error_type = "denied" }
+        "/prepaid/acquisition/init-point"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/occupation"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/preview"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/review"(platform: "/mobile", type: TrackType.View) {}
     }
 
 
@@ -93,6 +96,7 @@ trackTests {
         "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "delayed" }
         "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "to_collect" }
         "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "not_delivered" }
+        "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "soon_deliver" }
     }
 
 

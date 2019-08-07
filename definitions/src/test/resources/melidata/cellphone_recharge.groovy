@@ -43,6 +43,10 @@ trackTests {
            
         }
 
+        "/cellphone_recharge/categories"(platform: "/mobile") {
+
+        }
+
         "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {
             
         }
@@ -237,6 +241,10 @@ trackTests {
 
         "/cellphone_recharge/terms_and_conditions"(platform: "/mobile") {
             
+        }
+
+        "/cellphone_recharge/categories"(platform: "/mobile") {
+
         }
 
         "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {

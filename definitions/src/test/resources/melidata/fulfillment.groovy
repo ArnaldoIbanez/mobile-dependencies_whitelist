@@ -49,7 +49,8 @@ trackTests {
     test("Inbound offline event") {
         "/fbm/panel/inbound/offline/product_selection"(platform: "/", type: TrackType.Event) {
             seller_id = 123456
-            was_created = true
+            was_recovered = true
+            inbound_id = 200000
             document_status = "OK"
             amount_of_rows = 100
             amount_of_errors = 10

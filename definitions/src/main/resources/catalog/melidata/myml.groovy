@@ -69,7 +69,7 @@ tracks {
     "/myml/sales/messages"(platform: "/") {}
 
     "/myml/sales/questions"(platform: "/") {}
-    
+
     "/myml/sales/questions/history"(platform: "/mobile") {}
 
     "/myml/sales/questions/answer_question"(platform: "/mobile") {}
@@ -162,6 +162,8 @@ tracks {
 
     "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
         item_id(required: true,type: PropertyType.String, description: "Item id")
+        buy_it_again_experiment(required: true,type: PropertyType.String, description: "Is the user in the experiment")
+        buy_it_again_lead_checkout(required: true,type: PropertyType.String, description: "Is the button going to redirect to checkout")
     }
 
     "/myml"(platform: "/", isAbstract: true) {}
@@ -523,10 +525,10 @@ tracks {
         type(required: true, type: PropertyType.String, values: ["single", "bundle"], description: "Type of fiscal information")
     }
 
-    //:::: MYML - INVOICES
+    //:::: SELLER - INVOICES
     "/myml/invoices"(platform: "/", isAbstract: true) {}
 
-    //:::: MYML - Invoices Documents
+    // Invoices Documents
     "/myml/invoices/documents"(platform: "/", isAbstract: true) {}
     "/myml/invoices/documents/mobile"(platform: "/", type: TrackType.View) {}
     "/myml/invoices/documents/not_found"(platform: "/", type: TrackType.View) {}
@@ -725,7 +727,7 @@ tracks {
         message(required: false, type: PropertyType.String, description: "Error message that pops on page on error")
     }
     "/myml/invoices/company-info/success"(platform: "/") {}
-  
+
     //tax-rules-information
     "/myml/invoices/company-info/tax-rules-information"(platform: "/") {}
 
@@ -874,6 +876,17 @@ tracks {
 
     "/myml/invoices/sku/status"(platform: "/") {}
 
+    "/myml/invoices/sku/detail"(platform: "/") {}
+    "/myml/invoices/sku/detail/action"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, values:[
+            "print_danfe",
+            "download_xml",
+            "cancel_nfe",
+            "create_correction_letter",
+            "create_devolution_invoice",
+        ], description: "Wich action triggered by the user")
+    }
+
     //Backoffice pages
     "/myml/invoices/backoffice"(platform: "/", isAbstract: true) {}
 
@@ -890,6 +903,17 @@ tracks {
     "/myml/invoices/backoffice/search/invoiceslist"(platform: "/") {
         search_filter(required: true, description: "Search filter used on massive invoices search")
     }
+
+    //Opt-in pages
+    
+    "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/opt_in/difal"(platform: "/") {}
+
+    "/myml/invoices/opt_in/difal/button"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/difal/button/save"(platform: "/") {}
+
+    //:::: SELLER - INVOICES
 
     "/myml/buy_it_again"(platform: "/mobile") {}
 

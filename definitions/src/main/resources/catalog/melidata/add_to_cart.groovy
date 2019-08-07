@@ -14,7 +14,7 @@ tracks {
                 description: "Indicates which add_to_cart button the VIP is showing (Default, Discount, Free Shipping). In case it doesn't show it, also indicates the reason why it doesn't show it (High Ratio, Item price too low, Too many items in cart)")
         main_action(required: false, type: PropertyType.String, values: ["buy", "a2c_fs", "a2c_discount", "a2c_default"],
                 description: "Indicates which button the VIP is showing as main_action (ie, shown as blue button). If it is a2c, it then specifies which button type (default, fs, discount)")   
-        context(required: true, values: ["search","cart","recommendations","bookmarks_widget","vip","cart/saved_for_later", "supermarket_home", "UNKNOWN"],
+        context(required: true, values: ["search","cart","recommendations","bookmarks_widget","vip","pdp","cart/saved_for_later", "supermarket_home", "UNKNOWN"],
                 description: "The page or section where the add_cart_intention action is taking place")
     }
     

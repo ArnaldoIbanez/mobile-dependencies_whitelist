@@ -235,6 +235,17 @@ trackTests {
         "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", dataSet)
         "/cart/checkout/loading"(platform: "/", dataSet)
         "/cart/checkout/shipping"(platform:"/mobile", dataSet)
+
+
+        // First Visit
+        // Page
+        "/cart/checkout/shipping/address_profile"(platform:"/mobile", dataSet)
+
+        // Event 
+        "/cart/checkout/shipping/address_profile/delivered_time"(platform:"/mobile", type:TrackType.Event) {
+            label = "laboral"
+        }
+
         "/cart/checkout/shipping/edit_address"(platform:"/mobile", type:TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
         }
@@ -311,6 +322,15 @@ trackTests {
             dataSet()
         }
 
+        // First Visit
+        // Page
+        "/cart/checkout/shipping/address_profile"(platform:"/web", dataSet)
+
+        // Event 
+        "/cart/checkout/shipping/address_profile/delivered_time"(platform:"/web", type:TrackType.Event) {
+            label = "laboral"
+        }
+
         "/cart/checkout/shipping/confirm_geolocation"(platform:"/web", dataSet)
         "/cart/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", dataSet)
         "/cart/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", dataSet)
@@ -320,6 +340,9 @@ trackTests {
             user_identification_fields: ["doc_type", "doc_number"]
         }
         "/cart/checkout/payment/security_code"(platform:"/web", dataSet)
+
+        // Step Curp Credits MLM
+        "/cart/checkout/payment/curp"(platform:"/", dataSet)
 
         //2MP
         //Switch
@@ -437,6 +460,13 @@ trackTests {
         }
 
         "/cart/checkout/finish/choose_action"(platform: "/", dataSet)
+         // Step Curp Credits MLM
+        "/cart/checkout/payment/curp/not_my_curp"(platform: "/", type: TrackType.Event) {}
+        "/cart/checkout/payment/curp/view_authorization"(platform: "/", type: TrackType.Event) {}
+        
+        //Credits Review
+        "/cart/checkout/review/credits_cover"(platform:"/", type: TrackType.Event) {}
+        "/cart/checkout/review/credits_terms_and_conditions"(platform:"/", type: TrackType.Event) {}
     }
 
 
