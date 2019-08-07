@@ -297,7 +297,7 @@ tracks {
      *       Start: Consumers Installment Selection Page
      ****************************************************/
 
-    //Page Views
+    //Views
     "/credits/consumer/administrator_v2/installment_selection"(platform: "/", type: TrackType.View) {
         page_status(type: PropertyType.String, required: true, values: ["empty_state","on_time", "overdue"], inheritable: false)
     }
