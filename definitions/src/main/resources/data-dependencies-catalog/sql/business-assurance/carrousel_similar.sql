@@ -32,7 +32,7 @@ FROM (
     ds >= '@param02' 
     and ds < '@param01'
     and path = '/vip'
-    and application.site_id IN ('MLA', 'MLB', 'MLM')
+    and application.site_id IN ('MLA', 'MLB', 'MLM') 
     and type = 'view'
     and jest(others['fragment'], 'reco_client') = 'vip'
     and jest(others['fragment'], 'reco_backend') = 'tagging-searchsimilar_fashion'
