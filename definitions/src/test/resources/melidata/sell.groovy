@@ -8,20 +8,20 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("item_description step should be tracked"){
-    	"/sell/list/item_description"(platform: "/", type: TrackType.View){
+        "/sell/list/item_description"(platform: "/", type: TrackType.View){
             session_id = "11111"
             listing_type_id = "1111"
             vertical = "CORE"
             buying_mode = "buy_it_now"
             condition = "new"
             price = 10000
-    	}
+        }
     }
 
     test("sale_condition step should be tracked"){
-    	"/sell/list/sale_condition"(platform: "/", type: TrackType.View){
+        "/sell/list/sale_condition"(platform: "/", type: TrackType.View){
             session_id = "11111"
-    	}
+        }
     }
 
     test("Selected a photo album in the list flow") {
@@ -53,9 +53,9 @@ trackTests {
             category_id = "MLA123"
             domain_id = "MLA-CAMERAS"
             attributes = [
-                [
-                    OPERATING_SYSTEM:"Android"
-                ]
+                    [
+                            OPERATING_SYSTEM:"Android"
+                    ]
             ]
         }
     }
@@ -66,9 +66,9 @@ trackTests {
             category_id = "MLA123"
             domain_id = "MLA-CAMERAS"
             attributes = [
-                [
-                    OPERATING_SYSTEM:"iOS"
-                ]
+                    [
+                            OPERATING_SYSTEM:"iOS"
+                    ]
             ]
         }
     }
@@ -338,6 +338,10 @@ trackTests {
         "/sell/list/payment_methods_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/listing_types"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/listing_types_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/warranty_type"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/warranty_time"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/warranty_time_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/warranty_type_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures/gallery"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures/album_selector"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -529,6 +533,10 @@ trackTests {
         "/sell/update/description_review"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/payment_methods"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/payment_methods_review"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/warranty_type"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/warranty_type_review"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/warranty_time"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/warranty_time_review"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/updateing_types"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/updateing_types_review"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/pictures"(platform: "/mobile") {item_id = "MLA123456"}

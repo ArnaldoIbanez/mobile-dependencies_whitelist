@@ -289,6 +289,10 @@ tracks {
     "/sell/list/payment_methods_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/listing_types"(platform: "/", type: TrackType.View) {}
     "/sell/list/listing_types_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/warranty_type"(platform: "/", type: TrackType.View) {}
+    "/sell/list/warranty_time"(platform: "/", type: TrackType.View) {}
+    "/sell/list/warranty_type_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/warranty_time_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures/album_selector"(platform: "/mobile", type: TrackType.View) {}
@@ -490,6 +494,10 @@ tracks {
     "/sell/update/description_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/payment_methods"(platform: "/", type: TrackType.View) {}
     "/sell/update/payment_methods_review"(platform: "/", type: TrackType.View) {}
+    "/sell/update/warranty_type"(platform: "/", type: TrackType.View) {}
+    "/sell/update/warranty_time"(platform: "/", type: TrackType.View) {}
+    "/sell/update/warranty_type_review"(platform: "/", type: TrackType.View) {}
+    "/sell/update/warranty_time_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/updateing_types"(platform: "/", type: TrackType.View) {}
     "/sell/update/updateing_types_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures"(platform: "/", type: TrackType.View) {}
