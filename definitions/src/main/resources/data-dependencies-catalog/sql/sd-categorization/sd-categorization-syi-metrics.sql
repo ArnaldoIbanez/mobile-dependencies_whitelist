@@ -39,7 +39,7 @@ substr(ds,1,10) AS ds
 FROM tracks
 WHERE ds >= '@param01'
 AND ds < '@param02'
-AND path in ('/sell/list/congrats', '/sell/congrats')
+AND path in ('/sell/list/congrats','/sell/congrats')
 AND device.platform = '/web/desktop'
 AND (get_json_object(event_data, '$.vertical') = 'CORE' OR get_json_object(event_data, '$.vertical') IS NULL)
 AND length(get_json_object(event_data, '$.title_predicted')) > 1
