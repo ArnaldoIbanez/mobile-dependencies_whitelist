@@ -35,5 +35,7 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
     "/recharge_sube/redirect_sube_app"(platform: "/mobile", type: TrackType.Event) {}
+    "/recharge_sube/show_terminals_information"(platform: "/mobile", type: TrackType.Event) {}
+    "/recharge_sube/show_terminals_congrats"(platform: "/mobile", type: TrackType.Event) {}
 
 }
