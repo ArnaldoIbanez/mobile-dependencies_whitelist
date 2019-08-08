@@ -57,6 +57,11 @@ tracks {
 
     "/landing/formcomercial"(platform: "/", type: TrackType.View) {}
 
+    "/landing/formcomercial/send_email"(platform:"/", type: TrackType.Event) {
+      email (type: PropertyType.String, required: true, description: "Email from user")
+    }
+
+
     "/growth"(platform: "/", isAbstract: true) {}
     "/growth/login"(platform: "/", type: TrackType.View) {
       view (type: PropertyType.String, required: true, description: "Name of view", values: ["split", "guest"])

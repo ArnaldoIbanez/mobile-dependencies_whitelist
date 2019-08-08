@@ -500,6 +500,12 @@ trackTests {
         "/landing/formcomercial"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Landing form comercial send email") {
+        "/landing/formcomercial/send_email"(platform: "/", type: TrackType.Event) {
+          email = "teste@teste.com.br"
+        }
+    }
+
     test("Growth Frontend Login") {
         "/growth/login"(platform: "/", type: TrackType.View) {
           view = "split"
