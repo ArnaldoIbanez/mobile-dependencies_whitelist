@@ -9,9 +9,10 @@ tracks {
     "/myaccount"(type: TrackType.View, isAbstract: true) {}
     "/myaccount/billing"(type: TrackType.View, isAbstract: true) {}
     "/myaccount/billing/summary"(type: TrackType.View) {
-        bills_to_pay(type: PropertyType.Numeric, required: false)
-        total_debt(type: PropertyType.Numeric, required: false)
-        has_automatic_debit(type: PropertyType.Boolean, required: false)
+        bills_to_pay(type: PropertyType.Numeric, required: true)
+        total_debt(type: PropertyType.Numeric, required: true)
+        has_automatic_debit(type: PropertyType.Boolean, required: true)
+        completed(type: PropertyType.Boolean, required: true)
 
     }
     "/myaccount/billing/detail"(type: TrackType.View) {
