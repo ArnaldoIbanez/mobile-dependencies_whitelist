@@ -143,6 +143,7 @@ trackTests {
         }
         "/notification_center/campaigns-generic"(platform: "/mobile"){
             campaign_id= "campaign1"
+            campaign_type="xp_cupones"
             newsgroup_id= "deals-MLU102_07_02_2017-56626993"
             status= "unread"
             event_type= "swipe"
@@ -3141,6 +3142,7 @@ trackTests {
             event_type = "received"
             deeplink ="meli://search?q=sony"
             campaign_id = "mkt_campaign_co"
+            campaign_type="xp_cupones"
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"

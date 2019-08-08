@@ -108,6 +108,7 @@ tracks {
     }
     "/notification_center/campaigns-generic"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        campaign_type(required: true,type: PropertyType.String, description: "Type of the campaign related to the notification sent.")
         test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
         sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
@@ -799,6 +800,7 @@ tracks {
 
       "/notification/campaigns_generic"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+          campaign_type(required: true,type: PropertyType.String, description: "Type of the campaign related to the notification sent.")
           test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
