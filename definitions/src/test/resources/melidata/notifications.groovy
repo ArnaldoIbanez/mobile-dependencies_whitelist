@@ -3149,7 +3149,6 @@ trackTests {
             campaign_data = "MLB1234"
         }
 
-
         "/notification/campaigns_cart_recovery"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
