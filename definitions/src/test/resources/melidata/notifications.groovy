@@ -151,9 +151,9 @@ trackTests {
             test_notification= false
             sent_date= "20180508"
             batch_id= "MLB_PACK_20180508_2"
-            item_id = "MLB1234"
-            variation_id="BLUE"
-            items = "MLV515515631,MLV515515632,MLV515515633"
+            campaign_data = "MLV515515631,MLV515515632,MLV515515633"
+            latest_news_type = "returns-init_return"
+            latest_news_id = "returns-init_return-1692352012-88594841"
         }
         "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile"){
             campaign_id= "campaign1"
@@ -3146,9 +3146,7 @@ trackTests {
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
-            item_id = "MLB1234"
-            variation_id="BLUE"
-            items = "MLV515515631,MLV515515632,MLV515515633"
+            campaign_data = "MLB1234"
         }
 
 
