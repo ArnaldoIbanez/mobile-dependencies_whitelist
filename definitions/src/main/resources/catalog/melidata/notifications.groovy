@@ -115,6 +115,8 @@ tracks {
         item_id(required: false, type: PropertyType.String, description: "Id of item")
         items(required: false, type: PropertyType.String, description: "List of items")
         variation_id(required: false, type: PropertyType.String, description: "Id of variaton of the item.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/", type: TrackType.Event) {
         campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
