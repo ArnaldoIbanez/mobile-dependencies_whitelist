@@ -318,6 +318,13 @@ tracks {
                 description: "The selected number of installments to pay"
         )
     }
+        "/credits/consumer/administrator_v2/installment_selection/secondary_payment_intention"(platform: "/", type: TrackType.Event) {
+        total_installments(
+                type: PropertyType.Numeric,
+                required: true,
+                description: "The total number of payable installments"
+        )
+    }
     "/credits/consumer/administrator_v2/installment_selection/back_to_dashboard"(platform: "/", type: TrackType.Event) {
     }
 
