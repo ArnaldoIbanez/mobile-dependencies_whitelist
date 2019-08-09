@@ -253,6 +253,10 @@ trackTests {
             paid_installments = 2
         }
 
+         "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/web", type: TrackType.Event) {
+            total_installments = 3
+        }
+
         "/credits/consumer/administrator_v2/installment_selection/back_to_dashboard"(platform: "/web/desktop", type: TrackType.Event) {}
 
         /****************************************************
