@@ -1084,6 +1084,12 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             item_id = "MLA123456789"
+            category_prediction_zordon_score = ["0.6287946105", "0.6287946105", "0.6287946105"]
+            category_prediction_zordon = ["MLA407134", "MLA1500", "MLA48891"]
+            category_prediction_score = ["0.5798502932160188", "0.5546144689593583", "0.5418770563342361"]
+            category_prediction = ["MLA407134", "MLA1500", "MLA48891"]
+            predictor_chosen = "ZORDON"
+            title_predicted = "escalera"
         }
     }
     test("SYI v4 congrats card showed"){

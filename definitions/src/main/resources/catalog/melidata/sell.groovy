@@ -763,10 +763,27 @@ tracks {
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_id(required: false, type: PropertyType.String)
+        category_prediction(required: true, description: "Category prediction path result", type: PropertyType.ArrayList)
+        category_prediction_score(required: true, description: "Category prediction scores result", type: PropertyType.ArrayList)
+        category_prediction_zordon(required: true, description: "Category prediction path result from zordon", type: PropertyType.ArrayList)
+        category_prediction_zordon_score(required: true, description: "Category prediction scores result from zordon", type: PropertyType.ArrayList)
+        predictor_chosen(required: true, description: "Which predictor we used to predict category", values:["ZORDON", "DEFAULT"], type: PropertyType.String)
+        title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
+        attributes_values_predicted(required: false, description: "Attributes values that we predict by matchers", type: PropertyType.ArrayList)
+        attributes_ids_predicted(required: false, description: "Attributes ids that we predict by matchers", type: PropertyType.ArrayList)
+        attributes_selected_in_tree(required: false, description: "Attributes values selected by user", type: PropertyType.ArrayList)
     }
-    "/sell/congrats/show"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
+        sellGroup
+        item_id(required: false, type: PropertyType.String)
+    }
     "/sell/congrats/listing_types"(platform: "/web", isAbstract: true) {}
-    "/sell/congrats/listing_types/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/congrats/listing_types/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
+        sellGroup
+        item_id(required: false, type: PropertyType.String)
+    }
+
 
     "/sell/sip"(platform: "/web", type: TrackType.View) {
         sellGroup
