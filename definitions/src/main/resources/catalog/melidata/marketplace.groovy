@@ -169,16 +169,16 @@ tracks {
         query(required: false, description: "Official store name written in search box")
     }
 
-    "/download-app"(platform: "/web") {}
-    "/download-app/send"(platform: "/web", type: TrackType.Event) {
+    "/download_app"(platform: "/web") {}
+    "/download_app/send"(platform: "/web", type: TrackType.Event) {
         user_phone_number()
         final_phone_number()
     }
-    "/download-app/send/success"(platform: "/web", type: TrackType.Event) {
+    "/download_app/send/success"(platform: "/web", type: TrackType.Event) {
         user_phone_number()
         final_phone_number()
     }
-    "/download-app/send/error"(platform: "/web", type: TrackType.Event) {
+    "/download_app/send/error"(platform: "/web", type: TrackType.Event) {
         user_phone_number()
         final_phone_number()
         error_type()
