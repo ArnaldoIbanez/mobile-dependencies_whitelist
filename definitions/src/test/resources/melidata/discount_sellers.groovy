@@ -1,11 +1,13 @@
 package src.test.resources.melidata
-import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
+
 import com.ml.melidata.TrackType
-import com.ml.melidata.catalog.PropertyType
+
+import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
     defaultBusiness = "mercadopago"
+
 
     test("Mercadopago discount sellers form") {
         "/discount_sellers/form" (platform: "/mobile", type: TrackType.View) {}
