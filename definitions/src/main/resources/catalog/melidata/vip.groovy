@@ -66,6 +66,8 @@ tracks {
         deal_ids(required: true, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         billboard_clicked_position(required: false, type: PropertyType.String, description: "Clicked billboard index. We use it to track when the user entered to VIP via Billboard")
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
+        catalog_listing(required: true, inheritable: false, type: PropertyType.Boolean, description: "Item's catalog listing")
+        domain_id(required: false, type: PropertyType.String, description: "Item's domain id")
 
         // ONLY CORE FIELDS
         quantity( required: false, type: PropertyType.Numeric, description: "Available items quantity show at this vip")
@@ -149,8 +151,6 @@ tracks {
         contract_available(required: false, type: PropertyType.Boolean)
         gallery_dimension(required: false, type: PropertyType.String, values: ["wide", "square", "artsinfoto"],
                 description: "Indicates the gallery dimension format")
-        catalog_listing(required: true, inheritable: false, type: PropertyType.Boolean, description: "Item's catalog listing")
-        domain_id(required: false, type: PropertyType.String, description: "Item's domain id")
     }
 
     "/vip"(platform: "/mobile") {
