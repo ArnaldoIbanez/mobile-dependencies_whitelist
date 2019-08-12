@@ -60,6 +60,22 @@
       {
         "name": "itemId",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "userNick",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "winnerItemId",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "priceToWin",
+        "type": "INTEGER"
+      },
+      {
+        "name": "sessionId",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {

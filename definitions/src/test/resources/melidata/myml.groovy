@@ -553,6 +553,9 @@ trackTests {
 
         "/myml/invoices/documents/success/btn/listings"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/documents/success/btn/download"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/opt_in/difal"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/opt_in/difal/button/save"(platform: "/", type: TrackType.Event) {}
     }
 
 
@@ -678,6 +681,8 @@ trackTests {
 
         "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
             item_id = 'MLA713079054'
+            buy_it_again_experiment = 'Yes'
+            buy_it_again_lead_checkout = 'No'
         }
 
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {

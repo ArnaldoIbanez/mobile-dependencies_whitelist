@@ -257,6 +257,12 @@ trackTests {
             item_id = "MLA21233"
             register_type = "person"
         }
+        "/register/form"(platform:"/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+        }
 
         "/register/form"(platform:"/mobile") {
             app = "normal"
@@ -478,12 +484,26 @@ trackTests {
         "/landing/sellers/social" (platform: "/web") {}
     }
 
+    test("Landing mercadopago sellers mss") {
+        "/landing/sellers/mss" (platform: "/web") {}
+    }
+
     test("Landing mercadopago buyers") {
         "/landing/buyers" (platform: "/web") {}
     }
 
     test("Landing mercadopago promotions") {
         "/landing/promotions" (platform: "/web") {}
+    }
+
+    test("Landing form comercial") {
+        "/landing/formcomercial"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Landing form comercial send email") {
+        "/landing/formcomercial/send_email"(platform: "/", type: TrackType.Event) {
+          email = "teste@teste.com.br"
+        }
     }
 
     test("Growth Frontend Login") {
@@ -533,6 +553,31 @@ trackTests {
         }
         "/merchant_acquisition/flows/qr-assignment/qr_scan"(platform:"/", type: TrackType.Event) {
           qr_content = 'http://qr-content'
+        }
+    }
+
+    test("Share MGM Web") {
+        "/merchant_acquisition/flows/share_mgm"(platform:"/", type: TrackType.View) {}
+
+        "/merchant_acquisition/flows/share_mgm/about_share"(platform:"/", type: TrackType.Event) {}
+
+        "/merchant_acquisition/flows/share_mgm/share_device_button"(platform:"/", type: TrackType.Event) {
+          product = "point-h"
+        }
+
+        "/merchant_acquisition/flows/share_mgm/more_info_device"(platform:"/", type: TrackType.Event) {
+          product = "point-h"
+        }
+
+        "/merchant_acquisition/flows/share_mgm/device/invite"(platform:"/", type: TrackType.Event) {
+          media = "whastapp"
+          product = "point-h"
+        }
+
+        "/merchant_acquisition/flows/share_mgm/device/invite/send_email"(platform: "/", type: TrackType.Event) {}
+
+        "/merchant_acquisition/flows/share_mgm/banner"(platform:"/", type: TrackType.Event) {
+          banner_name = "Kit promotional"
         }
     }
 
@@ -593,6 +638,14 @@ trackTests {
         "/merchant_acquisition/flows/resellers/metrics"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/resellers/after_sales"(platform: "/", type: TrackType.View) {}
     }
+
+    test("// Associar Point - Micrositio - reseller") {
+        "/merchant_acquisition/flows/resellers/point_register"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/resellers/point_register/associate"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/resellers/point_register/success"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/resellers/point_register/no_account"(platform: "/", type: TrackType.View) {}
+    }
+
 
     test("MP-MA Flow QR") {
         "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
@@ -835,6 +888,18 @@ trackTests {
         "/merchant_acquisition/point-landings/app-chinese"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/point-landings/app-chinese/error"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/point-landings/app-chinese/success"(platform:"/", type: TrackType.View) {}
+    }
+
+    test("Merchant Acquisition Widgets") {
+        //reverse label
+        "/merchant_acquisition/widget" (platform: "/") {
+            type = "reverse-label"
+        }
+
+        // Widget de envíos
+        "/merchant_acquisition/widget" (platform: "/") {
+            type = "reset-chip"
+        }
     }
 
     test("Landing mercadopago point") {
@@ -2138,6 +2203,7 @@ trackTests {
         "/tfs_dashboard/home/general"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/home/online"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/home/offline"(platform: "/", type: TrackType.View){}
+        "/tfs_dashboard/home/meli"(platform: "/", type: TrackType.View){}
         "/tfs_dashboard/detail"(platform: "/", type: TrackType.View){
             chart_id="tpv"
             section="online"
@@ -2836,6 +2902,27 @@ trackTests {
         }
     }
 
+    test("Change Password") {
+        "/security_settings/password"(platform: "/", type: TrackType.View) {
+            context = "feedback"
+        }
+
+        "/security_settings/password"(platform: "/", type: TrackType.View) {
+            context = "security_settings"
+        }
+
+        "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
+            context = "forgot"
+            delete_sessions = false
+        }
+
+        "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
+            context = "feedback"
+            delete_sessions = true
+            lowend = true
+        }
+    }
+
     test("Identity Validation ") {
 
         "/identity-validation/validation_landing"(platform: "/web/mobile") {
@@ -3146,5 +3233,4 @@ trackTests {
         "/stores/pos/create"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/pos/update"(platform: "/web/mobile", type: TrackType.View) {}
     }
-
 }

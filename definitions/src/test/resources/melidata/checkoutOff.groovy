@@ -20,6 +20,10 @@ trackTests {
             payer_id = "654321"
             payment_method_id = "visa"
             payment_type_id = "credit_card"
+            is_split = true
+            payment_quantity = 1
+            collector_id = 1010101001
+            available_methods = ["credit_card", "account_money"]
         }
 
         def finishDefaultProperties = {
@@ -33,6 +37,8 @@ trackTests {
             product_id = "BC32A4JU643001OI3920"
             site = "MLA"
             productive = true
+            is_split = false
+            payment_quantity = 1
         }
 
         def finishOnlyRequiredProperties = {
@@ -81,11 +87,11 @@ trackTests {
         "/checkout_off/payment/input_card/input_card_issuer"(platform: "/web/mobile") {
             defaultProperties()
         }
-        
+
         "/checkout_off/payment/input_card/input_security_code"(platform: "/web/mobile") {
             defaultProperties()
         }
-        
+
         "/checkout_off/payment/input_card/select_installment"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -94,11 +100,27 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/card/split_first"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/card/split_second"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         // Tokenizer product final screen.
         "/checkout_off/payment/processing"(platform: "/web/mobile") {
             defaultProperties()
         }
-        
+
         "/checkout_off/billing/input_info"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -120,7 +142,7 @@ trackTests {
             defaultProperties()
             finishDefaultProperties()
         }
-                
+
         "/checkout_off/congrats/call_for_auth/later"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -130,7 +152,7 @@ trackTests {
             defaultProperties()
             finishDefaultProperties()
         }
-        
+
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -177,11 +199,11 @@ trackTests {
         "/checkout_off/payment/input_card/input_card_issuer"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
-        
+
         "/checkout_off/payment/input_card/input_security_code"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
-        
+
         "/checkout_off/payment/input_card/select_installment"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -190,11 +212,19 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/payment/input_credits/select_installment"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        
         // Tokenizer product final screen.
         "/checkout_off/payment/processing"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
-        
+
         "/checkout_off/billing/input_info"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -216,7 +246,7 @@ trackTests {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
-                
+
         "/checkout_off/congrats/call_for_auth/later"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
@@ -226,7 +256,7 @@ trackTests {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
-        
+
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()

@@ -106,6 +106,16 @@ tracks {
         sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
     }
+    "/notification_center/campaigns-generic"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        campaign_type(required: true,type: PropertyType.String, description: "Type of the campaign related to the notification sent.")
+        campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
+        test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/", type: TrackType.Event) {
         campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
         item_id(required: true, type: PropertyType.String, description: "Id of item.")
@@ -767,6 +777,11 @@ tracks {
           experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
       }
 
+      "/notification/orders_ticket_payment_pending_close_expiration_general_notice"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+          experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
+      }
+
       "/notification/orders_ticket_payment_pending_reminder_general_notice"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric)
           experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
@@ -781,6 +796,15 @@ tracks {
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+      }
+
+      "/notification/campaigns_generic"(platform: "/") {
+          campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+          campaign_type(required: true,type: PropertyType.String, description: "Type of the campaign related to the notification sent.")
+          campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
+          test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+          sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+          batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
       }
 
       //MKT Deals

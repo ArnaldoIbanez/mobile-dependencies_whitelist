@@ -36,7 +36,6 @@ class S3Controller {
         if(System.getenv().containsKey("proxyPort")){
             config.setProxyPort(Integer.parseInt(System.getenv().get("proxyPort")))
         }
-
         s3 = new AmazonS3Client(credentials, config)
     }
 
