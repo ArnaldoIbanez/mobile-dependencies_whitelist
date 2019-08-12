@@ -268,6 +268,21 @@ tracks {
 
     "/wallet_home/notification/tap" (platform: "/mobile", type: TrackType.Event) {
         badge_count(required: true, type: PropertyType.Numeric, description: "The amount of notifications that's been showed in the notification label icon")
-    } 
+    }
+
+    // Modal Mercadopago-Mercadolibre
+    "/wallet_home/modal" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/modal/show" (platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "The modal's id")
+    }
+
+    "/wallet_home/modal/tap" (platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "The modal's id")
+    }
+
+    "/wallet_home/modal/close" (platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "The modal's id")
+    }
     
 }

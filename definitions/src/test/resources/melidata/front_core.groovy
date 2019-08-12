@@ -466,4 +466,23 @@ trackTests {
             badge_count = 4
         }
     }
+
+    // Modal Mercadopago-Mercadolibre
+    test("Modal Show") {
+        "/wallet_home/modal/show" (platform: "/mobile", type: TrackType.Event) {
+            id = "modalid"
+        }
+    }
+
+    test("Modal Tap") {
+        "/wallet_home/modal/tap" (platform: "/mobile", type: TrackType.Event) {
+            id = "modalid"
+        }
+    }
+    
+    test("Modal close") {
+        "/wallet_home/modal/close" (platform: "/mobile", type: TrackType.Event) {
+            id = "modalid"
+        }
+    }
 }
