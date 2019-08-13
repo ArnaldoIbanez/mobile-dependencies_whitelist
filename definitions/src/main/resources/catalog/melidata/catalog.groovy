@@ -137,6 +137,7 @@ catalog {
         include business, "payers_growth.groovy"
         include business, "contact.groovy"
         include business, "full.groovy"
+        include business, "front_core.groovy"
         include business, "dynamic_links.groovy"
         include business, "sube_recharge.groovy"
         include business, "myaccount_billing.groovy"
