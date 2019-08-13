@@ -8,7 +8,6 @@ tracks {
         app_id(required: true, type: PropertyType.String,  description: "Refering app")
         variant(required: true, type: PropertyType.String,  description: "Variant currently displayed")
     }
-
     "/navigation/download_app/show"(platform: "/", type: TrackType.Event) {}
     "/navigation/download_app/close"(platform: "/", type: TrackType.Event) {}
     "/navigation/download_app/download"(platform: "/", type: TrackType.Event) {}
