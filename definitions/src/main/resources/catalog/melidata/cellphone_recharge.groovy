@@ -4,6 +4,7 @@ import com.ml.melidata.TrackType
 
 tracks {
     "/cellphone_recharge"(platform: "/", isAbstract: true) {
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
     }
     
     "/cellphone_recharge/recents"(platform: "/mobile") {}
@@ -13,7 +14,8 @@ tracks {
     "/cellphone_recharge/recommended"(platform: "/mobile") {}
     "/cellphone_recharge/packages"(platform: "/mobile") {}
     "/cellphone_recharge/carrier_disabled"(platform: "/mobile") {}
-    "/cellphone_recharge/terms_and_conditions"(platform: "/mobile") {} 
+    "/cellphone_recharge/terms_and_conditions"(platform: "/mobile") {}
+    "/cellphone_recharge/categories"(platform: "/mobile", type: TrackType.View) {}
 
     "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {}
     "/cellphone_recharge/px_discount_summary"(platform: "/mobile") {}

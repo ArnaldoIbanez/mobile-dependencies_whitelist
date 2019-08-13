@@ -6,11 +6,11 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 trackTests {
 
     defaultBusiness = "mercadolibre"
-    
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MYML Invoices
     //------------------------------------------------------------------------------------------------------------------------------------------------------
-       
+
     test("Sales list flow") {
         "/myml/invoices/sales_list/create_invoice"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/sales_list/zip"(platform: "/", type: TrackType.Event) {}
@@ -133,6 +133,11 @@ trackTests {
         }
 
         "/myml/invoices/sku/status"(platform: "/") {}
+
+        "/myml/invoices/sku/detail"(platform: "/") {}
+        "/myml/invoices/sku/detail/action"(platform: "/", type: TrackType.Event) {
+          action = "print_danfe"
+        }
     }
 
     test("Optin flow") {
@@ -548,6 +553,9 @@ trackTests {
 
         "/myml/invoices/documents/success/btn/listings"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/documents/success/btn/download"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/opt_in/difal"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/opt_in/difal/button/save"(platform: "/", type: TrackType.Event) {}
     }
 
 
@@ -600,7 +608,7 @@ trackTests {
         "/myml/sales/questions/history"(platform: "/mobile"){}
 
         "/myml/sales/questions/answer_question"(platform: "/mobile"){}
-      
+
         "/myml/sales/questions/response"(platform: "/") {
             unregistered_contact = false
         }
@@ -650,7 +658,7 @@ trackTests {
         "/myml/purchases/questions"(platform: "/web") {}
 
         "/myml/purchases/questions/asked_questions"(platform: "/mobile") {}
-    
+
         "/myml/purchases/questions/history"(platform: "/mobile") {}
 
         "/myml/purchases/canceled"(platform:"/") {}
@@ -673,6 +681,8 @@ trackTests {
 
         "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
             item_id = 'MLA713079054'
+            buy_it_again_experiment = 'Yes'
+            buy_it_again_lead_checkout = 'No'
         }
 
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {
@@ -1004,32 +1014,32 @@ trackTests {
     }
 
     test("Myml buy_it_again") {
-        "/myml/buy_it_again"(platform: "/mobile") {}        
+        "/myml/buy_it_again"(platform: "/mobile") {}
     }
 
     test("Myml buy_it_again") {
-        "/myml/account_security"(platform: "/mobile") {}        
+        "/myml/account_security"(platform: "/mobile") {}
     }
 
     test("Myml activity list") {
-        "/myml/activity"(platform: "/mobile") {}        
-        "/myml/activity/list"(platform: "/mobile") {}        
+        "/myml/activity"(platform: "/mobile") {}
+        "/myml/activity/list"(platform: "/mobile") {}
     }
-    
+
     test("Myml bookmarks list") {
-        "/myml/bookmarks/list"(platform: "/mobile") {}        
+        "/myml/bookmarks/list"(platform: "/mobile") {}
     }
 
     test("Myml portal_ayuda") {
-        "/myml/portal_ayuda"(platform: "/mobile") {}        
+        "/myml/portal_ayuda"(platform: "/mobile") {}
     }
 
     test("Myml myreputation") {
-        "/myml/myreputation"(platform: "/mobile") {}        
+        "/myml/myreputation"(platform: "/mobile") {}
     }
 
     test("Myml message activity") {
-        "/myml/message"(platform: "/mobile") {}        
-        "/myml/message/activity"(platform: "/mobile") {}        
+        "/myml/message"(platform: "/mobile") {}
+        "/myml/message/activity"(platform: "/mobile") {}
     }
 }

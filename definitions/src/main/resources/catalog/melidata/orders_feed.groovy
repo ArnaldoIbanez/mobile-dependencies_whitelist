@@ -57,7 +57,10 @@ tracks {
 
         total_amount_local(serverSide: true) // -> Lo completa Melidata automaticamente
         total_amount_usd(serverSide: true) // -> Lo completa Melidata automaticamente
-        new_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
+        new_buyer(serverSide: true) // -> Lo completa Melidata automaticamente (eliminar al deployar en consumers)
+        buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
+        loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
+        is_pdp(serverSide: true) // -> Lo completa Melidata automaticamente
     }
 
     "/purchases"(platform: "/", isAbstract: true) {}
@@ -106,7 +109,10 @@ tracks {
 
         total_amount_local(serverSide: true) // -> Lo completa Melidata automaticamente
         total_amount_usd(serverSide: true) // -> Lo completa Melidata automaticamente
-        new_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
+        new_buyer(serverSide: true) // -> Lo completa Melidata automaticamente (eliminar al deployar en consumers)
+        buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
+        loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
+        is_pdp(serverSide: true) // -> Lo completa Melidata automaticamente
     }
 
 }

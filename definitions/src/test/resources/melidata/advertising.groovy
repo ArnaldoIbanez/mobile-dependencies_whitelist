@@ -112,4 +112,55 @@ trackTests {
             free_trial_ad = false
         }
     }
+
+    test("Advertising upselling") {
+        "/advertising/pads2/manager/upselling/modal/show"(platform: "/web", type: TrackType.View) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
+            budget_new = "1000"
+        }
+
+        "/advertising/pads2/manager/upselling/modal/go"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
+            budget_new = "1000"
+        }
+
+        "/advertising/pads2/manager/upselling/modal/close"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
+            budget_new = "1000"
+        }
+
+        "/advertising/pads2/manager/upselling/banner/show"(platform: "/web", type: TrackType.View) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
+            budget_new = "1000"
+        }
+
+        "/advertising/pads2/manager/upselling/banner/go"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
+            budget_new = "1000"
+        }
+
+        "/advertising/pads2/manager/upselling/banner/close"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
+            budget_new = "1000"
+        }
+    }
+
+    test("Landing congrats") {
+        "/advertising/landings/pads2/mail/congrats"(platform: "/web", type: TrackType.View) {
+            user_id = "2222222"
+            items_id = "MLA1,MLA2,MLA3,MLA4,MLA5"
+        }
+    }
 }

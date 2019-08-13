@@ -8,9 +8,9 @@
     "type": "DATE"
   },
   "process_name": "carrousel_similar",
-  "cron": "00 08 * * *",
+  "cron": "00 05 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "overwrite",
     "columns": [
       {
         "name": "platform",
@@ -39,6 +39,10 @@
       {
         "name": "ctr",
         "type": "DOUBLE"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
@@ -46,7 +50,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         },
         {

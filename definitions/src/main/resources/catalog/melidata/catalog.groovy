@@ -83,6 +83,8 @@ catalog {
         include business, "esc_manager.groovy"
         include business, "traffic.groovy"
         include business, "coupon.groovy"
+        include business, "notifications.groovy"
+        include business, "dynamic_stop_landing.groovy"
     }
 
     marketplace.each { business ->
@@ -109,7 +111,6 @@ catalog {
         include business, "myml.groovy"
         include business, "myml_mercadoshops.groovy"
         include business, "seller_central.groovy"
-        include business, "notifications.groovy"
         include business, "onboarding.groovy"
         include business, "orders_feed.groovy"
         include business, "pushNotifications.groovy"
@@ -136,16 +137,20 @@ catalog {
         include business, "payers_growth.groovy"
         include business, "contact.groovy"
         include business, "full.groovy"
+        include business, "front_core.groovy"
         include business, "dynamic_links.groovy"
         include business, "sube_recharge.groovy"
         include business, "myaccount_billing.groovy"
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
+        include business, "pdp.groovy"
     }
 
     mercadopago.each { business ->
         include business, "activities.groovy"
+        include business, "mpfrontcore.groovy"
         include business, "account_fund.groovy"
+        include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
         include business, "checkoutOff.groovy"
         include business, "credits_mercadopago.groovy"
@@ -161,6 +166,13 @@ catalog {
         include business, "sube_recharge.groovy"
         include business, "transport.groovy"
         include business, "remedy.groovy"
+        include business, "digital_account.groovy"
+        include business, "front_core.groovy"
+        include business, "mplayer.groovy"
+        include business, "money_in.groovy"
+        include business, "money_out.groovy"
+        include business, "pos_seller.groovy"
+        include business, "preference.groovy"
     }
 
     mercadoshops.each { business ->
@@ -172,5 +184,6 @@ catalog {
         include business, "flex.groovy"
         include business, "full.groovy"
         include business, "wms.groovy"
+        include business, "logistics.groovy"
     }
 }

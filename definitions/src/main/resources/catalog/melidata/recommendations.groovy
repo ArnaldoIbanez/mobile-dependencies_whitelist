@@ -20,10 +20,15 @@ tracks {
 
     propertyGroups {
         add_cart_info(backend_id, client, direct, items, recommendation_id, shipping_benefit)
+        see_more(backend_id, client)
     }
 
     "/recommendations/add_to_cart"(platform: "/", type: TrackType.Event) {
         add_cart_info
+    }
+
+    "/recommendations/see_more"(platform: "/", type: TrackType.Event) {
+        see_more
     }
 
 }

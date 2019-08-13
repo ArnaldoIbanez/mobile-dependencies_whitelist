@@ -2,7 +2,6 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
-
 tracks {
         "/checkout_off"(platform: "/", isAbstract: true){
         checkout_flow_id(required: true, description: "Unique ID of the current flow")
@@ -10,12 +9,16 @@ tracks {
         site(required: true, description: "Site of the seller")
         productive(required: true, description: "True if productive flow")
         collector_nickname(required: false, description: "Seller's nickname")
+        collector_id(required: false, description: "Seller's id")
         preference_id(required: false, description: "Preference being paid")
         operation_type(required: false, description: "Operation type, e.g: regular_payment")
         is_express(required: false, description: "True if the flow was express")
         payer_id(required: false, description: "Payer id is sent if it is logged")
         payment_method_id(required: false, description: "Current selected payment method")
         payment_type_id(required: false, description: "Current selected payment type")
+        is_split(required: true, description: "True if the flow was split", type: PropertyType.Boolean)
+        payment_quantity(required: true, description: "Payments quantity selected", type: PropertyType.Numeric)
+        available_methods(required: false, description: "Available payment methods types", type: PropertyType.ArrayList(PropertyType.String))
     }
 
     // EVENTS
@@ -44,7 +47,17 @@ tracks {
     "/checkout_off/payment/input_card/select_installment"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/payment/card_express"(platform: "/", type: TrackType.View) {}
-    
+
+    // Split payments paths
+    "/checkout_off/payment/card"(platform: "/", isAbstract: true) {}
+    "/checkout_off/payment/card/split_first"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/card/split_second"(platform: "/", type: TrackType.View) {}
+
+    // Groups consumer credits data collection views
+    "/checkout_off/payment/input_credits"(platform: "/", isAbstract: true) {}
+    "/checkout_off/payment/input_credits/select_installment"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/", type: TrackType.View) {}    
+
     // Tokenizer product final screen.
     "/checkout_off/payment/processing"(platform: "/", type: TrackType.View) {}
 

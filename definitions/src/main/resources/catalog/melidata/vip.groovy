@@ -22,7 +22,7 @@ tracks {
         local_pick_up(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has local pick up")
         logistic_type(required: false,
-                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment"],
+                values: ["not_specified", "default", "drop_off", "xd_drop_off", "custom", "cross_docking", "fulfillment", "self_service"],
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
         free_shipping_benefit(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free shipping or free by loyalty")
@@ -66,6 +66,8 @@ tracks {
         deal_ids(required: true, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         billboard_clicked_position(required: false, type: PropertyType.String, description: "Clicked billboard index. We use it to track when the user entered to VIP via Billboard")
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
+        catalog_listing(required: true, inheritable: false, type: PropertyType.Boolean, description: "Item's catalog listing")
+        domain_id(required: false, type: PropertyType.String, description: "Item's domain id")
 
         // ONLY CORE FIELDS
         quantity( required: false, type: PropertyType.Numeric, description: "Available items quantity show at this vip")
@@ -99,6 +101,8 @@ tracks {
         reservation_price(required: false, description: "Price of the reservation")
         quotation_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item can be quoted (cotizado)")
+        quotation_limit_reached(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user can not quote the item because he reached the maximum quotations")
         comparator_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if clasi item has model comparator available")
         gallery_pattern(required: false, type: PropertyType.String,
@@ -136,6 +140,7 @@ tracks {
 
         whatsapp_available(required: false, type: PropertyType.String, description: "determines if whatsapp is available")
         quote_demand_available(required: false, type: PropertyType.Boolean, description: "determines if an item has quote demand available")
+        new_wording_free(required: false, type: PropertyType.Boolean, description: "determines if the new free wording is available" )
     }
 
     "/vip"(platform: "/web") {
@@ -144,11 +149,14 @@ tracks {
                 values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, type: PropertyType.String, description: "Max_size of first picture gallery")
         contract_available(required: false, type: PropertyType.Boolean)
+        gallery_dimension(required: false, type: PropertyType.String, values: ["wide", "square", "artsinfoto"],
+                description: "Indicates the gallery dimension format")
     }
 
     "/vip"(platform: "/mobile") {
         context(required: false)
         resolution(required: false, description: "Indicates if the device has high or low resolution")
+        whatsapp_installed(required: false, type: PropertyType.Boolean, description: "determines if whatsapp is installed on the device")
     }
 
     "/vip/abort"(platform: "/mobile", type: TrackType.Event) {}
@@ -300,7 +308,7 @@ tracks {
                 description: "Item ID"
         )
         from_view(required: false, type: PropertyType.String,
-                values: ["vip", "description", "technicalSpecs", "form", ""],
+                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", ""],
                 description: "Section where it's coming from"
         )
         vertical(required: false, description: "Vertical name over show phone event is displayed")
@@ -315,30 +323,35 @@ tracks {
     }
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
-        category_id(required: false, type: PropertyType.String,
-                description: "Item's category ID"
-        )
-        item_id(required: true, type: PropertyType.String,
-                description: "Item ID"
-        )
-        vertical(required: false, description: "Vertical name over show phone event is displayed")
+        category_id(required: true, type: PropertyType.String, description: "Item's category ID")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        vertical(required: true, description: "Vertical name over show phone event is displayed")
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
-        source(required: false, description: "Source of the referred")
+        event_source(required: true, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
     }
 
+    "/vip/contact_whatsapp"(platform: "/web", type: TrackType.Event) {
+        category_id(required: true, type: PropertyType.String, description: "Item's category ID")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        vertical(required: true, description: "Vertical name over show phone event is displayed")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        event_source(required: true, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+    }
+
+    "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {}
+
     "/vip/show_phone"(platform: "/", type: TrackType.Event) {
-        category_id(required: false, type: PropertyType.String,
-                description: "Item's category ID"
-        )
-        item_id(required: true, type: PropertyType.String,
-                description: "Item ID"
-        )
+        category_id(required: false, type: PropertyType.String, description: "Item's category ID")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
         vertical(required: false, description: "Vertical name over show phone event is displayed")
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
-        source(required: false, description: "Source of the referred")
-        event_source(required: false, description: "source of the event")
     }
 
     "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {}
@@ -346,9 +359,6 @@ tracks {
     "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {}
 
     "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {}
-
-    "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {}
-
 
     "/vip/map/"(platform: "/mobile") {}
 
@@ -554,7 +564,7 @@ tracks {
                 values: ["services"],
                 description: "Vertical of the item")
     }
-    "/vip/free_shipping_cart_available"(platform: "/web", type: TrackType.Event){}
+    "/vip/free_shipping_cart_available"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event){}
 
     // RESERVATION
 
@@ -604,6 +614,20 @@ tracks {
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         vertical(required: false, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        item_status(required: false, type: PropertyType.String, description: "Whenever the items is active, closed or paused")
+        seller_id(required: false, type: PropertyType.Numeric)
+        buying_mode(required: false, type: PropertyType.String, values: ["classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", ""],
+                description: "Section where it's coming from"
+        )
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: false, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_seller_type(required: false, values: ['real_estate_agency'], description: "Seller type: normal, real_estate_user, etc")
     }
 
     "/vip/show_fulfillment_popup"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
@@ -651,19 +675,75 @@ tracks {
     "/vip/shipping_calculator/modify"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
     }
 
-    "/vip/quote_demand_intention"(platform: "/", type: TrackType.Event){
+    "/vip/quote_demand_intention"(platform: "/", type: TrackType.Event) {
         item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
         from_view(required: false, type: PropertyType.String,
                 values: ["vip", "description", "technicalSpecs", "form"],
                 description: "Section where it's coming from"
         )
     }
 
-    "/vip/quote_demand_messages"(platform: "/", type: TrackType.Event){
+    "/vip/quote_demand_messages"(platform: "/", type: TrackType.Event) {
         item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
         from_view(required: false, type: PropertyType.String,
                 values: ["vip", "description", "technicalSpecs", "form"],
                 description: "Section where it's coming from"
         )
     }
+
+    "/vip/public_similar_intention"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        source(required: true, description: "specify the platform and the freemium text type")
+    }
+
+    "/vip/units_available"(platform: "/", type: TrackType.View, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        vertical(required: true, type: PropertyType.String,
+                values: ["realEstate"], description: "Vertical of the item")
+        item_status(required: true, type: PropertyType.String, description: "Whenever the items is active, closed or paused")
+        seller_id(required: true, type: PropertyType.Numeric)
+        buying_mode(required: true, type: PropertyType.String, values: ["classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
+        from_view(required: true, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form", "unitsAvailable", "vipUnitsAvailable", ""],
+                description: "Section where it's coming from"
+        )
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_seller_type(required: true, values: ['real_estate_agency'], description: "Seller type: normal, real_estate_user, etc")
+    }
+
+    "/vip/reservation_intention"(platform: "/", type: TrackType.Event, isAbstract: true){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
+    "/vip/contact_seller/preload"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
+    "/vip/call_seller/preload"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
+    "/vip/reservation_intention/preload"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
 }
