@@ -101,6 +101,9 @@ tracks {
     // Activation Flow
     // MLA => https://www.mercadopago.com.ar/prepaid/activation
     // MLB => https://www.mercadopago.com.br/prepaid/activation
+    "/prepaid/acquisition/has_prepaid"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/no_identity"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/is_collaborator"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/activation/last_digits"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/marital_status"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {}
