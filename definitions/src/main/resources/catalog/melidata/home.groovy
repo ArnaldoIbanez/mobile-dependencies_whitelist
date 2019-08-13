@@ -33,6 +33,10 @@ tracks {
     "/home/back"(platform: "/mobile") {
     }
 
+    "/home/navigation_history"(platform: "/mobile"){
+
+    }
+
     "/home/pulltorefresh"(platform: "/mobile", type: TrackType.Event) {
     }
 

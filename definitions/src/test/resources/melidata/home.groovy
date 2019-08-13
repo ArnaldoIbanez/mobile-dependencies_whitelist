@@ -50,6 +50,8 @@ trackTests {
     test("Home core tracking") {
         "/home"(platform: "/mobile") {}
 
+        "/home/navigation_history"(platform: "/mobile") {}
+
         "/home/abort"(platform: "/mobile") {}
 
         "/home/back"(platform: "/mobile") {}
