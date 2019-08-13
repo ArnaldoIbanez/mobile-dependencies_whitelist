@@ -405,5 +405,13 @@ trackTests {
             picker_id = "COLOR"
             picker_disabled = false
         })
+
+        "/pdp/sellers/page_selection"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            selected_quantity = 1
+            selected_page = 5
+            total_pages = 10
+            total_items = 100
+        })
     }
 }
