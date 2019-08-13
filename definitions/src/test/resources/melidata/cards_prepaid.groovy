@@ -72,6 +72,9 @@ trackTests {
         "/prepaid/acquisition/occupation"(platform: "/mobile", type: TrackType.View) {}
         "/prepaid/acquisition/preview"(platform: "/mobile", type: TrackType.View) {}
         "/prepaid/acquisition/review"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/has_prepaid"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/no_identity"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/is_collaborator"(platform: "/mobile", type: TrackType.View) {}
     }
 
 
