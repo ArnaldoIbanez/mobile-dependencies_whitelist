@@ -326,9 +326,9 @@ tracks {
     "/pdp/sellers/page_selection"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         selected_quantity(required: true, type: PropertyType.Numeric, description: "Quantity of the product that the user is trying to buy or add to cart")
-        selected_page(required: false, type: PropertyType.Numeric, description: "Selected page in PDS")
-        total_pages(required: false, type: PropertyType.Numeric, description: "Total amount of pages in PDS")
-        total_items(required: false, type: PropertyType.Numeric, description: "Total amount of items in PDS")
+        selected_page(required: true, type: PropertyType.Numeric, description: "Selected page in PDS")
+        total_pages(required: true, type: PropertyType.Numeric, description: "Total amount of pages in PDS")
+        total_items(required: true, type: PropertyType.Numeric, description: "Total amount of items in PDS")
     }
 
 }
