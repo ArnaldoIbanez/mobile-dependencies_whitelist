@@ -8,21 +8,18 @@ trackTests {
     test("navigation download app show track") {
         "/navigation/download_app/show"(platform: "/", type: TrackType.View) {
             app_id="web-vip"
-            variant="fixed-bottom-banner"
         }
     }
 
     test("navigation download app close track") {
         "/navigation/download_app/close"(platform: "/", type: TrackType.Event) {
             app_id="web-vip"
-            variant="fixed-bottom-banner"
         }
     }
 
     test("navigation download app download track") {
         "/navigation/download_app/download"(platform: "/", type: TrackType.Event) {
             app_id="web-vip"
-            variant="fixed-bottom-banner"
         }
     }
 }
