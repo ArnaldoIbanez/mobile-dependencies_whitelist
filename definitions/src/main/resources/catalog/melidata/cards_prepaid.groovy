@@ -67,6 +67,8 @@ tracks {
     "/prepaid/acquisition/review"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/review/welcome"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/need_fund"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/dark_side_shield"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/dark_side_shield/cta"(platform:"/", type: TrackType.Event) {}
     "/prepaid/acquisition/congrats"(platform: "/", type: TrackType.View) {
         congrats_type(
             required: true, 
