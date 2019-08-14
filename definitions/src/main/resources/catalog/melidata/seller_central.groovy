@@ -129,6 +129,10 @@ tracks {
 
     "/seller_central/listings/filters"(platform: "/mobile", type: TrackType.View) {}
 
+    "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
+        checkedFilters(required: true, type: PropertyType.ArrayList, description: "Id of the action")
+    }
+
     "/seller_central/listings/filters/action"(platform: "/") {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")

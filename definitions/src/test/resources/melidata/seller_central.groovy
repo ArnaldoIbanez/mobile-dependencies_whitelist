@@ -43,6 +43,12 @@ trackTests {
         "/seller_central/listings/filters"(platform: "/mobile", type: TrackType.View) {}
     }
 
+    test("seller central listing filters view") {
+        "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
+            checkedFilters = ["inactive", "premium"]
+        }
+    }
+
     test("seller central listing filters actions and search") {
         "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
             action = "apply"
