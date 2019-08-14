@@ -133,6 +133,7 @@ catalog {
         include business, "qr_discount.groovy"
         include business, "zip_finder.groovy"
         include business, "current_location.groovy"
+        include business, "download_app.groovy"
         include business, "supermarket.groovy"
         include business, "payers_growth.groovy"
         include business, "contact.groovy"
