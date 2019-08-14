@@ -5,7 +5,6 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
     defaultBusiness = "mercadolibre"
-
     test("navigation download app show track") {
         "/navigation/download_app/show"(platform: "/", type: TrackType.View) {
             app_id="web-vip"
