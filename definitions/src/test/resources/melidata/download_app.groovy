@@ -7,7 +7,7 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("navigation download app show track") {
-        "/navigation/download_app/show"(platform: "/", type: TrackType.Event) {
+        "/navigation/download_app/show"(platform: "/", type: TrackType.View) {
             app_id="web-vip"
             variant="fixed-bottom-banner"
         }
