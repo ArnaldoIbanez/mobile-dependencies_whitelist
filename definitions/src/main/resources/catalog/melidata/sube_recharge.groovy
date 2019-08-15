@@ -7,6 +7,7 @@ tracks {
 "/recharge_sube"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
     }
     "/recharge_sube/first_time_use"(platform: "/mobile") {}
     "/recharge_sube/no_money"(platform: "/mobile") {}
