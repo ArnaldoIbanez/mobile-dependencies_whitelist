@@ -188,6 +188,8 @@ tracks {
         home_version(required: true, type: PropertyType.String)
         is_logged(required: true, type: PropertyType.Boolean)
     }
+
+    "/backend/home/take_over"(platform: "/web", type: TrackType.Event) {}
     
     "/korriban"(platform:"/", type: TrackType.Event){
         component_count(required: true, type: PropertyType.Numeric)
