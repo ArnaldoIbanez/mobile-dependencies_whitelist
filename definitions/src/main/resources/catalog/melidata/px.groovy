@@ -10,11 +10,11 @@ tracks {
         flow(required: false, type: PropertyType.String, description: "External flow name")
         session_id(required: false, type: PropertyType.String, description: "Internal session id")
         collector_id(required: false, description: "Collector external id")
-        biometric_enabled(required: false, type: PropertyType.Boolean, description: "If the user has biometric validation to make a payment")
+        security_enabled(required: false, type: PropertyType.Boolean, description: "If the user has biometric or passcode validation to make a payment")
     }
 
     propertyGroups {
-        externalData(flow, flow_detail, collector_id, session_id, biometric_enabled)
+        externalData(flow, flow_detail, collector_id, session_id, security_enabled)
     }
 
     // Views:
@@ -545,11 +545,6 @@ tracks {
         externalData
     }
     "/px_checkout/result/error/secondary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        externalData
-    }
-    
-    // Biometric security
-    "/px_checkout/security/biometric/cancel"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
 }
