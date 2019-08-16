@@ -10,8 +10,9 @@ tracks {
     */
 
     "/wallet"(platform: "/mobile", isAbstract: true) {}
+    "/wallet/cards"(platform: "/mobile", isAbstract: true) {}
     
-    "/wallet/cards/listing"(platform: "/mobile", type: TrackType.View) { }
+    "/wallet/cards/listing"(platform: "/mobile", type: TrackType.View) {}
 
     // Card detail
     "/wallet/cards/detail"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {}
