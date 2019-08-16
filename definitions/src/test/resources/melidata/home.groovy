@@ -170,14 +170,11 @@ trackTests {
             component_count = 25
         }
         "/backend/home"(platform: "/web/mobile", dataSet)
+        "/backend/home/take_over"(platform: "/web")
         "/korriban"(platform: "/web/desktop", dataSet2)
     }
 
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
-    }
-
-    test("Home server side take over") {
-        "/backend/home/take_over"(platform: "/") {}
     }
 }
