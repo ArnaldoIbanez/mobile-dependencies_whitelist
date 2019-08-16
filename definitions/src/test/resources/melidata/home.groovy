@@ -176,4 +176,8 @@ trackTests {
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
     }
+
+    test("Home server side take over") {
+        "/backend/home/take_over"(platform: "/") {}
+    }
 }
