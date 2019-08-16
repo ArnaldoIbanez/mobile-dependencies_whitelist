@@ -177,5 +177,4 @@ trackTests {
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
     }
-    
 }
