@@ -1,5 +1,5 @@
 import com.ml.melidata.TrackType
-
+import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
@@ -8,7 +8,9 @@ tracks {
     * Singe player billpayments Screen Tracks
     */
 
-    "/single_player/billpayments"(platform: "/mobile", isAbstract: true) {}
+    "/single_player/billpayments"(platform: "/mobile", isAbstract: true) {
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
+    }
 
     "/single_player/billpayments/permissions_rationale"(platform: "/mobile", type: TrackType.View) {}
     "/single_player/billpayments/help"(platform: "/mobile", type: TrackType.View) {}
