@@ -2911,6 +2911,14 @@ trackTests {
             context = "security_settings"
         }
 
+        "/security_settings/password/maxlength"(platform: "/", type: TrackType.Event) {
+            context = "feedback"
+        }
+
+        "/security_settings/password/maxlength"(platform: "/", type: TrackType.Event) {
+            context = "security_settings"
+        }
+
         "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
             context = "forgot"
             delete_sessions = false
