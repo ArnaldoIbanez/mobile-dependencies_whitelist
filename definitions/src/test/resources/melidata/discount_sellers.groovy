@@ -21,4 +21,10 @@ trackTests {
         "/discount_sellers/detail" (platform: "/mobile", type: TrackType.View) {}
     }
 
+    test("Mercadopago discount sellers tap") {
+        "/discount_sellers/tap" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://discount_sellers/detail"
+        }
+    }
+
 }

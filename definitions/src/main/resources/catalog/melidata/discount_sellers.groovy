@@ -14,6 +14,8 @@ tracks {
 
     // Events
     
-
+     "/discount_sellers/tap" (platform: "/mobile", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
+    }
 
 }
