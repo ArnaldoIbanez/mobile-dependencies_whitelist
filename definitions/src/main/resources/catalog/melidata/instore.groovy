@@ -289,7 +289,7 @@ tracks {
         status_detail(required: false, PropertyType.String)
         total_price(required: false, PropertyType.Numeric)
         currency(required: false, PropertyType.String)
-        vending_version(required: false, PropertyType.String)
+        vending_version(required: false, PropertyType.String, description: "sent only by the new version")
     }
     "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/machine_response_state"(platform: "/mobile", type: TrackType.Event) {
@@ -298,7 +298,7 @@ tracks {
     "/instore/vending/st_machine_disconnected"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
         st_machine_connection_error(required: true, PropertyType.String)
-        action(required: false, PropertyType.String)
+        action(required: false, PropertyType.String, description: "action executed at the moment of an error")
     }
     "/instore/vending/st_machine_not_available"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/st_machine_connected"(platform: "/mobile", type: TrackType.Event) {}
