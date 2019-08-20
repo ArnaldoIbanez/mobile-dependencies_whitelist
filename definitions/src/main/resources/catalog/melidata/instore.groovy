@@ -244,7 +244,9 @@ tracks {
     "/instore/waiting/generic_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/generic_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/instore/waiting/vending_product_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/vending_product_selection"(platform: "/mobile", type: TrackType.View) {
+        vending_version(required: false, PropertyType.String, description: "sent only by the new version")
+    }
 
 
     // Shell
