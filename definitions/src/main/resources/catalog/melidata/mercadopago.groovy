@@ -18,6 +18,18 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    checkoutProperties {
+      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
+      product (type: PropertyType.String, required: true, description: "Product identifier")
+      currency (type: PropertyType.String, required: true, description: "ISO Currency")
+      price (type: PropertyType.Numeric, required: true, description: "Price of device")
+      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+    }
+
+    propertyGroups {
+      groupCheckoutProperties(flow_id, product, currency, price, is_guest)
+    }
+
     "/"(platform: "/", isAbstract: true) {
     }
 
@@ -68,7 +80,7 @@ tracks {
     }
 
     "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
-      groupCheckoutProperties(flow_id, product, currency, price, is_guest)
+      groupCheckoutProperties
       has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
       coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
     }
