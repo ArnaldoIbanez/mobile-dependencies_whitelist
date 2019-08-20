@@ -12,6 +12,10 @@ tracks {
     //-----------------
 
     // General Path
+    "/wallet"(platform: "/", type: TrackType.View) {} 
+    "/wallet/cards"(platform: "/", type: TrackType.View) {} 
+    "/wallet/cards/prepaid"(platform: "/", type: TrackType.View) {} 
+
     "/prepaid"(platform: "/", isAbstract: true) {
         user_profile(
             required: false,
@@ -141,6 +145,33 @@ tracks {
             description: "Webview trigger."
         )
     }
+
+    // Prepaid Detail
+    "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Freeze Event
+    "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.Event) {}
+
+    // Prepaid Change Pin
+    "/prepaid/change_pin" (platform: "/", isAbstract: true) {}
+
+    // Prepaid Change Pin Phone Info
+    "/prepaid/change_pin/phone_info" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Change Pin New Pin
+    "/prepaid/change_pin/new_pin" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Change Pin Congrats
+    "/prepaid/change_pin/congrats" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Reissue
+    "/prepaid/reissue" (platform: "/", isAbstract: true) {}
+
+    // Prepaid Reissue inactivate card
+    "/prepaid/reissue/inactivate_card" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Change phone info
+    "/prepaid/reissue/phone_info" (platform: "/", type: TrackType.View) {}
 
     //-----------------
     // PREPAID MLM

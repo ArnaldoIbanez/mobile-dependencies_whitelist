@@ -180,4 +180,19 @@ trackTests {
             from = "/deep_link"
         }
     }
+
+    test ("Prepaid Setup") {
+        "/wallet"(platform: "/", type: TrackType.View) {} 
+        "/wallet/cards"(platform: "/", type: TrackType.View) {} 
+        "/wallet/cards/prepaid"(platform: "/", type: TrackType.View) {} 
+        "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.View) {}
+        "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.Event) {}
+        "/prepaid/change_pin" (platform: "/", type: TrackType.View) {}
+        "/prepaid/change_pin/phone_info" (platform: "/", type: TrackType.View) {}
+        "/prepaid/change_pin/new_pin" (platform: "/", type: TrackType.View) {}
+        "/prepaid/change_pin/congrats" (platform: "/", type: TrackType.View) {}
+        "/prepaid/reissue" (platform: "/", type: TrackType.View) {}
+        "/prepaid/reissue/inactivate_card" (platform: "/", type: TrackType.View) {}
+        "/prepaid/reissue/phone_info" (platform: "/", type: TrackType.View) {}
+    }
 }
