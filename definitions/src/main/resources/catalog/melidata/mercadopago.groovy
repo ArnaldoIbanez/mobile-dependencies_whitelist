@@ -58,90 +58,59 @@ tracks {
     }
 
     "/point/buyingflow"(platform: "/", isAbstract: true) {}
-    "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
+
+    checkoutProperties {
       flow_id (type: PropertyType.String, required: true, description: "Flow ID")
       product (type: PropertyType.String, required: true, description: "Product identifier")
       currency (type: PropertyType.String, required: true, description: "ISO Currency")
       price (type: PropertyType.Numeric, required: true, description: "Price of device")
       is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+    }
+
+    "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties(flow_id, product, currency, price, is_guest)
       has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
       coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
     }
 
     "/point/buyingflow/shippingOptions"(platform: "/", type: TrackType.View) {
-      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-      product (type: PropertyType.String, required: true, description: "Product identifier")
-      currency (type: PropertyType.String, required: true, description: "ISO Currency")
-      price (type: PropertyType.Numeric, required: true, description: "Price of device")
-      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+      groupCheckoutProperties
     }
 
     "/point/buyingflow/newAddress"(platform: "/", type: TrackType.View) {
-      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-      product (type: PropertyType.String, required: true, description: "Product identifier")
-      currency (type: PropertyType.String, required: true, description: "ISO Currency")
-      price (type: PropertyType.Numeric, required: true, description: "Price of device")
-      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+      groupCheckoutProperties
     }
 
     "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
-      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-      product (type: PropertyType.String, required: true, description: "Product identifier")
-      currency (type: PropertyType.String, required: true, description: "ISO Currency")
-      price (type: PropertyType.Numeric, required: true, description: "Price of device")
-      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+      groupCheckoutProperties
     }
     
     "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
-      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-      product (type: PropertyType.String, required: true, description: "Product identifier")
-      currency (type: PropertyType.String, required: true, description: "ISO Currency")
-      price (type: PropertyType.Numeric, required: true, description: "Price of device")
-      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+      groupCheckoutProperties
     }
 
     "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
-      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-      product (type: PropertyType.String, required: true, description: "Product identifier")
-      currency (type: PropertyType.String, required: true, description: "ISO Currency")
-      price (type: PropertyType.Numeric, required: true, description: "Price of device")
-      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+      groupCheckoutProperties
       installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
     }
 
     "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
-      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-      product (type: PropertyType.String, required: true, description: "Product identifier")
-      currency (type: PropertyType.String, required: true, description: "ISO Currency")
-      price (type: PropertyType.Numeric, required: true, description: "Price of device")
-      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+      groupCheckoutProperties
     }
 
     "/point/buyingflow/paymentCardSecurityCode"(platform: "/", type: TrackType.View) {
-      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-      product (type: PropertyType.String, required: true, description: "Product identifier")
-      currency (type: PropertyType.String, required: true, description: "ISO Currency")
-      price (type: PropertyType.Numeric, required: true, description: "Price of device")
-      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+      groupCheckoutProperties
     }
 
     "/point/buyingflow/paymentReview"(platform: "/", type: TrackType.View) {
-      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-      product (type: PropertyType.String, required: true, description: "Product identifier")
-      currency (type: PropertyType.String, required: true, description: "ISO Currency")
-      price (type: PropertyType.Numeric, required: true, description: "Price of device")
-      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+      groupCheckoutProperties
       selected_payment_method_id (type: PropertyType.String, required: false, description: "Selected payment method ID")
       selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
       installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
     }
 
     "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
-      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-      product (type: PropertyType.String, required: true, description: "Product identifier")
-      currency (type: PropertyType.String, required: true, description: "ISO Currency")
-      price (type: PropertyType.Numeric, required: true, description: "Price of device")
-      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+      groupCheckoutProperties
       selected_payment_method_id (type: PropertyType.String, required: false, description: "Selected payment method ID")
       selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
       installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
