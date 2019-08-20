@@ -186,7 +186,8 @@ trackTests {
         "/wallet/cards"(platform: "/", type: TrackType.View) {} 
         "/wallet/cards/prepaid"(platform: "/", type: TrackType.View) {} 
         "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.View) {}
-        "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.Event) {}
+        "/wallet/cards/prepaid/detail/freeze" (platform: "/", type: TrackType.Event) {}
+        "/wallet/cards/prepaid/detail/unfreeze" (platform: "/", type: TrackType.Event) {}
         "/prepaid/change_pin" (platform: "/", type: TrackType.View) {}
         "/prepaid/change_pin/phone_info" (platform: "/", type: TrackType.View) {}
         "/prepaid/change_pin/new_pin" (platform: "/", type: TrackType.View) {}

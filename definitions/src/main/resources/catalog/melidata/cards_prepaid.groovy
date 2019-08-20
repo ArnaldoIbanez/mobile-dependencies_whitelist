@@ -150,7 +150,10 @@ tracks {
     "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.View) {}
 
     // Prepaid Freeze Event
-    "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.Event) {}
+    "/wallet/cards/prepaid/detail/freeze" (platform: "/", type: TrackType.Event) {}
+
+    // Prepaid Unfreeze Event
+    "/wallet/cards/prepaid/detail/unfreeze" (platform: "/", type: TrackType.Event) {}
 
     // Prepaid Change Pin
     "/prepaid/change_pin" (platform: "/", isAbstract: true) {}
