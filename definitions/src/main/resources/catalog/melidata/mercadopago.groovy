@@ -18,7 +18,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    checkoutProperties {
+    propertyDefinitions {
       flow_id (type: PropertyType.String, required: true, description: "Flow ID")
       product (type: PropertyType.String, required: true, description: "Product identifier")
       currency (type: PropertyType.String, required: true, description: "ISO Currency")
