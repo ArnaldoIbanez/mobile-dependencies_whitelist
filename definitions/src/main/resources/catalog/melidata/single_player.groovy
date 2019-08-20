@@ -67,7 +67,9 @@ tracks {
     /**
     * Singe player Antenna Screen Tracks
     */
-    "/single_player/antenna"(platform: "/mobile", isAbstract: true) {}
+    "/single_player/antenna"(platform: "/mobile", isAbstract: true) {
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
+    }
 
     "/single_player/antenna/manual_input"(platform: "/mobile", type: TrackType.View) {
         company (required: false, description: "Name of the company")
