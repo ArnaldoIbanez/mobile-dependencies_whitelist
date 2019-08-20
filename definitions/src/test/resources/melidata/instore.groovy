@@ -746,6 +746,126 @@ trackTests {
             total_price = 130
             currency = "ARS"
         }
+
+        // Vending - 3
+        "/instore/waiting/vending_product_selection"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            vending_version = "3"
+        }
+        "/instore/vending/st_machine_disconnected"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
+            vending_version = "3"
+        }
+        "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
+            vending_version = "3"
+        }
+        "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            st_machine_connection_error = "Any machine error"
+            vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
+            vending_version = "3"
+            action = "connect"
+        }
+        "/instore/vending/machine_response_state"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            machine_response_state = "available"
+            vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
+            vending_version = "3"
+        }
+        "/instore/vending/st_machine_not_available"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
+            vending_version = "3"
+        }
+        "/instore/vending/st_machine_connected"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
+            vending_version = "3"
+        }
+        "/instore/vending/response_end_transaction"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            vending_id = "12345"
+            end_transaction_status = "success"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            item_price = 130
+            total_price = 130
+            currency = "ARS"
+            vending_version = "3"
+        }
+
         "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
             currency_id = "ARS"
             statement_descriptor = "WWW.MERCADOPAGO.COM"
@@ -1490,6 +1610,125 @@ trackTests {
             item_price = 130
             total_price = 130
             currency = "ARS"
+        }
+
+        // Vending - 3
+        "/instore/waiting/vending_product_selection"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            vending_version = "3"
+        }
+        "/instore/vending/st_machine_disconnected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
+            vending_version = "3"
+        }
+        "/instore/vending/machine_response_final_result"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
+            vending_version = "3"
+        }
+        "/instore/vending/st_machine_connection_error"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            st_machine_connection_error = "Any machine error"
+            vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
+            vending_version = "3"
+            action = "connect"
+        }
+        "/instore/vending/machine_response_state"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            machine_response_state = "available"
+            vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
+            vending_version = "3"
+        }
+        "/instore/vending/st_machine_not_available"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
+            vending_version = "3"
+        }
+        "/instore/vending/st_machine_connected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            vending_id = "12345"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            total_price = 15
+            currency = "ARS"
+            vending_version = "3"
+        }
+        "/instore/vending/response_end_transaction"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            vending_id = "12345"
+            end_transaction_status = "success"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            external_reference = "nicaragua2"
+            id = 4315937273
+            status = "approved"
+            status_detail = "accredited"
+            item_price = 130
+            total_price = 130
+            currency = "ARS"
+            vending_version = "3"
         }
 
         // Waiting
