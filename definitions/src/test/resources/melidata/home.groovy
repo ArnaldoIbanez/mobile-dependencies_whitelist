@@ -12,7 +12,7 @@ trackTests {
             from="breadcrumb"
         }
     }
-    
+
      test("Home Navigation") {
         "/home/navigation"(platform: "/", type: TrackType.View) {}
     }
@@ -170,11 +170,12 @@ trackTests {
             component_count = 25
         }
         "/backend/home"(platform: "/web/mobile", dataSet)
-        "/backend/home/take_over"(platform: "/web") {}
+        "/home/backend/take_over"(platform: "/web") {}
         "/korriban"(platform: "/web/desktop", dataSet2)
     }
 
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
     }
+
 }
