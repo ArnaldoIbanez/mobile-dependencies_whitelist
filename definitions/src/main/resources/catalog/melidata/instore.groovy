@@ -278,17 +278,18 @@ tracks {
 
     // Vending
     "/instore/vending"(platform: "/mobile", isAbstract: true) {
-        collector_id(required: true, PropertyType.String)
+        collector_id(required: false, PropertyType.String)
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
-        vending_id(required: true, PropertyType.String)
-        external_reference(required: true, PropertyType.String)
-        id(required: true, PropertyType.Numeric)
-        status(required: true, PropertyType.String)
-        status_detail(required: true, PropertyType.String)
-        total_price(required: true, PropertyType.Numeric)
-        currency(required: true, PropertyType.String)
+        vending_id(required: false, PropertyType.String)
+        external_reference(required: false, PropertyType.String)
+        id(required: false, PropertyType.Numeric)
+        status(required: false, PropertyType.String)
+        status_detail(required: false, PropertyType.String)
+        total_price(required: false, PropertyType.Numeric)
+        currency(required: false, PropertyType.String)
+        vending_version(required: false, PropertyType.String)
     }
     "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/machine_response_state"(platform: "/mobile", type: TrackType.Event) {
@@ -297,6 +298,7 @@ tracks {
     "/instore/vending/st_machine_disconnected"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
         st_machine_connection_error(required: true, PropertyType.String)
+        action(required: false, PropertyType.String)
     }
     "/instore/vending/st_machine_not_available"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/st_machine_connected"(platform: "/mobile", type: TrackType.Event) {}
