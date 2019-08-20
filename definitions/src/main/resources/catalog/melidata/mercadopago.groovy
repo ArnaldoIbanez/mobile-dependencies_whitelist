@@ -71,14 +71,6 @@ tracks {
 
     "/point/buyingflow"(platform: "/", isAbstract: true) {}
 
-    checkoutProperties {
-      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-      product (type: PropertyType.String, required: true, description: "Product identifier")
-      currency (type: PropertyType.String, required: true, description: "ISO Currency")
-      price (type: PropertyType.Numeric, required: true, description: "Price of device")
-      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
-    }
-
     "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
       has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
