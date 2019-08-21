@@ -193,9 +193,11 @@ tracks {
         is_logged(required: true, type: PropertyType.Boolean)
     }
 
-    "/home/backend/take_over"(platform: "/web", type: TrackType.Event) {}
-
     "/korriban"(platform:"/", type: TrackType.Event){
         component_count(required: true, type: PropertyType.Numeric)
     }
+
+    "/home/backend"(platform: "/", type: TrackType.Event, isAbstract : true) {}
+
+    "/home/backend/take_over"(platform: "/web", type: TrackType.Event) {}
 }
