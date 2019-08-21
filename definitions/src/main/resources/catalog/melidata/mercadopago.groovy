@@ -105,7 +105,6 @@ tracks {
 
     "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
       groupCheckoutProperties
-      installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
     }
 
     "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
@@ -118,6 +117,18 @@ tracks {
 
     "/point/buyingflow/paymentReview"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
+      selected_payment_method_id (type: PropertyType.String, required: false, description: "Selected payment method ID")
+      selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
+      installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
+    }
+
+    "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
+      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
+      type (type: PropertyType.String, required: true, description: "Error type")
+    }
+
+    "/point/buyingflow/paymentRejected"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
       selected_payment_method_id (type: PropertyType.String, required: true, description: "Selected payment method ID")
       selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
       installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
@@ -125,9 +136,6 @@ tracks {
 
     "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
       groupCheckoutProperties
-      selected_payment_method_id (type: PropertyType.String, required: true, description: "Selected payment method ID")
-      selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
-      installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
     }
 
     "/point"(platform: "/", isAbstract: true) {}

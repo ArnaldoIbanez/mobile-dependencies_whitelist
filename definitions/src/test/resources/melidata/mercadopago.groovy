@@ -565,7 +565,6 @@ trackTests {
           currency = "ARS"
           price = 299
           is_guest = true
-          installments = 6
         }
 
         "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
@@ -595,7 +594,7 @@ trackTests {
           installments = 6
         }
 
-        "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
+        "/point/buyingflow/paymentRejected"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -604,6 +603,19 @@ trackTests {
           selected_payment_method_id = "tarshop"
           selected_payment_method_type = "credit_card"
           installments = 6
+        }
+        
+        "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          type = "error: Session ended"
+        }
+
+        "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
         }
     }
 
