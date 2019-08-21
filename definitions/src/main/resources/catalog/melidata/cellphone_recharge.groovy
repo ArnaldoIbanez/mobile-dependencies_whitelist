@@ -64,6 +64,16 @@ tracks {
     "/cellphone_recharge/error"(platform: "/web", type: TrackType.View) {}
     "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {}
 
+    // Recharge Marketing landing 
+    "/cellphone_recharge/mkt_landing"(platform: "/web", type: TrackType.View) {}
+    "/cellphone_recharge/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {}
+    "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
+        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
+    }
+    "/cellphone_recharge/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
+    }
+
     "/set_telephone_number"(platform: "/mobile", isAbstract: true){
         category(required: true, type: PropertyType.String, description: "Event Category")
         label(required: false, type: PropertyType.String, description: "Optional Description")
