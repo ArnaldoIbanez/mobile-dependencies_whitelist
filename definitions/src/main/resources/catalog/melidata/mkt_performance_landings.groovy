@@ -23,7 +23,7 @@ tracks {
     // Transport Landing
     "/mkt_performance_landing/transport"(platform: "/web", type: TrackType.View) {}
     "/mkt_performance_landing/transport/sms"(platform: "/web", type: TrackType.Event) {}
-    "/mkt_performance_landing/transport/copy-clipboard"(platform: "/web", type: TrackType.Event) {
+    "/mkt_performance_landing/transport/copy-clipboard"(platform: "/web", type: TrackType.Event) { 
         position (require: true, type: PropertyType.string, values: ["coupon", "steps"], description: "Indicates position of copy button")
     }
     "/mkt_performance_landing/transport/button"(platform: "/web", type: TrackType.Event) {
