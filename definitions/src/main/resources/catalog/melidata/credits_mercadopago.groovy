@@ -157,7 +157,7 @@ tracks {
         )
         status(
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'on_time', 
                 'overdue', 
