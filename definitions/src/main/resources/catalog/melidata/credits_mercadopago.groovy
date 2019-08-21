@@ -38,12 +38,106 @@ tracks {
 
     //Dashboard
     "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {
+        offers(
+            type: PropertyType.ArrayList(
+                PropertyType.Map(
+                    product_type(
+                        required: false, 
+                        type: PropertyType.String,
+                        values: [
+                            'fixed_term',
+                            'express_money',
+                            'sales_percentage'
+                        ]
+                    )
+                    segment(
+                        required: false, 
+                        type: PropertyType.String,
+                        values: [
+                            'online',
+                            'in_store'
+                        ]
+                    )
+                    offer_type(
+                        required: false, 
+                        type: PropertyType.String,
+                        values: [
+                            'early_offer',
+                            'full_offer'
+                        ]
+                    )
+                    is_first_offer(
+                        required: false, 
+                        type: PropertyType.Boolean
+                    )
+                )
+            ),
+            required: false,
+            inheritable: false
+        )
+        products(
+            type: PropertyType.ArrayList(
+                PropertyType.Map(
+                    product_type(
+                        required: false, 
+                        type: PropertyType.String,
+                        values: [
+                            'fixed_term',
+                            'express_money',
+                            'sales_percentage'
+                        ]
+                    )
+                    status(
+                        required: false, 
+                        type: PropertyType.String,
+                        values: [
+                            'on_time',
+                            'overdue'
+                        ]
+                    )
+                    segment(
+                        required: false, 
+                        type: PropertyType.String,
+                        values: [
+                            'online',
+                            'in_store'
+                        ]
+                    )
+                    category(
+                        required: false, 
+                        type: PropertyType.String,
+                        values: [
+                            'regular',
+                            'refinance'
+                        ]
+                    )
+                    offer_type(
+                        required: false, 
+                        type: PropertyType.String,
+                        values: [
+                            'early_offer',
+                            'full_offer'
+                        ]
+                    )
+                )
+            ),
+            required: false,
+            inheritable: false
+        )
+        show_widget(
+            type: PropertyType.Boolean, 
+            required: false, 
+            inheritable: false            
+        )
+
+        // Included in products properties. Deprecate after new web admin, check native first
         status(
             type: PropertyType.String, 
-            required: true, 
+            required: false, 
             values: [
                 'on_time', 
-                'overdue'
+                'overdue',
+                'empty'
             ], 
             inheritable: false
         )
@@ -51,21 +145,242 @@ tracks {
 
     //Detail
     "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {
+        product_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'fixed_term', 
+                'express_money', 
+                'sales_percentage'
+            ],
+            inheritable: false
+        )
         status(
-                type: PropertyType.String,
-                required: true,
-                values: ['on_time', 'overdue', 'finished'],
-                inheritable: false
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'on_time', 
+                'overdue', 
+                'finished'
+            ],
+            inheritable: false
+        )
+        segment(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'online', 
+                'in_store'
+            ],
+            inheritable: false
+        )
+        category(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'regular', 
+                'refinance'
+            ],
+            inheritable: false
+        )
+        offer_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'early_offer',
+                'full_offer'
+            ],
+            inheritable: false
         )
     }
 
-    "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/administrator/detail/conditions"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {
+        reason(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+    }
+    
+    "/credits/merchant/administrator/detail/conditions"(platform: "/", type: TrackType.View) {
+        product_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'fixed_term', 
+                'express_money',
+                'sales_percentage'
+            ],
+            inheritable: false
+        )
+        status(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'on_time', 
+                'overdue', 
+                'finished'
+            ],
+            inheritable: false
+        )
+        segment(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'online', 
+                'in_store'
+            ],
+            inheritable: false
+        )
+        category(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'regular', 
+                'refinance'
+            ],
+            inheritable: false
+        )
+        offer_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'early_offer', 
+                'full_offer'
+            ],
+            inheritable: false
+        )
+    }
+
+    "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/", type: TrackType.Event) {
+        product_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'fixed_term', 
+                'express_money', 
+                'sales_percentage'
+            ],
+            inheritable: false
+        )
+        status(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'on_time', 
+                'overdue', 
+                'finished'
+            ],
+            inheritable: false
+        )
+        segment(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'online', 
+                'in_store'
+            ],
+            inheritable: false
+        )
+        category(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'regular', 
+                'refinance'
+            ],
+            inheritable: false
+        )
+        offer_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'early_offer', 
+                'full_offer'
+            ],
+            inheritable: false
+        )
+    }
 
     //Voluntary Payment
-    "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
+        product_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'fixed_term', 
+                'express_money', 
+                'sales_percentage'
+            ],
+            inheritable: false
+        )
+        segment(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'online', 
+                'in_store'
+            ],
+            inheritable: false
+        )
+        category(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'regular', 
+                'refinance'
+            ],
+            inheritable: false
+        )
+        offer_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'early_offer', 
+                'full_offer'
+            ],
+            inheritable: false
+        )
+    }
+    "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {
+        product_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'fixed_term', 
+                'express_money', 
+                'sales_percentage'
+            ],
+            inheritable: false
+        )
+        segment(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'online', 
+                'in_store'
+            ],
+            inheritable: false
+        )
+        category(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'regular', 
+                'refinance'
+            ],
+            inheritable: false
+        )
+        offer_type(
+            type: PropertyType.String,
+            required: false,
+            values: ['
+                early_offer', 
+                'full_offer'
+            ],
+            inheritable: false
+        )
+    }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String, 
@@ -74,7 +389,45 @@ tracks {
                 'insufficient_account_money',
                 'lender_cannot_collect_installments',
                 'default'
-            ]
+            ],
+            inheritable: false
+        )
+        product_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'fixed_term', 
+                'express_money', 
+                'sales_percentage'
+            ],
+            inheritable: false
+        )
+        segment(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'online', 
+                'in_store'
+            ],
+            inheritable: false
+        )
+        category(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'regular', 
+                'refinance'
+            ],
+            inheritable: false
+        )
+        offer_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'early_offer', 
+                'full_offer'
+            ],
+            inheritable: false
         )
     }
 
@@ -331,7 +684,8 @@ tracks {
                 -27, 
                 -7, 
                 -5, 
-                -2, 
+                -2,
+                0,
                 3, 
                 6, 
                 10, 
@@ -351,7 +705,11 @@ tracks {
                 'expired_daily_charges', 
                 'congrats_debit_installment', 
                 'congrats_credited_loan', 
-                'congrats_pending'
+                'congrats_pending',
+                'em_congrats_credited_loan',
+                'em_congrats_debit_installment',
+                'em_insufficient_funds',
+                'em_expired_daily_charges'
             ]
         )
     }
