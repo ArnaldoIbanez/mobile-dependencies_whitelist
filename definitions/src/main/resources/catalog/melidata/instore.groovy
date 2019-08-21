@@ -308,6 +308,9 @@ tracks {
         end_transaction_status(required: true, PropertyType.String)
         item_price(required: false, PropertyType.Numeric)
     }
+    "/instore/vending/response_end_transaction_failed"(platform: "/mobile", type: TrackType.Event) {
+        description(required: true, PropertyType.String)
+    }
 
 
     // Post Payment
