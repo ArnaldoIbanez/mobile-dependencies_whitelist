@@ -43,6 +43,12 @@ trackTests {
         "/seller_central/listings/filters"(platform: "/mobile", type: TrackType.View) {}
     }
 
+    test("seller central listing filters view") {
+        "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
+            checkedFilters = ["inactive", "premium"]
+        }
+    }
+
     test("seller central listing filters actions and search") {
         "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
             action = "apply"
@@ -338,6 +344,19 @@ trackTests {
     test("seller central offline warning and error") {
         "/seller_central/bulk/discounts/offline/download/warning"(platform: "/", type: TrackType.Event) {}
         "/seller_central/bulk/discounts/offline/download/error"(platform: "/", type: TrackType.Event) {}
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central BULK Publish
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    test("seller central bulk publish document generation"){
+        "/seller_central/bulk/publish/document/generate"(platform: "/web/desktop", type: TrackType.Event){
+            categories = ["Celulares y Smartphones"]
+            failed_categories = ["Dell"]
+            session_id = "440217811-test-aa3297543963"
+            document_name = "document-name-test.xlsx"
+        }
+
     }
 
 
@@ -690,7 +709,7 @@ trackTests {
             session_id = "123-update-abc123"
         }
     }
-    
+
     test("structured data hidden attributes (open)"){
         "/seller_central/modify/technical_specifications/hidden_attributes/open"(platform: "/", type: TrackType.Event){
             session_id = "123-update-abc123"
@@ -728,7 +747,7 @@ trackTests {
             type = "CONFIRM"
         }
     }
-    
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central settings
     //------------------------------------------------------------------------------------------------------------------------------------------------------

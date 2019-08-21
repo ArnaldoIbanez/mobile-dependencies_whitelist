@@ -27,6 +27,8 @@ tracks {
         context(type: PropertyType.String, required: true, description: "Point of access of change password view")
     }
 
+    "/security_settings/password/maxlength"(platform: "/", type: TrackType.Event) {}
+
     "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
         delete_sessions(type: PropertyType.Boolean, required: true, description: "Whether the user chose to delete sessions or not")
         lowend(type: PropertyType.Boolean, required: false, description: "Whether the user accessed from a lowend device or not")

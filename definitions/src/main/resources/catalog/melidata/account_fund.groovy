@@ -64,7 +64,9 @@ tracks {
         result_status (required:false, description: "Operation result status") // Change in the future with required true
         result_type (required:false, description: "Operation result type")
     }
-
+    
+    "/account_fund/cvu/pending"(platform: "/", type: TrackType.View) {}
+    
     "/account_fund/cvu/main/instructions"(platform: "/", type: TrackType.Event) {}
     "/account_fund/cvu/main/bank_selection"(platform: "/", type: TrackType.View) {}
     "/account_fund/cvu/main/bank_selection/select"(platform: "/", type: TrackType.Event) {

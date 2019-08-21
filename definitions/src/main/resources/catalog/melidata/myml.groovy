@@ -348,6 +348,7 @@ tracks {
         price(required: false, description: "Item price", type: PropertyType.Numeric)
         category_id(required: true, description: "Item category_id")
         category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree")
+        has_whatsapp(required: false, type: PropertyType.Boolean, description: "Determine if the item has whatsapp")
 
         // Category sugestion
         suggested_category_id(required: false, description: "Category id suggested")

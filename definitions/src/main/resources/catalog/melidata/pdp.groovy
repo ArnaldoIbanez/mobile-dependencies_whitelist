@@ -136,6 +136,9 @@ tracks {
 
         // USER FIELD
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+
+        // FILTERS
+        filters(required: false, type: PropertyType.Map(PropertyType.String, PropertyType.String), description: "Filters applied to get buy box winner")
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {

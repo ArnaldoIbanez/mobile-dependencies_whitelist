@@ -18,6 +18,18 @@ import com.ml.melidata.TrackType
 /**/
 tracks {
 
+    propertyDefinitions {
+      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
+      product (type: PropertyType.String, required: true, description: "Product identifier")
+      currency (type: PropertyType.String, required: true, description: "ISO Currency")
+      price (type: PropertyType.Numeric, required: true, description: "Price of device")
+      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+    }
+
+    propertyGroups {
+      groupCheckoutProperties(flow_id, product, currency, price, is_guest)
+    }
+
     "/"(platform: "/", isAbstract: true) {
     }
 
@@ -68,17 +80,62 @@ tracks {
     }
 
     "/point/buyingflow"(platform: "/", isAbstract: true) {}
-    "/point/buyingflow/init"(platform: "/", type: TrackType.View) {
-      step (type: PropertyType.String, required: true, description: "Initial step")
-      flow_id (type: PropertyType.String, required: true, description: "Flow id.")
-      product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
-      currency (type: PropertyType.String, required: true, description: "Currency")
-      price (type: PropertyType.Numeric, required: true, description: "Price of device")
+
+    "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
       has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
       coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
-      coupon_type (type: PropertyType.String, required: false, values: ["default", "mgm", "campaign"], description: "Kind of MGM Coupon: default | mgm | campaign")
-      discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
-      price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
+    }
+
+    "/point/buyingflow/shippingOptions"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/newAddress"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+    
+    "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/paymentCardSecurityCode"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/paymentReview"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+      selected_payment_method_id (type: PropertyType.String, required: false, description: "Selected payment method ID")
+      selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
+      installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
+    }
+
+    "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
+      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
+      type (type: PropertyType.String, required: true, description: "Error type")
+    }
+
+    "/point/buyingflow/paymentRejected"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+      selected_payment_method_id (type: PropertyType.String, required: true, description: "Selected payment method ID")
+      selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
+      installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
+    }
+
+    "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
+      groupCheckoutProperties
     }
 
     "/point"(platform: "/", isAbstract: true) {}
@@ -971,6 +1028,7 @@ tracks {
      "/digital_goods"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
     }
     "/digital_goods/list"(platform: "/mobile") {}
     "/digital_goods/no_money"(platform: "/mobile") {}
