@@ -6,6 +6,14 @@ import com.ml.melidata.TrackType
 
 
 tracks {
+    propertyDefinitions {        
+        installments_qty( type: PropertyType.Numeric, required: true, description: "The total number of installments to pay")
+    }
+
+     propertyGroups {
+        installments_group(installments_qty)
+    }
+
     defaultBusiness = "mercadolibre"
 
     "/"(platform: "/web", isAbstract: true) {
@@ -20,6 +28,7 @@ tracks {
     "/credits/consumer/myml"(platform: "/", isAbstract: true) {}
     "/credits/consumer/myml/summary"(platform: "/", isAbstract: true) {}
     "/credits/consumer/my_account"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -63,6 +72,22 @@ tracks {
     /******************************************
      *       End: Consumers Public Landings
      ******************************************/
+
+    /***********************************************
+     *       Start: Consumers Intermediate Landing
+     ***********************************************/
+    //Intermediate Landing
+
+    //Page view
+    "/credits/consumer/opensea/intermediate_landing"(platform: "/mobile", type: TrackType.View) {}
+
+    //Events
+    "/credits/consumer/opensea/intermediate_landing/more_info"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/opensea/intermediate_landing/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+    /*********************************************
+     *       End: Consumers Intermediate Landing
+     *********************************************/
 
     /******************************************
      *       Start: Consumers Administrator
@@ -118,6 +143,9 @@ tracks {
     "/credits/consumer/administrator/summary/get_help"(platform: "/", type: TrackType.Event) {
         summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: false, values: ["empty_state", "on_time", "overdue"])
     }
+    "/credits/consumer/administrator/summary/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
+        summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: false, values: ["empty_state", "on_time", "overdue"])
+    }
     "/credits/consumer/administrator/summary/get_educative"(platform: "/", type: TrackType.Event) {
     }
 
@@ -126,16 +154,21 @@ tracks {
     //Page Views
     "/credits/consumer/administrator_v2"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
-        dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+        dashboard_status(
+                            required: true, 
+                            description: "Current status of the Dashboard", 
+                            type: PropertyType.String, 
+                            values: [ 
+                                        "empty_state", 
+                                        "on_time", 
+                                        "overdue"
+                                    ]
+                        )
     }
 
     //Events
     "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/", type: TrackType.Event) {
-        installments_qty(
-                type: PropertyType.Numeric,
-                required: true,
-                description: "The total number of installments to pay"
-        )
+        installments_group
     }
     "/credits/consumer/administrator_v2/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/choose_installments"(platform: "/", type: TrackType.Event) {}
@@ -144,6 +177,18 @@ tracks {
     "/credits/consumer/administrator_v2/educational_landing"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/suggested_product"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/home"(platform: "/", type: TrackType.Event) {}
+
+    //Mobile Events 
+    "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
+        installments_group
+    }
+    "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {}
+
 
     //Admin History (Compras Finalizadas)
 
@@ -192,7 +237,7 @@ tracks {
     "/credits/consumer/administrator/detail/see_loan_conditions"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/see_tac"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/see_voucher"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/administrator/detail/see_ccb"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/detail/see_contract"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/download_plan"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/get_help"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/purchase_detail"(platform: "/", type: TrackType.Event) {}
@@ -252,9 +297,12 @@ tracks {
      *       Start: Consumers Installment Selection Page
      ****************************************************/
 
-    //Page Views
+    //Views
     "/credits/consumer/administrator_v2/installment_selection"(platform: "/", type: TrackType.View) {
-        page_status(type: PropertyType.String, required: true, values: ["on_time", "overdue"], inheritable: false)
+        page_status(type: PropertyType.String, required: true, values: ["empty_state","on_time", "overdue"], inheritable: false)
+    }
+    "/credits/consumer/administrator_v2/installment_selection"(platform: "/mobile", type: TrackType.View) {
+        page_status(type: PropertyType.String, required: true, values: ["empty_state","on_time", "overdue"])
     }
 
     //Events
@@ -268,6 +316,13 @@ tracks {
                 type: PropertyType.Numeric,
                 required: true,
                 description: "The selected number of installments to pay"
+        )
+    }
+        "/credits/consumer/administrator_v2/installment_selection/secondary_payment_intention"(platform: "/", type: TrackType.Event) {
+        total_installments(
+                type: PropertyType.Numeric,
+                required: true,
+                description: "The total number of payable installments"
         )
     }
     "/credits/consumer/administrator_v2/installment_selection/back_to_dashboard"(platform: "/", type: TrackType.Event) {
@@ -295,6 +350,9 @@ tracks {
     //Congrats
     "/credits/consumer/enrollment/congrats"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/enrollment/congrats/buy"(platform: "/", type: TrackType.Event) {}
+
+    //BreakingLanding
+    "/credits/consumer/breaking_landing"(platform: "/", type: TrackType.View) {}
 
     /******************************************
      *       End: Consumers Enrollment
@@ -517,6 +575,52 @@ tracks {
 
     /******************************************
      *    End: Consumers Enhance Adoption
+     ******************************************/
+
+    /******************************************
+     *   Start: Personal Loans Adoption
+     ******************************************/
+    "/credits/consumer/personal"(platform: "/mobile", type: TrackType.View) {}
+
+    "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
+        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: true)
+    }
+
+    "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
+        page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
+    }
+
+    "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/onboarding/close"(platform: "/mobile", type: TrackType.Event) {
+        page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
+    }
+
+    "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {}
+
+    "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/review"(platform: "/mobile", type: TrackType.View) {}
+
+    "/credits/consumer/personal/adoption/review/general_terms"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/review/particular_terms"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/review/above_confirm"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/review/below_confirm"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
+        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
+        status(description: "Status of the user prepaid", type: PropertyType.String, required: true, values: ["no_prepaid", "prepaid_enabled", "prepaid_disabled"])
+    }
+
+    "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
+
+    /******************************************
+     *   End: Personal Loans Adoption
      ******************************************/
 
     /******************************************

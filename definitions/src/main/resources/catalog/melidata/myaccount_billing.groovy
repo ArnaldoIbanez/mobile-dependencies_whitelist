@@ -8,12 +8,18 @@ tracks {
     //Myaccount_Billing
     "/myaccount"(type: TrackType.View, isAbstract: true) {}
     "/myaccount/billing"(type: TrackType.View, isAbstract: true) {}
+    "/myaccount/billing/summary"(type: TrackType.View) {
+        bills_to_pay(type: PropertyType.Numeric, required: true)
+        total_debt(type: PropertyType.Numeric, required: true)
+        has_automatic_debit(type: PropertyType.Boolean, required: true)
+        completed(type: PropertyType.Boolean, required: true)
+
+    }
     "/myaccount/billing/detail"(type: TrackType.View) {
-        userId(type: PropertyType.Numeric, required: true)
-        openedBill(type: PropertyType.Boolean, required: false)
-        siteId(type: PropertyType.String, required: false)
+        opened_bill(type: PropertyType.Boolean, required: false)
     }
 
     "/myaccount/billing/detail/collapsible"(type: TrackType.Event) {
+        row_type(type: PropertyType.String, required: true)
     }
 }

@@ -145,6 +145,9 @@ tracks {
         total_amount_including_garex(required: false, type: PropertyType.Numeric, description: 'Total amount (include garex if applies)')
         garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'User selects a warranty option')
         stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
+
+        //Router
+        checkout_flow_reason(required: false, type: PropertyType.String, description:"Reason why the purchase went through cart flow or direct flow" )
     }
 
     /*
@@ -242,6 +245,15 @@ tracks {
     }
 
     "/checkout/shipping"(platform: "/", type: TrackType.View) {
+    }
+
+    //First Visit
+    //Page
+    "/checkout/shipping/address_profile"(platform: "/", type: TrackType.View) {}
+
+    //Event
+    "/checkout/shipping/address_profile/delivered_time"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+       label(required: false, type: PropertyType.String)
     }
 
     //Fallback/Custom shipping
@@ -387,6 +399,7 @@ tracks {
         success(required: false, type: PropertyType.Boolean)
         error_codes(required: false, type: PropertyType.ArrayList)
     }
+    "/checkout/shipping/location/new_contact/back"(platform: "/mobile", type: TrackType.Event) {}
 
     //Select address
     "/checkout/shipping/select_address"(platform: "/") {
@@ -583,6 +596,7 @@ tracks {
         //      without_fee: true
         //    ]
     }
+    "/checkout/payment/consumer_credits/installments/back"(platform: "/mobile", type: TrackType.Event) {}
     // payment promotions screen. Eg: bank promos in MLA
     "/checkout/payment/promotions"(platform: "/mobile") {}
 
@@ -613,6 +627,15 @@ tracks {
     "/checkout/payment/invalid_coupon"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/payment/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
+
+    // Step Curp Credits MLM
+    "/checkout/payment/curp"(platform:"/", type: TrackType.View) {}
+    "/checkout/payment/curp/not_my_curp"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/curp/view_authorization"(platform:"/", type: TrackType.Event) {}
+
+    //Credits Review
+    "/checkout/review/credits_cover"(platform:"/", type: TrackType.Event) {}
+    "/checkout/review/credits_terms_and_conditions"(platform:"/", type: TrackType.Event) {}
 
     // ESC: Enter the Sec Code to generate an Encrypted Security Code
     "/checkout/payment/encrypted_security_code_add"(platform:"/mobile") {}
@@ -758,6 +781,8 @@ tracks {
         status(required: false, type: PropertyType.String)
         purchase_status(required: false, type: PropertyType.String, values: ["payment_required", "payment_in_process", "partially_paid", "paid", "pending_cancel", "cancelled", "confirmed"], description: "Status of the purchase")
         purchase_id(required: false, type: PropertyType.Numeric, description: "Id of the purchase")
+        buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
+        loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
     }
 
     "/checkout/congrats/recommendations"(platform: "/", type: TrackType.View) {}

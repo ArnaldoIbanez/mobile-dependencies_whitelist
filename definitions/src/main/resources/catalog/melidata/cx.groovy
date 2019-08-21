@@ -20,6 +20,17 @@ tracks {
             description: "Indicates if the current hub has channels enabled and why it hasn't")
         portal_content_id(required: true, type: PropertyType.Numeric,
             description: "Indicates the id of the content shown on the page")
+        portal_content_type(
+            required: false,
+            type: PropertyType.String,
+            values: [
+                    "HOME", // Initial view with contentes rendered by the current context
+                    "FOLDER", // Content that contains another contents
+                    "RENDER", // Content that shows information, and maybe buttons to another contents or to talk with CX
+                    "REDIRECT", // Content that allows to go outside the cx help
+                    "SHOW_CONTACT" // Content that only has buttons to talk with CX
+                ],
+            description: "Indicates if it's a a simple content, a content with contact links to CX, etc. It's optional just because the migration to the new cx portal has several iterative steps, it's just starting. It we'll be mandatory in the future")
         portal_source_id(required: true, type: PropertyType.Numeric,
             description: "Indicates the source ID for the current page")
         portal_problem_id(required: false, type: PropertyType.Numeric,
@@ -28,155 +39,84 @@ tracks {
             description: "Indicates if the current content has any channels configured")
         portal_form_id(required: true, type: PropertyType.Numeric, 
             description: "Indicates the id of the form shown")
-        user_type(required: true, 
-            description: "The type of User that opened the page", 
-            values: ["car_dealer", "normal", "real_estate_agency", "branch", "franchise", "brand", "unknown"])
-        reputation_level(required: false, type: PropertyType.String,
-            values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
-            description: "Seller's reputation level")
-        seller_profile(required: true, type: PropertyType.String, 
-            description: "Type of seller")
-        loyalty_level(required:true, 
-            description:"The loyalty level of the buyer")
-        user_profile(required:false, 
-            description:"CX Channel's user profile")
     }
 
     propertyGroups {
-        portal_default(portal_contact,portal_content_id, portal_form_id, portal_has_channels_configured, portal_problem_id, portal_source_id)
         portal_source_id(portal_source_id)
+        portalContentTypeOptionalGroup(portal_content_type)
         portal_contact(portal_contact)
         portal_content_id(portal_content_id)
         portal_problem_id(portal_problem_id)
         portal_has_channels_configured(portal_has_channels_configured)
         portal_form_id(portal_form_id)
-        user_type(user_type)
-        reputation_level(reputation_level)
-        seller_profile(seller_profile)
-        loyalty_level(loyalty_level)
-        user_profile(user_profile)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
 
-    // ML Portal
-
-    "/portal/faq"(platform: "/", business: "mercadolibre", type: TrackType.View) {
-        portal_contact
-        user_type
-        reputation_level
-        seller_profile
+    "/portal/faq"(platform: "/", type: TrackType.View) {
         portal_has_channels_configured
-        loyalty_level
         portal_content_id
         portal_source_id(required: false, type: PropertyType.Numeric,
             description: "Indicates the source ID for the current page. Required false because some faqs are contact points and most are not")
+        portalContentTypeOptionalGroup
+        portal_problem_id
+        portal_contact(required: false, type: PropertyType.Map,
+                description: "Indicates if the current hub has channels enabled and why it hasn't")
+
     }
-    "/portal/hub"(platform: "/", business: "mercadolibre", type: TrackType.View) {
+
+    "/portal/hub"(platform: "/", type: TrackType.View) {
         portal_contact
-        user_type
-        reputation_level
-        seller_profile
-        loyalty_level
-        user_profile   
-        portal_content_id
         portal_has_channels_configured(required: true, type: PropertyType.Boolean,
-            description: "Indicates if the current content has any channels configured")
+                description: "Indicates if the current content has any channels configured")
+        portal_content_id(required: false, type: PropertyType.Numeric,
+                description: "Indicates the content ID from where the user created a contact. Required false because some contacts do not come from contents")
+        portal_source_id
     }
-    "/portal/form"(platform: "/", business: "mercadolibre", type: TrackType.View) {
+
+    "/portal/problem"(platform: "/", type: TrackType.View) {
+        portal_content_id
+        portalContentTypeOptionalGroup
+        portal_source_id
+        portal_problem_id
         portal_contact
-        user_type
-        reputation_level
+        portal_has_channels_configured(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the current content has any channels configured")
+    }
+
+    "/portal/form"(platform: "/", type: TrackType.View) {
         portal_form_id
-        seller_profile
-        loyalty_level
-        portal_content_id
-        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
-            description: "Indicates if the current content has any channels configured")
+        portal_content_id(required: false, type: PropertyType.Numeric,
+                description: "Indicates the content ID from where the user created a contact. Required false because some contacts do not come from contents")
+        portal_source_id
+        portalContentTypeOptionalGroup
+        portal_problem_id
     }
-    "/portal/folder"(platform: "/", business: "mercadolibre", type: TrackType.View) {
+
+    "/portal/folder"(platform: "/", type: TrackType.View) {
         portal_content_id(required: false, type: PropertyType.Numeric, description: "Indicates the id of the content shown on the page, in case its not the home page")
-        portal_contact
-        user_type
-        reputation_level
-        seller_profile
-        loyalty_level
-        user_profile
         portal_source_id(required: false, type: PropertyType.Numeric,
             description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
-        portal_has_channels_configured(required: false, type: PropertyType.Boolean,
-            description: "Indicates if the current content has any channels configured, not required for home page")
-    }
-    "/portal/create_case"(platform: "/", business: "mercadolibre", type: TrackType.View) {
-        user_type
-        seller_profile
-        reputation_level
-        portal_contact
-        loyalty_level
-        portal_has_channels_configured
-    }
-    "/portal/search"(platform: "/", business: "mercadolibre", isAbstract:  true) {}
-    "/portal/folder_rules"(platform: "/", business: "mercadolibre", type: TrackType.View) {}
-    "/portal/search/empty"(platform: "/", business: "mercadolibre", type: TrackType.View) {
-        user_type
-        seller_profile
-        reputation_level
-        portal_contact
-        portal_has_channels_configured
-        loyalty_level
-    }
-    "/portal/search/result"(platform: "/", business: "mercadolibre", type: TrackType.View) {
-        user_type
-        seller_profile
-        reputation_level
-        portal_contact
-        portal_has_channels_configured
-        loyalty_level
+        portalContentTypeOptionalGroup
     }
 
-    // MP Portal
-
-    "/portal/faq"(platform: "/", business: "mercadopago", type: TrackType.View) {
-        portal_contact
-        portal_has_channels_configured
-        portal_content_id
-        portal_source_id(required: false, type: PropertyType.Numeric,
-            description: "Indicates the source ID for the current page. Required false because some faqs are contact points and most are not")
-    }
-    "/portal/hub"(platform: "/", business: "mercadopago", type: TrackType.View) {
-        portal_contact
-        user_profile   
-        portal_content_id
-        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
-            description: "Indicates if the current content has any channels configured")
-    }
-    "/portal/form"(platform: "/", business: "mercadopago", type: TrackType.View) {
-        portal_contact
+    "/portal/create_case"(platform: "/", type: TrackType.Event) {
         portal_form_id
-        portal_content_id
-        portal_has_channels_configured(required: true, type: PropertyType.Boolean,
-            description: "Indicates if the current content has any channels configured")
+        portal_content_id(required: false, type: PropertyType.Numeric,
+                description: "Indicates the content ID from where the user created a contact. Required false because some contacts do not come from contents")
+        portal_source_id
+        portalContentTypeOptionalGroup
+        portal_problem_id
     }
-    "/portal/folder"(platform: "/", business: "mercadopago", type: TrackType.View) {
-        portal_content_id(required: false, type: PropertyType.Numeric, description: "Indicates the id of the content shown on the page, in case its not the home page")
-        portal_contact
-        user_profile
-        portal_has_channels_configured(required: false, type: PropertyType.Boolean,
-            description: "Indicates if the current content has any channels configured, not required for home page")
+
+    "/portal/search"(platform: "/", type: TrackType.View) {
+        portal_source_id(required: false, type: PropertyType.Numeric,
+                description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
     }
-    "/portal/create_case"(platform: "/", business: "mercadopago", type: TrackType.View) {
-        portal_contact
-        portal_has_channels_configured
-    }
-    "/portal/search"(platform: "/", business: "mercadopago", isAbstract:  true) {}
-    "/portal/folder_rules"(platform: "/", business: "mercadopago", type: TrackType.View) {}
-    "/portal/search/empty"(platform: "/", business: "mercadopago", type: TrackType.View) {
-        portal_contact
-        portal_has_channels_configured
-    }
-    "/portal/search/result"(platform: "/", business: "mercadopago", type: TrackType.View) {
-        portal_contact
-        portal_has_channels_configured
+
+    "/portal/folder_rules"(platform: "/", type: TrackType.View) {
+        portal_source_id(required: false, type: PropertyType.Numeric,
+                description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
     }
 
     // Support Widget
@@ -185,11 +125,18 @@ tracks {
     "/support/widget"(platform: "/", isAbstract:  true) {}
 
     "/support/widget/folder"(platform: "/", type: TrackType.View) {
+        portal_content_id(required: false, type: PropertyType.Numeric, description: "Indicates the id of the content shown on the page, in case its not the home page")
+        portalContentTypeOptionalGroup
+        portal_source_id
+    }
+
+    "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
         portal_source_id
     }
 
     "/support/widget/faq"(platform: "/", type: TrackType.View) {
         portal_content_id
+        portalContentTypeOptionalGroup
         portal_source_id
         portal_has_channels_configured
         portal_problem_id
@@ -199,6 +146,7 @@ tracks {
 
     "/support/widget/problem"(platform: "/", type: TrackType.View) {
         portal_content_id
+        portalContentTypeOptionalGroup
         portal_source_id
         portal_problem_id
         portal_contact
@@ -208,9 +156,22 @@ tracks {
 
     "/support/widget/form"(platform: "/", type: TrackType.View) {
         portal_content_id
+        portalContentTypeOptionalGroup
         portal_source_id
         portal_form_id
         portal_problem_id
+    }
+
+    "/support/widget/create_case"(platform: "/", type: TrackType.Event) {
+        portal_content_id
+        portalContentTypeOptionalGroup
+        portal_source_id
+        portal_form_id
+        portal_problem_id
+    }
+
+    "/support/widget/search"(platform: "/", type: TrackType.View) {
+        portal_source_id
     }
 
     // Mis Consultas

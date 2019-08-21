@@ -120,6 +120,7 @@ trackTests {
             available_methods = ["visa", "master", "amex"]
             nearest_store_distance = 250000
             stored_cards_quantity = 3
+            checkout_flow_reason = "default_case"
         }
 
         "/cart/checkout/review/edit_installments"(platform:"/", type: TrackType.Event) {
@@ -148,7 +149,7 @@ trackTests {
         "/cart/checkout/payment/view_location/location"(platform:"/", dataSet)
         "/cart/checkout/payment/view_location/preloaded"(platform:"/", dataSet)
         "/cart/checkout/payment/input_card"(platform:"/", dataSet)
-        "/cart/checkout/payment/input_card#card_config"(platform:"/") {
+        "/cart/checkout/payment/input_card#card_config"(platform:"/web") {
             dataSet()
             bin = "1234"
             success = true
@@ -234,6 +235,17 @@ trackTests {
         "/cart/checkout/finish/call_for_auth/input_code"(platform:"/", dataSet)
         "/cart/checkout/loading"(platform: "/", dataSet)
         "/cart/checkout/shipping"(platform:"/mobile", dataSet)
+
+
+        // First Visit
+        // Page
+        "/cart/checkout/shipping/address_profile"(platform:"/mobile", dataSet)
+
+        // Event 
+        "/cart/checkout/shipping/address_profile/delivered_time"(platform:"/mobile", type:TrackType.Event) {
+            label = "laboral"
+        }
+
         "/cart/checkout/shipping/edit_address"(platform:"/mobile", type:TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
         }
@@ -257,12 +269,19 @@ trackTests {
             session_id = "98f8v98au0af9af0af"
         }
         "/cart/checkout/shipping/select_option"(platform:"/mobile", dataSet)
-        "/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile", dataSet)
+        "/cart/checkout/shipping/select_method_ask_geolocation"(platform:"/mobile") {
+            dataSet()
+            selections = ["free_shipping", "me2"]
+        }
         "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", dataSet)
         "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", type:TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
         }
         "/cart/checkout/shipping/input_address"(platform:"/mobile") {
+            dataSet()
+            edit_flow = false
+        }
+        "/cart/checkout/shipping/input_address/back"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
             edit_flow = false
         }
@@ -303,6 +322,15 @@ trackTests {
             dataSet()
         }
 
+        // First Visit
+        // Page
+        "/cart/checkout/shipping/address_profile"(platform:"/web", dataSet)
+
+        // Event 
+        "/cart/checkout/shipping/address_profile/delivered_time"(platform:"/web", type:TrackType.Event) {
+            label = "laboral"
+        }
+
         "/cart/checkout/shipping/confirm_geolocation"(platform:"/web", dataSet)
         "/cart/checkout/shipping/confirm_geolocation/send_to_cp_located"(platform:"/web", dataSet)
         "/cart/checkout/shipping/confirm_geolocation/send_to_another_location"(platform:"/web", dataSet)
@@ -312,6 +340,9 @@ trackTests {
             user_identification_fields: ["doc_type", "doc_number"]
         }
         "/cart/checkout/payment/security_code"(platform:"/web", dataSet)
+
+        // Step Curp Credits MLM
+        "/cart/checkout/payment/curp"(platform:"/", dataSet)
 
         //2MP
         //Switch
@@ -353,6 +384,12 @@ trackTests {
         }
 
         //Payment form input tack events:
+        "/cart/checkout/payment/input_card#card_config"(platform:"/mobile", type: TrackType.Event){
+            bin = "123456"
+            success = true
+            session_id = "1241n1kj2nk14141nl12nl"
+        }
+
         "/cart/checkout/payment/input_card/card_number"(platform:"/mobile", type: TrackType.Event){
             session_id = "1241n1kj2nk14141nl12nl"
         }
@@ -423,6 +460,13 @@ trackTests {
         }
 
         "/cart/checkout/finish/choose_action"(platform: "/", dataSet)
+         // Step Curp Credits MLM
+        "/cart/checkout/payment/curp/not_my_curp"(platform: "/", type: TrackType.Event) {}
+        "/cart/checkout/payment/curp/view_authorization"(platform: "/", type: TrackType.Event) {}
+        
+        //Credits Review
+        "/cart/checkout/review/credits_cover"(platform:"/", type: TrackType.Event) {}
+        "/cart/checkout/review/credits_terms_and_conditions"(platform:"/", type: TrackType.Event) {}
     }
 
 
