@@ -212,6 +212,7 @@ tracks {
     "/wallet_home/tap" (platform: "/mobile", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
         section_id(required: true, type: PropertyType.String, description: "section where the deeplink was launched")
+        component_id(required: false, type: PropertyType.String, description: "specific component id where the user tapped")
     }
 
     "/wallet_home/drawer/tap" (platform: "/mobile", type: TrackType.Event) {

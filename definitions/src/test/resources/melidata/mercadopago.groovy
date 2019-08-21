@@ -517,12 +517,105 @@ trackTests {
     }
 
     test("Point Buying Flow") {
-        "/point/buyingflow/init"(platform: "/", type: TrackType.View) {
-          step = "init"
-          flow_id = "000001"
-          product = "point-i"
-          currency = "R\$"
-          price = 401
+        "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          has_coupon = true
+          coupon_code = "GHZM"
+        }
+
+        "/point/buyingflow/shippingOptions"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/newAddress"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/paymentCardSecurityCode"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/paymentReview"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          selected_payment_method_id = "tarshop"
+          selected_payment_method_type = "credit_card"
+          installments = 6
+        }
+
+        "/point/buyingflow/paymentRejected"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          selected_payment_method_id = "tarshop"
+          selected_payment_method_type = "credit_card"
+          installments = 6
+        }
+        
+        "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          type = "error: Session ended"
+        }
+
+        "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
         }
     }
 
@@ -2908,6 +3001,14 @@ trackTests {
         }
 
         "/security_settings/password"(platform: "/", type: TrackType.View) {
+            context = "security_settings"
+        }
+
+        "/security_settings/password/maxlength"(platform: "/", type: TrackType.Event) {
+            context = "feedback"
+        }
+
+        "/security_settings/password/maxlength"(platform: "/", type: TrackType.Event) {
             context = "security_settings"
         }
 

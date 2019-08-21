@@ -10,10 +10,11 @@ tracks {
         flow(required: false, type: PropertyType.String, description: "External flow name")
         session_id(required: false, type: PropertyType.String, description: "Internal session id")
         collector_id(required: false, description: "Collector external id")
+        security_enabled(required: false, type: PropertyType.Boolean, description: "If the user has biometric or passcode validation to make a payment")
     }
 
     propertyGroups {
-        externalData(flow, flow_detail, collector_id,session_id)
+        externalData(flow, flow_detail, collector_id, session_id, security_enabled)
     }
 
     // Views:
