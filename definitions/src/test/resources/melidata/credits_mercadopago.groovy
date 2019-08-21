@@ -114,6 +114,17 @@ trackTests {
                 status = product_status
         }
         
+        }
+        "/credits/merchant/administrator"(platform: "/") {}
+        "/credits/merchant/administrator"(platform: "/") {
+            status = 'on_time'
+        }
+        "/credits/merchant/administrator"(platform: "/") {
+            status = 'overdue'
+        }
+        "/credits/merchant/administrator"(platform: "/") {
+            status = 'empty'
+        }
         "/credits/merchant/administrator"(platform: "/") {
             offers = [
                     model_offer_express_money()
@@ -134,18 +145,19 @@ trackTests {
                 model_product_sales_percentage('on_time')
             ]
             show_widget = false
-        }
-        "/credits/merchant/administrator"(platform: "/") {
+        
+        "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
+
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             status = 'on_time'
         }
-        "/credits/merchant/administrator"(platform: "/") {
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             status = 'overdue'
         }
-        "/credits/merchant/administrator"(platform: "/") {
-            status = 'empty'
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            status = 'finished'
         }
-        "/credits/merchant/administrator"(platform: "/") {}
-        "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             model_product_fixed_term('on_time')
         }
@@ -158,6 +170,8 @@ trackTests {
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             model_product_fixed_term('finished')
         }
+        
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             model_product_fixed_term('on_time')
         }
@@ -170,6 +184,7 @@ trackTests {
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             model_product_fixed_term('finished')
         }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
             model_product_fixed_term('overdue')
         }
@@ -182,17 +197,31 @@ trackTests {
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
             model_product_fixed_term('finished')
         }
+        
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
             model_product_fixed_term('')
         }
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
             model_product_express_money('')
         }
+        
+        "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
             model_product_fixed_term('')
         }
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
             model_product_express_money('')
+        }
+        
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'default'
         }
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'insufficient_account_money'
