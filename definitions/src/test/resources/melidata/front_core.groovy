@@ -235,6 +235,7 @@ trackTests {
         "/wallet_home/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
             section_id="main_actions"
+            component_id="user_activities"
         }
     }
 
@@ -711,6 +712,7 @@ trackTests {
         "/wallet_home/tap" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
             section_id="main_actions"
+            component_id="user_activities"
         }
     }
 
