@@ -64,7 +64,7 @@ tracks {
     "/cellphone_recharge/error"(platform: "/web", type: TrackType.View) {}
     "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {}
 
-    // Recharge Marketing landing
+    // Recharge Marketing landing 
     "/cellphone_recharge/mkt_landing"(platform: "/", isAbstract: true) {}
     "/cellphone_recharge/mkt_landing"(platform: "/web", type: TrackType.View) {}
     "/cellphone_recharge/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {}
