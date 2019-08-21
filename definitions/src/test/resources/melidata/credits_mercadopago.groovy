@@ -3,6 +3,43 @@ package src.test.resources.melidata
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType;
 
+def model_product_fixed_term(String product_status) {
+    def model_product_fixed_term = {
+        product_type = 'fixed_term'
+        segment = 'online'
+        category = 'regular'
+        offer_type = 'early_offer'
+    }
+
+    if (product_status != '')
+        model_product_fixed_term.status = product_status
+
+    return model_product_fixed_term
+}
+def model_product_express_money(String product_status) {
+    def model_product_express_money = {
+        product_type = 'express_money'
+        segment = 'in_store'
+        category = 'refinance'
+        offer_type = 'full_offer'
+        if (product_status != '')
+            status = product_status
+    }
+    return model_product_express_money
+}
+def model_product_sales_percentage(String product_status) {
+    def model_product_sales_percentage = {
+        product_type = 'express_money'
+        segment = 'in_store'
+        category = 'refinance'
+        offer_type = 'full_offer'
+        if (product_status != '')
+            status = product_status
+    }
+    return model_product_sales_percentage
+}
+
+
 trackTests {
 
     defaultBusiness = "mercadopago"
@@ -89,32 +126,7 @@ trackTests {
             offer_type = 'full_offer'
             is_first_offer = false
         }
-        def model_product_fixed_term(String product_status) = {
-            product_type = 'fixed_term'
-            segment = 'online'
-            category = 'regular'
-            offer_type = 'early_offer'
-            if (product_status != '')
-                status = product_status
-        }
-        def model_product_express_money(String product_status) = {
-            product_type = 'express_money'
-            segment = 'in_store'
-            category = 'refinance'
-            offer_type = 'full_offer'
-            if (product_status != '')
-                status = product_status
-        }
-        def model_product_sales_percentage(String product_status) = {
-            product_type = 'express_money'
-            segment = 'in_store'
-            category = 'refinance'
-            offer_type = 'full_offer'
-            if (product_status != '')
-                status = product_status
-        }
         
-        }
         "/credits/merchant/administrator"(platform: "/") {}
         "/credits/merchant/administrator"(platform: "/") {
             status = 'on_time'
@@ -127,7 +139,7 @@ trackTests {
         }
         "/credits/merchant/administrator"(platform: "/") {
             offers = [
-                    model_offer_express_money()
+                    model_offer_express_money(),
                     model_offer_sales_percentage()
             ]
             products = [
@@ -140,12 +152,12 @@ trackTests {
                 model_offer_fixed_term()
             ]
             products = [
-                model_product_fixed_term('on_time')
-                model_product_express_money('overdue')
+                model_product_fixed_term('on_time'),
+                model_product_express_money('overdue'),
                 model_product_sales_percentage('on_time')
             ]
             show_widget = false
-        
+        }
         "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
 
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}

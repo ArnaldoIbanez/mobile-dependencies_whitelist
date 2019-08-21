@@ -49,7 +49,7 @@ tracks {
                             'express_money',
                             'sales_percentage'
                         ]
-                    )
+                    ),
                     segment(
                         required: false, 
                         type: PropertyType.String,
@@ -57,7 +57,7 @@ tracks {
                             'online',
                             'in_store'
                         ]
-                    )
+                    ),
                     offer_type(
                         required: false, 
                         type: PropertyType.String,
@@ -65,7 +65,7 @@ tracks {
                             'early_offer',
                             'full_offer'
                         ]
-                    )
+                    ),
                     is_first_offer(
                         required: false, 
                         type: PropertyType.Boolean
@@ -86,7 +86,7 @@ tracks {
                             'express_money',
                             'sales_percentage'
                         ]
-                    )
+                    ),
                     status(
                         required: false, 
                         type: PropertyType.String,
@@ -94,7 +94,7 @@ tracks {
                             'on_time',
                             'overdue'
                         ]
-                    )
+                    ),
                     segment(
                         required: false, 
                         type: PropertyType.String,
@@ -102,7 +102,7 @@ tracks {
                             'online',
                             'in_store'
                         ]
-                    )
+                    ),
                     category(
                         required: false, 
                         type: PropertyType.String,
@@ -110,7 +110,7 @@ tracks {
                             'regular',
                             'refinance'
                         ]
-                    )
+                    ),
                     offer_type(
                         required: false, 
                         type: PropertyType.String,
@@ -374,8 +374,8 @@ tracks {
         offer_type(
             type: PropertyType.String,
             required: false,
-            values: ['
-                early_offer', 
+            values: [
+                'early_offer', 
                 'full_offer'
             ],
             inheritable: false
