@@ -865,6 +865,12 @@ trackTests {
             currency = "ARS"
             vending_version = "3"
         }
+        "/instore/vending/response_end_transaction_failed"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            vending_id = "12345"
+            vending_version = "3"
+            description = "end transaction failed"
+        }
 
         "/instore/post_payment"(platform: "/mobile", type: TrackType.Event) {
             currency_id = "ARS"
@@ -1729,6 +1735,12 @@ trackTests {
             total_price = 130
             currency = "ARS"
             vending_version = "3"
+        }
+        "/instore/vending/response_end_transaction_failed"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            vending_id = "12345"
+            vending_version = "3"
+            description = "end transaction failed"
         }
 
         // Waiting
