@@ -565,7 +565,6 @@ trackTests {
           currency = "ARS"
           price = 299
           is_guest = true
-          installments = 6
         }
 
         "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
@@ -617,9 +616,6 @@ trackTests {
           currency = "ARS"
           price = 299
           is_guest = true
-          selected_payment_method_id = "tarshop"
-          selected_payment_method_type = "credit_card"
-          installments = 6
         }
     }
 
