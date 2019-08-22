@@ -58,10 +58,26 @@ tracks {
         )
     }
 
-    propertyGroups {
-        without_status(product_type, segment, category, offer_type),
-        with_status(product_type, segment, category, offer_type, status),
-        offer(product_type, segment, offer_type, is_first_offer)
+    def without_status = objectSchemaDefinitions {
+        product_type, 
+        segment, 
+        category, 
+        offer_type
+    }
+
+    def with_status = objectSchemaDefinitions {
+        product_type, 
+        segment, 
+        category, 
+        offer_type, 
+        status
+    }
+
+    def offer = objectSchemaDefinitions {
+        product_type, 
+        segment, 
+        offer_type, 
+        is_first_offer
     }
 
     defaultBusiness = "mercadopago"
