@@ -244,7 +244,9 @@ tracks {
     "/instore/waiting/generic_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/generic_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/instore/waiting/vending_product_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/vending_product_selection"(platform: "/mobile", type: TrackType.View) {
+        vending_version(required: false, PropertyType.String, description: "sent only by the new version")
+    }
 
 
     // Shell
@@ -278,17 +280,18 @@ tracks {
 
     // Vending
     "/instore/vending"(platform: "/mobile", isAbstract: true) {
-        collector_id(required: true, PropertyType.String)
+        collector_id(required: false, PropertyType.String)
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
-        vending_id(required: true, PropertyType.String)
-        external_reference(required: true, PropertyType.String)
-        id(required: true, PropertyType.Numeric)
-        status(required: true, PropertyType.String)
-        status_detail(required: true, PropertyType.String)
-        total_price(required: true, PropertyType.Numeric)
-        currency(required: true, PropertyType.String)
+        vending_id(required: false, PropertyType.String)
+        external_reference(required: false, PropertyType.String)
+        id(required: false, PropertyType.Numeric)
+        status(required: false, PropertyType.String)
+        status_detail(required: false, PropertyType.String)
+        total_price(required: false, PropertyType.Numeric)
+        currency(required: false, PropertyType.String)
+        vending_version(required: false, PropertyType.String, description: "sent only by the new version")
     }
     "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/machine_response_state"(platform: "/mobile", type: TrackType.Event) {
@@ -297,12 +300,16 @@ tracks {
     "/instore/vending/st_machine_disconnected"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
         st_machine_connection_error(required: true, PropertyType.String)
+        action(required: false, PropertyType.String, description: "action executed at the moment of an error")
     }
     "/instore/vending/st_machine_not_available"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/st_machine_connected"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/response_end_transaction"(platform: "/mobile", type: TrackType.Event) {
         end_transaction_status(required: true, PropertyType.String)
         item_price(required: false, PropertyType.Numeric)
+    }
+    "/instore/vending/response_end_transaction_failed"(platform: "/mobile", type: TrackType.Event) {
+        description(required: true, PropertyType.String)
     }
 
 
