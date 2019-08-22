@@ -133,10 +133,12 @@ catalog {
         include business, "qr_discount.groovy"
         include business, "zip_finder.groovy"
         include business, "current_location.groovy"
+        include business, "download_app.groovy"
         include business, "supermarket.groovy"
         include business, "payers_growth.groovy"
         include business, "contact.groovy"
         include business, "full.groovy"
+        include business, "front_core.groovy"
         include business, "dynamic_links.groovy"
         include business, "sube_recharge.groovy"
         include business, "myaccount_billing.groovy"
@@ -147,6 +149,7 @@ catalog {
 
     mercadopago.each { business ->
         include business, "activities.groovy"
+        include business, "mpfrontcore.groovy"
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
@@ -168,8 +171,10 @@ catalog {
         include business, "front_core.groovy"
         include business, "mplayer.groovy"
         include business, "money_in.groovy"
+        include business, "money_out.groovy"
         include business, "pos_seller.groovy"
         include business, "preference.groovy"
+        include business, "discount_sellers.groovy"
     }
 
     mercadoshops.each { business ->

@@ -54,6 +54,7 @@ trackTests {
         "/vip"(platform:"/mobile", {
             mandatory()
             optionals()
+            catalog_listing = false
         })
 
         "/vip"(platform:"/mobile", {
@@ -64,6 +65,7 @@ trackTests {
             subscription_discount = 10
             default_tab = "subscription"
             whatsapp_installed = true
+            catalog_listing = false
         })
 
         "/vip/failure"(platform:"/mobile", {
@@ -130,18 +132,43 @@ trackTests {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+            from_view="vip"
+            event_source="modal"
         })
 
         "/vip/call_seller"(platform:"/web/desktop", type: TrackType.Event, {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+            from_view="vip"
+            event_source="button"
         })
 
         "/vip/call_seller"(platform:"/web/mobile", type: TrackType.Event, {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
+            from_view="vip"
+            event_source="link"
+        })
+
+        "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event, {
+            mandatory()
+        })
+
+        "/vip/contact_whatsapp"(platform: "/web", type: TrackType.Event, {
+            mandatory()
+            item_seller_type="normal"
+            event_source="button"
+            from_view="vip"
+        })
+
+        "/vip/contact_whatsapp"(platform: "/web/mobile", type: TrackType.Event, {
+            mandatory()
+            item_seller_type="normal"
+            event_source="button"
+            from_view="vip"
+            event_source = "link"
         })
 
         "/vip/show_phone"(platform: "/mobile", type: TrackType.Event, {
@@ -342,6 +369,7 @@ trackTests {
             power_seller_status = "platinum"
             deal_ids = ["MLA100"]
             contract_available = false
+            catalog_listing = false
         }
     }
 
@@ -361,6 +389,7 @@ trackTests {
             power_seller_status = "platinum"
             deal_ids = ["MLA100"]
             contract_available = false
+            catalog_listing = false
         }
     }
 
@@ -378,6 +407,7 @@ trackTests {
             seller_id = 131662738
             power_seller_status = "platinum"
             deal_ids = ["MLA100"]
+            catalog_listing = false
         }
     }
 
@@ -395,6 +425,7 @@ trackTests {
             seller_id = 131662738
             power_seller_status = "platinum"
             deal_ids = ["MLA100"]
+            catalog_listing = false
         }
     }
 
@@ -415,6 +446,7 @@ trackTests {
             seller_id = 131662738
             power_seller_status = "platinum"
             deal_ids = ["MLA100"]
+            catalog_listing = false
         }
 
         "/vip"(platform:"/web", dataSet)
@@ -502,11 +534,7 @@ trackTests {
         "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {
             defaultTrackInformation()
         }
-
-        "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {
-            defaultTrackInformation()
-        }
-
+        
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
         }
 
@@ -898,6 +926,95 @@ trackTests {
 
         "/vip/public_similar_intention"(platform: "/web", type: TrackType.Event) {
             model()
+        }
+    }
+
+    test("VIP Units available section for projects RE"){
+        def properties = {
+            vertical = "realEstate"
+            from_view = "unitsAvailable"
+            seller_id =  430012134
+            item_seller_type = "real_estate_agency"
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                "MLA1459",
+                "MLA1493",
+                "MLA1495",
+                "MLA401803"
+            ]
+            buying_mode = "classified"
+        }
+
+        "/vip/units_available"(platform: "/mobile", type: TrackType.View){
+            properties()
+        }
+
+
+        "/vip/contact_seller"(platform: "/mobile", type: TrackType.Event){
+            properties()
+        }
+    }
+
+    test("VIP Facilities section for projects RE"){
+        def properties = {
+            vertical = "realEstate"
+            from_view = "technicalSpecs"
+            seller_id =  430012134
+            item_seller_type = "real_estate_agency"
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                "MLA1459",
+                "MLA1493",
+                "MLA1495",
+                "MLA401803"
+            ]
+            buying_mode = "classified"
+        }
+
+        "/vip/technical_specs"(platform: "/mobile", type: TrackType.View){
+            properties()
+        }
+
+        "/vip/contact_seller"(platform: "/mobile", type: TrackType.Event){
+            properties()
+        }
+    }
+
+    test("VIP preload MainAction Contact from search"){
+        def properties = {
+            item_id = "MLA792156560"
+        }
+
+        "/vip/contact_seller/preload"(platform: "/mobile", type: TrackType.Event){
+            properties()
+        }
+    }
+
+    test("VIP preload MainAction Call from search"){
+        def properties = {
+            item_id = "MLA792156560"
+        }
+
+        "/vip/call_seller/preload"(platform: "/mobile", type: TrackType.Event){
+            properties()
+        }
+    }
+
+    test("VIP preload MainAction Reservation from search"){
+        def properties = {
+            item_id = "MLA792156560"
+        }
+
+        "/vip/reservation_intention/preload"(platform: "/mobile", type: TrackType.Event){
+            properties()
         }
     }
 }

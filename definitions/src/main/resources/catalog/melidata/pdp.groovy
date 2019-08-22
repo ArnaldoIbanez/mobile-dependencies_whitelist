@@ -17,7 +17,7 @@ tracks {
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
         item_condition(required: false, type: PropertyType.String, description: "")
         sold_quantity(required: false, type: PropertyType.Numeric, description: "")
-        shipping_conditions(required: false, type: PropertyType.String, values: ["no_shipping", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
+        shipping_conditions(required: false, type: PropertyType.String, values: ["no_me", "me_non_free", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
                 description: "Shipping conditions for product")
 
         //BRACH_OFFICE CONDITIONS
@@ -56,7 +56,7 @@ tracks {
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
 
         //SHIPPING CONDITIONS
-        shipping_conditions(required: true, type: PropertyType.String, values: ["no_shipping", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
+        shipping_conditions(required: true, type: PropertyType.String, values: ["no_me", "me_non_free", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
                 description: "Shipping conditions for product")
 
         //BRACH_OFFICE CONDITIONS
@@ -89,7 +89,7 @@ tracks {
         previous_catalog_product_id(required: false, type: PropertyType.String, description: "Previous Catalog Product ID")
 
         //picker definition
-        pickers(required: true, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
+        pickers(required: false, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
 
         category_path(required: false, type: PropertyType.ArrayList, description: "Category path of the the item")
         vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
@@ -136,6 +136,9 @@ tracks {
 
         // USER FIELD
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+
+        // FILTERS
+        filters(required: false, type: PropertyType.Map(PropertyType.String, PropertyType.String), description: "Filters applied to get buy box winner")
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
@@ -307,7 +310,7 @@ tracks {
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
-        pickers(required: true, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
+        pickers(required: false, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_info_definition)), description: "Items listed on the page")
     }
 
@@ -322,4 +325,13 @@ tracks {
         picker_id(required: true, type: PropertyType.String, description: "Product's picker ID")
         picker_disabled(required: false, type: PropertyType.Boolean, description: "Indicates if the selected picker is disabled")
     }
+
+    "/pdp/sellers/page_selection"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        selected_quantity(required: true, type: PropertyType.Numeric, description: "Quantity of the product that the user is trying to buy or add to cart")
+        selected_page(required: true, type: PropertyType.Numeric, description: "Selected page in PDS")
+        total_pages(required: true, type: PropertyType.Numeric, description: "Total amount of pages in PDS")
+        total_items(required: true, type: PropertyType.Numeric, description: "Total amount of items in PDS")
+    }
+
 }

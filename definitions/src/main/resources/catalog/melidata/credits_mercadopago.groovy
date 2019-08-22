@@ -399,6 +399,7 @@ tracks {
 
     /******************************************
      *    Start: Merchant Contacts
+     *    We can´t declare values as a numeric
      ******************************************/
 
     "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {

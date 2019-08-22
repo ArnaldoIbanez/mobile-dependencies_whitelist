@@ -13,12 +13,44 @@ trackTests {
         }
     }
     
-    test("Home Navigation") {
-        "/home/navigation"(platform: "/web/mobile") {}
+     test("Home Navigation") {
+        "/home/navigation"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Home Portal Inmobiliario") {
+        def dataSet = {
+            category_id = 'MLC1459'
+            category_path = ['MLC1459']
+        }
+
+        "/home/category/real_estate"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/bookmarks"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/bookmarks/recommendation"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/help"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/tyc"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/about"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/pricing"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/pricing/fsbo"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/pricing/professional"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/pricing/development"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/property"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/property/recommendation"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/development"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/development/recommendation"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/navigation"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/navigation/recommendation"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/map"(platform: "/", type: TrackType.View, dataSet)
+        "/home/category/real_estate/landing"(platform: "/"){
+            id = 'absal'
+            category_id = 'MLC1459'
+            category_path = ['MLC1459']
+        }
     }
 
     test("Home core tracking") {
         "/home"(platform: "/mobile") {}
+
+        "/home/navigation_history"(platform: "/mobile") {}
 
         "/home/abort"(platform: "/mobile") {}
 
@@ -60,6 +92,7 @@ trackTests {
             position = 1
             section = "history"
             tag_id = "MLB681933310"
+            is_modal = true
         })
 
         "/home/carousel/firstto"(platform: "/mobile") {}
@@ -124,6 +157,20 @@ trackTests {
         "/home/category/motors"(platform: "/web/mobile", dataSet)
         "/home/category/motors"(platform: "/web/desktop", dataSet)
 
+    }
+
+    test("Home Server Side") {
+        def dataSet = {
+            component_count = 25
+            newbie = true
+            home_version = 'new'
+            is_logged = true
+        }
+        def dataSet2 = {
+            component_count = 25
+        }
+        "/backend/home"(platform: "/web/mobile", dataSet)
+        "/korriban"(platform: "/web/desktop", dataSet2)
     }
 
     test("Supermarket home tracking") {

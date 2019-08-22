@@ -23,6 +23,7 @@ FROM
       AND device.platform = '/mobile/android'
       AND application.business IN ('mercadopago', 'mercadolibre')
       AND jest(event_data, 'event_type') IN ('sent', 'resent')
+      GROUP BY application.business, device.device_id, jest(event_data, 'news_id')
   ) sents ON sents.event_id = CONCAT(application.business, '-',jest(event_data, 'device_id'),'-', jest(event_data, 'news_id'))
   WHERE ds >= '@send_date'
   AND ds < '@three_days_after_send_date'
@@ -50,6 +51,7 @@ FROM
       AND device.platform = '/mobile/android'
       AND application.business IN ('mercadopago', 'mercadolibre')
       AND jest(event_data, 'event_type') IN ('sent', 'resent')
+      GROUP BY application.business, device.device_id, jest(event_data, 'news_id')
   ) sents ON sents.event_id = CONCAT(application.business, '-',jest(event_data, 'device_id'),'-', jest(event_data, 'news_id'))
   LEFT JOIN (
       SELECT CONCAT(application.business, '-',device.device_id,'-', jest(event_data, 'news_id')) AS event_id

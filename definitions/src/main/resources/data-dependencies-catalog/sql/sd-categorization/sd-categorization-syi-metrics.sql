@@ -39,9 +39,9 @@ substr(ds,1,10) AS ds
 FROM tracks
 WHERE ds >= '@param01'
 AND ds < '@param02'
-AND path = '/sell/list/congrats'
+AND path in ('/sell/list/congrats','/sell/congrats')
 AND device.platform = '/web/desktop'
-AND get_json_object(event_data, '$.vertical') = 'CORE'
+AND (get_json_object(event_data, '$.vertical') = 'CORE' OR get_json_object(event_data, '$.vertical') IS NULL)
 AND length(get_json_object(event_data, '$.title_predicted')) > 1
 AND application.site_id in ('MLA','MLB','MLM')
 AND get_json_object(event_data, '$.predictor_chosen') = 'ZORDON'
