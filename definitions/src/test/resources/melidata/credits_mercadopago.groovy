@@ -234,7 +234,7 @@ trackTests {
             status = 'on_time'
         }
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
-            mproduct_type = 'fixed_term'
+            product_type = 'fixed_term'
             segment = 'online'
             category = 'regular'
             offer_type = 'early_offer'
