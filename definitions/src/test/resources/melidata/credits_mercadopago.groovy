@@ -132,6 +132,53 @@ trackTests {
         }
     }
 
+    test("Express money") {
+        "/credits/express_money"(platform: "/web/desktop") {
+            show_onboarding = true
+        }
+
+        "/credits/express_money"(platform: "/web/desktop") {
+            show_onboarding = false
+        }
+
+        "/credits/express_money/summary"(platform: "/web/desktop") {
+            requested_amount = 700
+            max_amount = 1000
+        }
+
+        "/credits/express_money/congrats"(platform: "/web/desktop") {
+            requested_amount = 700
+            max_amount = 1000
+            has_prepaid = true
+        }
+
+        "/credits/express_money/congrats"(platform: "/web/desktop") {
+            requested_amount = 700
+            max_amount = 1000
+            has_prepaid = false
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'default'
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'server_error'
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'loan_creation'
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'ccb_creation'
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'simulation'
+        }
+    }
+
     test("Merchant Public Landing") {
         "/credits/merchant/public_landing"(platform: "/web/desktop") {
             user_profile = 'offer'
@@ -144,7 +191,7 @@ trackTests {
     test('Merchant Collection') {
         "/credits/merchant/collection"(platform: "/mobile", type: TrackType.Event) {}
     }
-    
+
     test('Merchant Contacts') {
         "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
             medium = "email"
