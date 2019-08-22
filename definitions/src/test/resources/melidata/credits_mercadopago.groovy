@@ -70,14 +70,80 @@ trackTests {
         "/credits/merchant/enrollment/feedback/error"(platform: "/web/desktop") {}
     }
 
-    test("Merchant Credits Administrator") {
+    test("Merchant Credits Administrator") {        
+        "/credits/merchant/administrator"(platform: "/") {}
         "/credits/merchant/administrator"(platform: "/") {
             status = 'on_time'
         }
         "/credits/merchant/administrator"(platform: "/") {
             status = 'overdue'
         }
+        "/credits/merchant/administrator"(platform: "/") {
+            status = 'empty'
+        }
+        "/credits/merchant/administrator"(platform: "/") {
+            offers = [
+                {
+                    product_type = 'express_money'
+                    segment = 'online'
+                    offer_type = 'early_offer'
+                    is_first_offer = true
+                },
+                {
+                    product_type = 'sales_percentage'
+                    segment = 'in_store'
+                    offer_type = 'full_offer'
+                    is_first_offer = false
+                }
+            ]
+            products = [
+                {
+                    product_type = 'fixed_term'
+                    segment = 'online'
+                    category = 'regular'
+                    offer_type = 'early_offer'
+                    status = 'on_time'
+                }
+            ]
+            show_widget = true
+        }
+        "/credits/merchant/administrator"(platform: "/") {
+            offers = [
+                {
+                    product_type = 'fixed_term'
+                    segment = 'in_store'
+                    offer_type = 'full_offer'
+                    is_first_offer = false
+                }
+            ]
+            products = [
+                {
+                    product_type = 'fixed_term'
+                    segment = 'online'
+                    category = 'regular'
+                    offer_type = 'early_offer'
+                    status = 'on_time'
+                },
+                {
+                    product_type = 'express_money'
+                    segment = 'in_store'
+                    category = 'refinance'
+                    offer_type = 'full_offer'
+                    status = 'overdue'
+                },
+                {
+                    product_type = 'sales_percentage'
+                    segment = 'in_store'
+                    category = 'regular'
+                    offer_type = 'early_offer'
+                    status = 'on_time'
+                }
+            ]
+            show_widget = false
+        }
         "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
+
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             status = 'on_time'
         }
@@ -87,10 +153,122 @@ trackTests {
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             status = 'finished'
         }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'on_time'
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            product_type = 'express_money'
+            segment = 'in_store'
+            category = 'refinance'
+            offer_type = 'full_offer'
+            status = 'overdue'
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            product_type = 'sales_percentage'
+            segment = 'in_store'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'on_time'
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'finished'
+        }
+        
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'on_time'
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            product_type = 'express_money'
+            segment = 'in_store'
+            category = 'refinance'
+            offer_type = 'full_offer'
+            status = 'overdue'
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            product_type = 'sales_percentage'
+            segment = 'in_store'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'overdue'
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            mproduct_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'finished'
+        }
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'overdue'
+        }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            product_type = 'express_money'
+            segment = 'in_store'
+            category = 'refinance'
+            offer_type = 'full_offer'
+            status = 'on_time'
+        }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            product_type = 'sales_percentage'
+            segment = 'in_store'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'on_time'
+        }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'finished'
+        }
+        
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+        }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            product_type = 'express_money'
+            segment = 'in_store'
+            category = 'refinance'
+            offer_type = 'full_offer'
+        }
+        
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+        }
+        "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
+            product_type = 'express_money'
+            segment = 'in_store'
+            category = 'refinance'
+            offer_type = 'full_offer'
+        }
+        
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'insufficient_account_money'
         }
@@ -99,6 +277,27 @@ trackTests {
         }
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'default'
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+            product_type = 'express_money'
+            segment = 'in_store'
+            category = 'refinance'
+            offer_type = 'full_offer'
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'default'
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
         }
     }
 
