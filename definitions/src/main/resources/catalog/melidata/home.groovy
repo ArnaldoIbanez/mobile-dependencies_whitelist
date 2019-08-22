@@ -53,7 +53,7 @@ tracks {
     "/home/page"(platform: "/mobile", type: TrackType.Event) {
         page_number(required: true, type: PropertyType.Numeric)
     }
-    
+
     "/home/scroll"(platform: "/mobile", type: TrackType.Event) {
     }
 
@@ -182,7 +182,7 @@ tracks {
 
     // Supermarket
     "/home/supermarket"(platform: "/", type: TrackType.View) {}
-    
+
     //Server Side
     "/backend"(platform: "/", type: TrackType.Event, isAbstract : true) {}
 
@@ -192,8 +192,12 @@ tracks {
         home_version(required: true, type: PropertyType.String)
         is_logged(required: true, type: PropertyType.Boolean)
     }
-    
+
     "/korriban"(platform:"/", type: TrackType.Event){
         component_count(required: true, type: PropertyType.Numeric)
     }
+
+    "/home/backend"(platform: "/", type: TrackType.Event, isAbstract : true) {}
+
+    "/home/backend/take_over"(platform: "/web", type: TrackType.Event) {}
 }
