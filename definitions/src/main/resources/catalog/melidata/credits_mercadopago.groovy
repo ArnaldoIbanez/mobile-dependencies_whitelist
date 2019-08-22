@@ -154,6 +154,8 @@ tracks {
         with_status
     }
 
+    "/credits/merchant/administrator/history"(platform:"/", type: TrackType.Event) {}
+
     //Voluntary Payment
     "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
         without_status

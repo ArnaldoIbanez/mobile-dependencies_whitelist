@@ -268,6 +268,7 @@ trackTests {
             offer_type = 'early_offer'
             status = 'finished'
         }
+        "/credits/merchant/administrator/history"(platform: "/web/desktop") {}
         
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
