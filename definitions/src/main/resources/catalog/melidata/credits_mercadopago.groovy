@@ -51,7 +51,7 @@ tracks {
                 'full_offer'
             ],
             inheritable: false
-        ),
+        )
         is_first_offer(
             required: false, 
             type: PropertyType.Boolean
