@@ -1,5 +1,5 @@
 import com.ml.melidata.TrackType
-
+import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
@@ -8,12 +8,16 @@ tracks {
     * Singe player billpayments Screen Tracks
     */
 
-    "/single_player/billpayments"(platform: "/mobile", isAbstract: true) {}
+    "/single_player/billpayments"(platform: "/mobile", isAbstract: true) {
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
+    }
 
     "/single_player/billpayments/permissions_rationale"(platform: "/mobile", type: TrackType.View) {}
     "/single_player/billpayments/help"(platform: "/mobile", type: TrackType.View) {}
     "/single_player/billpayments/no_money"(platform: "/mobile", type: TrackType.View) {}
-    "/single_player/billpayments/manual_barcode"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/billpayments/manual_barcode"(platform: "/mobile", type: TrackType.View) {
+        barcode_valid (required:false, description: "if the barcode is valid")
+    }
     "/single_player/billpayments/barcode_reader"(platform: "/mobile", type: TrackType.View) {}
     "/single_player/billpayments/additional_info"(platform: "/mobile", type: TrackType.View) {
         required_additional_info (required:false, description: "info used to populate the screen")
@@ -39,11 +43,13 @@ tracks {
     "/single_player/billpayments/barcode_reader/read/success"(platform: "/mobile", type: TrackType.Event) {
         is_manual_input (required:false, description: "if response was from scanner or inserted manually")
         utility_response (required:false, description: "the response, we need this to identify the next screen")
+        from_clipboard (required:false, description: "if the barcode was loaded by copy paste")
     }
 
     "/single_player/billpayments/barcode_reader/read/error"(platform: "/mobile", type: TrackType.Event) {
         is_manual_input (required:false, description: "if response was from scanner or inserted manually")
         utility_response (required:false, description: "the response, we need this to identify the next screen")
+        from_clipboard (required:false, description: "If the barcodee was loaded by copy paste")
     }
 
     //additional info required
@@ -57,4 +63,16 @@ tracks {
 
     "/single_player/billpayments/checkout_px"(platform: "/mobile", isAbstract: true) {}
     "/single_player/billpayments/checkout_px/start"(platform: "/mobile", type: TrackType.Event) {}
+
+    /**
+    * Singe player Antenna Screen Tracks
+    */
+    "/single_player/antenna"(platform: "/mobile", isAbstract: true) {
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
+    }
+
+    "/single_player/antenna/manual_input"(platform: "/mobile", type: TrackType.View) {
+        company (required: false, description: "Name of the company")
+    }
+    "/single_player/antenna/topup_helper" (platform: "/mobile", type:TrackType.View) {}
 }

@@ -181,6 +181,34 @@ trackTests {
             offer_type = 'early_offer'
             status = 'finished'
         }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'on_time'
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            product_type = 'express_money'
+            segment = 'in_store'
+            category = 'refinance'
+            offer_type = 'full_offer'
+            status = 'overdue'
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            product_type = 'sales_percentage'
+            segment = 'in_store'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'on_time'
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'finished'
+        }
         
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
@@ -299,6 +327,27 @@ trackTests {
             category = 'regular'
             offer_type = 'early_offer'
         }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+            product_type = 'express_money'
+            segment = 'in_store'
+            category = 'refinance'
+            offer_type = 'full_offer'
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'default'
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+        }
     }
 
     test("Money Advance") {
@@ -331,6 +380,53 @@ trackTests {
         }
     }
 
+    test("Express money") {
+        "/credits/express_money"(platform: "/web/desktop") {
+            show_onboarding = true
+        }
+
+        "/credits/express_money"(platform: "/web/desktop") {
+            show_onboarding = false
+        }
+
+        "/credits/express_money/summary"(platform: "/web/desktop") {
+            requested_amount = 700
+            max_amount = 1000
+        }
+
+        "/credits/express_money/congrats"(platform: "/web/desktop") {
+            requested_amount = 700
+            max_amount = 1000
+            has_prepaid = true
+        }
+
+        "/credits/express_money/congrats"(platform: "/web/desktop") {
+            requested_amount = 700
+            max_amount = 1000
+            has_prepaid = false
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'default'
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'server_error'
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'loan_creation'
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'ccb_creation'
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'simulation'
+        }
+    }
+
     test("Merchant Public Landing") {
         "/credits/merchant/public_landing"(platform: "/web/desktop") {
             user_profile = 'offer'
@@ -343,7 +439,7 @@ trackTests {
     test('Merchant Collection') {
         "/credits/merchant/collection"(platform: "/mobile", type: TrackType.Event) {}
     }
-    
+
     test('Merchant Contacts') {
         "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
             medium = "email"

@@ -6,6 +6,14 @@ import com.ml.melidata.TrackType
 
 
 tracks {
+    propertyDefinitions {        
+        installments_qty( type: PropertyType.Numeric, required: true, description: "The total number of installments to pay")
+    }
+
+     propertyGroups {
+        installments_group(installments_qty)
+    }
+
     defaultBusiness = "mercadolibre"
 
     "/"(platform: "/web", isAbstract: true) {
@@ -146,16 +154,21 @@ tracks {
     //Page Views
     "/credits/consumer/administrator_v2"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
-        dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+        dashboard_status(
+                            required: true, 
+                            description: "Current status of the Dashboard", 
+                            type: PropertyType.String, 
+                            values: [ 
+                                        "empty_state", 
+                                        "on_time", 
+                                        "overdue"
+                                    ]
+                        )
     }
 
     //Events
     "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/", type: TrackType.Event) {
-        installments_qty(
-                type: PropertyType.Numeric,
-                required: true,
-                description: "The total number of installments to pay"
-        )
+        installments_group
     }
     "/credits/consumer/administrator_v2/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/choose_installments"(platform: "/", type: TrackType.Event) {}
@@ -164,6 +177,18 @@ tracks {
     "/credits/consumer/administrator_v2/educational_landing"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/suggested_product"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/home"(platform: "/", type: TrackType.Event) {}
+
+    //Mobile Events 
+    "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
+        installments_group
+    }
+    "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {}
+
 
     //Admin History (Compras Finalizadas)
 
@@ -272,9 +297,12 @@ tracks {
      *       Start: Consumers Installment Selection Page
      ****************************************************/
 
-    //Page Views
+    //Views
     "/credits/consumer/administrator_v2/installment_selection"(platform: "/", type: TrackType.View) {
-        page_status(type: PropertyType.String, required: true, values: ["on_time", "overdue"], inheritable: false)
+        page_status(type: PropertyType.String, required: true, values: ["empty_state","on_time", "overdue"], inheritable: false)
+    }
+    "/credits/consumer/administrator_v2/installment_selection"(platform: "/mobile", type: TrackType.View) {
+        page_status(type: PropertyType.String, required: true, values: ["empty_state","on_time", "overdue"])
     }
 
     //Events
@@ -288,6 +316,13 @@ tracks {
                 type: PropertyType.Numeric,
                 required: true,
                 description: "The selected number of installments to pay"
+        )
+    }
+        "/credits/consumer/administrator_v2/installment_selection/secondary_payment_intention"(platform: "/", type: TrackType.Event) {
+        total_installments(
+                type: PropertyType.Numeric,
+                required: true,
+                description: "The total number of payable installments"
         )
     }
     "/credits/consumer/administrator_v2/installment_selection/back_to_dashboard"(platform: "/", type: TrackType.Event) {

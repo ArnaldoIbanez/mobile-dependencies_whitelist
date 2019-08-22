@@ -12,6 +12,10 @@ tracks {
     //-----------------
 
     // General Path
+    "/wallet"(platform: "/", type: TrackType.View) {} 
+    "/wallet/cards"(platform: "/", type: TrackType.View) {} 
+    "/wallet/cards/prepaid"(platform: "/", type: TrackType.View) {} 
+
     "/prepaid"(platform: "/", isAbstract: true) {
         user_profile(
             required: false,
@@ -67,6 +71,8 @@ tracks {
     "/prepaid/acquisition/review"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/review/welcome"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/need_fund"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/dark_side_shield"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/dark_side_shield/cta"(platform:"/", type: TrackType.Event) {}
     "/prepaid/acquisition/congrats"(platform: "/", type: TrackType.View) {
         congrats_type(
             required: true, 
@@ -101,6 +107,9 @@ tracks {
     // Activation Flow
     // MLA => https://www.mercadopago.com.ar/prepaid/activation
     // MLB => https://www.mercadopago.com.br/prepaid/activation
+    "/prepaid/acquisition/has_prepaid"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/no_identity"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/is_collaborator"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/activation/last_digits"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/marital_status"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {}
@@ -136,6 +145,36 @@ tracks {
             description: "Webview trigger."
         )
     }
+
+    // Prepaid Detail
+    "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Freeze Event
+    "/wallet/cards/prepaid/detail/freeze" (platform: "/", type: TrackType.Event) {}
+
+    // Prepaid Unfreeze Event
+    "/wallet/cards/prepaid/detail/unfreeze" (platform: "/", type: TrackType.Event) {}
+
+    // Prepaid Change Pin
+    "/prepaid/change_pin" (platform: "/", isAbstract: true) {}
+
+    // Prepaid Change Pin Phone Info
+    "/prepaid/change_pin/phone_info" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Change Pin New Pin
+    "/prepaid/change_pin/new_pin" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Change Pin Congrats
+    "/prepaid/change_pin/congrats" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Reissue
+    "/prepaid/reissue" (platform: "/", isAbstract: true) {}
+
+    // Prepaid Reissue inactivate card
+    "/prepaid/reissue/inactivate_card" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Change phone info
+    "/prepaid/reissue/phone_info" (platform: "/", type: TrackType.View) {}
 
     //-----------------
     // PREPAID MLM

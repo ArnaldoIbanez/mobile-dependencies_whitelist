@@ -1,49 +1,50 @@
 {
   "users": [
-      "leandro.molina@mercadolibre.cl"
+    "ezequiel.perez@mercadolibre.com"
   ],
-  "process_name": "classi_integradores_phone2",
+  "process_name": "seller_central_listings",
   "cron": "00 07 * * *",
   "partition": {
-        "name": "ds",
-        "type": "DATE"
-   },
+    "name": "ds",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
+  },
   "extract": {
     "operation": "append",
-    "site": "MeliLake",
+    "site": "QA",
     "columns": [
       {
-        "name": "count_item_ids",
+        "name": "id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "accion",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "tipo",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "plataforma",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "cantidad",
         "type": "INTEGER"
-      },
-      {
-        "name": "sit_site_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "vertical",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "mapp_app_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "whatsapp",
-        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-        "script": "classifieds/integradores_phone2.sql",
+      "script": "seller_central/seller_central_listings.sql",
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-2",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-1",
+          "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }
       ]

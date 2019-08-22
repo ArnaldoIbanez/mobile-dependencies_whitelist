@@ -6,6 +6,17 @@ tracks {
     //ADVERTISING FLOW
     "/advertising"(platform: "/", isAbstract: true) {}
 
+    "/advertising/landings"(platform: "/", isAbstract: true) {}
+
+    "/advertising/landings/pads2"(platform: "/", isAbstract: true) {}
+
+    "/advertising/landings/pads2/mail"(platform: "/", isAbstract: true) {}
+
+    "/advertising/landings/pads2/mail/congrats"(platform: "/web", type: TrackType.View) {
+        user_id(required:true, description: "User id")
+        items_id(required:true, description: "Items ids")
+    }
+
     "/advertising/pads2"(platform: "/", isAbstract: true) {}
 
     "/advertising/pads2/manager"(platform: "/web", type: TrackType.View) {
@@ -107,4 +118,23 @@ tracks {
 
     "/advertising/pads2/manager/upselling/banner/close"(platform: "/web", type: TrackType.Event) {}
 
+    //Generic landing free trial
+    "/advertising/pads2/landing_freetrial"(platform: "/web", type: TrackType.View) {
+        free_trial_type(required: true, description: "type of free trial with which the user enters the landing pads")
+        budget(required: true, description: "Budget related to the landing")
+    }
+
+    "/advertising/pads2/landing_freetrial/cta"(platform: "/web", type: TrackType.Event) {
+        button(required: true, description: "Button that redirects to confirm page")
+        id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
+        position(required: false, description: "indicates the position of the main slide")
+    }
+
+    "/advertising/pads2/landing_freetrial/confirm"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/web", type: TrackType.Event) {
+        id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
+        position(required: false, description: "indicates the position of the main slide")
+    }
 }

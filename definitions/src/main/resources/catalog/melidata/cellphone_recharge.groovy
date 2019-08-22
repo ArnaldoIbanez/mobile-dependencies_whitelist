@@ -4,6 +4,7 @@ import com.ml.melidata.TrackType
 
 tracks {
     "/cellphone_recharge"(platform: "/", isAbstract: true) {
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
     }
     
     "/cellphone_recharge/recents"(platform: "/mobile") {}
@@ -13,7 +14,8 @@ tracks {
     "/cellphone_recharge/recommended"(platform: "/mobile") {}
     "/cellphone_recharge/packages"(platform: "/mobile") {}
     "/cellphone_recharge/carrier_disabled"(platform: "/mobile") {}
-    "/cellphone_recharge/terms_and_conditions"(platform: "/mobile") {} 
+    "/cellphone_recharge/terms_and_conditions"(platform: "/mobile") {}
+    "/cellphone_recharge/categories"(platform: "/mobile", type: TrackType.View) {}
 
     "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {}
     "/cellphone_recharge/px_discount_summary"(platform: "/mobile") {}
@@ -61,6 +63,16 @@ tracks {
     "/cellphone_recharge/account_money"(platform: "/web", type: TrackType.View) {}
     "/cellphone_recharge/error"(platform: "/web", type: TrackType.View) {}
     "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {}
+
+    // Recharge Marketing landing 
+    "/cellphone_recharge/mkt_landing"(platform: "/web", type: TrackType.View) {}
+    "/cellphone_recharge/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {}
+    "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
+        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
+    }
+    "/cellphone_recharge/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
+    }
 
     "/set_telephone_number"(platform: "/mobile", isAbstract: true){
         category(required: true, type: PropertyType.String, description: "Event Category")

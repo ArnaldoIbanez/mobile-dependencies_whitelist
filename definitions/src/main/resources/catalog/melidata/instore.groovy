@@ -141,6 +141,10 @@ tracks {
         error(required: true, PropertyType.String, description: "error type", inheritable: false)
     }
 
+    "/instore/error/no_response_received"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/no_response_received/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/no_response_received/abort"(platform: "/mobile", type: TrackType.Event) {}
+
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
@@ -389,7 +393,29 @@ tracks {
         message(required: true, PropertyType.String, description: "server error description")
         attributable_to(required: true, PropertyType.String)
     }
-    "/instore/my_qr"(platform: "/mobile", type: TrackType.Event) {}
+
+    //QR Tip
+    "/instore/tip"(platform: "/mobile", type: TrackType.View) {
+        pos_id(required: true, PropertyType.String, description: "collector point of sale unique identifier")
+        collector_id(required: true, PropertyType.String, description: "collector user unique identifier")
+        brand_name(required: true, PropertyType.String, description: "collector brand name")
+        currency(required: true, PropertyType.String)
+
+    }
+    "/instore/tip/selected_tip"(platform: "/mobile", type: TrackType.Event) {
+        tip_amount(required: true, PropertyType.Numeric, description: "the amount of tip selected to be paid")
+        tip_percentage(required: true, PropertyType.String, description: "the percentage of tip selected")
+        purchase_amount(required: true, PropertyType.Numeric, description: "the amount of the purchase being paid")
+    }
+    "/instore/tip/skip_tip"(platform: "/mobile", type: TrackType.Event) {
+        purchase_amount(required: true, PropertyType.Numeric, description: "the amount of the purchase being paid")
+
+    }
+    "/instore/tip/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/my_qr"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String, description: "this flow is outside instore, does not have session_id")
+    }
 
     // Scale Features
     // QR Assignment

@@ -12,13 +12,14 @@ tracks {
 
     "/bookmarks"(platform: "/", type: TrackType.Event, isAbstract: true) {
         item_id( required: false ,description: "Item id")
-        context( required:false ,description: "The page or section where the bookmark action is taking place" , values: ["/search","/vip","/myml","/home"])
+        context( required:false ,description: "The page or section where the bookmark action is taking place" , values: ["/search","/vip","/myml","/home", "/pdp"])
     }
 
     "/bookmarks/action"(platform: "/", isAbstract: true) {
         item_id( description: "item id in which we are performing the action")
         action_location(required:false ,type: PropertyType.String, description:"Where the action can be performed. Ej: navbar,maininfo ")
-        context( required:true ,description: "The page or section where the bookmark action is taking place" , values: ["/search","/vip","/myml","/home"])
+        context( required:true ,description: "The page or section where the bookmark action is taking place" , values: ["/search","/vip","/myml","/home", "/pdp"])
+        catalog_product_id(required: false, description: "Id of the product", PropertyType.String)
     }
 
     "/bookmarks/action/post"(platform: "/", type: TrackType.Event) {

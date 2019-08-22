@@ -36,8 +36,23 @@ trackTests {
             context = "security_settings"
         }
 
+        "/security_settings/password/maxlength"(platform: "/", type: TrackType.Event) {
+            context = "feedback"
+        }
+
+        "/security_settings/password/maxlength"(platform: "/", type: TrackType.Event) {
+            context = "security_settings"
+        }
+
         "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
-            password_security = 2
+            context = "forgot"
+            delete_sessions = false
+            lowend = true
+        }
+
+        "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
+            context = "feedback"
+            delete_sessions = true
         }
     }
 }

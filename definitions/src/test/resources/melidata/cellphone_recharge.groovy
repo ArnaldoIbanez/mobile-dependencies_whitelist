@@ -43,6 +43,10 @@ trackTests {
            
         }
 
+        "/cellphone_recharge/categories"(platform: "/mobile") {
+
+        }
+
         "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {
             
         }
@@ -81,7 +85,7 @@ trackTests {
         }
 
 
-"/cellphone_recharge/push_handler"(platform: "/mobile") {
+        "/cellphone_recharge/push_handler"(platform: "/mobile") {
             
         }
 
@@ -198,6 +202,26 @@ trackTests {
             category = "CONTACTS_ERROR"
         }
 
+        // Recharge Marketing Landing
+        "/cellphone_recharge/mkt_landing"(platform: "/web"){
+        }
+        "/cellphone_recharge/mkt_landing/sms"(platform: "/web"){
+        } 
+        "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web"){
+            position = "coupon"
+        } 
+        "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web"){
+            position = "steps"
+        } 
+        "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            position = "hero"
+        } 
+        "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            position = "fixed"
+        } 
+        "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            position = "footer"
+        } 
     }
 
     defaultBusiness = "mercadolibre"
@@ -237,6 +261,10 @@ trackTests {
 
         "/cellphone_recharge/terms_and_conditions"(platform: "/mobile") {
             
+        }
+
+        "/cellphone_recharge/categories"(platform: "/mobile") {
+
         }
 
         "/cellphone_recharge/px_payment_method_search"(platform: "/mobile") {
@@ -395,5 +423,26 @@ trackTests {
         "/contacts_invalid"(platform: "/mobile") {
             category = "CONTACTS_ERROR"
         }
+
+        // Recharge Marketing Landing
+        "/cellphone_recharge/mkt_landing"(platform: "/web"){
+        }
+        "/cellphone_recharge/mkt_landing/sms"(platform: "/web"){
+        } 
+        "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web"){
+            position = "coupon"
+        } 
+        "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web"){
+            position = "steps"
+        } 
+        "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            position = "hero"
+        } 
+        "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            position = "fixed"
+        } 
+        "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            position = "footer"
+        } 
     }
 }

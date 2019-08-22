@@ -13,11 +13,15 @@ trackTests {
         // Coupon Input  Screen
         "/coupon/input"(platform: "/mobile", type: TrackType.View) {
             code = "1234ABCD"
+            campaign_brand = "CopaAmerica"
+            is_auto_sendable = true
         }
 
         // Coupon Input  Events
         "/coupon/input/continue"(platform: "/mobile", type: TrackType.Event) {
             code = "1234ABCD"
+            campaign_brand = "CopaAmerica"
+            is_auto_sendable = true
         }
 
         // Coupon Success Screen
@@ -26,6 +30,8 @@ trackTests {
             entity_id = "1234567"
             entity_type = "invalid_code"
             code = "1234ABCD"
+            campaign_brand = "CopaAmerica"
+            is_auto_sendable = true
         }
 
         // Coupon Success Events
@@ -34,12 +40,16 @@ trackTests {
             code = "1234ABCD"
             type = "primary"
             action = "retry"
+            campaign_brand = "CopaAmerica"
+            is_auto_sendable = true
         }
 
         // Coupon Error Screen
         "/coupon/error"(platform: "/mobile", type: TrackType.View) {
             code = "1234ABCD"
             entity_type = "invalid_code"
+            campaign_brand = "CopaAmerica"
+            is_auto_sendable = true
         }
 
         // Coupon Error Events
@@ -48,6 +58,8 @@ trackTests {
             code = "1234ABCD"
             type = "primary"
             action = "retry"
+            campaign_brand = "CopaAmerica"
+            is_auto_sendable = true
         }
     }
 
@@ -59,11 +71,15 @@ trackTests {
         // Coupon Input  Screen
         "/coupon/input"(platform: "/mobile", type: TrackType.View) {
             code = "1234ABCD"
+            campaign_brand = "CopaAmerica"
+            is_auto_sendable = true
         }
 
         // Coupon Input  Events
         "/coupon/input/continue"(platform: "/mobile", type: TrackType.Event) {
             code = "1234ABCD"
+            campaign_brand = "CopaAmerica"
+            is_auto_sendable = true
         }
 
         // Coupon Success Screen
@@ -72,6 +88,8 @@ trackTests {
             entity_id = "1234567"
             entity_type = "invalid_code"
             code = "1234ABCD"
+            campaign_brand = "CopaAmerica"
+            is_auto_sendable = true
         }
 
         // Coupon Success Events
@@ -80,12 +98,16 @@ trackTests {
             code = "1234ABCD"
             type = "primary"
             action = "retry"
+            campaign_brand = "CopaAmerica"
+            is_auto_sendable = true
         }
 
         // Coupon Error Screen
         "/coupon/error"(platform: "/mobile", type: TrackType.View) {
             code = "1234ABCD"
             entity_type = "invalid_code"
+            campaign_brand = "CopaAmerica"
+            is_auto_sendable = true
         }
 
         // Coupon Error Events
@@ -94,6 +116,8 @@ trackTests {
             code = "1234ABCD"
             type = "primary"
             action = "retry"
+            campaign_brand = "CopaAmerica"
+            is_auto_sendable = true
         }
     }
 }

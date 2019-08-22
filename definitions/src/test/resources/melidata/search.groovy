@@ -111,6 +111,13 @@ trackTests {
                     ]
             ]
             carousel_filters = []
+            pdp_tracking_info = [
+                    "MLA1234": "shown",
+                    "MLA12345": "no_winner",
+                    "MLA123456": "inactive",
+                    "MLA1234567": "low_score"
+            ]
+            is_in_seo_whitelist = true
         }
 
         "/search"(platform: "/web"){
@@ -189,6 +196,13 @@ trackTests {
                     ]
             ]
             carousel_filters=["BRAND", "official_store", "STYLE"]
+            pdp_tracking_info = [
+                    "MLA1234": "shown",
+                    "MLA12345": "no_winner",
+                    "MLA123456": "inactive",
+                    "MLA1234567": "low_score"
+            ]
+            is_in_seo_whitelist = true
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -238,6 +252,16 @@ trackTests {
             filter = "STYLE"
             position = 4
         }
+        
+        
+        "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event){
+            defaultSearchInformation()
+        }
+        "/search/breadcrumb/apply"(platform: "/mobile", type: TrackType.Event){
+            defaultSearchInformation()
+            filter_id="9997262-AMLA_7262_2"
+        }
+        
         "/search/back"(platform: "/mobile", defaultSearchInformation)
         "/search/long_press"(platform: "/mobile"){
             item_id = "MLA170232"
@@ -347,7 +371,6 @@ trackTests {
         }
     }
 
-
     test("Search carousel next"){
         "/search/carousel"(platform: "/web") {
             carousel_used="next"
@@ -376,6 +399,13 @@ trackTests {
             user_zone = ""
             pdp_rows = []
             carousel_filters = []
+            pdp_tracking_info = [
+                    "MLA1234": "shown",
+                    "MLA12345": "no_winner",
+                    "MLA123456": "inactive",
+                    "MLA1234567": "low_score"
+            ]
+            is_in_seo_whitelist = true
         }
     }
 

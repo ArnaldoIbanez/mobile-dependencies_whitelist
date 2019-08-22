@@ -24,10 +24,13 @@ tracks {
 
     // Change Password
     "/security_settings/password"(platform: "/", type: TrackType.View) {
-        context(type: PropertyType.String, required: true, inheritable: false, description: "Point of access of change password view")
+        context(type: PropertyType.String, required: true, description: "Point of access of change password view")
     }
 
+    "/security_settings/password/maxlength"(platform: "/", type: TrackType.Event) {}
+
     "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
-        password_security(type: PropertyType.Numeric, required: true, description: "Level of security of the new password")
+        delete_sessions(type: PropertyType.Boolean, required: true, description: "Whether the user chose to delete sessions or not")
+        lowend(type: PropertyType.Boolean, required: false, description: "Whether the user accessed from a lowend device or not")
     }
 }

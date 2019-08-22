@@ -141,6 +141,20 @@ trackTests {
             sent_date= "20180508"
             batch_id= "MLB_PACK_20180508_2"
         }
+        "/notification_center/campaigns-generic"(platform: "/"){
+            campaign_id= "campaign1"
+            campaign_type="xp_cupones"
+            campaign_data = "MLV515515631,MLV515515632,MLV515515633"
+            newsgroup_id= "campaigns-generic-MLU102_07_02_2017-56626993"
+            status= "unread"
+            event_type= "swipe"
+            type_layout= "picture"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+            latest_news_type= "campaigns-generic"
+            latest_news_id= "campaigns-generic-143816022-MLB1013046714"
+        }
         "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile"){
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-suggested_discounts_buyer-142593788-MLA645507294"
@@ -788,6 +802,18 @@ trackTests {
             event_type = "received"
             deeplink ="meli://search?q=sony"
             campaign_id = "mkt_campaign_co"
+            test_notification = false
+            sent_date = "20180508"
+            batch_id = "MLB_PACK_20180508_2"
+        }
+
+        "/notification/campaigns_generic"(platform: "/") {
+            news_id = "12332323"
+            event_type = "received"
+            deeplink ="meli://search?q=sony"
+            campaign_id = "mkt_campaign_co"
+            campaign_type="xp_cupones"
+            campaign_data = "MLB1234"
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
@@ -2472,6 +2498,20 @@ trackTests {
             sent_date= "20180508"
             batch_id= "MLB_PACK_20180508_2"
         }
+        "/notification_center/campaigns-generic"(platform: "/"){
+            campaign_id= "campaign1"
+            campaign_type="xp_cupones"
+            campaign_data = "MLV515515631,MLV515515632,MLV515515633"
+            newsgroup_id= "campaigns-generic-MLU102_07_02_2017-56626993"
+            status= "unread"
+            event_type= "swipe"
+            type_layout= "picture"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+            latest_news_type= "campaigns-generic"
+            latest_news_id= "campaigns-generic-143816022-MLB1013046714"
+        }
         "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile"){
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-suggested_discounts_buyer-142593788-MLA645507294"
@@ -3118,6 +3158,18 @@ trackTests {
             event_type = "received"
             deeplink ="meli://search?q=sony"
             campaign_id = "mkt_campaign_co"
+            test_notification = false
+            sent_date = "20180508"
+            batch_id = "MLB_PACK_20180508_2"
+        }
+
+        "/notification/campaigns_generic"(platform: "/") {
+            news_id = "12332323"
+            event_type = "received"
+            deeplink ="meli://search?q=sony"
+            campaign_id = "mkt_campaign_co"
+            campaign_type="xp_cupones"
+            campaign_data = "MLB1234"
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"

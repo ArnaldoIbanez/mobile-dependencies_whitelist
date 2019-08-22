@@ -157,6 +157,33 @@ trackTests {
         "/credits/consumer/administrator_v2/suggested_product"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/home"(platform: "/web/desktop", type: TrackType.Event) {}
 
+        //Event Mobile
+        "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
+            dashboard_status = 'on_time'
+        }
+        "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+            installments_qty = 3
+        }
+        "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'overdue'
+        }
+        "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
+        "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'empty_state'
+        }
+        "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'overdue'
+        }
+        "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
+        "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'on_time'
+        }
+
         //Admin History (Compras Finalizadas)
 
         // Views
@@ -209,15 +236,27 @@ trackTests {
          ****************************************************/
 
         //Views
-        "/credits/consumer/administrator_v2/installment_selection"(platform: "/web/desktop", type: TrackType.View) {
+        "/credits/consumer/administrator_v2/installment_selection"(platform: "/", type: TrackType.View) {
             page_status = 'overdue'
         }
 
         //Events
-        "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
+        "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/mobile", type: TrackType.Event) {
+            page_status = 'overdue'
             total_installments = 3
             paid_installments = 2
         }
+
+        //Events
+        "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/web", type: TrackType.Event) {
+            total_installments = 3
+            paid_installments = 2
+        }
+
+         "/credits/consumer/administrator_v2/installment_selection/secondary_payment_intention"(platform: "/web", type: TrackType.Event) {
+            total_installments = 3
+        }
+
         "/credits/consumer/administrator_v2/installment_selection/back_to_dashboard"(platform: "/web/desktop", type: TrackType.Event) {}
 
         /****************************************************
