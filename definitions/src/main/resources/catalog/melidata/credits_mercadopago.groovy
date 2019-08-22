@@ -4,6 +4,66 @@ import com.ml.melidata.TrackType
 
 
 tracks {
+    propertyDefinitions {
+        product_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'fixed_term', 
+                'express_money',
+                'sales_percentage'
+            ],
+            inheritable: false
+        )
+        status(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'on_time', 
+                'overdue', 
+                'finished'
+            ],
+            inheritable: false
+        )
+        segment(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'online', 
+                'in_store'
+            ],
+            inheritable: false
+        )
+        category(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'regular', 
+                'refinance'
+            ],
+            inheritable: false
+        )
+        offer_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'early_offer', 
+                'full_offer'
+            ],
+            inheritable: false
+        ),
+        is_first_offer(
+            required: false, 
+            type: PropertyType.Boolean
+        )
+    }
+
+    propertyGroups {
+        without_status(product_type, segment, category, offer_type),
+        with_status(product_type, segment, category, offer_type, status),
+        offer(product_type, segment, offer_type, is_first_offer)
+    }
+
     defaultBusiness = "mercadopago"
 
     "/"(platform: "/web", isAbstract: true) {
@@ -38,12 +98,36 @@ tracks {
 
     //Dashboard
     "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {
+        offers(
+            type: PropertyType.ArrayList(
+                PropertyType.Map(
+                    offer
+                )
+            ),
+            required: false,
+            inheritable: false
+        )
+        products(
+            type: PropertyType.ArrayList(
+                PropertyType.Map(with_status)
+            ),
+            required: false,
+            inheritable: false
+        )
+        show_widget(
+            type: PropertyType.Boolean, 
+            required: false, 
+            inheritable: false            
+        )
+
+        // Included in products properties. Deprecate after new web admin, check native first
         status(
             type: PropertyType.String, 
-            required: true, 
+            required: false, 
             values: [
                 'on_time', 
-                'overdue'
+                'overdue',
+                'empty'
             ], 
             inheritable: false
         )
@@ -51,21 +135,32 @@ tracks {
 
     //Detail
     "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {
-        status(
-                type: PropertyType.String,
-                required: true,
-                values: ['on_time', 'overdue', 'finished'],
-                inheritable: false
-        )
+        with_status
     }
 
-    "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/administrator/detail/conditions"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/", type: TrackType.Event) {}
+    "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {
+        reason(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+    }
+    
+    "/credits/merchant/administrator/detail/conditions"(platform: "/", type: TrackType.View) {
+        with_status
+    }
+
+    "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/", type: TrackType.Event) {
+        with_status
+    }
 
     //Voluntary Payment
-    "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {}
-    "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
+        without_status
+    }
+    "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {
+        without_status
+    }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String, 
@@ -74,8 +169,10 @@ tracks {
                 'insufficient_account_money',
                 'lender_cannot_collect_installments',
                 'default'
-            ]
+            ],
+            inheritable: false
         )
+        without_status
     }
 
     /******************************************
@@ -331,7 +428,7 @@ tracks {
                 -27, 
                 -7, 
                 -5, 
-                -2, 
+                -2,
                 3, 
                 6, 
                 10, 
