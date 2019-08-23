@@ -16,15 +16,15 @@ from (
 			select substr(ds,1,10) as fecha_clic, 
 			 application.site_id as site_deal, 
 			 device.platform AS platform_deal, 
-			 jest(others['fragment'],'L') AS deal_Label,
-			 jest(others['fragment'],'S') AS deal_Source, 
-			 jest(others['fragment'],'V') AS deal_Position, 
-			 jest(others['fragment'],'T') AS deal_Type,
-			 jest(others['fragment'], 'DEAL_ID') as deal_id, 
+			 jest(COALESCE(platform.fragment, others['fragment']),'L') AS deal_Label,
+			 jest(COALESCE(platform.fragment, others['fragment']),'S') AS deal_Source, 
+			 jest(COALESCE(platform.fragment, others['fragment']),'V') AS deal_Position, 
+			 jest(COALESCE(platform.fragment, others['fragment']),'T') AS deal_Type,
+			 jest(COALESCE(platform.fragment, others['fragment']), 'DEAL_ID') as deal_id, 
 			 usr.uid as uid_deal
 			from tracks
              WHERE ds>='@param01' AND ds<'@param02'
-			 and others['fragment'] like '%DEAL_ID%'
+			 and COALESCE(platform.fragment, others['fragment']) like '%DEAL_ID%'
 		)deal 
 	inner join
 		(
