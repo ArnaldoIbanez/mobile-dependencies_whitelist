@@ -61,18 +61,85 @@ tracks {
     }
 
     def with_status = objectSchemaDefinitions {
-        product_type
-        segment
-        category
-        offer_type
-        status
+        product_type(
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'fixed_term',
+                        'express_money',
+                        'sales_percentage'
+                ]
+        )
+        status(
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'on_time',
+                        'overdue',
+                        'finished'
+                ]
+        )
+        segment(
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'online',
+                        'in_store'
+                ]
+        )
+        is_first_offer(
+                required: false,
+                type: PropertyType.Boolean
+        )
+        category(
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'regular',
+                        'refinance'
+                ]
+        )
+        offer_type(
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'early_offer',
+                        'full_offer'
+                ]
+        )
     }
 
     def offer = objectSchemaDefinitions {
-        product_type
-        segment
-        offer_type
-        is_first_offer
+        product_type(
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'fixed_term',
+                        'express_money',
+                        'sales_percentage'
+                ]
+        )
+        status(
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'on_time',
+                        'overdue',
+                        'finished'
+                ]
+        )
+        segment(
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'online',
+                        'in_store'
+                ]
+        )
+        is_first_offer(
+                required: false,
+                type: PropertyType.Boolean
+        )
     }
 
     defaultBusiness = "mercadopago"
@@ -86,7 +153,6 @@ tracks {
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/merchant"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/administrator"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Merchants Public Landings

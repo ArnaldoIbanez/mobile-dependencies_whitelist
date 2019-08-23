@@ -71,19 +71,29 @@ trackTests {
     }
 
     test("Merchant Credits Administrator") {
-        def express_money = {
-            product_type = 'express_money'
-            segment = 'online'
-            offer_type = 'early_offer'
-            is_first_offer = true
-        }
 
         def express_money = {
-            product_type = 'express_money'
-            segment = 'online'
-            offer_type = 'early_offer'
-            is_first_offer = true
+            [
+                    [
+                            product_type: 'express_money',
+                            segment: 'online',
+                            is_first_offer: true,
+                            status: 'on_time'
+                    ]
+            ]
         }
+
+        def products_object = {
+            [
+                    [
+                            product_type: 'fixed_term',
+                            segment: 'online',
+                            category: 'regular',
+                            offer_type: 'early_offer'
+                    ]
+            ]
+        }
+
 
         def sales_percentage = [
             product_type: 'sales_percentage',
@@ -125,23 +135,11 @@ trackTests {
         // "/credits/merchant/administrator"(platform: "/") {
         //     status = 'empty'
         // }
-        "/credits/merchant/administrator"(platform: "/") {
-            offers = [
-                [
-                    express_money()
-                    status = 'on_time'
-                ]
-            ]
-            products = [
-                [
-                    product_type: 'fixed_term'
-                    segment: 'online'
-                    category: 'regular'
-                    offer_type: 'early_offer'
-                ]
-            ]
+        "/credits/merchant/administrator"(platform: "/",{
+            offers = express_money()
+            products = products_object()
             show_widget = true
-        }
+        })
         // "/credits/merchant/administrator"(platform: "/") {
         //     offers = [
         //         fixed_term
