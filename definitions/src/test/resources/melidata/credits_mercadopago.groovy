@@ -71,13 +71,87 @@ trackTests {
     }
 
     test("Merchant Credits Administrator") {
+        def express_money_map = {
+            [
+                product_type: 'express_money',
+                segment: 'online',
+                is_first_offer: true,
+                offer_type: 'early_offer'
+            ]
+        }
+
+        def fixed_term_map = {
+            [
+                product_type: 'fixed_term',
+                segment: 'online',
+                category: 'regular',
+                offer_type: 'early_offer'
+            ]
+        }
+
+        def express_money = {
+            product_type = 'express_money'
+            segment = 'online'
+            offer_type = 'early_offer'
+        }
+
+        def express_money_overdue = {
+            product_type = 'express_money'
+            segment = 'online'
+            offer_type = 'early_offer'
+            status = 'overdue'
+        }
+        
+        def sales_percentage = {
+            product_type = 'sales_percentage'
+            segment = 'in_store'
+            offer_type = 'full_offer'
+        }
+
+        def sales_percentage_on_time = {
+            product_type = 'sales_percentage'
+            segment = 'in_store'
+            offer_type = 'full_offer'
+            status = 'on_time'
+        }
+
+        def fixed_term = {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+        }
+
+        def fixed_term_on_time = {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'on_time'
+        }
+
+        "/credits/merchant/administrator"(platform: "/") {}
         "/credits/merchant/administrator"(platform: "/") {
             status = 'on_time'
         }
         "/credits/merchant/administrator"(platform: "/") {
             status = 'overdue'
         }
+        "/credits/merchant/administrator"(platform: "/") {
+            status = 'empty'
+        }
+        "/credits/merchant/administrator"(platform: "/", {
+            offers = [
+                express_money_map()
+            ]
+            products = [
+                fixed_term_map()
+            ]
+            show_widget = true
+        })
         "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
+
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             status = 'on_time'
         }
@@ -87,10 +161,61 @@ trackTests {
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             status = 'finished'
         }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            express_money_overdue()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            sales_percentage_on_time()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
+        
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            express_money_overdue()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            sales_percentage_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            express_money_overdue()
+        }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            sales_percentage_on_time()
+        }
+
+        "/credits/merchant/administrator/history"(platform: "/web/desktop") {}
+        
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            express_money()
+        }
+        
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
+            express_money()
+        }
+        
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'insufficient_account_money'
         }
@@ -99,6 +224,30 @@ trackTests {
         }
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'default'
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+            express_money()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'default'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+            express_money()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'default'
+            fixed_term()
         }
     }
 
