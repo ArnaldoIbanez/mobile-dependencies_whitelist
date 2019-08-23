@@ -4734,11 +4734,11 @@ trackTests {
 
         //Merchant Services
         "/notification/mss_alliance"(platform: "/") {
-            news_id = "security_phone_enrollment-186785675"
+            news_id = "mss_alliance-186785675"
             event_type = "open"
         }
-        "/notification/mss_alliance"(platform: "/") {
-            news_id = "security_phone_enrollment-186785675"
+        "/notification/mss_gplay"(platform: "/") {
+            news_id = "mss_gplay-186785675"
             event_type = "open"
         }
 
