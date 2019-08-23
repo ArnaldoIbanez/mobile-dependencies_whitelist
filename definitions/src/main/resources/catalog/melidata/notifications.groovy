@@ -1275,6 +1275,17 @@ tracks {
     "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {}
 
     //Withdraw
-    "/notification/withdraw_approved_contingency"(platform: "/mobile") {}
+    "/notification/withdraw_approved_contingency"(platform: "/", type: TrackType.Event) {} //At web, only mp business
+    "/notification/withdraw_rejected_contingency"(platform: "/web", type: TrackType.Event) {}
+
+    //Phone Enrollment
+    "/notification/security_phone_enrollment"(platform: "/web", type: TrackType.Event) {}
+
+    //Cx Question
+    "/notification/cx_mp_question"(platform: "/web", type: TrackType.Event) {}
+
+    //Merchant Services
+    "/notification/mss_alliance"(platform: "/web", type: TrackType.Event) {}
+    "/notification/mss_gplay"(platform: "/web", type: TrackType.Event) {}
 
 }
