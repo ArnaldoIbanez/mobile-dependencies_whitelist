@@ -176,11 +176,13 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            reason = "esc_cap"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "mastercard"
             card_id = "1234"
+            reason = "saved_card"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/prepaid_card/cvv"(platform: "/mobile", type: TrackType.View) {
@@ -194,8 +196,8 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            reason = "call_for_auth"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
-
         }
 
         "/px_checkout/add_payment_method/promotions"(platform: "/mobile", type: TrackType.View) {
@@ -567,6 +569,9 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
         }
          "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -605,6 +610,9 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
         }
         "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -627,6 +635,9 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
         }
 
         "/px_checkout/generic_error"(platform: "/mobile", type: TrackType.View) {
@@ -734,6 +745,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            split_enabled = true
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
@@ -1217,6 +1229,17 @@ trackTests {
         }
 
         "/px_checkout/add_payment_method/promotions/terms_and_conditions/back"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/payments/terms_and_conditions/back"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -1738,11 +1761,13 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            reason = "call_for_auth"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "mastercard"
             card_id = "1234"
+            reason = "call_for_auth"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
         "/px_checkout/payments/select_method/prepaid_card/cvv"(platform: "/mobile", type: TrackType.View) {
@@ -1756,8 +1781,8 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            reason = "call_for_auth"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
-
         }
 
         "/px_checkout/add_payment_method/promotions"(platform: "/mobile", type: TrackType.View) {
@@ -2149,6 +2174,9 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
         }
          "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -2187,6 +2215,9 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
         }
         "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
@@ -2209,6 +2240,9 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
         }
 
         "/px_checkout/generic_error"(platform: "/mobile", type: TrackType.View) {
@@ -2365,6 +2399,7 @@ trackTests {
             checkout_preference_id = "123"
             esc_enabled = true
             express_enabled = true
+            split_enabled = false
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -2372,6 +2407,7 @@ trackTests {
                 pos_id = 1234
             }
             flow = "/instore"
+            session_id="5ff342a5-1437-465e-a6ae-316cd780193a"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
@@ -2392,6 +2428,7 @@ trackTests {
             }
             esc_enabled = true
             express_enabled = true
+            split_enabled = true
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -2854,6 +2891,17 @@ trackTests {
         }
 
         "/px_checkout/add_payment_method/promotions/terms_and_conditions/back"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/payments/terms_and_conditions/back"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"

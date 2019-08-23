@@ -1,6 +1,7 @@
 package src.main.resources.catalog.shipping
 
 import com.ml.melidata.catalog.PropertyType
+
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
@@ -54,6 +55,12 @@ tracks {
     "/notifications"(platform: "/api") {
     }
 
+    "/tracking"(platform: "/api") {
+    }
+
+    "/tracking/adapters"(platform: "/api") {
+    }
+
     "/notifications/tracking"(platform: "/api") {
         notification(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification")
         shipment_id(type: PropertyType.Numeric, required: true)
@@ -66,6 +73,11 @@ tracks {
     }
 
     "/notifications/tracking/validated"(platform: "/api") {
+    }
+
+    "/tracking/adapters/validations"(platform: "/api") {
+        validation_type(type: PropertyType.String, required: true, description: "Pull consumer validation type")
+        shipment_data(required: true, description: "Data sent by the carrier into their pull tracking response")
     }
 
     "/notifications/tracking/event_processing"(platform: "/api") {

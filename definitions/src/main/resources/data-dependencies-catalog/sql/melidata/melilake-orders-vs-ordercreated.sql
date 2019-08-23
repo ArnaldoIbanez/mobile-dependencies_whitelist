@@ -8,6 +8,6 @@ from (
         and ds < '@param02'
         and path='/orders/ordercreated'
   ) t on (cast(o.ord_order_id as string) = t.order_id)
-  where substring(from_unixtime(unix_timestamp(o.ord_created_dt, 'MMM dd, yyyy')),1,10)='@param03' and o.is_test = 'false'
+  where substring(from_unixtime(unix_timestamp(o.ord_created_dt, 'MMM dd, yyyy')),1,10)='@param03'
 ) a
 group by a.date_created, a.site, a.path

@@ -8,6 +8,7 @@ from tracks
 where ds >= '@param01' and ds < '@param02'
 and jest(platform.http.cookies, '_d2id') is not null
 and device.platform in ('/web/mobile', '/web/desktop')
+and path != '/traffic/inbound/matt'
 group by device.platform,
 application.site_id,
 application.business,

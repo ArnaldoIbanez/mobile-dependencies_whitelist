@@ -35,5 +35,44 @@ trackTests {
         "/transport/topup_helper"(platform: "/mobile") {
             flow = "/transport"
         }
+        "/transport/combined_packages"(platform: "/mobile") {
+            flow = "/transport"
+        }
+        "/transport/combined_amount"(platform: "/mobile") {
+            flow = "/transport"
+        }
+        "/transport/validation_points"(platform: "/mobile") {
+            flow = "/transport"
+        }
+        "/transport/no_money"(platform: "/mobile") {
+            flow = "/transport"
+        }
+        "/transport/first_use"(platform: "/mobile") {
+            flow = "/transport"
+        }
+        "/transport/error"(platform: "/mobile") {
+            flow = "/transport"
+        }
+
+        // Transport Marketing Landing
+        "/transport/mkt_landing"(platform: "/web"){
+        } 
+        "/transport/mkt_landing/sms"(platform: "/web"){
+        } 
+        "/transport/mkt_landing/copy-clipboard"(platform: "/web"){
+            position = "coupon"
+        } 
+        "/transport/mkt_landing/copy-clipboard"(platform: "/web"){
+            position = "steps"
+        } 
+        "/transport/mkt_landing/button"(platform: "/web"){
+            position = "hero"
+        } 
+        "/transport/mkt_landing/button"(platform: "/web"){
+            position = "fixed"
+        } 
+        "/transport/mkt_landing/button"(platform: "/web"){
+            position = "footer"
+        } 
     }
 }

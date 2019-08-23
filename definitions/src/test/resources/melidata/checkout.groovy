@@ -426,6 +426,9 @@ trackTests {
             contact_name = "Juan"
             contact_phone = "555-5555"
         }
+        "/checkout/shipping/location/new_contact/back"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
        "/checkout/shipping/location/new_contact#submit"(platform:"/mobile", type:TrackType.Event) {
             success = true
             session_id = "1241n1kj2nk14141nl12nl"
@@ -517,6 +520,14 @@ trackTests {
             ]
         }
         //
+        
+        "/checkout/shipping/address_profile"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+        }
+
+        "/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event) {
+            label = "laboral"
+        }
 
         "/checkout/payment/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -716,6 +727,16 @@ trackTests {
                     ]
             ]
         }
+        "/checkout/payment/consumer_credits/installments/back"(platform:"/mobile", type:TrackType.Event) {
+            checkoutStatus()
+            available_installments = [
+                    [
+                            installment: 1,
+                            amount: 20.6,
+                            without_fee: true
+                    ]
+            ]
+        }
         "/checkout/payment/payment_combination/debit_card"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
@@ -749,6 +770,12 @@ trackTests {
         }
 
         "/checkout/payment/select_type"(platform:"/mobile", type:TrackType.View) {
+            checkoutStatus()
+            available_methods = ["visa", "master", "amex", "cash"]
+            coupon = true
+            coupon_discount = 20
+        }
+        "/checkout/payment/select_type/back"(platform:"/mobile", type:TrackType.Event) {
             checkoutStatus()
             available_methods = ["visa", "master", "amex", "cash"]
             coupon = true
@@ -945,6 +972,12 @@ trackTests {
             payment_method = "telecomm"
             agencies = 10
         }
+         // Step Curp Credits MLM
+        "/checkout/payment/curp/not_my_curp"(platform: "/", type: TrackType.Event) {}
+        "/checkout/payment/curp/view_authorization"(platform: "/", type: TrackType.Event) {}
+        //Credits Review
+        "/checkout/review/credits_cover"(platform:"/", type: TrackType.Event) {}
+        "/checkout/review/credits_terms_and_conditions"(platform:"/", type: TrackType.Event) {}
     }
 
     test("checkout congrats"){
@@ -2008,6 +2041,7 @@ trackTests {
             checkout_flow = "direct"
             flow_type = "buy_it_now"
             stored_cards_quantity = 3
+            checkout_flow_reason = "default_case"
         }
 
         "/checkout/geolocation"(platform:"/web", type: TrackType.Event) {
@@ -2154,6 +2188,12 @@ trackTests {
         "/checkout/shipping/select_option/agency_pickup"(platform:"/web", dataSet)
         "/checkout/shipping/select_option/send_to_my_address"(platform:"/web", dataSet)
         "/checkout/shipping/store_selection"(platform:"/web", dataSet)
+
+        "/checkout/shipping/address_profile"(platform:"/web", dataSet)
+        "/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event) {
+            label = "laboral"
+        }
+
         // Map v2
         "/checkout/shipping/puis/select_store"(platform: "/web", dataSet)
         "/checkout/shipping/select_store"(platform: "/web", dataSet)
@@ -2220,6 +2260,8 @@ trackTests {
             frequency_before = "WEEKS_3"
         }
 
+         // Step Curp Credits MLM
+        "/checkout/payment/curp"(platform:"/", dataSet)
     }
 
     test("Checkout recovery with recos - push notification flow") {

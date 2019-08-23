@@ -57,8 +57,6 @@ tracks {
     "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true, description: "Login step")
         tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
-        is_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via a One Time Password")
-        is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
     }
 
     "/login/auth/failure"(platform: "/web", type: TrackType.Event) {

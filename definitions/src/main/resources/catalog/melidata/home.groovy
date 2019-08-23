@@ -8,6 +8,10 @@ tracks {
 
     "/home"(platform: "/mobile") {
         retry_after_error(required: false)
+        component_count(required: false, type: PropertyType.Numeric)
+        newbie(required: false, type: PropertyType.Boolean)
+        home_version(required: false, type: PropertyType.String)
+        is_logged(required: false, type: PropertyType.Boolean)
     }
 
     "/home/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -33,6 +37,10 @@ tracks {
     "/home/back"(platform: "/mobile") {
     }
 
+    "/home/navigation_history"(platform: "/mobile"){
+
+    }
+
     "/home/pulltorefresh"(platform: "/mobile", type: TrackType.Event) {
     }
 
@@ -40,6 +48,10 @@ tracks {
     }
 
     "/home/pulltorefresh/abort"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "/home/page"(platform: "/mobile", type: TrackType.Event) {
+        page_number(required: true, type: PropertyType.Numeric)
     }
 
     "/home/scroll"(platform: "/mobile", type: TrackType.Event) {
@@ -58,6 +70,7 @@ tracks {
         position(type: PropertyType.Numeric)
         section()
         tag_id()
+        is_modal(required: false, type: PropertyType.Boolean)
     }
 
     "/home/carousel"(platform: "/mobile", isAbstract: true) {
@@ -69,6 +82,7 @@ tracks {
     "/home/carousel/lastcard"(platform: "/mobile") {
     }
 
+    "/home/categories"(platform: "/", type: TrackType.View) {}
 
     "/home"(platform: "/", type: TrackType.View) {
         from(required: false,  description: "Who is redirecting")
@@ -88,7 +102,46 @@ tracks {
     // Motors page view
     "/home/category/motors"(platform: "/", type: TrackType.View) {}
 
-    "/home/navigation"(platform: "/web", type: TrackType.View) {}
+    "/home/navigation"(platform: "/", type: TrackType.View) {}
+
+     // RealEstate Portal Inmobiliario Sections
+    "/home/category/real_estate"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/bookmarks"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/bookmarks/recommendation"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/help"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/tyc"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/about"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/pricing"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/pricing/fsbo"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/pricing/professional"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/pricing/development"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/property"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/property/recommendation"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/development"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/development/recommendation"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/landing"(platform: "/", type: TrackType.View){
+       id(required: true, type:PropertyType.String, description: "Landing's id" )
+    }
+
+    "/home/category/real_estate/navigation"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/navigation/recommendation"(platform: "/", type: TrackType.View) {}
+
+    "/home/category/real_estate/map"(platform: "/", type: TrackType.View) {}
 
     // Apparel
     "/home/category/apparel"(platform: "/", isAbstract: true) {
@@ -129,4 +182,22 @@ tracks {
 
     // Supermarket
     "/home/supermarket"(platform: "/", type: TrackType.View) {}
-}  
+
+    //Server Side
+    "/backend"(platform: "/", type: TrackType.Event, isAbstract : true) {}
+
+    "/backend/home"(platform: "/", type: TrackType.Event) {
+        component_count(required: true, type: PropertyType.Numeric)
+        newbie(required: true, type: PropertyType.Boolean)
+        home_version(required: true, type: PropertyType.String)
+        is_logged(required: true, type: PropertyType.Boolean)
+    }
+
+    "/korriban"(platform:"/", type: TrackType.Event){
+        component_count(required: true, type: PropertyType.Numeric)
+    }
+
+    "/home/backend"(platform: "/", type: TrackType.Event, isAbstract : true) {}
+
+    "/home/backend/take_over"(platform: "/web", type: TrackType.Event) {}
+}
