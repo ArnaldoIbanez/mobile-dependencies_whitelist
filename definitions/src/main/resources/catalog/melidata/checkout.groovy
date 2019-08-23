@@ -663,7 +663,10 @@ tracks {
         checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
 
-    "/checkout/review#submit/abort"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/review#submit/abort"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase"])
+    }
 
     "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")

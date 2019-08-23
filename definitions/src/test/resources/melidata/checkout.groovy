@@ -852,7 +852,10 @@ trackTests {
             checkout_flow = "direct"
         }
 
-        "/checkout/review#submit/abort"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/review#submit/abort"(platform:"/mobile", type:TrackType.Event) {
+            checkout_flow = "direct"
+            session_id = "some_session_id"
+        }
 
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event) {
             old_quantity = 4
