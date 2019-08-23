@@ -110,14 +110,14 @@ tracks {
             type: PropertyType.ArrayList(
                 PropertyType.Map(offer)
             ),
-            required: true,
+            required: false,
             inheritable: false
         )
         products(
             type: PropertyType.ArrayList(
                 PropertyType.Map(with_status)
             ),
-            required: true,
+            required: false,
             inheritable: false
         )
         show_widget(
