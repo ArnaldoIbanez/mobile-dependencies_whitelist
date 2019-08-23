@@ -4711,37 +4711,81 @@ trackTests {
         }
 
         //Withdrawal
-        "/notification/withdraw_approved_contingency"(platform: "/") {
+        "/notification/withdraw_approved_contingency"(platform: "/mobile") {
             news_id = "withdraw_approved_contingency-186785675"
             event_type = "open"
         }
-        "/notification/withdraw_rejected_contingency"(platform: "/") {
+
+    }
+
+    defaultBusiness = "mercadolibre"
+    test("Web Notifications mercadolibre"){
+        //Withdrawal
+        "/notification/withdraw_approved_contingency"(platform: "/web") {
+            news_id = "withdraw_approved_contingency-186785675"
+            event_type = "open"
+        }
+        "/notification/withdraw_rejected_contingency"(platform: "/web") {
             news_id = "withdraw_rejected_contingency-186785675"
             event_type = "open"
         }
 
         //Phone Enrollment
-        "/notification/security_phone_enrollment"(platform: "/") {
+        "/notification/security_phone_enrollment"(platform: "/web") {
             news_id = "security_phone_enrollment-186785675"
             event_type = "open"
         }
 
         //Cx Question
-        "/notification/cx_mp_question"(platform: "/") {
+        "/notification/cx_mp_question"(platform: "/web") {
             news_id = "cx_mp_question-186785675"
             event_type = "open"
         }
 
         //Merchant Services
-        "/notification/mss_alliance"(platform: "/") {
+        "/notification/mss_alliance"(platform: "/web") {
             news_id = "mss_alliance-186785675"
             event_type = "open"
         }
-        "/notification/mss_gplay"(platform: "/") {
+        "/notification/mss_gplay"(platform: "/web") {
             news_id = "mss_gplay-186785675"
             event_type = "open"
         }
+    }
 
+    defaultBusiness = "mercadopago"
+    test("Web Notifications mercadopago"){
+        //Withdrawal
+        "/notification/withdraw_approved_contingency"(platform: "/web") {
+            news_id = "withdraw_approved_contingency-186785675"
+            event_type = "open"
+        }
+        "/notification/withdraw_rejected_contingency"(platform: "/web") {
+            news_id = "withdraw_rejected_contingency-186785675"
+            event_type = "open"
+        }
+
+        //Phone Enrollment
+        "/notification/security_phone_enrollment"(platform: "/web") {
+            news_id = "security_phone_enrollment-186785675"
+            event_type = "open"
+        }
+
+        //Cx Question
+        "/notification/cx_mp_question"(platform: "/web") {
+            news_id = "cx_mp_question-186785675"
+            event_type = "open"
+        }
+
+        //Merchant Services
+        "/notification/mss_alliance"(platform: "/web") {
+            news_id = "mss_alliance-186785675"
+            event_type = "open"
+        }
+        "/notification/mss_gplay"(platform: "/web") {
+            news_id = "mss_gplay-186785675"
+            event_type = "open"
+        }
     }
 
 }
