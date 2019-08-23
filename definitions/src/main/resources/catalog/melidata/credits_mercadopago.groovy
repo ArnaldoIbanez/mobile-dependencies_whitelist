@@ -12,8 +12,7 @@ tracks {
                 'fixed_term', 
                 'express_money',
                 'sales_percentage'
-            ],
-            inheritable: false
+            ]
         )
         status(
             type: PropertyType.String,
@@ -22,8 +21,7 @@ tracks {
                 'on_time', 
                 'overdue', 
                 'finished'
-            ],
-            inheritable: false
+            ]
         )
         segment(
             type: PropertyType.String,
@@ -31,8 +29,7 @@ tracks {
             values: [
                 'online', 
                 'in_store'
-            ],
-            inheritable: false
+            ]
         )
         category(
             type: PropertyType.String,
@@ -40,8 +37,7 @@ tracks {
             values: [
                 'regular', 
                 'refinance'
-            ],
-            inheritable: false
+            ]
         )
         offer_type(
             type: PropertyType.String,
@@ -49,8 +45,7 @@ tracks {
             values: [
                 'early_offer', 
                 'full_offer'
-            ],
-            inheritable: false
+            ]
         )
         is_first_offer(
             required: false, 
@@ -116,18 +111,16 @@ tracks {
     "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {
         offers(
             type: PropertyType.ArrayList(
-                PropertyType.Map(
-                    offer
-                )
+                PropertyType.Map(offer)
             ),
-            required: false,
+            required: true,
             inheritable: false
         )
         products(
             type: PropertyType.ArrayList(
                 PropertyType.Map(with_status)
             ),
-            required: false,
+            required: true,
             inheritable: false
         )
         show_widget(
@@ -149,10 +142,6 @@ tracks {
         )
     }
 
-    //Detail
-    "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {
-        with_status
-    }
 
     "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {
         reason(
@@ -160,6 +149,11 @@ tracks {
             required: false,
             inheritable: false
         )
+    }
+
+    //Detail
+    "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {
+        with_status
     }
     
     "/credits/merchant/administrator/detail/conditions"(platform: "/", type: TrackType.View) {
