@@ -4710,8 +4710,35 @@ trackTests {
             event_type = "open"
         }
 
-        "/notification/withdraw_approved_contingency"(platform: "/mobile") {
-            news_id = "withdraw-approved_contingency-186785675"
+        //Withdrawal
+        "/notification/withdraw_approved_contingency"(platform: "/") {
+            news_id = "withdraw_approved_contingency-186785675"
+            event_type = "open"
+        }
+        "/notification/withdraw_rejected_contingency"(platform: "/") {
+            news_id = "withdraw_rejected_contingency-186785675"
+            event_type = "open"
+        }
+
+        //Phone Enrollment
+        "/notification/security_phone_enrollment"(platform: "/") {
+            news_id = "security_phone_enrollment-186785675"
+            event_type = "open"
+        }
+
+        //Cx Question
+        "/notification/cx_mp_question"(platform: "/") {
+            news_id = "cx_mp_question-186785675"
+            event_type = "open"
+        }
+
+        //Merchant Services
+        "/notification/mss_alliance"(platform: "/") {
+            news_id = "security_phone_enrollment-186785675"
+            event_type = "open"
+        }
+        "/notification/mss_alliance"(platform: "/") {
+            news_id = "security_phone_enrollment-186785675"
             event_type = "open"
         }
 

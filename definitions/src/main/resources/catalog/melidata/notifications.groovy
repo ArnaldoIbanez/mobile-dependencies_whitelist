@@ -1275,6 +1275,17 @@ tracks {
     "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {}
 
     //Withdraw
-    "/notification/withdraw_approved_contingency"(platform: "/mobile") {}
+    "/notification/withdraw_approved_contingency"(platform: "/") {}
+    "/notification/withdraw_rejected_contingency"(platform: "/") {}
+
+    //Phone Enrollment
+    "/notification/security_phone_enrollment"(platform: "/") {}
+
+    //Cx Question
+    "/notification/cx_mp_question"(platform: "/") {}
+
+    //Merchant Services
+    "/notification/mss_alliance"(platform: "/") {}
+    "/notification/mss_gplay"(platform: "/") {}
 
 }
