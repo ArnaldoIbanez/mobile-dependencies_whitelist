@@ -527,6 +527,7 @@ trackTests {
 
         "/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event) {
             label = "laboral"
+            session_id = "some_session_id"
         }
 
         "/checkout/payment/preload_credit_card"(platform:"/mobile", type:TrackType.View) {

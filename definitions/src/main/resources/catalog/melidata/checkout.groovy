@@ -253,7 +253,8 @@ tracks {
 
     //Event
     "/checkout/shipping/address_profile/delivered_time"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-       label(required: false, type: PropertyType.String)
+        label(required: false, type: PropertyType.String)
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
     //Fallback/Custom shipping

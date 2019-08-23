@@ -258,6 +258,7 @@ tracks {
 // Event
 "/cart/checkout/shipping/address_profile/delivered_time"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     label(required: false, type: PropertyType.String)
+    session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
 }
 
 "/cart/checkout/shipping/edit_address"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
