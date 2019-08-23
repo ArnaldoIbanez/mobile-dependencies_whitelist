@@ -53,96 +53,24 @@ tracks {
         )
     }
 
-    def without_status = objectSchemaDefinitions {
-        product_type
-        segment
-        category
-        offer_type
+    propertyGroups {
+        offer_group(product_type, segment, is_first_offer, offer_type)
     }
 
     propertyGroups {
-        products_with_status(product_type, status, segment, is_first_offer, category)
+        products_group(product_type, segment, category, offer_type)
+    }
+
+    propertyGroups {
+        products_with_status(product_type, segment, category, offer_type, status)
     }
 
     def with_status = objectSchemaDefinitions {
-        product_type(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'fixed_term',
-                        'express_money',
-                        'sales_percentage'
-                ]
-        )
-        status(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'on_time',
-                        'overdue',
-                        'finished'
-                ]
-        )
-        segment(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'online',
-                        'in_store'
-                ]
-        )
-        is_first_offer(
-                required: false,
-                type: PropertyType.Boolean
-        )
-        category(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'regular',
-                        'refinance'
-                ]
-        )
-        offer_type(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'early_offer',
-                        'full_offer'
-                ]
-        )
+        products_with_status
     }
 
     def offer = objectSchemaDefinitions {
-        product_type(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'fixed_term',
-                        'express_money',
-                        'sales_percentage'
-                ]
-        )
-        offer_type(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'early_offer',
-                        'full_offer'
-                ]
-        )
-        segment(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'online',
-                        'in_store'
-                ]
-        )
-        is_first_offer(
-                required: false,
-                type: PropertyType.Boolean
-        )
+        offer_group
     }
 
     defaultBusiness = "mercadopago"
@@ -237,10 +165,10 @@ tracks {
 
     //Voluntary Payment
     "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
-        without_status
+        products_group
     }
     "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {
-        without_status
+        products_group
     }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
         reason(
@@ -253,7 +181,7 @@ tracks {
             ],
             inheritable: false
         )
-        without_status
+        products_group
     }
 
     /******************************************
