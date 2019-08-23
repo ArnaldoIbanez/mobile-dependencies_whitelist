@@ -201,6 +201,8 @@ trackTests {
             loyalty_level = 2
             previous_catalog_product_id = "MLA43720"
 
+            filters = ["installments": "no_interest", "price":"1000-2000"]
+
             cart()
             shipping()
             pickup()

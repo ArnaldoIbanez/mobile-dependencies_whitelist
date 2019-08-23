@@ -212,6 +212,7 @@ tracks {
     "/wallet_home/tap" (platform: "/mobile", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
         section_id(required: true, type: PropertyType.String, description: "section where the deeplink was launched")
+        component_id(required: false, type: PropertyType.String, description: "specific component id where the user tapped")
     }
 
     "/wallet_home/drawer/tap" (platform: "/mobile", type: TrackType.Event) {
@@ -228,11 +229,15 @@ tracks {
     "/wallet_home/banking/collapse" (platform: "/mobile", type: TrackType.Event) {
         balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
         cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
+        assets(required: false, type: PropertyType.Map(assets_definition), description: "The assets section information")
+        credits(required: false, type: PropertyType.Map(credits_definition), description: "The credits section information")
     }
 
     "/wallet_home/banking/expand" (platform: "/mobile", type: TrackType.Event) {
         balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
         cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
+        assets(required: false, type: PropertyType.Map(assets_definition), description: "The assets section information")
+        credits(required: false, type: PropertyType.Map(credits_definition), description: "The credits section information")
     }
 
     "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
