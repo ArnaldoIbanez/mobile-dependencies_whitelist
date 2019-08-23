@@ -60,6 +60,10 @@ tracks {
         offer_type
     }
 
+    propertyGroups {
+        products_with_status(product_type, status, segment, is_first_offer, category)
+    }
+
     def with_status = objectSchemaDefinitions {
         product_type(
                 type: PropertyType.String,
@@ -119,13 +123,12 @@ tracks {
                         'sales_percentage'
                 ]
         )
-        status(
+        offer_type(
                 type: PropertyType.String,
                 required: false,
                 values: [
-                        'on_time',
-                        'overdue',
-                        'finished'
+                        'early_offer',
+                        'full_offer'
                 ]
         )
         segment(
@@ -219,15 +222,15 @@ tracks {
 
     //Detail
     "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {
-        with_status
+        products_with_status
     }
     
     "/credits/merchant/administrator/detail/conditions"(platform: "/", type: TrackType.View) {
-        with_status
+        products_with_status
     }
 
     "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/", type: TrackType.Event) {
-        with_status
+        products_with_status
     }
 
     "/credits/merchant/administrator/history"(platform:"/", type: TrackType.Event) {}

@@ -78,7 +78,7 @@ trackTests {
                             product_type: 'express_money',
                             segment: 'online',
                             is_first_offer: true,
-                            status: 'on_time'
+                            offer_type: 'early_offer'
                     ]
             ]
         }
