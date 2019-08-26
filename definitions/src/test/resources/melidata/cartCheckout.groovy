@@ -244,6 +244,7 @@ trackTests {
         // Event 
         "/cart/checkout/shipping/address_profile/delivered_time"(platform:"/mobile", type:TrackType.Event) {
             label = "laboral"
+            session_id = "some_session_id"
         }
 
         "/cart/checkout/shipping/edit_address"(platform:"/mobile", type:TrackType.Event) {

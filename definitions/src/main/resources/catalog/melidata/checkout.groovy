@@ -253,7 +253,8 @@ tracks {
 
     //Event
     "/checkout/shipping/address_profile/delivered_time"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-       label(required: false, type: PropertyType.String)
+        label(required: false, type: PropertyType.String)
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
     //Fallback/Custom shipping
@@ -662,7 +663,10 @@ tracks {
         checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
 
-    "/checkout/review#submit/abort"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/review#submit/abort"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase"])
+    }
 
     "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
