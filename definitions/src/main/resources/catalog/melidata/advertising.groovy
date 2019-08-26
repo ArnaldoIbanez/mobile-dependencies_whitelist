@@ -74,6 +74,14 @@ tracks {
 
     "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
         budget(required: true, description: "Budget related to the campaign")
+        free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
+        id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
+        position(required: false, description: "indicates the position of the main slide")
+    }
+
+    "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/web", type: TrackType.Event) {
+        budget(required: true, description: "Budget related to the campaign")
+        free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
         id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, description: "indicates the position of the main slide")
     }
