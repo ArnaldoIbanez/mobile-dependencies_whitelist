@@ -42,6 +42,10 @@ trackTests {
         "/remedy/challenge_marital_status"(platform: "/mobile") {}
         "/remedy/challenge_occupation"(platform: "/mobile") {}
         "/remedy/challenge_cellphone"(platform: "/mobile") {}
+        "/remedy/challenge_kyc_address_mlb"(platform: "/mobile") {}
+        "/remedy/challenge_address_mlm"(platform: "/mobile") {}
+        "/remedy/challenge_address_mlm_confirmation"(platform: "/mobile") {}
+        "/remedy/challenge_identity_mlm"(platform: "/mobile") {}
 
         "/remedy/url_external"(platform: "/mobile") {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
@@ -121,6 +125,10 @@ trackTests {
         "/remedy/challenge_marital_status"(platform: "/mobile", business: "mercadolibre") {}
         "/remedy/challenge_occupation"(platform: "/mobile", business: "mercadolibre") {}
         "/remedy/challenge_cellphone"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_kyc_address_mlb"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_address_mlm"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_address_mlm_confirmation"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_identity_mlm"(platform: "/mobile", business: "mercadolibre") {}
 
         "/remedy/url_external"(platform: "/mobile", business: "mercadolibre") {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"

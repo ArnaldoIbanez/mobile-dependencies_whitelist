@@ -41,6 +41,10 @@ tracks {
     "/remedy/challenge_marital_status"(platform: "/", type: TrackType.View) {}
     "/remedy/challenge_occupation"(platform: "/", type: TrackType.View) {}
     "/remedy/challenge_cellphone"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_kyc_address_mlb"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_address_mlm"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_address_mlm_confirmation"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_identity_mlm"(platform: "/", type: TrackType.View) {}
 
     "/remedy/identity_handler"(platform: "/", type: TrackType.Event) {
         remedy_id (required: true, type: PropertyType.String)
