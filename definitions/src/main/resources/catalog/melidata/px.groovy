@@ -156,6 +156,7 @@ tracks {
     "/px_checkout/review/one_tap"(platform: "/mobile", type: TrackType.View) {
         preference_amount(required: true, type: PropertyType.Numeric , description: "Total amount")
         available_methods(required: true, type: PropertyType.ArrayList , description: "Array of available payment methods to pay")
+        available_methods_quantity(required: false, type: PropertyType.Numeric , description: "Available methods quantity")
         discount(required: false, description: "Discount if available")
         items(required: true, type: PropertyType.ArrayList , description: "Array of items to pay")
 
@@ -476,6 +477,7 @@ tracks {
     "/px_checkout/review/confirm"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
         payment_method_type(required: true, type: PropertyType.String, description: "Payment method type id")
+        payment_method_selected_index(required: false, type: PropertyType.Numeric , description: "Payment method selected index")
         review_type(required: true, type: PropertyType.String, description: "Review screen type", values: ["one_tap" , "traditional"])
         extra_info(required: false, description: "Extra payment method info")
         externalData
