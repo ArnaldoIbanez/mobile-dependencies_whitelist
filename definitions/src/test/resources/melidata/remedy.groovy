@@ -42,7 +42,7 @@ trackTests {
         "/remedy/challenge_marital_status"(platform: "/mobile") {}
         "/remedy/challenge_occupation"(platform: "/mobile") {}
         "/remedy/challenge_cellphone"(platform: "/mobile") {}
-        "/remedy/challenge_kyc_address"(platform: "/mobile") {}
+        "/remedy/challenge_name_mismatch"(platform: "/mobile") {}
         "/remedy/challenge_address_confirmation"(platform: "/mobile") {}
 
         "/remedy/url_external"(platform: "/mobile") {
@@ -123,7 +123,7 @@ trackTests {
         "/remedy/challenge_marital_status"(platform: "/mobile", business: "mercadolibre") {}
         "/remedy/challenge_occupation"(platform: "/mobile", business: "mercadolibre") {}
         "/remedy/challenge_cellphone"(platform: "/mobile", business: "mercadolibre") {}
-        "/remedy/challenge_kyc_address"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_name_mismatch"(platform: "/mobile", business: "mercadolibre") {}
         "/remedy/challenge_address_confirmation"(platform: "/mobile", business: "mercadolibre") {}
 
         "/remedy/url_external"(platform: "/mobile", business: "mercadolibre") {

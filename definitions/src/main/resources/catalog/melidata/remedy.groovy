@@ -41,7 +41,7 @@ tracks {
     "/remedy/challenge_marital_status"(platform: "/", type: TrackType.View) {}
     "/remedy/challenge_occupation"(platform: "/", type: TrackType.View) {}
     "/remedy/challenge_cellphone"(platform: "/", type: TrackType.View) {}
-    "/remedy/challenge_kyc_address"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_name_mismatch"(platform: "/", type: TrackType.View) {}
     "/remedy/challenge_address_confirmation"(platform: "/", type: TrackType.View) {}
 
     "/remedy/identity_handler"(platform: "/", type: TrackType.Event) {
