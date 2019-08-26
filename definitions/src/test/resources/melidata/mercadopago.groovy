@@ -485,7 +485,17 @@ trackTests {
     }
 
     test("Landing mercadopago sellers mss") {
-        "/landing/sellers/mss" (platform: "/web") {}
+        "/landing/sellers/mss" (platform: "/web") {
+            page_name = "dzero"
+        }
+    }
+
+    test("Landing mercadopago sellers mss click event") {
+        "/landing/sellers/mss/click" (platform: "/web") {
+            id = "dzero"
+            label = "test label"
+            page_name = "dzero"
+        }
     }
 
     test("Landing mercadopago buyers") {

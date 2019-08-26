@@ -59,7 +59,15 @@ tracks {
     "/landing/sellers/social"(platform: "/web"){}
 
     // MP Sellers Merchant Services
-    "/landing/sellers/mss"(platform: "/web"){}
+    "/landing/sellers/mss"(platform: "/web"){
+        page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
+    }
+
+    "/landing/sellers/mss/click"(platform:"/", type: TrackType.Event) {
+      id (type: PropertyType.String, required: true, description: "ID from clicked element")
+      label (type: PropertyType.String, required: true, description: "Element text")
+      page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
+    }
 
     // MP Buyers
     "/landing/buyers"(platform: "/web"){}
