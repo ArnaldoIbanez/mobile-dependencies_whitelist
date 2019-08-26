@@ -120,7 +120,7 @@ tracks {
             required: false,
             inheritable: false
         )
-        show_widget(
+        show_cx_widget(
             type: PropertyType.Boolean, 
             required: false, 
             inheritable: false            

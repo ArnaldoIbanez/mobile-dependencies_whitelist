@@ -147,7 +147,7 @@ trackTests {
             products = [
                 fixed_term_map()
             ]
-            show_widget = true
+            show_cx_widget = true
         })
         "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
 
