@@ -118,6 +118,7 @@ trackTests {
             device_gps_enabled = true
             type = "qr"
             tags = "shell"
+            display_at_least_one_store = true
         }
         "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
             session_id = "wi234nuHSd83h478"
@@ -928,6 +929,7 @@ trackTests {
             radius_in_meters = 1000
             type = "qr"
             tags = "shell"
+            display_at_least_one_store = false
         }
         "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
@@ -1160,6 +1162,7 @@ trackTests {
             device_gps_enabled = true
             type = "qr"
             tags = "shell"
+            display_at_least_one_store = false
         }
         "/ask_device_permission/location/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "wi234nuHSd83h478"
@@ -1974,6 +1977,7 @@ trackTests {
             radius_in_meters = 1000
             type = "qr"
             tags = ["shell"]
+            display_at_least_one_store = true
         }
         "/instore/map/first_user_location"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"

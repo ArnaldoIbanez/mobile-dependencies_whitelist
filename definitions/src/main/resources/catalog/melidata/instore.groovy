@@ -157,6 +157,7 @@ tracks {
         device_gps_enabled(required: false, PropertyType.Boolean)
         type(required: false, PropertyType.String, description: "type of app launching the map")
         tags(required: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
+        display_at_least_one_store(required: false, inheritable: false, PropertyType.Boolean, description: "whether the map is being forced to show the nearest store or not")
     }
     "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {}
     "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {}
@@ -352,6 +353,7 @@ tracks {
         radius_in_meters(required: false, inheritable: false, PropertyType.Numeric, description: "a radius from the location in the deeplink from where to search for stores")
         type(required: true, inheritable: false, PropertyType.String, description: "type of stores to show on the map")
         tags(required: true, inheritable: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
+        display_at_least_one_store(required: false, inheritable: false, PropertyType.Boolean, description: "whether the map is being forced to show the nearest store or not")
     }
     "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
