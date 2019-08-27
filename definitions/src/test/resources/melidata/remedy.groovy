@@ -148,7 +148,6 @@ trackTests {
         }
 
         // Error
-
         "/remedy/error"(platform: "/mobile", business: "mercadolibre") {
             label = "service_error_generic"
             verbose = "SE AGOTO EL TIEMPO DE ESPERA"
