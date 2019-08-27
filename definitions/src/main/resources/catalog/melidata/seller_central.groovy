@@ -607,6 +607,39 @@ tracks {
         option(required: false, type: PropertyType.String, description: "Option selected")
     }
 
+    "/seller_central/sales/detail/main_action"(platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of main action")
+    }
+
+    "/seller_central/sales/detail/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of secondary action")
+    }
+
+    "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/shipping"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/shipping/action"(platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of shipping action")
+    }
+
+    "/seller_central/sales/detail/invoice_info"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/buyer_info"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/buyer_info/action"(platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of buyer info action")
+    }
+
+    "/seller_central/sales/detail/driver_info"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/congrats"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/cancellation"(platform: "/mobile", isAbstract: true) {}
+    "/seller_central/sales/detail/cancellation/landing"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/cancellation/order_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/cancellation/reason_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
+
     // CATALOG OPTIN SECTION
 
     "/seller_central/catalog"(platform: "/web", isAbstract: true) {}
@@ -630,5 +663,3 @@ tracks {
 
 
 }
-
-

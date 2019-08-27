@@ -975,6 +975,63 @@ trackTests {
         }
     }
 
+    test("seller central sales detail main action") {
+        "/seller_central/sales/detail/main_action"(platform: "/mobile", type: TrackType.Event) {
+            id = "PRODUCT_DELIVERED"
+        }
+    }
+
+    test("seller central sales detail secondary action") {
+        "/seller_central/sales/detail/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            id = "HELP_ACTION"
+        }
+    }
+
+    test("seller central sales detail payment") {
+        "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("seller central sales detail shipping") {
+        "/seller_central/sales/detail/shipping"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("seller central sales detail shipping action") {
+        "/seller_central/sales/detail/shipping/action"(platform: "/mobile", type: TrackType.Event) {
+            id = "FOLLOW_SHIPPING"
+        }
+    }
+
+    test("seller central sales detail invoice information") {
+        "/seller_central/sales/detail/invoice_info"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("seller central sales detail buyer information") {
+        "/seller_central/sales/detail/buyer_info"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("seller central sales detail buyer information action") {
+        "/seller_central/sales/detail/buyer_info/action"(platform: "/mobile", type: TrackType.Event) {
+            id = "CALL"
+        }
+    }
+
+    test("seller central sales detail driver information") {
+        "/seller_central/sales/detail/driver_info"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    // TODO actor info
+
+    test("seller central sales detail congrats") {
+        "/seller_central/sales/detail/congrats"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("seller central sales detail cancellation flow") {
+        "/seller_central/sales/detail/cancellation/landing"(platform: "/mobile", type: TrackType.View) {}
+        "/seller_central/sales/detail/cancellation/order_selection"(platform: "/mobile", type: TrackType.View) {}
+        "/seller_central/sales/detail/cancellation/reason_selection"(platform: "/mobile", type: TrackType.View) {}
+        "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Catalog Optin
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1063,4 +1120,3 @@ trackTests {
     }
 
 }
-
