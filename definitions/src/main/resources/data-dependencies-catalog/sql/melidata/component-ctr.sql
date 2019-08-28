@@ -48,3 +48,4 @@ ON
     prints.platform = clicks.platform AND
     prints.site_id = clicks.site_id AND
     prints.component = clicks.component
+
