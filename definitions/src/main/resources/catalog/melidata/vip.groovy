@@ -141,6 +141,9 @@ tracks {
         whatsapp_available(required: false, type: PropertyType.String, description: "determines if whatsapp is available")
         quote_demand_available(required: false, type: PropertyType.Boolean, description: "determines if an item has quote demand available")
         new_wording_free(required: false, type: PropertyType.Boolean, description: "determines if the new free wording is available" )
+
+        // PUBLI FIELDS
+        tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
     }
 
     "/vip"(platform: "/web") {
