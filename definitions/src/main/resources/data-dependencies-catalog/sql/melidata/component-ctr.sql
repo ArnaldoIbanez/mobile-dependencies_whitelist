@@ -34,12 +34,12 @@ LEFT JOIN
     application.site_id AS `site_id`,
     COUNT(DISTINCT(COALESCE(`jt`.`uid`, -1))) AS `clicks_count`
 FROM tracks
-LATERAL VIEW json_tuple(others['fragment'], 'c_event', 'c_id', 'c_uid') jt AS `event`, `id`, `uid`
+LATERAL VIEW json_tuple(platform.fragment, 'c_event', 'c_id', 'c_uid') jt AS `event`, `id`, `uid`
 WHERE ds >= '@param01' AND ds < '@param02'
     AND `type` = 'view'
     AND `path` <> '/recommendations'
     AND `jt`.`id` IS NOT NULL
-    AND (device.platform LIKE '/mobile/%' OR others['intersection_observer_supported'] = 'true')
+    AND (device.platform LIKE '/mobile/%' OR platform.http.intersection_observer_supported = TRUE)
 GROUP BY ds, device.platform, application.site_id, regexp_extract(`jt`.`id`, '^(\/.*)\/.*$', 1)) AS clicks
 
 ON
@@ -48,3 +48,4 @@ ON
     prints.platform = clicks.platform AND
     prints.site_id = clicks.site_id AND
     prints.component = clicks.component
+

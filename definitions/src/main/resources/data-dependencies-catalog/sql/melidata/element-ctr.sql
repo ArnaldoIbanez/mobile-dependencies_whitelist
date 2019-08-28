@@ -46,13 +46,13 @@ LEFT JOIN
     `jt`.`category_id` AS `category_id`,
     COUNT(DISTINCT(COALESCE(`jt`.`uid`, -1))) AS `clicks_count`
 FROM tracks
-LATERAL VIEW json_tuple(others['fragment'], 'c_event', 'c_id', 'c_uid', 'c_element_order', 'c_campaign', 'c_brand_name', 'c_category_id') jt AS `event`, `id`, `uid`, `element_order`, `campaign`, `brand_name`, `category_id`
+LATERAL VIEW json_tuple(platform.fragment, 'c_event', 'c_id', 'c_uid', 'c_element_order', 'c_campaign', 'c_brand_name', 'c_category_id') jt AS `event`, `id`, `uid`, `element_order`, `campaign`, `brand_name`, `category_id`
 WHERE ds >= '@param01' AND ds < '@param02'
     AND `type` = 'view'
     AND `path` <> '/recommendations'
     AND `jt`.`id` IS NOT NULL
     AND (`jt`.`id` != '/home/exhibitors-carousel/element' OR ((`jt`.`element_order` IS NOT NULL) AND (`jt`.`campaign` IS NOT NULL)))
-    AND (device.platform LIKE '/mobile/%' OR others['intersection_observer_supported'] = 'true')
+    AND (device.platform LIKE '/mobile/%' OR platform.http.intersection_observer_supported = TRUE)
 GROUP BY tracks.ds, device.platform, application.site_id, `jt`.`id`, `jt`.`element_order`, `jt`.`campaign`, `jt`.`brand_name`, `jt`.`category_id`) AS clicks
 
 ON
