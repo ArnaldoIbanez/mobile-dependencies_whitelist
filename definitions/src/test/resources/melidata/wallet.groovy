@@ -13,9 +13,9 @@ trackTests {
 
         "/wallet/cards/detail"(platform:"/mobile", {})
 
-        "/wallet/cards/detail/add_card"(platform:"/mobile", {})
-        "/wallet/cards/detail/add_card/success"(platform:"/mobile", {})
-        "/wallet/cards/detail/add_card/failed"(platform:"/mobile", {})
+        "/wallet/cards/add_card"(platform:"/mobile", {})
+        "/wallet/cards/add_card/success"(platform:"/mobile", {})
+        "/wallet/cards/add_card/failed"(platform:"/mobile", {})
 
         "/wallet/cards/detail/delete_card"(platform:"/mobile", {})
         "/wallet/cards/detail/delete_card/success"(platform:"/mobile", {})
