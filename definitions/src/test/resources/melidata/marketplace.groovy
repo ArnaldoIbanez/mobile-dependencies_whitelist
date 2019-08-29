@@ -586,6 +586,10 @@ trackTests {
         }
     }
 
+    test("promotions landing") {
+        "/promotions" (platform:"/web/desktop", type: TrackType.View) {}
+    }
+
 
     test("MP-MA Landing QR") {
         "/merchant_acquisition/" (platform: "/", type: TrackType.View) {}
