@@ -134,6 +134,7 @@ tracks {
 
 "/cart/checkout/payment/select_bank"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/payment/input_sec_code"(platform: "/", type: TrackType.View) {}
+"/cart/checkout/payment/esc_input_sec_code"(platform: "/", type: TrackType.View) {}
 "/cart/checkout/payment/view_location"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/payment/view_location/location"(platform:"/", type: TrackType.Event) {}
 "/cart/checkout/payment/view_location/preloaded"(platform:"/", type: TrackType.Event) {}
