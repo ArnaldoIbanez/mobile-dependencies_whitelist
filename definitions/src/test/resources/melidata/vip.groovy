@@ -447,6 +447,7 @@ trackTests {
             power_seller_status = "platinum"
             deal_ids = ["MLA100"]
             catalog_listing = false
+            tracking_id="dd1ec405-0a55-4b55-aaa5-de29cc3ab5fb"
         }
 
         "/vip"(platform:"/web", dataSet)
@@ -506,6 +507,7 @@ trackTests {
             power_seller_status = "platinum"
             deal_ids = []
             billboard_clicked_position = "3"
+            tracking_id="dd1ec405-0a55-4b55-aaa5-de29cc3ab5fb"
         }
 
         def trackModals = {
