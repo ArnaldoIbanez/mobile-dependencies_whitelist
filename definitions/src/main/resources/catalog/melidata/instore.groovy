@@ -245,6 +245,17 @@ tracks {
     "/instore/waiting/generic_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/generic_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/waiting/add_card"(platform: "/mobile", isAbstract: true) {}
+    "/instore/waiting/add_card/cielo"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/add_card/cielo/add"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/add_card/cielo/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/add_card/cielo/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/scan_again"(platform: "/mobile", isAbstract: true) {}
+    "/instore/waiting/scan_again/cielo"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/scan_again/cielo/scan_qr"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/scan_again/cielo/back"(platform: "/mobile", type: TrackType.Event) {}
+
     "/instore/waiting/vending_product_selection"(platform: "/mobile", type: TrackType.View) {
         vending_version(required: false, PropertyType.String, description: "sent only by the new version")
     }

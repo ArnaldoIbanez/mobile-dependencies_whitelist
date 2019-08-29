@@ -637,6 +637,55 @@ trackTests {
             pos_id = "65763"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/waiting/add_card/cielo"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "Cielo"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/add_card/cielo/add"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "Cielo"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/add_card/cielo/abort"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "Cielo"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/add_card/cielo/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "Cielo"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/scan_again/cielo"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "Cielo"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/scan_again/cielo/scan_qr"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "Cielo"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/scan_again/cielo/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "Cielo"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
 
         // Vending
         "/instore/waiting/vending_product_selection"(platform: "/mobile", type: TrackType.View) {
@@ -1914,6 +1963,55 @@ trackTests {
         "/instore/waiting/generic_ticket/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             collector_id = "12356"
             brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/add_card/cielo"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "Cielo"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/add_card/cielo/add"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "Cielo"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/add_card/cielo/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "Cielo"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/add_card/cielo/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "Cielo"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/scan_again/cielo"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "Cielo"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/scan_again/cielo/scan_qr"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "Cielo"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/scan_again/cielo/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "Cielo"
             store_id = "76840"
             pos_id = "65763"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
