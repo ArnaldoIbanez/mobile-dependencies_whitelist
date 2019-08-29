@@ -68,6 +68,7 @@ tracks {
     // Detail
     "/asset_management/investment_detail"(platform: "/", type: TrackType.View) {
         empty_state_case (required: false, type: PropertyType.String, description: "The empty state case")
+        has_simulator (required: false, type: PropertyType.String, description: "if the simulator view is present")
     }
 
     // Earnings report
@@ -143,4 +144,5 @@ tracks {
         remedy_id (required: true, type: PropertyType.String, description: "The remedy that was resolved by IV")
         status (required: false, type: PropertyType.String, description: "On failure, this represents why the flow failed")
     }
+    "/asset_management/simulator_slide"(platform: "/mobile", type: TrackType.Event) {}
 }
