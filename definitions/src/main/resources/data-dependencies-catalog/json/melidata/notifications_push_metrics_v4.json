@@ -39,11 +39,15 @@
       "script": "notifications/notifications-push-count_v4.sql",
       "parameters": [{
         "name": "send_date",
-        "value": "DAY-4",
+        "value": "DAY-3",
         "format": "yyyy-MM-dd"
       },{
         "name": "three_days_after_send_date",
-        "value": "DAY-1",
+        "value": "DAY",
+        "format": "yyyy-MM-dd"
+      }, {
+        "name": "one_day_after_send_date",
+        "value": "DAY-2",
         "format": "yyyy-MM-dd"
       }]
     }
