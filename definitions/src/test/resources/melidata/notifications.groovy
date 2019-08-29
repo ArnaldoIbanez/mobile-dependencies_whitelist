@@ -2354,6 +2354,7 @@ trackTests {
             event_type = "open"
         }
 
+        //Withdrawal
         "/notification/withdraw_approved_contingency"(platform: "/mobile") {
             news_id = "withdraw-approved_contingency-186785675"
             event_type = "open"
@@ -4736,12 +4737,6 @@ trackTests {
             event_type = "open"
         }
 
-        //Cx Question
-        "/notification/cx_mp_question"(platform: "/web") {
-            news_id = "cx_mp_question-186785675"
-            event_type = "open"
-        }
-
         //Merchant Services
         "/notification/mss_alliance"(platform: "/web") {
             news_id = "mss_alliance-186785675"
@@ -4749,6 +4744,12 @@ trackTests {
         }
         "/notification/mss_gplay"(platform: "/web") {
             news_id = "mss_gplay-186785675"
+            event_type = "open"
+        }
+
+        //Fiscal Data
+        "/notification/fiscal_data_mp_business_registration"(platform: "/web") {
+            news_id = "fiscal_data_mp_business_registration-186785675"
             event_type = "open"
         }
     }
@@ -4771,12 +4772,6 @@ trackTests {
             event_type = "open"
         }
 
-        //Cx Question
-        "/notification/cx_mp_question"(platform: "/web") {
-            news_id = "cx_mp_question-186785675"
-            event_type = "open"
-        }
-
         //Merchant Services
         "/notification/mss_alliance"(platform: "/web") {
             news_id = "mss_alliance-186785675"
@@ -4784,6 +4779,12 @@ trackTests {
         }
         "/notification/mss_gplay"(platform: "/web") {
             news_id = "mss_gplay-186785675"
+            event_type = "open"
+        }
+
+        //Fiscal Data
+        "/notification/fiscal_data_mp_business_registration"(platform: "/web") {
+            news_id = "fiscal_data_mp_business_registration-186785675"
             event_type = "open"
         }
     }

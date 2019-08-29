@@ -1281,11 +1281,11 @@ tracks {
     //Phone Enrollment
     "/notification/security_phone_enrollment"(platform: "/web", type: TrackType.Event) {}
 
-    //Cx Question
-    "/notification/cx_mp_question"(platform: "/web", type: TrackType.Event) {}
-
     //Merchant Services
     "/notification/mss_alliance"(platform: "/web", type: TrackType.Event) {}
     "/notification/mss_gplay"(platform: "/web", type: TrackType.Event) {}
+
+    //Fiscal Data
+    "/notification/fiscal_data_mp_business_registration"(platform: "/web", type: TrackType.Event) {}
 
 }
