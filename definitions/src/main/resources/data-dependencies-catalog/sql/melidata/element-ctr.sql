@@ -28,8 +28,10 @@ LATERAL VIEW json_tuple(`data`, 'device') dev AS `device`
 LATERAL VIEW json_tuple(dev.`device`, 'platform') jt2 AS `platform`
 LATERAL VIEW json_tuple(`data`, 'application') app AS `application`
 LATERAL VIEW json_tuple(app.`application`, 'site_id') jt3 AS `site_id`
+LATERAL VIEW json_tuple(`data`, 'path') jt4 AS `path`
 WHERE ds >= '@param01 04' AND ds < '@param02 04'
     AND `jt`.`id` IS NOT NULL
+    AND `jt4`.`path` = '/component'
     AND (`jt`.`id` != '/home/exhibitors-carousel/element' OR ((`jt`.`element_order` IS NOT NULL) AND (`jt`.`campaign` IS NOT NULL)))
     AND (`jt`.`id` RLIKE '.*(?<=\/element)$' OR `jt`.`id` RLIKE '.*(?<=\/item)$')
 GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') - 14400, 'yyyy-MM-dd HH'), `jt2`.`platform`,`jt3`.`site_id`, `jt`.`id`, `jt`.`element_order`, `jt`.`campaign`, COALESCE(`jt`.`brand_name`, `jt`.`legacy_brand_name`), COALESCE(`jt`.`category_id`, `jt`.`legacy_category_id`)) AS prints
