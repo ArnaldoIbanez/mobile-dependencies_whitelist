@@ -12,7 +12,7 @@
         "/pos_seller"(platform: "/mobile", isAbstract: true) {
             flow_id (required: false, type: PropertyType.String, description: "Flow id.")
             flow_origin(required: false, type: PropertyType.String, description: "flow origin",values: ["shortcut", "menu"])
-            payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit_card", "debit_card"])
+            payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit_card", "debit_card","CREDIT_CARD","DEBIT_CARD"])
             poi_id(required: false, type: PropertyType.String, description: "poi device id")
             poi_type(required: false, type: PropertyType.String, description: "poi device type")
             mode(required: false, type: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
@@ -45,6 +45,7 @@
 
         "/pos_seller/congrats"(platform: "/mobile", type: TrackType.View) {
             payment_method_id(required: true, type: PropertyType.String, description: "payment method id")
+            payment_id(required: false, type: PropertyType.String, description: "payment id")
             cardData
         }
 
