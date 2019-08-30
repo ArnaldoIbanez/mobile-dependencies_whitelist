@@ -443,6 +443,15 @@ trackTests {
         }
     }
 
+    test("product_creator taken action over item with product data should be tracked"){
+        "/structure_data/product_creator/taken-action-with-product-data"(platform: "/", type: TrackType.Event){
+            item_id = "MLA763560508"
+            user_action = "OTHER_DOMAIN"
+            user_initials = "FKE"
+        }
+    }
+    
+
     test("product_creator ignore hints action should be tracked"){
         "/structure_data/product_creator/ignored_hints"(platform: "/", type: TrackType.Event){
             domain_id = "MLA-MOTORCYCLE_HELMETS"
