@@ -1331,6 +1331,21 @@ trackTests {
             flow = "/point_payment"
             error_msg = "an error"
         }
+        "/point_payment/result/sms"(platform: "/mobile", type: TrackType.View) {
+            flow_id = "1231313123213"
+            method = "swipe"
+            currency = "ARS"
+            amount = "10"
+            installments = "1"
+            payment_status = "approved"
+            payment_detail = "accredited"
+            poi = "BBPOS-01099923701497"
+            poi_type = "BBPOS"
+            payment_method_id = "debvisa"
+            operator_id = "12345678"
+            flow = "/point_payment"
+            error_msg = "an error"
+        }
         "/point_payment/error"(platform: "/mobile", type: TrackType.View) {
             from = "/point_catalog"
             error_msg = "No podemos procesar esta tarjeta. Prueba con otra"
@@ -1343,6 +1358,7 @@ trackTests {
         "/point_payment/error/rejected"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/request_bluetooth"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/ftu_preorder_pax"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/ftu_qr"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/pairing"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/pairing_chooser"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/selector"(platform: "/mobile", type: TrackType.View) {}
@@ -1386,6 +1402,10 @@ trackTests {
         "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/onboarding_brandname"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/onboarding_chooser"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/onboarding_como_cobrar"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/push_mcc"(platform: "/mobile", type: TrackType.View) {}
 
         "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
@@ -1417,6 +1437,18 @@ trackTests {
             data ="{ctr: 2313}"
         }
         "/point_payment/flow_tracker/card_tokens_result"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/card_tokens_request"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_error"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             user_id = "123241234413"
             level ="info"
@@ -1489,6 +1521,18 @@ trackTests {
             data ="{ctr: 2313}"
         }
         "/point_payment/flow_tracker/flow_notification_response"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_notification_sms_request"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_notification_sms_response"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             user_id = "123241234413"
             level ="info"
