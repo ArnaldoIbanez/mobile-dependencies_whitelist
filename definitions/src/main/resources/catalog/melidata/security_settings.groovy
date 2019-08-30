@@ -33,4 +33,12 @@ tracks {
         delete_sessions(type: PropertyType.Boolean, required: true, description: "Whether the user chose to delete sessions or not")
         lowend(type: PropertyType.Boolean, required: false, description: "Whether the user accessed from a lowend device or not")
     }
+
+    // Biometrics
+    "/security_settings/screenlock"(platform: "/mobile", type: TrackType.View) {
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock"], description: "Screenlock Operating System status upon view")
+        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
+    }
+
+    "/security_settings/screenlock/toggle"(platform: "/mobile", type: TrackType.Event) { }
 }

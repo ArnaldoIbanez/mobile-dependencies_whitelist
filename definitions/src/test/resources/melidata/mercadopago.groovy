@@ -2922,6 +2922,72 @@ trackTests {
         }
     }
 
+    test("Biometrics / Screenlock") {
+        "/screenlock/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            elapsed_time = 50
+            result = "success"
+        }
+
+        "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            elapsed_time = 50
+            result = "error"
+            errors = ["user_cancelled"]
+        }
+
+        "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            elapsed_time = 50
+            result = "success"
+        }
+    }
+
+    test("Screenlock") {
+        "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
+            os_status = "biometrics"
+            enrollment_status = "enabled"
+        }
+
+        "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
+            os_status = "basic_screenlock"
+            enrollment_status = "enabled"
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+        }
+    }
+
     test("Push Notification") {
         "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {}
         "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
