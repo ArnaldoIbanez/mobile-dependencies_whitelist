@@ -292,7 +292,7 @@ tracks {
 
     "/seller_central/bulk/publish/categories"(platform: "/", type: TrackType.View) {}
 
-    "/seller_central/bulk/publish/download"(platform: "/", type: TrackType.View) {}
+    "/seller_central/bulk/publish/download"(platform: "/web/desktop", isAbstract: true) {}
 
     "/seller_central/bulk/publish/download/congrats"(platform: "/", type: TrackType.View) {}
 

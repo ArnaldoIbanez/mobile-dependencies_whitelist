@@ -357,10 +357,6 @@ trackTests {
         "/seller_central/bulk/publish/categories"(platform: "/", type: TrackType.View) {}
     }
 
-    test("seller central bulk publish download view") {
-        "/seller_central/bulk/publish/download"(platform: "/", type: TrackType.View) {}
-    }
-
     test("seller central bulk publish upload view") {
         "/seller_central/bulk/publish/upload"(platform: "/", type: TrackType.View) {}
     }
