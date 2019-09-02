@@ -287,14 +287,18 @@ tracks {
     // TRACKS Seller Central BULK Publish
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     "/seller_central/bulk/publish"(platform: "/web/desktop", isAbstract: true) {}
-    "/seller_central/bulk/publish/document"(platform: "/web/desktop", isAbstract: true) {}
-    "/seller_central/bulk/publish/document/generate"(platform: "/web/desktop", type: TrackType.Event){
-        categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of selected categories to publish")
-        failed_categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of categories that failed generating document")
-        session_id(required: true, type: PropertyType.String, description: "Session ID")
-        document_name(required: true, type: PropertyType.String, description: "Name of the document generated")
-    }
 
+    "/seller_central/bulk/publish/hub"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/publish/categories"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/publish/download"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/publish/download/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/publish/upload"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/publish/upload/congrats"(platform: "/", type: TrackType.View) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify
