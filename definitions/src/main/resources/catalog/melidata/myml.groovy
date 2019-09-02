@@ -934,6 +934,15 @@ tracks {
 
     "/myml/message"(platform: "/mobile") {}
 
-    "/myml/message/activity"(platform: "/mobile") {}
+    "/myml/message/activity"(platform:"/mobile", type: TrackType.View) {}
+
+    "/myml/message/questions"(platform: "/mobile", type: TrackType.View) {}
+
+    "/myml/message/pack_detail"(platform:"/mobile", type: TrackType.View) {}
+
+    "/myml/message/attachments_uploader"(platform:"/mobile", type: TrackType.View) {}
+
+    "/myml/message/attachment_viewer"(platform:"/mobile/ios", type: TrackType.View) {}
+
 
 }
