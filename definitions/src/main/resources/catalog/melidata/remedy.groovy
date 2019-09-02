@@ -44,6 +44,8 @@ tracks {
     "/remedy/challenge_name_mismatch"(platform: "/", type: TrackType.View) {}
     "/remedy/challenge_address_confirmation"(platform: "/", type: TrackType.View) {}
     "/remedy/challenge_activity"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_proof_of_address"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_death"(platform: "/", type: TrackType.View) {}
 
     "/remedy/identity_handler"(platform: "/", type: TrackType.Event) {
         remedy_id (required: true, type: PropertyType.String)
