@@ -909,6 +909,11 @@ tracks {
         search_filter(required: true, description: "Search filter used on massive invoices search for csv export")
     }
 
+    "/myml/invoices/backoffice/view"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/backoffice/view/invoiceslist"(platform: "/") {}
+
+
     //Opt-in pages
     
     "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}

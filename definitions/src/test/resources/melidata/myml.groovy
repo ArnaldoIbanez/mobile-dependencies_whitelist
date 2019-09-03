@@ -319,6 +319,8 @@ trackTests {
                 seller_id = 406495769
             }
         }
+
+        "/myml/invoices/backoffice/view/invoiceslist"(platform: "/", type: TrackType.View) {}
     }
 
     test("Fiscal Information pages") {
