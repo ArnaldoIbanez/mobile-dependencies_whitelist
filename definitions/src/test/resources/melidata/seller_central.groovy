@@ -350,23 +350,23 @@ trackTests {
     // TRACKS Seller Central BULK Publish
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     test("seller central bulk publish hub view") {
-        "/seller_central/bulk/publish/hub"(platform: "/", type: TrackType.View) {}
+        "/seller_central/bulk/publish/hub"(platform: "/web", type: TrackType.View) {}
     }
 
     test("seller central bulk publish categories view") {
-        "/seller_central/bulk/publish/categories"(platform: "/", type: TrackType.View) {}
+        "/seller_central/bulk/publish/categories"(platform: "/web", type: TrackType.View) {}
     }
 
     test("seller central bulk publish upload view") {
-        "/seller_central/bulk/publish/upload"(platform: "/", type: TrackType.View) {}
+        "/seller_central/bulk/publish/upload"(platform: "/web", type: TrackType.View) {}
     }
 
     test("seller central bulk publish download congrats view") {
-        "/seller_central/bulk/publish/download/congrats"(platform: "/", type: TrackType.View) {}
+        "/seller_central/bulk/publish/download/congrats"(platform: "/web", type: TrackType.View) {}
     }
 
     test("seller central bulk publish upload congrats view") {
-        "/seller_central/bulk/publish/upload/congrats"(platform: "/", type: TrackType.View) {}
+        "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
     }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify
