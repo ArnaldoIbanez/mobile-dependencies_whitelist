@@ -286,19 +286,19 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Publish
     //------------------------------------------------------------------------------------------------------------------------------------------------------
-    "/seller_central/bulk/publish"(platform: "/web/desktop", isAbstract: true) {}
+    "/seller_central/bulk/publish"(platform: "/web", isAbstract: true) {}
 
-    "/seller_central/bulk/publish/hub"(platform: "/", type: TrackType.View) {}
+    "/seller_central/bulk/publish/hub"(platform: "/web", type: TrackType.View) {}
 
-    "/seller_central/bulk/publish/categories"(platform: "/", type: TrackType.View) {}
+    "/seller_central/bulk/publish/categories"(platform: "/web", type: TrackType.View) {}
 
-    "/seller_central/bulk/publish/download"(platform: "/web/desktop", isAbstract: true) {}
+    "/seller_central/bulk/publish/download"(platform: "/web", isAbstract: true) {}
 
-    "/seller_central/bulk/publish/download/congrats"(platform: "/", type: TrackType.View) {}
+    "/seller_central/bulk/publish/download/congrats"(platform: "/web", type: TrackType.View) {}
 
-    "/seller_central/bulk/publish/upload"(platform: "/", type: TrackType.View) {}
+    "/seller_central/bulk/publish/upload"(platform: "/web", type: TrackType.View) {}
 
-    "/seller_central/bulk/publish/upload/congrats"(platform: "/", type: TrackType.View) {}
+    "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify
     //------------------------------------------------------------------------------------------------------------------------------------------------------
