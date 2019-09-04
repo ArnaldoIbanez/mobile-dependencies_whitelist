@@ -286,16 +286,19 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Publish
     //------------------------------------------------------------------------------------------------------------------------------------------------------
-    "/seller_central/bulk/publish"(platform: "/web/desktop", isAbstract: true) {}
-    "/seller_central/bulk/publish/document"(platform: "/web/desktop", isAbstract: true) {}
-    "/seller_central/bulk/publish/document/generate"(platform: "/web/desktop", type: TrackType.Event){
-        categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of selected categories to publish")
-        failed_categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of categories that failed generating document")
-        session_id(required: true, type: PropertyType.String, description: "Session ID")
-        document_name(required: true, type: PropertyType.String, description: "Name of the document generated")
-    }
+    "/seller_central/bulk/publish"(platform: "/web", isAbstract: true) {}
 
+    "/seller_central/bulk/publish/hub"(platform: "/web", type: TrackType.View) {}
 
+    "/seller_central/bulk/publish/categories"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/bulk/publish/download"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/bulk/publish/download/congrats"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/bulk/publish/upload"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify
     //------------------------------------------------------------------------------------------------------------------------------------------------------
