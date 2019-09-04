@@ -9,7 +9,12 @@ tracks {
 
     // Views
     "/profile_check/landing" (platform: "/mobile", type: TrackType.View) {}
-    "/profile_check/landing/congrats" (platform: "/mobile", type: TrackType.View) {}
+    "/profile_check/image-upload" (platform: "/mobile", type: TrackType.View) {}
+    "/profile_check/branding" (platform: "/mobile", type: TrackType.View) {}
+    "/profile_check/soft-descriptor" (platform: "/mobile", type: TrackType.View) {}
+    "/profile_check/mcc" (platform: "/mobile", type: TrackType.View) {}
+    "/profile_check/store" (platform: "/mobile", type: TrackType.View) {}
+    "/profile_check/congrats" (platform: "/mobile", type: TrackType.View) {}
 
     // Events
 

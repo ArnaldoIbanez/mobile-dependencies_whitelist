@@ -45,6 +45,8 @@ trackTests {
         "/remedy/challenge_name_mismatch"(platform: "/mobile") {}
         "/remedy/challenge_address_confirmation"(platform: "/mobile") {}
         "/remedy/challenge_activity"(platform: "/mobile") {}
+        "/remedy/challenge_proof_of_address"(platform: "/mobile") {}
+        "/remedy/challenge_death"(platform: "/mobile") {}
 
         "/remedy/url_external"(platform: "/mobile") {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
@@ -126,6 +128,8 @@ trackTests {
         "/remedy/challenge_name_mismatch"(platform: "/mobile", business: "mercadolibre") {}
         "/remedy/challenge_address_confirmation"(platform: "/mobile", business: "mercadolibre") {}
         "/remedy/challenge_activity"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_proof_of_address"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_death"(platform: "/mobile", business: "mercadolibre") {}
 
         "/remedy/url_external"(platform: "/mobile", business: "mercadolibre") {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
