@@ -487,7 +487,7 @@ tracks {
     "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
-    "/point_payment/onboarding_como_cobrar"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/onboarding_how_to_charge"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/onboarding_brandname"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/onboarding_chooser"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/push_mcc"(platform: "/mobile", type: TrackType.View) {}

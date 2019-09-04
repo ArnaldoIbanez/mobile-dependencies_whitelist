@@ -1404,7 +1404,7 @@ trackTests {
         "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/onboarding_brandname"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/onboarding_chooser"(platform: "/mobile", type: TrackType.View) {}
-        "/point_payment/onboarding_como_cobrar"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/onboarding_how_to_charge"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/push_mcc"(platform: "/mobile", type: TrackType.View) {}
 
         "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
