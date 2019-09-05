@@ -2198,6 +2198,10 @@ trackTests {
             label = "laboral"
         }
 
+        //Switch track
+        "/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
+        "/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
+
         // Map v2
         "/checkout/shipping/puis/select_store"(platform: "/web", dataSet)
         "/checkout/shipping/select_store"(platform: "/web", dataSet)

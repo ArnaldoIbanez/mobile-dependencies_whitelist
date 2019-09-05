@@ -470,6 +470,14 @@ trackTests {
         //Credits Review
         "/cart/checkout/review/credits_cover"(platform: "/", type: TrackType.Event) {}
         "/cart/checkout/review/credits_terms_and_conditions"(platform: "/", type: TrackType.Event) {}
+
+        //Switch track
+        "/cart/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {
+            dataSet()
+        }
+        "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {
+            dataSet()
+        }
     }
 
 }
