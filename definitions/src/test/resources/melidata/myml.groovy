@@ -313,6 +313,14 @@ trackTests {
                 recipientCnpj = 123123
             }
         }
+
+        "/myml/invoices/backoffice/search/invoiceslist/export_csv"(platform: "/", type: TrackType.Event) {
+             search_filter = {
+                seller_id = 406495769
+            }
+        }
+
+        "/myml/invoices/backoffice/view/invoiceslist"(platform: "/", type: TrackType.View) {}
     }
 
     test("Fiscal Information pages") {
