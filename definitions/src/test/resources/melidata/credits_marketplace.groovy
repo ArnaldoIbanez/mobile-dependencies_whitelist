@@ -50,6 +50,46 @@ trackTests {
          ******************************************/
 
         /***********************************************
+         *       Start: Consumers Integrated Flow
+         ***********************************************/
+        //Integrated Flow - Start
+
+        //Page view
+        "/credits/consumer/opensea/integrated_flow/start"(platform: "/web/desktop", type: TrackType.View) {
+            source = 'vip'
+        }
+
+        //Events
+        "/credits/consumer/opensea/integrated_flow/start/application_start"(platform: "/web/mobile", type: TrackType.Event) {
+            source = 'cho'
+        }
+        "/credits/consumer/opensea/integrated_flow/start/application_cancel"(platform: "/web/desktop", type: TrackType.Event) {
+            source = 'off'
+        }
+
+        //Integrated Flow - Congrats
+
+        //Page view
+        "/credits/consumer/opensea/integrated_flow/congrats"(platform: "/web/mobile", type: TrackType.View) {
+            result = 'manual_review'
+            source = 'cho'
+        }
+
+        //Events
+        "/credits/consumer/opensea/integrated_flow/congrats/buy_intention"(platform: "/web/desktop", type: TrackType.Event) {
+            result = 'manual_review'
+            source = 'vip'
+        }
+        "/credits/consumer/opensea/integrated_flow/congrats/back_to_publication"(platform: "/web/desktop", type: TrackType.Event) {
+            result = 'manual_review'
+            source = 'off'
+        }
+
+        /*********************************************
+         *       End: Consumers Integrated Flow
+         *********************************************/
+
+        /***********************************************
          *       Start: Consumers Intermediate Landing
          ***********************************************/
         //Intermediate Landing
