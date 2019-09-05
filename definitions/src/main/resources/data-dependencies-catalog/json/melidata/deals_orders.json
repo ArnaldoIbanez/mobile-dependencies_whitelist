@@ -1,18 +1,18 @@
 {
   "users": [
-    "fernando.keuroglian@mercadolibre.com",
-     "ba-analytics@mercadolibre.com"
+    "martin.tonelli@mercadolibre.com",
+    "ba-analytics@mercadolibre.com"
   ],
   "process_name": "clic_deals",
  "cron": "00 07 * * *",
+ "partition": {
+  "name": "fecha_clic",
+  "type": "DATE",
+  "format": "yyyy-MM-dd"
+},
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "fecha_clic",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "site_deal",
         "type": "UNICODE_STRING"
