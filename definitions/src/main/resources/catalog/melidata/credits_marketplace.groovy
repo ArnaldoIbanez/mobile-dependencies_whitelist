@@ -51,6 +51,8 @@ tracks {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
     }
     "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/public_landing/error"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View) {}
 
     //Events
     "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
