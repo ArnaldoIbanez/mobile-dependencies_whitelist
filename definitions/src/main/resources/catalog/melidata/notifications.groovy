@@ -1253,6 +1253,12 @@ tracks {
     "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_invalid_pin"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_approved_authorization"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_approved_withdraw"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_canceled_authorization"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_canceled_withdraw"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {}
 
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}
