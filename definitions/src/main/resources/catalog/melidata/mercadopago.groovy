@@ -428,6 +428,7 @@ tracks {
     "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/result"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/result/sms"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/error"(platform: "/mobile", type: TrackType.View) {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
         error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
@@ -440,6 +441,7 @@ tracks {
     "/point_payment/error/rejected"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/request_bluetooth"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/ftu_preorder_pax"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/ftu_qr"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/pairing"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/pairing_chooser"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/selector"(platform: "/mobile", type: TrackType.View) {}
@@ -485,6 +487,10 @@ tracks {
     "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/onboarding_how_to_charge"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/onboarding_brandname"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/onboarding_chooser"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/push_mcc"(platform: "/mobile", type: TrackType.View) {}
 
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")
@@ -504,6 +510,8 @@ tracks {
         amount (required: false, type: PropertyType.String, description: "payment amount.")
         discount (required: false, type: PropertyType.String, description: "payment discount")
     }
+    "/point_payment/flow_tracker/flow_error"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/card_tokens_request"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/card_tokens_result"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/payment_methods_request"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/payment_methods_response"(platform: "/mobile", type: TrackType.Event) {}
@@ -516,6 +524,8 @@ tracks {
     "/point_payment/flow_tracker/flow_pos_sending_online_process"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/flow_notification_request"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/flow_notification_response"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_notification_sms_request"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_notification_sms_response"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/flow_pos_error_message"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/select_qr"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/select_point"(platform: "/mobile", type: TrackType.Event) {}
@@ -1164,6 +1174,7 @@ tracks {
     "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
 
 }
+
 
 
 
