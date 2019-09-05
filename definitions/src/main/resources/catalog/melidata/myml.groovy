@@ -944,5 +944,52 @@ tracks {
 
     "/myml/message/attachment_viewer"(platform:"/mobile/ios", type: TrackType.View) {}
 
+    //Fiscal Rules Page
 
+    "/myml/fiscal_rules"(platform: "/", isAbstract: true) {}
+    
+    "/myml/fiscal_rules/message"(platform: "/", type: TrackType.View){
+        code(required: true, type: PropertyType.Numeric, description: "Code of return message")
+    }
+
+    "/myml/fiscal_rules/listing"(platform: "/", type: TrackType.View) {
+        page(required: true, type: PropertyType.Numeric, description: "Current Page")
+        per_page(required: true, type: PropertyType.Numeric, description: "Amount per page")
+        selected(required: true, type: PropertyType.String, description: "Base64 of ids list")
+    }
+
+    "/myml/fiscal_rules/listing/button"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/listing/button/new_rules"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/listing/button/edit_rules"(platform: "/", type: TrackType.Event) {
+        ids(required: true, type: PropertyType.String, description: "Ids of list for update rules")
+    }
+
+    "/myml/fiscal_rules/listing/button/remove_rules"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Id for remove rules")
+    }
+
+    "/myml/fiscal_rules/listing/checkbox"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/listing/checkbox/header"(platform: "/", type: TrackType.Event) {
+        status(required: true, type: PropertyType.Boolean, description: "Status of checkbox on header")
+    }
+
+    "/myml/fiscal_rules/listing/checkbox/list"(platform: "/", type: TrackType.Event) {
+        status(required: true, type: PropertyType.Boolean, description: "Status of checkbox on list")
+        id(required: true, type: PropertyType.Numeric, description: "Id of rule")
+    }
+
+    "/myml/fiscal_rules/listing/modal"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/listing/modal/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/listing/modal/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/listing/pagination"(platform: "/", type: TrackType.Event) {
+        current_page(required: true, type: PropertyType.Numeric , description: "Current page")
+        next_page(required: true, type: PropertyType.Numeric , description: "Next page")
+        amount(required: true, type: PropertyType.Numeric , description: "Amount per page")
+    }
 }
