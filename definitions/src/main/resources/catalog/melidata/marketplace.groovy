@@ -222,9 +222,6 @@ tracks {
         deal_id(required: false, type: PropertyType.String)
     }
 
-    //Promotions Landing
-    "/promotions"(platform: "/", isAbstract: true) {}
-
     "/sso" (platform: "/mobile", isAbstract: true){}
     "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
     "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
