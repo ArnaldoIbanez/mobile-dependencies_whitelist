@@ -42,6 +42,35 @@ trackTests {
 			campaign = 'copa_america'
 			extra_params = 'booster_id=1234&media=whatsapp'
 		}
+		"/stop_landing"(platform: '/mobile'){
+			campaign = 'copa_america'
+		}
+		"/stop_landing"(platform: '/mobile'){
+			campaign = 'sube'
+			extra_params = 'booster_id=1234'
+		}
+		"/stop_landing"(platform: '/mobile'){
+			campaign = 'coupons'
+			extra_params = 'booster_id=1234&media=whatsapp'
+		}
+		"/stop_landing/redirect"(platform: '/mobile'){
+			campaign = 'sube'
+			extra_params = 'booster_id=1234&media=whatsapp'
+		}
+		"/stop_landing/redirect"(platform: '/mobile'){
+			campaign = 'copa_america'
+			extra_params = 'booster_id=1234'
+		}
+		"/stop_landing/redirect"(platform: '/mobile'){
+			campaign = 'copa_america'
+		}
+		"/stop_landing/button"(platform: '/mobile'){
+			campaign = 'copa_america'
+		}
+		"/stop_landing/button"(platform: '/mobile'){
+			campaign = 'copa_america'
+			extra_params = 'booster_id=1234&media=whatsapp'
+		}
 	}
 
 	defaultBusiness = "mercadopago"
@@ -73,6 +102,35 @@ trackTests {
 			campaign = 'copa_america'
 		}
 		"/stop_landing/button"(platform: '/web'){
+			campaign = 'copa_america'
+			extra_params = 'booster_id=1234&media=whatsapp'
+		}
+		"/stop_landing"(platform: '/mobile'){
+			campaign = 'copa_america'
+		}
+		"/stop_landing"(platform: '/mobile'){
+			campaign = 'sube'
+			extra_params = 'booster_id=1234'
+		}
+		"/stop_landing"(platform: '/mobile'){
+			campaign = 'coupons'
+			extra_params = 'booster_id=1234&media=whatsapp'
+		}
+		"/stop_landing/redirect"(platform: '/mobile'){
+			campaign = 'sube'
+			extra_params = 'booster_id=1234&media=whatsapp'
+		}
+		"/stop_landing/redirect"(platform: '/mobile'){
+			campaign = 'copa_america'
+			extra_params = 'booster_id=1234'
+		}
+		"/stop_landing/redirect"(platform: '/mobile'){
+			campaign = 'copa_america'
+		}
+		"/stop_landing/button"(platform: '/mobile'){
+			campaign = 'copa_america'
+		}
+		"/stop_landing/button"(platform: '/mobile'){
 			campaign = 'copa_america'
 			extra_params = 'booster_id=1234&media=whatsapp'
 		}
