@@ -177,6 +177,7 @@ tracks {
     "/checkout/payment"(platform: "/", isAbstract: true) {
     }
     "/checkout/payment/input_sec_code"(platform: "/web", type: TrackType.View) {}
+    "/checkout/payment/esc_input_sec_code"(platform: "/web", type: TrackType.View) {}
     "/checkout/payments"(platform: "/", isAbstract: true) {
     }
 

@@ -2059,6 +2059,7 @@ trackTests {
         }
         "/checkout/payment/select_method"(platform:"/web", dataSet)
         "/checkout/payment/input_sec_code"(platform:"/web", dataSet)
+        "/checkout/payment/esc_input_sec_code"(platform:"/web", dataSet)
         "/checkout/payment/select_method/edit_payment"(platform:"/web", dataSet)
         "/checkout/payment/select_method/show_distances"(platform:"/web", dataSet)
         "/checkout/payment/select_store"(platform:"/web", dataSet)
