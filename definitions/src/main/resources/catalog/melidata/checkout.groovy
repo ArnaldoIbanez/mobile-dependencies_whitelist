@@ -1127,6 +1127,10 @@ tracks {
     "/checkout/review/edit_first_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/review/edit_second_installment"(platform:"/", type: TrackType.View) {}
 
+    //Switch track
+    "/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
+    "/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
+    "/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
 
     /*
     * GarEx tracks

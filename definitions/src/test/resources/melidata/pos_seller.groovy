@@ -77,6 +77,7 @@
                                 card_read_tag = "swipe"
                                 first_six = "11111"
                                 last_four = "3245" 
+                                payment_id = "1111111"
                                 is_fallback = true
                                 has_chip = false
                                 request_signature = true

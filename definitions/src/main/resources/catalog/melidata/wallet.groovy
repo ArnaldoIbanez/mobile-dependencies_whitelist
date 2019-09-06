@@ -18,9 +18,9 @@ tracks {
     "/wallet/cards/detail"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {}
     
     // Add card Events
-    "/wallet/cards/detail/add_card"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
-    "/wallet/cards/detail/add_card/success"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
-    "/wallet/cards/detail/add_card/failed"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
+    "/wallet/cards/add_card"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
+    "/wallet/cards/add_card/success"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
+    "/wallet/cards/add_card/failed"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
 
     // Delete card Events
     "/wallet/cards/detail/delete_card"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}

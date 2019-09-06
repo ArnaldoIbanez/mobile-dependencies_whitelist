@@ -59,6 +59,7 @@ trackTests {
         "/prepaid/acquisition/congrats"(platform: "/web/desktop", type: TrackType.View) { congrats_type = "maestro" }
         "/prepaid/acquisition/congrats"(platform: "/web/mobile", type: TrackType.View) { congrats_type = "bolbradesco" }
 
+        "/prepaid/acquisition/error"(platform: "/web", type: TrackType.View) { error_type = "limited" }
         "/prepaid/acquisition/error"(platform: "/web/desktop", type: TrackType.View) { error_type = "main_error" }
         "/prepaid/acquisition/error"(platform: "/web/desktop", type: TrackType.View) { error_type = "hasprepaid" }
         "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "juridical" }
@@ -76,6 +77,7 @@ trackTests {
         "/prepaid/acquisition/has_prepaid"(platform: "/mobile", type: TrackType.View) {}
         "/prepaid/acquisition/no_identity"(platform: "/mobile", type: TrackType.View) {}
         "/prepaid/acquisition/is_collaborator"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/limited"(platform: "/mobile", type: TrackType.View) {}
     }
 
 

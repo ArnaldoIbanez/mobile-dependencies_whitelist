@@ -55,4 +55,36 @@ trackTests {
             delete_sessions = true
         }
     }
+
+    test("Screenlock") {
+        "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
+            os_status = "biometrics"
+            enrollment_status = "enabled"
+        }
+
+        "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
+            os_status = "basic_screenlock"
+            enrollment_status = "enabled"
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+        }
+    }
 }

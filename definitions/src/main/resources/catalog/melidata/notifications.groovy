@@ -219,6 +219,8 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
+        items_recommendations(required: false, type: PropertyType.String, description: "Items sent from recommendations.")
+        items_history(required: false, type: PropertyType.String, description: "Items sent from history.")
     }
     "/notification_center/campaigns-remarketing_motors"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
@@ -1074,6 +1076,8 @@ tracks {
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
+          items_recommendations(required: true, type: PropertyType.String, description: "Items sent from recommendations.")
+          items_history(required: true, type: PropertyType.String, description: "Items sent from history.")
       }
 
       "/notification/campaigns_remarketing_motors"(platform: "/") {
@@ -1253,6 +1257,12 @@ tracks {
     "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_invalid_pin"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_approved_authorization"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_approved_withdraw"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_canceled_authorization"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_canceled_withdraw"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {}
 
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}
@@ -1281,11 +1291,11 @@ tracks {
     //Phone Enrollment
     "/notification/security_phone_enrollment"(platform: "/web", type: TrackType.Event) {}
 
-    //Cx Question
-    "/notification/cx_mp_question"(platform: "/web", type: TrackType.Event) {}
-
     //Merchant Services
     "/notification/mss_alliance"(platform: "/web", type: TrackType.Event) {}
     "/notification/mss_gplay"(platform: "/web", type: TrackType.Event) {}
+
+    //Fiscal Data
+    "/notification/fiscal_data_mp_business_registration"(platform: "/web", type: TrackType.Event) {}
 
 }

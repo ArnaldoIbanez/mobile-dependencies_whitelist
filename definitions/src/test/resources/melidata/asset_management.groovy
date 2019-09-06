@@ -193,6 +193,8 @@ trackTests {
             context = "/asset_management/operations"
         }
 
+        "/asset_management/simulator_slide"(platform: "/mobile") {}
+
         // Meli tests
 
         // Onboarding
@@ -253,6 +255,10 @@ trackTests {
         }
         "/asset_management/investment_detail"(platform: "/web", business: "mercadolibre") {
             empty_state_case = "available_money"
+        }
+
+        "/asset_management/investment_detail"(platform: "/mobile", business: "mercadolibre") {
+            has_simulator = "true"
         }
 
         // Earnings report
@@ -377,5 +383,7 @@ trackTests {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
             context = "/asset_management/operations"
         }
+
+        "/asset_management/simulator_slide"(platform: "/mobile", business: "mercadolibre") {}
     }
 }
