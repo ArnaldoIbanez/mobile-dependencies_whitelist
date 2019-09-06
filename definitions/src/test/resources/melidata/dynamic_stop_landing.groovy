@@ -13,61 +13,32 @@ trackTests {
 	defaultBusiness = "mercadolibre"
 
 	test("Dynamic Stop Landing track ML") {
-		"/stop_landing"(platform: '/web'){
+		"/stop_landing"(platform: '/'){
 			campaign = 'copa_america'
 		}
-		"/stop_landing"(platform: '/web'){
+		"/stop_landing"(platform: '/'){
 			campaign = 'sube'
 			extra_params = 'booster_id=1234'
 		}
-		"/stop_landing"(platform: '/web'){
+		"/stop_landing"(platform: '/'){
 			campaign = 'coupons'
 			extra_params = 'booster_id=1234&media=whatsapp'
 		}
-		"/stop_landing/redirect"(platform: '/web'){
+		"/stop_landing/redirect"(platform: '/'){
 			campaign = 'sube'
 			extra_params = 'booster_id=1234&media=whatsapp'
 		}
-		"/stop_landing/redirect"(platform: '/web'){
+		"/stop_landing/redirect"(platform: '/'){
 			campaign = 'copa_america'
 			extra_params = 'booster_id=1234'
 		}
-		"/stop_landing/redirect"(platform: '/web'){
+		"/stop_landing/redirect"(platform: '/'){
 			campaign = 'copa_america'
 		}
-		"/stop_landing/button"(platform: '/web'){
+		"/stop_landing/button"(platform: '/'){
 			campaign = 'copa_america'
 		}
-		"/stop_landing/button"(platform: '/web'){
-			campaign = 'copa_america'
-			extra_params = 'booster_id=1234&media=whatsapp'
-		}
-		"/stop_landing"(platform: '/mobile'){
-			campaign = 'copa_america'
-		}
-		"/stop_landing"(platform: '/mobile'){
-			campaign = 'sube'
-			extra_params = 'booster_id=1234'
-		}
-		"/stop_landing"(platform: '/mobile'){
-			campaign = 'coupons'
-			extra_params = 'booster_id=1234&media=whatsapp'
-		}
-		"/stop_landing/redirect"(platform: '/mobile'){
-			campaign = 'sube'
-			extra_params = 'booster_id=1234&media=whatsapp'
-		}
-		"/stop_landing/redirect"(platform: '/mobile'){
-			campaign = 'copa_america'
-			extra_params = 'booster_id=1234'
-		}
-		"/stop_landing/redirect"(platform: '/mobile'){
-			campaign = 'copa_america'
-		}
-		"/stop_landing/button"(platform: '/mobile'){
-			campaign = 'copa_america'
-		}
-		"/stop_landing/button"(platform: '/mobile'){
+		"/stop_landing/button"(platform: '/'){
 			campaign = 'copa_america'
 			extra_params = 'booster_id=1234&media=whatsapp'
 		}
@@ -76,61 +47,32 @@ trackTests {
 	defaultBusiness = "mercadopago"
 
 	test("Dynamic Stop Landing track MP") {
-		"/stop_landing"(platform: '/web'){
+		"/stop_landing"(platform: '/'){
 			campaign = 'copa_america'
 		}
-		"/stop_landing"(platform: '/web'){
+		"/stop_landing"(platform: '/'){
 			campaign = 'sube'
 			extra_params = 'booster_id=1234'
 		}
-		"/stop_landing"(platform: '/web'){
+		"/stop_landing"(platform: '/'){
 			campaign = 'coupons'
 			extra_params = 'booster_id=1234&media=whatsapp'
 		}
-		"/stop_landing/redirect"(platform: '/web'){
+		"/stop_landing/redirect"(platform: '/'){
 			campaign = 'sube'
 			extra_params = 'booster_id=1234&media=whatsapp'
 		}
-		"/stop_landing/redirect"(platform: '/web'){
+		"/stop_landing/redirect"(platform: '/'){
 			campaign = 'copa_america'
 			extra_params = 'booster_id=1234'
 		}
-		"/stop_landing/redirect"(platform: '/web'){
+		"/stop_landing/redirect"(platform: '/'){
 			campaign = 'copa_america'
 		}
-		"/stop_landing/button"(platform: '/web'){
+		"/stop_landing/button"(platform: '/'){
 			campaign = 'copa_america'
 		}
-		"/stop_landing/button"(platform: '/web'){
-			campaign = 'copa_america'
-			extra_params = 'booster_id=1234&media=whatsapp'
-		}
-		"/stop_landing"(platform: '/mobile'){
-			campaign = 'copa_america'
-		}
-		"/stop_landing"(platform: '/mobile'){
-			campaign = 'sube'
-			extra_params = 'booster_id=1234'
-		}
-		"/stop_landing"(platform: '/mobile'){
-			campaign = 'coupons'
-			extra_params = 'booster_id=1234&media=whatsapp'
-		}
-		"/stop_landing/redirect"(platform: '/mobile'){
-			campaign = 'sube'
-			extra_params = 'booster_id=1234&media=whatsapp'
-		}
-		"/stop_landing/redirect"(platform: '/mobile'){
-			campaign = 'copa_america'
-			extra_params = 'booster_id=1234'
-		}
-		"/stop_landing/redirect"(platform: '/mobile'){
-			campaign = 'copa_america'
-		}
-		"/stop_landing/button"(platform: '/mobile'){
-			campaign = 'copa_america'
-		}
-		"/stop_landing/button"(platform: '/mobile'){
+		"/stop_landing/button"(platform: '/'){
 			campaign = 'copa_america'
 			extra_params = 'booster_id=1234&media=whatsapp'
 		}
