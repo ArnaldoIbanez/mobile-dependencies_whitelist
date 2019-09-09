@@ -1119,8 +1119,14 @@ tracks {
     //MP frontend
 
     "/fund_account/confirm"(platform: "/web"){}
-    "/send_money/confirm"(platform: "/web"){}
-    "/money_request/confirm"(platform: "/web"){}
+    "/send_money/confirm"(platform: "/web"){
+        flow(required: true, type:PropertyType.String, description: "The flow of the track")
+        confirmButton(required:true, type:PropertyType.String, description: "The type of the event")
+    }
+    "/money_request/confirm"(platform: "/web"){
+        flow(required: true, type:PropertyType.String, description: "The flow of the track")
+        confirmButton(required:true, type:PropertyType.String, description: "The type of the event")
+    }
     "/money_request/congrats"(platform: "/web"){}
 
     "/campaigns"(platform: "/web", isAbstract: true){}
