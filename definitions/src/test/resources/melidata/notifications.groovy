@@ -2308,13 +2308,15 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+
         "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {
-            news_id = "prepaid_card-challenge_bolbradesco_reminder-186785675"
+            news_id = "prepaid_card-challenge_bolbradesco_reminder-43545334234"
             event_type = "open"
             notification_type= "deep_linking"
         }
+
         "/notification/prepaid_card_delivery"(platform: "/mobile") {
-            news_id = "prepaid_card-delivery-186785675"
+            news_id = "prepaid_card-delivery-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -4718,6 +4720,18 @@ trackTests {
 
         "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card-challenge_bolbradesco_reminder-43545334234"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_delivery"(platform: "/mobile") {
+            news_id = "prepaid_card-delivery-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "open"
             notification_type= "deep_linking"
         }
