@@ -190,4 +190,5 @@ catalog {
         include business, "wms.groovy"
         include business, "logistics.groovy"
     }
+    
 }
