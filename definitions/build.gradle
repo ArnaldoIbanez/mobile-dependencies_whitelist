@@ -15,24 +15,15 @@ task wrapper(type: Wrapper) {
 buildscript {
     repositories {
         mavenCentral()
-        maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
-
-    }
-}
-
-
-allprojects {
-    repositories {
-        mavenCentral()
-        maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
-
     }
 }
 
 repositories {
-    mavenCentral()
-    maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
-
+	mavenCentral()
+	jcenter()
+	maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
+	maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
+	maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
 }
 
 dependencies {
