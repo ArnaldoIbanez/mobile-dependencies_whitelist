@@ -17,6 +17,9 @@ trackTests {
 
     test("Start of creation of a new operator" ) {
         "/collaborators_admin/invite"(platform:"/web", type: TrackType.View) {
+            segmentation = 'first_stage'
+            email_already_exists = false
+            retry_email = ''
         }
     }
 
@@ -24,6 +27,7 @@ trackTests {
         "/collaborators_admin/roles"(platform:"/web", type: TrackType.View) {}
         "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
             email = 'colaborador@owner.io'
+            segmentation = 'first_stage'
         }
         "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View) {}
     }
@@ -31,6 +35,26 @@ trackTests {
     test("Finish of creation of the new operator" ) {
         "/collaborators_admin/congrats"(platform:"/web", type: TrackType.View) {
             type = 'success'
+            segmentation = 'first_stage'
+        }
+    }
+
+    test("Collaborators") {
+        "/collaborators"(platform:"/web", type: TrackType.View) {
+        }
+    }
+
+    test("Select role") {
+        "/collaborators/select-role"(platform:"/web", type: TrackType.View) {
+            type = 'success'
+            segmentation = 'first_stage'
+        }
+    }
+
+    test("Transform account") {
+        "/collaborators/transform-account"(platform:"/web", type: TrackType.View) {
+            type = 'success'
+            segmentation = 'first_stage'
         }
     }
 }
