@@ -31,6 +31,7 @@ tracks {
         items(required: true, type: PropertyType.ArrayList , description: "Array of items to pay")
         preference_amount(required: true, type: PropertyType.Numeric , description: "Total amount")
         discount(required: false, description: "Discount if available")
+        available_methods_quantity(required: false, type: PropertyType.Numeric , description: "Available methods quantity")
     }
     "/px_checkout/payments/select_method/ticket"(platform: "/mobile", type: TrackType.View) {
 
