@@ -19,7 +19,6 @@ trackTests {
         "/collaborators_admin/invite"(platform:"/web", type: TrackType.View) {
             segmentation = 'first_stage'
             email_already_exists = false
-            retry_email = ''
         }
     }
 

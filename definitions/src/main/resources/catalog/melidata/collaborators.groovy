@@ -25,9 +25,8 @@ tracks {
     }
 
     "/collaborators_admin/invite"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {
-        segmentation(required: true, type: PropertyType.String, description: 'Segmentation.')
+        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
         email_already_exists(required: true, type: PropertyType.Boolean, description: 'Email already exists.')
-        retry_email(required: true, type: PropertyType.String, description: 'Retry Email.')
     }
 
     "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {}
@@ -36,24 +35,24 @@ tracks {
 
     "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {
         email(required: true, type: PropertyType.String, description: 'Email of the new operator.')
-        segmentation(required: true, type: PropertyType.String, description: 'Segmentation.')
+        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
     "/collaborators_admin/congrats"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {
         type(required: true, type: PropertyType.String, description: 'Indicates the result of the creation of the operator.')
-        segmentation(required: true, type: PropertyType.String, description: 'Segmentation.')
+        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
     "/collaborators"(platform:"/web", isAbstract: true, parentPropertiesInherited: false) {}
 
     "/collaborators/select-role"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {
         type(required: true, type: PropertyType.String, description: 'Indicates the result of the creation of the operator.')
-        segmentation(required: true, type: PropertyType.String, description: 'Segmentation.')
+        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
     "/collaborators/transform-account"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {
         type(required: true, type: PropertyType.String, description: 'Indicates the result of the creation of the operator.')
-        segmentation(required: true, type: PropertyType.String, description: 'Segmentation.')
+        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
 }
