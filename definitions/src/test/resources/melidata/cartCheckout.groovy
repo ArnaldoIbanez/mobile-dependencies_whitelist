@@ -250,19 +250,19 @@ trackTests {
         }
         // Event
         "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event) {
-            label = "Completa este dato"
+            label = "La cantidad de caracteres ingresados es inválida"
         }
         "/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event) {
             label = "Completa este dato"
         }
         "/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event) {
-            label = "Completa este dato"
+            label = "La cantidad de caracteres ingresados es inválida"
         }
         "/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event) {
             label = "Completa este dato"
         }
         "/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event) {
-            label = "Completa este dato"
+            label = "Ingresar solo valores numéricos"
         }
         "/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event) {
             label = "Completa este dato"
@@ -271,7 +271,7 @@ trackTests {
             label = "Completa este dato"
         }
         "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event) {
-            label = "Completa este dato"
+            label = "Ingresar solo valores numéricos"
         }
 
         // First Visit

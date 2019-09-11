@@ -2162,21 +2162,22 @@ trackTests {
         // Page
         "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
         "/checkout/shipping/input_address"(platform:"/web", dataSet)
+
         // Event
         "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event){
-            label = "Completa este dato"
+            label = "La cantidad de caracteres ingresados es inválida"
         }
         "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
         }
         "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event){
-            label = "Completa este dato"
+            label = "La cantidad de caracteres ingresados es inválida"
         }
         "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
         }
         "/checkout/shipping/input_address/street_number"(platform:"/",  type: TrackType.Event){
-            label = "Completa este dato"
+            label = "Ingresar solo valores numéricos"
         }
         "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
@@ -2185,7 +2186,7 @@ trackTests {
             label = "Completa este dato"
         }
         "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event){
-            label = "Completa este dato"
+            label = "Ingresar solo valores numéricos"
         }
 
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)

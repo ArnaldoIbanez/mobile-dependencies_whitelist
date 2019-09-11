@@ -238,6 +238,8 @@ tracks {
 }
 
 //Events
+// Solo nos interesa el label que capta el tipo de error que se envia en este path
+
 "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
     label(required: true, type: PropertyType.String)
 }

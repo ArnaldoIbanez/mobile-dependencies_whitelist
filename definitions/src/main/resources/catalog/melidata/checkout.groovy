@@ -1110,10 +1110,14 @@ tracks {
     "/checkout/shipping/edit_address"(platform:"/", type: TrackType.Event) {}
     "/checkout/shipping/input_zipcode"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/", type: TrackType.Event) {}
+
     // Addresses
+
     // Page
     "/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {}
+
     // Event
+    //Solo nos interesa el label que capta el tipo de error que se envia en este path
     "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String)
     }
