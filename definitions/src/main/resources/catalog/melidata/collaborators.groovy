@@ -43,15 +43,15 @@ tracks {
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
-    "/collaborators"(platform:"/web", isAbstract: true, parentPropertiesInherited: false) {}
+    "/collaborators"(platform:"/web", isAbstract: true) {}
 
-    "/collaborators/select-role"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {
-        type(required: true, type: PropertyType.String, description: 'Indicates the result of the creation of the operator.')
+    "/collaborators/select_role"(platform:"/web", type: TrackType.View) {
+        type(required: true, type: PropertyType.String, description: 'Indicates the source of the tracking, i.e. form')
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
-    "/collaborators/transform-account"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {
-        type(required: true, type: PropertyType.String, description: 'Indicates the result of the creation of the operator.')
+    "/collaborators/transform_account"(platform:"/web", type: TrackType.View) {
+        type(required: true, type: PropertyType.String, description: 'Indicates the source of the tracking, i.e. form')
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
