@@ -248,6 +248,14 @@ tracks {
     "/merchant_acquisition/flows/resellers/point_register/success"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/point_register/no_account"(platform:"/", type: TrackType.View) {}
 
+    // Envio proactivo QR - Associar QR + Point
+    "/merchant_acquisition/flows/associar_qr_point"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/associar_qr_point/qr"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/associar_qr_point/store"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/associar_qr_point/congrats"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/associar_qr_point/error"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/associar_qr_point/unauthorized"(platform:"/", type: TrackType.View) {}
+
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}

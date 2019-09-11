@@ -750,6 +750,15 @@ trackTests {
     }
 
 
+    test("Envio proactivo QR - Associar QR + Point") {
+        "/merchant_acquisition/flows/associar_qr_point"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/associar_qr_point/qr"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/associar_qr_point/store"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/associar_qr_point/congrats"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/associar_qr_point/error"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/associar_qr_point/unauthorized"(platform: "/", type: TrackType.View) {}
+    }
+
     test("MP-MA Flow QR") {
         "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
