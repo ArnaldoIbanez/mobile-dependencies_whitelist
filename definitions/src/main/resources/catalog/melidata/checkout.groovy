@@ -1110,28 +1110,28 @@ tracks {
     "/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {}
     // Event
     "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        label(required: false, type: PropertyType.String)
+        label(required: true, type: PropertyType.String)
     }
     "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        label(required: false, type: PropertyType.String)
+        label(required: true, type: PropertyType.String)
     }
     "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        label(required: false, type: PropertyType.String)
+        label(required: true, type: PropertyType.String)
     }
     "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        label(required: false, type: PropertyType.String)
+        label(required: true, type: PropertyType.String)
     }
     "/checkout/shipping/input_address/street_number"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        label(required: false, type: PropertyType.String)
+        label(required: true, type: PropertyType.String)
     }
     "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        label(required: false, type: PropertyType.String)
+        label(required: true, type: PropertyType.String)
     }
     "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        label(required: false, type: PropertyType.String)
+        label(required: true, type: PropertyType.String)
     }
     "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        label(required: false, type: PropertyType.String)
+        label(required: true, type: PropertyType.String)
     }
 
 

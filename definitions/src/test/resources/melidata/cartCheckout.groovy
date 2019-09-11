@@ -238,7 +238,11 @@ trackTests {
 
         // Addresses
         // Page
-        "/cart/checkout/shipping/input_address"(platform:"/") {
+        "/cart/checkout/shipping/input_address"(platform:"/mobile") {
+            dataSet()
+            edit_flow = false
+        }
+        "/cart/checkout/shipping/input_address"(platform:"/web") {
             dataSet()
             edit_flow = false
         }

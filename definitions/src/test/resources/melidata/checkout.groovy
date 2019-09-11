@@ -2155,7 +2155,8 @@ trackTests {
         "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/web", dataSet)
         // Addresses
         // Page
-        "/checkout/shipping/input_address"(platform:"/", dataSet)
+        "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
+        "/checkout/shipping/input_address"(platform:"/web", dataSet)
         // Event
         "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
