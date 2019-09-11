@@ -1105,15 +1105,34 @@ tracks {
     "/checkout/shipping/edit_address"(platform:"/", type: TrackType.Event) {}
     "/checkout/shipping/input_zipcode"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/", type: TrackType.Event) {}
-    "/checkout/shipping/input_address"(platform:"/", type: TrackType.View) {}
-    "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event) {}
-    "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event) {}
-    "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event) {}
-    "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event) {}
-    "/checkout/shipping/input_address/street_number"(platform:"/", type: TrackType.Event) {}
-    "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event) {}
-    "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event) {}
-    "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event) {}
+    // Addresses
+    // Page
+    "/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {}
+    // Event
+    "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/street_number"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: false, type: PropertyType.String)
+    }
+    "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: false, type: PropertyType.String)
+    }
 
 
     "/checkout/shipping/input_address_number"(platform:"/", type: TrackType.View) {}

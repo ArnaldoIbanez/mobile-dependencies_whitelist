@@ -2153,15 +2153,34 @@ trackTests {
         "/checkout/shipping/select_option"(platform:"/web", dataSet)
         "/checkout/shipping/input_zipcode"(platform:"/web", dataSet)
         "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/web", dataSet)
+        // Addresses
+        // Page
         "/checkout/shipping/input_address"(platform:"/", dataSet)
-        "/checkout/shipping/input_address/name"(platform:"/", dataSet)
-        "/checkout/shipping/input_address/street_name"(platform:"/", dataSet)
-        "/checkout/shipping/input_address/zip_code"(platform:"/", dataSet)
-        "/checkout/shipping/input_address/colony"(platform:"/", dataSet)
-        "/checkout/shipping/input_address/street_number"(platform:"/", dataSet)
-        "/checkout/shipping/input_address/references"(platform:"/", dataSet)
-        "/checkout/shipping/input_address/delivery"(platform:"/", dataSet)
-        "/checkout/shipping/input_address/phone"(platform:"/", dataSet)
+        // Event
+        "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+        }
+        "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+        }
+        "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+        }
+        "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+        }
+        "/checkout/shipping/input_address/street_number"(platform:"/",  type: TrackType.Event){
+            label = "Completa este dato"
+        }
+        "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+        }
+        "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+        }
+        "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+        }
 
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)
         "/checkout/shipping/input_address_number/whithout_number"(platform:"/web", dataSet)
