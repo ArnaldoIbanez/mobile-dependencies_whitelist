@@ -454,6 +454,7 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
     "/notification_center/prepaid_card"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -1174,21 +1175,25 @@ tracks {
     "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
     "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
     "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
 
     //Credits Merchants
