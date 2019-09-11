@@ -44,15 +44,15 @@ trackTests {
     }
 
     test("Select role") {
-        "/collaborators/select-role"(platform:"/web", type: TrackType.View) {
-            type = 'success'
+        "/collaborators/select_role"(platform:"/web", type: TrackType.View) {
+            type = 'form'
             segmentation = 'first_stage'
         }
     }
 
     test("Transform account") {
-        "/collaborators/transform-account"(platform:"/web", type: TrackType.View) {
-            type = 'success'
+        "/collaborators/transform_account"(platform:"/web", type: TrackType.View) {
+            type = 'form'
             segmentation = 'first_stage'
         }
     }
