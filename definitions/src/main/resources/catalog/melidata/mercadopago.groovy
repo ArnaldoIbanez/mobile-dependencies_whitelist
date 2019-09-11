@@ -18,6 +18,18 @@ import com.ml.melidata.TrackType
 /**/
 tracks {
 
+    propertyDefinitions {
+      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
+      product (type: PropertyType.String, required: true, description: "Product identifier")
+      currency (type: PropertyType.String, required: true, description: "ISO Currency")
+      price (type: PropertyType.Numeric, required: true, description: "Price of device")
+      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+    }
+
+    propertyGroups {
+      groupCheckoutProperties(flow_id, product, currency, price, is_guest)
+    }
+
     "/"(platform: "/", isAbstract: true) {
     }
 
@@ -47,7 +59,15 @@ tracks {
     "/landing/sellers/social"(platform: "/web"){}
 
     // MP Sellers Merchant Services
-    "/landing/sellers/mss"(platform: "/web"){}
+    "/landing/sellers/mss"(platform: "/web"){
+        page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
+    }
+
+    "/landing/sellers/mss/click"(platform:"/", type: TrackType.Event) {
+      id (type: PropertyType.String, required: true, description: "ID from clicked element")
+      label (type: PropertyType.String, required: true, description: "Element text")
+      page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
+    }
 
     // MP Buyers
     "/landing/buyers"(platform: "/web"){}
@@ -55,23 +75,75 @@ tracks {
     // MP Promotions
     "/landing/promotions"(platform: "/web"){}
 
+    "/landing/formcomercial"(platform: "/", type: TrackType.View) {}
+
+    "/landing/formcomercial/send_email"(platform:"/", type: TrackType.Event) {
+      email (type: PropertyType.String, required: true, description: "Email from user")
+    }
+
+
     "/growth"(platform: "/", isAbstract: true) {}
     "/growth/login"(platform: "/", type: TrackType.View) {
       view (type: PropertyType.String, required: true, description: "Name of view", values: ["split", "guest"])
     }
 
     "/point/buyingflow"(platform: "/", isAbstract: true) {}
-    "/point/buyingflow/init"(platform: "/", type: TrackType.View) {
-      step (type: PropertyType.String, required: true, description: "Initial step")
-      flow_id (type: PropertyType.String, required: true, description: "Flow id.")
-      product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
-      currency (type: PropertyType.String, required: true, description: "Currency")
-      price (type: PropertyType.Numeric, required: true, description: "Price of device")
+
+    "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
       has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
       coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
-      coupon_type (type: PropertyType.String, required: false, values: ["default", "mgm", "campaign"], description: "Kind of MGM Coupon: default | mgm | campaign")
-      discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
-      price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
+    }
+
+    "/point/buyingflow/shippingOptions"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/newAddress"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+    
+    "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/paymentCardSecurityCode"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/paymentReview"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+      selected_payment_method_id (type: PropertyType.String, required: false, description: "Selected payment method ID")
+      selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
+      installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
+    }
+
+    "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
+      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
+      type (type: PropertyType.String, required: true, description: "Error type")
+    }
+
+    "/point/buyingflow/paymentRejected"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+      selected_payment_method_id (type: PropertyType.String, required: true, description: "Selected payment method ID")
+      selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
+      installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
+    }
+
+    "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
+      groupCheckoutProperties
     }
 
     "/point"(platform: "/", isAbstract: true) {}
@@ -216,6 +288,11 @@ tracks {
     "/merchant_acquisition/point-landings/app-chinese/error"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/point-landings/app-chinese/success"(platform:"/", type: TrackType.View) {}
 
+    //Merchant Acqusition - widgets
+    "/merchant_acquisition/widget"(platform:"/", type: TrackType.View) {
+        type (type: PropertyType.String, required: true, values: ["reverse-label", "reset-chip"], description: "Widget name, could be reverse-label, bobinas, shipping & more")
+    }
+
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
         product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
@@ -351,6 +428,7 @@ tracks {
     "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/result"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/result/sms"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/error"(platform: "/mobile", type: TrackType.View) {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
         error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
@@ -363,6 +441,7 @@ tracks {
     "/point_payment/error/rejected"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/request_bluetooth"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/ftu_preorder_pax"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/ftu_qr"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/pairing"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/pairing_chooser"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/selector"(platform: "/mobile", type: TrackType.View) {}
@@ -408,6 +487,10 @@ tracks {
     "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/onboarding_how_to_charge"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/onboarding_brandname"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/onboarding_chooser"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/push_mcc"(platform: "/mobile", type: TrackType.View) {}
 
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")
@@ -427,6 +510,8 @@ tracks {
         amount (required: false, type: PropertyType.String, description: "payment amount.")
         discount (required: false, type: PropertyType.String, description: "payment discount")
     }
+    "/point_payment/flow_tracker/flow_error"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/card_tokens_request"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/card_tokens_result"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/payment_methods_request"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/payment_methods_response"(platform: "/mobile", type: TrackType.Event) {}
@@ -439,6 +524,8 @@ tracks {
     "/point_payment/flow_tracker/flow_pos_sending_online_process"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/flow_notification_request"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/flow_notification_response"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_notification_sms_request"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_notification_sms_response"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/flow_pos_error_message"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/select_qr"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/select_point"(platform: "/mobile", type: TrackType.Event) {}
@@ -760,6 +847,7 @@ tracks {
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
     }
     "/bill_payments/help"(platform: "/mobile") {}
     "/bill_payments/associated_entities"(platform: "/mobile") {}
@@ -959,6 +1047,7 @@ tracks {
      "/digital_goods"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
     }
     "/digital_goods/list"(platform: "/mobile") {}
     "/digital_goods/no_money"(platform: "/mobile") {}
@@ -1086,6 +1175,7 @@ tracks {
     "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
 
 }
+
 
 
 

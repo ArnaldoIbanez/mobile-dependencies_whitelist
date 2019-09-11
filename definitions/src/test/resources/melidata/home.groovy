@@ -12,7 +12,7 @@ trackTests {
             from="breadcrumb"
         }
     }
-    
+
      test("Home Navigation") {
         "/home/navigation"(platform: "/", type: TrackType.View) {}
     }
@@ -49,6 +49,8 @@ trackTests {
 
     test("Home core tracking") {
         "/home"(platform: "/mobile") {}
+
+        "/home/navigation_history"(platform: "/mobile") {}
 
         "/home/abort"(platform: "/mobile") {}
 
@@ -90,6 +92,7 @@ trackTests {
             position = 1
             section = "history"
             tag_id = "MLB681933310"
+            is_modal = true
         })
 
         "/home/carousel/firstto"(platform: "/mobile") {}
@@ -156,7 +159,23 @@ trackTests {
 
     }
 
+    test("Home Server Side") {
+        def dataSet = {
+            component_count = 25
+            newbie = true
+            home_version = 'new'
+            is_logged = true
+        }
+        def dataSet2 = {
+            component_count = 25
+        }
+        "/backend/home"(platform: "/web/mobile", dataSet)
+        "/home/backend/take_over"(platform: "/web") {}
+        "/korriban"(platform: "/web/desktop", dataSet2)
+    }
+
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
     }
+
 }

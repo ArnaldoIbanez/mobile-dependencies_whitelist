@@ -87,14 +87,17 @@ trackTests {
         "/advertising/pads2/landing/contract_confirmation"(platform: "/web", type: TrackType.View) {
             free_trial_ad = true
         }
-        "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
-            budget = "22.22"
-            free_trial_ad = true
-        }
 
         "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
             budget = "22.22"
             free_trial_ad = true
+            id = "adq_pads"
+            position = "home_desktop"
+        }
+
+        "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/web", type: TrackType.Event) {
+            budget = "22.22"
+            free_trial_ad = false
             id = "adq_pads"
             position = "home_desktop"
         }
@@ -111,6 +114,7 @@ trackTests {
             budget = "22.22"
             free_trial_ad = false
         }
+
     }
 
     test("Advertising upselling") {
@@ -154,6 +158,61 @@ trackTests {
             status = "active"
             budget = "500"
             budget_new = "1000"
+        }
+    }
+
+    test("Landing congrats") {
+        "/advertising/landings/pads2/mail/congrats"(platform: "/web", type: TrackType.View) {
+            user_id = "2222222"
+            items_id = "MLA1,MLA2,MLA3,MLA4,MLA5"
+        }
+    }
+
+    test("Landing free trial") {
+        "/advertising/pads2/landing_freetrial"(platform: "/web", type: TrackType.View) {
+            free_trial_type = "F"
+            budget = "500"
+        }
+
+        "/advertising/pads2/landing_freetrial"(platform: "/web", type: TrackType.View) {
+            free_trial_type = "D"
+            budget = "500"
+        }
+
+        "/advertising/pads2/landing_freetrial"(platform: "/web", type: TrackType.View) {
+            free_trial_type = "M"
+            budget = "500"
+        }
+
+        "/advertising/pads2/landing_freetrial/cta"(platform: "/web", type: TrackType.View) {
+            free_trial_type = "M"
+            budget = "500"
+            button = "top"
+            id = "adq_pads"
+            position = "home_desktop"
+        }
+
+        "/advertising/pads2/landing_freetrial/cta"(platform: "/web", type: TrackType.View) {
+            free_trial_type = "M"
+            budget = "500"
+            button = "top"
+        }
+
+        "/advertising/pads2/landing_freetrial/confirm"(platform: "/web", type: TrackType.View) {
+            free_trial_type = "M"
+            budget = "500"
+        }
+
+        "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/web", type: TrackType.View) {
+            free_trial_type = "M"
+            budget = "500"
+            id = "adq_pads"
+            position = "home_desktop"
+        }
+
+        "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/web", type: TrackType.View) {
+            free_trial_type = "M"
+            budget = "500"
         }
     }
 }

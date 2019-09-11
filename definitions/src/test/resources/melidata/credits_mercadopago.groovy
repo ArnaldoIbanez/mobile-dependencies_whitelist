@@ -71,13 +71,87 @@ trackTests {
     }
 
     test("Merchant Credits Administrator") {
+        def express_money_map = {
+            [
+                product_type: 'express_money',
+                segment: 'online',
+                is_first_offer: true,
+                offer_type: 'early_offer'
+            ]
+        }
+
+        def fixed_term_map = {
+            [
+                product_type: 'fixed_term',
+                segment: 'online',
+                category: 'regular',
+                offer_type: 'early_offer'
+            ]
+        }
+
+        def express_money = {
+            product_type = 'express_money'
+            segment = 'online'
+            offer_type = 'early_offer'
+        }
+
+        def express_money_overdue = {
+            product_type = 'express_money'
+            segment = 'online'
+            offer_type = 'early_offer'
+            status = 'overdue'
+        }
+        
+        def sales_percentage = {
+            product_type = 'sales_percentage'
+            segment = 'in_store'
+            offer_type = 'full_offer'
+        }
+
+        def sales_percentage_on_time = {
+            product_type = 'sales_percentage'
+            segment = 'in_store'
+            offer_type = 'full_offer'
+            status = 'on_time'
+        }
+
+        def fixed_term = {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+        }
+
+        def fixed_term_on_time = {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'on_time'
+        }
+
+        "/credits/merchant/administrator"(platform: "/") {}
         "/credits/merchant/administrator"(platform: "/") {
             status = 'on_time'
         }
         "/credits/merchant/administrator"(platform: "/") {
             status = 'overdue'
         }
+        "/credits/merchant/administrator"(platform: "/") {
+            status = 'empty'
+        }
+        "/credits/merchant/administrator"(platform: "/", {
+            offers = [
+                express_money_map()
+            ]
+            products = [
+                fixed_term_map()
+            ]
+            show_cx_widget = true
+        })
         "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
+
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             status = 'on_time'
         }
@@ -87,10 +161,61 @@ trackTests {
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             status = 'finished'
         }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            express_money_overdue()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            sales_percentage_on_time()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
+        
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            express_money_overdue()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            sales_percentage_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            express_money_overdue()
+        }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            sales_percentage_on_time()
+        }
+
+        "/credits/merchant/administrator/history"(platform: "/web/desktop") {}
+        
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            express_money()
+        }
+        
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
+            express_money()
+        }
+        
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'insufficient_account_money'
         }
@@ -99,6 +224,30 @@ trackTests {
         }
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'default'
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+            express_money()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'default'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'insufficient_account_money'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'lender_cannot_collect_installments'
+            express_money()
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'default'
+            fixed_term()
         }
     }
 
@@ -132,6 +281,104 @@ trackTests {
         }
     }
 
+    test("Express money") {
+        "/credits/express_money/amount_input"(platform: "/web/desktop") {
+            show_onboarding = true
+        }
+
+        "/credits/express_money/amount_input"(platform: "/mobile/android") {
+            show_onboarding = true
+        }
+
+        "/credits/express_money/amount_input"(platform: "/web/desktop") {
+            show_onboarding = false
+        }
+
+        "/credits/express_money/amount_input"(platform: "/mobile/android") {
+            show_onboarding = false
+        }
+
+        "/credits/express_money/amount_input"(platform: "/web/desktop") {}
+
+        "/credits/express_money/amount_input"(platform: "/mobile/android") {}
+
+        "/credits/express_money/summary"(platform: "/web/desktop") {
+            requested_amount = 700
+            max_amount = 1000
+        }
+
+        "/credits/express_money/summary"(platform: "/mobile/android") {
+            requested_amount = 700
+            max_amount = 1000
+        }
+
+        "/credits/express_money/congrats"(platform: "/web/desktop") {
+            requested_amount = 700
+            max_amount = 1000
+            has_prepaid = true
+        }
+
+        "/credits/express_money/congrats"(platform: "/mobile/android") {
+            requested_amount = 700
+            max_amount = 1000
+            has_prepaid = true
+        }
+
+        "/credits/express_money/congrats"(platform: "/web/desktop") {
+            requested_amount = 700
+            max_amount = 1000
+            has_prepaid = false
+        }
+
+        "/credits/express_money/congrats"(platform: "/mobile/android") {
+            requested_amount = 700
+            max_amount = 1000
+            has_prepaid = false
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'default'
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'server_error'
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'loan_creation'
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'ccb_creation'
+        }
+
+        "/credits/express_money/error"(platform: "/web/desktop") {
+            reason = 'simulation'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'default'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'server_error'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'loan_creation'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'ccb_creation'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'simulation'
+        }
+
+        "/credits/express_money/onboarding"(platform: "/mobile/android") {}
+    }
+
     test("Merchant Public Landing") {
         "/credits/merchant/public_landing"(platform: "/web/desktop") {
             user_profile = 'offer'
@@ -144,7 +391,7 @@ trackTests {
     test('Merchant Collection') {
         "/credits/merchant/collection"(platform: "/mobile", type: TrackType.Event) {}
     }
-    
+
     test('Merchant Contacts') {
         "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
             medium = "email"

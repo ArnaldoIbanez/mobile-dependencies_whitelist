@@ -485,7 +485,17 @@ trackTests {
     }
 
     test("Landing mercadopago sellers mss") {
-        "/landing/sellers/mss" (platform: "/web") {}
+        "/landing/sellers/mss" (platform: "/web") {
+            page_name = "dzero"
+        }
+    }
+
+    test("Landing mercadopago sellers mss click event") {
+        "/landing/sellers/mss/click" (platform: "/web") {
+            id = "dzero"
+            label = "test label"
+            page_name = "dzero"
+        }
     }
 
     test("Landing mercadopago buyers") {
@@ -494,6 +504,16 @@ trackTests {
 
     test("Landing mercadopago promotions") {
         "/landing/promotions" (platform: "/web") {}
+    }
+
+    test("Landing form comercial") {
+        "/landing/formcomercial"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Landing form comercial send email") {
+        "/landing/formcomercial/send_email"(platform: "/", type: TrackType.Event) {
+          email = "teste@teste.com.br"
+        }
     }
 
     test("Growth Frontend Login") {
@@ -507,12 +527,105 @@ trackTests {
     }
 
     test("Point Buying Flow") {
-        "/point/buyingflow/init"(platform: "/", type: TrackType.View) {
-          step = "init"
-          flow_id = "000001"
-          product = "point-i"
-          currency = "R\$"
-          price = 401
+        "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          has_coupon = true
+          coupon_code = "GHZM"
+        }
+
+        "/point/buyingflow/shippingOptions"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/newAddress"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/paymentCardSecurityCode"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/paymentReview"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          selected_payment_method_id = "tarshop"
+          selected_payment_method_type = "credit_card"
+          installments = 6
+        }
+
+        "/point/buyingflow/paymentRejected"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          selected_payment_method_id = "tarshop"
+          selected_payment_method_type = "credit_card"
+          installments = 6
+        }
+        
+        "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          type = "error: Session ended"
+        }
+
+        "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
         }
     }
 
@@ -880,6 +993,18 @@ trackTests {
         "/merchant_acquisition/point-landings/app-chinese/success"(platform:"/", type: TrackType.View) {}
     }
 
+    test("Merchant Acquisition Widgets") {
+        //reverse label
+        "/merchant_acquisition/widget" (platform: "/") {
+            type = "reverse-label"
+        }
+
+        // Widget de envíos
+        "/merchant_acquisition/widget" (platform: "/") {
+            type = "reset-chip"
+        }
+    }
+
     test("Landing mercadopago point") {
         "/point/landings" (platform: "/") {
             product = "point-h"
@@ -1206,6 +1331,21 @@ trackTests {
             flow = "/point_payment"
             error_msg = "an error"
         }
+        "/point_payment/result/sms"(platform: "/mobile", type: TrackType.View) {
+            flow_id = "1231313123213"
+            method = "swipe"
+            currency = "ARS"
+            amount = "10"
+            installments = "1"
+            payment_status = "approved"
+            payment_detail = "accredited"
+            poi = "BBPOS-01099923701497"
+            poi_type = "BBPOS"
+            payment_method_id = "debvisa"
+            operator_id = "12345678"
+            flow = "/point_payment"
+            error_msg = "an error"
+        }
         "/point_payment/error"(platform: "/mobile", type: TrackType.View) {
             from = "/point_catalog"
             error_msg = "No podemos procesar esta tarjeta. Prueba con otra"
@@ -1218,6 +1358,7 @@ trackTests {
         "/point_payment/error/rejected"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/request_bluetooth"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/ftu_preorder_pax"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/ftu_qr"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/pairing"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/pairing_chooser"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/selector"(platform: "/mobile", type: TrackType.View) {}
@@ -1261,6 +1402,10 @@ trackTests {
         "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/onboarding_brandname"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/onboarding_chooser"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/onboarding_how_to_charge"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/push_mcc"(platform: "/mobile", type: TrackType.View) {}
 
         "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
@@ -1292,6 +1437,18 @@ trackTests {
             data ="{ctr: 2313}"
         }
         "/point_payment/flow_tracker/card_tokens_result"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/card_tokens_request"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_error"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             user_id = "123241234413"
             level ="info"
@@ -1364,6 +1521,18 @@ trackTests {
             data ="{ctr: 2313}"
         }
         "/point_payment/flow_tracker/flow_notification_response"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_notification_sms_request"(platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            user_id = "123241234413"
+            level ="info"
+            data ="{ctr: 2313}"
+        }
+        "/point_payment/flow_tracker/flow_notification_sms_response"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             user_id = "123241234413"
             level ="info"
@@ -2797,6 +2966,72 @@ trackTests {
         }
     }
 
+    test("Biometrics / Screenlock") {
+        "/screenlock/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            elapsed_time = 50
+            result = "success"
+        }
+
+        "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            elapsed_time = 50
+            result = "error"
+            errors = ["user_cancelled"]
+        }
+
+        "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            elapsed_time = 50
+            result = "success"
+        }
+    }
+
+    test("Screenlock") {
+        "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
+            os_status = "biometrics"
+            enrollment_status = "enabled"
+        }
+
+        "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
+            os_status = "basic_screenlock"
+            enrollment_status = "enabled"
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+        }
+
+        "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+        }
+    }
+
     test("Push Notification") {
         "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {}
         "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
@@ -2889,6 +3124,14 @@ trackTests {
             context = "security_settings"
         }
 
+        "/security_settings/password/maxlength"(platform: "/", type: TrackType.Event) {
+            context = "feedback"
+        }
+
+        "/security_settings/password/maxlength"(platform: "/", type: TrackType.Event) {
+            context = "security_settings"
+        }
+
         "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
             context = "forgot"
             delete_sessions = false
@@ -2897,6 +3140,7 @@ trackTests {
         "/security_settings/password/success"(platform: "/", type: TrackType.Event) {
             context = "feedback"
             delete_sessions = true
+            lowend = true
         }
     }
 

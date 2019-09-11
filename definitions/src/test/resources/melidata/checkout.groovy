@@ -527,6 +527,7 @@ trackTests {
 
         "/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event) {
             label = "laboral"
+            session_id = "some_session_id"
         }
 
         "/checkout/payment/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
@@ -851,7 +852,10 @@ trackTests {
             checkout_flow = "direct"
         }
 
-        "/checkout/review#submit/abort"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/review#submit/abort"(platform:"/mobile", type:TrackType.Event) {
+            checkout_flow = "direct"
+            session_id = "some_session_id"
+        }
 
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event) {
             old_quantity = 4
@@ -2055,6 +2059,7 @@ trackTests {
         }
         "/checkout/payment/select_method"(platform:"/web", dataSet)
         "/checkout/payment/input_sec_code"(platform:"/web", dataSet)
+        "/checkout/payment/esc_input_sec_code"(platform:"/web", dataSet)
         "/checkout/payment/select_method/edit_payment"(platform:"/web", dataSet)
         "/checkout/payment/select_method/show_distances"(platform:"/web", dataSet)
         "/checkout/payment/select_store"(platform:"/web", dataSet)
@@ -2222,6 +2227,10 @@ trackTests {
         "/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event) {
             label = "laboral"
         }
+
+        //Switch track
+        "/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
+        "/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
 
         // Map v2
         "/checkout/shipping/puis/select_store"(platform: "/web", dataSet)

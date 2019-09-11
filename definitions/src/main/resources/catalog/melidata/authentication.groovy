@@ -384,4 +384,18 @@ tracks {
     }
 
     "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {}
+
+    // Biometrics / Screenlock
+    "/screenlock"(platform: "/mobile", isAbstract: true) {
+        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock"])
+    }
+
+    "/screenlock/validation_start"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/screenlock/validation_end"(platform: "/mobile", type: TrackType.Event) {
+        elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os validation flow")
+        result(type: PropertyType.String, required: true, values: ["success", "error"])
+        errors(type: PropertyType.ArrayList, required: false)
+    }
 }

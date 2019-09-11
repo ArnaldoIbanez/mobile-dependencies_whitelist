@@ -1,14 +1,15 @@
 {
   "users": [
-    "fernando.keuroglian@mercadolibre.com",
-     "ba-analytics@mercadolibre.com"
+    "martin.tonelli@mercadolibre.com",
+    "ba-analytics@mercadolibre.com"
   ],
   "process_name": "count_clicks_deals_new",
   "cron": "00 06 * * *",
   "partition": {
-        "name": "ds",
-        "type": "DATE"
-   },
+    "name": "ds",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
+  },
   "extract": {
     "operation": "append",
     "columns": [

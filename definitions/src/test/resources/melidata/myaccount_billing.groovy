@@ -19,4 +19,13 @@ trackTests {
             row_type = "Charge"
         }
     }
+
+    test("Summary Info") {
+            "/myaccount/billing/summary"(platform: "/", type: TrackType.View) {
+                bills_to_pay = 2
+                total_debt = 2.56
+                has_automatic_debit = true
+                completed = true
+            }
+        }
 }

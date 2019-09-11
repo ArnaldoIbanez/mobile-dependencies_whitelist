@@ -4,5 +4,8 @@ help:
 test:
 	echo "Starting tests..."
 	cd definitions/; make test CATALOG=$(CATALOG)
+productionTest:
+	echo "Starting tests..."
+	cd definitions/; make productionTest CATALOG=$(CATALOG)
 
 .PHONY: test

@@ -1,5 +1,4 @@
 select 
- fecha_clic, 
  site_deal, 
  platform_deal, 
  deal_Label, 
@@ -7,24 +6,25 @@ select
  deal_Position, 
  deal_Type, 
  deal_id,
-count(1) as clics_totales, 
-count(distinct(uid_deal)) as clics_unicos, 
-count(uid_order) as orders, 
-sum(distinct cast(sum_dol_amount as double)) as gmv
+ count(1) as clics_totales, 
+ count(distinct(uid_deal)) as clics_unicos, 
+ count(uid_order) as orders, 
+ sum(distinct cast(sum_dol_amount as double)) as gmv,
+ fecha_clic
 from (
 		 (
 			select substr(ds,1,10) as fecha_clic, 
 			 application.site_id as site_deal, 
 			 device.platform AS platform_deal, 
-			 jest(others['fragment'],'L') AS deal_Label,
-			 jest(others['fragment'],'S') AS deal_Source, 
-			 jest(others['fragment'],'V') AS deal_Position, 
-			 jest(others['fragment'],'T') AS deal_Type,
-			 jest(others['fragment'], 'DEAL_ID') as deal_id, 
+			 jest(COALESCE(platform.fragment, others['fragment']),'L') AS deal_Label,
+			 jest(COALESCE(platform.fragment, others['fragment']),'S') AS deal_Source, 
+			 jest(COALESCE(platform.fragment, others['fragment']),'V') AS deal_Position, 
+			 jest(COALESCE(platform.fragment, others['fragment']),'T') AS deal_Type,
+			 jest(COALESCE(platform.fragment, others['fragment']), 'DEAL_ID') as deal_id, 
 			 usr.uid as uid_deal
 			from tracks
              WHERE ds>='@param01' AND ds<'@param02'
-			 and others['fragment'] like '%DEAL_ID%'
+			 and COALESCE(platform.fragment, others['fragment']) like '%DEAL_ID%'
 		)deal 
 	inner join
 		(

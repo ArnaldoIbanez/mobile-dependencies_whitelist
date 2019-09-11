@@ -43,6 +43,12 @@ trackTests {
         "/seller_central/listings/filters"(platform: "/mobile", type: TrackType.View) {}
     }
 
+    test("seller central listing filters view") {
+        "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
+            checkedFilters = ["inactive", "premium"]
+        }
+    }
+
     test("seller central listing filters actions and search") {
         "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
             action = "apply"
@@ -340,7 +346,28 @@ trackTests {
         "/seller_central/bulk/discounts/offline/download/error"(platform: "/", type: TrackType.Event) {}
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central BULK Publish
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    test("seller central bulk publish hub view") {
+        "/seller_central/bulk/publish/hub"(platform: "/web", type: TrackType.View) {}
+    }
 
+    test("seller central bulk publish categories view") {
+        "/seller_central/bulk/publish/categories"(platform: "/web", type: TrackType.View) {}
+    }
+
+    test("seller central bulk publish upload view") {
+        "/seller_central/bulk/publish/upload"(platform: "/web", type: TrackType.View) {}
+    }
+
+    test("seller central bulk publish download congrats view") {
+        "/seller_central/bulk/publish/download/congrats"(platform: "/web", type: TrackType.View) {}
+    }
+
+    test("seller central bulk publish upload congrats view") {
+        "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
+    }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -691,6 +718,44 @@ trackTests {
         }
     }
 
+    test("structured data hidden attributes (open)"){
+        "/seller_central/modify/technical_specifications/hidden_attributes/open"(platform: "/", type: TrackType.Event){
+            session_id = "123-update-abc123"
+            seller_id = 415920446
+            item_id = "MLA682118081"
+            item_type = "default"
+            category_domain = "MLA-CAMERAS"
+            times_showed = 1
+            attributes = 3
+            type = "CONFIRM"
+        }
+    }
+
+    test("structured data hidden attributes (add)"){
+        "/seller_central/modify/technical_specifications/hidden_attributes/add"(platform: "/", type: TrackType.Event){
+            session_id = "123-update-abc123"
+            seller_id = 415920446
+            item_id = "MLA682118081"
+            item_type = "default"
+            category_domain = "MLA-CAMERAS"
+            attribute = "BRAND"
+            type = "CONFIRM"
+        }
+    }
+
+    test("structured data hidden attributes (change)"){
+        "/seller_central/modify/technical_specifications/hidden_attributes/change"(platform: "/", type: TrackType.Event){
+            session_id = "123-update-abc123"
+            seller_id = 415920446
+            item_id = "MLA682118081"
+            item_type = "default"
+            category_domain = "MLA-CAMERAS"
+            attribute = "BRAND"
+            value = "Sony"
+            type = "CONFIRM"
+        }
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central settings
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -918,6 +983,63 @@ trackTests {
         }
     }
 
+    test("seller central sales detail main action") {
+        "/seller_central/sales/detail/main_action"(platform: "/mobile", type: TrackType.Event) {
+            id = "PRODUCT_DELIVERED"
+        }
+    }
+
+    test("seller central sales detail secondary action") {
+        "/seller_central/sales/detail/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            id = "HELP_ACTION"
+        }
+    }
+
+    test("seller central sales detail payment") {
+        "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("seller central sales detail shipping") {
+        "/seller_central/sales/detail/shipping"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("seller central sales detail shipping action") {
+        "/seller_central/sales/detail/shipping/action"(platform: "/mobile", type: TrackType.Event) {
+            id = "FOLLOW_SHIPPING"
+        }
+    }
+
+    test("seller central sales detail invoice information") {
+        "/seller_central/sales/detail/invoice_info"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("seller central sales detail buyer information") {
+        "/seller_central/sales/detail/buyer_info"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("seller central sales detail buyer information action") {
+        "/seller_central/sales/detail/buyer_info/action"(platform: "/mobile", type: TrackType.Event) {
+            id = "CALL"
+        }
+    }
+
+    test("seller central sales detail driver information") {
+        "/seller_central/sales/detail/driver_info"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    // TODO actor info
+
+    test("seller central sales detail congrats") {
+        "/seller_central/sales/detail/congrats"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("seller central sales detail cancellation flow") {
+        "/seller_central/sales/detail/cancellation/landing"(platform: "/mobile", type: TrackType.View) {}
+        "/seller_central/sales/detail/cancellation/order_selection"(platform: "/mobile", type: TrackType.View) {}
+        "/seller_central/sales/detail/cancellation/reason_selection"(platform: "/mobile", type: TrackType.View) {}
+        "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Catalog Optin
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1006,4 +1128,3 @@ trackTests {
     }
 
 }
-

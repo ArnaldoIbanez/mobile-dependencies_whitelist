@@ -85,6 +85,7 @@ catalog {
         include business, "coupon.groovy"
         include business, "notifications.groovy"
         include business, "dynamic_stop_landing.groovy"
+        include business, "payers_growth.groovy"
     }
 
     marketplace.each { business ->
@@ -133,16 +134,18 @@ catalog {
         include business, "qr_discount.groovy"
         include business, "zip_finder.groovy"
         include business, "current_location.groovy"
+        include business, "download_app.groovy"
         include business, "supermarket.groovy"
-        include business, "payers_growth.groovy"
         include business, "contact.groovy"
         include business, "full.groovy"
+        include business, "front_core.groovy"
         include business, "dynamic_links.groovy"
         include business, "sube_recharge.groovy"
         include business, "myaccount_billing.groovy"
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
         include business, "pdp.groovy"
+        include business, "promotions.groovy"
     }
 
     mercadopago.each { business ->
@@ -172,6 +175,8 @@ catalog {
         include business, "money_out.groovy"
         include business, "pos_seller.groovy"
         include business, "preference.groovy"
+        include business, "discount_sellers.groovy"
+        include business, "profile_engine.groovy"
     }
 
     mercadoshops.each { business ->
@@ -185,4 +190,5 @@ catalog {
         include business, "wms.groovy"
         include business, "logistics.groovy"
     }
+    
 }

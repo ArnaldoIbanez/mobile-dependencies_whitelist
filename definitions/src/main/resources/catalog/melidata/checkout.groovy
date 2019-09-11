@@ -177,6 +177,7 @@ tracks {
     "/checkout/payment"(platform: "/", isAbstract: true) {
     }
     "/checkout/payment/input_sec_code"(platform: "/web", type: TrackType.View) {}
+    "/checkout/payment/esc_input_sec_code"(platform: "/web", type: TrackType.View) {}
     "/checkout/payments"(platform: "/", isAbstract: true) {
     }
 
@@ -253,7 +254,8 @@ tracks {
 
     //Event
     "/checkout/shipping/address_profile/delivered_time"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-       label(required: false, type: PropertyType.String)
+        label(required: false, type: PropertyType.String)
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
     //Fallback/Custom shipping
@@ -662,7 +664,10 @@ tracks {
         checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
 
-    "/checkout/review#submit/abort"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/review#submit/abort"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase"])
+    }
 
     "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -1151,6 +1156,10 @@ tracks {
     "/checkout/review/edit_first_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/review/edit_second_installment"(platform:"/", type: TrackType.View) {}
 
+    //Switch track
+    "/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
+    "/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
+    "/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
 
     /*
     * GarEx tracks

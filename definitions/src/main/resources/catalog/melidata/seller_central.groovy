@@ -129,6 +129,10 @@ tracks {
 
     "/seller_central/listings/filters"(platform: "/mobile", type: TrackType.View) {}
 
+    "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
+        checkedFilters(required: true, type: PropertyType.ArrayList, description: "Id of the action")
+    }
+
     "/seller_central/listings/filters/action"(platform: "/") {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
@@ -279,8 +283,22 @@ tracks {
 
     "/seller_central/bulk/discounts/offline/download/warning"(platform: "/", type: TrackType.Event){}
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central BULK Publish
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    "/seller_central/bulk/publish"(platform: "/web", isAbstract: true) {}
 
+    "/seller_central/bulk/publish/hub"(platform: "/web", type: TrackType.View) {}
 
+    "/seller_central/bulk/publish/categories"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/bulk/publish/download"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/bulk/publish/download/congrats"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/bulk/publish/upload"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -455,6 +473,27 @@ tracks {
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
     }
 
+    "/seller_central/modify/technical_specifications/hidden_attributes"(platform: "/", isAbstract: true) {
+        sellerCentralModifyGroup
+        seller_id(required: true, type: PropertyType.Numeric)
+        category_domain(required: true, type: PropertyType.String, description: "Item category domain")
+        type(required: true, type: PropertyType.String, description: "Trigger action", values: ["CONFIRM", "CANCEL"])
+    }
+
+    "/seller_central/modify/technical_specifications/hidden_attributes/open"(platform: "/", type: TrackType.Event) {
+        times_showed(required: true, type: PropertyType.Numeric, description: "Number of views")
+        attributes(required: true, type: PropertyType.Numeric, description: "Attributes available")
+    }
+
+    "/seller_central/modify/technical_specifications/hidden_attributes/add"(platform: "/", type: TrackType.Event) {
+        attribute(required: true, type: PropertyType.String, description: "ID of the attribute")
+    }
+
+    "/seller_central/modify/technical_specifications/hidden_attributes/change"(platform: "/", type: TrackType.Event) {
+        attribute(required: true, type: PropertyType.String, description: "ID of the attribute")
+        value(required: true, type: PropertyType.String, description: "New attribute value")
+    }
+
     // SETTINGS SECTION
 
     "/seller_central/settings"(platform: "/", type: TrackType.View) {
@@ -571,6 +610,39 @@ tracks {
         option(required: false, type: PropertyType.String, description: "Option selected")
     }
 
+    "/seller_central/sales/detail/main_action"(platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of main action")
+    }
+
+    "/seller_central/sales/detail/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of secondary action")
+    }
+
+    "/seller_central/sales/detail/payment"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/shipping"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/shipping/action"(platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of shipping action")
+    }
+
+    "/seller_central/sales/detail/invoice_info"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/buyer_info"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/buyer_info/action"(platform: "/mobile", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of buyer info action")
+    }
+
+    "/seller_central/sales/detail/driver_info"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/congrats"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/sales/detail/cancellation"(platform: "/mobile", isAbstract: true) {}
+    "/seller_central/sales/detail/cancellation/landing"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/cancellation/order_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/cancellation/reason_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
+
     // CATALOG OPTIN SECTION
 
     "/seller_central/catalog"(platform: "/web", isAbstract: true) {}
@@ -594,5 +666,3 @@ tracks {
 
 
 }
-
-

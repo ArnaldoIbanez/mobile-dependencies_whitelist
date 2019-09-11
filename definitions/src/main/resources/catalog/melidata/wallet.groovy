@@ -10,20 +10,22 @@ tracks {
     */
 
     "/wallet"(platform: "/mobile", isAbstract: true) {}
+    "/wallet/cards"(platform: "/mobile", isAbstract: true) {}
     
-    "/wallet/cards"(platform: "/mobile", type: TrackType.View) {
-        cards_quantity(required: true, type: PropertyType.Numeric, description: "Amount of cards the user has associated")
-        saved_cards(required: true, type: PropertyType.ArrayList , description:  "Cards info")
-        //card_id
-        //payment_method_name
-        //last_four_digits
-    }
+    "/wallet/cards/listing"(platform: "/mobile", type: TrackType.View) {}
 
     // Card detail
-    "/wallet/card_detail"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {}
+    "/wallet/cards/detail"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {}
     
-    // Add card button
+    // Add card Events
     "/wallet/cards/add_card"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
+    "/wallet/cards/add_card/success"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
+    "/wallet/cards/add_card/failed"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
+
+    // Delete card Events
+    "/wallet/cards/detail/delete_card"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
+    "/wallet/cards/detail/delete_card/success"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
+    "/wallet/cards/detail/delete_card/failed"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
 
     // Add card button
     "/wallet/cards/add_card_header"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}

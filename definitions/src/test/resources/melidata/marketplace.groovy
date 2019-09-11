@@ -586,8 +586,6 @@ trackTests {
         }
     }
 
-
-
     test("MP-MA Landing QR") {
         "/merchant_acquisition/" (platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/qr" (platform: "/", type: TrackType.View) {}
@@ -597,6 +595,17 @@ trackTests {
         "/merchant_acquisition/qr/landing/buyers"(platform: "/web/mobile", type: TrackType.View){}
     }
 
+    test("Landing mercadolibre payers growth") {
+        "/payers_growth/landings" (platform: "/") {
+            product = "rola-buyers"
+        }
+        "/payers_growth/landings" (platform: "/") {
+            product = "rola-mkt"
+        }
+        "/payers_growth/landings" (platform: "/") {
+            product = "mgm"
+        }
+    }
 
     test("apparel") {
         "/home/category/apparel" (platform:"/", type: TrackType.View) {

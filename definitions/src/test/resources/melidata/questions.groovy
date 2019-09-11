@@ -12,6 +12,7 @@ trackTests {
             item_id = "MLA533657947"
             failed = false
             context = "/questions"
+            catalog_product_id = "MLA533657234"
         }
     }
 
