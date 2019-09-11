@@ -750,13 +750,13 @@ trackTests {
     }
 
 
-    test("Envio proactivo QR - Associar QR + Point") {
-        "/merchant_acquisition/flows/associar_qr_point"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/associar_qr_point/qr"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/associar_qr_point/store"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/associar_qr_point/congrats"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/associar_qr_point/error"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/associar_qr_point/unauthorized"(platform: "/", type: TrackType.View) {}
+    test("Envio proactivo QR - Associar QR + Point - qr-point-assignment") {
+        "/merchant_acquisition/flows/qr-point-assignment"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-point-assignment/qr"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-point-assignment/store"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-point-assignment/congrats"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-point-assignment/error"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-point-assignment/unauthorized"(platform: "/", type: TrackType.View) {}
     }
 
     test("MP-MA Flow QR") {
