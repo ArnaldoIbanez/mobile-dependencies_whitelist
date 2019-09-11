@@ -388,7 +388,7 @@ tracks {
     // Phone Validation Authenticator
     "/authenticators/phone_validation"(platform: "/", isAbstract: true) {
         status(PropertyType.String, required: true, values: ["success", "failure", "pending_validation" ], description: "challenge status by response")
-        available_channels(PropertyType.ArrayList, required: false, description: "channels available to select")
+        available_channels(PropertyType.ArrayList, required: true, description: "channels available to select")
     }
 
     "/authenticators/phone_validation/channel_selector"(platform: "/", type: TrackType.View) {}
