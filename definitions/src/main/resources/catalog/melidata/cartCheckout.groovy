@@ -119,6 +119,8 @@ tracks {
     "/cart/checkout/error"(platform: "/", type: TrackType.View) {}
 
     "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
+    "/cart/checkout/shipping"(platform:"/", isAbstract: true) {}
+
 
     "/cart/checkout/payment/select_type"(platform: "/", type: TrackType.View) {}
 
@@ -230,6 +232,39 @@ tracks {
         total_amount(required: false, description: "totalAmount")
     }
 
+// Addresses
+// Page
+    "/cart/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
+        edit_flow(required: true, type: PropertyType.Boolean)
+    }
+
+// Events
+
+    "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
+    }
+    "/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
+    }
+    "/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
+    }
+    "/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
+    }
+    "/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
+    }
+    "/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the references")
+    }
+    "/cart/checkout/shipping/input_address/delivery"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
+    }
+    "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+    }
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin All platforms
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -299,11 +334,7 @@ tracks {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
-    "/cart/checkout/shipping/input_address"(platform: "/mobile", type: TrackType.View) {
-        edit_flow(required: true, type: PropertyType.Boolean)
-    }
-
-    "/cart/checkout/shipping/input_address/back"(platform: "/mobile", type: TrackType.Event) {}
+"/cart/checkout/shipping/input_address/back"(platform:"/mobile", type: TrackType.Event) {}
 
     "/cart/checkout/shipping/input_address#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")

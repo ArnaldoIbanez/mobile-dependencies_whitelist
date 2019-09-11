@@ -9,6 +9,7 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
 
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 // TRACKS CART CHECKOUT
 //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -237,12 +238,47 @@ trackTests {
         "/cart/checkout/loading"(platform: "/", dataSet)
         "/cart/checkout/shipping"(platform: "/mobile", dataSet)
 
+        // Addresses
+        // Page
+        "/cart/checkout/shipping/input_address"(platform:"/mobile") {
+            dataSet()
+            edit_flow = false
+        }
+        "/cart/checkout/shipping/input_address"(platform:"/web") {
+            dataSet()
+            edit_flow = false
+        }
+        // Event
+        "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+        }
+        "/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event) {
+            label = "Completa este dato"
+        }
+        "/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+        }
+        "/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event) {
+            label = "Completa este dato"
+        }
+        "/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+        }
+        "/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event) {
+            label = "Completa este dato"
+        }
+        "/cart/checkout/shipping/input_address/delivery"(platform: "/", type: TrackType.Event) {
+            label = "Completa este dato"
+        }
+        "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+        }
 
         // First Visit
         // Page
         "/cart/checkout/shipping/address_profile"(platform: "/mobile", dataSet)
 
-        // Event 
+        // Event
         "/cart/checkout/shipping/address_profile/delivered_time"(platform: "/mobile", type: TrackType.Event) {
             label = "laboral"
             session_id = "some_session_id"
@@ -279,11 +315,7 @@ trackTests {
         "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform: "/mobile", type: TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
         }
-        "/cart/checkout/shipping/input_address"(platform: "/mobile") {
-            dataSet()
-            edit_flow = false
-        }
-        "/cart/checkout/shipping/input_address/back"(platform: "/mobile", type: TrackType.Event) {
+        "/cart/checkout/shipping/input_address/back"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
             edit_flow = false
         }
@@ -328,8 +360,8 @@ trackTests {
         // Page
         "/cart/checkout/shipping/address_profile"(platform: "/web", dataSet)
 
-        // Event 
-        "/cart/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event) {
+        // Event
+        "/cart/checkout/shipping/address_profile/delivered_time"(platform:"/web", type:TrackType.Event) {
             label = "laboral"
         }
 
