@@ -520,7 +520,7 @@ trackTests {
             ]
         }
         //
-        
+
         "/checkout/shipping/address_profile"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
@@ -2153,7 +2153,16 @@ trackTests {
         "/checkout/shipping/select_option"(platform:"/web", dataSet)
         "/checkout/shipping/input_zipcode"(platform:"/web", dataSet)
         "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/web", dataSet)
-        "/checkout/shipping/input_address"(platform:"/web", dataSet)
+        "/checkout/shipping/input_address"(platform:"/", dataSet)
+        "/checkout/shipping/input_address/name"(platform:"/", dataSet)
+        "/checkout/shipping/input_address/street_name"(platform:"/", dataSet)
+        "/checkout/shipping/input_address/zip_code"(platform:"/", dataSet)
+        "/checkout/shipping/input_address/colony"(platform:"/", dataSet)
+        "/checkout/shipping/input_address/street_number"(platform:"/", dataSet)
+        "/checkout/shipping/input_address/references"(platform:"/", dataSet)
+        "/checkout/shipping/input_address/delivery"(platform:"/", dataSet)
+        "/checkout/shipping/input_address/phone"(platform:"/", dataSet)
+
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)
         "/checkout/shipping/input_address_number/whithout_number"(platform:"/web", dataSet)
         "/checkout/shipping/select_address"(platform:"/web", dataSet)
