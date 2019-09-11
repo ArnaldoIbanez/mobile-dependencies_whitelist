@@ -118,8 +118,8 @@ tracks {
 
     "/cart/checkout/error"(platform: "/", type: TrackType.View) {}
 
-"/cart/checkout/payment"(platform: "/", isAbstract: true) {}
-"/cart/checkout/shipping"(platform:"/", isAbstract: true) {}
+    "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
+    "/cart/checkout/shipping"(platform:"/", isAbstract: true) {}
 
 
     "/cart/checkout/payment/select_type"(platform: "/", type: TrackType.View) {}
@@ -232,38 +232,39 @@ tracks {
         total_amount(required: false, description: "totalAmount")
     }
 
-//Addresses
-"/cart/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
-    edit_flow(required: true, type: PropertyType.Boolean)
-}
+// Addresses
+// Page
+    "/cart/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
+        edit_flow(required: true, type: PropertyType.Boolean)
+    }
 
-//Events
+// Events
 // Solo nos interesa el label que capta el tipo de error que se envia en este path
 
-"/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-    label(required: true, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-    label(required: true, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-    label(required: true, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-    label(required: true, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-    label(required: true, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-    label(required: true, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address/delivery"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-    label(required: true, type: PropertyType.String)
-}
-"/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-    label(required: true, type: PropertyType.String)
-}
+    "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String)
+    }
+    "/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String)
+    }
+    "/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String)
+    }
+    "/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String)
+    }
+    "/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String)
+    }
+    "/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String)
+    }
+    "/cart/checkout/shipping/input_address/delivery"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String)
+    }
+    "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String)
+    }
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin All platforms
