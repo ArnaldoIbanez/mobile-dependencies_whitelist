@@ -119,6 +119,8 @@ tracks {
 "/cart/checkout/error"(platform:"/", type: TrackType.View) {}
 
 "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
+"/cart/checkout/shipping"(platform:"/", isAbstract: true) {}
+
 
 "/cart/checkout/payment/select_type"(platform:"/", type: TrackType.View) {}
 
@@ -229,6 +231,37 @@ tracks {
     total_amount(required: false, description: "totalAmount")
 }
 
+//Addresses
+"/cart/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
+    edit_flow(required: true, type: PropertyType.Boolean)
+}
+
+//Events
+"/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    label(required: true, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    label(required: true, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    label(required: true, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    label(required: true, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    label(required: true, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    label(required: true, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address/delivery"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    label(required: true, type: PropertyType.String)
+}
+"/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    label(required: true, type: PropertyType.String)
+}
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin All platforms
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -294,10 +327,6 @@ tracks {
 "/cart/checkout/shipping/input_zipcode"(platform:"/mobile", type: TrackType.View) {}
 "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
     session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
-}
-
-"/cart/checkout/shipping/input_address"(platform:"/mobile", type: TrackType.View) {
-    edit_flow(required: true, type: PropertyType.Boolean)
 }
 
 "/cart/checkout/shipping/input_address/back"(platform:"/mobile", type: TrackType.Event) {}
@@ -420,7 +449,7 @@ tracks {
 // 2MP Cancelation
 "/cart/checkout/payments_cancelation"(platform: "/mobile", type: TrackType.View) {}
 
-    
+
 // Step Curp Credits MLM
 "/cart/checkout/payment/curp"(platform:"/", type: TrackType.View) {}
 "/cart/checkout/payment/curp/not_my_curp"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
