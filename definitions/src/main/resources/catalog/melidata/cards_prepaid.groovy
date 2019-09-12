@@ -177,6 +177,19 @@ tracks {
     // Prepaid Change phone info
     "/prepaid/reissue/phone_info" (platform: "/", type: TrackType.View) {}
 
+    // Prepaid FAQ Root
+    "/prepaid/faq" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid FAQ Details
+    "/prepaid/faq/detail" (platform: "/", type: TrackType.View) {}
+    "/prepaid/faq/detail/payment_rejected" (platform: "/", type: TrackType.View) {}
+    "/prepaid/faq/detail/extraction_rejected" (platform: "/", type: TrackType.View) {}
+
+    //Prepaid FAQ Details Events
+    "/prepaid/faq/detail/payment_rejected/money_in" (platform: "/", type: TrackType.Event) {}
+    "/prepaid/faq/detail/payment_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+    "/prepaid/faq/detail/extraction_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+    
     //-----------------
     // PREPAID MLM
     //-----------------
