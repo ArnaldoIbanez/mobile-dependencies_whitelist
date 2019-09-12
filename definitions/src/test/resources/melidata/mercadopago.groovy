@@ -3454,6 +3454,8 @@ trackTests {
         "/stores/details"(platform: "/web", type: TrackType.View) {}
         "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
         "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
+        "/stores/standalone_pos"(platform: "/web", type: TrackType.View) {}
+        "/stores/move_pos"(platform: "/web", type: TrackType.View) {}
 
         "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/link_operators"(platform: "/web/mobile", type: TrackType.View) {}
@@ -3462,5 +3464,19 @@ trackTests {
         "/stores/details"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/pos/create"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/pos/update"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/standalone_pos"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/move_pos"(platform: "/web/mobile", type: TrackType.View) {}
+    }
+
+    test("Account mydata") {
+        "/account"(platform: "/web", type: TrackType.View) {}
+        "/account/mydata"(platform: "/web", type: TrackType.View) {}
+        "/account/mydata/email"(platform: "/web", type: TrackType.View) {}
+        "/account/mydata/email/congrats"(platform: "/web", type: TrackType.View) {}
+
+        "/account"(platform: "/web/mobile", type: TrackType.View) {}
+        "/account/mydata"(platform: "/web/mobile", type: TrackType.View) {}
+        "/account/mydata/email"(platform: "/web/mobile", type: TrackType.View) {}
+        "/account/mydata/email/congrats"(platform: "/web/mobile", type: TrackType.View) {}
     }
 }

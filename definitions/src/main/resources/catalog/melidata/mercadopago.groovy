@@ -1181,6 +1181,14 @@ tracks {
     "/stores/pos"(platform: "/web", type: TrackType.View, isAbstract:true) {}
     "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
     "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
+    "/stores/standalone_pos"(platform: "/web", type: TrackType.View) {}
+    "/stores/move_pos"(platform: "/web", type: TrackType.View) {}
+
+    //Account mydata
+    "/account"(platform: "/web", isAbstract: true) {}
+    "/account/mydata"(platform: "/web", isAbstract: true) {}
+    "/account/mydata/email"(platform: "/web", type: TrackType.View) {}
+    "/account/mydata/email/congrats"(platform: "/web", type: TrackType.View) {}
 
 }
 
