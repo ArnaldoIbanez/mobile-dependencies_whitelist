@@ -43,16 +43,19 @@ tracks {
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
-    "/collaborators"(platform:"/web", isAbstract: true) {}
-
-    "/collaborators/select_role"(platform:"/web", type: TrackType.View) {
+    "/collaborators"(platform:"/web", isAbstract: true) {
         type(required: true, type: PropertyType.String, description: 'Indicates the source of the tracking, i.e. form')
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
-    "/collaborators/transform_account"(platform:"/web", type: TrackType.View) {
-        type(required: true, type: PropertyType.String, description: 'Indicates the source of the tracking, i.e. form')
-        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
-    }
+    "/collaborators/select_role"(platform:"/web", type: TrackType.View) {}
+
+    "/collaborators/transform_account"(platform:"/web", type: TrackType.View) {}
+
+    "/collaborators/deadline"(platform:"/web", isAbstract: true) {}
+
+    "/collaborators/deadline/form"(platform:"/web", type: TrackType.View) {}
+
+    "/collaborators/contact_owner"(platform:"/web", type: TrackType.View) {}
 
 }
