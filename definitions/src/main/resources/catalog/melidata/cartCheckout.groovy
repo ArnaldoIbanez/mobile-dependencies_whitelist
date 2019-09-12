@@ -242,27 +242,43 @@ tracks {
 
     "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
     }
     "/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
     }
     "/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
     }
     "/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
     }
     "/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
     }
     "/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the references")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
     }
     "/cart/checkout/shipping/input_address/delivery"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
     }
     "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
     }
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -297,7 +313,7 @@ tracks {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
-    "/cart/checkout/shipping/edit_address"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/cart/checkout/shipping/edit_address"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
