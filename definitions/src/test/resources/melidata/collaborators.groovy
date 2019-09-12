@@ -40,6 +40,8 @@ trackTests {
 
     test("Collaborators") {
         "/collaborators"(platform:"/web", type: TrackType.View) {
+            type = 'form'
+            segmentation = 'first_stage'
         }
     }
 
