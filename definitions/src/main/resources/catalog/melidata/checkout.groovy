@@ -1114,7 +1114,10 @@ tracks {
     // Addresses
 
     // Page
-    "/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {}
+    "/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
+    }
 
     // Event
     "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event) {
