@@ -98,7 +98,8 @@ trackTests {
                     "shipping_total":[
                             "amount":0,
                             "symbol":"\$"
-                    ]
+                    ],
+                    "shipping_promoted_amount": 0
             ]
         }
 
@@ -119,6 +120,21 @@ trackTests {
         }
 
         "/cart/my_cart/delete_item"(platform: "/web"){
+            item = [
+                    id: "MLA754486062",
+                    listing_type: "gold_special",
+                    international_delivery_mode: "none",
+            ]
+
+
+            loyalty_level = 2
+            currency_id = "MXN"
+            quantity = 2
+            free_shipping_benefit = false
+            unit_price = 173
+        }
+
+        "/cart/my_cart/more_seller_items"(platform: "/web"){
             item = [
                     id: "MLA754486062",
                     listing_type: "gold_special",
@@ -159,7 +175,7 @@ trackTests {
 
         "/cart/my_cart/close_change_notification"(platform: "/web", dataSetWithSummary)
 
-        "/cart/saved_for_later"(platform: "/web", dataSet)
+        "/cart/saved_for_later"(platform: "/web", dataSetWithSummary)
 
         "/cart/saved_for_later/open_change_notification"(platform: "/web", dataSet)
 

@@ -177,39 +177,35 @@ metrics {
 			}
 		}
 	}
-
-	"garex_mla_notebooks"(description: "Garex MLA Notebooks domain", sum_by: ["event_data.total_amount_with_garex"]) {
+	
+	"garex_mla"(description: "Garex MLA", sum_by: ["event_data.total_amount_including_garex"]) {
 		startWith {
-			experiment("buyingflow/garex_mla_notebooks")
+			experiment("buyingflow/garex_mla")
 		}
 
 		countsOn {
 			condition {
-				empty("event_data.total_amount_with_garex", false)
+				and(
+					equals("event_data.congrats_seq",1),
+					empty("event_data.total_amount_including_garex", false),
+					equals("event_data.item_with_garex", true)
+				)
 			}
 		}
 	}
 
-	"garex_mla_hair_clippers"(description: "Garex MLA Hair Clippers domain", sum_by: ["event_data.total_amount_with_garex"]) {
+	"garex_mlb"(description: "Garex MLB", sum_by: ["event_data.total_amount_including_garex"]) {
 		startWith {
-			experiment("buyingflow/garex_mla_hair_clippers")
+			experiment("buyingflow/garex_mlb")
 		}
 
 		countsOn {
 			condition {
-				empty("event_data.total_amount_with_garex", false)
-			}
-		}
-	}
-
-	"garex_mla_refrigerators"(description: "Garex MLA Refrigerators domain", sum_by: ["event_data.total_amount_with_garex"]) {
-		startWith {
-			experiment("buyingflow/garex_mla_refrigerators")
-		}
-
-		countsOn {
-			condition {
-				empty("event_data.total_amount_with_garex", false)
+				and(
+						equals("event_data.congrats_seq",1),
+						empty("event_data.total_amount_including_garex", false),
+						equals("event_data.item_with_garex", true)
+				)
 			}
 		}
 	}
@@ -239,6 +235,31 @@ metrics {
 				or (
 					path("/credits/merchant/enrollment/documentation/congrats")
 				)
+			}
+		}
+	}
+
+	"checkout_off_congrats"(description: "Arrival to congrats page from Checkout Off") {
+		startWith {
+			experiment(regex("checkout_off/.*"))
+		}
+
+		countsOn {
+			condition {
+        path("/checkout_off/congrats")
+			}
+		}
+	}
+  
+	"checkout_off_congrats_success"(description: "Arrival to congrats success page from Checkout Off") {
+		startWith {
+			experiment(regex("checkout_off/.*"))
+		}
+
+		countsOn {
+			condition {
+				path("/checkout_off/congrats")
+				equals("event_data.payment_status","approved")
 			}
 		}
 	}

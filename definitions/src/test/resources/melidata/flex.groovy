@@ -297,6 +297,16 @@ trackTests {
             delivery_id = 123456
         }
 
+
+        //Message buyer action event success
+        "/flex/package/message_buyer"(platform:"/mobile", type: TrackType.Event) {
+            defaultSinglePack()
+            buyer_info = [
+                buyer_id: "34434535"
+            ]
+            delivery_id = 123456
+        }
+
         //End trip action event success
         "/flex/package/list/end_trip"(platform:"/mobile", type: TrackType.Event) {
             defaultPacksInfo()
@@ -304,12 +314,21 @@ trackTests {
             delivery_id = 123456
         }
 
+        //Message buyer action from detail event success
+        "/flex/package/detail/message_buyer"(platform:"/mobile", type: TrackType.Event) {
+            defaultSinglePack()
+            buyer_info = [
+                buyer_id: "34434535"
+            ]
+            delivery_id = 123456
+        }
+
         //Call buyer action event success
         "/flex/package/detail/call_buyer"(platform:"/mobile", type: TrackType.Event) {
             defaultSinglePack()
-            buyer_info = {
-                buyer_id = "34434535"
-            }
+            buyer_info = [
+                buyer_id: "34434535"
+            ]
             delivery_id = 123456
         }
 
@@ -499,6 +518,14 @@ trackTests {
             context = "delivered"
             error_type = "permission_denied"
             error_message = "example_message"
+        }
+
+        //Fake GPS enable
+        "/flex/package/detail/enable_fake_gps"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            context = "delivered"
+            delivery_id = 123456
         }
     }
 }

@@ -9,6 +9,15 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    def garexTrackStructure = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String)
+        period(required: true, type: PropertyType.Numeric)
+        cost(required: true, type: PropertyType.Numeric)
+        revenue_share_fee(required: true, type: PropertyType.Numeric)
+        revenue(required: true, type: PropertyType.Numeric)
+        currency_id(required: true, type: PropertyType.String)
+    }
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // This tracks will be representing the user intention to buy. ( Meaning clicking the buy button
 // Currently this can be done from several places ( carrito, vip, carrito( from an individual item )
@@ -30,7 +39,7 @@ tracks {
     //item
         //id
         //category_id
-        //variation_id   
+        //variation_id
         //review_rate -> Lo completa Melidata automaticamente
         //category_path -> Lo completa Melidata automaticamente
         //deal_id -> Lo completa Melidata automaticamente
@@ -42,7 +51,7 @@ tracks {
     //unit_price
 
     total_amount(required: true, type: PropertyType.Numeric, description: "totalAmount")
-    context(required:true, description: "Indicates from where the buy_intention was initiated. Where did the user pressed de 'COMPRAR' button", values: ["vip", "saved_for_later", "cart", "cart_item", "vip_combo", "item_add", "UNKNOWN", "cart_combo_reco", "checkout_recovery_combo"])
+    context(required:true, description: "Indicates from where the buy_intention was initiated. Where did the user pressed de 'COMPRAR' button", values: ["vip", "pdp", "saved_for_later", "cart", "cart_item", "vip_combo", "item_add", "UNKNOWN", "cart_combo_reco", "checkout_recovery_combo", "home_cart-overview", "home_dropout", "home_last-buy", "mycart", "catalog_listing_from_saved_for_later", "mshops_from_mycart", "mshops_from_saved_for_later", "mshops_catalog_listing_from_mycart", "mshops_catalog_listing_from_saved_for_later", "mshops_mycart,catalog_listing_from_mycart", "mycart,catalog_listing_from_mycart","garex"])
     checkout_flow(required: true, type: PropertyType.String, values: ["subscription", "direct","cart", "contract", "reservation", "subscription", "direct"],  description: "The type of CHO that is starting by this buy intention. Reservation/contracts CHO's are excluded by the moment")
 
     //tracks específicos del flujo de checkout. TODO CHECK si hace sentido que lo mandemos o podemos dejar un track más limpio
@@ -99,6 +108,11 @@ tracks {
     order_id(required: false, type: PropertyType.Numeric, description: "order_id")
 
     applies_cart_ratio(required: false, type: PropertyType.String, description: "appliesCartRatio")
+
+    item_with_garex(required: false, type: PropertyType.Boolean, description: 'Item has available warranty')
+    total_amount_including_garex(required: false, type: PropertyType.Numeric, description: 'Total amount (include garex if applies)')
+    garex(required: false, type: PropertyType.Map(garexTrackStructure), description: 'User selects a warranty option')
+    stored_cards_quantity(required: false, type: PropertyType.Numeric, description: "Stored cards quantity of the buyer")
 
 }
 

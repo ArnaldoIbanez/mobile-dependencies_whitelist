@@ -111,10 +111,7 @@ trackTests {
         }
         "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
             challenge = "password"
-            is_otp = true
-            is_admin_otp = false
-            user_reg_date = "2018"
-            user_points = 100
+            tracking_id = "123"
         }
         "/login/auth/failure"(platform: "/web", type: TrackType.Event) {
             challenge = "user"
@@ -406,6 +403,7 @@ trackTests {
         }
         "/login/auth/challenge/restart"(platform: "/mobile", type: TrackType.Event) {
             challenge = "enter_password"
+            tracking_id = "123"
         }
     }
 
@@ -458,8 +456,10 @@ trackTests {
 
     test("Device Attestation"){
         "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {
-            mode = "prefetch"
+            mode = "prefetch_only"
         }
+
+        "/auth/attestation/start"(platform: "/mobile", type: TrackType.Event) {}
 
         "/auth/attestation/signature/request"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -518,6 +518,66 @@ trackTests {
 
         "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {
             section = "security_settings"
+        }
+    }
+
+    test("Phone Validation - Authentication") {
+        "/authenticators/phone_validation/channel_selector"(platform: "/", type: TrackType.View) {
+            status = "pending_validation"
+            available_channels = ["push", "sms", "call"]
+        }
+
+        "/authenticators/phone_validation/channel_selector/submit"(platform: "/", type: TrackType.Event) {
+            status = "pending_validation"
+            available_channels = ["push", "sms", "call"]
+            selected_channel = "push"
+        }
+
+        "/authenticators/phone_validation/enter_code"(platform: "/", type: TrackType.View) {
+            status = "pending_validation"
+            available_channels = ["sms", "call"]
+            selected_channel = "sms"
+        }
+
+        "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
+            status = "success"
+            available_channels = ["sms", "call"]
+            selected_channel = "call"
+        }
+    }
+
+
+    test("Biometrics / Screenlock") {
+        "/screenlock/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            elapsed_time = 50
+            result = "success"
+        }
+
+        "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            elapsed_time = 50
+            result = "error"
+            errors = ["user_cancelled"]
+        }
+
+        "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            elapsed_time = 50
+            result = "success"
         }
     }
 }

@@ -10,10 +10,11 @@ SELECT datos.fecha                                                              
        SUM(datos.invalid_tracks)                                                                           AS invalidTracks 
 FROM (
       (
-       SELECT fecha, section_path, platform, version, type, path, total_tracks, valid_tracks, invalid_tracks
+       SELECT fecha, section_path, platformType, platform, version, type, path, total_tracks, valid_tracks, invalid_tracks
        FROM (
              SELECT subQueryTracks.fechaTracks         AS fecha,
                     subQueryTracks.section_path        AS section_path,
+                    subQueryTracks.platformType        AS platformType,
                     subQueryTracks.platformTracks      AS platform,
                     subQueryTracks.versionTracks       AS version,
                     subQueryTracks.typeTracks          AS type,
@@ -25,6 +26,7 @@ FROM (
                    SELECT substr(ds, 1, 10)                                           AS fechaTracks,
                           regexp_extract(path,'^(\/.*?)(\/|$)',1)                     AS section_path,
                           application.business                                        AS businessTracks,  
+                          IF(device.platform like '/web%', 'WEB', 'APP')              as platformType,
                           device.platform                                             AS platformTracks, 
                           IF(device.platform like '/web%', null, application.version) AS versionTracks,
                           type                                                        AS typeTracks,
@@ -76,12 +78,13 @@ FROM (
                     WHERE rnk = 1
                    ) versions ON versions.business = subQueryTracks.businessTracks AND versions.platform = subQueryTracks.platformTracks AND versions.version  = subQueryTracks.versionTracks 
              WHERE (subQueryTracks.platformTracks like '/web%'  OR versions.version IS NOT NULL)
-             GROUP BY subQueryTracks.fechaTracks, subQueryTracks.section_path, subQueryTracks.platformTracks, subQueryTracks.versionTracks, subQueryTracks.typeTracks, subQueryTracks.pathTracks
+             GROUP BY subQueryTracks.fechaTracks, subQueryTracks.section_path, subQueryTracks.platformType, subQueryTracks.platformTracks, subQueryTracks.versionTracks, subQueryTracks.typeTracks, subQueryTracks.pathTracks
             ) subQueryDatos1
       ) datos
-      LEFT JOIN (SELECT jest(data,'Iniciativa') AS iniciative, jest(data,'Section') AS section
+      LEFT JOIN (SELECT jest(data,'Iniciativa') AS iniciative, jest(data,'Section') AS section, jest(data,'PlatformType') AS platformType
                  FROM external_data 
-                 WHERE usr = 'nalaimo' 
+                 WHERE usr = 'amaciel' 
                    AND tb = 'map_project_initiative') iniciatives ON datos.section_path = iniciatives.section
      ) 
+WHERE (iniciatives.platformType is NULL OR iniciatives.platformType = '*ALL' OR iniciatives.platformType = datos.platformType)
 GROUP BY datos.fecha, IF(iniciatives.iniciative IS NULL, 'SIN DATOS EN EL MAPEO PARA EL SECTION', iniciatives.iniciative), datos.section_path, datos.platform, datos.version, datos.type, datos.path

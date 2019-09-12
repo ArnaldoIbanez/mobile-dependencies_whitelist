@@ -11,7 +11,7 @@
   },
   "extract": {
     "operation": "append",
-    "site": "MeliLake",
+    "site": "Customer",
     "columns": [
       {
         "name": "requested_datetime_hour",

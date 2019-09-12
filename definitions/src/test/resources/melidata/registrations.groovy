@@ -224,6 +224,19 @@ trackTests {
             prog_reg_version = 0
         }
 
+        "/register/successful-update"(platform: "/web/desktop") {
+            app = "registration-syi"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+        }
+        "/register/successful-update"(platform: "/web/mobile") {
+            app = "registration-syi"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
+        }
+
         "/register/optin"(platform: "/web/desktop") {
             app = "registration"
             source = "email"
@@ -277,6 +290,12 @@ trackTests {
             origin = "email"
             item_id = "MLA21233"
             register_type = "person"
+        }
+        "/register/form"(platform:"/mobile") {
+            app = "registration"
+            source = "email"
+            captcha_showed = true
+            prog_reg_version = 0
         }
         "/register/form/email-suggest"(platform:"/mobile") {
             app = "favorite"

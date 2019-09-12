@@ -100,16 +100,6 @@ tracks {
 
     "/seller_reputation/ratings/back"(platform: "/mobile") {}
 
-    "/traffic"(platform: "/", isAbstract: true) {}
-
-    "/traffic/inbound"(platform: "/", isAbstract: true) {}
-
-    "/traffic/inbound/matt"(platform: "/") {
-        tool(type: PropertyType.Numeric, description: "Referrer's ID, this could identify Google, Facebook or any other channel")
-        word(required: false, type: PropertyType.String, description: "This is the name of the marketing campaign.")
-        go(type: PropertyType.String, description: "Destination URL of the marketing campaign.")
-    }
-
     /**
      * DEVICES
      */
@@ -218,6 +208,12 @@ tracks {
     "/merchant_acquisition/qr/landing"(platform:"/", isAbstract: true) {}
     "/merchant_acquisition/qr/landing/buyers"(platform:"/", type: TrackType.View) {}
 
+    // Payers Growth Landings
+    "/payers_growth"(platform: "/", isAbstract: true) {}
+    "/payers_growth/landings"(platform: "/") {
+        product (type: PropertyType.String, required: true, description: "Product name, example: 'mkt-combustibles'")
+    }
+    
     //Landings Deals
 
     "/deals"(platform: "/", isAbstract: true) {}

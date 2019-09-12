@@ -5,26 +5,33 @@ apply plugin:'application'
 apply plugin:'maven'
 apply plugin:'java'
 
-project.version = '1.2.14'
+project.version = '1.2.20'
 project.group = 'com.mercadolibre.melidata.catalog'
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.1'
 }
 
-repositories {
-    mavenCentral()
-    maven {
-        url "http://git.ml.com/nexus/content/groups/ML"
+buildscript {
+    repositories {
+        mavenCentral()
     }
+}
+
+repositories {
+	mavenCentral()
+	jcenter()
+	maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
+	maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
+	maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
 }
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:1.8.6'
     compile 'com.amazonaws:aws-java-sdk:1.11.68'
     compile 'commons-io:commons-io:2.4'
-    compile project(':..:commons')
-    compile group: 'com.mercadolibre.melidata.catalog', name: 'definitions', version: '1.2.0'
+    compile 'com.mercadolibre.melidata.catalog:commons:1.4.4'
+    compile group: 'com.mercadolibre.melidata.catalog', name: 'definitions', version: '1.2.17'
     compile group: 'com.facebook.presto', name: 'presto-jdbc', version: '0.214'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
     compile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'

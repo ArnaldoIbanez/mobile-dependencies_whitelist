@@ -1,9 +1,27 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
-def classiExperiments = "(.*/classi.*|vip/newDesignMotors|vip/newDesktopDesignMotors|buyingflow/reservationMLAv5|sell/congrats_upgrade_listing_type|vip/servicesNewDesignMobileMLA|vip/servicesNewDesignDesktopMLA|search/openInNewTab|search/goLocal|vip/realEstate.*)"
+def classiExperiments = "(.*/classi.*|vip/newDesignMotors|vip/newDesktopDesignMotors|buyingflow/reservationMLAv5|sell/congrats_upgrade_listing_type|vip/servicesNewDesignMobileMLA|vip/servicesNewDesignDesktopMLA|search.*|vip/realEstate.*)"
 
 metrics {
 
+    "reservation"(description: "orders that belong to a are a reservation", compute_order: true) {
+	    
+   	startWith {
+		experiment(regex(classiExperiments))
+	}
+	    
+	countsOn {
+		condition {
+			and (
+				equals("path", "/orders/ordercreated"),
+				equals("event_data.reservation", true)	
+			)
+		}
+	}
+     }
+	
+	
+	
     "sell/full_relist_single_item"(description: "define properties for item_id at full_relist experiment") {
         startWith {
             set_property("item_id", "event_data.item_id")
@@ -27,6 +45,21 @@ metrics {
 				path("/orders/ordercreated")
 
                 equals("event_data.items.item.logistic_type", "fulfillment")
+			}
+		}
+	}
+	
+	"loyalty/buy_level_installments"(description: "define which buy level button to show in VIP modal to see which converts best") {
+        startWith {
+            experiment("loyalty/buy-level-installments")
+        }
+
+		countsOn {
+			condition {
+				path("/loyalty/vip/modal/action")
+				and(
+                	equals("event_data.type", "buy_level")
+				)
 			}
 		}
 	}
@@ -251,6 +284,21 @@ metrics {
 		countsOn {
 			condition {
 				path("/asset_management/start_investing")
+			}
+		}
+	}
+
+	"seller_central/goal_achieved"(description: "Goal achieved") {
+		startWith {
+			experiment("sell/health-goals_order")
+		}
+
+		countsOn {
+			condition {
+				path("/seller_central/modify/success")
+				and(
+					empty("event_data.goals_achieved", false)
+				)
 			}
 		}
 	}

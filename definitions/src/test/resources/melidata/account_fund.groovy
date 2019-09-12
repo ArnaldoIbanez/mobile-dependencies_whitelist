@@ -56,6 +56,7 @@ trackTests {
         "/account_fund/cvu/result"(platform: "/", type: TrackType.View) {
             result_status = "approved"
         }
+        "/account_fund/cvu/pending"(platform: "/", type: TrackType.View) {}
 
         "/account_fund/cvu/edit_alias"(platform: "/", type: TrackType.View) {}
         "/account_fund/cvu/copy_alias"(platform: "/", type: TrackType.Event) {}

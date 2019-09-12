@@ -55,6 +55,14 @@ trackTests {
             context = "tool"
         }
 
+        // Support
+
+        "/pppi/support"(platform: "/") {}
+
+        "/pppi/support/form"(platform: "/") {}
+        "/pppi/support/form/success"(platform: "/") {}
+        "/pppi/support/form/forbidden"(platform: "/") {}
+
         // Error
 
         "/pppi/error"(platform: "/") {}

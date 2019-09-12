@@ -62,6 +62,14 @@ tracks {
         context(required: true, type: PropertyType.String, values: ["tool"], description: "context in which the event was triggered")
     }
 
+    // Support
+
+    "/pppi/support"(platform: "/", isAbstract: true) {}
+
+    "/pppi/support/form"(platform: "/", type: TrackType.View) {}
+    "/pppi/support/form/success"(platform: "/", type: TrackType.View) {}
+    "/pppi/support/form/forbidden"(platform: "/", type: TrackType.View) {}
+
     // Error
 
     "/pppi/error"(platform: "/", type: TrackType.View) {}

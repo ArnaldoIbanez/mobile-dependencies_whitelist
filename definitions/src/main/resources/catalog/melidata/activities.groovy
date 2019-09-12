@@ -4,26 +4,51 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    // MP Activities
-    "/listing"(platform: "/web", isAbstract: true){}
+    /*************************
+    *    ACTIVITY TRACKS    *
+    *************************/
 
-    "/listing/activities"(platform: "/web", type: TrackType.View){
-        shown_modal_id(required: true, type: PropertyType.String, description: 'Indicates the id of the modal shown.')
+    /********************************
+    *     ACTIVITY MOBILE TRACKS    *
+    *********************************/
+
+    def filter_definition = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "The id of the Filter")
+        ordinal(required: true, type: PropertyType.Numeric, description: "The position of the filter")
     }
 
-    "/listing/gateway"(platform: "/web", type: TrackType.View){}
+    // MP Activities List
+    "/listing/activities" (platform: "/mobile", type: TrackType.View) {}
+    "/listing/activities/pull" (platform: "/mobile", type: TrackType.Event) {
+        has_changes(required: true, type: PropertyType.Boolean, description: "If changed the list of activities") 
+    }
 
-    // MP details
-    "/activity"(platform: "/web", isAbstract: true){}
-    "/activity/detail"(platform: "/web", type: TrackType.View){}
-    "/activity/detail/shipping"(platform: "/web", type: TrackType.View){}
+    // MP Activities Filters
+    "/listing/activities/filters" (platform: "/mobile", type: TrackType.View) {}
+    "/listing/activities/filters/options" (platform: "/mobile", type: TrackType.View) {}
+    "/listing/activities/removefilter" (platform: "/mobile", type: TrackType.Event) {}
+    "/listing/activities/filters/apply" (platform: "/mobile", type: TrackType.Event) {
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(filter_definition)), description: "The filters applied")
+    }
 
-    // MP Balance/Advances
-    "/activities"(platform: "/web", isAbstract: true){}
-    "/activities/balance"(platform: "/web", type: TrackType.View){}
-    "/activities/balance/advances"(platform: "/web", type: TrackType.View){}
-    "/activities/balance/advances/congrats"(platform: "/web", type: TrackType.View){}
+    // MP Activities Opertion Detail
+    "/listing/activities/detail" (platform: "/mobile", type: TrackType.View) {}
+    "/listing/activities/detail/add_note" (platform: "/mobile", type: TrackType.View) {}
+    "/listing/activities/detail/add_note/added" (platform: "/mobile", type: TrackType.Event) {}
+    "/listing/activities/detail/list" (platform: "/mobile", type: TrackType.View) {}
+    "/listing/activities/detail/user_info" (platform: "/mobile", type: TrackType.View) {}
+    "/listing/activities/detail/shipping" (platform: "/mobile", type: TrackType.View) {}
+    "/listing/activities/detail/web_view" (platform: "/mobile", type: TrackType.View) {
+        url(required: true, type: PropertyType.String, description: "The url that will load the webview")
+    }
 
-    // MP Activities Export
-    "/activities/export"(platform: "/web", type: TrackType.View){}
+    "/listing/activities/real_time" (platform: "/mobile", isAbstract: true) {}
+    "/listing/activities/real_time/total" (platform: "/mobile", type: TrackType.View) {
+        total(required: false, type: PropertyType.Numeric, description: "Total realtime activities pushed")        
+    }
+    "/listing/activities/real_time/push" (platform: "/mobile", type: TrackType.View) {
+        activity_id(required: true, type: PropertyType.String, description: "The id's activity")
+        date_created(required: true, type: PropertyType.String, description: "The date it was created")
+    }
+    
 }
