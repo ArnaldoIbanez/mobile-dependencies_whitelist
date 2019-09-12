@@ -234,7 +234,7 @@ tracks {
 
 // Addresses
 // Page
-    "/cart/checkout/shipping/inpugit at_address"(platform:"/", type: TrackType.View, isAbstract: true) {
+    "/cart/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
         edit_flow(required: false, type: PropertyType.Boolean)
     }
 
