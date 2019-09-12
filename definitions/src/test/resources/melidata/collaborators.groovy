@@ -40,6 +40,8 @@ trackTests {
 
     test("Collaborators") {
         "/collaborators"(platform:"/web", type: TrackType.View) {
+            type = 'form'
+            segmentation = 'first_stage'
         }
     }
 
@@ -54,6 +56,20 @@ trackTests {
         "/collaborators/transform_account"(platform:"/web", type: TrackType.View) {
             type = 'form'
             segmentation = 'first_stage'
+        }
+    }
+
+    test("Deadline form") {
+        "/collaborators/deadline/form"(platform:"/web", type: TrackType.View) {
+            type = 'form'
+            segmentation = 'no-data'
+        }
+    }
+
+    test("Contact owner") {
+        "/collaborators/contact_owner"(platform:"/web", type: TrackType.View) {
+            type = 'form'
+            segmentation = 'no-data'
         }
     }
 }
