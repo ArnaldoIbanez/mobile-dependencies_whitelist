@@ -405,5 +405,32 @@ trackTests {
             milestone= -27
         }
 
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "updates"
+            stage= "em_congrats_credited_loan"
+            milestone= -7
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "updates"
+            stage= "em_congrats_debit_installment"
+            milestone= 0
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "collection"
+            stage= "em_insufficient_funds"
+            milestone= 0
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "collection"
+            stage= "em_expired_daily_charges"
+            milestone= 1
+        }
     }
 }
