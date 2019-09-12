@@ -199,4 +199,14 @@ trackTests {
         "/prepaid/reissue/inactivate_card" (platform: "/", type: TrackType.View) {}
         "/prepaid/reissue/phone_info" (platform: "/", type: TrackType.View) {}
     }
+    
+    test ("Prepaid FAQs") {
+        "/prepaid/faq" (platform: "/", type: TrackType.View) {}
+        "/prepaid/faq/detail" (platform: "/", type: TrackType.View) {}
+        "/prepaid/faq/detail/payment_rejected" (platform: "/", type: TrackType.View) {}
+        "/prepaid/faq/detail/extraction_rejected" (platform: "/
+        "/prepaid/faq/detail/payment_rejected/money_in" (platform: "/", type: TrackType.Event) {}
+        "/prepaid/faq/detail/payment_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+        "/prepaid/faq/detail/extraction_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+    }
 }
