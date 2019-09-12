@@ -2163,11 +2163,11 @@ trackTests {
             label = "La cantidad de caracteres ingresados es inválida"
             items = [
                     [
-                            item : [
+                            quantity: 1,
+                            item    : [
                                     id          : "MLM590711277",
                                     variation_id: ""
-                            ],
-                            quantity: 1
+                            ]
                     ]
             ]
             recovery_flow=false
@@ -2176,11 +2176,11 @@ trackTests {
             label = "Completa este dato"
             items = [
                     [
-                            item : [
+                            quantity: 1,
+                            item    : [
                                     id          : "MLM590711277",
                                     variation_id: ""
-                            ],
-                            quantity: 1
+                            ]
                     ]
             ]
             recovery_flow=false
@@ -2189,11 +2189,11 @@ trackTests {
             label = "La cantidad de caracteres ingresados es inválida"
             items = [
                     [
-                            item : [
+                            quantity: 1,
+                            item    : [
                                     id          : "MLM590711277",
                                     variation_id: ""
-                            ],
-                            quantity: 1
+                            ]
                     ]
             ]
             recovery_flow=false
@@ -2202,11 +2202,11 @@ trackTests {
             label = "Completa este dato"
             items = [
                     [
-                            item : [
+                            quantity: 1,
+                            item    : [
                                     id          : "MLM590711277",
                                     variation_id: ""
-                            ],
-                            quantity: 1
+                            ]
                     ]
             ]
             recovery_flow=false
@@ -2215,11 +2215,11 @@ trackTests {
             label = "Ingresar solo valores numéricos"
             items = [
                     [
-                            item : [
+                            quantity: 1,
+                            item    : [
                                     id          : "MLM590711277",
                                     variation_id: ""
-                            ],
-                            quantity: 1
+                            ]
                     ]
             ]
             recovery_flow=false
@@ -2227,14 +2227,13 @@ trackTests {
         "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             items = [
-                        [
-                                item :
-                                [
+                    [
+                            quantity: 1,
+                            item    : [
                                     id          : "MLM590711277",
                                     variation_id: ""
-                                ],
-                                quantity: 1
-                        ]
+                            ]
+                    ]
             ]
             recovery_flow=false
         }
@@ -2242,12 +2241,11 @@ trackTests {
             label = "Completa este dato"
             items = [
                     [
-                            item :
-                            [
-                                id          : "MLM590711277",
-                                variation_id: ""
-                            ],
-                            quantity: 1
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
                     ]
             ]
             recovery_flow=false
@@ -2256,11 +2254,11 @@ trackTests {
             label = "Ingresar solo valores numéricos"
             items = [
                     [
-                            item : [
+                            quantity: 1,
+                            item    : [
                                     id          : "MLM590711277",
                                     variation_id: ""
-                            ],
-                            quantity: 1
+                            ]
                     ]
             ]
             recovery_flow=false

@@ -252,42 +252,39 @@ trackTests {
         "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event) {
             label = "La cantidad de caracteres ingresados es inválida"
             items = [
-                        [
-                            item :
-                            [
-                                id          : "MLM590711277",
-                                variation_id: ""
-                            ],
-                            quantity: 1
-                        ]
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
             ]
             recovery_flow=true
         }
         "/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event) {
             label = "Completa este dato"
             items = [
-                        [
-                            item :
-                                    [
-                                        id          : "MLM590711277",
-                                        variation_id: ""
-                                    ],
-                            quantity: 1
-                        ]
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
             ]
             recovery_flow=true
         }
         "/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event) {
             label = "La cantidad de caracteres ingresados es inválida"
             items = [
-                        [
-                                item :
-                                [
+                    [
+                            quantity: 1,
+                            item    : [
                                     id          : "MLM590711277",
                                     variation_id: ""
-                                ],
-                                quantity: 1
-                        ]
+                            ]
+                    ]
             ]
             recovery_flow=true
         }
@@ -295,11 +292,11 @@ trackTests {
             label = "Completa este dato"
             items = [
                     [
-                            item : [
+                            quantity: 1,
+                            item    : [
                                     id          : "MLM590711277",
                                     variation_id: ""
-                            ],
-                            quantity: 1
+                            ]
                     ]
             ]
             recovery_flow=true
@@ -308,11 +305,11 @@ trackTests {
             label = "Ingresar solo valores numéricos"
             items = [
                     [
-                            item : [
+                            quantity: 1,
+                            item    : [
                                     id          : "MLM590711277",
                                     variation_id: ""
-                            ],
-                            quantity: 1
+                            ]
                     ]
             ]
             recovery_flow=true
@@ -320,28 +317,26 @@ trackTests {
         "/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event) {
             label = "Completa este dato"
             items = [
-                        [
-                                item :
-                                        [
-                                        id          : "MLM590711277",
-                                        variation_id: ""
-                                ],
-                                quantity: 1
-                        ]
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
             ]
             recovery_flow=true
         }
         "/cart/checkout/shipping/input_address/delivery"(platform: "/", type: TrackType.Event) {
             label = "Completa este dato"
             items = [
-                        [
-                                item :
-                                [
-                                        id          : "MLM590711277",
-                                        variation_id: ""
-                                ],
-                                quantity: 1
-                        ]
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
             ]
             recovery_flow=true
         }
@@ -349,11 +344,11 @@ trackTests {
             label = "Ingresar solo valores numéricos"
             items = [
                     [
-                            item : [
+                            quantity: 1,
+                            item    : [
                                     id          : "MLM590711277",
                                     variation_id: ""
-                            ],
-                            quantity: 1
+                            ]
                     ]
             ]
             recovery_flow=true
