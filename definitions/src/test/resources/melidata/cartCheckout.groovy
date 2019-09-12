@@ -284,7 +284,7 @@ trackTests {
             session_id = "some_session_id"
         }
 
-        "/cart/checkout/shipping/edit_address"(platform: "/", type: TrackType.Event) {
+        "/cart/checkout/shipping/edit_address"(platform: "/mobile", type: TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
         }
         "/cart/checkout/shipping/geolocation_permissions"(platform: "/mobile", dataSet)

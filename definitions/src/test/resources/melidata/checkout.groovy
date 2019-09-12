@@ -8,11 +8,6 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
-
-
-
-
-
     test("Checkout Basic Flow test. Legacy test for previous mobile versions") {
 
         def defaultCheckoutInformation = {
