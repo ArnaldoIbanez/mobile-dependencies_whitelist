@@ -297,7 +297,7 @@ tracks {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
-    "/cart/checkout/shipping/edit_address"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/cart/checkout/shipping/edit_address"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 

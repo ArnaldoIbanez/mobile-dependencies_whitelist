@@ -242,11 +242,11 @@ trackTests {
         // Page
         "/cart/checkout/shipping/input_address"(platform:"/mobile") {
             dataSet()
-            edit_flow = false
+            edit_flow = true
         }
         "/cart/checkout/shipping/input_address"(platform:"/web") {
             dataSet()
-            edit_flow = false
+            edit_flow = true
         }
         // Event
         "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event) {
@@ -284,7 +284,7 @@ trackTests {
             session_id = "some_session_id"
         }
 
-        "/cart/checkout/shipping/edit_address"(platform: "/mobile", type: TrackType.Event) {
+        "/cart/checkout/shipping/edit_address"(platform: "/", type: TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
         }
         "/cart/checkout/shipping/geolocation_permissions"(platform: "/mobile", dataSet)
