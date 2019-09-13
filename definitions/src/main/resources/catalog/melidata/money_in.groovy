@@ -16,6 +16,9 @@ tracks {
         payment_method (required:true, description: "Selected payment method")
     }
 
+    //Payment method help pressed
+    "/money_in/payment_methods/help"(platform: "/", type: TrackType.Event) {}
+
     //Calculator tracks
     "/money_in/calculator"(platform: "/", type: TrackType.View) {
         payment_method (required:true, description: "Payment method selected on calculator")
