@@ -17,6 +17,10 @@ trackTests {
         // Payment methods
         "/money_in/payment_methods"(platform: "/", type: TrackType.View) {}
 
+         "/money_in/payment_methods/select"(platform: "/", type: TrackType.Event) {
+             payment_method = "ted"
+         }
+
         //Calculator
         "/money_in/calculator"(platform: "/", type: TrackType.View) {
             payment_method = "pec"
