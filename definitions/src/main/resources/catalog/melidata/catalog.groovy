@@ -42,7 +42,6 @@ catalog {
     ]
 
 
-
     def marketplace = [
             "mercadolibre",
             "tucarro",
@@ -145,6 +144,7 @@ catalog {
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
         include business, "pdp.groovy"
+        include business, "qadb.groovy"
         include business, "promotions.groovy"
     }
 
