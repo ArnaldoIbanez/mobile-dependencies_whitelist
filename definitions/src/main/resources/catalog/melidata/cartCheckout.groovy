@@ -235,7 +235,7 @@ tracks {
 // Addresses
 // Page
     "/cart/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
-        edit_flow(required: true, type: PropertyType.Boolean)
+        edit_flow(required: false, type: PropertyType.Boolean)
     }
 
 // Events
