@@ -9,6 +9,7 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         item_id(required: true, type: PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
         buyer_id(required: true, type: PropertyType.Numeric, description: "Buyer id")
         quote_demand_id(required: true, type: PropertyType.Numeric, description: "Quote Demand id")
         quote_demand_status(required: true, type: PropertyType.String, values: ["pending_by_seller", "answered", "rejected_by_seller", "accepted", "deleted", "cancelled", "expired"], description: "the status quote demand")
@@ -23,8 +24,8 @@ tracks {
     propertyGroups {
         quoteSellerGroup(vertical, seller_id)
         quoteBuyerGroup(vertical, buyer_id)
-        demandItemGroup(item_id, category_id, buyer_id, quote_demand_id, quote_demand_status)
-        quoteItemGroup(item_id,category_id,quote_demand_id,quote_demand_status,quote_id,quote_status)
+        demandItemGroup(item_id, category_id, category_path, buyer_id, quote_demand_id, quote_demand_status)
+        quoteItemGroup(item_id,category_id, category_path, quote_demand_id,quote_demand_status,quote_id,quote_status)
         actionGroup(action)
     }
 
@@ -79,6 +80,14 @@ tracks {
     }
 
     /***** Create Similar Quote Mobile ******/
+    // Quote Create -  Loading
+    "/quote/seller/create_similar"(platform: "/", parentPropertiesInherited: false) {}
+    
+    // Quote Create -  Loading
+    "/quote/seller/create_similar/loading"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
+    }
+
     // Quote  Create  Similar- Price form
     "/quote/seller/create/edit_price"(platform: "/mobile", type: TrackType.View) {
         demandItemGroup
@@ -346,6 +355,33 @@ tracks {
         demandItemGroup
     }
 
+    /***** Delete Demand ******/
+    // Delete Quote Demand -  Loading
+    "/quote/seller/delete/loading"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
+    }
+
+    //Quote - Delete View
+    "/quote/seller/delete"(platform: "/", type: TrackType.View) {
+        demandItemGroup
+    }
+    //Quote - Delete Event
+    "/quote/seller/delete/action"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "delete reason selected")
+    }
+
+    //Quote - Delete Congrats
+    "/quote/seller/delete/congrats"(platform: "/", type: TrackType.View) {}
+
+    //Quote - Delete Congrats Event
+    "/quote/seller/delete/congrats/go_listing"(platform: "/", type: TrackType.Event) {}
+
+    //Quote - Delete Congrats Error
+    "/quote/seller/delete/congrats_error"(platform: "/", type: TrackType.View) {}
+
+    //Quote - Delete Congrats Error Event
+    "/quote/seller/delete/congrats_error/go_listing"(platform: "/", type: TrackType.Event) {}
+
     /***** Listing onBoarding ******/
 
     //Onboarding View
@@ -390,6 +426,7 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
         item_id(required: true, type: PropertyType.String, description: "Item id")
     }
 
@@ -398,6 +435,7 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
         item_id(required: true, type: PropertyType.String, description: "Item id")
     }
 

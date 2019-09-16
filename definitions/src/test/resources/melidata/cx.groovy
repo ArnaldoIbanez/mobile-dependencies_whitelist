@@ -5,23 +5,6 @@ import com.ml.melidata.TrackType
 
 trackTests {
 
-    def defaultCaseInfo = {
-        case_status = "pending"
-        case_id = 12345678
-        has_parent = false
-        expired = false
-    }
-
-
-    def defaultPortalInfo = {
-        portal_content_id = 987
-        portal_form_id = 54
-        portal_source_id = 123
-        portal_has_channels_configured = true
-        portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
-    }
-
-
     defaultBusiness = "mercadolibre"
 
     test("cx"){
@@ -40,10 +23,6 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "NORMAL"
-            reputation_level  = "5_green"
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
             portal_content_id = 96
             portal_has_channels_configured = true
         }
@@ -52,75 +31,25 @@ trackTests {
                     channels: [:],
                     contact_config: false
             ]
-            user_type = "NORMAL"
-            reputation_level  = "5_green"
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
             portal_content_id = 96
-            user_profile = ""
             portal_has_channels_configured = true
+            portal_source_id = 55
         }
         "/portal/form"(platform: "/", type: TrackType.View) {
-            portal_contact = [
-                    channels: [:],
-                    contact_config: false
-            ]
-            user_type = "NORMAL"
-            reputation_level  = "5_green"
             portal_form_id = 96
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
-            portal_content_id = 96
-            portal_has_channels_configured = true
+            portal_source_id = 15
         }
         "/portal/folder"(platform: "/", type: TrackType.View) {
-            portal_contact = [
-                    channels: [:],
-                    contact_config: false
-            ]
-            user_type = "NORMAL"
-            reputation_level  = "5_green"
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
             portal_content_id = 96
-            user_profile = ""
         }
-        "/portal/create_case"(platform: "/", type: TrackType.View) {
-            portal_contact = [
-                    channels: [:],
-                    contact_config: false
-            ]
-            user_type = "NORMAL"
-            reputation_level  = "5_green"
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
-            portal_has_channels_configured = true
-        }
-        "/portal/search/result"(platform: "/", type: TrackType.View) {
-            user_type = "NORMAL"
-            reputation_level  = "5_green"
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
-            portal_contact = [
-                    channels: [:],
-                    contact_config: false
-            ]
-            portal_has_channels_configured = true
-        }
-        "/portal/search/empty"(platform: "/", type: TrackType.View) {
-            user_type = "NORMAL"
-            reputation_level  = "5_green"
-            seller_profile = "ADVANCED"
-            loyalty_level = 5
-            portal_contact = [
-                    channels: [:],
-                    contact_config: false
-            ]
-            portal_has_channels_configured = true
+        "/portal/create_case"(platform: "/", type: TrackType.Event) {
+            portal_form_id = 15
+            portal_source_id = 124
         }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
-    }
+        "/portal/search"(platform: "/", type: TrackType.View) {}
 
+    }
 
     test("Support Widget") {
         "/support/widget/folder"(platform: "/", type: TrackType.View) {
@@ -152,6 +81,15 @@ trackTests {
             portal_source_id = 123
             portal_content_id = 987
             portal_problem_id = 456
+        }
+        "/support/widget/search"(platform: "/", type: TrackType.View) {
+            portal_source_id = 123
+        }
+        "/portal/problem"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_problem_id = 456
+            portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
         }
     }
 
@@ -241,49 +179,28 @@ trackTests {
                     contact_config: false
             ]
             portal_content_id = 96
-            user_profile = ""
             portal_has_channels_configured = true
+            portal_source_id = 55
         }
         "/portal/form"(platform: "/", type: TrackType.View) {
-            portal_contact = [
-                    channels: [:],
-                    contact_config: false
-            ]
             portal_form_id = 96
-            portal_content_id = 96
-            portal_has_channels_configured = true
+            portal_source_id = 15
         }
         "/portal/folder"(platform: "/", type: TrackType.View) {
-            portal_contact = [
-                    channels: [:],
-                    contact_config: false
-            ]
             portal_content_id = 96
-            user_profile = ""
         }
-        "/portal/create_case"(platform: "/", type: TrackType.View) {
-            portal_contact = [
-                    channels: [:],
-                    contact_config: false
-            ]
-                        portal_has_channels_configured = true
-
-        }
-        "/portal/search/result"(platform: "/", type: TrackType.View) {
-            portal_contact = [
-                    channels: [:],
-                    contact_config: false
-            ]
-            portal_has_channels_configured = true
-        }
-        "/portal/search/empty"(platform: "/", type: TrackType.View) {
-            portal_contact = [
-                    channels: [:],
-                    contact_config: false
-            ]
-            portal_has_channels_configured = true
+        "/portal/create_case"(platform: "/", type: TrackType.Event) {
+            portal_form_id = 15
+            portal_source_id = 124
         }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
+        "/portal/search"(platform: "/", type: TrackType.View) {}
+        "/portal/problem"(platform: "/", type: TrackType.View) {
+            portal_content_id = 987
+            portal_source_id = 123
+            portal_problem_id = 456
+            portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
+        }
     }
 
 
@@ -317,6 +234,9 @@ trackTests {
             portal_source_id = 123
             portal_content_id = 987
             portal_problem_id = 456
+        }
+        "/support/widget/search"(platform: "/", type: TrackType.View) {
+            portal_source_id = 123
         }
     }
 

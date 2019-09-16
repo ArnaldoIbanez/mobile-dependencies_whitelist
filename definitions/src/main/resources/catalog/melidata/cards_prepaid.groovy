@@ -12,6 +12,10 @@ tracks {
     //-----------------
 
     // General Path
+    "/wallet"(platform: "/", type: TrackType.View) {} 
+    "/wallet/cards"(platform: "/", type: TrackType.View) {} 
+    "/wallet/cards/prepaid"(platform: "/", type: TrackType.View) {} 
+
     "/prepaid"(platform: "/", isAbstract: true) {
         user_profile(
             required: false,
@@ -67,6 +71,8 @@ tracks {
     "/prepaid/acquisition/review"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/review/welcome"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/need_fund"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/dark_side_shield"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/dark_side_shield/cta"(platform:"/", type: TrackType.Event) {}
     "/prepaid/acquisition/congrats"(platform: "/", type: TrackType.View) {
         congrats_type(
             required: true, 
@@ -79,7 +85,7 @@ tracks {
         error_type(
             required: true, 
             type: PropertyType.String, 
-            values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
+            values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical", "limited"],
             description: "Types of error pages in acquisition flow."
         )
     }
@@ -93,9 +99,18 @@ tracks {
     "/prepaid/acquisition/occupation"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/preview"(platform: "/mobile", type: TrackType.View) {}
 
+    // CNPJ MLB Flow
+    "/prepaid/acquisition/legal_representative" (platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/no_complies" (platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/welcome_company" (platform: "/", type: TrackType.View) {}
+
     // Activation Flow
     // MLA => https://www.mercadopago.com.ar/prepaid/activation
     // MLB => https://www.mercadopago.com.br/prepaid/activation
+    "/prepaid/acquisition/has_prepaid"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/no_identity"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/is_collaborator"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/limited"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/activation/last_digits"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/marital_status"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {}
@@ -132,9 +147,49 @@ tracks {
         )
     }
 
+    // Prepaid Detail
+    "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.View) {}
 
+    // Prepaid Freeze Event
+    "/wallet/cards/prepaid/detail/freeze" (platform: "/", type: TrackType.Event) {}
 
+    // Prepaid Unfreeze Event
+    "/wallet/cards/prepaid/detail/unfreeze" (platform: "/", type: TrackType.Event) {}
 
+    // Prepaid Change Pin
+    "/prepaid/change_pin" (platform: "/", isAbstract: true) {}
+
+    // Prepaid Change Pin Phone Info
+    "/prepaid/change_pin/phone_info" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Change Pin New Pin
+    "/prepaid/change_pin/new_pin" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Change Pin Congrats
+    "/prepaid/change_pin/congrats" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Reissue
+    "/prepaid/reissue" (platform: "/", isAbstract: true) {}
+
+    // Prepaid Reissue inactivate card
+    "/prepaid/reissue/inactivate_card" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Change phone info
+    "/prepaid/reissue/phone_info" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid FAQ Root
+    "/prepaid/faq" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid FAQ Details
+    "/prepaid/faq/detail" (platform: "/", type: TrackType.View) {}
+    "/prepaid/faq/detail/payment_rejected" (platform: "/", type: TrackType.View) {}
+    "/prepaid/faq/detail/extraction_rejected" (platform: "/", type: TrackType.View) {}
+
+    //Prepaid FAQ Details Events
+    "/prepaid/faq/detail/payment_rejected/money_in" (platform: "/", type: TrackType.Event) {}
+    "/prepaid/faq/detail/payment_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+    "/prepaid/faq/detail/extraction_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+    
     //-----------------
     // PREPAID MLM
     //-----------------

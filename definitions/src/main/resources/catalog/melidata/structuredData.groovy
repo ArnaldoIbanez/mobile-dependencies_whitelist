@@ -170,6 +170,11 @@ tracks {
         user_action(required: true, description: "Action taken by user")
         user_initials(required: true, description: "Bs user initials", type: PropertyType.String)
     }
+    "/structure_data/product_creator/taken-action-with-product-data"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, description: "Item Id", type: PropertyType.String)
+        user_action(required: true, description: "Action taken by user", type: PropertyType.String)
+        user_initials(required: true, description: "Bs user initials", type: PropertyType.String)
+    }
     "/structure_data/product_creator/ignored_hints"(platform: "/", type: TrackType.Event) {
         domain_id(required: true, description: "Current domain")
         hint_id(required: true, description: "Hint Id")

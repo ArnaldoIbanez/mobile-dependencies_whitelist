@@ -11,6 +11,7 @@ tracks {
     "/transport"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
     }
     "/transport/recents"(platform: "/mobile", type: TrackType.View) {}
     "/transport/packages"(platform: "/mobile", type: TrackType.View) {}
@@ -28,4 +29,14 @@ tracks {
     "/transport/no_money"(platform: "/mobile", type: TrackType.View) {}
     "/transport/first_use"(platform: "/mobile", type: TrackType.View) {}
     "/transport/error"(platform: "/mobile", type: TrackType.View) {}
+
+    // Transport Marketing Landing
+    "/transport/mkt_landing"(platform: "/web", type: TrackType.View) {}
+    "/transport/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {}
+    "/transport/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
+        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
+    }
+    "/transport/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
+    }
 }

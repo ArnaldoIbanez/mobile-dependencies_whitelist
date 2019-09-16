@@ -6,6 +6,14 @@ import com.ml.melidata.TrackType
 
 
 tracks {
+    propertyDefinitions {        
+        installments_qty( type: PropertyType.Numeric, required: true, description: "The total number of installments to pay")
+    }
+
+     propertyGroups {
+        installments_group(installments_qty)
+    }
+
     defaultBusiness = "mercadolibre"
 
     "/"(platform: "/web", isAbstract: true) {
@@ -21,6 +29,7 @@ tracks {
     "/credits/consumer/myml/summary"(platform: "/", isAbstract: true) {}
     "/credits/consumer/my_account"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/opensea/integrated_flow"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -42,6 +51,8 @@ tracks {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
     }
     "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/public_landing/error"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View) {}
 
     //Events
     "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
@@ -64,6 +75,46 @@ tracks {
     /******************************************
      *       End: Consumers Public Landings
      ******************************************/
+
+    /***********************************************
+     *       Start: Consumers Integrated Flow
+     ***********************************************/
+    //Integrated Flow - Start
+
+    //Page view
+    "/credits/consumer/opensea/integrated_flow/start"(platform: "/", type: TrackType.View) {
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
+
+    //Events
+    "/credits/consumer/opensea/integrated_flow/start/application_start"(platform: "/", type: TrackType.Event) {
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
+    "/credits/consumer/opensea/integrated_flow/start/application_cancel"(platform: "/", type: TrackType.Event) {
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
+
+    //Integrated Flow - Congrats
+
+    //Page view
+    "/credits/consumer/opensea/integrated_flow/congrats"(platform: "/", type: TrackType.View) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
+
+    //Events
+    "/credits/consumer/opensea/integrated_flow/congrats/buy_intention"(platform: "/", type: TrackType.Event) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
+    "/credits/consumer/opensea/integrated_flow/congrats/back_to_publication"(platform: "/", type: TrackType.Event) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
+
+    /*********************************************
+     *       End: Consumers Integrated Flow
+     *********************************************/
 
     /***********************************************
      *       Start: Consumers Intermediate Landing
@@ -146,16 +197,21 @@ tracks {
     //Page Views
     "/credits/consumer/administrator_v2"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
-        dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+        dashboard_status(
+                            required: true, 
+                            description: "Current status of the Dashboard", 
+                            type: PropertyType.String, 
+                            values: [ 
+                                        "empty_state", 
+                                        "on_time", 
+                                        "overdue"
+                                    ]
+                        )
     }
 
     //Events
     "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/", type: TrackType.Event) {
-        installments_qty(
-                type: PropertyType.Numeric,
-                required: true,
-                description: "The total number of installments to pay"
-        )
+        installments_group
     }
     "/credits/consumer/administrator_v2/details_button"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/choose_installments"(platform: "/", type: TrackType.Event) {}
@@ -164,6 +220,18 @@ tracks {
     "/credits/consumer/administrator_v2/educational_landing"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/suggested_product"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/home"(platform: "/", type: TrackType.Event) {}
+
+    //Mobile Events 
+    "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
+        installments_group
+    }
+    "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {}
+
 
     //Admin History (Compras Finalizadas)
 
@@ -212,7 +280,7 @@ tracks {
     "/credits/consumer/administrator/detail/see_loan_conditions"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/see_tac"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/see_voucher"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/administrator/detail/see_ccb"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator/detail/see_contract"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/download_plan"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/get_help"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator/detail/purchase_detail"(platform: "/", type: TrackType.Event) {}
@@ -272,9 +340,12 @@ tracks {
      *       Start: Consumers Installment Selection Page
      ****************************************************/
 
-    //Page Views
+    //Views
     "/credits/consumer/administrator_v2/installment_selection"(platform: "/", type: TrackType.View) {
-        page_status(type: PropertyType.String, required: true, values: ["on_time", "overdue"], inheritable: false)
+        page_status(type: PropertyType.String, required: true, values: ["empty_state","on_time", "overdue"], inheritable: false)
+    }
+    "/credits/consumer/administrator_v2/installment_selection"(platform: "/mobile", type: TrackType.View) {
+        page_status(type: PropertyType.String, required: true, values: ["empty_state","on_time", "overdue"])
     }
 
     //Events
@@ -288,6 +359,13 @@ tracks {
                 type: PropertyType.Numeric,
                 required: true,
                 description: "The selected number of installments to pay"
+        )
+    }
+        "/credits/consumer/administrator_v2/installment_selection/secondary_payment_intention"(platform: "/", type: TrackType.Event) {
+        total_installments(
+                type: PropertyType.Numeric,
+                required: true,
+                description: "The total number of payable installments"
         )
     }
     "/credits/consumer/administrator_v2/installment_selection/back_to_dashboard"(platform: "/", type: TrackType.Event) {

@@ -14,13 +14,18 @@ tracks {
 
     // Onboarding
     "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/onboarding_bcra"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/onboarding"(platform: "/web", type: TrackType.View) {}
     "/asset_management/start_investing"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/legal_entity_continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/legal_entity_block"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/know_more"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/optin"(platform: "/mobile", type: TrackType.Event) {}
 
     // Blocking screen
     "/asset_management/blocker"(platform: "/web", type: TrackType.View) {}
     "/asset_management/blocker"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/legal_entity_selector"(platform: "/mobile", type: TrackType.View) {}
 
     // Challenges
     "/asset_management/challenge_pep"(platform: "/mobile", type: TrackType.View) {}
@@ -63,6 +68,7 @@ tracks {
     // Detail
     "/asset_management/investment_detail"(platform: "/", type: TrackType.View) {
         empty_state_case (required: false, type: PropertyType.String, description: "The empty state case")
+        has_simulator (required: false, type: PropertyType.String, description: "if the simulator view is present")
     }
 
     // Earnings report
@@ -79,6 +85,7 @@ tracks {
     "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing"(platform: "/web", type: TrackType.View) {}
     "/asset_management/result_investing_company"(platform: "/mobile", isAbstract: true) {}
+    "/asset_management/result_unavailable"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/approved"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/pending"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/rejected"(platform: "/mobile", type: TrackType.View) {}
@@ -137,4 +144,5 @@ tracks {
         remedy_id (required: true, type: PropertyType.String, description: "The remedy that was resolved by IV")
         status (required: false, type: PropertyType.String, description: "On failure, this represents why the flow failed")
     }
+    "/asset_management/simulator_slide"(platform: "/mobile", type: TrackType.Event) {}
 }

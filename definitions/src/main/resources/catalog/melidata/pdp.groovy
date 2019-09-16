@@ -17,7 +17,7 @@ tracks {
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
         item_condition(required: false, type: PropertyType.String, description: "")
         sold_quantity(required: false, type: PropertyType.Numeric, description: "")
-        shipping_conditions(required: false, type: PropertyType.String, values: ["no_shipping", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
+        shipping_conditions(required: false, type: PropertyType.String, values: ["no_me", "me_non_free", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
                 description: "Shipping conditions for product")
 
         //BRACH_OFFICE CONDITIONS
@@ -39,6 +39,10 @@ tracks {
 
     }
 
+    def qadb_info_definition = objectSchemaDefinitions {
+        results(required:false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
+    }
+
     propertyDefinitions {
         cart_content(required: false, type: PropertyType.Boolean, description: "Indicates if the PDP has cart features")
 
@@ -56,12 +60,12 @@ tracks {
                 type: PropertyType.String, description: "Indicates the logistic type of the item")
 
         //SHIPPING CONDITIONS
-        shipping_conditions(required: true, type: PropertyType.String, values: ["no_shipping", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
-                description: "Shipping conditions for product")
+        shipping_conditions(required: false, type: PropertyType.String, values: ["no_me", "me_non_free", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
+                description: "Shipping conditions for item related to the BBW - Products without a BBW won't have this information")
 
         //BRACH_OFFICE CONDITIONS
-        bo_pick_up_conditions(required: true, type: PropertyType.String, values: ["no_bo_pick_up", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
-                description: "Branch office pick up conditions for product")
+        bo_pick_up_conditions(required: false, type: PropertyType.String, values: ["no_bo_pick_up", "free_mandatory", "free_loyal", "discount_mandatory", "discount_loyal", "free_special", "discount_special", "free_ratio", "discount_ratio", "free_gap", "discount_gap", "free_other", "discount_other", "no_discount"],
+                description: "Branch office pick up conditions for item related to the BBW - Products without a BBW won't have this information")
 
         //PUIS
         showing_puis(required: false, type: PropertyType.Boolean, description: "Indicates if PDP BBW is showing PUIS pickup option in pickup row")
@@ -82,22 +86,22 @@ tracks {
         //Product fields
         catalog_product_id(required: true, type: PropertyType.String, description: "Catalog Product ID")
         catalog_parent_id(required: false, type: PropertyType.String, description: "Parent Catalog Product ID")
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        item_id(required: false, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
         //TODO: set to required true when it is fixed in products api
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
         previous_catalog_product_id(required: false, type: PropertyType.String, description: "Previous Catalog Product ID")
 
         //picker definition
-        pickers(required: true, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
+        pickers(required: false, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
 
         category_path(required: false, type: PropertyType.ArrayList, description: "Category path of the the item")
         vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
                 description: "Whether the item is new, used or refurbished")
-        listing_type_id(required: true, type: PropertyType.String,
+        listing_type_id(required: false, type: PropertyType.String,
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
-                description: "Listing type of the item")
+                description: "Listing type of the item in case of having a PDP with BBW")
 
         // ONLY CORE FIELDS
         quantity(required: false, type: PropertyType.Numeric, description: "Available product quantity at this pdp")
@@ -113,13 +117,13 @@ tracks {
         add_cart_info
 
         //SELLER FIELDS
-        seller_id(required: true, type: PropertyType.Numeric)
-        seller_name(required: false, type: PropertyType.String, description: "The name of the seller")
+        seller_id(required: false, type: PropertyType.Numeric, description: "Seller id in case of having a PDP with BBW")
+        seller_name(required: false, type: PropertyType.String, description: "The name of the seller in case of having a PDP with BBW")
         power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
-                description: "Seller's Mercado Lider level")
+                description: "Seller's Mercado Lider level in case of having a PDP with BBW")
         reputation_level(required: false, type: PropertyType.String,
                 values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
-                description: "Seller's reputation level")
+                description: "Seller's reputation level in case of having a PDP with BBW")
 
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
@@ -134,8 +138,14 @@ tracks {
         // PICKUP
         pickup_info
 
+        // QADB
+        qadb_info(required: false, type: PropertyType.Map(qadb_info_definition), description: "Tracking info for QADB component.")
+
         // USER FIELD
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+
+        // FILTERS
+        filters(required: false, type: PropertyType.Map(PropertyType.String, PropertyType.String), description: "Filters applied to get buy box winner")
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
@@ -307,7 +317,7 @@ tracks {
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
-        pickers(required: true, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
+        pickers(required: false, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_info_definition)), description: "Items listed on the page")
     }
 
@@ -322,4 +332,13 @@ tracks {
         picker_id(required: true, type: PropertyType.String, description: "Product's picker ID")
         picker_disabled(required: false, type: PropertyType.Boolean, description: "Indicates if the selected picker is disabled")
     }
+
+    "/pdp/sellers/page_selection"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        selected_quantity(required: true, type: PropertyType.Numeric, description: "Quantity of the product that the user is trying to buy or add to cart")
+        selected_page(required: true, type: PropertyType.Numeric, description: "Selected page in PDS")
+        total_pages(required: true, type: PropertyType.Numeric, description: "Total amount of pages in PDS")
+        total_items(required: true, type: PropertyType.Numeric, description: "Total amount of items in PDS")
+    }
+
 }

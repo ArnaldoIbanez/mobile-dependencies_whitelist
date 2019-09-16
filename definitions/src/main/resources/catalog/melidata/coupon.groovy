@@ -13,6 +13,8 @@ tracks {
     // General Path
     "/coupon"(platform: "/", isAbstract: true) {
         code(required: true, type: PropertyType.String, description: "Indicates the coupon code")
+        campaign_brand(required: false, type: PropertyType.String, description: "Indicates the campaing brand")
+        is_auto_sendable(required: false, type: PropertyType.Boolean, description: "Indicates if the automatic coupon entry mode was activated")
     }
 
     // MOBILE
@@ -21,6 +23,8 @@ tracks {
     // Coupon Input  Screen
     "/coupon/input"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {
         code(required: false, type: PropertyType.String, description: "Indicates the coupon code")
+        campaign_brand(required: false, type: PropertyType.String, description: "Indicates the campaing brand")
+        is_auto_sendable(required: false, type: PropertyType.Boolean, description: "Indicates if the automatic coupon entry mode was activated")
     }
 
     // Coupon Input  Events
