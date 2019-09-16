@@ -59,6 +59,13 @@ trackTests {
         }
     }
 
+    test("Deadline") {
+        "/collaborators/deadline"(platform:"/web", type: TrackType.View) {
+            type = 'form'
+            segmentation = 'no-data'
+        }
+    }
+
     test("Deadline form") {
         "/collaborators/deadline/form"(platform:"/web", type: TrackType.View) {
             type = 'form'
