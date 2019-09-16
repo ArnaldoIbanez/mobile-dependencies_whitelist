@@ -189,6 +189,7 @@ catalog {
         include business, "full.groovy"
         include business, "wms.groovy"
         include business, "logistics.groovy"
+        include business, "places.groovy"
     }
     
 }
