@@ -1244,7 +1244,6 @@ trackTests {
 
         "/send_money/confirm"(platform: "/web"){
             flow = "/send_money"
-            confirmButton = "click"
         }
 
         "/send_money/bacen/ok"(platform: "/mobile", type: TrackType.Event) {
@@ -2196,7 +2195,6 @@ trackTests {
 
         "/money_request/confirm"(platform: "/web"){
             flow = "/money_request"
-            confirmButton = "click"
         }
         "/money_request/congrats"(platform: "/web"){
             flow = "/money_request"
