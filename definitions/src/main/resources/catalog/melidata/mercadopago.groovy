@@ -546,9 +546,23 @@ tracks {
     "/point_payment/flow_tracker/auto_reverse_off"(platform: "/mobile", type: TrackType.Event) {
         trx_id (required: true, type: PropertyType.String, description: "trx1234567")
     }
+    "/point_payment/write_concept"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/customer_care"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/start_refund"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/customer_care_success"(platform: "/mobile", type: TrackType.View) {}
+
+    "/point_payment_test"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/point_payment_test/test_payment"(platform: "/mobile", type: TrackType.View) {}
+
+
+    "/point_payment/cash"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/point_payment/cash/ftu"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/cash/congrats"(platform: "/mobile", type: TrackType.View) {}
+
 
     "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/settings/point/settings"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {}
     "/settings/point/settings/pricing"(platform: "/mobile", type: TrackType.View) {}
     "/settings/point/installment_cost"(platform: "/mobile", type: TrackType.View) {}
@@ -572,6 +586,11 @@ tracks {
         time_remaining (required: true, type: PropertyType.Numeric, description: "Estimated time remaining before cancel")
         progress (required: true, type: PropertyType.Numeric, description: "Update progress at cancel")
     }
+
+    "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
+
 
     "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
 
@@ -602,8 +621,12 @@ tracks {
 
     "/company_info"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/company_info/on_boarding"(platform: "/mobile", type: TrackType.View) {}
+    "/company_info/main"(platform: "/mobile", type: TrackType.View) {}
+    "/company_info/brand_name"(platform: "/mobile", type: TrackType.View) {}
+    "/company_info/mcc"(platform: "/mobile", type: TrackType.View) {}
+    "/company_info/push_soft_descriptor"(platform: "/mobile", type: TrackType.View) {}
 
-    "/dashboard"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/dashboard"(platform: "/mobile", type: TrackType.View) {}
 
     // MP Point Standalone (a eliminar cuando inhabilitemos la app de point)
 
@@ -1024,7 +1047,7 @@ tracks {
     }
 
     "/settings"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/settings/my_profile"(platform: "/mobile") {}
