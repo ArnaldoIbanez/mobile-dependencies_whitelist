@@ -361,6 +361,9 @@ trackTests {
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
+            activities_link= [
+                ordinal: 9
+            ]
         }
     }
 
@@ -451,6 +454,9 @@ trackTests {
                 header_title: "¡Pagá con QR en tus locales favoritos!",
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
+            ]
+            activities_link= [
+                ordinal: 9
             ]
         }
     }
@@ -838,6 +844,9 @@ trackTests {
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
+            activities_link= [
+                ordinal: 9
+            ]
         }
     }
 
@@ -928,6 +937,9 @@ trackTests {
                 header_title: "¡Pagá con QR en tus locales favoritos!",
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
+            ]
+            activities_link= [
+                ordinal: 9
             ]
         }
     }
