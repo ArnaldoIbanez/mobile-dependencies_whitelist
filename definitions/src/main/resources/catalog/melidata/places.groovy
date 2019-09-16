@@ -37,11 +37,11 @@ tracks {
         place_view
     }
 
-    "/places/reception_congrats"(platform: "/web", type: TrackType.View) {
+    "/places/reception/congrats"(platform: "/web", type: TrackType.View) {
         place_view
     }
 
-    "/places/reception/remove_shipment/confirmed"(platform: "/web", type: TrackType.Event) {
+    "/places/reception/list/remove_shipment/confirmed"(platform: "/web", type: TrackType.Event) {
         place_shipment
     }
 

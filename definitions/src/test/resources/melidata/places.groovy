@@ -41,7 +41,7 @@ trackTests {
             display = "browser"
         }
 
-        "/places/reception_congrats"(platform: "/web", type: TrackType.View) {
+        "/places/reception/congrats"(platform: "/web", type: TrackType.View) {
             defaultTrackInformation()
         }
 
@@ -55,7 +55,7 @@ trackTests {
             display = "browser"
         }
 
-        "/places/reception/remove_shipment/confirmed"(platform: "/web", type: TrackType.Event) {
+        "/places/reception/list/remove_shipment/confirmed"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
 
