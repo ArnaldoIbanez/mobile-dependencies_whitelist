@@ -248,6 +248,14 @@ tracks {
     "/merchant_acquisition/flows/resellers/point_register/success"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/point_register/no_account"(platform:"/", type: TrackType.View) {}
 
+    // Envio proactivo QR - Associar QR + Point - qr-point-assignment
+    "/merchant_acquisition/flows/qr-point-assignment"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-point-assignment/qr"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-point-assignment/store"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-point-assignment/congrats"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-point-assignment/error"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/qr-point-assignment/unauthorized"(platform:"/", type: TrackType.View) {}
+
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -428,6 +436,7 @@ tracks {
     "/point_payment/security_code"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/identification_number"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/result"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/result/sms"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/error"(platform: "/mobile", type: TrackType.View) {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
         error_msg (required:false, type: PropertyType.String, description: "Error shown to seller")
@@ -440,6 +449,7 @@ tracks {
     "/point_payment/error/rejected"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/request_bluetooth"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/ftu_preorder_pax"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/ftu_qr"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/pairing"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/pairing_chooser"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/selector"(platform: "/mobile", type: TrackType.View) {}
@@ -485,6 +495,10 @@ tracks {
     "/point_payment/new_payment/deals/finantial_costs"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/buyer_email"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/discount"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/onboarding_how_to_charge"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/onboarding_brandname"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/onboarding_chooser"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/push_mcc"(platform: "/mobile", type: TrackType.View) {}
 
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")
@@ -504,6 +518,8 @@ tracks {
         amount (required: false, type: PropertyType.String, description: "payment amount.")
         discount (required: false, type: PropertyType.String, description: "payment discount")
     }
+    "/point_payment/flow_tracker/flow_error"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/card_tokens_request"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/card_tokens_result"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/payment_methods_request"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/payment_methods_response"(platform: "/mobile", type: TrackType.Event) {}
@@ -516,6 +532,8 @@ tracks {
     "/point_payment/flow_tracker/flow_pos_sending_online_process"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/flow_notification_request"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/flow_notification_response"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_notification_sms_request"(platform: "/mobile", type: TrackType.Event) {}
+    "/point_payment/flow_tracker/flow_notification_sms_response"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/flow_pos_error_message"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/select_qr"(platform: "/mobile", type: TrackType.Event) {}
     "/point_payment/flow_tracker/select_point"(platform: "/mobile", type: TrackType.Event) {}
@@ -837,6 +855,7 @@ tracks {
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
     }
     "/bill_payments/help"(platform: "/mobile") {}
     "/bill_payments/associated_entities"(platform: "/mobile") {}
@@ -1109,8 +1128,12 @@ tracks {
     //MP frontend
 
     "/fund_account/confirm"(platform: "/web"){}
-    "/send_money/confirm"(platform: "/web"){}
-    "/money_request/confirm"(platform: "/web"){}
+    "/send_money/confirm"(platform: "/web", type: TrackType.Event){
+        flow(required: true, PropertyType.String, description: "The flow of the track")
+    }
+    "/money_request/confirm"(platform: "/web", type: TrackType.Event){
+        flow(required: true, PropertyType.String, description: "The flow of the track")
+    }
     "/money_request/congrats"(platform: "/web"){}
 
     "/campaigns"(platform: "/web", isAbstract: true){}
@@ -1162,8 +1185,17 @@ tracks {
     "/stores/pos"(platform: "/web", type: TrackType.View, isAbstract:true) {}
     "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
     "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
+    "/stores/standalone_pos"(platform: "/web", type: TrackType.View) {}
+    "/stores/move_pos"(platform: "/web", type: TrackType.View) {}
+
+    //Account mydata
+    "/account"(platform: "/web", isAbstract: true) {}
+    "/account/mydata"(platform: "/web", isAbstract: true) {}
+    "/account/mydata/email"(platform: "/web", type: TrackType.View) {}
+    "/account/mydata/email/congrats"(platform: "/web", type: TrackType.View) {}
 
 }
+
 
 
 

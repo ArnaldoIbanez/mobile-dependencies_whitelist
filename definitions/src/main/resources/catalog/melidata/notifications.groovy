@@ -219,6 +219,8 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
+        items_recommendations(required: false, type: PropertyType.String, description: "Items sent from recommendations.")
+        items_history(required: false, type: PropertyType.String, description: "Items sent from history.")
     }
     "/notification_center/campaigns-remarketing_motors"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
@@ -452,6 +454,7 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
     "/notification_center/prepaid_card"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -1074,6 +1077,8 @@ tracks {
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
+          items_recommendations(required: true, type: PropertyType.String, description: "Items sent from recommendations.")
+          items_history(required: true, type: PropertyType.String, description: "Items sent from history.")
       }
 
       "/notification/campaigns_remarketing_motors"(platform: "/") {
@@ -1170,21 +1175,25 @@ tracks {
     "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
     "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
     "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
 
     //Credits Merchants
@@ -1259,6 +1268,8 @@ tracks {
     "/notification/prepaid_card_transaction_canceled_withdraw"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {}
+    "/notification/prepaid_card_delivery"(platform: "/mobile") {}
+    "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {}
 
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}

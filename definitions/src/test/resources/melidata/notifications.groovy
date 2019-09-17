@@ -294,6 +294,8 @@ trackTests {
             latest_news_type= "campaigns-remarketing"
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
             hash="hash1"
+            items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
+            items_history="MLB595398238,MLB649162181,MLB656729144"
         }
         "/notification_center/campaigns-remarketing_motors"(platform: "/mobile"){
             campaign_id= "campaign1"
@@ -669,6 +671,7 @@ trackTests {
             status= "read"
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
@@ -1833,6 +1836,8 @@ trackTests {
             sent_date= "20180508"
             batch_id = "MLB_PACK_20180508_2"
             hash="hash1"
+            items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
+            items_history="MLB595398238,MLB649162181,MLB656729144"
         }
 
         "/notification/campaigns_remarketing_motors"(platform: "/mobile") {
@@ -2088,6 +2093,7 @@ trackTests {
             event_type = "open"
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
@@ -2096,6 +2102,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
@@ -2104,6 +2111,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
@@ -2112,6 +2120,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
@@ -2304,6 +2313,19 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+
+        "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card-challenge_bolbradesco_reminder-43545334234"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_delivery"(platform: "/mobile") {
+            news_id = "prepaid_card-delivery-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_approved_authorization"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_approved_authorization-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -2340,6 +2362,17 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card-challenge_bolbradesco_reminder-186785675"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_delivery"(platform: "/mobile") {
+            news_id = "prepaid_card-delivery-186785675"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
         "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
@@ -2369,6 +2402,7 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
+        
 
         "/notification/point_shipping_delayed_p4_p8"(platform: "/mobile") {
             news_id = "point_shipping-delayed_p4_p8-186785675"
@@ -2723,6 +2757,8 @@ trackTests {
             latest_news_type= "campaigns-remarketing"
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
             hash="hash1"
+            items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
+            items_history="MLB595398238,MLB649162181,MLB656729144"
         }
         "/notification_center/campaigns-remarketing_motors"(platform: "/mobile"){
             campaign_id= "campaign1"
@@ -3098,6 +3134,7 @@ trackTests {
             status= "read"
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
@@ -4261,6 +4298,8 @@ trackTests {
             sent_date= "20180508"
             batch_id = "MLB_PACK_20180508_2"
             hash="hash1"
+            items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
+            items_history="MLB595398238,MLB649162181,MLB656729144"
         }
 
         "/notification/campaigns_remarketing_motors"(platform: "/mobile") {
@@ -4516,6 +4555,7 @@ trackTests {
             event_type = "open"
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
@@ -4524,6 +4564,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
@@ -4532,6 +4573,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
@@ -4540,6 +4582,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
@@ -4687,6 +4730,18 @@ trackTests {
 
         "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card-challenge_bolbradesco_reminder-43545334234"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_delivery"(platform: "/mobile") {
+            news_id = "prepaid_card-delivery-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "open"
             notification_type= "deep_linking"
         }

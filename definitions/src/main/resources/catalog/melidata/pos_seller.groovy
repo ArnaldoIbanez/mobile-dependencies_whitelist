@@ -45,6 +45,7 @@
 
         "/pos_seller/congrats"(platform: "/mobile", type: TrackType.View) {
             payment_method_id(required: true, type: PropertyType.String, description: "payment method id")
+            payment_id(required: true, type: PropertyType.String, description: "payment id")
             cardData
         }
 

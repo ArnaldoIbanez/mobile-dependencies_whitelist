@@ -14,4 +14,4 @@ FROM tracks
 WHERE ds >= '@param01' AND ds < '@param02'
 AND 
 path IN ('/vip','/vip/contact_seller', '/vip/show_phone', '/vip/call_seller')
-AND (others['fragment'] LIKE '%SA:true%' OR platform.http.http_referer LIKE '%searchAlertsMail_true%')
+AND (platform.fragment  LIKE '%SA:true,SID%'  OR platform.http.http_referer LIKE '%searchAlertsMail_true%')

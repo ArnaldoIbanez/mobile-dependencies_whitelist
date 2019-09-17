@@ -24,7 +24,10 @@ tracks {
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
-    "/collaborators_admin/invite"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {}
+    "/collaborators_admin/invite"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {
+        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
+        email_already_exists(required: true, type: PropertyType.Boolean, description: 'Email already exists.')
+    }
 
     "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {}
 
@@ -32,10 +35,27 @@ tracks {
 
     "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {
         email(required: true, type: PropertyType.String, description: 'Email of the new operator.')
+        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
     "/collaborators_admin/congrats"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {
         type(required: true, type: PropertyType.String, description: 'Indicates the result of the creation of the operator.')
+        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
+
+    "/collaborators"(platform:"/web", isAbstract: true) {
+        type(required: true, type: PropertyType.String, description: 'Indicates the source of the tracking, i.e. form')
+        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
+    }
+
+    "/collaborators/select_role"(platform:"/web", type: TrackType.View) {}
+
+    "/collaborators/transform_account"(platform:"/web", type: TrackType.View) {}
+
+    "/collaborators/deadline"(platform:"/web", type: TrackType.View) {}
+
+    "/collaborators/deadline/form"(platform:"/web", type: TrackType.View) {}
+
+    "/collaborators/contact_owner"(platform:"/web", type: TrackType.View) {}
 
 }

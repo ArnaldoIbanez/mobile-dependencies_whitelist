@@ -685,6 +685,11 @@ tracks {
                 values: ["vip", "description", "technicalSpecs", "form"],
                 description: "Section where it's coming from"
         )
+        catalog_listing(
+                required: false,
+                type: PropertyType.Boolean,
+                description: "Item's catalog listing"
+        )
     }
 
     "/vip/quote_demand_messages"(platform: "/", type: TrackType.Event) {

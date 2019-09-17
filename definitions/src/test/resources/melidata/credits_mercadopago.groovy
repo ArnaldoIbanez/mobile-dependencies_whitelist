@@ -282,15 +282,32 @@ trackTests {
     }
 
     test("Express money") {
-        "/credits/express_money"(platform: "/web/desktop") {
+        "/credits/express_money/amount_input"(platform: "/web/desktop") {
             show_onboarding = true
         }
 
-        "/credits/express_money"(platform: "/web/desktop") {
+        "/credits/express_money/amount_input"(platform: "/mobile/android") {
+            show_onboarding = true
+        }
+
+        "/credits/express_money/amount_input"(platform: "/web/desktop") {
             show_onboarding = false
         }
 
+        "/credits/express_money/amount_input"(platform: "/mobile/android") {
+            show_onboarding = false
+        }
+
+        "/credits/express_money/amount_input"(platform: "/web/desktop") {}
+
+        "/credits/express_money/amount_input"(platform: "/mobile/android") {}
+
         "/credits/express_money/summary"(platform: "/web/desktop") {
+            requested_amount = 700
+            max_amount = 1000
+        }
+
+        "/credits/express_money/summary"(platform: "/mobile/android") {
             requested_amount = 700
             max_amount = 1000
         }
@@ -301,7 +318,19 @@ trackTests {
             has_prepaid = true
         }
 
+        "/credits/express_money/congrats"(platform: "/mobile/android") {
+            requested_amount = 700
+            max_amount = 1000
+            has_prepaid = true
+        }
+
         "/credits/express_money/congrats"(platform: "/web/desktop") {
+            requested_amount = 700
+            max_amount = 1000
+            has_prepaid = false
+        }
+
+        "/credits/express_money/congrats"(platform: "/mobile/android") {
             requested_amount = 700
             max_amount = 1000
             has_prepaid = false
@@ -326,6 +355,28 @@ trackTests {
         "/credits/express_money/error"(platform: "/web/desktop") {
             reason = 'simulation'
         }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'default'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'server_error'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'loan_creation'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'ccb_creation'
+        }
+
+        "/credits/express_money/error"(platform: "/mobile/android") {
+            reason = 'simulation'
+        }
+
+        "/credits/express_money/onboarding"(platform: "/mobile/android") {}
     }
 
     test("Merchant Public Landing") {
@@ -354,5 +405,32 @@ trackTests {
             milestone= -27
         }
 
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "updates"
+            stage= "em_congrats_credited_loan"
+            milestone= -7
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "updates"
+            stage= "em_congrats_debit_installment"
+            milestone= 0
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "collection"
+            stage= "em_insufficient_funds"
+            milestone= 0
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "collection"
+            stage= "em_expired_daily_charges"
+            milestone= 1
+        }
     }
 }

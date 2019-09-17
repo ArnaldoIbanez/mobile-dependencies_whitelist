@@ -18,4 +18,7 @@ tracks {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
 
+    "/discount_sellers/form/back" (platform: "/mobile", type: TrackType.Event) { }
+    "/discount_sellers/history/back" (platform: "/mobile", type: TrackType.Event) { }
+    "/discount_sellers/detail/back" (platform: "/mobile", type: TrackType.Event) { }
 }

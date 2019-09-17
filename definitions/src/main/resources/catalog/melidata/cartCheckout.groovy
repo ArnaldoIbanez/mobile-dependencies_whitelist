@@ -119,6 +119,8 @@ tracks {
     "/cart/checkout/error"(platform: "/", type: TrackType.View) {}
 
     "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
+    "/cart/checkout/shipping"(platform:"/", isAbstract: true) {}
+
 
     "/cart/checkout/payment/select_type"(platform: "/", type: TrackType.View) {}
 
@@ -230,6 +232,55 @@ tracks {
         total_amount(required: false, description: "totalAmount")
     }
 
+// Addresses
+// Page
+    "/cart/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
+        edit_flow(required: false, type: PropertyType.Boolean)
+    }
+
+// Events
+
+    "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
+    }
+    "/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
+    }
+    "/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
+    }
+    "/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
+    }
+    "/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
+    }
+    "/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the references")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
+    }
+    "/cart/checkout/shipping/input_address/delivery"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
+    }
+    "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: true, description: "Is recovery CHO flow")
+    }
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin All platforms
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -262,7 +313,7 @@ tracks {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
-    "/cart/checkout/shipping/edit_address"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/cart/checkout/shipping/edit_address"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
@@ -299,11 +350,7 @@ tracks {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
-    "/cart/checkout/shipping/input_address"(platform: "/mobile", type: TrackType.View) {
-        edit_flow(required: true, type: PropertyType.Boolean)
-    }
-
-    "/cart/checkout/shipping/input_address/back"(platform: "/mobile", type: TrackType.Event) {}
+"/cart/checkout/shipping/input_address/back"(platform:"/mobile", type: TrackType.Event) {}
 
     "/cart/checkout/shipping/input_address#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -533,6 +580,11 @@ tracks {
     "/cart/checkout/shipping/confirm_geolocation/send_to_another_location"(platform: "/web", type: TrackType.Event) {}
 
     "/cart/checkout/shipping/input_new_address"(platform: "/web", type: TrackType.View) {}
+
+    //Switch track
+    "/cart/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
+    "/cart/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
+    "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
 
     "/cart/checkout/geolocation"(platform: "/web", type: TrackType.Event) {
         geolocation_error(required: true, description: "Why the geo failed")

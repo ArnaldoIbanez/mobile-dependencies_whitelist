@@ -38,6 +38,7 @@ tracks {
         backend_data(required: false)
         official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
         items_with_logos(required: false, description: 'items ids that show the brand logo', PropertyType.ArrayList)
+        pdp_highlight_enabled(required: false, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
         //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')

@@ -177,6 +177,7 @@ tracks {
     "/checkout/payment"(platform: "/", isAbstract: true) {
     }
     "/checkout/payment/input_sec_code"(platform: "/web", type: TrackType.View) {}
+    "/checkout/payment/esc_input_sec_code"(platform: "/web", type: TrackType.View) {}
     "/checkout/payments"(platform: "/", isAbstract: true) {
     }
 
@@ -1109,7 +1110,42 @@ tracks {
     "/checkout/shipping/edit_address"(platform:"/", type: TrackType.Event) {}
     "/checkout/shipping/input_zipcode"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/", type: TrackType.Event) {}
-    "/checkout/shipping/input_address"(platform:"/", type: TrackType.View) {}
+
+    // Addresses
+
+    // Page
+    "/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+    }
+
+    // Event
+    "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
+    }
+    "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
+    }
+    "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
+    }
+    "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
+    }
+    "/checkout/shipping/input_address/street_number"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
+    }
+    "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the references")
+    }
+    "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
+    }
+    "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+    }
+
+
     "/checkout/shipping/input_address_number"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_address_number/whithout_number"(platform:"/", type: TrackType.Event) {}
     "/checkout/shipping/select_option_detail"(platform:"/", type: TrackType.View) {}
@@ -1126,6 +1162,10 @@ tracks {
     "/checkout/review/edit_first_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/review/edit_second_installment"(platform:"/", type: TrackType.View) {}
 
+    //Switch track
+    "/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
+    "/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
+    "/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
 
     /*
     * GarEx tracks

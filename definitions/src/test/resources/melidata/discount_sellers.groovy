@@ -27,4 +27,16 @@ trackTests {
         }
     }
 
+    test("Mercadopago discount sellers form back") {
+        "/discount_sellers/form/back" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Mercadopago discount sellers history back") {
+        "/discount_sellers/history/back" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Mercadopago discount sellers detail back") {
+        "/discount_sellers/detail/back" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
 }
