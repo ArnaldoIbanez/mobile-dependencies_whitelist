@@ -682,7 +682,7 @@ tracks {
     "/sell/item_data/flow_decision"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/flow_decision/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/flow_decision/confirm"(platform: "/web", type: TrackType.Event) {
-        flow_decision(required: false, description: "Flow decision - true if is catalog", type: PropertyType.Boolean)
+        flow_decision(required: true, description: "Flow decision - true if is catalog", type: PropertyType.Boolean)
     }
     "/sell/item_data/consequences_modal"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/consequences_modal/show"(platform: "/web", type: TrackType.Event) {}
