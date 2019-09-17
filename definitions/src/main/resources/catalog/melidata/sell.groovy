@@ -15,7 +15,7 @@ tracks {
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
         predictor_chosen(required: true, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT"], type: PropertyType.String)
-        category_prediction_selected_index(required: false, description: "Index selected in Multiples Suggestions", PropertyType:Numeric)
+        category_prediction_selected_index(required: false, description: "Index selected in Multiples Suggestions", PropertyType.Numeric)
         attribute_values(required: false, description: "Array of attributes in categorization", PropertyType.ArrayList)
         title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
         predictions(required: false, type: PropertyType.ArrayList, description: "Array of predictions of categories and/or attributes")
@@ -280,7 +280,6 @@ tracks {
     "/sell/list/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
         session_id(required: true, description: "Session Id of the list flow, that dies when the flow ends", type: PropertyType.String)
         category_domain(required: false, description: "Category Domain", type: PropertyType.String)
-        category_id(required: true, description: "Category Id", type: PropertyType.String)
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
         category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
@@ -380,13 +379,11 @@ tracks {
     }
     "/sell/list/sale_condition"(platform: "/", type: TrackType.View){}
     "/sell/list/item_description/title_prediction"(platform: "/", type: TrackType.View){
-        category_id(required: true, description: "Category id", type: PropertyType.String)
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
         attributes(required: true, description: "Attributes", type: PropertyType.ArrayList)
     }
 
     "/sell/list/item_description/final_attributes"(platform: "/", type: TrackType.View){
-        category_id(required: true, description: "Category id", type: PropertyType.String)
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
         attributes(required: true, description: "Attributes", type: PropertyType.ArrayList)
     }
@@ -492,10 +489,7 @@ tracks {
     "/sell/update/color_selection_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
         session_id(required: true, description: "Session Id of the update flow, that dies when the flow ends", type: PropertyType.String)
-        category_domain(required: false, description: "Category Domain", type: PropertyType.String)
-        category_id(required: true, description: "Category Id", type: PropertyType.String)
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
-        category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
     "/sell/update/condition"(platform: "/", type: TrackType.View) {}
     "/sell/update/condition_review"(platform: "/", type: TrackType.View) {}
@@ -688,7 +682,7 @@ tracks {
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
-        sellGroup,
+        sellGroup
         categoryFlow
     }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
@@ -729,11 +723,11 @@ tracks {
         container(required: true, description: "Id or name of the container (card, modal, other) where you are", type: PropertyType.String)
     }
     "/sell/item_data/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
-        sellGroup,
+        sellGroup
         categoryFlow
     }
     "/sell/item_data/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
-        sellGroup,
+        sellGroup
         categoryFlow
     }
 
