@@ -23,6 +23,9 @@ tracks {
         required_additional_info (required:false, description: "info used to populate the screen")
     }
     "/single_player/billpayments/expired_amount"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/billpayments/generic_screen_info"(platform: "/mobile", type: TrackType.View) {
+        utility_error (required:false, description: "the error, we need this to identify the error type")
+    }
 
     /**
      *   Events
