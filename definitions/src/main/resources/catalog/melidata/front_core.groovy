@@ -87,6 +87,7 @@ tracks {
 
     def activities_link_definition = objectSchemaDefinitions {
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
     }
 
     def qr_map_definition = objectSchemaDefinitions {

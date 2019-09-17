@@ -371,7 +371,8 @@ trackTests {
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
             activities_link= [
-                ordinal: 9
+                ordinal: 9,
+                content_type : 'partial'
             ]
         }
     }
@@ -474,7 +475,8 @@ trackTests {
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
             activities_link= [
-                ordinal: 9
+                ordinal: 9,
+                content_type : 'partial'
             ]
         }
     }
@@ -872,7 +874,8 @@ trackTests {
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
             activities_link= [
-                ordinal: 9
+                ordinal: 9,
+                content_type : 'partial'
             ]
         }
     }
@@ -975,7 +978,8 @@ trackTests {
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
             activities_link= [
-                ordinal: 9
+                ordinal: 9,
+                content_type : 'partial'
             ]
         }
     }
