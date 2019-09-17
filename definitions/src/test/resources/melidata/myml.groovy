@@ -308,6 +308,12 @@ trackTests {
             }
         }
 
+        "/myml/invoices/backoffice/search/disableinvoice"(platform: "/", type: TrackType.Event) {
+             data = {
+                invoiceId = 123123
+            }
+        }
+
         "/myml/invoices/backoffice/search/invoiceslist"(platform: "/", type: TrackType.Event) {
              search_filter = {
                 recipientCnpj = 123123

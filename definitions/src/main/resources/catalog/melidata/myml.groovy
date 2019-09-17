@@ -901,6 +901,10 @@ tracks {
         data(required: true, description: "Reissue invoice in Backoffice")
     }
 
+    "/myml/invoices/backoffice/search/disableinvoice"(platform: "/") {
+        data(required: true, description: "Disable invoice in Backoffice")
+    }
+
     "/myml/invoices/backoffice/search/invoiceslist"(platform: "/") {
         search_filter(required: true, description: "Search filter used on massive invoices search")
     }
