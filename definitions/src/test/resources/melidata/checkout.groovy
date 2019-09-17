@@ -2161,27 +2161,107 @@ trackTests {
         // Event
         "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
         }
         "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
         }
         "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
         }
         "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
         }
         "/checkout/shipping/input_address/street_number"(platform:"/",  type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
         }
         "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
         }
         "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
         }
         "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
         }
 
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)

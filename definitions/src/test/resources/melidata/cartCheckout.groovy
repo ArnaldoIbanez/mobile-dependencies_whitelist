@@ -251,27 +251,107 @@ trackTests {
         // Event
         "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event) {
             label = "La cantidad de caracteres ingresados es inválida"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
         }
         "/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event) {
             label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
         }
         "/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event) {
             label = "La cantidad de caracteres ingresados es inválida"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
         }
         "/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event) {
             label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
         }
         "/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event) {
             label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
         }
         "/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event) {
             label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
         }
         "/cart/checkout/shipping/input_address/delivery"(platform: "/", type: TrackType.Event) {
             label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
         }
         "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event) {
             label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
         }
 
         // First Visit
@@ -285,6 +365,9 @@ trackTests {
         }
 
         "/cart/checkout/shipping/edit_address"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
+        "/cart/checkout/shipping/edit_address"(platform: "/web", type: TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
         }
         "/cart/checkout/shipping/geolocation_permissions"(platform: "/mobile", dataSet)
@@ -317,7 +400,7 @@ trackTests {
         }
         "/cart/checkout/shipping/input_address/back"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
-            edit_flow = false
+            edit_flow=false
         }
         "/cart/checkout/shipping/input_address#submit"(platform: "/mobile", type: TrackType.Event) {
             session_id = "98f8v98au0af9af0af"

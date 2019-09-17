@@ -1128,8 +1128,12 @@ tracks {
     //MP frontend
 
     "/fund_account/confirm"(platform: "/web"){}
-    "/send_money/confirm"(platform: "/web"){}
-    "/money_request/confirm"(platform: "/web"){}
+    "/send_money/confirm"(platform: "/web", type: TrackType.Event){
+        flow(required: true, PropertyType.String, description: "The flow of the track")
+    }
+    "/money_request/confirm"(platform: "/web", type: TrackType.Event){
+        flow(required: true, PropertyType.String, description: "The flow of the track")
+    }
     "/money_request/congrats"(platform: "/web"){}
 
     "/campaigns"(platform: "/web", isAbstract: true){}

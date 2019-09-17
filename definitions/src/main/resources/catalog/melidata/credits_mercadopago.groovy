@@ -448,7 +448,11 @@ tracks {
                 'expired_daily_charges',
                 'congrats_debit_installment',
                 'congrats_credited_loan',
-                'congrats_pending'
+                'congrats_pending',
+                'em_congrats_credited_loan',
+                'em_congrats_debit_installment',
+                'em_insufficient_funds',
+                'em_expired_daily_charges'
             ]
         )
     }

@@ -671,6 +671,7 @@ trackTests {
             status= "read"
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
@@ -2092,6 +2093,7 @@ trackTests {
             event_type = "open"
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
@@ -2100,6 +2102,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
@@ -2108,6 +2111,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
@@ -2116,6 +2120,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
@@ -3129,6 +3134,7 @@ trackTests {
             status= "read"
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
@@ -4549,6 +4555,7 @@ trackTests {
             event_type = "open"
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
@@ -4557,6 +4564,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
@@ -4565,6 +4573,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
@@ -4573,6 +4582,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {

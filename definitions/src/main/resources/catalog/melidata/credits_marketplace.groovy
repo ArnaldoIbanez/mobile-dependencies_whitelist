@@ -83,15 +83,15 @@ tracks {
 
     //Page view
     "/credits/consumer/opensea/integrated_flow/start"(platform: "/", type: TrackType.View) {
-        source(description: "Integrated flow source", type: PropertyType.String, required: true, values: ["vip", "cho", "off"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
     }
 
     //Events
     "/credits/consumer/opensea/integrated_flow/start/application_start"(platform: "/", type: TrackType.Event) {
-        source(description: "Integrated flow source", type: PropertyType.String, required: true, values: ["vip", "cho", "off"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
     }
     "/credits/consumer/opensea/integrated_flow/start/application_cancel"(platform: "/", type: TrackType.Event) {
-        source(description: "Integrated flow source", type: PropertyType.String, required: true, values: ["vip", "cho", "off"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
     }
 
     //Integrated Flow - Congrats
@@ -99,17 +99,17 @@ tracks {
     //Page view
     "/credits/consumer/opensea/integrated_flow/congrats"(platform: "/", type: TrackType.View) {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
-        source(description: "Integrated flow source", type: PropertyType.String, required: true, values: ["vip", "cho", "off"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
     }
 
     //Events
     "/credits/consumer/opensea/integrated_flow/congrats/buy_intention"(platform: "/", type: TrackType.Event) {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
-        source(description: "Integrated flow source", type: PropertyType.String, required: true, values: ["vip", "cho", "off"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
     }
     "/credits/consumer/opensea/integrated_flow/congrats/back_to_publication"(platform: "/", type: TrackType.Event) {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
-        source(description: "Integrated flow source", type: PropertyType.String, required: true, values: ["vip", "cho", "off"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
     }
 
     /*********************************************

@@ -1114,31 +1114,34 @@ tracks {
     // Addresses
 
     // Page
-    "/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {}
+    "/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+    }
 
     // Event
-    "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
     }
-    "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
     }
-    "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
     }
-    "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
     }
-    "/checkout/shipping/input_address/street_number"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/input_address/street_number"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
     }
-    "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the references")
     }
-    "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
     }
-    "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
     }
 

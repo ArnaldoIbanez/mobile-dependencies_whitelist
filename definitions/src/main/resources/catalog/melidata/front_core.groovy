@@ -85,6 +85,10 @@ tracks {
         has_footer(type: PropertyType.Boolean, required: true, description: "whether it has a footer or not")
     }
 
+    def activities_link_definition = objectSchemaDefinitions {
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+    }
+
     def qr_map_definition = objectSchemaDefinitions {
         content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
@@ -257,6 +261,7 @@ tracks {
         cross_selling(required: false, type: PropertyType.Map(realestate_definition), description: "The cross_selling section information")
         activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
+        activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
     }
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
@@ -270,6 +275,7 @@ tracks {
         cross_selling(required: false, type: PropertyType.Map(realestate_definition), description: "The cross_selling section information")
         activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
+        activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
     }
 
     //Notification Center

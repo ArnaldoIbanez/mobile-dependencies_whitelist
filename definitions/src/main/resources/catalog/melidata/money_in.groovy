@@ -12,18 +12,25 @@ tracks {
     //Payment methods tracks
     "/money_in/payment_methods"(platform: "/", type: TrackType.View) {}
 
+    "/money_in/payment_methods/select"(platform: "/", type: TrackType.Event) {
+        payment_method (required:true, description: "Selected payment method")
+    }
+
+    //Payment method help pressed
+    "/money_in/payment_methods/help"(platform: "/", type: TrackType.Event) {}
+
     //Calculator tracks
     "/money_in/calculator"(platform: "/", type: TrackType.View) {
-        payment_method (required:true, description: "Payment method selected on calculator", values: ["pec", "bolbradesco"])
+        payment_method (required:true, description: "Payment method selected on calculator")
     }
 
     //Calculator montos preseteados
     "/money_in/calculator/preset_selected"(platform: "/", type: TrackType.Event) {
-        preset (required:true, description: "Preset amount selected", values: ["30", "60", "120", "240", "500", "1000", "2000", "5000"])
+        preset (required:true, description: "Preset amount selected")
     }
 
     "/money_in/calculator/continue"(platform: "/", type: TrackType.Event) {
-        payment_method (required:true, description: "Continue payment method selected", values: ["pec", "bolbradesco"])
+        payment_method (required:true, description: "Continue payment method selected")
         amount (required:true, description: "Continue amount entered")
     }
 
