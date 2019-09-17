@@ -85,6 +85,7 @@ catalog {
         include business, "notifications.groovy"
         include business, "dynamic_stop_landing.groovy"
         include business, "payers_growth.groovy"
+        include business, "collaborators.groovy"
     }
 
     marketplace.each { business ->
@@ -161,7 +162,6 @@ catalog {
         include business, "cards_cobranded.groovy"
         include business, "cards_prepaid.groovy"
         include business, "cellphone_recharge.groovy"
-        include business, "collaborators.groovy"
         include business, "asset_management.groovy"
         include business, "single_player.groovy"
         include business, "instore.groovy"
