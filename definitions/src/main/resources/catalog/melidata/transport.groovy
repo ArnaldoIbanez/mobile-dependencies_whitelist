@@ -41,9 +41,9 @@ tracks {
     }
     "/transport/companies"(platform: "/mobile", type: TrackType.View) {}
     "/transport/select_company"(platform: "/mobile", type: TrackType.Event) {
-        company (require: true, type: PropertyType.String, description: "Company selected")
+        company (required: true, type: PropertyType.String, description: "Company selected")
     }
     "/transport/select_card"(platform: "/mobile", type: TrackType.Event) {
-        company (require: true, type: PropertyType.String, description: "Company of the card")
+        company (required: true, type: PropertyType.String, description: "Company of the card")
     }
 }
