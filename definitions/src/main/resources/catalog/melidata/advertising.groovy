@@ -3,8 +3,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
-    //ADVERTISING FLOW
-
+    //Advertising flow
     "/advertising"(platform: "/", isAbstract: true) {}
 
     "/advertising/pads2"(platform: "/", isAbstract: true) {}
@@ -13,6 +12,10 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: true, description: "Current budget related to the campaign")
+        share_value(required: false, description: "Porcentual share value")
+        chart_visible(required: false, description: "If the chart is visible")
+        lift_visible(required: false, description: "If the lift is visible")
+        share_visible(required: false, description: "If the share is visible")
     }
 
     "/advertising/pads2/manager/update_campaign_status"(platform: "/web", type: TrackType.Event) {
@@ -51,7 +54,7 @@ tracks {
 
     "/advertising/pads2/manager/onboarding/modal/close"(platform: "/web", type: TrackType.Event) {}
 
-//    Generic landing
+    //Generic landing
     "/advertising/pads2/landing"(platform: "/web", type: TrackType.View) {
         free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
         budget(required: true, description: "Budget related to the landing", inheritable:false)
@@ -94,5 +97,39 @@ tracks {
 
     "/advertising/pads2/landing/contract_confirmation/change_budget/confirm"(platform: "/web", type: TrackType.Event) {
         budget(required: true, description: "Budget defined before hiring, it's related to the campaign")
+    }
+
+    //Lift
+    "/advertising/pads2/lift/"(platform: "/web", isAbstract: true) {}
+
+    "/advertising/pads2/manager/lift/details"(platform: "/web", isAbstract: true) {}
+    "/advertising/pads2/manager/lift/details/show"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/details/hide"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/lift/chart"(platform: "/web", isAbstract: true) {}
+    "/advertising/pads2/manager/lift/chart/show"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/chart/hide"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/lift/tooltip"(platform: "/web", isAbstract: true) {}
+    "/advertising/pads2/manager/lift/tooltip/adv_sales"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/tooltip/meli_sales"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/tooltip/prints"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/tooltip/clics"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/tooltip/income"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/tooltip/investment"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/tooltip/take_rate"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/lift/modal"(platform: "/web", isAbstract: true) {}
+    "/advertising/pads2/manager/lift/modal/open"(platform: "/web", type: TrackType.Event) {
+        share_value(required: true, description: "Porcentual share value")
+    }
+    "/advertising/pads2/manager/lift/modal/pause"(platform: "/web", type: TrackType.Event) {
+        share_value(required: true, description: "Porcentual share value")
+    }
+    "/advertising/pads2/manager/lift/modal/continue"(platform: "/web", type: TrackType.Event) {
+        share_value(required: true, description: "Porcentual share value")
+    }
+    "/advertising/pads2/manager/lift/modal/close"(platform: "/web", type: TrackType.Event) {
+        share_value(required: true, description: "Porcentual share value")
     }
 }
