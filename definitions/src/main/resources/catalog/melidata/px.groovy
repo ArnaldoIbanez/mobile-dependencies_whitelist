@@ -9,11 +9,14 @@ tracks {
         flow_detail(required: false, description: "External info")
         flow(required: false, type: PropertyType.String, description: "External flow name")
         session_id(required: false, type: PropertyType.String, description: "Internal session id")
+        session_time(required: false, type: PropertyType.Numeric, description: "Session time")
+        checkout_type(required: false, type: PropertyType.String, description: "Checkout type")
         collector_id(required: false, description: "Collector external id")
+        security_enabled(required: false, type: PropertyType.Boolean, description: "If the user has biometric or passcode validation to make a payment")
     }
 
     propertyGroups {
-        externalData(flow, flow_detail, collector_id,session_id)
+        externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled)
     }
 
     // Views:
@@ -28,6 +31,7 @@ tracks {
         items(required: true, type: PropertyType.ArrayList , description: "Array of items to pay")
         preference_amount(required: true, type: PropertyType.Numeric , description: "Total amount")
         discount(required: false, description: "Discount if available")
+        available_methods_quantity(required: false, type: PropertyType.Numeric , description: "Available methods quantity")
     }
     "/px_checkout/payments/select_method/ticket"(platform: "/mobile", type: TrackType.View) {
 
@@ -155,6 +159,7 @@ tracks {
     "/px_checkout/review/one_tap"(platform: "/mobile", type: TrackType.View) {
         preference_amount(required: true, type: PropertyType.Numeric , description: "Total amount")
         available_methods(required: true, type: PropertyType.ArrayList , description: "Array of available payment methods to pay")
+        available_methods_quantity(required: false, type: PropertyType.Numeric , description: "Available methods quantity")
         discount(required: false, description: "Discount if available")
         items(required: true, type: PropertyType.ArrayList , description: "Array of items to pay")
 
@@ -475,6 +480,7 @@ tracks {
     "/px_checkout/review/confirm"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
         payment_method_type(required: true, type: PropertyType.String, description: "Payment method type id")
+        payment_method_selected_index(required: false, type: PropertyType.Numeric , description: "Payment method selected index")
         review_type(required: true, type: PropertyType.String, description: "Review screen type", values: ["one_tap" , "traditional"])
         extra_info(required: false, description: "Extra payment method info")
         externalData

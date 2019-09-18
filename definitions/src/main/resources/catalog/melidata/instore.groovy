@@ -141,6 +141,10 @@ tracks {
         error(required: true, PropertyType.String, description: "error type", inheritable: false)
     }
 
+    "/instore/error/no_response_received"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/no_response_received/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/no_response_received/abort"(platform: "/mobile", type: TrackType.Event) {}
+
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
@@ -153,6 +157,7 @@ tracks {
         device_gps_enabled(required: false, PropertyType.Boolean)
         type(required: false, PropertyType.String, description: "type of app launching the map")
         tags(required: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
+        display_at_least_one_store(required: false, inheritable: false, PropertyType.Boolean, description: "whether the map is being forced to show the nearest store or not")
     }
     "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {}
     "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {}
@@ -240,7 +245,20 @@ tracks {
     "/instore/waiting/generic_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/generic_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/instore/waiting/vending_product_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/add_card"(platform: "/mobile", isAbstract: true) {}
+    "/instore/waiting/add_card/cielo"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/add_card/cielo/add"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/add_card/cielo/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/add_card/cielo/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/scan_again"(platform: "/mobile", isAbstract: true) {}
+    "/instore/waiting/scan_again/cielo"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/scan_again/cielo/scan_qr"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/scan_again/cielo/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/vending_product_selection"(platform: "/mobile", type: TrackType.View) {
+        vending_version(required: false, PropertyType.String, description: "sent only by the new version")
+    }
 
 
     // Shell
@@ -274,17 +292,18 @@ tracks {
 
     // Vending
     "/instore/vending"(platform: "/mobile", isAbstract: true) {
-        collector_id(required: true, PropertyType.String)
+        collector_id(required: false, PropertyType.String)
         brand_name(required: false, PropertyType.String)
         store_id(required: false, PropertyType.String)
         pos_id(required: false, PropertyType.String)
-        vending_id(required: true, PropertyType.String)
-        external_reference(required: true, PropertyType.String)
-        id(required: true, PropertyType.Numeric)
-        status(required: true, PropertyType.String)
-        status_detail(required: true, PropertyType.String)
-        total_price(required: true, PropertyType.Numeric)
-        currency(required: true, PropertyType.String)
+        vending_id(required: false, PropertyType.String)
+        external_reference(required: false, PropertyType.String)
+        id(required: false, PropertyType.Numeric)
+        status(required: false, PropertyType.String)
+        status_detail(required: false, PropertyType.String)
+        total_price(required: false, PropertyType.Numeric)
+        currency(required: false, PropertyType.String)
+        vending_version(required: false, PropertyType.String, description: "sent only by the new version")
     }
     "/instore/vending/machine_response_final_result"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/machine_response_state"(platform: "/mobile", type: TrackType.Event) {
@@ -293,12 +312,16 @@ tracks {
     "/instore/vending/st_machine_disconnected"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/st_machine_connection_error"(platform: "/mobile", type: TrackType.Event) {
         st_machine_connection_error(required: true, PropertyType.String)
+        action(required: false, PropertyType.String, description: "action executed at the moment of an error")
     }
     "/instore/vending/st_machine_not_available"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/st_machine_connected"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/vending/response_end_transaction"(platform: "/mobile", type: TrackType.Event) {
         end_transaction_status(required: true, PropertyType.String)
         item_price(required: false, PropertyType.Numeric)
+    }
+    "/instore/vending/response_end_transaction_failed"(platform: "/mobile", type: TrackType.Event) {
+        description(required: true, PropertyType.String)
     }
 
 
@@ -341,6 +364,7 @@ tracks {
         radius_in_meters(required: false, inheritable: false, PropertyType.Numeric, description: "a radius from the location in the deeplink from where to search for stores")
         type(required: true, inheritable: false, PropertyType.String, description: "type of stores to show on the map")
         tags(required: true, inheritable: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
+        display_at_least_one_store(required: false, inheritable: false, PropertyType.Boolean, description: "whether the map is being forced to show the nearest store or not")
     }
     "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
@@ -389,7 +413,29 @@ tracks {
         message(required: true, PropertyType.String, description: "server error description")
         attributable_to(required: true, PropertyType.String)
     }
-    "/instore/my_qr"(platform: "/mobile", type: TrackType.Event) {}
+
+    //QR Tip
+    "/instore/tip"(platform: "/mobile", type: TrackType.View) {
+        pos_id(required: true, PropertyType.String, description: "collector point of sale unique identifier")
+        collector_id(required: true, PropertyType.String, description: "collector user unique identifier")
+        brand_name(required: true, PropertyType.String, description: "collector brand name")
+        currency(required: true, PropertyType.String)
+
+    }
+    "/instore/tip/selected_tip"(platform: "/mobile", type: TrackType.Event) {
+        tip_amount(required: true, PropertyType.Numeric, description: "the amount of tip selected to be paid")
+        tip_percentage(required: true, PropertyType.String, description: "the percentage of tip selected")
+        purchase_amount(required: true, PropertyType.Numeric, description: "the amount of the purchase being paid")
+    }
+    "/instore/tip/skip_tip"(platform: "/mobile", type: TrackType.Event) {
+        purchase_amount(required: true, PropertyType.Numeric, description: "the amount of the purchase being paid")
+
+    }
+    "/instore/tip/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/my_qr"(platform: "/mobile", type: TrackType.Event) {
+        session_id(required: false, PropertyType.String, description: "this flow is outside instore, does not have session_id")
+    }
 
     // Scale Features
     // QR Assignment

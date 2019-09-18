@@ -39,6 +39,10 @@
       {
         "name": "ctr",
         "type": "DOUBLE"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {

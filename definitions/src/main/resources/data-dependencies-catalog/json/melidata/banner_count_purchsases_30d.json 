@@ -1,7 +1,12 @@
 {
       "cron": "00 08 * * *",
+      "partition": {
+        "name": "orderDate",
+        "format": "yyyy-MM-dd",
+        "type": "DATE"
+      },
       "users": [
-        "ezequiel.boehler@mercadolibre.com",
+        "martin.tonelli@mercadolibre.com",
         "ba-analytics@mercadolibre.com"
       ],
       "process_name": "count_purchases_banner_30d",
@@ -28,11 +33,6 @@
           "script": "business-assurance/bannerscomprasclics30d.sql"
         },
         "columns": [
-          {
-            "name": "orderDate",
-            "format": "yyyy-MM-dd",
-            "type": "DATE"
-          },
           {
             "name": "lastClickDate",
             "format": "yyyy-MM-dd",

@@ -1,5 +1,9 @@
 {
   "users": [
+    "jorge.michiel@mercadolibre.com",
+    "federico.livio@mercadolibre.com",
+    "marcos.juarez@mercadolibre.com",
+    "martin.maldonado@mercadolibre.com",
     "devoluciones-it@mercadolibre.com"
   ],
   "process_name": "returns-drop-out",

@@ -47,17 +47,15 @@ If you want to run all available tests **```make test CATALOG=${All}```**
 
 ### REFERENCES
 
-1. [Melidata Architecture](https://docs.google.com/document/d/1hDP_2iB3lNnKcsbsuQAdvCEentABMEF6sbbV-C6MUTM/edit?usp=sharing)
+1. [**Tracking Definitions**](https://github.com/mercadolibre/melidata-catalog/wiki/Tracking-Style-Guide)
 
-2. [Catalog Definitions](https://github.com/mercadolibre/melidata-catalog/wiki#catalog-definitions)
+2. [Metrics Definitions](https://github.com/mercadolibre/melidata-catalog/wiki/New-Metric)
 
-3. [Metrics Definitions](https://github.com/mercadolibre/melidata-catalog/wiki#metrics-definitions)
+3. [Cronned Queries Definitions](https://sites.google.com/mercadolibre.com/melidata/custom-data/bi-integration)
 
-4. [Cronned Queries Definitions](https://github.com/mercadolibre/melidata-all/wiki/Hive-BI-Integration)
+4. [Tracking health check](https://github.com/mercadolibre/melidata-catalog/wiki/Catalog-health-check)
 
-5. [Tracking Definitions](https://github.com/mercadolibre/melidata-catalog/wiki/Tracking-Style-Guide)
-
-6. [FAQ](https://github.com/mercadolibre/melidata-catalog/wiki/FAQ) 
+5. [FAQ](https://github.com/mercadolibre/melidata-catalog/wiki/FAQ) 
 
 ### CONTACT
 

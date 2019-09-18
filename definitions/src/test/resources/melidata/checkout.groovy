@@ -8,11 +8,6 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
-
-
-
-
-
     test("Checkout Basic Flow test. Legacy test for previous mobile versions") {
 
         def defaultCheckoutInformation = {
@@ -520,13 +515,14 @@ trackTests {
             ]
         }
         //
-        
+
         "/checkout/shipping/address_profile"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
         }
 
         "/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event) {
             label = "laboral"
+            session_id = "some_session_id"
         }
 
         "/checkout/payment/preload_credit_card"(platform:"/mobile", type:TrackType.View) {
@@ -851,7 +847,10 @@ trackTests {
             checkout_flow = "direct"
         }
 
-        "/checkout/review#submit/abort"(platform:"/mobile", type:TrackType.Event) {}
+        "/checkout/review#submit/abort"(platform:"/mobile", type:TrackType.Event) {
+            checkout_flow = "direct"
+            session_id = "some_session_id"
+        }
 
         "/checkout/review/quantity#submit"(platform:"/mobile", type: TrackType.Event) {
             old_quantity = 4
@@ -972,6 +971,12 @@ trackTests {
             payment_method = "telecomm"
             agencies = 10
         }
+         // Step Curp Credits MLM
+        "/checkout/payment/curp/not_my_curp"(platform: "/", type: TrackType.Event) {}
+        "/checkout/payment/curp/view_authorization"(platform: "/", type: TrackType.Event) {}
+        //Credits Review
+        "/checkout/review/credits_cover"(platform:"/", type: TrackType.Event) {}
+        "/checkout/review/credits_terms_and_conditions"(platform:"/", type: TrackType.Event) {}
     }
 
     test("checkout congrats"){
@@ -2049,6 +2054,7 @@ trackTests {
         }
         "/checkout/payment/select_method"(platform:"/web", dataSet)
         "/checkout/payment/input_sec_code"(platform:"/web", dataSet)
+        "/checkout/payment/esc_input_sec_code"(platform:"/web", dataSet)
         "/checkout/payment/select_method/edit_payment"(platform:"/web", dataSet)
         "/checkout/payment/select_method/show_distances"(platform:"/web", dataSet)
         "/checkout/payment/select_store"(platform:"/web", dataSet)
@@ -2147,7 +2153,117 @@ trackTests {
         "/checkout/shipping/select_option"(platform:"/web", dataSet)
         "/checkout/shipping/input_zipcode"(platform:"/web", dataSet)
         "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/web", dataSet)
+        // Addresses
+        // Page
+        "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
         "/checkout/shipping/input_address"(platform:"/web", dataSet)
+
+        // Event
+        "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event){
+            label = "La cantidad de caracteres ingresados es inválida"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event){
+            label = "La cantidad de caracteres ingresados es inválida"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/street_number"(platform:"/",  type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)
         "/checkout/shipping/input_address_number/whithout_number"(platform:"/web", dataSet)
         "/checkout/shipping/select_address"(platform:"/web", dataSet)
@@ -2187,6 +2303,10 @@ trackTests {
         "/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event) {
             label = "laboral"
         }
+
+        //Switch track
+        "/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
+        "/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
 
         // Map v2
         "/checkout/shipping/puis/select_store"(platform: "/web", dataSet)
@@ -2254,6 +2374,8 @@ trackTests {
             frequency_before = "WEEKS_3"
         }
 
+         // Step Curp Credits MLM
+        "/checkout/payment/curp"(platform:"/", dataSet)
     }
 
     test("Checkout recovery with recos - push notification flow") {

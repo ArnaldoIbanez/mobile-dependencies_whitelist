@@ -313,6 +313,14 @@ trackTests {
                 recipientCnpj = 123123
             }
         }
+
+        "/myml/invoices/backoffice/search/invoiceslist/export_csv"(platform: "/", type: TrackType.Event) {
+             search_filter = {
+                seller_id = 406495769
+            }
+        }
+
+        "/myml/invoices/backoffice/view/invoiceslist"(platform: "/", type: TrackType.View) {}
     }
 
     test("Fiscal Information pages") {
@@ -553,6 +561,9 @@ trackTests {
 
         "/myml/invoices/documents/success/btn/listings"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/documents/success/btn/download"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/opt_in/difal"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/opt_in/difal/button/save"(platform: "/", type: TrackType.Event) {}
     }
 
 
@@ -678,6 +689,8 @@ trackTests {
 
         "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
             item_id = 'MLA713079054'
+            buy_it_again_experiment = 'Yes'
+            buy_it_again_lead_checkout = 'No'
         }
 
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {
@@ -1035,6 +1048,79 @@ trackTests {
 
     test("Myml message activity") {
         "/myml/message"(platform: "/mobile") {}
-        "/myml/message/activity"(platform: "/mobile") {}
+        "/myml/message/questions"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/message/activity"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/message/pack_detail"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/message/attachments_uploader"(platform: "/mobile", type: TrackType.View) {}
+        "/myml/message/attachment_viewer"(platform: "/mobile/ios", type: TrackType.View) {}
+    }
+
+    test("Myml Fiscal Rules Page") {
+        "/myml/fiscal_rules/message"(platform: "/", type: TrackType.View) {
+            code = 404
+        }
+
+        "/myml/fiscal_rules/listing"(platform: "/", type: TrackType.View) {
+            page = 2
+            per_page = 20
+            selected = ""
+        }
+
+        "/myml/fiscal_rules/listing/button/new_rules"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+        }
+
+        "/myml/fiscal_rules/listing/button/edit_rules"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+            ids = "MSwyLDU="
+        }
+
+        "/myml/fiscal_rules/listing/button/remove_rules"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+            id = "5"
+        }
+        
+
+        "/myml/fiscal_rules/listing/checkbox/header"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+            status = true
+        }
+
+        "/myml/fiscal_rules/listing/checkbox/list"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+            status = true
+            id = 5
+        }
+
+        "/myml/fiscal_rules/listing/modal/confirm"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+        }
+
+        "/myml/fiscal_rules/listing/modal/cancel"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+        }
+
+        "/myml/fiscal_rules/listing/pagination"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+            current_page = 2
+            next_page = 3
+            amount = 4
+        }
     }
 }

@@ -28,7 +28,7 @@ WHERE
 ds >= '@param01' 
 AND ds < '@param02'
 AND jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE', 'MOTOR', 'MOTORCYCLE', 'motors', 'SERVICE', 'services')
-AND (others['fragment'] LIKE '%SA:true%')
+AND platform.fragment  LIKE '%SA:true,SID%'
 AND path IN ('/vip')
 AND device.platform IN ('/web/desktop', '/web/desktop/forced', '/web/desktop/forced/static', '/web/desktop/static', '/web/mobile', '/web/mobile/forced', '/web/mobile/forced/static', '/web/mobile/static')
 AND application.site_id IN ('MCO', 'MLA', 'MLB', 'MLC', 'MLM', 'MLU', 'MLV')

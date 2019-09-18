@@ -53,5 +53,40 @@ trackTests {
         "/transport/error"(platform: "/mobile") {
             flow = "/transport"
         }
+        "/transport/companies"(platform: "/mobile") {
+            flow = "/transport"
+        }
+        "/transport/select_company"(platform: "/mobile") {
+            flow = "/transport"
+            company = "Bilhete unico (Sao Pablo)"
+        }
+        "/transport/select_card"(platform: "/mobile") {
+            flow = "/transport"
+            company = "Bilhete unico (Sao Pablo)"
+        }
+        "/transport/delete"(platform: "/mobile") {
+            flow = "/transport"
+        }
+
+        // Transport Marketing Landing
+        "/transport/mkt_landing"(platform: "/web"){
+        } 
+        "/transport/mkt_landing/sms"(platform: "/web"){
+        } 
+        "/transport/mkt_landing/copy-clipboard"(platform: "/web"){
+            position = "coupon"
+        } 
+        "/transport/mkt_landing/copy-clipboard"(platform: "/web"){
+            position = "steps"
+        } 
+        "/transport/mkt_landing/button"(platform: "/web"){
+            position = "hero"
+        } 
+        "/transport/mkt_landing/button"(platform: "/web"){
+            position = "fixed"
+        } 
+        "/transport/mkt_landing/button"(platform: "/web"){
+            position = "footer"
+        } 
     }
 }

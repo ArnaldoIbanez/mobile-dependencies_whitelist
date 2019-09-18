@@ -7,57 +7,67 @@ tracks {
     "/remedy"(platform: "/", isAbstract: true) {}
 
     // Challenges
-    "/remedy/challenge_pep"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_fatca"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_regulated_entity"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_manual_input_dob"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_manual_input_document"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_mismatch"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_cx_pending"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_number_of_attempts_exceeded"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_identity_validation"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_identification_bad_quality"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_country_of_birth"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_review_and_confirm"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_document_type"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_gender"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_terms_and_conditions_company"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_selfie"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_selfie_bad_quality"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_company_relationship"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_identification"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_nationality"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_identifier_type"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_identity"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_identity_mismatch"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_birthdate"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_address"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_phone"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_single_pep_fatca_so"(platform: "/mobile", type: TrackType.View) {}
-    "/remedy/challenge_kyc_name_mismatch"(platform: "/mobile", type: TrackType.View) {}
+    "/remedy/challenge_pep"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_fatca"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_regulated_entity"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_manual_input_dob"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_manual_input_document"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_mismatch"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_cx_pending"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_number_of_attempts_exceeded"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_identity_validation"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_identification_bad_quality"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_country_of_birth"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_review_and_confirm"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_document_type"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_gender"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_terms_and_conditions"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_terms_and_conditions_company"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_selfie"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_selfie_bad_quality"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_company_relationship"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_identification"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_nationality"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_identifier_type"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_identity"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_identity_mismatch"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_birthdate"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_address"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_phone"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_single_pep_fatca_so"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_kyc_name_mismatch"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_company_confirmation"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_company_relationship"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_marital_status"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_occupation"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_cellphone"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_name_mismatch"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_address_confirmation"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_activity"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_proof_of_address"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_death"(platform: "/", type: TrackType.View) {}
 
-    "/remedy/identity_handler"(platform: "/mobile", type: TrackType.Event) {
+    "/remedy/identity_handler"(platform: "/", type: TrackType.Event) {
         remedy_id (required: true, type: PropertyType.String)
         status (required: false, type: PropertyType.String)
     }
 
     // WebView events
-    "/remedy/url_external"(platform: "/mobile", type: TrackType.Event) {
+    "/remedy/url_external"(platform: "/", type: TrackType.Event) {
         context (required: true, type: PropertyType.String, description: "The context where this event occurred")
         url (required: true, type: PropertyType.String, description: "The external webview URL")
     }
 
     // Browser events
-    "/remedy/browser_external"(platform: "/mobile", type: TrackType.Event) {
+    "/remedy/browser_external"(platform: "/", type: TrackType.Event) {
         context (required: true, type: PropertyType.String, description: "The context where this event occurred")
         url (required: true, type: PropertyType.String, description: "The external browser URL")
     }
 
     // Errors
-    "/remedy/error"(platform: "/mobile", type: TrackType.Event) {
+    "/remedy/error"(platform: "/", type: TrackType.Event) {
         label (required: false, type: PropertyType.String, description: "The label attached to the current event")
         verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
     }
-    "/remedy/profile"(platform: "/mobile", type: TrackType.Event) {}
+    "/remedy/profile"(platform: "/", type: TrackType.Event) {}
 }

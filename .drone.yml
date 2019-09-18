@@ -2,7 +2,7 @@ image: docker-registry.melicloud.com/meli/melidata-catalog:v0.2
 git:
   dept:1
 script:
-  - make test
+  - make productionTest
 deploy:
   bash:
     script:

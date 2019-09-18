@@ -177,6 +177,7 @@ tracks {
     "/checkout/payment"(platform: "/", isAbstract: true) {
     }
     "/checkout/payment/input_sec_code"(platform: "/web", type: TrackType.View) {}
+    "/checkout/payment/esc_input_sec_code"(platform: "/web", type: TrackType.View) {}
     "/checkout/payments"(platform: "/", isAbstract: true) {
     }
 
@@ -253,7 +254,8 @@ tracks {
 
     //Event
     "/checkout/shipping/address_profile/delivered_time"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-       label(required: false, type: PropertyType.String)
+        label(required: false, type: PropertyType.String)
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
     //Fallback/Custom shipping
@@ -628,6 +630,15 @@ tracks {
     "/checkout/payment/expired_coupon"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/payment/add_another_coupon/delete_coupon"(platform:"/mobile", type: TrackType.Event) {}
 
+    // Step Curp Credits MLM
+    "/checkout/payment/curp"(platform:"/", type: TrackType.View) {}
+    "/checkout/payment/curp/not_my_curp"(platform:"/", type: TrackType.Event) {}
+    "/checkout/payment/curp/view_authorization"(platform:"/", type: TrackType.Event) {}
+
+    //Credits Review
+    "/checkout/review/credits_cover"(platform:"/", type: TrackType.Event) {}
+    "/checkout/review/credits_terms_and_conditions"(platform:"/", type: TrackType.Event) {}
+
     // ESC: Enter the Sec Code to generate an Encrypted Security Code
     "/checkout/payment/encrypted_security_code_add"(platform:"/mobile") {}
     "/checkout/payment/encrypted_security_code_add#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -653,7 +664,10 @@ tracks {
         checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
     }
 
-    "/checkout/review#submit/abort"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/checkout/review#submit/abort"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase"])
+    }
 
     "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -772,6 +786,8 @@ tracks {
         status(required: false, type: PropertyType.String)
         purchase_status(required: false, type: PropertyType.String, values: ["payment_required", "payment_in_process", "partially_paid", "paid", "pending_cancel", "cancelled", "confirmed"], description: "Status of the purchase")
         purchase_id(required: false, type: PropertyType.Numeric, description: "Id of the purchase")
+        buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
+        loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
     }
 
     "/checkout/congrats/recommendations"(platform: "/", type: TrackType.View) {}
@@ -1094,7 +1110,42 @@ tracks {
     "/checkout/shipping/edit_address"(platform:"/", type: TrackType.Event) {}
     "/checkout/shipping/input_zipcode"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/", type: TrackType.Event) {}
-    "/checkout/shipping/input_address"(platform:"/", type: TrackType.View) {}
+
+    // Addresses
+
+    // Page
+    "/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+    }
+
+    // Event
+    "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
+    }
+    "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
+    }
+    "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
+    }
+    "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
+    }
+    "/checkout/shipping/input_address/street_number"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
+    }
+    "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the references")
+    }
+    "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
+    }
+    "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+    }
+
+
     "/checkout/shipping/input_address_number"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_address_number/whithout_number"(platform:"/", type: TrackType.Event) {}
     "/checkout/shipping/select_option_detail"(platform:"/", type: TrackType.View) {}
@@ -1111,6 +1162,10 @@ tracks {
     "/checkout/review/edit_first_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/review/edit_second_installment"(platform:"/", type: TrackType.View) {}
 
+    //Switch track
+    "/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
+    "/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
+    "/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
 
     /*
     * GarEx tracks

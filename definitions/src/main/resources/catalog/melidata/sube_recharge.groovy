@@ -7,6 +7,7 @@ tracks {
 "/recharge_sube"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
     }
     "/recharge_sube/first_time_use"(platform: "/mobile") {}
     "/recharge_sube/no_money"(platform: "/mobile") {}
@@ -34,5 +35,9 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/recharge_sube/redirect_sube_app"(platform: "/mobile", type: TrackType.Event) {}
+    "/recharge_sube/show_terminals_information"(platform: "/mobile", type: TrackType.Event) {}
+    "/recharge_sube/show_terminals_congrats"(platform: "/mobile", type: TrackType.Event) {}
+    "/recharge_sube/show_terminals_ftu"(platform: "/mobile", type: TrackType.Event) {}
 
 }

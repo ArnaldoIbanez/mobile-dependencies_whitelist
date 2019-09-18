@@ -84,10 +84,62 @@ metrics {
 		}
 	}
 
-	"new_buyers"(description: "New buyers from feed", compute_order: true) {
+	"orders_new_buyers"(description: "New buyers from feed", compute_order: true) {
 		countsOn {
 			condition {
-				equals("event_data.new_buyer", true)
+				or(
+					and (
+						equals("path", "/orders/ordercreated"),
+						equals("event_data.is_carrito", false),
+						equals("event_data.buyer_segment", "new_buyer")
+					),
+					and (
+						equals("path","/purchases/purchasecreated"),
+						equals("event_data.buyer_segment", "new_buyer")
+					)
+				)
+			}
+		}
+	}
+	
+	"orders_inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
+		countsOn {
+			condition {
+				or(
+					and (
+						equals("path", "/orders/ordercreated"),
+						equals("event_data.is_carrito", false),
+						or(
+							equals("event_data.buyer_segment", "new_buyer"),
+							equals("event_data.buyer_segment", "recovered_buyer")
+						)
+					),
+					and (
+						equals("path","/purchases/purchasecreated"),
+						or(
+							equals("event_data.buyer_segment", "new_buyer"),
+							equals("event_data.buyer_segment", "recovered_buyer")
+						)
+					)
+				)
+			}
+		}
+	}
+	
+	"orders_active_buyers"(description: "Active buyers from feed", compute_order: true) {
+		countsOn {
+			condition {
+				or(
+					and (
+						equals("path", "/orders/ordercreated"),
+						equals("event_data.is_carrito", false),
+						equals("event_data.buyer_segment", "active_buyer")
+					),
+					and (
+						equals("path","/purchases/purchasecreated"),
+						equals("event_data.buyer_segment", "active_buyer")
+					)
+				)
 			}
 		}
 	}

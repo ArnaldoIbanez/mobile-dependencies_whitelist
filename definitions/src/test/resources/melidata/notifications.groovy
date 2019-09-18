@@ -141,6 +141,20 @@ trackTests {
             sent_date= "20180508"
             batch_id= "MLB_PACK_20180508_2"
         }
+        "/notification_center/campaigns-generic"(platform: "/"){
+            campaign_id= "campaign1"
+            campaign_type="xp_cupones"
+            campaign_data = "MLV515515631,MLV515515632,MLV515515633"
+            newsgroup_id= "campaigns-generic-MLU102_07_02_2017-56626993"
+            status= "unread"
+            event_type= "swipe"
+            type_layout= "picture"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+            latest_news_type= "campaigns-generic"
+            latest_news_id= "campaigns-generic-143816022-MLB1013046714"
+        }
         "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile"){
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-suggested_discounts_buyer-142593788-MLA645507294"
@@ -280,6 +294,8 @@ trackTests {
             latest_news_type= "campaigns-remarketing"
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
             hash="hash1"
+            items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
+            items_history="MLB595398238,MLB649162181,MLB656729144"
         }
         "/notification_center/campaigns-remarketing_motors"(platform: "/mobile"){
             campaign_id= "campaign1"
@@ -655,6 +671,7 @@ trackTests {
             status= "read"
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
@@ -788,6 +805,18 @@ trackTests {
             event_type = "received"
             deeplink ="meli://search?q=sony"
             campaign_id = "mkt_campaign_co"
+            test_notification = false
+            sent_date = "20180508"
+            batch_id = "MLB_PACK_20180508_2"
+        }
+
+        "/notification/campaigns_generic"(platform: "/") {
+            news_id = "12332323"
+            event_type = "received"
+            deeplink ="meli://search?q=sony"
+            campaign_id = "mkt_campaign_co"
+            campaign_type="xp_cupones"
+            campaign_data = "MLB1234"
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
@@ -1166,6 +1195,14 @@ trackTests {
         }
         "/notification/orders_ticket_payment_pending_extend_expiration_general_notice"(platform: "/mobile") {
             news_id = "orders-ticket_payment_pending_extend_expiration_general_notice-1957429460"
+            event_type = "dismiss"
+            experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
+            notification_style = "c"
+            device_id = "f140e3faf4c6ee7d"
+            order_id = 1957429460
+        }
+        "/notification/orders_ticket_payment_pending_close_expiration_general_notice"(platform: "/mobile") {
+            news_id = "orders-ticket_payment_pending_close_expiration_general_notice-1957429460"
             event_type = "dismiss"
             experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
             notification_style = "c"
@@ -1799,6 +1836,8 @@ trackTests {
             sent_date= "20180508"
             batch_id = "MLB_PACK_20180508_2"
             hash="hash1"
+            items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
+            items_history="MLB595398238,MLB649162181,MLB656729144"
         }
 
         "/notification/campaigns_remarketing_motors"(platform: "/mobile") {
@@ -2054,6 +2093,7 @@ trackTests {
             event_type = "open"
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
@@ -2062,6 +2102,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
@@ -2070,6 +2111,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
@@ -2078,6 +2120,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
@@ -2235,6 +2278,101 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_transaction_approved_authorization"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_approved_authorization-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_approved_withdraw"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_approved_withdraw-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_canceled_authorization"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_canceled_authorization-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_canceled_withdraw"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_canceled_withdraw-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card-challenge_bolbradesco_reminder-43545334234"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_delivery"(platform: "/mobile") {
+            news_id = "prepaid_card-delivery-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_approved_authorization"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_approved_authorization-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_approved_withdraw"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_approved_withdraw-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_canceled_authorization"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_canceled_authorization-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_canceled_withdraw"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_canceled_withdraw-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card-challenge_bolbradesco_reminder-186785675"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_delivery"(platform: "/mobile") {
+            news_id = "prepaid_card-delivery-186785675"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
         "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
@@ -2264,6 +2402,7 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
+        
 
         "/notification/point_shipping_delayed_p4_p8"(platform: "/mobile") {
             news_id = "point_shipping-delayed_p4_p8-186785675"
@@ -2320,6 +2459,7 @@ trackTests {
             event_type = "open"
         }
 
+        //Withdrawal
         "/notification/withdraw_approved_contingency"(platform: "/mobile") {
             news_id = "withdraw-approved_contingency-186785675"
             event_type = "open"
@@ -2464,6 +2604,20 @@ trackTests {
             sent_date= "20180508"
             batch_id= "MLB_PACK_20180508_2"
         }
+        "/notification_center/campaigns-generic"(platform: "/"){
+            campaign_id= "campaign1"
+            campaign_type="xp_cupones"
+            campaign_data = "MLV515515631,MLV515515632,MLV515515633"
+            newsgroup_id= "campaigns-generic-MLU102_07_02_2017-56626993"
+            status= "unread"
+            event_type= "swipe"
+            type_layout= "picture"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+            latest_news_type= "campaigns-generic"
+            latest_news_id= "campaigns-generic-143816022-MLB1013046714"
+        }
         "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile"){
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-suggested_discounts_buyer-142593788-MLA645507294"
@@ -2603,6 +2757,8 @@ trackTests {
             latest_news_type= "campaigns-remarketing"
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
             hash="hash1"
+            items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
+            items_history="MLB595398238,MLB649162181,MLB656729144"
         }
         "/notification_center/campaigns-remarketing_motors"(platform: "/mobile"){
             campaign_id= "campaign1"
@@ -2978,6 +3134,7 @@ trackTests {
             status= "read"
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
@@ -3110,6 +3267,18 @@ trackTests {
             event_type = "received"
             deeplink ="meli://search?q=sony"
             campaign_id = "mkt_campaign_co"
+            test_notification = false
+            sent_date = "20180508"
+            batch_id = "MLB_PACK_20180508_2"
+        }
+
+        "/notification/campaigns_generic"(platform: "/") {
+            news_id = "12332323"
+            event_type = "received"
+            deeplink ="meli://search?q=sony"
+            campaign_id = "mkt_campaign_co"
+            campaign_type="xp_cupones"
+            campaign_data = "MLB1234"
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
@@ -3488,6 +3657,14 @@ trackTests {
         }
         "/notification/orders_ticket_payment_pending_extend_expiration_general_notice"(platform: "/mobile") {
             news_id = "orders-ticket_payment_pending_extend_expiration_general_notice-1957429460"
+            event_type = "dismiss"
+            experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
+            notification_style = "c"
+            device_id = "f140e3faf4c6ee7d"
+            order_id = 1957429460
+        }
+        "/notification/orders_ticket_payment_pending_close_expiration_general_notice"(platform: "/mobile") {
+            news_id = "orders-ticket_payment_pending_close_expiration_general_notice-1957429460"
             event_type = "dismiss"
             experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
             notification_style = "c"
@@ -4121,6 +4298,8 @@ trackTests {
             sent_date= "20180508"
             batch_id = "MLB_PACK_20180508_2"
             hash="hash1"
+            items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
+            items_history="MLB595398238,MLB649162181,MLB656729144"
         }
 
         "/notification/campaigns_remarketing_motors"(platform: "/mobile") {
@@ -4376,6 +4555,7 @@ trackTests {
             event_type = "open"
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
@@ -4384,6 +4564,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
@@ -4392,6 +4573,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
@@ -4400,6 +4582,7 @@ trackTests {
             campaign_id = "MLA_MP_PRUEBA_G_20181211_CG"
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
@@ -4551,9 +4734,92 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card-challenge_bolbradesco_reminder-43545334234"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_delivery"(platform: "/mobile") {
+            news_id = "prepaid_card-delivery-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_rejected_invalid_pin"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_invalid_pin-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_approved_authorization"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_approved_authorization-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_approved_withdraw"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_approved_withdraw-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_canceled_authorization"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_canceled_authorization-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_canceled_withdraw"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_canceled_withdraw-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_transaction_approved_authorization"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_approved_authorization-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_approved_withdraw"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_approved_withdraw-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_canceled_authorization"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_canceled_authorization-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_canceled_withdraw"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_canceled_withdraw-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
 
@@ -4642,11 +4908,82 @@ trackTests {
             event_type = "open"
         }
 
+        //Withdrawal
         "/notification/withdraw_approved_contingency"(platform: "/mobile") {
-            news_id = "withdraw-approved_contingency-186785675"
+            news_id = "withdraw_approved_contingency-186785675"
             event_type = "open"
         }
 
+    }
+
+    defaultBusiness = "mercadolibre"
+    test("Web Notifications mercadolibre"){
+        //Withdrawal
+        "/notification/withdraw_approved_contingency"(platform: "/web") {
+            news_id = "withdraw_approved_contingency-186785675"
+            event_type = "open"
+        }
+        "/notification/withdraw_rejected_contingency"(platform: "/web") {
+            news_id = "withdraw_rejected_contingency-186785675"
+            event_type = "open"
+        }
+
+        //Phone Enrollment
+        "/notification/security_phone_enrollment"(platform: "/web") {
+            news_id = "security_phone_enrollment-186785675"
+            event_type = "open"
+        }
+
+        //Merchant Services
+        "/notification/mss_alliance"(platform: "/web") {
+            news_id = "mss_alliance-186785675"
+            event_type = "open"
+        }
+        "/notification/mss_gplay"(platform: "/web") {
+            news_id = "mss_gplay-186785675"
+            event_type = "open"
+        }
+
+        //Fiscal Data
+        "/notification/fiscal_data_mp_business_registration"(platform: "/web") {
+            news_id = "fiscal_data_mp_business_registration-186785675"
+            event_type = "open"
+        }
+    }
+
+    defaultBusiness = "mercadopago"
+    test("Web Notifications mercadopago"){
+        //Withdrawal
+        "/notification/withdraw_approved_contingency"(platform: "/web") {
+            news_id = "withdraw_approved_contingency-186785675"
+            event_type = "open"
+        }
+        "/notification/withdraw_rejected_contingency"(platform: "/web") {
+            news_id = "withdraw_rejected_contingency-186785675"
+            event_type = "open"
+        }
+
+        //Phone Enrollment
+        "/notification/security_phone_enrollment"(platform: "/web") {
+            news_id = "security_phone_enrollment-186785675"
+            event_type = "open"
+        }
+
+        //Merchant Services
+        "/notification/mss_alliance"(platform: "/web") {
+            news_id = "mss_alliance-186785675"
+            event_type = "open"
+        }
+        "/notification/mss_gplay"(platform: "/web") {
+            news_id = "mss_gplay-186785675"
+            event_type = "open"
+        }
+
+        //Fiscal Data
+        "/notification/fiscal_data_mp_business_registration"(platform: "/web") {
+            news_id = "fiscal_data_mp_business_registration-186785675"
+            event_type = "open"
+        }
     }
 
 }

@@ -32,11 +32,13 @@ tracks {
         catalog_product_id(required: false, description: "Id of the product, only if the product header is showna", PropertyType.String)
         show_supermarket_carousel(required: false, description: "search with supermarket carousel", type: PropertyType.Boolean)
         show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
+        tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
 
         //Tracks from Search Backend:
         backend_data(required: false)
         official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
         items_with_logos(required: false, description: 'items ids that show the brand logo', PropertyType.ArrayList)
+        pdp_highlight_enabled(required: false, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
         //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
@@ -74,6 +76,8 @@ tracks {
         is_googlebot(required: false, description: 'is google bot request', PropertyType.Boolean)
         pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
+        pdp_tracking_info(required: true, description: 'pdp products info', PropertyType.Map(PropertyType.String, PropertyType.String))
+        is_in_seo_whitelist(required: true, description: 'is request in seo whitelist', PropertyType.Boolean)
     }
 
     "/search"(platform: "/mobile") {
@@ -131,6 +135,21 @@ tracks {
     }
 
     "/search/filters"(platform: "/mobile") {}
+    
+    "/search/breadcrumb"(platform: "/mobile", isAbstract: true) {}
+    
+    "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event) {
+        limit(required: false, description: "the max number of items returned", type: PropertyType.Numeric)
+        offset(required: false, description: "the number of items skipped on the search", type: PropertyType.Numeric)
+        total(required: false, description: "amount of search items returned", type: PropertyType.Numeric)
+    }
+    
+    "/search/breadcrumb/apply"(platform: "/mobile", type: TrackType.Event) {
+        filter_id()
+        limit(required: false, description: "the max number of items returned", type: PropertyType.Numeric)
+        offset(required: false, description: "the number of items skipped on the search", type: PropertyType.Numeric)
+        total(required: false, description: "amount of search items returned", type: PropertyType.Numeric)
+    }
 
     "/search/filters_carousel"(platform: "/web", isAbstract: true) {}
     "/search/filters_carousel/click"(platform: "/web", type: TrackType.Event) {
@@ -140,6 +159,7 @@ tracks {
     }
 
     "/search/color_picker"(platform: "/web") {
+        
         item_id(required: true, description: "the item id shown for the product", type: PropertyType.String)
         previous_product_id(required: true, "the product shown before using the picker", type: PropertyType.String)
         product_id(required: true, description: "the product shown after using the picker", type: PropertyType.String)

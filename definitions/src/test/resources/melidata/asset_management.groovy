@@ -21,6 +21,9 @@ trackTests {
 
         // Blocking screen
         "/asset_management/blocker"(platform: "/mobile") {}
+        "/asset_management/legal_entity_selector"(platform: "/mobile") {}
+        "/asset_management/legal_entity_continue"(platform: "/mobile") {}
+        "/asset_management/legal_entity_block"(platform: "/mobile") {}
 
         // Challenges
         "/asset_management/challenge_pep"(platform: "/mobile") {}
@@ -96,6 +99,7 @@ trackTests {
 
         // Congrats
         "/asset_management/result_investing"(platform: "/mobile") {}
+        "/asset_management/result_unavailable"(platform: "/mobile") {}
         "/asset_management/result_investing_company/approved"(platform: "/mobile") {}
         "/asset_management/result_investing_company/pending"(platform: "/mobile") {}
         "/asset_management/result_investing_company/rejected"(platform: "/mobile") {}
@@ -189,6 +193,8 @@ trackTests {
             context = "/asset_management/operations"
         }
 
+        "/asset_management/simulator_slide"(platform: "/mobile") {}
+
         // Meli tests
 
         // Onboarding
@@ -201,6 +207,9 @@ trackTests {
 
         // Blocking screen
         "/asset_management/blocker"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/legal_entity_selector"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/legal_entity_continue"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/legal_entity_block"(platform: "/mobile", business: "mercadolibre") {}
 
         // Challenges
         "/asset_management/challenge_pep"(platform: "/mobile", business: "mercadolibre") {}
@@ -248,6 +257,10 @@ trackTests {
             empty_state_case = "available_money"
         }
 
+        "/asset_management/investment_detail"(platform: "/mobile", business: "mercadolibre") {
+            has_simulator = "true"
+        }
+
         // Earnings report
         "/asset_management/investment_reports"(platform: "/web", business: "mercadolibre") {}
 
@@ -280,6 +293,7 @@ trackTests {
 
         // Congrats
         "/asset_management/result_investing"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/result_unavailable"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/result_investing_company/approved"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/result_investing_company/pending"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/result_investing_company/rejected"(platform: "/mobile", business: "mercadolibre") {}
@@ -369,5 +383,7 @@ trackTests {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
             context = "/asset_management/operations"
         }
+
+        "/asset_management/simulator_slide"(platform: "/mobile", business: "mercadolibre") {}
     }
 }

@@ -106,6 +106,16 @@ tracks {
         sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
     }
+    "/notification_center/campaigns-generic"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        campaign_type(required: true,type: PropertyType.String, description: "Type of the campaign related to the notification sent.")
+        campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
+        test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/", type: TrackType.Event) {
         campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
         item_id(required: true, type: PropertyType.String, description: "Id of item.")
@@ -209,6 +219,8 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
+        items_recommendations(required: false, type: PropertyType.String, description: "Items sent from recommendations.")
+        items_history(required: false, type: PropertyType.String, description: "Items sent from history.")
     }
     "/notification_center/campaigns-remarketing_motors"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
@@ -442,6 +454,7 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
     "/notification_center/prepaid_card"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -490,7 +503,7 @@ tracks {
        **/
       "/notification"(platform: "/") {
           event_type(required: true,
-                  values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
+                  values: ["sent", "resent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
           description: "Type of notification event")
           action_type(required: false,
                   values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"])
@@ -767,6 +780,11 @@ tracks {
           experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
       }
 
+      "/notification/orders_ticket_payment_pending_close_expiration_general_notice"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+          experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
+      }
+
       "/notification/orders_ticket_payment_pending_reminder_general_notice"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric)
           experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
@@ -781,6 +799,15 @@ tracks {
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+      }
+
+      "/notification/campaigns_generic"(platform: "/") {
+          campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+          campaign_type(required: true,type: PropertyType.String, description: "Type of the campaign related to the notification sent.")
+          campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
+          test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+          sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+          batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
       }
 
       //MKT Deals
@@ -1050,6 +1077,8 @@ tracks {
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
+          items_recommendations(required: true, type: PropertyType.String, description: "Items sent from recommendations.")
+          items_history(required: true, type: PropertyType.String, description: "Items sent from history.")
       }
 
       "/notification/campaigns_remarketing_motors"(platform: "/") {
@@ -1146,21 +1175,25 @@ tracks {
     "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
     "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
     "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
     }
 
     //Credits Merchants
@@ -1229,6 +1262,14 @@ tracks {
     "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_invalid_pin"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_approved_authorization"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_approved_withdraw"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_canceled_authorization"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_canceled_withdraw"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {}
+    "/notification/prepaid_card_delivery"(platform: "/mobile") {}
+    "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {}
 
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}
@@ -1251,6 +1292,17 @@ tracks {
     "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {}
 
     //Withdraw
-    "/notification/withdraw_approved_contingency"(platform: "/mobile") {}
+    "/notification/withdraw_approved_contingency"(platform: "/", type: TrackType.Event) {} //At web, only mp business
+    "/notification/withdraw_rejected_contingency"(platform: "/web", type: TrackType.Event) {}
+
+    //Phone Enrollment
+    "/notification/security_phone_enrollment"(platform: "/web", type: TrackType.Event) {}
+
+    //Merchant Services
+    "/notification/mss_alliance"(platform: "/web", type: TrackType.Event) {}
+    "/notification/mss_gplay"(platform: "/web", type: TrackType.Event) {}
+
+    //Fiscal Data
+    "/notification/fiscal_data_mp_business_registration"(platform: "/web", type: TrackType.Event) {}
 
 }
