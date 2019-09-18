@@ -53,6 +53,20 @@ trackTests {
         "/transport/error"(platform: "/mobile") {
             flow = "/transport"
         }
+        "/transport/companies"(platform: "/mobile") {
+            flow = "/transport"
+        }
+        "/transport/select_company"(platform: "/mobile") {
+            flow = "/transport"
+            company = "Bilhete unico (Sao Pablo)"
+        }
+        "/transport/select_card"(platform: "/mobile") {
+            flow = "/transport"
+            company = "Bilhete unico (Sao Pablo)"
+        }
+        "/transport/delete"(platform: "/mobile") {
+            flow = "/transport"
+        }
 
         // Transport Marketing Landing
         "/transport/mkt_landing"(platform: "/web"){
