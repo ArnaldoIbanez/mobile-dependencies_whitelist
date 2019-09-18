@@ -22,8 +22,8 @@ tracks {
     }
 
     propertyGroups {
-        sellGroup(category_path, seller_profile, seller_segment, session_id)
-        categoryFlow(category_id, domain_id, attribute_id, categorization_flow_successful, predictor_chosen, category_prediction_selected_index, attribute_values, title_predicted, predictions)
+        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id)
+        categoryFlow(domain_id, attribute_id, categorization_flow_successful, predictor_chosen, category_prediction_selected_index, attribute_values, title_predicted, predictions)
     }
 
     // Sell
@@ -747,13 +747,16 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Suggestion type", values: ["suggested", "dynamic", "other"])
         container(required: true, description: "Id or name of the container (card, modal, other) where you are", type: PropertyType.String)
     }
+    "/sell/item_data/category_breadcrumb"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
+        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
     }
     "/sell/item_data/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
+        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
     }
 
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
@@ -802,6 +805,7 @@ tracks {
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_id(required: false, type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {

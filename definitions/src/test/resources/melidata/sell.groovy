@@ -1125,6 +1125,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            item_type = "default"
         }
     }
     test("SYI v4 Category breadcrumb update"){
@@ -1148,6 +1149,7 @@ trackTests {
             categorization_flow_successful = true
             predictor_chosen = "ZORDON"
             title_predicted = "test"
+            item_type = "default"
         }
     }
 }
