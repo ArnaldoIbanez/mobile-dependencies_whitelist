@@ -2083,6 +2083,9 @@ trackTests {
         "/digital_goods/terms_and_conditions"(platform: "/mobile") {
             flow = "digital_goods"
         }
+        "/digital_goods/recommended_click"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/digital_goods"
+        }
     }
 
 
@@ -2315,6 +2318,31 @@ trackTests {
             result_status = "rejected"
         }
         "/bill_payments/fee"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/generic_paybills_screen"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/categories"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/barcode_scanner"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/products"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+            type = "option"
+        }
+        "/bill_payments/shopping"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/input_validation_error"(platform: "/mobile", type: TrackType.Event) {
             flow = "/bill_payments"
             from = "/deep_link"
         }

@@ -66,7 +66,7 @@ trackTests {
         "/questions/qadb/feedback"(platform: "/", type: TrackType.Event) {
             qadbBaseInfo()
             transactional_type = "SHIPPING"
-            feedback = true
+            feedbackMessage = true
         }
 
         "/questions/qadb/see_more"(platform: "/", type: TrackType.Event) {
