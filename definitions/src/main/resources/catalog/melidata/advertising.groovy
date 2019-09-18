@@ -151,7 +151,7 @@ tracks {
     }
   
     //Lift
-    "/advertising/pads2/lift/"(platform: "/web", isAbstract: true) {}
+    "/advertising/pads2/manager/lift/"(platform: "/web", isAbstract: true) {}
 
     "/advertising/pads2/manager/lift/details"(platform: "/web", isAbstract: true) {}
     "/advertising/pads2/manager/lift/details/show"(platform: "/web", type: TrackType.Event) {}
