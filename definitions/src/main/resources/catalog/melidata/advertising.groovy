@@ -23,10 +23,10 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: true, description: "Current budget related to the campaign")
-        share_value(required: false, description: "Porcentual share value")
-        chart_visible(required: false, description: "If the chart is visible")
-        detailsMeli_visible(required: false, description: "If the details are visible")
-        share_visible(required: false, description: "If the share is visible")
+        share_value(required: false,  description: "Porcentual share value")
+        chart_visible(required: false, type: PropertyType.Boolean, description: "If the chart is visible")
+        detailsMeli_visible(required: false, type: PropertyType.Boolean, description: "If the details are visible")
+        share_visible(required: false, type: PropertyType.Boolean, description: "If the share is visible")
     }
 
     "/advertising/pads2/manager/update_campaign_status"(platform: "/web", type: TrackType.Event) {
