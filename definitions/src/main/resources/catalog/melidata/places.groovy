@@ -10,7 +10,7 @@ tracks {
                 description: "ID of place (agency) user operates in.")
         shipment_id(required: true, type: PropertyType.Numeric,
                 description: "ID of shipment being validated for reception.")
-        display(required: false, type: PropertyType.String, values: ["browser", "standalone", "none"],
+        display(required: true, type: PropertyType.String, values: ["browser", "standalone", "none"],
                 description: "Specifies the display mode app is running as.")
         validation_error(required: true, type: PropertyType.String,
                 values: ["duplicated", "invalid_shipment", "not_found", "internal_error", "no_connection"],
@@ -23,7 +23,7 @@ tracks {
     propertyGroups {
         place_view(place_id, display)
         place_shipment(place_id, shipment_id, display)
-        place_validation(place_id, shipment_id, validation_error)
+        place_validation(place_id, shipment_id, display, validation_error)
         place_camera(place_id, display, camera_error)
     }
 

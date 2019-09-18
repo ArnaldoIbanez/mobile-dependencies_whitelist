@@ -80,6 +80,7 @@ trackTests {
         def defaultTrackInformation = {
             place_id = "123456"
             shipment_id = 12345678901
+            display = "browser"
             validation_error = "duplicated"
         }
 
