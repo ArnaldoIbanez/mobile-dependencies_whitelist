@@ -48,6 +48,9 @@ trackTests {
             from_clipboard = false
         }
         "/single_player/billpayments/checkout_px/start"(platform: "/mobile") {}
+        "/single_player/billpayments/generic_screen_info"(platform: "/mobile") {
+            utility_error = "{\"concept\":\"invalid_barcode\",\"deeplink\":\"mercadopago://single_player/billpayments/screen_info\",\"icon\":\"paybills_invoice_error\"}"
+        }
     }
 
     test("Antenna") {

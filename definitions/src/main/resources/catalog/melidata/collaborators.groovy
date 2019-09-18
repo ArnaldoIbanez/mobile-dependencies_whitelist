@@ -52,7 +52,7 @@ tracks {
 
     "/collaborators/transform_account"(platform:"/web", type: TrackType.View) {}
 
-    "/collaborators/deadline"(platform:"/web", isAbstract: true) {}
+    "/collaborators/deadline"(platform:"/web", type: TrackType.View) {}
 
     "/collaborators/deadline/form"(platform:"/web", type: TrackType.View) {}
 

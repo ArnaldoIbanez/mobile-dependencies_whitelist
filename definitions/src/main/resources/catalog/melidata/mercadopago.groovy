@@ -890,6 +890,14 @@ tracks {
     "/bill_payments/fixed_amount"(platform: "/mobile") {}
     "/bill_payments/ticket_data"(platform: "/mobile") {}
     "/bill_payments/fee"(platform: "/mobile"){}
+    "/bill_payments/generic_paybills_screen"(platform: "/mobile") {}
+    "/bill_payments/categories"(platform: "/mobile") {}
+    "/bill_payments/barcode_scanner"(platform: "/mobile") {}
+    "/bill_payments/products"(platform: "/mobile") {
+        type (required:true, type: PropertyType.String, description: "Type of product")
+    }
+    "/bill_payments/shopping"(platform: "/mobile") {}
+    "/bill_payments/input_validation_error"(platform: "/mobile", type: TrackType.Event) {}
 
 
     "/money_request"(platform: "/", isAbstract: true) {
@@ -1079,6 +1087,7 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
     "/digital_goods/terms_and_conditions"(platform: "/mobile") {}
+    "/digital_goods/recommended_click"(platform: "/mobile", type: TrackType.Event) {}
 
 
     "/money_detail"(platform: "/mobile", isAbstract: true) {
@@ -1128,8 +1137,12 @@ tracks {
     //MP frontend
 
     "/fund_account/confirm"(platform: "/web"){}
-    "/send_money/confirm"(platform: "/web"){}
-    "/money_request/confirm"(platform: "/web"){}
+    "/send_money/confirm"(platform: "/web", type: TrackType.Event){
+        flow(required: true, PropertyType.String, description: "The flow of the track")
+    }
+    "/money_request/confirm"(platform: "/web", type: TrackType.Event){
+        flow(required: true, PropertyType.String, description: "The flow of the track")
+    }
     "/money_request/congrats"(platform: "/web"){}
 
     "/campaigns"(platform: "/web", isAbstract: true){}

@@ -52,6 +52,7 @@ trackTests {
         // Money Request
         "/mplayer/money_request/contact_picker"(platform: "/mobile") {}
         "/mplayer/money_request/manual_amount"(platform: "/mobile") {}
+        "/mplayer/send_money/result/in_process"(platform: "/mobile") {}
 
         "/mplayer/money_request/contact_picker/invalid_nickname"(platform: "/mobile") {}
 
