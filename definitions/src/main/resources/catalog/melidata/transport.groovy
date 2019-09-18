@@ -46,4 +46,5 @@ tracks {
     "/transport/select_card"(platform: "/mobile", type: TrackType.Event) {
         company (required: true, type: PropertyType.String, description: "Company of the card")
     }
+    "/transport/delete"(platform: "/mobile", type: TrackType.Event) {}
 }

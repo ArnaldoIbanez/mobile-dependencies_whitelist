@@ -64,6 +64,9 @@ trackTests {
             flow = "/transport"
             company = "Bilhete unico (Sao Pablo)"
         }
+        "/transport/delete"(platform: "/mobile") {
+            flow = "/transport"
+        }
 
         // Transport Marketing Landing
         "/transport/mkt_landing"(platform: "/web"){
