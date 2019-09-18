@@ -25,7 +25,7 @@ tracks {
         budget(required: true, description: "Current budget related to the campaign")
         share_value(required: false, description: "Porcentual share value")
         chart_visible(required: false, description: "If the chart is visible")
-        lift_visible(required: false, description: "If the lift is visible")
+        detailsMeli_visible(required: false, description: "If the details are visible")
         share_visible(required: false, description: "If the share is visible")
     }
 
@@ -151,7 +151,7 @@ tracks {
     }
   
     //Lift
-    "/advertising/pads2/manager/lift/"(platform: "/web", isAbstract: true) {}
+    "/advertising/pads2/manager/lift"(platform: "/web", isAbstract: true) {}
 
     "/advertising/pads2/manager/lift/details"(platform: "/web", isAbstract: true) {}
     "/advertising/pads2/manager/lift/details/show"(platform: "/web", type: TrackType.Event) {}

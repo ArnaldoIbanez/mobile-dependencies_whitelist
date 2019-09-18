@@ -15,7 +15,7 @@ trackTests {
             budget = "22.22"
             share_value = "20"
             chart_visible = true
-            lift_visible = true
+            detailsMeli_visible = true
             share_visible = true
         }
 
