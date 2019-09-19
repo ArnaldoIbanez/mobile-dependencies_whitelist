@@ -3469,5 +3469,7 @@ trackTests {
         "/account/mydata"(platform: "/web/mobile", type: TrackType.View) {}
         "/account/mydata/email"(platform: "/web/mobile", type: TrackType.View) {}
         "/account/mydata/email/congrats"(platform: "/web/mobile", type: TrackType.View) {}
+
+        "/account/mydata/email"(platform: "/mobile/android", type: TrackType.View) {}
     }
 }
