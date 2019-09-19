@@ -303,13 +303,13 @@ trackTests {
         }
 
         "/myml/invoices/backoffice/search/reissueinvoice"(platform: "/", type: TrackType.Event) {
-             data = {
+             search_filter = {
                 invoiceId = 123123
             }
         }
 
         "/myml/invoices/backoffice/search/disableinvoice"(platform: "/", type: TrackType.Event) {
-             data = {
+             search_filter = {
                 invoiceId = 123123
             }
         }
