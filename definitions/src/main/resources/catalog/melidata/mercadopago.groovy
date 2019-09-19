@@ -562,7 +562,7 @@ tracks {
 
     "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/settings/point/settings"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
-    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false) {}
     "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {}
     "/settings/point/settings/pricing"(platform: "/mobile", type: TrackType.View) {}
     "/settings/point/installment_cost"(platform: "/mobile", type: TrackType.View) {}
@@ -1047,7 +1047,7 @@ tracks {
     }
 
     "/settings"(platform: "/mobile", isAbstract: true) {
-        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/settings/my_profile"(platform: "/mobile") {}
