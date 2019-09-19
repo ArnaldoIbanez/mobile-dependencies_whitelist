@@ -57,7 +57,7 @@ trackTests {
      // Dashboard
      "/money_out/dashboard"(platform: "/", type: TrackType.View) {}
      "/money_out/dashboard/select"(platform: "/", type: TrackType.Event) {
-         transfer_method (required:true, description: "Transfer method selected")
+         transfer_method = "bank_transfer"
      }
     }
 }
