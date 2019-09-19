@@ -1186,9 +1186,9 @@ tracks {
     }
 
     "/stores"(platform: "/web", isAbstract: true) {}
-    "/stores/create"(platform: "/web", type: TrackType.View) {}
+    "/stores/create"(platform: "/", type: TrackType.View) {}
     "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
-    "/stores/list"(platform: "/web", type: TrackType.View) {}
+    "/stores/list"(platform: "/", type: TrackType.View) {}
     "/stores/update"(platform: "/web", type: TrackType.View) {}
     "/stores/details"(platform: "/web", type: TrackType.View) {}
     "/stores/pos"(platform: "/web", type: TrackType.View, isAbstract:true) {}
@@ -1200,7 +1200,7 @@ tracks {
     //Account mydata
     "/account"(platform: "/web", isAbstract: true) {}
     "/account/mydata"(platform: "/web", isAbstract: true) {}
-    "/account/mydata/email"(platform: "/web", type: TrackType.View) {}
+    "/account/mydata/email"(platform: "/", type: TrackType.View) {}
     "/account/mydata/email/congrats"(platform: "/web", type: TrackType.View) {}
 
 }
