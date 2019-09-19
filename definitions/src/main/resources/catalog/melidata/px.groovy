@@ -197,25 +197,21 @@ tracks {
         payment_id(required: false, type: PropertyType.Numeric, description: "Payment id")
         payment_status(required: true, type: PropertyType.String, description: "Payment status")
         payment_status_detail(required: true, type: PropertyType.String, description: "Payment status")
-    }
-    "/px_checkout/result/success"(platform: "/mobile", type: TrackType.View) {
         preference_amount(required: false, type: PropertyType.Numeric, description: "Total amount")
         currency_id(required: false, type: PropertyType.String, description: "Currency id")
         discount_coupon_amount(required: false, type: PropertyType.Numeric, description: "Discount coupon amount")
         has_split_payment(required: false, type: PropertyType.Boolean, description: "Pay with split payment")
+        has_bottom_view(required: false, type: PropertyType.Boolean, description: "Result view has bottom view component")
+        has_top_view(required: false, type: PropertyType.Boolean, description: "Result view has top view component")
+        has_important_view(required: false, type: PropertyType.Boolean, description: "Result view has important view component")
+        score_level(required: false, type: PropertyType.Numeric, description: "Payer score level")
+        discounts_count(required: false, type: PropertyType.Numeric, description: "Discounts items displayed")
+        campaigns_ids(required: false, type: PropertyType.String, description: "Campaigns ids of discounts displayed")
+        campaign_id(required: false, type: PropertyType.String, description: "Campaign id of discount applied to payment")
     }
-    "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {
-        preference_amount(required: false, type: PropertyType.Numeric, description: "Total amount")
-        currency_id(required: false, type: PropertyType.String, description: "Currency id")
-        discount_coupon_amount(required: false, type: PropertyType.Numeric, description: "Discount coupon amount")
-        has_split_payment(required: false, type: PropertyType.Boolean, description: "Pay with split payment")
-    }
-    "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {
-        preference_amount(required: false, type: PropertyType.Numeric, description: "Total amount")
-        currency_id(required: false, type: PropertyType.String, description: "Currency id")
-        discount_coupon_amount(required: false, type: PropertyType.Numeric, description: "Discount coupon amount")
-        has_split_payment(required: false, type: PropertyType.Boolean, description: "Pay with split payment")
-    }
+    "/px_checkout/result/success"(platform: "/mobile", type: TrackType.View) {}
+    "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {}
+    "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {}
     "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {}
 
     // Card association result views
@@ -494,12 +490,46 @@ tracks {
     "/px_checkout/result/success/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
+    "/px_checkout/result/success/tap_score"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/success/tap_discount_item"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        index(required: true, type: PropertyType.Numeric , description: "Discount item index")
+        campaign_id(required: true, type: PropertyType.String, description: "Discount's campaign id")
+        externalData
+    }
+    "/px_checkout/result/success/tap_see_all_discounts"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/success/tap_download_app"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/success/tap_cross_selling"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
 
     // Unknown result
     "/px_checkout/result/unknown/continue"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
     "/px_checkout/result/unknown/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/unknown/tap_score"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/unknown/tap_discount_item"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        index(required: true, type: PropertyType.Numeric , description: "Discount item index")
+        campaign_id(required: true, type: PropertyType.String, description: "Discount's campaign id")
+        externalData
+    }
+    "/px_checkout/result/unknown/tap_see_all_discounts"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/unknown/tap_download_app"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/unknown/tap_cross_selling"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
     "/px_checkout/result/unknown/change_payment_method"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -516,8 +546,24 @@ tracks {
     "/px_checkout/result/further_action_needed/continue"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
-
     "/px_checkout/result/further_action_needed/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/further_action_needed/tap_score"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/further_action_needed/tap_discount_item"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        index(required: true, type: PropertyType.Numeric , description: "Discount item index")
+        campaign_id(required: true, type: PropertyType.String, description: "Discount's campaign id")
+        externalData
+    }
+    "/px_checkout/result/further_action_needed/tap_see_all_discounts"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/further_action_needed/tap_download_app"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/result/further_action_needed/tap_cross_selling"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
 
