@@ -166,8 +166,9 @@ tracks {
     "/prepaid/change_pin/new_pin" (platform: "/", type: TrackType.View) {}
 
     // Prepaid Change Pin Congrats
-    "/prepaid/change_pin/congrats" (platform: "/", type: TrackType.View) {}
-
+    "/prepaid/change_pin/congrats" (platform: "/", type: TrackType.View) {
+        result_status (required:false, values: ["SUCCESS", "PENDING", "REJECTED"],  description: "The type of Congrats displayed to the user")
+    }
     // Prepaid Reissue
     "/prepaid/reissue" (platform: "/", isAbstract: true) {}
 
