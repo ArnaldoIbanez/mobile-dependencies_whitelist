@@ -90,7 +90,13 @@ tracks {
         reset_gestures(type: PropertyType.Boolean, required: true, description: "Indicates if the user has to start again in the array of gestures")
     }
 
-    def gestures_probabilities_definition = objectSchemaDefinitions {}
+    def gestures_probabilities_definition = objectSchemaDefinitions {
+        left_eye(type: PropertyType.Numeric, required: false, description: "left eye probability")
+        right_eye(type: PropertyType.Numeric, required: false, description: "right eye probability")
+        smile(type: PropertyType.Numeric, required: false, description: "simle probability ")
+        rotation(type: PropertyType.Numeric, required: false, description: "rotation probability")
+
+    }
 
     "/remedies/proof_of_life_gesture"(platform: "/mobile", type: TrackType.Event) {
         gesture(type: PropertyType.String, required: true, description: "Type of validation made")
