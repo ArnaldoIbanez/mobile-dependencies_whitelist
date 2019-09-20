@@ -85,6 +85,18 @@ tracks {
         max_size(type: PropertyType.Numeric, required: true, description: "Max side size")
     }
 
+    "/remedies/proof_of_life_validation"(platform: "/mobile", type: TrackType.Event) {
+        validation(type: PropertyType.String, required: true, description: "Gesture made by the user")
+        reset_gestures(type: PropertyType.Boolean, required: true, description: "Indicates if the user has to start again in the array of gestures")
+    }
+
+    def gestures_probabilities_definition = objectSchemaDefinitions {}
+
+    "/remedies/proof_of_life_gesture"(platform: "/mobile", type: TrackType.Event) {
+        gesture(type: PropertyType.String, required: true, description: "Type of validation made")
+        gestures_probabilities(type: PropertyType.Map(gestures_probabilities_definition), required: true, description: "Map of probabilities of each gesture")
+    }
+
     "/remedies/activity/check_step"(platform: "/mobile", type: TrackType.View) {}
     "/remedies/activity/landing"(platform: "/mobile", type: TrackType.View) {}
     "/remedies/activity/phone_landing"(platform: "/mobile", type: TrackType.View) {}
