@@ -2598,6 +2598,18 @@ trackTests {
         "/money_detail/help_modal"(platform: "/mobile") {
             flow = "/money_detail"
         }
+
+        "/money_detail/withdraw"(platform: "/") {}
+        "/money_detail/daily_detail"(platform: "/") {}
+        "/money_detail/money-advance"(platform: "/") {}
+        "/money_detail/restrictions"(platform: "/") {}
+        "/money_detail/point_home"(platform: "/") {}
+        "/money_detail"(platform: "/") {}
+        "/money_detail/withdraw/main"(platform: "/") {}
+        "/money_detail/withdraw/confirmation"(platform: "/") {}
+        "/money_detail/withdraw/congrats"(platform: "/") {}
+        "/money_detail/withdraw/add_account"(platform: "/") {}
+        "/money_detail/withdraw/select_bank"(platform: "/") {}   
     }
 
 // END -- MPMOBILE TEST

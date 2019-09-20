@@ -1117,6 +1117,20 @@ tracks {
     "/money_detail/balance"(platform: "/mobile") {}
     "/money_detail/help_modal"(platform: "/mobile") {}
 
+    //Withdraw
+    "/money_detail/withdraw/main"(platform: "/", type: TrackType.View) {}
+    "/money_detail/withdraw/confirmation"(platform: "/", type: TrackType.View) {}
+    "/money_detail/withdraw/congrats"(platform: "/", type: TrackType.View) {}
+    "/money_detail/withdraw/add_account"(platform: "/", type: TrackType.View) {}
+    "/money_detail/withdraw/select_bank"(platform: "/", type: TrackType.View) {}    
+    "/money_detail/withdraw"(platform: "/",, isAbstract: true) {}
+    "/money_detail/daily_detail"(platform: "/", , isAbstract: true) {}
+    "/money_detail/money-advance"(platform: "/", , isAbstract: true) {}
+    "/money_detail/restrictions"(platform: "/", , isAbstract: true) {}
+    "/money_detail/point_home"(platform: "/", , isAbstract: true) {}
+    "/money_detail/withdraw"(platform: "/", , isAbstract: true) {}
+    "/money_detail"(platform: "/", , isAbstract: true) {}
+
     /**
      * END NOTIFICATIONS
      **/
