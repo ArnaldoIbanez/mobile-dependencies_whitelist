@@ -546,32 +546,19 @@ tracks {
     "/point_payment/flow_tracker/auto_reverse_off"(platform: "/mobile", type: TrackType.Event) {
         trx_id (required: true, type: PropertyType.String, description: "trx1234567")
     }
+    "/point_payment/write_concept"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/customer_care"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/start_refund"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/customer_care_success"(platform: "/mobile", type: TrackType.View) {}
 
-    "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
-    "/settings/point/settings"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
-    "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {}
-    "/settings/point/settings/pricing"(platform: "/mobile", type: TrackType.View) {}
-    "/settings/point/installment_cost"(platform: "/mobile", type: TrackType.View) {}
-    "/settings/point/device_mlb"(platform: "/mobile", type: TrackType.View) {}
-    "/settings/pairing"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment_test"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/point_payment_test/test_payment"(platform: "/mobile", type: TrackType.View) {}
 
-    "/settings/reader_update"(platform: "/mobile", type: TrackType.View) {
-        poi (required: true, type: PropertyType.String, description: "Poi (reader serial number)")
-    }
-    "/settings/reader_update/onboarding"(platform: "/mobile", type: TrackType.View) {}
-    "/settings/reader_update/result"(platform: "/mobile", type: TrackType.View) {}
-    "/settings/reader_update/process_completed"(platform: "/mobile", type: TrackType.Event) {
-        duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds")
-        previous_version (required: true, type: PropertyType.String, description: "Reader previous firmware version")
-        previous_config (required: true, type: PropertyType.String, description: "Reader previous config version")
-        new_version (required: true, type: PropertyType.String, description: "Reader firmware version updated")
-        new_config (required: true, type: PropertyType.String, description: "Reader config version updated")
-    }
-    "/settings/reader_update/cancel"(platform: "/mobile", type: TrackType.Event) {
-        duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds before cancel")
-        time_remaining (required: true, type: PropertyType.Numeric, description: "Estimated time remaining before cancel")
-        progress (required: true, type: PropertyType.Numeric, description: "Update progress at cancel")
-    }
+
+    "/point_payment/cash"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/point_payment/cash/ftu"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/cash/congrats"(platform: "/mobile", type: TrackType.View) {}
+
 
     "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
 
@@ -602,8 +589,12 @@ tracks {
 
     "/company_info"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/company_info/on_boarding"(platform: "/mobile", type: TrackType.View) {}
+    "/company_info/main"(platform: "/mobile", type: TrackType.View) {}
+    "/company_info/brand_name"(platform: "/mobile", type: TrackType.View) {}
+    "/company_info/mcc"(platform: "/mobile", type: TrackType.View) {}
+    "/company_info/push_soft_descriptor"(platform: "/mobile", type: TrackType.View) {}
 
-    "/dashboard"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/dashboard"(platform: "/mobile", type: TrackType.View) {}
 
     // MP Point Standalone (a eliminar cuando inhabilitemos la app de point)
 
@@ -1035,6 +1026,7 @@ tracks {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
+    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false) {}
     "/settings/my_profile"(platform: "/mobile") {}
     "/settings/balance"(platform: "/mobile") {}
     "/settings/my_cards"(platform: "/mobile") {}
@@ -1043,6 +1035,34 @@ tracks {
     "/settings/verify_pin"(platform: "/mobile") {}
     "/settings/set_pin_code"(platform: "/mobile") {}
     "/settings/about"(platform: "/mobile") {}
+    "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/settings/point/settings"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/point/settings/pricing"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/point/installment_cost"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/point/device_mlb"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/pairing"(platform: "/mobile", type: TrackType.View) {}
+
+    "/settings/reader_update"(platform: "/mobile", type: TrackType.View) {
+        poi (required: true, type: PropertyType.String, description: "Poi (reader serial number)")
+    }
+    "/settings/reader_update/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/reader_update/result"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/reader_update/process_completed"(platform: "/mobile", type: TrackType.Event) {
+        duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds")
+        previous_version (required: true, type: PropertyType.String, description: "Reader previous firmware version")
+        previous_config (required: true, type: PropertyType.String, description: "Reader previous config version")
+        new_version (required: true, type: PropertyType.String, description: "Reader firmware version updated")
+        new_config (required: true, type: PropertyType.String, description: "Reader config version updated")
+    }
+    "/settings/reader_update/cancel"(platform: "/mobile", type: TrackType.Event) {
+        duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds before cancel")
+        time_remaining (required: true, type: PropertyType.Numeric, description: "Estimated time remaining before cancel")
+        progress (required: true, type: PropertyType.Numeric, description: "Update progress at cancel")
+    }
+    "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
 
     "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
         channel (required: true, type: PropertyType.String, description: "The channel that was modified")

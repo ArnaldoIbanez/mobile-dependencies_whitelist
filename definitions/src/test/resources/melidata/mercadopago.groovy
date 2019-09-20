@@ -1598,6 +1598,14 @@ trackTests {
 
         }
 
+        "/point_payment/write_concept"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/customer_care"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/start_refund"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/customer_care_success"(platform: "/mobile", type: TrackType.View) {}
+
+
+        "/point_payment/cash/ftu"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/cash/congrats"(platform: "/mobile", type: TrackType.View) {}
 
         "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {
             flow = "point"
@@ -1614,6 +1622,11 @@ trackTests {
         "/settings/pairing"(platform: "/mobile", type: TrackType.View) {
             flow = "point"
         }
+
+        "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
+        "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
+        "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
+
         "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
             flow = "settings"
             channel = "point"
@@ -1656,8 +1669,16 @@ trackTests {
         "/ftu_release/point_&_mp_app"(platform: "/mobile", type: TrackType.View) {}
 
         "/company_info/on_boarding"(platform: "/mobile", type: TrackType.View) {}
+        "/company_info/main"(platform: "/mobile", type: TrackType.View) {}
+        "/company_info/brand_name"(platform: "/mobile", type: TrackType.View) {}
+        "/company_info/mcc"(platform: "/mobile", type: TrackType.View) {}
+        "/company_info/push_soft_descriptor"(platform: "/mobile", type: TrackType.View) {}
 
-        "/dashboard"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/dashboard"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Point Payment Test") {
+        "/point_payment_test/test_payment"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Settings Point Reader Update") {
