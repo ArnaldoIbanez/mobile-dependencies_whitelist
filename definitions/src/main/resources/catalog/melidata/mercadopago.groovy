@@ -1205,17 +1205,17 @@ tracks {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
 
-    "/stores"(platform: "/web", isAbstract: true) {}
+    "/stores"(platform: "/", isAbstract: true) {}
     "/stores/create"(platform: "/", type: TrackType.View) {}
-    "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
+    "/stores/link_operators"(platform: "/", type: TrackType.View) {}
     "/stores/list"(platform: "/", type: TrackType.View) {}
-    "/stores/update"(platform: "/web", type: TrackType.View) {}
-    "/stores/details"(platform: "/web", type: TrackType.View) {}
-    "/stores/pos"(platform: "/web", type: TrackType.View, isAbstract:true) {}
-    "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
-    "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
-    "/stores/standalone_pos"(platform: "/web", type: TrackType.View) {}
-    "/stores/move_pos"(platform: "/web", type: TrackType.View) {}
+    "/stores/update"(platform: "/", type: TrackType.View) {}
+    "/stores/details"(platform: "/", type: TrackType.View) {}
+    "/stores/pos"(platform: "/", type: TrackType.View, isAbstract:true) {}
+    "/stores/pos/create"(platform: "/", type: TrackType.View) {}
+    "/stores/pos/update"(platform: "/", type: TrackType.View) {}
+    "/stores/standalone_pos"(platform: "/", type: TrackType.View) {}
+    "/stores/move_pos"(platform: "/", type: TrackType.View) {}
 
     //Account mydata
     "/account"(platform: "/web", isAbstract: true) {}
