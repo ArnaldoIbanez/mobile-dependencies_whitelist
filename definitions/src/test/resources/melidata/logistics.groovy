@@ -29,6 +29,12 @@ trackTests {
             error_type = "connection"
             error_step_id = "example_step_id"
         }
+
+        //Conciliation sorting fail
+        "/logistics/conciliation/fail"(platform: "/mobile", type: TrackType.View){}
+
+        //Conciliation sorting ok
+        "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View){}
     }
 
 }
