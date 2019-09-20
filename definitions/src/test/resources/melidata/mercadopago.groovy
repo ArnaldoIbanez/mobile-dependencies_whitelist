@@ -2605,12 +2605,11 @@ trackTests {
         "/money_detail/restrictions"(platform: "/") {}
         "/money_detail/point_home"(platform: "/") {}
         "/money_detail"(platform: "/") {}
-
-        "/money_detail/withdraw/main"(platform: "/", type: TrackType.View) {}
-        "/money_detail/withdraw/confirmation"(platform: "/", type: TrackType.View) {}
-        "/money_detail/withdraw/congrats"(platform: "/", type: TrackType.View) {}
-        "/money_detail/withdraw/add_account"(platform: "/", type: TrackType.View) {}
-        "/money_detail/withdraw/select_bank"(platform: "/", type: TrackType.View) {}   
+        "/money_detail/withdraw/main"(platform: "/") {}
+        "/money_detail/withdraw/confirmation"(platform: "/") {}
+        "/money_detail/withdraw/congrats"(platform: "/") {}
+        "/money_detail/withdraw/add_account"(platform: "/") {}
+        "/money_detail/withdraw/select_bank"(platform: "/") {}   
     }
 
 // END -- MPMOBILE TEST
