@@ -91,11 +91,11 @@ trackTests {
         }
 
         "/remedies/proof_of_life_gesture"(platform: "/mobile") {
-            gesture = "open_eye"
-            gestures_probabilities : [
+            gestures_probabilities = [
                 left_eye: 0.99,
                 right_eye: 0.98
             ]
+            gesture = "open_eye"
         }
 
         "/remedies/activity/check_step"(platform: "/mobile/android") {}
@@ -362,7 +362,7 @@ trackTests {
 
         "/remedies/proof_of_life_gesture"(platform: "/mobile") {
             gesture = "open_eye"
-            gestures_probabilities : [
+            gestures_probabilities = [
                 left_eye: 0.99,
                 right_eye: 0.98
             ]
