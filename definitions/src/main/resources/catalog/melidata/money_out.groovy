@@ -40,4 +40,10 @@ tracks {
     "/money_out/cashout/onboarding/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/cashout/onboarding/done"(platform: "/", type: TrackType.Event) {}
     "/money_out/cashout/onboarding/close"(platform: "/", type: TrackType.Event) {}
+
+    // Dashboard
+    "/money_out/dashboard"(platform: "/", type: TrackType.View) {}
+    "/money_out/dashboard/select"(platform: "/", type: TrackType.Event) {
+        transfer_method (required:true, description: "Transfer method selected")
+    }
 }
