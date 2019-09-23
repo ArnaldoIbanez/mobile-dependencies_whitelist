@@ -31,7 +31,7 @@ trackTests {
         }
 
         //Conciliation sorting fail
-        "/logistics/conciliation/fail"(platform: "/mobile", type: TrackType.View){}
+        "/logistics/conciliation/fail"(platform: "/mobile"){}
 
         //Conciliation sorting ok
         "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View){}
