@@ -1239,6 +1239,12 @@ tracks {
         installment_id(required: true, type: PropertyType.Numeric)
     }
 
+    "/notification/coverages_compensation_complainant"(platform: "/mobile") {
+        activity_id(required: true , type: PropertyType.String)
+    }
+
+    "/notification/cancellations_warning_seller_suspended"(platform: "/mobile") {}
+
     "/notification/seller_journey_congrats"(platform: "/mobile"){
         latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")

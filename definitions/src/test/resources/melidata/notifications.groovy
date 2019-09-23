@@ -909,6 +909,15 @@ trackTests {
             experiment = false
         }
 
+        "/notification/cancellations_warning_seller_suspended"(platform: "/mobile") {
+            event_type = "shown"
+        }
+
+        "/notification/coverages_compensation_complainant"(platform: "/mobile") {
+            event_type = "shown"
+            activity_id = "12345"
+        }
+
         "/notification/compliance_support_validations"(platform: "/mobile") {
             event_type = "shown"
         }
@@ -5054,12 +5063,21 @@ trackTests {
         //CX Question
         "/notification/cx_question_mp"(platform: "/web"){
             case_id= 12345678
-            event_type = "sent"
+            event_type = "open"
         }
 
         "/notification/cx_question_ml"(platform: "/web"){
             case_id= 12345678
-            event_type = "sent"
+            event_type = "open"
+        }
+
+        "/notification/cancellations_warning_seller_suspended"(platform: "/mobile") {
+            event_type = "open"
+        }
+
+        "/notification/coverages_compensation_complainant"(platform: "/mobile") {
+            event_type = "open"
+            activity_id = "12345"
         }
     }
 
