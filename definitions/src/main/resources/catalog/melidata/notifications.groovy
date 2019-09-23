@@ -482,19 +482,15 @@ tracks {
     }
 
     "/notification_center/seller_journey_congrats"(platform: "/", type: TrackType.Event){
-        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
     "/notification_center/seller_journey_keep_it_up"(platform: "/", type: TrackType.Event){
-        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
     "/notification_center/seller_journey_work_harder"(platform: "/", type: TrackType.Event){
-        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
     "/notification_center/seller_journey_do_something"(platform: "/", type: TrackType.Event){
-        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
 
