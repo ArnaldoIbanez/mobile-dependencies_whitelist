@@ -259,6 +259,12 @@ trackTests {
             budget = "22.22"
             share_value = "20"
         }
+        "/advertising/pads2/manager/lift/tooltip/info"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
         "/advertising/pads2/manager/lift/tooltip/prints"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "active"

@@ -164,6 +164,7 @@ tracks {
     "/advertising/pads2/manager/lift/tooltip"(platform: "/web", isAbstract: true) {}
     "/advertising/pads2/manager/lift/tooltip/adv_sales"(platform: "/web", type: TrackType.Event) {}
     "/advertising/pads2/manager/lift/tooltip/meli_sales"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/tooltip/info"(platform: "/web", type: TrackType.Event) {}
     "/advertising/pads2/manager/lift/tooltip/prints"(platform: "/web", type: TrackType.Event) {}
     "/advertising/pads2/manager/lift/tooltip/clics"(platform: "/web", type: TrackType.Event) {}
     "/advertising/pads2/manager/lift/tooltip/income"(platform: "/web", type: TrackType.Event) {}
