@@ -1,6 +1,5 @@
 select 
-substr(ds,1,10) as ds, 
-device.platform AS platform,
+ device.platform AS platform,
 (CASE WHEN platform.fragment RLIKE '.*menu-user.*' THEN 'mobile_navegation_bar'
         WHEN platform.fragment RLIKE '.*nav-header.*' THEN 'desktop_navegation_bar'
         WHEN jest(platform.fragment, 'sp_origin') RLIKE 'footer' THEN 'desktop_footer'
@@ -13,7 +12,8 @@ device.platform AS platform,
         WHEN jest(platform.fragment, 'sp_origin') RLIKE 'push' THEN 'push'
         ELSE 'others' END 
 ) AS source,
-count(*) as total
+count(*) as total,
+substr(ds,1,10) as track_date
         
 from tracks
 where path = '/promotions'
