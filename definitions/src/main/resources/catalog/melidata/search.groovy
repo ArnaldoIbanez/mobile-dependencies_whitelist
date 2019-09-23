@@ -230,4 +230,7 @@ tracks {
         recommended_categories(required: true, description: "the recommended categories for the item", type: PropertyType.ArrayList)
     }
 
+    "/search/finite_navigation"(platform: "/mobile/android", type: TrackType.Control, parentPropertiesInherited:false) {
+    }
+
 }
