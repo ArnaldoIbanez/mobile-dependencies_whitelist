@@ -1486,6 +1486,14 @@ trackTests {
             shipment_id = 1234
             order_id = 123
         }
+        "/notification/shipping_not_delivered_retained_sender"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
+        }
+
         "/notification/collections_approved"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "dismiss"
@@ -3990,6 +3998,13 @@ trackTests {
             order_id = 123
         }
         "/notification/shipping_legacy_reminder_agency_withdrawal"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            deeplink = "meli://sales/11222#shipping"
+            shipment_id = 1234
+            order_id = 123
+        }
+        "/notification/shipping_not_delivered_retained_sender"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"

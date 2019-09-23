@@ -722,6 +722,11 @@ tracks {
           order_id(required: true, type: PropertyType.Numeric)
       }
 
+      "/notification/shipping_not_delivered_retained_sender"(platform: "/") {
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+
       //Seller questions
       "/notification/questions_new"(platform: "/") {
           question_id(required: true, type: PropertyType.Numeric)
