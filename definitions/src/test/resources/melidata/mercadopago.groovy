@@ -684,12 +684,19 @@ trackTests {
         }
     }
 
-    test("MP-MA Point Pro paper rolls request") {
-        "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
+    test("Paper Rolls (Bobinas)") {
+        "/merchant_acquisition/flows/paper_rolls"(platform:"/", type: TrackType.View) {
           view = "order"
         }
-        "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
-          view = "congrats_waiting"
+
+        "/merchant_acquisition/flows/paper_rolls/complete_form"(platform:"/", type: TrackType.Event) {
+          view = "order"
+        }
+        "/merchant_acquisition/flows/paper_rolls/modal/update_address"(platform: "/", type: TrackType.Event) {
+          view = "order"
+        }
+        "/merchant_acquisition/flows/paper_rolls/modal/add_address"(platform: "/", type: TrackType.Event) {
+          view = "order"
         }
     }
 
