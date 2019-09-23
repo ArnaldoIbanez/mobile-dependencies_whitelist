@@ -168,10 +168,20 @@ tracks {
       qr_content (type: PropertyType.String, required: true, description: "Ex: http://qrContent")
     }
 
-    // Point Pro Solicitud Bobinas > Pageviews
+    // Bobinas > Pageviews
     "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
-      view (type: PropertyType.String, required: true, description: "Type of view", values: ["order", "registration", "congrats_waiting", "congrats_success", "congrats_registration", "access_denied", "error"])
+      view (
+        type: PropertyType.String,
+        required: true, description: "Type of view",
+        values: ["order", "registration", "congrats_waiting", "congrats_success", "congrats_registration", "access_denied", "error"]
+      )
     }
+    "/merchant_acquisition/flows/paper_rolls/modal"(platform: "/", isAbstract: true) {}
+
+    // Bobinas > Events
+    "/merchant_acquisition/flows/paper_rolls/complete_form"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/paper_rolls/modal/update_address"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/paper_rolls/modal/add_address"(platform: "/", type: TrackType.Event) {}
 
     // QR Queue Web > Pageviews
     "/merchant_acquisition/flows/qr-queue"(platform:"/", type: TrackType.View) {}
