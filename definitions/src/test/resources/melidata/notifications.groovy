@@ -1026,6 +1026,11 @@ trackTests {
             loan_id = 123
         }
 
+        "/notification/cx_question_ml"(platform: "/mobile"){
+            case_id= 12345678
+            event_type = "sent"
+        }
+
         "/notification/instore_discover_activities"(platform: "/mobile"){
             news_id = "instore-discover_activities-321953606"
             event_type = "sent"
@@ -3511,6 +3516,11 @@ trackTests {
             loan_id = 123
         }
 
+        "/notification/cx_question_mp"(platform: "/mobile"){
+            case_id= 12345678
+            event_type = "sent"
+        }
+
         "/notification/instore_discover_activities"(platform: "/mobile"){
             news_id = "instore-discover_activities-321953606"
             event_type = "sent"
@@ -4994,6 +5004,17 @@ trackTests {
             news_id = "fiscal_data_mp_business_registration-186785675"
             event_type = "open"
         }
+
+        //CX Question
+        "/notification/cx_question_ml"(platform: "/web"){
+            case_id= 12345678
+            event_type = "sent"
+        }
+
+        "/notification/cx_question_mp"(platform: "/web"){
+            case_id= 12345678
+            event_type = "sent"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -5028,6 +5049,17 @@ trackTests {
         "/notification/fiscal_data_mp_business_registration"(platform: "/web") {
             news_id = "fiscal_data_mp_business_registration-186785675"
             event_type = "open"
+        }
+
+        //CX Question
+        "/notification/cx_question_mp"(platform: "/web"){
+            case_id= 12345678
+            event_type = "sent"
+        }
+
+        "/notification/cx_question_ml"(platform: "/web"){
+            case_id= 12345678
+            event_type = "sent"
         }
     }
 

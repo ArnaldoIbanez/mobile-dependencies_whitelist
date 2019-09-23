@@ -575,6 +575,14 @@ tracks {
           loan_id(required: true, type: PropertyType.Numeric)
       }
 
+      //CX Question
+      "/notification/cx_question_mp"(platform: "/") {
+          case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
+      }
+      "/notification/cx_question_ml"(platform: "/") {
+          case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
+      }
+
       //Compliance Support
       "/notification/compliance_support_validations"(platform: "/") {}
 
