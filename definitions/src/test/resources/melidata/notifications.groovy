@@ -954,6 +954,16 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/mobile") {
+            news_id = "credits-consumer_expired_n_loans_third_notice-21680059-20180516"
+            event_type = "shown"
+        }
+
+        "/notification/credits_consumer_expired_sixty_notice"(platform: "/mobile") {
+            news_id = "credits-consumer_expired_n_loans_third_notice-21680059-20180516"
+            event_type = "shown"
+        }
+
         "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/mobile") {
             news_id = "credits-consumer_about_to_expire_n_loans_first_notice-21680059-20180516"
             event_type = "shown"
@@ -3422,6 +3432,16 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/mobile") {
+            news_id = "credits-consumer_expired_n_loans_third_notice-21680059-20180516"
+            event_type = "shown"
+        }
+
+        "/notification/credits_consumer_expired_sixty_notice"(platform: "/mobile") {
+            news_id = "credits-consumer_expired_n_loans_third_notice-21680059-20180516"
+            event_type = "shown"
+        }
+        
         "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/mobile") {
             news_id = "credits-consumer_about_to_expire_n_loans_first_notice-21680059-20180516"
             event_type = "shown"

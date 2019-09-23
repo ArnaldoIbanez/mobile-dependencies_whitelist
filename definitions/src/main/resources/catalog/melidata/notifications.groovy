@@ -570,6 +570,8 @@ tracks {
       "/notification/credits_consumer_expired_n_loans_fourth_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_second_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_third_notice"(platform: "/") {}
+      "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/") {}
+      "/notification/credits_consumer_expired_sixty_notice"(platform: "/") {}
 
       "/notification/credits_merchants_educational"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric)
