@@ -429,4 +429,9 @@ trackTests {
 
         }
     }
+
+    test("Search fintie navigation experiment"){
+        "/search/finite_navigation"(platform: "/mobile/android"){
+        }
+    }
 }
