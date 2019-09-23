@@ -528,9 +528,6 @@ tracks {
           context(required: false, type: PropertyType.String)
       }
 
-      "/notification/anses_paid_benefit"(platform: "/") {}
-      "/notification/account_fund_approved_ted"(platform: "/") {}
-      "/notification/account_fund_cvu"(platform: "/") {}
       "/notification/account_fund_approved_mp"(platform: "/") {}
       "/notification/account_fund_approved_ml"(platform: "/") {}
       "/notification/account_fund_salary"(platform: "/") {}
@@ -602,7 +599,6 @@ tracks {
 
       //Messages
       "/notification/messages_quotes"(platform: "/") {}
-      "/notification/messages_flex"(platform: "/") {}
 
       "/notification/moderations_item_to_patch"(platform: "/") {
           item_id(required: true, type: PropertyType.String, description: "Id of item.")
@@ -834,7 +830,6 @@ tracks {
        //Marketplace Discounts
       "/notification/campaigns_marketplace_discounts"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
-          campaign_type(required: true,type: PropertyType.String, description: "Type of the campaign related to the notification sent.")
           test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
           item_id(required: true, type: PropertyType.String)
@@ -1096,7 +1091,6 @@ tracks {
 
       "/notification/campaigns_control_group"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
-          campaign_type(required: true,type: PropertyType.String, description: "Type of the campaign related to the notification sent.")
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
@@ -1113,6 +1107,9 @@ tracks {
       "/notification/fraud_identity_validation"(platform: "/") {}
       "/notification/fraud_delivery_cancellation_stop_ml"(platform: "/") {}
       "/notification/fraud_cash_release_iv"(platform: "/") {}
+      "/notification/fraud_iv_credentials"(platform: "/") {}
+      "/notification/fraud_score_post_approval_last_chance_mp"(platform: "/") {}
+      "/notification/fraud_score_post_approval_last_chance_ml"(platform: "/") {}
 
       //Loyalty
       "/notification/loyalty"(platform: "/") {}
@@ -1254,6 +1251,13 @@ tracks {
     //Inivite Gift
     "/notification/invite_gift"(platform: "/mobile") {}
 
+    //Merchants
+    "/notification/merchants_growth_mgm"(platform: "/mobile") {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        gift_reason_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
     //Money
     "/notification/money_transfer_received"(platform: "/mobile") {}
     "/notification/money_transfer_request"(platform: "/mobile") {}
@@ -1276,8 +1280,6 @@ tracks {
     "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {}
     "/notification/prepaid_card_delivery"(platform: "/mobile") {}
     "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {}
-    "/notification/prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"(platform: "/mobile") {}
-    "/notification/oprepaid_card_soon_deliver"(platform: "/mobile") {}
 
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}

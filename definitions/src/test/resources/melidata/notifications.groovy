@@ -764,11 +764,6 @@ trackTests {
             source = "logout"
         }
 
-        "/notification/anses_paid_benefit"(platform: "/mobile") {
-            news_id = "anses_paid_benefit-12345678"
-            event_type = "shown"
-        }
-
         "/notification/account_fund_approved_ml"(platform: "/mobile") {
             news_id = "account_fund-account_fund-approved_ml-12345678"
             event_type = "shown"
@@ -776,16 +771,6 @@ trackTests {
 
         "/notification/account_fund_approved_mp"(platform: "/mobile") {
             news_id = "account_fund-account_fund-approved_mp-12345678"
-            event_type = "shown"
-        }
-
-        "/notification/account_fund_approved_ted"(platform: "/mobile") {
-            news_id = "account_fund-account_fund-approved_ted-12345678"
-            event_type = "shown"
-        }
-
-        "/notification/account_fund_cvu"(platform: "/mobile") {
-            news_id = "account_fund_cvu-12345678"
             event_type = "shown"
         }
 
@@ -852,7 +837,6 @@ trackTests {
             event_type = "received"
             deeplink ="meli://search?q=sony"
             campaign_id = "mkt_campaign_co"
-            campaign_type = "campaign_test"
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
@@ -1123,7 +1107,6 @@ trackTests {
             news_id = "CIbDQhDb3hMYCQ==-5e22992d1b3518a"
             event_type = "discarded"
             campaign_id = "RECOVERY_CHECKOUT_MLB_60m-65m_20180516_CG"
-            campaign_type = "campaign_test"
             sent_date = "20180516"
             batch_id = "RECOVERY_CHECKOUT_MLB_60m-65m"
             deal_id = "RMK_MCO"
@@ -2049,6 +2032,21 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/fraud_iv_credentials"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/fraud_score_post_approval_last_chance_mp"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/fraud_score_post_approval_last_chance_ml"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
         "/notification/health_check"(platform: "/mobile/android") {
             news_id = "COXwPxDrigQYBw==-1eb9ff37e01d45b0"
             original_news_id = "messages-new-1688986927-60f251a8ee0a4b748b6c1b59bc1e267a"
@@ -2085,11 +2083,6 @@ trackTests {
             event_type = "shown"
         }
 
-        "/notification/account_fund_approved_ted"(platform: "/mobile") {
-            news_id = "account_fund-account_fund-approved_ted-12345678"
-            event_type = "shown"
-        }
-
         "/notification/asset_management_warm_up"(platform: "/mobile") {
             news_id = "asset-management_warm_up-12345678-123123"
             event_type = "shown"
@@ -2107,11 +2100,6 @@ trackTests {
 
         "/notification/asset_management_disabled"(platform: "/mobile") {
             news_id = "asset-management_disabled-12345678-123123"
-            event_type = "shown"
-        }
-
-        "/notification/anses_paid_benefit"(platform: "/mobile") {
-            news_id = "anses_paid_benefit-12345678"
             event_type = "shown"
         }
 
@@ -2233,6 +2221,14 @@ trackTests {
 
         "/notification/messages_new"(platform: "/mobile") {
             news_id = "messages_new_123"
+            event_type = "open"
+        }
+
+        //Merchant
+        "/notification/merchants_growth_mgm"(platform: "/mobile") {
+            latest_news_type= "merchants_growth_mgm"
+            latest_news_id= "merchants_growth_mgm-126635313"
+            gift_reason_id = "test"
             event_type = "open"
         }
 
@@ -3033,7 +3029,6 @@ trackTests {
             latest_news_type= "account_fund_salary"
             status= "unread"
         }
-
         "/notification_center/asset_management_warm_up"(platform: "/mobile"){
             newsgroup_id= "asset_management-warm_up-186785675-76283123"
             latest_news_id= "asset_management-warm_up-186785675-76283123"
@@ -3269,11 +3264,6 @@ trackTests {
             event_type = "shown"
         }
 
-        "/notification/account_fund_cvu"(platform: "/mobile") {
-            news_id = "account_fund_cvu-12345678"
-            event_type = "shown"
-        }
-
         "/notification/account_balance_approved_mp"(platform: "/mobile") {
             news_id = "account_fund-account_balance_approved_mp-12345678"
             event_type = "shown"
@@ -3332,7 +3322,6 @@ trackTests {
             event_type = "received"
             deeplink ="meli://search?q=sony"
             campaign_id = "mkt_campaign_co"
-            campaign_type = "campaign_test"
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
@@ -3603,7 +3592,6 @@ trackTests {
             news_id = "CIbDQhDb3hMYCQ==-5e22992d1b3518a"
             event_type = "discarded"
             campaign_id = "RECOVERY_CHECKOUT_MLB_60m-65m_20180516_CG"
-            campaign_type = "campaign_test"
             sent_date = "20180516"
             batch_id = "RECOVERY_CHECKOUT_MLB_60m-65m"
             deal_id = "RMK_MCO"
@@ -4529,6 +4517,21 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/fraud_iv_credentials"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/fraud_score_post_approval_last_chance_mp"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/fraud_score_post_approval_last_chance_ml"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
         "/notification/health_check"(platform: "/mobile/android") {
             news_id = "COXwPxDrigQYBw==-1eb9ff37e01d45b0"
             original_news_id = "messages-new-1688986927-60f251a8ee0a4b748b6c1b59bc1e267a"
@@ -4706,6 +4709,13 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/merchants_growth_mgm"(platform: "/mobile") {
+            latest_news_type= "merchants_growth_mgm"
+            latest_news_id= "merchants_growth_mgm-126635313"
+            gift_reason_id = "test"
+            event_type = "open"
+        }
+
         "/notification/money_transfer_received"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -4854,18 +4864,6 @@ trackTests {
 
         "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"(platform: "/mobile") {
-            news_id = "prepaid_card_transaction_rejected_regulations_bacen_data_incomplete-186785675"
-            event_type = "auto_dismiss"
-            notification_type= "deep_linking"
-        }
-
-        "/notification/prepaid_card_soon_deliver"(platform: "/mobile") {
-            news_id = "prepaid_card_soon_deliver-186785675"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
