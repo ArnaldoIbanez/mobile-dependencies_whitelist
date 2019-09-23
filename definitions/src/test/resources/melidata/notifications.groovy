@@ -3236,22 +3236,18 @@ trackTests {
         }
 
         "/notification/seller_journey_congrats"(platform: "/mobile"){
-            latest_news_id= "seller_journey-congrats-343447578-3"
             step_id= 123
             event_type= "sent"
         }
         "/notification/seller_journey_keep_it_up"(platform: "/mobile"){
-            latest_news_id= "seller_journey-keep_it_up-343447578-3"
             step_id= 123
             event_type= "sent"
         }
         "/notification/seller_journey_work_harder"(platform: "/mobile"){
-            latest_news_id= "seller_journey-work_harder-343447578-3"
             step_id= 123
             event_type= "sent"
         }
         "/notification/seller_journey_do_something"(platform: "/mobile"){
-            latest_news_id= "seller_journey-do_something-343447578-3"
             step_id= 123
             event_type= "sent"
         }
