@@ -13,6 +13,10 @@ trackTests {
             campaign_id = "2222222"
             status = "active"
             budget = "22.22"
+            share_value = "20"
+            chart_visible = true
+            detailsMeli_visible = true
+            share_visible = true
         }
 
         "/advertising/pads2/manager/update_campaign_status"(platform: "/web", type: TrackType.Event) {
@@ -213,6 +217,108 @@ trackTests {
         "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/web", type: TrackType.View) {
             free_trial_type = "M"
             budget = "500"
+        }
+    }
+
+    test("Advertising Lift") {
+        "/advertising/pads2/manager/lift/details/show"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+        "/advertising/pads2/manager/lift/details/hide"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+
+        "/advertising/pads2/manager/lift/chart/show"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+        "/advertising/pads2/manager/lift/chart/hide"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+
+        "/advertising/pads2/manager/lift/tooltip/adv_sales"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+        "/advertising/pads2/manager/lift/tooltip/meli_sales"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+        "/advertising/pads2/manager/lift/tooltip/info"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+        "/advertising/pads2/manager/lift/tooltip/prints"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+        "/advertising/pads2/manager/lift/tooltip/clics"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+        "/advertising/pads2/manager/lift/tooltip/income"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+        "/advertising/pads2/manager/lift/tooltip/investment"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+        "/advertising/pads2/manager/lift/tooltip/take_rate"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+
+        "/advertising/pads2/manager/lift/modal/open"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+        "/advertising/pads2/manager/lift/modal/pause"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+        "/advertising/pads2/manager/lift/modal/continue"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+        }
+        "/advertising/pads2/manager/lift/modal/close"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
         }
     }
 }
