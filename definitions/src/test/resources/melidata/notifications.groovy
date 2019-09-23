@@ -382,6 +382,37 @@ trackTests {
             latest_news_id= "messages_quotes-143816022-MLB1013046714"
         }
 
+        "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_sellers_inhouse"
+            latest_news_id= "openplatform_sellers_inhouse-12345"
+        }
+        "/notification_center/openplatform_recommendations_wannabe"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_wannaber"
+            latest_news_id= "openplatform_recommendations_wannabe-12345"
+        }
+        "/notification_center/openplatform_recommendations_p4"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p4"
+            latest_news_id= "openplatform_recommendations_p4-12345"
+        }
+        "/notification_center/openplatform_recommendations_p3"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p3"
+            latest_news_id= "openplatform_recommendations_p3-12345"
+        }
+        "/notification_center/openplatform_recommendations_p2"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p2"
+            latest_news_id= "openplatform_recommendations_p2-12345"
+        }
+        "/notification_center/openplatform_recommendations_p1"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p1"
+            latest_news_id= "openplatform_recommendations_p1-12345"
+        }
+
         "/notification_center/packages-buyer"(platform: "/mobile"){}
         "/notification_center/packages-seller"(platform: "/mobile"){}
         "/notification_center/package-seller"(platform: "/mobile") {
@@ -1141,6 +1172,36 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
             order_id = 12132
+        }
+
+        "/notification/openplatform_sellers_inhouse"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_wannabe"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_p4"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_p3"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_p2"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_p1"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
         }
 
         //Quotes
@@ -2904,6 +2965,37 @@ trackTests {
         "/notification_center/messages_quotes"(platform: "/mobile"){
             latest_news_type= "messages_quotes"
             latest_news_id= "messages_quotes-143816022-MLB1013046714"
+        }
+
+        "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_sellers_inhouse"
+            latest_news_id= "openplatform_sellers_inhouse-12345"
+        }
+        "/notification_center/openplatform_recommendations_wannabe"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_wannaber"
+            latest_news_id= "openplatform_recommendations_wannabe-12345"
+        }
+        "/notification_center/openplatform_recommendations_p4"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p4"
+            latest_news_id= "openplatform_recommendations_p4-12345"
+        }
+        "/notification_center/openplatform_recommendations_p3"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p3"
+            latest_news_id= "openplatform_recommendations_p3-12345"
+        }
+        "/notification_center/openplatform_recommendations_p2"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p2"
+            latest_news_id= "openplatform_recommendations_p2-12345"
+        }
+        "/notification_center/openplatform_recommendations_p1"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p1"
+            latest_news_id= "openplatform_recommendations_p1-12345"
         }
 
         "/notification_center/packages-buyer"(platform: "/mobile"){}
@@ -5075,6 +5167,67 @@ trackTests {
             case_id= 12345678
             event_type = "sent"
         }
+
+        "/notification/openplatform_sellers_inhouse"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_wannabe"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_p4"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_p3"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_p2"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_p1"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_sellers_inhouse"
+            latest_news_id= "openplatform_sellers_inhouse-12345"
+        }
+        "/notification_center/openplatform_recommendations_wannabe"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_wannaber"
+            latest_news_id= "openplatform_recommendations_wannabe-12345"
+        }
+        "/notification_center/openplatform_recommendations_p4"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p4"
+            latest_news_id= "openplatform_recommendations_p4-12345"
+        }
+        "/notification_center/openplatform_recommendations_p3"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p3"
+            latest_news_id= "openplatform_recommendations_p3-12345"
+        }
+        "/notification_center/openplatform_recommendations_p2"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p2"
+            latest_news_id= "openplatform_recommendations_p2-12345"
+        }
+        "/notification_center/openplatform_recommendations_p1"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p1"
+            latest_news_id= "openplatform_recommendations_p1-12345"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -5130,6 +5283,67 @@ trackTests {
              event_type = "open"
              activity_id = "12345"
          }
+
+        "/notification/openplatform_sellers_inhouse"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_wannabe"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_p4"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_p3"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_p2"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/openplatform_recommendations_p1"(platform: "/mobile"){
+            notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_sellers_inhouse"
+            latest_news_id= "openplatform_sellers_inhouse-12345"
+        }
+        "/notification_center/openplatform_recommendations_wannabe"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_wannaber"
+            latest_news_id= "openplatform_recommendations_wannabe-12345"
+        }
+        "/notification_center/openplatform_recommendations_p4"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p4"
+            latest_news_id= "openplatform_recommendations_p4-12345"
+        }
+        "/notification_center/openplatform_recommendations_p3"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p3"
+            latest_news_id= "openplatform_recommendations_p3-12345"
+        }
+        "/notification_center/openplatform_recommendations_p2"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p2"
+            latest_news_id= "openplatform_recommendations_p2-12345"
+        }
+        "/notification_center/openplatform_recommendations_p1"(platform: "/mobile"){
+            notification_id= "12345"
+            latest_news_type= "openplatform_recommendations_p1"
+            latest_news_id= "openplatform_recommendations_p1-12345"
+        }
     }
 
 }

@@ -260,6 +260,37 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    //Openplatform
+    "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/openplatform_recommendations_wannabe"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/openplatform_recommendations_p4"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/openplatform_recommendations_p3"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/openplatform_recommendations_p2"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/openplatform_recommendations_p1"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/packages-buyer"(platform: "/", type: TrackType.Event) {}
     "/notification_center/packages-seller"(platform: "/", type: TrackType.Event) {}
     "/notification_center/package-seller"(platform: "/", type: TrackType.Event) {
@@ -1274,6 +1305,26 @@ tracks {
     //Money
     "/notification/money_transfer_received"(platform: "/mobile") {}
     "/notification/money_transfer_request"(platform: "/mobile") {}
+
+    //Openplatform
+    "/notification/openplatform_sellers_inhouse"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+    }
+    "/notification/openplatform_recommendations_wannabe"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+    }
+    "/notification/openplatform_recommendations_p4"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+    }
+    "/notification/openplatform_recommendations_p3"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+    }
+    "/notification/openplatform_recommendations_p2"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+    }
+    "/notification/openplatform_recommendations_p1"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+    }
 
     //Prepaid
     "/notification/prepaid_card_shipped"(platform: "/mobile") {}
