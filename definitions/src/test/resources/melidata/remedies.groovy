@@ -85,6 +85,18 @@ trackTests {
             max_size = 1200
         }
 
+        "/remedies/proof_of_life_validation"(platform: "/mobile") {
+            validation = "face_too_small"
+            reset_gestures = true
+        }
+
+        "/remedies/proof_of_life_gesture"(platform: "/mobile") {
+            gestures_probabilities = [
+                left_eye: 0.99,
+                right_eye: 0.98
+            ]
+            gesture = "open_eye"
+        }
 
         "/remedies/activity/check_step"(platform: "/mobile/android") {}
         "/remedies/activity/landing"(platform: "/mobile/android") {}
@@ -341,6 +353,19 @@ trackTests {
             switch_lens = true
             compression_rate = 100
             max_size = 1200
+        }
+
+        "/remedies/proof_of_life_validation"(platform: "/mobile") {
+            validation = "face_too_small"
+            reset_gestures = true
+        }
+
+        "/remedies/proof_of_life_gesture"(platform: "/mobile") {
+            gesture = "open_eye"
+            gestures_probabilities = [
+                left_eye: 0.99,
+                right_eye: 0.98
+            ]
         }
 
         "/remedies/activity/check_step"(platform: "/mobile/android") {}
