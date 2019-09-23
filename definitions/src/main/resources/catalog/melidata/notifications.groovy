@@ -1248,19 +1248,15 @@ tracks {
     "/notification/cancellations_warning_seller_suspended"(platform: "/mobile") {}
 
     "/notification/seller_journey_congrats"(platform: "/mobile"){
-        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
     "/notification/seller_journey_keep_it_up"(platform: "/mobile"){
-        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
     "/notification/seller_journey_work_harder"(platform: "/mobile"){
-        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
     "/notification/seller_journey_do_something"(platform: "/mobile"){
-        latest_news_id(required: true , type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
 
