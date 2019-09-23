@@ -926,6 +926,8 @@ tracks {
       }
       "/notification/qrviral_reminder"(platform: "/") {}
       "/notification/qrviral_extension"(platform: "/") {}
+      "/notification/qrviral_reminder_mp"(platform: "/") {}
+
 
       //Quotes
       "/notification/quotes_reject"(platform: "/") {}

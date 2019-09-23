@@ -1258,6 +1258,10 @@ trackTests {
             news_id = "qrviral-extension-1234-186785675"
             event_type = "open"
         }
+        "/notification/qrviral_reminder_mp"(platform: "/mobile") {
+            news_id = "qrviral_reminder_mp-1234-186785675"
+            event_type = "open"
+        }
         "/notification/reputation"(platform: "/mobile") {
             newsgroup_id= "packages-seller-2000000031949978"
             event_type= "open"
@@ -3748,6 +3752,10 @@ trackTests {
             news_id = "qrviral-extension-1234-186785675"
             event_type = "open"
         }
+        "/notification/qrviral_reminder_mp"(platform: "/mobile") {
+            news_id = "qrviral_reminder_mp-1234-186785675"
+            event_type = "open"
+        }
         "/notification/reputation"(platform: "/mobile") {
             newsgroup_id= "packages-seller-2000000031949978"
             event_type= "open"
@@ -5075,10 +5083,10 @@ trackTests {
             event_type = "open"
         }
 
-        "/notification/coverages_compensation_complainant"(platform: "/mobile") {
-            event_type = "open"
-            activity_id = "12345"
-        }
+         "/notification/coverages_compensation_complainant"(platform: "/mobile") {
+             event_type = "open"
+             activity_id = "12345"
+         }
     }
 
 }
