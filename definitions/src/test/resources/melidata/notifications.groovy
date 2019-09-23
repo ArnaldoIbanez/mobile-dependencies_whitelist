@@ -2409,6 +2409,26 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
+        "/notification/prepaid_card_transaction_rejected_withdraw_freeze"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_withdraw_freeze-186785675"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_regulations_bacen_data_incomplete-186785675"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_transaction_rejected_authorization_freeze"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_authorization_freeze-186785675"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+        "/notification/prepaid_card_reissue_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card_reissue_reminder-186785675"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
 
         "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {
             news_id = "123"
@@ -4883,6 +4903,30 @@ trackTests {
 
         "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_withdraw_freeze"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_withdraw_freeze-186785675"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_regulations_bacen_data_incomplete-186785675"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_authorization_freeze"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_authorization_freeze-186785675"
+            event_type = "auto_dismiss"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_reissue_reminder"(platform: "/mobile") {
+            news_id = "prepaid_card_reissue_reminder-186785675"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
