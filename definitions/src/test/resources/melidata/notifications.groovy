@@ -3470,6 +3470,16 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/anses_payment_date"(platform: "/mobile") {
+            news_id = "anses_payment_date-12345678-123"
+            event_type = "shown"
+        }
+
+        "/notification/anses_paid_benefit"(platform: "/mobile") {
+            news_id = "anses_paid_benefit-12345678-123"
+            event_type = "shown"
+        }
+
         "/notification/campaigns_deals"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -4787,6 +4797,16 @@ trackTests {
 
         "/notification/account_balance_approved_ml"(platform: "/mobile") {
             news_id = "account_fund-account_balance_approved_ml-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/anses_payment_date"(platform: "/mobile") {
+            news_id = "anses_payment_date-12345678-123"
+            event_type = "shown"
+        }
+
+        "/notification/anses_paid_benefit"(platform: "/mobile") {
+            news_id = "anses_paid_benefit-12345678-123"
             event_type = "shown"
         }
 
