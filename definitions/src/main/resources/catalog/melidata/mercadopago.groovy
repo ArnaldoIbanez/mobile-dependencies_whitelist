@@ -973,7 +973,9 @@ tracks {
         section (required: true, type: PropertyType.String, description: "The section when error")
         status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
     }
-    "/tfs_dashboard/home/card_error"(platform: "/", type: TrackType.Event) {
+
+    "/tfs_dashboard/home/card"(platform: "/", isAbstract: true) {}
+    "/tfs_dashboard/home/card/error"(platform: "/", type: TrackType.Event) {
         chart_id (required: true, type: PropertyType.String, description: "The chart ID when error")
         section (required: true, type: PropertyType.String, description: "The section when error")
         status_code (required: false, type: PropertyType.Numeric, description: "Error status code")

@@ -2478,7 +2478,7 @@ trackTests {
             section="online"
             chart_id="tpv"
         }
-        "/tfs_dashboard/home/card_error"(platform: "/", type: TrackType.Event){
+        "/tfs_dashboard/home/card/error"(platform: "/", type: TrackType.Event){
             status_code=404
             section="online"
             chart_id="tpv"
