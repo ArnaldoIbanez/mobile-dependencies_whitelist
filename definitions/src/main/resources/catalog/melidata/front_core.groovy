@@ -101,7 +101,7 @@ tracks {
     def discount_center_definition = objectSchemaDefinitions {
         content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
-        items(required: false, type: PropertyType.ArrayList(PropertyType.Map(discount_center_item_definition)), description: "The discount center items information")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(discount_center_item_definition)), description: "The discount center items information")
     }
 
     def discount_center_item_definition = objectSchemaDefinitions {
