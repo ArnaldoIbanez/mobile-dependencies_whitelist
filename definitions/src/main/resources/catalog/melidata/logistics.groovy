@@ -31,4 +31,8 @@ tracks {
         error_step_id(required: false, type: PropertyType.String,
                 description: "Specifies the stepId where the error happened.", inheritable: false)
     }
+
+    "/logistics/conciliation/fail"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View) {}
+
 }

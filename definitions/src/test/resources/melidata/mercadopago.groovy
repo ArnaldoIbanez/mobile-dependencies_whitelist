@@ -684,12 +684,19 @@ trackTests {
         }
     }
 
-    test("MP-MA Point Pro paper rolls request") {
-        "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
+    test("Paper Rolls (Bobinas)") {
+        "/merchant_acquisition/flows/paper_rolls"(platform:"/", type: TrackType.View) {
           view = "order"
         }
-        "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
-          view = "congrats_waiting"
+
+        "/merchant_acquisition/flows/paper_rolls/complete_form"(platform:"/", type: TrackType.Event) {
+          view = "order"
+        }
+        "/merchant_acquisition/flows/paper_rolls/modal/update_address"(platform: "/", type: TrackType.Event) {
+          view = "order"
+        }
+        "/merchant_acquisition/flows/paper_rolls/modal/add_address"(platform: "/", type: TrackType.Event) {
+          view = "order"
         }
     }
 
@@ -1598,6 +1605,14 @@ trackTests {
 
         }
 
+        "/point_payment/write_concept"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/customer_care"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/start_refund"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/customer_care_success"(platform: "/mobile", type: TrackType.View) {}
+
+
+        "/point_payment/cash/ftu"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/cash/congrats"(platform: "/mobile", type: TrackType.View) {}
 
         "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {
             flow = "point"
@@ -1614,6 +1629,11 @@ trackTests {
         "/settings/pairing"(platform: "/mobile", type: TrackType.View) {
             flow = "point"
         }
+
+        "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
+        "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
+        "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
+
         "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
             flow = "settings"
             channel = "point"
@@ -1656,8 +1676,16 @@ trackTests {
         "/ftu_release/point_&_mp_app"(platform: "/mobile", type: TrackType.View) {}
 
         "/company_info/on_boarding"(platform: "/mobile", type: TrackType.View) {}
+        "/company_info/main"(platform: "/mobile", type: TrackType.View) {}
+        "/company_info/brand_name"(platform: "/mobile", type: TrackType.View) {}
+        "/company_info/mcc"(platform: "/mobile", type: TrackType.View) {}
+        "/company_info/push_soft_descriptor"(platform: "/mobile", type: TrackType.View) {}
 
-        "/dashboard"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/dashboard"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Point Payment Test") {
+        "/point_payment_test/test_payment"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Settings Point Reader Update") {
@@ -2577,6 +2605,18 @@ trackTests {
         "/money_detail/help_modal"(platform: "/mobile") {
             flow = "/money_detail"
         }
+
+        "/money_detail/withdraw"(platform: "/") {}
+        "/money_detail/daily_detail"(platform: "/") {}
+        "/money_detail/money-advance"(platform: "/") {}
+        "/money_detail/restrictions"(platform: "/") {}
+        "/money_detail/point_home"(platform: "/") {}
+        "/money_detail"(platform: "/") {}
+        "/money_detail/withdraw/main"(platform: "/") {}
+        "/money_detail/withdraw/confirmation"(platform: "/") {}
+        "/money_detail/withdraw/congrats"(platform: "/") {}
+        "/money_detail/withdraw/add_account"(platform: "/") {}
+        "/money_detail/withdraw/select_bank"(platform: "/") {}   
     }
 
 // END -- MPMOBILE TEST
@@ -3531,5 +3571,7 @@ trackTests {
         "/account/mydata"(platform: "/web/mobile", type: TrackType.View) {}
         "/account/mydata/email"(platform: "/web/mobile", type: TrackType.View) {}
         "/account/mydata/email/congrats"(platform: "/web/mobile", type: TrackType.View) {}
+
+        "/account/mydata/email"(platform: "/mobile/android", type: TrackType.View) {}
     }
 }

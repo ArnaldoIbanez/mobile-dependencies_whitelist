@@ -570,6 +570,8 @@ tracks {
       "/notification/credits_consumer_expired_n_loans_fourth_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_second_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_third_notice"(platform: "/") {}
+      "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/") {}
+      "/notification/credits_consumer_expired_sixty_notice"(platform: "/") {}
 
       "/notification/credits_merchants_educational"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric)
@@ -1270,6 +1272,7 @@ tracks {
     "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {}
     "/notification/prepaid_card_delivery"(platform: "/mobile") {}
     "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_red_link_bug"(platform: "/mobile") {}
 
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}
