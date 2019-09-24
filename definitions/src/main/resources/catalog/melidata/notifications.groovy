@@ -389,6 +389,14 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/security_phone_enrollment"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/security_login_code"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/chargeback-payer"(platform: "/", type: TrackType.Event) {
         case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -890,6 +898,7 @@ tracks {
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
           item_id(required: true, type: PropertyType.String)
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+          item_id(required: true, type: PropertyType.String)
       }
 
       "/notification/campaigns_checkout_recovery"(platform: "/") {

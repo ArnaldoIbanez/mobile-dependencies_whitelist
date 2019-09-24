@@ -531,6 +531,16 @@ trackTests {
             latest_news_id= "security_recovery_canceled-1000000016305386"
         }
 
+        "/notification_center/security_phone_enrollment"(platform: "/mobile") {
+            latest_news_type= "security_phone_enrollment"
+            latest_news_id= "security_phone_enrollment-1000000016305386"
+        }
+
+        "/notification_center/security_login_code"(platform: "/mobile") {
+            latest_news_type= "security_login_code"
+            latest_news_id= "security_login_code-1000000016305386"
+        }
+
         "/notification_center/chargeback-payer"(platform: "/mobile") {
             case_id = "158213000000"
             latest_news_id = "chargeback-buyer-158213000000-init13545"
@@ -3166,6 +3176,16 @@ trackTests {
         "/notification_center/security_recovery_canceled"(platform: "/mobile") {
             latest_news_type= "security_recovery_canceled"
             latest_news_id= "security_recovery_canceled-1000000016305386"
+        }
+
+        "/notification_center/security_phone_enrollment"(platform: "/mobile") {
+            latest_news_type= "security_phone_enrollment"
+            latest_news_id= "security_phone_enrollment-1000000016305386"
+        }
+
+        "/notification_center/security_login_code"(platform: "/mobile") {
+            latest_news_type= "security_login_code"
+            latest_news_id= "security_login_code-1000000016305386"
         }
 
         "/notification_center/chargeback-payer"(platform: "/mobile") {
