@@ -732,6 +732,30 @@ trackTests {
             latest_news_type= "prepaid_card_delayed_p1"
             status= "read"
         }
+        "/notification_center/prepaid_card_delivery"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card_delivery-186785675-76283123"
+            latest_news_id= "prepaid_card_delivery-186785675-76283123"
+            latest_news_type= "prepaid_card_delivery"
+            status= "read"
+        }
+        "/notification_center/prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card_transaction_rejected_regulations_bacen_data_incomplete-186785675-76283123"
+            latest_news_id= "prepaid_card_transaction_rejected_regulations_bacen_data_incomplete-186785675-76283123"
+            latest_news_type= "prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"
+            status= "read"
+        }
+        "/notification_center/prepaid_card_transaction_rejected_invalid_pin"(platform: "/mobile"){
+            newsgroup_id= "pprepaid_card_transaction_rejected_invalid_pin-186785675-76283123"
+            latest_news_id= "prepaid_card_transaction_rejected_invalid_pin-186785675-76283123"
+            latest_news_type= "prepaid_card_transaction_rejected_invalid_pin"
+            status= "read"
+        }
+        "/notification_center/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card_transaction_rejected_activation_reminder-186785675-76283123"
+            latest_news_id= "prepaid_card_transaction_rejected_activation_reminder-186785675-76283123"
+            latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
+            status= "read"
+        }
         "/notification_center/recurring_recharge_error"(platform: "/mobile"){
             newsgroup_id= "recurring_recharge-error-186785675-76283123"
             latest_news_id= "recurring_recharge-error-186785675-76283123"
@@ -3377,6 +3401,30 @@ trackTests {
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
             latest_news_id= "prepaid_card-delayed_p1-186785675-76283123"
             latest_news_type= "prepaid_card_delayed_p1"
+            status= "read"
+        }
+        "/notification_center/prepaid_card_delivery"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card_delivery-186785675-76283123"
+            latest_news_id= "prepaid_card_delivery-186785675-76283123"
+            latest_news_type= "prepaid_card_delivery"
+            status= "read"
+        }
+        "/notification_center/prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card_transaction_rejected_regulations_bacen_data_incomplete-186785675-76283123"
+            latest_news_id= "prepaid_card_transaction_rejected_regulations_bacen_data_incomplete-186785675-76283123"
+            latest_news_type= "prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"
+            status= "read"
+        }
+        "/notification_center/prepaid_card_transaction_rejected_invalid_pin"(platform: "/mobile"){
+            newsgroup_id= "pprepaid_card_transaction_rejected_invalid_pin-186785675-76283123"
+            latest_news_id= "prepaid_card_transaction_rejected_invalid_pin-186785675-76283123"
+            latest_news_type= "prepaid_card_transaction_rejected_invalid_pin"
+            status= "read"
+        }
+        "/notification_center/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile"){
+            newsgroup_id= "prepaid_card_transaction_rejected_activation_reminder-186785675-76283123"
+            latest_news_id= "prepaid_card_transaction_rejected_activation_reminder-186785675-76283123"
+            latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
             status= "read"
         }
         "/notification_center/recurring_recharge_error"(platform: "/mobile"){
