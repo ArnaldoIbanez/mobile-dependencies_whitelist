@@ -495,7 +495,7 @@ tracks {
     }
     "/px_checkout/result/success/tap_discount_item"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         index(required: true, type: PropertyType.Numeric , description: "Discount item index")
-        campaign_id(required: true, type: PropertyType.String, description: "Discount's campaign id")
+        campaign_id(required: false, type: PropertyType.String, description: "Discount's campaign id")
         externalData
     }
     "/px_checkout/result/success/tap_see_all_discounts"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -520,7 +520,7 @@ tracks {
     }
     "/px_checkout/result/unknown/tap_discount_item"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         index(required: true, type: PropertyType.Numeric , description: "Discount item index")
-        campaign_id(required: true, type: PropertyType.String, description: "Discount's campaign id")
+        campaign_id(required: false, type: PropertyType.String, description: "Discount's campaign id")
         externalData
     }
     "/px_checkout/result/unknown/tap_see_all_discounts"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -554,7 +554,7 @@ tracks {
     }
     "/px_checkout/result/further_action_needed/tap_discount_item"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         index(required: true, type: PropertyType.Numeric , description: "Discount item index")
-        campaign_id(required: true, type: PropertyType.String, description: "Discount's campaign id")
+        campaign_id(required: false, type: PropertyType.String, description: "Discount's campaign id")
         externalData
     }
     "/px_checkout/result/further_action_needed/tap_see_all_discounts"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
