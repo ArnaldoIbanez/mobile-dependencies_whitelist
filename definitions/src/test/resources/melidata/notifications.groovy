@@ -756,6 +756,48 @@ trackTests {
             latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
             status= "read"
         }
+        "/notification_center/transaction_approved_authorization"(platform: "/mobile"){
+            newsgroup_id= "transaction_approved_authorization-186785675-76283123"
+            latest_news_id= "transaction_approved_authorization-186785675-76283123"
+            latest_news_type= "transaction_approved_authorization"
+            status= "read"
+        }
+        "/notification_center/transaction_approved_withdraw"(platform: "/mobile") {
+            newsgroup_id = "transaction_approved_withdraw-186785675-76283123"
+            latest_news_id = "transaction_approved_withdraw-186785675-76283123"
+            latest_news_type = "transaction_approved_withdraw"
+            status = "read"
+        }
+        "/notification_center/transaction_canceled_authorization"(platform: "/mobile"){
+            newsgroup_id= "transaction_canceled_authorization-186785675-76283123"
+            latest_news_id= "transaction_canceled_authorization-186785675-76283123"
+            latest_news_type= "transaction_canceled_authorization"
+            status= "read"
+        }
+        "/notification_center/transaction_canceled_withdraw"(platform: "/mobile"){
+            newsgroup_id= "transaction_canceled_withdraw-186785675-76283123"
+            latest_news_id= "transaction_canceled_withdraw-186785675-76283123"
+            latest_news_type= "transaction_canceled_withdraw"
+            status= "read"
+        }
+        "/notification_center/transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_authorization_by_invalid_amount_with_avaible_balance-186785675-76283123"
+            latest_news_id= "transaction_rejected_authorization_by_invalid_amount_with_avaible_balance-186785675-76283123"
+            latest_news_type= "transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"
+            status= "read"
+        }
+        "/notification_center/transaction_rejected_red_link_bug"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_red_link_bug-186785675-76283123"
+            latest_news_id= "transaction_rejected_red_link_bug-186785675-76283123"
+            latest_news_type= "transaction_rejected_red_link_bug"
+            status= "read"
+        }
+        "/notification_center/transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance-186785675-76283123"
+            latest_news_id= "transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance-186785675-76283123"
+            latest_news_type= "transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"
+            status= "read"
+        }
         "/notification_center/recurring_recharge_error"(platform: "/mobile"){
             newsgroup_id= "recurring_recharge-error-186785675-76283123"
             latest_news_id= "recurring_recharge-error-186785675-76283123"
@@ -3425,6 +3467,48 @@ trackTests {
             newsgroup_id= "prepaid_card_transaction_rejected_activation_reminder-186785675-76283123"
             latest_news_id= "prepaid_card_transaction_rejected_activation_reminder-186785675-76283123"
             latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
+            status= "read"
+        }
+        "/notification_center/transaction_approved_authorization"(platform: "/mobile"){
+            newsgroup_id= "transaction_approved_authorization-186785675-76283123"
+            latest_news_id= "transaction_approved_authorization-186785675-76283123"
+            latest_news_type= "transaction_approved_authorization"
+            status= "read"
+        }
+        "/notification_center/transaction_approved_withdraw"(platform: "/mobile") {
+            newsgroup_id = "transaction_approved_withdraw-186785675-76283123"
+            latest_news_id = "transaction_approved_withdraw-186785675-76283123"
+            latest_news_type = "transaction_approved_withdraw"
+            status = "read"
+        }
+        "/notification_center/transaction_canceled_authorization"(platform: "/mobile"){
+            newsgroup_id= "transaction_canceled_authorization-186785675-76283123"
+            latest_news_id= "transaction_canceled_authorization-186785675-76283123"
+            latest_news_type= "transaction_canceled_authorization"
+            status= "read"
+        }
+        "/notification_center/transaction_canceled_withdraw"(platform: "/mobile"){
+            newsgroup_id= "transaction_canceled_withdraw-186785675-76283123"
+            latest_news_id= "transaction_canceled_withdraw-186785675-76283123"
+            latest_news_type= "transaction_canceled_withdraw"
+            status= "read"
+        }
+        "/notification_center/transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_authorization_by_invalid_amount_with_avaible_balance-186785675-76283123"
+            latest_news_id= "transaction_rejected_authorization_by_invalid_amount_with_avaible_balance-186785675-76283123"
+            latest_news_type= "transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"
+            status= "read"
+        }
+        "/notification_center/transaction_rejected_red_link_bug"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_red_link_bug-186785675-76283123"
+            latest_news_id= "transaction_rejected_red_link_bug-186785675-76283123"
+            latest_news_type= "transaction_rejected_red_link_bug"
+            status= "read"
+        }
+        "/notification_center/transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance-186785675-76283123"
+            latest_news_id= "transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance-186785675-76283123"
+            latest_news_type= "transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"
             status= "read"
         }
         "/notification_center/recurring_recharge_error"(platform: "/mobile"){
