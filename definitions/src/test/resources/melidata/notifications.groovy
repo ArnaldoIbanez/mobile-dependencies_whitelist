@@ -310,6 +310,19 @@ trackTests {
             latest_news_id= "campaigns-remarketing_motors-143816022-MLB1013046714"
             item_id= "MLU457119874"
         }
+        "/notification_center/campaigns-marketplace_discounts"(platform: "/mobile"){
+            campaign_id= "campaign1"
+            newsgroup_id= "campaigns-marketplace_discounts-241951421"
+            event_type= "open"
+            deeplink= "meli://item?id=MLA645507294"
+            type_layout= "standard"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+            latest_news_type= "campaigns-marketplace_discounts"
+            latest_news_id= "campaigns-marketplace_discounts-143816022-MLB1013046714"
+            item_id= "MLU457119874"
+        }
         "/notification_center/campaigns-recharge_recovery"(platform: "/mobile"){
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-recharge_recovery-320010629"
@@ -345,6 +358,15 @@ trackTests {
             installment_id= 717743
             latest_news_type= "1592866"
             latest_news_id= "credits-merchants-1592866"
+        }
+        "/notification_center/cancellations"(platform: "/mobile") {
+            latest_news_type= "cancellations"
+            latest_news_id= "cancellations-143816022-MLB1013046714"
+        }
+        "/notification_center/coverages"(platform: "/mobile") {
+            activity_id = "12345"
+            latest_news_type= "coverages"
+            latest_news_id= "coverages-143816022-MLB1013046714"
         }
         "/notification_center/cx-generic"(platform: "/mobile"){
             latest_news_type= "cx-generic"
@@ -847,6 +869,14 @@ trackTests {
             latest_news_id= "wallet_integrator-ticket_acredited-186785675-76283123"
             latest_news_type= "wallet_integrator_ticket_acredited"
             status= "read"
+        }
+        "/notification_center/withdraw_approved_contingency"(platform: "/mobile") {
+            latest_news_type= "withdraw_approved_contingency"
+            latest_news_id= "withdraw_approved_contingency-143816022-MLB1013046714"
+        }
+        "/notification_center/withdraw_rejected_contingency"(platform: "/mobile") {
+            latest_news_type= "coverages"
+            latest_news_id= "withdraw_rejected_contingency-143816022-MLB1013046714"
         }
 
         "/notification_center/seller_journey_congrats"(platform: "/mobile"){
@@ -3043,6 +3073,19 @@ trackTests {
             latest_news_id= "campaigns-remarketing_motors-143816022-MLB1013046714"
             item_id= "MLU457119874"
         }
+        "/notification_center/campaigns-marketplace_discounts"(platform: "/mobile"){
+            campaign_id= "campaign1"
+            newsgroup_id= "campaigns-marketplace_discounts-241951421"
+            event_type= "open"
+            deeplink= "meli://item?id=MLA645507294"
+            type_layout= "standard"
+            test_notification= false
+            sent_date= "20180508"
+            batch_id= "MLB_PACK_20180508_2"
+            latest_news_type= "campaigns-marketplace_discounts"
+            latest_news_id= "campaigns-marketplace_discounts-143816022-MLB1013046714"
+            item_id= "MLU457119874"
+        }
         "/notification_center/campaigns-recharge_recovery"(platform: "/mobile"){
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-recharge_recovery-320010629"
@@ -3078,6 +3121,15 @@ trackTests {
             installment_id= 717743
             latest_news_type= "1592866"
             latest_news_id= "credits-merchants-1592866"
+        }
+        "/notification_center/cancellations"(platform: "/mobile") {
+            latest_news_type= "cancellations"
+            latest_news_id= "cancellations-143816022-MLB1013046714"
+        }
+        "/notification_center/coverages"(platform: "/mobile") {
+            activity_id = "12345"
+            latest_news_type= "coverages"
+            latest_news_id= "coverages-143816022-MLB1013046714"
         }
         "/notification_center/cx-generic"(platform: "/mobile"){
             latest_news_type= "cx-generic"
@@ -3568,6 +3620,14 @@ trackTests {
             latest_news_id= "recurring_recharge-second_auth_error-186785675-76283123"
             latest_news_type= "recurring_recharge_second_auth_error"
             status= "read"
+        }
+        "/notification_center/withdraw_approved_contingency"(platform: "/mobile") {
+            latest_news_type= "withdraw_approved_contingency"
+            latest_news_id= "withdraw_approved_contingency-143816022-MLB1013046714"
+        }
+        "/notification_center/withdraw_rejected_contingency"(platform: "/mobile") {
+            latest_news_type= "coverages"
+            latest_news_id= "withdraw_rejected_contingency-143816022-MLB1013046714"
         }
         "/notification_center/wallet_integrator_insufficient_amount"(platform: "/mobile"){
             newsgroup_id= "wallet_integrator-insufficient_amount-186785675-76283123"
