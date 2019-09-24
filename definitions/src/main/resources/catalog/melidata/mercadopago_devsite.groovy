@@ -12,4 +12,9 @@ tracks {
     "/devsite/navigation"(platform: "/", type: TrackType.View){
         uri(required: true, description: "current path")
     }
+
+    "/devsite/feedback"(platform: "/", type: TrackType.View){
+        like(required: true, description:"user feedback")
+    }
+
 }
