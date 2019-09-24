@@ -574,6 +574,18 @@ trackTests {
             latest_news_type= "account_fund_salary"
             status= "unread"
         }
+        "/notification_center/account_fund_cvu"(platform: "/mobile"){
+            newsgroup_id= "account_fund_cvu-12345678"
+            latest_news_id= "account_fund_cvu-12345678"
+            latest_news_type= "account_fund_cvu"
+            status= "unread"
+        }
+        "/notification_center/account_fund_approved_ted"(platform: "/mobile"){
+            newsgroup_id= "account_fund_approved_ted-12345678"
+            latest_news_id= "account_fund_approved_ted-12345678"
+            latest_news_type= "account_fund_approved_ted"
+            status= "unread"
+        }
         "/notification_center/asset_management_warm_up"(platform: "/mobile"){
             newsgroup_id= "asset_management-warm_up-186785675-76283123"
             latest_news_id= "asset_management-warm_up-186785675-76283123"
@@ -799,6 +811,16 @@ trackTests {
 
         "/notification/account_fund_salary"(platform: "/mobile") {
             news_id = "account_fund-account_fund_salary-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_cvu"(platform: "/mobile") {
+            news_id = "account_fund-cvu-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_approved_ted"(platform: "/mobile") {
+            news_id = "account_fund-approved_ted-12345678"
             event_type = "shown"
         }
 
@@ -2152,6 +2174,16 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/account_fund_cvu"(platform: "/mobile") {
+            news_id = "account_fund-account_fund_cvu-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_approved_ted"(platform: "/mobile") {
+            news_id = "account_fund-account_fund_approved_ted-12345678"
+            event_type = "shown"
+        }
+
         "/notification/account_balance_approved_mp"(platform: "/mobile") {
             news_id = "account_fund-account_balance_approved_mp-12345678"
             event_type = "shown"
@@ -3159,6 +3191,18 @@ trackTests {
             latest_news_type= "account_fund_salary"
             status= "unread"
         }
+        "/notification_center/account_fund_cvu"(platform: "/mobile"){
+            newsgroup_id= "account_fund-cvu-12345678"
+            latest_news_id= "account_fund-cvu-12345678"
+            latest_news_type= "account_fund_cvu"
+            status= "unread"
+        }
+        "/notification_center/account_fund_approved_ted"(platform: "/mobile"){
+            newsgroup_id= "account_fund_approved_ted-12345678"
+            latest_news_id= "account_fund_approved_ted-12345678"
+            latest_news_type= "account_fund_approved_ted"
+            status= "unread"
+        }
         "/notification_center/asset_management_warm_up"(platform: "/mobile"){
             newsgroup_id= "asset_management-warm_up-186785675-76283123"
             latest_news_id= "asset_management-warm_up-186785675-76283123"
@@ -3383,6 +3427,16 @@ trackTests {
 
         "/notification/account_fund_salary"(platform: "/mobile") {
             news_id = "account_fund-account_fund_salary-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_cvu"(platform: "/mobile") {
+            news_id = "account_fund-account_fund_cvu-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_approved_ted"(platform: "/mobile") {
+            news_id = "account_fund-account_fund_approved_ted-12345678"
             event_type = "shown"
         }
 
@@ -4693,6 +4747,16 @@ trackTests {
 
         "/notification/account_fund_salary"(platform: "/mobile") {
             news_id = "account_fund-account_fund_salary-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_cvu"(platform: "/mobile") {
+            news_id = "account_fund-account_fund_cvu-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/account_fund_approved_ted"(platform: "/mobile") {
+            news_id = "account_fund-account_fund_approved_ted-12345678"
             event_type = "shown"
         }
 

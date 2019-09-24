@@ -410,6 +410,14 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/account_fund_cvu"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/account_fund_approved_ted"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/asset_management_warm_up"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -555,11 +563,19 @@ tracks {
           context(required: false, type: PropertyType.String)
       }
 
+      //Anses
+      //"/notification/anses_payment_date"(platform: "/") {}
+      //"/notification/anses_paid_benefit"(platform: "/") {}
+
+      //Account
       "/notification/account_fund_approved_mp"(platform: "/") {}
       "/notification/account_fund_approved_ml"(platform: "/") {}
       "/notification/account_fund_salary"(platform: "/") {}
+      "/notification/account_fund_cvu"(platform: "/") {}
+      "/notification/account_fund_approved_ted"(platform: "/") {}
       "/notification/account_balance_approved_mp"(platform: "/") {}
       "/notification/account_balance_approved_ml"(platform: "/") {}
+
       "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
           installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
