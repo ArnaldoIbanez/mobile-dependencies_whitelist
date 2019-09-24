@@ -374,6 +374,15 @@ trackTests {
                 ordinal: 9,
                 content_type : 'partial'
             ]
+            discount_center= [
+                ordinal: 5,
+                content_type: 'partial',
+                items: [
+                    [
+                        tracking_id: "1004194"
+                    ]
+                ]
+            ]
         }
     }
 
@@ -477,6 +486,15 @@ trackTests {
             activities_link= [
                 ordinal: 9,
                 content_type : 'partial'
+            ]
+            discount_center= [
+                ordinal: 5,
+                content_type: 'partial',
+                items: [
+                    [
+                        tracking_id: "1004194"
+                    ]
+                ]
             ]
         }
     }
@@ -877,6 +895,15 @@ trackTests {
                 ordinal: 9,
                 content_type : 'partial'
             ]
+            discount_center= [
+                ordinal: 5,
+                content_type: 'partial',
+                items: [
+                    [
+                        tracking_id: "1004194"
+                    ]
+                ]
+            ]
         }
     }
 
@@ -980,6 +1007,15 @@ trackTests {
             activities_link= [
                 ordinal: 9,
                 content_type : 'partial'
+            ]
+            discount_center= [
+                ordinal: 5,
+                content_type: 'partial',
+                items: [
+                    [
+                        tracking_id: "1004194"
+                    ]
+                ]
             ]
         }
     }
