@@ -3469,7 +3469,7 @@ trackTests {
     }
     
     test("Encuesta satisfaccion contenidos devsite"){
-        "/devsite/feedback"(platform: "/web/mobile", type: TrackType.View) {
+        "/devsite/feedback"(platform: "/web/mobile", type: TrackType.Event) {
             user_id = "1321312"
             lang = "es"
             site = "mla"
