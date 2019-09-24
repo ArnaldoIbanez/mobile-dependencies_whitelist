@@ -381,6 +381,10 @@ trackTests {
             latest_news_type= "messages_quotes"
             latest_news_id= "messages_quotes-143816022-MLB1013046714"
         }
+        "/notification_center/messages_flex"(platform: "/mobile") {
+            latest_news_type= "messages_flex"
+            latest_news_id= "messages_flex-123-123"
+        }
 
         "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile"){
             notification_id= "12345"
@@ -425,6 +429,10 @@ trackTests {
         "/notification_center/messages_quotes"(platform: "/mobile") {
             latest_news_type= "messages_quotes"
             latest_news_id= "messages-quotes-123-123"
+        }
+        "/notification_center/messages_flex"(platform: "/mobile") {
+            latest_news_type= "messages_flex"
+            latest_news_id= "messages_flex-123-123"
         }
         "/notification_center/me_flex-optin"(platform: "/mobile"){
             latest_news_type= "me_flex-optin"
@@ -690,6 +698,18 @@ trackTests {
             newsgroup_id= "fraud-cash_release_iv-186785675-76283123"
             latest_news_id= "fraud-cash_release_iv-186785675-76283123"
             latest_news_type= "fraud_cash_release_iv"
+            status= "read"
+        }
+        "/notification_center/fraud_score_post_approval"(platform: "/mobile"){
+            newsgroup_id= "fraud_score_post_approval-186785675-76283123"
+            latest_news_id= "fraud_score_post_approval-186785675-76283123"
+            latest_news_type= "fraud_score_post_approval"
+            status= "read"
+        }
+        "/notification_center/fraud_iv_credentials"(platform: "/mobile"){
+            newsgroup_id= "fraud_iv_credentials-186785675-76283123"
+            latest_news_id= "fraud_iv_credentials-186785675-76283123"
+            latest_news_type= "fraud_iv_credentials"
             status= "read"
         }
         "/notification_center/instore_buyer_qr"(platform: "/mobile"){
@@ -3094,6 +3114,10 @@ trackTests {
             latest_news_type= "messages_quotes"
             latest_news_id= "messages_quotes-143816022-MLB1013046714"
         }
+        "/notification_center/messages_flex"(platform: "/mobile"){
+            latest_news_type= "messages_flex"
+            latest_news_id= "messages_flex-143816022-MLB1013046714"
+        }
 
         "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile"){
             notification_id= "12345"
@@ -3138,6 +3162,10 @@ trackTests {
         "/notification_center/messages_quotes"(platform: "/mobile") {
             latest_news_type= "messages_quotes"
             latest_news_id= "messages-quotes-123-123"
+        }
+        "/notification_center/messages_flex"(platform: "/mobile"){
+            latest_news_type= "messages_flex"
+            latest_news_id= "messages_flex-143816022-MLB1013046714"
         }
         "/notification_center/me_flex-optin"(platform: "/mobile"){
             latest_news_type= "me_flex-optin"
@@ -3403,6 +3431,18 @@ trackTests {
             newsgroup_id= "fraud-cash_release_iv-186785675-76283123"
             latest_news_id= "fraud-cash_release_iv-186785675-76283123"
             latest_news_type= "fraud_cash_release_iv"
+            status= "read"
+        }
+        "/notification_center/fraud_score_post_approval"(platform: "/mobile"){
+            newsgroup_id= "fraud_score_post_approval-186785675-76283123"
+            latest_news_id= "fraud_score_post_approval-186785675-76283123"
+            latest_news_type= "fraud_score_post_approval"
+            status= "read"
+        }
+        "/notification_center/fraud_iv_credentials"(platform: "/mobile"){
+            newsgroup_id= "fraud_iv_credentials-186785675-76283123"
+            latest_news_id= "fraud_iv_credentials-186785675-76283123"
+            latest_news_type= "fraud_iv_credentials"
             status= "read"
         }
         "/notification_center/instore_buyer_qr"(platform: "/mobile"){
