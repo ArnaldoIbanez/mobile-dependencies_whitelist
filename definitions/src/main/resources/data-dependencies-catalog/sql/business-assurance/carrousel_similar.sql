@@ -18,7 +18,7 @@ FROM (
     recommendations
   WHERE ds >= '@param02' and ds < '@param01'
     and jest(data, 'path') = '/recommendations/print'
-    and jest(data, 'application.site_id') IN ('MLA', 'MLB', 'MLM')
+    and jest(data, 'application.site_id') IN ('MLA','MLB','MLM', 'MLC', 'MLU', 'MCO')
     and jest(data, 'event_data.recommendations.client') ='vip'
     and jest(data, 'event_data.recommendations.backend_id') = 'tagging-searchsimilar_fashion'
     group by jest(data,'device.platform'), jest(data, 'application.site_id'), jest(data, 'event_data.recommendations.backend_id'), substr(ds,1,10)
@@ -35,7 +35,7 @@ FROM (
     ds >= '@param02' 
     and ds < '@param01'
     and path = '/vip'
-    and application.site_id IN ('MLA', 'MLB', 'MLM') 
+    and application.site_id IN ('MLA','MLB','MLM', 'MLC', 'MLU', 'MCO') 
     and type = 'view'
     and jest(platform.fragment, 'reco_client') = 'vip'
     and jest(platform.fragment, 'reco_backend') = 'tagging-searchsimilar_fashion'
