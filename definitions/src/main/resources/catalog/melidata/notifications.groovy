@@ -564,8 +564,8 @@ tracks {
       }
 
       //Anses
-      //"/notification/anses_payment_date"(platform: "/") {}
-      //"/notification/anses_paid_benefit"(platform: "/") {}
+      "/notification/anses_payment_date"(platform: "/") {}
+      "/notification/anses_paid_benefit"(platform: "/") {}
 
       //Account
       "/notification/account_fund_approved_mp"(platform: "/") {}
