@@ -5,6 +5,20 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    category_prediction {
+        path(type: PropertyType.ArrayList, required: true, description: "Category path")
+        score(type: PropertyType.Numeric, required: true, description: "Score of the prediction")
+    }
+    attribute_prediction {
+        id(type: PropertyType.String, required: true, description: "Attribute id")
+        value_id(type: PropertyType.String, required: true, description: "Attribute selected value")
+    }
+
+    predictions_map {
+        categories(type: PropertyType.ArrayList(PropertyType.Map(category_prediction)), required: false, description: "Array of predictions of categories")
+        attributes(type: PropertyType.ArrayList(PropertyType.Map(attribute_prediction)), required: false, description: "Array of predictions of attributes")
+    }
+
     propertyDefinitions {
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
         domain_id(required: false, type: PropertyType.String, description: "Item's category domain id")
@@ -18,7 +32,7 @@ tracks {
         category_prediction_selected_index(required: false, description: "Index selected in Multiples Suggestions", PropertyType.Numeric)
         attribute_values(required: false, description: "Array of attributes in categorization", PropertyType.ArrayList)
         title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
-        predictions(required: false, type: PropertyType.ArrayList, description: "Array of predictions of categories and/or attributes")
+        predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
     }
 
     propertyGroups {
