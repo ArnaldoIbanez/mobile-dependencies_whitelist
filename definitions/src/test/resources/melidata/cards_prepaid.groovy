@@ -118,7 +118,7 @@ trackTests {
     }
 
     test("Upgrade webview") {
-        "/prepaid/block_view" (platform: "/mobile") { }
+        "/prepaid/block_view" (platform: "/mobile", type: TrackType.View) { }
         "/prepaid/block-view/cta"(platform: "/mobile", type: TrackType.Event) { }
     }
 
