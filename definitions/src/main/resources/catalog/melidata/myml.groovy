@@ -878,6 +878,8 @@ tracks {
     "/myml/invoices/sku/status"(platform: "/") {}
 
     "/myml/invoices/sku/detail"(platform: "/") {}
+    "/myml/invoices/sku/processing"(platform: "/") {}
+    "/myml/invoices/sku/disabled"(platform: "/") {}
     "/myml/invoices/sku/detail/action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, values:[
             "print_danfe",
@@ -915,7 +917,7 @@ tracks {
 
 
     //Opt-in pages
-    
+
     "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}
 
     "/myml/invoices/opt_in/difal"(platform: "/") {}
@@ -956,7 +958,7 @@ tracks {
     //Fiscal Rules Page
 
     "/myml/fiscal_rules"(platform: "/", isAbstract: true) {}
-    
+
     "/myml/fiscal_rules/message"(platform: "/", type: TrackType.View){
         code(required: true, type: PropertyType.Numeric, description: "Code of return message")
     }
