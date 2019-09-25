@@ -894,23 +894,92 @@ tracks {
     "/myml/invoices/backoffice/search"(platform: "/", isAbstract: true) {}
 
     "/myml/invoices/backoffice/search/invoice"(platform: "/", isAbstract: true) {
-        search_filter(required: true, description: "Search filter used")
+        invoiceId(required: false, type: PropertyType.String, description: "Invoice search by id")
+        orderId(required: false, type: PropertyType.String, description: "Invoice search by order id")
+        inboundId(required: false, type: PropertyType.String, description: "Invoice search by inbound id")
+        shipmentId(required: false, type: PropertyType.String, description: "Invoice search by shipment id")
+        invoiceNumber(required: false, type: PropertyType.String, description: "Invoice search by invoice number")
+        invoiceSerie(required: false, type: PropertyType.String, description: "Invoice search by invoice serie")
+        userId(required: true, type: PropertyType.String, description: "Invoice search by issuer id")
+        invoiceKey(required: false, type: PropertyType.String, description: "Invoice search by invoice key")
+        nickname(required: false, type: PropertyType.String, description: "Invoice search by nickname")
     }
 
     "/myml/invoices/backoffice/search/reissueinvoice"(platform: "/") {
-        search_filter(required: true, description: "Reissue invoice in Backoffice")
+        invoiceId(required: true, type: PropertyType.String, description: "Invoice Id")
+        orderIds(required: true, type: PropertyType.String, description: "Invoice order Ids")
+        userId(required: true, type: PropertyType.String, description: "Id of the invoice issuer")
+        reason(required: true, type: PropertyType.String, description: "Invoice reprocess reason")
+        detailedReason(required: false, type: PropertyType.String, description: "Detailed reason for invoice reprocessing")
     }
 
     "/myml/invoices/backoffice/search/disableinvoice"(platform: "/") {
-        search_filter(required: true, description: "Disable invoice in Backoffice")
+        invoiceId(required: true, type: PropertyType.String, description: "Invoice Id")
+        userId(required: true, type: PropertyType.String, description: "Id of the invoice issuer")
+        reason(required: true, type: PropertyType.String, description: "Invoice disabling reason")
+        detailedReason(required: false, type: PropertyType.String, description: "Detailed reason for invoice disabling")
     }
 
     "/myml/invoices/backoffice/search/invoiceslist"(platform: "/") {
-        search_filter(required: true, description: "Search filter used on massive invoices search")
+        invoiceId(required: false, type: PropertyType.String, description: "Massive invoice search by id")
+        orderId(required: false, type: PropertyType.String, description: "Massive invoice search by order id")
+        status(required: false, type: PropertyType.String, description: "Massive invoice search by status id")
+        inboundId(required: false, type: PropertyType.String, description: "Massive invoice search by inbound id")
+        shipmentId(required: false, type: PropertyType.String, description: "Massive invoice search by shipment id")
+        shipmentLogisticType(required: false, type: PropertyType.String, description: "Massive invoice search by shipment logistic type")
+        offset(required: false, type: PropertyType.String, description: "Massive invoice search by offset")
+        limit(required: false, type: PropertyType.String, description: "Massive invoice search by limit")
+        invoiceCreationDateFrom(required: false, type: PropertyType.String, description: "Massive invoice search by invoice creation date from")
+        invoiceCreationDateTo(required: false, type: PropertyType.String, description: "Massive invoice search by invoice creation date to")
+        invoiceNumber(required: false, type: PropertyType.String, description: "Massive invoice search by invoice number")
+        invoiceNumberTo(required: false, type: PropertyType.String, description: "Massive invoice search by invoice number to")
+        invoiceNumberFrom(required: false, type: PropertyType.String, description: "Massive invoice search by invoice number from")
+        recipientCnpj(required: false, type: PropertyType.String, description: "Massive invoice search by recipient cnpj")
+        recipientCpf(required: false, type: PropertyType.String, description: "Massive invoice search by recipient cpf")
+        recipientName(required: false, type: PropertyType.String, description: "Massive invoice search by recipient name")
+        recipientUf(required: false, type: PropertyType.String, description: "Massive invoice search by recipient uf")
+        invoiceSerie(required: false, type: PropertyType.String, description: "Massive invoice search by invoice serie")
+        userId(required: false, type: PropertyType.String, description: "Massive invoice search by user id")
+        issuerCnpj(required: false, type: PropertyType.String, description: "Massive invoice search by issuer cnpj")
+        issuerUf(required: false, type: PropertyType.String, description: "Massive invoice search by issuer uf")
+        taxRuleId(required: false, type: PropertyType.String, description: "Massive invoice search by issuer tax rule id")
+        nickname(required: false, type: PropertyType.String, description: "Massive invoice search by nickname")
+        email(required: false, type: PropertyType.String, description: "Massive invoice search by email")
+        transactionType(required: false, type: PropertyType.String, description: "Massive invoice search by transaction type")
+        externalProductId(required: false, type: PropertyType.String, description: "Massive invoice search by external product id")
     }
 
     "/myml/invoices/backoffice/search/invoiceslist/export_csv"(platform: "/") {
-        search_filter(required: true, description: "Search filter used on massive invoices search for csv export")
+        seller_id(required: false, type: PropertyType.String, description: "Seller id used to generate csv")
+        status(required: false, type: PropertyType.String, description: "Invoice status used to generate csv")
+        environment(required: false, type: PropertyType.String, description: "Which environment was selected to generate csv")
+        external_order_id(required: false, type: PropertyType.String, description: "Order id used to generate csv")
+        series(required: false, type: PropertyType.String, description: "Invoice series used to generate csv")
+        invoice_number(required: false, type: PropertyType.String, description: "Invoice number used to generate csv")
+        issuer_cnpj(required: false, type: PropertyType.String, description: "Issuer cnpj used to generate csv")
+        shipment_logistic_type(required: false, type: PropertyType.String, description: "Logistic type used to generate csv")
+        shipment_fiscal_model(required: false, type: PropertyType.String, description: "Fiscal model used to generate csv")
+        recipient_cnpj(required: false, type: PropertyType.String, description: "Recipient cnpj used to generate csv")
+        invoice_creation_date_from(required: false, type: PropertyType.String, description: "Invoice creation date used to generate csv")
+        invoice_creation_date_to(required: false, type: PropertyType.String, description: "Invoice creation date to used to generate csv")
+        invoice_id(required: false, type: PropertyType.String, description: "Invoice id used to generate csv")
+        invoice_key(required: false, type: PropertyType.String, description: "Invoice key used to generate csv")
+        shipment_id(required: false, type: PropertyType.String, description: "Shipment id used to generate csv")
+        invoice_number_from(required: false, type: PropertyType.String, description: "Invoice number from used to generate csv")
+        invoice_number_to(required: false, type: PropertyType.String, description: "Invoice number to used to generate csv")
+        tax_rule_id(required: false, type: PropertyType.String, description: "Tax rule id used to generate csv")
+        transaction_type(required: false, type: PropertyType.String, description: "Transaction type used to generate csv")
+        external_product_id(required: false, type: PropertyType.String, description: "Item id used to generate csv")
+        issuer_address_state(required: false, type: PropertyType.String, description: "Issuer state address used to generate csv")
+        recipient_cpf(required: false, type: PropertyType.String, description: "Recipient cpf used to generate csv")
+        recipient_id(required: false, type: PropertyType.String, description: "Recipient id used to generate csv")
+        recipient_name(required: false, type: PropertyType.String, description: "Recipient name used to generate csv")
+        recipient_address_state(required: false, type: PropertyType.String, description: "Recipient state address used to generate csv")
+        with_items(required: false, type: PropertyType.String, description: "Should consider items to generate csv")
+        sort(required: false, type: PropertyType.String, description: "Sorting used to generate csv")
+        limit(required: false, type: PropertyType.String, description: "Limit of pages used to generate csv")
+        offset(required: false, type: PropertyType.String, description: "Offset used to generate csv")
+        transaction_status(required: false, type: PropertyType.String, description: "Invoice transaction status used to generate csv")
     }
 
     "/myml/invoices/backoffice/view"(platform: "/", isAbstract: true) {}
