@@ -206,6 +206,12 @@ trackTests {
                     "MLA1234567": "low_score"
             ]
             is_in_seo_whitelist = true
+            seo=[
+                isWhitelisted:true,
+                checkMode:"GMV",
+                gmvValue:15,
+                vipClicks:0
+            ]
             pdp_highlight_enabled= true
         })
 
