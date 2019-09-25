@@ -6,6 +6,67 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    def geolocation_definition = objectSchemaDefinitions {
+        latitude(type: PropertyType.String, required: false)
+        longitude(type: PropertyType.String, required: false)
+    }
+
+    def payload_location_definition = objectSchemaDefinitions {
+        city_name(type: PropertyType.String, required: false, description: "Shipment city name")
+        country_id(type: PropertyType.String, required: false, description: "Shipment country id")
+        geolocation(type: PropertyType.String, required: false, description: "Shipment geolocation")
+        neighborhood_name(type: PropertyType.String, required: false, description: "Shipment neighborhood name")
+        state_id(type: PropertyType.String, required: false, description: "Shipment state id")
+        geolocation(type: PropertyType.Map(geolocation_definition), required: false, description: "Geolocation Event")
+    }
+
+    def payload_dimensions_definition = objectSchemaDefinitions {
+        height(type: PropertyType.Numeric, required: false)
+        width(type: PropertyType.Numeric, required: false)
+        length(type: PropertyType.Numeric, required: false)
+        weight(type: PropertyType.Numeric, required: false)
+    }
+
+    def notification_payload_definition = objectSchemaDefinitions {
+        agency_id(type: PropertyType.String, required: false, description: "Carrier agency id")
+        carrier_id(type: PropertyType.String, required: false)
+        client_id(type: PropertyType.String, required: false, description: "Carrier client id")
+        comment(type: PropertyType.String, required: false, description: "Carrier notification comment")
+        logistic_center(type: PropertyType.String, required: false, description: "Notification logistic center")
+        cost(type: PropertyType.String, required: false, description: "Shipment cost")
+        date(type: PropertyType.String, required: true, description: "Carrier notification date")
+        location(type: PropertyType.Map(payload_location_definition), required: false, description: "Event location")
+        dimensions(type: PropertyType.Map(payload_dimensions_definition), required: false, description: "Package dimensions")
+        extra(type: PropertyType.String, required: false, description: "Extra information")
+    }
+
+    def notification_definition = objectSchemaDefinitions {
+        code(type: PropertyType.String, required: true, description: "Code sent by carrier")
+        carrier_code(type: PropertyType.String, required: false, description: "Code sent by carrier")
+        id(type: PropertyType.String, required: false, description: "Notification id")
+        origin(type: PropertyType.String, required: false, description: "Notification origin (push-pull-meli)")
+        payload(type: PropertyType.Map(notification_payload_definition), required: true, description: "Notification payload")
+        shipment_id(type: PropertyType.Numeric, required: false)
+        tracking_number(type: PropertyType.String, required: true, description: "Shipment tracking number")
+        delay_date(type: PropertyType.String, required: false, description: "Delay to process notification")
+    }
+
+    def processed_notification_definition = objectSchemaDefinitions {
+        shipment_id(type: PropertyType.String, required: false)
+        carrier_id(type: PropertyType.String, required: false)
+        stage_id(type: PropertyType.String, required: true)
+        notification_id(type: PropertyType.String, required: true, description: "Notification id")
+        stage_type(type: PropertyType.String, required: true)
+        snapshot_before(type: PropertyType.String, required: true, description: "Notification without changes")
+        snapshot_after(type: PropertyType.String, required: true, description: "Notification with changes")
+        configuration_filters(type: PropertyType.ArrayList, required: true)
+        configuration_action_params(type: PropertyType.Map, required: true)
+        shippable(type: PropertyType.Map, required: true, description: "Shipment information")
+        processed_notification(type: PropertyType.Map(notification_definition), required: true)
+        date_created(type: PropertyType.String, required: true)
+        enqueue_date(type: PropertyType.String, required: true)
+    }
+
     "/"(platform: "/api") {}
 
     "/shipping"(platform: "/api") {}
@@ -14,7 +75,6 @@ tracks {
     }
 
     "/shipping/tracking/notifications"(platform: "/api") {
-        notification(type: PropertyType.Map, required: true, description: "Carrier notification")
         shipment_id(type: PropertyType.Numeric, required: true)
     }
 
@@ -22,9 +82,11 @@ tracks {
         notification_id(type: PropertyType.String, required: true, description: "Notification id")
         status(type: PropertyType.Numeric, required: true, description: "Status code")
         client_id(type: PropertyType.Numeric, required: false, description: "Client id")
+        notification(type: PropertyType.Map, required: true, description: "Carrier notification body")
     }
 
     "/shipping/tracking/notifications/validated"(platform: "/api") {
+        notification(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification")
     }
 
     "/shipping/tracking/event_processor"(platform: "/api") {
@@ -32,15 +94,15 @@ tracks {
 
     "/shipping/tracking/event_processor/metrics"(platform: "/api") {
         shipment(type: PropertyType.Numeric, required: true)
-        carrier_id(type: PropertyType.Numeric, required: true)
+        carrier_id(type: PropertyType.Numeric, required: false)
         order_cost_usd(type: PropertyType.Numeric, required: false)
         shipment_cost_usd(type: PropertyType.Numeric, required: false)
         total_cost_usd(type: PropertyType.Numeric, required: false)
         enqueue_date(type: PropertyType.String, required: false)
         stage_type(type: PropertyType.String, required: true)
         stage_id(type: PropertyType.String, required: true)
-        notification(type: PropertyType.Map, required: true, description: "Original notifications")
-        notification_after(type: PropertyType.Map, required: true, description: "Carrier notification after event processing")
+        notification(type: PropertyType.Map(processed_notification_definition), required: true, description: "Original notifications")
+        notification_after(type: PropertyType.Map(processed_notification_definition), required: true, description: "Carrier notification after event processing")
         action_params(type: PropertyType.Map, required: true)
         configuration_filters(type: PropertyType.ArrayList, required: true)
     }
