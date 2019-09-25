@@ -147,6 +147,9 @@ tracks {
         )
     }
 
+    "/prepaid/block_view" (platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/block-view/cta"(platform:"/mobile", type: TrackType.Event) {}
+
     // Prepaid Detail
     "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.View) {}
 

@@ -117,6 +117,11 @@ trackTests {
         "/my_cards_webview" (platform: "/mobile") { from = "/deep_link" }
     }
 
+    test("Upgrade webview") {
+        "/prepaid/block_view" (platform: "/mobile") { }
+        "/prepaid/block-view/cta"(platform: "/mobile", type: TrackType.Event) { }
+    }
+
 
     test("Prepaid cards MLM") {
         
