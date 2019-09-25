@@ -682,6 +682,7 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             vertical = "core"
+            item_type = "default"
         }
     }
     test("SYI v4 render item_data"){
@@ -690,6 +691,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            item_type = "default"
         }
     }
     test("SYI v4 title card showed"){
@@ -894,6 +896,7 @@ trackTests {
             quantity = 3
             previous_quantity = 0
             container = "technical_specifications"
+            item_type = "default"
         }
     }
     test("SYI v4 set autocomplete input"){
@@ -907,6 +910,7 @@ trackTests {
             hierarchy = "FAMILY"
             type = "suggested"
             container = "technical_specifications"
+            item_type = "default"
         }
     }
     test("SYI v4 render item_conditions"){
