@@ -120,6 +120,12 @@ trackTests {
                     "MLA1234567": "low_score"
             ]
             is_in_seo_whitelist = true
+            seo = [
+                    is_whitelisted:true,
+                    check_mode:"GMV",
+                    gmv_value:15,
+                    vip_clicks:0
+            ]
             pdp_highlight_enabled= true
         }
 
@@ -206,11 +212,11 @@ trackTests {
                     "MLA1234567": "low_score"
             ]
             is_in_seo_whitelist = true
-            seo=[
-                isWhitelisted:true,
-                checkMode:"GMV",
-                gmvValue:15,
-                vipClicks:0
+            seo = [
+                is_whitelisted:true,
+                check_mode:"GMV",
+                gmv_value:15,
+                vip_clicks:0
             ]
             pdp_highlight_enabled= true
         })
@@ -419,6 +425,12 @@ trackTests {
                     "MLA1234567": "low_score"
             ]
             is_in_seo_whitelist = true
+            seo = [
+                    is_whitelisted:true,
+                    check_mode:"GMV",
+                    gmv_value:15,
+                    vip_clicks:0
+            ]
             pdp_highlight_enabled= true
         }
     }

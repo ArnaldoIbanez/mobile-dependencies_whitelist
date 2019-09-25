@@ -10,6 +10,12 @@ tracks {
     def categoryRegex = /(\S*)/
     def categoryPathRegex = /\[(\S*(, )?)*\]/
 
+    def seo_item_definition = objectSchemaDefinitions {
+        is_whitelisted(type: PropertyType.Boolean, required: true)
+        check_mode(type: PropertyType.ArrayList(PropertyType.String), required: true)
+        gmv_value(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+        vip_clicks(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+    }
 
     //SEARCH FLOW
 
