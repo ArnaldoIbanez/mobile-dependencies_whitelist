@@ -679,14 +679,12 @@ trackTests {
             latest_news_id= "credits_merchants-expired_near_to_daily_charges-186785675-76283123"
             latest_news_type= "credits_merchants_expired_near_to_daily_charges"
             status= "read"
-            installment_id = 123
         }
         "/notification_center/credits_merchants_expired_near_to_fixed_charges"(platform: "/mobile"){
             newsgroup_id= "credits_merchants-expired_near_to_fixed_charges-186785675-76283123"
             latest_news_id= "credits_merchants-expired_near_to_fixed_charges-186785675-76283123"
             latest_news_type= "credits_merchants_expired_near_to_fixed_charges"
             status= "read"
-            installment_id = 123
         }
         "/notification_center/credits_merchants_expired_no_charges"(platform: "/mobile"){
             newsgroup_id= "credits_merchants-expired_no_charges-186785675-76283123"
@@ -2432,12 +2430,10 @@ trackTests {
         "/notification/credits_merchants_expired_near_to_fixed_charges"(platform: "/mobile") {
             news_id = "credits-merchants_expired_near_to_fixed_charges-9876"
             event_type = "shown"
-            installment_id = 9876
         }
         "/notification/credits_merchants_expired_near_to_daily_charges"(platform: "/mobile") {
             news_id = "credits-merchants_expired_near_to_daily_charges-9876"
             event_type = "shown"
-            installment_id = 9876
         }
 
         "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {
@@ -3442,14 +3438,12 @@ trackTests {
             latest_news_id= "credits_merchants-expired_near_to_daily_charges-186785675-76283123"
             latest_news_type= "credits_merchants_expired_near_to_daily_charges"
             status= "read"
-            installment_id = 123
         }
         "/notification_center/credits_merchants_expired_near_to_fixed_charges"(platform: "/mobile"){
             newsgroup_id= "credits_merchants-expired_near_to_fixed_charges-186785675-76283123"
             latest_news_id= "credits_merchants-expired_near_to_fixed_charges-186785675-76283123"
             latest_news_type= "credits_merchants_expired_near_to_fixed_charges"
             status= "read"
-            installment_id = 123
         }
         "/notification_center/credits_merchants_expired_no_charges"(platform: "/mobile"){
             newsgroup_id= "credits_merchants-expired_no_charges-186785675-76283123"
@@ -5154,12 +5148,10 @@ trackTests {
         "/notification/credits_merchants_expired_near_to_fixed_charges"(platform: "/mobile") {
             news_id = "credits-merchants_expired_near_to_fixed_charges-9876"
             event_type = "shown"
-            installment_id = 9876
         }
         "/notification/credits_merchants_expired_near_to_daily_charges"(platform: "/mobile") {
             news_id = "credits-merchants_expired_near_to_daily_charges-9876"
             event_type = "shown"
-            installment_id = 9876
         }
 
         "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {

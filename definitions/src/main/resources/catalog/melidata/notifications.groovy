@@ -487,12 +487,10 @@ tracks {
     "/notification_center/credits_merchants_expired_near_to_daily_charges"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
     "/notification_center/credits_merchants_expired_near_to_fixed_charges"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
-        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
     "/notification_center/credits_merchants_expired_no_charges"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -1371,12 +1369,8 @@ tracks {
     "/notification/credits_merchants_to_expire"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
-    "/notification/credits_merchants_expired_near_to_fixed_charges"(platform: "/mobile") {
-        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-    }
-    "/notification/credits_merchants_expired_near_to_daily_charges"(platform: "/mobile") {
-        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
-    }
+    "/notification/credits_merchants_expired_near_to_fixed_charges"(platform: "/mobile") {}
+    "/notification/credits_merchants_expired_near_to_daily_charges"(platform: "/mobile") {}
     "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric)
     }
