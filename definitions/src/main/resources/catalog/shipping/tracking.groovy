@@ -20,10 +20,10 @@ tracks {
     }
 
     def payload_dimensions_definition = objectSchemaDefinitions {
-        height(type: PropertyType.Numeric, required: false)
-        width(type: PropertyType.Numeric, required: false)
-        length(type: PropertyType.Numeric, required: false)
-        weight(type: PropertyType.Numeric, required: false)
+        height(type: PropertyType.Numeric, required: true)
+        width(type: PropertyType.Numeric, required: true)
+        length(type: PropertyType.Numeric, required: true)
+        weight(type: PropertyType.Numeric, required: true)
     }
 
     def notification_payload_definition = objectSchemaDefinitions {
