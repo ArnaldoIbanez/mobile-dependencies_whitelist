@@ -65,6 +65,7 @@ tracks {
         referral (required:false, type: PropertyType.String, description: "Where the flow start")
         flow (required:false, type: PropertyType.String, description: "Flow type")
         is_challenge (required:false, type: PropertyType.Boolean, description: "If it is challenge")
+        challenge_reason (required:false, type: PropertyType.String, description: "Why challenge has been thrown")
         has_challenged_prepaid (required:false, type: PropertyType.Boolean, description: "If the challenge because of prepaid")
         had_prepaid (required:false, type: PropertyType.Boolean, description: "User had a prepaid")
         has_prepaid (required:false, type: PropertyType.Boolean, description: "User already has a prepaid")
@@ -107,6 +108,7 @@ tracks {
     }
     "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding/slide"(platform: "/mobile", isAbstract: true) {}
     "/prepaid/acquisition/onboarding/slide/first"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/onboarding/slide/second"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/onboarding/slide/third"(platform: "/mobile", type: TrackType.View) {}
@@ -139,12 +141,15 @@ tracks {
     "/prepaid/acquisition/welcome_company" (platform: "/", type: TrackType.View) {}
 
     // Challenge Flow
+    "/prepaid/challenge"(platform: "/mobile", isAbstract: true) {}
     "/prepaid/challenge/pending_ticket"(platform: "/mobile", type: TrackType.View) {
         referral(required: false, type: PropertyType.String, description: "Where the flow start")
     }
     "/prepaid/challenge/delivery"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/money_in"(platform: "/mobile", isAbstract: true) {}
     "/prepaid/challenge/money_in/onboarding"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/challenge/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/onboarding/slide"(platform: "/mobile", isAbstract: true) {}
     "/prepaid/challenge/onboarding/slide/first"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/challenge/onboarding/slide/second"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/challenge/onboarding/slide/third"(platform: "/mobile", type: TrackType.View) {}
