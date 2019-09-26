@@ -315,7 +315,7 @@ metrics {
 					or(
 						equals("event_data.context", "/pdp"),
 						equals("event_data.context", "/qadb"),
-						equals("event_data.context", "/questions/qadb"),
+						equals("event_data.context", "/questions/qadb")
 					)
 				)
 			}
@@ -329,13 +329,13 @@ metrics {
 
 		countsOn {
 			condition {
-				or (
-					and (
+				or(
+					and(
 						equals("path", "/orders/ordercreated"),
 						equals("event_data.is_carrito", false),
 						equals('event_data.is_pdp',true)
 					),
-					and (
+					and(
 						equals("path","/purchases/purchasecreated"),
 						equals('event_data.is_pdp',true)
 					)
