@@ -31,6 +31,21 @@ trackTests {
     test("cards prepaid acquisition flow") {
 
         // View
+        "/prepaid/acquisition/init_point"(platform: "/", type: TrackType.View) {
+            referral = "some"
+            flow = "prepaid"
+            is_challenge = true
+            challenge_reason = "need_funding"
+            has_challenged_prepaid = false
+            had_prepaid = false
+            has_prepaid = false
+            had_money_last_7d = false
+            is_point_seller = false
+            bought_point_device = false
+            current_balance_amount = "zero"
+            need_funding_amount = 20
+            has_money = false
+        }
         "/prepaid/acquisition/change_dni"(platform: "/web/desktop") {}
         "/prepaid/acquisition/confirmation_account"(platform: "/web/desktop") {}
         "/prepaid/acquisition/registration/congrats"(platform: "/web/desktop") {}
@@ -68,6 +83,24 @@ trackTests {
 
         "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) {}
         "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/onboarding/slide/first"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/onboarding/slide/second"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/onboarding/slide/third"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/onboarding/slide/fourth"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/onboarding/slide/fifth"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/challenge/onboarding/slide/first"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/challenge/onboarding/slide/second"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/challenge/onboarding/slide/third"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/challenge/onboarding/slide/fourth"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/challenge/onboarding/slide/fifth"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/acquisition/onboarding/slide/exit"(platform:"/mobile", type: TrackType.Event) {
+            slide = 1
+            cause = "close"
+        }
+        "/prepaid/challenge/onboarding/slide/exit"(platform:"/mobile", type: TrackType.Event) {
+            slide = 2
+            cause = "back"
+        }
         "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) {}
         "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) {}
 
@@ -81,6 +114,15 @@ trackTests {
         "/prepaid/acquisition/limited"(platform: "/mobile", type: TrackType.View) {}
     }
 
+
+    test("cards prepaid challenge flow") {
+        "/prepaid/challenge/pending_ticket"(platform: "/mobile", type: TrackType.View) {
+            referral = "some"
+        }
+        "/prepaid/challenge/delivery"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/challenge/money_in/onboarding"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/challenge/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    }
 
     test("cards prepaid activation flow") {
 
