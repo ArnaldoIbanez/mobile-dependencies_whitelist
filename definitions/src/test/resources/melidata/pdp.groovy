@@ -396,7 +396,7 @@ trackTests {
 
     //Track Questions Show
     test("Show questions tracking"){
-        "/pdp/question/show"(platform: "/", {
+        "/pdp/questions/show"(platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA112341"
             seller_id = 2345678
