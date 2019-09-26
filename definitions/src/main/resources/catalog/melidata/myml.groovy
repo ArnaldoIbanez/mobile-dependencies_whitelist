@@ -597,8 +597,8 @@ tracks {
     "/myml/invoices/company-info/certificate/help_tooltip"(platform: "/", type: TrackType.Event) {}
 
     "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
-    "/myml/invoices/company-info/certificate/a1/installer_download"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a1/installer_download"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
