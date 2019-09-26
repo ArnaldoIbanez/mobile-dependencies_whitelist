@@ -135,6 +135,8 @@ trackTests {
         "/myml/invoices/sku/status"(platform: "/") {}
 
         "/myml/invoices/sku/detail"(platform: "/") {}
+        "/myml/invoices/sku/processing"(platform: "/") {}
+        "/myml/invoices/sku/disabled"(platform: "/") {}
         "/myml/invoices/sku/detail/action"(platform: "/", type: TrackType.Event) {
           action = "print_danfe"
         }
@@ -1085,7 +1087,7 @@ trackTests {
             selected = ""
             id = "5"
         }
-        
+
 
         "/myml/fiscal_rules/listing/checkbox/header"(platform: "/", type: TrackType.Event) {
             page = 2
