@@ -14,7 +14,6 @@ tracks {
     def payload_location_definition = objectSchemaDefinitions {
         city_name(type: PropertyType.String, required: false, description: "Shipment city name")
         country_id(type: PropertyType.String, required: false, description: "Shipment country id")
-        geolocation(type: PropertyType.String, required: false, description: "Shipment geolocation")
         neighborhood_name(type: PropertyType.String, required: false, description: "Shipment neighborhood name")
         state_id(type: PropertyType.String, required: false, description: "Shipment state id")
         geolocation(type: PropertyType.Map(geolocation_definition), required: false, description: "Geolocation Event")
