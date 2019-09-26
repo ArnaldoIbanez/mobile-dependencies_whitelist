@@ -327,6 +327,12 @@ tracks {
         available_quantity(required: true, type: PropertyType.Numeric, description: "Max Available quantity for the selected product")
     }
 
+    "/pdp/questions/show"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product id")
+        item_id(required: false, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
+        seller_id(required: false, type: PropertyType.Numeric, description: "")
+    }
+
     "/pdp/sellers/picker_selection"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         picker_id(required: true, type: PropertyType.String, description: "Product's picker ID")

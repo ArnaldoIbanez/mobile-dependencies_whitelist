@@ -394,6 +394,15 @@ trackTests {
 
     }
 
+    //Track Questions Show
+    test("Show questions tracking"){
+        "/pdp/question/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+            seller_id = 2345678
+        })
+    }
+
     //Sellers page FLOW
     test("Sellers page tracking") {
         "/pdp/sellers/quantity_change"(platform: "/", {
