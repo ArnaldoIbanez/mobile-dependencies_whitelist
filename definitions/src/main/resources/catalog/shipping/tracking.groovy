@@ -43,7 +43,7 @@ tracks {
         code(type: PropertyType.String, required: true, description: "Standard integration code")
         carrier_code(type: PropertyType.String, required: false, description: "Carrier internal code")
         id(type: PropertyType.String, required: false, description: "Notification id")
-        origin(type: PropertyType.String, required: false, description: "Notification origin (push-pull-meli)")
+        origin(type: PropertyType.String, required: false, description: "Notification origin",values: ["carrier-push", "carrier-pull", "meli", "shipping-back-office"])
         payload(type: PropertyType.Map(notification_payload_definition), required: true, description: "Notification payload")
         shipment_id(type: PropertyType.Numeric, required: false)
         tracking_number(type: PropertyType.String, required: false, description: "Shipment tracking number")
