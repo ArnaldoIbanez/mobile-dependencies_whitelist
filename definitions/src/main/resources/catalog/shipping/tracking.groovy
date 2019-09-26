@@ -40,8 +40,8 @@ tracks {
     }
 
     def notification_definition = objectSchemaDefinitions {
-        code(type: PropertyType.String, required: true, description: "Code sent by carrier")
-        carrier_code(type: PropertyType.String, required: false, description: "Code sent by carrier")
+        code(type: PropertyType.String, required: true, description: "Standard integration code")
+        carrier_code(type: PropertyType.String, required: false, description: "Carrier internal code")
         id(type: PropertyType.String, required: false, description: "Notification id")
         origin(type: PropertyType.String, required: false, description: "Notification origin (push-pull-meli)")
         payload(type: PropertyType.Map(notification_payload_definition), required: true, description: "Notification payload")
