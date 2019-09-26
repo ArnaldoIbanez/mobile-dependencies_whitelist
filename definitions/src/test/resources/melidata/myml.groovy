@@ -145,6 +145,7 @@ trackTests {
         "/myml/invoices/company-info/certificate/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
         "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a1/installer_download"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
             error = "password"
@@ -288,6 +289,8 @@ trackTests {
         "/myml/invoices/order/carrier/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
+        "/myml/invoices/order/devolution"(platform: "/") {}
+        "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Backoffice pages") {

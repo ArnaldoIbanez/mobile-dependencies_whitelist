@@ -598,6 +598,7 @@ tracks {
 
     "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
     "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a1/installer_download"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
@@ -736,6 +737,10 @@ tracks {
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
 
+    //devolution
+    "/myml/invoices/order/devolution"(platform: "/") {}
+    "/myml/invoices/order/devolution/confirm"(platform: "/", isAbstract: true) {}
+
     //buyer
     "/myml/invoices/order/buyer-info"(platform: "/") {}
     "/myml/invoices/order/buyer-info/save"(platform: "/", isAbstract: true) {}
@@ -744,7 +749,7 @@ tracks {
     }
     "/myml/invoices/order/buyer-info/save/response"(platform: "/", type: TrackType.Event) {}
 
-    //buyer
+    //carrier
     "/myml/invoices/order/carrier"(platform: "/") {}
     "/myml/invoices/order/carrier/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/order/carrier/save/request"(platform: "/", type: TrackType.Event) {
