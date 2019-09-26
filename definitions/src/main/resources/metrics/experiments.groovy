@@ -328,8 +328,8 @@ metrics {
 		}
 
 		countsOn {
-			condition {+
-				or(
+			condition {
+				or (
 					and (
 						equals("path", "/orders/ordercreated"),
 						equals("event_data.is_carrito", false),
