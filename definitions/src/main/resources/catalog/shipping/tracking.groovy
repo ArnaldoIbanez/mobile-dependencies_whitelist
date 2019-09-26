@@ -47,24 +47,8 @@ tracks {
         origin(type: PropertyType.String, required: false, description: "Notification origin (push-pull-meli)")
         payload(type: PropertyType.Map(notification_payload_definition), required: true, description: "Notification payload")
         shipment_id(type: PropertyType.Numeric, required: false)
-        tracking_number(type: PropertyType.String, required: true, description: "Shipment tracking number")
+        tracking_number(type: PropertyType.String, required: false, description: "Shipment tracking number")
         delay_date(type: PropertyType.String, required: false, description: "Delay to process notification")
-    }
-
-    def processed_notification_definition = objectSchemaDefinitions {
-        shipment_id(type: PropertyType.String, required: false)
-        carrier_id(type: PropertyType.String, required: false)
-        stage_id(type: PropertyType.String, required: true)
-        notification_id(type: PropertyType.String, required: true, description: "Notification id")
-        stage_type(type: PropertyType.String, required: true)
-        snapshot_before(type: PropertyType.String, required: true, description: "Notification without changes")
-        snapshot_after(type: PropertyType.String, required: true, description: "Notification with changes")
-        configuration_filters(type: PropertyType.ArrayList, required: true)
-        configuration_action_params(type: PropertyType.Map, required: true)
-        shippable(type: PropertyType.Map, required: true, description: "Shipment information")
-        processed_notification(type: PropertyType.Map(notification_definition), required: true)
-        date_created(type: PropertyType.String, required: true)
-        enqueue_date(type: PropertyType.String, required: true)
     }
 
     "/"(platform: "/api") {}
@@ -101,10 +85,10 @@ tracks {
         enqueue_date(type: PropertyType.String, required: false)
         stage_type(type: PropertyType.String, required: true)
         stage_id(type: PropertyType.String, required: true)
-        notification(type: PropertyType.Map(processed_notification_definition), required: true, description: "Original notifications")
-        notification_after(type: PropertyType.Map(processed_notification_definition), required: true, description: "Carrier notification after event processing")
-        action_params(type: PropertyType.Map, required: true)
-        configuration_filters(type: PropertyType.ArrayList, required: true)
+        notification(type: PropertyType.Map(notification_definition), required: true, description: "Original notifications")
+        notification_after(type: PropertyType.Map(notification_definition), required: true, description: "Carrier notification after event processing")
+        action_params(type: PropertyType.Map, required: true, description: "Generic configuration params")
+        configuration_filters(type: PropertyType.ArrayList, required: true, description: "Generic configuration filters")
     }
 
     "/shipping/tracking/event_processor/metrics/effective"(platform: "/api") {
