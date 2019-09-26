@@ -112,11 +112,6 @@ tracks {
     "/prepaid/acquisition/onboarding/slide/third"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/onboarding/slide/fourth"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/onboarding/slide/fifth"(platform: "/mobile", type: TrackType.View) {}
-    "/prepaid/challenge/onboarding/slide/first"(platform: "/mobile", type: TrackType.View) {}
-    "/prepaid/challenge/onboarding/slide/second"(platform: "/mobile", type: TrackType.View) {}
-    "/prepaid/challenge/onboarding/slide/third"(platform: "/mobile", type: TrackType.View) {}
-    "/prepaid/challenge/onboarding/slide/fourth"(platform: "/mobile", type: TrackType.View) {}
-    "/prepaid/challenge/onboarding/slide/fifth"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/onboarding/slide/exit"(platform:"/mobile", type: TrackType.Event) {
         slide(
                 required: true,
@@ -130,19 +125,7 @@ tracks {
                 description: "The quit reason"
         )
     }
-    "/prepaid/challenge/onboarding/slide/exit"(platform:"/mobile", type: TrackType.Event) {
-        slide(
-                required: true,
-                type: PropertyType.Numeric,
-                description: "Slide number where ocurre the event"
-        )
-        cause(
-                required: true,
-                type: PropertyType.String,
-                values: ["close", "back"],
-                description: "The quit reason"
-        )
-    }
+
     "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) {} 
 
@@ -162,7 +145,24 @@ tracks {
     "/prepaid/challenge/delivery"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/challenge/money_in/onboarding"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/challenge/onboarding"(platform: "/mobile", type: TrackType.View) {}
-
+    "/prepaid/challenge/onboarding/slide/first"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/onboarding/slide/second"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/onboarding/slide/third"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/onboarding/slide/fourth"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/onboarding/slide/fifth"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/onboarding/slide/exit"(platform:"/mobile", type: TrackType.Event) {
+        slide(
+                required: true,
+                type: PropertyType.Numeric,
+                description: "Slide number where ocurre the event"
+        )
+        cause(
+                required: true,
+                type: PropertyType.String,
+                values: ["close", "back"],
+                description: "The quit reason"
+        )
+    }
 
     // Activation Flow
     // MLA => https://www.mercadopago.com.ar/prepaid/activation
