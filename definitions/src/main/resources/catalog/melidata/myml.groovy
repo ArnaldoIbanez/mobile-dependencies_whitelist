@@ -739,7 +739,7 @@ tracks {
 
     //devolution
     "/myml/invoices/order/devolution"(platform: "/") {}
-    "/myml/invoices/order/devolution/confirm"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
 
     //buyer
     "/myml/invoices/order/buyer-info"(platform: "/") {}
