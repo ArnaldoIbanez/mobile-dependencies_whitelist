@@ -1,6 +1,6 @@
 select 
  device.platform AS platform,
- application.site_id as site_id
+ application.site_id as site_id,
 (CASE WHEN platform.fragment RLIKE '.*menu-user.*' THEN 'mobile_navegation_bar'
         WHEN platform.fragment RLIKE '.*nav-header.*' THEN 'desktop_navegation_bar'
         WHEN jest(platform.fragment, 'sp_origin') RLIKE 'footer' THEN 'desktop_footer'
