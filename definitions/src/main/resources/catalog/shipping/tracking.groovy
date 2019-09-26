@@ -7,8 +7,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
 
     def geolocation_definition = objectSchemaDefinitions {
-        latitude(type: PropertyType.String, required: false)
-        longitude(type: PropertyType.String, required: false)
+        latitude(type: PropertyType.String, required: true)
+        longitude(type: PropertyType.String, required: true)
     }
 
     def payload_location_definition = objectSchemaDefinitions {
