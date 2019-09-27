@@ -679,7 +679,7 @@ tracks {
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
-        confirm_category_detail(required: false, description: "Confirmation value if product detail is present", type: PropertyType.Boolean)
+        confirm_category_detail(required: true, description: "Confirmation value of product detail", values:["not_present", "false", "true"], type: PropertyType.String)
     }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/product_bullet_resume"(platform: "/web", isAbstract: true) {}

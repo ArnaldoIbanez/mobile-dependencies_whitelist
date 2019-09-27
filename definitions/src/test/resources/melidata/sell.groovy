@@ -728,6 +728,7 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             item_type = "default"
+            confirm_category_detail = "true"
         }
     }
     test("SYI v4 wrong category"){
