@@ -196,6 +196,9 @@ tracks {
         status(required: false, type: PropertyType.String)
         buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
         loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
+        tokenGeneratedWithEsc(required: true, type: PropertyType.String)
+        congratsStatus(required: true, type: PropertyType.String)
+        paymentStatusDetail(required: true, type: PropertyType.String)
     }
 
     "/cart/checkout/congrats/keep_buying"(platform: "/", type: TrackType.Event) {}

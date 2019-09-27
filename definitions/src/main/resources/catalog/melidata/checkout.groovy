@@ -788,6 +788,9 @@ tracks {
         purchase_id(required: false, type: PropertyType.Numeric, description: "Id of the purchase")
         buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
         loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
+        tokenGeneratedWithEsc(required: true, type: PropertyType.String)
+        congratsStatus(required: true, type: PropertyType.String)
+        paymentStatusDetail(required: true, type: PropertyType.String)
     }
 
     "/checkout/congrats/recommendations"(platform: "/", type: TrackType.View) {}
