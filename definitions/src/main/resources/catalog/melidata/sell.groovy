@@ -678,13 +678,20 @@ tracks {
     "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
+        confirm_category_detail(required: false, description: "Confirmation value if product detail is present", type: PropertyType.Boolean)
+    }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/product_bullet_resume"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/flow_decision"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/flow_decision/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/flow_decision/confirm"(platform: "/web", type: TrackType.Event) {
         flow_decision(required: true, description: "Flow decision - true if is catalog", type: PropertyType.Boolean)
     }
+    "/sell/item_data/quantity_with_specifications"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/quantity_with_specifications/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/quantity_with_specifications/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/consequences_modal"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/consequences_modal/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/consequences_modal/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -764,6 +771,9 @@ tracks {
     "/sell/item_conditions/video"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/video/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/video/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/invoice"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/invoice/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/invoice/confirm"(platform: "/web", type: TrackType.Event) {}
 
 
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
