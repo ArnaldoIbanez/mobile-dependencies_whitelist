@@ -123,7 +123,8 @@ trackTests {
                     is_whitelisted:true,
                     check_mode:"GMV",
                     gmv_value:15,
-                    vip_clicks:0
+                    vip_clicks:0,
+                    isOnSeoWhitelistExperiment:true
             ]
             pdp_highlight_enabled= true
         }
@@ -215,7 +216,8 @@ trackTests {
                 is_whitelisted:true,
                 check_mode:"GMV",
                 gmv_value:15,
-                vip_clicks:0
+                vip_clicks:0,
+                isOnSeoWhitelistExperiment:true
             ]
             pdp_highlight_enabled= true
         })
@@ -425,7 +427,8 @@ trackTests {
                     is_whitelisted:true,
                     check_mode:"GMV",
                     gmv_value:15,
-                    vip_clicks:0
+                    vip_clicks:0,
+                    isOnSeoWhitelistExperiment:true
             ]
             pdp_highlight_enabled= true
         }

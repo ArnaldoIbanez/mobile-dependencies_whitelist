@@ -15,6 +15,7 @@ tracks {
         check_mode(type: PropertyType.ArrayList(PropertyType.String), required: true)
         gmv_value(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
         vip_clicks(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+        isOnSeoWhitelistExperiment(type: PropertyType.Boolean, required: true)
     }
 
     //SEARCH FLOW
