@@ -223,6 +223,9 @@ trackTests {
             reason = 'lender_cannot_collect_installments'
         }
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
+            reason = 'installment_paid'
+        }
+        "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'default'
         }
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {

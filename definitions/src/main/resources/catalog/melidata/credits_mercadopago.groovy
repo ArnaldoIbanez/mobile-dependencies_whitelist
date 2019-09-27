@@ -178,6 +178,7 @@ tracks {
             values: [
                 'insufficient_account_money',
                 'lender_cannot_collect_installments',
+                'installment_paid',
                 'default'
             ],
             inheritable: false

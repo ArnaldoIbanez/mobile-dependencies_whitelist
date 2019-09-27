@@ -1170,13 +1170,13 @@ tracks {
     "/balance/reports"(platform: "/web", type: TrackType.View){}
 
     "/my_business"(platform: "/web", type: TrackType.View){}
-    "/my_business/how_it_works_ME"(platform: "/web"){}
-    "/my_business/enable_ME"(platform: "/web"){}
-    "/my_business/disable_ME"(platform: "/web"){}
+    "/my_business/how_it_works_ME"(platform: "/web", type: TrackType.Event){}
+    "/my_business/enable_ME"(platform: "/web", type: TrackType.Event){}
+    "/my_business/disable_ME"(platform: "/web", type: TrackType.Event){}
 
-    "/my_business/split_payment"(platform: "/web"){}
-    "/my_business/recovery_mails"(platform: "/web"){}
-    "/my_business/cost_absorption"(platform: "/web"){}
+    "/my_business/split_payment"(platform: "/web", type: TrackType.Event){}
+    "/my_business/recovery_mails"(platform: "/web", type: TrackType.Event){}
+    "/my_business/cost_absorption"(platform: "/web", type: TrackType.Event){}
 
     //END -- MP personalFrontend
 

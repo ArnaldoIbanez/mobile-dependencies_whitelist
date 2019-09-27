@@ -601,6 +601,7 @@ tracks {
 
     "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
     "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a1/installer_download"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
@@ -739,6 +740,10 @@ tracks {
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
 
+    //devolution
+    "/myml/invoices/order/devolution"(platform: "/") {}
+    "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
+
     //buyer
     "/myml/invoices/order/buyer-info"(platform: "/") {}
     "/myml/invoices/order/buyer-info/save"(platform: "/", isAbstract: true) {}
@@ -747,7 +752,7 @@ tracks {
     }
     "/myml/invoices/order/buyer-info/save/response"(platform: "/", type: TrackType.Event) {}
 
-    //buyer
+    //carrier
     "/myml/invoices/order/carrier"(platform: "/") {}
     "/myml/invoices/order/carrier/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/order/carrier/save/request"(platform: "/", type: TrackType.Event) {
@@ -878,6 +883,8 @@ tracks {
     "/myml/invoices/sku/status"(platform: "/") {}
 
     "/myml/invoices/sku/detail"(platform: "/") {}
+    "/myml/invoices/sku/processing"(platform: "/") {}
+    "/myml/invoices/sku/disabled"(platform: "/") {}
     "/myml/invoices/sku/detail/action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, values:[
             "print_danfe",
@@ -915,7 +922,7 @@ tracks {
 
 
     //Opt-in pages
-    
+
     "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}
 
     "/myml/invoices/opt_in/difal"(platform: "/") {}
@@ -956,7 +963,7 @@ tracks {
     //Fiscal Rules Page
 
     "/myml/fiscal_rules"(platform: "/", isAbstract: true) {}
-    
+
     "/myml/fiscal_rules/message"(platform: "/", type: TrackType.View){
         code(required: true, type: PropertyType.Numeric, description: "Code of return message")
     }
