@@ -81,6 +81,9 @@ tracks {
       email (type: PropertyType.String, required: true, description: "Email from user")
     }
 
+    // MP Alliance BancoColombioa
+    "/alliance"(platform: "/web", isAbstract: true) {}
+    "/alliance/bancocolombia"(platform: "/", type: TrackType.View) {}
 
     "/growth"(platform: "/", isAbstract: true) {}
     "/growth/login"(platform: "/", type: TrackType.View) {

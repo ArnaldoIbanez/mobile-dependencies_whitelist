@@ -516,6 +516,10 @@ trackTests {
         }
     }
 
+    test("Landing alliance bancocolombia") {
+        "/alliance/bancocolombia"(platform: "/", type: TrackType.View) {}
+    }
+
     test("Growth Frontend Login") {
         "/growth/login"(platform: "/", type: TrackType.View) {
           view = "split"
