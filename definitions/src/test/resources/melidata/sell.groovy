@@ -728,10 +728,20 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             item_type = "default"
+            confirm_category_detail = "true"
         }
     }
     test("SYI v4 wrong category"){
         "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            item_type = "default"
+        }
+    }
+    test("SYI v4 product resume card showed"){
+        "/sell/item_data/product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
@@ -756,6 +766,24 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             flow_decision = true
+        }
+    }
+     test("SYI v4 quantity with specifications card showed"){
+        "/sell/item_data/quantity_with_specifications/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            item_type = "default"
+        }
+    }
+    test("SYI v4 quantity with specifications card confirmed"){
+        "/sell/item_data/quantity_with_specifications/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            item_type = "default"
         }
     }
     test("SYI v4 consequences modal showed"){
@@ -1132,6 +1160,24 @@ trackTests {
     }
     test("SYI v4 video card confirmed"){
         "/sell/item_conditions/video/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            item_type = "default"
+        }
+    }
+    test("SYI v4 invoice card showed"){
+        "/sell/item_conditions/invoice/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            item_type = "default"
+        }
+    }
+    test("SYI v4 invoice card confirmed"){
+        "/sell/item_conditions/invoice/confirm"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
