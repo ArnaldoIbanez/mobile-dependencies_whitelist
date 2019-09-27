@@ -322,7 +322,7 @@ metrics {
 		}
 	}
 
-	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment") {
+	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment", compute_order: true) {
 		startWith {
 			experiment("qadb/qadb-on")
 		}
