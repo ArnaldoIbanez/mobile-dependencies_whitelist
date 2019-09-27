@@ -310,7 +310,7 @@ trackTests {
             latest_news_id= "campaigns-remarketing_motors-143816022-MLB1013046714"
             item_id= "MLU457119874"
         }
-        "/notification_center/campaigns-marketplace_discounts"(platform: "/mobile"){
+        "/notification_center/campaigns_marketplace_discounts"(platform: "/mobile"){
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-marketplace_discounts-241951421"
             event_type= "open"
@@ -321,7 +321,6 @@ trackTests {
             batch_id= "MLB_PACK_20180508_2"
             latest_news_type= "campaigns-marketplace_discounts"
             latest_news_id= "campaigns-marketplace_discounts-143816022-MLB1013046714"
-            item_id= "MLU457119874"
         }
         "/notification_center/campaigns-recharge_recovery"(platform: "/mobile"){
             campaign_id= "campaign1"
@@ -1019,7 +1018,6 @@ trackTests {
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
-            item_id = "MLB1234"
         }
 
         "/notification/campaigns_checkout_recovery"(platform: "/mobile") {
@@ -3069,7 +3067,7 @@ trackTests {
             latest_news_id= "campaigns-remarketing_motors-143816022-MLB1013046714"
             item_id= "MLU457119874"
         }
-        "/notification_center/campaigns-marketplace_discounts"(platform: "/mobile"){
+        "/notification_center/campaigns_marketplace_discounts"(platform: "/mobile"){
             campaign_id= "campaign1"
             newsgroup_id= "campaigns-marketplace_discounts-241951421"
             event_type= "open"
@@ -3080,7 +3078,6 @@ trackTests {
             batch_id= "MLB_PACK_20180508_2"
             latest_news_type= "campaigns-marketplace_discounts"
             latest_news_id= "campaigns-marketplace_discounts-143816022-MLB1013046714"
-            item_id= "MLU457119874"
         }
         "/notification_center/campaigns-recharge_recovery"(platform: "/mobile"){
             campaign_id= "campaign1"
@@ -3777,7 +3774,6 @@ trackTests {
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
-            item_id = "MLB1234"
         }
 
         "/notification/campaigns_checkout_recovery"(platform: "/mobile") {
