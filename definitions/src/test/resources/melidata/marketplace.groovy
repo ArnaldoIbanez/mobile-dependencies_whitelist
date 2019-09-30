@@ -424,6 +424,9 @@ trackTests {
                              id:111222,
                              nickname:"seller02"
                      ]]
+            paymentStatusDetail = "ACCREDITED"
+            congratsStatus = "APPROVED"
+            tokenGeneratedWithEsc = "NO"
         }
         "/checkout/congrats"(platform: "/web", type: TrackType.View) {
             //recommendations data
@@ -504,6 +507,9 @@ trackTests {
                              id:111222,
                              nickname:"seller02"
                      ]]
+            paymentStatusDetail = "ACCREDITED"
+            congratsStatus = "APPROVED"
+            tokenGeneratedWithEsc = "NO"
         }
     }
 
