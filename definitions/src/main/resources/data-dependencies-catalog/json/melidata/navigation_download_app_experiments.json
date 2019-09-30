@@ -12,7 +12,7 @@
   },
   "extract": {
     "operation": "append",
-    "site": "Marketplace",
+    "site": "Sales",
     "columns": [
       {
         "name": "SiteId",
