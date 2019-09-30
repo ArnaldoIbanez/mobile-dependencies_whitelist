@@ -10,6 +10,13 @@ tracks {
     def categoryRegex = /(\S*)/
     def categoryPathRegex = /\[(\S*(, )?)*\]/
 
+    def seo_item_definition = objectSchemaDefinitions {
+        is_whitelisted(type: PropertyType.Boolean, required: true)
+        check_mode(type: PropertyType.ArrayList(PropertyType.String), required: true)
+        gmv_value(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+        vip_clicks(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+        isOnSeoWhitelistExperiment(type: PropertyType.Boolean, required: true)
+    }
 
     //SEARCH FLOW
 
@@ -76,8 +83,9 @@ tracks {
         pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         pdp_tracking_info(required: true, description: 'pdp products info', PropertyType.Map(PropertyType.String, PropertyType.String))
-        is_in_seo_whitelist(required: true, description: 'is request in seo whitelist', PropertyType.Boolean)
         pdp_highlight_enabled(required: true, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
+        is_in_seo_whitelist(required: false, description: 'is request in seo whitelist', PropertyType.Boolean)
+        seo(required: false, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
     }
 
     "/search"(platform: "/mobile") {
