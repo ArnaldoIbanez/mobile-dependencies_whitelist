@@ -177,6 +177,7 @@ catalog {
         include business, "preference.groovy"
         include business, "discount_sellers.groovy"
         include business, "profile_engine.groovy"
+        include business, "pos_management.groovy"
     }
 
     mercadoshops.each { business ->
@@ -191,5 +192,5 @@ catalog {
         include business, "logistics.groovy"
         include business, "places.groovy"
     }
-    
+
 }
