@@ -196,9 +196,9 @@ tracks {
         status(required: false, type: PropertyType.String)
         buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
         loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
-        tokenGeneratedWithEsc(required: true, type: PropertyType.String)
-        congratsStatus(required: true, type: PropertyType.String)
-        paymentStatusDetail(required: true, type: PropertyType.String)
+        tokenGeneratedWithEsc(required: true, type: PropertyType.String, values: ["YES", "NO"])
+        congratsStatus(required: true, type: PropertyType.String, values: ["APPROVED", "REJECTED", "IN_PROCESS", "PENDING", "CANCELLED", "AUTHORIZED", "REFUNDED", "ERROR_NON_RECOVERABLE_BI", "ERROR_RECOVERABLE_BI"])
+        paymentStatusDetail(required: true, type: PropertyType.String, values: ["ACCREDITED", "CC_REJECTED_BLACKLIST", "CC_REJECTED_HIGH_RISK", "CC_REJECTED_INSUFFICIENT_AMOUNT", "CC_REJECTED_INVALID_INSTALLMENTS", "CC_REJECTED_OTHER_REASON", "CC_REJECTED_MAX_ATTEMPTS", "CC_REJECTED_BAD_FILLED_CARD_NUMBER", "CC_REJECTED_BAD_FILLED_OTHER", "CC_REJECTED_BAD_FILLED_DATE", "CC_REJECTED_BAD_FILLED_SECURITY_CODE", "CC_REJECTED_CALL_FOR_AUTHORIZE", "CC_REJECTED_CARD_DISABLED", "DEFAULT", "ACCORD", "PENDING_CONTINGENCY", "PENDING_REVIEW_MANUAL", "PENDING_CHALLENGE", "CC_REJECTED_FRAUD", "CC_REJECTED_DUPLICATED_PAYMENT", "CC_REJECTED_BAD_FILLED_INVALID_DATE", "ACCOUNT_REJECTED_HIGH_RISK", "REJECTED_BY_REGULATIONS", "REJECTED_INSUFFICIENT_DATA", "REJECTED_BY_BANK", "ERROR_BI_WITHOUT_CNPJ", "ERROR_BI_DIFFERENT_IE", "ERROR_BI_CNPJ_NON_OPERATIONAL", "ERROR_BI_IE_INVALID_STATE", "PHONE_VERIFICATION"])
     }
 
     "/cart/checkout/congrats/keep_buying"(platform: "/", type: TrackType.Event) {}
