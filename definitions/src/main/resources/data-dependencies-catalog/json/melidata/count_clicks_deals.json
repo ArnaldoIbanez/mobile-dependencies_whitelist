@@ -1,18 +1,19 @@
 {
   "users": [
     "daniela.medina@mercadolibre.com",
-     "ba-analytics@mercadolibre.com"
+    "martin.tonelli@mercadolibre.com",
+    "ba-analytics@mercadolibre.com"
   ],
   "process_name": "count_clicks_deals",
   "cron": "00 07 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
+  },
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "Site",
         "type": "UNICODE_STRING"

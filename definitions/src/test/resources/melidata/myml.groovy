@@ -135,6 +135,8 @@ trackTests {
         "/myml/invoices/sku/status"(platform: "/") {}
 
         "/myml/invoices/sku/detail"(platform: "/") {}
+        "/myml/invoices/sku/processing"(platform: "/") {}
+        "/myml/invoices/sku/disabled"(platform: "/") {}
         "/myml/invoices/sku/detail/action"(platform: "/", type: TrackType.Event) {
           action = "print_danfe"
         }
@@ -150,6 +152,7 @@ trackTests {
         "/myml/invoices/company-info/certificate/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
         "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a1/installer_download"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
             error = "password"
@@ -293,6 +296,8 @@ trackTests {
         "/myml/invoices/order/carrier/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
+        "/myml/invoices/order/devolution"(platform: "/") {}
+        "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Backoffice pages") {
@@ -313,6 +318,14 @@ trackTests {
                 recipientCnpj = 123123
             }
         }
+
+        "/myml/invoices/backoffice/search/invoiceslist/export_csv"(platform: "/", type: TrackType.Event) {
+             search_filter = {
+                seller_id = 406495769
+            }
+        }
+
+        "/myml/invoices/backoffice/view/invoiceslist"(platform: "/", type: TrackType.View) {}
     }
 
     test("Fiscal Information pages") {
@@ -1045,5 +1058,74 @@ trackTests {
         "/myml/message/pack_detail"(platform: "/mobile", type: TrackType.View) {}
         "/myml/message/attachments_uploader"(platform: "/mobile", type: TrackType.View) {}
         "/myml/message/attachment_viewer"(platform: "/mobile/ios", type: TrackType.View) {}
+    }
+
+    test("Myml Fiscal Rules Page") {
+        "/myml/fiscal_rules/message"(platform: "/", type: TrackType.View) {
+            code = 404
+        }
+
+        "/myml/fiscal_rules/listing"(platform: "/", type: TrackType.View) {
+            page = 2
+            per_page = 20
+            selected = ""
+        }
+
+        "/myml/fiscal_rules/listing/button/new_rules"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+        }
+
+        "/myml/fiscal_rules/listing/button/edit_rules"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+            ids = "MSwyLDU="
+        }
+
+        "/myml/fiscal_rules/listing/button/remove_rules"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+            id = "5"
+        }
+
+
+        "/myml/fiscal_rules/listing/checkbox/header"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+            status = true
+        }
+
+        "/myml/fiscal_rules/listing/checkbox/list"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+            status = true
+            id = 5
+        }
+
+        "/myml/fiscal_rules/listing/modal/confirm"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+        }
+
+        "/myml/fiscal_rules/listing/modal/cancel"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+        }
+
+        "/myml/fiscal_rules/listing/pagination"(platform: "/", type: TrackType.Event) {
+            page = 2
+            per_page = 20
+            selected = ""
+            current_page = 2
+            next_page = 3
+            amount = 4
+        }
     }
 }

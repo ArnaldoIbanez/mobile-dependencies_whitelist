@@ -4,6 +4,24 @@ def classiExperiments = "(.*/classi.*|vip/newDesignMotors|vip/newDesktopDesignMo
 
 metrics {
 
+    "reservation"(description: "orders that belong to a are a reservation", compute_order: true) {
+	    
+   	startWith {
+		experiment(regex(classiExperiments))
+	}
+	    
+	countsOn {
+		condition {
+			and (
+				equals("path", "/orders/ordercreated"),
+				equals("event_data.reservation", true)	
+			)
+		}
+	}
+     }
+	
+	
+	
     "sell/full_relist_single_item"(description: "define properties for item_id at full_relist experiment") {
         startWith {
             set_property("item_id", "event_data.item_id")
@@ -280,6 +298,47 @@ metrics {
 				path("/seller_central/modify/success")
 				and(
 					empty("event_data.goals_achieved", false)
+				)
+			}
+		}
+	}
+
+	"pdp_questions_qadb"(description: "Track PDP questions of users in QADB experiment") {
+		startWith {
+			experiment("qadb/qadb-on")
+		}
+
+		countsOn {
+			condition {
+				path("/questions/ask/post")
+				and(
+					or(
+						equals("event_data.context", "/pdp"),
+						equals("event_data.context", "/qadb"),
+						equals("event_data.context", "/questions/qadb")
+					)
+				)
+			}
+		}
+	}
+
+	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment", compute_order: true) {
+		startWith {
+			experiment("qadb/qadb-on")
+		}
+
+		countsOn {
+			condition {
+				or(
+					and(
+						equals("path", "/orders/ordercreated"),
+						equals("event_data.is_carrito", false),
+						equals('event_data.is_pdp',true)
+					),
+					and(
+						equals("path","/purchases/purchasecreated"),
+						equals('event_data.is_pdp',true)
+					)
 				)
 			}
 		}

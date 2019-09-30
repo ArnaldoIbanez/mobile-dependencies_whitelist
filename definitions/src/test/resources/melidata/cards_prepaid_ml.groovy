@@ -116,6 +116,10 @@ trackTests {
         "/my_cards_webview" (platform: "/mobile") { from = "/deep_link" }
     }
 
+    test("Upgrade webview") {
+        "/prepaid/block_view" (platform: "/mobile", type: TrackType.View) { }
+        "/prepaid/block_view/cta"(platform: "/mobile", type: TrackType.Event) { }
+    }
 
     test("Prepaid cards MLM") {
         
@@ -197,5 +201,15 @@ trackTests {
         "/prepaid/reissue" (platform: "/", type: TrackType.View) {}
         "/prepaid/reissue/inactivate_card" (platform: "/", type: TrackType.View) {}
         "/prepaid/reissue/phone_info" (platform: "/", type: TrackType.View) {}
+    }
+    
+    test ("Prepaid FAQs") {
+        "/prepaid/faq" (platform: "/", type: TrackType.View) {}
+        "/prepaid/faq/detail" (platform: "/", type: TrackType.View) {}
+        "/prepaid/faq/detail/payment_rejected" (platform: "/", type: TrackType.View) {}
+        "/prepaid/faq/detail/extraction_rejected" (platform: "/", type: TrackType.View) {}
+        "/prepaid/faq/detail/payment_rejected/money_in" (platform: "/", type: TrackType.Event) {}
+        "/prepaid/faq/detail/payment_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+        "/prepaid/faq/detail/extraction_rejected/reissue" (platform: "/", type: TrackType.Event) {}
     }
 }

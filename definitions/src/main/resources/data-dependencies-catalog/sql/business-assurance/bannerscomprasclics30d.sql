@@ -1,5 +1,4 @@
 select 
-substr(user_timestamp,1,10) as orderDate,
 substr(banner.last_click_date,1,10) as lastClickDate,
 CAST(datediff(CAST(substr(banner.last_click_date,1,10) as date), CAST(substr(user_timestamp,1,10) as date)) as integer) as day_difference,
 application.site_id as Site,
@@ -15,7 +14,8 @@ jest(event_data, 'items[0].item.category_id')   AS CategoryID,
 banner.size as banner_size,
 banner.banner_name as banner_name,
 sum(CAST(jest(event_data,'total_amount_usd') AS DOUBLE)) as sum_dol_amount,
-count(1) as purchases_total
+count(1) as purchases_total,
+substr(user_timestamp,1,10) as orderDate
 from tracks orders
 INNER JOIN (
     select 

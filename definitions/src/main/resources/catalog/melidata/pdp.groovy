@@ -39,6 +39,10 @@ tracks {
 
     }
 
+    def qadb_info_definition = objectSchemaDefinitions {
+        results(required:false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
+    }
+
     propertyDefinitions {
         cart_content(required: false, type: PropertyType.Boolean, description: "Indicates if the PDP has cart features")
 
@@ -133,6 +137,9 @@ tracks {
 
         // PICKUP
         pickup_info
+
+        // QADB
+        qadb_info(required: false, type: PropertyType.Map(qadb_info_definition), description: "Tracking info for QADB component.")
 
         // USER FIELD
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
@@ -318,6 +325,12 @@ tracks {
         catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product id")
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of the product that the user is trying to buy or add to cart")
         available_quantity(required: true, type: PropertyType.Numeric, description: "Max Available quantity for the selected product")
+    }
+"/pdp/questions"(platform: "/", isAbstract:true) {}
+    "/pdp/questions/show"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product id")
+        item_id(required: false, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
+        seller_id(required: false, type: PropertyType.Numeric, description: "")
     }
 
     "/pdp/sellers/picker_selection"(platform: "/", parentPropertiesInherited: false) {

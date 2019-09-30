@@ -114,6 +114,10 @@ trackTests {
             flow = "/recharge_sube"
             from = "/deep_link"
         }
+        "/recharge_sube/show_terminals_ftu"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
     }
 
     defaultBusiness = "mercadolibre"
@@ -222,6 +226,10 @@ trackTests {
             from = "/deep_link"
         }
         "/recharge_sube/show_terminals_congrats"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/show_terminals_ftu"(platform: "/mobile", type: TrackType.Event) {
             flow = "/recharge_sube"
             from = "/deep_link"
         }

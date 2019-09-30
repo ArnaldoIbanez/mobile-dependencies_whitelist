@@ -684,12 +684,19 @@ trackTests {
         }
     }
 
-    test("MP-MA Point Pro paper rolls request") {
-        "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
+    test("Paper Rolls (Bobinas)") {
+        "/merchant_acquisition/flows/paper_rolls"(platform:"/", type: TrackType.View) {
           view = "order"
         }
-        "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
-          view = "congrats_waiting"
+
+        "/merchant_acquisition/flows/paper_rolls/complete_form"(platform:"/", type: TrackType.Event) {
+          view = "order"
+        }
+        "/merchant_acquisition/flows/paper_rolls/modal/update_address"(platform: "/", type: TrackType.Event) {
+          view = "order"
+        }
+        "/merchant_acquisition/flows/paper_rolls/modal/add_address"(platform: "/", type: TrackType.Event) {
+          view = "order"
         }
     }
 
@@ -749,6 +756,15 @@ trackTests {
         "/merchant_acquisition/flows/resellers/point_register/no_account"(platform: "/", type: TrackType.View) {}
     }
 
+
+    test("Envio proactivo QR - Associar QR + Point - qr-point-assignment") {
+        "/merchant_acquisition/flows/qr-point-assignment"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-point-assignment/qr"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-point-assignment/store"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-point-assignment/congrats"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-point-assignment/error"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/qr-point-assignment/unauthorized"(platform: "/", type: TrackType.View) {}
+    }
 
     test("MP-MA Flow QR") {
         "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
@@ -1589,6 +1605,14 @@ trackTests {
 
         }
 
+        "/point_payment/write_concept"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/customer_care"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/start_refund"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/customer_care_success"(platform: "/mobile", type: TrackType.View) {}
+
+
+        "/point_payment/cash/ftu"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/cash/congrats"(platform: "/mobile", type: TrackType.View) {}
 
         "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {
             flow = "point"
@@ -1605,6 +1629,11 @@ trackTests {
         "/settings/pairing"(platform: "/mobile", type: TrackType.View) {
             flow = "point"
         }
+
+        "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
+        "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
+        "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
+
         "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
             flow = "settings"
             channel = "point"
@@ -1647,8 +1676,16 @@ trackTests {
         "/ftu_release/point_&_mp_app"(platform: "/mobile", type: TrackType.View) {}
 
         "/company_info/on_boarding"(platform: "/mobile", type: TrackType.View) {}
+        "/company_info/main"(platform: "/mobile", type: TrackType.View) {}
+        "/company_info/brand_name"(platform: "/mobile", type: TrackType.View) {}
+        "/company_info/mcc"(platform: "/mobile", type: TrackType.View) {}
+        "/company_info/push_soft_descriptor"(platform: "/mobile", type: TrackType.View) {}
 
-        "/dashboard"(platform: "/mobile", type: TrackType.View) {}
+        "/point_payment/dashboard"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Point Payment Test") {
+        "/point_payment_test/test_payment"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Settings Point Reader Update") {
@@ -2074,6 +2111,9 @@ trackTests {
         "/digital_goods/terms_and_conditions"(platform: "/mobile") {
             flow = "digital_goods"
         }
+        "/digital_goods/recommended_click"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/digital_goods"
+        }
     }
 
 
@@ -2309,6 +2349,31 @@ trackTests {
             flow = "/bill_payments"
             from = "/deep_link"
         }
+        "/bill_payments/generic_paybills_screen"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/categories"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/barcode_scanner"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/products"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+            type = "option"
+        }
+        "/bill_payments/shopping"(platform: "/mobile") {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
+        "/bill_payments/input_validation_error"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/bill_payments"
+            from = "/deep_link"
+        }
     }
 
 
@@ -2413,7 +2478,7 @@ trackTests {
             section="online"
             chart_id="tpv"
         }
-        "/tfs_dashboard/home/card_error"(platform: "/", type: TrackType.Event){
+        "/tfs_dashboard/home/card/error"(platform: "/", type: TrackType.Event){
             status_code=404
             section="online"
             chart_id="tpv"
@@ -2540,6 +2605,18 @@ trackTests {
         "/money_detail/help_modal"(platform: "/mobile") {
             flow = "/money_detail"
         }
+
+        "/money_detail/withdraw"(platform: "/") {}
+        "/money_detail/daily_detail"(platform: "/") {}
+        "/money_detail/money-advance"(platform: "/") {}
+        "/money_detail/restrictions"(platform: "/") {}
+        "/money_detail/point_home"(platform: "/") {}
+        "/money_detail"(platform: "/") {}
+        "/money_detail/withdraw/main"(platform: "/") {}
+        "/money_detail/withdraw/confirmation"(platform: "/") {}
+        "/money_detail/withdraw/congrats"(platform: "/") {}
+        "/money_detail/withdraw/add_account"(platform: "/") {}
+        "/money_detail/withdraw/select_bank"(platform: "/") {}   
     }
 
 // END -- MPMOBILE TEST
@@ -2955,6 +3032,31 @@ trackTests {
         }
     }
 
+    test("Phone Validation - Authentication") {
+        "/authenticators/phone_validation/channel_selector"(platform: "/", type: TrackType.View) {
+            status = "pending_validation"
+            available_channels = ["push", "sms", "call"]
+        }
+
+        "/authenticators/phone_validation/channel_selector/submit"(platform: "/", type: TrackType.Event) {
+            status = "pending_validation"
+            available_channels = ["push", "sms", "call"]
+            selected_channel = "push"
+        }
+
+        "/authenticators/phone_validation/enter_code"(platform: "/", type: TrackType.View) {
+            status = "pending_validation"
+            available_channels = ["sms", "call"]
+            selected_channel = "sms"
+        }
+
+        "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
+            status = "success"
+            available_channels = ["sms", "call"]
+            selected_channel = "call"
+        }
+    }
+
     test("Change Password") {
         "/auth/authentication_methods/password/change_form"(platform: "/", type: TrackType.Event) {
             redirect_url = "https://accountrecovery.mercadolibre.com.ar/collect/userInfo"
@@ -3339,13 +3441,13 @@ trackTests {
 
     test("Configuraciones de Negocio"){
         "/my_business"(platform: "/web", type: TrackType.View){}
-        "/my_business/how_it_works_ME"(platform: "/web"){}
-        "/my_business/enable_ME"(platform: "/web"){}
-        "/my_business/disable_ME"(platform: "/web"){}
+        "/my_business/how_it_works_ME"(platform: "/web", type: TrackType.Event){}
+        "/my_business/enable_ME"(platform: "/web", type: TrackType.Event){}
+        "/my_business/disable_ME"(platform: "/web", type: TrackType.Event){}
 
-        "/my_business/split_payment"(platform: "/web"){}
-        "/my_business/recovery_mails"(platform: "/web"){}
-        "/my_business/cost_absorption"(platform: "/web"){}
+        "/my_business/split_payment"(platform: "/web", type: TrackType.Event){}
+        "/my_business/recovery_mails"(platform: "/web", type: TrackType.Event){}
+        "/my_business/cost_absorption"(platform: "/web", type: TrackType.Event){}
     }
 
     //MP listings
@@ -3363,6 +3465,15 @@ trackTests {
             lang = "es"
             site = "mla"
             uri = "/guides"
+        }
+    }
+    
+    test("Encuesta satisfaccion contenidos devsite"){
+        "/devsite/feedback"(platform: "/web/mobile", type: TrackType.Event) {
+            user_id = "1321312"
+            lang = "es"
+            site = "mla"
+            like = "yes"
         }
     }
 
@@ -3445,6 +3556,8 @@ trackTests {
         "/stores/details"(platform: "/web", type: TrackType.View) {}
         "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
         "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
+        "/stores/standalone_pos"(platform: "/web", type: TrackType.View) {}
+        "/stores/move_pos"(platform: "/web", type: TrackType.View) {}
 
         "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/link_operators"(platform: "/web/mobile", type: TrackType.View) {}
@@ -3453,5 +3566,21 @@ trackTests {
         "/stores/details"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/pos/create"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/pos/update"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/standalone_pos"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/move_pos"(platform: "/web/mobile", type: TrackType.View) {}
+    }
+
+    test("Account mydata") {
+        "/account"(platform: "/web", type: TrackType.View) {}
+        "/account/mydata"(platform: "/web", type: TrackType.View) {}
+        "/account/mydata/email"(platform: "/web", type: TrackType.View) {}
+        "/account/mydata/email/congrats"(platform: "/web", type: TrackType.View) {}
+
+        "/account"(platform: "/web/mobile", type: TrackType.View) {}
+        "/account/mydata"(platform: "/web/mobile", type: TrackType.View) {}
+        "/account/mydata/email"(platform: "/web/mobile", type: TrackType.View) {}
+        "/account/mydata/email/congrats"(platform: "/web/mobile", type: TrackType.View) {}
+
+        "/account/mydata/email"(platform: "/mobile/android", type: TrackType.View) {}
     }
 }

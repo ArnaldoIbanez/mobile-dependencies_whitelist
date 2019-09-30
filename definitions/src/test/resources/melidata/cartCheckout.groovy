@@ -9,6 +9,7 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
 
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 // TRACKS CART CHECKOUT
 //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -18,6 +19,9 @@ trackTests {
         def dataSetCongrats = {
             status = "payment_required"
             purchase_id = "MLA98792837983"
+            paymentStatusDetail = "ACCREDITED"
+            congratsStatus = "APPROVED"
+            tokenGeneratedWithEsc = "NO"
         }
 
         def dataSet = {
@@ -237,18 +241,136 @@ trackTests {
         "/cart/checkout/loading"(platform: "/", dataSet)
         "/cart/checkout/shipping"(platform: "/mobile", dataSet)
 
+        // Addresses
+        // Page
+        "/cart/checkout/shipping/input_address"(platform:"/mobile") {
+            dataSet()
+            edit_flow = false
+        }
+        "/cart/checkout/shipping/input_address"(platform:"/web") {
+            dataSet()
+            edit_flow = false
+        }
+        // Event
+        "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event) {
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event) {
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event) {
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/delivery"(platform: "/", type: TrackType.Event) {
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
 
         // First Visit
         // Page
         "/cart/checkout/shipping/address_profile"(platform: "/mobile", dataSet)
 
-        // Event 
+        // Event
         "/cart/checkout/shipping/address_profile/delivered_time"(platform: "/mobile", type: TrackType.Event) {
             label = "laboral"
             session_id = "some_session_id"
         }
 
         "/cart/checkout/shipping/edit_address"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+        }
+        "/cart/checkout/shipping/edit_address"(platform: "/web", type: TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
         }
         "/cart/checkout/shipping/geolocation_permissions"(platform: "/mobile", dataSet)
@@ -279,13 +401,9 @@ trackTests {
         "/cart/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform: "/mobile", type: TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
         }
-        "/cart/checkout/shipping/input_address"(platform: "/mobile") {
+        "/cart/checkout/shipping/input_address/back"(platform:"/mobile", type:TrackType.Event) {
             dataSet()
-            edit_flow = false
-        }
-        "/cart/checkout/shipping/input_address/back"(platform: "/mobile", type: TrackType.Event) {
-            dataSet()
-            edit_flow = false
+            edit_flow=false
         }
         "/cart/checkout/shipping/input_address#submit"(platform: "/mobile", type: TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
@@ -328,8 +446,8 @@ trackTests {
         // Page
         "/cart/checkout/shipping/address_profile"(platform: "/web", dataSet)
 
-        // Event 
-        "/cart/checkout/shipping/address_profile/delivered_time"(platform: "/web", type: TrackType.Event) {
+        // Event
+        "/cart/checkout/shipping/address_profile/delivered_time"(platform:"/web", type:TrackType.Event) {
             label = "laboral"
         }
 
@@ -470,6 +588,14 @@ trackTests {
         //Credits Review
         "/cart/checkout/review/credits_cover"(platform: "/", type: TrackType.Event) {}
         "/cart/checkout/review/credits_terms_and_conditions"(platform: "/", type: TrackType.Event) {}
+
+        //Switch track
+        "/cart/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {
+            dataSet()
+        }
+        "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {
+            dataSet()
+        }
     }
 
 }

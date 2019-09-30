@@ -8,7 +8,7 @@
     "type": "DATE"
   },
   "process_name": "carrousel_similar",
-  "cron": "00 05 * * *",
+  "cron": "00 03 * * *",
   "extract": {
     "operation": "overwrite",
     "columns": [

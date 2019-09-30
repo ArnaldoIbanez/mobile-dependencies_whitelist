@@ -349,17 +349,25 @@ trackTests {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Publish
     //------------------------------------------------------------------------------------------------------------------------------------------------------
-    test("seller central bulk publish document generation"){
-        "/seller_central/bulk/publish/document/generate"(platform: "/web/desktop", type: TrackType.Event){
-            categories = ["Celulares y Smartphones"]
-            failed_categories = ["Dell"]
-            session_id = "440217811-test-aa3297543963"
-            document_name = "document-name-test.xlsx"
-        }
-
+    test("seller central bulk publish hub view") {
+        "/seller_central/bulk/publish/hub"(platform: "/web", type: TrackType.View) {}
     }
 
+    test("seller central bulk publish categories view") {
+        "/seller_central/bulk/publish/categories"(platform: "/web", type: TrackType.View) {}
+    }
 
+    test("seller central bulk publish upload view") {
+        "/seller_central/bulk/publish/upload"(platform: "/web", type: TrackType.View) {}
+    }
+
+    test("seller central bulk publish download congrats view") {
+        "/seller_central/bulk/publish/download/congrats"(platform: "/web", type: TrackType.View) {}
+    }
+
+    test("seller central bulk publish upload congrats view") {
+        "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
+    }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify
     //------------------------------------------------------------------------------------------------------------------------------------------------------

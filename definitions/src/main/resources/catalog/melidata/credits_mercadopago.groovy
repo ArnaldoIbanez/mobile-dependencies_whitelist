@@ -82,6 +82,7 @@ tracks {
      *       Abstract definitions
      ******************************************/
     "/credits"(platform: "/", isAbstract: true) {}
+    "/credits/express_money"(platform: "/", isAbstract: true) {}
     "/credits/merchant"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
 
@@ -177,6 +178,7 @@ tracks {
             values: [
                 'insufficient_account_money',
                 'lender_cannot_collect_installments',
+                'installment_paid',
                 'default'
             ],
             inheritable: false
@@ -447,7 +449,11 @@ tracks {
                 'expired_daily_charges',
                 'congrats_debit_installment',
                 'congrats_credited_loan',
-                'congrats_pending'
+                'congrats_pending',
+                'em_congrats_credited_loan',
+                'em_congrats_debit_installment',
+                'em_insufficient_funds',
+                'em_expired_daily_charges'
             ]
         )
     }
@@ -460,11 +466,11 @@ tracks {
      *    Start: Express money
      ******************************************/
 
-    "/credits/express_money"(platform: "/", type: TrackType.View) {
+    "/credits/express_money/amount_input"(platform: "/", type: TrackType.View) {
         show_onboarding(
             description: "Metric to track onboarding modal conversion",
             type: PropertyType.Boolean,
-            required: true,
+            required: false,
             inheritable: false
         )
     }
@@ -515,6 +521,7 @@ tracks {
         )
     }
 
+    "/credits/express_money/onboarding"(platform: "/mobile", type: TrackType.View) {}
 
     /******************************************
      *   End: Express money

@@ -42,7 +42,6 @@ catalog {
     ]
 
 
-
     def marketplace = [
             "mercadolibre",
             "tucarro",
@@ -85,6 +84,8 @@ catalog {
         include business, "coupon.groovy"
         include business, "notifications.groovy"
         include business, "dynamic_stop_landing.groovy"
+        include business, "payers_growth.groovy"
+        include business, "collaborators.groovy"
     }
 
     marketplace.each { business ->
@@ -135,7 +136,6 @@ catalog {
         include business, "current_location.groovy"
         include business, "download_app.groovy"
         include business, "supermarket.groovy"
-        include business, "payers_growth.groovy"
         include business, "contact.groovy"
         include business, "full.groovy"
         include business, "front_core.groovy"
@@ -145,6 +145,8 @@ catalog {
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
         include business, "pdp.groovy"
+        include business, "qadb.groovy"
+        include business, "promotions.groovy"
     }
 
     mercadopago.each { business ->
@@ -160,7 +162,6 @@ catalog {
         include business, "cards_cobranded.groovy"
         include business, "cards_prepaid.groovy"
         include business, "cellphone_recharge.groovy"
-        include business, "collaborators.groovy"
         include business, "asset_management.groovy"
         include business, "single_player.groovy"
         include business, "instore.groovy"
@@ -176,6 +177,7 @@ catalog {
         include business, "preference.groovy"
         include business, "discount_sellers.groovy"
         include business, "profile_engine.groovy"
+        include business, "discount_center.groovy"
     }
 
     mercadoshops.each { business ->
@@ -188,5 +190,7 @@ catalog {
         include business, "full.groovy"
         include business, "wms.groovy"
         include business, "logistics.groovy"
+        include business, "places.groovy"
     }
+    
 }

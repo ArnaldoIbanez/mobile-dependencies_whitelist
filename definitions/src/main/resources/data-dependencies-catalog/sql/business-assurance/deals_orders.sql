@@ -1,5 +1,4 @@
 select 
- fecha_clic, 
  site_deal, 
  platform_deal, 
  deal_Label, 
@@ -7,10 +6,11 @@ select
  deal_Position, 
  deal_Type, 
  deal_id,
-count(1) as clics_totales, 
-count(distinct(uid_deal)) as clics_unicos, 
-count(uid_order) as orders, 
-sum(distinct cast(sum_dol_amount as double)) as gmv
+ count(1) as clics_totales, 
+ count(distinct(uid_deal)) as clics_unicos, 
+ count(uid_order) as orders, 
+ sum(distinct cast(sum_dol_amount as double)) as gmv,
+ fecha_clic
 from (
 		 (
 			select substr(ds,1,10) as fecha_clic, 

@@ -661,25 +661,37 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     "/sell/draft"(platform: "/web", type: TrackType.View) {}
 
-
-    "/sell/hub"(platform: "/web", type: TrackType.View) {
-        sellGroup
-    }
+    "/sell/hub"(platform: "/web", type: TrackType.View) {}
     "/sell/hub/select_vertical"(platform: "/web", type: TrackType.Event) {
+        sellGroup
         vertical(required: true, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
 
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
         sellGroup
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
+        confirm_category_detail(required: true, description: "Confirmation value of product detail", values:["not_present", "false", "true"], type: PropertyType.String)
+    }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/product_bullet_resume"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/flow_decision"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/flow_decision/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/flow_decision/confirm"(platform: "/web", type: TrackType.Event) {
+        flow_decision(required: true, description: "Flow decision - true if is catalog", type: PropertyType.Boolean)
+    }
+    "/sell/item_data/quantity_with_specifications"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/quantity_with_specifications/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/quantity_with_specifications/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/consequences_modal"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/consequences_modal/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/consequences_modal/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -719,6 +731,7 @@ tracks {
 
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
         sellGroup
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/item_conditions/price_and_currency"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event) {}
@@ -758,6 +771,9 @@ tracks {
     "/sell/item_conditions/video"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/video/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/video/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/invoice"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/invoice/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/invoice/confirm"(platform: "/web", type: TrackType.Event) {}
 
 
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
@@ -772,21 +788,25 @@ tracks {
         attributes_values_predicted(required: false, description: "Attributes values that we predict by matchers", type: PropertyType.ArrayList)
         attributes_ids_predicted(required: false, description: "Attributes ids that we predict by matchers", type: PropertyType.ArrayList)
         attributes_selected_in_tree(required: false, description: "Attributes values selected by user", type: PropertyType.ArrayList)
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
         sellGroup
         item_id(required: false, type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/congrats/listing_types"(platform: "/web", isAbstract: true) {}
     "/sell/congrats/listing_types/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
         sellGroup
         item_id(required: false, type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
 
     "/sell/sip"(platform: "/web", type: TrackType.View) {
         sellGroup
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}

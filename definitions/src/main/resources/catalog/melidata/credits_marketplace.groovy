@@ -29,6 +29,7 @@ tracks {
     "/credits/consumer/myml/summary"(platform: "/", isAbstract: true) {}
     "/credits/consumer/my_account"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/opensea/integrated_flow"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -50,6 +51,8 @@ tracks {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
     }
     "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/public_landing/error"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View) {}
 
     //Events
     "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
@@ -72,6 +75,46 @@ tracks {
     /******************************************
      *       End: Consumers Public Landings
      ******************************************/
+
+    /***********************************************
+     *       Start: Consumers Integrated Flow
+     ***********************************************/
+    //Integrated Flow - Start
+
+    //Page view
+    "/credits/consumer/opensea/integrated_flow/start"(platform: "/", type: TrackType.View) {
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
+
+    //Events
+    "/credits/consumer/opensea/integrated_flow/start/application_start"(platform: "/", type: TrackType.Event) {
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
+    "/credits/consumer/opensea/integrated_flow/start/application_cancel"(platform: "/", type: TrackType.Event) {
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
+
+    //Integrated Flow - Congrats
+
+    //Page view
+    "/credits/consumer/opensea/integrated_flow/congrats"(platform: "/", type: TrackType.View) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
+
+    //Events
+    "/credits/consumer/opensea/integrated_flow/congrats/buy_intention"(platform: "/", type: TrackType.Event) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
+    "/credits/consumer/opensea/integrated_flow/congrats/back_to_publication"(platform: "/", type: TrackType.Event) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
+
+    /*********************************************
+     *       End: Consumers Integrated Flow
+     *********************************************/
 
     /***********************************************
      *       Start: Consumers Intermediate Landing
@@ -188,6 +231,9 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_mp"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
 
 
     //Admin History (Compras Finalizadas)

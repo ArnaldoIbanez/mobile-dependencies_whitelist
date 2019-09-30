@@ -424,6 +424,9 @@ trackTests {
                              id:111222,
                              nickname:"seller02"
                      ]]
+            paymentStatusDetail = "ACCREDITED"
+            congratsStatus = "APPROVED"
+            tokenGeneratedWithEsc = "NO"
         }
         "/checkout/congrats"(platform: "/web", type: TrackType.View) {
             //recommendations data
@@ -504,6 +507,9 @@ trackTests {
                              id:111222,
                              nickname:"seller02"
                      ]]
+            paymentStatusDetail = "ACCREDITED"
+            congratsStatus = "APPROVED"
+            tokenGeneratedWithEsc = "NO"
         }
     }
 
@@ -585,11 +591,6 @@ trackTests {
             deal_id = "mla_1234"
         }
     }
-
-    test("promotions landing") {
-        "/promotions" (platform:"/web/desktop", type: TrackType.View) {}
-    }
-
 
     test("MP-MA Landing QR") {
         "/merchant_acquisition/" (platform: "/", type: TrackType.View) {}

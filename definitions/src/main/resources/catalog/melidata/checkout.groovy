@@ -177,6 +177,7 @@ tracks {
     "/checkout/payment"(platform: "/", isAbstract: true) {
     }
     "/checkout/payment/input_sec_code"(platform: "/web", type: TrackType.View) {}
+    "/checkout/payment/esc_input_sec_code"(platform: "/web", type: TrackType.View) {}
     "/checkout/payments"(platform: "/", isAbstract: true) {
     }
 
@@ -787,6 +788,9 @@ tracks {
         purchase_id(required: false, type: PropertyType.Numeric, description: "Id of the purchase")
         buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
         loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
+        tokenGeneratedWithEsc(required: true, type: PropertyType.String, values: ["YES", "NO"])
+        congratsStatus(required: true, type: PropertyType.String, values: ["APPROVED", "REJECTED", "IN_PROCESS", "PENDING", "CANCELLED", "AUTHORIZED", "REFUNDED", "ERROR_NON_RECOVERABLE_BI", "ERROR_RECOVERABLE_BI"])
+        paymentStatusDetail(required: true, type: PropertyType.String, values: ["ACCREDITED", "CC_REJECTED_BLACKLIST", "CC_REJECTED_HIGH_RISK", "CC_REJECTED_INSUFFICIENT_AMOUNT", "CC_REJECTED_INVALID_INSTALLMENTS", "CC_REJECTED_OTHER_REASON", "CC_REJECTED_MAX_ATTEMPTS", "CC_REJECTED_BAD_FILLED_CARD_NUMBER", "CC_REJECTED_BAD_FILLED_OTHER", "CC_REJECTED_BAD_FILLED_DATE", "CC_REJECTED_BAD_FILLED_SECURITY_CODE", "CC_REJECTED_CALL_FOR_AUTHORIZE", "CC_REJECTED_CARD_DISABLED", "DEFAULT", "ACCORD", "PENDING_CONTINGENCY", "PENDING_REVIEW_MANUAL", "PENDING_CHALLENGE", "CC_REJECTED_FRAUD", "CC_REJECTED_DUPLICATED_PAYMENT", "CC_REJECTED_BAD_FILLED_INVALID_DATE", "ACCOUNT_REJECTED_HIGH_RISK", "REJECTED_BY_REGULATIONS", "REJECTED_INSUFFICIENT_DATA", "REJECTED_BY_BANK", "ERROR_BI_WITHOUT_CNPJ", "ERROR_BI_DIFFERENT_IE", "ERROR_BI_CNPJ_NON_OPERATIONAL", "ERROR_BI_IE_INVALID_STATE", "PHONE_VERIFICATION"])
     }
 
     "/checkout/congrats/recommendations"(platform: "/", type: TrackType.View) {}
@@ -1109,7 +1113,42 @@ tracks {
     "/checkout/shipping/edit_address"(platform:"/", type: TrackType.Event) {}
     "/checkout/shipping/input_zipcode"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/", type: TrackType.Event) {}
-    "/checkout/shipping/input_address"(platform:"/", type: TrackType.View) {}
+
+    // Addresses
+
+    // Page
+    "/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+    }
+
+    // Event
+    "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
+    }
+    "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
+    }
+    "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
+    }
+    "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
+    }
+    "/checkout/shipping/input_address/street_number"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
+    }
+    "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the references")
+    }
+    "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
+    }
+    "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+    }
+
+
     "/checkout/shipping/input_address_number"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_address_number/whithout_number"(platform:"/", type: TrackType.Event) {}
     "/checkout/shipping/select_option_detail"(platform:"/", type: TrackType.View) {}
@@ -1126,6 +1165,10 @@ tracks {
     "/checkout/review/edit_first_installment"(platform:"/", type: TrackType.View) {}
     "/checkout/review/edit_second_installment"(platform:"/", type: TrackType.View) {}
 
+    //Switch track
+    "/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
+    "/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
+    "/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
 
     /*
     * GarEx tracks

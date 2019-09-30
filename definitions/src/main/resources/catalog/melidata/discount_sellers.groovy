@@ -11,11 +11,16 @@ tracks {
     "/discount_sellers/form" (platform: "/mobile", type: TrackType.View) {}
     "/discount_sellers/history" (platform: "/mobile", type: TrackType.View) {}
     "/discount_sellers/detail" (platform: "/mobile", type: TrackType.View) {}
-
+    "/discount_sellers/landing" (platform: "/mobile", type: TrackType.View) {
+      id(required: true, type: PropertyType.String, description: "Landing identifier")
+    }
     // Events
     
      "/discount_sellers/tap" (platform: "/mobile", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
 
+    "/discount_sellers/form/back" (platform: "/mobile", type: TrackType.Event) { }
+    "/discount_sellers/history/back" (platform: "/mobile", type: TrackType.Event) { }
+    "/discount_sellers/detail/back" (platform: "/mobile", type: TrackType.Event) { }
 }

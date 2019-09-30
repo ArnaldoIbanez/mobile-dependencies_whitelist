@@ -601,6 +601,7 @@ tracks {
 
     "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
     "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a1/installer_download"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
@@ -739,6 +740,10 @@ tracks {
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
 
+    //devolution
+    "/myml/invoices/order/devolution"(platform: "/") {}
+    "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
+
     //buyer
     "/myml/invoices/order/buyer-info"(platform: "/") {}
     "/myml/invoices/order/buyer-info/save"(platform: "/", isAbstract: true) {}
@@ -747,7 +752,7 @@ tracks {
     }
     "/myml/invoices/order/buyer-info/save/response"(platform: "/", type: TrackType.Event) {}
 
-    //buyer
+    //carrier
     "/myml/invoices/order/carrier"(platform: "/") {}
     "/myml/invoices/order/carrier/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/order/carrier/save/request"(platform: "/", type: TrackType.Event) {
@@ -878,6 +883,8 @@ tracks {
     "/myml/invoices/sku/status"(platform: "/") {}
 
     "/myml/invoices/sku/detail"(platform: "/") {}
+    "/myml/invoices/sku/processing"(platform: "/") {}
+    "/myml/invoices/sku/disabled"(platform: "/") {}
     "/myml/invoices/sku/detail/action"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, values:[
             "print_danfe",
@@ -905,8 +912,17 @@ tracks {
         search_filter(required: true, description: "Search filter used on massive invoices search")
     }
 
+    "/myml/invoices/backoffice/search/invoiceslist/export_csv"(platform: "/") {
+        search_filter(required: true, description: "Search filter used on massive invoices search for csv export")
+    }
+
+    "/myml/invoices/backoffice/view"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/backoffice/view/invoiceslist"(platform: "/") {}
+
+
     //Opt-in pages
-    
+
     "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}
 
     "/myml/invoices/opt_in/difal"(platform: "/") {}
@@ -944,5 +960,52 @@ tracks {
 
     "/myml/message/attachment_viewer"(platform:"/mobile/ios", type: TrackType.View) {}
 
+    //Fiscal Rules Page
 
+    "/myml/fiscal_rules"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/message"(platform: "/", type: TrackType.View){
+        code(required: true, type: PropertyType.Numeric, description: "Code of return message")
+    }
+
+    "/myml/fiscal_rules/listing"(platform: "/", type: TrackType.View) {
+        page(required: true, type: PropertyType.Numeric, description: "Current Page")
+        per_page(required: true, type: PropertyType.Numeric, description: "Amount per page")
+        selected(required: true, type: PropertyType.String, description: "Base64 of ids list")
+    }
+
+    "/myml/fiscal_rules/listing/button"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/listing/button/new_rules"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/listing/button/edit_rules"(platform: "/", type: TrackType.Event) {
+        ids(required: true, type: PropertyType.String, description: "Ids of list for update rules")
+    }
+
+    "/myml/fiscal_rules/listing/button/remove_rules"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Id for remove rules")
+    }
+
+    "/myml/fiscal_rules/listing/checkbox"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/listing/checkbox/header"(platform: "/", type: TrackType.Event) {
+        status(required: true, type: PropertyType.Boolean, description: "Status of checkbox on header")
+    }
+
+    "/myml/fiscal_rules/listing/checkbox/list"(platform: "/", type: TrackType.Event) {
+        status(required: true, type: PropertyType.Boolean, description: "Status of checkbox on list")
+        id(required: true, type: PropertyType.Numeric, description: "Id of rule")
+    }
+
+    "/myml/fiscal_rules/listing/modal"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/listing/modal/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/listing/modal/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/listing/pagination"(platform: "/", type: TrackType.Event) {
+        current_page(required: true, type: PropertyType.Numeric , description: "Current page")
+        next_page(required: true, type: PropertyType.Numeric , description: "Next page")
+        amount(required: true, type: PropertyType.Numeric , description: "Amount per page")
+    }
 }

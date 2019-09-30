@@ -147,6 +147,9 @@ tracks {
         )
     }
 
+    "/prepaid/block_view" (platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/block_view/cta"(platform:"/mobile", type: TrackType.Event) {}
+
     // Prepaid Detail
     "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.View) {}
 
@@ -166,8 +169,9 @@ tracks {
     "/prepaid/change_pin/new_pin" (platform: "/", type: TrackType.View) {}
 
     // Prepaid Change Pin Congrats
-    "/prepaid/change_pin/congrats" (platform: "/", type: TrackType.View) {}
-
+    "/prepaid/change_pin/congrats" (platform: "/", type: TrackType.View) {
+        result_status (required:false, values: ["SUCCESS", "PENDING", "REJECTED"],  description: "The type of Congrats displayed to the user")
+    }
     // Prepaid Reissue
     "/prepaid/reissue" (platform: "/", isAbstract: true) {}
 
@@ -177,6 +181,19 @@ tracks {
     // Prepaid Change phone info
     "/prepaid/reissue/phone_info" (platform: "/", type: TrackType.View) {}
 
+    // Prepaid FAQ Root
+    "/prepaid/faq" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid FAQ Details
+    "/prepaid/faq/detail" (platform: "/", type: TrackType.View) {}
+    "/prepaid/faq/detail/payment_rejected" (platform: "/", type: TrackType.View) {}
+    "/prepaid/faq/detail/extraction_rejected" (platform: "/", type: TrackType.View) {}
+
+    //Prepaid FAQ Details Events
+    "/prepaid/faq/detail/payment_rejected/money_in" (platform: "/", type: TrackType.Event) {}
+    "/prepaid/faq/detail/payment_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+    "/prepaid/faq/detail/extraction_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+    
     //-----------------
     // PREPAID MLM
     //-----------------

@@ -119,6 +119,14 @@ trackTests {
                     "MLA1234567": "low_score"
             ]
             is_in_seo_whitelist = true
+            seo = [
+                    is_whitelisted:true,
+                    check_mode:"GMV",
+                    gmv_value:15,
+                    vip_clicks:0,
+                    isOnSeoWhitelistExperiment:true
+            ]
+            pdp_highlight_enabled= true
         }
 
         "/search"(platform: "/web"){
@@ -204,6 +212,14 @@ trackTests {
                     "MLA1234567": "low_score"
             ]
             is_in_seo_whitelist = true
+            seo = [
+                is_whitelisted:true,
+                check_mode:"GMV",
+                gmv_value:15,
+                vip_clicks:0,
+                isOnSeoWhitelistExperiment:true
+            ]
+            pdp_highlight_enabled= true
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -407,6 +423,14 @@ trackTests {
                     "MLA1234567": "low_score"
             ]
             is_in_seo_whitelist = true
+            seo = [
+                    is_whitelisted:true,
+                    check_mode:"GMV",
+                    gmv_value:15,
+                    vip_clicks:0,
+                    isOnSeoWhitelistExperiment:true
+            ]
+            pdp_highlight_enabled= true
         }
     }
 
@@ -420,6 +444,11 @@ trackTests {
                     "MLM54321"
             ]
 
+        }
+    }
+
+    test("Search fintie navigation experiment"){
+        "/search/finite_navigation"(platform: "/mobile/android"){
         }
     }
 }
