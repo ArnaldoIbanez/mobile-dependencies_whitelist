@@ -1135,62 +1135,62 @@ trackTests {
         "/seller_central/promotions"(platform: "/web", type: TrackType.View){
           original_promotion = [
               id: "MLA808249210",
-              sellerId: 450981020,
-              buyingMode: "buy_it_now",
-              saleTerms: [
+              seller_id: 450981020,
+              buying_mode: "buy_it_now",
+              sale_terms: [
                   [
                       id: "LOYALTY_LEVEL_4",
-                      valueId: null,
-                      valueStruct: [
+                      value_id: null,
+                      value_struct: [
                           number: 400,
                           unit: "ARS"
                       ]
                   ],
                   [
                       id: "LOYALTY_LEVEL_5",
-                      valueId: null,
-                      valueStruct: [
+                      value_id: null,
+                      value_struct: [
                           number: 400,
                           unit: "ARS"
                       ]
                   ],
                   [
                       id: "LOYALTY_LEVEL_3",
-                      valueId: null,
-                      valueStruct: [
+                      value_id: null,
+                      value_struct: [
                           number: 400,
                           unit: "ARS"
                       ]
                   ],
                   [
                       id: "LOYALTY_LEVEL_6",
-                      valueId: null,
-                      valueStruct: [
+                      value_id: null,
+                      value_struct: [
                           number: 400,
                           unit: "ARS"
                       ]
                   ]
               ],
               campaigns: [],
-              bestOffer: null,
+              best_offer: null,
               price: 500,
-              originalPrice: 1000,
+              original_price: 1000,
               promotion: [
                   status: "started",
                   price: 500,
-                  startDate: "2019-09-18T03:00:00.000Z",
-                  finishDate: "2019-10-05T02:59:00.000Z",
-                  listPrice: 1000,
-                  primePrice: 400
+                  start_date: "2019-09-18T03:00:00.000Z",
+                  finish_date: "2019-10-05T02:59:00.000Z",
+                  list_price: 1000,
+                  prime_price: 400
               ],
               visits: 27,
-              availableQuantity: 97,
+              available_quantity: 97,
               title: "Item De Testeo, Por Favor No Ofertar --kc:off",
-              soldQuantity: 3,
-              secureThumbnail: "https://http2.mlstatic.com/resources/frontend/statics/processing-image/1.0.0/I-ES.jpg",
+              sold_quantity: 3,
+              secure_thumbnail: "https://http2.mlstatic.com/resources/frontend/statics/processing-image/1.0.0/I-ES.jpg",
               currency: [
                   id: "ARS",
-                  decimalPlaces: 2,
+                  decimal_places: 2,
                   symbol: "\$"
               ],
               tags: [
@@ -1199,9 +1199,9 @@ trackTests {
                   "immediate_payment"
               ],
               validations: [],
-              campaignOffers: [
+              campaign_offers: [
                   [
-                      offerMode: "LONG_TAIL",
+                      offer_mode: "LONG_TAIL",
                       offer: null,
                       campaign: [
                           name: "campanianueva",
@@ -1211,9 +1211,9 @@ trackTests {
                           dead_line: "2019-03-03T00:57:00.000Z",
                           type: "discounts",
                           status: "started",
-                          isActive: false,
-                          isAvailable: false,
-                          appliedOffer: false
+                          is_active: false,
+                          is_available: false,
+                          applied_offer: false
                       ]
                   ]
               ]
@@ -1223,18 +1223,18 @@ trackTests {
         "/seller_central/promotions/actions"(platform: "/web", type: TrackType.Event){
             action = "SAVE_PROMOTION"
             promotion = [
-                siteTimeOffset: 0,
-                startDate: "2019-09-18T03:00:00.000Z",
-                finishDate: "2019-10-05T02:59:00.000Z",
+                site_time_offset: 0,
+                start_date: "2019-09-18T03:00:00.000Z",
+                finish_date: "2019-10-05T02:59:00.000Z",
                 state: "started",
-                isHighlight: false,
+                is_highlight: false,
                 price: 500,
-                primePrice: 400,
-                listPrice: 1000,
-                errorPrice: null,
-                errorPrime: null,
-                inputPrice: "500",
-                inputPrimePrice: "400",
+                prime_price: 400,
+                list_price: 1000,
+                error_price: null,
+                error_prime: null,
+                input_pice: "500",
+                input_prime_price: "400",
                 type: "always_on",
             ]
             promotion_duration = 17

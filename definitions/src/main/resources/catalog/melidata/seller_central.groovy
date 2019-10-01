@@ -40,30 +40,30 @@ tracks {
         dead_line(type: PropertyType.String, required: false)
         type(type: PropertyType.String, required: false)
         status(type: PropertyType.String, required: false)
-        isActive(type: PropertyType.Boolean, required: false)
-        isAvailable(type: PropertyType.Boolean, required: false)
-        appliedOffer(type: PropertyType.Boolean, required: false)
+        is_active(type: PropertyType.Boolean, required: false)
+        is_available(type: PropertyType.Boolean, required: false)
+        applied_offer(type: PropertyType.Boolean, required: false)
     }
 
     def campaingOffersStructure = objectSchemaDefinitions {
-        offerMode(type: PropertyType.String, required: false)
+        offer_mode(type: PropertyType.String, required: false)
         offer(type: PropertyType.String, required: false)
         campaign(type: PropertyType.Map(campaingStructure), required: false)
     }
 
     def currencyStructure = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true)
-        decimalPlaces(type: PropertyType.Numeric, required: true)
+        decimal_places(type: PropertyType.Numeric, required: true)
         symbol(type: PropertyType.String, required: true)
     }
 
     def promotionStructure = objectSchemaDefinitions {
         status(type: PropertyType.String, required: false)
         price(type: PropertyType.Numeric, required: false)
-        startDate(type: PropertyType.String, required: false)
-        finishDate(type: PropertyType.String, required: false)
-        listPrice(type: PropertyType.Numeric, required: true)
-        primePrice(type: PropertyType.Numeric, required: false)
+        start_date(type: PropertyType.String, required: false)
+        finish_date(type: PropertyType.String, required: false)
+        list_price(type: PropertyType.Numeric, required: true)
+        prime_price(type: PropertyType.Numeric, required: false)
     }
 
     def valueStructure = objectSchemaDefinitions {
@@ -73,45 +73,45 @@ tracks {
 
     def saleTermStructure = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true)
-        valueId(type: PropertyType.String, required: false)
-        valueStruct(type: PropertyType.Map(valueStructure), required: true)
+        value_id(type: PropertyType.String, required: false)
+        value_struct(type: PropertyType.Map(valueStructure), required: true)
     }
 
     def originalPromotionStructure = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true)
-        sellerId(type: PropertyType.Numeric, required: true)
-        buyingMode(type: PropertyType.String, required: true)
-        saleTerms(type: PropertyType.ArrayList(PropertyType.Map(saleTermStructure)), required: false)
+        seller_id(type: PropertyType.Numeric, required: true)
+        buying_mode(type: PropertyType.String, required: true)
+        sale_terms(type: PropertyType.ArrayList(PropertyType.Map(saleTermStructure)), required: false)
         campaigns(type: PropertyType.ArrayList(PropertyType.String), required: false)
-        bestOffer(type: PropertyType.Numeric, required: false)
+        best_offer(type: PropertyType.Numeric, required: false)
         price(type: PropertyType.Numeric, required: false)
-        originalPrice(type: PropertyType.Numeric, required: false)
+        original_price(type: PropertyType.Numeric, required: false)
         promotion(type: PropertyType.Map(promotionStructure), required: false)
         visits(type: PropertyType.Numeric, required: true)
-        availableQuantity(type: PropertyType.Numeric, required: true)
+        available_quantity(type: PropertyType.Numeric, required: true)
         title(type: PropertyType.String, required: true)
-        soldQuantity(type: PropertyType.Numeric, required: true)
-        secureThumbnail(type: PropertyType.String, required: true)
+        sold_quantity(type: PropertyType.Numeric, required: true)
+        secure_thumbnail(type: PropertyType.String, required: true)
         currency(type: PropertyType.Map(currencyStructure), required: false)
         tags(type: PropertyType.ArrayList(PropertyType.String), required: false)
         validations(type: PropertyType.ArrayList(PropertyType.String), required: false)
-        campaignOffers(type: PropertyType.ArrayList(PropertyType.Map(campaingOffersStructure)), required: false)
+        campaign_offers(type: PropertyType.ArrayList(PropertyType.Map(campaingOffersStructure)), required: false)
     }
 
     //  FINAL PROMO STRUCTURE
     def finalPromotionStructure = objectSchemaDefinitions {
         state(type: PropertyType.String, required: true)
-        siteTimeOffset(type: PropertyType.Numeric, required: false)
-        startDate(type: PropertyType.String, required: true)
-        finishDate(type: PropertyType.String, required: true)
-        isHighlight(type: PropertyType.Boolean, required: false)
+        site_time_offset(type: PropertyType.Numeric, required: false)
+        start_Date(type: PropertyType.String, required: true)
+        finish_date(type: PropertyType.String, required: true)
+        is_highlight(type: PropertyType.Boolean, required: false)
         price(type: PropertyType.Numeric, required: true)
-        primePrice(type: PropertyType.Numeric, required: false)
-        listPrice(type: PropertyType.Numeric, required: true)
-        errorPrice(type: PropertyType.String, required: false)
-        errorPrime(type: PropertyType.String, required: false)
-        inputPrice(type: PropertyType.String, required: true)
-        inputPrimePrice(type: PropertyType.String, required: false)
+        prime_price(type: PropertyType.Numeric, required: false)
+        list_price(type: PropertyType.Numeric, required: true)
+        error_price(type: PropertyType.String, required: false)
+        error_prime(type: PropertyType.String, required: false)
+        input_price(type: PropertyType.String, required: true)
+        input_prime_price(type: PropertyType.String, required: false)
         type(type: PropertyType.String, required: true)
     }
 
