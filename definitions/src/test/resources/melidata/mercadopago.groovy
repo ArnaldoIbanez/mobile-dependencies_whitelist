@@ -517,7 +517,9 @@ trackTests {
     }
 
     test("Landing alliance bancocolombia") {
-        "/alliance/bancocolombia"(platform: "/", type: TrackType.View) {}
+        "/alliance/landing"(platform: "/", type: TrackType.View) {
+            company_name = "bancocolombia"
+        }
     }
 
     test("Growth Frontend Login") {
