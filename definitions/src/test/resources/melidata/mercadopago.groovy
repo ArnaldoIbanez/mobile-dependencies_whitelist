@@ -3452,10 +3452,10 @@ trackTests {
         }
 
         "/my_business/split_payment"(platform: "/", type: TrackType.Event){
-            split_payment="enable"
+            split_payment="enabled"
         }
         "/my_business/recovery_mails"(platform: "/", type: TrackType.Event){
-            recovery_mails="enable"
+            recovery_mails="disabled"
         }
         "/my_business/cost_absorption"(platform: "/", type: TrackType.Event){
             cost_absorption="deactivate"
