@@ -299,6 +299,15 @@ tracks {
     "/seller_central/bulk/publish/upload"(platform: "/web", type: TrackType.View) {}
 
     "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/bulk/publish/categories/download_excel"(platform: "/web", type: TrackType.Event) {
+        total(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded")
+        last_published(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded from last published section")
+        most_used(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded from most used section")
+        search_list(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded from search section")
+        modal(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded from modal")
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify
     //------------------------------------------------------------------------------------------------------------------------------------------------------
