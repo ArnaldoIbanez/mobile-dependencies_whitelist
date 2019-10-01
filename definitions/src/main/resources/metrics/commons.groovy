@@ -263,4 +263,45 @@ metrics {
 			}
 		}
 	}
+
+	"pdp"(description: "pdp` count") {
+		countsOn {
+			condition {
+				path("/pdp", "/pdp/abort", "/pdp/failure")
+			}
+		}
+	}
+
+	"pdp_questions"(description: "Track PDP questions") {
+		countsOn {
+			condition {
+				path("/questions/ask/post")
+				and(
+					or(
+						equals("event_data.context", "/pdp"),
+						equals("event_data.context", "/qadb"),
+						equals("event_data.context", "/questions/qadb")
+					)
+				)
+			}
+		}
+	}
+
+	"pdp_buys"(description: "Track PDP buys", compute_order: true) {
+		countsOn {
+			condition {
+				or(
+					and(
+						equals("path", "/orders/ordercreated"),
+						equals("event_data.is_carrito", false),
+						equals('event_data.is_pdp',true)
+					),
+					and(
+						equals("path","/purchases/purchasecreated"),
+						equals('event_data.is_pdp',true)
+					)
+				)
+			}
+		}
+	}
 }
