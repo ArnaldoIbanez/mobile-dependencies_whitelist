@@ -65,6 +65,7 @@ trackTests {
         "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "juridical" }
         "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "identification" }
         "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "denied" }
+        "/prepaid/acquisition/error"(platform: "/web/mobile", type: TrackType.View) { error_type = "operator" }
 
         "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) {}
         "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) {}
@@ -116,6 +117,10 @@ trackTests {
         "/my_cards_webview" (platform: "/mobile") { from = "/deep_link" }
     }
 
+    test("Upgrade webview") {
+        "/prepaid/block_view" (platform: "/mobile", type: TrackType.View) { }
+        "/prepaid/block_view/cta"(platform: "/mobile", type: TrackType.Event) { }
+    }
 
     test("Prepaid cards MLM") {
         

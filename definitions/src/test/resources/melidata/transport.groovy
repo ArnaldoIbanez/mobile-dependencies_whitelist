@@ -56,11 +56,11 @@ trackTests {
         "/transport/companies"(platform: "/mobile") {
             flow = "/transport"
         }
-        "/transport/select_company"(platform: "/mobile") {
+        "/transport/selected_company"(platform: "/mobile") {
             flow = "/transport"
             company = "Bilhete unico (Sao Pablo)"
         }
-        "/transport/select_card"(platform: "/mobile") {
+        "/transport/selected_card"(platform: "/mobile") {
             flow = "/transport"
             company = "Bilhete unico (Sao Pablo)"
         }

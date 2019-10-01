@@ -29,7 +29,7 @@ tracks {
         email_already_exists(required: true, type: PropertyType.Boolean, description: 'Email already exists.')
     }
 
-    "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View, parentPropertiesInherited: false) {}
+    "/collaborators_admin/link_stores"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {}
 
     "/collaborators_admin/roles/"(platform:"/", isAbstract: true, parentPropertiesInherited: false) {}
 
@@ -43,19 +43,19 @@ tracks {
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
-    "/collaborators"(platform:"/web", isAbstract: true) {
+    "/collaborators"(platform:"/", isAbstract: true) {
         type(required: true, type: PropertyType.String, description: 'Indicates the source of the tracking, i.e. form')
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
-    "/collaborators/select_role"(platform:"/web", type: TrackType.View) {}
+    "/collaborators/select_role"(platform:"/", type: TrackType.View) {}
 
-    "/collaborators/transform_account"(platform:"/web", type: TrackType.View) {}
+    "/collaborators/transform_account"(platform:"/", type: TrackType.View) {}
 
-    "/collaborators/deadline"(platform:"/web", type: TrackType.View) {}
+    "/collaborators/deadline"(platform:"/", type: TrackType.View) {}
 
-    "/collaborators/deadline/form"(platform:"/web", type: TrackType.View) {}
+    "/collaborators/deadline/form"(platform:"/", type: TrackType.View) {}
 
-    "/collaborators/contact_owner"(platform:"/web", type: TrackType.View) {}
+    "/collaborators/contact_owner"(platform:"/", type: TrackType.View) {}
 
 }

@@ -85,7 +85,7 @@ tracks {
         error_type(
             required: true, 
             type: PropertyType.String, 
-            values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical", "limited"],
+            values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical", "limited", "operator"],
             description: "Types of error pages in acquisition flow."
         )
     }
@@ -147,6 +147,9 @@ tracks {
         )
     }
 
+    "/prepaid/block_view" (platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/block_view/cta"(platform:"/mobile", type: TrackType.Event) {}
+
     // Prepaid Detail
     "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.View) {}
 
@@ -167,7 +170,6 @@ tracks {
 
     // Prepaid Change Pin Congrats
     "/prepaid/change_pin/congrats" (platform: "/", type: TrackType.View) {}
-
     // Prepaid Reissue
     "/prepaid/reissue" (platform: "/", isAbstract: true) {}
 

@@ -23,6 +23,12 @@ tracks {
         preset (required:true, description: "Amount preset button value", values: ["30", "60", "120", "240", "500", "1000", "2000", "5000"])
     }
 
+    // Amount warning modal
+    "/account_fund/amount/warning"(platform: "/", type: TrackType.View) {}
+    "/account_fund/amount/warning/continue"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/amount/warning/transfer"(platform: "/", type: TrackType.Event) {}
+    "/account_fund/amount/warning/dismiss"(platform: "/", type: TrackType.Event) {}
+
     "/account_fund/agencies_map"(platform: "/", type: TrackType.View) {}
     "/account_fund/ftu"(platform: "/", type: TrackType.View) {}
     "/account_fund/unique_code"(platform: "/", type: TrackType.View) {}

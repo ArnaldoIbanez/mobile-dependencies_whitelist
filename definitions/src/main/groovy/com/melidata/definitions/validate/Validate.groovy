@@ -105,7 +105,7 @@ class Validate {
         System.err.println("${query}")
         System.err.println("")
 
-        def db = [url:"jdbc:presto://melidata-presto.ml.com:443/hive/default?SSL=true&SSLKeyStorePath=${presto_certs_path}",
+        def db = [url:"jdbc:presto://melidata-presto.ml.com:443/hive/default?SSL=true&SSLKeyStorePath=${presto_certs_path}&applicationNamePrefix=catalog",
                   user:'catalog_md', password:'Entrada.10', driver:'com.facebook.presto.jdbc.PrestoDriver']
         def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
         def result = []
@@ -113,7 +113,7 @@ class Validate {
             com.ml.melidata.Track track = new com.ml.melidata.Track(
                     row.path, 
                     com.ml.melidata.TrackAdapterHelper.adaptType(row.type.toUpperCase()), 
-                    row.device.platform, 
+                    row.platform, 
                     row.application.business,
                     row.application.version)
             track.setEvent_data(new JsonSlurper().parseText(row.event_data))
@@ -182,19 +182,25 @@ class Validate {
         def version = ""
         def pool_name = ""
         def limit = "100"
+	def table = "tracks"
+	def platform_column = "device.platform"
 
+	if (options.catalog) {
+		table = "shipping"
+		platform_column = "platform"
+	}
         if (options.exact_path) exact_path = "AND path = '/${options.exact_path}' \n"
         if (options.path) path = "AND path LIKE '/${options.path}%' \n"
         if (options.business) business = "AND application.business = '${options.business}' \n"
-        if (options.platform) platform = "AND device.platform = '${options.platform}' \n"
+        if (options.platform) platform = "AND ${platform_column} = '${options.platform}' \n"
         if (options.site) site = "AND application.site_id = '${options.site}' \n"
         if (options.version) version = "AND application.version = '${options.version}' \n"
         if (options.pool_name) pool_name = "AND application.server_poolname LIKE '%${options.pool_name}%' \n"
         if (options.limit) limit = options.limit
 
 
-        return ("SELECT id, type, path, event_data, device, application, platform \n" +
-               "FROM tracks \n" +
+        return ("SELECT id, type, path, event_data, ${platform_column}, application \n" +
+               "FROM ${table} \n" +
                "WHERE catalog_data.is_valid = false \n" +
                "${date}${path}${exact_path}${business}${platform}${site}${version}${pool_name}" +
                "limit ${limit}").toString()
@@ -207,7 +213,7 @@ class Validate {
         cli.exact_path(args:1, "exact_path")
         cli.path(args:1, "path")
         cli.business(args:1, "business")
-        cli.platform(args:1, "site")
+        cli.platform(args:1, "platform")
         cli.site(args:1, "site")
         cli.limit(args:1, "limit")
         cli.to_file(args:1, "to_file")

@@ -81,6 +81,11 @@ tracks {
       email (type: PropertyType.String, required: true, description: "Email from user")
     }
 
+    // MP Alliance BancoColombioa
+    "/alliance"(platform: "/web", isAbstract: true) {}
+    "/alliance/landing"(platform: "/", type: TrackType.View) {
+           company_name (required:true, description: "name of the allied company")
+    }
 
     "/growth"(platform: "/", isAbstract: true) {}
     "/growth/login"(platform: "/", type: TrackType.View) {
@@ -168,10 +173,20 @@ tracks {
       qr_content (type: PropertyType.String, required: true, description: "Ex: http://qrContent")
     }
 
-    // Point Pro Solicitud Bobinas > Pageviews
+    // Bobinas > Pageviews
     "/merchant_acquisition/flows/paper_rolls"(platform: "/", type: TrackType.View) {
-      view (type: PropertyType.String, required: true, description: "Type of view", values: ["order", "registration", "congrats_waiting", "congrats_success", "congrats_registration", "access_denied", "error"])
+      view (
+        type: PropertyType.String,
+        required: true, description: "Type of view",
+        values: ["order", "registration", "congrats_waiting", "congrats_success", "congrats_registration", "access_denied", "error"]
+      )
     }
+    "/merchant_acquisition/flows/paper_rolls/modal"(platform: "/", isAbstract: true) {}
+
+    // Bobinas > Events
+    "/merchant_acquisition/flows/paper_rolls/complete_form"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/paper_rolls/modal/update_address"(platform: "/", type: TrackType.Event) {}
+    "/merchant_acquisition/flows/paper_rolls/modal/add_address"(platform: "/", type: TrackType.Event) {}
 
     // QR Queue Web > Pageviews
     "/merchant_acquisition/flows/qr-queue"(platform:"/", type: TrackType.View) {}
@@ -546,32 +561,19 @@ tracks {
     "/point_payment/flow_tracker/auto_reverse_off"(platform: "/mobile", type: TrackType.Event) {
         trx_id (required: true, type: PropertyType.String, description: "trx1234567")
     }
+    "/point_payment/write_concept"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/customer_care"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/start_refund"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/customer_care_success"(platform: "/mobile", type: TrackType.View) {}
 
-    "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
-    "/settings/point/settings"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
-    "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {}
-    "/settings/point/settings/pricing"(platform: "/mobile", type: TrackType.View) {}
-    "/settings/point/installment_cost"(platform: "/mobile", type: TrackType.View) {}
-    "/settings/point/device_mlb"(platform: "/mobile", type: TrackType.View) {}
-    "/settings/pairing"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment_test"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/point_payment_test/test_payment"(platform: "/mobile", type: TrackType.View) {}
 
-    "/settings/reader_update"(platform: "/mobile", type: TrackType.View) {
-        poi (required: true, type: PropertyType.String, description: "Poi (reader serial number)")
-    }
-    "/settings/reader_update/onboarding"(platform: "/mobile", type: TrackType.View) {}
-    "/settings/reader_update/result"(platform: "/mobile", type: TrackType.View) {}
-    "/settings/reader_update/process_completed"(platform: "/mobile", type: TrackType.Event) {
-        duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds")
-        previous_version (required: true, type: PropertyType.String, description: "Reader previous firmware version")
-        previous_config (required: true, type: PropertyType.String, description: "Reader previous config version")
-        new_version (required: true, type: PropertyType.String, description: "Reader firmware version updated")
-        new_config (required: true, type: PropertyType.String, description: "Reader config version updated")
-    }
-    "/settings/reader_update/cancel"(platform: "/mobile", type: TrackType.Event) {
-        duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds before cancel")
-        time_remaining (required: true, type: PropertyType.Numeric, description: "Estimated time remaining before cancel")
-        progress (required: true, type: PropertyType.Numeric, description: "Update progress at cancel")
-    }
+
+    "/point_payment/cash"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/point_payment/cash/ftu"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/cash/congrats"(platform: "/mobile", type: TrackType.View) {}
+
 
     "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
 
@@ -602,8 +604,12 @@ tracks {
 
     "/company_info"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
     "/company_info/on_boarding"(platform: "/mobile", type: TrackType.View) {}
+    "/company_info/main"(platform: "/mobile", type: TrackType.View) {}
+    "/company_info/brand_name"(platform: "/mobile", type: TrackType.View) {}
+    "/company_info/mcc"(platform: "/mobile", type: TrackType.View) {}
+    "/company_info/push_soft_descriptor"(platform: "/mobile", type: TrackType.View) {}
 
-    "/dashboard"(platform: "/mobile", type: TrackType.View) {}
+    "/point_payment/dashboard"(platform: "/mobile", type: TrackType.View) {}
 
     // MP Point Standalone (a eliminar cuando inhabilitemos la app de point)
 
@@ -972,7 +978,9 @@ tracks {
         section (required: true, type: PropertyType.String, description: "The section when error")
         status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
     }
-    "/tfs_dashboard/home/card_error"(platform: "/", type: TrackType.Event) {
+
+    "/tfs_dashboard/home/card"(platform: "/", isAbstract: true) {}
+    "/tfs_dashboard/home/card/error"(platform: "/", type: TrackType.Event) {
         chart_id (required: true, type: PropertyType.String, description: "The chart ID when error")
         section (required: true, type: PropertyType.String, description: "The section when error")
         status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
@@ -1035,6 +1043,7 @@ tracks {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
+    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false) {}
     "/settings/my_profile"(platform: "/mobile") {}
     "/settings/balance"(platform: "/mobile") {}
     "/settings/my_cards"(platform: "/mobile") {}
@@ -1043,6 +1052,34 @@ tracks {
     "/settings/verify_pin"(platform: "/mobile") {}
     "/settings/set_pin_code"(platform: "/mobile") {}
     "/settings/about"(platform: "/mobile") {}
+    "/settings/point"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/settings/point/settings"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/settings/point/costs_calculator"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/point/settings/pricing"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/point/installment_cost"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/point/device_mlb"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/pairing"(platform: "/mobile", type: TrackType.View) {}
+
+    "/settings/reader_update"(platform: "/mobile", type: TrackType.View) {
+        poi (required: true, type: PropertyType.String, description: "Poi (reader serial number)")
+    }
+    "/settings/reader_update/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/reader_update/result"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/reader_update/process_completed"(platform: "/mobile", type: TrackType.Event) {
+        duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds")
+        previous_version (required: true, type: PropertyType.String, description: "Reader previous firmware version")
+        previous_config (required: true, type: PropertyType.String, description: "Reader previous config version")
+        new_version (required: true, type: PropertyType.String, description: "Reader firmware version updated")
+        new_config (required: true, type: PropertyType.String, description: "Reader config version updated")
+    }
+    "/settings/reader_update/cancel"(platform: "/mobile", type: TrackType.Event) {
+        duration (required: true, type: PropertyType.Numeric, description: "Process duration in seconds before cancel")
+        time_remaining (required: true, type: PropertyType.Numeric, description: "Estimated time remaining before cancel")
+        progress (required: true, type: PropertyType.Numeric, description: "Update progress at cancel")
+    }
+    "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
 
     "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
         channel (required: true, type: PropertyType.String, description: "The channel that was modified")
@@ -1097,6 +1134,20 @@ tracks {
     "/money_detail/balance"(platform: "/mobile") {}
     "/money_detail/help_modal"(platform: "/mobile") {}
 
+    //Withdraw
+    "/money_detail/withdraw/main"(platform: "/", type: TrackType.View) {}
+    "/money_detail/withdraw/confirmation"(platform: "/", type: TrackType.View) {}
+    "/money_detail/withdraw/congrats"(platform: "/", type: TrackType.View) {}
+    "/money_detail/withdraw/add_account"(platform: "/", type: TrackType.View) {}
+    "/money_detail/withdraw/select_bank"(platform: "/", type: TrackType.View) {}    
+    "/money_detail/withdraw"(platform: "/",, isAbstract: true) {}
+    "/money_detail/daily_detail"(platform: "/", , isAbstract: true) {}
+    "/money_detail/money-advance"(platform: "/", , isAbstract: true) {}
+    "/money_detail/restrictions"(platform: "/", , isAbstract: true) {}
+    "/money_detail/point_home"(platform: "/", , isAbstract: true) {}
+    "/money_detail/withdraw"(platform: "/", , isAbstract: true) {}
+    "/money_detail"(platform: "/", , isAbstract: true) {}
+
     /**
      * END NOTIFICATIONS
      **/
@@ -1123,14 +1174,26 @@ tracks {
     "/balance"(platform: "/web", isAbstract: true){}
     "/balance/reports"(platform: "/web", type: TrackType.View){}
 
-    "/my_business"(platform: "/web", type: TrackType.View){}
-    "/my_business/how_it_works_ME"(platform: "/web"){}
-    "/my_business/enable_ME"(platform: "/web"){}
-    "/my_business/disable_ME"(platform: "/web"){}
+    "/my_business"(platform: "/", type: TrackType.View){}
+    "/my_business/how_it_works_ME"(platform: "/", type: TrackType.Event){
+        how_it_works_me(required: true, type: PropertyType.String, values: ["click", "tap"], description: "Indicates how works the track")
+    }
+    "/my_business/enable_ME"(platform: "/", type: TrackType.Event){
+        mercado_envios(required: true, type: PropertyType.String, values: ["enable", "disable"],description: "Indicates if mercado envios is enabled")
+    }
+    "/my_business/disable_ME"(platform: "/", type: TrackType.Event){
+        mercado_envios(required: true, type: PropertyType.String, values: ["enable", "disable"],description: "Indicates if mercado envios is enabled")
+    }
 
-    "/my_business/split_payment"(platform: "/web"){}
-    "/my_business/recovery_mails"(platform: "/web"){}
-    "/my_business/cost_absorption"(platform: "/web"){}
+    "/my_business/split_payment"(platform: "/", type: TrackType.Event){
+        split_payment(required: true, type: PropertyType.String, values: ["enabled", "disabled"],description: "Indicates if split payment is enabled")
+    }
+    "/my_business/recovery_mails"(platform: "/", type: TrackType.Event){
+        recovery_mails(required: true, type: PropertyType.String, values: ["enabled", "disabled"],description: "Indicates if recovery mail is enabled")
+    }
+    "/my_business/cost_absorption"(platform: "/", type: TrackType.Event){
+        cost_absorption(required: true, type: PropertyType.String, values: ["deactivate", "activate", "modificate"],description: "Indicates cost absorption status")
+    }
 
     //END -- MP personalFrontend
 
@@ -1185,17 +1248,17 @@ tracks {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
 
-    "/stores"(platform: "/web", isAbstract: true) {}
+    "/stores"(platform: "/", isAbstract: true) {}
     "/stores/create"(platform: "/", type: TrackType.View) {}
-    "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
+    "/stores/link_operators"(platform: "/", type: TrackType.View) {}
     "/stores/list"(platform: "/", type: TrackType.View) {}
-    "/stores/update"(platform: "/web", type: TrackType.View) {}
-    "/stores/details"(platform: "/web", type: TrackType.View) {}
-    "/stores/pos"(platform: "/web", type: TrackType.View, isAbstract:true) {}
-    "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
-    "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
-    "/stores/standalone_pos"(platform: "/web", type: TrackType.View) {}
-    "/stores/move_pos"(platform: "/web", type: TrackType.View) {}
+    "/stores/update"(platform: "/", type: TrackType.View) {}
+    "/stores/details"(platform: "/", type: TrackType.View) {}
+    "/stores/pos"(platform: "/", type: TrackType.View, isAbstract:true) {}
+    "/stores/pos/create"(platform: "/", type: TrackType.View) {}
+    "/stores/pos/update"(platform: "/", type: TrackType.View) {}
+    "/stores/standalone_pos"(platform: "/", type: TrackType.View) {}
+    "/stores/move_pos"(platform: "/", type: TrackType.View) {}
 
     //Account mydata
     "/account"(platform: "/web", isAbstract: true) {}
