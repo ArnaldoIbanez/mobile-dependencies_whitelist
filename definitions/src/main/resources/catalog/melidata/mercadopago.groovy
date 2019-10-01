@@ -1169,14 +1169,26 @@ tracks {
     "/balance"(platform: "/web", isAbstract: true){}
     "/balance/reports"(platform: "/web", type: TrackType.View){}
 
-    "/my_business"(platform: "/web", type: TrackType.View){}
-    "/my_business/how_it_works_ME"(platform: "/web", type: TrackType.Event){}
-    "/my_business/enable_ME"(platform: "/web", type: TrackType.Event){}
-    "/my_business/disable_ME"(platform: "/web", type: TrackType.Event){}
+    "/my_business"(platform: "/", type: TrackType.View){}
+    "/my_business/how_it_works_ME"(platform: "/", type: TrackType.Event){
+        how_it_works_me(required: true, type: PropertyType.String, values: ["click", "tap"], description: "Indicates how works the track")
+    }
+    "/my_business/enable_ME"(platform: "/", type: TrackType.Event){
+        mercado_envios(required: true, type: PropertyType.String, values: ["enable", "disable"],description: "Indicates if mercado envios is enabled")
+    }
+    "/my_business/disable_ME"(platform: "/", type: TrackType.Event){
+        mercado_envios(required: true, type: PropertyType.String, values: ["enable", "disable"],description: "Indicates if mercado envios is enabled")
+    }
 
-    "/my_business/split_payment"(platform: "/web", type: TrackType.Event){}
-    "/my_business/recovery_mails"(platform: "/web", type: TrackType.Event){}
-    "/my_business/cost_absorption"(platform: "/web", type: TrackType.Event){}
+    "/my_business/split_payment"(platform: "/", type: TrackType.Event){
+        split_payment(required: true, type: PropertyType.String, values: ["enabled", "disabled"],description: "Indicates if split payment is enabled")
+    }
+    "/my_business/recovery_mails"(platform: "/", type: TrackType.Event){
+        recovery_mails(required: true, type: PropertyType.String, values: ["enabled", "disabled"],description: "Indicates if recovery mail is enabled")
+    }
+    "/my_business/cost_absorption"(platform: "/", type: TrackType.Event){
+        cost_absorption(required: true, type: PropertyType.String, values: ["deactivate", "activate", "modificate"],description: "Indicates cost absorption status")
+    }
 
     //END -- MP personalFrontend
 
