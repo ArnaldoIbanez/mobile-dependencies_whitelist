@@ -513,6 +513,14 @@ trackTests {
         }
     }
 
+    //Loyalty
+    test("Loyalty header tap") {
+        "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
+            header = "Hola juan - MercadoPuntos"
+            level = 69
+        }
+    }
+
     defaultBusiness = "mercadolibre"
 
         test("Mercadopago Home") {
@@ -1016,5 +1024,11 @@ trackTests {
         }
     }
 
-
+    //Loyalty
+    test("Loyalty header tap") {
+        "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
+            header = "Hola juan - MercadoPuntos"
+            level = 69
+        }
+    }
 }

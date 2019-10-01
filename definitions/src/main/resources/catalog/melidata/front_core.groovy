@@ -304,5 +304,12 @@ tracks {
     "/wallet_home/modal/close" (platform: "/mobile", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "The modal's id")
     }
-    
+
+    //Loyalty
+    "/wallet_home/loyalty" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
+        header(required: true, type: PropertyType.String, description: "The header title")
+        level(required: true, type: PropertyType.Numeric, description: "The user's loyalty level")
+    }
 }
