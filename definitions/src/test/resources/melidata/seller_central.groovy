@@ -1127,4 +1127,117 @@ trackTests {
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central - Promotions
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Seller Central Promotions - View event sending original promotion data"){
+        "/seller_central/promotions"(platform: "/web", type: TrackType.View){
+          original_promotion = [
+              id: "MLA808249210",
+              sellerId: 450981020,
+              buyingMode: "buy_it_now",
+              saleTerms: [
+                  [
+                      id: "LOYALTY_LEVEL_4",
+                      valueId: null,
+                      valueStruct: [
+                          number: 400,
+                          unit: "ARS"
+                      ]
+                  ],
+                  [
+                      id: "LOYALTY_LEVEL_5",
+                      valueId: null,
+                      valueStruct: [
+                          number: 400,
+                          unit: "ARS"
+                      ]
+                  ],
+                  [
+                      id: "LOYALTY_LEVEL_3",
+                      valueId: null,
+                      valueStruct: [
+                          number: 400,
+                          unit: "ARS"
+                      ]
+                  ],
+                  [
+                      id: "LOYALTY_LEVEL_6",
+                      valueId: null,
+                      valueStruct: [
+                          number: 400,
+                          unit: "ARS"
+                      ]
+                  ]
+              ],
+              campaigns: [],
+              bestOffer: null,
+              price: 500,
+              originalPrice: 1000,
+              promotion: [
+                  status: "started",
+                  price: 500,
+                  startDate: "2019-09-18T03:00:00.000Z",
+                  finishDate: "2019-10-05T02:59:00.000Z",
+                  listPrice: 1000,
+                  primePrice: 400
+              ],
+              visits: 27,
+              availableQuantity: 97,
+              title: "Item De Testeo, Por Favor No Ofertar --kc:off",
+              soldQuantity: 3,
+              secureThumbnail: "https://http2.mlstatic.com/resources/frontend/statics/processing-image/1.0.0/I-ES.jpg",
+              currency: [
+                  id: "ARS",
+                  decimalPlaces: 2,
+                  symbol: "\$"
+              ],
+              tags: [
+                  "loyalty_discount_eligible",
+                  "test_item",
+                  "immediate_payment"
+              ],
+              validations: [],
+              campaignOffers: [
+                  [
+                      offerMode: "LONG_TAIL",
+                      offer: null,
+                      campaign: [
+                          name: "campanianueva",
+                          identifier: "MLA626",
+                          start_date: "2018-10-26T16:10:00.000Z",
+                          finish_date: "2019-12-12T13:17:21.000Z",
+                          dead_line: "2019-03-03T00:57:00.000Z",
+                          type: "discounts",
+                          status: "started",
+                          isActive: false,
+                          isAvailable: false,
+                          appliedOffer: false
+                      ]
+                  ]
+              ]
+          ]
+        }
+
+        "/seller_central/promotions/actions"(platform: "/web", type: TrackType.Event){
+            action = "SAVE_PROMOTION"
+            promotion = [
+                siteTimeOffset: 0,
+                startDate: "2019-09-18T03:00:00.000Z",
+                finishDate: "2019-10-05T02:59:00.000Z",
+                state: "started",
+                isHighlight: false,
+                price: 500,
+                primePrice: 400,
+                listPrice: 1000,
+                errorPrice: null,
+                errorPrime: null,
+                inputPrice: "500",
+                inputPrimePrice: "400",
+                type: "always_on",
+            ]
+            promotion_duration = 17
+        }
+    }
 }

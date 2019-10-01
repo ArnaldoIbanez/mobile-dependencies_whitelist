@@ -27,6 +27,94 @@ tracks {
         winner_data(type: PropertyType.Map(winnerData), required: false)
     }
 
+    // --------------------------------------------------------------------------------------------------------------
+    //  PROMOTIONS DEFINITIONS
+    // --------------------------------------------------------------------------------------------------------------
+
+    //  ORIGINAL PROMO STRUCTURE
+    def campaingStructure = objectSchemaDefinitions {
+        name(type: PropertyType.String, required: false)
+        identifier(type: PropertyType.String, required: false)
+        start_date(type: PropertyType.String, required: false)
+        finish_date(type: PropertyType.String, required: false)
+        dead_line(type: PropertyType.String, required: false)
+        type(type: PropertyType.String, required: false)
+        status(type: PropertyType.String, required: false)
+        isActive(type: PropertyType.Boolean, required: false)
+        isAvailable(type: PropertyType.Boolean, required: false)
+        appliedOffer(type: PropertyType.Boolean, required: false)
+    }
+
+    def campaingOffersStructure = objectSchemaDefinitions {
+        offerMode(type: PropertyType.String, required: false)
+        offer(type: PropertyType.String, required: false)
+        campaign(type: PropertyType.Map(campaingStructure), required: false)
+    }
+
+    def currencyStructure = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true)
+        decimalPlaces(type: PropertyType.Numeric, required: true)
+        symbol(type: PropertyType.String, required: true)
+    }
+
+    def promotionStructure = objectSchemaDefinitions {
+        status(type: PropertyType.String, required: false)
+        price(type: PropertyType.Numeric, required: false)
+        startDate(type: PropertyType.String, required: false)
+        finishDate(type: PropertyType.String, required: false)
+        listPrice(type: PropertyType.Numeric, required: true)
+        primePrice(type: PropertyType.Numeric, required: false)
+    }
+
+    def valueStructure = objectSchemaDefinitions {
+        number(type: PropertyType.Numeric, required: true)
+        unit(type: PropertyType.String, required: true)
+    }
+
+    def saleTermStructure = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true)
+        valueId(type: PropertyType.String, required: false)
+        valueStruct(type: PropertyType.Map(valueStructure), required: true)
+    }
+
+    def originalPromotionStructure = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true)
+        sellerId(type: PropertyType.Numeric, required: true)
+        buyingMode(type: PropertyType.String, required: true)
+        saleTerms(type: PropertyType.ArrayList(PropertyType.Map(saleTermStructure)), required: false)
+        campaigns(type: PropertyType.ArrayList(PropertyType.String), required: false)
+        bestOffer(type: PropertyType.Numeric, required: false)
+        price(type: PropertyType.Numeric, required: false)
+        originalPrice(type: PropertyType.Numeric, required: false)
+        promotion(type: PropertyType.Map(promotionStructure), required: false)
+        visits(type: PropertyType.Numeric, required: true)
+        availableQuantity(type: PropertyType.Numeric, required: true)
+        title(type: PropertyType.String, required: true)
+        soldQuantity(type: PropertyType.Numeric, required: true)
+        secureThumbnail(type: PropertyType.String, required: true)
+        currency(type: PropertyType.Map(currencyStructure), required: false)
+        tags(type: PropertyType.ArrayList(PropertyType.String), required: false)
+        validations(type: PropertyType.ArrayList(PropertyType.String), required: false)
+        campaignOffers(type: PropertyType.ArrayList(PropertyType.Map(campaingOffersStructure)), required: false)
+    }
+
+    //  FINAL PROMO STRUCTURE
+    def finalPromotionStructure = objectSchemaDefinitions {
+        state(type: PropertyType.String, required: true)
+        siteTimeOffset(type: PropertyType.Numeric, required: false)
+        startDate(type: PropertyType.String, required: true)
+        finishDate(type: PropertyType.String, required: true)
+        isHighlight(type: PropertyType.Boolean, required: false)
+        price(type: PropertyType.Numeric, required: true)
+        primePrice(type: PropertyType.Numeric, required: false)
+        listPrice(type: PropertyType.Numeric, required: true)
+        errorPrice(type: PropertyType.String, required: false)
+        errorPrime(type: PropertyType.String, required: false)
+        inputPrice(type: PropertyType.String, required: true)
+        inputPrimePrice(type: PropertyType.String, required: false)
+        type(type: PropertyType.String, required: true)
+    }
+
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
@@ -664,5 +752,14 @@ tracks {
         sellerCentralCatalogOptinTaskGroup
     }
 
+    "/seller_central/promotions"(platform: "/web", type: TrackType.View) {
+        original_promotion(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original promotion data")
+    }
+
+    "/seller_central/promotions/actions"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller")
+        promotion(required: false, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
+        promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+    }
 
 }
