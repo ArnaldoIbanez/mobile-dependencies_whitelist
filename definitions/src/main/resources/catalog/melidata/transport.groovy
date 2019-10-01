@@ -40,10 +40,10 @@ tracks {
         position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }
     "/transport/companies"(platform: "/mobile", type: TrackType.View) {}
-    "/transport/select_company"(platform: "/mobile", type: TrackType.Event) {
+    "/transport/selected_company"(platform: "/mobile", type: TrackType.Event) {
         company (required: true, type: PropertyType.String, description: "Company selected")
     }
-    "/transport/select_card"(platform: "/mobile", type: TrackType.Event) {
+    "/transport/selected_card"(platform: "/mobile", type: TrackType.Event) {
         company (required: true, type: PropertyType.String, description: "Company of the card")
     }
     "/transport/delete"(platform: "/mobile", type: TrackType.Event) {}
