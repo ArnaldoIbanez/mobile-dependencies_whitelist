@@ -482,4 +482,17 @@ trackTests {
         }
     }
 
+    test("product modificator quality resports"){
+        "/structure_data/product_modificator/quality-reports"(platform: "/", type: TrackType.Event) {
+            domain_id = "MLA-CAMERAS"
+            parent_id = "22711"
+            product_id = "22711"
+            errors = ["ProductIdentifierInvalid"]
+            warnings = ["ParentsWithProductIdentifier", "ColorFormat"]
+            errors_quantity = 1
+            warning_quantity = 2
+            step = "PARENT"
+        }
+    }
+
 }
