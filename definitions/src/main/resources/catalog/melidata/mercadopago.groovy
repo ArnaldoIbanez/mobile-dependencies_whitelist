@@ -83,7 +83,9 @@ tracks {
 
     // MP Alliance BancoColombioa
     "/alliance"(platform: "/web", isAbstract: true) {}
-    "/alliance/bancocolombia"(platform: "/", type: TrackType.View) {}
+    "/alliance/landing"(platform: "/", type: TrackType.View) {
+           company_name (required:true, description: "name of the allied company")
+    }
 
     "/growth"(platform: "/", isAbstract: true) {}
     "/growth/login"(platform: "/", type: TrackType.View) {
