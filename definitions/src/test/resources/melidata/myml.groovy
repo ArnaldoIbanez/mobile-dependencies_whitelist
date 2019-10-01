@@ -297,14 +297,8 @@ trackTests {
 
     test("Backoffice pages") {
         "/myml/invoices/backoffice/search/invoice"(platform: "/", type: TrackType.Event) {
-            invoiceId = '40503435'
-            orderId = '2146844767'
-            shipmentId = '28098868742'
-            invoiceNumber = '18492'
-            invoiceSerie = '1'
-            userId = '257268611'
-            invoiceKey = '35190925318057000164550010000184921398535373'
-            nickname = 'DANNY'
+            searchType = 'order_id'
+            searchValue = '2158279221'
         }
 
         "/myml/invoices/backoffice/search/reissueinvoice"(platform: "/", type: TrackType.Event) {

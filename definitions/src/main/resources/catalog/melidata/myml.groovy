@@ -893,19 +893,12 @@ tracks {
 
     "/myml/invoices/backoffice/search"(platform: "/", isAbstract: true) {}
 
-    "/myml/invoices/backoffice/search/invoice"(platform: "/", isAbstract: true) {
-        invoiceId(required: false, type: PropertyType.String, description: "Invoice search by id")
-        orderId(required: false, type: PropertyType.String, description: "Invoice search by order id")
-        inboundId(required: false, type: PropertyType.String, description: "Invoice search by inbound id")
-        shipmentId(required: false, type: PropertyType.String, description: "Invoice search by shipment id")
-        invoiceNumber(required: false, type: PropertyType.String, description: "Invoice search by invoice number")
-        invoiceSerie(required: false, type: PropertyType.String, description: "Invoice search by invoice serie")
-        userId(required: true, type: PropertyType.String, description: "Invoice search by issuer id")
-        invoiceKey(required: false, type: PropertyType.String, description: "Invoice search by invoice key")
-        nickname(required: false, type: PropertyType.String, description: "Invoice search by nickname")
+    "/myml/invoices/backoffice/search/invoice"(platform: "/", type: TrackType.Event) {
+        searchType(required: true, type: PropertyType.String, description: "Invoice searched by")
+        searchValue(required: true, type: PropertyType.String, description: "Value inputed related searchType in Invoice Search")
     }
 
-    "/myml/invoices/backoffice/search/reissueinvoice"(platform: "/") {
+    "/myml/invoices/backoffice/search/reissueinvoice"(platform: "/", type: TrackType.Event) {
         invoiceId(required: true, type: PropertyType.String, description: "Invoice Id")
         orderIds(required: true, type: PropertyType.String, description: "Invoice order Ids")
         userId(required: true, type: PropertyType.String, description: "Id of the invoice issuer")
@@ -913,14 +906,14 @@ tracks {
         detailedReason(required: false, type: PropertyType.String, description: "Detailed reason for invoice reprocessing")
     }
 
-    "/myml/invoices/backoffice/search/disableinvoice"(platform: "/") {
+    "/myml/invoices/backoffice/search/disableinvoice"(platform: "/", type: TrackType.Event) {
         invoiceId(required: true, type: PropertyType.String, description: "Invoice Id")
         userId(required: true, type: PropertyType.String, description: "Id of the invoice issuer")
         reason(required: true, type: PropertyType.String, description: "Invoice disabling reason")
         detailedReason(required: false, type: PropertyType.String, description: "Detailed reason for invoice disabling")
     }
 
-    "/myml/invoices/backoffice/search/invoiceslist"(platform: "/") {
+    "/myml/invoices/backoffice/search/invoiceslist"(platform: "/", type: TrackType.Event) {
         invoiceId(required: false, type: PropertyType.String, description: "Massive invoice search by id")
         orderId(required: false, type: PropertyType.String, description: "Massive invoice search by order id")
         status(required: false, type: PropertyType.String, description: "Massive invoice search by status id")
@@ -949,7 +942,7 @@ tracks {
         externalProductId(required: false, type: PropertyType.String, description: "Massive invoice search by external product id")
     }
 
-    "/myml/invoices/backoffice/search/invoiceslist/export_csv"(platform: "/") {
+    "/myml/invoices/backoffice/search/invoiceslist/export_csv"(platform: "/", type: TrackType.Event) {
         seller_id(required: false, type: PropertyType.String, description: "Seller id used to generate csv")
         status(required: false, type: PropertyType.String, description: "Invoice status used to generate csv")
         environment(required: false, type: PropertyType.String, description: "Which environment was selected to generate csv")
