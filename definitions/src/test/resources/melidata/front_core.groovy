@@ -513,6 +513,15 @@ trackTests {
         }
     }
 
+    //Loyalty
+    test("Loyalty header tap") {
+        "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
+            loyalty = [
+                level: 9
+            ]
+        }
+    }
+
     defaultBusiness = "mercadolibre"
 
         test("Mercadopago Home") {
@@ -1016,5 +1025,12 @@ trackTests {
         }
     }
 
-
+    //Loyalty
+    test("Loyalty header tap") {
+        "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
+            loyalty = [
+                level: 9
+            ]
+        }
+    }
 }

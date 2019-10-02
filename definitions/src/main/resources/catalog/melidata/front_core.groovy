@@ -98,6 +98,10 @@ tracks {
         link(type: PropertyType.String, required: true, description: "The link to execute")
     }
 
+    def loyalty_definition = objectSchemaDefinitions {
+        level(type: PropertyType.Numeric, required: true, description: "The user's loyalty level")
+    }
+
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}
     "/home_wallet/drawer" (platform: "/mobile", isAbstract: true) {}
     "/wallet/home/secondary_actions" (platform: "/mobile", isAbstract: true) {}
@@ -304,5 +308,11 @@ tracks {
     "/wallet_home/modal/close" (platform: "/mobile", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "The modal's id")
     }
-    
+
+    //Loyalty
+    "/wallet_home/loyalty" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
+        loyalty(required: false, type: PropertyType.Map(loyalty_definition), description: "The loyalty header information")
+    }
 }
