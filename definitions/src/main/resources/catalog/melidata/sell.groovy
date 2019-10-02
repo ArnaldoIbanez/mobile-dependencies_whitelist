@@ -11,10 +11,11 @@ tracks {
         seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
         seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
+        seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
     }
 
     propertyGroups {
-        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id)
+        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation)
     }
 
     // Sell
