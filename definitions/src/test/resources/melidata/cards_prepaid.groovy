@@ -28,7 +28,24 @@ trackTests {
     }
 
 
-    test("cards prepaid acquisition flow") {
+    test("cards prepaid acquisition flow - anses") {
+        // View
+        "/prepaid/acquisition/init_point"(platform: "/", type: TrackType.View) {
+            referral = "some"
+            flow = "anses"
+        }
+    }
+
+    test("cards prepaid acquisition flow without challenge") {
+        // View
+        "/prepaid/acquisition/init_point"(platform: "/", type: TrackType.View) {
+            referral = "some"
+            flow = "prepaid"
+            is_challenge = false
+        }
+    }
+
+    test("cards prepaid acquisition flow with challenge") {
 
         // View
         "/prepaid/acquisition/init_point"(platform: "/", type: TrackType.View) {
@@ -40,10 +57,11 @@ trackTests {
             had_prepaid = false
             has_prepaid = false
             had_money_last_7d = false
+            had_money_last_7d = false
             is_point_seller = false
             bought_point_device = false
             current_balance_amount = "zero"
-            need_funding_amount = 20
+            needed_funding_amount = 20
             has_money = false
         }
         "/prepaid/acquisition/change_dni"(platform: "/web/desktop") {}

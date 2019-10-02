@@ -62,8 +62,8 @@ tracks {
     // MLB => https://www.mercadopago.com.br/prepaid/acquisition
 
     "/prepaid/acquisition/init_point"(platform: "/", type: TrackType.View) {
-        referral (required:false, type: PropertyType.String, description: "Where the flow start")
-        flow (required:false, type: PropertyType.String, description: "Flow type")
+        referral (required:true, type: PropertyType.String, description: "Where the flow start")
+        flow (required:true, type: PropertyType.String, description: "Flow type")
         is_challenge (required:false, type: PropertyType.Boolean, description: "If it is challenge")
         challenge_reason (required:false, type: PropertyType.String, description: "Why challenge has been thrown")
         has_challenged_prepaid (required:false, type: PropertyType.Boolean, description: "If the challenge because of prepaid")
@@ -73,7 +73,7 @@ tracks {
         is_point_seller (required:false, type: PropertyType.Boolean, description: "If user is a point seller")
         bought_point_device (required:false, type: PropertyType.Boolean, description: "User bought a point device")
         current_balance_amount (required:false, type: PropertyType.String, description: "Current balance amount")
-        need_funding_amount (required:false, type: PropertyType.Numeric, description: "User needs fund money to continue")
+        needed_funding_amount (required:false, type: PropertyType.Numeric, description: "User needs fund money to continue")
         has_money (required:false, type: PropertyType.Boolean, description: "User already has money")
     }
 
