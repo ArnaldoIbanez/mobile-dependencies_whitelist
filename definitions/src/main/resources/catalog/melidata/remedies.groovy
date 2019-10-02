@@ -133,46 +133,60 @@ tracks {
     // Web desktop and web mobile tracks
     "/remedies/landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        track_info(required: false, type: PropertyType.Map, description: "Track initiatives and users flows")
     }
     "/remedies/phone_landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        track_info(required: false, type: PropertyType.Map, description: "Track initiatives and users flows")
     }
     "/remedies/phone_validation"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        track_info(required: false, type: PropertyType.Map, description: "Track initiatives and users flows")
     }
     "/remedies/documentation_front"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        track_info(required: false, type: PropertyType.Map, description: "Track initiatives and users flows")
     }
     "/remedies/documentation_back"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        track_info(required: false, type: PropertyType.Map, description: "Track initiatives and users flows")
     }
     "/remedies/documentation_number"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        track_info(required: false, type: PropertyType.Map, description: "Track initiatives and users flows")
     }
     "/remedies/selfie"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        track_info(required: false, type: PropertyType.Map, description: "Track initiatives and users flows")
     }
     "/remedies/congrats"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         congrats_type(type: PropertyType.String, required: true, description: "Type of the congrats we show")
+        track_info(required: false, type: PropertyType.Map, description: "Track initiatives and users flows")
     }
     "/remedies/continue_phone_landing"(platform: "/web/desktop", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         challenge(type: PropertyType.String, required: true, description: "Current challenge")
+        track_info(required: false, type: PropertyType.Map, description: "Track initiatives and users flows")
     }
     "/remedies/continue_phone_congrats"(platform: "/web/desktop", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         challenge(type: PropertyType.String, required: true, description: "Current challenge")
+        track_info(required: false, type: PropertyType.Map, description: "Track initiatives and users flows")
     }
     "/remedies/detail_landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        track_info(required: false, type: PropertyType.Map, description: "Track initiatives and users flows")
     }
     "/remedies/threeds"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        track_info(required: false, type: PropertyType.Map, description: "Track initiatives and users flows")
     }
     "/remedies/company"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        track_info(required: false, type: PropertyType.Map, description: "Track initiatives and users flows")
     }
+
     "/remedies/center/card"(platform: "/web", type: TrackType.View) {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
     }
