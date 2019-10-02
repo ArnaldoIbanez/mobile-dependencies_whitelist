@@ -174,8 +174,8 @@ trackTests {
     }
 
     test("Upgrade webview") {
-        "/prepaid/block_view" (platform: "/mobile", type: TrackType.View) { }
-        "/prepaid/block_view/cta"(platform: "/mobile", type: TrackType.Event) { }
+        "/prepaid/update_app" (platform: "/mobile", type: TrackType.View) { }
+        "/prepaid/update_app/cta"(platform: "/mobile", type: TrackType.Event) { }
     }
 
     test("Prepaid cards MLM") {
