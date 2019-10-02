@@ -46,6 +46,7 @@ trackTests {
             show_supermarket_carousel=true
             show_apparel_carousel=false
             items_with_logos=["MLA1234", "MLA12345"]
+            pdp_grouped_search=true
         }
 
         def defaultWebTrack = {
@@ -127,6 +128,7 @@ trackTests {
                     isOnSeoWhitelistExperiment:true
             ]
             pdp_highlight_enabled= true
+            pdp_grouped_search=true
         }
 
         "/search"(platform: "/web"){
@@ -220,6 +222,7 @@ trackTests {
                 isOnSeoWhitelistExperiment:true
             ]
             pdp_highlight_enabled= true
+            pdp_grouped_search=true
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -244,6 +247,7 @@ trackTests {
                 printed_positions_size=0
             }
             carousel_filters=["BRAND", "official_store", "STYLE"]
+            pdp_grouped_search=true
         })
 
         "/search/color_picker"(platform: "/web"){
@@ -364,6 +368,7 @@ trackTests {
             billboards = []
             category_id="MLA32089"
             query="iphone"
+            pdp_grouped_search=true
         }
     }
 
@@ -385,6 +390,7 @@ trackTests {
             billboards = []
             category_id="ROOT"
             query="iphone"
+            pdp_grouped_search=true
         }
     }
 
@@ -431,6 +437,7 @@ trackTests {
                     isOnSeoWhitelistExperiment:true
             ]
             pdp_highlight_enabled= true
+            pdp_grouped_search=true
         }
     }
 
