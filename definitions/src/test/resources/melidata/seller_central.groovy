@@ -368,6 +368,16 @@ trackTests {
     test("seller central bulk publish upload congrats view") {
         "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
     }
+
+    test("seller central bulk publish download categories event") {
+        "/seller_central/bulk/publish/categories/download_excel"(platform: "/web", type: TrackType.Event) {
+            total = 10
+            last_published = 5
+            most_used = 1
+            search_list = 4
+            modal = 0
+        }
+    }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify
     //------------------------------------------------------------------------------------------------------------------------------------------------------
