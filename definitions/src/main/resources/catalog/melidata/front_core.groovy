@@ -313,7 +313,6 @@ tracks {
     "/wallet_home/loyalty" (platform: "/mobile", isAbstract: true) {}
 
     "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
-        header(required: true, type: PropertyType.String, description: "The header title")
         loyalty(required: false, type: PropertyType.Map(loyalty_definition), description: "The loyalty header information")
     }
 }

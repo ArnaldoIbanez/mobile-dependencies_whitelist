@@ -516,7 +516,6 @@ trackTests {
     //Loyalty
     test("Loyalty header tap") {
         "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
-            header = "Hola juan - MercadoPuntos"
             loyalty = [
                 level: 9
             ]
@@ -1029,7 +1028,6 @@ trackTests {
     //Loyalty
     test("Loyalty header tap") {
         "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
-            header = "Hola juan - MercadoPuntos"
             loyalty = [
                 level: 9
             ]
