@@ -35,6 +35,12 @@ trackTests {
         }
     }
 
+    test("seller central listing action") {
+        "/seller_central/listings/action/confirm"(platform: "/", type: TrackType.Event) {
+            action_id = "MODIFY"
+        }
+    }
+
     test("seller central listing secondary_actions") {
         "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
     }
