@@ -10,6 +10,13 @@ tracks {
     def categoryRegex = /(\S*)/
     def categoryPathRegex = /\[(\S*(, )?)*\]/
 
+    def seo_item_definition = objectSchemaDefinitions {
+        is_whitelisted(type: PropertyType.Boolean, required: true)
+        check_mode(type: PropertyType.ArrayList(PropertyType.String), required: true)
+        gmv_value(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+        vip_clicks(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+        isOnSeoWhitelistExperiment(type: PropertyType.Boolean, required: true)
+    }
 
     //SEARCH FLOW
 
@@ -38,7 +45,7 @@ tracks {
         backend_data(required: false)
         official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
         items_with_logos(required: false, description: 'items ids that show the brand logo', PropertyType.ArrayList)
-        pdp_highlight_enabled(required: false, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
+        pdp_grouped_search(required: false, description: 'indicates whether the product rows are result of grouping or not', PropertyType.Boolean)
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
         //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
@@ -77,7 +84,9 @@ tracks {
         pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         pdp_tracking_info(required: true, description: 'pdp products info', PropertyType.Map(PropertyType.String, PropertyType.String))
-        is_in_seo_whitelist(required: true, description: 'is request in seo whitelist', PropertyType.Boolean)
+        pdp_highlight_enabled(required: true, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
+        is_in_seo_whitelist(required: false, description: 'is request in seo whitelist', PropertyType.Boolean)
+        seo(required: false, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
     }
 
     "/search"(platform: "/mobile") {

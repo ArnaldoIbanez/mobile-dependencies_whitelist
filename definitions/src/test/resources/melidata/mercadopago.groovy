@@ -516,6 +516,12 @@ trackTests {
         }
     }
 
+    test("Landing alliance bancocolombia") {
+        "/alliance/landing"(platform: "/", type: TrackType.View) {
+            company_name = "bancocolombia"
+        }
+    }
+
     test("Growth Frontend Login") {
         "/growth/login"(platform: "/", type: TrackType.View) {
           view = "split"
@@ -3440,14 +3446,26 @@ trackTests {
     }
 
     test("Configuraciones de Negocio"){
-        "/my_business"(platform: "/web", type: TrackType.View){}
-        "/my_business/how_it_works_ME"(platform: "/web"){}
-        "/my_business/enable_ME"(platform: "/web"){}
-        "/my_business/disable_ME"(platform: "/web"){}
+        "/my_business"(platform: "/", type: TrackType.View){}
+        "/my_business/how_it_works_ME"(platform: "/", type: TrackType.Event){
+            how_it_works_me="click"
+        }
+        "/my_business/enable_ME"(platform: "/", type: TrackType.Event){
+            mercado_envios="enable"
+        }
+        "/my_business/disable_ME"(platform: "/", type: TrackType.Event){
+            mercado_envios="disable"
+        }
 
-        "/my_business/split_payment"(platform: "/web"){}
-        "/my_business/recovery_mails"(platform: "/web"){}
-        "/my_business/cost_absorption"(platform: "/web"){}
+        "/my_business/split_payment"(platform: "/", type: TrackType.Event){
+            split_payment="enabled"
+        }
+        "/my_business/recovery_mails"(platform: "/", type: TrackType.Event){
+            recovery_mails="disabled"
+        }
+        "/my_business/cost_absorption"(platform: "/", type: TrackType.Event){
+            cost_absorption="deactivate"
+        }
     }
 
     //MP listings
@@ -3465,6 +3483,15 @@ trackTests {
             lang = "es"
             site = "mla"
             uri = "/guides"
+        }
+    }
+    
+    test("Encuesta satisfaccion contenidos devsite"){
+        "/devsite/feedback"(platform: "/web/mobile", type: TrackType.Event) {
+            user_id = "1321312"
+            lang = "es"
+            site = "mla"
+            like = "yes"
         }
     }
 

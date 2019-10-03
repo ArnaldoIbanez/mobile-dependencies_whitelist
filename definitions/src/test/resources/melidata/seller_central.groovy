@@ -368,6 +368,16 @@ trackTests {
     test("seller central bulk publish upload congrats view") {
         "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
     }
+
+    test("seller central bulk publish download categories event") {
+        "/seller_central/bulk/publish/categories/download_excel"(platform: "/web", type: TrackType.Event) {
+            total = 10
+            last_published = 5
+            most_used = 1
+            search_list = 4
+            modal = 0
+        }
+    }
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central modify
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1127,4 +1137,117 @@ trackTests {
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller central - Promotions
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Seller Central Promotions - View event sending original promotion data"){
+        "/seller_central/promotions"(platform: "/web", type: TrackType.View){
+          original_promotion = [
+              id: "MLA808249210",
+              seller_id: 450981020,
+              buying_mode: "buy_it_now",
+              sale_terms: [
+                  [
+                      id: "LOYALTY_LEVEL_4",
+                      value_id: null,
+                      value_struct: [
+                          number: 400,
+                          unit: "ARS"
+                      ]
+                  ],
+                  [
+                      id: "LOYALTY_LEVEL_5",
+                      value_id: null,
+                      value_struct: [
+                          number: 400,
+                          unit: "ARS"
+                      ]
+                  ],
+                  [
+                      id: "LOYALTY_LEVEL_3",
+                      value_id: null,
+                      value_struct: [
+                          number: 400,
+                          unit: "ARS"
+                      ]
+                  ],
+                  [
+                      id: "LOYALTY_LEVEL_6",
+                      value_id: null,
+                      value_struct: [
+                          number: 400,
+                          unit: "ARS"
+                      ]
+                  ]
+              ],
+              campaigns: [],
+              best_offer: null,
+              price: 500,
+              original_price: 1000,
+              promotion: [
+                  status: "started",
+                  price: 500,
+                  start_date: "2019-09-18T03:00:00.000Z",
+                  finish_date: "2019-10-05T02:59:00.000Z",
+                  list_price: 1000,
+                  prime_price: 400
+              ],
+              visits: 27,
+              available_quantity: 97,
+              title: "Item De Testeo, Por Favor No Ofertar --kc:off",
+              sold_quantity: 3,
+              secure_thumbnail: "https://http2.mlstatic.com/resources/frontend/statics/processing-image/1.0.0/I-ES.jpg",
+              currency: [
+                  id: "ARS",
+                  decimal_places: 2,
+                  symbol: "\$"
+              ],
+              tags: [
+                  "loyalty_discount_eligible",
+                  "test_item",
+                  "immediate_payment"
+              ],
+              validations: [],
+              campaign_offers: [
+                  [
+                      offer_mode: "LONG_TAIL",
+                      offer: null,
+                      campaign: [
+                          name: "campanianueva",
+                          identifier: "MLA626",
+                          start_date: "2018-10-26T16:10:00.000Z",
+                          finish_date: "2019-12-12T13:17:21.000Z",
+                          dead_line: "2019-03-03T00:57:00.000Z",
+                          type: "discounts",
+                          status: "started",
+                          is_active: false,
+                          is_available: false,
+                          applied_offer: false
+                      ]
+                  ]
+              ]
+          ]
+        }
+
+        "/seller_central/promotions/actions"(platform: "/web", type: TrackType.Event){
+            action = "SAVE_PROMOTION"
+            promotion = [
+                site_time_offset: 0,
+                start_date: "2019-09-18T03:00:00.000Z",
+                finish_date: "2019-10-05T02:59:00.000Z",
+                state: "started",
+                is_highlight: false,
+                price: 500,
+                prime_price: 400,
+                list_price: 1000,
+                error_price: null,
+                error_prime: null,
+                input_pice: "500",
+                input_prime_price: "400",
+                type: "always_on",
+            ]
+            promotion_duration = 17
+        }
+    }
 }

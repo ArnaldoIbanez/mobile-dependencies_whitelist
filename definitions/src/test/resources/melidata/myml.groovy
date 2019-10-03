@@ -135,6 +135,8 @@ trackTests {
         "/myml/invoices/sku/status"(platform: "/") {}
 
         "/myml/invoices/sku/detail"(platform: "/") {}
+        "/myml/invoices/sku/processing"(platform: "/") {}
+        "/myml/invoices/sku/disabled"(platform: "/") {}
         "/myml/invoices/sku/detail/action"(platform: "/", type: TrackType.Event) {
           action = "print_danfe"
         }
@@ -150,6 +152,7 @@ trackTests {
         "/myml/invoices/company-info/certificate/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
         "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/company-info/certificate/a1/installer_download"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
             error = "password"
@@ -293,31 +296,90 @@ trackTests {
         "/myml/invoices/order/carrier/save/response"(platform: "/", type: TrackType.Event) {
             error = "Não conseguimos processar a sua solicitação. Tente Novamente"
         }
+        "/myml/invoices/order/devolution"(platform: "/") {}
+        "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Backoffice pages") {
         "/myml/invoices/backoffice/search/invoice"(platform: "/", type: TrackType.Event) {
-            search_filter = {
-                invoiceNumber = 234
-            }
+            searchType = 'order_id'
+            searchValue = '2158279221'
         }
 
         "/myml/invoices/backoffice/search/reissueinvoice"(platform: "/", type: TrackType.Event) {
-             data = {
-                invoiceId = 123123
-            }
+            invoiceId = '40503435'
+            orderIds = '2146844767'
+            userId = '257268611'
+            reason = 'outros'
+            detailedReason = 'more details'
+
+        }
+
+        "/myml/invoices/backoffice/search/disableinvoice"(platform: "/", type: TrackType.Event) {
+            invoiceId = '40503435'
+            userId = '257268611'
+            reason = 'bug'
+            detailedReason = 'bug related to ...'
         }
 
         "/myml/invoices/backoffice/search/invoiceslist"(platform: "/", type: TrackType.Event) {
-             search_filter = {
-                recipientCnpj = 123123
-            }
+            invoiceId = '42563838'
+            orderId = '2158279221'
+            status = 'authorized'
+            inboundId = ''
+            shipmentId = '28108719985'
+            shipmentLogisticType = 'drop_off'
+            invoiceCreationDateFrom = '2019-09-25'
+            invoiceCreationDateTo = ''
+            invoiceNumber = '2'
+            invoiceNumberTo = ''
+            invoiceNumberFrom = ''
+            recipientCnpj = ''
+            recipientCpf = '92869920501'
+            recipientName = 'Cléa Dos'
+            recipientUf = 'SP'
+            invoiceSerie = '2'
+            userId = '188419705'
+            issuerCnpj = '18891699000133'
+            issuerUf = 'SP'
+            taxRuleId = '123'
+            nickname = 'CLAFERREIRADO'
+            email = 'clafer@fer.com'
+            transactionType = 'sale'
+            externalProductId = 'MLB1113768925'
         }
 
         "/myml/invoices/backoffice/search/invoiceslist/export_csv"(platform: "/", type: TrackType.Event) {
-             search_filter = {
-                seller_id = 406495769
-            }
+            seller_id = '191396245'
+            status = 'needs_review'
+            environment = 'production'
+            external_order_id = '2158320980'
+            series = ''
+            invoice_number = ''
+            issuer_cnpj = ''
+            shipment_logistic_type = ''
+            shipment_fiscal_model = ''
+            recipient_cnpj = ''
+            invoice_creation_date_from = ''
+            invoice_creation_date_to = ''
+            invoice_id = '42563835'
+            invoice_key = ''
+            shipment_id = '28108611041'
+            invoice_number_from = '662'
+            invoice_number_to = '800'
+            tax_rule_id = ''
+            transaction_type = 'sale'
+            external_product_id = 'MLB709814227'
+            issuer_address_state = 'SP'
+            recipient_cpf = ''
+            recipient_id = ''
+            recipient_name = ''
+            recipient_address_state = ''
+            with_items = ''
+            sort = 'DESC'
+            limit = ''
+            offset = ''
+            transaction_status = ''
         }
 
         "/myml/invoices/backoffice/view/invoiceslist"(platform: "/", type: TrackType.View) {}
@@ -1085,7 +1147,7 @@ trackTests {
             selected = ""
             id = "5"
         }
-        
+
 
         "/myml/fiscal_rules/listing/checkbox/header"(platform: "/", type: TrackType.Event) {
             page = 2

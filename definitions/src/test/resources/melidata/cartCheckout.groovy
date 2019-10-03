@@ -19,6 +19,9 @@ trackTests {
         def dataSetCongrats = {
             status = "payment_required"
             purchase_id = "MLA98792837983"
+            paymentStatusDetail = "ACCREDITED"
+            congratsStatus = "APPROVED"
+            tokenGeneratedWithEsc = "NO"
         }
 
         def dataSet = {

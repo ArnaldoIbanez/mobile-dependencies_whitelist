@@ -1,5 +1,6 @@
 select 
  device.platform AS platform,
+ application.site_id as site_id,
 (CASE WHEN platform.fragment RLIKE '.*menu-user.*' THEN 'mobile_navegation_bar'
         WHEN platform.fragment RLIKE '.*nav-header.*' THEN 'desktop_navegation_bar'
         WHEN jest(platform.fragment, 'sp_origin') RLIKE 'footer' THEN 'desktop_footer'
@@ -19,7 +20,7 @@ from tracks
 where path = '/promotions'
     AND ds >= '@param01'
     AND ds < '@param02'
-GROUP BY substr(ds,1,10) , platform.fragment, device.platform ,
+GROUP BY  platform.fragment, application.site_id, device.platform ,
 (CASE WHEN platform.fragment RLIKE '.*"menu-user":null.*' THEN 'mobile_navegation_bar'
         WHEN platform.fragment RLIKE '.*"nav-header":null.*' THEN 'desktop_navegation_bar'
         WHEN jest(platform.fragment, 'sp_origin') RLIKE 'footer' THEN 'desktop_footer'
@@ -30,5 +31,5 @@ GROUP BY substr(ds,1,10) , platform.fragment, device.platform ,
         WHEN jest(platform.fragment, 'sp_origin') RLIKE 'home-carrusel' THEN 'desktop_footer'
         WHEN jest(platform.fragment, 'sp_origin') RLIKE 'email' THEN 'email'
         WHEN jest(platform.fragment, 'sp_origin') RLIKE 'push' THEN 'push'
-        ELSE 'others' END ) 
+        ELSE 'others' END ) , substr(ds,1,10)
   

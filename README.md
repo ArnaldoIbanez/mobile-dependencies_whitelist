@@ -60,3 +60,5 @@ If you want to run all available tests **```make test CATALOG=${All}```**
 ### CONTACT
 
 <melidata_dev@mercadolibre.com>
+
+We internally rotate in the Melidata team to periodically take PRs at this catalog. In case of a hurry ( just in that case ) you can reach catalog owner of the week by checking [this rotation](https://nasdaq-meli.app.opsgenie.com/settings/schedule/detail/e9e18d88-3536-4572-9351-6ab680d4b1ed)

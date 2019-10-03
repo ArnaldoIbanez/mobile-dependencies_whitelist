@@ -302,4 +302,45 @@ metrics {
 			}
 		}
 	}
+
+	"pdp_questions_qadb"(description: "Track PDP questions of users in QADB experiment") {
+		startWith {
+			experiment("qadb/qadb-on")
+		}
+
+		countsOn {
+			condition {
+				path("/questions/ask/post")
+				and(
+					or(
+						equals("event_data.context", "/pdp"),
+						equals("event_data.context", "/qadb"),
+						equals("event_data.context", "/questions/qadb")
+					)
+				)
+			}
+		}
+	}
+
+	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment", compute_order: true) {
+		startWith {
+			experiment("qadb/qadb-on")
+		}
+
+		countsOn {
+			condition {
+				or(
+					and(
+						equals("path", "/orders/ordercreated"),
+						equals("event_data.is_carrito", false),
+						equals('event_data.is_pdp',true)
+					),
+					and(
+						equals("path","/purchases/purchasecreated"),
+						equals('event_data.is_pdp',true)
+					)
+				)
+			}
+		}
+	}
 }
