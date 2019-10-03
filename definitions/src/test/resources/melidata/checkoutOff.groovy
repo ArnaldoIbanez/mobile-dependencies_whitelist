@@ -24,6 +24,7 @@ trackTests {
             payment_quantity = 1
             collector_id = 1010101001
             available_methods = ["credit_card", "account_money"]
+            payment_amount_local = 100.00
         }
 
         def finishDefaultProperties = {
@@ -39,6 +40,7 @@ trackTests {
             productive = true
             is_split = false
             payment_quantity = 1
+            payment_amount_local = 100.00
         }
 
         def finishOnlyRequiredProperties = {
