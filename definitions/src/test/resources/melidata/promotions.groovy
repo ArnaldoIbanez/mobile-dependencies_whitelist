@@ -43,7 +43,8 @@ trackTests {
                           "cart_eligible"
                         ],
                         warranty: "",
-                        accepts_mercadopago: true
+                        accepts_mercadopago: true,
+                        boosted: true
                       ], 
                       [
                         id: "MLA611663122",
@@ -54,8 +55,7 @@ trackTests {
                           currency: "\$",
                           price: "2.414",
                           decimals: "55",
-                          original_price: "1.489",
-                          discount: 5,
+                          discount: null,
                           has_loyalty_discount: false
                         ],
                         free_shipping: false,
