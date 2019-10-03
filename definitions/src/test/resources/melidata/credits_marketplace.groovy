@@ -186,7 +186,9 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard"(platform: "/web/desktop", type: TrackType.View) {
             dashboard_status = 'overdue'
         }
-        "/credits/consumer/administrator_v2/dashboard/suggested_modal/"(platform: "/web/desktop") {}
+        "/credits/consumer/administrator_v2/dashboard/suggested_modal/"(platform: "/web/desktop") {
+            dashboard_status = 'on_time'
+        }
 
         //Events
         "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/web/desktop", type: TrackType.Event) {
