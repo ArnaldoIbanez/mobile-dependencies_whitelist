@@ -186,6 +186,7 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard"(platform: "/web/desktop", type: TrackType.View) {
             dashboard_status = 'overdue'
         }
+        "/credits/consumer/administrator_v2/dashboard/suggested_modal/"(platform: "/web/desktop") {}
 
         //Events
         "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/web/desktop", type: TrackType.Event) {
@@ -198,6 +199,9 @@ trackTests {
         "/credits/consumer/administrator_v2/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_product"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/home"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/suggested_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/weekly_deals_link"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/close_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Event Mobile
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
