@@ -482,7 +482,7 @@ trackTests {
         }
     }
 
-    test("product modificator quality resports"){
+    test("product_modificator quality resports"){
         "/structure_data/product_modificator/quality-reports"(platform: "/", type: TrackType.Event) {
             domain_id = "MLA-CAMERAS"
             parent_id = "22711"
