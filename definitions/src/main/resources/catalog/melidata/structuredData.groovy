@@ -199,5 +199,17 @@ tracks {
          sections_comments(required: true, description: "Reviews comments", type: PropertyType.String)
          errors_codes(required: true, description: "Reviews errors codes", type: PropertyType.String)
          user_initials(required: true, description: "Bs user initials", type: PropertyType.String)
-     }
+    }
+    "/structure_data/product_modificator"(platform: "/",isAbstract: true) {}
+    "/structure_data/product_modificator/quality-reports"(platform: "/", type:TrackType.Event){
+        domain_id(required: true, description: "Domain ID", type: PropertyType.String)
+        parent_id(required: true, description: "Parent product ID", type: PropertyType.String)
+        product_id(required: true, description: "Product ID", type: PropertyType.String)
+        errors(required: true, description: "Error collection", type: PropertyType.ArrayList(PropertyType.String))
+        warnings(required: true, description: "Warnings collection", type: PropertyType.ArrayList(PropertyType.String))
+        errors_quantity(required: true, description: "Errors quantity", type: PropertyType.Numeric)
+        warning_quantity(required: true, description: "Warning quantity", type: PropertyType.Numeric)
+        step(required: true, description: "Analysis step", values: ["INITIAL", "PARENT", "CHILD"], type: PropertyType.String)
+    }
+
 }
