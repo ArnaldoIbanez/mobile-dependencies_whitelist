@@ -98,6 +98,16 @@ tracks {
         link(type: PropertyType.String, required: true, description: "The link to execute")
     }
 
+    def discount_center_definition = objectSchemaDefinitions {
+        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(discount_center_item_definition)), description: "The discount center items information")
+    }
+
+    def discount_center_item_definition = objectSchemaDefinitions {
+        tracking_id(type: PropertyType.String, required: true, description: "The id of the item we are showing")
+    }
+    
     def loyalty_definition = objectSchemaDefinitions {
         level(type: PropertyType.Numeric, required: true, description: "The user's loyalty level")
     }
@@ -267,6 +277,7 @@ tracks {
         activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
+        discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
     }
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
@@ -281,6 +292,7 @@ tracks {
         activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
+        discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
     }
 
     //Notification Center
