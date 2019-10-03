@@ -486,11 +486,11 @@ tracks {
             type: PropertyType.Numeric,
             required: true,
         )
-		min_amount(
-			description: "Credit line minimum allowed amount",
-			type: PropertyType.Numeric,
-			required: true,
-		)
+        min_amount(
+            description: "Credit line minimum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
+        )
     }
 
     "/credits/express_money/congrats"(platform: "/", type: TrackType.View) {
@@ -509,11 +509,11 @@ tracks {
             type: PropertyType.Numeric,
             required: true,
         )
-		min_amount(
-			description: "Credit line minimum allowed amount",
-			type: PropertyType.Numeric,
-			required: true,
-		)
+        min_amount(
+            description: "Credit line minimum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
+        )
     }
 
     "/credits/express_money/error"(platform: "/", type: TrackType.View) {

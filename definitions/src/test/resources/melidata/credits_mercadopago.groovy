@@ -314,35 +314,35 @@ trackTests {
         "/credits/express_money/summary"(platform: "/mobile/android") {
             requested_amount = 700
             max_amount = 1000
-			min_amount = 500
-		}
-
-        "/credits/express_money/congrats"(platform: "/web/desktop") {
-            requested_amount = 700
-            max_amount = 1000
-			min_amount = 500
-			has_prepaid = true
-        }
-
-        "/credits/express_money/congrats"(platform: "/mobile/android") {
-            requested_amount = 700
-            max_amount = 1000
-			min_amount = 500
-			has_prepaid = true
+            min_amount = 500
         }
 
         "/credits/express_money/congrats"(platform: "/web/desktop") {
             requested_amount = 700
             max_amount = 1000
-			min_amount = 500
-			has_prepaid = false
+            min_amount = 500
+            has_prepaid = true
         }
 
         "/credits/express_money/congrats"(platform: "/mobile/android") {
             requested_amount = 700
             max_amount = 1000
-			min_amount = 500
-			has_prepaid = false
+            min_amount = 500
+            has_prepaid = true
+        }
+
+        "/credits/express_money/congrats"(platform: "/web/desktop") {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+            has_prepaid = false
+        }
+
+        "/credits/express_money/congrats"(platform: "/mobile/android") {
+            requested_amount = 700
+            max_amount = 1000
+            min_amount = 500
+            has_prepaid = false
         }
 
         "/credits/express_money/error"(platform: "/web/desktop") {
