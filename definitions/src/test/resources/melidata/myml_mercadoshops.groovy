@@ -124,7 +124,6 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
-            title = "new brands title"
             success = true
         }
         "/mercado_shops/admin/sidebar/collection"(platform: "/", type: TrackType.Event){
@@ -132,7 +131,6 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
-            title = "new collection title"
             success = true
         }
         "/mercado_shops/admin/sidebar/colors"(platform: "/", type: TrackType.Event) {
@@ -149,7 +147,6 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
-            flash_info = "new flash info"
             success = true
         }
         "/mercado_shops/admin/sidebar/grid"(platform: "/", type: TrackType.Event){
@@ -157,7 +154,6 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
-            title = "new grid title"
             items_per_row = 3
             max_items = 6
             success = true
@@ -167,7 +163,6 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
-            header_info = "new header info"
             success = true
         }
         "/mercado_shops/admin/sidebar/logo"(platform: "/", type: TrackType.Event) {
@@ -183,7 +178,6 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
-            title = "new mosaic title"
             max_items = 5
             success = true
         }
@@ -217,7 +211,6 @@ trackTests {
             ref = ""
             desktop_image = "my first umage"
             mobile_image = "my second image"
-            description = "new short description"
             link_url = "google.com.ar"
             success = true
         }
