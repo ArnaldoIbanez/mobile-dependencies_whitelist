@@ -90,14 +90,47 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/sidebar/brands"(platform: "/", type: TrackType.Event){
+        title(required: false, type: PropertyType.String)
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/sidebar/collection"(platform: "/", type: TrackType.Event){
+        title(required: false, type: PropertyType.String)
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/sidebar/colors"(platform: "/", type: TrackType.Event){
         preset_name(required: false, type: PropertyType.String, description: "Selected preset name")
         colors(required: false, type: PropertyType.ArrayList, description: "Array of colors in hex notation")
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/sidebar/flash_info"(platform: "/", type: TrackType.Event){
+        flash_info(required: false, type: PropertyType.String)
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/sidebar/grid"(platform: "/", type: TrackType.Event){
+        title(required: false, type: PropertyType.String)
+        items_per_row(required: true, type: PropertyType.Numeric)
+        max_items(required: true, type: PropertyType.Numeric)
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/sidebar/header_info"(platform: "/", type: TrackType.Event){
+        header_info(required: false, type: PropertyType.String)
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/sidebar/logo"(platform: "/", type: TrackType.Event){
         image_id(required: false, type: PropertyType.String)
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/sidebar/mosaic"(platform: "/", type: TrackType.Event){
+        title(required: false, type: PropertyType.String)
+        max_items(required: true, type: PropertyType.Numeric)
         mshopsEventGroup
     }
 
@@ -113,6 +146,14 @@ tracks {
 
     "/mercado_shops/admin/sidebar/subdomain"(platform: "/", type: TrackType.Event){
         subdomain(required: true, type: PropertyType.String)
+    }
+
+    "/mercado_shops/admin/sidebar/text_banner"(platform: "/", type: TrackType.Event){
+        desktop_image(required: true, type: PropertyType.String)
+        mobile_image(required: true, type: PropertyType.String)
+        description(required: false, type: PropertyType.String)
+        link_url(required: false, type: PropertyType.String)
+        mshopsEventGroup
     }
 
     "/mercado_shops/admin/deactivate_form"(platform: "/", type: TrackType.View){}

@@ -119,6 +119,22 @@ trackTests {
             alignment = "center"
             success = true
         }
+        "/mercado_shops/admin/sidebar/brands"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            title = "new brands title"
+            success = true
+        }
+        "/mercado_shops/admin/sidebar/collection"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            title = "new collection title"
+            success = true
+        }
         "/mercado_shops/admin/sidebar/colors"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
@@ -128,12 +144,47 @@ trackTests {
             colors = ["#000", "#fff"]
             success = true
         }
+        "/mercado_shops/admin/sidebar/flash_info"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            flash_info = "new flash info"
+            success = true
+        }
+        "/mercado_shops/admin/sidebar/grid"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            title = "new grid title"
+            items_per_row = 3
+            max_items = 6
+            success = true
+        }
+        "/mercado_shops/admin/sidebar/header_info"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            header_info = "new header info"
+            success = true
+        }
         "/mercado_shops/admin/sidebar/logo"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
             image_id = "784348-MLA28624404159_112018"
+            success = true
+        }
+        "/mercado_shops/admin/sidebar/mosaic"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            title = "new mosaic title"
+            max_items = 5
             success = true
         }
         "/mercado_shops/admin/sidebar/shop_name"(platform: "/", type: TrackType.Event) {
@@ -158,6 +209,17 @@ trackTests {
             shop_name = "Test Shop"
             ref = ""
             subdomain = "test-shop"
+        }
+        "/mercado_shops/admin/sidebar/text_banner"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            desktop_image = "my first umage"
+            mobile_image = "my second image"
+            description = "new short description"
+            link_url = "google.com.ar"
+            success = true
         }
     }
 
