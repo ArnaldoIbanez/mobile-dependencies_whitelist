@@ -219,6 +219,10 @@ tracks {
         move(required: false, values: ["forward","backward"])
     }
 
+    "/search/billboard/click"(platform: "/", type: TrackType.Event){
+        position(required: true, description: "the position of the selected billboard in the carousel", type: PropertyType.Numeric)
+    }
+
     "/search/billboard/resize"(platform: "/web", type: TrackType.Event) {
         action(required: true, values: ["expand","collapse"])
     }
@@ -240,6 +244,11 @@ tracks {
     }
 
     "/search/finite_navigation"(platform: "/mobile/android", type: TrackType.Control, parentPropertiesInherited:false) {
+    }
+
+    "/search/banner"(platform: "/web", isAbstract: true){}
+
+    "/search/banner/click"(platform: "/web", type: TrackType.Event){
     }
 
 }

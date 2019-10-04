@@ -337,6 +337,10 @@ trackTests {
             available_filters = []
             user_zone = ""
         }
+        "/search/billboard/click"(platform: "/"){
+            defaultSearchInformation()
+            position = 2
+        }
         "/search/save"(platform: "/") {
             defaultSearchInformation()
         }
@@ -347,6 +351,10 @@ trackTests {
             defaultSearchInformation()
             to_name="adidas"
             to_position=2
+        }
+        "/search/banner" (platform: "/web", defaultWebTrack)
+        "/search/banner/click"(platform: "/web", type: TrackType.Event){
+            defaultWebTrack()
         }
     }
 
@@ -458,4 +466,5 @@ trackTests {
         "/search/finite_navigation"(platform: "/mobile/android"){
         }
     }
+
 }
