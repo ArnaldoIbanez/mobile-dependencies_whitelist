@@ -100,4 +100,5 @@ tracks {
     "/checkout_off/congrats/call_for_auth/later"(platform: "/", type: TrackType.View) {}
     "/checkout_off/congrats/call_for_auth/how_to"(platform: "/", type: TrackType.View) {}
     "/checkout_off/congrats/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
+
 }
