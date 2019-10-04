@@ -56,7 +56,7 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Type of warning showed after change value",
-            values: ["show_restriction", "show_incentive"]
+            values: ["show_restriction", "show_incentive", "units_ok"]
         )
         warning_value(
             required: true,
@@ -137,8 +137,8 @@ tracks {
             description: "Amount of rows in file with errors"
         )
         detailed_errors(
-            required: true, 
-            type: PropertyType.Map(offline_error_msg_structure), 
+            required: true,
+            type: PropertyType.Map(offline_error_msg_structure),
             description: 'Detailed errors in file'
         )
         amount_of_items(
