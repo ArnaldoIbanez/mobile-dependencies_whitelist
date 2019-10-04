@@ -81,9 +81,11 @@ tracks {
         operation_type(required: false, description: "Operation type, e.g: regular_payment")
         preference_id(required: false, description: "Preference being paid")
         payer_id(required: false, description: "Payer id is sent if it is logged")
+        collector_id(required: false, description: "Seller's id")
         collector_nickname(required: false, description: "Seller's nickname")
         available_methods(required: false, description: "Available payment methods types", type: PropertyType.ArrayList(PropertyType.String))
         payment_method_id(required: false, description: "Current selected payment method")
+        payment_type_id(required: false, description: "Current selected payment type")
         payment_amount_local(required: false, description: "Current selected payment amount", type: PropertyType.Numeric)
         payment_quantity(required: false, description: "Payments quantity selected", type: PropertyType.Numeric)
     }

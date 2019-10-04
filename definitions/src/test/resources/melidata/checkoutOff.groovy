@@ -261,5 +261,15 @@ trackTests {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
+
+        // Properties not necessary but minimum
+        "/checkout_off/error"(platform: "/web/mobile") {
+            product_id = "BC32A4JU643001OI3920"
+            productive = true
+        }
+
+        // Properties not necessary
+        "/checkout_off/error"(platform: "/web/mobile") {
+        }
     }
 }
