@@ -76,7 +76,8 @@ tracks {
         sidebar_name(
                 required: false,
                 type: PropertyType.String,
-                values: ['AFIP', 'BANNER', 'COLORS', 'LOGO', 'SHOP_NAME', 'SLIDER', 'SUBDOMAIN']
+                values: ['AFIP', 'BANNER', 'BRANDS', 'CAROUSEL', 'COLORS', 'FLASH', 'GRID', 'HEADER_MESSAGE',
+                         'LOGO', 'MOSAIC', 'SHOP_NAME', 'SLIDER', 'SUBDOMAIN', 'TEXT_BANNER']
         )
     }
 
