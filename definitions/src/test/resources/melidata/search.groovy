@@ -124,7 +124,7 @@ trackTests {
                     check_mode:"GMV",
                     gmv_value:15,
                     vip_clicks:0,
-                    isOnSeoWhitelistExperiment:true
+                    is_on_seo_whitelist_experiment:true
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
@@ -217,7 +217,7 @@ trackTests {
                 check_mode:"GMV",
                 gmv_value:15,
                 vip_clicks:0,
-                isOnSeoWhitelistExperiment:true
+                is_on_seo_whitelist_experiment:true
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
@@ -439,7 +439,7 @@ trackTests {
                     check_mode:"GMV",
                     gmv_value:15,
                     vip_clicks:0,
-                    isOnSeoWhitelistExperiment:true
+                    is_on_seo_whitelist_experiment:true
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
