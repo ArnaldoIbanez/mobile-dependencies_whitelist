@@ -108,8 +108,19 @@ tracks {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the item we are showing")
     }
     
-    def loyalty_definition = objectSchemaDefinitions {
+    def loyalty_header_definition = objectSchemaDefinitions {
         level(type: PropertyType.Numeric, required: true, description: "The user's loyalty level")
+    }
+
+    def loyalty_section_definition = objectSchemaDefinitions {
+        content_type(type: PropertyType.String, required: false, values: ['partial','default','complete'])
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+        level(type: PropertyType.Numeric, required: true, description: "The user's loyalty level")
+        percentage(type: PropertyType.Numeric, required: false, description: "The user's current level")
+    }
+
+    def header_definition = objectSchemaDefinitions {
+        loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
     }
 
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}
@@ -124,7 +135,7 @@ tracks {
     "/wallet/home/pull" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
-        header(required: true, type: PropertyType.String, description: "Contains the header text's home", inheritable: false)
+        header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_value_definition)), description: "Contains the sections payload", inheritable: false)
     }
 
@@ -266,7 +277,7 @@ tracks {
     }
 
     "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
-        header(required: true, type: PropertyType.String, description: "Contains the header text's home", inheritable: false)
+        header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
         content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
@@ -274,6 +285,7 @@ tracks {
         secondary_actions(required: false, type: PropertyType.Map(secondary_actions_definition), description: "The secondary actions section information")
         benefits(required: false, type: PropertyType.Map(realestate_definition), description: "The benefits section information")
         cross_selling(required: false, type: PropertyType.Map(realestate_definition), description: "The cross_selling section information")
+        loyalty(required: false, type: PropertyType.Map(loyalty_section_definition), description: "The loyalty section information")
         activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
@@ -281,7 +293,7 @@ tracks {
     }
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
-        header(required: true, type: PropertyType.String, description: "Contains the header text's home", inheritable: false)
+        header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
         content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
@@ -289,6 +301,7 @@ tracks {
         secondary_actions(required: false, type: PropertyType.Map(secondary_actions_definition), description: "The secondary actions section information")
         benefits(required: false, type: PropertyType.Map(realestate_definition), description: "The benefits section information")
         cross_selling(required: false, type: PropertyType.Map(realestate_definition), description: "The cross_selling section information")
+        loyalty(required: false, type: PropertyType.Map(loyalty_section_definition), description: "The loyalty section information")
         activities(required: false, type: PropertyType.Map(activities_definition), description: "The activities section information")
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
@@ -325,6 +338,6 @@ tracks {
     "/wallet_home/loyalty" (platform: "/mobile", isAbstract: true) {}
 
     "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
-        loyalty(required: false, type: PropertyType.Map(loyalty_definition), description: "The loyalty header information")
+        loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty header information")
     }
 }
