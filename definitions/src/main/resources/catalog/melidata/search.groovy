@@ -85,8 +85,7 @@ tracks {
         carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         pdp_tracking_info(required: true, description: 'pdp products info', PropertyType.Map(PropertyType.String, PropertyType.String))
         pdp_highlight_enabled(required: true, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
-        is_in_seo_whitelist(required: false, description: 'is request in seo whitelist', PropertyType.Boolean)
-        seo(required: false, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
+        seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
     }
 
     "/search"(platform: "/mobile") {

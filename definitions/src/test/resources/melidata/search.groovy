@@ -119,7 +119,6 @@ trackTests {
                     "MLA123456": "inactive",
                     "MLA1234567": "low_score"
             ]
-            is_in_seo_whitelist = true
             seo = [
                     is_whitelisted:true,
                     check_mode:"GMV",
@@ -213,7 +212,6 @@ trackTests {
                     "MLA123456": "inactive",
                     "MLA1234567": "low_score"
             ]
-            is_in_seo_whitelist = true
             seo = [
                 is_whitelisted:true,
                 check_mode:"GMV",
@@ -436,7 +434,6 @@ trackTests {
                     "MLA123456": "inactive",
                     "MLA1234567": "low_score"
             ]
-            is_in_seo_whitelist = true
             seo = [
                     is_whitelisted:true,
                     check_mode:"GMV",
