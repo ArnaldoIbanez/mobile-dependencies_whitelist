@@ -10,33 +10,15 @@ trackTests {
 
         "/"(platform: "/api") {}
 
-        "/tracking"(platform: "/api") {}
+        "/shipping"(platform: "/api") {}
 
-        "/tracking/notifications"(platform: "/api") {
+        "/shipping/tracking"(platform: "/api") {}
+
+        "/shipping/tracking/notifications"(platform: "/api") {
             shipment_id = 27752190312
-            notification = [
-                    origin         : "carrier-pull",
-                    tracking_number: "OG357465336BR",
-                    payload        : [
-                            agency_id : "58051970",
-                            location  : [
-                                    state_id         : "PB",
-                                    city_name        : "JOAO PESSOA",
-                                    geolocation      : null,
-                                    country_id       : "BR",
-                                    neighborhood_name: "AC CIDADE UNIVERS JOAO PESSOA"
-                            ],
-                            client_id : "100008",
-                            comment   : "Destinatário não retirou objeto na Unidade dos Correios",
-                            date      : "2019-01-07T11:42:00Z",
-                            carrier_id: "100008"
-                    ],
-                    shipment_id    : 27752190312,
-                    code           : "0621"
-            ]
         }
 
-        "/tracking/notifications/received"(platform: "/api") {
+        "/shipping/tracking/notifications/received"(platform: "/api") {
             shipment_id = 27752190312
             notification_id = "1550919708135-27866910716-4bd030ab-0d9f-421f-84b6-7a8af74c1fca"
             notification = [
@@ -63,7 +45,7 @@ trackTests {
             client_id = 100008
         }
 
-        "/tracking/notifications/validated"(platform: "/api") {
+        "/shipping/tracking/notifications/validated"(platform: "/api") {
             shipment_id = 27752190312
             notification = [
                     origin         : "carrier-pull",
@@ -89,10 +71,10 @@ trackTests {
             ]
         }
 
-        "/tracking/event_processor"(platform: "/api") {
+        "/shipping/tracking/event_processor"(platform: "/api") {
         }
 
-        "/tracking/event_processor/metrics"(platform: "/api") {
+        "/shipping/tracking/event_processor/metrics"(platform: "/api") {
             stage_type = "DELAY"
             notification = [
                     origin         : "carrier-pull",
@@ -157,7 +139,7 @@ trackTests {
             carrier_id = 100008
         }
 
-        "/tracking/event_processor/metrics/effective"(platform: "/api") {
+        "/shipping/tracking/event_processor/metrics/effective"(platform: "/api") {
             stage_type = "DELAY"
             notification = [
                     origin         : "carrier-pull",
@@ -224,7 +206,7 @@ trackTests {
         }
 
 
-        "/tracking/event_processor/metrics/ineffective"(platform: "/api") {
+        "/shipping/tracking/event_processor/metrics/ineffective"(platform: "/api") {
             stage_type = "DELAY"
             notification = [
                     origin         : "carrier-pull",
@@ -291,9 +273,9 @@ trackTests {
             enqueue_date: "2019"
         }
 
-        "/tracking/adapters"(platform: "/api") {}
+        "/shipping/tracking/adapters"(platform: "/api") {}
 
-        "/tracking/adapters/validations"(platform: "/api") {
+        "/shipping/tracking/adapters/validations"(platform: "/api") {
             shipment_data = [
                     id    : 27941325798,
                     events:
