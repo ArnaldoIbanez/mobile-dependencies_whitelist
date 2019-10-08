@@ -29,6 +29,12 @@ trackTests {
         }
     }
 
+    test("seller central listing moderation") {
+        "/seller_central/listings/list/moderation"(platform: "/", type: TrackType.Event) {
+            moderation_id = "ID"
+        }
+    }
+
     test("seller central listing action") {
         "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
             action_id = "MODIFY"

@@ -3,7 +3,7 @@ select  filters,
         device.platform as plataforma,
         count(1) as cantidad
 from tracks
-CROSS JOIN UNNEST(cast (jet(event_data,'checkedFilters') as ARRAY<JSON>)) AS t (filters)
+lateral view explode(json_to_array(jet(event_data, 'checkedFilters'))) tf as filters
 WHERE ds >= '@param01'
 AND ds < '@param02'
 and path = '/seller_central/listings/filters/applied'

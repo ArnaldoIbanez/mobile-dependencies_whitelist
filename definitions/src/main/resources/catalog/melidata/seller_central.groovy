@@ -269,6 +269,10 @@ tracks {
         health_id(required: true, type: PropertyType.String, description: "Health id")
     }
 
+    "/seller_central/listings/list/moderation"(platform: "/", type: TrackType.Event) {
+        moderation_id(required: true, type: PropertyType.String, description: "Moderation id")
+    }
+
     //LISTING - Secondary Actions Click
     "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
