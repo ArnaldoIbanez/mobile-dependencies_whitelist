@@ -46,10 +46,6 @@ tracks {
         add_cart_info
     }
 
-    "/add_cart_intention"(platform: "/web", type: TrackType.Event) {
-      shipping_pay_before(required: true, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
-    }
-
     "/remove_from_cart"(platform: "/", type: TrackType.Event){
         /** Track example:
          {

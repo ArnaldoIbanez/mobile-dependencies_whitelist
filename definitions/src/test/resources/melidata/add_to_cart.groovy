@@ -86,7 +86,6 @@ trackTests {
             main_action = "buy"
             context = "vip"
             items = []
-            shipping_pay_before = false
         }
 
         "/add_cart_intention"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -165,7 +164,6 @@ trackTests {
                         currency_id: "BRL"
                 ]
             ]
-            shipping_pay_before = false
         }
     }
 
