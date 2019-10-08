@@ -275,7 +275,11 @@ trackTests {
 
     test("Mercadopago Home Show") {
         "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
-            header = "name"
+            header = [
+                loyalty: [
+                    level: 5
+                ]
+            ]
             content_type = 'partial'
             banking = [  
                 content_type : 'default',
@@ -356,26 +360,32 @@ trackTests {
                     ]
                 ]
             ]
-            activities= [
+            loyalty= [
                 content_type : 'partial',
                 ordinal: 7,
+                level: 3,
+                percentage: 17
+            ]
+            activities= [
+                content_type : 'partial',
+                ordinal: 8,
                 quantity: 3,
                 is_ftu: false,
                 has_footer: true
             ]
             qr_map= [
                 content_type : 'partial',
-                ordinal: 8,
+                ordinal: 9,
                 header_title: "¡Pagá con QR en tus locales favoritos!",
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
             activities_link= [
-                ordinal: 9,
+                ordinal: 10,
                 content_type : 'partial'
             ]
             discount_center= [
-                ordinal: 5,
+                ordinal: 11,
                 content_type: 'partial',
                 items: [
                     [
@@ -388,7 +398,11 @@ trackTests {
 
     test("Mercadopago Home Update") {
         "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
-            header = "name"
+            header = [
+                loyalty: [
+                    level: 5
+                ]
+            ]
             content_type = 'partial'
             banking = [  
                 content_type : 'default',
@@ -469,26 +483,32 @@ trackTests {
                     ]
                 ]
             ]
-            activities= [
+            loyalty= [
                 content_type : 'partial',
                 ordinal: 7,
+                level: 3,
+                percentage: 17
+            ]
+            activities= [
+                content_type : 'partial',
+                ordinal: 8,
                 quantity: 3,
                 is_ftu: false,
                 has_footer: true
             ]
             qr_map= [
                 content_type : 'partial',
-                ordinal: 8,
+                ordinal: 9,
                 header_title: "¡Pagá con QR en tus locales favoritos!",
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
             activities_link= [
-                ordinal: 9,
+                ordinal: 10,
                 content_type : 'partial'
             ]
             discount_center= [
-                ordinal: 5,
+                ordinal: 11,
                 content_type: 'partial',
                 items: [
                     [
@@ -805,7 +825,11 @@ trackTests {
 
     test("Mercadopago Home Show") {
         "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
-            header = "name"
+            header = [
+                loyalty: [
+                    level: 5
+                ]
+            ]
             content_type = 'partial'
             banking = [  
                 content_type : 'default',
@@ -886,26 +910,32 @@ trackTests {
                     ]
                 ]
             ]
-            activities= [
+            loyalty= [
                 content_type : 'partial',
                 ordinal: 7,
+                level: 3,
+                percentage: 17
+            ]
+            activities= [
+                content_type : 'partial',
+                ordinal: 8,
                 quantity: 3,
                 is_ftu: false,
                 has_footer: true
             ]
             qr_map= [
                 content_type : 'partial',
-                ordinal: 8,
+                ordinal: 9,
                 header_title: "¡Pagá con QR en tus locales favoritos!",
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
             activities_link= [
-                ordinal: 9,
+                ordinal: 10,
                 content_type : 'partial'
             ]
             discount_center= [
-                ordinal: 5,
+                ordinal: 11,
                 content_type: 'partial',
                 items: [
                     [
@@ -918,7 +948,11 @@ trackTests {
 
     test("Mercadopago Home Update") {
         "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
-            header = "name"
+            header = [
+                loyalty: [
+                    level: 5
+                ]
+            ]
             content_type = 'partial'
             banking = [  
                 content_type : 'default',
@@ -999,26 +1033,32 @@ trackTests {
                     ]
                 ]
             ]
-            activities= [
+            loyalty= [
                 content_type : 'partial',
                 ordinal: 7,
+                level: 3,
+                percentage: 17
+            ]
+            activities= [
+                content_type : 'partial',
+                ordinal: 8,
                 quantity: 3,
                 is_ftu: false,
                 has_footer: true
             ]
             qr_map= [
                 content_type : 'partial',
-                ordinal: 8,
+                ordinal: 9,
                 header_title: "¡Pagá con QR en tus locales favoritos!",
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
             activities_link= [
-                ordinal: 9,
+                ordinal: 10,
                 content_type : 'partial'
             ]
             discount_center= [
-                ordinal: 5,
+                ordinal: 11,
                 content_type: 'partial',
                 items: [
                     [
