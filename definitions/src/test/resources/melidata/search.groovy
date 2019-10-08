@@ -119,13 +119,12 @@ trackTests {
                     "MLA123456": "inactive",
                     "MLA1234567": "low_score"
             ]
-            is_in_seo_whitelist = true
             seo = [
                     is_whitelisted:true,
                     check_mode:"GMV",
                     gmv_value:15,
                     vip_clicks:0,
-                    isOnSeoWhitelistExperiment:true
+                    is_on_seo_whitelist_experiment:true
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
@@ -213,13 +212,12 @@ trackTests {
                     "MLA123456": "inactive",
                     "MLA1234567": "low_score"
             ]
-            is_in_seo_whitelist = true
             seo = [
                 is_whitelisted:true,
                 check_mode:"GMV",
                 gmv_value:15,
                 vip_clicks:0,
-                isOnSeoWhitelistExperiment:true
+                is_on_seo_whitelist_experiment:true
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
@@ -337,6 +335,10 @@ trackTests {
             available_filters = []
             user_zone = ""
         }
+        "/search/billboard/click"(platform: "/"){
+            defaultSearchInformation()
+            position = 2
+        }
         "/search/save"(platform: "/") {
             defaultSearchInformation()
         }
@@ -347,6 +349,10 @@ trackTests {
             defaultSearchInformation()
             to_name="adidas"
             to_position=2
+        }
+        "/search/banner" (platform: "/web", defaultWebTrack)
+        "/search/banner/click"(platform: "/web", type: TrackType.Event){
+            defaultWebTrack()
         }
     }
 
@@ -428,13 +434,12 @@ trackTests {
                     "MLA123456": "inactive",
                     "MLA1234567": "low_score"
             ]
-            is_in_seo_whitelist = true
             seo = [
                     is_whitelisted:true,
                     check_mode:"GMV",
                     gmv_value:15,
                     vip_clicks:0,
-                    isOnSeoWhitelistExperiment:true
+                    is_on_seo_whitelist_experiment:true
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
@@ -458,4 +463,5 @@ trackTests {
         "/search/finite_navigation"(platform: "/mobile/android"){
         }
     }
+
 }

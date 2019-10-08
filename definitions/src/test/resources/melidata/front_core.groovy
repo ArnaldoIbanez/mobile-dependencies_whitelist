@@ -374,6 +374,15 @@ trackTests {
                 ordinal: 9,
                 content_type : 'partial'
             ]
+            discount_center= [
+                ordinal: 5,
+                content_type: 'partial',
+                items: [
+                    [
+                        tracking_id: "1004194"
+                    ]
+                ]
+            ]
         }
     }
 
@@ -478,6 +487,15 @@ trackTests {
                 ordinal: 9,
                 content_type : 'partial'
             ]
+            discount_center= [
+                ordinal: 5,
+                content_type: 'partial',
+                items: [
+                    [
+                        tracking_id: "1004194"
+                    ]
+                ]
+            ]
         }
     }
 
@@ -510,6 +528,15 @@ trackTests {
     test("Modal close") {
         "/wallet_home/modal/close" (platform: "/mobile", type: TrackType.Event) {
             id = "modalid"
+        }
+    }
+
+    //Loyalty
+    test("Loyalty header tap") {
+        "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
+            loyalty = [
+                level: 9
+            ]
         }
     }
 
@@ -877,6 +904,15 @@ trackTests {
                 ordinal: 9,
                 content_type : 'partial'
             ]
+            discount_center= [
+                ordinal: 5,
+                content_type: 'partial',
+                items: [
+                    [
+                        tracking_id: "1004194"
+                    ]
+                ]
+            ]
         }
     }
 
@@ -981,6 +1017,15 @@ trackTests {
                 ordinal: 9,
                 content_type : 'partial'
             ]
+            discount_center= [
+                ordinal: 5,
+                content_type: 'partial',
+                items: [
+                    [
+                        tracking_id: "1004194"
+                    ]
+                ]
+            ]
         }
     }
 
@@ -1016,5 +1061,12 @@ trackTests {
         }
     }
 
-
+    //Loyalty
+    test("Loyalty header tap") {
+        "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
+            loyalty = [
+                level: 9
+            ]
+        }
+    }
 }

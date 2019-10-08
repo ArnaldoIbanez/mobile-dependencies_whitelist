@@ -527,5 +527,10 @@ trackTests {
             context = "delivered"
             delivery_id = 123456
         }
+
+        //Registration login fail
+        "/flex/registration/error"(platform:"/mobile", type: TrackType.Event) {
+            context = "login"
+        }
     }
 }

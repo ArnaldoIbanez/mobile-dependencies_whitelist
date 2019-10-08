@@ -232,7 +232,19 @@ tracks {
 
     "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "Action id")
-        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")        
+        item_id(required:false, type: PropertyType.String, description: "Item id to which the action is executed")
+        inventory_id(required:false, type: PropertyType.String, description: "Inventory id to which the action is executed")
+        operator_id(required:false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
+    }
+
+    "/seller_central/listings/action/confirm"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "Action id")
+        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")        
+        item_id(required:false, type: PropertyType.String, description: "Item id to which the action is executed")
+        id_row_selected(required:false, type: PropertyType.String, description: "Row id to which the action is executed")
+        has_variations(required: false, type: PropertyType.Boolean, description: "If the item to which the action is executed has variations")        
+        operator_id(required:false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
     }
 
     "/seller_central/listings/preferences"(platform: "/", type: TrackType.Event) {

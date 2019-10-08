@@ -186,6 +186,7 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard"(platform: "/web/desktop", type: TrackType.View) {
             dashboard_status = 'overdue'
         }
+        "/credits/consumer/administrator_v2/suggested_modal"(platform: "/web/desktop", type: TrackType.View) {}
 
         //Events
         "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/web/desktop", type: TrackType.Event) {
@@ -198,6 +199,9 @@ trackTests {
         "/credits/consumer/administrator_v2/educational_landing"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_product"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/home"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/suggested_modal/suggested_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
 
         //Event Mobile
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
@@ -234,6 +238,10 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'empty_state'
         }
+
+        // "/credits/consumer/administrator_v2/suggested_product_modal"(platform: "/mobile", type: TrackType.Event) {}
+        // "/credits/consumer/administrator_v2/weekly_deals_link"(platform: "/web/desktop", type: TrackType.Event) {}
+        // "/credits/consumer/administrator_v2/close_product_modal"(platform: "/mobile", type: TrackType.Event) {}
 
         //Admin History (Compras Finalizadas)
 
@@ -628,6 +636,16 @@ trackTests {
 
         /******************************************
          *   End: Consumers Experiments
+         ******************************************/
+
+        /******************************************
+         *    Start: Consumers Opensea Integrations
+         ******************************************/
+
+        "/credits/consumer/opensea/integrated_flow/vip"(platform: "/web/desktop", type: TrackType.Event) {}
+
+        /******************************************
+         *   End: Consumers  Opensea Integrations
          ******************************************/
     }
 }

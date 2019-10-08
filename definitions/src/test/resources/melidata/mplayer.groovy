@@ -62,6 +62,20 @@ trackTests {
             is_recent = false
         }
 
+        "/mplayer/money_request/result/success"(platform: "/mobile") {
+            payment_method_id = "1"
+            transaction_amount = 100.5
+            fee_info = "2"
+        }
+
+        "/mplayer/money_request/result/error"(platform: "/mobile") {
+            error = "Algo salio mal"
+        }
+
+        "/mplayer/money_request/result/in_process"(platform: "/mobile") {
+        }
+
+
     }
 }
 

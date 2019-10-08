@@ -15,7 +15,7 @@ tracks {
         check_mode(type: PropertyType.ArrayList(PropertyType.String), required: true)
         gmv_value(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
         vip_clicks(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
-        isOnSeoWhitelistExperiment(type: PropertyType.Boolean, required: true)
+        is_on_seo_whitelist_experiment(type: PropertyType.Boolean, required: true)
     }
 
     //SEARCH FLOW
@@ -85,8 +85,7 @@ tracks {
         carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         pdp_tracking_info(required: true, description: 'pdp products info', PropertyType.Map(PropertyType.String, PropertyType.String))
         pdp_highlight_enabled(required: true, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
-        is_in_seo_whitelist(required: false, description: 'is request in seo whitelist', PropertyType.Boolean)
-        seo(required: false, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
+        seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
     }
 
     "/search"(platform: "/mobile") {
@@ -219,6 +218,10 @@ tracks {
         move(required: false, values: ["forward","backward"])
     }
 
+    "/search/billboard/click"(platform: "/", type: TrackType.Event){
+        position(required: true, description: "the position of the selected billboard in the carousel", type: PropertyType.Numeric)
+    }
+
     "/search/billboard/resize"(platform: "/web", type: TrackType.Event) {
         action(required: true, values: ["expand","collapse"])
     }
@@ -240,6 +243,11 @@ tracks {
     }
 
     "/search/finite_navigation"(platform: "/mobile/android", type: TrackType.Control, parentPropertiesInherited:false) {
+    }
+
+    "/search/banner"(platform: "/web", isAbstract: true){}
+
+    "/search/banner/click"(platform: "/web", type: TrackType.Event){
     }
 
 }

@@ -19,8 +19,8 @@ tracks {
       currency(required: true, type: PropertyType.String)
       price(required: true, type: PropertyType.String)
       decimals(required: true, type: PropertyType.String)
-      original_price(required: true, type: PropertyType.String)
-      discount(required: true, type: PropertyType.Numeric)
+      original_price(required: false, type: PropertyType.String)
+      discount(required: false, type: PropertyType.Numeric)
       has_loyalty_discount(required: true, type: PropertyType.Boolean)
     }
 
@@ -49,6 +49,8 @@ tracks {
       item_clicks(required: false, type: PropertyType.Numeric)
       conversion_rate(required: false, type: PropertyType.Numeric)
       expected_clicks(required: false, type: PropertyType.Numeric)
+      boosted(required: false, type: PropertyType.Boolean, 
+              description: "Indicates whether the item was manually positioned")
     }
 
     propertyDefinitions {

@@ -19,6 +19,7 @@ tracks {
         is_split(required: true, description: "True if the flow was split", type: PropertyType.Boolean)
         payment_quantity(required: true, description: "Payments quantity selected, e.g: 1", type: PropertyType.Numeric)
         available_methods(required: false, description: "Available payment methods types, e.g: ['credit_card', 'account_money']", type: PropertyType.ArrayList(PropertyType.String))
+        payment_amount_local(required: true, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
     }
 
     // EVENTS
@@ -86,7 +87,7 @@ tracks {
         available_methods(required: false, description: "Available payment methods types, e.g: ['credit_card', 'account_money']", type: PropertyType.ArrayList(PropertyType.String))
         payment_method_id(required: false, description: "Current selected payment method, e.g: 'visa'", type: PropertyType.String)
         payment_type_id(required: false, description: "Current selected payment type, e.g: 'credit_card'", type: PropertyType.String)
-        payment_amount_local(required: false, description: "Current selected payment amount, e.g: 250.50", type: PropertyType.Numeric)
+        payment_amount_local(required: false, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
         payment_quantity(required: false, description: "Payments quantity selected, e.g: 1", type: PropertyType.Numeric)
     }
 
