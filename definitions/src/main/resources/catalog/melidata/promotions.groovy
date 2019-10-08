@@ -51,6 +51,9 @@ tracks {
       expected_clicks(required: false, type: PropertyType.Numeric)
       boosted(required: false, type: PropertyType.Boolean, 
               description: "Indicates whether the item was manually positioned")
+      model_version(required: false, type: PropertyType.String)
+      position(required: false, type: PropertyType.Numeric)
+      created_date(required: false, type: PropertyType.String)       
     }
 
     propertyDefinitions {

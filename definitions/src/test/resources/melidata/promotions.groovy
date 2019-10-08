@@ -44,7 +44,10 @@ trackTests {
                         ],
                         warranty: "",
                         accepts_mercadopago: true,
-                        boosted: true
+                        boosted: true,
+                        model_version: "0.0.1",
+                        position: 1,
+                        created_date: "2019-10-07T17:51:21Z"
                       ], 
                       [
                         id: "MLA611663122",
