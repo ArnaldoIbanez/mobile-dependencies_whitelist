@@ -101,7 +101,7 @@ trackTests {
             offer_type = 'early_offer'
             status = 'overdue'
         }
-        
+
         def sales_percentage = {
             product_type = 'sales_percentage'
             segment = 'in_store'
@@ -173,7 +173,7 @@ trackTests {
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             fixed_term_on_time()
         }
-        
+
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             fixed_term_on_time()
@@ -199,7 +199,7 @@ trackTests {
         }
 
         "/credits/merchant/administrator/history"(platform: "/web/desktop") {}
-        
+
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
             fixed_term()
@@ -207,7 +207,7 @@ trackTests {
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
             express_money()
         }
-        
+
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
             fixed_term()
@@ -215,7 +215,7 @@ trackTests {
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
             express_money()
         }
-        
+
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'insufficient_account_money'
         }
@@ -308,34 +308,40 @@ trackTests {
         "/credits/express_money/summary"(platform: "/web/desktop") {
             requested_amount = 700
             max_amount = 1000
+			min_amount = 500
         }
 
         "/credits/express_money/summary"(platform: "/mobile/android") {
             requested_amount = 700
             max_amount = 1000
+            min_amount = 500
         }
 
         "/credits/express_money/congrats"(platform: "/web/desktop") {
             requested_amount = 700
             max_amount = 1000
+            min_amount = 500
             has_prepaid = true
         }
 
         "/credits/express_money/congrats"(platform: "/mobile/android") {
             requested_amount = 700
             max_amount = 1000
+            min_amount = 500
             has_prepaid = true
         }
 
         "/credits/express_money/congrats"(platform: "/web/desktop") {
             requested_amount = 700
             max_amount = 1000
+            min_amount = 500
             has_prepaid = false
         }
 
         "/credits/express_money/congrats"(platform: "/mobile/android") {
             requested_amount = 700
             max_amount = 1000
+            min_amount = 500
             has_prepaid = false
         }
 

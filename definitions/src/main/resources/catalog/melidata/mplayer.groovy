@@ -62,4 +62,20 @@ tracks {
         source(required: true, PropertyType.String, description: "the source of the contact")
         is_recent(required: true, PropertyType.Boolean, description: "if the seleted contact is a recent contact")
     }
+
+    "/mplayer/money_request/result"(platform: "/mobile", isAbstract: true) {}
+
+    "/mplayer/money_request/result/success"(platform: "/mobile", type: TrackType.View) {
+        payment_method_id(required: true, PropertyType.String, description: "the payment method id")
+        transaction_amount(required: true, PropertyType.Numeric, description: "the transaction amount")
+        fee_info(required: false, PropertyType.String, description: "the info of the fee")
+    }
+
+    "/mplayer/money_request/result/error"(platform: "/mobile", type: TrackType.View) {
+        error(required: true, PropertyType.String, description: "the transaction error")
+    }
+
+    "/mplayer/money_request/result/in_process"(platform: "/mobile", type: TrackType.View) {
+    }
+
 }

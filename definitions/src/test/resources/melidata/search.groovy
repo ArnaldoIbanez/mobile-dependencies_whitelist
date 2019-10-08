@@ -119,13 +119,12 @@ trackTests {
                     "MLA123456": "inactive",
                     "MLA1234567": "low_score"
             ]
-            is_in_seo_whitelist = true
             seo = [
                     is_whitelisted:true,
                     check_mode:"GMV",
                     gmv_value:15,
                     vip_clicks:0,
-                    isOnSeoWhitelistExperiment:true
+                    is_on_seo_whitelist_experiment:true
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
@@ -213,13 +212,12 @@ trackTests {
                     "MLA123456": "inactive",
                     "MLA1234567": "low_score"
             ]
-            is_in_seo_whitelist = true
             seo = [
                 is_whitelisted:true,
                 check_mode:"GMV",
                 gmv_value:15,
                 vip_clicks:0,
-                isOnSeoWhitelistExperiment:true
+                is_on_seo_whitelist_experiment:true
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
@@ -436,13 +434,12 @@ trackTests {
                     "MLA123456": "inactive",
                     "MLA1234567": "low_score"
             ]
-            is_in_seo_whitelist = true
             seo = [
                     is_whitelisted:true,
                     check_mode:"GMV",
                     gmv_value:15,
                     vip_clicks:0,
-                    isOnSeoWhitelistExperiment:true
+                    is_on_seo_whitelist_experiment:true
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
