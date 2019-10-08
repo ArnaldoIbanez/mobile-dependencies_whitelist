@@ -35,11 +35,7 @@ trackTests {
 
     test("Mercadopago Home Show") {
         "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
-            header = [
-                loyalty: [
-                    level: 5
-                ]
-            ]
+            header = "name"
             items = [
                 [
                     id: "banking",

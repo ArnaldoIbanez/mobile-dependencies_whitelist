@@ -133,9 +133,10 @@ tracks {
 
     // Events
     "/wallet/home/pull" (platform: "/mobile", type: TrackType.Event) {}
-
+    
+    // TODO: This track will be removed
     "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
-        header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
+        header(required: true, type: PropertyType.String, description: "Contains the header text's home", inheritable: false)
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_value_definition)), description: "Contains the sections payload", inheritable: false)
     }
 
