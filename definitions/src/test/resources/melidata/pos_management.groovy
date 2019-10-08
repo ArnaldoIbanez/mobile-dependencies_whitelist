@@ -11,11 +11,13 @@
                             "/pos_setup/onboarding/usage"(platform: "/", type: TrackType.View) {}
                             "/pos_setup/stores_list"(platform: "/", type: TrackType.View) {}
                             "/pos_setup/opt_in"(platform: "/", type: TrackType.View) {}
+                            "/pos_setup/opt_out"(platform: "/", type: TrackType.View) {}
                             "/pos_setup/opt_out_cash"(platform: "/", type: TrackType.View) {}
                         }
 
                         test("pos setup events") {
                             "/pos_setup/onboarding/finish"(platform: "/", type: TrackType.Event) {}
+                            "/pos_setup/opt_out/confirm"(platform: "/", type: TrackType.Event) {}
                             "/pos_setup/opt_out_cash/confirm"(platform: "/", type: TrackType.Event) {}
                             "/pos_setup/open_faqs"(platform: "/", type: TrackType.Event) {}
                             "/pos_setup/reports"(platform: "/", type: TrackType.Event) {}

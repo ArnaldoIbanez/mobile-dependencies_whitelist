@@ -28,6 +28,8 @@
         }
         "/pos_setup/reports"(platform: "/", type: TrackType.Event) {}
 
+        "/pos_setup/opt_out"(platform: "/", type: TrackType.View) {}
+        "/pos_setup/opt_out/confirm"(platform: "/", type: TrackType.Event) {}
         "/pos_setup/opt_out_cash"(platform: "/", type: TrackType.View) {}
         "/pos_setup/opt_out_cash/confirm"(platform: "/", type: TrackType.Event) {}
 
