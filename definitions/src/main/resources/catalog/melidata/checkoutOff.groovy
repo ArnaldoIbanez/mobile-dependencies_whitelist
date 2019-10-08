@@ -3,6 +3,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+
     "/checkout_off"(platform: "/", isAbstract: true) {
         checkout_flow_id(required: true, description: "Unique ID of the current flow, e.g: 'b24bcffe-4b26-46c9-8646-61891dbd978b'", type: PropertyType.String)
         product_id(required: true, description: "Unique ID of the current flow, e.g: 'BC32A4JU643001OI3920'", type: PropertyType.String)
@@ -103,4 +104,5 @@ tracks {
     "/checkout_off/congrats/call_for_auth/later"(platform: "/", type: TrackType.View) {}
     "/checkout_off/congrats/call_for_auth/how_to"(platform: "/", type: TrackType.View) {}
     "/checkout_off/congrats/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
+
 }
