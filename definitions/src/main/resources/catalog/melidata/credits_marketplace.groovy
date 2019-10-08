@@ -687,4 +687,14 @@ tracks {
     /******************************************
      *   End: Consumers Experiments
      ******************************************/
+
+    /******************************************
+     *    Start: Consumers Opensea Integrations
+     ******************************************/
+
+    "/credits/consumer/opensea/integrated_flow/vip"(platform: "/web", type: TrackType.Event){}
+
+    /******************************************
+     *   End: Consumers  Opensea Integrations
+     ******************************************/
 }
