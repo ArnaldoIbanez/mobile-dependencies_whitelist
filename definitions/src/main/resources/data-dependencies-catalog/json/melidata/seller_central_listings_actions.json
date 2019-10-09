@@ -2,7 +2,7 @@
   "users": [
     "ezequiel.perez@mercadolibre.com"
   ],
-  "process_name": "seller_central_listings_health",
+  "process_name": "seller_central_listings_action",
   "cron": "00 07 * * *",
   "partition": {
     "name": "ds",
@@ -14,7 +14,10 @@
     "site": "QA",
     "columns": [
       {
-        "name": "id",
+        "name": "type",
+        "type": "UNICODE_STRING"
+      },      {
+        "name": "event_id",
         "type": "UNICODE_STRING"
       },
       {
@@ -27,7 +30,7 @@
       }
     ],
     "sql": {
-      "script": "seller_central/seller_central_listings_health.sql",
+      "script": "seller_central/seller_central_listings_actions.sql",
       "parameters": [
         {
           "name": "param01",
