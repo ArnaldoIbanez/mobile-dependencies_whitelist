@@ -352,12 +352,11 @@ metrics {
 			condition {
 				or(
 					and(
-						equals("path", "/buy_intention")
+						equals("path", "/buy_intention"),
 						equals("event_data.context", "vip")
-					)
-
+					),
 					and(
-						equals("path", "/credits/consumer/opensea/integrated_flow/start")
+						equals("path", "/credits/consumer/opensea/integrated_flow/start"),
 						equals("event_data.source", "vip")
 					)
 				)
@@ -372,7 +371,7 @@ metrics {
 		countsOn {
 			condition {
 				and(
-					equals("path", "/credits/consumer/opensea/integrated_flow/start")
+					equals("path", "/credits/consumer/opensea/integrated_flow/start"),
 					equals("event_data.source", "vip")
 				)
 			}
@@ -397,7 +396,7 @@ metrics {
 		countsOn {
 			condition{
 				and(
-					equals("event_data.congrats_seq",1)
+					equals("event_data.congrats_seq",1),
 					equals("event_data.payments.payment_method", "consumer_credits")
 				)
 			}
