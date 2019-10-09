@@ -17,7 +17,7 @@ tracks {
 
     propertyGroups {
         quotationDetails(seller_id, category_id, vertical, error_type, model_id, unit_id)
-        quotationUnregistered(item_id, source)
+        quotationEvents(item_id, source)
     }
     //TODO: Se agregaron al catálogo unos fix con los datos que hoy mandan las apis y los fronts, como estos van a ser refactorizados, queda pendiente volver a ajustar este catálogo y dejarlo con la info correcta.
 
@@ -153,15 +153,15 @@ tracks {
     }
 
     "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
-        quotationUnregistered
+        quotationEvents
     }
 
     "/quotation/unregistered/edit_info"(platform: "/web", type: TrackType.Event) {
-        quotationUnregistered
+        quotationEvents
     }
 
     "/quotation/modal/close"(platform: "/web", type: TrackType.Event) {
-        quotationUnregistered
+        quotationEvents
     }
 
 }
