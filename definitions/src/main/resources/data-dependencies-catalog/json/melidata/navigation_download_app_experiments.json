@@ -5,7 +5,7 @@
     "pablo.guillama@mercadolibre.com"
   ],
   "process_name": "navigation_download_app_experiments",
-  "cron": "00 06 * * *",
+  "cron": "00 09 * * *",
   "partition": {
         "name": "Ds",
         "type": "DATE"
