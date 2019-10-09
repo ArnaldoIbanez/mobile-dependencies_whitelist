@@ -7,9 +7,15 @@ tracks {
 
     //Remedies
 
-    "/remedies"(platform: "/", isAbstract: true) {}
+    "/remedies"(platform: "/mobile", isAbstract: true) {}
 
-    "/remedies/activity"(platform: "/", isAbstract: true) {}
+    "/remedies"(platform: "/web", isAbstract: true) {
+        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Map of key value elements to be tracked in web apps")
+    }
+
+    "/remedies/activity"(platform: "/", isAbstract: true) {
+        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Map of key value elements to be tracked in mobile apps")
+    }
 
     "/remedies/center"(platform: "/", isAbstract: true) {}
 
@@ -109,46 +115,44 @@ tracks {
     }
 
     "/remedies/activity/check_step"(platform: "/mobile", type: TrackType.View) {
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+    
     "/remedies/activity/landing"(platform: "/mobile", type: TrackType.View) {
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/activity/phone_landing"(platform: "/mobile", type: TrackType.View) {
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/activity/phone_validation"(platform: "/mobile", type: TrackType.View) {
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
     "/remedies/activity/image_upload"(platform: "/mobile", type: TrackType.View) {
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/activity/image_upload/landing"(platform: "/mobile", type: TrackType.View) {
         doc_type(type: PropertyType.String, required: true, description: "Type of document")
         model_id(type: PropertyType.String, required: true, description: "Model id")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/activity/image_upload/uploading"(platform: "/mobile", type: TrackType.View) {
         doc_type(type: PropertyType.String, required: true, description: "Type of document")
         model_id(type: PropertyType.String, required: true, description: "Model id")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/activity/image_upload/result"(platform: "/mobile", type: TrackType.View) {
         doc_type(type: PropertyType.String, required: true, description: "Type of document")
         model_id(type: PropertyType.String, required: true, description: "Model id")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/activity/congrats"(platform: "/mobile", type: TrackType.View) {
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/activity/documentation_number"(platform: "/mobile", type: TrackType.View) {
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/activity/custom_camera"(platform: "/mobile", type: TrackType.View) {
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/activity/picture_confirmation"(platform: "/mobile", type: TrackType.View) {
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
 
     // Mobile tracks
@@ -159,58 +163,56 @@ tracks {
     // Web desktop and web mobile tracks
     "/remedies/landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/phone_landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/phone_validation"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/documentation_front"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/documentation_back"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/documentation_number"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/selfie"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/congrats"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         congrats_type(type: PropertyType.String, required: true, description: "Type of the congrats we show")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
     "/remedies/continue_phone_landing"(platform: "/web/desktop", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         challenge(type: PropertyType.String, required: true, description: "Current challenge")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/continue_phone_congrats"(platform: "/web/desktop", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         challenge(type: PropertyType.String, required: true, description: "Current challenge")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/detail_landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/threeds"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
+
     "/remedies/company"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Track initiatives and users flows")
     }
 
     "/remedies/center/card"(platform: "/web", type: TrackType.View) {
@@ -222,9 +224,12 @@ tracks {
     "/remedies/camera/open_camera"(platform: "/web", type: TrackType.Event) {
         devices(type: PropertyType.Numeric, required: true, description: "The number of camera devices the user has")
     }
+
     "/remedies/camera/capture_image"(platform: "/web", type: TrackType.Event) {
         is_landscape(type: PropertyType.Boolean, required: true, description: "Indicates if the picture was taken on landscape mode")
     }
+
     "/remedies/camera/pick_from_gallery"(platform: "/web", type: TrackType.Event) {}
+
     "/remedies/camera/unavailable"(platform: "/web", type: TrackType.Event) {}
 }
