@@ -140,6 +140,14 @@ trackTests {
         }
     }
 
+    test("Quotation :: Close modal quotation tracking") {
+
+        "/quotation/modal/close"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLC12345"
+            source = "vip"
+        }
+    }
+
     test("Quotation :: Show captcha unregistered form quotation tracking") {
 
         "/quotation/unregistered_form/captcha"(platform: "/web", type: TrackType.Event) {
