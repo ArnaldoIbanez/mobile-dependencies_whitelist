@@ -252,6 +252,10 @@ tracks {
         shipping_info
     }
 
+    "/vip/buy_action"(platform: "/web", parentPropertiesInherited: false) {
+        shipping_pay_before(required: true, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
+    }
+
     "/vip/add_cart_action"(platform: "/", parentPropertiesInherited: false) {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to a2c")
@@ -277,6 +281,10 @@ tracks {
                 description: "Seller's Mercado Lider level")
         add_cart_info
         shipping_info
+    }
+
+    "/vip/add_cart_action"(platform: "/web", parentPropertiesInherited: false) {
+      shipping_pay_before(required: true, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
     }
 
     "/vip/input_zip_code"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}

@@ -753,10 +753,24 @@ trackTests {
             shippingInformation()
         }
 
+        "/vip/buy_action"(platform: "/web", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+            shipping_pay_before = false
+        }
+
          "/vip/add_cart_action"(platform: "/", type: TrackType.View) {
             defaultTrackInformation()
             cartInformation()
             shippingInformation()
+        }
+
+        "/vip/add_cart_action"(platform: "/web", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+            shipping_pay_before = false
         }
         
         def shipping_method = { 
