@@ -25,6 +25,7 @@ tracks {
     "/quotation"(platform: "/", isAbstract: true) {}
     "/quotation/unregistered"(platform: "/", isAbstract: true) {}
     "/quotation/unregistered_form"(platform: "/", isAbstract: true) {}
+    "/quotation/modal"(platform: "/", isAbstract: true) {}
 
     //Quotation :: Details
     "/quotation/details"(platform: "/") {
@@ -156,6 +157,10 @@ tracks {
     }
 
     "/quotation/unregistered/edit_info"(platform: "/web", type: TrackType.Event) {
+        quotationUnregistered
+    }
+
+    "/quotation/modal/close"(platform: "/web", type: TrackType.Event) {
         quotationUnregistered
     }
 
