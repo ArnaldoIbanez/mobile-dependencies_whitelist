@@ -48,6 +48,10 @@ tracks {
     "/cobranded/acquisition/congrats/rejected"(platform: "/", type: TrackType.View){}
     "/cobranded/acquisition/error/without_credit_card"(platform: "/", type: TrackType.View){}
     "/cobranded/acquisition/error/corporation"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/welcome_signature"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/signature"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/welcome_work_address"(platform: "/", type: TrackType.View){}
+    "/cobranded/acquisition/work_address"(platform: "/", type: TrackType.View){}
 
     // Acquisition
     // Only MLB => https://www.mercadolivre.com.br/cartao-credito

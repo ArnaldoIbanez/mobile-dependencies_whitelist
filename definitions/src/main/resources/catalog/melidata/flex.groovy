@@ -16,6 +16,10 @@ tracks {
         packsAndLocation(latitude, longitude, packs_info)
     }
 
+    def buyer_info_def = objectSchemaDefinitions {
+            buyer_id(type: PropertyType.String, required: true)
+    }
+
     "/flex"(platform: "/mobile", isAbstract: true) {}
 
     "/flex/landing"(platform: "/", type: TrackType.View) {}
@@ -164,14 +168,27 @@ tracks {
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
+    "/flex/package/message_buyer"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        buyer_info(required: true, type: PropertyType.Map(buyer_info_def), description: "The receiver data")
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+
     "/flex/package/list/end_trip"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
+    "/flex/package/detail/message_buyer"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        buyer_info(required: true, type: PropertyType.Map(buyer_info_def), description: "The receiver data")
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
     "/flex/package/detail/call_buyer"(platform: "/mobile", type: TrackType.Event) {
         packsAndLocation
-        buyer_info(required: false, description: "The receiver data")
+        buyer_info(required: true, description: "The receiver data")
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
@@ -346,6 +363,11 @@ tracks {
         packsAndLocation
         context(required: true, type: PropertyType.String,  values: ["not_delivered", "delivered"],
                 description: "Indicates whether the event was triggered in the delivered or in the event of non-delivery")
+        delivery_id(required: false, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
+    "/flex/registration/error"(platform: "/mobile", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String,  values: ["login"],
+                description: "Indicates whether the event was triggered because login failed")
+    }
 }

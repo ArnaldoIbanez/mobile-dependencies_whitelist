@@ -22,6 +22,17 @@ tracks {
         item_info(currency_id, item, unit_price, quantity,quantity_change)
     }
 
+    def propertyCost  = objectSchemaDefinitions {
+        symbol(required:true, type: PropertyType.String, description:  "Currency symbol")
+        amount(required:true, type: PropertyType.Numeric, description:  "Cost amount")
+    }
+
+    def propertySummary  = objectSchemaDefinitions {
+        total(required:true, type: PropertyType.Map(propertyCost), description: "Total cost of the items")
+        shipping_total(required:true, type: PropertyType.Map(propertyCost), description: "Total cost of shipping with discount applied")
+        shipping_promoted_amount(required:true, type: PropertyType.Numeric, description:  "Total cost of shipping without discount")
+    }
+
 
 
     "/cart"(platform: "/", isAbstract: true) {
@@ -47,7 +58,6 @@ tracks {
 	free_shipping_benefit(required:false, type: PropertyType.Boolean)
     loyalty_level(required:false, type: PropertyType.Numeric)
     is_empty(required:false, type: PropertyType.String)
-    disclaimer_moved_items(required: false, type: PropertyType.String,  values: ["yes", "no"])
 }
 
 "/cart/my_cart"(platform: "/") {
@@ -92,6 +102,8 @@ tracks {
 
 "/cart/saved_for_later"(platform: "/") {
     cart_ratio(required: false, type: PropertyType.String, values: ["applies", "not_applies"])
+    summary(required: false, type: PropertyType.Map(propertySummary), description: "Map with information from the summary: total cost, total shipping cost and striked promoted amount if it exists")
+    resolution(required: false, type: PropertyType.String, description: "resolution of the device")
 }
 
 "/cart/saved_for_later/open_change_notification"(platform: "/", type: TrackType.Event) {}

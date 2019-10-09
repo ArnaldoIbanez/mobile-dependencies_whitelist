@@ -162,12 +162,54 @@ tracks {
     "/structure_data"(platform: "/", isAbstract: true) {}
     "/structure_data/product_creator"(platform: "/",isAbstract: true) {}
     "/structure_data/product_creator/other_domain"(platform: "/", type: TrackType.Event) {
-        bs_user_email(required: true, description: "Email of brightsector user")
         score(required: true, description: "Score of zordon api")
         is_same_domain(required: true, description:"Must keep or not in this domain", PropertyType.Boolean)
         domain_id(required: true, description: "Current domain")
         suggested_domain(required: true, description: "Suggested domain")
         item_id(required: true, description: "Item Id")
         user_action(required: true, description: "Action taken by user")
+        user_initials(required: true, description: "Bs user initials", type: PropertyType.String)
     }
+    "/structure_data/product_creator/taken-action-with-product-data"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, description: "Item Id", type: PropertyType.String)
+        user_action(required: true, description: "Action taken by user", type: PropertyType.String)
+        user_initials(required: true, description: "Bs user initials", type: PropertyType.String)
+    }
+    "/structure_data/product_creator/ignored_hints"(platform: "/", type: TrackType.Event) {
+        domain_id(required: true, description: "Current domain")
+        hint_id(required: true, description: "Hint Id")
+        attribute(required: true, description: "Attribute Id")
+        lang(required: true, description: "Language")
+        suggested_value_id(required: true, description: "Suggested hint value Id")
+        suggested_value_name(required: true, description: "Suggested hint value name")
+        written_value(required: true, description: "Written attribute value")
+        final_value(required: true, description: "Final attribute value")
+        user_initials(required: true, description: "Bs user initials", type: PropertyType.String)
+    }
+    "/structure_data/product_reviewer"(platform: "/",isAbstract: true) {}
+    "/structure_data/product_reviewer/review"(platform: "/", type: TrackType.Event) {
+         review_id(required: true, description: "Review Id", type: PropertyType.String)
+         review_version(required: true, description: "Reviews version", type: PropertyType.Numeric)
+         sheet_id(required: true, description: "Sheet reviewed", type: PropertyType.String)
+         domain_id(required: true, description: "Sheets domain ID reviewed", type: PropertyType.String)
+         publication_id(required: true, description: "Item ID reviewed", type: PropertyType.String)
+         review_status(required: true, description: "Reviews result", values: ["APPROVED", "REJECTED", "PENDING"], type: PropertyType.String) 
+         action_tag(required: true, description: "Publications tag", values: ["ADD", "REP", "NPP"], type: PropertyType.String) 
+         time(required: true, description: "Time reviewing the item", type: PropertyType.Numeric)
+         sections_comments(required: true, description: "Reviews comments", type: PropertyType.String)
+         errors_codes(required: true, description: "Reviews errors codes", type: PropertyType.String)
+         user_initials(required: true, description: "Bs user initials", type: PropertyType.String)
+    }
+    "/structure_data/product_modificator"(platform: "/",isAbstract: true) {}
+    "/structure_data/product_modificator/quality-reports"(platform: "/", type:TrackType.Event){
+        domain_id(required: true, description: "Domain ID", type: PropertyType.String)
+        parent_id(required: true, description: "Parent product ID", type: PropertyType.String)
+        product_id(required: true, description: "Product ID", type: PropertyType.String)
+        errors(required: true, description: "Error collection", type: PropertyType.ArrayList(PropertyType.String))
+        warnings(required: true, description: "Warnings collection", type: PropertyType.ArrayList(PropertyType.String))
+        errors_quantity(required: true, description: "Errors quantity", type: PropertyType.Numeric)
+        warning_quantity(required: true, description: "Warning quantity", type: PropertyType.Numeric)
+        step(required: true, description: "Analysis step", values: ["INITIAL", "PARENT", "CHILD"], type: PropertyType.String)
+    }
+
 }

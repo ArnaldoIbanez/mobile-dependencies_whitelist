@@ -106,6 +106,16 @@ tracks {
         sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
     }
+    "/notification_center/campaigns-generic"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        campaign_type(required: true,type: PropertyType.String, description: "Type of the campaign related to the notification sent.")
+        campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
+        test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/", type: TrackType.Event) {
         campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
         item_id(required: true, type: PropertyType.String, description: "Id of item.")
@@ -154,6 +164,7 @@ tracks {
         sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
         item_id(required: false, type: PropertyType.String, description: "Id of item.")
+        variation_id(required: false, type: PropertyType.String, description: "Id of variation.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -207,12 +218,41 @@ tracks {
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
+        items_recommendations(required: false, type: PropertyType.String, description: "Items sent from recommendations.")
+        items_history(required: false, type: PropertyType.String, description: "Items sent from history.")
+    }
+    "/notification_center/campaigns-remarketing_motors"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
+        test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test.")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        item_id(required: true, type: PropertyType.String, description:"Item Id.")
+    }
+    "/notification_center/campaigns_marketplace_discounts"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
+        test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test.")
+        sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/compliance_support-validations"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/cx-generic"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/cancellations"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/coverages"(platform: "/", type: TrackType.Event) {
+        activity_id(required: true , type: PropertyType.String)
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -237,11 +277,53 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/fraud_score_post_approval"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/fraud_iv_credentials"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    //Openplatform
+    "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/openplatform_recommendations_wannabe"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/openplatform_recommendations_p4"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/openplatform_recommendations_p3"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/openplatform_recommendations_p2"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/openplatform_recommendations_p1"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/packages-buyer"(platform: "/", type: TrackType.Event) {}
     "/notification_center/packages-seller"(platform: "/", type: TrackType.Event) {}
     "/notification_center/package-seller"(platform: "/", type: TrackType.Event) {
-        purchase_id(required: true, type: PropertyType.Numeric)
-        pack_id(required: true, type: PropertyType.Numeric)
+        purchase_id(required: false, type: PropertyType.Numeric)
+        pack_id(required: false, type: PropertyType.Numeric)
+        shipment_id(required: false, description: "Id of shipment.")
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/me_flex-optin"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -283,6 +365,14 @@ tracks {
         latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/quotes_reject"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/quotes_cancel"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/questions-buyer"(platform: "/", type: TrackType.Event) {
         question_id(required: true, type: PropertyType.Numeric)
     }
@@ -320,6 +410,18 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/security_recovery_canceled"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/security_phone_enrollment"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/security_login_code"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/chargeback-payer"(platform: "/", type: TrackType.Event) {
         case_id(required: true, type: PropertyType.String, description: "Id of chargeback.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -329,16 +431,210 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/messages_flex"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/account_balance_approved_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/account_fund_approved_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/account_fund_salary"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/account_fund_cvu"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/account_fund_approved_ted"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/asset_management_warm_up"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/billing_mpoff"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback_payer_intensify_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback_payer_notify_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback_payer_start_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback_payer_ultimatum_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/chargeback_payer_update_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/credits_merchants_expired_near_to_daily_charges"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/credits_merchants_expired_near_to_fixed_charges"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/credits_merchants_expired_no_charges"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification_center/credits_merchants_to_expire_not_standard"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification_center/credits_merchants_educational"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        loan_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification_center/instore_buyer_qr"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/invite_gift"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/merchants_growth_mgm"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        gift_reason_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/money-transfer_request"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/mpcampaigns_campaigns"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
+    }
+    "/notification_center/prepaid_card"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/prepaid_card_delivery"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/prepaid_card_transaction_rejected_invalid_pin"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/prepaid_card_transaction_rejected_activation_reminder"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/recurring_recharge_error"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/recurring_recharge_insufficient_balance_error"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/recurring_recharge_second_auth_error"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/wallet_integrator_insufficient_amount"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/wallet_integrator_ticket_acredited"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/transaction_rejected_red_link_bug"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/transaction_canceled_withdraw"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/transaction_canceled_authorization"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/transaction_approved_withdraw"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/transaction_approved_authorization"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
+    "/notification_center/withdraw_approved_contingency"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/withdraw_rejected_contingency"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
+
+    "/notification_center/seller_journey_congrats"(platform: "/", type: TrackType.Event){
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+    "/notification_center/seller_journey_keep_it_up"(platform: "/", type: TrackType.Event){
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+    "/notification_center/seller_journey_work_harder"(platform: "/", type: TrackType.Event){
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+    "/notification_center/seller_journey_do_something"(platform: "/", type: TrackType.Event){
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+
+
 
       /**
        * NOTIFICATIONS TRAY
        **/
       "/notification"(platform: "/") {
           event_type(required: true,
-                  values: ["sent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
+                  values: ["sent", "resent", "arrived", "received", "dismiss", "discarded", "open", "auto_dismiss", "shown", "action_open", "control", "carousel","purged_token", "swipe"],
           description: "Type of notification event")
           action_type(required: false,
                   values: ["deeplinking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"])
+          notification_type(required: false,
+              values: ["deep_linking", "directions", "favorite", "reply", "ask", "postpone", "twitter_bar", "picture", "answer", "messages", "vop", "claims", "received", "tracking", "shipping_print_label", "feedback", "buy"])
           deeplink(required: false, description: "The link were the notification should navigate to, if applies")
 
           //For event_type:autodismiss, indicates why the notification was dismissed
@@ -358,11 +654,19 @@ tracks {
           context(required: false, type: PropertyType.String)
       }
 
+      //Anses
+      "/notification/anses_payment_date"(platform: "/") {}
+      "/notification/anses_paid_benefit"(platform: "/") {}
+
+      //Account
       "/notification/account_fund_approved_mp"(platform: "/") {}
       "/notification/account_fund_approved_ml"(platform: "/") {}
       "/notification/account_fund_salary"(platform: "/") {}
+      "/notification/account_fund_cvu"(platform: "/") {}
+      "/notification/account_fund_approved_ted"(platform: "/") {}
       "/notification/account_balance_approved_mp"(platform: "/") {}
       "/notification/account_balance_approved_ml"(platform: "/") {}
+
       "/notification/credits_consumer_about_to_expire_second_notice"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
           installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
@@ -400,9 +704,19 @@ tracks {
       "/notification/credits_consumer_expired_n_loans_fourth_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_second_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_third_notice"(platform: "/") {}
+      "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/") {}
+      "/notification/credits_consumer_expired_sixty_notice"(platform: "/") {}
 
       "/notification/credits_merchants_educational"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric)
+      }
+
+      //CX Question
+      "/notification/cx_question_mp"(platform: "/") {
+          case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
+      }
+      "/notification/cx_question_ml"(platform: "/") {
+          case_id(required: true, type: PropertyType.Numeric, description: "Id of cx case.")
       }
 
       //Compliance Support
@@ -427,7 +741,8 @@ tracks {
 
       "/notification/instore_discover_activities"(platform: "/") {}
 
-      "/notification/messages_new"(platform: "/") {}
+      //Messages
+      "/notification/messages_quotes"(platform: "/") {}
 
       "/notification/moderations_item_to_patch"(platform: "/") {
           item_id(required: true, type: PropertyType.String, description: "Id of item.")
@@ -543,6 +858,11 @@ tracks {
           order_id(required: true, type: PropertyType.Numeric)
       }
 
+      "/notification/shipping_not_delivered_retained_sender"(platform: "/") {
+          shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
+          order_id(required: true, type: PropertyType.Numeric)
+      }
+
       //Seller questions
       "/notification/questions_new"(platform: "/") {
           question_id(required: true, type: PropertyType.Numeric)
@@ -609,6 +929,11 @@ tracks {
           experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
       }
 
+      "/notification/orders_ticket_payment_pending_close_expiration_general_notice"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric)
+          experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
+      }
+
       "/notification/orders_ticket_payment_pending_reminder_general_notice"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric)
           experiment_id(required: false, description: "Id of the experiment related to the order notification sent.")
@@ -623,6 +948,15 @@ tracks {
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+      }
+
+      "/notification/campaigns_generic"(platform: "/") {
+          campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+          campaign_type(required: true,type: PropertyType.String, description: "Type of the campaign related to the notification sent.")
+          campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
+          test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+          sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+          batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
       }
 
       //MKT Deals
@@ -641,6 +975,15 @@ tracks {
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
       }
+
+       //Marketplace Discounts
+      "/notification/campaigns_marketplace_discounts"(platform: "/") {
+          campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+          test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+          sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
+          batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+      }
+
       "/notification/campaigns_checkout_recovery"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the campaigns notification sent.")
           test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
@@ -655,6 +998,7 @@ tracks {
           test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: true, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+          variation_id(required: false, type: PropertyType.String, description: "Id of variation.")
           item_id(required: true, type: PropertyType.String)
       }
       "/notification/campaigns_ticket_recovery"(platform: "/") {
@@ -722,9 +1066,13 @@ tracks {
       }
       "/notification/qrviral_reminder"(platform: "/") {}
       "/notification/qrviral_extension"(platform: "/") {}
+      "/notification/qrviral_reminder_mp"(platform: "/") {}
+
 
       //Quotes
       "/notification/quotes_reject"(platform: "/") {}
+      "/notification/quotes_new"(platform: "/") {}
+      "/notification/quotes_cancel"(platform: "/") {}
 
       //Listings
       "/notification/listings"(platform: "/") {}
@@ -878,6 +1226,17 @@ tracks {
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+          hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
+          items_recommendations(required: true, type: PropertyType.String, description: "Items sent from recommendations.")
+          items_history(required: true, type: PropertyType.String, description: "Items sent from history.")
+      }
+
+      "/notification/campaigns_remarketing_motors"(platform: "/") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+        item_id(required: true, type: PropertyType.String, description: "Item Id.")
       }
 
       "/notification/campaigns_control_group"(platform: "/") {
@@ -898,6 +1257,9 @@ tracks {
       "/notification/fraud_identity_validation"(platform: "/") {}
       "/notification/fraud_delivery_cancellation_stop_ml"(platform: "/") {}
       "/notification/fraud_cash_release_iv"(platform: "/") {}
+      "/notification/fraud_iv_credentials"(platform: "/") {}
+      "/notification/fraud_score_post_approval_last_chance_mp"(platform: "/") {}
+      "/notification/fraud_score_post_approval_last_chance_ml"(platform: "/") {}
 
       //Loyalty
       "/notification/loyalty"(platform: "/") {}
@@ -949,10 +1311,184 @@ tracks {
       "/notification/security_account_validation"(platform: "/") {}
       "/notification/security_login_auth"(platform: "/") {}
       "/notification/security_device_authorization"(platform: "/") {}
+      "/notification/security_recovery_canceled"(platform: "/") {}
 
       //Health Check
       "/notification/health_check"(platform: "/") {
           original_news_id( required: false, type: PropertyType.String, description: "Original identifier of the notification generated" )
       }
+
+    //Asset Management
+    "/notification/asset_management_warm_up"(platform: "/mobile") {}
+    "/notification/asset_management_investing"(platform: "/mobile") {}
+    "/notification/asset_management_pending"(platform: "/mobile") {}
+    "/notification/asset_management_disabled"(platform: "/mobile") {}
+
+    //Campañas
+    "/notification/mpcampaigns_campaigns"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
+    }
+    "/notification/mpcampaigns_control_group"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
+    }
+    "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
+    }
+    "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
+        campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
+        communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
+    }
+
+    //Credits Merchants
+    "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_expired_second_notice"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_expired_third_notice"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_about_to_expire_first_notice"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_expired_no_charges"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_to_expire"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_merchants_expired_near_to_fixed_charges"(platform: "/mobile") {}
+    "/notification/credits_merchants_expired_near_to_daily_charges"(platform: "/mobile") {}
+    "/notification/credits_merchants_to_expire_standard"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+
+    "/notification/coverages_compensation_complainant"(platform: "/mobile") {
+        activity_id(required: true , type: PropertyType.String)
+    }
+
+    "/notification/cancellations_warning_seller_suspended"(platform: "/mobile") {}
+
+    "/notification/seller_journey_congrats"(platform: "/mobile"){
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+    "/notification/seller_journey_keep_it_up"(platform: "/mobile"){
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+    "/notification/seller_journey_work_harder"(platform: "/mobile"){
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+    "/notification/seller_journey_do_something"(platform: "/mobile"){
+        step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+
+    //Inivite Gift
+    "/notification/invite_gift"(platform: "/mobile") {}
+
+    //Merchants
+    "/notification/merchants_growth_mgm"(platform: "/mobile") {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        gift_reason_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
+    //Money
+    "/notification/money_transfer_received"(platform: "/mobile") {}
+    "/notification/money_transfer_request"(platform: "/mobile") {}
+
+    //Openplatform
+    "/notification/openplatform_sellers_inhouse"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+    }
+    "/notification/openplatform_recommendations_wannabe"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+    }
+    "/notification/openplatform_recommendations_p4"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+    }
+    "/notification/openplatform_recommendations_p3"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+    }
+    "/notification/openplatform_recommendations_p2"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+    }
+    "/notification/openplatform_recommendations_p1"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+    }
+
+    //Prepaid
+    "/notification/prepaid_card_shipped"(platform: "/mobile") {}
+    "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {}
+    "/notification/prepaid_card_delivered"(platform: "/mobile") {}
+    "/notification/prepaid_card_delayed_p1"(platform: "/mobile") {}
+    "/notification/prepaid_card_not_delivered"(platform: "/mobile") {}
+    "/notification/prepaid_card_third_activation_reminder"(platform: "/mobile") {}
+    "/notification/prepaid_card_second_activation_reminder"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_invalid_pin"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_approved_authorization"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_approved_withdraw"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_canceled_authorization"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_canceled_withdraw"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_withdraw_freeze"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_authorization_freeze"(platform: "/mobile") {}
+    "/notification/prepaid_card_reissue_reminder"(platform: "/mobile") {}
+
+    "/notification/prepaid_card_delivery"(platform: "/mobile") {}
+    "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_red_link_bug"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {}
+
+    //Point
+    "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}
+    "/notification/point_shipping_shipped"(platform: "/mobile") {}
+    "/notification/point_shipping_not_delivered"(platform: "/mobile") {}
+    "/notification/point_shipping_waiting_for_withdrawal"(platform: "/mobile") {}
+    "/notification/point_shipping_delayed_p1"(platform: "/mobile") {}
+    "/notification/point_shipping_delayed_p4_p8"(platform: "/mobile") {}
+    "/notification/point_shipping_ready_to_ship_delayed"(platform: "/mobile") {}
+
+    //Recurring Recharge
+    "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {}
+
+    //Seller QR
+    "/notification/seller_qr_payment_received"(platform: "/mobile") {}
+    "/notification/seller_integrations_new_payment"(platform: "/mobile") {}
+    "/notification/seller_integrations_erase_name"(platform: "/mobile") {}
+
+    //Wallet
+    "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {}
+
+    //Withdraw
+    "/notification/withdraw_approved_contingency"(platform: "/", type: TrackType.Event) {} //At web, only mp business
+    "/notification/withdraw_rejected_contingency"(platform: "/web", type: TrackType.Event) {}
+
+    //Phone Enrollment
+    "/notification/security_phone_enrollment"(platform: "/web", type: TrackType.Event) {}
+
+    //Merchant Services
+    "/notification/mss_alliance"(platform: "/web", type: TrackType.Event) {}
+    "/notification/mss_gplay"(platform: "/web", type: TrackType.Event) {}
+
+    //Fiscal Data
+    "/notification/fiscal_data_mp_business_registration"(platform: "/web", type: TrackType.Event) {}
 
 }

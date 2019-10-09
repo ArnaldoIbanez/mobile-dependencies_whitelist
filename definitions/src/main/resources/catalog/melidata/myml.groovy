@@ -21,10 +21,12 @@ tracks {
 	    //id
 	    //nickname
 	    //loyalty_level
+
+        render_buy_it_again(required: false, type: PropertyType.String, description: "Has render the buy_it_again button")
     }
 
     propertyGroups {
-        mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer)
+        mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer, render_buy_it_again)
     }
 
 
@@ -67,6 +69,10 @@ tracks {
     "/myml/sales/messages"(platform: "/") {}
 
     "/myml/sales/questions"(platform: "/") {}
+
+    "/myml/sales/questions/history"(platform: "/mobile") {}
+
+    "/myml/sales/questions/answer_question"(platform: "/mobile") {}
 
     "/myml/sales/questions/response"(platform: "/") {
         unregistered_contact(required: true, type: PropertyType.Boolean, "User is unregister type")
@@ -124,6 +130,10 @@ tracks {
 
     "/myml/purchases/questions"(platform: "/") {}
 
+    "/myml/purchases/questions/asked_questions"(platform: "/mobile") {}
+
+    "/myml/purchases/questions/history"(platform: "/mobile") {}
+
     "/myml/purchases/canceled"(platform:"/", type: TrackType.View) {}
 
     "/myml/purchases/order"(platform:"/", type: TrackType.View) {}
@@ -152,6 +162,8 @@ tracks {
 
     "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
         item_id(required: true,type: PropertyType.String, description: "Item id")
+        buy_it_again_experiment(required: true,type: PropertyType.String, description: "Is the user in the experiment")
+        buy_it_again_lead_checkout(required: true,type: PropertyType.String, description: "Is the button going to redirect to checkout")
     }
 
     "/myml"(platform: "/", isAbstract: true) {}
@@ -176,6 +188,11 @@ tracks {
         adv_segmentation(required: true, description: "Adevrtasement segmentation ")
         reputation_level(required: true, description: "Reputation for Pads")
     }
+
+    "/myml/listings/active"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/listings/closed"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/listings/detail"(platform: "/mobile", type: TrackType.Event) {}
+
     "/myml/bookmarks"(platform: "/web", type: TrackType.View) {}
     "/myml/questions"(platform: "/web", type: TrackType.View) {}
 
@@ -240,21 +257,33 @@ tracks {
     "/myml/suggested_discounts/error/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/myml/account_balance"(platform: "/mobile", type: TrackType.View) {}
+
     "/myml/account_balance/withdraw"(platform: "/mobile", type: TrackType.Event) {
-        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+        mp_installed(required: false, type:  PropertyType.Boolean, description: "true if MP is installed")
     }
     "/myml/account_balance/send_money"(platform: "/mobile", type: TrackType.Event) {
-        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+        mp_installed(required: false, type:  PropertyType.Boolean, description: "true if MP is installed")
     }
     "/myml/account_balance/cellphone_recharge"(platform: "/mobile", type: TrackType.Event) {
-        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+        mp_installed(required: false, type:  PropertyType.Boolean, description: "true if MP is installed")
     }
     "/myml/account_balance/bill_payments"(platform: "/mobile", type: TrackType.Event) {
-        mp_installed(required: true, type:  PropertyType.Boolean, description: "true if MP is installed")
+        mp_installed(required: false, type:  PropertyType.Boolean, description: "true if MP is installed")
     }
     "/myml/account_balance/generic_error"(platform: "/mobile", type: TrackType.View) {
         additional_info (required:false, description: "Extra info")
     }
+    "/myml/account_balance/digital_goods"(platform: "/mobile", type: TrackType.View) {}
+
+    "/myml/account_balance/fund_travel_card"(platform: "/mobile", type: TrackType.View) {}
+
+    "/myml/account_balance/gas_station"(platform: "/mobile", type: TrackType.View) {}
+
+    "/myml/account_balance/mp"(platform: "/mobile", type: TrackType.View) {}
+    "/myml/account_balance/mp/install"(platform: "/mobile", type: TrackType.View) {}
+
+    "/myml/account_balance/my_money"(platform: "/mobile", type: TrackType.View) {}
+
     "/myml/account_balance/scan_qr"(platform: "/mobile", type: TrackType.View) {}
 
     "/myml/account_balance/install"(platform: "/mobile", type: TrackType.View) {}
@@ -266,8 +295,11 @@ tracks {
         flow_selected(required: true, type: PropertyType.String, description: "use case selected based on incoming parameters")
     }
     "/myml/sales/detail/deliver_product"(platform: "/mobile", type: TrackType.View) {}
-    "/myml/sales/detail/deliver_product#submit"(platform: "/mobile", type: TrackType.Event) {
+    "/myml/sales/detail/deliver_product#submit"(platform: "/mobile/android", type: TrackType.Event) {
         action_label(required: true, type: PropertyType.String, description: "action selected when submitting: send_feedback or update shipping")
+    }
+    "/myml/sales/detail/deliver_product#submit"(platform: "/mobile/ios", type: TrackType.Event) {
+        action_label(required: false, type: PropertyType.String, description: "action selected when submitting: send_feedback or update shipping")
     }
     "/myml/sales/detail/date_will_receive_product"(platform: "/mobile", type: TrackType.View) {}
     "/myml/sales/detail/deliver_product/action"(platform: "/mobile", type: TrackType.Event) {
@@ -279,6 +311,10 @@ tracks {
     "/myml/sales/detail/send_feedback"(platform: "/mobile", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
+    }
+
+    "/myml/main"(platform: "/mobile", type: TrackType.View) {
+        messages(required: false, PropertyType.String)
     }
 
     // Price parity massive items editor
@@ -312,6 +348,7 @@ tracks {
         price(required: false, description: "Item price", type: PropertyType.Numeric)
         category_id(required: true, description: "Item category_id")
         category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree")
+        has_whatsapp(required: false, type: PropertyType.Boolean, description: "Determine if the item has whatsapp")
 
         // Category sugestion
         suggested_category_id(required: false, description: "Category id suggested")
@@ -351,6 +388,7 @@ tracks {
     }
     "/myml/profile/update_success"(platform: "/mobile", type: TrackType.View) {}
     "/myml/profile/review_data/confirm"(platform: "/mobile", type: TrackType.Event) {}
+    "/myml/profile/card_details"(platform: "/mobile", type: TrackType.View) {}
     "/myml/company_profile"(platform: "/mobile", type: TrackType.View){}
     "/myml/fiscal_data_edit"(platform: "/mobile", type:TrackType.View){}
 
@@ -453,6 +491,29 @@ tracks {
 
     "/myml/fiscal_information/tax_information/success/btn/listings"(platform: "/", type: TrackType.Event) {}
 
+    // Tax substitution page
+    "/myml/fiscal_information/tax_substitution"(platform: "/", type: TrackType.View) {
+        query_sku(required: true, type: PropertyType.String, description: "Sku of tax information")
+        query_item_id(required: true, type: PropertyType.String, description: "Meli item id")
+        query_inbound_id(required: true, type: PropertyType.String, description: "Inbound id from panel")
+    }
+
+    "/myml/fiscal_information/tax_substitution/btn"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_information/tax_substitution/btn/backtoinbound"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_information/tax_substitution/form"(platform: "/", isAbstract: true) {}
+    "/myml/fiscal_information/tax_substitution/form/save"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_information/tax_substitution/form/save/request"(platform: "/", type: TrackType.Event) {
+        data(required: true, description: "Tax substitution to sending to api")
+    }
+
+    "/myml/fiscal_information/tax_substitution/form/save/response"(platform: "/", type: TrackType.Event) {
+        error(required: true, type: PropertyType.Boolean, description: "Has error on api?")
+        data(required: true, description: "Fiscal information received from api")
+    }
+
     // Type page
     "/myml/fiscal_information/type"(platform: "/", type: TrackType.View) {
         url(required: true, type: PropertyType.String, description: "Page url")
@@ -465,10 +526,10 @@ tracks {
         type(required: true, type: PropertyType.String, values: ["single", "bundle"], description: "Type of fiscal information")
     }
 
-    //:::: MYML - INVOICES
+    //:::: SELLER - INVOICES
     "/myml/invoices"(platform: "/", isAbstract: true) {}
 
-    //:::: MYML - Invoices Documents
+    // Invoices Documents
     "/myml/invoices/documents"(platform: "/", isAbstract: true) {}
     "/myml/invoices/documents/mobile"(platform: "/", type: TrackType.View) {}
     "/myml/invoices/documents/not_found"(platform: "/", type: TrackType.View) {}
@@ -521,6 +582,8 @@ tracks {
         error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
         errorValidation(required: false, type:  PropertyType.String, description: "Error message when value is invalid")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
     //not found
@@ -538,6 +601,7 @@ tracks {
 
     "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
     "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/company-info/certificate/a1/installer_download"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
@@ -611,7 +675,10 @@ tracks {
         error(required: false, type: PropertyType.Boolean, description: "State registration saving error")
     }
     //confirm
-    "/myml/invoices/company-info/confirm"(platform: "/") {}
+    "/myml/invoices/company-info/confirm"(platform: "/") {
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
     "/myml/invoices/company-info/confirm/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm/save/request"(platform: "/", type: TrackType.Event) {
         enabled_for_fulfillment(required: true, type:  PropertyType.Boolean, description: "Boolean if seller profile is fulfillment")
@@ -627,7 +694,10 @@ tracks {
     "/myml/invoices/company-info/confirm/help_tooltip/freight"(platform: "/", type: TrackType.Event) {}
 
     //confirm-normal
-    "/myml/invoices/company-info/confirm-normal"(platform: "/") {}
+    "/myml/invoices/company-info/confirm-normal"(platform: "/") {
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
     "/myml/invoices/company-info/confirm-normal/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/confirm-normal/save/request"(platform: "/", type: TrackType.Event) {
         serie(required: true, type:  PropertyType.Numeric, description: "Invoice serie number input")
@@ -659,7 +729,7 @@ tracks {
         message(required: false, type: PropertyType.String, description: "Error message that pops on page on error")
     }
     "/myml/invoices/company-info/success"(platform: "/") {}
-  
+
     //tax-rules-information
     "/myml/invoices/company-info/tax-rules-information"(platform: "/") {}
 
@@ -670,6 +740,10 @@ tracks {
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
     }
 
+    //devolution
+    "/myml/invoices/order/devolution"(platform: "/") {}
+    "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
+
     //buyer
     "/myml/invoices/order/buyer-info"(platform: "/") {}
     "/myml/invoices/order/buyer-info/save"(platform: "/", isAbstract: true) {}
@@ -678,7 +752,7 @@ tracks {
     }
     "/myml/invoices/order/buyer-info/save/response"(platform: "/", type: TrackType.Event) {}
 
-    //buyer
+    //carrier
     "/myml/invoices/order/carrier"(platform: "/") {}
     "/myml/invoices/order/carrier/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/order/carrier/save/request"(platform: "/", type: TrackType.Event) {
@@ -808,16 +882,196 @@ tracks {
 
     "/myml/invoices/sku/status"(platform: "/") {}
 
+    "/myml/invoices/sku/detail"(platform: "/") {}
+    "/myml/invoices/sku/processing"(platform: "/") {}
+    "/myml/invoices/sku/disabled"(platform: "/") {}
+    "/myml/invoices/sku/detail/action"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, values:[
+            "print_danfe",
+            "download_xml",
+            "cancel_nfe",
+            "create_correction_letter",
+            "create_devolution_invoice",
+        ], description: "Wich action triggered by the user")
+    }
+
     //Backoffice pages
     "/myml/invoices/backoffice"(platform: "/", isAbstract: true) {}
+
     "/myml/invoices/backoffice/search"(platform: "/", isAbstract: true) {}
 
-    "/myml/invoices/backoffice/search/invoice"(platform: "/") {
-       search_filter(required: true, description: "Search filter used")
+    "/myml/invoices/backoffice/search/invoice"(platform: "/", type: TrackType.Event) {
+        searchType(required: true, type: PropertyType.String, description: "Invoice searched by")
+        searchValue(required: true, type: PropertyType.String, description: "Value inputed related searchType in Invoice Search")
     }
 
-    "/myml/invoices/backoffice/search/invoicesList"(platform: "/") {
-       search_filter(required: true, description: "Search filter used on massive invoices search")
+    "/myml/invoices/backoffice/search/reissueinvoice"(platform: "/", type: TrackType.Event) {
+        invoiceId(required: true, type: PropertyType.String, description: "Invoice Id")
+        orderIds(required: true, type: PropertyType.String, description: "Invoice order Ids")
+        userId(required: true, type: PropertyType.String, description: "Id of the invoice issuer")
+        reason(required: true, type: PropertyType.String, description: "Invoice reprocess reason")
+        detailedReason(required: false, type: PropertyType.String, description: "Detailed reason for invoice reprocessing")
     }
 
+    "/myml/invoices/backoffice/search/disableinvoice"(platform: "/", type: TrackType.Event) {
+        invoiceId(required: true, type: PropertyType.String, description: "Invoice Id")
+        userId(required: true, type: PropertyType.String, description: "Id of the invoice issuer")
+        reason(required: true, type: PropertyType.String, description: "Invoice disabling reason")
+        detailedReason(required: false, type: PropertyType.String, description: "Detailed reason for invoice disabling")
+    }
+
+    "/myml/invoices/backoffice/search/invoiceslist"(platform: "/", type: TrackType.Event) {
+        invoiceId(required: false, type: PropertyType.String, description: "Massive invoice search by id")
+        orderId(required: false, type: PropertyType.String, description: "Massive invoice search by order id")
+        status(required: false, type: PropertyType.String, description: "Massive invoice search by status id")
+        inboundId(required: false, type: PropertyType.String, description: "Massive invoice search by inbound id")
+        shipmentId(required: false, type: PropertyType.String, description: "Massive invoice search by shipment id")
+        shipmentLogisticType(required: false, type: PropertyType.String, description: "Massive invoice search by shipment logistic type")
+        offset(required: false, type: PropertyType.String, description: "Massive invoice search by offset")
+        limit(required: false, type: PropertyType.String, description: "Massive invoice search by limit")
+        invoiceCreationDateFrom(required: false, type: PropertyType.String, description: "Massive invoice search by invoice creation date from")
+        invoiceCreationDateTo(required: false, type: PropertyType.String, description: "Massive invoice search by invoice creation date to")
+        invoiceNumber(required: false, type: PropertyType.String, description: "Massive invoice search by invoice number")
+        invoiceNumberTo(required: false, type: PropertyType.String, description: "Massive invoice search by invoice number to")
+        invoiceNumberFrom(required: false, type: PropertyType.String, description: "Massive invoice search by invoice number from")
+        recipientCnpj(required: false, type: PropertyType.String, description: "Massive invoice search by recipient cnpj")
+        recipientCpf(required: false, type: PropertyType.String, description: "Massive invoice search by recipient cpf")
+        recipientName(required: false, type: PropertyType.String, description: "Massive invoice search by recipient name")
+        recipientUf(required: false, type: PropertyType.String, description: "Massive invoice search by recipient uf")
+        invoiceSerie(required: false, type: PropertyType.String, description: "Massive invoice search by invoice serie")
+        userId(required: false, type: PropertyType.String, description: "Massive invoice search by user id")
+        issuerCnpj(required: false, type: PropertyType.String, description: "Massive invoice search by issuer cnpj")
+        issuerUf(required: false, type: PropertyType.String, description: "Massive invoice search by issuer uf")
+        taxRuleId(required: false, type: PropertyType.String, description: "Massive invoice search by issuer tax rule id")
+        nickname(required: false, type: PropertyType.String, description: "Massive invoice search by nickname")
+        email(required: false, type: PropertyType.String, description: "Massive invoice search by email")
+        transactionType(required: false, type: PropertyType.String, description: "Massive invoice search by transaction type")
+        externalProductId(required: false, type: PropertyType.String, description: "Massive invoice search by external product id")
+    }
+
+    "/myml/invoices/backoffice/search/invoiceslist/export_csv"(platform: "/", type: TrackType.Event) {
+        seller_id(required: false, type: PropertyType.String, description: "Seller id used to generate csv")
+        status(required: false, type: PropertyType.String, description: "Invoice status used to generate csv")
+        environment(required: false, type: PropertyType.String, description: "Which environment was selected to generate csv")
+        external_order_id(required: false, type: PropertyType.String, description: "Order id used to generate csv")
+        series(required: false, type: PropertyType.String, description: "Invoice series used to generate csv")
+        invoice_number(required: false, type: PropertyType.String, description: "Invoice number used to generate csv")
+        issuer_cnpj(required: false, type: PropertyType.String, description: "Issuer cnpj used to generate csv")
+        shipment_logistic_type(required: false, type: PropertyType.String, description: "Logistic type used to generate csv")
+        shipment_fiscal_model(required: false, type: PropertyType.String, description: "Fiscal model used to generate csv")
+        recipient_cnpj(required: false, type: PropertyType.String, description: "Recipient cnpj used to generate csv")
+        invoice_creation_date_from(required: false, type: PropertyType.String, description: "Invoice creation date used to generate csv")
+        invoice_creation_date_to(required: false, type: PropertyType.String, description: "Invoice creation date to used to generate csv")
+        invoice_id(required: false, type: PropertyType.String, description: "Invoice id used to generate csv")
+        invoice_key(required: false, type: PropertyType.String, description: "Invoice key used to generate csv")
+        shipment_id(required: false, type: PropertyType.String, description: "Shipment id used to generate csv")
+        invoice_number_from(required: false, type: PropertyType.String, description: "Invoice number from used to generate csv")
+        invoice_number_to(required: false, type: PropertyType.String, description: "Invoice number to used to generate csv")
+        tax_rule_id(required: false, type: PropertyType.String, description: "Tax rule id used to generate csv")
+        transaction_type(required: false, type: PropertyType.String, description: "Transaction type used to generate csv")
+        external_product_id(required: false, type: PropertyType.String, description: "Item id used to generate csv")
+        issuer_address_state(required: false, type: PropertyType.String, description: "Issuer state address used to generate csv")
+        recipient_cpf(required: false, type: PropertyType.String, description: "Recipient cpf used to generate csv")
+        recipient_id(required: false, type: PropertyType.String, description: "Recipient id used to generate csv")
+        recipient_name(required: false, type: PropertyType.String, description: "Recipient name used to generate csv")
+        recipient_address_state(required: false, type: PropertyType.String, description: "Recipient state address used to generate csv")
+        with_items(required: false, type: PropertyType.String, description: "Should consider items to generate csv")
+        sort(required: false, type: PropertyType.String, description: "Sorting used to generate csv")
+        limit(required: false, type: PropertyType.String, description: "Limit of pages used to generate csv")
+        offset(required: false, type: PropertyType.String, description: "Offset used to generate csv")
+        transaction_status(required: false, type: PropertyType.String, description: "Invoice transaction status used to generate csv")
+    }
+
+    "/myml/invoices/backoffice/view"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/backoffice/view/invoiceslist"(platform: "/") {}
+
+
+    //Opt-in pages
+
+    "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}
+
+    "/myml/invoices/opt_in/difal"(platform: "/") {}
+
+    "/myml/invoices/opt_in/difal/button"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/difal/button/save"(platform: "/") {}
+
+    //:::: SELLER - INVOICES
+
+    "/myml/buy_it_again"(platform: "/mobile") {}
+
+    "/myml/account_security"(platform: "/mobile") {}
+
+    "/myml/activity"(platform: "/mobile") {}
+
+    "/myml/activity/list"(platform: "/mobile") {}
+
+    "/myml/bookmarks"(platform: "/mobile") {}
+
+    "/myml/bookmarks/list"(platform: "/mobile") {}
+
+    "/myml/portal_ayuda"(platform: "/mobile") {}
+
+    "/myml/myreputation"(platform: "/mobile") {}
+
+    "/myml/message"(platform: "/mobile") {}
+
+    "/myml/message/activity"(platform:"/mobile", type: TrackType.View) {}
+
+    "/myml/message/questions"(platform: "/mobile", type: TrackType.View) {}
+
+    "/myml/message/pack_detail"(platform:"/mobile", type: TrackType.View) {}
+
+    "/myml/message/attachments_uploader"(platform:"/mobile", type: TrackType.View) {}
+
+    "/myml/message/attachment_viewer"(platform:"/mobile/ios", type: TrackType.View) {}
+
+    //Fiscal Rules Page
+
+    "/myml/fiscal_rules"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/message"(platform: "/", type: TrackType.View){
+        code(required: true, type: PropertyType.Numeric, description: "Code of return message")
+    }
+
+    "/myml/fiscal_rules/listing"(platform: "/", type: TrackType.View) {
+        page(required: true, type: PropertyType.Numeric, description: "Current Page")
+        per_page(required: true, type: PropertyType.Numeric, description: "Amount per page")
+        selected(required: true, type: PropertyType.String, description: "Base64 of ids list")
+    }
+
+    "/myml/fiscal_rules/listing/button"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/listing/button/new_rules"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/listing/button/edit_rules"(platform: "/", type: TrackType.Event) {
+        ids(required: true, type: PropertyType.String, description: "Ids of list for update rules")
+    }
+
+    "/myml/fiscal_rules/listing/button/remove_rules"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Id for remove rules")
+    }
+
+    "/myml/fiscal_rules/listing/checkbox"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/listing/checkbox/header"(platform: "/", type: TrackType.Event) {
+        status(required: true, type: PropertyType.Boolean, description: "Status of checkbox on header")
+    }
+
+    "/myml/fiscal_rules/listing/checkbox/list"(platform: "/", type: TrackType.Event) {
+        status(required: true, type: PropertyType.Boolean, description: "Status of checkbox on list")
+        id(required: true, type: PropertyType.Numeric, description: "Id of rule")
+    }
+
+    "/myml/fiscal_rules/listing/modal"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/listing/modal/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/listing/modal/cancel"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/listing/pagination"(platform: "/", type: TrackType.Event) {
+        current_page(required: true, type: PropertyType.Numeric , description: "Current page")
+        next_page(required: true, type: PropertyType.Numeric , description: "Next page")
+        amount(required: true, type: PropertyType.Numeric , description: "Amount per page")
+    }
 }

@@ -56,8 +56,7 @@ tracks {
 
     "/login/auth/success"(platform: "/mobile", type: TrackType.Event) {
         challenge(type: PropertyType.String, required: true, description: "Login step")
-        is_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via a One Time Password")
-        is_admin_otp(type: PropertyType.Boolean, required: true, description: "Indicates if login was via an Admin One Time Password")
+        tracking_id(type: PropertyType.String, required: false, description: "Indicates the id to track the transaction")
     }
 
     "/login/auth/failure"(platform: "/web", type: TrackType.Event) {
@@ -385,4 +384,37 @@ tracks {
     }
 
     "/authenticators/device_authorization/enrollment/congrats"(platform: "/", type: TrackType.View) {}
+
+    // Phone Validation Authenticator
+    "/authenticators/phone_validation"(platform: "/", isAbstract: true) {
+        status(PropertyType.String, required: true, values: ["success", "failure", "pending_validation" ], description: "challenge status by response")
+        available_channels(PropertyType.ArrayList, required: true, description: "channels available to select")
+    }
+
+    "/authenticators/phone_validation/channel_selector"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/phone_validation/channel_selector/submit"(platform: "/", type: TrackType.Event) {
+        selected_channel(PropertyType.String, required: true, values: ["push", "sms", "call", "whatsapp" ], description: "channel selected by user")
+    }
+
+    "/authenticators/phone_validation/enter_code"(platform: "/", type: TrackType.View) {
+        selected_channel(PropertyType.String, required: true, values: ["push", "sms", "call", "whatsapp" ], description: "channel selected by user")
+    }
+
+    "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {}
+
+
+    // Biometrics / Screenlock
+    "/screenlock"(platform: "/mobile", isAbstract: true) {
+        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock"])
+    }
+
+    "/screenlock/validation_start"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/screenlock/validation_end"(platform: "/mobile", type: TrackType.Event) {
+        elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os validation flow")
+        result(type: PropertyType.String, required: true, values: ["success", "error"])
+        errors(type: PropertyType.ArrayList, required: false)
+    }
 }

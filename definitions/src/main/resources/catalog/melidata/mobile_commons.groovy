@@ -13,5 +13,6 @@ tracks {
         message(required: false, type: PropertyType.String , description: "Error message")
         attributable_to(required: true, type: PropertyType.String , description: "Responsable for error", values: ["mercadopago" , "merchant", "user"])
         extra_info(required: true, description: "Extra error info")
+        session_id(required: false, descriptiono: "Identifier of the user session")
     }
 }

@@ -433,13 +433,65 @@ trackTests {
 
     test("product_creator new other domain action should be tracked"){
         "/structure_data/product_creator/other_domain"(platform: "/", type: TrackType.Event){
-            bs_user_email ="jose.rosales@mercadolibre.com"
             score = 0.9913573265075684
             is_same_domain = true
             domain_id = "MLA-MOTORCYCLE_HELMETS"
             suggested_domain = "MOTORCYCLE_HELMETS"
             item_id = "MLA763560508"
             user_action = "OTHER_DOMAIN"
+            user_initials = "FKE"
+        }
+    }
+
+    test("product_creator taken action over item with product data should be tracked"){
+        "/structure_data/product_creator/taken-action-with-product-data"(platform: "/", type: TrackType.Event){
+            item_id = "MLA763560508"
+            user_action = "OTHER_DOMAIN"
+            user_initials = "FKE"
+        }
+    }
+    
+
+    test("product_creator ignore hints action should be tracked"){
+        "/structure_data/product_creator/ignored_hints"(platform: "/", type: TrackType.Event){
+            domain_id = "MLA-MOTORCYCLE_HELMETS"
+            hint_id = "SUGGEST_KNOWN"
+            attribute = "MATERIALS"
+            lang = "es"
+            suggested_value_id = "2262161"
+            suggested_value_name = "aluminio"
+            written_value = "alu"
+            final_value ="alumi"
+            user_initials = "FKE"
+        }
+    }
+
+    test("product_reviewer review should be tracked") {
+        "/structure_data/product_reviewer/review"(platform: "/", type: TrackType.Event) {
+            review_id = "MLM123456-414124-23233-43434"
+            review_version = 1
+            sheet_id = "MLM123456"
+            domain_id = "MLM-BACKPACKS"
+            publication_id = "MLM721126131"
+            review_status = "REJECTED"
+            action_tag = "NPP"
+            time = 4000        
+            sections_comments = '{ "action_source": 1, "association": 2, "attributes": 3 }'
+            errors_codes = '{ "E-ADS": 1, "E-COM": 2, "E-FOR": 3 }'
+            user_initials = "FKE"
+        }
+    }
+
+    test("product_modificator quality resports"){
+        "/structure_data/product_modificator/quality-reports"(platform: "/", type: TrackType.Event) {
+            domain_id = "MLA-CAMERAS"
+            parent_id = "22711"
+            product_id = "22711"
+            errors = ["ProductIdentifierInvalid"]
+            warnings = ["ParentsWithProductIdentifier", "ColorFormat"]
+            errors_quantity = 1
+            warning_quantity = 2
+            step = "PARENT"
         }
     }
 

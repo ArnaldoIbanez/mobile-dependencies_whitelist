@@ -102,6 +102,22 @@ trackTests {
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
+        "/recharge_sube/redirect_sube_app"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/show_terminals_information"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/show_terminals_congrats"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/show_terminals_ftu"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
     }
 
     defaultBusiness = "mercadolibre"
@@ -200,6 +216,22 @@ trackTests {
             from = "/deep_link"
             result_status = "rejected"
             status_detail = "call_for_auth"
+        }
+        "/recharge_sube/redirect_sube_app"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/show_terminals_information"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/show_terminals_congrats"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+        }
+        "/recharge_sube/show_terminals_ftu"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/recharge_sube"
+            from = "/deep_link"
         }
     }
 }

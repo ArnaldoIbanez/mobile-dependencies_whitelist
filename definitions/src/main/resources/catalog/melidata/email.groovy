@@ -13,11 +13,15 @@ tracks {
         email_id(required: false)
         subject(required: false)
         sent_date(required: false)
+        mailbox_provider(required: false, type: PropertyType.String, description: "Recipient mailbox provider, e.g. gmail.com, hotmail.com, etc")
+        email_client(required: false, type: PropertyType.String, description: "Recipient email client, e.g. Gmail Webmail, Gmail App, etc")
         provider(required: false,
                 values: ["ironport","sendgrid","sparkpost"],
                 type: PropertyType.String, description: "Email Service Provider which generated this track event")
         communication_id(required: false, type: PropertyType.String, description: "Email campaign id")
         communication_version(required: false, type: PropertyType.String, description: "Email campaign version")
+        segment_id(required: false, type: PropertyType.String, description: "Identifies a user segment within a communication (e.g. communication_id=remarketing, communication_version=1.0.0, segment_id=loyals")
+        experiment_id(required: false, type: PropertyType.String, description: "Identifies an experiment within a communication (e.g. communication_id=remarketing, communication_version=1.0.0, segment_id=loyals, experiment_id=layout1")
         provider_feedback(required: false, type: PropertyType.Boolean, description: "Used to identify events reported by the " +
                 "Email Service Provider (e.g. Sendgrid), in particular send and open, which might be reported by the provider " +
                 "and also by the emails-api")

@@ -3,7 +3,7 @@
     "nicolas.vespoli@mercadolibre.com"
   ],
   "process_name": "warranty_items",
-  "cron": "00 06 * * *",
+  "cron": "00 07 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE",

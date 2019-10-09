@@ -2,7 +2,8 @@
   "users": [
     "cx-portal@mercadolibre.com",
     "mateo.martin@mercadolibre.com",
-    "juan.laura@mercadolibre.com"
+    "juan.laura@mercadolibre.com",
+    "santiago.occhiuzzi@mercadolibre.com"
   ],
   "process_name": "portal-traffic-coverage",
   "cron": "00 06 * * *",
@@ -20,6 +21,10 @@
       },
       {
         "name": "content_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "content_type",
         "type": "UNICODE_STRING"
       },
       {

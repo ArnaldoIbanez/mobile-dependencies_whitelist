@@ -12,6 +12,10 @@ tracks {
     //-----------------
 
     // General Path
+    "/wallet"(platform: "/", type: TrackType.View) {} 
+    "/wallet/cards"(platform: "/", type: TrackType.View) {} 
+    "/wallet/cards/prepaid"(platform: "/", type: TrackType.View) {} 
+
     "/prepaid"(platform: "/", isAbstract: true) {
         user_profile(
             required: false,
@@ -56,6 +60,23 @@ tracks {
     // Acquisition Flow
     // MLA => https://www.mercadopago.com.ar/prepaid/acquisition
     // MLB => https://www.mercadopago.com.br/prepaid/acquisition
+
+    "/prepaid/acquisition/init_point"(platform: "/", type: TrackType.View) {
+        referral (required:true, type: PropertyType.String, description: "Where the flow start")
+        flow (required:true, type: PropertyType.String, description: "Flow type")
+        is_challenge (required:false, type: PropertyType.Boolean, description: "If it is challenge")
+        challenge_reason (required:false, type: PropertyType.String, description: "Why challenge has been thrown")
+        has_challenged_prepaid (required:false, type: PropertyType.Boolean, description: "If the challenge because of prepaid")
+        had_prepaid (required:false, type: PropertyType.Boolean, description: "User had a prepaid")
+        has_prepaid (required:false, type: PropertyType.Boolean, description: "User already has a prepaid")
+        had_money_last_7d (required:false, type: PropertyType.Boolean, description: "User had money last seven days")
+        is_point_seller (required:false, type: PropertyType.Boolean, description: "If user is a point seller")
+        bought_point_device (required:false, type: PropertyType.Boolean, description: "User bought a point device")
+        current_balance_amount (required:false, type: PropertyType.String, description: "Current balance amount")
+        needed_funding_amount (required:false, type: PropertyType.Numeric, description: "User needs fund money to continue")
+        has_money (required:false, type: PropertyType.Boolean, description: "User already has money")
+    }
+
     "/prepaid/acquisition/change_dni"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/confirmation_account"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/registration/congrats"(platform: "/", type: TrackType.View) {}
@@ -67,6 +88,8 @@ tracks {
     "/prepaid/acquisition/review"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/review/welcome"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/need_fund"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/dark_side_shield"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/dark_side_shield/cta"(platform:"/", type: TrackType.Event) {}
     "/prepaid/acquisition/congrats"(platform: "/", type: TrackType.View) {
         congrats_type(
             required: true, 
@@ -79,46 +102,80 @@ tracks {
         error_type(
             required: true, 
             type: PropertyType.String, 
-            values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
+            values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical", "limited", "operator"],
             description: "Types of error pages in acquisition flow."
         )
     }
-    "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) {
-        error_type(
+    "/prepaid/acquisition/cellphone"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding/slide"(platform: "/mobile", isAbstract: true) {}
+    "/prepaid/acquisition/onboarding/slide/first"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding/slide/second"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding/slide/third"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding/slide/fourth"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding/slide/fifth"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding/slide/exit"(platform:"/mobile", type: TrackType.Event) {
+        slide(
+                required: true,
+                type: PropertyType.Numeric,
+                description: "Slide number where ocurre the event"
+        )
+        cause(
                 required: true,
                 type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
+                values: ["close", "back"],
+                description: "The quit reason"
         )
     }
-    "/prepaid/acquisition/onboarding"(platform: "/mobile", type: TrackType.View) {
-        error_type(
-                required: true,
-                type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
-        )
+
+    "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) {} 
+
+    //Anses Flow
+    "/prepaid/acquisition/occupation"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/preview"(platform: "/mobile", type: TrackType.View) {}
+
+    // CNPJ MLB Flow
+    "/prepaid/acquisition/legal_representative" (platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/no_complies" (platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/welcome_company" (platform: "/", type: TrackType.View) {}
+
+    // Challenge Flow
+    "/prepaid/challenge"(platform: "/mobile", isAbstract: true) {}
+    "/prepaid/challenge/pending_ticket"(platform: "/mobile", type: TrackType.View) {
+        referral(required: false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/prepaid/acquisition/rootfaq"(platform: "/mobile", type: TrackType.View) {
-        error_type(
+    "/prepaid/challenge/delivery"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/money_in"(platform: "/mobile", isAbstract: true) {}
+    "/prepaid/challenge/money_in/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/onboarding/slide"(platform: "/mobile", isAbstract: true) {}
+    "/prepaid/challenge/onboarding/slide/first"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/onboarding/slide/second"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/onboarding/slide/third"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/onboarding/slide/fourth"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/onboarding/slide/fifth"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/onboarding/slide/exit"(platform:"/mobile", type: TrackType.Event) {
+        slide(
                 required: true,
-                type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
+                type: PropertyType.Numeric,
+                description: "Slide number where ocurre the event"
         )
-    }
-    "/prepaid/acquisition/detailfaq"(platform: "/mobile", type: TrackType.View) {
-        error_type(
+        cause(
                 required: true,
                 type: PropertyType.String,
-                values: ["main_error", "hasprepaid", "deceased", "underage", "mobile", "denied", "identification", "juridical"],
-                description: "Types of error pages in acquisition flow."
+                values: ["close", "back"],
+                description: "The quit reason"
         )
     }
 
     // Activation Flow
     // MLA => https://www.mercadopago.com.ar/prepaid/activation
     // MLB => https://www.mercadopago.com.br/prepaid/activation
+    "/prepaid/acquisition/has_prepaid"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/no_identity"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/is_collaborator"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/acquisition/limited"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/activation/last_digits"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/marital_status"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {}
@@ -137,7 +194,7 @@ tracks {
         status(
             required: true,
             type: PropertyType.String,
-            values: ["on_track", "delayed", "to_collect", "not_delivered"],
+            values: ["on_track", "delayed", "to_collect", "not_delivered", "soon_deliver"],
             description: "Shipment tracking status."
         )
     }
@@ -155,9 +212,51 @@ tracks {
         )
     }
 
+    "/prepaid/update_app" (platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/update_app/cta"(platform:"/mobile", type: TrackType.Event) {}
 
+    // Prepaid Detail
+    "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.View) {}
 
+    // Prepaid Freeze Event
+    "/wallet/cards/prepaid/detail/freeze" (platform: "/", type: TrackType.Event) {}
 
+    // Prepaid Unfreeze Event
+    "/wallet/cards/prepaid/detail/unfreeze" (platform: "/", type: TrackType.Event) {}
+
+    // Prepaid Change Pin
+    "/prepaid/change_pin" (platform: "/", isAbstract: true) {}
+
+    // Prepaid Change Pin Phone Info
+    "/prepaid/change_pin/phone_info" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Change Pin New Pin
+    "/prepaid/change_pin/new_pin" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Change Pin Congrats
+    "/prepaid/change_pin/congrats" (platform: "/", type: TrackType.View) {}
+    // Prepaid Reissue
+    "/prepaid/reissue" (platform: "/", isAbstract: true) {}
+
+    // Prepaid Reissue inactivate card
+    "/prepaid/reissue/inactivate_card" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid Change phone info
+    "/prepaid/reissue/phone_info" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid FAQ Root
+    "/prepaid/faq" (platform: "/", type: TrackType.View) {}
+
+    // Prepaid FAQ Details
+    "/prepaid/faq/detail" (platform: "/", type: TrackType.View) {}
+    "/prepaid/faq/detail/payment_rejected" (platform: "/", type: TrackType.View) {}
+    "/prepaid/faq/detail/extraction_rejected" (platform: "/", type: TrackType.View) {}
+
+    //Prepaid FAQ Details Events
+    "/prepaid/faq/detail/payment_rejected/money_in" (platform: "/", type: TrackType.Event) {}
+    "/prepaid/faq/detail/payment_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+    "/prepaid/faq/detail/extraction_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+    
     //-----------------
     // PREPAID MLM
     //-----------------

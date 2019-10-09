@@ -41,6 +41,8 @@ trackTests {
             communication_version = "0.0.1"
             provider = "sendgrid"
             provider_feedback = true
+            mailbox_provider = 'gmail.com'
+            email_client = 'Gmail Webmail'
         }
 
         def defaultTrackInformationSendgridEmailsApiFeedback = {
@@ -49,6 +51,8 @@ trackTests {
             communication_version = "0.0.1"
             provider = "sendgrid"
             provider_feedback = false
+            mailbox_provider = 'gmail.com'
+            email_client = 'Gmail Webmail'
         }
 
         def defaultTrackInformationIronportEmailsApiFeedback = {
@@ -57,6 +61,8 @@ trackTests {
             communication_version = "0.0.1"
             provider = "ironport"
             provider_feedback = false
+            mailbox_provider = 'gmail.com'
+            email_client = 'Gmail Webmail'
         }
 
         "/email/generic"(platform: "/email") {
@@ -169,5 +175,12 @@ trackTests {
             event_type = "click"
             click_link_id = "ITEM-1"
         }
+
+        "/email/generic"(platform: "/email") {
+            defaultTrackInformationSendgridProviderFeedback()
+            segment_id = "default"
+            experiment_id = "group1"
+        }
+
     }
 }

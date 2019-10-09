@@ -32,6 +32,19 @@ trackTests {
         }
     }
 
+    test("Quotation unregistered:: Show unregistered details tracking") {
+
+        "/quotation/details/unregistered"(platform: "/web") {
+            item_id = "MLM2222222"
+            seller_id = 123456789
+            category_id = "MLM170531"
+            vertical = "REAL_ESTATE"
+            error_type = ""
+            model_id = "102B"
+            unit_id = 23544349337
+        }
+    }
+
     test("Quotation :: Show select models tracking event") {
 
         "/quotation/details/show"(platform: "/web", type: TrackType.Event) {
@@ -39,6 +52,15 @@ trackTests {
             source = "primary"
         }
     }
+
+    test("Quotation :: Show select models unregistered tracking event") {
+
+        "/quotation/details/unregistered/show"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
+            source = "primary"
+        }
+    }
+
 
     test("Quotation :: Show select models tracking") {
 
@@ -91,6 +113,64 @@ trackTests {
         }
     }
 
+    test("Quotation :: Quote unregistered intention tracking") {
+
+        "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
+            source = "vip"
+        }
+
+        "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
+            source = "congrats"
+        }
+
+        "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
+            source = "vip_unregistered_form"
+        }
+    }
+
+
+    test("Quotation :: Edit info unregistered quotation tracking") {
+
+        "/quotation/unregistered/edit_info"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
+            source = "vip"
+        }
+    }
+
+    test("Quotation :: Close modal quotation tracking") {
+
+        "/quotation/modal/close"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLC12345"
+            source = "vip"
+        }
+    }
+
+    test("Quotation :: Show captcha unregistered form quotation tracking") {
+
+        "/quotation/unregistered_form/captcha"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
+            source = "vip_unregistered_form"
+        }
+    }
+
+    test("Quotation :: Action to show unregistered form quotation tracking") {
+
+        "/quotation/unregistered_form/show"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
+            source = "vip_unregistered_form"
+        }
+    }
+
+    test("Quotation :: Show unregistered form quotation tracking") {
+
+        "/quotation/unregistered_form"(platform: "/web", type: TrackType.Event) {
+            item_id = "MLM2222222"
+        }
+    }
+
     test("Quotation :: Quotation success tracking") {
 
         "/quotation/success"(platform: "/") {
@@ -117,6 +197,19 @@ trackTests {
         "/quotation/congrats"(platform: "/mobile") {
             item_id = "MLM2222222"
             unit_id = "54321"
+        }
+    }
+
+    test("Quotation :: Show unregistered congrats tracking") {
+
+        "/quotation/congrats/unregistered"(platform: "/web") {
+            item_id = "MLM2222222"
+            category_id = "MLM170531"
+            seller_id = 123456789
+            vertical = "REAL_ESTATE"
+            model_id = "102B"
+            unit_id = 54321
+            error_type = ""
         }
     }
 

@@ -15,8 +15,9 @@ tracks {
         item_id(required: false)
     }
     "/questions/ask"(platform: "/", isAbstract: true) {
-        context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/vip","/bookmarks","/questions","/notifications"])
+        context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/vip","/bookmarks","/questions","/notifications","/pdp", "/qadb"])
         item_id( required: true, description: "Item id in which we are performing the question")
+        catalog_product_id(required: false, description: "Id of the product", PropertyType.String)
     }
 
     "/questions/ask/post"(platform: "/", type: TrackType.Event) {

@@ -154,20 +154,6 @@ trackTests {
         }
     }
 
-    test("Traffic") {
-        "/traffic/inbound/matt"(platform: "/") {
-            tool = 123456
-            word = "campaignName"
-            go = "http://ofertas.mercadolibre.com.mx/hot-sale"
-        }
-    }
-
-    test("Traffic") {
-        "/traffic/inbound/matt"(platform: "/") {
-            tool = 123456
-            go = "http://ofertas.mercadolibre.com.mx/hot-sale"
-        }
-    }
 
     test("external tracking"){
 
@@ -438,6 +424,9 @@ trackTests {
                              id:111222,
                              nickname:"seller02"
                      ]]
+            paymentStatusDetail = "ACCREDITED"
+            congratsStatus = "APPROVED"
+            tokenGeneratedWithEsc = "NO"
         }
         "/checkout/congrats"(platform: "/web", type: TrackType.View) {
             //recommendations data
@@ -518,6 +507,9 @@ trackTests {
                              id:111222,
                              nickname:"seller02"
                      ]]
+            paymentStatusDetail = "ACCREDITED"
+            congratsStatus = "APPROVED"
+            tokenGeneratedWithEsc = "NO"
         }
     }
 
@@ -600,8 +592,6 @@ trackTests {
         }
     }
 
-
-
     test("MP-MA Landing QR") {
         "/merchant_acquisition/" (platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/qr" (platform: "/", type: TrackType.View) {}
@@ -611,6 +601,17 @@ trackTests {
         "/merchant_acquisition/qr/landing/buyers"(platform: "/web/mobile", type: TrackType.View){}
     }
 
+    test("Landing mercadolibre payers growth") {
+        "/payers_growth/landings" (platform: "/") {
+            product = "rola-buyers"
+        }
+        "/payers_growth/landings" (platform: "/") {
+            product = "rola-mkt"
+        }
+        "/payers_growth/landings" (platform: "/") {
+            product = "mgm"
+        }
+    }
 
     test("apparel") {
         "/home/category/apparel" (platform:"/", type: TrackType.View) {

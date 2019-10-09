@@ -14,13 +14,18 @@ tracks {
 
     // Onboarding
     "/asset_management/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/onboarding_bcra"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/onboarding"(platform: "/web", type: TrackType.View) {}
     "/asset_management/start_investing"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/legal_entity_continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/legal_entity_block"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/know_more"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/optin"(platform: "/mobile", type: TrackType.Event) {}
 
     // Blocking screen
     "/asset_management/blocker"(platform: "/web", type: TrackType.View) {}
     "/asset_management/blocker"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/legal_entity_selector"(platform: "/mobile", type: TrackType.View) {}
 
     // Challenges
     "/asset_management/challenge_pep"(platform: "/mobile", type: TrackType.View) {}
@@ -61,8 +66,10 @@ tracks {
     "/asset_management/result_stop_investing"(platform: "/web", type: TrackType.View) {}
 
     // Detail
-    "/asset_management/investment_detail"(platform: "/mobile", type: TrackType.View) {}
-    "/asset_management/investment_detail"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/investment_detail"(platform: "/", type: TrackType.View) {
+        empty_state_case (required: false, type: PropertyType.String, description: "The empty state case")
+        has_simulator (required: false, type: PropertyType.String, description: "if the simulator view is present")
+    }
 
     // Earnings report
     "/asset_management/investment_reports"(platform: "/web", type: TrackType.View) {}
@@ -78,6 +85,7 @@ tracks {
     "/asset_management/result_investing"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing"(platform: "/web", type: TrackType.View) {}
     "/asset_management/result_investing_company"(platform: "/mobile", isAbstract: true) {}
+    "/asset_management/result_unavailable"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/approved"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/pending"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_investing_company/rejected"(platform: "/mobile", type: TrackType.View) {}
@@ -109,14 +117,22 @@ tracks {
     // WebView events
     "/asset_management/url_external"(platform: "/mobile", type: TrackType.Event) {
         context (required: true, type: PropertyType.String, description: "The context where this event occurred")
-        url (required: true, type: PropertyType.String, description: "The external URL")
+        url (required: true, type: PropertyType.String, description: "The external webview URL")
+    }
+
+    // Browser events
+    "/asset_management/browser_external"(platform: "/mobile", type: TrackType.Event) {
+        context (required: true, type: PropertyType.String, description: "The context where this event occurred")
+        url (required: true, type: PropertyType.String, description: "The external browser URL")
     }
 
     // Splitter
     "/asset_management/splitter"(platform: "/mobile", type: TrackType.View) {}
 
     // Errors
-    "/asset_management/error"(platform: "/mobile", type: TrackType.Event) {}
+    "/asset_management/error"(platform: "/mobile", type: TrackType.Event) {
+        verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
+    }
     "/asset_management/network_error"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/stop_investing"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/stop_investing"(platform: "/web", type: TrackType.Event) {}
@@ -128,4 +144,5 @@ tracks {
         remedy_id (required: true, type: PropertyType.String, description: "The remedy that was resolved by IV")
         status (required: false, type: PropertyType.String, description: "On failure, this represents why the flow failed")
     }
+    "/asset_management/simulator_slide"(platform: "/mobile", type: TrackType.Event) {}
 }

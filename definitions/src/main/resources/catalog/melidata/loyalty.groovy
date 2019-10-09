@@ -11,6 +11,7 @@ tracks {
         level(type: PropertyType.Numeric, required: false)
         points(type: PropertyType.Numeric, required: false)
         percentage(type: PropertyType.Numeric, required: false)
+        origin(required: false, values: ["mail", "push", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where was the path flow initiated from.")
     }
 
     "/loyalty/score"(type: TrackType.View) {}
@@ -88,12 +89,10 @@ tracks {
     }
 
     "/loyalty/buylevel/landing"(platform: "/", type: TrackType.View) {
-        origin(required: false, values: ["marketplace", "loyalty_frontend", "push", "aerolineas"], description: "Where the user came from.")
     }
 
     "/loyalty/buylevel/checkout"(platform: "/", type: TrackType.Event) {
         action(required: true, values: ["started", "success", "success_orange", "rejected", "error"], description: "'started' when the CHO starts, success/success_orange/error is when the CHO finish")
-        origin(required: false, values: ["mail", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where was the checkout was initiated from.")
         item_id(required: false, description: "If flow starts from vip || new_vip")
     }
 
@@ -162,6 +161,17 @@ tracks {
         benefit_id(required: false, description: "Indicates the id of the benefit that corresponds to the modal")
         milestone_id(required: false, description: "Indicates the id of the milestone that corresponds to the modal")
     }
+    
+    // VIP Modal
+    "/loyalty/vip"(platform: "/", isAbstract: true, type: TrackType.View) {}
+    
+    "/loyalty/vip/modal"(platform: "/", type: TrackType.View) {
+        type(required: true, description: "Indicates what kind of modal was opened in VIP", values: ["buy_level", "free_trial"])
+    }
+
+    "/loyalty/vip/modal/action"(platform: "/", type: TrackType.Event) {
+        type(required: true, description: "Indicates the kind of action that was triggered within the modal", values: ["buy_level", "free_trial", "item", "close"])
+    }
 
     // Rewards
 
@@ -194,11 +204,11 @@ tracks {
     //  --------------------------------------------- Free-Trials ---------------------------------------------
 
     "/loyalty/freetrial/"(platform: "/", isAbstract: true) {
+        item_id(required: false, description: "If flow starts from vip || new_vip", type: PropertyType.String)
     }
 
     //  -----------------> Free Trial Landing
     "/loyalty/freetrial/landing"(platform: "/", type: TrackType.View) {
-        origin(required: false, values: ["marketplace", "loyalty_frontend", "push", "email"], description: "Where the user came from.")
     }
 
     //  -----------------> Contention Screen
@@ -325,6 +335,7 @@ tracks {
 
     "/loyalty/freetrial/payment/error"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         our_payment_error(required: true, description: "An error from our (with our endpoint) payment post, is not an error creating the payment")
+        item_id(required: false, description: "If flow starts from vip || new_vip", type: PropertyType.String)
     }
 
     "/loyalty/main/partners_landing"(platform: "/", type: TrackType.Event) {

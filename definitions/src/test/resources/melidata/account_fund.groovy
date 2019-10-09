@@ -25,6 +25,12 @@ trackTests {
             preset = "30"
         }
 
+        // Amount warning modal
+        "/account_fund/amount/warning"(platform: "/", type: TrackType.View) {}
+        "/account_fund/amount/warning/continue"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/amount/warning/transfer"(platform: "/", type: TrackType.Event) {}
+        "/account_fund/amount/warning/dismiss"(platform: "/", type: TrackType.Event) {}
+
         "/account_fund/agencies_map"(platform: "/", type: TrackType.View) {}
         "/account_fund/ftu"(platform: "/", type: TrackType.View) {}
         "/account_fund/unique_code"(platform: "/", type: TrackType.View) {}
@@ -56,6 +62,7 @@ trackTests {
         "/account_fund/cvu/result"(platform: "/", type: TrackType.View) {
             result_status = "approved"
         }
+        "/account_fund/cvu/pending"(platform: "/", type: TrackType.View) {}
 
         "/account_fund/cvu/edit_alias"(platform: "/", type: TrackType.View) {}
         "/account_fund/cvu/copy_alias"(platform: "/", type: TrackType.Event) {}

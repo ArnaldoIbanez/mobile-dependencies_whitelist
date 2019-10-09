@@ -98,7 +98,8 @@ trackTests {
                     "shipping_total":[
                             "amount":0,
                             "symbol":"\$"
-                    ]
+                    ],
+                    "shipping_promoted_amount": 0
             ]
         }
 
@@ -174,7 +175,7 @@ trackTests {
 
         "/cart/my_cart/close_change_notification"(platform: "/web", dataSetWithSummary)
 
-        "/cart/saved_for_later"(platform: "/web", dataSet)
+        "/cart/saved_for_later"(platform: "/web", dataSetWithSummary)
 
         "/cart/saved_for_later/open_change_notification"(platform: "/web", dataSet)
 
