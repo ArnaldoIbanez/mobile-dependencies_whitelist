@@ -353,11 +353,11 @@ metrics {
 				or(
 					and(
 						equals("path", "/buy_intention"),
-						equals("event_data.context", "vip"),
+						equals("event_data.context", "vip")
 					),
 					and(
 						equals("path", "/credits/consumer/opensea/integrated_flow/start"),
-						equals("event_data.source", "vip"),
+						equals("event_data.source", "vip")
 					)
 				)
 			}
