@@ -368,8 +368,8 @@ tracks {
         alternative_buying_option_info
     }
 
-    "/pdp/alternative_buying_options/buy_action" (platform: "/", parentPropertiesInherited: true){}
+    "/pdp/alternative_buying_options/buy_action" (platform: "/"){}
 
-    "/pdp/alternative_buying_options/add_to_cart_action" (platform: "/", parentPropertiesInherited: true){}
+    "/pdp/alternative_buying_options/add_to_cart_action" (platform: "/"){}
 
 }
