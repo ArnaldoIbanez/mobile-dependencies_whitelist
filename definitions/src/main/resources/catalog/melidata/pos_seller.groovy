@@ -79,10 +79,10 @@
         "/pos_seller/version_blacklist"(platform: "/mobile", type: TrackType.View) {
             update_later(required: true, type: PropertyType.Boolean, description: "If the update later button is shown")
             blacklist_receive_time(required: false, type: PropertyType.String, description: "Last dateTime version blacklist response received")
-            blacklist_point_status(required: true, type: PropertyType.String, description: "Point section blacklist status")
-            blacklist_qr_status(required: true, type: PropertyType.String, description: "QR section blacklist status")
-            blacklist_share_social_status(required: true, type: PropertyType.String, description: "Link section blacklist status")
-            blacklist_cash_status(required: true, type: PropertyType.String, description: "Cash section blacklist status")
+            blacklist_point_status(required: true, type: PropertyType.String, description: "Point section blacklist status", values: ["upToDate", "updateAvailable", "updateMandatory", "ACTIVE", "UPDATABLE", "INACTIVE"])
+            blacklist_qr_status(required: true, type: PropertyType.String, description: "QR section blacklist status", values: ["upToDate", "updateAvailable", "updateMandatory", "ACTIVE", "UPDATABLE", "INACTIVE"])
+            blacklist_share_social_status(required: true, type: PropertyType.String, description: "Link section blacklist status", values: ["upToDate", "updateAvailable", "updateMandatory", "ACTIVE", "UPDATABLE", "INACTIVE"])
+            blacklist_cash_status(required: true, type: PropertyType.String, description: "Cash section blacklist status", values: ["upToDate", "updateAvailable", "updateMandatory", "ACTIVE", "UPDATABLE", "INACTIVE"])
         }
 
         /**
