@@ -366,6 +366,7 @@ tracks {
 
     "/pdp/alternative_buying_options" (platform: "/", parentPropertiesInherited: false, isAbstract: true) {
         alternative_buying_option_info
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
     }
 
     "/pdp/alternative_buying_options/buy_action" (platform: "/"){}
