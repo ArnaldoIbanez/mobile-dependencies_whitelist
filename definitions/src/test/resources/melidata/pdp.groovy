@@ -359,13 +359,13 @@ trackTests {
         })
 
         "/pdp/alternative_buying_options/buy_action"(platform: "/", {
-            alternative_buying_option()
             catalog_product_id = "MLA1234"
+            alternative_buying_option()
         })
 
         "/pdp/alternative_buying_options/add_to_cart_action"(platform: "/", {
-            alternative_buying_option()
             catalog_product_id = "MLA1234"
+            alternative_buying_option()
         })
     }
 
