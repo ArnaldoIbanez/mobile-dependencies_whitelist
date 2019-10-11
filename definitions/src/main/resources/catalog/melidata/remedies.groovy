@@ -8,15 +8,19 @@ tracks {
     //Remedies
 
     "/remedies"(platform: "/", isAbstract: true) {}
-    
+
     "/remedies"(platform: "/mobile", isAbstract: true) {}
 
     "/remedies"(platform: "/web", isAbstract: true) {
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Map of key value elements to be tracked in web apps")
+        initiative(required: false, type: PropertyType.String, description: "Users initiative")
+        kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
+        flow(required: false, type: PropertyType.String, description: "Remedies flow")
     }
 
     "/remedies/activity"(platform: "/", isAbstract: true) {
-        track_info(required: false, type: PropertyType.Map(track_info_definition), description: "Map of key value elements to be tracked in mobile apps")
+        initiative(required: false, type: PropertyType.String, description: "Users initiative")
+        kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
+        flow(required: false, type: PropertyType.String, description: "Remedies flow")
     }
 
     "/remedies/center"(platform: "/", isAbstract: true) {}
@@ -103,12 +107,6 @@ tracks {
         right_eye(type: PropertyType.Numeric, required: false, description: "right eye probability")
         smile(type: PropertyType.Numeric, required: false, description: "simle probability ")
         rotation(type: PropertyType.Numeric, required: false, description: "rotation probability")
-    }
-
-     def track_info_definition = objectSchemaDefinitions {
-        initiative(required: false, type: PropertyType.String, description: "Users initiative")
-        kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
-        flow(required: false, type: PropertyType.String, description: "Remedies flow")
     }
 
     "/remedies/proof_of_life_gesture"(platform: "/mobile", type: TrackType.Event) {
