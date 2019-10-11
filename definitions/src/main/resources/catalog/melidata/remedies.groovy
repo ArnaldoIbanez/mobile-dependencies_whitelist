@@ -7,6 +7,8 @@ tracks {
 
     //Remedies
 
+    "/remedies"(platform: "/", isAbstract: true) {}
+    
     "/remedies"(platform: "/mobile", isAbstract: true) {}
 
     "/remedies"(platform: "/web", isAbstract: true) {
