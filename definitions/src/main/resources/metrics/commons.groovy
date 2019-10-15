@@ -210,6 +210,22 @@ metrics {
 		}
 	}
 
+	"garex_mlm"(description: "Garex MLM", sum_by: ["event_data.total_amount_including_garex"]) {
+		startWith {
+			experiment("buyingflow/garex_mlm")
+		}
+
+		countsOn {
+			condition {
+				and(
+						equals("event_data.congrats_seq",1),
+						empty("event_data.total_amount_including_garex", false),
+						equals("event_data.item_with_garex", true)
+				)
+			}
+		}
+	}
+
 	"credits_merchant_enrollment_standard_simulator_redesign"(description: "Credits Merchant enrollment new design A/B testing for standard users") {
 		startWith {
 			experiment("credits/simulator")
