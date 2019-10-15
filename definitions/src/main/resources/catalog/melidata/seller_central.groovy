@@ -787,4 +787,35 @@ tracks {
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
     }
 
+    // ADD NEW PATHS FOR SELLER PROMOTIONS FORM
+    // To be compatible with the actuals paths.
+    "/seller_central/promotions/list"(platform: "/web", type: TrackType.View) {
+        original_promotion(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original promotion data")
+        context(required: false, type: PropertyType.String, description: "Context of the user")
+    }
+
+    "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller")
+        promotion(required: false, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
+        promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+    }
+
+    "/seller_central/promotions/list/update"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller")
+        promotion(required: false, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
+        promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+    }
+
+    "/seller_central/promotions/list/error"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller")
+        promotion(required: false, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
+        promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+        error(required: false, type: PropertyType.String, description: "Error saving the promotion")
+    }
+
+    "/seller_central/promotions/list/actions"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller")
+        context(required: false, type: PropertyType.String, description: "Context of the user")
+    }
+
 }
