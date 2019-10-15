@@ -128,6 +128,7 @@ trackTests {
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
+            user_profile_type="BUYER"
         }
 
         "/search"(platform: "/web"){
@@ -221,6 +222,7 @@ trackTests {
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
+            user_profile_type="BUYER"
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -443,6 +445,7 @@ trackTests {
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
+            user_profile_type="BUYER"
         }
     }
 
