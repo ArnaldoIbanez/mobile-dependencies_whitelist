@@ -99,8 +99,8 @@ trackTests {
         }
 
         "/remedies/activity/check_step"(platform: "/mobile/android") {
-            initiative = 'asset',
-            kyc_flow_id = "123abcd",
+            initiative = 'asset'
+            kyc_flow_id = "123abcd"
             flow = "asset_management"
         }
         "/remedies/activity/landing"(platform: "/mobile/android") {}
