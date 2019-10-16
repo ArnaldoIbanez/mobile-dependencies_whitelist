@@ -788,9 +788,6 @@ tracks {
         purchase_id(required: false, type: PropertyType.Numeric, description: "Id of the purchase")
         buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
         loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
-        tokenGeneratedWithEsc(required: true, type: PropertyType.String, values: ["YES", "NO"])
-        congratsStatus(required: true, type: PropertyType.String, values: ["APPROVED", "REJECTED", "IN_PROCESS", "PENDING", "CANCELLED", "AUTHORIZED", "REFUNDED", "ERROR_NON_RECOVERABLE_BI", "ERROR_RECOVERABLE_BI"])
-        paymentStatusDetail(required: true, type: PropertyType.String, values: ["ACCREDITED", "CC_REJECTED_BLACKLIST", "CC_REJECTED_HIGH_RISK", "CC_REJECTED_INSUFFICIENT_AMOUNT", "CC_REJECTED_INVALID_INSTALLMENTS", "CC_REJECTED_OTHER_REASON", "CC_REJECTED_MAX_ATTEMPTS", "CC_REJECTED_BAD_FILLED_CARD_NUMBER", "CC_REJECTED_BAD_FILLED_OTHER", "CC_REJECTED_BAD_FILLED_DATE", "CC_REJECTED_BAD_FILLED_SECURITY_CODE", "CC_REJECTED_CALL_FOR_AUTHORIZE", "CC_REJECTED_CARD_DISABLED", "DEFAULT", "ACCORD", "PENDING_CONTINGENCY", "PENDING_REVIEW_MANUAL", "PENDING_CHALLENGE", "CC_REJECTED_FRAUD", "CC_REJECTED_DUPLICATED_PAYMENT", "CC_REJECTED_BAD_FILLED_INVALID_DATE", "ACCOUNT_REJECTED_HIGH_RISK", "REJECTED_BY_REGULATIONS", "REJECTED_INSUFFICIENT_DATA", "REJECTED_BY_BANK", "ERROR_BI_WITHOUT_CNPJ", "ERROR_BI_DIFFERENT_IE", "ERROR_BI_CNPJ_NON_OPERATIONAL", "ERROR_BI_IE_INVALID_STATE", "PHONE_VERIFICATION"])
     }
 
     "/checkout/congrats/recommendations"(platform: "/", type: TrackType.View) {}
@@ -1071,6 +1068,12 @@ tracks {
     "/checkout/shipping/store_selection"(platform:"/", type: TrackType.View) {}
 
     "/checkout/shipping/agencies_contact_info"(platform:"/", type: TrackType.View) {}
+
+     "/checkout/congrats"(platform: "/web") {
+        token_generated_with_esc(required: true, type: PropertyType.String, values: ["YES", "NO"])
+        congrats_status(required: true, type: PropertyType.String, values: ["APPROVED", "REJECTED", "IN_PROCESS", "PENDING", "CANCELLED", "AUTHORIZED", "REFUNDED", "ERROR_NON_RECOVERABLE_BI", "ERROR_RECOVERABLE_BI"])
+        payment_status_detail(required: true, type: PropertyType.String, values: ["ACCREDITED", "CC_REJECTED_BLACKLIST", "CC_REJECTED_HIGH_RISK", "CC_REJECTED_INSUFFICIENT_AMOUNT", "CC_REJECTED_INVALID_INSTALLMENTS", "CC_REJECTED_OTHER_REASON", "CC_REJECTED_MAX_ATTEMPTS", "CC_REJECTED_BAD_FILLED_CARD_NUMBER", "CC_REJECTED_BAD_FILLED_OTHER", "CC_REJECTED_BAD_FILLED_DATE", "CC_REJECTED_BAD_FILLED_SECURITY_CODE", "CC_REJECTED_CALL_FOR_AUTHORIZE", "CC_REJECTED_CARD_DISABLED", "DEFAULT", "ACCORD", "PENDING_CONTINGENCY", "PENDING_REVIEW_MANUAL", "PENDING_CHALLENGE", "CC_REJECTED_FRAUD", "CC_REJECTED_DUPLICATED_PAYMENT", "CC_REJECTED_BAD_FILLED_INVALID_DATE", "ACCOUNT_REJECTED_HIGH_RISK", "REJECTED_BY_REGULATIONS", "REJECTED_INSUFFICIENT_DATA", "REJECTED_BY_BANK", "ERROR_BI_WITHOUT_CNPJ", "ERROR_BI_DIFFERENT_IE", "ERROR_BI_CNPJ_NON_OPERATIONAL", "ERROR_BI_IE_INVALID_STATE", "PHONE_VERIFICATION"])
+    }
 
     // Suscripciones
     "/checkout/review/edit_frequency"(platform:"/", type: TrackType.Event) {
