@@ -177,26 +177,10 @@ metrics {
 			}
 		}
 	}
-	
-	"garex_mla"(description: "Garex MLA", sum_by: ["event_data.total_amount_including_garex"]) {
-		startWith {
-			experiment("buyingflow/garex_mla")
-		}
 
-		countsOn {
-			condition {
-				and(
-					equals("event_data.congrats_seq",1),
-					empty("event_data.total_amount_including_garex", false),
-					equals("event_data.item_with_garex", true)
-				)
-			}
-		}
-	}
-
-	"garex_mlb"(description: "Garex MLB", sum_by: ["event_data.total_amount_including_garex"]) {
+	"checkout_congrats_with_garex"(description: "orders_with_garex", sum_by: ["event_data.total_amount_including_garex"]) {
 		startWith {
-			experiment("buyingflow/garex_mlb")
+			experiment("buyingflow/garex_mlm")
 		}
 
 		countsOn {
