@@ -16,12 +16,17 @@ trackTests {
 
     test("Cart Checkout") {
 
+        def dataSetCongratsWeb = {
+            status = "payment_required"
+            purchase_id = "MLA98792837983"
+            payment_status_detail = "ACCREDITED"
+            congrats_status = "APPROVED"
+            token_generated_with_esc = "NO"
+        }
+
         def dataSetCongrats = {
             status = "payment_required"
             purchase_id = "MLA98792837983"
-            paymentStatusDetail = "ACCREDITED"
-            congratsStatus = "APPROVED"
-            tokenGeneratedWithEsc = "NO"
         }
 
         def dataSet = {
@@ -184,9 +189,9 @@ trackTests {
             session_id = "98f8v98au0af9af0af"
             status = "success"
         }
-        "/cart/checkout/congrats"(platform: "/") {
+        "/cart/checkout/congrats"(platform: "/web") {
             dataSet()
-            dataSetCongrats()
+            dataSetCongratsWeb()
         }
         "/cart/checkout/congrats"(platform: "/mobile") {
             dataSet()
@@ -233,6 +238,7 @@ trackTests {
             dataSet()
             dataSetCongrats()
         }
+        
         "/cart/checkout/show_ticket"(platform: "/", dataSet)
         "/cart/checkout/finish/invalid_sec_code/input_code"(platform: "/", dataSet)
         "/cart/checkout/finish/call_for_auth/instructions"(platform: "/", dataSet)

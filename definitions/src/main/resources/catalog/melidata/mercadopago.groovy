@@ -858,6 +858,17 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    //MGM Navigation (Android Drawer or iOS Settings)
+    def realestate = objectSchemaDefinitions {
+        realestate_id(type: PropertyType.String, required: true, description: "The container where we show contents")
+        content_id(type: PropertyType.String, required: true, description: "The identification of shown content")
+        origin(type: PropertyType.String, required: false, description: "The application that returns the content")
+    }
+
+    "/mgm/navigation"(platform: "/mobile", type: TrackType.Event) {
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate information")
+    }
+
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
