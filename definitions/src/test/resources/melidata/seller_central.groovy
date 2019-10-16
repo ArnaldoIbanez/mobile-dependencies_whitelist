@@ -1255,7 +1255,7 @@ trackTests {
         list_price: 1000,
         error_price: null,
         error_prime: null,
-        input_pice: "500",
+        input_price: "500",
         input_prime_price: "400",
         type: "always_on",
       ]
@@ -1365,7 +1365,7 @@ trackTests {
               list_price: 1000,
               error_price: null,
               error_prime: null,
-              input_pice: "500",
+              input_price: "500",
               input_prime_price: "400",
               type: "always_on",
       ]
@@ -1385,7 +1385,7 @@ trackTests {
               list_price: 1000,
               error_price: null,
               error_prime: null,
-              input_pice: "500",
+              input_price: "500",
               input_prime_price: "400",
               type: "always_on",
       ]
@@ -1405,7 +1405,7 @@ trackTests {
               list_price: 1000,
               error_price: null,
               error_prime: null,
-              input_pice: "500",
+              input_price: "500",
               input_prime_price: "400",
               type: "always_on",
       ]
