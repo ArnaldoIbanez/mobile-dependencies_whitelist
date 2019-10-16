@@ -19,7 +19,7 @@ tracks {
     }
 
     //SEARCH FLOW
-
+    
     "/search"(platform: "/") {
         query(required: false, description: "the words used to make a search", type: PropertyType.String)
         limit(required: true, description: "the max number of items returned", type: PropertyType.Numeric)
@@ -59,7 +59,6 @@ tracks {
         //corrections(required: false, description:'corrections over query')
         //processed_query(required: false, description:'processed query by backend')
         //stems(required: false, description:'stems list which returns backend to stand out in frontend'
-
     }
 
     "/search"(platform: "/web") {
