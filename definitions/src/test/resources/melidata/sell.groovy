@@ -184,7 +184,7 @@ trackTests {
 
         "/sell/list/congrats"(platform: "/web/desktop", {
             itemData
-            predictor_chosen = "ZORDON"
+            chosen_categorization_model = "ZORDON"
         })
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
 
@@ -724,7 +724,7 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             categorization_flow_successful = true
-            predictor_chosen = "ZORDON"
+            chosen_categorization_model = "ZORDON"
             title_predicted = "test"
         }
     }
@@ -1246,7 +1246,7 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             categorization_flow_successful = true
-            predictor_chosen = "ZORDON"
+            chosen_categorization_model = "ZORDON"
             title_predicted = "test"
         }
     }
@@ -1257,7 +1257,7 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             categorization_flow_successful = true
-            predictor_chosen = "ZORDON"
+            chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             item_type = "default"
             seller_reputation = "green"
