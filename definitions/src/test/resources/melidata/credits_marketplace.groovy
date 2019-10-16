@@ -642,6 +642,7 @@ trackTests {
          *    Start: Consumers Opensea Integrations
          ******************************************/
 
+        "/credits/consumer/opensea/redirect"(platform: "/mobile", type: TrackType.View) {}
         "/credits/consumer/opensea/integrated_flow/vip"(platform: "/web/desktop", type: TrackType.Event) {}
 
         /******************************************
