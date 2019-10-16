@@ -5,17 +5,44 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    def category_prediction_map = objectSchemaDefinitions {
+        path(type: PropertyType.ArrayList(PropertyType.String), required: true, description: "Category path")
+        score(type: PropertyType.Numeric, required: true, description: "Score of the prediction")
+    }
+    def attribute_prediction_map = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "Attribute id")
+        value_id(type: PropertyType.String, required: true, description: "Attribute selected value")
+    }
+    def predictions_map = objectSchemaDefinitions {
+        categories(type: PropertyType.ArrayList(PropertyType.Map(category_prediction_map)), required: false, description: "Array of predictions of categories")
+        attributes(type: PropertyType.ArrayList(PropertyType.Map(attribute_prediction_map)), required: false, description: "Array of predictions of attributes")
+    }
+    def attributes_values_map = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "Attribute id")
+        value_id(type: PropertyType.String, required: false, description: "Attribute selected value")
+        value_name(type: PropertyType.String, required: false, description: "Attribute custom value")
+    }
+
     propertyDefinitions {
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
-        category_path(required: false, type: PropertyType.ArrayList, description: "Item's category tree")
+        domain_id(required: false, type: PropertyType.String, description: "Item's category domain id")
+        attribute_id(required: false, type: PropertyType.String, description: "Attribute being selected")
+        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Item's category tree")
         seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
         seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
+        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
+        predictor_chosen(required: true, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT"], type: PropertyType.String)
+        category_prediction_selected_index(required: false, description: "Index selected in Multiples Suggestions", PropertyType.Numeric)
+        attribute_values(required: false, description: "Array of attributes in categorization", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+        title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
+        predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
     }
 
     propertyGroups {
         sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation)
+        categoryFlow(domain_id, attribute_id, categorization_flow_successful, predictor_chosen, category_prediction_selected_index, attribute_values, title_predicted, predictions)
     }
 
     // Sell
@@ -272,7 +299,6 @@ tracks {
     "/sell/list/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
         session_id(required: true, description: "Session Id of the list flow, that dies when the flow ends", type: PropertyType.String)
         category_domain(required: false, description: "Category Domain", type: PropertyType.String)
-        category_id(required: true, description: "Category Id", type: PropertyType.String)
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
         category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
@@ -372,13 +398,11 @@ tracks {
     }
     "/sell/list/sale_condition"(platform: "/", type: TrackType.View){}
     "/sell/list/item_description/title_prediction"(platform: "/", type: TrackType.View){
-        category_id(required: true, description: "Category id", type: PropertyType.String)
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
         attributes(required: true, description: "Attributes", type: PropertyType.ArrayList)
     }
 
     "/sell/list/item_description/final_attributes"(platform: "/", type: TrackType.View){
-        category_id(required: true, description: "Category id", type: PropertyType.String)
         domain_id(required: true, description: "Domain id", type: PropertyType.String)
         attributes(required: true, description: "Attributes", type: PropertyType.ArrayList)
     }
@@ -484,10 +508,7 @@ tracks {
     "/sell/update/color_selection_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
         session_id(required: true, description: "Session Id of the update flow, that dies when the flow ends", type: PropertyType.String)
-        category_domain(required: false, description: "Category Domain", type: PropertyType.String)
-        category_id(required: true, description: "Category Id", type: PropertyType.String)
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
-        category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
     "/sell/update/condition"(platform: "/", type: TrackType.View) {}
     "/sell/update/condition_review"(platform: "/", type: TrackType.View) {}
@@ -680,7 +701,8 @@ tracks {
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
-        confirm_category_detail(required: true, description: "Confirmation value of product detail", values:["not_present", "false", "true"], type: PropertyType.String)
+        sellGroup
+        categoryFlow
     }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/product_bullet_resume"(platform: "/web", isAbstract: true) {}
@@ -729,6 +751,17 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Suggestion type", values: ["suggested", "dynamic", "other"])
         container(required: true, description: "Id or name of the container (card, modal, other) where you are", type: PropertyType.String)
     }
+    "/sell/item_data/category_breadcrumb"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        categoryFlow
+        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
+    }
+    "/sell/item_data/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        categoryFlow
+        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
+    }
 
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
         sellGroup
@@ -776,20 +809,10 @@ tracks {
     "/sell/item_conditions/invoice/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/invoice/confirm"(platform: "/web", type: TrackType.Event) {}
 
-
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_id(required: false, type: PropertyType.String)
-        category_prediction(required: true, description: "Category prediction path result", type: PropertyType.ArrayList)
-        category_prediction_score(required: true, description: "Category prediction scores result", type: PropertyType.ArrayList)
-        category_prediction_zordon(required: true, description: "Category prediction path result from zordon", type: PropertyType.ArrayList)
-        category_prediction_zordon_score(required: true, description: "Category prediction scores result from zordon", type: PropertyType.ArrayList)
-        predictor_chosen(required: true, description: "Which predictor we used to predict category", values:["ZORDON", "DEFAULT"], type: PropertyType.String)
-        title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
-        attributes_values_predicted(required: false, description: "Attributes values that we predict by matchers", type: PropertyType.ArrayList)
-        attributes_ids_predicted(required: false, description: "Attributes ids that we predict by matchers", type: PropertyType.ArrayList)
-        attributes_selected_in_tree(required: false, description: "Attributes values selected by user", type: PropertyType.ArrayList)
-        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {

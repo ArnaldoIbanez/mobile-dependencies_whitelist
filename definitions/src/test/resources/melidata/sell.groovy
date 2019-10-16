@@ -50,7 +50,6 @@ trackTests {
     test("item_description step with attributes predicted"){
         "/sell/list/item_description/title_prediction"(platform: "/", type: TrackType.Event){
             session_id = "11111"
-            category_id = "MLA123"
             domain_id = "MLA-CAMERAS"
             attributes = [
                     [
@@ -63,7 +62,6 @@ trackTests {
     test("item_description step with attributes"){
         "/sell/list/item_description/final_attributes"(platform: "/", type: TrackType.Event){
             session_id = "11111"
-            category_id = "MLA123"
             domain_id = "MLA-CAMERAS"
             attributes = [
                     [
@@ -442,11 +440,8 @@ trackTests {
     test("Custom color name changed - Update"){
         "/sell/update/color_selection/custom_color"(platform: "/web"){
             session_id = "290061169-update-32b1d9b3eae8"
-            category_domain = "MLA-GLOVES"
-            category_id = "MLA61216"
             is_custom_name = true
             item_id = "MLA12345"
-            category_path = ["MLA12345", "MLA61216"]
         }
     }
 
@@ -454,7 +449,6 @@ trackTests {
         "/sell/list/color_selection/custom_color"(platform: "/web"){
             session_id = "290061169-list-32b1d9b3eae8"
             category_domain = "MLA-GLOVES"
-            category_id = "MLA61216"
             is_custom_name = true
             category_path = ["MLA12345", "MLA61216"]
         }
@@ -677,7 +671,6 @@ trackTests {
     }
     test("SYI v4 hub vertical selection"){
         "/sell/hub/select_vertical"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -688,7 +681,6 @@ trackTests {
     }
     test("SYI v4 render item_data"){
         "/sell/item_data"(platform: "/web", type: TrackType.View){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -698,7 +690,6 @@ trackTests {
     }
     test("SYI v4 title card showed"){
         "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -708,7 +699,6 @@ trackTests {
     }
     test("SYI v4 title card confirmed"){
         "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -718,7 +708,6 @@ trackTests {
     }
     test("SYI v4 category card showed"){
         "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -733,13 +722,14 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             item_type = "default"
-            confirm_category_detail = "true"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            predictor_chosen = "ZORDON"
+            title_predicted = "test"
         }
     }
     test("SYI v4 wrong category"){
         "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -800,7 +790,6 @@ trackTests {
     }
     test("SYI v4 consequences modal showed"){
         "/sell/item_data/consequences_modal/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -810,7 +799,6 @@ trackTests {
     }
     test("SYI v4 consequences modal confirmed"){
         "/sell/item_data/consequences_modal/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -820,7 +808,6 @@ trackTests {
     }
     test("SYI v4 pks card showed"){
         "/sell/item_data/pks/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -830,7 +817,6 @@ trackTests {
     }
     test("SYI v4 pks card confirmed"){
         "/sell/item_data/pks/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -840,7 +826,6 @@ trackTests {
     }
     test("SYI v4 item condition card showed"){
         "/sell/item_data/item_condition/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -850,7 +835,6 @@ trackTests {
     }
     test("SYI v4 item condition card confirmed"){
         "/sell/item_data/item_condition/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -860,7 +844,6 @@ trackTests {
     }
     test("SYI v4 main variation card showed"){
         "/sell/item_data/main_variation/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -870,7 +853,6 @@ trackTests {
     }
     test("SYI v4 main variation card confirmed"){
         "/sell/item_data/main_variation/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -880,7 +862,6 @@ trackTests {
     }
     test("SYI v4 item variations card showed"){
         "/sell/item_data/variations/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -890,7 +871,6 @@ trackTests {
     }
     test("SYI v4 item variations card confirmed"){
         "/sell/item_data/variations/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -900,7 +880,6 @@ trackTests {
     }
     test("SYI v4 specifications card showed"){
         "/sell/item_data/specifications/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -910,7 +889,6 @@ trackTests {
     }
     test("SYI v4 specifications card confirmed"){
         "/sell/item_data/specifications/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -920,7 +898,6 @@ trackTests {
     }
     test("SYI v4 technical specifications card showed"){
         "/sell/item_data/technical_specifications/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -930,7 +907,6 @@ trackTests {
     }
     test("SYI v4 technical specifications card confirmed"){
         "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -940,7 +916,6 @@ trackTests {
     }
     test("SYI v4 set multivalue input"){
         "/sell/item_data/multivalue"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -956,7 +931,6 @@ trackTests {
     }
     test("SYI v4 set autocomplete input"){
         "/sell/item_data/autocomplete"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -971,7 +945,6 @@ trackTests {
     }
     test("SYI v4 render item_conditions"){
         "/sell/item_conditions"(platform: "/web", type: TrackType.View){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -981,7 +954,6 @@ trackTests {
     }
     test("SYI v4 price and currency card showed"){
         "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -991,7 +963,6 @@ trackTests {
     }
     test("SYI v4 price and currency card confirmed"){
         "/sell/item_conditions/price_and_currency/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1001,7 +972,6 @@ trackTests {
     }
     test("SYI v4 listing types card showed"){
         "/sell/item_conditions/listing_types/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1012,7 +982,6 @@ trackTests {
     }
     test("SYI v4 listing types card confirmed"){
         "/sell/item_conditions/listing_types/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1022,7 +991,6 @@ trackTests {
     }
     test("SYI v4 free shipping card showed"){
         "/sell/item_conditions/free_shipping/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1032,7 +1000,6 @@ trackTests {
     }
     test("SYI v4 free shipping card confirmed"){
         "/sell/item_conditions/free_shipping/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1042,7 +1009,6 @@ trackTests {
     }
     test("SYI v4 consequences modal showed"){
         "/sell/item_conditions/consequences_modal/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1052,7 +1018,6 @@ trackTests {
     }
     test("SYI v4 consequences modal confirmed"){
         "/sell/item_conditions/consequences_modal/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1062,7 +1027,6 @@ trackTests {
     }
     test("SYI v4 calculator showed"){
         "/sell/item_conditions/calculator/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1072,7 +1036,6 @@ trackTests {
     }
     test("SYI v4 calculator hide"){
         "/sell/item_conditions/calculator/hide"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1082,7 +1045,6 @@ trackTests {
     }
     test("SYI v4 shipping card showed"){
         "/sell/item_conditions/shipping/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1092,7 +1054,6 @@ trackTests {
     }
     test("SYI v4 shipping card confirmed"){
         "/sell/item_conditions/shipping/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1102,7 +1063,6 @@ trackTests {
     }
     test("SYI v4 localpickup card showed"){
         "/sell/item_conditions/localpickup/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1112,7 +1072,6 @@ trackTests {
     }
     test("SYI v4 localpickup card confirmed"){
         "/sell/item_conditions/localpickup/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1122,7 +1081,6 @@ trackTests {
     }
     test("SYI v4 payment_methods card showed"){
         "/sell/item_conditions/payment_methods/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1132,7 +1090,6 @@ trackTests {
     }
     test("SYI v4 payment_methods card confirmed"){
         "/sell/item_conditions/payment_methods/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1142,7 +1099,6 @@ trackTests {
     }
     test("SYI v4 warranty card showed"){
         "/sell/item_conditions/warranty/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1152,7 +1108,6 @@ trackTests {
     }
     test("SYI v4 warranty card confirmed"){
         "/sell/item_conditions/warranty/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1162,7 +1117,6 @@ trackTests {
     }
     test("SYI v4 manufacturing time card showed"){
         "/sell/item_conditions/manufacturing_time/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1172,7 +1126,6 @@ trackTests {
     }
     test("SYI v4 manufacturing time card confirmed"){
         "/sell/item_conditions/manufacturing_time/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1182,7 +1135,6 @@ trackTests {
     }
     test("SYI v4 description card showed"){
         "/sell/item_conditions/description/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1192,7 +1144,6 @@ trackTests {
     }
     test("SYI v4 description card confirmed"){
         "/sell/item_conditions/description/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1202,7 +1153,6 @@ trackTests {
     }
     test("SYI v4 video card showed"){
         "/sell/item_conditions/video/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1212,7 +1162,6 @@ trackTests {
     }
     test("SYI v4 video card confirmed"){
         "/sell/item_conditions/video/confirm"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1242,24 +1191,16 @@ trackTests {
     }
     test("SYI v4 render congrats"){
         "/sell/congrats"(platform: "/web", type: TrackType.View){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             item_id = "MLA123456789"
-            category_prediction_zordon_score = ["0.6287946105", "0.6287946105", "0.6287946105"]
-            category_prediction_zordon = ["MLA407134", "MLA1500", "MLA48891"]
-            category_prediction_score = ["0.5798502932160188", "0.5546144689593583", "0.5418770563342361"]
-            category_prediction = ["MLA407134", "MLA1500", "MLA48891"]
-            predictor_chosen = "ZORDON"
-            title_predicted = "escalera"
             item_type = "default"
             seller_reputation = "green"
         }
     }
     test("SYI v4 congrats card showed"){
         "/sell/congrats/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1269,7 +1210,6 @@ trackTests {
     }
     test("SYI v4 listing types card showed"){
         "/sell/congrats/listing_types/show"(platform: "/web", type: TrackType.Event){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1280,7 +1220,6 @@ trackTests {
 
     test("SYI v4 render sip"){
         "/sell/sip"(platform: "/web", type: TrackType.View){
-            category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -1291,10 +1230,35 @@ trackTests {
 
     test("SYI v4 calculator showed"){
         "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+            session_id = "123-update-abc123"
+            item_type = "default"
+        }
+    }
+    test("SYI v4 Category breadcrumb update"){
+        "/sell/item_data/category_breadcrumb/update"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+            session_id = "123-update-abc123"
+            item_type = "default"
+            categorization_flow_successful = true
+            predictor_chosen = "ZORDON"
+            title_predicted = "test"
+        }
+    }
+    test("SYI v4 Category breadcrumb mount"){
+        "/sell/item_data/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            categorization_flow_successful = true
+            predictor_chosen = "ZORDON"
+            title_predicted = "test"
             item_type = "default"
             seller_reputation = "green"
         }
