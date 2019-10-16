@@ -1977,6 +1977,18 @@ trackTests {
         }
     }
 
+    test("MGM Navigation") {
+        "/mgm/navigation" (platform: "/mobile", type: TrackType.Event) {
+            realestates = [
+                    [
+                            "content_id": "drawer_mgm_seller_mp",
+                            "origin": "user_journey",
+                            "realestate_id": "drawer_mgm"
+                    ]
+            ]
+        }
+    }
+
     test("Digital Goods") {
         "/digital_goods/list"(platform: "/mobile") {
             flow = "/digital_goods"
