@@ -1353,7 +1353,7 @@ trackTests {
     }
 
     "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event){
-      action = "SAVE_PROMOTION"
+      action = "CONFIRM"
       promotion = [
               site_time_offset: 0,
               start_date: "2019-09-18T03:00:00.000Z",
@@ -1373,7 +1373,7 @@ trackTests {
     }
 
     "/seller_central/promotions/list/update"(platform: "/web", type: TrackType.Event){
-      action = "SAVE_PROMOTION"
+      action = "CONFIRM"
       promotion = [
               site_time_offset: 0,
               start_date: "2019-09-18T03:00:00.000Z",
@@ -1393,7 +1393,7 @@ trackTests {
     }
 
     "/seller_central/promotions/list/error"(platform: "/web", type: TrackType.Event){
-      action = "SAVE_PROMOTION"
+      action = "CONFIRM"
       promotion = [
               site_time_offset: 0,
               start_date: "2019-09-18T03:00:00.000Z",
@@ -1414,7 +1414,7 @@ trackTests {
     }
 
     "/seller_central/promotions/list/actions"(platform: "/web", type: TrackType.Event){
-      action = "RESET_PROMOTION"
+      action = "DISABLE"
       context = "CREATE"
     }
   }
