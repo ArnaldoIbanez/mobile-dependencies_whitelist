@@ -8,14 +8,14 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
-    test("External tracks tests ") {
+    test("External merchants tracks tests ") {
 
-        "/external/home"(platform: "/") {
-            domain = "https://www.trocafone.com"
+        "/external/merchants/home"(platform: "/") {
+            domain = "www.trocafone.com"
         }
 
-        "/external/checkout"(platform: "/") {
-            domain = "https://www.trocafone.com/checkout"
+        "/external/merchants/checkout"(platform: "/") {
+            domain = "www.trocafone.com"
         }
     }
 

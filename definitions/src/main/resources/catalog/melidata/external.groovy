@@ -4,13 +4,15 @@ import com.ml.melidata.TrackType
 
 
 tracks {
-  	// External tracks
-    "/external"(platform: "/", isAbstract: true){
+  	// External merchants tracks
+  	"/external"(platform: "/", isAbstract: true){}
+
+    "/external/merchants"(platform: "/", isAbstract: true){
     	domain(required: true, description: "domain of current view", type: PropertyType.String)
     }
 
-    "/external/home"(platform: "/", type: TrackType.View){}
+    "/external/merchants/home"(platform: "/", type: TrackType.View){}
 
-    "/external/checkout"(platform: "/", type: TrackType.View){}
+    "/external/merchants/checkout"(platform: "/", type: TrackType.View){}
 
 }
