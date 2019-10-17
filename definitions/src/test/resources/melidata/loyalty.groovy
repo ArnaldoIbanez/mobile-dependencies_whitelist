@@ -576,6 +576,7 @@ trackTests {
         "/loyalty/milestones_v2"(platform: "/", type: TrackType.View){}
         "/loyalty/milestone_v2"(platform: "/", type: TrackType.View){
             milestone_id = "qr_payment"
+            family_id = "qr"
         }
     }
 }
