@@ -1,50 +1,51 @@
 {
   "users": [
-    "mathias.miranda@mercadolibre.com",
-    "ignacio.olaizola@mercadolibre.com",
-    "pablo.guillama@mercadolibre.com"
+    "patricio.benitez@mercadolibre.com"
   ],
-  "process_name": "navigation_download_app_experiments",
-  "cron": "00 09 * * *",
   "partition": {
-        "name": "Ds",
-        "type": "DATE"
+    "name": "ds",
+    "type": "DATE"
   },
+  "process_name": "experiments_validation_v2",
+  "cron": "30 15 * * *",
   "extract": {
     "operation": "append",
-    "site": "Sales",
     "columns": [
       {
-        "name": "SiteId",
+        "name": "source",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Tipo",
+        "name": "experiment_name",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Device",
+        "name": "metric",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Variante",
+        "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Cantidad",
+        "name": "variant_id",
         "type": "INTEGER"
       },
       {
-        "name": "Users",
+        "name": "sessions",
         "type": "INTEGER"
       },
       {
-        "name": "Installs",
+        "name": "metric_sum",
+        "type": "INTEGER"
+      },
+      {
+        "name": "rate",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "navigation/download_app_experiments.sql",
+      "script": "melidata/melidata-experiments-cross-validation_v2.sql",
       "parameters": [
         {
           "name": "param01",

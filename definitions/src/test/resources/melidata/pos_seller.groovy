@@ -87,6 +87,14 @@
                                payment_channel =  "point"
                             }
 
+                            "/pos_seller/version_blacklist"(platform: "/mobile", type: TrackType.View) {
+                                update_later = true
+                                point_status = "updateAvailable"
+                                qr_status = "updateMandatory"
+                                share_social_status = "upToDate"
+                                cash_status = "upToDate"
+                            }
+
                     }
 
 

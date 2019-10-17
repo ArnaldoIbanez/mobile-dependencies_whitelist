@@ -4,6 +4,25 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
+    def alternative_buying_options_data = {
+        [
+            [
+                    position: 1,
+                    item_id: "MLA123",
+                    buying_option_id: "PUIS",
+                    seller_id: 123,
+                    seller_name: "any seller"
+            ],
+            [
+                    position: 2,
+                    item_id: "MLA321",
+                    buying_option_id: "OFFICIAL_STORE",
+                    seller_id: 321,
+                    seller_name: "any other seller"
+            ]
+        ]
+    }
+
     def pickers_data = {
         [
                 "COLOR" : [
@@ -173,6 +192,14 @@ trackTests {
             bo_pick_up_conditions = "discount_ratio"
         }
 
+        def alternative_buying_option = {
+            position = 1
+            item_id = "MLA123"
+            buying_option_id = "PUIS"
+            seller_id = 123
+            seller_name = "any seller"
+        }
+
         "/pdp"(platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
@@ -184,6 +211,7 @@ trackTests {
             listing_type_id = "gold_special"
             seller_id = 131662738
             pickers = pickers_data()
+            alternative_buying_options = alternative_buying_options_data()
 
             catalog_parent_id = "MLA123"
             quantity = 3
@@ -328,6 +356,16 @@ trackTests {
 
             pickers = pickers_data()
             items = items_data()
+        })
+
+        "/pdp/alternative_buying_options/buy_action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            alternative_buying_option()
+        })
+
+        "/pdp/alternative_buying_options/add_to_cart_action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            alternative_buying_option()
         })
     }
 

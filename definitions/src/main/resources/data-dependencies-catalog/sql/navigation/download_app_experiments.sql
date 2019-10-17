@@ -26,16 +26,10 @@ from (
     else 'None' end as Tipo,
     device.vendor as Device,
     case
-    when experiments['frontend-core/download-app-banner'] = '3159' then 'Usar'
-    when experiments['frontend-core/download-app-banner'] = '3163' then 'Bajar la app'
-    when experiments['frontend-core/download-app-banner'] = '3164' then 'Usar la app'
-    when experiments['frontend-core/download-app-banner'] = '3165' then 'Descargar'
-    when experiments['frontend-core/download-app-banner'] = '3166' then 'Descargar la app'
-    when experiments['frontend-core/download-app-banner'] = '3167' then 'Bajar'
-    when experiments['frontend-core/download-app-banner'] = '3177' then 'Probar la app'
-    when experiments['frontend-core/download-app-banner'] = '3178' then 'Abrir la app'
-    when experiments['frontend-core/download-app-banner'] = '3179' then 'Probar'
-    when experiments['frontend-core/download-app-banner'] = '3180' then 'Abrir'
+    when experiments['frontend-core/download-app-banner'] = '3259' then 'Blanco - Amarillo'
+    when experiments['frontend-core/download-app-banner'] = '3260' then 'Negro - Azul'
+    when experiments['frontend-core/download-app-banner'] = '3261' then 'Blanco - Azul'
+    when experiments['frontend-core/download-app-banner'] = '3262' then 'Nergo - Amarillo'
     else 'ninguna' end as Variante,
     substr(ds, 1, 10) as Ds,
     usr.uid as UserId
@@ -46,7 +40,7 @@ from (
     AND NOT is_bot(device.user_agent)
     and device.platform in ('/web/mobile')
     and application.site_id in ('MLA', 'MLB', 'MLC', 'MLM', 'MLU', 'MPE', 'MCO')
-    and experiments['frontend-core/download-app-banner'] in ('3159', '3163', '3164', '3164', '3165', '3166', '3167', '3177', '3178', '3179', '3180')
+    and experiments['frontend-core/download-app-banner'] in ('3259', '3260', '3261', '3262')
   ) t
   group by SiteId,Tipo,Device,Variante,Ds
 
@@ -74,16 +68,10 @@ left join (
   when osname = 'android' then 'android'
   else 'ninguna' end as Device, 
   case
-  when label = '3159' then 'Usar'
-  when label = '3163' then 'Bajar la app'
-  when label = '3164' then 'Usar la app'
-  when label = '3165' then 'Descargar'
-  when label = '3166' then 'Descargar la app'
-  when label = '3167' then 'Bajar'
-  when label = '3177' then 'Probar la app'
-  when label = '3178' then 'Abrir la app'
-  when label = '3179' then 'Probar'
-  when label = '3180' then 'Abrir'
+  when label = '3259' then 'Blanco - Amarillo'
+  when label = '3260' then 'Negro - Azul'
+  when label = '3261' then 'Blanco - Azul'
+  when label = '3262' then 'Nergo - Amarillo'
   else 'ninguna' end as Variante,
   substr(installedat, 1, 10) as Ds
   from melilake.bt_adjust 
@@ -93,7 +81,7 @@ left join (
   and installedat >= '@param01'
   and installedat < '@param02'
   and country in ('cl', 'mx', 'br', 'ar', 'uy', 'pe', 'co')
-  and label in ('3159', '3163', '3164', '3164', '3165', '3166', '3167', '3177', '3178', '3179', '3180')
+  and label in ('3259', '3260', '3261', '3262')
   ) p
 group by SiteId, Device, Variante, Ds
 

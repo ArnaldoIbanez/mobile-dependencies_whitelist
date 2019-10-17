@@ -9,7 +9,19 @@ tracks {
 
     "/remedies"(platform: "/", isAbstract: true) {}
 
-    "/remedies/activity"(platform: "/", isAbstract: true) {}
+    "/remedies"(platform: "/mobile", isAbstract: true) {}
+
+    "/remedies"(platform: "/web", isAbstract: true) {
+        initiative(required: false, type: PropertyType.String, description: "Users initiative")
+        kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
+        flow(required: false, type: PropertyType.String, description: "Remedies flow")
+    }
+
+    "/remedies/activity"(platform: "/", isAbstract: true) {
+        initiative(required: false, type: PropertyType.String, description: "Users initiative")
+        kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
+        flow(required: false, type: PropertyType.String, description: "Remedies flow")
+    }
 
     "/remedies/center"(platform: "/", isAbstract: true) {}
 
@@ -95,7 +107,6 @@ tracks {
         right_eye(type: PropertyType.Numeric, required: false, description: "right eye probability")
         smile(type: PropertyType.Numeric, required: false, description: "simle probability ")
         rotation(type: PropertyType.Numeric, required: false, description: "rotation probability")
-
     }
 
     "/remedies/proof_of_life_gesture"(platform: "/mobile", type: TrackType.Event) {
@@ -103,27 +114,46 @@ tracks {
         gestures_probabilities(type: PropertyType.Map(gestures_probabilities_definition), required: true, description: "Map of probabilities of each gesture")
     }
 
-    "/remedies/activity/check_step"(platform: "/mobile", type: TrackType.View) {}
-    "/remedies/activity/landing"(platform: "/mobile", type: TrackType.View) {}
-    "/remedies/activity/phone_landing"(platform: "/mobile", type: TrackType.View) {}
-    "/remedies/activity/phone_validation"(platform: "/mobile", type: TrackType.View) {}
-    "/remedies/activity/image_upload"(platform: "/mobile", type: TrackType.View) {}
+    "/remedies/activity/check_step"(platform: "/mobile", type: TrackType.View) {
+    }
+    
+    "/remedies/activity/landing"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/remedies/activity/phone_landing"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/remedies/activity/phone_validation"(platform: "/mobile", type: TrackType.View) {
+    }
+    "/remedies/activity/image_upload"(platform: "/mobile", type: TrackType.View) {
+    }
+
     "/remedies/activity/image_upload/landing"(platform: "/mobile", type: TrackType.View) {
         doc_type(type: PropertyType.String, required: true, description: "Type of document")
         model_id(type: PropertyType.String, required: true, description: "Model id")
     }
+
     "/remedies/activity/image_upload/uploading"(platform: "/mobile", type: TrackType.View) {
         doc_type(type: PropertyType.String, required: true, description: "Type of document")
         model_id(type: PropertyType.String, required: true, description: "Model id")
     }
+
     "/remedies/activity/image_upload/result"(platform: "/mobile", type: TrackType.View) {
         doc_type(type: PropertyType.String, required: true, description: "Type of document")
         model_id(type: PropertyType.String, required: true, description: "Model id")
     }
-    "/remedies/activity/congrats"(platform: "/mobile", type: TrackType.View) {}
-    "/remedies/activity/documentation_number"(platform: "/mobile", type: TrackType.View) {}
-    "/remedies/activity/custom_camera"(platform: "/mobile", type: TrackType.View) {}
-    "/remedies/activity/picture_confirmation"(platform: "/mobile", type: TrackType.View) {}
+
+    "/remedies/activity/congrats"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/remedies/activity/documentation_number"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/remedies/activity/custom_camera"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/remedies/activity/picture_confirmation"(platform: "/mobile", type: TrackType.View) {
+    }
 
     // Mobile tracks
     "/remedies/center/row"(platform: "/mobile", type: TrackType.View) {
@@ -134,24 +164,31 @@ tracks {
     "/remedies/landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
+
     "/remedies/phone_landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
+
     "/remedies/phone_validation"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
+
     "/remedies/documentation_front"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
+
     "/remedies/documentation_back"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
+
     "/remedies/documentation_number"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
+
     "/remedies/selfie"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
+
     "/remedies/congrats"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         congrats_type(type: PropertyType.String, required: true, description: "Type of the congrats we show")
@@ -160,19 +197,24 @@ tracks {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         challenge(type: PropertyType.String, required: true, description: "Current challenge")
     }
+
     "/remedies/continue_phone_congrats"(platform: "/web/desktop", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         challenge(type: PropertyType.String, required: true, description: "Current challenge")
     }
+
     "/remedies/detail_landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
+
     "/remedies/threeds"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
+
     "/remedies/company"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
+
     "/remedies/center/card"(platform: "/web", type: TrackType.View) {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
     }
@@ -182,9 +224,12 @@ tracks {
     "/remedies/camera/open_camera"(platform: "/web", type: TrackType.Event) {
         devices(type: PropertyType.Numeric, required: true, description: "The number of camera devices the user has")
     }
+
     "/remedies/camera/capture_image"(platform: "/web", type: TrackType.Event) {
         is_landscape(type: PropertyType.Boolean, required: true, description: "Indicates if the picture was taken on landscape mode")
     }
+
     "/remedies/camera/pick_from_gallery"(platform: "/web", type: TrackType.Event) {}
+
     "/remedies/camera/unavailable"(platform: "/web", type: TrackType.Event) {}
 }
