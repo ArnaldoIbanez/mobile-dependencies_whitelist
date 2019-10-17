@@ -5,7 +5,7 @@ import com.ml.melidata.TrackType
 
 tracks {
   	// External merchants tracks
-  	"/external"(platform: "/", isAbstract: true){}
+    "/external"(platform: "/", isAbstract: true){}
 
     "/external/merchants"(platform: "/", isAbstract: true){
     	domain(required: true, description: "domain of current view", type: PropertyType.String)
