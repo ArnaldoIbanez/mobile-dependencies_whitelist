@@ -143,45 +143,55 @@ tracks {
         fail_pictures(required: false, description: "Failed pictures", type: PropertyType.Numeric)
         pictures_errors(required: false, description: "Array of pictures error", type: PropertyType.ArrayList)
     }
+    "/sell/list/draft/attribute"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/category_navigation"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/category_suggestion"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/color_selection"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/condition"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/condition_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/congrats"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/location_suggestion"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/pictures_review"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/sip_landing"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/price_review"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/seller_registration"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/shipping_options_me"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/congrats/payment_pending"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/description"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/description_review"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/description_included"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/free_shipping"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/listing_types"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/price"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/listing_types_review"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/location"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/location_suggestion"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/payment_methods"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/phone_suggestion"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/picture_preview_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/pictures"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/pictures_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/pictures/album_selector"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/pictures/pictures_selector"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/pictures/editor"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/pictures_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_review/album_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_review/pictures_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_review/editor"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/listing_types_review"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/shipping_options_me_review"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/attribute"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/phone_suggestion"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/payment_methods"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/condition"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/congrats/payment_pending"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/color_selection"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/description_review"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/price"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/price_review"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/product_identifier"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/registration_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/seller_registration"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/seller_registration_zip_code"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/category_navigation"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/pictures"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/category_suggestion"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/shipping_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/shipping_mandatory_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/shipping_options_me"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/shipping_options_me_review"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/sip_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/size_selection"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/size_selection_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/title"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/title_review"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/registration_landing"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/size_selection"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/description_included"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/location"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/size_selection_review"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/shipping_landing"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/shipping_flat_cost"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/free_shipping"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/technical_specifications"(platform: "/", type: TrackType.View) {}
-    "/sell/list/draft/product_identifier"(platform: "/", type: TrackType.View) {}
+    "/sell/list/draft/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/draft/warranty_time"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/warranty_time_review"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/warranty_type"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/warranty_type_review"(platform: "/mobile", type: TrackType.View){}
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
     "/sell/list/hub_old"(platform: "/", type: TrackType.View) {}
