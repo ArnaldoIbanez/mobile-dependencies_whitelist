@@ -141,6 +141,10 @@ trackTests {
         }
         "/cart/checkout/items_not_available"(platform: "/", dataSet)
         "/cart/checkout/error"(platform: "/", dataSet)
+        "/cart/checkout/error"(platform: "/") {
+            dataSet()
+            error='paused_item'
+        }
         "/cart/checkout/payment/billing_information"(platform: "/mobile") {
             dataSet()
             user_identification_fields:
@@ -184,8 +188,16 @@ trackTests {
         "/cart/checkout/review/change_address"(platform: "/", dataSet)
         "/cart/checkout/review/edit_shipping"(platform: "/", dataSet)
         "/cart/checkout/review/edit_payment_method"(platform: "/", dataSet)
+        "/cart/checkout/review/edit_payment_method"(platform: "/") {
+            dataSet()
+            coupon=true
+        }
         "/cart/checkout/review/confirm_purchase"(platform: "/web", dataSet)
         "/cart/checkout/review/confirm_purchase"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "98f8v98au0af9af0af"
+            status = "success"
+        }
+        "/cart/checkout/review/confirm_purchase/abort"(platform: "/mobile", type: TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
             status = "success"
         }
@@ -241,10 +253,15 @@ trackTests {
         
         "/cart/checkout/show_ticket"(platform: "/", dataSet)
         "/cart/checkout/finish/invalid_sec_code/input_code"(platform: "/", dataSet)
+        "/cart/checkout/finish/invalid_sec_code/input_code/confirm_purchase"(platform: "/mobile", type: TrackType.Event) {
+            session_id="some_session_id"
+            status="success"
+        }
         "/cart/checkout/finish/call_for_auth/instructions"(platform: "/", dataSet)
         "/cart/checkout/finish/call_for_auth/later"(platform: "/", dataSet)
         "/cart/checkout/finish/call_for_auth/input_code"(platform: "/", dataSet)
         "/cart/checkout/loading"(platform: "/", dataSet)
+        "/cart/checkout/loading/back"(platform: "/mobile", type: TrackType.Event, dataSet)
         "/cart/checkout/shipping"(platform: "/mobile", dataSet)
 
         // Addresses
@@ -363,6 +380,41 @@ trackTests {
             recovery_flow=true
         }
 
+        // address form mobile
+         "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/delivery"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+        }
+
         // First Visit
         // Page
         "/cart/checkout/shipping/address_profile"(platform: "/mobile", dataSet)
@@ -413,6 +465,7 @@ trackTests {
         }
         "/cart/checkout/shipping/input_address#submit"(platform: "/mobile", type: TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
+            success = true
         }
         "/cart/checkout/shipping/select_address"(platform: "/mobile", dataSet)
         "/cart/checkout/shipping/select_option_detail"(platform: "/mobile", dataSet)
@@ -561,14 +614,20 @@ trackTests {
         "/cart/checkout/payment/encrypted_security_code_add"(platform: "/mobile") {
             dataSet()
         }
+        "/cart/checkout/payment/encrypted_security_code_add/confirm_purchase"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "1241n1kj2nk14141nl12nl"
+            status="success"
+        }
 
         // Billing info
         "/cart/checkout/billing/physical_person"(platform: "/") {
             dataSet()
         }
+        "/cart/checkout/billing/physical_person/back"(platform: "/mobile", type: TrackType.Event, dataSet)
         "/cart/checkout/billing/legal_person"(platform: "/") {
             dataSet()
         }
+        "/cart/checkout/billing/legal_person/back"(platform: "/mobile", type: TrackType.Event, dataSet)
         "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event) {
             session_id = "98f8v98au0af9af0af"
         }

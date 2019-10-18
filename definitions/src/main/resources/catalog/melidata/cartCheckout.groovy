@@ -276,8 +276,8 @@ tracks {
     }
     "/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -379,7 +379,7 @@ tracks {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
-    "/cart/checkout/shipping/select_address"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited:false) {}
+    "/cart/checkout/shipping/select_address"(platform: "/mobile", type: TrackType.View) {}
 
     "/cart/checkout/shipping/select_option_detail"(platform: "/mobile", type: TrackType.View) {}
 
@@ -439,7 +439,7 @@ tracks {
 
     "/cart/checkout/review"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
 
-    "/cart/checkout/review/edit_unique_installment"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {}
+    "/cart/checkout/review/edit_unique_installment"(platform: "/mobile", type: TrackType.View) {}
 
     "/cart/checkout/review/edit_first_installment"(platform: "/mobile", type: TrackType.View) {}
 
@@ -474,7 +474,7 @@ tracks {
     }
 
 // Discount coupons
-    "/cart/checkout/payment/add_coupon"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {}
+    "/cart/checkout/payment/add_coupon"(platform: "/mobile", type: TrackType.View) {}
     "/cart/checkout/payment/coupon_ok"(platform: "/mobile", type: TrackType.View) {
         coupon(required: true, type: PropertyType.String)
     }
