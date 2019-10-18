@@ -944,7 +944,7 @@ tracks {
         externalProductId(required: false, type: PropertyType.String, description: "Massive invoice search by external product id")
     }
 
-    "/myml/invoices/backoffice/search/invoiceslist/export_csv"(platform: "/", type: TrackType.Event) {
+    "/myml/invoices/backoffice/search/export_csv"(platform: "/", type: TrackType.Event) {
         seller_id(required: false, type: PropertyType.String, description: "Seller id used to generate csv")
         status(required: false, type: PropertyType.String, description: "Invoice status used to generate csv")
         environment(required: false, type: PropertyType.String, description: "Which environment was selected to generate csv")
