@@ -204,22 +204,29 @@ trackTests {
 
         // Recharge Marketing Landing
         "/cellphone_recharge/mkt_landing"(platform: "/web"){
+            campaign = 'generic'
         }
         "/cellphone_recharge/mkt_landing/sms"(platform: "/web"){
+            campaign = 'generic'
         } 
         "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = 'generic'
             position = "coupon"
         } 
         "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = 'generic'
             position = "steps"
         } 
         "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            campaign = 'generic'
             position = "hero"
         } 
         "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            campaign = 'generic'
             position = "fixed"
         } 
         "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            campaign = 'generic'
             position = "footer"
         } 
     }
@@ -426,22 +433,32 @@ trackTests {
 
         // Recharge Marketing Landing
         "/cellphone_recharge/mkt_landing"(platform: "/web"){
+            campaign = "generic"
+        }
+        "/cellphone_recharge/mkt_landing"(platform: "/web"){
+            campaign = "personal"
         }
         "/cellphone_recharge/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
         } 
         "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
             position = "coupon"
         } 
         "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
             position = "steps"
         } 
         "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
             position = "hero"
         } 
         "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
             position = "fixed"
         } 
         "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
             position = "footer"
         } 
     }
