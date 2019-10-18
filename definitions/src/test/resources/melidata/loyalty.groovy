@@ -575,7 +575,7 @@ trackTests {
         "/loyalty/status/skeleton"(platform: "/", type: TrackType.View){}
         "/loyalty/milestones_v2"(platform: "/", type: TrackType.View){}
         "/loyalty/milestone_v2"(platform: "/", type: TrackType.View){
-            family_id = "qr"
+            milestone_id = "qr"
         }
     }
 }
