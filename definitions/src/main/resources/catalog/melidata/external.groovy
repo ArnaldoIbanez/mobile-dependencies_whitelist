@@ -4,11 +4,13 @@ import com.ml.melidata.TrackType
 
 
 tracks {
-  	// External merchants tracks
+    def domainRegex = /(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/
+
+    // External merchants tracks
     "/external"(platform: "/", isAbstract: true){}
 
     "/external/merchants"(platform: "/", isAbstract: true){
-    	domain(required: true, description: "domain of current view", type: PropertyType.String)
+        domain(required: true, description: "domain of current view", type: PropertyType.String, regex: domainRegex)
     }
 
     "/external/merchants/home"(platform: "/", type: TrackType.View){}
