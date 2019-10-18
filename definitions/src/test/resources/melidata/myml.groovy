@@ -148,7 +148,10 @@ trackTests {
         }
         "/myml/invoices/company-info/certificate"(platform: "/") {}
         "/myml/invoices/company-info/certificate/help_tooltip"(platform: "/", type: TrackType.Event) {}
-        "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
+        "/myml/invoices/company-info/certificate/a1"(platform: "/") {
+            campaign_source = 'banner-sales-list-A3-60'
+            campaign = 'adp_A1'
+        }
         "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
@@ -156,6 +159,8 @@ trackTests {
             message = "Password incorrect!"
             certificateFrom = "local"
             certificateTo = "server"
+            campaign_source = 'banner-sales-list-A3-60'
+            campaign = 'adp_A1'
         }
         "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
         "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {

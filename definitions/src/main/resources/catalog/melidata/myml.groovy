@@ -599,7 +599,10 @@ tracks {
     "/myml/invoices/company-info/certificate"(platform: "/") {}
     "/myml/invoices/company-info/certificate/help_tooltip"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
+    "/myml/invoices/company-info/certificate/a1"(platform: "/") {
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
     "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
     "/myml/invoices/company-info/certificate/a1/save/request"(platform: "/", type: TrackType.Event) {}
@@ -609,6 +612,8 @@ tracks {
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
         certificateFrom(required: false, type:  PropertyType.String, description: "Certificate type that the seller had before uploading")
         certificateTo(required: false, type:  PropertyType.String, description: "Certificate type uploaded by seller")
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
     "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
