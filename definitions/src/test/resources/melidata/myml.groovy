@@ -154,6 +154,8 @@ trackTests {
         "/myml/invoices/company-info/certificate/a1/save/response"(platform: "/", type: TrackType.Event) {
             error = "password"
             message = "Password incorrect!"
+            certificateFrom = "local"
+            certificateTo = "server"
         }
         "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
         "/myml/invoices/company-info/certificate/a3/handshake/request"(platform: "/", type: TrackType.Event) {

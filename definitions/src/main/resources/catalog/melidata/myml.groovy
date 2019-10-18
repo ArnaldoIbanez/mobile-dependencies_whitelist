@@ -607,6 +607,8 @@ tracks {
         error(required: false, description: "Error type when user uploads an A1 digital certificate")
         message(required: false, description: "Description of error when user uploads an A1 digital certificate")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
+        certificateFrom(required: false, type:  PropertyType.String, description: "Certificate type that the seller had before uploading")
+        certificateTo(required: false, type:  PropertyType.String, description: "Certificate type uploaded by seller")
     }
 
     "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
