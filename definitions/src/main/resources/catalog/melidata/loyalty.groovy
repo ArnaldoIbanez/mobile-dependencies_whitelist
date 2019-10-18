@@ -350,7 +350,6 @@ tracks {
     "/loyalty/milestones_v2"(platform: "/", type: TrackType.View) {}
     "/loyalty/milestone_v2"(platform: "/", type: TrackType.View) {
         milestone_id(required: true, description: "id of the milestone", type: PropertyType.String)
-        family_id(required: true, description: "id of the milestone family", type: PropertyType.String)
     }
 
 
