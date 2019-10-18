@@ -1,8 +1,8 @@
 package src.test.resources.melidata
 
+import com.ml.melidata.TrackType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-import com.ml.melidata.TrackType
 
 trackTests {
 
@@ -28,6 +28,25 @@ trackTests {
             defaultLocation()
             error_type = "connection"
             error_step_id = "example_step_id"
+        }
+
+        //Login country selector
+        "/logistics/login/select_country"(platform: "/mobile", type: TrackType.View){
+            device_id = "123"
+        }
+
+        //Login vehicle disclaimer
+        "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View){}
+
+        //Login vehicle scanner
+        "/logistics/login/vehicle/scan"(platform: "/mobile", type: TrackType.View){}
+
+        //Login document input
+        "/logistics/login/document"(platform: "/mobile", type: TrackType.View){}
+
+        //Last Mile active route disclaimer
+        "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View){
+            route_id = "123"
         }
 
         //Conciliation sorting fail
