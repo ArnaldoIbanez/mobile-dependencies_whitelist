@@ -346,7 +346,7 @@ trackTests {
             externalProductId = 'MLB1113768925'
         }
 
-        "/myml/invoices/backoffice/search/export_csv"(platform: "/", type: TrackType.Event) {
+        "/myml/invoices/backoffice/search/invoiceslist/export_csv"(platform: "/", type: TrackType.Event) {
             seller_id = '191396245'
             status = 'needs_review'
             environment = 'production'
