@@ -15,13 +15,11 @@ tracks {
 
     "/pos_billings"(platform: "/", type: TrackType.View, isAbstract: true) {}
 
-    "/pos_billings/billings"(platform: "/", type: TrackType.View, isAbstract: true) {
+    "/pos_billings/billings"(platform: "/", type: TrackType.View) {
         certificate(required: true, type: PropertyType.String, description: "certificate status", values: ["ACTIVE", "INACTIVE", "WARNING"])
     }
 
     "/pos_billings/friction"(platform: "/", type: TrackType.View, isAbstract: true) {}
-
-    "/pos_billings/friction/certificate_warning"(platform: "/", type: TrackType.Event) {}
 
     "/pos_billings/friction/certificate_warning"(platform: "/", type: TrackType.Event) {}
 
