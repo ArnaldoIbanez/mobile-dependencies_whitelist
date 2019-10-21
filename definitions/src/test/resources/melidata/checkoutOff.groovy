@@ -1,7 +1,6 @@
 package src.test.resources.melidata
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-import com.ml.melidata.TrackType;
 
 trackTests {
     defaultBusiness = "mercadopago"
@@ -10,9 +9,7 @@ trackTests {
 
         def defaultProperties = {
             checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
-            collector_nickname = "DUMMY_SELLER"
             product_id = "BC32A4JU643001OI3920"
-            site = "MLA"
             productive = true
             preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
             operation_type = "regular_payment"
@@ -36,7 +33,6 @@ trackTests {
         def onlyRequiredProperties = {
             checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
             product_id = "BC32A4JU643001OI3920"
-            site = "MLA"
             productive = true
             is_split = false
             payment_quantity = 1
