@@ -815,7 +815,7 @@ tracks {
 
     "/seller_central/promotions/list/actions"(platform: "/web", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["DISABLE", "ENABLE"])
-        context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT"])
+        context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "PRIME_CHECKBOX", "RESET_PROMOTION"])
     }
 
 }
