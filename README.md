@@ -58,4 +58,5 @@ If you want to run all available tests **```make test CATALOG=${All}```**
 5. [FAQ](https://github.com/mercadolibre/melidata-catalog/wiki/FAQ) 
 
 ### CONTACT
+
 <melidata_dev@mercadolibre.com>
