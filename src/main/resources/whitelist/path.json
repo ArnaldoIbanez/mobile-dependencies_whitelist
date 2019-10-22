@@ -1,0 +1,21 @@
+{
+  "path": [
+    "/vip",
+    "/add_to_cart",
+    "/traffic/inbound/matt",
+    "/buy_intention",
+    "/search",
+    "/bookmarks/action/post",
+    "/orders/ordercreated",
+    "/purchases/purchasecreated",
+    "/checkout/congrats",
+    "/cart/checkout/congrats",
+    "/recommendations/print",
+    "/question/ask/post",
+    "/vip/contact_seller",
+    "/register/success",
+    "/register/failure",
+    "/asset_management/error",
+    "/remedy/error"
+  ]
+}

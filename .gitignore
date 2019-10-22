@@ -6,6 +6,7 @@ bin/
 
 ### STS ###
 .apt_generated
+.class
 .classpath
 .factorypath
 .project
@@ -21,6 +22,7 @@ bin/
 ### NetBeans ###
 nbproject/private/
 build/
+target/
 nbbuild/
 dist/
 nbdist/
@@ -34,3 +36,8 @@ out/
 
 create-order-db.sql
 create-sku-db.sql
+
+catalog.json
+catalog.csv
+metrics.json
+build
