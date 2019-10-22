@@ -375,7 +375,6 @@ trackTests {
 
         "/pdp/onboarding_catalog/close"(platform: "/", {
             catalog_product_id = "MLA1234"
-            referer = "tag"
         })
 
         "/pdp/catalog_tag_click"(platform: "/", {
