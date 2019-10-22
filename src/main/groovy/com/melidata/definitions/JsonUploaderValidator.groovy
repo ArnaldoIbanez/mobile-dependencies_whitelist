@@ -11,10 +11,6 @@ class JsonUploaderValidator {
 
     private static CONCAT_FILE_NAME = "/tmp/queries.json"
 
-    static boolean validate(){
-        return (validateQueries() && validateMetrics())
-    }
-
     static boolean validateQueries(){
 
         println "\n\n"+starBar()
