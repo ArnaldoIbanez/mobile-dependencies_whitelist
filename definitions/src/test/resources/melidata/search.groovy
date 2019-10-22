@@ -329,8 +329,9 @@ trackTests {
         "/search/billboard"(platform: "/") {
             defaultSearchInformation()
             position_shown = 1
-            is_new_billboard = true
             move = "forward"
+            is_new_billboard = true
+            item_id = "MLC462810643"
         }
         "/search/billboard/resize"(platform: "/web") {
             defaultWebTrack()
@@ -342,6 +343,7 @@ trackTests {
             defaultSearchInformation()
             position = 2
             is_new_billboard = true
+            item_id = "MLC462810643"
         }
         "/search/save"(platform: "/") {
             defaultSearchInformation()
