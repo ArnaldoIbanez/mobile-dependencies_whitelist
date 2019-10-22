@@ -751,6 +751,7 @@ trackTests {
             defaultTrackInformation()
             cartInformation()
             shippingInformation()
+            credits_opensea = true
         }
 
         "/vip/buy_action"(platform: "/web", type: TrackType.View) {
