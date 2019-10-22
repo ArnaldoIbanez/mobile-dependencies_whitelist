@@ -250,6 +250,7 @@ tracks {
                 description: "Seller's Mercado Lider level")
         add_cart_info
         shipping_info
+        credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
     }
 
     "/vip/buy_action"(platform: "/web", parentPropertiesInherited: false) {
