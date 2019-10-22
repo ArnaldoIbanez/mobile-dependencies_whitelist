@@ -24,6 +24,12 @@ tracks {
         value_id(type: PropertyType.String, required: false, description: "Attribute selected value")
         value_name(type: PropertyType.String, required: false, description: "Attribute custom value")
     }
+    def originalItemData = objectSchemaDefinitions {
+        has_variations(required: true, type: PropertyType.Boolean, description: "Item has variations or not")
+        category_id(required: true, PropertyType.String, description: "Item's category id")
+        domain_id(required: false, PropertyType.String, description: "Item's domain_id")
+        catalog_listing(required: true, PropertyType.Boolean, description: "Item is catalog_listing or not")
+    }
 
     propertyDefinitions {
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
@@ -139,6 +145,17 @@ tracks {
         adv_segmentation(required: false, description: "Adevrtasement segmentation ")
         reputation_level(required: false, description: "Reputation for Pads")
     }
+
+    // List Similar/Equals modifications
+    "/sell/list_similar"(platform: "/web/desktop", isAbstract: true){}
+    "/sell/list_similar/result"(platform: "/web/desktop", type: TrackType.Event){
+        session_id(required: true, type: PropertyType.String, description: "The listing session id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["list_equals", "list_similar"])
+        modifications(required: true, type: PropertyType.ArrayList, description: "Item modifications on list equals or list similar flow")
+        original_item_data(required: true, type: PropertyType.Map(originalItemData), description: "Some properties of the original item")
+        seller_segment(required: true, type: PropertyType.String, description: "Type of seller")
+    }
+
     // Upgrade Off = El upgrade de clasificados
     "/sell/upgradeOff"(platform:"/", type: TrackType.View){
         item_id(required: true, description: "Item id")

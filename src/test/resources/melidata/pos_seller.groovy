@@ -95,6 +95,11 @@
                                 cash_status = "upToDate"
                             }
 
+                            "/pos_seller/nfce/client"(platform: "/", type: TrackType.View) {}
+
+                            "/pos_seller/friction/sat_unavailable"(platform: "/", type: TrackType.View) {}
+
+                            "/pos_seller/friction/sat_not_found"(platform: "/", type: TrackType.View) {}
                     }
 
 

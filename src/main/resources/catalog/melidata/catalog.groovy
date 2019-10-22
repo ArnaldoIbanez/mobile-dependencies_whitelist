@@ -182,6 +182,7 @@ catalog {
         include business, "pos_management.groovy"
         include business, "discount_center.groovy"
         include business, "external.groovy"
+        include business, "pos_billings.groovy"
     }
 
     mercadoshops.each { business ->

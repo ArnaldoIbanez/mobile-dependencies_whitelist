@@ -87,6 +87,10 @@ import com.ml.melidata.TrackType
             cash_status(required: true, type: PropertyType.String, description: "Cash section blacklist status", values: ["upToDate", "updateAvailable", "updateMandatory", "ACTIVE", "UPDATABLE", "INACTIVE"])
         }
 
+        "/pos_seller/nfce"(platform: "/", type: TrackType.View, isAbstract: true) {}
+
+        "/pos_seller/nfce/client"(platform: "/", type: TrackType.View) {}
+
         /**
         * pos seller event tracks
         */
@@ -255,6 +259,9 @@ import com.ml.melidata.TrackType
            extra_info (required: true, type: PropertyType.Map(PosSellerCardFrictionExtraInfo), description: "Friction extra data map") 
         }
 
+        "/pos_seller/friction/sat_unavailable"(platform: "/", type: TrackType.View) {}
+
+        "/pos_seller/friction/sat_not_found"(platform: "/", type: TrackType.View) {}
 
         // ----------- WEB -------------
 
