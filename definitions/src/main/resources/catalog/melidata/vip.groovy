@@ -701,6 +701,15 @@ tracks {
         )
     }
 
+    "/vip/quote_demand_intention_lower"(platform: "/", type: TrackType.Event) {
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form"],
+                description: "Section where it's coming from"
+        )
+    }
+
     "/vip/quote_demand_messages"(platform: "/", type: TrackType.Event) {
         item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
         deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
