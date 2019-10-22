@@ -576,6 +576,63 @@ trackTests {
         "/loyalty/milestones_v2"(platform: "/", type: TrackType.View){}
         "/loyalty/milestone_v2"(platform: "/", type: TrackType.View){
             milestone_id = "qr"
+            is_accomplished = true
+        }
+    }
+
+    test("Loyalty v2 events") {
+        "/loyalty/messages_close"(platform: "/", type: TrackType.Event) {
+            id = "info-tooltip-blue"
+        }
+
+        "/loyalty/onboarding/open"(platform: "/", type: TrackType.Event) {
+            step = "header"
+        }
+        "/loyalty/onboarding/continue"(platform: "/", type: TrackType.Event) {
+            step = "benefits"
+        }
+        "/loyalty/onboarding/previous"(platform: "/", type: TrackType.Event) {
+            step = "header"
+        }
+        "/loyalty/onboarding/close"(platform: "/", type: TrackType.Event) {
+            step = "benefits"
+        }
+
+        "/loyalty/card/item_action"(platform: "/", type: TrackType.Event) {
+            page = "hub"
+            type = "benefits-card"
+            position = 0
+            id = "MLA123"
+            item_position = 1
+        }
+
+        "/loyalty/card/action"(platform: "/", type: TrackType.Event) {
+            page = "hub"
+            type = "benefits-card"
+            position = 0
+        }
+
+        "/loyalty/card/download"(platform: "/", type: TrackType.Event) {
+            page = "status"
+            type = "qr-benefits"
+            position = 2
+        }
+        "/loyalty/card/update"(platform: "/", type: TrackType.Event) {
+            page = "status"
+            type = "qr-benefits"
+            position = 2
+        }
+
+        "/loyalty/card/benefits_swipe"(platform: "/", type: TrackType.Event) {
+            page = "status"
+            type = "benefits"
+            position = 1
+            card_level = 3
+        }
+
+        "/loyalty/milestone_v2/action"(platform: "/", type: TrackType.Event) {
+            milestone_id = "qr_payment"
+            is_accomplished = false
         }
     }
 }

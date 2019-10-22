@@ -355,7 +355,7 @@ tracks {
 
     // Loyalty v2 events
     "/loyalty/messages_close"(platform: "/", type: TrackType.Event) {
-        id(required: true, description: "id the message closed by the user", type: PropertyType.String, values: ["points-expiration-tooltip", "push-level-up-tooltip", "info-tooltip", "info-tooltip-blue", "onboarding", "status-info-tooltip", "onboarding"])
+        id(required: true, description: "id the message closed by the user", type: PropertyType.String, values: ["points-expiration-tooltip", "push-level-up-tooltip", "info-tooltip", "info-tooltip-blue", "status-info-tooltip", "onboarding"])
     }
 
     "/loyalty/onboarding"(platform: "/", isAbstract: true) {
@@ -376,7 +376,7 @@ tracks {
 
     "/loyalty/card/item_action"(platform: "/", type: TrackType.Event) {
         id(required: true, description: "id of the sub component where the event is taking place", type: PropertyType.String)
-        position(required: true, description: "position of the action where the event is taking place", type: PropertyType.Numeric)
+        item_position(required: true, description: "position of the action where the event is taking place", type: PropertyType.Numeric)
     }
 
     "/loyalty/card/action"(platform: "/", type: TrackType.Event) {}
