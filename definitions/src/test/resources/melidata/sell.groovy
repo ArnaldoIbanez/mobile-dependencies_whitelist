@@ -1275,4 +1275,37 @@ trackTests {
             seller_reputation = "green"
         }
     }
+
+    test("List Equals V3 Modifications"){
+        def originalItemData = [
+                has_variations: false,
+                category_id: "MLA123",
+                domain_id : null,
+                catalog_listing: false
+        ]
+        "/sell/list_similar/result"(platform: "/web/desktop", type: TrackType.Event){
+            session_id = "123-list-abc123"
+            list_mode = "list_equals"
+            seller_segment = "professional_sellers"
+            original_item_data = originalItemData
+            modifications = ["currency", "price"]
+        }
+    }
+
+    test("List Similar V3 Modifications"){
+        def originalItemData = [
+                has_variations: true,
+                category_id: "MLA1055",
+                domain_id : "MLA_CELLPHONES",
+                catalog_listing: true
+
+        ]
+        "/sell/list_similar/result"(platform: "/web/desktop", type: TrackType.Event) {
+            session_id = "123-list-abc123"
+            list_mode = "list_similar"
+            seller_segment = "professional_sellers"
+            original_item_data = originalItemData
+            modifications = ["currency", "price", "variations", "title"]
+        }
+    }
 }
