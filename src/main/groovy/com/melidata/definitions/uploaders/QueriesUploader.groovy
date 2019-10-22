@@ -1,6 +1,7 @@
 package com.melidata.definitions.uploaders
 
 import com.melidata.definitions.manager.S3Controller
+import com.melidata.metrics.format.QueryFormatter
 
 class QueriesUploader {
 
@@ -28,7 +29,7 @@ class QueriesUploader {
         println("Starting uploader")
         println("Reading [${queriesDir}]")
 
-        def json =  new com.melidata.metrics.format.QueryFormatter().buildJson()
+        def json =  new QueryFormatter().buildJson()
         String versionedName = "versions/jsonmelidata_" + new Date().format("yyyMMddHHmmss") + ".json"
 
         println("JSON loaded")

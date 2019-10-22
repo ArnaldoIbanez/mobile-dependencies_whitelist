@@ -39,10 +39,8 @@ class JsonUploaderValidator {
             return false
         }
         println("\033[92m - Queries validated succesfully \033[0m")
-
-        // TODO ADD QUERY COMPILATION VALIDATION
-
         MelidataJsonValidator.validate(queryFormatterOutput)
+
         return true
     }
 
