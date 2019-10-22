@@ -1,4 +1,4 @@
-import com.melidata.definitions.TestRunner
+import com.melidata.definitions.validators.CatalogValidator
 import com.melidata.definitions.outs.DefinitionsOut
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.PropertyType
@@ -66,20 +66,20 @@ class TestRunnerTest {
             }
         }
 
-        def result = TestRunner.run(this.catalog, tests, new OutTest())
+        def result = CatalogValidator.run(this.catalog, tests, new OutTest())
         assertTrue(result)
     }
 
     @Test void shouldRunTestRunnerWithPaths(){
 
-        def result = TestRunner.run(PATH_CATALOG, PATH_TEST, new OutTest())
+        def result = CatalogValidator.run(PATH_CATALOG, PATH_TEST, new OutTest())
 
         assertTrue(result)
     }
 
     @Test void shouldRunThrowNotFoundException(){
         try {
-            TestRunner.run("./unArchivoInexistente", "./otroArchivoInexistente", new OutTest())
+            CatalogValidator.run("./unArchivoInexistente", "./otroArchivoInexistente", new OutTest())
         }
         catch(Exception x) {
             assertEquals(x.class, FileNotFoundException)
@@ -90,13 +90,13 @@ class TestRunnerTest {
         def script = null
 
         try{
-            script = TestRunner.getScriptFromFile(PATH_CATALOG)
+            script = CatalogValidator.getScriptFromFile(PATH_CATALOG)
             assertNotNull(script)
 
         }catch (NotFileException){
 
             // El classpath es distinto al correr esta test con idea
-            script = TestRunner.getScriptFromFile(PATH_CATALOG)
+            script = CatalogValidator.getScriptFromFile(PATH_CATALOG)
             assertNotNull(script)
         }
     }
@@ -104,12 +104,12 @@ class TestRunnerTest {
     @Test void shouldRunScriptFromFile(){
         def script =  null
         try{
-            script = TestRunner.getScriptFromFile(PATH_CATALOG)
+            script = CatalogValidator.getScriptFromFile(PATH_CATALOG)
         }catch (FileNotFoundException){
-            script = TestRunner.getScriptFromFile(PATH_CATALOG)
+            script = CatalogValidator.getScriptFromFile(PATH_CATALOG)
         }
 
-        def result = TestRunner.runScript(script)
+        def result = CatalogValidator.runScript(script)
         assertEquals(result.class, Catalog)
     }
 
@@ -129,7 +129,7 @@ class TestRunnerTest {
             }
         }
 
-        def result = TestRunner.run(this.catalog, tests, std)
+        def result = CatalogValidator.run(this.catalog, tests, std)
 
         assertFalse(result)
         assertEquals(std.successTests, 1)

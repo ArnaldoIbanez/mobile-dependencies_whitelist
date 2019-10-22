@@ -1,18 +1,11 @@
-package com.melidata.definitions.validate
+package com.melidata.definitions.validators
 
-import com.melidata.definitions.TestRunner
-import com.melidata.definitions.outs.StdOut
+
 import com.ml.melidata.catalog.DslUtils
 import com.ml.melidata.catalog.tree.TrackValidationResponse
-import com.ml.melidata.Track
-import com.ml.melidata.TrackAdapterHelper
 import groovy.json.*
-import groovy.util.CliBuilder
 import groovy.sql.Sql
 import java.text.SimpleDateFormat
-import java.util.Calendar
-import java.util.Date
-
 
 class Validate {
 
@@ -36,8 +29,8 @@ class Validate {
             pathCatalog = DEFAULT_CATALOG_DIR + DEFAULT_CATALOG
             DslUtils.setBaseDir(DEFAULT_CATALOG_DIR)
         }
-        def catalogScript = TestRunner.getScriptFromFile(pathCatalog)
-        def catalog = TestRunner.runScript(catalogScript)
+        def catalogScript = CatalogValidator.getScriptFromFile(pathCatalog)
+        def catalog = CatalogValidator.runScript(catalogScript)
 
         println "Done. Will fetch for tracks for validating..."
         

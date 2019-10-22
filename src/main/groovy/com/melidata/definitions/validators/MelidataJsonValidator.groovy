@@ -1,4 +1,4 @@
-package com.melidata.definitions
+package com.melidata.definitions.validators
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

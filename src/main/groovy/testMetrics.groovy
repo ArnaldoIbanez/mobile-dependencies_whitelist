@@ -1,7 +1,7 @@
-import com.melidata.definitions.JsonUploaderValidator
+import com.melidata.definitions.validators.BIIntegrationValidator
 
 static void main(String[] args) {
-    def status = JsonUploaderValidator.validateMetrics()
+    def status = BIIntegrationValidator.validateMetrics()
 
     if(!status)
         System.exit(1)
