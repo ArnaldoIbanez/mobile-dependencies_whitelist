@@ -375,6 +375,7 @@ tracks {
 
     "/pdp/onboarding_catalog" (platform: "/", parentPropertiesInherited: false, isAbstract: true) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        referer(required: true, type: PropertyType.String, values: ["onboarding", "tag", ""], description: "Onboarding catalog modal referer")
     }
 
     "/pdp/onboarding_catalog/close" (platform: "/"){}
