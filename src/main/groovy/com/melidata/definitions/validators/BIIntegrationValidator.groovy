@@ -1,13 +1,12 @@
-package com.melidata.definitions
+package com.melidata.definitions.validators
 
 import com.melidata.metrics.format.QueryFormatter
 import com.melidata.metrics.format.MetricsFormatter
 import com.ml.melidata.metrics.MetricsFactory
-import com.melidata.definitions.MelidataJsonValidator
 import groovy.json.JsonException
 
 
-class JsonUploaderValidator {
+class BIIntegrationValidator {
 
     private static CONCAT_FILE_NAME = "/tmp/queries.json"
 

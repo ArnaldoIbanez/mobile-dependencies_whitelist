@@ -1,15 +1,14 @@
-package com.melidata.definitions
+package com.melidata.definitions.validators
 
 import com.melidata.definitions.parsers.dsl.TestDsl
 import com.melidata.definitions.outs.DefinitionsOut
 import com.ml.melidata.catalog.Catalog
 import groovy.transform.Synchronized
-import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 
 /**
  * Created by apetalas on 20/11/14.
  */
-class TestRunner {
+class CatalogValidator {
 
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         def runOk = true
@@ -49,7 +48,7 @@ class TestRunner {
             def tests = new ArrayList<TestDsl>()
             testsScript.each { tests.addAll(runScript(it)) }
 
-            return TestRunner.run(catalog, tests, out)
+            return CatalogValidator.run(catalog, tests, out)
 
         }
         catch (FileNotFoundException x){
