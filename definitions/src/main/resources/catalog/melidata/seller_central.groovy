@@ -102,7 +102,7 @@ tracks {
     def finalPromotionStructure = objectSchemaDefinitions {
         state(type: PropertyType.String, required: true)
         site_time_offset(type: PropertyType.Numeric, required: false)
-        start_Date(type: PropertyType.String, required: true)
+        start_date(type: PropertyType.String, required: true)
         finish_date(type: PropertyType.String, required: true)
         is_highlight(type: PropertyType.Boolean, required: false)
         price(type: PropertyType.Numeric, required: true)
@@ -783,8 +783,39 @@ tracks {
 
     "/seller_central/promotions/actions"(platform: "/web", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action executed by the seller")
-        promotion(required: false, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
+        promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+    }
+
+    // ADD NEW PATHS FOR SELLER PROMOTIONS FORM
+    // To be compatible with the actuals paths.
+    "/seller_central/promotions/list"(platform: "/web", type: TrackType.View) {
+        original_promotion(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original promotion data")
+        context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT"])
+    }
+
+    "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM"])
+        promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
+        promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+    }
+
+    "/seller_central/promotions/list/update"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM"])
+        promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
+        promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+    }
+
+    "/seller_central/promotions/list/error"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM"])
+        promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
+        promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+        error(required: false, type: PropertyType.String, description: "Error saving the promotion")
+    }
+
+    "/seller_central/promotions/list/actions"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["DISABLE", "ENABLE"])
+        context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "PRIME_CHECKBOX", "RESET_PROMOTION"])
     }
 
 }
