@@ -329,6 +329,7 @@ trackTests {
         "/search/billboard"(platform: "/") {
             defaultSearchInformation()
             position_shown = 1
+            is_new_billboard = true
             move = "forward"
         }
         "/search/billboard/resize"(platform: "/web") {
@@ -340,6 +341,7 @@ trackTests {
         "/search/billboard/click"(platform: "/"){
             defaultSearchInformation()
             position = 2
+            is_new_billboard = true
         }
         "/search/save"(platform: "/") {
             defaultSearchInformation()
