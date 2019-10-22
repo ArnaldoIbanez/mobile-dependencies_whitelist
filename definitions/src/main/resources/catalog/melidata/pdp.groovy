@@ -373,4 +373,17 @@ tracks {
 
     "/pdp/alternative_buying_options/add_to_cart_action" (platform: "/"){}
 
+    "/pdp/onboarding_catalog" (platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        referer(required: true, type: PropertyType.String, values: ["onboarding", "tag", ""], description: "Onboarding catalog modal referer")
+    }
+
+    "/pdp/onboarding_catalog/close" (platform: "/"){}
+
+    "/pdp/onboarding_catalog/show" (platform: "/"){}
+
+    "/pdp/catalog_tag_click" (platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+    }
+
 }
