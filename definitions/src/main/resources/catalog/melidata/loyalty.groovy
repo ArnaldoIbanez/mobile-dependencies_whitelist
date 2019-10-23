@@ -354,7 +354,7 @@ tracks {
     }
 
     // Loyalty v2 events
-    "/loyalty/messages_close"(platform: "/", type: TrackType.Event) {
+    "/loyalty/message_close"(platform: "/", type: TrackType.Event) {
         id(required: true, description: "id the message closed by the user", type: PropertyType.String, values: ["points-expiration-tooltip", "push-level-up-tooltip", "info-tooltip", "info-tooltip-blue", "status-info-tooltip", "onboarding"])
     }
 
