@@ -1418,4 +1418,49 @@ trackTests {
       context = "CREATE"
     }
   }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central Listing
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("seller central listing main page") {
+    "/seller_central/promotions/list"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central listing action") {
+    "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
+      action_id = "MODIFY"
+    }
+  }
+
+  test("seller central listing action") {
+    "/seller_central/promotions/action/confirm"(platform: "/", type: TrackType.Event) {
+      action_id = "MODIFY"
+    }
+  }
+
+  test("seller central listing secondary_actions") {
+    "/seller_central/promotions/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing filters view") {
+    "/seller_central/promotions/filters"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central listing filters view") {
+    "/seller_central/promotions/filters/applied"(platform: "/", type: TrackType.Event) {
+      checkedFilters = ["inactive", "premium"]
+    }
+  }
+
+  test("seller central listing filters actions and search") {
+    "/seller_central/promotions/filters/action"(platform: "/", type: TrackType.Event) {
+      action = "apply"
+    }
+    "/seller_central/promotions/filters/action"(platform: "/", type: TrackType.Event) {
+      action = "clear"
+    }
+
+    "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {}
+  }
 }

@@ -853,4 +853,9 @@ tracks {
 
     "/seller_central/promotions/list"(platform: "/", type: TrackType.Event) {}
 
+    //LISTING - Secondary Actions Click
+    "/seller_central/promotions/list/secondary_actions"(platform: "/", type: TrackType.Event) {
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+    }
+
 }
