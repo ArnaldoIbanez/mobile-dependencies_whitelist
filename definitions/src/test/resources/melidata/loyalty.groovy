@@ -581,7 +581,7 @@ trackTests {
     }
 
     test("Loyalty v2 events") {
-        "/loyalty/messages_close"(platform: "/", type: TrackType.Event) {
+        "/loyalty/message_close"(platform: "/", type: TrackType.Event) {
             id = "info-tooltip-blue"
         }
 
