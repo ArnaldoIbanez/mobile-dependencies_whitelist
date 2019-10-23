@@ -100,7 +100,7 @@ tracks {
 
     //  FINAL PROMO STRUCTURE
     def finalPromotionStructure = objectSchemaDefinitions {
-        state(type: PropertyType.String, required: true)
+        state(type: PropertyType.String, required: false)
         site_time_offset(type: PropertyType.Numeric, required: false)
         start_date(type: PropertyType.String, required: true)
         finish_date(type: PropertyType.String, required: true)
@@ -814,7 +814,7 @@ tracks {
     }
 
     "/seller_central/promotions/list/actions"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["DISABLE", "ENABLE"])
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["DISABLE", "ENABLE", "RESET_PROMOTION"])
         context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "PRIME_CHECKBOX", "RESET_PROMOTION"])
     }
 
