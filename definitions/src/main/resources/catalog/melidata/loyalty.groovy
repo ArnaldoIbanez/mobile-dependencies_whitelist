@@ -341,4 +341,16 @@ tracks {
     "/loyalty/main/partners_landing"(platform: "/", type: TrackType.Event) {
         original_place(required: true, values: ["keep","move"], description: "From where the partners landing was accesed", type: PropertyType.String)
     }
+
+    // Loyalty v2 pageviews
+    "/loyalty/hub"(platform: "/", type: TrackType.View) {}
+    "/loyalty/hub/skeleton"(platform: "/", type: TrackType.View) {}
+    "/loyalty/status"(platform: "/", type: TrackType.View) {}
+    "/loyalty/status/skeleton"(platform: "/", type: TrackType.View) {}
+    "/loyalty/milestones_v2"(platform: "/", type: TrackType.View) {}
+    "/loyalty/milestone_v2"(platform: "/", type: TrackType.View) {
+        milestone_id(required: true, description: "id of the milestone", type: PropertyType.String)
+    }
+
+
 }

@@ -81,7 +81,13 @@ trackTests {
                           "cart_eligible"
                         ],
                         warranty: "",
-                        accepts_mercadopago: true
+                        accepts_mercadopago: true,
+                        alpha: 0.7,
+                        beta: 0.5,
+                        gamma: 0.6,
+                        rebate: 1,
+                        one_p: 0,
+                        private_label: 1
                       ]
                     ]
             // algorithms = [scoring: "threshold", selection: "bci_v1", sorting: "max_10pct_l2"]
