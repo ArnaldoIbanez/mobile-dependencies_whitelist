@@ -67,12 +67,12 @@ jacoco {
 }
 
 jacocoTestReport {
-    reports {
-        xml.enabled true
-		csv.enabled false
-		html.destination "${buildDir}/jacocoHtml"
-    }
+	reports {
+		xml.enabled true
+		html.enabled false
+	}
 }
+
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.1'
