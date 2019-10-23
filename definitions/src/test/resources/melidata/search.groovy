@@ -330,6 +330,8 @@ trackTests {
             defaultSearchInformation()
             position_shown = 1
             move = "forward"
+            is_new_billboard = true
+            item_id = "MLC462810643"
         }
         "/search/billboard/resize"(platform: "/web") {
             defaultWebTrack()
@@ -340,6 +342,8 @@ trackTests {
         "/search/billboard/click"(platform: "/"){
             defaultSearchInformation()
             position = 2
+            is_new_billboard = true
+            item_id = "MLC462810643"
         }
         "/search/save"(platform: "/") {
             defaultSearchInformation()

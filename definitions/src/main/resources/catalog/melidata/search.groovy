@@ -214,11 +214,15 @@ tracks {
     }
 
     "/search/billboard"(platform: "/", type: TrackType.Event) {
+        item_id(required: false, type: PropertyType.String)
+        is_new_billboard(required: false, type: PropertyType.Boolean)
         position_shown(required: false, type: PropertyType.Numeric)
         move(required: false, values: ["forward","backward"])
     }
 
     "/search/billboard/click"(platform: "/", type: TrackType.Event){
+        item_id(required: false, type: PropertyType.String)
+        is_new_billboard(required: false, type: PropertyType.Boolean)
         position(required: true, description: "the position of the selected billboard in the carousel", type: PropertyType.Numeric)
     }
 
