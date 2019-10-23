@@ -28,11 +28,6 @@ class CatalogValidator {
     }
 
     @Synchronized
-    def static boolean run(String pathCatalog, String pathTests, DefinitionsOut out) {
-        return run(pathCatalog, Arrays.asList(pathTests), out)
-    }
-
-    @Synchronized
     def static boolean run(String catalogName, DefinitionsOut out){
 
         try{
