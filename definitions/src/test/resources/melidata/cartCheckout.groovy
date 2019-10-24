@@ -188,7 +188,7 @@ trackTests {
         "/cart/checkout/review/change_address"(platform: "/", dataSet)
         "/cart/checkout/review/edit_shipping"(platform: "/", dataSet)
         "/cart/checkout/review/edit_payment_method"(platform: "/", dataSet)
-        "/cart/checkout/review/edit_payment_method"(platform: "/") {
+        "/cart/checkout/review/edit_payment_method"(platform: "/mobile") {
             dataSet()
             coupon=true
         }

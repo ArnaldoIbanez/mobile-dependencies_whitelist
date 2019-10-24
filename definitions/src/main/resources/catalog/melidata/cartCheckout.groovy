@@ -190,8 +190,10 @@ tracks {
 
     "/cart/checkout/review/edit_shipping"(platform: "/", type: TrackType.View) {}
 
-    "/cart/checkout/review/edit_payment_method"(platform: "/", type: TrackType.View) {
-        coupon(required: false, type: PropertyType.Boolean, description: "If the user redeemed a coupon code")
+    "/cart/checkout/review/edit_payment_method"(platform: "/", type: TrackType.View) {}
+
+    "/cart/checkout/review/edit_payment_method"(platform: "/mobile", type: TrackType.View) {
+        coupon(required: true, type: PropertyType.Boolean, description: "If the user redeemed a coupon code")
     }
 
     "/cart/checkout/congrats"(platform: "/", type: TrackType.View) {
