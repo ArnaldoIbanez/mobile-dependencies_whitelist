@@ -143,6 +143,14 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/sidebar/social_networks/facebook"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/admin/sidebar/social_networks/twitter"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/admin/sidebar/social_networks/instagram"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/admin/sidebar/social_networks/youtube"(platform: "/", type: TrackType.Event){}
+
     "/mercado_shops/admin/sidebar/subdomain"(platform: "/", type: TrackType.Event){
         subdomain(required: true, type: PropertyType.String)
     }
