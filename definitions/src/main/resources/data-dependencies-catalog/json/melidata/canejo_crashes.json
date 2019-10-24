@@ -4,14 +4,13 @@
   ],
   "process_name": "canejo-crashes",
   "cron": "00 01 * * *",
+  "partition": {
+    "name": "date_only",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "date_only",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "hour_only",
         "type": "UNICODE_STRING"

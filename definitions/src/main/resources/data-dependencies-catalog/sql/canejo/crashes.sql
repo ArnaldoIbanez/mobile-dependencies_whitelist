@@ -1,4 +1,4 @@
-select denominador.date_only,
+select
 denominador.hour_only,
    	denominador.platform,
    	denominador.context as dpto,
@@ -9,7 +9,8 @@ denominador.hour_only,
    	coalesce (numerador.uu_with_warnings_per_hour, 0) as uu_with_warnings_per_hour,
    	coalesce (numerador.warnings_per_hour, 0) as warnings_per_hour,
    	denominador.uu_per_hour,
-   	denominador.screenviews_per_hour
+   	denominador.screenviews_per_hour,
+   	denominador.date_only
 from (
   select date_only,
       hour_only,
