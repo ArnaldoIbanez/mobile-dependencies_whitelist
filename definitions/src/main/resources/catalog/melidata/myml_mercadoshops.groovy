@@ -77,7 +77,7 @@ tracks {
                 required: false,
                 type: PropertyType.String,
                 values: ['AFIP', 'BANNER', 'BRANDS', 'CAROUSEL', 'COLORS', 'FLASH', 'GRID', 'HEADER_MESSAGE',
-                         'LOGO', 'MOSAIC', 'SHOP_NAME', 'SLIDER', 'SUBDOMAIN', 'TEXT_BANNER']
+                         'LOGO', 'MOSAIC', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS', 'SUBDOMAIN', 'TEXT_BANNER']
         )
     }
 
@@ -136,6 +136,14 @@ tracks {
     "/mercado_shops/admin/sidebar/slider"(platform: "/", type: TrackType.Event){
         image_list(required: false, type: PropertyType.ArrayList, description: "Array of image ids")
         slider_size(required: false, type: PropertyType.String, values: ['small', 'medium', 'large'])
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/sidebar/social_networks"(platform: "/", type: TrackType.Event){
+        facebook(required: true, type: PropertyType.Boolean, description: "Facebook was configured")
+        twitter(required: true, type: PropertyType.Boolean, description: "Twitter was configured")
+        instagram(required: true, type: PropertyType.Boolean, description: "Instagram was configured")
+        youtube(required: true, type: PropertyType.Boolean, description: "Youtube was configured")
         mshopsEventGroup
     }
 
@@ -213,7 +221,7 @@ tracks {
         step(required: true, type: PropertyType.String)
         index(required: true, type: PropertyType.Numeric)
     }
-       
+
     "/mercado_shops/marketing"(platform: "/", isAbstract: true) {}
 
     "/mercado_shops/marketing/summary"(platform: "/", type: TrackType.View){}
@@ -276,7 +284,7 @@ tracks {
     "/mercado_shops/marketing/google_ads/remarketing/delete"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
-  
+
     "/mercado_shops/marketing/facebook_pixel"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/facebook_pixel/save"(platform: "/", type: TrackType.Event){
