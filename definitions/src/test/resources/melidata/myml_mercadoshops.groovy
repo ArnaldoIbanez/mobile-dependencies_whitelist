@@ -202,10 +202,10 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
-            facebook: 'TestUser'
-            twitter: 'TestUser'
-            instagram: 'TestUser'
-            youtube: 'TestUser'
+            facebook: true
+            twitter: true
+            instagram: true
+            youtube: true
             success = true
         }
         "/mercado_shops/admin/sidebar/subdomain"(platform: "/", type: TrackType.Event) {

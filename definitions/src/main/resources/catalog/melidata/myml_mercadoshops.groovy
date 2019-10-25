@@ -140,10 +140,10 @@ tracks {
     }
 
     "/mercado_shops/admin/sidebar/social_networks"(platform: "/", type: TrackType.Event){
-        facebook(required: false, type: PropertyType.String)
-        twitter(required: false, type: PropertyType.String)
-        instagram(required: false, type: PropertyType.String)
-        youtube(required: false, type: PropertyType.String)
+        facebook(required: true, type: PropertyType.Boolean, description: "Facebook was configured")
+        twitter(required: true, type: PropertyType.Boolean, description: "Twitter was configured")
+        instagram(required: true, type: PropertyType.Boolean, description: "Instagram was configured")
+        youtube(required: true, type: PropertyType.Boolean, description: "Youtube was configured")
         mshopsEventGroup
     }
 
