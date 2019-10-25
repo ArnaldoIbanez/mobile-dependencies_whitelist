@@ -16,6 +16,17 @@ trackTests {
                     longitude = "-35.34332"
                 }
 
+        def vehicleInfo = {
+            vehicle_id = "123"
+            license_plate = "AAB456"
+            carrier_id = "17044503"
+        }
+
+        def driverInfo = {
+            driver_id = "987"
+            document_number = "12345678912"
+        }
+
         //Snackbar error event success
         "/logistics/error/snackbar"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
@@ -45,9 +56,22 @@ trackTests {
         //Login document input
         "/logistics/login/document"(platform: "/mobile", type: TrackType.View){}
 
-        //Last Mile active route disclaimer
-        "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View){
-            route_id = "123"
+        //Login account disabled error
+        "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
+            error_type = "vehicle"
+        }
+
+        //Login error generic
+        "/logistics/login/error"(platform: "/mobile", type: TrackType.View) {}
+
+        //Login vehicle on route error
+        "/logistics/login/vehicle_on_route"(platform: "/mobile", type: TrackType.View) {
+            vehicleInfo()
+        }
+
+        //Login driver on route error
+        "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
+            driverInfo()
         }
 
         //Conciliation sorting fail
@@ -55,6 +79,12 @@ trackTests {
 
         //Conciliation sorting ok
         "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View){}
+    }
+
+    test("Testing Logistics Last Mile") {
+        "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View){
+            route_id = "123"
+        }
     }
 
     test("Testing Logistics First Mile") {
