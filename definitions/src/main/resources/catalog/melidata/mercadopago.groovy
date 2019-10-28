@@ -226,26 +226,26 @@ tracks {
     // Micrositio - reseller
     "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/bundles"(platform:"/", type: TrackType.View) {
-      pageResource (type: PropertyType.String, required: false, description: "Name of device, example: 'share-code'")
-      actionType (type: PropertyType.String, required: false, description: "Name of action, example: 'click'")
+      page_resource (type: PropertyType.String, required: false, description: "Name of device, example: 'share-code'")
+      action_type (type: PropertyType.String, required: false, description: "Name of action, example: 'click'")
     }
     "/merchant_acquisition/flows/resellers/mgm"(platform:"/", type: TrackType.View) {
-      pageResource (type: PropertyType.String, required: false, description: "Name of device, example: 'share-code'")
-      actionType (type: PropertyType.String, required: false, description: "Name of action, example: 'click'")
+      page_resource (type: PropertyType.String, required: false, description: "Name of device, example: 'share-code'")
+      action_type (type: PropertyType.String, required: false, description: "Name of action, example: 'click'")
     }
     "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
     
     "/merchant_acquisition/flows/resellers/dashboard"(platform:"/", type: TrackType.View) {
-      pageResource (type: PropertyType.String, required: false, description: "Name of device, example: 'share-code'")
-      actionType (type: PropertyType.String, required: false, description: "Name of action, example: 'click'")
+      page_resource (type: PropertyType.String, required: false, description: "Name of device, example: 'share-code'")
+      action_type (type: PropertyType.String, required: false, description: "Name of action, example: 'click'")
     }
     
-    "/merchant_acquisition/flows/resellers/associate-device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/associate_device"(platform:"/", type: TrackType.View) {}
     
-    "/merchant_acquisition/flows/resellers/register-device"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/resellers/register-device/individual"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/resellers/register-device/bundle"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/individual"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/bundle"(platform:"/", type: TrackType.View) {}
     
     // Share MGM Web > Pageviews
     "/merchant_acquisition/flows"(platform: "/", isAbstract: true) {}
