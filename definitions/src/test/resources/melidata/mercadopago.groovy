@@ -748,11 +748,25 @@ trackTests {
     }
 
     test("MP Micrositio Reseller") {
-        "/merchant_acquisition/flows/resellers"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/sales"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/benefits"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/metrics"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/after_sales"(platform: "/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/bundles"(platform:"/", type: TrackType.View) {
+      pageResource = 'device-item'
+      actionType = 'click'
+    }
+    "/merchant_acquisition/flows/resellers/mgm"(platform:"/", type: TrackType.View) {
+      pageResource = 'device-item'
+      actionType = 'click'
+    }
+    "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/dashboard"(platform:"/", type: TrackType.View) {
+      pageResource = 'device-item'
+      actionType = 'click'
+    }
+    "/merchant_acquisition/flows/resellers/associate-device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register-device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register-device/individual"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register-device/bundle"(platform:"/", type: TrackType.View) {}
     }
 
     test("// Associar Point - Micrositio - reseller") {
