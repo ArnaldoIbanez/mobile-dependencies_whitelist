@@ -76,7 +76,7 @@ trackTests {
 
     test("Quotation :: Scroll selector models tracking") {
 
-        "/quotation/models/scroll"(platform: "/") {
+        "/quotation/models/scroll"(platform: "/web") {
             item_id = "MLM2222222"
         }
     }

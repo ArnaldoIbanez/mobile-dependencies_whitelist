@@ -64,7 +64,7 @@ tracks {
         model_id(required: false, type:PropertyType.String, description: "Model id")
     }
 
-    "/quotation/models/scroll"(platform: "/") {
+    "/quotation/models/scroll"(platform: "/web") {
         item_id(required: true, type:PropertyType.String, description: "Item id")
     }
 
