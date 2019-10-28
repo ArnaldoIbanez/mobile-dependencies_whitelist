@@ -90,7 +90,8 @@ right outer join (
          	usr.uid as uid,
          	count( 1 ) as screenviews_per_uid
   	from tracks
-      WHERE ds >= '@param01' and ds < '@param02'
+      WHERE
+          ds >= '@param01' and ds < '@param02'
     	    AND type = 'view'
   	group by substr(ds, 1, 10),
   	      substr(ds, 12, 13),
