@@ -68,6 +68,10 @@ trackTests {
     "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
       action = "clear"
     }
+    "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
+      action = "apply"
+      checked_filters = ["WITH_FULFILLMENT_WITHOUT_STOCK", "WITH_FULFILLMENT_LOW_STOCK"]
+    }
 
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
   }
