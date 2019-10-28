@@ -49,6 +49,7 @@ trackTests {
             whatsapp_available = "false"
             quote_demand_available = false
             new_wording_free = false
+            quantity_models = 4
         }
 
         "/vip"(platform:"/mobile", {
@@ -999,6 +1000,7 @@ trackTests {
 
     test("VIP Facilities section for projects RE"){
         def properties = {
+
             vertical = "realEstate"
             from_view = "technicalSpecs"
             seller_id =  430012134
