@@ -131,8 +131,8 @@ trackTests {
             user_profile_type="BUYER"
             sparkle_info = [
                     id:"1",
-                    interventionType:"REDIRECV",
-                    configValue:"on",
+                    intervention_type:"REDIRECT",
+                    config_value:"on",
                     url:"http://example.com"
             ]
         }
@@ -231,8 +231,8 @@ trackTests {
             user_profile_type="BUYER"
             sparkle_info = [
                     id:"1",
-                    interventionType:"REDIRECV",
-                    configValue:"on",
+                    intervention_type:"REDIRECT",
+                    config_value:"on",
                     url:"http://example.com"
             ]
         })
@@ -464,8 +464,8 @@ trackTests {
             user_profile_type="BUYER"
             sparkle_info = [
                     id:"1",
-                    interventionType:"REDIRECV",
-                    configValue:"on",
+                    intervention_type:"REDIRECT",
+                    config_value:"on",
                     url:"http://example.com"
             ]
         }

@@ -20,7 +20,7 @@ tracks {
 
     def sparkle_info_object = objectSchemaDefinitions {
         id(type: PropertyType.String, required: false)
-        intervention_type(type: PropertyType.String, required: false)
+        intervention_type(type: PropertyType.String, required: false, values: ["REDIRECT", "INLINE"])
         config_value(type: PropertyType.String, required: false)
         url(type: PropertyType.String, required: false)
     }
