@@ -76,6 +76,18 @@
 
        "/pos_seller/onboarding/pricing"(platform: "/mobile", type: TrackType.View) {}
 
+        "/pos_seller/version_blacklist"(platform: "/mobile", type: TrackType.View) {
+            update_later(required: true, type: PropertyType.Boolean, description: "If the update later button is shown")
+            receive_time(required: false, type: PropertyType.String, description: "Last dateTime version blacklist response received")
+            point_status(required: true, type: PropertyType.String, description: "Point section blacklist status", values: ["upToDate", "updateAvailable", "updateMandatory", "ACTIVE", "UPDATABLE", "INACTIVE"])
+            qr_status(required: true, type: PropertyType.String, description: "QR section blacklist status", values: ["upToDate", "updateAvailable", "updateMandatory", "ACTIVE", "UPDATABLE", "INACTIVE"])
+            share_social_status(required: true, type: PropertyType.String, description: "Link section blacklist status", values: ["upToDate", "updateAvailable", "updateMandatory", "ACTIVE", "UPDATABLE", "INACTIVE"])
+            cash_status(required: true, type: PropertyType.String, description: "Cash section blacklist status", values: ["upToDate", "updateAvailable", "updateMandatory", "ACTIVE", "UPDATABLE", "INACTIVE"])
+        }
+
+        "/pos_seller/nfce"(platform: "/", type: TrackType.View, isAbstract: true) {}
+
+        "/pos_seller/nfce/client"(platform: "/", type: TrackType.View) {}
 
         /**
         * pos seller event tracks
@@ -245,6 +257,9 @@
            extra_info (required: true, type: PropertyType.Map(PosSellerCardFrictionExtraInfo), description: "Friction extra data map") 
         }
 
+        "/pos_seller/friction/sat_unavailable"(platform: "/", type: TrackType.View) {}
+
+        "/pos_seller/friction/sat_not_found"(platform: "/", type: TrackType.View) {}
 
         // ----------- WEB -------------
 

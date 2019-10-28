@@ -366,4 +366,8 @@ tracks {
         delivery_id(required: false, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
 
+    "/flex/registration/error"(platform: "/mobile", type: TrackType.Event) {
+        context(required: true, type: PropertyType.String,  values: ["login"],
+                description: "Indicates whether the event was triggered because login failed")
+    }
 }

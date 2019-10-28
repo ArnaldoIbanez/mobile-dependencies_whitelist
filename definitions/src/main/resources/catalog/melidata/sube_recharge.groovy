@@ -20,6 +20,9 @@ tracks {
     "/recharge_sube/add_card_name"(platform: "/mobile") {}
     "/recharge_sube/choose_amount"(platform: "/mobile") {}
     "/recharge_sube/second_password"(platform: "/mobile") {}
+    "/recharge_sube/result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+    }
     "/recharge_sube/px_payment_method_search"(platform: "/mobile") {}
     "/recharge_sube/px_discount_summary"(platform: "/mobile") {}
     "/recharge_sube/px_card_vault"(platform: "/mobile") {}
@@ -38,5 +41,6 @@ tracks {
     "/recharge_sube/redirect_sube_app"(platform: "/mobile", type: TrackType.Event) {}
     "/recharge_sube/show_terminals_information"(platform: "/mobile", type: TrackType.Event) {}
     "/recharge_sube/show_terminals_congrats"(platform: "/mobile", type: TrackType.Event) {}
+    "/recharge_sube/show_terminals_ftu"(platform: "/mobile", type: TrackType.Event) {}
 
 }

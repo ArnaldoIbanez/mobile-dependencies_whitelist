@@ -341,4 +341,53 @@ tracks {
     "/loyalty/main/partners_landing"(platform: "/", type: TrackType.Event) {
         original_place(required: true, values: ["keep","move"], description: "From where the partners landing was accesed", type: PropertyType.String)
     }
+
+    // Loyalty v2 pageviews
+    "/loyalty/hub"(platform: "/", type: TrackType.View) {}
+    "/loyalty/hub/skeleton"(platform: "/", type: TrackType.View) {}
+    "/loyalty/status"(platform: "/", type: TrackType.View) {}
+    "/loyalty/status/skeleton"(platform: "/", type: TrackType.View) {}
+    "/loyalty/milestones_v2"(platform: "/", type: TrackType.View) {}
+    "/loyalty/milestone_v2"(platform: "/", type: TrackType.View) {
+        milestone_id(required: true, description: "id of the milestone", type: PropertyType.String)
+        is_accomplished(required: true, descripcion: "wheter the milestone is already accomplish or not", type: PropertyType.Boolean)
+    }
+
+    // Loyalty v2 events
+    "/loyalty/message_close"(platform: "/", type: TrackType.Event) {
+        id(required: true, description: "id the message closed by the user", type: PropertyType.String, values: ["points-expiration-tooltip", "push-level-up-tooltip", "info-tooltip", "info-tooltip-blue", "status-info-tooltip", "onboarding"])
+    }
+
+    "/loyalty/onboarding"(platform: "/", isAbstract: true) {
+        step(required: true, description: "type of the element that the onboarding is showing", type: PropertyType.String)
+    }
+
+    "/loyalty/onboarding/open"(platform: "/", type: TrackType.Event) {}
+    "/loyalty/onboarding/continue"(platform: "/", type: TrackType.Event) {}
+    "/loyalty/onboarding/previous"(platform: "/", type: TrackType.Event) {}
+    "/loyalty/onboarding/close"(platform: "/", type: TrackType.Event) {}
+
+
+    "/loyalty/card"(platform: "/", isAbstract: true) {
+        page(required: true, description: "On which page does the event takes place", type: PropertyType.String, values: ["hub", "status"])
+        type(required: true, description: "type of the card where the event is taking place", type: PropertyType.String)
+        position(required: true, descripcion: "Position of the card in the page where the event is taking place", type: PropertyType.Numeric)
+    }
+
+    "/loyalty/card/item_action"(platform: "/", type: TrackType.Event) {
+        id(required: true, description: "id of the sub component where the event is taking place", type: PropertyType.String)
+        item_position(required: true, description: "position of the action where the event is taking place", type: PropertyType.Numeric)
+    }
+
+    "/loyalty/card/action"(platform: "/", type: TrackType.Event) {}
+
+    "/loyalty/card/download"(platform: "/", type: TrackType.Event) {}
+    "/loyalty/card/update"(platform: "/", type: TrackType.Event) {}
+
+    "/loyalty/card/benefits_swipe"(platform: "/", type: TrackType.Event) {
+        card_level(required: true, description: "position of the action where the event is taking place", type: PropertyType.Numeric)
+    }
+
+    "/loyalty/milestone_v2/action"(platform: "/", type: TrackType.Event) {}
+
 }

@@ -1,0 +1,62 @@
+{
+  "users": [
+    "mathias.miranda@mercadolibre.com",
+    "ignacio.olaizola@mercadolibre.com",
+    "pablo.guillama@mercadolibre.com"
+  ],
+  "process_name": "navigation_download_app_experiments",
+  "cron": "00 09 * * *",
+  "partition": {
+        "name": "Ds",
+        "type": "DATE"
+  },
+  "extract": {
+    "operation": "append",
+    "site": "Sales",
+    "columns": [
+      {
+        "name": "SiteId",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Tipo",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Device",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Variante",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Cantidad",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Users",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Installs",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "navigation/download_app_experiments.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
