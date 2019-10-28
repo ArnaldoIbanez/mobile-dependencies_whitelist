@@ -20,8 +20,8 @@ tracks {
 
     def sparkle_info_object = objectSchemaDefinitions {
         id(type: PropertyType.String, required: false)
-        interventionType(type: PropertyType.String, required: false)
-        configValue(type: PropertyType.String, required: false)
+        intervention_type(type: PropertyType.String, required: false)
+        config_value(type: PropertyType.String, required: false)
         url(type: PropertyType.String, required: false)
     }
 
