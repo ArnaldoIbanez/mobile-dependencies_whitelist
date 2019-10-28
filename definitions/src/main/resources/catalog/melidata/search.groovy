@@ -19,10 +19,10 @@ tracks {
     }
 
     def sparkle_info_object = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true)
-        interventionType(type: PropertyType.String, required: true)
-        configValue(type: PropertyType.String, required: true)
-        url(type: PropertyType.String, required: true)
+        id(type: PropertyType.String, required: false)
+        interventionType(type: PropertyType.String, required: false)
+        configValue(type: PropertyType.String, required: false)
+        url(type: PropertyType.String, required: false)
     }
 
     //SEARCH FLOW
