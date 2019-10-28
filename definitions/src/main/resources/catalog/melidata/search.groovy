@@ -18,6 +18,13 @@ tracks {
         is_on_seo_whitelist_experiment(type: PropertyType.Boolean, required: true)
     }
 
+    def sparkle_info = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true)
+        interventionType(type: PropertyType.String, required: true)
+        configValue(type: PropertyType.String, required: true)
+        url(type: PropertyType.String, required: true)
+    }
+
     //SEARCH FLOW
     
     "/search"(platform: "/") {
@@ -40,6 +47,8 @@ tracks {
         show_supermarket_carousel(required: false, description: "search with supermarket carousel", type: PropertyType.Boolean)
         show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
+        sparkle_info(required: false, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info))
+
 
         //Tracks from Search Backend:
         backend_data(required: false)
