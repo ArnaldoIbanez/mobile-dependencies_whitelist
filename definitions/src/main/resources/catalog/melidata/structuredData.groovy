@@ -240,10 +240,10 @@ tracks {
     }
 
     "/structure_data/catalog_search/wrong_external_attribute"(platform: "/web/desktop", type:TrackType.Event) {
-        catalogSearchWrongAttribute
+        catalogSearchWrongExternalAttribute
     }
 
     "/structure_data/catalog_search/copied_external_attribute"(platform: "/web/desktop", type:TrackType.Event) {
-        catalogSearchCopiedAttribute
+        catalogSearchCopiedExternalAttribute
     }
 }
