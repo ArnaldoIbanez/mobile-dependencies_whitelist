@@ -49,8 +49,8 @@ trackTests {
 
   test("seller central listing massive action") {
     "/seller_central/listings/massive_action"(platform: "/", type: TrackType.Event) {
-      action_id = "MAKE_WITHDRAWAL",
-      view_id = "aging",
+      action_id = "MAKE_WITHDRAWAL"
+      view_id = "aging"
       count = 10
     }
   }
