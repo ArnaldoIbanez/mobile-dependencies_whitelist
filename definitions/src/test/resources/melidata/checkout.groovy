@@ -1770,6 +1770,9 @@ trackTests {
                              id:111222,
                              nickname:"seller02"
                      ]]
+            payment_status_detail = "ACCREDITED"
+            congrats_status = "APPROVED"
+            token_generated_with_esc = "NO"
         }
 
         "/checkout/congrats"(platform:"/web/desktop") {
@@ -1805,6 +1808,9 @@ trackTests {
                              id:111222,
                              nickname:"seller02"
                      ]]
+            payment_status_detail = "ACCREDITED"
+            congrats_status = "APPROVED"
+            token_generated_with_esc = "NO"
         }
 
     }
@@ -2090,6 +2096,9 @@ trackTests {
             dataSetCongrats()
             purchase_status = "paid"
             purchase_id = 11111
+            payment_status_detail = "ACCREDITED"
+            congrats_status = "APPROVED"
+            token_generated_with_esc = "NO"
         }
         "/checkout/congrats"(platform:"/web") {
             dataSet()
@@ -2097,8 +2106,13 @@ trackTests {
             geolocated = true
             purchase_status = "paid"
             purchase_id = 11111
+            payment_status_detail = "ACCREDITED"
+            congrats_status = "APPROVED"
+            token_generated_with_esc = "NO"
         }
-        "/checkout/congrats/recommendations"(platform: "/", dataSet)
+        "/checkout/congrats/recommendations"(platform: "/"){
+            dataSet()
+        }
         "/checkout/finish/keep_buying"(platform:"/web"){
             dataSet()
             dataSetCongrats()

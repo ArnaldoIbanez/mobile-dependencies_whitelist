@@ -1,28 +1,25 @@
 {
   "users": [
     "daniela.medina@mercadolibre.com",
+    "ext_jjaimes@mercadolibre.com",
      "ba-analytics@mercadolibre.com"
   ],
   "process_name": "count_purchases_banner",
   "cron": "00 08 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
+  },
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "Site",
         "type": "UNICODE_STRING"
       },
       {
         "name": "Plataforma",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "uid",
         "type": "UNICODE_STRING"
       },
       {

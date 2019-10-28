@@ -6,34 +6,79 @@ tracks {
     def pageStructure = objectSchemaDefinitions {
       limit(required: true, type: PropertyType.Numeric, description: "max number of items per page")
       offset(required: true, type: PropertyType.Numeric, description: "item list offset")
-      total(required: true, type: PropertyType.Numeric, description: "total number of list items")
+      total(required: true, type: PropertyType.String, description: "total number of list items")
     }
 
-    def algorithmsStructure = objectSchemaDefinitions {
-      scoring(required: false, type: PropertyType.String, description: "scoring algorithm")
-      selection(required: false, type: PropertyType.String, description: "selection algorithm")
-      sorting(required: false, type: PropertyType.String, description: "sorting algorithm")
+    // def algorithmsStructure = objectSchemaDefinitions {
+    //   scoring(required: true, type: PropertyType.String, description: "scoring algorithm")
+    //   selection(required: true, type: PropertyType.String, description: "selection algorithm")
+    //   sorting(required: true, type: PropertyType.String, description: "sorting algorithm")
+    // }
+
+    def priceStructure = objectSchemaDefinitions {
+      currency(required: true, type: PropertyType.String)
+      price(required: true, type: PropertyType.String)
+      decimals(required: true, type: PropertyType.String)
+      original_price(required: false, type: PropertyType.String)
+      discount(required: false, type: PropertyType.Numeric)
+      has_loyalty_discount(required: true, type: PropertyType.Boolean)
     }
 
     def itemStructure = objectSchemaDefinitions {
       id(required: true, type: PropertyType.String, description: "Item's id")
-      title(required: false, type: PropertyType.String, description: "Item's title")
-      free_shipping(required: false, type: PropertyType.Boolean, description: "Item's free_shipping condition")
+      title(required: true, type: PropertyType.String, description: "Item's title")
+      price(required: true, type: PropertyType.Map(priceStructure), description: "Item's price")
+      free_shipping(required: true, type: PropertyType.Boolean, description: "Item's free_shipping condition")
+      fulfillment(required: true, type: PropertyType.Boolean)
+      listing_type_id(required: true, type: PropertyType.String)
+      logistic_type(required: true, type: PropertyType.String)
+      sold_quantity(required: true, type: PropertyType.Numeric)
+      available_quantity(required: true, type: PropertyType.Numeric)
+      tags(required: true, type: PropertyType.ArrayList(PropertyType.String))
+      warranty(required: true, type: PropertyType.String)
+      accepts_mercadopago(required: true, type: PropertyType.Boolean)
+      health(required: true, type: PropertyType.Numeric, 
+              description: "Variable used to calculate item score in promotions backend")
+      score(required: true, type: PropertyType.Numeric, 
+              description: "Item's score calculated by promotions backend based on several variables")
+      credibility(required: true, type: PropertyType.Numeric, 
+              description: "Variable used to calculate item score in promotions backend")
+      benefit(required: true, type: PropertyType.Numeric)
+      interest(required: true, type: PropertyType.Numeric)
+      item_clicks(required: false, type: PropertyType.Numeric)
+      conversion_rate(required: false, type: PropertyType.Numeric)
+      expected_clicks(required: false, type: PropertyType.Numeric)
+      boosted(required: false, type: PropertyType.Boolean, 
+              description: "Indicates whether the item was manually positioned")
+      model_version(required: false, type: PropertyType.String)
+      position(required: false, type: PropertyType.Numeric)
+      created_date(required: false, type: PropertyType.String)
+      alpha(required: false, type: PropertyType.Numeric, 
+              description: "Weighting for equation learning. Calculated with total number of item prints within promotions")
+      beta(required: false, type: PropertyType.Numeric, 
+              description: "Adjustment parameters to weigh how much the ctr and the conversion rate add to learning")
+      gamma(required: false, type: PropertyType.Numeric, 
+              description: "Adjustment parameters to weigh how much the ctr and the conversion rate add to learning")
+      rebate(required: false, type: PropertyType.Numeric, 
+              description: "Attribute that the publication has or has not")
+      one_p(required: false, type: PropertyType.Numeric, 
+              description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")
+      private_label(required: false, type: PropertyType.Numeric,
+              description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")    
     }
 
     propertyDefinitions {
-        origin(required: true, type: PropertyType.String, description: "Indicates track's origin")
         deal_print_id(required: true, type: PropertyType.String, description: "Unique id per render")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(itemStructure)), 
                     description: "List of page's items")
-        algorithms(required: true, type: PropertyType.Map(algorithmsStructure), 
-                    description: "Indicates the implemented scoring, order and selection algorithms")
+        // algorithms(required: true, type: PropertyType.Map(algorithmsStructure), 
+        //             description: "Indicates the implemented scoring, order and selection algorithms")
         page(required: true, type: PropertyType.Map(pageStructure), 
                     description: "Indicates pagination information like limit, offset and total")
     }
     
     propertyGroups {
-        general_promotions_info(origin, algorithms, deal_print_id, items, page)
+        general_promotions_info(deal_print_id, items, page)
     }
 
     //Promotions Landing

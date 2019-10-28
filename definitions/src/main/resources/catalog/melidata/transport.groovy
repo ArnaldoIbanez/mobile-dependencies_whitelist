@@ -39,4 +39,12 @@ tracks {
     "/transport/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
         position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }
+    "/transport/companies"(platform: "/mobile", type: TrackType.View) {}
+    "/transport/selected_company"(platform: "/mobile", type: TrackType.Event) {
+        company (required: true, type: PropertyType.String, description: "Company selected")
+    }
+    "/transport/selected_card"(platform: "/mobile", type: TrackType.Event) {
+        company (required: true, type: PropertyType.String, description: "Company of the card")
+    }
+    "/transport/delete"(platform: "/mobile", type: TrackType.Event) {}
 }

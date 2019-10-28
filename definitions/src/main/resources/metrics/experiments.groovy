@@ -302,4 +302,105 @@ metrics {
 			}
 		}
 	}
+
+	"pdp_questions_qadb"(description: "Track PDP questions of users in QADB experiment") {
+		startWith {
+			experiment("qadb/qadb-on")
+		}
+
+		countsOn {
+			condition {
+				path("/questions/ask/post")
+				and(
+					or(
+						equals("event_data.context", "/pdp"),
+						equals("event_data.context", "/qadb"),
+						equals("event_data.context", "/questions/qadb")
+					)
+				)
+			}
+		}
+	}
+
+	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment", compute_order: true) {
+		startWith {
+			experiment("qadb/qadb-on")
+		}
+
+		countsOn {
+			condition {
+				or(
+					and(
+						equals("path", "/orders/ordercreated"),
+						equals("event_data.is_carrito", false),
+						equals('event_data.is_pdp',true)
+					),
+					and(
+						equals("path","/purchases/purchasecreated"),
+						equals('event_data.is_pdp',true)
+					)
+				)
+			}
+		}
+	}
+
+	"credits-open-sea_vip.vip_conversion"(description: "vip total conversion under credits open sea experiment") {
+		startWith {
+			experiment("credits/openSeaVIPIntegration")
+		}
+		countsOn {
+			condition {
+				or(
+					and(
+						equals("path", "/buy_intention"),
+						equals("event_data.context", "vip")
+					),
+					and(
+						equals("path", "/credits/consumer/opensea/integrated_flow/start"),
+						equals("event_data.source", "vip")
+					)
+				)
+			}
+		}
+	}
+
+	"credits-open-sea_vip.credits_conversion"(description: "credits open sea conversion from experiment in vip") {
+		startWith {
+			experiment("credits/openSeaVIPIntegration")
+		}
+		countsOn {
+			condition {
+				and(
+					equals("path", "/credits/consumer/opensea/integrated_flow/start"),
+					equals("event_data.source", "vip")
+				)
+			}
+		}
+	}
+
+	"credits-open-sea_vip.checkout_conversion"(description: "checkout conversion under credits opensea experiment in vip") {
+		startWith {
+			experiment("credits/openSeaVIPIntegration")
+		}
+		countsOn {
+			condition{
+				equals("event_data.congrats_seq",1)
+			}
+		}
+	}
+
+	"credits-open-sea_vip.checkout_conversion_with_credits"(description: "checkout conversion, using credits as payment method, under credits opensea experiment in vip") {
+		startWith {
+			experiment("credits/openSeaVIPIntegration")
+		}
+		countsOn {
+			condition{
+				and(
+					equals("event_data.congrats_seq",1),
+					equals("event_data.payments.payment_method", "consumer_credits")
+				)
+			}
+		}
+	}
+
 }

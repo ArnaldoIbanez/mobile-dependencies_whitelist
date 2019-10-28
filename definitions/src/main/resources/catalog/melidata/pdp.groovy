@@ -9,6 +9,11 @@ tracks {
         selected(required: true, type: PropertyType.Boolean, description: "indicates if the product picker is selected or not")
         disabled(required: true, type: PropertyType.Boolean, description: "indicates if the product picker is disabled or not")
     }
+
+    def alternative_buying_option_definition = objectSchemaDefinitions {
+        alternative_buying_option_info
+    }
+
     def item_info_definition = objectSchemaDefinitions {
         item_id(required: true, type: PropertyType.String, description: "")
         price(required: false, type: PropertyType.Numeric, description: "")
@@ -71,12 +76,20 @@ tracks {
         showing_puis(required: false, type: PropertyType.Boolean, description: "Indicates if PDP BBW is showing PUIS pickup option in pickup row")
         pushing_puis(required: false, type: PropertyType.Boolean, description: "Indicates PUIS is being pushed over branch office pickup option")
 
+        //Alternative Buying Options - BBW Alternatives
+        position(required: true, type: PropertyType.Numeric, description: "The position of the buying option alternative in PDP")
+        item_id(required: true, type: PropertyType.String, description: "The itemId of the buying option alternative")
+        buying_option_id(required: true, type: PropertyType.String, description: "The identifier of the alternative buying option that is being highlighted")
+        seller_id(required: true, type: PropertyType.Numeric, description: "The Id of the seller")
+        seller_name(required: false, type: PropertyType.String, description: "The name of the seller")
+
     }
 
     propertyGroups {
         add_cart_info(cart_content)
         shipping_info(shipping_mode, free_shipping, local_pick_up, store_pick_up, logistic_type, shipping_conditions)
         pickup_info(showing_puis, pushing_puis, bo_pick_up_conditions)
+        alternative_buying_option_info(position, item_id, buying_option_id, seller_id, seller_name)
     }
 
     //VPP FLOW
@@ -146,6 +159,10 @@ tracks {
 
         // FILTERS
         filters(required: false, type: PropertyType.Map(PropertyType.String, PropertyType.String), description: "Filters applied to get buy box winner")
+
+        //Alternative Buying Options - BBW Alternatives
+        alternative_buying_options(required: false, type: PropertyType.ArrayList(PropertyType.Map(alternative_buying_option_definition)), description: "Alternative Buying Options - BBW Alternatives")
+
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
@@ -326,6 +343,12 @@ tracks {
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of the product that the user is trying to buy or add to cart")
         available_quantity(required: true, type: PropertyType.Numeric, description: "Max Available quantity for the selected product")
     }
+"/pdp/questions"(platform: "/", isAbstract:true) {}
+    "/pdp/questions/show"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product id")
+        item_id(required: false, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
+        seller_id(required: false, type: PropertyType.Numeric, description: "")
+    }
 
     "/pdp/sellers/picker_selection"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
@@ -339,6 +362,29 @@ tracks {
         selected_page(required: true, type: PropertyType.Numeric, description: "Selected page in PDS")
         total_pages(required: true, type: PropertyType.Numeric, description: "Total amount of pages in PDS")
         total_items(required: true, type: PropertyType.Numeric, description: "Total amount of items in PDS")
+    }
+
+    "/pdp/alternative_buying_options" (platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        alternative_buying_option_info
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+    }
+
+    "/pdp/alternative_buying_options/buy_action" (platform: "/"){}
+
+    "/pdp/alternative_buying_options/add_to_cart_action" (platform: "/"){}
+
+    "/pdp/onboarding_catalog" (platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+    }
+
+    "/pdp/onboarding_catalog/close" (platform: "/"){}
+
+    "/pdp/onboarding_catalog/show" (platform: "/"){
+        referer(required: true, type: PropertyType.String, values: ["onboarding", "tag", ""], description: "Onboarding catalog modal referer")
+    }
+
+    "/pdp/catalog_tag_click" (platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
     }
 
 }

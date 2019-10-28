@@ -250,6 +250,11 @@ tracks {
                 description: "Seller's Mercado Lider level")
         add_cart_info
         shipping_info
+        credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
+    }
+
+    "/vip/buy_action"(platform: "/web", parentPropertiesInherited: false) {
+        shipping_pay_before(required: true, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
     }
 
     "/vip/add_cart_action"(platform: "/", parentPropertiesInherited: false) {
@@ -277,6 +282,10 @@ tracks {
                 description: "Seller's Mercado Lider level")
         add_cart_info
         shipping_info
+    }
+
+    "/vip/add_cart_action"(platform: "/web", parentPropertiesInherited: false) {
+      shipping_pay_before(required: true, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
     }
 
     "/vip/input_zip_code"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
@@ -689,6 +698,15 @@ tracks {
                 required: false,
                 type: PropertyType.Boolean,
                 description: "Item's catalog listing"
+        )
+    }
+
+    "/vip/quote_demand_intention_lower"(platform: "/", type: TrackType.Event) {
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form"],
+                description: "Section where it's coming from"
         )
     }
 

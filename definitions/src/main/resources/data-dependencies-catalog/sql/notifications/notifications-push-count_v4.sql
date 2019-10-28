@@ -7,7 +7,7 @@ SELECT summary.business AS marketplace,
   sum(summary.resent) AS resent,
   sum(summary.track_without_arrived) AS track_without_arrived,
   summary.fecha AS ds
-FROM( SELECT DISTINCT '@send_date' AS fecha,
+FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
        application.business AS business,
        path,
        application.site_id as site_id,

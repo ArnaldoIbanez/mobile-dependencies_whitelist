@@ -46,7 +46,7 @@ trackTests {
             show_supermarket_carousel=true
             show_apparel_carousel=false
             items_with_logos=["MLA1234", "MLA12345"]
-            pdp_highlight_enabled= true
+            pdp_grouped_search=true
         }
 
         def defaultWebTrack = {
@@ -119,8 +119,16 @@ trackTests {
                     "MLA123456": "inactive",
                     "MLA1234567": "low_score"
             ]
-            is_in_seo_whitelist = true
+            seo = [
+                    is_whitelisted:true,
+                    check_mode:"GMV",
+                    gmv_value:15,
+                    vip_clicks:0,
+                    is_on_seo_whitelist_experiment:true
+            ]
             pdp_highlight_enabled= true
+            pdp_grouped_search=true
+            user_profile_type="BUYER"
         }
 
         "/search"(platform: "/web"){
@@ -205,8 +213,16 @@ trackTests {
                     "MLA123456": "inactive",
                     "MLA1234567": "low_score"
             ]
-            is_in_seo_whitelist = true
+            seo = [
+                is_whitelisted:true,
+                check_mode:"GMV",
+                gmv_value:15,
+                vip_clicks:0,
+                is_on_seo_whitelist_experiment:true
+            ]
             pdp_highlight_enabled= true
+            pdp_grouped_search=true
+            user_profile_type="BUYER"
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -231,7 +247,7 @@ trackTests {
                 printed_positions_size=0
             }
             carousel_filters=["BRAND", "official_store", "STYLE"]
-            pdp_highlight_enabled= true
+            pdp_grouped_search=true
         })
 
         "/search/color_picker"(platform: "/web"){
@@ -314,12 +330,20 @@ trackTests {
             defaultSearchInformation()
             position_shown = 1
             move = "forward"
+            is_new_billboard = true
+            item_id = "MLC462810643"
         }
         "/search/billboard/resize"(platform: "/web") {
             defaultWebTrack()
             action = "expand"
             available_filters = []
             user_zone = ""
+        }
+        "/search/billboard/click"(platform: "/"){
+            defaultSearchInformation()
+            position = 2
+            is_new_billboard = true
+            item_id = "MLC462810643"
         }
         "/search/save"(platform: "/") {
             defaultSearchInformation()
@@ -331,6 +355,10 @@ trackTests {
             defaultSearchInformation()
             to_name="adidas"
             to_position=2
+        }
+        "/search/banner" (platform: "/web", defaultWebTrack)
+        "/search/banner/click"(platform: "/web", type: TrackType.Event){
+            defaultWebTrack()
         }
     }
 
@@ -352,7 +380,7 @@ trackTests {
             billboards = []
             category_id="MLA32089"
             query="iphone"
-            pdp_highlight_enabled= true
+            pdp_grouped_search=true
         }
     }
 
@@ -374,7 +402,7 @@ trackTests {
             billboards = []
             category_id="ROOT"
             query="iphone"
-            pdp_highlight_enabled= true
+            pdp_grouped_search=true
         }
     }
 
@@ -412,8 +440,16 @@ trackTests {
                     "MLA123456": "inactive",
                     "MLA1234567": "low_score"
             ]
-            is_in_seo_whitelist = true
+            seo = [
+                    is_whitelisted:true,
+                    check_mode:"GMV",
+                    gmv_value:15,
+                    vip_clicks:0,
+                    is_on_seo_whitelist_experiment:true
+            ]
             pdp_highlight_enabled= true
+            pdp_grouped_search=true
+            user_profile_type="BUYER"
         }
     }
 
@@ -429,4 +465,10 @@ trackTests {
 
         }
     }
+
+    test("Search fintie navigation experiment"){
+        "/search/finite_navigation"(platform: "/mobile/android"){
+        }
+    }
+
 }

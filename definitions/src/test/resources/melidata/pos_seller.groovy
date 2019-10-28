@@ -87,6 +87,19 @@
                                payment_channel =  "point"
                             }
 
+                            "/pos_seller/version_blacklist"(platform: "/mobile", type: TrackType.View) {
+                                update_later = true
+                                point_status = "updateAvailable"
+                                qr_status = "updateMandatory"
+                                share_social_status = "upToDate"
+                                cash_status = "upToDate"
+                            }
+
+                            "/pos_seller/nfce/client"(platform: "/", type: TrackType.View) {}
+
+                            "/pos_seller/friction/sat_unavailable"(platform: "/", type: TrackType.View) {}
+
+                            "/pos_seller/friction/sat_not_found"(platform: "/", type: TrackType.View) {}
                     }
 
 

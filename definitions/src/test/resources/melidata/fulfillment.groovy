@@ -28,12 +28,20 @@ trackTests {
             input_value = 6
         }
 
+        "/fbm/panel/inbound/units/input_change"(platform: "/", type: TrackType.Event) {
+            warning_type = 'units_ok'
+            warning_value = 0
+            inbound_id = 2649
+            inventory_id = 'YWGV00053'
+            input_value = 6
+        }
+
         "/fbm/panel/inbound/units/submit_error"(platform: "/", type: TrackType.Event) {
              warnings = [
                 [
                     warning_type: 'show_restriction',
-                    warning_value : 100, 
-                    inbound_id : 2649, 
+                    warning_value : 100,
+                    inbound_id : 2649,
                     inventory_id : 'YWGV00053',
                     input_value : 300
                 ]
@@ -87,6 +95,6 @@ trackTests {
             ]
             amount_of_items = 100
             amount_of_units = 500
-        }    
+        }
     }
 }
