@@ -129,6 +129,12 @@ trackTests {
             pdp_highlight_enabled= true
             pdp_grouped_search=true
             user_profile_type="BUYER"
+            sparkle_info = [
+                    id:"1",
+                    intervention_type:"REDIRECT",
+                    config_value:"on",
+                    url:"http://example.com"
+            ]
         }
 
         "/search"(platform: "/web"){
@@ -223,6 +229,12 @@ trackTests {
             pdp_highlight_enabled= true
             pdp_grouped_search=true
             user_profile_type="BUYER"
+            sparkle_info = [
+                    id:"1",
+                    intervention_type:"REDIRECT",
+                    config_value:"on",
+                    url:"http://example.com"
+            ]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -450,6 +462,12 @@ trackTests {
             pdp_highlight_enabled= true
             pdp_grouped_search=true
             user_profile_type="BUYER"
+            sparkle_info = [
+                    id:"1",
+                    intervention_type:"REDIRECT",
+                    config_value:"on",
+                    url:"http://example.com"
+            ]
         }
     }
 
