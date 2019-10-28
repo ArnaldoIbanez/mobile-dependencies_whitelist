@@ -144,6 +144,10 @@ tracks {
 
         // PUBLI FIELDS
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
+
+        quantity_models(required: false, type: PropertyType.Numeric, description: "Quantity models real estate developments")
+
+
     }
 
     "/vip"(platform: "/web") {
