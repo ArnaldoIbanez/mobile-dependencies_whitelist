@@ -1,5 +1,5 @@
 select
-denominador.hour_only,
+    denominador.hour_only,
    	denominador.platform,
    	denominador.context as dpto,
    	denominador.app_version,
@@ -12,94 +12,100 @@ denominador.hour_only,
    	denominador.screenviews_per_hour,
    	denominador.date_only
 from (
-  select date_only,
-      hour_only,
-     	platform,
-     	context,  app_version, business,
-     	sum( if( severity = 'error', coalesce( uu_with_error_per_hour, 0 ), 0 ))   as uu_with_crashes_per_hour,
-     	sum( if( severity = 'error', coalesce( errors_per_hour, 0 ), 0 ))          as crashes_per_hour,
-     	sum( if( severity = 'warning', coalesce( uu_with_error_per_hour, 0 ), 0 )) as uu_with_warnings_per_hour,
-     	sum( if( severity = 'warning', coalesce( errors_per_hour, 0 ), 0 ))   	 as warnings_per_hour
+        select
+      t1.date_only as date_only,
+      t1.hour_only as hour_only,
+     	t1.platform as platform,
+     	t1.context as context,
+     	t1.app_version as app_version,
+     	t1.business as business,
+     	sum(if(t1.severity = 'error', coalesce(t1.uu_with_error_per_hour, 0 ), 0 )) as uu_with_crashes_per_hour,
+     	sum(if(t1.severity = 'error', coalesce(t1.errors_per_hour, 0 ), 0 )) as crashes_per_hour,
+     	sum(if(t1.severity = 'warning', coalesce(t1.uu_with_error_per_hour, 0 ), 0 )) as uu_with_warnings_per_hour,
+     	sum(if(t1.severity = 'warning', coalesce(t1.errors_per_hour, 0 ), 0 )) as warnings_per_hour
   from (
-
-	select date_only,
-	      hour_only,
-       	platform, severity ,
-       	context,
-       	app_version,business,
-       	count( uid ) as uu_with_error_per_hour,
-       	sum( errors_per_uid ) as errors_per_hour
-	from (
-   	select substr(ds, 1, 10) as date_only,
-   	        substr(ds, 12, 13) as hour_only,
-          	regexp_extract(device.platform, '^\/mobile\/(android|ios)$')  as platform,
-          	json_extract_scalar(event_data, '$.error_severity')           as severity,
-        	  json_extract_scalar(event_data, '$.error_context')         as context,
-        	  regexp_extract(application.version, '^(\d+\.\d+\.\d+).*$', 1) as app_version,
-        	  application.business as business,
-          	usr.uid as uid,
-        	  count( 1 ) as errors_per_uid
-  	from tracks
-        	WHERE
-           ds >= '@param01' and ds < '@param02'
- 	         and type = 'event'
-    	      and path = '/mobile/bugsnag'
-  	group by substr(ds, 1, 10),
-  	         substr(ds, 12, 13),
-           	regexp_extract(device.platform, '^\/mobile\/(android|ios)$'),
-           	json_extract_scalar( event_data, '$.error_severity'),
-         	  json_extract_scalar(event_data, '$.error_context'),
-            regexp_extract(application.version, '^(\d+\.\d+\.\d+).*$', 1),
-            application.business,
-           	usr.uid
- 	)
-	group by  date_only,
-	          hour_only,
-          	platform, severity ,
-          	context,
-          	app_version,
-          	business
-
-   )
+           	select
+            	  t. date_only as date_only,
+          	    t.hour_only as hour_only,
+                t.platform as platform,
+                t.severity  as severity,
+                t.context as context,
+                t.app_version as app_version,
+                t.business as business,
+                count( t.uid ) as uu_with_error_per_hour,
+                sum( t.errors_per_uid ) as errors_per_hour
+          	from (
+              	(select substr(ds, 1, 10) as date_only,
+             	        substr(ds, 12, 13) as hour_only,
+                    	regexp_extract(device.platform, '^\/mobile\/(android|ios)$')  as platform,
+                    	get_json_object(event_data, '$.error_severity')           as severity,
+                  	  get_json_object(event_data, '$.error_context')         as context,
+                  	  application.version as app_version,
+                  	  application.business as business,
+                    	usr.uid as uid,
+                  	  count( 1 ) as errors_per_uid
+            	from tracks
+                  	WHERE
+                        ds >= '2019-05-28'
+           	          AND ds < '2019-05-29'
+           	         and type = 'event'
+              	      and path = '/mobile/bugsnag'
+            	group by substr(ds, 1, 10),
+            	         substr(ds, 12, 13),
+                     	regexp_extract(device.platform, '^\/mobile\/(android|ios)$'),
+                     	get_json_object( event_data, '$.error_severity'),
+                   	  get_json_object(event_data, '$.error_context'),
+                      application.version,
+                      application.business,
+                     	usr.uid)
+           	) t
+          	group by  date_only,
+          	          hour_only,
+                    	platform, severity ,
+                    	context,
+                    	app_version,
+                    	business
+       )t1
    group by  date_only, hour_only, platform, context,  app_version, business
 
- ) as numerador
+ ) numerador
 
 right outer join (
 
-   select  date_only,
-        hour_only,
-       	platform,
-       	context,
-       	app_version,
-        business,
-       	count( uid ) as uu_per_hour,
-      	sum (screenviews_per_uid) as screenviews_per_hour
+   select
+        v.date_only as date_only,
+        v.hour_only as hour_only,
+       	v.platform as platform,
+       	v.context as context,
+       	v.app_version as app_version,
+        v.business as business,
+       	count( v.uid ) as uu_per_hour,
+      	sum (v.screenviews_per_uid) as screenviews_per_hour
    from(
-  	select substr(ds, 1, 10)   as date_only,
+         	select substr(ds, 1, 10)   as date_only,
   	      substr(ds, 12, 13)   as hour_only,
          	regexp_extract(device.platform, '^\/mobile\/(android|ios)$') as platform,
         	application.view_context as context,
-          regexp_extract(application.version, '^(\d+\.\d+\.\d+).*$', 1) as app_version,
+          application.version as app_version,
           application.business,
          	usr.uid as uid,
          	count( 1 ) as screenviews_per_uid
   	from tracks
-      WHERE  ds >= '@param01' and ds < '@param02'
-    	AND type = 'view'
-
+      WHERE ds >= '2019-05-28'
+ 	        AND ds < '2019-05-29'
+    	    AND type = 'view'
   	group by substr(ds, 1, 10),
   	      substr(ds, 12, 13),
         	regexp_extract(device.platform, '^\/mobile\/(android|ios)$'),
-        	 application.view_context,
-        	regexp_extract(application.version, '^(\d+\.\d+\.\d+).*$', 1) ,
-       	 application.business ,
+        	application.view_context,
+        	application.version,
+       	  application.business,
         	usr.uid
-  	)
+
+  	) v
    group by date_only, hour_only, platform,  context,  app_version, business
 
-
- ) as denominador
+ ) denominador
 on (
 	  denominador.date_only = numerador.date_only
 	  and denominador.hour_only = numerador.hour_only
