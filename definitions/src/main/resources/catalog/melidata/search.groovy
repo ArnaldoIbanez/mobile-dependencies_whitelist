@@ -94,7 +94,7 @@ tracks {
         pdp_tracking_info(required: true, description: 'pdp products info', PropertyType.Map(PropertyType.String, PropertyType.String))
         pdp_highlight_enabled(required: true, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
         seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
-        user_profile_type(required: false, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
+        user_profile_type(required: true, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
     }
 
     "/search"(platform: "/mobile") {
