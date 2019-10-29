@@ -129,6 +129,12 @@ trackTests {
             pdp_highlight_enabled= true
             pdp_grouped_search=true
             user_profile_type="BUYER"
+            sparkle_info = [
+                    id:"1",
+                    intervention_type:"REDIRECT",
+                    config_value:"on",
+                    url:"http://example.com"
+            ]
         }
 
         "/search"(platform: "/web"){
@@ -223,6 +229,12 @@ trackTests {
             pdp_highlight_enabled= true
             pdp_grouped_search=true
             user_profile_type="BUYER"
+            sparkle_info = [
+                    id:"1",
+                    intervention_type:"REDIRECT",
+                    config_value:"on",
+                    url:"http://example.com"
+            ]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -330,6 +342,8 @@ trackTests {
             defaultSearchInformation()
             position_shown = 1
             move = "forward"
+            is_new_billboard = true
+            item_id = "MLC462810643"
         }
         "/search/billboard/resize"(platform: "/web") {
             defaultWebTrack()
@@ -340,6 +354,8 @@ trackTests {
         "/search/billboard/click"(platform: "/"){
             defaultSearchInformation()
             position = 2
+            is_new_billboard = true
+            item_id = "MLC462810643"
         }
         "/search/save"(platform: "/") {
             defaultSearchInformation()
@@ -446,6 +462,12 @@ trackTests {
             pdp_highlight_enabled= true
             pdp_grouped_search=true
             user_profile_type="BUYER"
+            sparkle_info = [
+                    id:"1",
+                    intervention_type:"REDIRECT",
+                    config_value:"on",
+                    url:"http://example.com"
+            ]
         }
     }
 

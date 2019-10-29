@@ -63,28 +63,24 @@ FROM
                            ) AS baseP
                       WHERE p_component IS NOT NULL
                         AND (
-                      -- Mobile_iOS
                              (p_platform = '/mobile/ios'
                           AND (p_component LIKE '/home/exhibitors/element'
                             OR p_component LIKE '/home/discovery-%/element'
                             OR p_component LIKE '/home/collection-items-%')
                              )
                          OR
-                      -- Mobile_Android
                              (p_platform = '/mobile/android'
                           AND (p_component LIKE '/home/exhibitors/element'
                             OR p_component LIKE '/home/discovery-%'
                             OR p_component LIKE '/home/collection-items-%')
                              )
                          OR
-                      --  Web_Mobile
                              (p_platform = '/web/mobile'
                           AND (p_component LIKE '/home/exhibitors-carousel/element'
                             OR p_component LIKE '/home/discovery-%/element'
                             OR p_component LIKE '/home/collections/item')
                              )
                          OR
-                      --  Web_Desktop
                              (p_platform = '/web/desktop'
                           AND (p_component LIKE '/home/exhibitors-carousel/element'
                             OR p_component LIKE '/home/discovery-%/element'
@@ -125,28 +121,24 @@ FROM
                                ) AS baseC
                           WHERE c_component IS NOT NULL
                             AND (
-                          -- Mobile_iOS
                                  (c_platform = '/mobile/ios'
                               AND (c_component LIKE '/home/exhibitors/element'
                                 OR c_component LIKE '/home/discovery-%/element'
                                 OR c_component LIKE '/home/collection-items-%')
                                  )
                              OR
-                          -- Mobile_Android
                                  (c_platform = '/mobile/android'
                               AND (c_component LIKE '/home/exhibitors/element'
                                 OR c_component LIKE '/home/discovery-%'
                                 OR c_component LIKE '/home/collection-items-%')
                                  )
                              OR
-                          --  Web_Mobile
                                  (c_platform = '/web/mobile'
                               AND (c_component LIKE '/home/exhibitors-carousel/element'
                                 OR c_component LIKE '/home/discovery-%/element'
                                 OR c_component LIKE '/home/collections/item')
                                  )
                              OR
-                          --  Web_Desktop
                                  (c_platform = '/web/desktop'
                               AND (c_component LIKE '/home/exhibitors-carousel/element'
                                 OR c_component LIKE '/home/discovery-%/element'

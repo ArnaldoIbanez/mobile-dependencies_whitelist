@@ -367,6 +367,19 @@ trackTests {
             catalog_product_id = "MLA1234"
             alternative_buying_option()
         })
+
+        "/pdp/onboarding_catalog/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            referer = "onboarding"
+        })
+
+        "/pdp/onboarding_catalog/close"(platform: "/", {
+            catalog_product_id = "MLA1234"
+        })
+
+        "/pdp/catalog_tag_click"(platform: "/", {
+            catalog_product_id = "MLA1234"
+        })
     }
 
     test("mobile special actions") {
