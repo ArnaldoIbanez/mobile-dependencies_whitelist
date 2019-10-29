@@ -120,6 +120,10 @@ tracks {
       groupCheckoutProperties
     }
 
+    "/point/buyingflow/paymentBankSelector/installments"(platform: "/", type: TrackType.Event) {
+      groupCheckoutProperties
+    }
+
     "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
