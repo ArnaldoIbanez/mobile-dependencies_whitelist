@@ -751,17 +751,17 @@ trackTests {
     "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/bundles"(platform:"/", type: TrackType.View) {
       page_resource = 'device-item'
-      action_type = 'click'
+      action_type = 'CLICK'
     }
     "/merchant_acquisition/flows/resellers/mgm"(platform:"/", type: TrackType.View) {
       page_resource = 'device-item'
-      action_type = 'click'
+      action_type = 'CLICK'
     }
     "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/dashboard"(platform:"/", type: TrackType.View) {
       page_resource = 'device-item'
-      action_type = 'click'
+      action_type = 'CLICK'
     }
     "/merchant_acquisition/flows/resellers/associate_device"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/register_device"(platform:"/", type: TrackType.View) {}

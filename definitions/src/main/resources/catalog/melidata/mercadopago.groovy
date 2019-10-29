@@ -227,18 +227,18 @@ tracks {
     "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/bundles"(platform:"/", type: TrackType.View) {
       page_resource (type: PropertyType.String, required: false, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
-      action_type (type: PropertyType.String, required: false, description: "Name of action, example: 'click', 'share', 'open', 'close'")
+      action_type (type: PropertyType.String, required: false,  values: ["CLICK", "SHARE", "OPEN", "CLOSE"])
     }
     "/merchant_acquisition/flows/resellers/mgm"(platform:"/", type: TrackType.View) {
       page_resource (type: PropertyType.String, required: false, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
-      action_type (type: PropertyType.String, required: false, description: "Name of action, example: 'click', 'share', 'open', 'close'")
+      action_type (type: PropertyType.String, required: false,  values: ["CLICK", "SHARE", "OPEN", "CLOSE"])
     }
     "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
     
     "/merchant_acquisition/flows/resellers/dashboard"(platform:"/", type: TrackType.View) {
       page_resource (type: PropertyType.String, required: false, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
-      action_type (type: PropertyType.String, required: false, description: "Name of action, example: 'click', 'share', 'open', 'close'")
+      action_type (type: PropertyType.String, required: false,  values: ["CLICK", "SHARE", "OPEN", "CLOSE"])
     }
     
     "/merchant_acquisition/flows/resellers/associate_device"(platform:"/", type: TrackType.View) {}
