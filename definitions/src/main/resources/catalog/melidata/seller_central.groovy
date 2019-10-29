@@ -226,6 +226,7 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
         checked_filters(required:false, type: PropertyType.ArrayList, descritpion: "List of filters applied")
+        
     }
 
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {
