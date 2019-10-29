@@ -55,6 +55,7 @@ tracks {
         official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
         items_with_logos(required: false, description: 'items ids that show the brand logo', PropertyType.ArrayList)
         pdp_grouped_search(required: true, description: 'indicates whether the product rows are result of grouping or not', PropertyType.Boolean)
+        pdp_info(required: false, description: "info about status and scoring of the product offered by search backend", type: PropertyType.ArrayList)
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
         //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
