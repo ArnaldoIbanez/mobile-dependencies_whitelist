@@ -44,11 +44,13 @@ tracks {
         attribute_values(required: false, description: "Array of attributes in categorization", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
         title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
         predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
+        parent_product_id(required: false, type: PropertyType.String, description: "Catalog product parent id for item")
+        product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
     }
 
     propertyGroups {
         sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation)
-        categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions)
+        categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id)
     }
 
     // Sell
@@ -761,7 +763,10 @@ tracks {
     }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/product_bullet_resume"(platform: "/web", isAbstract: true) {}
-    "/sell/item_data/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
+        categoryFlow
+        product_title(required: true, description: "title of catalog product", type: PropertyType.String)
+    }
     "/sell/item_data/flow_decision"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/flow_decision/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/flow_decision/confirm"(platform: "/web", type: TrackType.Event) {
@@ -872,12 +877,14 @@ tracks {
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
         sellGroup
+        categoryFlow
         item_id(required: false, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/congrats/listing_types"(platform: "/web", isAbstract: true) {}
     "/sell/congrats/listing_types/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
         sellGroup
+        categoryFlow
         item_id(required: false, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
