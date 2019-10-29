@@ -1039,6 +1039,12 @@ tracks {
     "/withdraw/bacen/open"(platform: "/mobile") {}
     "/withdraw/bacen/close"(platform: "/mobile") {}
 
+    "withdraw/select_bank/delete_account_modal"(platform "/"){}    
+    "withdraw/select_bank/delete_account_modal/confirm"(platform "/"){
+        bank_account_id (required: true, description: "Bank account selected to be deleted")
+    } 
+    "withdraw/select_bank/delete_account_modal/cancel"(platform "/"){} 
+
     "/fund_account"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")

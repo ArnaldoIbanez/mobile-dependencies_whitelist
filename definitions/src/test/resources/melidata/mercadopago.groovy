@@ -2565,6 +2565,14 @@ trackTests {
         }
     }
 
+    test("withdraw_delete_account") {
+        "withdraw/select_bank/delete_account_modal"(platform "/"){}    
+        "withdraw/select_bank/delete_account_modal/confirm"(platform "/"){
+            bank_account_id = "1234523"
+        } 
+        "withdraw/select_bank/delete_account_modal/cancel"(platform "/"){} 
+    }
+
     test("Settings") {
         "/settings/my_profile"(platform: "/mobile") {
             flow = "/settings"
