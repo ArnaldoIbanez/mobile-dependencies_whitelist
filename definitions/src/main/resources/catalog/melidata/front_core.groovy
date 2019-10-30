@@ -278,7 +278,7 @@ tracks {
     }
 
     "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
-        header(required: true, type: PropertyType.String, description: "Contains the header text's home", inheritable: false)
+        header(required: true, type: PropertyType.Map(header_definition), description: "The header information")
         content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
@@ -294,7 +294,7 @@ tracks {
     }
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
-        header(required: true, type: PropertyType.String, description: "Contains the header text's home", inheritable: false)
+        header(required: true, type: PropertyType.Map(header_definition), description: "The header information")
         content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
