@@ -229,10 +229,58 @@ tracks {
 
     // Micrositio - reseller
     "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/resellers/sales"(platform:"/", type: TrackType.View) {}
+    //bundles
+    "/merchant_acquisition/flows/resellers/bundles"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/bundles/click"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/bundles/share"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/bundles/open"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/bundles/close"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    //mgm
+    "/merchant_acquisition/flows/resellers/mgm"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/mgm/click"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/mgm/share"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/mgm/open"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/mgm/close"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    //dashboard
+    "/merchant_acquisition/flows/resellers/dashboard"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/dashboard/click"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/share"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/open"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/close"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    //benefits
     "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
+    //metrics
     "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/resellers/after_sales"(platform:"/", type: TrackType.View) {}
+    //associate_device
+    "/merchant_acquisition/flows/resellers/associate_device"(platform:"/", type: TrackType.View) {}
+    //register_device
+    "/merchant_acquisition/flows/resellers/register_device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/individual"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/bundle"(platform:"/", type: TrackType.View) {}
     
     // Share MGM Web > Pageviews
     "/merchant_acquisition/flows"(platform: "/", isAbstract: true) {}
