@@ -163,60 +163,74 @@ tracks {
     // Web desktop and web mobile tracks
     "/remedies/landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/phone_landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/phone_validation"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/documentation_front"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/documentation_back"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/documentation_number"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/selfie"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/congrats"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         congrats_type(type: PropertyType.String, required: true, description: "Type of the congrats we show")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
     "/remedies/continue_phone_landing"(platform: "/web/desktop", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         challenge(type: PropertyType.String, required: true, description: "Current challenge")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/continue_phone_congrats"(platform: "/web/desktop", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         challenge(type: PropertyType.String, required: true, description: "Current challenge")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/detail_landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/threeds"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/company"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/center/card"(platform: "/web", type: TrackType.View) {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/camera"(platform: "/web", isAbstract: true) {}
