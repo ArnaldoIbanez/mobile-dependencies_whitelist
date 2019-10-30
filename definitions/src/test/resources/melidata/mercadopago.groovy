@@ -566,6 +566,14 @@ trackTests {
           price = 299
           is_guest = true
         }
+        
+        "/point/buyingflow/paymentTicketInfo"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
 
         "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"

@@ -111,6 +111,10 @@ tracks {
     "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
+
+    "/point/buyingflow/paymentTicketInfo"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
     
     "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
