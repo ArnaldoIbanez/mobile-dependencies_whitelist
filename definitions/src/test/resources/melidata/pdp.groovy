@@ -303,7 +303,7 @@ trackTests {
         "/pdp/picker_selection"(platform: "/", {
             catalog_product_id = "MLA1234"
             picker_id = "MLA14545"
-            picker_disabled = false
+            picker_type = "normal"
         })
 
         "/pdp/other_buying_options"(platform: "/", {
@@ -465,7 +465,7 @@ trackTests {
         "/pdp/sellers/picker_selection"(platform: "/", {
             catalog_product_id = "MLA1234"
             picker_id = "COLOR"
-            picker_disabled = false
+            picker_type = "normal"
         })
 
         "/pdp/sellers/page_selection"(platform: "/", {
