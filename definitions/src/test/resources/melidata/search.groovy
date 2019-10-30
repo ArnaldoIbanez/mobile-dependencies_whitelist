@@ -7,6 +7,11 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
+    def pdpInfo = [
+            [id: "MLA1", score: 0.2441, status: "grouped"],
+            [id: "MLA2", score: 0.2441, status: "shown"]
+    ]
+
     test("Search core tracking"){
 
         def defaultSearchInformation = {
@@ -47,6 +52,7 @@ trackTests {
             show_apparel_carousel=false
             items_with_logos=["MLA1234", "MLA12345"]
             pdp_grouped_search=true
+            pdp_info=pdpInfo
         }
 
         def defaultWebTrack = {
@@ -128,6 +134,7 @@ trackTests {
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
+            pdp_info=pdpInfo
             user_profile_type="BUYER"
             sparkle_info = [
                     id:"1",
@@ -228,6 +235,7 @@ trackTests {
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
+            pdp_info=pdpInfo
             user_profile_type="BUYER"
             sparkle_info = [
                     id:"1",
@@ -260,6 +268,7 @@ trackTests {
             }
             carousel_filters=["BRAND", "official_store", "STYLE"]
             pdp_grouped_search=true
+            pdp_info=pdpInfo
         })
 
         "/search/color_picker"(platform: "/web"){
@@ -393,6 +402,7 @@ trackTests {
             category_id="MLA32089"
             query="iphone"
             pdp_grouped_search=true
+            pdp_info=pdpInfo
         }
     }
 
@@ -415,6 +425,7 @@ trackTests {
             category_id="ROOT"
             query="iphone"
             pdp_grouped_search=true
+            pdp_info=pdpInfo
         }
     }
 
@@ -461,6 +472,7 @@ trackTests {
             ]
             pdp_highlight_enabled= true
             pdp_grouped_search=true
+            pdp_info=pdpInfo
             user_profile_type="BUYER"
             sparkle_info = [
                     id:"1",
