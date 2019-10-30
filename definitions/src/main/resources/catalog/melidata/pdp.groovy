@@ -7,7 +7,7 @@ tracks {
     def product_picker_definition = objectSchemaDefinitions {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         selected(required: true, type: PropertyType.Boolean, description: "indicates if the product picker is selected or not")
-        disabled(required: true, type: PropertyType.Boolean, description: "indicates if the product picker is disabled or not")
+        picker_type(required: true, type: PropertyType.Boolean, values: ["smart", "no_stock", "normal"], description: "indicates the type of the picker")
     }
 
     def alternative_buying_option_definition = objectSchemaDefinitions {
