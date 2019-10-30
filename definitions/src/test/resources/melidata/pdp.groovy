@@ -29,24 +29,24 @@ trackTests {
                         [
                                 catalog_product_id: "MLA123",
                                 selected          : true,
-                                disabled          : false
+                                picker_type       : "normal"
                         ],
                         [
                                 catalog_product_id: "MLA125",
                                 selected          : false,
-                                disabled          : false
+                                picker_type       : "normal"
                         ]
                 ],
                 "MEMORY": [
                         [
                                 catalog_product_id: "MLA123",
                                 selected          : true,
-                                disabled          : false
+                                picker_type       : "normal"
                         ],
                         [
                                 catalog_product_id: "MLA125",
                                 selected          : false,
-                                disabled          : false
+                                picker_type       : "normal"
                         ]
                 ]
         ]
