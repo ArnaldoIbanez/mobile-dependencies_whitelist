@@ -9,7 +9,7 @@ select
   install.Installs,
   banner.Ds
 
-from (
+from  (
   select SiteId,
   Tipo,
   Device,
