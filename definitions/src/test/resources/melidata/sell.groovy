@@ -789,6 +789,10 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            product_title = "Iphone X"
         }
     }
     test("SYI v4 flow decision card showed"){
@@ -1250,6 +1254,9 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
         }
     }
     test("SYI v4 listing types card showed"){
@@ -1259,6 +1266,9 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
         }
     }
 

@@ -94,7 +94,7 @@ tracks {
         carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
         pdp_highlight_enabled(required: true, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
         seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
-        user_profile_type(required: false, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
+        user_profile_type(required: true, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
     }
 
     "/search"(platform: "/mobile") {
