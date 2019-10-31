@@ -119,12 +119,6 @@ trackTests {
                     ]
             ]
             carousel_filters = []
-            pdp_tracking_info = [
-                    "MLA1234": "shown",
-                    "MLA12345": "no_winner",
-                    "MLA123456": "inactive",
-                    "MLA1234567": "low_score"
-            ]
             seo = [
                     is_whitelisted:true,
                     check_mode:"GMV",
@@ -220,12 +214,6 @@ trackTests {
                     ]
             ]
             carousel_filters=["BRAND", "official_store", "STYLE"]
-            pdp_tracking_info = [
-                    "MLA1234": "shown",
-                    "MLA12345": "no_winner",
-                    "MLA123456": "inactive",
-                    "MLA1234567": "low_score"
-            ]
             seo = [
                 is_whitelisted:true,
                 check_mode:"GMV",
@@ -457,12 +445,6 @@ trackTests {
             user_zone = ""
             pdp_rows = []
             carousel_filters = []
-            pdp_tracking_info = [
-                    "MLA1234": "shown",
-                    "MLA12345": "no_winner",
-                    "MLA123456": "inactive",
-                    "MLA1234567": "low_score"
-            ]
             seo = [
                     is_whitelisted:true,
                     check_mode:"GMV",
