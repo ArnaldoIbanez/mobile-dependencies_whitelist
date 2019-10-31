@@ -43,11 +43,29 @@ tracks {
 
     "/logistics/login/document"(platform: "/mobile", type: TrackType.View) {}
 
+    "/logistics/conciliation/fail"(platform: "/mobile", type: TrackType.View) {}
+
+    "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View) {}
+
+    // Last Mile
     "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
     }
 
-    "/logistics/conciliation/fail"(platform: "/mobile", type: TrackType.View) {}
+    // First Mile
+    "/logistics/first_mile/scanner/modal_back"(platform: "/mobile", type: TrackType.View) {
+        packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages that " +
+                "were scanned at the moment that the view was shown", inheritable: false)
+    }
 
-    "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/first_mile/scanner/modal_back/back"(platform: "/mobile", type: TrackType.Event) {
+        packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages that " +
+                "were scanned at the moment that the view was shown", inheritable: false)
+    }
+
+    "/logistics/first_mile/scanner/modal_back/cancel"(platform: "/mobile", type: TrackType.Event) {
+        packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages that " +
+                "were scanned at the moment that the view was shown", inheritable: false)
+    }
+
 }
