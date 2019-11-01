@@ -32,7 +32,6 @@ tracks {
         error_step_id(required: false, type: PropertyType.String,
                 description: "Specifies the stepId where the error happened.", inheritable: false)
     }
-
     "/logistics/error/snackbar"(platform: "/mobile", type: TrackType.Event) {
         location
         error_type(required: true, type: PropertyType.String, values: ["generic", "delivery_failed",
@@ -42,41 +41,35 @@ tracks {
                 description: "Specifies the stepId where the error happened.", inheritable: false)
     }
 
+    "/logistics/login/"(platform: "/mobile", isAbstract: true) {
+        location
+    }
     "/logistics/login/select_country"(platform: "/mobile", type: TrackType.View) {
         device_id(required: true, type: PropertyType.String, description: "Specifies the device's id", inheritable: false)
         location
     }
-
     "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View) {}
-
     "/logistics/login/vehicle/scan"(platform: "/mobile", type: TrackType.View) {}
-
     "/logistics/login/vehicle/scan/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
         vehicle_info
         qr_format(required: true, type: PropertyType.String, values: ["ok", "error"], description: "Specifies if the detected " +
                 "vehicle qr has the correct format or not", inheritable: false)
     }
-
     "/logistics/login/document"(platform: "/mobile", type: TrackType.View) {}
-
-    "/logistics/conciliation/fail"(platform: "/mobile", type: TrackType.View) {}
-
-    "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View) {}
-
     "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
         error_type(required: true, type: PropertyType.String, values: ["vehicle", "driver", "vehicle_driver"],
                 description: "Specifies what kind of error happened.", inheritable: false)
     }
-
     "/logistics/login/error"(platform: "/mobile", type: TrackType.View) {}
-
     "/logistics/login/vehicle_on_route"(platform: "/mobile", type: TrackType.View) {
         vehicle_info
     }
-
     "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
         driver_info
     }
+
+    "/logistics/conciliation/fail"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View) {}
 
     // Last Mile
     "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View) {
