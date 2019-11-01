@@ -1,8 +1,9 @@
 package catalog.melidata
 
-import com.ml.melidata.catalog.PropertyType
-import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
+
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
@@ -34,7 +35,21 @@ tracks {
                 description: "Specifies the stepId where the error happened.", inheritable: false)
     }
 
-    "/logistics/conciliation/fail"(platform: "/mobile", type: TrackType.View) {}
-    "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/login/select_country"(platform: "/mobile", type: TrackType.View) {
+        device_id(required: true, type: PropertyType.String, description: "Specifies the device's id", inheritable: false)
+    }
 
+    "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View) {}
+
+    "/logistics/login/vehicle/scan"(platform: "/mobile", type: TrackType.View) {}
+
+    "/logistics/login/document"(platform: "/mobile", type: TrackType.View) {}
+
+    "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+    }
+
+    "/logistics/conciliation/fail"(platform: "/mobile", type: TrackType.View) {}
+
+    "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View) {}
 }

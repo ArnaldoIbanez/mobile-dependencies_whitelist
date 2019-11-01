@@ -1,4 +1,4 @@
-select  substr(ds,1,10) as ds,
+select  
 application.site_id as Site,
 device.platform AS Plataforma,
 jest(COALESCE(platform.fragment, others['fragment']), 'DEAL_ID') AS	others_dealID,
@@ -7,7 +7,8 @@ jest(COALESCE(platform.fragment, others['fragment']),'S') AS deal_Source,
 jest(COALESCE(platform.fragment, others['fragment']),'V') AS deal_Position,
 jest(COALESCE(platform.fragment, others['fragment']),'T') AS deal_Type,
 usr.uid,
-count(1) as total_clicks
+count(1) as total_clicks,
+substr(ds,1,10) as ds
 from tracks
 where 	   ds >='@param01'
 and 	   ds <'@param02'

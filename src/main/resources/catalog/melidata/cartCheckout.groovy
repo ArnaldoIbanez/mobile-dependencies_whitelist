@@ -118,7 +118,9 @@ tracks {
 
     "/cart/checkout/items_not_available"(platform: "/", type: TrackType.View) {}
 
-    "/cart/checkout/error"(platform: "/", type: TrackType.View) {}
+    "/cart/checkout/error"(platform: "/", type: TrackType.View) {
+        error(required: false, type: PropertyType.String, description: "Error that was shown to the user if known")
+    }
 
     "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
     "/cart/checkout/shipping"(platform:"/", isAbstract: true) {}
@@ -192,6 +194,10 @@ tracks {
 
     "/cart/checkout/review/edit_payment_method"(platform: "/", type: TrackType.View) {}
 
+    "/cart/checkout/review/edit_payment_method"(platform: "/mobile", type: TrackType.View) {
+        coupon(required: true, type: PropertyType.Boolean, description: "If the user redeemed a coupon code")
+    }
+
     "/cart/checkout/congrats"(platform: "/", type: TrackType.View) {
         congrats_seq(serverSide: true) // Lo completa Melidata automaticamente
         first_for_order(serverSide: true) // Lo completa Melidata automaticamente
@@ -217,6 +223,10 @@ tracks {
 
     "/cart/checkout/finish/invalid_sec_code"(platform: "/", type: TrackType.View, isAbstract: true) {}
     "/cart/checkout/finish/invalid_sec_code/input_code"(platform: "/", type: TrackType.View) {}
+    "/cart/checkout/finish/invalid_sec_code/input_code/confirm_purchase"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        status(required: false, type: PropertyType.String, description: "The result of the purchase")
+    }
 
     "/cart/checkout/finish/call_for_auth"(platform: "/", type: TrackType.View, isAbstract: true) {}
     "/cart/checkout/finish/call_for_auth/instructions"(platform: "/", type: TrackType.View) {}
@@ -234,6 +244,8 @@ tracks {
         total_amount(required: false, description: "totalAmount")
     }
 
+    "/cart/checkout/loading/back"(platform: "/mobile", type: TrackType.Event) {}
+
 // Addresses
 // Page
     "/cart/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
@@ -244,43 +256,56 @@ tracks {
 
     "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/street_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/references"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the references")
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/delivery"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
-        recovery_flow(required: true, description: "Is recovery CHO flow")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: true, type: PropertyType.String, description: "Session in which the checkout is being held")
+        success(required: true, type: PropertyType.Boolean, description: "Success or failure getting card config")
+
     }
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -487,6 +512,10 @@ tracks {
 
 // ESC: Enter the Sec Code to generate an Encrypted Security Code
     "/cart/checkout/payment/encrypted_security_code_add"(platform: "/mobile", type: TrackType.View) {}
+    "/cart/checkout/payment/encrypted_security_code_add/confirm_purchase"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        status(required: false, type: PropertyType.String, description: "The result of the purchase")
+    }
 
 //Billing info
     "/cart/checkout/billing"(platform: "/", isAbstract: true) {}
@@ -495,6 +524,8 @@ tracks {
     "/cart/checkout/review/edit_billing_info"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
+    "/cart/checkout/billing/physical_person/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/cart/checkout/billing/legal_person/back"(platform: "/mobile", type: TrackType.Event) {}
 
 // 2MP Inconsistencias
     "/cart/checkout/review/discard_payment_combination"(platform: "/mobile") {}
@@ -510,6 +541,7 @@ tracks {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         status(required: false, type: PropertyType.String, description: "The result of the purchase")
     }
+    "/cart/checkout/review/confirm_purchase/abort"(platform: "/mobile", type: TrackType.Event) {}
 
 //Payment form input tack events
 

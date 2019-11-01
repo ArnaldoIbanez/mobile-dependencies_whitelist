@@ -47,7 +47,6 @@ tracks {
               description: "Variable used to calculate item score in promotions backend")
       benefit(required: true, type: PropertyType.Numeric)
       interest(required: true, type: PropertyType.Numeric)
-      alpha(required: false, type: PropertyType.Numeric)
       item_clicks(required: false, type: PropertyType.Numeric)
       conversion_rate(required: false, type: PropertyType.Numeric)
       expected_clicks(required: false, type: PropertyType.Numeric)
@@ -55,7 +54,19 @@ tracks {
               description: "Indicates whether the item was manually positioned")
       model_version(required: false, type: PropertyType.String)
       position(required: false, type: PropertyType.Numeric)
-      created_date(required: false, type: PropertyType.String)       
+      created_date(required: false, type: PropertyType.String)
+      alpha(required: false, type: PropertyType.Numeric, 
+              description: "Weighting for equation learning. Calculated with total number of item prints within promotions")
+      beta(required: false, type: PropertyType.Numeric, 
+              description: "Adjustment parameters to weigh how much the ctr and the conversion rate add to learning")
+      gamma(required: false, type: PropertyType.Numeric, 
+              description: "Adjustment parameters to weigh how much the ctr and the conversion rate add to learning")
+      rebate(required: false, type: PropertyType.Numeric, 
+              description: "Attribute that the publication has or has not")
+      one_p(required: false, type: PropertyType.Numeric, 
+              description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")
+      private_label(required: false, type: PropertyType.Numeric,
+              description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")    
     }
 
     propertyDefinitions {
