@@ -1,5 +1,4 @@
 select
-	fecha,
 	site,
 	bu,
 	app_version,
@@ -20,7 +19,8 @@ select
 	UID_Congrats,
 	Sessions_Init,
 	Sessions_Card_Reader,
-	Sessions_Congrats
+	Sessions_Congrats,
+	fecha
 from (
 	select
 		fecha,
