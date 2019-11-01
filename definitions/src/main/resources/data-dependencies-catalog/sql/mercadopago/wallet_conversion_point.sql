@@ -21,7 +21,6 @@ select
 	Sessions_Card_Reader,
 	Sessions_Congrats
 from (
-
 	select
 		fecha,
 		site,
@@ -115,9 +114,7 @@ from (
 				) a1 
 				group by fecha, site, bu, app_version, platform, referred, transaction_id, uid 
 			) init
-
 			left join (
-
 			select
 				fecha,
 				site,
@@ -147,9 +144,7 @@ from (
 				group by fecha, site, bu, app_version, platform, transaction_id, uid 
 			) cr on init.fecha = cr.fecha and init.site = cr.site and init.bu = cr.bu and init.app_version = init.app_version 
 			and init.platform = cr.platform and init.uid = cr.uid and init.transaction_id = cr.transaction_id
-
 			left join (
-
 				select
 					fecha,
 					site,
@@ -187,6 +182,3 @@ from (
 	group by fecha, site, bu, app_version, platform, referred
 ) t2
 left join melilake.lk_currency_convertion c on c.tim_day = t2.fecha and c.sit_site_id = t2.site 
-
-
-
