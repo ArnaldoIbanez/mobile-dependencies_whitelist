@@ -35,6 +35,7 @@ tracks {
 
     "/logistics/login/select_country"(platform: "/mobile", type: TrackType.View) {
         device_id(required: true, type: PropertyType.String, description: "Specifies the device's id", inheritable: false)
+        location
     }
 
     "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View) {}
