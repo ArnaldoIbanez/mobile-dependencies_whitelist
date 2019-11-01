@@ -112,7 +112,7 @@ tracks {
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/paymentTicketInfo"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
     
@@ -124,7 +124,7 @@ tracks {
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/paymentBankSelector"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_bank_selector"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
