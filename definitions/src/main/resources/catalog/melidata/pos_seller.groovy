@@ -261,7 +261,15 @@
 
         "/pos_seller/friction/sat_not_found"(platform: "/", type: TrackType.View) {}
 
+
         // ----------- WEB -------------
+
+        /**
+        * pos seller web view tracks
+        */
+
+        "/pos_seller/onboarding"(platform: "/web", type: TrackType.View) {}
+
 
         /**
         * pos seller web event tracks
@@ -281,4 +289,5 @@
             message (required: true, type: PropertyType.Map(PosSellerFrictionMessage), description: "Message shown map")
             extra_info (required: true, type: PropertyType.Map(PosSellerCardFrictionExtraInfoWeb), description: "Friction extra data map")
         }
+        "/pos_seller/onboarding/start"(platform: "/web", type: TrackType.Event) {}
 }
