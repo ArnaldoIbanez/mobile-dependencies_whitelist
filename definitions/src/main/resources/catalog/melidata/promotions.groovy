@@ -66,7 +66,7 @@ tracks {
       private_label(required: false, type: PropertyType.Numeric,
               description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")    
       promotion_type(required: true, type: PropertyType.String,
-              description: "Type of promotion, TODAY_PROMOTION, DEAL_OF_THE_DAY, others")
+              values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "others"], description: "Type of promotion")
     }
 
     propertyDefinitions {
