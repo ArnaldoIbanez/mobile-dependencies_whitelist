@@ -2622,6 +2622,16 @@ trackTests {
         }
     }
 
+    test("Withdraw_delete_account") {
+        "/withdraw/select_bank/"(platform:"/"){ flow = "/withdraw" }
+        "/withdraw/select_bank/delete_account_modal"(platform:"/", type: TrackType.View){ flow = "/withdraw" }    
+        "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/", type: TrackType.Event){
+            bank_account_id = "1234523"
+            flow = "/withdraw"
+        } 
+        "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/", type: TrackType.Event){flow = "/withdraw"} 
+    }
+
     test("Settings") {
         "/settings/my_profile"(platform: "/mobile") {
             flow = "/settings"
