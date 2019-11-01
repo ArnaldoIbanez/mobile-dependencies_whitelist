@@ -33,6 +33,7 @@ trackTests {
         //Login country selector
         "/logistics/login/select_country"(platform: "/mobile", type: TrackType.View){
             device_id = "123"
+            defaultLocation()
         }
 
         //Login vehicle disclaimer
