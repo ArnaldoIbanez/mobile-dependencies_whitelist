@@ -1039,11 +1039,12 @@ tracks {
     "/withdraw/bacen/open"(platform: "/mobile") {}
     "/withdraw/bacen/close"(platform: "/mobile") {}
 
-    "withdraw/select_bank/delete_account_modal"(platform "/"){}    
-    "withdraw/select_bank/delete_account_modal/confirm"(platform "/"){
+    "/withdraw/select_bank"(platform: "/", isAbstract: true) {}
+    "/withdraw/select_bank/delete_account_modal"(platform:"/", type: TrackType.Event){}    
+    "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/", type: TrackType.Event){
         bank_account_id (required: true, description: "Bank account selected to be deleted")
     } 
-    "withdraw/select_bank/delete_account_modal/cancel"(platform "/"){} 
+    "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/", type: TrackType.Event){} 
 
     "/fund_account"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
