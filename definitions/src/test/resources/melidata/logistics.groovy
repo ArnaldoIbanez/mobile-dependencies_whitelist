@@ -56,4 +56,18 @@ trackTests {
         "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View){}
     }
 
+    test("Testing Logistics First Mile") {
+        "/logistics/first_mile/scanner/modal_back"(platform: "/mobile", type: TrackType.View) {
+            packs_amount = 1
+        }
+
+        "/logistics/first_mile/scanner/modal_back/back"(platform: "/mobile", type: TrackType.Event) {
+            packs_amount = 2
+        }
+
+        "/logistics/first_mile/scanner/modal_back/cancel"(platform: "/mobile", type: TrackType.Event) {
+            packs_amount = 3
+        }
+    }
+
 }
