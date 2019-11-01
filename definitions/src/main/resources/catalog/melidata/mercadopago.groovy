@@ -111,12 +111,20 @@ tracks {
     "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
+
+    "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
     
     "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
     "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/payment_bank_selector"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
