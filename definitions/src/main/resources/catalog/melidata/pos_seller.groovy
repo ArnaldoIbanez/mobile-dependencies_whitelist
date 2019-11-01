@@ -269,6 +269,7 @@
         */
 
         "/pos_seller/onboarding"(platform: "/web", type: TrackType.View) {}
+        "/pos_seller/mobile_shield"(platform: "/web", type: TrackType.View) {}
 
 
         /**
@@ -290,4 +291,5 @@
             extra_info (required: true, type: PropertyType.Map(PosSellerCardFrictionExtraInfoWeb), description: "Friction extra data map")
         }
         "/pos_seller/onboarding/start"(platform: "/web", type: TrackType.Event) {}
+        "/pos_seller/mobile_shield/start"(platform: "/web", type: TrackType.Event) {}
 }
