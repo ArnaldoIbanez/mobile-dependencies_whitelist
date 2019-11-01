@@ -29,7 +29,7 @@ trackTests {
         "/credits/consumer/public_landing/error"(platform: "/web/desktop") {}
         "/credits/consumer/public_landing/paused"(platform: "/web/desktop") {}
         "/credits/consumer/public_landing/remedy"(platform: "/web/desktop") {
-            name = 'declarative_info'
+            remedy_name = 'declarative_info'
         }
 
         //Events
