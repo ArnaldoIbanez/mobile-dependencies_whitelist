@@ -55,17 +55,10 @@ tracks {
     // First Mile
     "/logistics/first_mile/scanner/modal_back"(platform: "/mobile", type: TrackType.View) {
         packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages that " +
-                "were scanned at the moment that the view was shown", inheritable: false)
+                "were scanned at the moment that the view was shown")
     }
 
-    "/logistics/first_mile/scanner/modal_back/back"(platform: "/mobile", type: TrackType.Event) {
-        packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages that " +
-                "were scanned at the moment that the view was shown", inheritable: false)
-    }
+    "/logistics/first_mile/scanner/modal_back/back"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/logistics/first_mile/scanner/modal_back/cancel"(platform: "/mobile", type: TrackType.Event) {
-        packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages that " +
-                "were scanned at the moment that the view was shown", inheritable: false)
-    }
-
+    "/logistics/first_mile/scanner/modal_back/cancel"(platform: "/mobile", type: TrackType.Event) {}
 }
