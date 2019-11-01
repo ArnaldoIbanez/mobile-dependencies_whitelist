@@ -12,6 +12,7 @@ tracks {
     "/remedies"(platform: "/mobile", isAbstract: true) {}
 
     "/remedies"(platform: "/web", isAbstract: true) {
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
         initiative(required: false, type: PropertyType.String, description: "Users initiative")
         kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
@@ -225,26 +226,22 @@ tracks {
         devices(type: PropertyType.Numeric, required: true, description: "The number of camera devices the user has")
         flow(type: PropertyType.String, required: false, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: false, description: "Indicates if custom cam is offered")
-        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/camera/capture_image"(platform: "/web", type: TrackType.Event) {
         is_landscape(type: PropertyType.Boolean, required: true, description: "Indicates if the picture was taken on landscape mode")
         flow(type: PropertyType.String, required: false, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: false, description: "Indicates if custom cam is offered")
-        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/camera/pick_from_gallery"(platform: "/web", type: TrackType.Event) {
         flow(type: PropertyType.String, required: false, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: false, description: "Indicates if custom cam is offered")
-        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/camera/unavailable"(platform: "/web", type: TrackType.Event) {
         flow(type: PropertyType.String, required: false, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: false, description: "Indicates if custom cam is offered")
-        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
         reason(type: PropertyType.String, required: false, description: "Indicates the reason of the camera unavailable")
     }
 
@@ -252,27 +249,23 @@ tracks {
         is_landscape(type: PropertyType.Boolean, required: true, description: "Indicates if the picture was taken on landscape mode")
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
-        transaction_user_id(type: PropertyType.Numeric, required: true, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/camera/change_camera"(platform: "/web", type: TrackType.Event) {
         is_landscape(type: PropertyType.Boolean, required: true, description: "Indicates if the picture was taken on landscape mode")
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
-        transaction_user_id(type: PropertyType.Numeric, required: true, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/camera/take_picture"(platform: "/web", type: TrackType.Event) {
         is_landscape(type: PropertyType.Boolean, required: true, description: "Indicates if the picture was taken on landscape mode")
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
-        transaction_user_id(type: PropertyType.Numeric, required: true, description: "Indicates the user of the actual transaction")
     }
 
     "/remedies/camera/open_camera_error"(platform: "/web", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
-        transaction_user_id(type: PropertyType.Numeric, required: true, description: "Indicates the user of the actual transaction")
         error(type: PropertyType.String, required: true, description: "Type of error")
         error_reason(type: PropertyType.String, required: true, description: "Reason of the error")
     }
@@ -280,6 +273,5 @@ tracks {
     "/remedies/camera/exit_camera"(platform: "/web", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
-        transaction_user_id(type: PropertyType.Numeric, required: true, description: "Indicates the user of the actual transaction")
     }
 }
