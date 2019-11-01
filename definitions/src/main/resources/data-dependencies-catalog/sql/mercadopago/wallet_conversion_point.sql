@@ -4,6 +4,7 @@ select
 	bu,
 	app_version,
 	platform,
+	payment_channel,
 	referred,
 	Flow_Amount_LC_Ini,
 	Flow_Amount_LC_CR,
@@ -27,6 +28,7 @@ from (
 		bu,
 		app_version,
 		platform,
+		payment_channel,
 		referred,
 		SUM(Flow_Amount_LC_Ini) as Flow_Amount_LC_Ini,
 		SUM(Flow_Amount_LC_CR) as Flow_Amount_LC_CR,
@@ -47,6 +49,7 @@ from (
 			bu,
 			app_version,
 			platform,
+			payment_channel,
 			referred,
 			uid,
 			SUM(amount_lc_ini) as Flow_Amount_LC_Ini,
@@ -72,6 +75,7 @@ from (
 				if(length(cr.transaction_id) > 0, init.amount_lc, 0) as amount_lc_cr,
 				if(length(con.transaction_id) > 0, init.amount_lc, 0)as amount_lc_con,
 				init.referred as referred,
+				init.payment_channel as payment_channel,
 				init.uid as uid,
 	      (unix_timestamp(cr.user_time) - unix_timestamp(init.user_time)) as diff_ini_cr,
 	      (unix_timestamp(con.user_time) - unix_timestamp(cr.user_time)) as diff_cr_con,
@@ -81,7 +85,6 @@ from (
 				if(length(cr.transaction_id) > 0, 1, 0) as Sessions_Card_Reader,
 			  if(length(con.transaction_id) > 0, 1, 0) as Sessions_Congrats
 			from (
-
 				select
 					fecha,
 					site,
@@ -89,6 +92,7 @@ from (
 					app_version,
 					platform,
 					referred,
+					payment_channel,
 					transaction_id,
 					uid,
 					Min(user_timestamp) as user_time,
@@ -101,6 +105,7 @@ from (
 					    application.version as app_version,
 					    if( device.platform = '/mobile/android', 'android', if(device.platform = '/mobile/ios','ios','others')) as platform,
 					    jest(event_data,'flow_origin') as referred,
+					    jest(event_data,'payment_channel') as payment_channel,
 					    jest(event_data,'flow_id') as transaction_id,
 					    usr.uid as uid,
 					    user_timestamp,
@@ -112,7 +117,7 @@ from (
 						and path = '/pos_seller/start'
 						and jest(event_data,'payment_channel') = 'point'
 				) a1 
-				group by fecha, site, bu, app_version, platform, referred, transaction_id, uid 
+				group by fecha, site, bu, app_version, platform, payment_channel, referred, transaction_id, uid 
 			) init
 			left join (
 			select
@@ -174,11 +179,10 @@ from (
 				group by fecha, site, bu, app_version, platform, transaction_id, uid 
 			) con on init.fecha = con.fecha and init.site = con.site and init.bu = con.bu and init.app_version = init.app_version 
 			and init.platform = con.platform and init.uid = con.uid and init.transaction_id = con.transaction_id
-
-		group by init.fecha, init.site, init.bu, init.app_version, init.platform, init.amount_lc, init.referred, init.uid, init.transaction_id, cr.transaction_id, con.transaction_id, init.user_time, cr.user_time, con.user_time
+		group by init.fecha, init.site, init.bu, init.app_version, init.platform, init.amount_lc, init.referred, init.payment_channel, init.uid, init.transaction_id, cr.transaction_id, con.transaction_id, init.user_time, cr.user_time, con.user_time
 		) t
-		group by fecha, site, bu, app_version, platform, referred, uid
+		group by fecha, site, bu, app_version, platform, payment_channel, referred, uid
 	) t1
-	group by fecha, site, bu, app_version, platform, referred
+	group by fecha, site, bu, app_version, platform, payment_channel,referred
 ) t2
 left join melilake.lk_currency_convertion c on c.tim_day = t2.fecha and c.sit_site_id = t2.site 

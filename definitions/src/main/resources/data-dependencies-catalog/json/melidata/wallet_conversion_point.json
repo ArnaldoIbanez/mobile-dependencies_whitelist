@@ -29,6 +29,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "payment_channel",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "referred",
         "type": "UNICODE_STRING"
       },
