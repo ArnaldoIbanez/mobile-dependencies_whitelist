@@ -242,6 +242,7 @@ tracks {
     "/sell/list/draft/title"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/title_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/draft/technical_specifications_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/draft/warranty_time"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_time_review"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type"(platform: "/mobile", type: TrackType.View){}
@@ -345,6 +346,12 @@ tracks {
         category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
     "/sell/list/technical_specifications"(platform: "/", type: TrackType.View) {}
+    "/sell/list/technical_specifications_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/technical_specification"(platform: "/", isAbstract: true){}
+    "/sell/list/technical_specification/update"(platform: "/", isAbstract: true){}
+    "/sell/list/technical_specification/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
+        attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
+    }
     "/sell/list/product_identifier"(platform: "/", type: TrackType.View) {}
     "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
     "/sell/list/condition"(platform: "/", type: TrackType.View) {}

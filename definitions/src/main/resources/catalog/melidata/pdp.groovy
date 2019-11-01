@@ -238,7 +238,7 @@ tracks {
     "/pdp/picker_selection"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         picker_id(required: false, type: PropertyType.String, description: "Product's picker ID")
-        picker_type(required: true, type: PropertyType.String, values: ["smart", "no_stock", "normal"], description: "indicates the type of the picker")
+        picker_type(required: false, type: PropertyType.String, values: ["smart", "no_stock", "normal"], description: "indicates the type of the picker")
     }
 
     "/pdp/show_picker_selection_modal"(platform: "/mobile", parentPropertiesInherited: false) {
@@ -353,7 +353,7 @@ tracks {
     "/pdp/sellers/picker_selection"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         picker_id(required: true, type: PropertyType.String, description: "Product's picker ID")
-        picker_type(required: true, type: PropertyType.String, values: ["smart", "no_stock", "normal"], description: "indicates the type of the picker")
+        picker_type(required: false, type: PropertyType.String, values: ["smart", "no_stock", "normal"], description: "indicates the type of the picker")
     }
 
     "/pdp/sellers/page_selection"(platform: "/", parentPropertiesInherited: false) {
