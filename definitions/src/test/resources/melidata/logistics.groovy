@@ -51,7 +51,13 @@ trackTests {
         "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View){}
 
         //Login vehicle scanner
-        "/logistics/login/vehicle/scan"(platform: "/mobile", type: TrackType.View){}
+        "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View){}
+
+        //Login vehicle detected
+        "/logistics/login/vehicle/scan/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
+            status = "ok"
+            vehicleInfo()
+        }
 
         //Login document input
         "/logistics/login/document"(platform: "/mobile", type: TrackType.View){}

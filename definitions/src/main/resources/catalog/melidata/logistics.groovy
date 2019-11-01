@@ -6,8 +6,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
 
     propertyDefinitions {
-        latitude(required:false, type: PropertyType.String, description:"The latitude of driver at that point", inheritable:false)
-        longitude(required:false, type: PropertyType.String, description:"The longitude of driver at that point", inheritable:false)
+        latitude(required:false, type: PropertyType.String, description:"The latitude of driver at that point", inheritable: false)
+        longitude(required:false, type: PropertyType.String, description:"The longitude of driver at that point", inheritable: false)
 
         vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
         license_plate(required: false, type: PropertyType.String, description:"The license plate of the vehicle", inheritable: false)
@@ -44,16 +44,16 @@ tracks {
     "/logistics/login/"(platform: "/mobile", isAbstract: true) {
         location
     }
+
     "/logistics/login/select_country"(platform: "/mobile", type: TrackType.View) {
         device_id(required: true, type: PropertyType.String, description: "Specifies the device's id", inheritable: false)
         location
     }
     "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View) {}
-    "/logistics/login/vehicle/scan"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle/scan/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
         vehicle_info
-        qr_format(required: true, type: PropertyType.String, values: ["ok", "error"], description: "Specifies if the detected " +
-                "vehicle qr has the correct format or not", inheritable: false)
+        status(required: true, type: PropertyType.String, values: ["ok", "error"], description: "Specifies if the detected vehicle qr has the correct format or not", inheritable: false)
     }
     "/logistics/login/document"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
