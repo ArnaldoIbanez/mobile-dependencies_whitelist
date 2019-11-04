@@ -284,7 +284,7 @@ trackTests {
             position = 4
         }
 
-        "/search/category_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        "/search/category_carousel"(platform: "/mobile", type: TrackType.Event){
             carousel_categories_selected_id = "21"
             carousel_categories_selected_name = "Electronica"
         }
