@@ -93,6 +93,7 @@ tracks {
         payment_installments(required: false, description: "Installments selected")
         payment_status_detail(required: true, description: "Reason for the payment status")
         payment_status(required: true, description: "Reason for the payment status")
+        payment_id(required: false, description: "Payment's identification in case that the payment was successful", type: PropertyType.String)
     }
 
     "/checkout_off/congrats/call_for_auth"(platform: "/", isAbstract: true) {}
