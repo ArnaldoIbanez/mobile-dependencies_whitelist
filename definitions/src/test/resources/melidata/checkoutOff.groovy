@@ -28,6 +28,7 @@ trackTests {
             payment_installments = 3
             payment_status_detail = "accredited"
             payment_status = "approved"
+            payment_id = "5408994392"
         }
 
         def onlyRequiredProperties = {
