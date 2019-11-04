@@ -68,7 +68,7 @@ tracks {
     "/cellphone_recharge/mkt_landing"(platform: "/web", type: TrackType.View) {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
-    "/cellphone_recharge/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
+    "/cellphone_recharge/mkt_landing/sms"(platform: "/web", type: TrackType.Event) { 
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
     "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
