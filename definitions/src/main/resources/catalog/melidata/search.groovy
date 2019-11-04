@@ -126,6 +126,7 @@ tracks {
         user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
         pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
+        carousel_categories_shown(required: false, description: 'category carousel is show when user make a search', PropertyType.Boolean)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -212,6 +213,11 @@ tracks {
 
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {
 
+    }
+
+    "/search/category_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        carousel_categories_selected_id(required: true, description: 'the id of the selected value in the category carousel', PropertyType.String)
+        carousel_categories_selected_name(required: true, description: 'the name of the selected value in the category carousel', PropertyType.String)
     }
 
     "/search/input/back"(platform: "/mobile") {}
