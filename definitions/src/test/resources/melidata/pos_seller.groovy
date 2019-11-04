@@ -95,6 +95,11 @@
                                 cash_status = "upToDate"
                             }
 
+                            "/pos_seller/nfce/client"(platform: "/", type: TrackType.View) {}
+
+                            "/pos_seller/friction/sat_unavailable"(platform: "/", type: TrackType.View) {}
+
+                            "/pos_seller/friction/sat_not_found"(platform: "/", type: TrackType.View) {}
                     }
 
 
@@ -318,6 +323,11 @@
                     }
 
                     // WEB
+                    test("pos seller web views") {
+                        "/pos_seller/onboarding"(platform: "/web", type: TrackType.View) {}
+                        "/pos_seller/mobile_shield"(platform: "/web", type: TrackType.View) {}
+                    }
+
                     test("pos seller web events") {
                         
                         "/pos_seller/start"(platform: "/web", type: TrackType.Event) {
@@ -373,6 +383,9 @@
                                 installments: 3, 
                                 error_type: "card_reader"]
                             }
+                        
+                        "/pos_seller/onboarding/start"(platform: "/web", type: TrackType.Event) {}
+                        "/pos_seller/mobile_shield/start"(platform: "/web", type: TrackType.Event) {}
                     }
 
 } 

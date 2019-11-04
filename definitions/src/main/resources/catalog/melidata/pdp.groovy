@@ -7,7 +7,7 @@ tracks {
     def product_picker_definition = objectSchemaDefinitions {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         selected(required: true, type: PropertyType.Boolean, description: "indicates if the product picker is selected or not")
-        disabled(required: true, type: PropertyType.Boolean, description: "indicates if the product picker is disabled or not")
+        picker_type(required: true, type: PropertyType.String, values: ["smart", "no_stock", "normal"], description: "indicates the type of the picker")
     }
 
     def alternative_buying_option_definition = objectSchemaDefinitions {
@@ -238,7 +238,7 @@ tracks {
     "/pdp/picker_selection"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         picker_id(required: false, type: PropertyType.String, description: "Product's picker ID")
-        picker_disabled(required: false, type: PropertyType.Boolean, description: "Indicates if the selected picker is disabled")
+        picker_type(required: false, type: PropertyType.String, values: ["smart", "no_stock", "normal"], description: "indicates the type of the picker")
     }
 
     "/pdp/show_picker_selection_modal"(platform: "/mobile", parentPropertiesInherited: false) {
@@ -353,7 +353,7 @@ tracks {
     "/pdp/sellers/picker_selection"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         picker_id(required: true, type: PropertyType.String, description: "Product's picker ID")
-        picker_disabled(required: false, type: PropertyType.Boolean, description: "Indicates if the selected picker is disabled")
+        picker_type(required: false, type: PropertyType.String, values: ["smart", "no_stock", "normal"], description: "indicates the type of the picker")
     }
 
     "/pdp/sellers/page_selection"(platform: "/", parentPropertiesInherited: false) {
@@ -372,5 +372,19 @@ tracks {
     "/pdp/alternative_buying_options/buy_action" (platform: "/"){}
 
     "/pdp/alternative_buying_options/add_to_cart_action" (platform: "/"){}
+
+    "/pdp/onboarding_catalog" (platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+    }
+
+    "/pdp/onboarding_catalog/close" (platform: "/"){}
+
+    "/pdp/onboarding_catalog/show" (platform: "/"){
+        referer(required: true, type: PropertyType.String, values: ["onboarding", "tag", ""], description: "Onboarding catalog modal referer")
+    }
+
+    "/pdp/catalog_tag_click" (platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+    }
 
 }

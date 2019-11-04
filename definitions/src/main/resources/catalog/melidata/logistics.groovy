@@ -1,6 +1,7 @@
-import com.ml.melidata.catalog.PropertyType
-import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
+
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
@@ -32,7 +33,33 @@ tracks {
                 description: "Specifies the stepId where the error happened.", inheritable: false)
     }
 
+    "/logistics/login/select_country"(platform: "/mobile", type: TrackType.View) {
+        device_id(required: true, type: PropertyType.String, description: "Specifies the device's id", inheritable: false)
+        location
+    }
+
+    "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View) {}
+
+    "/logistics/login/vehicle/scan"(platform: "/mobile", type: TrackType.View) {}
+
+    "/logistics/login/document"(platform: "/mobile", type: TrackType.View) {}
+
     "/logistics/conciliation/fail"(platform: "/mobile", type: TrackType.View) {}
+
     "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View) {}
 
+    // Last Mile
+    "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+    }
+
+    // First Mile
+    "/logistics/first_mile/scanner/modal_back"(platform: "/mobile", type: TrackType.View) {
+        packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages that " +
+                "were scanned at the moment that the view was shown")
+    }
+
+    "/logistics/first_mile/scanner/modal_back/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/logistics/first_mile/scanner/modal_back/cancel"(platform: "/mobile", type: TrackType.Event) {}
 }

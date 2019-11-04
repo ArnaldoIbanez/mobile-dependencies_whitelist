@@ -29,24 +29,24 @@ trackTests {
                         [
                                 catalog_product_id: "MLA123",
                                 selected          : true,
-                                disabled          : false
+                                picker_type       : "normal"
                         ],
                         [
                                 catalog_product_id: "MLA125",
                                 selected          : false,
-                                disabled          : false
+                                picker_type       : "normal"
                         ]
                 ],
                 "MEMORY": [
                         [
                                 catalog_product_id: "MLA123",
                                 selected          : true,
-                                disabled          : false
+                                picker_type       : "normal"
                         ],
                         [
                                 catalog_product_id: "MLA125",
                                 selected          : false,
-                                disabled          : false
+                                picker_type       : "normal"
                         ]
                 ]
         ]
@@ -303,7 +303,7 @@ trackTests {
         "/pdp/picker_selection"(platform: "/", {
             catalog_product_id = "MLA1234"
             picker_id = "MLA14545"
-            picker_disabled = false
+            picker_type = "normal"
         })
 
         "/pdp/other_buying_options"(platform: "/", {
@@ -366,6 +366,19 @@ trackTests {
         "/pdp/alternative_buying_options/add_to_cart_action"(platform: "/", {
             catalog_product_id = "MLA1234"
             alternative_buying_option()
+        })
+
+        "/pdp/onboarding_catalog/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            referer = "onboarding"
+        })
+
+        "/pdp/onboarding_catalog/close"(platform: "/", {
+            catalog_product_id = "MLA1234"
+        })
+
+        "/pdp/catalog_tag_click"(platform: "/", {
+            catalog_product_id = "MLA1234"
         })
     }
 
@@ -452,7 +465,7 @@ trackTests {
         "/pdp/sellers/picker_selection"(platform: "/", {
             catalog_product_id = "MLA1234"
             picker_id = "COLOR"
-            picker_disabled = false
+            picker_type = "normal"
         })
 
         "/pdp/sellers/page_selection"(platform: "/", {
