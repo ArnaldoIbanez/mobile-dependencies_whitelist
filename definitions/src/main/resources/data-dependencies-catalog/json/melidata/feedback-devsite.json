@@ -12,7 +12,7 @@
       "operation": "append",
       "site": "MercadoPago",
       "columns": [{
-        "name": "device.platform",
+        "name": "platform",
         "type": "UNICODE_STRING"
       }, {
         "name": "feedback_value",
