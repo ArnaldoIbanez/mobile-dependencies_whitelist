@@ -9,7 +9,7 @@ tracks {
             type: PropertyType.String,
             required: false,
             values: [
-                'fixed_term', 
+                'fixed_term',
                 'express_money',
                 'sales_percentage'
             ]
@@ -18,8 +18,8 @@ tracks {
             type: PropertyType.String,
             required: false,
             values: [
-                'on_time', 
-                'overdue', 
+                'on_time',
+                'overdue',
                 'finished'
             ]
         )
@@ -27,7 +27,7 @@ tracks {
             type: PropertyType.String,
             required: false,
             values: [
-                'online', 
+                'online',
                 'in_store'
             ]
         )
@@ -35,7 +35,7 @@ tracks {
             type: PropertyType.String,
             required: false,
             values: [
-                'regular', 
+                'regular',
                 'refinance'
             ]
         )
@@ -43,12 +43,12 @@ tracks {
             type: PropertyType.String,
             required: false,
             values: [
-                'early_offer', 
+                'early_offer',
                 'full_offer'
             ]
         )
         is_first_offer(
-            required: false, 
+            required: false,
             type: PropertyType.Boolean
         )
     }
@@ -122,20 +122,20 @@ tracks {
             inheritable: false
         )
         show_cx_widget(
-            type: PropertyType.Boolean, 
-            required: false, 
-            inheritable: false            
+            type: PropertyType.Boolean,
+            required: false,
+            inheritable: false
         )
 
         // Included in products properties. Deprecate after new web admin, check native first
         status(
-            type: PropertyType.String, 
-            required: false, 
+            type: PropertyType.String,
+            required: false,
             values: [
-                'on_time', 
+                'on_time',
                 'overdue',
                 'empty'
-            ], 
+            ],
             inheritable: false
         )
     }
@@ -153,7 +153,7 @@ tracks {
     "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {
         products_with_status
     }
-    
+
     "/credits/merchant/administrator/detail/conditions"(platform: "/", type: TrackType.View) {
         products_with_status
     }
@@ -486,6 +486,11 @@ tracks {
             type: PropertyType.Numeric,
             required: true,
         )
+        min_amount(
+            description: "Credit line minimum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
+        )
     }
 
     "/credits/express_money/congrats"(platform: "/", type: TrackType.View) {
@@ -501,6 +506,11 @@ tracks {
         )
         max_amount(
             description: "Credit line maximum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
+        )
+        min_amount(
+            description: "Credit line minimum allowed amount",
             type: PropertyType.Numeric,
             required: true,
         )

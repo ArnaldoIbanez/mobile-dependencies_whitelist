@@ -516,6 +516,12 @@ trackTests {
         }
     }
 
+    test("Landing alliance bancocolombia") {
+        "/alliance/landing"(platform: "/", type: TrackType.View) {
+            company_name = "bancocolombia"
+        }
+    }
+
     test("Growth Frontend Login") {
         "/growth/login"(platform: "/", type: TrackType.View) {
           view = "split"
@@ -560,6 +566,14 @@ trackTests {
           price = 299
           is_guest = true
         }
+        
+        "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
 
         "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
@@ -586,6 +600,14 @@ trackTests {
         }
 
         "/point/buyingflow/paymentCardSecurityCode"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/payment_bank_selector"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -742,11 +764,52 @@ trackTests {
     }
 
     test("MP Micrositio Reseller") {
-        "/merchant_acquisition/flows/resellers"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/sales"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/benefits"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/metrics"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/after_sales"(platform: "/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/bundles"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/bundles/share"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/bundles/click"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/bundles/open"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/bundles/close"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/mgm"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/mgm/click"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/mgm/share"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/mgm/open"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/mgm/close"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/dashboard"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/dashboard/click"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/share"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/open"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/close"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/associate_device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/individual"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/bundle"(platform:"/", type: TrackType.View) {}
     }
 
     test("// Associar Point - Micrositio - reseller") {
@@ -1971,6 +2034,18 @@ trackTests {
         }
     }
 
+    test("MGM Navigation") {
+        "/mgm/navigation" (platform: "/mobile", type: TrackType.Event) {
+            realestates = [
+                    [
+                            "content_id": "drawer_mgm_seller_mp",
+                            "origin": "user_journey",
+                            "realestate_id": "drawer_mgm"
+                    ]
+            ]
+        }
+    }
+
     test("Digital Goods") {
         "/digital_goods/list"(platform: "/mobile") {
             flow = "/digital_goods"
@@ -2545,6 +2620,16 @@ trackTests {
             result_status = "rejected"
             status_detail = "internal_server_error"
         }
+    }
+
+    test("Withdraw_delete_account") {
+        "/withdraw/select_bank/"(platform:"/"){ flow = "/withdraw" }
+        "/withdraw/select_bank/delete_account_modal"(platform:"/", type: TrackType.View){ flow = "/withdraw" }    
+        "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/", type: TrackType.Event){
+            bank_account_id = "1234523"
+            flow = "/withdraw"
+        } 
+        "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/", type: TrackType.Event){flow = "/withdraw"} 
     }
 
     test("Settings") {
@@ -3440,14 +3525,26 @@ trackTests {
     }
 
     test("Configuraciones de Negocio"){
-        "/my_business"(platform: "/web", type: TrackType.View){}
-        "/my_business/how_it_works_ME"(platform: "/web", type: TrackType.Event){}
-        "/my_business/enable_ME"(platform: "/web", type: TrackType.Event){}
-        "/my_business/disable_ME"(platform: "/web", type: TrackType.Event){}
+        "/my_business"(platform: "/", type: TrackType.View){}
+        "/my_business/how_it_works_ME"(platform: "/", type: TrackType.Event){
+            how_it_works_me="click"
+        }
+        "/my_business/enable_ME"(platform: "/", type: TrackType.Event){
+            mercado_envios="enable"
+        }
+        "/my_business/disable_ME"(platform: "/", type: TrackType.Event){
+            mercado_envios="disable"
+        }
 
-        "/my_business/split_payment"(platform: "/web", type: TrackType.Event){}
-        "/my_business/recovery_mails"(platform: "/web", type: TrackType.Event){}
-        "/my_business/cost_absorption"(platform: "/web", type: TrackType.Event){}
+        "/my_business/split_payment"(platform: "/", type: TrackType.Event){
+            split_payment="enabled"
+        }
+        "/my_business/recovery_mails"(platform: "/", type: TrackType.Event){
+            recovery_mails="disabled"
+        }
+        "/my_business/cost_absorption"(platform: "/", type: TrackType.Event){
+            cost_absorption="deactivate"
+        }
     }
 
     //MP listings

@@ -98,7 +98,11 @@ trackTests {
             gesture = "open_eye"
         }
 
-        "/remedies/activity/check_step"(platform: "/mobile/android") {}
+        "/remedies/activity/check_step"(platform: "/mobile/android") {
+            initiative = 'asset'
+            kyc_flow_id = "123abcd"
+            flow = "asset_management"
+        }
         "/remedies/activity/landing"(platform: "/mobile/android") {}
         "/remedies/activity/phone_landing"(platform: "/mobile/android") {}
         "/remedies/activity/phone_validation"(platform: "/mobile/android") {}
@@ -216,48 +220,62 @@ trackTests {
     test("Remedies web") {
         "/remedies/landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/phone_validation"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/documentation_front"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/documentation_back"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/documentation_number"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/selfie"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/congrats"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             congrats_type = "warning"
+            transaction_user_id = 109479273
         }
         "/remedies/continue_phone_landing"(platform: "/web/desktop") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
+            transaction_user_id = 109479273
         }
         "/remedies/continue_phone_congrats"(platform: "/web/desktop") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
+            transaction_user_id = 109479273
         }
         "/remedies/detail_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/threeds"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/company"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/center/card"(platform: "/web") {
             status = "landing"
+            transaction_user_id = 109479273
         }
 
         "/remedies/center/row"(platform: "/mobile") {
@@ -266,12 +284,94 @@ trackTests {
 
         "/remedies/camera/open_camera"(platform: "/web") {
             devices = 2
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
         }
+
+        "/remedies/camera/open_camera"(platform: "/web") {
+            devices = 2
+            transaction_user_id = 109479273
+        }
+
         "/remedies/camera/capture_image"(platform: "/web") {
             is_landscape = false
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
         }
+
+        "/remedies/camera/capture_image"(platform: "/web") {
+            is_landscape = false
+            transaction_user_id = 109479273
+        }
+
+
+        "/remedies/camera/pick_from_gallery"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+        }
+
         "/remedies/camera/pick_from_gallery"(platform: "/web") {}
+
+        "/remedies/camera/unavailable"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+            reason = "broken_camera"
+        }
+
         "/remedies/camera/unavailable"(platform: "/web") {}
+
+        "/remedies/camera/take_another_picture"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+            is_landscape = false
+        }
+
+        "/remedies/camera/change_camera"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+            is_landscape = false
+        }
+
+        "/remedies/camera/change_camera"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479272
+            is_landscape = true
+        }
+
+        "/remedies/camera/take_picture"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+            is_landscape = false
+        }
+
+        "/remedies/camera/open_camera_error"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+            error = "epic_error"
+            error_reason = "permission_denied"
+        }
+
+        "/remedies/camera/exit_camera"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+        }
+
+        "/remedies/camera/unavailable"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479272
+            reason = "thereason"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -486,49 +586,63 @@ trackTests {
     test("Remedies web") {
         "/remedies/landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/phone_validation"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/documentation_front"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/documentation_back"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/documentation_number"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/selfie"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/congrats"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             congrats_type = "warning"
+            transaction_user_id = 109479273
         }
         "/remedies/continue_phone_landing"(platform: "/web/desktop") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
+            transaction_user_id = 109479273
         }
         "/remedies/continue_phone_congrats"(platform: "/web/desktop") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
+            transaction_user_id = 109479273
         }
         "/remedies/detail_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/threeds"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/company"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         
         "/remedies/center/card"(platform: "/web") {
             status = "landing"
+            transaction_user_id = 109479273
         }
 
         "/remedies/center/row"(platform: "/mobile") {
@@ -536,13 +650,95 @@ trackTests {
         }
 
         "/remedies/camera/open_camera"(platform: "/web") {
-            devices = 1
+            devices = 2
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
         }
+
+        "/remedies/camera/open_camera"(platform: "/web") {
+            devices = 2
+            transaction_user_id = 109479273
+        }
+
         "/remedies/camera/capture_image"(platform: "/web") {
+            is_landscape = false
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+        }
+
+        "/remedies/camera/capture_image"(platform: "/web") {
+            is_landscape = false
+            transaction_user_id = 109479273
+        }
+
+
+        "/remedies/camera/pick_from_gallery"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+        }
+
+        "/remedies/camera/pick_from_gallery"(platform: "/web") {}
+
+        "/remedies/camera/unavailable"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+            reason = "broken_camera"
+        }
+
+        "/remedies/camera/unavailable"(platform: "/web") {}
+
+        "/remedies/camera/take_another_picture"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+            is_landscape = false
+        }
+
+        "/remedies/camera/change_camera"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+            is_landscape = false
+        }
+
+        "/remedies/camera/change_camera"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479272
             is_landscape = true
         }
-        "/remedies/camera/pick_from_gallery"(platform: "/web") {}
-        "/remedies/camera/unavailable"(platform: "/web") {}
+
+        "/remedies/camera/take_picture"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+            is_landscape = false
+        }
+
+        "/remedies/camera/open_camera_error"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+            error = "epic_error"
+            error_reason = "permission_denied"
+        }
+
+        "/remedies/camera/exit_camera"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479273
+        }
+
+        "/remedies/camera/unavailable"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = true
+            transaction_user_id = 109479272
+            reason = "thereason"
+        }
     }
 
 }

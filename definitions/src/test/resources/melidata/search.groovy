@@ -7,6 +7,11 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
+    def pdpInfo = [
+            [id: "MLA1", score: 0.2441, status: "grouped"],
+            [id: "MLA2", score: 0.2441, status: "shown"]
+    ]
+
     test("Search core tracking"){
 
         def defaultSearchInformation = {
@@ -46,6 +51,8 @@ trackTests {
             show_supermarket_carousel=true
             show_apparel_carousel=false
             items_with_logos=["MLA1234", "MLA12345"]
+            pdp_grouped_search=true
+            pdp_info=pdpInfo
         }
 
         def defaultWebTrack = {
@@ -112,21 +119,23 @@ trackTests {
                     ]
             ]
             carousel_filters = []
-            pdp_tracking_info = [
-                    "MLA1234": "shown",
-                    "MLA12345": "no_winner",
-                    "MLA123456": "inactive",
-                    "MLA1234567": "low_score"
-            ]
-            is_in_seo_whitelist = true
             seo = [
                     is_whitelisted:true,
                     check_mode:"GMV",
                     gmv_value:15,
                     vip_clicks:0,
-                    isOnSeoWhitelistExperiment:true
+                    is_on_seo_whitelist_experiment:true
             ]
             pdp_highlight_enabled= true
+            pdp_grouped_search=true
+            pdp_info=pdpInfo
+            user_profile_type="BUYER"
+            sparkle_info = [
+                    id:"1",
+                    intervention_type:"REDIRECT",
+                    config_value:"on",
+                    url:"http://example.com"
+            ]
         }
 
         "/search"(platform: "/web"){
@@ -205,21 +214,23 @@ trackTests {
                     ]
             ]
             carousel_filters=["BRAND", "official_store", "STYLE"]
-            pdp_tracking_info = [
-                    "MLA1234": "shown",
-                    "MLA12345": "no_winner",
-                    "MLA123456": "inactive",
-                    "MLA1234567": "low_score"
-            ]
-            is_in_seo_whitelist = true
             seo = [
                 is_whitelisted:true,
                 check_mode:"GMV",
                 gmv_value:15,
                 vip_clicks:0,
-                isOnSeoWhitelistExperiment:true
+                is_on_seo_whitelist_experiment:true
             ]
             pdp_highlight_enabled= true
+            pdp_grouped_search=true
+            pdp_info=pdpInfo
+            user_profile_type="BUYER"
+            sparkle_info = [
+                    id:"1",
+                    intervention_type:"REDIRECT",
+                    config_value:"on",
+                    url:"http://example.com"
+            ]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -244,6 +255,9 @@ trackTests {
                 printed_positions_size=0
             }
             carousel_filters=["BRAND", "official_store", "STYLE"]
+            pdp_grouped_search=true
+            pdp_info=pdpInfo
+            carousel_categories_shown = true
         })
 
         "/search/color_picker"(platform: "/web"){
@@ -269,7 +283,11 @@ trackTests {
             filter = "STYLE"
             position = 4
         }
-        
+
+        "/search/category_carousel"(platform: "/mobile", type: TrackType.Event){
+            carousel_categories_selected_id = "21"
+            carousel_categories_selected_name = "Electronica"
+        }
         
         "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event){
             defaultSearchInformation()
@@ -326,12 +344,20 @@ trackTests {
             defaultSearchInformation()
             position_shown = 1
             move = "forward"
+            is_new_billboard = true
+            item_id = "MLC462810643"
         }
         "/search/billboard/resize"(platform: "/web") {
             defaultWebTrack()
             action = "expand"
             available_filters = []
             user_zone = ""
+        }
+        "/search/billboard/click"(platform: "/"){
+            defaultSearchInformation()
+            position = 2
+            is_new_billboard = true
+            item_id = "MLC462810643"
         }
         "/search/save"(platform: "/") {
             defaultSearchInformation()
@@ -343,6 +369,10 @@ trackTests {
             defaultSearchInformation()
             to_name="adidas"
             to_position=2
+        }
+        "/search/banner" (platform: "/web", defaultWebTrack)
+        "/search/banner/click"(platform: "/web", type: TrackType.Event){
+            defaultWebTrack()
         }
     }
 
@@ -364,6 +394,8 @@ trackTests {
             billboards = []
             category_id="MLA32089"
             query="iphone"
+            pdp_grouped_search=true
+            pdp_info=pdpInfo
         }
     }
 
@@ -385,6 +417,8 @@ trackTests {
             billboards = []
             category_id="ROOT"
             query="iphone"
+            pdp_grouped_search=true
+            pdp_info=pdpInfo
         }
     }
 
@@ -416,21 +450,23 @@ trackTests {
             user_zone = ""
             pdp_rows = []
             carousel_filters = []
-            pdp_tracking_info = [
-                    "MLA1234": "shown",
-                    "MLA12345": "no_winner",
-                    "MLA123456": "inactive",
-                    "MLA1234567": "low_score"
-            ]
-            is_in_seo_whitelist = true
             seo = [
                     is_whitelisted:true,
                     check_mode:"GMV",
                     gmv_value:15,
                     vip_clicks:0,
-                    isOnSeoWhitelistExperiment:true
+                    is_on_seo_whitelist_experiment:true
             ]
             pdp_highlight_enabled= true
+            pdp_grouped_search=true
+            pdp_info=pdpInfo
+            user_profile_type="BUYER"
+            sparkle_info = [
+                    id:"1",
+                    intervention_type:"REDIRECT",
+                    config_value:"on",
+                    url:"http://example.com"
+            ]
         }
     }
 
@@ -451,4 +487,5 @@ trackTests {
         "/search/finite_navigation"(platform: "/mobile/android"){
         }
     }
+
 }

@@ -15,11 +15,18 @@ tracks {
         check_mode(type: PropertyType.ArrayList(PropertyType.String), required: true)
         gmv_value(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
         vip_clicks(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
-        isOnSeoWhitelistExperiment(type: PropertyType.Boolean, required: true)
+        is_on_seo_whitelist_experiment(type: PropertyType.Boolean, required: true)
+    }
+
+    def sparkle_info_object = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: false)
+        intervention_type(type: PropertyType.String, required: false, values: ["REDIRECT", "INLINE"])
+        config_value(type: PropertyType.String, required: false)
+        url(type: PropertyType.String, required: false)
     }
 
     //SEARCH FLOW
-
+    
     "/search"(platform: "/") {
         query(required: false, description: "the words used to make a search", type: PropertyType.String)
         limit(required: true, description: "the max number of items returned", type: PropertyType.Numeric)
@@ -40,11 +47,15 @@ tracks {
         show_supermarket_carousel(required: false, description: "search with supermarket carousel", type: PropertyType.Boolean)
         show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
+        sparkle_info(required: false, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
+
 
         //Tracks from Search Backend:
         backend_data(required: false)
         official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
         items_with_logos(required: false, description: 'items ids that show the brand logo', PropertyType.ArrayList)
+        pdp_grouped_search(required: true, description: 'indicates whether the product rows are result of grouping or not', PropertyType.Boolean)
+        pdp_info(required: true, description: "info about status and scoring of the product offered by search backend", type: PropertyType.ArrayList)
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
         //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
@@ -58,7 +69,6 @@ tracks {
         //corrections(required: false, description:'corrections over query')
         //processed_query(required: false, description:'processed query by backend')
         //stems(required: false, description:'stems list which returns backend to stand out in frontend'
-
     }
 
     "/search"(platform: "/web") {
@@ -82,10 +92,9 @@ tracks {
         is_googlebot(required: false, description: 'is google bot request', PropertyType.Boolean)
         pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
-        pdp_tracking_info(required: true, description: 'pdp products info', PropertyType.Map(PropertyType.String, PropertyType.String))
         pdp_highlight_enabled(required: true, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
-        is_in_seo_whitelist(required: false, description: 'is request in seo whitelist', PropertyType.Boolean)
-        seo(required: false, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
+        seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
+        user_profile_type(required: true, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
     }
 
     "/search"(platform: "/mobile") {
@@ -117,6 +126,7 @@ tracks {
         user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
         pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
+        carousel_categories_shown(required: false, description: 'category carousel is show when user make a search', PropertyType.Boolean)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -205,6 +215,11 @@ tracks {
 
     }
 
+    "/search/category_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        carousel_categories_selected_id(required: true, description: 'the id of the selected value in the category carousel', PropertyType.String)
+        carousel_categories_selected_name(required: true, description: 'the name of the selected value in the category carousel', PropertyType.String)
+    }
+
     "/search/input/back"(platform: "/mobile") {}
 
     "/search/promoted_items/"(platform: "/web", isAbstract: true) {}
@@ -214,8 +229,16 @@ tracks {
     }
 
     "/search/billboard"(platform: "/", type: TrackType.Event) {
+        item_id(required: false, type: PropertyType.String)
+        is_new_billboard(required: false, type: PropertyType.Boolean)
         position_shown(required: false, type: PropertyType.Numeric)
         move(required: false, values: ["forward","backward"])
+    }
+
+    "/search/billboard/click"(platform: "/", type: TrackType.Event){
+        item_id(required: false, type: PropertyType.String)
+        is_new_billboard(required: false, type: PropertyType.Boolean)
+        position(required: true, description: "the position of the selected billboard in the carousel", type: PropertyType.Numeric)
     }
 
     "/search/billboard/resize"(platform: "/web", type: TrackType.Event) {
@@ -239,6 +262,11 @@ tracks {
     }
 
     "/search/finite_navigation"(platform: "/mobile/android", type: TrackType.Control, parentPropertiesInherited:false) {
+    }
+
+    "/search/banner"(platform: "/web", isAbstract: true){}
+
+    "/search/banner/click"(platform: "/web", type: TrackType.Event){
     }
 
 }

@@ -5,14 +5,14 @@
     "pablo.guillama@mercadolibre.com"
   ],
   "process_name": "navigation_download_app_experiments",
-  "cron": "00 06 * * *",
+  "cron": "00 09 * * *",
   "partition": {
         "name": "Ds",
         "type": "DATE"
   },
   "extract": {
     "operation": "append",
-    "site": "Marketplace",
+    "site": "Sales",
     "columns": [
       {
         "name": "SiteId",

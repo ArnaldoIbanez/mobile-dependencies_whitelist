@@ -177,26 +177,10 @@ metrics {
 			}
 		}
 	}
-	
-	"garex_mla"(description: "Garex MLA", sum_by: ["event_data.total_amount_including_garex"]) {
-		startWith {
-			experiment("buyingflow/garex_mla")
-		}
 
-		countsOn {
-			condition {
-				and(
-					equals("event_data.congrats_seq",1),
-					empty("event_data.total_amount_including_garex", false),
-					equals("event_data.item_with_garex", true)
-				)
-			}
-		}
-	}
-
-	"garex_mlb"(description: "Garex MLB", sum_by: ["event_data.total_amount_including_garex"]) {
+	"checkout_congrats_with_garex"(description: "orders_with_garex", sum_by: ["event_data.total_amount_including_garex"]) {
 		startWith {
-			experiment("buyingflow/garex_mlb")
+			experiment("buyingflow/garex_mlm")
 		}
 
 		countsOn {
@@ -260,6 +244,47 @@ metrics {
 			condition {
 				path("/checkout_off/congrats")
 				equals("event_data.payment_status","approved")
+			}
+		}
+	}
+
+	"pdp"(description: "pdp` count") {
+		countsOn {
+			condition {
+				path("/pdp", "/pdp/abort", "/pdp/failure")
+			}
+		}
+	}
+
+	"pdp_questions"(description: "Track PDP questions") {
+		countsOn {
+			condition {
+				path("/questions/ask/post")
+				and(
+					or(
+						equals("event_data.context", "/pdp"),
+						equals("event_data.context", "/qadb"),
+						equals("event_data.context", "/questions/qadb")
+					)
+				)
+			}
+		}
+	}
+
+	"pdp_buys"(description: "Track PDP buys", compute_order: true) {
+		countsOn {
+			condition {
+				or(
+					and(
+						equals("path", "/orders/ordercreated"),
+						equals("event_data.is_carrito", false),
+						equals('event_data.is_pdp',true)
+					),
+					and(
+						equals("path","/purchases/purchasecreated"),
+						equals('event_data.is_pdp',true)
+					)
+				)
 			}
 		}
 	}

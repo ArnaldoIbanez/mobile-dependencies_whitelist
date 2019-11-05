@@ -2,6 +2,7 @@
 
 [![Build Status](http://216.33.196.24/drone/api/badge/github.com/mercadolibre/melidata-catalog/status.svg?branch=master)](http://drone.melicloud.com/github.com/mercadolibre/melidata-catalog)
 
+
 ### CONTENT
 
 [1 - Description](#description)
@@ -58,5 +59,6 @@ If you want to run all available tests **```make test CATALOG=${All}```**
 5. [FAQ](https://github.com/mercadolibre/melidata-catalog/wiki/FAQ) 
 
 ### CONTACT
-
 <melidata_dev@mercadolibre.com>
+
+We internally rotate in the Melidata team to periodically take PRs at this catalog. In case of a hurry ( just in that case ) you can reach catalog owner of the week by checking [this rotation](https://nasdaq-meli.app.opsgenie.com/settings/schedule/detail/e9e18d88-3536-4572-9351-6ab680d4b1ed)

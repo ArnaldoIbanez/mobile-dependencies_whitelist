@@ -53,6 +53,9 @@ tracks {
     "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/error"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/public_landing/remedy"(platform: "/", type: TrackType.View) {
+        remedy_name(description: "Remedy name", type: PropertyType.String, required: true)
+    }
 
     //Events
     "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
@@ -198,7 +201,7 @@ tracks {
     "/credits/consumer/administrator_v2"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
         dashboard_status(
-                            required: true, 
+                            required: true,
                             description: "Current status of the Dashboard", 
                             type: PropertyType.String, 
                             values: [ 
@@ -208,6 +211,7 @@ tracks {
                                     ]
                         )
     }
+    "/credits/consumer/administrator_v2/suggested_modal"(platform: "/", type: TrackType.View) {}
 
     //Events
     "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/", type: TrackType.Event) {
@@ -220,6 +224,9 @@ tracks {
     "/credits/consumer/administrator_v2/educational_landing"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/suggested_product"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/home"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/suggested_modal/suggested_product_modal"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/", type: TrackType.Event) {}
 
     //Mobile Events 
     "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
@@ -682,5 +689,16 @@ tracks {
 
     /******************************************
      *   End: Consumers Experiments
+     ******************************************/
+
+    /******************************************
+     *    Start: Consumers Opensea Integrations
+     ******************************************/
+
+    "/credits/consumer/opensea/redirect"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/consumer/opensea/integrated_flow/vip"(platform: "/web", type: TrackType.Event){}
+
+    /******************************************
+     *   End: Consumers  Opensea Integrations
      ******************************************/
 }

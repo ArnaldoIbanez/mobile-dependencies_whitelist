@@ -343,4 +343,64 @@ metrics {
 			}
 		}
 	}
+
+	"credits-open-sea_vip.vip_conversion"(description: "vip total conversion under credits open sea experiment") {
+		startWith {
+			experiment("credits/openSeaVIPIntegration")
+		}
+		countsOn {
+			condition {
+				or(
+					and(
+						equals("path", "/buy_intention"),
+						equals("event_data.context", "vip")
+					),
+					and(
+						equals("path", "/credits/consumer/opensea/integrated_flow/start"),
+						equals("event_data.source", "vip")
+					)
+				)
+			}
+		}
+	}
+
+	"credits-open-sea_vip.credits_conversion"(description: "credits open sea conversion from experiment in vip") {
+		startWith {
+			experiment("credits/openSeaVIPIntegration")
+		}
+		countsOn {
+			condition {
+				and(
+					equals("path", "/credits/consumer/opensea/integrated_flow/start"),
+					equals("event_data.source", "vip")
+				)
+			}
+		}
+	}
+
+	"credits-open-sea_vip.checkout_conversion"(description: "checkout conversion under credits opensea experiment in vip") {
+		startWith {
+			experiment("credits/openSeaVIPIntegration")
+		}
+		countsOn {
+			condition{
+				equals("event_data.congrats_seq",1)
+			}
+		}
+	}
+
+	"credits-open-sea_vip.checkout_conversion_with_credits"(description: "checkout conversion, using credits as payment method, under credits opensea experiment in vip") {
+		startWith {
+			experiment("credits/openSeaVIPIntegration")
+		}
+		countsOn {
+			condition{
+				and(
+					equals("event_data.congrats_seq",1),
+					equals("event_data.payments.payment_method", "consumer_credits")
+				)
+			}
+		}
+	}
+
 }

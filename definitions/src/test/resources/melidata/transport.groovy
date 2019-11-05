@@ -56,11 +56,11 @@ trackTests {
         "/transport/companies"(platform: "/mobile") {
             flow = "/transport"
         }
-        "/transport/select_company"(platform: "/mobile") {
+        "/transport/selected_company"(platform: "/mobile") {
             flow = "/transport"
             company = "Bilhete unico (Sao Pablo)"
         }
-        "/transport/select_card"(platform: "/mobile") {
+        "/transport/selected_card"(platform: "/mobile") {
             flow = "/transport"
             company = "Bilhete unico (Sao Pablo)"
         }
@@ -70,22 +70,32 @@ trackTests {
 
         // Transport Marketing Landing
         "/transport/mkt_landing"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/transport/mkt_landing"(platform: "/web"){
+            campaign = "sube"
         } 
         "/transport/mkt_landing/sms"(platform: "/web"){
+            campaign = "sube"
         } 
         "/transport/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "sube"
             position = "coupon"
         } 
         "/transport/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "sube"
             position = "steps"
         } 
         "/transport/mkt_landing/button"(platform: "/web"){
+            campaign = "sube"
             position = "hero"
         } 
         "/transport/mkt_landing/button"(platform: "/web"){
+            campaign = "sube"
             position = "fixed"
         } 
         "/transport/mkt_landing/button"(platform: "/web"){
+            campaign = "sube"
             position = "footer"
         } 
     }
