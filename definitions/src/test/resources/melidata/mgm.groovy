@@ -64,9 +64,10 @@ trackTests {
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
             promoter = "123456"
         }
-        
+
         // MGM Seller
         "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}
+        "/mgm_seller/dashboard" (platform: "/mobile", type: TrackType.View) {}
 
         "/mgm_seller/referal/tap" (platform: "/mobile", type: TrackType.Event) {
             media = "whatsapp"
@@ -139,8 +140,9 @@ trackTests {
             promoter = "123456"
         }
 
-            // MGM Seller
+        // MGM Seller
         "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}
+        "/mgm_seller/dashboard" (platform: "/mobile", type: TrackType.View) {}
 
         "/mgm_seller/referal/tap" (platform: "/mobile", type: TrackType.Event) {
             media = "whatsapp"
