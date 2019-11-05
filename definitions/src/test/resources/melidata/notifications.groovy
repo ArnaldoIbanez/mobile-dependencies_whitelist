@@ -795,6 +795,12 @@ trackTests {
             latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
             status= "read"
         }
+        "/notification_center/discount_central_missing_data"(platform: "/mobile"){
+            newsgroup_id= "discount_central-missing_data-186785675"
+            latest_news_id= "discount_central-missing_data-186785675"
+            latest_news_type= "discount_central_missing_data"
+            status= "read"
+        }
         "/notification_center/transaction_approved_authorization"(platform: "/mobile"){
             newsgroup_id= "transaction_approved_authorization-186785675-76283123"
             latest_news_id= "transaction_approved_authorization-186785675-76283123"
@@ -2552,6 +2558,11 @@ trackTests {
 
         "/notification/prepaid_card_transaction_rejected_activation_reminder"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_activation_reminder-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+        "/notification/discount_central_missing_data"(platform: "/mobile") {
+            news_id = "discount_central_missing_data-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
