@@ -83,6 +83,12 @@ task testShipping (dependsOn: 'classes', type: JavaExec) {
     args = ["shipping"]
 }
 
+task testComponent (dependsOn: 'classes', type: JavaExec) {
+    main = 'testCatalog'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["component"]
+}
+
 task testCronnedQueries (dependsOn: 'classes', type: JavaExec) {
     main = 'testCronnedQueries'
     classpath = sourceSets.main.runtimeClasspath
