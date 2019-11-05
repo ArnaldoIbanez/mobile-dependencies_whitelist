@@ -8,19 +8,10 @@ tracks {
     propertyDefinitions {
         latitude(required:false, type: PropertyType.String, description:"The latitude of driver at that point", inheritable: false)
         longitude(required:false, type: PropertyType.String, description:"The longitude of driver at that point", inheritable: false)
-
-        vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
-        license_plate(required: false, type: PropertyType.String, description:"The license plate of the vehicle", inheritable: false)
-        carrier_id(required: false, type: PropertyType.String, description: "The id of the carrier", inheritable: false)
-
-        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
-        document_number(required: false, type: PropertyType.String, description: "The driver's document number", inheritable: false)
     }
 
     propertyGroups {
         location(latitude, longitude)
-        vehicle_info(vehicle_id, license_plate, carrier_id)
-        driver_info(driver_id, document_number)
     }
 
     "/logistics"(platform: "/", isAbstract: true) {}
@@ -52,7 +43,7 @@ tracks {
     "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle/scan/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
-        vehicle_info
+        vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
         status(required: true, type: PropertyType.String, values: ["ok", "error"], description: "Specifies if the detected vehicle qr has the correct format or not", inheritable: false)
     }
     "/logistics/login/document"(platform: "/mobile", type: TrackType.View) {}
@@ -62,10 +53,10 @@ tracks {
     }
     "/logistics/login/error"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle_on_route"(platform: "/mobile", type: TrackType.View) {
-        vehicle_info
+        vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
     }
     "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
-        driver_info
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
     }
 
     "/logistics/conciliation/fail"(platform: "/mobile", type: TrackType.View) {}

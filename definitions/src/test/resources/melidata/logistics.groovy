@@ -16,17 +16,6 @@ trackTests {
                     longitude = "-35.34332"
                 }
 
-        def vehicleInfo = {
-            vehicle_id = "123"
-            license_plate = "AAB456"
-            carrier_id = "17044503"
-        }
-
-        def driverInfo = {
-            driver_id = "987"
-            document_number = "12345678912"
-        }
-
         //Snackbar error event success
         "/logistics/error/snackbar"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
@@ -56,7 +45,7 @@ trackTests {
         //Login vehicle detected
         "/logistics/login/vehicle/scan/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
             status = "ok"
-            vehicleInfo()
+            vehicle_id = "123"
         }
 
         //Login document input
@@ -72,12 +61,12 @@ trackTests {
 
         //Login vehicle on route error
         "/logistics/login/vehicle_on_route"(platform: "/mobile", type: TrackType.View) {
-            vehicleInfo()
+            vehicle_id = "123"
         }
 
         //Login driver on route error
         "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
-            driverInfo()
+            driver_id = "987"
         }
 
         //Conciliation sorting fail
