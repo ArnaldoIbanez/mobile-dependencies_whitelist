@@ -1,5 +1,5 @@
 SELECT 
-TempTable.device.platform as device.platform,
+TempTable.device.platform as platform,
 TempTable.feedback_value as feedback_value,
 TempTable.url as url,
 TempTable.site as site,
