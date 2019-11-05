@@ -16,6 +16,7 @@ class CatalogManager implements Runnable {
 		this.catalogHandlers = [:]
 		addCatalogHandler("melidata")
 		addCatalogHandler("shipping")
+		addCatalogHandler("component")
 	}
 
 	CatalogManager(String catalogName) {
