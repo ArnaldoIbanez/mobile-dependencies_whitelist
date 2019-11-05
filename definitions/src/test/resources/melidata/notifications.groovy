@@ -796,12 +796,6 @@ trackTests {
             latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
             status= "read"
         }
-        "/notification_center/discount_central_missing_data"(platform: "/mobile"){
-            newsgroup_id= "discount_central-missing_data-186785675"
-            latest_news_id= "discount_central-missing_data-186785675"
-            latest_news_type= "discount_central_missing_data"
-            status= "read"
-        }
         "/notification_center/transaction_approved_authorization"(platform: "/mobile"){
             newsgroup_id= "transaction_approved_authorization-186785675-76283123"
             latest_news_id= "transaction_approved_authorization-186785675-76283123"
@@ -2566,11 +2560,6 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
-        "/notification/discount_central_missing_data"(platform: "/mobile") {
-            news_id = "discount_central_missing_data-186785675"
-            event_type = "open"
-            notification_type= "deep_linking"
-        }
 
         "/notification/prepaid_card_transaction_rejected_invalid_pin"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_invalid_pin-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
@@ -2846,6 +2835,15 @@ trackTests {
             type_layout= "standard"
             latest_news_type= "reputation-medal_lost_reminder"
             latest_news_id= "reputation-medal_lost_reminder-126635313-grace_time_126635313-13804002905"
+        }
+         "/notification_center/discount_central_missing_data"(platform: "/mobile"){
+            newsgroup_id= "discount_central-missing_data-126635313"
+            status= "read"
+            event_type= "open"
+            deeplink= "mercadopago://profile-engine/landing?flow_name=discount_central"
+            type_layout= "standard"
+            latest_news_type= "discount_central_missing_data"
+            latest_news_id= "discount_central-missing_data-126635313"
         }
         "/notification_center/security-enrollment"(platform: "/mobile"){
             newsgroup_id= "security-enrollment-142242996"
@@ -3721,6 +3719,11 @@ trackTests {
             news_id = "12332323"
             event_type = "auto_dismiss"
             source = "logout"
+        }
+
+        "/notification/discount_central_missing_data"(platform: "/mobile") {
+            news_id = "discount_central-missing_data-12332323"
+            event_type = "shown"
         }
 
         "/notification/account_fund_approved_ml"(platform: "/mobile") {
@@ -5696,6 +5699,11 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/discount_central_missing_data"(platform: "/mobile") {
+            news_id = "discount_central-missing_data-186785675"
+            event_type = "open"
+        }
+
         "/notification/cancellations_warning_seller_suspended"(platform: "/mobile") {
             event_type = "open"
         }
@@ -5764,6 +5772,10 @@ trackTests {
             notification_id= "12345"
             latest_news_type= "openplatform_recommendations_p1"
             latest_news_id= "openplatform_recommendations_p1-12345"
+        }
+        "/notification_center/discount_central_missing_data"(platform: "/mobile"){
+            latest_news_type= "discount_central_missing_data"
+            latest_news_id= "discount_central_missing_data-12345"
         }
     }
 
