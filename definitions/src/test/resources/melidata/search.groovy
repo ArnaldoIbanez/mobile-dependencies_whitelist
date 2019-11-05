@@ -257,6 +257,7 @@ trackTests {
             carousel_filters=["BRAND", "official_store", "STYLE"]
             pdp_grouped_search=true
             pdp_info=pdpInfo
+            carousel_categories_shown = true
         })
 
         "/search/color_picker"(platform: "/web"){
@@ -282,7 +283,11 @@ trackTests {
             filter = "STYLE"
             position = 4
         }
-        
+
+        "/search/category_carousel"(platform: "/mobile", type: TrackType.Event){
+            carousel_categories_selected_id = "21"
+            carousel_categories_selected_name = "Electronica"
+        }
         
         "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event){
             defaultSearchInformation()
