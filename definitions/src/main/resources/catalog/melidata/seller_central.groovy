@@ -431,7 +431,7 @@ tracks {
         adult(required: true, type: PropertyType.Boolean, description: "Value to know if user has select adult checkbox")
     }
 
-    "/seller_central/bulk/publish/categories/adult/modal/show"(platform: "/web", type: TrackType.View) {
+    "/seller_central/bulk/publish/categories/adult/modal/show"(platform: "/web", parentPropertiesInherited:false, type: TrackType.View) {
         adult(required: true, type: PropertyType.Boolean, description: "Value to know if user has select adult checkbox")
     }
 
