@@ -46,6 +46,15 @@ trackTests {
             latest_news_type= "reputation-medal_lost_reminder"
             latest_news_id= "reputation-medal_lost_reminder-126635313-grace_time_126635313-13804002905"
         }
+        "/notification_center/discount_central_missing_data"(platform: "/mobile"){
+            newsgroup_id= "discount_central-missing_data-126635313"
+            status= "read"
+            event_type= "open"
+            deeplink= "mercadopago://profile-engine/landing?flow_name=discount_central"
+            type_layout= "standard"
+            latest_news_type= "discount_central_missing_data"
+            latest_news_id= "discount_central-missing_data-126635313"
+        }
         "/notification_center/security-enrollment"(platform: "/mobile"){
             newsgroup_id= "security-enrollment-142242996"
             status= "unread"
@@ -2792,6 +2801,11 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/discount_central_missing_data"(platform: "/mobile") {
+            news_id = "discount_central-missing_data-12332323"
+            event_type = "shown"
+        }
+
     }
 
     defaultBusiness = "mercadopago"
@@ -2835,15 +2849,6 @@ trackTests {
             type_layout= "standard"
             latest_news_type= "reputation-medal_lost_reminder"
             latest_news_id= "reputation-medal_lost_reminder-126635313-grace_time_126635313-13804002905"
-        }
-         "/notification_center/discount_central_missing_data"(platform: "/mobile"){
-            newsgroup_id= "discount_central-missing_data-126635313"
-            status= "read"
-            event_type= "open"
-            deeplink= "mercadopago://profile-engine/landing?flow_name=discount_central"
-            type_layout= "standard"
-            latest_news_type= "discount_central_missing_data"
-            latest_news_id= "discount_central-missing_data-126635313"
         }
         "/notification_center/security-enrollment"(platform: "/mobile"){
             newsgroup_id= "security-enrollment-142242996"
@@ -3719,11 +3724,6 @@ trackTests {
             news_id = "12332323"
             event_type = "auto_dismiss"
             source = "logout"
-        }
-
-        "/notification/discount_central_missing_data"(platform: "/mobile") {
-            news_id = "discount_central-missing_data-12332323"
-            event_type = "shown"
         }
 
         "/notification/account_fund_approved_ml"(platform: "/mobile") {
