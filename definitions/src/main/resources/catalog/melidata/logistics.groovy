@@ -6,8 +6,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
 
     propertyDefinitions {
-        latitude(required:false, type: PropertyType.String, description:"The latitude of driver at that point", inheritable:false)
-        longitude(required:false, type: PropertyType.String, description:"The longitude of driver at that point", inheritable:false)
+        latitude(required:false, type: PropertyType.String, description:"The latitude of driver at that point", inheritable: false)
+        longitude(required:false, type: PropertyType.String, description:"The longitude of driver at that point", inheritable: false)
     }
 
     propertyGroups {
@@ -23,7 +23,6 @@ tracks {
         error_step_id(required: false, type: PropertyType.String,
                 description: "Specifies the stepId where the error happened.", inheritable: false)
     }
-
     "/logistics/error/snackbar"(platform: "/mobile", type: TrackType.Event) {
         location
         error_type(required: true, type: PropertyType.String, values: ["generic", "delivery_failed",
@@ -33,19 +32,34 @@ tracks {
                 description: "Specifies the stepId where the error happened.", inheritable: false)
     }
 
+    "/logistics/login/"(platform: "/mobile", isAbstract: true) {
+        location
+    }
+
     "/logistics/login/select_country"(platform: "/mobile", type: TrackType.View) {
         device_id(required: true, type: PropertyType.String, description: "Specifies the device's id", inheritable: false)
         location
     }
-
     "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View) {}
-
-    "/logistics/login/vehicle/scan"(platform: "/mobile", type: TrackType.View) {}
-
+    "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/login/vehicle/scan/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
+        vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
+        status(required: true, type: PropertyType.String, values: ["ok", "error"], description: "Specifies if the detected vehicle qr has the correct format or not", inheritable: false)
+    }
     "/logistics/login/document"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
+        error_type(required: true, type: PropertyType.String, values: ["vehicle", "driver", "vehicle_driver"],
+                description: "Specifies what kind of error happened.", inheritable: false)
+    }
+    "/logistics/login/error"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/login/vehicle_on_route"(platform: "/mobile", type: TrackType.View) {
+        vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
+    }
+    "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
+    }
 
     "/logistics/conciliation/fail"(platform: "/mobile", type: TrackType.View) {}
-
     "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View) {}
 
     // Last Mile

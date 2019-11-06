@@ -40,14 +40,33 @@ trackTests {
         "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View){}
 
         //Login vehicle scanner
-        "/logistics/login/vehicle/scan"(platform: "/mobile", type: TrackType.View){}
+        "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View){}
+
+        //Login vehicle detected
+        "/logistics/login/vehicle/scan/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
+            status = "ok"
+            vehicle_id = "123"
+        }
 
         //Login document input
         "/logistics/login/document"(platform: "/mobile", type: TrackType.View){}
 
-        //Last Mile active route disclaimer
-        "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View){
-            route_id = "123"
+        //Login account disabled error
+        "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
+            error_type = "vehicle"
+        }
+
+        //Login error generic
+        "/logistics/login/error"(platform: "/mobile", type: TrackType.View) {}
+
+        //Login vehicle on route error
+        "/logistics/login/vehicle_on_route"(platform: "/mobile", type: TrackType.View) {
+            vehicle_id = "123"
+        }
+
+        //Login driver on route error
+        "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
+            driver_id = "987"
         }
 
         //Conciliation sorting fail
@@ -55,6 +74,12 @@ trackTests {
 
         //Conciliation sorting ok
         "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View){}
+    }
+
+    test("Testing Logistics Last Mile") {
+        "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View){
+            route_id = "123"
+        }
     }
 
     test("Testing Logistics First Mile") {
