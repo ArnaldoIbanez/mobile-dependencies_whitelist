@@ -400,8 +400,7 @@ trackTests {
   }
 
   test("seller central bulk publish show adults modal") {
-    "/seller_central/bulk/publish/categories/adult/modal"(platform: "/web", type: TrackType.Event) {
-      action = "show"
+    "/seller_central/bulk/publish/categories/adult/modal/show"(platform: "/web", type: TrackType.View) {
       adult = false
     }
   }
