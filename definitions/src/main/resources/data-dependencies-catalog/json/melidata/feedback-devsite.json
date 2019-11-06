@@ -12,6 +12,9 @@
       "operation": "append",
       "site": "MercadoPago",
       "columns": [{
+        "name": "ocurrencias",
+        "type": "INTEGER"
+      },{
         "name": "platform",
         "type": "UNICODE_STRING"
       }, {
