@@ -242,6 +242,7 @@ tracks {
     "/sell/list/draft/title"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/title_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/draft/technical_specifications_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/draft/warranty_time"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_time_review"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type"(platform: "/mobile", type: TrackType.View){}
@@ -262,6 +263,10 @@ tracks {
     "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/manufacturing_time"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/free_shipping_mandatory_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/health_goal_loss_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/status_changed_landing"(platform: "/mobile", type: TrackType.View) {}
 
 
     "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
@@ -345,11 +350,18 @@ tracks {
         category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
     }
     "/sell/list/technical_specifications"(platform: "/", type: TrackType.View) {}
+    "/sell/list/technical_specifications_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/technical_specification"(platform: "/", isAbstract: true){}
+    "/sell/list/technical_specification/update"(platform: "/", isAbstract: true){}
+    "/sell/list/technical_specification/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
+        attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
+    }
     "/sell/list/product_identifier"(platform: "/", type: TrackType.View) {}
     "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
     "/sell/list/condition"(platform: "/", type: TrackType.View) {}
     "/sell/list/condition_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/condition_fallback"(platform: "/", type: TrackType.View) {}
+    "/sell/list/condition_confirmation_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description"(platform: "/", type: TrackType.View) {}
     "/sell/list/description_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/description_fallback"(platform: "/", type: TrackType.View) {}
@@ -361,6 +373,7 @@ tracks {
     "/sell/list/listing_types"(platform: "/", type: TrackType.View) {}
     "/sell/list/listing_types_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/listing_types_catalog"(platform: "/", type: TrackType.View) {}
+    "/sell/list/listing_type_not_available_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/warranty_type"(platform: "/", type: TrackType.View) {}
     "/sell/list/warranty_time"(platform: "/", type: TrackType.View) {}
     "/sell/list/warranty_type_review"(platform: "/", type: TrackType.View) {}
@@ -567,6 +580,7 @@ tracks {
     }
     "/sell/update/condition"(platform: "/", type: TrackType.View) {}
     "/sell/update/condition_review"(platform: "/", type: TrackType.View) {}
+    "/sell/update/condition_confirmation_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/description"(platform: "/", type: TrackType.View) {}
     "/sell/update/description_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/payment_methods"(platform: "/", type: TrackType.View) {}
@@ -626,9 +640,14 @@ tracks {
     "/sell/update"(platform: "/", isAbstract: true) {}
     "/sell/update/listing_types"(platform: "/", type: TrackType.View) {}
     "/sell/update/listing_types_upgrade"(platform: "/", type: TrackType.View) {}
+    "/sell/update/listing_type_not_available_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/congrats_upgrade"(platform: "/", type: TrackType.View) {}
     "/sell/update/free_shipping"(platform: "/", type: TrackType.View) {}
+    "/sell/update/free_shipping_mandatory_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/update/statistics"(platform: "/", type: TrackType.View) {}
+    "/sell/update/health_goal_loss_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/status_changed_landing"(platform: "/mobile", type: TrackType.View) {}
 
 
     "/sell/list/pictures_uploader"(platform: "/web/desktop", isAbstract: true){}

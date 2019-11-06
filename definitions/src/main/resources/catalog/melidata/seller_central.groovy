@@ -129,8 +129,8 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
 
         comparison_table(required: false, type: PropertyType.Map(comparisonTable), description: "Information about the winner and the original item")
-        competition_status(required: false, type: PropertyType.String, description: "The actual buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
-        new_competition_status(required: false, type: PropertyType.String, description: "The new buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
+        competition_status(required: false, type: PropertyType.String, description: "The actual buy box status of the item")
+        new_competition_status(required: false, type: PropertyType.String, description: "The new buy box status of the item")
         catalog_product_id(required: false, type: PropertyType.String, description: "The product id")
         listing_type(required: true, type: PropertyType.String, description: "The product listing type")
         shipping_local_pickup(required: true, type: PropertyType.Boolean, description: "The product local pick up")

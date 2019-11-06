@@ -76,7 +76,7 @@ tracks {
         sidebar_name(
                 required: false,
                 type: PropertyType.String,
-                values: ['AFIP', 'BANNER', 'BRANDS', 'CAROUSEL', 'COLORS', 'FLASH', 'GRID', 'HEADER_MESSAGE',
+                values: ['AFIP', 'BANNER', 'BRANDS', 'CAROUSEL', 'COLORS', 'CONTACT', 'CONTACT_FROM_SHOP_NAME', 'FLASH', 'GRID', 'HEADER_MESSAGE',
                          'LOGO', 'MOSAIC', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS', 'SUBDOMAIN', 'TEXT_BANNER']
         )
     }
@@ -144,6 +144,16 @@ tracks {
         twitter(required: true, type: PropertyType.Boolean, description: "Twitter was configured")
         instagram(required: true, type: PropertyType.Boolean, description: "Instagram was configured")
         youtube(required: true, type: PropertyType.Boolean, description: "Youtube was configured")
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/sidebar/contact"(platform: "/", type: TrackType.Event){
+        phone_visible(required: true, type: PropertyType.Boolean, description: "phone visibility original value")
+        email_visible(required: true, type: PropertyType.Boolean, description: "email visibility original value")
+        address_visible(required: true, type: PropertyType.Boolean, description: "address visibility original value")
+        phone_visible_new(required: true, type: PropertyType.Boolean, description: "phone visibility original value")
+        email_visible_new(required: true, type: PropertyType.Boolean, description: "email visibility new value")
+        address_visible_new(required: true, type: PropertyType.Boolean, description: "address visibility original value")
         mshopsEventGroup
     }
 
