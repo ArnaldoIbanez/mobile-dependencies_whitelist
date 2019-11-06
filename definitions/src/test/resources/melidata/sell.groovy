@@ -418,6 +418,13 @@ trackTests {
         "/sell/list/description_not_included"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/location_street"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/picture_editor/function/rotate"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/location_street"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/condition_confirmation_landing"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/health_goal_loss_landing"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/listing_type_not_available_landing"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/quotable_category_landing"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/free_shipping_mandatory_landing"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/status_changed_landing"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
     }
 
     test("Native Sell List draft flow steps") {
@@ -641,6 +648,12 @@ trackTests {
         "/sell/update/variations_pi"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/statistics"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/free_shipping"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/condition_confirmation_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/health_goal_loss_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/listing_type_not_available_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/quotable_category_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/free_shipping_mandatory_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/status_changed_landing"(platform: "/mobile") {item_id = "MLA123456"}
     }
 
     test("Modal attributes pseudo obligatory - List"){
