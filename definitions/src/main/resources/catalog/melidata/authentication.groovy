@@ -411,7 +411,7 @@ tracks {
     }
 
     "/screenlock/validation_start"(platform: "/mobile", type: TrackType.Event) {
-        flow_id(type: PropertyType.String, required: true)
+        flow_id(type: PropertyType.String, required: true, description: "Flow identifier where validation is happening")
      }
 
     "/screenlock/validation_end"(platform: "/mobile", type: TrackType.Event) {
