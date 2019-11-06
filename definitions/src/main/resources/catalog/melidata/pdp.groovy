@@ -240,7 +240,7 @@ tracks {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         picker_id(required: false, type: PropertyType.String, description: "Product's picker ID")
         picker_type(required: false, type: PropertyType.String, values: ["smart", "no_stock", "normal"], description: "indicates the type of the picker")
-        visible(required: true, type: PropertyType.Boolean, description: "Indicates if product picker is originally visible")
+        visible(required: false, type: PropertyType.Boolean, description: "Indicates if product picker is originally visible")
     }
 
     "/pdp/picker_collapse"(platform: "/", parentPropertiesInherited: false) {
@@ -363,7 +363,7 @@ tracks {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         picker_id(required: true, type: PropertyType.String, description: "Product's picker ID")
         picker_type(required: false, type: PropertyType.String, values: ["smart", "no_stock", "normal"], description: "indicates the type of the picker")
-        visible(required: true, type: PropertyType.Boolean, description: "Indicates if product picker is originally visible")
+        visible(required: false, type: PropertyType.Boolean, description: "Indicates if product picker is originally visible")
     }
 
     "/pdp/sellers/page_selection"(platform: "/", parentPropertiesInherited: false) {
