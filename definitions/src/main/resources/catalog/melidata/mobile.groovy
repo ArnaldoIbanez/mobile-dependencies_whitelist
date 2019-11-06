@@ -45,4 +45,32 @@ tracks {
     "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
     "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
 
+    "/in_app_updates"(platform: "/mobile", isAbstract: true){}
+    "/in_app_updates/inactive"(platform: "/mobile", isAbstract: true){}
+    "/in_app_updates/inactive/showed"(platform: "/mobile", type: TrackType.Event){
+        version (required: true, type: PropertyType.String, description: "v1 if bump legacy, v2 if in-app-update implemented")
+        type (required: true, type: PropertyType.String, description: "type of in-app-update FLEXIBLE | IMMEDIATE | LEGACY")
+    }
+    "/in_app_updates/inactive/accepted"(platform: "/mobile", type: TrackType.Event){
+        version (required: true, type: PropertyType.String, description: "v1 if bump legacy, v2 if in-app-update implemented")
+        type (required: true, type: PropertyType.String, description: "type of in-app-update IMMEDIATE | LEGACY")
+    }
+    "/in_app_updates/updatable"(platform: "/mobile", isAbstract: true){}
+    "/in_app_updates/updatable/showed"(platform: "/mobile", type: TrackType.Event){
+        version (required: true, type: PropertyType.String, description: "v1 if bump legacy, v2 if in-app-update implemented")
+        type (required: true, type: PropertyType.String, description: "type of in-app-update FLEXIBLE | IMMEDIATE | LEGACY")
+    }
+    "/in_app_updates/updatable/accepted"(platform: "/mobile", type: TrackType.Event){
+        version (required: true, type: PropertyType.String, description: "v1 if bump legacy, v2 if in-app-update implemented")
+        type (required: true, type: PropertyType.String, description: "type of in-app-update FLEXIBLE | IMMEDIATE | LEGACY")
+    }
+    "/in_app_updates/updatable/postponed"(platform: "/mobile", type: TrackType.Event){
+        version (required: true, type: PropertyType.String, description: "v1 if bump legacy, v2 if in-app-update implemented")
+        type (required: true, type: PropertyType.String, description: "type of in-app-update FLEXIBLE | IMMEDIATE | LEGACY")
+    }
+    "/in_app_updates/updatable/update_not_available"(platform: "/mobile", type: TrackType.Event){
+        cause (required: true, type: PropertyType.String, description: "why wer dont show the dialog of update")
+    }
+    "/in_app_updates/updatable/install"(platform: "/mobile", type: TrackType.Event){}
+    
 }
