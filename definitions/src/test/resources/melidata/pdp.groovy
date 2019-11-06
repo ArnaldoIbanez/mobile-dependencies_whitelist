@@ -130,6 +130,7 @@ trackTests {
 
         "/pdp/picker_selection"(platform: "/", {
             catalog_product_id = "MLA1234"
+            visible = true
         })
 
         "/pdp/other_buying_options"(platform: "/", {
@@ -228,6 +229,7 @@ trackTests {
             installment_info = "6f"
             loyalty_level = 2
             previous_catalog_product_id = "MLA43720"
+            collapsed_pickers = true
 
             filters = ["installments": "no_interest", "price":"1000-2000"]
 
@@ -304,6 +306,13 @@ trackTests {
             catalog_product_id = "MLA1234"
             picker_id = "MLA14545"
             picker_type = "normal"
+            visible = false
+        })
+
+        "/pdp/picker_collapse"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            picker_id = "MLA14545"
+            collapse = true
         })
 
         "/pdp/other_buying_options"(platform: "/", {
@@ -353,6 +362,7 @@ trackTests {
             domain_id = "MLA-CELLPHONES"
             review_rate = 1
             loyalty_level = 3
+            collapsed_pickers = true
 
             pickers = pickers_data()
             items = items_data()
@@ -466,6 +476,7 @@ trackTests {
             catalog_product_id = "MLA1234"
             picker_id = "COLOR"
             picker_type = "normal"
+            visible = false
         })
 
         "/pdp/sellers/page_selection"(platform: "/", {
