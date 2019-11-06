@@ -362,6 +362,7 @@ trackTests {
             domain_id = "MLA-CELLPHONES"
             review_rate = 1
             loyalty_level = 3
+            collapsed_pickers = true
 
             pickers = pickers_data()
             items = items_data()
