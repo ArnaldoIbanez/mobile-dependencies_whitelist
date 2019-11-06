@@ -228,6 +228,7 @@ trackTests {
             installment_info = "6f"
             loyalty_level = 2
             previous_catalog_product_id = "MLA43720"
+            collapsed_pickers = true
 
             filters = ["installments": "no_interest", "price":"1000-2000"]
 
