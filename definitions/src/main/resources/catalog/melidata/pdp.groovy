@@ -107,6 +107,7 @@ tracks {
 
         //picker definition
         pickers(required: false, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
+        collapsed_pickers(required: false, type: PropertyType.Boolean, description: "Indicates if a pdp has collapsed pickers")
 
         category_path(required: false, type: PropertyType.ArrayList, description: "Category path of the the item")
         vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
@@ -239,6 +240,13 @@ tracks {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         picker_id(required: false, type: PropertyType.String, description: "Product's picker ID")
         picker_type(required: false, type: PropertyType.String, values: ["smart", "no_stock", "normal"], description: "indicates the type of the picker")
+        visible(required: false, type: PropertyType.Boolean, description: "Indicates if product picker is originally visible")
+    }
+
+    "/pdp/picker_collapse"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        picker_id(required: false, type: PropertyType.String, description: "Product's picker ID")
+        collapse(required: false, type: PropertyType.Boolean, description: "Indicates if picker is collapse")
     }
 
     "/pdp/show_picker_selection_modal"(platform: "/mobile", parentPropertiesInherited: false) {
@@ -354,6 +362,7 @@ tracks {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         picker_id(required: true, type: PropertyType.String, description: "Product's picker ID")
         picker_type(required: false, type: PropertyType.String, values: ["smart", "no_stock", "normal"], description: "indicates the type of the picker")
+        visible(required: false, type: PropertyType.Boolean, description: "Indicates if product picker is originally visible")
     }
 
     "/pdp/sellers/page_selection"(platform: "/", parentPropertiesInherited: false) {
