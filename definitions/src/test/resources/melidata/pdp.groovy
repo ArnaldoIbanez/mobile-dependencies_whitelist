@@ -130,6 +130,7 @@ trackTests {
 
         "/pdp/picker_selection"(platform: "/", {
             catalog_product_id = "MLA1234"
+            visible = true
         })
 
         "/pdp/other_buying_options"(platform: "/", {
