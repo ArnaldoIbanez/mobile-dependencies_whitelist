@@ -9,7 +9,9 @@ tracks {
 
     // Views
     "/discount_sellers/form" (platform: "/mobile", type: TrackType.View) {}
+    "/discount_sellers/form/open" (platform: "/mobile", type: TrackType.View) {}
     "/discount_sellers/history" (platform: "/mobile", type: TrackType.View) {}
+    "/discount_sellers/history/open" (platform: "/mobile", type: TrackType.View) {}
     "/discount_sellers/detail" (platform: "/mobile", type: TrackType.View) {}
     "/discount_sellers/landing" (platform: "/mobile", type: TrackType.View) {
       id(required: true, type: PropertyType.String, description: "Landing identifier")
