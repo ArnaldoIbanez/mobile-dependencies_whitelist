@@ -505,6 +505,7 @@ trackTests {
             session_id = "290061169-list-32b1d9b3eae8"
             category_domain = "MLA-GLOVES"
             is_custom_name = true
+            category_path = ["MLA12345", "MLA61216"]
         }
     }
 
