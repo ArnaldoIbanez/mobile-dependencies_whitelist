@@ -91,5 +91,4 @@ trackTests {
             device_id = "12345678"
         }
     }
-
 }
