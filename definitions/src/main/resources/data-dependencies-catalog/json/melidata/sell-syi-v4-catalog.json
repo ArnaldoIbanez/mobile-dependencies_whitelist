@@ -3,7 +3,7 @@
     "luis.olivera@mercadolibre.com",
     "syi-puma@mercadolibre.com.ar"
   ],
-  "process_name": "sell_catalog",
+  "process_name": "sell_catalog_cards",
   "cron": "00 08 * * *",
   "partition": {
     "name": "ds",
