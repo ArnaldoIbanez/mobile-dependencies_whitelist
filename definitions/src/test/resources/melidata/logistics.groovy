@@ -37,35 +37,47 @@ trackTests {
         }
 
         //Login vehicle disclaimer
-        "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View){}
+        "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View){
+            defaultLocation()
+        }
 
         //Login vehicle scanner
-        "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View){}
+        "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View){
+            defaultLocation()
+        }
 
         //Login vehicle detected
         "/logistics/login/vehicle/scan/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
             status = "ok"
             vehicle_id = "123"
         }
 
         //Login document input
-        "/logistics/login/document"(platform: "/mobile", type: TrackType.View){}
+        "/logistics/login/document"(platform: "/mobile", type: TrackType.View){
+            defaultLocation()
+        }
 
         //Login account disabled error
         "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
             error_type = "vehicle"
         }
 
         //Login error generic
-        "/logistics/login/error"(platform: "/mobile", type: TrackType.View) {}
+        "/logistics/login/error"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
 
         //Login vehicle on route error
         "/logistics/login/vehicle_on_route"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
             vehicle_id = "123"
         }
 
         //Login driver on route error
         "/logistics/login/driver_on_route"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
             driver_id = "987"
         }
 
