@@ -117,6 +117,12 @@ task uploadShippingCatalog(type:JavaExec) {
     args = ["shipping"]
 }
 
+task uploadComponentCatalog(type:JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["component"]
+}
+
 task uploadMetrics(type:JavaExec) {
     main = 'com.melidata.definitions.uploaders.MetricsUploader'
     classpath = sourceSets.main.runtimeClasspath
@@ -164,6 +170,17 @@ task exportShipping(type:JavaExec) {
     main = mainClass
     classpath = sourceSets.main.runtimeClasspath
     args ["shipping"]
+}
+
+task exportComponent(type:JavaExec) {
+    def mainClass
+    if (format == 'hive')
+        mainClass = "com.melidata.definitions.format.HiveFormatter"
+    else
+        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
+    main = mainClass
+    classpath = sourceSets.main.runtimeClasspath
+    args ["component"]
 }
 
 task exportMetrics(type:JavaExec) {
