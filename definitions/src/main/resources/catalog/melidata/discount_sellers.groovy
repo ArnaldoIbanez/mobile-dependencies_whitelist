@@ -9,7 +9,13 @@ tracks {
 
     // Views
     "/discount_sellers/form" (platform: "/mobile", type: TrackType.View) {}
+    "/discount_sellers/form/redirect" (platform: "/mobile", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "The deeplink to redirect to")
+    }
     "/discount_sellers/history" (platform: "/mobile", type: TrackType.View) {}
+    "/discount_sellers/history/redirect" (platform: "/mobile", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "The deeplink to redirect to")
+    }
     "/discount_sellers/detail" (platform: "/mobile", type: TrackType.View) {}
     "/discount_sellers/landing" (platform: "/mobile", type: TrackType.View) {
       id(required: true, type: PropertyType.String, description: "Landing identifier")

@@ -13,8 +13,20 @@ trackTests {
         "/discount_sellers/form" (platform: "/mobile", type: TrackType.View) {}
     }
 
+    test("Mercadopago discount sellers form redirection") {
+        "/discount_sellers/form/redirect" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://discount_sellers/landing"
+        }
+    }
+
     test("Mercadopago discount sellers history") {
         "/discount_sellers/history" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Mercadopago discount sellers history redirection") {
+        "/discount_sellers/history/redirect" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://discount_sellers/landing"
+        }
     }
 
     test("Mercadopago discount sellers detail") {
