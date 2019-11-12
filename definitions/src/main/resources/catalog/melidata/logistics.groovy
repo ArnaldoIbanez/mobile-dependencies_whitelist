@@ -79,7 +79,22 @@ tracks {
     "/logistics/last_mile/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
         pack_id(required: true, type: PropertyType.String, description: "Specifies the pack id that had an error", inheritable: false)
     }
-
+    "/logistics/last_mile/package/scanner"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+    }
+    "/logistics/last_mile/package/scanner/manual"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/package/scanner/qr_detected"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/list"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        route_status(required: true, type: PropertyType.String,
+                values: ["old", "pending", "finished", "ready_to_end", "empty"],
+                description: "Specifies the status of the route", inheritable: false)
+        packs_info(required: false, type: PropertyType.String, description: "Specifies the packages in the route", inheritable: false)
+    }
+    "/logistics/last_mile/list/old_route"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages in the route", inheritable: false)
+    }
 
     // First Mile
     "/logistics/first_mile/scanner/modal_back"(platform: "/mobile", type: TrackType.View) {

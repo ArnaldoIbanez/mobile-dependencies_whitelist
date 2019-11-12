@@ -136,6 +136,27 @@ trackTests {
             pack_id = "124"
             defaultLocation()
         }
+        "/logistics/last_mile/package/scanner"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "125"
+        }
+        "/logistics/last_mile/package/scanner/manual"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+        "/logistics/last_mile/package/scanner/qr_detected"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+        "/logistics/last_mile/list"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            packs_info= "packs info"
+            route_status = "pending"
+        }
+        "/logistics/last_mile/list/old_route"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            packs_amount= 1
+        }
     }
 
     test("Testing Logistics First Mile") {
