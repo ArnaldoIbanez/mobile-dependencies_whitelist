@@ -35,20 +35,6 @@ metrics {
         }
     }
 
-	"orders.fbm"(description: "orders of fbm items", compute_order: true) {
-        startWith {
-            experiment("search/show_akins")
-        }
-
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-
-                equals("event_data.items.item.logistic_type", "fulfillment")
-			}
-		}
-	}
-	
 	"loyalty/buy_level_installments"(description: "define which buy level button to show in VIP modal to see which converts best") {
         startWith {
             experiment("loyalty/buy-level-installments")
