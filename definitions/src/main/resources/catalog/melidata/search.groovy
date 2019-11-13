@@ -255,6 +255,8 @@ tracks {
         recommended_categories(required: true, description: "the recommended categories for the item", type: PropertyType.ArrayList)
     }
 
+    "/search/finite_navigation"(platform: "/mobile/android", type: TrackType.Control, parentPropertiesInherited:false) {
+    }
     "/search/finite_navigation_os_filter"(platform: "/mobile/android", type: TrackType.Control, parentPropertiesInherited:false) {
     }
 

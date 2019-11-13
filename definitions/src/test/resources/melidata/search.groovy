@@ -479,6 +479,8 @@ trackTests {
     }
 
     test("Search fintie navigation experiment"){
+        "/search/finite_navigation"(platform: "/mobile/android"){
+        }
         "/search/finite_navigation_os_filter"(platform: "/mobile/android"){
         }
     }
