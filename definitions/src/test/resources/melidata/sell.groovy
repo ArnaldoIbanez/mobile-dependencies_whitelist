@@ -368,10 +368,6 @@ trackTests {
 
         "/sell/list/technical_specifications"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/technical_specifications_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/technical_specification/update/suggested_attr_selected"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            attribute_id = "brand"
-        }
         "/sell/list/product_identifier"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/attribute"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category/selection/l1"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -526,22 +522,6 @@ trackTests {
         "/sell/update/sip/publish/fail"(platform: "/mobile") {
             item_id = "MLA123456"
             error_message="error"
-        }
-        "/sell/update/autocomplete/update/suggested_attr_selected"(platform: "/mobile") {
-            item_id = "MLA123456"
-            attribute_id = "brand"
-        }
-        "/sell/update/autocomplete/update/custom_attr_selected"(platform: "/mobile") {
-            item_id = "MLA123456"
-            attribute_id = "brand"
-        }
-        "/sell/update/technical_specification/update/suggested_attr_selected"(platform: "/mobile") {
-            item_id = "MLA123456"
-            attribute_id = "brand"
-        }
-        "/sell/update/technical_specification/update/custom_attr_selected"(platform: "/mobile") {
-            item_id = "MLA123456"
-            attribute_id = "brand"
         }
         "/sell/update/goals"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/picture_editor/function/crop"(platform: "/mobile") {item_id = "MLA123456"}

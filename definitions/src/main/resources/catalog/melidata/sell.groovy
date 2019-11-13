@@ -2,7 +2,6 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
-
 tracks {
 
     def category_prediction_map = objectSchemaDefinitions {
@@ -351,11 +350,6 @@ tracks {
     }
     "/sell/list/technical_specifications"(platform: "/", type: TrackType.View) {}
     "/sell/list/technical_specifications_review"(platform: "/", type: TrackType.View) {}
-    "/sell/list/technical_specification"(platform: "/", isAbstract: true){}
-    "/sell/list/technical_specification/update"(platform: "/", isAbstract: true){}
-    "/sell/list/technical_specification/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
-        attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
-    }
     "/sell/list/product_identifier"(platform: "/", type: TrackType.View) {}
     "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
     "/sell/list/condition"(platform: "/", type: TrackType.View) {}
@@ -480,22 +474,6 @@ tracks {
         item_id(required: true, description: "Item id", type: PropertyType.String)
     }
     "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/update/autocomplete"(platform: "/", isAbstract: true){}
-    "/sell/update/autocomplete/update"(platform: "/", isAbstract: true){}
-    "/sell/update/autocomplete/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
-        attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
-    }
-    "/sell/update/autocomplete/update/custom_attr_selected"(platform: "/mobile", type: TrackType.Event) {
-        attribute_id(required: true, "ID from attribute that was completed with new value", type: PropertyType.String)
-    }
-    "/sell/update/technical_specification"(platform: "/", isAbstract: true){}
-    "/sell/update/technical_specification/update"(platform: "/", isAbstract: true){}
-    "/sell/update/technical_specification/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
-        attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
-    }
-    "/sell/update/technical_specification/update/custom_attr_selected"(platform: "/mobile", type: TrackType.Event) {
-        attribute_id(required: true, "ID from attribute that was completed with new value", type: PropertyType.String)
-    }
     "/sell/update/picture_uploader"(platform: "/", isAbstract: true){}
     "/sell/update/picture_uploader/delete"(platform: "/mobile", type: TrackType.Event){
         item_id(required: true, description: "Item id", type: PropertyType.String)
