@@ -60,7 +60,7 @@ metrics {
 		}
 	}
 
-	"orders_confirmed"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+	"orders_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -81,7 +81,7 @@ metrics {
 		}
 	}
 
-	"bids_confirmed"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+	"bids_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
