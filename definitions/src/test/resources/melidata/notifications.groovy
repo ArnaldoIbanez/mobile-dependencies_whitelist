@@ -5545,6 +5545,12 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/uninstalls_checker"(platform: "/mobile"){
+            execution_id= "160295629"
+            advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
+            event_type = "sent"
+        }
+
     }
 
     defaultBusiness = "mercadolibre"
@@ -5620,6 +5626,12 @@ trackTests {
         "/notification/openplatform_recommendations_p1"(platform: "/mobile"){
             notification_id= "12345"
             event_type = "open"
+        }
+
+        "/notification/uninstalls_checker"(platform: "/mobile"){
+            execution_id= "160295629"
+            advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
+            event_type = "sent"
         }
 
         "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile"){
@@ -5741,6 +5753,12 @@ trackTests {
         "/notification/openplatform_recommendations_p1"(platform: "/mobile"){
             notification_id= "12345"
             event_type = "open"
+        }
+
+        "/notification/uninstalls_checker"(platform: "/mobile"){
+            execution_id= "160295629"
+            advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
+            event_type = "sent"
         }
 
         "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile"){
