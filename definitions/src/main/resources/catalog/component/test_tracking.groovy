@@ -8,12 +8,18 @@ tracks {
 
     "/"(platform: "/") {}
 
-    "/component"(platform: "/") {}
+    "/component"(platform: "/") {
+        c_id (required:false)
+        c_event (required:false)
+        c_campaign (required:false)
+        c_element_order (required:false)
+    }
 
     "/wallet_home"(platform: "/" , isAbstract: true) {}
 
     "/wallet_home/print"(platform: "/mobile") {
-        id(type: PropertyType.Numeric, required: false)
+        qr_map (required:false)
+        banking (required:false)
     }
 
 }
