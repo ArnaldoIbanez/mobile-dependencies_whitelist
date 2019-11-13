@@ -19,9 +19,7 @@ metrics {
 		}
 	}
      }
-	
-	
-	
+		
     "sell/full_relist_single_item"(description: "define properties for item_id at full_relist experiment") {
         startWith {
             set_property("item_id", "event_data.item_id")
@@ -385,6 +383,17 @@ metrics {
 					equals("event_data.congrats_seq",1),
 					equals("event_data.payments.payment_method", "consumer_credits")
 				)
+			}
+		}
+	}
+
+	"credits-open-sea.remedies_conversion"(description: "credits conversion under remedies experiment") {
+		startWith {
+			experiment("credits/openSeaRemedy")
+		}
+		countsOn {
+			condition {
+				equals("path", "/credits/consumer/public_landing/application_result")
 			}
 		}
 	}
