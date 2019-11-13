@@ -20,6 +20,8 @@ tracks {
     "/discount_sellers/landing" (platform: "/mobile", type: TrackType.View) {
       id(required: true, type: PropertyType.String, description: "Landing identifier")
     }
+    "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {}
+
     // Events
     
      "/discount_sellers/tap" (platform: "/mobile", type: TrackType.Event) {
