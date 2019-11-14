@@ -83,10 +83,10 @@ task testShipping (dependsOn: 'classes', type: JavaExec) {
     args = ["shipping"]
 }
 
-task testComponent (dependsOn: 'classes', type: JavaExec) {
+task testComponentPrints (dependsOn: 'classes', type: JavaExec) {
     main = 'testCatalog'
     classpath = sourceSets.main.runtimeClasspath
-    args = ["component"]
+    args = ["component_prints"]
 }
 
 task testReviews (dependsOn: 'classes', type: JavaExec) {
@@ -123,10 +123,10 @@ task uploadShippingCatalog(type:JavaExec) {
     args = ["shipping"]
 }
 
-task uploadComponentCatalog(type:JavaExec) {
+task uploadComponentPrintsCatalog(type:JavaExec) {
     main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
-    args = ["component"]
+    args = ["component_prints"]
 }
 
 task uploadReviewsCatalog(type:JavaExec) {
@@ -184,7 +184,7 @@ task exportShipping(type:JavaExec) {
     args ["shipping"]
 }
 
-task exportComponent(type:JavaExec) {
+task exportComponentPrints(type:JavaExec) {
     def mainClass
     if (format == 'hive')
         mainClass = "com.melidata.definitions.format.HiveFormatter"
