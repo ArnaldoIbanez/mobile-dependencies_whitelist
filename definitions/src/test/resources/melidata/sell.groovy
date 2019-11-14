@@ -749,6 +749,24 @@ trackTests {
             seller_reputation = "green"
         }
     }
+    test("SYI v4 category suggested card showed"){
+        "/sell/item_data/category_suggested/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            item_type = "default"
+            seller_reputation = "green"
+        }
+    }
+    test("SYI v4 category suggested card showed"){
+        "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            item_type = "default"
+            seller_reputation = "green"
+        }
+    }
     test("SYI v4 category card showed"){
         "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
@@ -769,6 +787,7 @@ trackTests {
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
+            confirm_category_detail = "not_present"
         }
     }
     test("SYI v4 wrong category"){
@@ -1244,6 +1263,8 @@ trackTests {
             item_id = "MLA123456789"
             item_type = "default"
             seller_reputation = "green"
+            domain_id = "MLA_CELLPHONES"
+            title_predicted = "test"
         }
     }
     test("SYI v4 congrats card showed"){

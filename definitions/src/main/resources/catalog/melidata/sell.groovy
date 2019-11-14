@@ -752,11 +752,15 @@ tracks {
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/category_suggested/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
+        confirm_category_detail(required: true, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
     }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/product_bullet_resume"(platform: "/web", isAbstract: true) {}
@@ -868,8 +872,10 @@ tracks {
 
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
-        item_id(required: false, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
+        domain_id(required: true, type: PropertyType.String, description: "Item's category domain id")
+        title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -894,4 +900,3 @@ tracks {
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
 }
-
