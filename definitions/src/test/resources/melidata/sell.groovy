@@ -367,6 +367,7 @@ trackTests {
         "/sell/list/congrats/payment_pending" (platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
 
         "/sell/list/technical_specifications"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/technical_specifications_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/product_identifier"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/attribute"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category/selection/l1"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -413,6 +414,13 @@ trackTests {
         "/sell/list/description_not_included"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/location_street"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/picture_editor/function/rotate"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/location_street"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/condition_confirmation_landing"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/health_goal_loss_landing"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/listing_type_not_available_landing"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/quotable_category_landing"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/free_shipping_mandatory_landing"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/status_changed_landing"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
     }
 
     test("Native Sell List draft flow steps") {
@@ -471,6 +479,7 @@ trackTests {
         "/sell/list/draft/size_selection_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/size_selection_fallback"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/technical_specifications"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/technical_specifications_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/title"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/title_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/warranty_time"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
@@ -513,22 +522,6 @@ trackTests {
         "/sell/update/sip/publish/fail"(platform: "/mobile") {
             item_id = "MLA123456"
             error_message="error"
-        }
-        "/sell/update/autocomplete/update/suggested_attr_selected"(platform: "/mobile") {
-            item_id = "MLA123456"
-            attribute_id = "brand"
-        }
-        "/sell/update/autocomplete/update/custom_attr_selected"(platform: "/mobile") {
-            item_id = "MLA123456"
-            attribute_id = "brand"
-        }
-        "/sell/update/technical_specification/update/suggested_attr_selected"(platform: "/mobile") {
-            item_id = "MLA123456"
-            attribute_id = "brand"
-        }
-        "/sell/update/technical_specification/update/custom_attr_selected"(platform: "/mobile") {
-            item_id = "MLA123456"
-            attribute_id = "brand"
         }
         "/sell/update/goals"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/picture_editor/function/crop"(platform: "/mobile") {item_id = "MLA123456"}
@@ -635,6 +628,12 @@ trackTests {
         "/sell/update/variations_pi"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/statistics"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/free_shipping"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/condition_confirmation_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/health_goal_loss_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/listing_type_not_available_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/quotable_category_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/free_shipping_mandatory_landing"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/status_changed_landing"(platform: "/mobile") {item_id = "MLA123456"}
     }
 
     test("Modal attributes pseudo obligatory - List"){
@@ -789,6 +788,10 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            product_title = "Iphone X"
         }
     }
     test("SYI v4 flow decision card showed"){
@@ -1250,6 +1253,9 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
         }
     }
     test("SYI v4 listing types card showed"){
@@ -1259,6 +1265,9 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
         }
     }
 

@@ -129,8 +129,8 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
 
         comparison_table(required: false, type: PropertyType.Map(comparisonTable), description: "Information about the winner and the original item")
-        competition_status(required: false, type: PropertyType.String, description: "The actual buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
-        new_competition_status(required: false, type: PropertyType.String, description: "The new buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
+        competition_status(required: false, type: PropertyType.String, description: "The actual buy box status of the item")
+        new_competition_status(required: false, type: PropertyType.String, description: "The new buy box status of the item")
         catalog_product_id(required: false, type: PropertyType.String, description: "The product id")
         listing_type(required: true, type: PropertyType.String, description: "The product listing type")
         shipping_local_pickup(required: true, type: PropertyType.Boolean, description: "The product local pick up")
@@ -242,7 +242,19 @@ tracks {
 
     "/seller_central/listings/action/confirm"(platform: "/", type: TrackType.Event) {
         id_row_selected(required:false, type: PropertyType.String, description: "Row id to which the action is executed")
+        action_id(required: true, type: PropertyType.String, description: "Action id")
+        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
+        item_id(required:false, type: PropertyType.String, description: "Item id to which the action is executed")
+        id_row_selected(required:false, type: PropertyType.String, description: "Row id to which the action is executed")
         has_variations(required: false, type: PropertyType.Boolean, description: "If the item to which the action is executed has variations")
+        operator_id(required:false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
+    }
+
+    "/seller_central/listings/massive_action"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "Action id")
+        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
+        count(required: true, type: PropertyType.Numeric, description: "Selected rows count")
+        
     }
 
     "/seller_central/listings/preferences"(platform: "/", type: TrackType.Event) {

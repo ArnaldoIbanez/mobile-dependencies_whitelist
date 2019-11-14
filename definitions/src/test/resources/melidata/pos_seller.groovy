@@ -323,6 +323,11 @@
                     }
 
                     // WEB
+                    test("pos seller web views") {
+                        "/pos_seller/onboarding"(platform: "/web", type: TrackType.View) {}
+                        "/pos_seller/mobile_shield"(platform: "/web", type: TrackType.View) {}
+                    }
+
                     test("pos seller web events") {
                         
                         "/pos_seller/start"(platform: "/web", type: TrackType.Event) {
@@ -378,6 +383,9 @@
                                 installments: 3, 
                                 error_type: "card_reader"]
                             }
+                        
+                        "/pos_seller/onboarding/start"(platform: "/web", type: TrackType.Event) {}
+                        "/pos_seller/mobile_shield/start"(platform: "/web", type: TrackType.Event) {}
                     }
 
 } 
