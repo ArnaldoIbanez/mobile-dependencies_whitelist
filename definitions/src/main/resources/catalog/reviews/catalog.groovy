@@ -19,9 +19,9 @@ catalog {
             "/mobile/ios",
     ]
 
-    def component = ["component"]
+    def reviews = ["reviews"]
 
-    component.each { business ->
+    reviews.each { business ->
         include business, "tracking.groovy"
     }
 }
