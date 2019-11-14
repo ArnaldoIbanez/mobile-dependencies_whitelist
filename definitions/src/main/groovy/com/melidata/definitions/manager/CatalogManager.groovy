@@ -16,7 +16,11 @@ class CatalogManager implements Runnable {
 		this.catalogHandlers = [:]
 		addCatalogHandler("melidata")
 		addCatalogHandler("shipping")
-		addCatalogHandler("component")
+		addCatalogHandler("advertising")
+		addCatalogHandler("component_prints")
+		addCatalogHandler("cx_help_channels")
+		addCatalogHandler("pushnotifications")
+		addCatalogHandler("recommendations")
 		addCatalogHandler("reviews")
 	}
 
