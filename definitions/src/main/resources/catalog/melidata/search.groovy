@@ -19,10 +19,10 @@ tracks {
     }
 
     def sparkle_info_object = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: false)
-        intervention_type(type: PropertyType.String, required: false, values: ["REDIRECT", "INLINE"])
-        config_value(type: PropertyType.String, required: false)
-        url(type: PropertyType.String, required: false)
+        intervention_id(type: PropertyType.String, required: true)
+        intervention_type(type: PropertyType.String, required: true, values: ["REDIRECT", "INLINE"])
+        config_value(type: PropertyType.String, required: true)
+        url(type: PropertyType.String, required: true)
     }
 
     //SEARCH FLOW
@@ -270,6 +270,11 @@ tracks {
     "/search/banner"(platform: "/web", isAbstract: true){}
 
     "/search/banner/click"(platform: "/web", type: TrackType.Event){
+    }
+
+    "/search/sparkle"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        query(required: true, description: "the words used to make a search", type: PropertyType.String)
+        sparkle_info(required: true, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
     }
 
 }
