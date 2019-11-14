@@ -1,11 +1,11 @@
-package src.test.resources.component
+package src.test.resources.component_prints
 
 import com.ml.melidata.TrackType
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-    defaultBusiness = "component"
+    defaultBusiness = "component_prints"
 
     test("test path") {
 

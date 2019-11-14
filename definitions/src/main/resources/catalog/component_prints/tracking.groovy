@@ -1,4 +1,4 @@
-package src.main.resources.catalog.component
+package src.main.resources.catalog.component_prints
 
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
