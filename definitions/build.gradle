@@ -68,7 +68,7 @@ task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
 task testAll (dependsOn: 'classes', type: JavaExec) {
     main = 'tests'
     classpath = sourceSets.main.runtimeClasspath
-    args = ["melidata", "shipping", "component"]
+    args = ["melidata", "shipping", "component", "reviews"]
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
@@ -89,6 +89,12 @@ task testComponent (dependsOn: 'classes', type: JavaExec) {
     args = ["component"]
 }
 
+task testReviews (dependsOn: 'classes', type: JavaExec) {
+    main = 'testCatalog'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["reviews"]
+}
+
 task testCronnedQueries (dependsOn: 'classes', type: JavaExec) {
     main = 'testCronnedQueries'
     classpath = sourceSets.main.runtimeClasspath
@@ -102,7 +108,7 @@ task testMetrics (dependsOn: 'classes', type: JavaExec) {
 task uploadAllCatalog(type:JavaExec) {
     main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
-    args = ["melidata", "shipping", "component"]
+    args = ["melidata", "shipping", "component", "reviews"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
@@ -121,6 +127,12 @@ task uploadComponentCatalog(type:JavaExec) {
     main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
     args = ["component"]
+}
+
+task uploadReviewsCatalog(type:JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["reviews"]
 }
 
 task uploadMetrics(type:JavaExec) {
@@ -181,6 +193,17 @@ task exportComponent(type:JavaExec) {
     main = mainClass
     classpath = sourceSets.main.runtimeClasspath
     args ["component"]
+}
+
+task exportReviews(type:JavaExec) {
+    def mainClass
+    if (format == 'hive')
+        mainClass = "com.melidata.definitions.format.HiveFormatter"
+    else
+        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
+    main = mainClass
+    classpath = sourceSets.main.runtimeClasspath
+    args ["reviews"]
 }
 
 task exportMetrics(type:JavaExec) {
