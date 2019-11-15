@@ -79,7 +79,7 @@ metrics {
 				)
 			}
 		}
-	} 
+	}
 
 	"bids_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
 		countsOn {
