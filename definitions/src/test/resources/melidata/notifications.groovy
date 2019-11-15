@@ -2711,6 +2711,10 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
+        "/notification/prepaid_card_soon_deliver"(platform: "/mobile") {
+            news_id = "prepaid_card_soon_deliver-186785675"
+            event_type = "auto_dismiss"
+        }
 
         "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {
             news_id = "123"
@@ -5458,6 +5462,11 @@ trackTests {
             news_id = "prepaid_card_reissue_reminder-186785675"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_soon_deliver"(platform: "/mobile") {
+            news_id = "prepaid_card_soon_deliver-186785675"
+            event_type = "auto_dismiss"
         }
 
         "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {
