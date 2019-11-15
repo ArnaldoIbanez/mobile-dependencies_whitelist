@@ -1276,6 +1276,11 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/instore_buyer_qr"(platform: "/mobile"){
+            news_id = "instore-buyer_qr-321953606"
+            event_type = "sent"
+        }
+
         "/notification/messages_new"(platform: "/mobile"){
             news_id = "messages-new-321953606"
             event_type = "sent"
@@ -4150,6 +4155,11 @@ trackTests {
 
         "/notification/instore_discover_activities"(platform: "/mobile"){
             news_id = "instore-discover_activities-321953606"
+            event_type = "sent"
+        }
+
+        "/notification/instore_buyer_qr"(platform: "/mobile"){
+            news_id = "instore-buyer_qr-321953606"
             event_type = "sent"
         }
 

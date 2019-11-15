@@ -778,6 +778,7 @@ tracks {
       }
 
       "/notification/instore_discover_activities"(platform: "/") {}
+    "/notification/instore_buyer_qr"(platform: "/") {}
 
       "/notification/moderations_item_to_patch"(platform: "/") {
           item_id(required: true, type: PropertyType.String, description: "Id of item.")
