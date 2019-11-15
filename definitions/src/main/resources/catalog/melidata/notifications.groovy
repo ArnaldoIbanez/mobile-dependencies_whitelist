@@ -455,6 +455,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/messages_driver_logistics"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/account_balance_approved_mp"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -774,9 +778,6 @@ tracks {
       }
 
       "/notification/instore_discover_activities"(platform: "/") {}
-
-      //Messages
-      "/notification/messages_quotes"(platform: "/") {}
 
       "/notification/moderations_item_to_patch"(platform: "/") {
           item_id(required: true, type: PropertyType.String, description: "Id of item.")
@@ -1189,9 +1190,12 @@ tracks {
           order_id(required: true, type: PropertyType.Numeric)
       }
 
-      //Messages
-      "/notification/messages_new"(platform: "/") {}
-      "/notification/messages_read"(platform: "/") {}
+    //Messages
+    "/notification/messages_new"(platform: "/") {}
+    "/notification/messages_read"(platform: "/") {}
+    "/notification/messages_driver_logistics"(platform: "/") {}
+    "/notification/messages_flex"(platform: "/") {}
+    "/notification/messages_quotes"(platform: "/") {}
 
 
       //Reputation

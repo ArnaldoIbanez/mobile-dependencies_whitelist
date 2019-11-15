@@ -464,6 +464,10 @@ trackTests {
             latest_news_type= "messages_flex"
             latest_news_id= "messages_flex-123-123"
         }
+        "/notification_center/messages_driver_logistics"(platform: "/mobile") {
+            latest_news_type= "messages_driver_logistics"
+            latest_news_id= "messages_driver_logistics-123-123"
+        }
         "/notification_center/me_flex-optin"(platform: "/mobile"){
             latest_news_type= "me_flex-optin"
             latest_news_id= "me_flex-optin-143816022-MLB1013046714"
@@ -1273,12 +1277,22 @@ trackTests {
         }
 
         "/notification/messages_new"(platform: "/mobile"){
-            news_id = "instore-discover_activities-321953606"
+            news_id = "messages-new-321953606"
             event_type = "sent"
         }
 
         "/notification/messages_quotes"(platform: "/mobile"){
-            news_id = "instore-discover_activities-321953606"
+            news_id = "messages-quotes-321953606"
+            event_type = "sent"
+        }
+
+        "/notification/messages_flex"(platform: "/mobile"){
+            news_id = "messages-flex-321953606"
+            event_type = "sent"
+        }
+
+        "/notification/messages_driver_logistics"(platform: "/mobile"){
+            news_id = "messages-driver_logistics-321953606"
             event_type = "sent"
         }
 
@@ -2017,6 +2031,16 @@ trackTests {
         }
 
         "/notification/messages_read"(platform: "/mobile/android") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/messages_driver_logistics"(platform: "/mobile/android") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/messages_flex"(platform: "/mobile/android") {
             news_id = "123"
             event_type = "open"
         }
@@ -3272,6 +3296,10 @@ trackTests {
             latest_news_type= "messages_flex"
             latest_news_id= "messages_flex-143816022-MLB1013046714"
         }
+        "/notification_center/messages_driver_logistics"(platform: "/mobile"){
+            latest_news_type= "messages_driver_logistics"
+            latest_news_id= "messages_driver_logistics-143816022-MLB1013046714"
+        }
 
         "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile"){
             notification_id= "12345"
@@ -3321,6 +3349,11 @@ trackTests {
             latest_news_type= "messages_flex"
             latest_news_id= "messages_flex-143816022-MLB1013046714"
         }
+        "/notification_center/messages_driver_logistics"(platform: "/mobile"){
+            latest_news_type= "messages_driver_logistics"
+            latest_news_id= "messages_driver_logistics-143816022-MLB1013046714"
+        }
+
         "/notification_center/me_flex-optin"(platform: "/mobile"){
             latest_news_type= "me_flex-optin"
             latest_news_id= "me_flex-optin-143816022-MLB1013046714"
@@ -4127,6 +4160,16 @@ trackTests {
 
         "/notification/messages_quotes"(platform: "/mobile"){
             news_id = "instore-discover_activities-321953606"
+            event_type = "sent"
+        }
+
+        "/notification/messages_flex"(platform: "/mobile"){
+            news_id = "messages-flex-321953606"
+            event_type = "sent"
+        }
+
+        "/notification/messages_driver_logistics"(platform: "/mobile"){
+            news_id = "messages-driver_logistics-321953606"
             event_type = "sent"
         }
 
