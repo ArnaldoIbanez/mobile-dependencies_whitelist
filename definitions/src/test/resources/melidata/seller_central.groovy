@@ -47,6 +47,14 @@ trackTests {
     }
   }
 
+  test("seller central listing massive action") {
+    "/seller_central/listings/massive_action"(platform: "/", type: TrackType.Event) {
+      action_id = "MAKE_WITHDRAWAL"
+      view_id = "aging"
+      count = 10
+    }
+  }
+
   test("seller central listing secondary_actions") {
     "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
   }
@@ -67,6 +75,10 @@ trackTests {
     }
     "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
       action = "clear"
+    }
+    "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
+      action = "apply"
+      checked_filters = ["WITH_FULFILLMENT_WITHOUT_STOCK", "WITH_FULFILLMENT_LOW_STOCK"]
     }
 
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}

@@ -1,74 +1,81 @@
 {
   "users": [
-    "daniela.medina@mercadolibre.com",
-    "ext_jjaimes@mercadolibre.com",
-     "ba-analytics@mercadolibre.com"
+    "luis.olivera@mercadolibre.com",
+    "syi-puma@mercadolibre.com.ar"
   ],
-  "process_name": "count_purchases_banner",
+  "process_name": "sell_catalog_cards",
   "cron": "00 08 * * *",
   "partition": {
     "name": "ds",
-    "type": "DATE",
-    "format": "yyyy-MM-dd"
+    "type": "DATE"
   },
   "extract": {
     "operation": "append",
+    "site": "QA",
     "columns": [
       {
-        "name": "Site",
+        "name": "path",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "Plataforma",
+        "name": "parent_product_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "SellerID",
-        "type": "UNICODE_STRING"
-      },
-       {
-        "name": "SellerNickname",
-        "type": "UNICODE_STRING"
-      },
-        {
-        "name": "BuyerID",
-        "type": "UNICODE_STRING"
-      },
-       {
-        "name": "BuyerNickname",
+        "name": "seller_segment",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "ItemID",
+        "name": "category_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "CategoryPath",
+        "name": "domain_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "CategoryID",
-        "type": "UNICODE_STRING"
-      }, 
-      {
-        "name": "banner_size",
+        "name": "reputation",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "banner_name",
+        "name": "product_id",
         "type": "UNICODE_STRING"
       },
-        {
-        "name": "sum_dol_amount",
-        "type": "DOUBLE"
+      {
+        "name": "seller_profile",
+        "type": "UNICODE_STRING"
       },
-        {
-        "name": "purchases_total",
-        "type": "INTEGER"
+      {
+        "name": "title_predicted",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "product_title",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "title",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "is_catalog_selected",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "is_product_confirm",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "session_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "business-assurance/cantidadcomprasporclick.sql",
+      "script": "sell/sell-syi-v4-catalog.sql",
       "parameters": [
         {
           "name": "param01",

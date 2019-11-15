@@ -64,23 +64,30 @@ trackTests {
 
     test("Quotation :: Show select models tracking") {
 
-        "/quotation/models"(platform: "/mobile") {
+        "/quotation/models"(platform: "/") {
             item_id = "MLM2222222"
         }
 
-        "/quotation/models"(platform: "/mobile") {
+        "/quotation/models"(platform: "/") {
             item_id = "MLM2222222"
             model_id = "102B"
         }
     }
 
+    test("Quotation :: Scroll selector models tracking") {
+
+        "/quotation/models/scroll"(platform: "/web") {
+            item_id = "MLM2222222"
+        }
+    }
+
     test("Quotation :: Show select units tracking") {
 
-        "/quotation/units"(platform: "/mobile") {
+        "/quotation/units"(platform: "/") {
             item_id = "MLM2222222"
         }
 
-        "/quotation/units"(platform: "/mobile") {
+        "/quotation/units"(platform: "/") {
             item_id = "MLM2222222"
             unit_id = "MLM170531"
         }
