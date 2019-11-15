@@ -56,6 +56,26 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/mp_sponsor_campaign_start_campaign"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/mp_sponsor_campaign_budget_trigger"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/mp_sponsor_campaign_day_trigger"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/mp_seller_campaign_start_campaign"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/mp_seller_campaign_end_campaign"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/mediations-complainant"(platform: "/", type: TrackType.Event) {
         claim_id(required: true, type: PropertyType.Numeric, description:"Id of claim.")
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -1366,6 +1386,12 @@ tracks {
         communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
     }
+
+    "/notification/mp_sponsor_campaign_start_campaign"(platform: "/mobile") {}
+    "/notification/mp_sponsor_campaign_budget_trigger"(platform: "/mobile") {}
+    "/notification/mp_sponsor_campaign_day_trigger"(platform: "/mobile") {}
+    "/notification/mp_seller_campaign_start_campaign"(platform: "/mobile") {}
+    "/notification/mp_seller_campaign_end_campaign"(platform: "/mobile") {}
 
     //Credits Merchants
     "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {

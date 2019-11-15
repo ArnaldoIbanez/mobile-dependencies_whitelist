@@ -785,6 +785,26 @@ trackTests {
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
         }
+        "/notification_center/mp_sponsor_campaign_start_campaign"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_sponsor_-ampaign_start_campaign-143816022-MLB1013046714"
+        }
+        "/notification_center/mp_sponsor_campaign_budget_trigger"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_sponsor-campaign_budget_trigger-143816022-MLB1013046714"
+        }
+        "/notification_center/mp_sponsor_campaign_day_trigger"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_sponsor-campaign_day_trigger-143816022-MLB1013046714"
+        }
+        "/notification_center/mp_seller_campaign_start_campaign"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_seller-campaign_start_campaign-143816022-MLB1013046714"
+        }
+        "/notification_center/mp_seller_campaign_end_campaign"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_seller-campaign_end_campaign-143816022-MLB1013046714"
+        }
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
             latest_news_id= "prepaid_card-delayed_p1-186785675-76283123"
@@ -2428,6 +2448,31 @@ trackTests {
             campaign_type = "adhoc"
         }
 
+        "/notification/mp_sponsor_campaign_start_campaign"(platform: "/mobile") {
+            news_id = "mp_sponsor-campaign_start_campaign-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_sponsor_campaign_budget_trigger"(platform: "/mobile") {
+            news_id = "mp_sponsor-campaign_budget_trigger-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_sponsor_campaign_day_trigger"(platform: "/mobile") {
+            news_id = "mp_sponsor-campaign_day_trigger-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_seller_campaign_start_campaign"(platform: "/mobile") {
+            news_id = "mp_seller-campaign_start_campaign-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_seller_campaign_end_campaign"(platform: "/mobile") {
+            news_id = "mp_seller-campaign_end_campaignn-12345678-123123"
+            event_type = "shown"
+        }
+
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
             news_id = "credits-merchants_expired_first_notice-9876"
             event_type = "shown"
@@ -3597,6 +3642,27 @@ trackTests {
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
         }
+        "/notification_center/mp_sponsor_campaign_start_campaign"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_sponsor_-ampaign_start_campaign-143816022-MLB1013046714"
+        }
+        "/notification_center/mp_sponsor_campaign_budget_trigger"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_sponsor-campaign_budget_trigger-143816022-MLB1013046714"
+        }
+        "/notification_center/mp_sponsor_campaign_day_trigger"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_sponsor-campaign_day_trigger-143816022-MLB1013046714"
+        }
+        "/notification_center/mp_seller_campaign_start_campaign"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_seller-campaign_start_campaign-143816022-MLB1013046714"
+        }
+        "/notification_center/mp_seller_campaign_end_campaign"(platform: "/mobile") {
+            latest_news_type= "mpcampaing"
+            latest_news_id= "mp_seller-campaign_end_campaign-143816022-MLB1013046714"
+        }
+
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
             latest_news_id= "prepaid_card-delayed_p1-186785675-76283123"
@@ -5207,6 +5273,31 @@ trackTests {
             sent_date = "20181211"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
+        }
+
+        "/notification/mp_sponsor_campaign_start_campaign"(platform: "/mobile") {
+            news_id = "mp_sponsor-campaign_start_campaign-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_sponsor_campaign_budget_trigger"(platform: "/mobile") {
+            news_id = "mp_sponsor-campaign_budget_trigger-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_sponsor_campaign_day_trigger"(platform: "/mobile") {
+            news_id = "mp_sponsor-campaign_day_trigger-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_seller_campaign_start_campaign"(platform: "/mobile") {
+            news_id = "mp_seller-campaign_start_campaign-12345678-123123"
+            event_type = "shown"
+        }
+
+        "/notification/mp_seller_campaign_end_campaign"(platform: "/mobile") {
+            news_id = "mp_seller-campaign_end_campaignn-12345678-123123"
+            event_type = "shown"
         }
 
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
