@@ -86,6 +86,7 @@ catalog {
         include business, "dynamic_stop_landing.groovy"
         include business, "payers_growth.groovy"
         include business, "collaborators.groovy"
+        include business, "loyalty_v2.groovy"
     }
 
     marketplace.each { business ->
@@ -179,6 +180,8 @@ catalog {
         include business, "profile_engine.groovy"
         include business, "pos_management.groovy"
         include business, "discount_center.groovy"
+        include business, "external.groovy"
+        include business, "pos_billings.groovy"
     }
 
     mercadoshops.each { business ->

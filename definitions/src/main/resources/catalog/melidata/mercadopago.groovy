@@ -111,12 +111,20 @@ tracks {
     "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
+
+    "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
     
     "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
     "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/payment_bank_selector"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
@@ -225,10 +233,58 @@ tracks {
 
     // Micrositio - reseller
     "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/resellers/sales"(platform:"/", type: TrackType.View) {}
+    //bundles
+    "/merchant_acquisition/flows/resellers/bundles"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/bundles/click"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/bundles/share"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/bundles/open"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/bundles/close"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    //mgm
+    "/merchant_acquisition/flows/resellers/mgm"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/mgm/click"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/mgm/share"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/mgm/open"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/mgm/close"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    //dashboard
+    "/merchant_acquisition/flows/resellers/dashboard"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/dashboard/click"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/share"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/open"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/close"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    //benefits
     "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
+    //metrics
     "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/resellers/after_sales"(platform:"/", type: TrackType.View) {}
+    //associate_device
+    "/merchant_acquisition/flows/resellers/associate_device"(platform:"/", type: TrackType.View) {}
+    //register_device
+    "/merchant_acquisition/flows/resellers/register_device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/individual"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/bundle"(platform:"/", type: TrackType.View) {}
     
     // Share MGM Web > Pageviews
     "/merchant_acquisition/flows"(platform: "/", isAbstract: true) {}
@@ -858,6 +914,17 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    //MGM Navigation (Android Drawer or iOS Settings)
+    def realestate = objectSchemaDefinitions {
+        realestate_id(type: PropertyType.String, required: true, description: "The container where we show contents")
+        content_id(type: PropertyType.String, required: true, description: "The identification of shown content")
+        origin(type: PropertyType.String, required: false, description: "The application that returns the content")
+    }
+
+    "/mgm/navigation"(platform: "/mobile", type: TrackType.Event) {
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate information")
+    }
+
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
@@ -1027,6 +1094,13 @@ tracks {
     "/withdraw/bacen/error"(platform: "/mobile") {}
     "/withdraw/bacen/open"(platform: "/mobile") {}
     "/withdraw/bacen/close"(platform: "/mobile") {}
+
+    "/withdraw/select_bank"(platform: "/", isAbstract: true) {}
+    "/withdraw/select_bank/delete_account_modal"(platform:"/", type: TrackType.Event){}    
+    "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/", type: TrackType.Event){
+        bank_account_id (required: true, description: "Bank account selected to be deleted")
+    } 
+    "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/", type: TrackType.Event){} 
 
     "/fund_account"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")

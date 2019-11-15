@@ -549,16 +549,19 @@ trackTests {
 
     test("Biometrics / Screenlock") {
         "/screenlock/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "enabled"
             os_status = "biometrics"
         }
 
         "/screenlock/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "disabled"
             os_status = "biometrics"
         }
 
         "/screenlock/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "enabled"
             os_status = "biometrics"
             elapsed_time = 50
@@ -566,6 +569,7 @@ trackTests {
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
             elapsed_time = 50
@@ -574,6 +578,7 @@ trackTests {
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
             elapsed_time = 50

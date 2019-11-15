@@ -41,11 +41,18 @@ tracks {
               description: "Variable used to calculate item score in promotions backend")
       score(required: true, type: PropertyType.Numeric, 
               description: "Item's score calculated by promotions backend based on several variables")
+      prior_score(required: false, type: PropertyType.Numeric, 
+              description: "Item's score calculated by ML model")
+      prior_position(required: false, type: PropertyType.Numeric, 
+              description: "Item's position calculated by prior_score")
+      posterior_score(required: false, type: PropertyType.Numeric, 
+              description: "Item's score calculated with prior_score and learning data")
+      posterior_position(required: false, type: PropertyType.Numeric, 
+              description: "Item's position calculated by posterior_score")
       credibility(required: true, type: PropertyType.Numeric, 
               description: "Variable used to calculate item score in promotions backend")
       benefit(required: true, type: PropertyType.Numeric)
       interest(required: true, type: PropertyType.Numeric)
-      alpha(required: false, type: PropertyType.Numeric)
       item_clicks(required: false, type: PropertyType.Numeric)
       conversion_rate(required: false, type: PropertyType.Numeric)
       expected_clicks(required: false, type: PropertyType.Numeric)
@@ -53,7 +60,21 @@ tracks {
               description: "Indicates whether the item was manually positioned")
       model_version(required: false, type: PropertyType.String)
       position(required: false, type: PropertyType.Numeric)
-      created_date(required: false, type: PropertyType.String)       
+      created_date(required: false, type: PropertyType.String)
+      alpha(required: false, type: PropertyType.Numeric, 
+              description: "Weighting for equation learning. Calculated with total number of item prints within promotions")
+      beta(required: false, type: PropertyType.Numeric, 
+              description: "Adjustment parameters to weigh how much the ctr and the conversion rate add to learning")
+      gamma(required: false, type: PropertyType.Numeric, 
+              description: "Adjustment parameters to weigh how much the ctr and the conversion rate add to learning")
+      rebate(required: false, type: PropertyType.Numeric, 
+              description: "Attribute that the publication has or has not")
+      one_p(required: false, type: PropertyType.Numeric, 
+              description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")
+      private_label(required: false, type: PropertyType.Numeric,
+              description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")    
+      promotion_type(required: true, type: PropertyType.String,
+              values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "others"], description: "Type of promotion")
     }
 
     propertyDefinitions {

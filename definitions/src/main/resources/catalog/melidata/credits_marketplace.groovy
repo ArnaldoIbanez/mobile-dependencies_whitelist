@@ -53,6 +53,9 @@ tracks {
     "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/error"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/public_landing/remedy"(platform: "/", type: TrackType.View) {
+        remedy_name(description: "Remedy name", type: PropertyType.String, required: true)
+    }
 
     //Events
     "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
@@ -692,6 +695,7 @@ tracks {
      *    Start: Consumers Opensea Integrations
      ******************************************/
 
+    "/credits/consumer/opensea/redirect"(platform: "/mobile", type: TrackType.View) {}
     "/credits/consumer/opensea/integrated_flow/vip"(platform: "/web", type: TrackType.Event){}
 
     /******************************************

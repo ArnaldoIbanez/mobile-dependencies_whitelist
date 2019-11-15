@@ -29,24 +29,24 @@ trackTests {
                         [
                                 catalog_product_id: "MLA123",
                                 selected          : true,
-                                disabled          : false
+                                picker_type       : "normal"
                         ],
                         [
                                 catalog_product_id: "MLA125",
                                 selected          : false,
-                                disabled          : false
+                                picker_type       : "normal"
                         ]
                 ],
                 "MEMORY": [
                         [
                                 catalog_product_id: "MLA123",
                                 selected          : true,
-                                disabled          : false
+                                picker_type       : "normal"
                         ],
                         [
                                 catalog_product_id: "MLA125",
                                 selected          : false,
-                                disabled          : false
+                                picker_type       : "normal"
                         ]
                 ]
         ]
@@ -130,6 +130,7 @@ trackTests {
 
         "/pdp/picker_selection"(platform: "/", {
             catalog_product_id = "MLA1234"
+            visible = true
         })
 
         "/pdp/other_buying_options"(platform: "/", {
@@ -228,6 +229,7 @@ trackTests {
             installment_info = "6f"
             loyalty_level = 2
             previous_catalog_product_id = "MLA43720"
+            collapsed_pickers = true
 
             filters = ["installments": "no_interest", "price":"1000-2000"]
 
@@ -303,7 +305,14 @@ trackTests {
         "/pdp/picker_selection"(platform: "/", {
             catalog_product_id = "MLA1234"
             picker_id = "MLA14545"
-            picker_disabled = false
+            picker_type = "normal"
+            visible = false
+        })
+
+        "/pdp/picker_collapse"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            picker_id = "MLA14545"
+            collapse = true
         })
 
         "/pdp/other_buying_options"(platform: "/", {
@@ -353,6 +362,7 @@ trackTests {
             domain_id = "MLA-CELLPHONES"
             review_rate = 1
             loyalty_level = 3
+            collapsed_pickers = true
 
             pickers = pickers_data()
             items = items_data()
@@ -366,6 +376,19 @@ trackTests {
         "/pdp/alternative_buying_options/add_to_cart_action"(platform: "/", {
             catalog_product_id = "MLA1234"
             alternative_buying_option()
+        })
+
+        "/pdp/onboarding_catalog/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            referer = "onboarding"
+        })
+
+        "/pdp/onboarding_catalog/close"(platform: "/", {
+            catalog_product_id = "MLA1234"
+        })
+
+        "/pdp/catalog_tag_click"(platform: "/", {
+            catalog_product_id = "MLA1234"
         })
     }
 
@@ -452,7 +475,8 @@ trackTests {
         "/pdp/sellers/picker_selection"(platform: "/", {
             catalog_product_id = "MLA1234"
             picker_id = "COLOR"
-            picker_disabled = false
+            picker_type = "normal"
+            visible = false
         })
 
         "/pdp/sellers/page_selection"(platform: "/", {

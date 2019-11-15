@@ -46,6 +46,15 @@ trackTests {
             latest_news_type= "reputation-medal_lost_reminder"
             latest_news_id= "reputation-medal_lost_reminder-126635313-grace_time_126635313-13804002905"
         }
+        "/notification_center/discount_central_missing_data"(platform: "/mobile"){
+            newsgroup_id= "discount_central-missing_data-126635313"
+            status= "read"
+            event_type= "open"
+            deeplink= "mercadopago://profile-engine/landing?flow_name=discount_central"
+            type_layout= "standard"
+            latest_news_type= "discount_central_missing_data"
+            latest_news_id= "discount_central-missing_data-126635313"
+        }
         "/notification_center/security-enrollment"(platform: "/mobile"){
             newsgroup_id= "security-enrollment-142242996"
             status= "unread"
@@ -764,6 +773,7 @@ trackTests {
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
         }
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
@@ -2372,6 +2382,7 @@ trackTests {
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
         }
 
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
@@ -2381,6 +2392,7 @@ trackTests {
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
         }
 
         "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
@@ -2390,6 +2402,7 @@ trackTests {
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
         }
 
         "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
@@ -2399,6 +2412,7 @@ trackTests {
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
         }
 
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
@@ -2785,6 +2799,11 @@ trackTests {
         "/notification/withdraw_approved_contingency"(platform: "/mobile") {
             news_id = "withdraw-approved_contingency-186785675"
             event_type = "open"
+        }
+
+        "/notification/discount_central_missing_data"(platform: "/mobile") {
+            news_id = "discount_central-missing_data-12332323"
+            event_type = "shown"
         }
 
     }
@@ -3549,6 +3568,7 @@ trackTests {
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
         }
         "/notification_center/prepaid_card"(platform: "/mobile"){
             newsgroup_id= "prepaid_card-delayed_p1-186785675-76283123"
@@ -5116,6 +5136,7 @@ trackTests {
             campaign_id = "mkt_campaign_co"
             batch_id = "MLB_PACK_20180508_2"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
         }
 
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
@@ -5125,6 +5146,7 @@ trackTests {
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
         }
 
         "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
@@ -5134,6 +5156,7 @@ trackTests {
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
         }
 
         "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
@@ -5143,6 +5166,7 @@ trackTests {
             deal_id = "MLA_MP_PRUEBA_G_20181211"
             sent_date = "20181211"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
+            campaign_type = "adhoc"
         }
 
         "/notification/credits_merchants_expired_first_notice"(platform: "/mobile") {
@@ -5521,6 +5545,12 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/uninstalls_checker"(platform: "/mobile"){
+            execution_id= "160295629"
+            advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
+            event_type = "sent"
+        }
+
     }
 
     defaultBusiness = "mercadolibre"
@@ -5596,6 +5626,12 @@ trackTests {
         "/notification/openplatform_recommendations_p1"(platform: "/mobile"){
             notification_id= "12345"
             event_type = "open"
+        }
+
+        "/notification/uninstalls_checker"(platform: "/mobile"){
+            execution_id= "160295629"
+            advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
+            event_type = "sent"
         }
 
         "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile"){
@@ -5675,6 +5711,11 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/discount_central_missing_data"(platform: "/mobile") {
+            news_id = "discount_central-missing_data-186785675"
+            event_type = "open"
+        }
+
         "/notification/cancellations_warning_seller_suspended"(platform: "/mobile") {
             event_type = "open"
         }
@@ -5714,6 +5755,12 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/uninstalls_checker"(platform: "/mobile"){
+            execution_id= "160295629"
+            advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
+            event_type = "sent"
+        }
+
         "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile"){
             notification_id= "12345"
             latest_news_type= "openplatform_sellers_inhouse"
@@ -5743,6 +5790,10 @@ trackTests {
             notification_id= "12345"
             latest_news_type= "openplatform_recommendations_p1"
             latest_news_id= "openplatform_recommendations_p1-12345"
+        }
+        "/notification_center/discount_central_missing_data"(platform: "/mobile"){
+            latest_news_type= "discount_central_missing_data"
+            latest_news_id= "discount_central_missing_data-12345"
         }
     }
 

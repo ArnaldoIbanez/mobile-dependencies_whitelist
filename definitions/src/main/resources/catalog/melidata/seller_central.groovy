@@ -100,9 +100,9 @@ tracks {
 
     //  FINAL PROMO STRUCTURE
     def finalPromotionStructure = objectSchemaDefinitions {
-        state(type: PropertyType.String, required: true)
+        state(type: PropertyType.String, required: false)
         site_time_offset(type: PropertyType.Numeric, required: false)
-        start_Date(type: PropertyType.String, required: true)
+        start_date(type: PropertyType.String, required: true)
         finish_date(type: PropertyType.String, required: true)
         is_highlight(type: PropertyType.Boolean, required: false)
         price(type: PropertyType.Numeric, required: true)
@@ -119,6 +119,7 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
         seller_profile(required: false, type: PropertyType.String, description: "Type of seller")
+        seller_reputation(required: true, type: PropertyType.String, description: "Reputation of the seller")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
         category_path(required: false, type: PropertyType.ArrayList, description: "Path of category")
@@ -128,8 +129,8 @@ tracks {
         item_type(required: true, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
 
         comparison_table(required: false, type: PropertyType.Map(comparisonTable), description: "Information about the winner and the original item")
-        competition_status(required: false, type: PropertyType.String, description: "The actual buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
-        new_competition_status(required: false, type: PropertyType.String, description: "The new buy box status of the item", values: ["WIN", "LOSE", "PENDING", "DEFAULT", "ERROR", "OUT"])
+        competition_status(required: false, type: PropertyType.String, description: "The actual buy box status of the item")
+        new_competition_status(required: false, type: PropertyType.String, description: "The new buy box status of the item")
         catalog_product_id(required: false, type: PropertyType.String, description: "The product id")
         listing_type(required: true, type: PropertyType.String, description: "The product listing type")
         shipping_local_pickup(required: true, type: PropertyType.Boolean, description: "The product local pick up")
@@ -154,7 +155,7 @@ tracks {
 
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
-        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup)
+        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation)
         sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
@@ -224,6 +225,7 @@ tracks {
     "/seller_central/listings/filters/action"(platform: "/") {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+        checked_filters(required:false, type: PropertyType.ArrayList(PropertyType.String), description: "List of filters applied")
     }
 
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {
@@ -232,19 +234,27 @@ tracks {
 
     "/seller_central/listings/action"(platform: "/", type: TrackType.Event) {
         action_id(required: true, type: PropertyType.String, description: "Action id")
-        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")        
+        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
         item_id(required:false, type: PropertyType.String, description: "Item id to which the action is executed")
         inventory_id(required:false, type: PropertyType.String, description: "Inventory id to which the action is executed")
         operator_id(required:false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
     }
 
     "/seller_central/listings/action/confirm"(platform: "/", type: TrackType.Event) {
+        id_row_selected(required:false, type: PropertyType.String, description: "Row id to which the action is executed")
         action_id(required: true, type: PropertyType.String, description: "Action id")
-        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")        
+        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
         item_id(required:false, type: PropertyType.String, description: "Item id to which the action is executed")
         id_row_selected(required:false, type: PropertyType.String, description: "Row id to which the action is executed")
-        has_variations(required: false, type: PropertyType.Boolean, description: "If the item to which the action is executed has variations")        
+        has_variations(required: false, type: PropertyType.Boolean, description: "If the item to which the action is executed has variations")
         operator_id(required:false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
+    }
+
+    "/seller_central/listings/massive_action"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "Action id")
+        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
+        count(required: true, type: PropertyType.Numeric, description: "Selected rows count")
+        
     }
 
     "/seller_central/listings/preferences"(platform: "/", type: TrackType.Event) {
@@ -783,8 +793,79 @@ tracks {
 
     "/seller_central/promotions/actions"(platform: "/web", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action executed by the seller")
-        promotion(required: false, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
+        promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+    }
+
+    // ADD NEW PATHS FOR SELLER PROMOTIONS FORM
+    // To be compatible with the actuals paths.
+    "/seller_central/promotions/list"(platform: "/web", type: TrackType.View) {
+        original_promotion(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original promotion data")
+        context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT"])
+    }
+
+    "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM"])
+        promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
+        promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+    }
+
+    "/seller_central/promotions/list/update"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM"])
+        promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
+        promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+    }
+
+    "/seller_central/promotions/list/error"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM"])
+        promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
+        promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+        error(required: false, type: PropertyType.String, description: "Error saving the promotion")
+    }
+
+    "/seller_central/promotions/list/actions"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["DISABLE", "ENABLE", "RESET_PROMOTION"])
+        context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "PRIME_CHECKBOX", "RESET_PROMOTION"])
+    }
+
+    // ADD NEW PATHS FOR SELLER PROMOTIONS DISCOUNT TAB
+    "/seller_central/promotions/filters"(platform: "/mobile", type: TrackType.View) {}
+
+    "/seller_central/promotions/filters/applied"(platform: "/", type: TrackType.Event) {
+        checkedFilters(required: true, type: PropertyType.ArrayList, description: "Id of the action")
+    }
+
+    "/seller_central/promotions/filters/action"(platform: "/") {
+        action(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+    }
+
+    "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "Action id")
+        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
+        item_id(required:false, type: PropertyType.String, description: "Item id to which the action is executed")
+        inventory_id(required:false, type: PropertyType.String, description: "Inventory id to which the action is executed")
+        operator_id(required:false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
+    }
+
+    "/seller_central/promotions/action/confirm"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "Action id")
+        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
+        item_id(required:false, type: PropertyType.String, description: "Item id to which the action is executed")
+        id_row_selected(required:false, type: PropertyType.String, description: "Row id to which the action is executed")
+        has_variations(required: false, type: PropertyType.Boolean, description: "If the item to which the action is executed has variations")
+        operator_id(required:false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
+    }
+
+    "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+    }
+
+    "/seller_central/promotions/list"(platform: "/", type: TrackType.Event) {}
+
+    //LISTING - Secondary Actions Click
+    "/seller_central/promotions/list/secondary_actions"(platform: "/", type: TrackType.Event) {
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
 }

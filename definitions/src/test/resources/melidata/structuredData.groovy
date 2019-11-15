@@ -495,4 +495,44 @@ trackTests {
         }
     }
 
+    // Catalog search
+    test("catalog_search wrong domain prediction"){
+        "/structure_data/catalog_search/wrong_domain_prediction"(platform: "/web/desktop", type: TrackType.Event) {
+            product_id = "b7c088e9-502f-4ed2-9446-0c865e024d7a"
+            product_source = "ice-cat"
+            product_external_id = "554178"
+            external_domain = "Ordenadores móviles industriales"
+            predicted_domain = "Tablets"
+            selected_domain = "Notebooks"
+        }
+    }
+
+    test("catalog_search wrong external domain"){
+        "/structure_data/catalog_search/wrong_external_domain"(platform: "/web/desktop", type: TrackType.Event) {
+            product_id = "b7c088e9-502f-4ed2-9446-0c865e024d7a"
+            product_source = "ice-cat"
+            product_external_id = "554178"
+            external_domain = "Ordenadores móviles industriales"
+        }
+    }
+
+    test("catalog_search wrong external attribute"){
+        "/structure_data/catalog_search/wrong_external_attribute"(platform: "/web/desktop", type: TrackType.Event) {
+            product_id = "b7c088e9-502f-4ed2-9446-0c865e024d7a"
+            product_source = "ice-cat"
+            product_external_id = "554178"
+            external_attribute_key = "Interfaz"
+            external_attribute_value = "Bluetooth v2.0"
+        }
+    }
+
+    test("catalog_search copied external attribute"){
+        "/structure_data/catalog_search/copied_external_attribute"(platform: "/web/desktop", type: TrackType.Event) {
+            product_id = "b7c088e9-502f-4ed2-9446-0c865e024d7a"
+            product_source = "ice-cat"
+            product_external_id = "554178"
+            external_attribute_key = "GTIN"
+            external_attribute_value = "0882780449312,0882780449459"
+        }
+    }
 }

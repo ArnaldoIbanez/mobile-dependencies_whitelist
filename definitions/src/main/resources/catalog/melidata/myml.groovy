@@ -599,7 +599,10 @@ tracks {
     "/myml/invoices/company-info/certificate"(platform: "/") {}
     "/myml/invoices/company-info/certificate/help_tooltip"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
+    "/myml/invoices/company-info/certificate/a1"(platform: "/") {
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
     "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/installer_download"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
@@ -608,6 +611,10 @@ tracks {
         error(required: false, description: "Error type when user uploads an A1 digital certificate")
         message(required: false, description: "Description of error when user uploads an A1 digital certificate")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
+        certificateFrom(required: false, type:  PropertyType.String, description: "Certificate type that the seller had before uploading")
+        certificateTo(required: false, type:  PropertyType.String, description: "Certificate type uploaded by seller")
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
     "/myml/invoices/company-info/certificate/a3"(platform: "/") {}

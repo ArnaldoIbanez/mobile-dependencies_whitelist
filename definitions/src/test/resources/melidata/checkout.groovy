@@ -48,9 +48,6 @@ trackTests {
 
         "/checkout/congrats/back"(platform:"/mobile") {
             defaultCheckoutIItemsInformation()
-            paymentStatusDetail = "ACCREDITED"
-            congratsStatus = "APPROVED"
-            tokenGeneratedWithEsc = "NO"
         }
 
         "/checkout/abort"(platform:"/mobile") {}
@@ -1035,9 +1032,6 @@ trackTests {
             ]
 
             order_id=912391
-            paymentStatusDetail = "ACCREDITED"
-            congratsStatus = "APPROVED"
-            tokenGeneratedWithEsc = "NO"
         }
 
         /**
@@ -1776,9 +1770,9 @@ trackTests {
                              id:111222,
                              nickname:"seller02"
                      ]]
-            paymentStatusDetail = "ACCREDITED"
-            congratsStatus = "APPROVED"
-            tokenGeneratedWithEsc = "NO"
+            payment_status_detail = "ACCREDITED"
+            congrats_status = "APPROVED"
+            token_generated_with_esc = "NO"
         }
 
         "/checkout/congrats"(platform:"/web/desktop") {
@@ -1814,9 +1808,9 @@ trackTests {
                              id:111222,
                              nickname:"seller02"
                      ]]
-            paymentStatusDetail = "ACCREDITED"
-            congratsStatus = "APPROVED"
-            tokenGeneratedWithEsc = "NO"
+            payment_status_detail = "ACCREDITED"
+            congrats_status = "APPROVED"
+            token_generated_with_esc = "NO"
         }
 
     }
@@ -2102,9 +2096,9 @@ trackTests {
             dataSetCongrats()
             purchase_status = "paid"
             purchase_id = 11111
-            paymentStatusDetail = "ACCREDITED"
-            congratsStatus = "APPROVED"
-            tokenGeneratedWithEsc = "NO"
+            payment_status_detail = "ACCREDITED"
+            congrats_status = "APPROVED"
+            token_generated_with_esc = "NO"
         }
         "/checkout/congrats"(platform:"/web") {
             dataSet()
@@ -2112,15 +2106,12 @@ trackTests {
             geolocated = true
             purchase_status = "paid"
             purchase_id = 11111
-            paymentStatusDetail = "ACCREDITED"
-            congratsStatus = "APPROVED"
-            tokenGeneratedWithEsc = "NO"
+            payment_status_detail = "ACCREDITED"
+            congrats_status = "APPROVED"
+            token_generated_with_esc = "NO"
         }
         "/checkout/congrats/recommendations"(platform: "/"){
             dataSet()
-            paymentStatusDetail = "ACCREDITED"
-            congratsStatus = "APPROVED"
-            tokenGeneratedWithEsc = "NO"
         }
         "/checkout/finish/keep_buying"(platform:"/web"){
             dataSet()

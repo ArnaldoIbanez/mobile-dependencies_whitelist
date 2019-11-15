@@ -49,6 +49,7 @@ trackTests {
             whatsapp_available = "false"
             quote_demand_available = false
             new_wording_free = false
+            quantity_models = 4
         }
 
         "/vip"(platform:"/mobile", {
@@ -271,6 +272,26 @@ trackTests {
             item_seller_type = "AB001"
         }
 
+	  	"/vip/quote_demand_intention_lower"(platform: "/mobile", type: TrackType.Event) {
+	        item_id = "MLA533657947"
+	        category_id = "MLA43718"
+	        buying_mode = "buy_it_now"
+	        category_path = ["MLA1234", "MLA6789"]
+	        vertical = "core"
+	        item_condition = "new"
+	        listing_type_id = "gold_special"
+	        item_status = "active"
+	        seller_id = 131662738
+	        price = 15.3
+	        currency_id = "ARS"
+	        original_price = 18.0
+	        discount_reasons = ["loyalty", "deal"]
+	        optionals()
+	        item_seller_type = "AB001"
+	        from_view="vip"
+	        resolution = "high"
+	    }
+
 	  	"/vip/quote_demand_intention"(platform: "/mobile", type: TrackType.Event) {
 	        item_id = "MLA533657947"
 	        category_id = "MLA43718"
@@ -311,6 +332,7 @@ trackTests {
 	        resolution = "high"
     	}
 
+        //with deals_ids
         "/vip/quote_demand_intention"(platform: "/mobile", type: TrackType.Event) {
             item_id = "MLA533657947"
             category_id = "MLA43718"
@@ -751,6 +773,7 @@ trackTests {
             defaultTrackInformation()
             cartInformation()
             shippingInformation()
+            credits_opensea = true
         }
 
         "/vip/buy_action"(platform: "/web", type: TrackType.View) {
@@ -977,6 +1000,7 @@ trackTests {
 
     test("VIP Facilities section for projects RE"){
         def properties = {
+
             vertical = "realEstate"
             from_view = "technicalSpecs"
             seller_id =  430012134

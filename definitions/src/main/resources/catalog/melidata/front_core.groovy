@@ -23,7 +23,7 @@ tracks {
     def credits_definition = objectSchemaDefinitions {}
 
     def banking_definition = objectSchemaDefinitions {
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
         collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
         balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
@@ -46,20 +46,20 @@ tracks {
     }
 
     def main_actions_definition = objectSchemaDefinitions {
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of main actions")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(main_action_definition)), description: "The main action items information")
     }
 
     def realestate_definition = objectSchemaDefinitions {
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
         realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate information")
     }
 
     def secondary_actions_definition = objectSchemaDefinitions {
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
         realestates_payers(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate payers information")
         realestates_sellers(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate sellers information")
@@ -78,7 +78,7 @@ tracks {
     }
 
     def activities_definition = objectSchemaDefinitions {
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
         quantity(type: PropertyType.Numeric, required: true, description: "Quantity of activities")
         is_ftu(type: PropertyType.Boolean, required: true, description: "Whether it is an ftu or not")
@@ -87,11 +87,11 @@ tracks {
 
     def activities_link_definition = objectSchemaDefinitions {
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
     }
 
     def qr_map_definition = objectSchemaDefinitions {
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
         header_title(type: PropertyType.String, required: true, description: "The container header title")
         items(required: true, PropertyType.ArrayList(PropertyType.String), description: "the items recived form endpoint or cache")
@@ -279,7 +279,7 @@ tracks {
 
     "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
         header(required: true, type: PropertyType.Map(header_definition), description: "The header information")
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
         prepaid_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The banner section information")
@@ -295,7 +295,7 @@ tracks {
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
         header(required: true, type: PropertyType.Map(header_definition), description: "The header information")
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
         prepaid_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The banner section information")
