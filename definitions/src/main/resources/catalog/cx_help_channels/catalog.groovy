@@ -19,9 +19,15 @@ catalog {
             "/mobile/ios",
     ]
 
-    def cx_help_channels = ["cx_help_channels"]
+    def marketplace = ["mercadolibre"]
 
-    cx_help_channels.each { business ->
+    def mercadopago = ["mercadopago"]
+
+    def mercadoshops = ["mercadoshops"]
+
+    def all = marketplace + mercadopago + mercadoshops
+
+    all.each { business ->
         include business, "tracking.groovy"
     }
 }

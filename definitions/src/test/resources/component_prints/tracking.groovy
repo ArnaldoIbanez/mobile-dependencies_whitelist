@@ -5,9 +5,39 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-    defaultBusiness = "component_prints"
+    defaultBusiness = "mercadolibre"
 
-    test("test path") {
+    test("test mercadolibre") {
+
+        "/"(platform: "/") {}
+
+        "/component"(platform: "/mobile/android", type: TrackType.Event) {}
+        "/component"(platform: "/mobile/ios", type: TrackType.Event) {}
+        "/component"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/component"(platform: "/web/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/print"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    }
+
+    defaultBusiness = "mercadopago"
+
+    test("test mercadopago") {
+
+        "/"(platform: "/") {}
+
+        "/component"(platform: "/mobile/android", type: TrackType.Event) {}
+        "/component"(platform: "/mobile/ios", type: TrackType.Event) {}
+        "/component"(platform: "/web/desktop", type: TrackType.Event) {}
+        "/component"(platform: "/web/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/print"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    }
+
+    defaultBusiness = "portalinmobiliario"
+
+    test("test portalinmobiliario") {
 
         "/"(platform: "/") {}
 

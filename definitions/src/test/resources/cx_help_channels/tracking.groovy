@@ -5,9 +5,21 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-    defaultBusiness = "cx_help_channels"
+    defaultBusiness = "mercadolibre"
 
-    test("test path") {
+    test("test mercadolibre") {
+        "/"(platform: "/") {}
+    }
+
+    defaultBusiness = "mercadopago"
+
+    test("test mercadopago") {
+        "/"(platform: "/") {}
+    }
+
+    defaultBusiness = "mercadoshops"
+
+    test("test mercadoshops") {
         "/"(platform: "/") {}
     }
 

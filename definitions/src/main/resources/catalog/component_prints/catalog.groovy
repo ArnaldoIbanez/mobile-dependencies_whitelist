@@ -19,9 +19,13 @@ catalog {
             "/mobile/ios",
     ]
 
-    def component_prints = ["component_prints"]
+    def marketplace = ["mercadolibre", "portalinmobiliario"]
 
-    component_prints.each { business ->
+    def mercadopago = ["mercadopago"]
+
+    def all = marketplace + mercadopago
+
+    all.each { business ->
         include business, "tracking.groovy"
     }
 }
