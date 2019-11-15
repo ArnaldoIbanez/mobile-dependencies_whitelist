@@ -720,6 +720,50 @@ trackTests {
             status= "read"
             installment_id = 123
         }
+        "/notification_center/credits_merchants_em_to_expire_01"(platform: "/mobile"){
+            newsgroup_id= "credits_merchants-em_to_expire_01-186785675-76283123"
+            latest_news_id= "credits_merchants-em_to_expire_01-186785675-76283123"
+            latest_news_type= "credits_merchants_em_to_expire_01"
+            status= "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants_em_expired_no_charges_today"(platform: "/mobile"){
+            newsgroup_id= "credits_merchants_em_expired_no_charges_today-186785675-76283123"
+            latest_news_id= "credits_merchants_em_expired_no_charges_today-186785675-76283123"
+            latest_news_type= "credits_merchants_em_expired_no_charges_today"
+            status= "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants_em_expired_daily_charges_01"(platform: "/mobile"){
+            newsgroup_id= "credits_merchants_em_expired_daily_charges_01-186785675-76283123"
+            latest_news_id= "credits_merchants_em_expired_daily_charges_01-186785675-76283123"
+            latest_news_type= "credits_merchants_em_expired_daily_charges_01"
+            status= "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants_em_expired_daily_charges_04"(platform: "/mobile"){
+            newsgroup_id= "credits_merchants_em_expired_daily_charges_04-186785675-76283123"
+            latest_news_id= "credits_merchants_em_expired_daily_charges_04-186785675-76283123"
+            latest_news_type= "credits_merchants_em_expired_daily_charges_04"
+            status= "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants_em_expired_daily_charges_07"(platform: "/mobile"){
+            newsgroup_id= "credits_merchants_em_expired_daily_charges_07-186785675-76283123"
+            latest_news_id= "credits_merchants_em_expired_daily_charges_07-186785675-76283123"
+            latest_news_type= "credits_merchants_em_expired_daily_charges_07"
+            status= "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants_em_expired_daily_charges_10"(platform: "/mobile"){
+            newsgroup_id= "credits_merchants_em_expired_daily_charges_10-186785675-76283123"
+            latest_news_id= "credits_merchants_em_expired_daily_charges_10-186785675-76283123"
+            latest_news_type= "credits_merchants_em_expired_daily_charges_10"
+            status= "read"
+            installment_id = 123
+        }
+
+
         "/notification_center/credits_merchants_educational"(platform: "/mobile"){
             newsgroup_id= "credits_merchants-educational-186785675-76283123"
             latest_news_id= "credits_merchants-educational-186785675-76283123"
@@ -2586,6 +2630,38 @@ trackTests {
             event_type = "shown"
             installment_id = 123
         }
+
+        "/notification/credits_merchants_em_to_expire_01"(platform: "/mobile") {
+            news_id = "credits-merchants_em_to_expire_01-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_em_expired_no_charges_today"(platform: "/mobile") {
+            news_id = "credits-merchants_em_expired_no_charges_today-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_em_expired_daily_charges_01"(platform: "/mobile") {
+            news_id = "credits-merchants_em_expired_daily_charges_01-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_em_expired_daily_charges_04"(platform: "/mobile") {
+            news_id = "credits-merchants_em_expired_daily_charges_04-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_em_expired_daily_charges_07"(platform: "/mobile") {
+            news_id = "credits-merchants_em_expired_daily_charges_07-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_em_expired_daily_charges_10"(platform: "/mobile") {
+            news_id = "credits-merchants_em_expired_daily_charges_10-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+
         "/notification/credits_merchants_educational"(platform: "/mobile") {
             news_id = "credits-merchants_educational-9876"
             event_type = "shown"
@@ -3635,6 +3711,48 @@ trackTests {
             latest_news_id= "credits_merchants-to_expire_not_standard-186785675-76283123"
             latest_news_type= "credits_merchants_to_expire_not_standard"
             status= "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants_em_to_expire_01"(platform: "/mobile") {
+            newsgroup_id = "credits_merchants-em_to_expire_01-186785675-76283123"
+            latest_news_id = "credits_merchants-em_to_expire_01-186785675-76283123"
+            latest_news_type = "credits_merchants_em_to_expire_01"
+            status = "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants_em_expired_no_charges_today"(platform: "/mobile") {
+            newsgroup_id = "credits_merchants_em_expired_no_charges_today-186785675-76283123"
+            latest_news_id = "credits_merchants_em_expired_no_charges_today-186785675-76283123"
+            latest_news_type = "credits_merchants_em_expired_no_charges_today"
+            status = "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants_em_expired_daily_charges_01"(platform: "/mobile") {
+            newsgroup_id = "credits_merchants_em_expired_daily_charges_01-186785675-76283123"
+            latest_news_id = "credits_merchants_em_expired_daily_charges_01-186785675-76283123"
+            latest_news_type = "credits_merchants_em_expired_daily_charges_01"
+            status = "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants_em_expired_daily_charges_04"(platform: "/mobile") {
+            newsgroup_id = "credits_merchants_em_expired_daily_charges_04-186785675-76283123"
+            latest_news_id = "credits_merchants_em_expired_daily_charges_04-186785675-76283123"
+            latest_news_type = "credits_merchants_em_expired_daily_charges_04"
+            status = "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants_em_expired_daily_charges_07"(platform: "/mobile") {
+            newsgroup_id = "credits_merchants_em_expired_daily_charges_07-186785675-76283123"
+            latest_news_id = "credits_merchants_em_expired_daily_charges_07-186785675-76283123"
+            latest_news_type = "credits_merchants_em_expired_daily_charges_07"
+            status = "read"
+            installment_id = 123
+        }
+        "/notification_center/credits_merchants_em_expired_daily_charges_10"(platform: "/mobile") {
+            newsgroup_id = "credits_merchants_em_expired_daily_charges_10-186785675-76283123"
+            latest_news_id = "credits_merchants_em_expired_daily_charges_10-186785675-76283123"
+            latest_news_type = "credits_merchants_em_expired_daily_charges_10"
+            status = "read"
             installment_id = 123
         }
         "/notification_center/credits_merchants_educational"(platform: "/mobile"){
@@ -5458,6 +5576,37 @@ trackTests {
             event_type = "shown"
             installment_id = 123
         }
+        "/notification/credits_merchants_em_to_expire_01"(platform: "/mobile") {
+            news_id = "credits-merchants_em_to_expire_01-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_em_expired_no_charges_today"(platform: "/mobile") {
+            news_id = "credits-merchants_em_expired_no_charges_today-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_em_expired_daily_charges_01"(platform: "/mobile") {
+            news_id = "credits-merchants_em_expired_daily_charges_01-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_em_expired_daily_charges_04"(platform: "/mobile") {
+            news_id = "credits-merchants_em_expired_daily_charges_04-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_em_expired_daily_charges_07"(platform: "/mobile") {
+            news_id = "credits-merchants_em_expired_daily_charges_07-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_em_expired_daily_charges_10"(platform: "/mobile") {
+            news_id = "credits-merchants_em_expired_daily_charges_10-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+
         "/notification/credits_merchants_educational"(platform: "/mobile") {
             news_id = "credits-merchants_educational-9876"
             event_type = "shown"

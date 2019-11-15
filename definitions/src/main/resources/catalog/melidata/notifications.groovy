@@ -531,6 +531,36 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
     }
+    "/notification_center/credits_merchants_em_to_expire_01"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification_center/credits_merchants_em_expired_no_charges_today"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification_center/credits_merchants_em_expired_daily_charges_01"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification_center/credits_merchants_em_expired_daily_charges_04"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification_center/credits_merchants_em_expired_daily_charges_07"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification_center/credits_merchants_em_expired_daily_charges_10"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
     "/notification_center/credits_merchants_educational"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1440,6 +1470,25 @@ tracks {
         installment_id(required: true, type: PropertyType.Numeric)
     }
     "/notification/credits_merchants_to_expire_not_standard"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+
+    "/notification/credits_merchants_em_to_expire_01"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_em_expired_no_charges_today"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_em_expired_daily_charges_01"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_em_expired_daily_charges_04"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_em_expired_daily_charges_07"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_em_expired_daily_charges_10"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric)
     }
 
