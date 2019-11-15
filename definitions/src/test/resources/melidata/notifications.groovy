@@ -744,6 +744,12 @@ trackTests {
             latest_news_type= "fraud_iv_credentials"
             status= "read"
         }
+        "/notification_center/fraud_remedies_trust_vote_ml"(platform: "/mobile"){
+            newsgroup_id= "fraud_remedies_trust_vote_ml-186785675-76283123"
+            latest_news_id= "fraud_remedies_trust_vote_ml-186785675-76283123"
+            latest_news_type= "fraud_remedies_trust_vote_ml"
+            status= "read"
+        }
         "/notification_center/instore_buyer_qr"(platform: "/mobile"){
             newsgroup_id= "instore-buyer_qr-186785675-76283123"
             latest_news_id= "instore-buyer_qr-186785675-76283123"
@@ -2362,6 +2368,16 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/fraud_cash_release_iv"(platform: "/mobile") {
+            news_id = "fraud_cash_release_iv-12345678"
+            event_type = "shown"
+        }
+
+        "/notification/fraud_remedies_trust_vote_ml"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
         "/notification/health_check"(platform: "/mobile/android") {
             news_id = "COXwPxDrigQYBw==-1eb9ff37e01d45b0"
             original_news_id = "messages-new-1688986927-60f251a8ee0a4b748b6c1b59bc1e267a"
@@ -2562,11 +2578,6 @@ trackTests {
         }
 
         "/notification/compliance_support_validations"(platform: "/mobile") {
-            event_type = "shown"
-        }
-
-        "/notification/fraud_cash_release_iv"(platform: "/mobile") {
-            news_id = "fraud_cash_release_iv-12345678"
             event_type = "shown"
         }
 
@@ -3633,6 +3644,12 @@ trackTests {
             newsgroup_id= "fraud_iv_credentials-186785675-76283123"
             latest_news_id= "fraud_iv_credentials-186785675-76283123"
             latest_news_type= "fraud_iv_credentials"
+            status= "read"
+        }
+        "/notification_center/fraud_remedies_trust_vote_ml"(platform: "/mobile"){
+            newsgroup_id= "fraud_remedies_trust_vote_ml-186785675-76283123"
+            latest_news_id= "fraud_remedies_trust_vote_ml-186785675-76283123"
+            latest_news_type= "fraud_remedies_trust_vote_ml"
             status= "read"
         }
         "/notification_center/instore_buyer_qr"(platform: "/mobile"){
@@ -5199,6 +5216,11 @@ trackTests {
         }
 
         "/notification/fraud_score_post_approval_last_chance_ml"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
+        "/notification/fraud_remedies_trust_vote_ml"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
         }

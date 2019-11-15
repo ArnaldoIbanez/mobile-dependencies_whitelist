@@ -305,6 +305,11 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/fraud_remedies_trust_vote_ml"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
     //Openplatform
     "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile") {
         notification_id(required: true, type: PropertyType.String)
@@ -1298,6 +1303,7 @@ tracks {
       "/notification/fraud_iv_credentials"(platform: "/") {}
       "/notification/fraud_score_post_approval_last_chance_mp"(platform: "/") {}
       "/notification/fraud_score_post_approval_last_chance_ml"(platform: "/") {}
+    "/notification/fraud_remedies_trust_vote_ml"(platform: "/") {}
 
       //Loyalty
       "/notification/loyalty"(platform: "/") {}
