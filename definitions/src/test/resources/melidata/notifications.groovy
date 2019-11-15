@@ -1722,7 +1722,6 @@ trackTests {
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
             shipment_id = 1234
-            order_id = 123
         }
 
         "/notification/collections_approved"(platform: "/mobile") {
@@ -2261,6 +2260,10 @@ trackTests {
             event_type = "open"
         }
         "/notification/security_recovery_canceled"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/security_login_code"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
         }
@@ -3944,7 +3947,7 @@ trackTests {
             news_id = "credits-consumer_expired_n_loans_third_notice-21680059-20180516"
             event_type = "shown"
         }
-        
+
         "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/mobile") {
             news_id = "credits-consumer_about_to_expire_n_loans_first_notice-21680059-20180516"
             event_type = "shown"
@@ -4477,7 +4480,6 @@ trackTests {
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
             shipment_id = 1234
-            order_id = 123
         }
         "/notification/collections_approved"(platform: "/mobile") {
             news_id = "12332323"
@@ -5015,6 +5017,10 @@ trackTests {
             event_type = "open"
         }
         "/notification/security_recovery_canceled"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+        "/notification/security_login_code"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
         }

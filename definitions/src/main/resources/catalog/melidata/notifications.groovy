@@ -865,7 +865,6 @@ tracks {
 
       "/notification/shipping_not_delivered_retained_sender"(platform: "/") {
           shipment_id(required: true, type: PropertyType.Numeric, description: "Id of shipment.")
-          order_id(required: true, type: PropertyType.Numeric)
       }
 
       //Seller questions
@@ -1317,6 +1316,7 @@ tracks {
       "/notification/security_login_auth"(platform: "/") {}
       "/notification/security_device_authorization"(platform: "/") {}
       "/notification/security_recovery_canceled"(platform: "/") {}
+    "/notification/security_login_code"(platform: "/") {}
 
       //Health Check
       "/notification/health_check"(platform: "/") {
