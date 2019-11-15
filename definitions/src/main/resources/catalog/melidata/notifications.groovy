@@ -477,6 +477,7 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/account_fund_cvu"(platform: "/", type: TrackType.Event) {
+        notification_cvu_id(required: true, description: "Identifier of the cvu generated", type: PropertyType.String)
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -567,6 +568,11 @@ tracks {
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
         communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+    }
+
+    "/notification_center/multiplayer_money_request"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
     "/notification_center/prepaid_card"(platform: "/", type: TrackType.Event) {
@@ -705,7 +711,9 @@ tracks {
       "/notification/account_fund_approved_mp"(platform: "/") {}
       "/notification/account_fund_approved_ml"(platform: "/") {}
       "/notification/account_fund_salary"(platform: "/") {}
-      "/notification/account_fund_cvu"(platform: "/") {}
+      "/notification/account_fund_cvu"(platform: "/") {
+          notification_cvu_id(required: true, description: "Identifier of the cvu generated", type: PropertyType.String)
+      }
       "/notification/account_fund_approved_ted"(platform: "/") {}
       "/notification/account_balance_approved_mp"(platform: "/") {}
       "/notification/account_balance_approved_ml"(platform: "/") {}
@@ -796,6 +804,8 @@ tracks {
       "/notification/moderations_item_warning"(platform: "/") {
           item_id(required: true, type: PropertyType.String, description: "Id of item.")
       }
+
+    "/notification/multiplayer_money_request"(platform: "/") {}
 
       //Tu producto está en camino
       "/notification/shipping_shipped"(platform: "/") {
@@ -1284,6 +1294,7 @@ tracks {
 
       "/notification/campaigns_control_group"(platform: "/") {
           campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
+          communication_id(required: true, description: "Id of the campaign related to the notification sent.")
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")

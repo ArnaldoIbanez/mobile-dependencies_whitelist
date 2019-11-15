@@ -630,6 +630,7 @@ trackTests {
             newsgroup_id= "account_fund_cvu-12345678"
             latest_news_id= "account_fund_cvu-12345678"
             latest_news_type= "account_fund_cvu"
+            notification_cvu_id = "test"
             status= "unread"
         }
         "/notification_center/account_fund_approved_ted"(platform: "/mobile"){
@@ -773,6 +774,12 @@ trackTests {
             newsgroup_id= "money-transfer_request-186785675-76283123"
             latest_news_id= "money-transfer_request-186785675-76283123"
             latest_news_type= "money-transfer_request"
+            status= "read"
+        }
+        "/notification_center/multiplayer_money_request"(platform: "/mobile"){
+            newsgroup_id= "multiplayer-money_request-186785675-76283123"
+            latest_news_id= "multiplayer-money_request-186785675-76283123"
+            latest_news_type= "multiplayer-money_request"
             status= "read"
         }
         "/notification_center/mpcampaigns_campaigns"(platform: "/mobile"){
@@ -990,6 +997,7 @@ trackTests {
         "/notification/account_fund_cvu"(platform: "/mobile") {
             news_id = "account_fund-cvu-12345678"
             event_type = "shown"
+            notification_cvu_id = "test"
         }
 
         "/notification/account_fund_approved_ted"(platform: "/mobile") {
@@ -1340,6 +1348,11 @@ trackTests {
             event_type = "discarded"
         }
 
+        "/notification/multiplayer_money_request"(platform: "/mobile"){
+            news_id = "multiplayer-money_request-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "discarded"
+        }
+
         "/notification/listings_upgrade"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -1373,6 +1386,7 @@ trackTests {
             news_id = "CIbDQhDb3hMYCQ==-5e22992d1b3518a"
             event_type = "discarded"
             campaign_id = "RECOVERY_CHECKOUT_MLB_60m-65m_20180516_CG"
+            communication_id = "test"
             sent_date = "20180516"
             batch_id = "RECOVERY_CHECKOUT_MLB_60m-65m"
             deal_id = "RMK_MCO"
@@ -2407,6 +2421,7 @@ trackTests {
         "/notification/account_fund_cvu"(platform: "/mobile") {
             news_id = "account_fund-account_fund_cvu-12345678"
             event_type = "shown"
+            notification_cvu_id = "test"
         }
 
         "/notification/account_fund_approved_ted"(platform: "/mobile") {
@@ -3533,6 +3548,7 @@ trackTests {
             latest_news_id= "account_fund-cvu-12345678"
             latest_news_type= "account_fund_cvu"
             status= "unread"
+            notification_cvu_id = "test"
         }
         "/notification_center/account_fund_approved_ted"(platform: "/mobile"){
             newsgroup_id= "account_fund_approved_ted-12345678"
@@ -3656,6 +3672,12 @@ trackTests {
             newsgroup_id= "instore-buyer_qr-186785675-76283123"
             latest_news_id= "instore-buyer_qr-186785675-76283123"
             latest_news_type= "instore_buyer_qr"
+            status= "read"
+        }
+        "/notification_center/multiplayer_money_request"(platform: "/mobile"){
+            newsgroup_id= "multiplayer-money_request-186785675-76283123"
+            latest_news_id= "multiplayer-money_request-186785675-76283123"
+            latest_news_type= "multiplayer-money_request"
             status= "read"
         }
         "/notification_center/invite_gift"(platform: "/mobile"){
@@ -3892,6 +3914,7 @@ trackTests {
         "/notification/account_fund_cvu"(platform: "/mobile") {
             news_id = "account_fund-account_fund_cvu-12345678"
             event_type = "shown"
+            notification_cvu_id = "test"
         }
 
         "/notification/account_fund_approved_ted"(platform: "/mobile") {
@@ -4233,6 +4256,11 @@ trackTests {
             event_type = "discarded"
         }
 
+        "/notification/multiplayer_money_request"(platform: "/mobile"){
+            news_id = "multiplayer-money_request-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "discarded"
+        }
+
         "/notification/listings_upgrade"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
@@ -4266,6 +4294,7 @@ trackTests {
             news_id = "CIbDQhDb3hMYCQ==-5e22992d1b3518a"
             event_type = "discarded"
             campaign_id = "RECOVERY_CHECKOUT_MLB_60m-65m_20180516_CG"
+            communication_id = "test"
             sent_date = "20180516"
             batch_id = "RECOVERY_CHECKOUT_MLB_60m-65m"
             deal_id = "RMK_MCO"
@@ -5254,6 +5283,7 @@ trackTests {
         "/notification/account_fund_cvu"(platform: "/mobile") {
             news_id = "account_fund-account_fund_cvu-12345678"
             event_type = "shown"
+            notification_cvu_id = "test"
         }
 
         "/notification/account_fund_approved_ted"(platform: "/mobile") {
