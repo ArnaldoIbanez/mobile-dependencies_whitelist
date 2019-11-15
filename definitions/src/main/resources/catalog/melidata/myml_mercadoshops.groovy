@@ -283,7 +283,6 @@ tracks {
 
     "/mercado_shops/marketing/google_ads/remarketing"(platform: "/", type: TrackType.View){}
 
-
     "/mercado_shops/marketing/google_ads/remarketing/save"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
