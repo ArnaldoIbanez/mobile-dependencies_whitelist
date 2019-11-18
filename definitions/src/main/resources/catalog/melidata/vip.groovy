@@ -166,6 +166,14 @@ tracks {
         whatsapp_installed(required: false, type: PropertyType.Boolean, description: "determines if whatsapp is installed on the device")
     }
 
+    "/vip/profile_intention"(platform: "/", type: TrackType.Event) {
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
+        buying_mode(required: false, type: PropertyType.String, description: "Indicates if it's an auction, buy_it_now or classified")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        item_id(required: true, type: PropertyType.String, description: "Item id")
+    }
+
     "/vip/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/vip/price_comparison"(platform: "/", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
