@@ -37,6 +37,10 @@
         "type": "INTEGER"
       },
       {
+        "name": "is_new_billboard",
+        "type": "BOOLEAN"
+      },
+      {
         "name": "cantidad",
         "type": "INTEGER"
       }

@@ -33,6 +33,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "is_new_billboard",
+        "type": "BOOLEAN"
+      },
+      {
         "name": "detail",
         "type": "UNICODE_STRING"
       }
