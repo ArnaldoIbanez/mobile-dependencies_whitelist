@@ -752,10 +752,14 @@ tracks {
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {
+        predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
+    }
     "/sell/item_data/category_suggested/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/category"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/category"(platform: "/web", isAbstract: true) {
+        predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
+    }
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
         sellGroup
