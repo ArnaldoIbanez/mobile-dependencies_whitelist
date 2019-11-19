@@ -14,4 +14,11 @@ tracks {
         go(type: PropertyType.String, description: "Destination URL of the marketing campaign.")
     }
 
+    "/traffic/inbound/organic"(platform: "/") {
+        referrer(required: true, type: PropertyType.String, description: "Browser used before getting to us.")
+    }
+
+    "/traffic/inbound/notification"(platform: "/") {
+        news_Id(required: true, type: PropertyType.String, description: "news_id from the notification that opened the app.")
+    }
 }
