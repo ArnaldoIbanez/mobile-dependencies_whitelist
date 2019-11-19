@@ -371,7 +371,7 @@ tracks {
                 description: "Return type selected by the user")
     }
 
-    /* Problem Solver - Flan */ 
+    /* Problem Solver - Flan */
     "/wms/problem_solver/menu"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/problem_solver/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/problem_solver/scan_destination"(platform: "/mobile/android", type: TrackType.View) {}
