@@ -77,7 +77,7 @@ tracks {
                 required: false,
                 type: PropertyType.String,
                 values: ['AFIP', 'BANNER', 'BRANDS', 'CAROUSEL', 'COLORS', 'CONTACT', 'CONTACT_FROM_SHOP_NAME', 'FLASH', 'GRID', 'HEADER_MESSAGE',
-                         'LOGO', 'MOSAIC', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS', 'SUBDOMAIN', 'TEXT_BANNER']
+                         'LOGO', 'MOSAIC', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS', 'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TEXT_BANNER']
         )
     }
 
@@ -282,7 +282,6 @@ tracks {
     }
 
     "/mercado_shops/marketing/google_ads/remarketing"(platform: "/", type: TrackType.View){}
-
 
     "/mercado_shops/marketing/google_ads/remarketing/save"(platform: "/", type: TrackType.Event){
         mshopsEventGroup

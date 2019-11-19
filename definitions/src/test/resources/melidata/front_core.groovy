@@ -3,7 +3,6 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
 
-
 /**************************
 * WALLET HOME TEST TRACKS *
 **************************/
@@ -281,6 +280,7 @@ trackTests {
                 ]
             ]
             content_type = 'partial'
+            from = "drawer_ml"
             banking = [  
                 content_type : 'default',
                 ordinal: 1,
@@ -404,6 +404,7 @@ trackTests {
                 ]
             ]
             content_type = 'partial'
+            from = "drawer_ml"
             banking = [  
                 content_type : 'default',
                 ordinal: 1,
@@ -831,6 +832,7 @@ trackTests {
                 ]
             ]
             content_type = 'partial'
+            from = "drawer_ml"
             banking = [  
                 content_type : 'default',
                 ordinal: 1,
@@ -954,6 +956,7 @@ trackTests {
                 ]
             ]
             content_type = 'partial'
+            from = "my_account_ml"
             banking = [  
                 content_type : 'default',
                 ordinal: 1,

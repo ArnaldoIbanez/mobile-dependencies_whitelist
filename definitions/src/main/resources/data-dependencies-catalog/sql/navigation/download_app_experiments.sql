@@ -26,10 +26,8 @@ from  (
     else 'None' end as Tipo,
     device.vendor as Device,
     case
-    when experiments['frontend-core/download-app-banner'] = '3399' then 'Comprá en cualquier momento y lugar'
-    when experiments['frontend-core/download-app-banner'] = '3412' then 'Millones de marcas en tu bolsillo'
+    when experiments['frontend-core/download-app-banner'] = '3571' then 'Legacy'
     when experiments['frontend-core/download-app-banner'] = '3413' then 'Comprá fácil y rápido'
-    when experiments['frontend-core/download-app-banner'] = '3414' then 'Entérate de novedades y promociones'
     else 'ninguna' end as Variante,
     substr(ds, 1, 10) as Ds,
     usr.uid as UserId
@@ -40,7 +38,7 @@ from  (
     AND NOT is_bot(device.user_agent)
     and device.platform in ('/web/mobile')
     and application.site_id in ('MLA', 'MLB', 'MLC', 'MLM', 'MLU', 'MPE', 'MCO')
-    and experiments['frontend-core/download-app-banner'] in ('3399', '3412', '3413', '3414')
+    and experiments['frontend-core/download-app-banner'] in ('3413', '3571')
   ) t
   group by SiteId,Tipo,Device,Variante,Ds
 
@@ -68,10 +66,8 @@ left join (
   when osname = 'android' then 'android'
   else 'ninguna' end as Device,
   case
-  when label = '3399' then 'Comprá en cualquier momento y lugar'
-  when label = '3412' then 'Millones de marcas en tu bolsillo'
   when label = '3413' then 'Comprá fácil y rápido'
-  when label = '3414' then 'Entérate de novedades y promociones'
+  when label = '3571' then 'Legacy'
   else 'ninguna' end as Variante,
   substr(installedat, 1, 10) as Ds
   from melilake.bt_adjust
@@ -81,7 +77,7 @@ left join (
   and installedat >= '@param01'
   and installedat < '@param02'
   and country in ('cl', 'mx', 'br', 'ar', 'uy', 'pe', 'co')
-  and label in ('3399', '3412', '3413', '3414')
+  and label in ('3571', '3413')
   ) p
 group by SiteId, Device, Variante, Ds
 
