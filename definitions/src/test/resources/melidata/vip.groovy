@@ -776,6 +776,19 @@ trackTests {
             credits_opensea = true
         }
 
+        "/vip/profile_intention"(platform: "/", type: TrackType.Event) {
+            seller_id = 131662738
+            buying_mode = "classified"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            item_id = "MLA533657947"
+            vertical = "services"
+            item_condition = "new"
+            listing_type_id = "silver"
+            item_status = "active"
+            deal_ids = []
+        }
+
         "/vip/buy_action"(platform: "/web", type: TrackType.View) {
             defaultTrackInformation()
             cartInformation()
@@ -820,7 +833,7 @@ trackTests {
                 }      
             }
         }
-        
+
         "/vip/quantity_change"(platform: "/", type: TrackType.Event) {
             item_id = "MLA533657947"
             price = 123
