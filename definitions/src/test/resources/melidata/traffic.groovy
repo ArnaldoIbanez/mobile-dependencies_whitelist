@@ -55,10 +55,18 @@ trackTests {
         "/traffic/inbound/organic"(platform: "/") {
             referrer = "www.google.com"
         }
+
+        "/traffic/inbound/organic"(platform: "/", business: "mercadopago") {
+            referrer = "www.google.com"
+        }
     }
 
     test("Notification traffic") {
         "/traffic/inbound/notification"(platform: "/") {
+            news_Id = "12332323"
+        }
+
+        "/traffic/inbound/notification"(platform: "/", business: "mercadopago") {
             news_Id = "12332323"
         }
     }
