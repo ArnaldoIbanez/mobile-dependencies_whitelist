@@ -421,6 +421,7 @@ tracks {
 
     "/cart/checkout/payment/select_unique_installment/select_installment"(platform: "/", type: TrackType.Event) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        total_amount(required: false, description: "totalAmount")
     }
 
     "/cart/checkout/payment/select_unique_installment/edit_installment_options"(platform: "/", type: TrackType.Event) {
@@ -614,7 +615,9 @@ tracks {
     "/cart/checkout/shipping/input_new_address"(platform: "/web", type: TrackType.View) {}
 
     //Switch track
-    "/cart/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
+    "/cart/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {
+        total_amount(required: false, description: "totalAmount")
+    }
     "/cart/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
     "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
 
@@ -622,7 +625,9 @@ tracks {
         geolocation_error(required: true, description: "Why the geo failed")
     }
 
-    "/cart/checkout/review/confirm_purchase"(platform: "/web", type: TrackType.Event) {}
+    "/cart/checkout/review/confirm_purchase"(platform: "/web", type: TrackType.Event) {
+        total_amount(required: false, description: "totalAmount")
+    }
 
     "/cart/checkout/payment/input_card#card_config"(platform: "/web", type: TrackType.Event) {
         bin(required: true, type: PropertyType.String)
