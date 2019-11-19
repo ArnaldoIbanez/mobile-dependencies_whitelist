@@ -60,6 +60,45 @@ metrics {
 		}
 	}
 
+	"orders_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and (
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("status")
+							},
+							"paid"
+					),
+					equals("event_data.is_carrito", false)
+				)
+			}
+		}
+	}
+
+	"bids_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals(
+					externalCondition {
+						url("internal/orders/\$0")
+						replace("event_data.order_id")
+						method("get")
+						successfulCodes(200,206)
+						jsonPath("status")
+					},
+					"paid"
+				)
+			}
+		}
+	}
+
 	"purchases"(description: "/purchase/purchasecreated from feed", compute_order: true) {
 		countsOn {
 			condition {

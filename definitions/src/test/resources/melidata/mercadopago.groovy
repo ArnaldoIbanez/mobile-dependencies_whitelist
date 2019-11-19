@@ -566,6 +566,14 @@ trackTests {
           price = 299
           is_guest = true
         }
+        
+        "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
 
         "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
@@ -592,6 +600,14 @@ trackTests {
         }
 
         "/point/buyingflow/paymentCardSecurityCode"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+        }
+
+        "/point/buyingflow/payment_bank_selector"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -748,11 +764,52 @@ trackTests {
     }
 
     test("MP Micrositio Reseller") {
-        "/merchant_acquisition/flows/resellers"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/sales"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/benefits"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/metrics"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/after_sales"(platform: "/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/bundles"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/bundles/share"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/bundles/click"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/bundles/open"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/bundles/close"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/mgm"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/mgm/click"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/mgm/share"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/mgm/open"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/mgm/close"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/dashboard"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/dashboard/click"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/share"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/open"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/close"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/associate_device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/individual"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/bundle"(platform:"/", type: TrackType.View) {}
     }
 
     test("// Associar Point - Micrositio - reseller") {
@@ -2565,6 +2622,16 @@ trackTests {
         }
     }
 
+    test("Withdraw_delete_account") {
+        "/withdraw/select_bank/"(platform:"/"){ flow = "/withdraw" }
+        "/withdraw/select_bank/delete_account_modal"(platform:"/", type: TrackType.View){ flow = "/withdraw" }    
+        "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/", type: TrackType.Event){
+            bank_account_id = "1234523"
+            flow = "/withdraw"
+        } 
+        "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/", type: TrackType.Event){flow = "/withdraw"} 
+    }
+
     test("Settings") {
         "/settings/my_profile"(platform: "/mobile") {
             flow = "/settings"
@@ -3088,16 +3155,19 @@ trackTests {
 
     test("Biometrics / Screenlock") {
         "/screenlock/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "enabled"
             os_status = "biometrics"
         }
 
         "/screenlock/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "disabled"
             os_status = "biometrics"
         }
 
         "/screenlock/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "enabled"
             os_status = "biometrics"
             elapsed_time = 50
@@ -3105,6 +3175,7 @@ trackTests {
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
             elapsed_time = 50
@@ -3113,6 +3184,7 @@ trackTests {
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
             elapsed_time = 50

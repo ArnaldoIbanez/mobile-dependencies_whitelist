@@ -220,48 +220,74 @@ trackTests {
     test("Remedies web") {
         "/remedies/landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/phone_validation"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/documentation_front"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
+            custom_cam_offered = true
         }
         "/remedies/documentation_back"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
+            custom_cam_offered = true
         }
         "/remedies/documentation_number"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/selfie"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/congrats"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             congrats_type = "warning"
+            transaction_user_id = 109479273
         }
         "/remedies/continue_phone_landing"(platform: "/web/desktop") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
+            transaction_user_id = 109479273
+        }
+        "/remedies/continue_phone_landing"(platform: "/web/mobile") {
+            flow = "ss_approve_iv_selfie"
+            challenge = "documentation"
+            transaction_user_id = 109479273
         }
         "/remedies/continue_phone_congrats"(platform: "/web/desktop") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
+            transaction_user_id = 109479273
+        }
+        "/remedies/continue_phone_congrats"(platform: "/web/mobile") {
+            flow = "ss_approve_iv_selfie"
+            challenge = "documentation"
+            transaction_user_id = 109479273
         }
         "/remedies/detail_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/threeds"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/company"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/center/card"(platform: "/web") {
             status = "landing"
+            transaction_user_id = 109479273
         }
 
         "/remedies/center/row"(platform: "/mobile") {
@@ -277,6 +303,7 @@ trackTests {
 
         "/remedies/camera/open_camera"(platform: "/web") {
             devices = 2
+            transaction_user_id = 109479273
         }
 
         "/remedies/camera/capture_image"(platform: "/web") {
@@ -288,6 +315,7 @@ trackTests {
 
         "/remedies/camera/capture_image"(platform: "/web") {
             is_landscape = false
+            transaction_user_id = 109479273
         }
 
 
@@ -570,49 +598,65 @@ trackTests {
     test("Remedies web") {
         "/remedies/landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/phone_validation"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/documentation_front"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
+            custom_cam_offered = true
         }
         "/remedies/documentation_back"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
+            custom_cam_offered = true
         }
         "/remedies/documentation_number"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/selfie"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/congrats"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             congrats_type = "warning"
+            transaction_user_id = 109479273
         }
-        "/remedies/continue_phone_landing"(platform: "/web/desktop") {
+        "/remedies/continue_phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
+            transaction_user_id = 109479273
         }
-        "/remedies/continue_phone_congrats"(platform: "/web/desktop") {
+        "/remedies/continue_phone_congrats"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
+            transaction_user_id = 109479273
         }
         "/remedies/detail_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/threeds"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         "/remedies/company"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         
         "/remedies/center/card"(platform: "/web") {
             status = "landing"
+            transaction_user_id = 109479273
         }
 
         "/remedies/center/row"(platform: "/mobile") {
@@ -628,6 +672,7 @@ trackTests {
 
         "/remedies/camera/open_camera"(platform: "/web") {
             devices = 2
+            transaction_user_id = 109479273
         }
 
         "/remedies/camera/capture_image"(platform: "/web") {
@@ -639,6 +684,7 @@ trackTests {
 
         "/remedies/camera/capture_image"(platform: "/web") {
             is_landscape = false
+            transaction_user_id = 109479273
         }
 
 

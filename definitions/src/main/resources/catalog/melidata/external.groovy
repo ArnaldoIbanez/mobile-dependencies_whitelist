@@ -2,7 +2,6 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.TrackType
 
-
 tracks {
     def domainRegex = /(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/
 
@@ -16,5 +15,7 @@ tracks {
     "/external/merchants/home"(platform: "/", type: TrackType.View){}
 
     "/external/merchants/checkout"(platform: "/", type: TrackType.View){}
+
+    "/external/merchants/item"(platform: "/", type: TrackType.View){}
 
 }

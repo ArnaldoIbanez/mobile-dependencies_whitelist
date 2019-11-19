@@ -50,4 +50,24 @@ trackTests {
             go = "https://www.mercadopago.com.mx/qr-code"
         }
     }
+
+    test("Google search traffic") {
+        "/traffic/inbound/organic"(platform: "/") {
+            referrer = "www.google.com"
+        }
+
+        "/traffic/inbound/organic"(platform: "/", business: "mercadopago") {
+            referrer = "www.google.com"
+        }
+    }
+
+    test("Notification traffic") {
+        "/traffic/inbound/notification"(platform: "/") {
+            news_id = "12332323"
+        }
+
+        "/traffic/inbound/notification"(platform: "/", business: "mercadopago") {
+            news_id = "12332323"
+        }
+    }
 }

@@ -529,6 +529,7 @@ tracks {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
         communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
     }
     "/notification_center/prepaid_card"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -547,6 +548,10 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/prepaid_card_transaction_rejected_activation_reminder"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/discount_central_missing_data"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -1329,24 +1334,28 @@ tracks {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
         communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
     }
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
         communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
     }
     "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
         communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
     }
     "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
         sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
         communication_id(required: false, type: PropertyType.String, description: "Communication Id.")
+        campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
     }
 
     //Credits Merchants
@@ -1398,6 +1407,9 @@ tracks {
 
     //Inivite Gift
     "/notification/invite_gift"(platform: "/mobile") {}
+
+    //Profile missing data notification
+    "/notification/discount_central_missing_data"(platform: "/mobile") {}
 
     //Merchants
     "/notification/merchants_growth_mgm"(platform: "/mobile") {
@@ -1491,4 +1503,8 @@ tracks {
     //Fiscal Data
     "/notification/fiscal_data_mp_business_registration"(platform: "/web", type: TrackType.Event) {}
 
+    "/notification/uninstalls_checker"(platform: "/mobile") {
+        execution_id(required: true, type: PropertyType.String)
+        advertising_id(required: true, type: PropertyType.String)
+    }
 }

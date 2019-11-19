@@ -23,10 +23,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "uid",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "SellerID",
         "type": "UNICODE_STRING"
       },

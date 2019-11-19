@@ -144,6 +144,10 @@ tracks {
 
         // PUBLI FIELDS
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
+    
+        quantity_models(required: false, type: PropertyType.Numeric, description: "Quantity models real estate developments")
+
+
     }
 
     "/vip"(platform: "/web") {
@@ -698,6 +702,15 @@ tracks {
                 required: false,
                 type: PropertyType.Boolean,
                 description: "Item's catalog listing"
+        )
+    }
+
+    "/vip/quote_demand_intention_lower"(platform: "/", type: TrackType.Event) {
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form"],
+                description: "Section where it's coming from"
         )
     }
 
