@@ -189,6 +189,7 @@ tracks {
         pictures_errors(required: false, description: "Array of pictures error", type: PropertyType.ArrayList)
     }
     "/sell/list/draft/attribute"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/attribute/kilometers"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/category_navigation"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/category_suggestion"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/color_selection"(platform:"/mobile", type: TrackType.View){}
@@ -250,6 +251,7 @@ tracks {
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
     "/sell/list/hub_old"(platform: "/", type: TrackType.View) {}
     "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/attribute/kilometers"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}

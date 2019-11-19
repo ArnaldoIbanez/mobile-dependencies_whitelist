@@ -370,6 +370,7 @@ trackTests {
         "/sell/list/technical_specifications_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/product_identifier"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/attribute"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/attribute/kilometers"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category/selection/l1"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category/selection/l2"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category/selection/l3"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -428,6 +429,7 @@ trackTests {
         "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile", type: TrackType.Event) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/drafts/draft_action/draft_resumed"(platform: "/mobile", type: TrackType.Event) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/attribute"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/attribute/kilometers"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/category_navigation"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/category_suggestion"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/color_selection"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
