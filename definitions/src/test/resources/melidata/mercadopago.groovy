@@ -2629,7 +2629,10 @@ trackTests {
             from = "/deep_link"}
         "/withdraw/restriction"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}
-
+        "/withdraw/delay"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}            
+         "/withdraw/error"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}          
     }
 
     test("Withdraw_advance") {
@@ -2650,13 +2653,13 @@ trackTests {
     }
 
     test("Withdraw_delete_account") {
-        "/withdraw/select_bank/"(platform:"/"){ flow = "/withdraw" }
-        "/withdraw/select_bank/delete_account_modal"(platform:"/", type: TrackType.View){ flow = "/withdraw" }    
-        "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/", type: TrackType.Event){
+        "/withdraw/select_bank"(platform:"/mobile"){ flow = "/withdraw" }
+        "/withdraw/select_bank/delete_account_modal"(platform:"/mobile", type: TrackType.View){ flow = "/withdraw" }    
+        "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/mobile", type: TrackType.Event){
             bank_account_id = "1234523"
             flow = "/withdraw"
         } 
-        "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/", type: TrackType.Event){flow = "/withdraw"} 
+        "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/mobile", type: TrackType.Event){flow = "/withdraw"} 
     }
 
     test("Settings") {
@@ -2718,39 +2721,41 @@ trackTests {
             flow = "/money_detail"
         }
 
-        "/money_detail/withdraw"(platform: "/") {}
-        "/money_detail/daily_detail"(platform: "/") {}
-        "/money_detail/money-advance"(platform: "/") {}
-        "/money_detail/restrictions"(platform: "/") {}
-        "/money_detail/point_home"(platform: "/") {}
-        "/money_detail"(platform: "/") {}
-        "/money_detail/withdraw/main"(platform: "/") {}
-        "/money_detail/withdraw/confirmation"(platform: "/") {}
-        "/money_detail/withdraw/congrats"(platform: "/") {}
-        "/money_detail/withdraw/add_account"(platform: "/") {}
-        "/money_detail/withdraw/select_bank"(platform: "/") {}   
+        "/money_detail/withdraw"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/daily_detail"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/money-advance"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/restrictions"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/point_home"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/main"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/confirmation"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/congrats"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/add_account"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/select_bank"(platform: "/mobile") {flow = "/money_detail"}   
 
-        "/money_detail/withdraw/main"(platform: "/mobile") {}
-        "/money_detail/withdraw/confirmation"(platform: "/mobile") {}
-        "/money_detail/withdraw/congrats"(platform: "/mobile") {}
-        "/money_detail/withdraw/congrats"(platform: "/mobile") {}
-        "/money_detail/withdraw/add_account"(platform: "/mobile") {}
-        "/money_detail/withdraw/select_bank"(platform: "/mobile") {}    
-        "/money_detail/withdraw"(platform: "/mobile") {}
-        "/money_detail/daily_detail"(platform: "/mobile") {}
-        "/money_detail/money-advance"(platform: "/mobile") {}
-        "/money_detail/restrictions"(platform: "/mobile") {}
-        "/money_detail/point_home"(platform: "/mobile") {}
-        "/money_detail/manual_code"(platform: "/mobile") {}
-        "/money_detail/confirmation"(platform: "/mobile") {}
-        "/money_detail/withdraw/error/high_risk"(platform: "/mobile") {}
-        "/money_detail/withdraw/error/generic_error"(platform: "/mobile") {}
-        "/money_detail/withdraw/uif_change_account"(platform: "/mobile") {}
-        "/money_detail/withdraw/delay/offline"(platform: "/mobile") {}
-        "/money_detail/shopping"(platform: "/mobile") {}
-        "/money_detail/withdraw/delay/manual_review"(platform: "/mobile") {}
-        "/money_detail/credits"(platform: "/mobile") {}
-        "/money_detail/activities"(platform: "/mobile") {}
+        "/money_detail/withdraw/main"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/confirmation"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/congrats"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/congrats"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/add_account"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/daily_detail"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/money-advance"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/restrictions"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/point_home"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/manual_code"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/confirmation"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/error"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/error/high_risk"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/error/generic_error"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/uif_change_account"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/delay/offline"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/shopping"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/delay/manual_review"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/credits"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/activities"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail"(platform: "/mobile") {flow = "/money_detail"}
     }
 
 // END -- MPMOBILE TEST
