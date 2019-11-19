@@ -2603,19 +2603,32 @@ trackTests {
             flow = "/withdraw"
             from = "/deep_link"
         }
-        "/withdraw/main"(platform: "/mobile") {}
-        "/withdraw/confirmation"(platform: "/mobile") {}
-        "/withdraw/make_withdraw"(platform: "/mobile") {}
-        "/withdraw/add_account"(platform: "/mobile") {}
-        "/withdraw/congrats"(platform: "/mobile") {}
-        "/withdraw/error/generic_error"(platform: "/mobile") {}
-        "/withdraw/error/withdraw_failed"(platform: "/mobile") {}
-        "/withdraw/error/high_risk"(platform: "/mobile") {}
-        "/withdraw/error/uif"(platform: "/mobile") {}
-        "/withdraw/delay/manual_review"(platform: "/mobile") {}
-        "/withdraw/delay/offline"(platform: "/mobile") {}
-        "/withdraw/uif_change_account"(platform: "/mobile") {}
-        "/withdraw/restriction"(platform: "/mobile") {}
+        "/withdraw/main"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/confirmation"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/make_withdraw"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/add_account"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/congrats"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/error/generic_error"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/error/withdraw_failed"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/error/high_risk"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/error/uif"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/delay/manual_review"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/delay/offline"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/uif_change_account"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/restriction"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
 
     }
 
