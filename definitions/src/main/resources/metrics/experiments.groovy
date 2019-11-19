@@ -205,7 +205,7 @@ metrics {
 	"quotations"(description: "track quotation as success for classifieds") {
 		countsOn {
 			condition {
-				path("/quotation/congrats")
+				path("/quotation/congrats", "/quotation/congrats/unregistered")
 			}
 		}
 	}
