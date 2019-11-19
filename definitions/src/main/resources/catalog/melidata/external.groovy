@@ -18,4 +18,6 @@ tracks {
 
     "/external/merchants/item"(platform: "/", type: TrackType.View){}
 
+    "/external/merchants/search"(platform: "/", type: TrackType.View){}
+
 }
