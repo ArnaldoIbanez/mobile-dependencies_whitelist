@@ -532,5 +532,20 @@ trackTests {
         "/flex/registration/error"(platform:"/mobile", type: TrackType.Event) {
             context = "login"
         }
+
+        //Option receiver event
+        "/flex/package/receiver_options/selection"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+            option_type = "TestOptionType"
+        }
+
+        //Not delivered view
+        "/flex/package/receiver_options"(platform:"/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
     }
 }
