@@ -640,6 +640,8 @@ tracks {
         payment_status_detail(required: true, type: PropertyType.String, values: ["ACCREDITED", "CC_REJECTED_BLACKLIST", "CC_REJECTED_HIGH_RISK", "CC_REJECTED_INSUFFICIENT_AMOUNT", "CC_REJECTED_INVALID_INSTALLMENTS", "CC_REJECTED_OTHER_REASON", "CC_REJECTED_MAX_ATTEMPTS", "CC_REJECTED_BAD_FILLED_CARD_NUMBER", "CC_REJECTED_BAD_FILLED_OTHER", "CC_REJECTED_BAD_FILLED_DATE", "CC_REJECTED_BAD_FILLED_SECURITY_CODE", "CC_REJECTED_CALL_FOR_AUTHORIZE", "CC_REJECTED_CARD_DISABLED", "DEFAULT", "ACCORD", "PENDING_CONTINGENCY", "PENDING_REVIEW_MANUAL", "PENDING_CHALLENGE", "CC_REJECTED_FRAUD", "CC_REJECTED_DUPLICATED_PAYMENT", "CC_REJECTED_BAD_FILLED_INVALID_DATE", "ACCOUNT_REJECTED_HIGH_RISK", "REJECTED_BY_REGULATIONS", "REJECTED_INSUFFICIENT_DATA", "REJECTED_BY_BANK", "ERROR_BI_WITHOUT_CNPJ", "ERROR_BI_DIFFERENT_IE", "ERROR_BI_CNPJ_NON_OPERATIONAL", "ERROR_BI_IE_INVALID_STATE", "PHONE_VERIFICATION"])
     }
 
+    "/cart/checkout/congrats/input_sec_code"(platform: "/web", type: TrackType.View) {}
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin Web platform
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
