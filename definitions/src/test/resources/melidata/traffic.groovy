@@ -63,11 +63,11 @@ trackTests {
 
     test("Notification traffic") {
         "/traffic/inbound/notification"(platform: "/") {
-            news_Id = "12332323"
+            news_id = "12332323"
         }
 
         "/traffic/inbound/notification"(platform: "/", business: "mercadopago") {
-            news_Id = "12332323"
+            news_id = "12332323"
         }
     }
 }

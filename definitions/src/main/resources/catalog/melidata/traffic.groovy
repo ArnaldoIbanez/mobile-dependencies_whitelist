@@ -19,6 +19,6 @@ tracks {
     }
 
     "/traffic/inbound/notification"(platform: "/") {
-        news_Id(required: true, type: PropertyType.String, description: "news_id from the notification that opened the app.")
+        news_id(required: true, type: PropertyType.String, description: "news_id from the notification that opened the app.")
     }
 }
