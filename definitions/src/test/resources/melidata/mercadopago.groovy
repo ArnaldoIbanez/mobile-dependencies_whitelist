@@ -2603,6 +2603,20 @@ trackTests {
             flow = "/withdraw"
             from = "/deep_link"
         }
+        "/withdraw/main"(platform: "/mobile") {}
+        "/withdraw/confirmation"(platform: "/mobile") {}
+        "/withdraw/make_withdraw"(platform: "/mobile") {}
+        "/withdraw/add_account"(platform: "/mobile") {}
+        "/withdraw/congrats"(platform: "/mobile") {}
+        "/withdraw/error/generic_error"(platform: "/mobile") {}
+        "/withdraw/error/withdraw_failed"(platform: "/mobile") {}
+        "/withdraw/error/high_risk"(platform: "/mobile") {}
+        "/withdraw/error/uif"(platform: "/mobile") {}
+        "/withdraw/delay/manual_review"(platform: "/mobile") {}
+        "/withdraw/delay/offline"(platform: "/mobile") {}
+        "/withdraw/uif_change_account"(platform: "/mobile") {}
+        "/withdraw/restriction"(platform: "/mobile") {}
+
     }
 
     test("Withdraw_advance") {
@@ -2702,6 +2716,28 @@ trackTests {
         "/money_detail/withdraw/congrats"(platform: "/") {}
         "/money_detail/withdraw/add_account"(platform: "/") {}
         "/money_detail/withdraw/select_bank"(platform: "/") {}   
+
+        "/money_detail/withdraw/main"(platform: "/mobile") {}
+        "/money_detail/withdraw/confirmation"(platform: "/mobile") {}
+        "/money_detail/withdraw/congrats"(platform: "/mobile") {}
+        "/money_detail/withdraw/congrats"(platform: "/mobile") {}
+        "/money_detail/withdraw/add_account"(platform: "/mobile") {}
+        "/money_detail/withdraw/select_bank"(platform: "/mobile") {}    
+        "/money_detail/withdraw"(platform: "/mobile") {}
+        "/money_detail/daily_detail"(platform: "/mobile") {}
+        "/money_detail/money-advance"(platform: "/mobile") {}
+        "/money_detail/restrictions"(platform: "/mobile") {}
+        "/money_detail/point_home"(platform: "/mobile") {}
+        "/money_detail/manual_code"(platform: "/mobile") {}
+        "/money_detail/confirmation"(platform: "/mobile") {}
+        "/money_detail/withdraw/error/high_risk"(platform: "/mobile") {}
+        "/money_detail/withdraw/error/generic_error"(platform: "/mobile") {}
+        "/money_detail/withdraw/uif_change_account"(platform: "/mobile") {}
+        "/money_detail/withdraw/delay/offline"(platform: "/mobile") {}
+        "/money_detail/shopping"(platform: "/mobile") {}
+        "/money_detail/withdraw/delay/manual_review"(platform: "/mobile") {}
+        "/money_detail/credits"(platform: "/mobile") {}
+        "/money_detail/activities"(platform: "/mobile") {}
     }
 
 // END -- MPMOBILE TEST

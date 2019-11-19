@@ -1089,18 +1089,32 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
     "/withdraw/bacen"(platform: "/mobile", isAbstract: true) {}
-    "/withdraw/bacen/ok"(platform: "/mobile") {}
-    "/withdraw/bacen/cancel"(platform: "/mobile") {}
-    "/withdraw/bacen/error"(platform: "/mobile") {}
-    "/withdraw/bacen/open"(platform: "/mobile") {}
-    "/withdraw/bacen/close"(platform: "/mobile") {}
+    "/withdraw/bacen/ok"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/bacen/cancel"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/bacen/error"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/bacen/open"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/bacen/close"(platform: "/mobile", type: TrackType.View) {}
 
-    "/withdraw/select_bank"(platform: "/", isAbstract: true) {}
+    "/withdraw/select_bank"(platform: "/mobile", type: TrackType.View) {}
     "/withdraw/select_bank/delete_account_modal"(platform:"/", type: TrackType.Event){}    
     "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/", type: TrackType.Event){
         bank_account_id (required: true, description: "Bank account selected to be deleted")
     } 
-    "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/", type: TrackType.Event){} 
+    "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/mobile", type: TrackType.Event){} 
+
+    "/withdraw/main"(platform: "/mobile", type: TrackType.View)
+    "/withdraw/confirmation"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/make_withdraw"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/add_account"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/error/generic_error"(platform: "/mobile", type : TrackType.View) {}
+    "/withdraw/error/withdraw_failed"(platform: "/mobile", type : TrackType.View) {}
+    "/withdraw/error/high_risk"(platform: "/mobile", type : TrackType.View) {}
+    "/withdraw/error/uif"(platform: "/mobile", type : TrackType.View) {}
+    "/withdraw/delay/manual_review"(platform: "/mobile",   type : TrackType.View) {}
+    "/withdraw/delay/offline"(platform: "/mobile",   type : TrackType.View) {}
+    "/withdraw/uif_change_account"(platform: "/mobile",   type : TrackType.View) {}
+    "/withdraw/restriction"(platform: "/mobile", type: TrackType.View) {}
 
     "/fund_account"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -1209,18 +1223,27 @@ tracks {
     "/money_detail/help_modal"(platform: "/mobile") {}
 
     //Withdraw
-    "/money_detail/withdraw/main"(platform: "/", type: TrackType.View) {}
-    "/money_detail/withdraw/confirmation"(platform: "/", type: TrackType.View) {}
-    "/money_detail/withdraw/congrats"(platform: "/", type: TrackType.View) {}
-    "/money_detail/withdraw/add_account"(platform: "/", type: TrackType.View) {}
-    "/money_detail/withdraw/select_bank"(platform: "/", type: TrackType.View) {}    
-    "/money_detail/withdraw"(platform: "/",, isAbstract: true) {}
-    "/money_detail/daily_detail"(platform: "/", , isAbstract: true) {}
-    "/money_detail/money-advance"(platform: "/", , isAbstract: true) {}
-    "/money_detail/restrictions"(platform: "/", , isAbstract: true) {}
-    "/money_detail/point_home"(platform: "/", , isAbstract: true) {}
-    "/money_detail/withdraw"(platform: "/", , isAbstract: true) {}
-    "/money_detail"(platform: "/", , isAbstract: true) {}
+    "/money_detail/withdraw/main"(platform: "/mobile", type: TrackType.View) {}
+    "/money_detail/withdraw/confirmation"(platform: "/mobile", type: TrackType.View) {}
+    "/money_detail/withdraw/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/money_detail/withdraw/add_account"(platform: "/mobile", type: TrackType.View) {}
+    "/money_detail/withdraw/select_bank"(platform: "/mobile", type: TrackType.View) {}    
+    "/money_detail/withdraw"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/daily_detail"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/money-advance"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/restrictions"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/point_home"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/manual_code"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/confirmation"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/withdraw/error/high_risk"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/withdraw/error/generic_error"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/withdraw/uif_change_account"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/withdraw/delay/offline"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/shopping"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/withdraw/delay/manual_review"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/credits"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/activities"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail"(platform: "/mobile", isAbstract: true) {}
 
     /**
      * END NOTIFICATIONS
