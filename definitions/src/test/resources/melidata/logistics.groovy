@@ -30,18 +30,18 @@ trackTests {
         }
 
         //Login country selector
-        "/logistics/login/select_country"(platform: "/mobile", type: TrackType.View){
+        "/logistics/login/select_country"(platform: "/mobile", type: TrackType.View) {
             device_id = "123"
             defaultLocation()
         }
 
         //Login vehicle disclaimer
-        "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View){
+        "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
 
         //Login vehicle scanner
-        "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View){
+        "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
 
@@ -53,7 +53,7 @@ trackTests {
         }
 
         //Login document input
-        "/logistics/login/document"(platform: "/mobile", type: TrackType.View){
+        "/logistics/login/document"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
 
@@ -81,7 +81,7 @@ trackTests {
         }
 
         //Profile
-        "/logistics/login/profile"(platform: "/mobile", type: TrackType.View){
+        "/logistics/login/profile"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
 
@@ -118,10 +118,10 @@ trackTests {
         }
 
         //Conciliation sorting fail
-        "/logistics/conciliation/fail"(platform: "/mobile"){}
+        "/logistics/conciliation/fail"(platform: "/mobile") {}
 
         //Conciliation sorting ok
-        "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View){}
+        "/logistics/conciliation/ok"(platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Testing Logistics Last Mile") {
@@ -145,6 +145,8 @@ trackTests {
         }
         "/logistics/last_mile/package/scanner/qr_detected"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            status = "ok"
+            json_data = "json"
         }
         "/logistics/last_mile/list"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
@@ -156,6 +158,65 @@ trackTests {
             defaultLocation()
             route_id = "123"
             packs_amount= 1
+        }
+
+        "/logistics/last_mile/list/start_trip"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            packs_info = "pack"
+        }
+
+        "/logistics/last_mile/list/retry_trip"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            packs_info = "pack"
+            route_status = "pending"
+        }
+
+        "/logistics/last_mile/list/fraud"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/logistics/last_mile/congrats/final"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/logistics/last_mile/congrats/ok"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/logistics/last_mile/congrats/fail"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        "/logistics/last_mile/detail"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            is_next_destination = true
+        }
+
+        "/logistics/last_mile/detail/distance_modal"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            current_distance = "500"
+            context = "could_not_deliver"
+        }
+
+        "logistics/last_mile/detail/start_trip"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            packs_info = "pack"
+        }
+
+        "logistics/last_mile/detail/retry_trip"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            packs_info = "pack"
+        }
+
+        "/logistics/last_mile/detail/call_buyer"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            packs_info = "pack"
+            buyer_id = "132"
+        }
+
+        "/logistics/last_mile/detail/view_map"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            packs_info = "pack"
         }
     }
 

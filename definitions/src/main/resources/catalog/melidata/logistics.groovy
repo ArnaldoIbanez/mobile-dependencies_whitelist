@@ -83,7 +83,10 @@ tracks {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
     }
     "/logistics/last_mile/package/scanner/manual"(platform: "/mobile", type: TrackType.View) {}
-    "/logistics/last_mile/package/scanner/qr_detected"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/package/scanner/qr_detected"(platform: "/mobile", type: TrackType.Event) {
+        status(required: true, type: PropertyType.String,  values: ["ok", "already_registered", "invalid_format"], description: "The feedback of the scan for an specific QR.")
+        json_data(required: false , type: PropertyType.String, description: "The data of qr when it is invalid.")
+    }
     "/logistics/last_mile/list"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         route_status(required: true, type: PropertyType.String,
@@ -94,6 +97,39 @@ tracks {
     "/logistics/last_mile/list/old_route"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages in the route", inheritable: false)
+    }
+    "/logistics/last_mile/list/start_trip"(platform: "/mobile", type: TrackType.Event) {
+        packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
+        route_status(required: false, type: PropertyType.Numeric, description: "Specifies the current status of the route", inheritable: false)
+    }
+    "/logistics/last_mile/list/retry_trip"(platform: "/mobile", type: TrackType.Event) {
+        packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
+        route_status(required: false, type: PropertyType.Numeric, description: "Specifies the current status of the route", inheritable: false)
+    }
+    "/logistics/last_mile/list/fraud"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/congrats/final"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/congrats/ok"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/congrats/fail"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/detail"(platform: "/mobile", type: TrackType.View) {
+        is_next_destination(required: false, type: PropertyType.Boolean, description: "Specifies if the detail is from the next destination shipment")
+    }
+    "/logistics/last_mile/detail/start_trip"(platform: "/mobile", type: TrackType.View) {
+        packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
+    }
+    "/logistics/last_mile/detail/retry_trip"(platform: "/mobile", type: TrackType.View) {
+        packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
+    }
+    "/logistics/last_mile/detail/distance_modal"(platform: "/mobile", type: TrackType.View) {
+        current_distance(type: PropertyType.String, description: "Specifies the distance between the driver and the destination in meters")
+        context(required: false, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't",
+                values: ["deliver", "could_not_deliver"])
+    }
+    "/logistics/last_mile/detail/call_buyer"(platform: "/mobile", type: TrackType.Event) {
+        packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
+        buyer_id(required: false, PropertyType.String, description: "The id of the buyer")
+    }
+    "/logistics/last_mile/detail/view_map"(platform: "/mobile", type: TrackType.Event) {
+        packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
     }
 
     // First Mile
