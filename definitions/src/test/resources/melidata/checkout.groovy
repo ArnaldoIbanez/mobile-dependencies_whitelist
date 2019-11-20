@@ -2154,10 +2154,8 @@ trackTests {
         "/checkout/shipping/input_zipcode"(platform:"/web", dataSet)
         "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/web", dataSet)
         //Address Hub
-        "/checkout/shipping/delivery_instructions"(platform:"/mobile",dataSet)
-        "/checkout/shipping/delivery_instructions"(platform:"/web",dataSet)
-        "/checkout/shipping/address_hub"(platform:"/web", dataSet)
-        "/checkout/shipping/address_hub"(platform:"/mobile", dataSet)
+        "/checkout/shipping/delivery_instructions"(platform:"/",dataSet)
+        "/checkout/shipping/address_hub"(platform:"/", dataSet)
         // Addresses
         // Page
         "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
