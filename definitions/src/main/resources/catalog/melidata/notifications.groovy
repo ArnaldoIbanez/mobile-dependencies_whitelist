@@ -1503,4 +1503,8 @@ tracks {
     //Fiscal Data
     "/notification/fiscal_data_mp_business_registration"(platform: "/web", type: TrackType.Event) {}
 
+    "/notification/uninstalls_checker"(platform: "/mobile") {
+        execution_id(required: true, type: PropertyType.String)
+        advertising_id(required: true, type: PropertyType.String)
+    }
 }

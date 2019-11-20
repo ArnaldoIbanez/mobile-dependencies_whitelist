@@ -225,6 +225,7 @@ tracks {
     "/seller_central/listings/filters/action"(platform: "/") {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+        checked_filters(required:false, type: PropertyType.ArrayList(PropertyType.String), description: "List of filters applied")
     }
 
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {
@@ -240,6 +241,7 @@ tracks {
     }
 
     "/seller_central/listings/action/confirm"(platform: "/", type: TrackType.Event) {
+        id_row_selected(required:false, type: PropertyType.String, description: "Row id to which the action is executed")
         action_id(required: true, type: PropertyType.String, description: "Action id")
         view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
         item_id(required:false, type: PropertyType.String, description: "Item id to which the action is executed")

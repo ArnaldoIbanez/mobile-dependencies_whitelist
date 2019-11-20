@@ -368,10 +368,6 @@ trackTests {
 
         "/sell/list/technical_specifications"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/technical_specifications_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/technical_specification/update/suggested_attr_selected"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            attribute_id = "brand"
-        }
         "/sell/list/product_identifier"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/attribute"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category/selection/l1"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -526,22 +522,6 @@ trackTests {
         "/sell/update/sip/publish/fail"(platform: "/mobile") {
             item_id = "MLA123456"
             error_message="error"
-        }
-        "/sell/update/autocomplete/update/suggested_attr_selected"(platform: "/mobile") {
-            item_id = "MLA123456"
-            attribute_id = "brand"
-        }
-        "/sell/update/autocomplete/update/custom_attr_selected"(platform: "/mobile") {
-            item_id = "MLA123456"
-            attribute_id = "brand"
-        }
-        "/sell/update/technical_specification/update/suggested_attr_selected"(platform: "/mobile") {
-            item_id = "MLA123456"
-            attribute_id = "brand"
-        }
-        "/sell/update/technical_specification/update/custom_attr_selected"(platform: "/mobile") {
-            item_id = "MLA123456"
-            attribute_id = "brand"
         }
         "/sell/update/goals"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/picture_editor/function/crop"(platform: "/mobile") {item_id = "MLA123456"}
@@ -769,6 +749,24 @@ trackTests {
             seller_reputation = "green"
         }
     }
+    test("SYI v4 category suggested card showed"){
+        "/sell/item_data/category_suggested/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            item_type = "default"
+            seller_reputation = "green"
+        }
+    }
+    test("SYI v4 category suggested card showed"){
+        "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            item_type = "default"
+            seller_reputation = "green"
+        }
+    }
     test("SYI v4 category card showed"){
         "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
@@ -789,6 +787,7 @@ trackTests {
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
+            confirm_category_detail = "not_present"
         }
     }
     test("SYI v4 wrong category"){
@@ -1264,6 +1263,8 @@ trackTests {
             item_id = "MLA123456789"
             item_type = "default"
             seller_reputation = "green"
+            domain_id = "MLA_CELLPHONES"
+            title_predicted = "test"
         }
     }
     test("SYI v4 congrats card showed"){

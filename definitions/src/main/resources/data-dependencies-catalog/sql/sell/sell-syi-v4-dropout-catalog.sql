@@ -1,9 +1,6 @@
 SELECT get_json_object(list, '$.id') AS attribute
      , get_json_object(list, '$.value_id') AS value_id
      , get_json_object(list, '$.value_name') AS value_name
-     , CASE (WHEN get_json_object(list, '$.value_id') IS NOT NULL AND get_json_object(list, '$.value_id') <> 'OTHERS' THEN 'attribute'
-             WHEN get_json_object(list, '$.value_id') = 'OTHERS' OR get_json_object(list, '$.value_name') IS NOT NULL THEN 'custom_attribute'
-       END) AS attribute_type
      , jet(event_data, 'parent_product_id') AS parent_product_id
      , jet(event_data, 'seller_segment') AS seller_segment
      , jet(event_data, 'category_id') AS category_id
@@ -24,9 +21,6 @@ WHERE ds >= '@param01'
 GROUP BY get_json_object(list, '$.id')
   , get_json_object(list, '$.value_id')
   , get_json_object(list, '$.value_name')
-  , CASE (WHEN get_json_object(list, '$.value_id') IS NOT NULL AND get_json_object(list, '$.value_id') <> 'OTHERS' THEN 'attribute'
-          WHEN get_json_object(list, '$.value_id') = 'OTHERS' OR get_json_object(list, '$.value_name') IS NOT NULL THEN 'custom_attribute'
-    END)
   , jet(event_data, 'parent_product_id')
   , jet(event_data, 'seller_segment')
   , jet(event_data, 'category_id')

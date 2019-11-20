@@ -19,10 +19,10 @@ tracks {
     }
 
     def sparkle_info_object = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: false)
-        intervention_type(type: PropertyType.String, required: false, values: ["REDIRECT", "INLINE"])
-        config_value(type: PropertyType.String, required: false)
-        url(type: PropertyType.String, required: false)
+        intervention_id(type: PropertyType.String, required: true)
+        intervention_type(type: PropertyType.String, required: true, values: ["REDIRECT", "INLINE"])
+        config_value(type: PropertyType.String, required: true)
+        url(type: PropertyType.String, required: true)
     }
 
     //SEARCH FLOW
@@ -54,8 +54,8 @@ tracks {
         backend_data(required: false)
         official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
         items_with_logos(required: false, description: 'items ids that show the brand logo', PropertyType.ArrayList)
-        pdp_grouped_search(required: true, description: 'indicates whether the product rows are result of grouping or not', PropertyType.Boolean)
-        pdp_info(required: true, description: "info about status and scoring of the product offered by search backend", type: PropertyType.ArrayList)
+        pdp_grouped_search(required: false, description: 'indicates whether the product rows are result of grouping or not', PropertyType.Boolean)
+        pdp_info(required: false, description: "info about status and scoring of the product offered by search backend", type: PropertyType.ArrayList)
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
         //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
@@ -133,6 +133,7 @@ tracks {
         error_message()
         limit(required: false, description: "override required property")
         offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
         filters(required: false, description: "override required property")
         billboards(required: false, description: "override required property")
     }
@@ -263,10 +264,17 @@ tracks {
 
     "/search/finite_navigation"(platform: "/mobile/android", type: TrackType.Control, parentPropertiesInherited:false) {
     }
+    "/search/finite_navigation_os_filter"(platform: "/mobile/android", type: TrackType.Control, parentPropertiesInherited:false) {
+    }
 
     "/search/banner"(platform: "/web", isAbstract: true){}
 
     "/search/banner/click"(platform: "/web", type: TrackType.Event){
+    }
+
+    "/search/sparkle"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        query(required: true, description: "the words used to make a search", type: PropertyType.String)
+        sparkle_info(required: true, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
     }
 
 }

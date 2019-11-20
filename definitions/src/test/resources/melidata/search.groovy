@@ -12,6 +12,13 @@ trackTests {
             [id: "MLA2", score: 0.2441, status: "shown"]
     ]
 
+    def sparkleInfo = [
+        intervention_id:"1",
+        intervention_type:"REDIRECT",
+        config_value:"on",
+        url:"http://example.com"
+    ]
+
     test("Search core tracking"){
 
         def defaultSearchInformation = {
@@ -130,12 +137,7 @@ trackTests {
             pdp_grouped_search=true
             pdp_info=pdpInfo
             user_profile_type="BUYER"
-            sparkle_info = [
-                    id:"1",
-                    intervention_type:"REDIRECT",
-                    config_value:"on",
-                    url:"http://example.com"
-            ]
+            sparkle_info = sparkleInfo
         }
 
         "/search"(platform: "/web"){
@@ -225,12 +227,7 @@ trackTests {
             pdp_grouped_search=true
             pdp_info=pdpInfo
             user_profile_type="BUYER"
-            sparkle_info = [
-                    id:"1",
-                    intervention_type:"REDIRECT",
-                    config_value:"on",
-                    url:"http://example.com"
-            ]
+            sparkle_info = sparkleInfo
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -461,12 +458,7 @@ trackTests {
             pdp_grouped_search=true
             pdp_info=pdpInfo
             user_profile_type="BUYER"
-            sparkle_info = [
-                    id:"1",
-                    intervention_type:"REDIRECT",
-                    config_value:"on",
-                    url:"http://example.com"
-            ]
+            sparkle_info = sparkleInfo
         }
     }
 
@@ -485,6 +477,16 @@ trackTests {
 
     test("Search fintie navigation experiment"){
         "/search/finite_navigation"(platform: "/mobile/android"){
+        }
+        "/search/finite_navigation_os_filter"(platform: "/mobile/android"){
+        }
+    }
+
+    test("Search Sparkle Custom Track "){
+        "/search/sparkle"(platform: "/"){
+            query = "this is a query"
+            sparkle_info = sparkleInfo
+
         }
     }
 

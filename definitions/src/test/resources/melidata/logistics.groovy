@@ -8,14 +8,13 @@ trackTests {
 
     defaultBusiness = "mercadoenvios"
 
+    def defaultLocation =
+            {
+                latitude = "-36.34443"
+                longitude = "-35.34332"
+            }
+
     test("Testing logistics") {
-
-        def defaultLocation =
-                {
-                    latitude = "-36.34443"
-                    longitude = "-35.34332"
-                }
-
         //Snackbar error event success
         "/logistics/error/snackbar"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
@@ -47,7 +46,7 @@ trackTests {
         }
 
         //Login vehicle detected
-        "/logistics/login/vehicle/scan/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
+        "/logistics/login/vehicle/scanner/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             status = "ok"
             vehicle_id = "123"
@@ -81,6 +80,43 @@ trackTests {
             driver_id = "987"
         }
 
+        //Profile
+        "/logistics/login/profile"(platform: "/mobile", type: TrackType.View){
+            defaultLocation()
+        }
+
+        //Camera permission
+        "/logistics/flow_decision/start/ask_geolocation"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        //Geolocation permission
+        "/logistics/flow_decision/start/ask_camera"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        //Flow decision scanner disclaimer
+        "/logistics/flow_decision/start"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        //Flow decision scanner
+        "/logistics/flow_decision/scanner"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
+        //Flow decision scanner error
+        "/logistics/flow_decision/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
+            pack_id = "124"
+            defaultLocation()
+        }
+
+        //Flow decision container error
+        "/logistics/flow_decision/add_container/invalid"(platform: "/mobile", type: TrackType.View) {
+            container_id = "AD_123"
+            defaultLocation()
+        }
+
         //Conciliation sorting fail
         "/logistics/conciliation/fail"(platform: "/mobile"){}
 
@@ -91,6 +127,14 @@ trackTests {
     test("Testing Logistics Last Mile") {
         "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View){
             route_id = "123"
+            defaultLocation()
+        }
+        "/logistics/last_mile/profile"(platform: "/mobile", type: TrackType.View){
+            defaultLocation()
+        }
+        "/logistics/last_mile/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
+            pack_id = "124"
+            defaultLocation()
         }
     }
 
@@ -98,13 +142,14 @@ trackTests {
         "/logistics/first_mile/scanner/modal_back"(platform: "/mobile", type: TrackType.View) {
             packs_amount = 1
         }
-
         "/logistics/first_mile/scanner/modal_back/back"(platform: "/mobile", type: TrackType.Event) {
             packs_amount = 2
         }
-
         "/logistics/first_mile/scanner/modal_back/cancel"(platform: "/mobile", type: TrackType.Event) {
             packs_amount = 3
+        }
+        "/logistics/last_mile/profile"(platform: "/mobile", type: TrackType.View){
+            defaultLocation()
         }
     }
 

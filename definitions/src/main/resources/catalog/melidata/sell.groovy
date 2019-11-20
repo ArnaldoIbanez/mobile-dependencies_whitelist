@@ -2,7 +2,6 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
-
 tracks {
 
     def category_prediction_map = objectSchemaDefinitions {
@@ -351,11 +350,6 @@ tracks {
     }
     "/sell/list/technical_specifications"(platform: "/", type: TrackType.View) {}
     "/sell/list/technical_specifications_review"(platform: "/", type: TrackType.View) {}
-    "/sell/list/technical_specification"(platform: "/", isAbstract: true){}
-    "/sell/list/technical_specification/update"(platform: "/", isAbstract: true){}
-    "/sell/list/technical_specification/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
-        attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
-    }
     "/sell/list/product_identifier"(platform: "/", type: TrackType.View) {}
     "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
     "/sell/list/condition"(platform: "/", type: TrackType.View) {}
@@ -480,22 +474,6 @@ tracks {
         item_id(required: true, description: "Item id", type: PropertyType.String)
     }
     "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/update/autocomplete"(platform: "/", isAbstract: true){}
-    "/sell/update/autocomplete/update"(platform: "/", isAbstract: true){}
-    "/sell/update/autocomplete/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
-        attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
-    }
-    "/sell/update/autocomplete/update/custom_attr_selected"(platform: "/mobile", type: TrackType.Event) {
-        attribute_id(required: true, "ID from attribute that was completed with new value", type: PropertyType.String)
-    }
-    "/sell/update/technical_specification"(platform: "/", isAbstract: true){}
-    "/sell/update/technical_specification/update"(platform: "/", isAbstract: true){}
-    "/sell/update/technical_specification/update/suggested_attr_selected"(platform: "/mobile", type: TrackType.Event) {
-        attribute_id(required: true, "ID from attribute that was suggested", type: PropertyType.String)
-    }
-    "/sell/update/technical_specification/update/custom_attr_selected"(platform: "/mobile", type: TrackType.Event) {
-        attribute_id(required: true, "ID from attribute that was completed with new value", type: PropertyType.String)
-    }
     "/sell/update/picture_uploader"(platform: "/", isAbstract: true){}
     "/sell/update/picture_uploader/delete"(platform: "/mobile", type: TrackType.Event){
         item_id(required: true, description: "Item id", type: PropertyType.String)
@@ -774,11 +752,15 @@ tracks {
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/category_suggested/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
+        confirm_category_detail(required: true, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
     }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/product_bullet_resume"(platform: "/web", isAbstract: true) {}
@@ -890,8 +872,10 @@ tracks {
 
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
-        item_id(required: false, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
+        domain_id(required: true, type: PropertyType.String, description: "Item's category domain id")
+        title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -916,4 +900,3 @@ tracks {
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
 }
-

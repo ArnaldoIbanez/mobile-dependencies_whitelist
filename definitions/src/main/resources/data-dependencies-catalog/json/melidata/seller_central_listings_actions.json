@@ -25,6 +25,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "cantidad",
         "type": "INTEGER"
       }
