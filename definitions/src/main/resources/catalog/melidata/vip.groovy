@@ -172,6 +172,12 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         item_id(required: true, type: PropertyType.String, description: "Item id")
+<<<<<<< HEAD
+=======
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+>>>>>>> profile intention track fix
     }
 
     "/vip/abort"(platform: "/mobile", type: TrackType.Event) {}

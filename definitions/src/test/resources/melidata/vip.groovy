@@ -787,6 +787,11 @@ trackTests {
             listing_type_id = "silver"
             item_status = "active"
             deal_ids = []
+<<<<<<< HEAD
+=======
+            item_seller_type = "normal"
+            from_view = "unitsAvailable"
+>>>>>>> profile intention track fix
         }
 
         "/vip/buy_action"(platform: "/web", type: TrackType.View) {
