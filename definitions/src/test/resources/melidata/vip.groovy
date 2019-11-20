@@ -787,6 +787,8 @@ trackTests {
             listing_type_id = "silver"
             item_status = "active"
             deal_ids = []
+            item_seller_type = "normal"
+            from_view = "unitsAvailable"
         }
 
         "/vip/buy_action"(platform: "/web", type: TrackType.View) {
