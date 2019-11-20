@@ -21,7 +21,7 @@ tracks {
         payment_amount_local(required: true, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
         flow_context(required: false, description: "Information about current flow's status, e.g: 'init'", type: PropertyType.String)
         flow_type(required: false, description: "Current flow type, e.g: 'card_express'", type: PropertyType.String)
-    }
+    } 
 
     // EVENTS
     "/checkout_off/init"(platform: "/", type: TrackType.Event) {}
