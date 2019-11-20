@@ -51,7 +51,7 @@
       {
         "name": "is_new_billboard",
         "type": "BOOLEAN"
-      }
+      },
       {
         "name": "Cantidad",
         "type": "INTEGER"
