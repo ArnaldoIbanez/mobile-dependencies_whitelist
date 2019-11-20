@@ -1231,7 +1231,7 @@ tracks {
     "/money_detail/withdraw/select_bank"(platform: "/mobile", type: TrackType.View) {}    
     "/money_detail/withdraw"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/daily_detail"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/money-advance"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/money_advance"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/restrictions"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/point_home"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/manual_code"(platform: "/mobile", type : TrackType.View) {}

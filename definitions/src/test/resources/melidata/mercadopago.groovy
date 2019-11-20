@@ -2722,39 +2722,28 @@ trackTests {
         }
 
         "/money_detail/withdraw"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/daily_detail"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/money-advance"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/restrictions"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/point_home"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/main"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/confirmation"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/congrats"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/add_account"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/select_bank"(platform: "/mobile") {flow = "/money_detail"}   
-
-        "/money_detail/withdraw/main"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/withdraw/confirmation"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/withdraw/congrats"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/withdraw/congrats"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/withdraw/add_account"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/daily_detail"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/money-advance"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/restrictions"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/point_home"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/manual_code"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/confirmation"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/error"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/error/high_risk"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/error/generic_error"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/uif_change_account"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/delay/offline"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/shopping"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/delay/manual_review"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/shopping"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/credits"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/activities"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/daily_detail"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/money_advance"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/restrictions"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/point_home"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/manual_code"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/confirmation"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail"(platform: "/mobile") {flow = "/money_detail"}
     }
 
