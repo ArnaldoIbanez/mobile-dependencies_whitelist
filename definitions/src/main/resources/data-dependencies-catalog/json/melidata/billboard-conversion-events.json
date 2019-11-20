@@ -37,6 +37,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "Is_New_Billboard",
+        "type": "BOOLEAN"
+      },
+      {
         "name": "Cant_bb",
         "type": "INTEGER"
       },
