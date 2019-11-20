@@ -205,6 +205,10 @@ trackTests {
             dataSet()
             dataSetCongratsWeb()
         }
+        "/cart/checkout/congrats/input_sec_code"(platform: "/web") {
+            dataSet()
+            dataSetCongratsWeb()
+        }
         "/cart/checkout/congrats"(platform: "/mobile") {
             dataSet()
             dataSetCongrats()

@@ -58,6 +58,7 @@ trackTests {
             show_supermarket_carousel=true
             show_apparel_carousel=false
             items_with_logos=["MLA1234", "MLA12345"]
+            promise_items=["MLA123411", "MLA12345645"]
             pdp_grouped_search=true
             pdp_info=pdpInfo
         }
