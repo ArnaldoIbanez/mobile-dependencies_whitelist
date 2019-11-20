@@ -63,6 +63,7 @@ trackTests {
         "/credits/consumer/opensea/integrated_flow/start"(platform: "/web/desktop", type: TrackType.View) {
             source = 'vip'
         }
+        "/credits/consumer/opensea/integrated_flow/credit_line_status"(platform: "/web/desktop") {}
 
         //Events
         "/credits/consumer/opensea/integrated_flow/start/application_start"(platform: "/web/mobile", type: TrackType.Event) {

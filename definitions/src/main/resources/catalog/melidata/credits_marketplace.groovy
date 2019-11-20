@@ -88,6 +88,7 @@ tracks {
     "/credits/consumer/opensea/integrated_flow/start"(platform: "/", type: TrackType.View) {
         source(description: "Integrated flow source", type: PropertyType.String, required: true)
     }
+    "/credits/consumer/opensea/integrated_flow/credit_line_status"(platform: "/", type: TrackType.View) {}
 
     //Events
     "/credits/consumer/opensea/integrated_flow/start/application_start"(platform: "/", type: TrackType.Event) {
