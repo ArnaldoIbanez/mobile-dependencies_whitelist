@@ -56,6 +56,9 @@ tracks {
     "/sell"(platform: "/", isAbstract: true) {}
     "/sell/list"(platform: "/", isAbstract: true){
         session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
+        classi_category_prediction_available(required: false, description: "this is an experiment on prediction step", type: PropertyType.Boolean)
+        classi_landing_for_reservation(required: false, description: "this is an experiment on reservation step", type: PropertyType.Boolean)
+        classi_year_unification(required: false, description: "this is an experiment on year step", type: PropertyType.Boolean)
     }
     "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)

@@ -21,6 +21,9 @@ trackTests {
     test("sale_condition step should be tracked"){
         "/sell/list/sale_condition"(platform: "/", type: TrackType.View){
             session_id = "11111"
+            classi_category_prediction_available = true
+            classi_landing_for_reservation = true
+            classi_year_unification = true
         }
     }
 
