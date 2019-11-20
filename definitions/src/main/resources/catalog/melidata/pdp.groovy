@@ -138,6 +138,7 @@ tracks {
         reputation_level(required: false, type: PropertyType.String,
                 values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
                 description: "Seller's reputation level in case of having a PDP with BBW")
+        subtitle_types(required: false, type: PropertyType.ArrayList, description: "seller subtitles types")
 
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
@@ -345,6 +346,7 @@ tracks {
         collapsed_pickers(required: false, type: PropertyType.Boolean, description: "Indicates if a pdp has collapsed pickers")
         pickers(required: false, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_info_definition)), description: "Items listed on the page")
+        subtitle_types(required: false, type: PropertyType.ArrayList, description: "seller subtitles types")
     }
 
     "/pdp/sellers/quantity_change"(platform: "/", parentPropertiesInherited: false) {
