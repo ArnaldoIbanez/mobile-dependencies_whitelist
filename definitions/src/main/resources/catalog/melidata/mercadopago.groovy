@@ -1088,7 +1088,7 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
     "/withdraw/bacen"(platform: "/mobile", isAbstract: true) {}
-    "/withdraw/bacen/ok"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/bacen/ok"(platform: "/mobile", type: TrackType.View) {} 
     "/withdraw/bacen/cancel"(platform: "/mobile", type: TrackType.View) {}
     "/withdraw/bacen/error"(platform: "/mobile", type: TrackType.View) {}
     "/withdraw/bacen/open"(platform: "/mobile", type: TrackType.View) {}
