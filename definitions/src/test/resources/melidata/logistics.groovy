@@ -198,12 +198,12 @@ trackTests {
             context = "could_not_deliver"
         }
 
-        "logistics/last_mile/detail/start_trip"(platform: "/mobile", type: TrackType.Event) {
+        "/logistics/last_mile/detail/start_trip"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             packs_info = "pack"
         }
 
-        "logistics/last_mile/detail/retry_trip"(platform: "/mobile", type: TrackType.Event) {
+        "/logistics/last_mile/detail/retry_trip"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             packs_info = "pack"
         }
