@@ -6,6 +6,7 @@
   "cron": "00 08 * * *",
   "extract": {
     "operation": "append",
+    "site": "Advertising",
     "columns": [
       {
         "name": "ds",
