@@ -94,6 +94,7 @@ tracks {
                 description: "Specifies the status of the route", inheritable: false)
         packs_info(required: false, type: PropertyType.String, description: "Specifies the packages in the route", inheritable: false)
     }
+    "/logistics/last_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/last_mile/list/old_route"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages in the route", inheritable: false)

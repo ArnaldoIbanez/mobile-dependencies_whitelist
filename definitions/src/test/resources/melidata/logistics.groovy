@@ -154,6 +154,9 @@ trackTests {
             packs_info= "packs info"
             route_status = "pending"
         }
+
+        "/logistics/last_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
+        
         "/logistics/last_mile/list/old_route"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
