@@ -115,6 +115,10 @@ tracks {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
         source(description: "Integrated flow source", type: PropertyType.String, required: true)
     }
+    "/credits/consumer/opensea/integrated_flow/congrats/back_to_site"(platform: "/", type: TrackType.Event) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
 
     /*********************************************
      *       End: Consumers Integrated Flow

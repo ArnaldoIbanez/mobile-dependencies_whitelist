@@ -90,6 +90,10 @@ trackTests {
             result = 'manual_review'
             source = 'off'
         }
+        "/credits/consumer/opensea/integrated_flow/congrats/back_to_site"(platform: "/web/desktop", type: TrackType.Event) {
+            result = 'approved'
+            source = 'off'
+        }
 
         /*********************************************
          *       End: Consumers Integrated Flow
