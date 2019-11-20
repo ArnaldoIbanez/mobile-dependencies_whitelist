@@ -21,6 +21,10 @@ trackTests {
         "/external/merchants/item"(platform: "/") {
             domain = "www.trocafone.com"
         }
+
+        "/external/merchants/search"(platform: "/") {
+            domain = "www.trocafone.com"
+        }
     }
 
 }
