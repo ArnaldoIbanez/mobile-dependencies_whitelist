@@ -248,6 +248,10 @@ tracks {
     "/checkout/shipping"(platform: "/", type: TrackType.View) {
     }
 
+    //Address Hub
+    "/checkout/shipping/delivery_instructions"(platform:"/", type: TrackType.View) {}
+    "/checkout/shipping/address_hub"(platform:"/", type: TrackType.View) {}
+
     //First Visit
     //Page
     "/checkout/shipping/address_profile"(platform: "/", type: TrackType.View) {}
@@ -1108,7 +1112,7 @@ tracks {
     "/checkout/loading"(platform: "/", type: TrackType.View) {}
     "/checkout/loading/error"(platform: "/", type: TrackType.View) {}
     "/checkout/shipping/edit_address"(platform:"/", type: TrackType.Event) {}
-    "/checkout/shipping/input_zipcode"(platform:"/", type: TrackType.View) {}
+    "/checkout/shipping/"(platform:"/", type: TrackType.View) {}
     "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/", type: TrackType.Event) {}
 
     // Addresses
