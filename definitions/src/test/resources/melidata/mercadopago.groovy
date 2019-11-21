@@ -2722,13 +2722,11 @@ trackTests {
         }
 
         "/money_detail/withdraw"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/withdraw"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/main"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/confirmation"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/congrats"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/add_account"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/select_bank"(platform: "/mobile") {flow = "/money_detail"}   
-        "/money_detail/withdraw"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/error"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/error/high_risk"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/withdraw/error/generic_error"(platform: "/mobile") {flow = "/money_detail"}
