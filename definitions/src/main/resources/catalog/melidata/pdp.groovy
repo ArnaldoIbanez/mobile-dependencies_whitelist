@@ -35,6 +35,7 @@ tracks {
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
         seller_id(required: false, type: PropertyType.Numeric, description: "")
         seller_name(required: false, type: PropertyType.String, description: "")
+        subtitle_types(required: false, type: PropertyType.ArrayList, description: "seller subtitles types")
         available_quantity(required: false, type: PropertyType.Numeric, description: "Available product quantity at this pdp")
         cart_content(required: false, type: PropertyType.Boolean, description: "")
         has_full_filment(required: false, type: PropertyType.Boolean, description: "")
@@ -346,7 +347,6 @@ tracks {
         collapsed_pickers(required: false, type: PropertyType.Boolean, description: "Indicates if a pdp has collapsed pickers")
         pickers(required: false, type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.Map(product_picker_definition))), description: "Available pickers for the given product")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_info_definition)), description: "Items listed on the page")
-        subtitle_types(required: false, type: PropertyType.ArrayList, description: "seller subtitles types")
     }
 
     "/pdp/sellers/quantity_change"(platform: "/", parentPropertiesInherited: false) {
