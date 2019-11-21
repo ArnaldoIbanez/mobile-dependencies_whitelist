@@ -4,6 +4,10 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    def qadb_info_definition = objectSchemaDefinitions {
+        results(required:false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
+    }
+
     propertyDefinitions {
         cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)")
@@ -119,6 +123,9 @@ tracks {
 
         // PAYMENT
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+
+        //QADB
+        qadb_info(required: false, type: PropertyType.Map(qadb_info_definition), description: "Tracking info for QADB component.")
 
         // SHIPPING
         shipping_info 
