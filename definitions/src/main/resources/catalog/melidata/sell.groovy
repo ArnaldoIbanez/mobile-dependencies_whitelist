@@ -56,6 +56,9 @@ tracks {
     "/sell"(platform: "/", isAbstract: true) {}
     "/sell/list"(platform: "/", isAbstract: true){
         session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
+        classi_category_prediction_available(required: false, description: "this is an experiment on prediction step", type: PropertyType.Boolean)
+        classi_landing_for_reservation(required: false, description: "this is an experiment on reservation step", type: PropertyType.Boolean)
+        classi_year_unification(required: false, description: "this is an experiment on year step", type: PropertyType.Boolean)
     }
     "/sell/change_listing_type"(platform: "/web", isAbstract: true) {
         source(required: true, description: "Source could be differents types of email, my account, etc.", type: PropertyType.String)
@@ -189,6 +192,7 @@ tracks {
         pictures_errors(required: false, description: "Array of pictures error", type: PropertyType.ArrayList)
     }
     "/sell/list/draft/attribute"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/attribute/kilometers"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/category_navigation"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/category_suggestion"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/color_selection"(platform:"/mobile", type: TrackType.View){}
@@ -250,6 +254,7 @@ tracks {
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
     "/sell/list/hub_old"(platform: "/", type: TrackType.View) {}
     "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/attribute/kilometers"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}

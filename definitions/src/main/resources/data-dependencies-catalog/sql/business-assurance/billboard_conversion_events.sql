@@ -1,4 +1,4 @@
-SELECT bb.ds as Fecha, bb.site as Site, bb.business as Business, bb.vertical as Vertical, bb.plataforma as Plataforma, bb.item as Item, bb.path as Path, bb.cantidad as Cant_bb, notbb.cantidad as Cant_notbb FROM
+SELECT bb.ds as Fecha, bb.site as Site, bb.business as Business, bb.vertical as Vertical, bb.plataforma as Plataforma, bb.item as Item, bb.path as Path, bb.is_new_billboard as Is_New_Billboard, bb.cantidad as Cant_bb, notbb.cantidad as Cant_notbb FROM
 (
   SELECT 
     substr(ds,1,10) as ds, 
@@ -8,6 +8,11 @@ SELECT bb.ds as Fecha, bb.site as Site, bb.business as Business, bb.vertical as 
     device.platform as plataforma,
     jest(event_data,'item_id') as item, 
     path as path,
+    (CASE WHEN jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE')
+      THEN jest(event_data, 'domain_id') like '%DEVELOPMENT%'
+     WHEN jest(event_data, 'vertical') IN ('MOTOR', 'MOTORCYCLE', 'motors')
+       THEN jest(event_data, 'item_condition') = 'new'
+     END) as is_new_billboard,
     count(distinct (concat(usr.uid,'-',jest(event_data,'item_id')))) as cantidad,
     count(*) as cantidad_total_bb
   FROM TRACKS
@@ -24,7 +29,12 @@ SELECT bb.ds as Fecha, bb.site as Site, bb.business as Business, bb.vertical as 
     jest(event_data, 'vertical'),
     device.platform,
     jest(event_data,'item_id'),
-    path
+    path,
+    (CASE WHEN jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE')
+      THEN jest(event_data, 'domain_id') like '%DEVELOPMENT%'
+     WHEN jest(event_data, 'vertical') IN ('MOTOR', 'MOTORCYCLE', 'motors')
+       THEN jest(event_data, 'item_condition') = 'new'
+     END)
 ) AS bb
 LEFT JOIN
 (

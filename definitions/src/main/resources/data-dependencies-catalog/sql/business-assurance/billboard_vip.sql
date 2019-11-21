@@ -23,13 +23,18 @@ application.business AS business,
                                     ELSE '' END ) as plataforma,                                   
 path as path,
 jest(event_data,'billboard_clicked_position') as posicion,
+(CASE WHEN jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE')
+  THEN jest(event_data, 'domain_id') like '%DEVELOPMENT%'
+ WHEN jest(event_data, 'vertical') IN ('MOTOR', 'MOTORCYCLE', 'motors')
+   THEN jest(event_data, 'item_condition') = 'new'
+   END) as is_new_billboard,
 count(1) as cantidad
 FROM tracks 
 WHERE  
 ds >= '@param01' 
 AND ds < '@param02'
 AND jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE', 'MOTOR', 'MOTORCYCLE', 'motors', 'SERVICE', 'services')
-AND others['fragment'] LIKE '%BB:%'
+AND platform.fragment LIKE '%BB:%'
 AND path IN ('/vip')
 AND device.platform IN ('/web/desktop', '/web/desktop/forced', '/web/desktop/forced/static', '/web/desktop/static', '/web/mobile', '/web/mobile/forced', '/web/mobile/forced/static', '/web/mobile/static')
 AND application.site_id IN ('MCO', 'MLA', 'MLB', 'MLC', 'MLM', 'MLU', 'MLV')
@@ -56,5 +61,10 @@ GROUP BY (CASE jest(event_data, 'vertical')  WHEN 'MOTOR' THEN 'MOTORS'
          application.site_id,
          application.business,
          jest(event_data,'billboard_clicked_position'),
+         (CASE WHEN jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE')
+          THEN jest(event_data, 'domain_id') like '%DEVELOPMENT%'
+          WHEN jest(event_data, 'vertical') IN ('MOTOR', 'MOTORCYCLE', 'motors')
+          THEN jest(event_data, 'item_condition') = 'new'
+          END),
          path,
          substr(ds,1,10)

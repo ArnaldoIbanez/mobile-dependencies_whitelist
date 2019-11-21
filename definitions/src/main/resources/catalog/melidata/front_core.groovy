@@ -278,7 +278,7 @@ tracks {
     }
 
     "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
-        header(required: true, type: PropertyType.Map(header_definition), description: "The header information")
+        header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
         content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
@@ -295,7 +295,7 @@ tracks {
     }
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
-        header(required: true, type: PropertyType.Map(header_definition), description: "The header information")
+        header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
         content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'])
         from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")

@@ -88,6 +88,7 @@ tracks {
     "/credits/consumer/opensea/integrated_flow/start"(platform: "/", type: TrackType.View) {
         source(description: "Integrated flow source", type: PropertyType.String, required: true)
     }
+    "/credits/consumer/opensea/integrated_flow/credit_line_status"(platform: "/", type: TrackType.View) {}
 
     //Events
     "/credits/consumer/opensea/integrated_flow/start/application_start"(platform: "/", type: TrackType.Event) {
@@ -111,6 +112,10 @@ tracks {
         source(description: "Integrated flow source", type: PropertyType.String, required: true)
     }
     "/credits/consumer/opensea/integrated_flow/congrats/back_to_publication"(platform: "/", type: TrackType.Event) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
+    "/credits/consumer/opensea/integrated_flow/congrats/back_to_site"(platform: "/", type: TrackType.Event) {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
         source(description: "Integrated flow source", type: PropertyType.String, required: true)
     }

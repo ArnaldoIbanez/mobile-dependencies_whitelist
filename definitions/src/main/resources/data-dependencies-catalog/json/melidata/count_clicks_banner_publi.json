@@ -1,49 +1,56 @@
 {
   "users": [
-    "lucia.blanc@mercadolibre.com",
-    "mariavirginia.navas@mercadolibre.cl"
+     "ext_jjaimes@mercadolibre.com"
+     
   ],
-  "process_name": "billboard-general",
-  "cron": "00 13 * * *",
+  "process_name": "count_clicks_banner_publi",
+  "cron": "00 07 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
+  },
   "extract": {
     "operation": "append",
+    "site": "Advertising",
     "columns": [
+      
       {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
-        "name": "site",
+        "name": "Plataforma",
         "type": "UNICODE_STRING"
       },
+    
       {
-        "name": "business",
+        "name": "SellerID",
         "type": "UNICODE_STRING"
       },
+    
       {
-        "name": "category_id",
+        "name": "Deals",
         "type": "UNICODE_STRING"
       },
+      
       {
-        "name": "plataforma",
+        "name": "banner",
         "type": "UNICODE_STRING"
       },
-      {
-        "name": "path",
+        {
+        "name": "component",
         "type": "UNICODE_STRING"
       },
+      
       {
-        "name": "is_new_billboard",
-        "type": "BOOLEAN"
-      },
-      {
-        "name": "detail",
+        "name": "c_campaign",
         "type": "UNICODE_STRING"
+      },
+      
+        {
+        "name": "Clicks",
+        "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "business-assurance/billboard_general.sql",
+      "script": "business-assurance/count_clicks_banner_publi.sql",
       "parameters": [
         {
           "name": "param01",
@@ -51,7 +58,7 @@
           "format": "yyyy-MM-dd"
         },
         {
-          "name": "param02",
+           "name": "param02",
           "value": "DAY-0",
           "format": "yyyy-MM-dd"
         }

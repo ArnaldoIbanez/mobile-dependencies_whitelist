@@ -63,6 +63,7 @@ trackTests {
         "/credits/consumer/opensea/integrated_flow/start"(platform: "/web/desktop", type: TrackType.View) {
             source = 'vip'
         }
+        "/credits/consumer/opensea/integrated_flow/credit_line_status"(platform: "/web/desktop") {}
 
         //Events
         "/credits/consumer/opensea/integrated_flow/start/application_start"(platform: "/web/mobile", type: TrackType.Event) {
@@ -87,6 +88,10 @@ trackTests {
         }
         "/credits/consumer/opensea/integrated_flow/congrats/back_to_publication"(platform: "/web/desktop", type: TrackType.Event) {
             result = 'manual_review'
+            source = 'off'
+        }
+        "/credits/consumer/opensea/integrated_flow/congrats/back_to_site"(platform: "/web/desktop", type: TrackType.Event) {
+            result = 'approved'
             source = 'off'
         }
 
