@@ -170,7 +170,7 @@ trackTests {
         "/loyalty/main/modal/action"(platform: "/", type: TrackType.View, {
             type = "benefit"
             benefit_id = 'FREE_SHIPPING'
-            id = 'https://www.mercadolibre.com.ar'
+            link = 'https://www.mercadolibre.com.ar'
         })
 
         "/loyalty/main/modal/action"(platform: "/", type: TrackType.View, {
