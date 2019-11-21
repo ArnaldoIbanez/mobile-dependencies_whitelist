@@ -318,6 +318,7 @@ trackTests {
 
         "/pdp/other_buying_options"(platform: "/", {
             catalog_product_id = "MLA1234"
+            domain_id = "celulares"
             context = "main_actions_no_winner"
         })
 
