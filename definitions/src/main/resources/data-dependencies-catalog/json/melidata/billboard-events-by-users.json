@@ -59,11 +59,6 @@
       {
         "name": "Cantidad_total_bb",
         "type": "INTEGER"
-      },
-      {
-        "name": "Fecha",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {

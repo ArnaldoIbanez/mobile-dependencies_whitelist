@@ -47,11 +47,6 @@
       {
         "name": "Cant_notbb",
         "type": "INTEGER"
-      },
-      {
-        "name": "Fecha",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {

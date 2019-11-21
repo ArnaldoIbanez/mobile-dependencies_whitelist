@@ -39,11 +39,6 @@
       {
         "name": "detail",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {
