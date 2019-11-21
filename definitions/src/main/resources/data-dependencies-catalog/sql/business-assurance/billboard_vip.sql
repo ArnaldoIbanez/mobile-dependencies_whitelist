@@ -1,5 +1,4 @@
 SELECT
-substr(ds,1,10) as ds,
 application.site_id as site,
 application.business AS business,
 (CASE jest(event_data, 'vertical')  WHEN 'MOTOR' THEN 'MOTORS' 
@@ -28,7 +27,8 @@ jest(event_data,'billboard_clicked_position') as posicion,
  WHEN jest(event_data, 'vertical') IN ('MOTOR', 'MOTORCYCLE', 'motors')
    THEN jest(event_data, 'item_condition') = 'new'
    END) as is_new_billboard,
-count(1) as cantidad
+count(1) as cantidad,
+substr(ds,1,10) as ds
 FROM tracks 
 WHERE  
 ds >= '@param01' 

@@ -5,14 +5,13 @@
   ],
   "process_name": "billboard-conversion-events",
   "cron": "00 05 * * *",
+  "partition": {
+    "name": "Fecha",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "Fecha",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "Site",
         "type": "UNICODE_STRING"

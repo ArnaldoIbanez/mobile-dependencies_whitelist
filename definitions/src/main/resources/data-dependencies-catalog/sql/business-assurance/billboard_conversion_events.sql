@@ -1,7 +1,7 @@
-SELECT bb.ds as Fecha, bb.site as Site, bb.business as Business, bb.vertical as Vertical, bb.plataforma as Plataforma, bb.item as Item, bb.path as Path, bb.is_new_billboard as Is_New_Billboard, bb.cantidad as Cant_bb, notbb.cantidad as Cant_notbb FROM
+SELECT bb.site as Site, bb.business as Business, bb.vertical as Vertical, bb.plataforma as Plataforma, bb.item as Item, bb.path as Path, bb.is_new_billboard as Is_New_Billboard, bb.cantidad as Cant_bb, notbb.cantidad as Cant_notbb, bb.ds as Fecha FROM
 (
-  SELECT 
-    substr(ds,1,10) as ds, 
+  SELECT
+    substr(ds,1,10) as ds,
     application.site_id as site,
     application.business AS business,
     jest(event_data, 'vertical') as vertical,
