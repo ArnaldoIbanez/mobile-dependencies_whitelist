@@ -155,6 +155,7 @@ tracks {
         type(required: true, description: "Indicates the kind of modal whose action was triggered", values: ["benefit", "milestone"])
         benefit_id(required: false, description: "Indicates the id of the benefit that corresponds to the modal")
         milestone_id(required: false, description: "Indicates the id of the milestone that corresponds to the modal")
+        link(required: false, description: "Indicates the url that the milestone is opening")
     }
     
     // VIP Modal
