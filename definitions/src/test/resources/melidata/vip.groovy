@@ -1076,4 +1076,16 @@ trackTests {
             properties()
         }
     }
+
+    test("VIP prevent stock question for web desktop") {
+        "/vip/question/ask/prevent_stock"(platform: "/web/desktop", type: TrackType.Event) {
+            item_id = "MLA792156560"
+        }
+    }
+
+    test("VIP prevent stock question for web mobile") {
+        "/vip/question/ask/prevent_stock"(platform: "/web/mobile", type: TrackType.Event) {
+            item_id = "MLA792156560"
+        }
+    }
 }
