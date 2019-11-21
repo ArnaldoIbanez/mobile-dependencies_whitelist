@@ -4,15 +4,17 @@
   ],
   "process_name": "count_purchases_banner_publi",
   "cron": "00 08 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
+  },
+  
   "extract": {
     "operation": "append",
+    "site": "Advertising",
     "columns": [
-      {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-     
+           
       {
         "name": "Plataforma",
         "type": "UNICODE_STRING"
