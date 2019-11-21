@@ -162,6 +162,8 @@ trackTests {
             item_seller_type="normal"
             event_source="button"
             from_view="vip"
+            catalog_listing=false
+            source=""
         })
 
         "/vip/contact_whatsapp"(platform: "/web/mobile", type: TrackType.Event, {
@@ -170,6 +172,8 @@ trackTests {
             event_source="button"
             from_view="vip"
             event_source = "link"
+            catalog_listing=false
+            source=""
         })
 
         "/vip/show_phone"(platform: "/mobile", type: TrackType.Event, {
