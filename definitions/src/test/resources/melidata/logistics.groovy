@@ -148,6 +148,16 @@ trackTests {
             status = "ok"
             qr_data = "qr_json"
         }
+        "/logistics/last_mile/package/scanner/confirm_amount"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            packs_info = "pack"
+        }
+        "/logistics/last_mile/package/scanner/view_list"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+        "/logistics/last_mile/package/scanner/close_list"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
         "/logistics/last_mile/list"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
@@ -176,6 +186,25 @@ trackTests {
 
         "/logistics/last_mile/list/fraud"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+        }
+
+        "/logistics/last_mile/map"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            packs_info= "packs info"
+            route_status = "pending"
+        }
+
+        "/logistics/last_mile/map/start_trip"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            packs_info = "pack"
+            route_status = "pending"
+        }
+
+        "/logistics/last_mile/map/retry_trip"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            packs_info = "pack"
+            route_status = "pending"
         }
 
         "/logistics/last_mile/congrats/final"(platform: "/mobile", type: TrackType.View) {
@@ -217,9 +246,48 @@ trackTests {
             buyer_id = "132"
         }
 
+        "/logistics/last_mile/detail/see_messages"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+
         "/logistics/last_mile/detail/view_map"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             packs_info = "pack"
+        }
+
+        "/logistics/last_mile/deliver/select_receiver"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+        "/logistics/last_mile/deliver/receives_another"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+        "/logistics/last_mile/deliver/signature"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+        "/logistics/last_mile/could_not_deliver/sections"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+        "/logistics/last_mile/could_not_deliver/package_problem"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+        "/logistics/last_mile/could_not_deliver/buyer_problem"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+        "/logistics/last_mile/could_not_deliver/address_problem"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+        "/logistics/last_mile/return_to_station"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            packages_to_return = "package1, package2"
+        }
+        "/logistics/last_mile/return_to_station/packages_to_return"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+        "/logistics/last_mile/return_to_station/open_route"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            packages_to_return = "package1, package2"
         }
     }
 
