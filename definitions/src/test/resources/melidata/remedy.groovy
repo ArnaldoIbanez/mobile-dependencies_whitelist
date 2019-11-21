@@ -47,6 +47,10 @@ trackTests {
         "/remedy/challenge_activity"(platform: "/mobile") {}
         "/remedy/challenge_proof_of_address"(platform: "/mobile") {}
         "/remedy/challenge_death"(platform: "/mobile") {}
+        "/remedy/challenge_under_age"(platform: "/mobile") {}
+        "/remedy/identity_handler"(platform: "/mobile") {
+            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c8888"
+        }
 
         "/remedy/url_external"(platform: "/mobile") {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
@@ -86,6 +90,26 @@ trackTests {
         }
         "/remedy/error"(platform: "/mobile") {
             label = "date_validation_invalid"
+        }
+
+        "/remedy/challenge/start"(platform: "/mobile") {
+            label = "pep"
+        }
+
+        "/remedy/challenge/send"(platform: "/mobile") {
+            label = "pep"
+        }
+
+        "/remedy/challenge/success"(platform: "/mobile") {
+            label = "pep"
+        }
+
+        "/remedy/challenge/fail"(platform: "/mobile") {
+            label = "pep"
+        }
+
+        "/remedy/challenge/retry"(platform: "/mobile") {
+            label = "pep"
         }
 
         "/remedy/profile"(platform: "/mobile") {}
@@ -130,6 +154,7 @@ trackTests {
         "/remedy/challenge_activity"(platform: "/mobile", business: "mercadolibre") {}
         "/remedy/challenge_proof_of_address"(platform: "/mobile", business: "mercadolibre") {}
         "/remedy/challenge_death"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_under_age"(platform: "/mobile", business: "mercadolibre") {}
 
         "/remedy/url_external"(platform: "/mobile", business: "mercadolibre") {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
@@ -169,6 +194,26 @@ trackTests {
         }
         "/remedy/error"(platform: "/mobile", business: "mercadolibre") {
             label = "date_validation_invalid"
+        }
+
+        "/remedy/challenge/start"(platform: "/mobile", business: "mercadolibre") {
+            label = "pep"
+        }
+
+        "/remedy/challenge/send"(platform: "/mobile", business: "mercadolibre") {
+            label = "pep"
+        }
+
+        "/remedy/challenge/success"(platform: "/mobile", business: "mercadolibre") {
+            label = "pep"
+        }
+
+        "/remedy/challenge/fail"(platform: "/mobile", business: "mercadolibre") {
+            label = "pep"
+        }
+
+        "/remedy/challenge/retry"(platform: "/mobile", business: "mercadolibre") {
+            label = "pep"
         }
 
         "/remedy/profile"(platform: "/mobile", business: "mercadolibre") {}
