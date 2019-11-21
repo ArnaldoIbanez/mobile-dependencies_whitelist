@@ -12,6 +12,7 @@
   },
   "extract": {
     "operation": "append",
+    "site": "Advertising",
     "columns": [
       
       {
