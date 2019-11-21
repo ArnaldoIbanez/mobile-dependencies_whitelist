@@ -630,7 +630,6 @@ trackTests {
             newsgroup_id= "account_fund_cvu-12345678"
             latest_news_id= "account_fund_cvu-12345678"
             latest_news_type= "account_fund_cvu"
-            notification_cvu_id = "test"
             status= "unread"
         }
         "/notification_center/account_fund_approved_ted"(platform: "/mobile"){
@@ -1041,7 +1040,6 @@ trackTests {
         "/notification/account_fund_cvu"(platform: "/mobile") {
             news_id = "account_fund-cvu-12345678"
             event_type = "shown"
-            notification_cvu_id = "test"
         }
 
         "/notification/account_fund_approved_ted"(platform: "/mobile") {
@@ -2465,7 +2463,6 @@ trackTests {
         "/notification/account_fund_cvu"(platform: "/mobile") {
             news_id = "account_fund-account_fund_cvu-12345678"
             event_type = "shown"
-            notification_cvu_id = "test"
         }
 
         "/notification/account_fund_approved_ted"(platform: "/mobile") {
@@ -3624,7 +3621,6 @@ trackTests {
             latest_news_id= "account_fund-cvu-12345678"
             latest_news_type= "account_fund_cvu"
             status= "unread"
-            notification_cvu_id = "test"
         }
         "/notification_center/account_fund_approved_ted"(platform: "/mobile"){
             newsgroup_id= "account_fund_approved_ted-12345678"
@@ -4032,7 +4028,6 @@ trackTests {
         "/notification/account_fund_cvu"(platform: "/mobile") {
             news_id = "account_fund-account_fund_cvu-12345678"
             event_type = "shown"
-            notification_cvu_id = "test"
         }
 
         "/notification/account_fund_approved_ted"(platform: "/mobile") {
@@ -5401,7 +5396,6 @@ trackTests {
         "/notification/account_fund_cvu"(platform: "/mobile") {
             news_id = "account_fund-account_fund_cvu-12345678"
             event_type = "shown"
-            notification_cvu_id = "test"
         }
 
         "/notification/account_fund_approved_ted"(platform: "/mobile") {
