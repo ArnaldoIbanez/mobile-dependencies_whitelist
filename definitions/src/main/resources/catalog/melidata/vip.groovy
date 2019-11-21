@@ -456,6 +456,9 @@ tracks {
     "/vip/captcha_showed"(platform: "/web", type: TrackType.Event) {
     }
 
+    "/vip/question/ask/prevent_stock"(platform: "/web", type: TrackType.Event) {
+        item_id(required: true)
+    }
 
     //TODO chequear con mobile estos tracks
     //  DESCRIPTION
