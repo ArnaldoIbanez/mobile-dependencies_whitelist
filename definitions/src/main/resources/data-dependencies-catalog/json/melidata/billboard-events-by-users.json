@@ -5,14 +5,13 @@
   ],
   "process_name": "billboard-events-by-users",
   "cron": "00 10 * * *",
+  "partition": {
+    "name": "Fecha",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "Fecha",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "Site",
         "type": "UNICODE_STRING"
@@ -60,6 +59,11 @@
       {
         "name": "Cantidad_total_bb",
         "type": "INTEGER"
+      },
+      {
+        "name": "Fecha",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {

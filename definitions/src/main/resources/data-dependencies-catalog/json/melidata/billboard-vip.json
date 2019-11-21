@@ -5,14 +5,13 @@
   ],
   "process_name": "billboard-vip",
   "cron": "00 13 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "site",
         "type": "UNICODE_STRING"
@@ -44,6 +43,11 @@
       {
         "name": "cantidad",
         "type": "INTEGER"
+      },
+      {
+        "name": "ds",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {
