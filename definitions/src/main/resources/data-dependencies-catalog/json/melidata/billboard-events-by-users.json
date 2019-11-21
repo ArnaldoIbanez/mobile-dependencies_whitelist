@@ -1,6 +1,7 @@
 {
   "users": [
-    "lucia.blanc@mercadolibre.com"
+    "lucia.blanc@mercadolibre.com",
+    "mariavirginia.navas@mercadolibre.cl"
   ],
   "process_name": "billboard-events-by-users",
   "cron": "00 10 * * *",
