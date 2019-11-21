@@ -477,7 +477,6 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/account_fund_cvu"(platform: "/", type: TrackType.Event) {
-        notification_cvu_id(required: true, description: "Identifier of the cvu generated", type: PropertyType.String)
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -741,9 +740,7 @@ tracks {
       "/notification/account_fund_approved_mp"(platform: "/") {}
       "/notification/account_fund_approved_ml"(platform: "/") {}
       "/notification/account_fund_salary"(platform: "/") {}
-      "/notification/account_fund_cvu"(platform: "/") {
-          notification_cvu_id(required: true, description: "Identifier of the cvu generated", type: PropertyType.String)
-      }
+      "/notification/account_fund_cvu"(platform: "/") {}
       "/notification/account_fund_approved_ted"(platform: "/") {}
       "/notification/account_balance_approved_mp"(platform: "/") {}
       "/notification/account_balance_approved_ml"(platform: "/") {}
