@@ -141,6 +141,7 @@ trackTests {
             listing_type_id = "gold_special"
             product_status = "paused"
             domain_id = "celulares"
+            context = "alternatives"
         })
 
         "/pdp/share"(platform: "/", {
@@ -317,16 +318,7 @@ trackTests {
 
         "/pdp/other_buying_options"(platform: "/", {
             catalog_product_id = "MLA1234"
-            item_id = "MLA112341"
-            seller_id = 2345678
-            item_condition = "used"
-            listing_type_id = "gold_special"
-            product_status = "paused"
-            domain_id = "celulares"
-
-            seller_name = "fulano"
-            official_store_id = 1234
-            filter = "new"
+            context = "main_actions_no_winner"
         })
 
         "/pdp/share"(platform: "/", {
