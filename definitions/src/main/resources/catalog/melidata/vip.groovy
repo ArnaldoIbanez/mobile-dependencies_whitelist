@@ -368,6 +368,8 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         event_source(required: true, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        catalog_listing(required: true, PropertyType.Boolean, description: "Item is catalog_listing or not")
+        source(required: true,  type: PropertyType.String, description: "Source of the referred")
     }
 
     "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {}
