@@ -203,6 +203,7 @@ tracks {
     "/sell/list/draft/congrats"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/congrats/payment_pending"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/description"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/description_fallback"(platform:"/mobile", type: TrackType.View) {}
     "/sell/list/draft/description_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/description_included"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/free_shipping"(platform:"/mobile", type: TrackType.View){}
@@ -266,6 +267,7 @@ tracks {
     "/sell/list/pictures/crop/crop_accepted"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/manufacturing_time"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/manufacturing_time_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/free_shipping_mandatory_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/health_goal_loss_landing"(platform: "/mobile", type: TrackType.View) {}
@@ -334,6 +336,7 @@ tracks {
     "/sell/list/sip/notification/congrats"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/congrats/payment_pending"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/location"(platform: "/", type: TrackType.View) {}
+    "/sell/list/location_map"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/location_suggestion"(platform: "/", type: TrackType.View) {}
     "/sell/list/location_street"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/catalog_trim_selection"(platform: "/mobile", type: TrackType.View) {}
@@ -364,8 +367,11 @@ tracks {
     "/sell/list/description"(platform: "/", type: TrackType.View) {}
     "/sell/list/description_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/description_fallback"(platform: "/", type: TrackType.View) {}
+    "/sell/list/description_included"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/description_included_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description_not_included"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/sip/update/extra_description"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/description_additional_information"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description_additional_information_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/payment_methods"(platform: "/", type: TrackType.View) {}
     "/sell/list/payment_methods_review"(platform: "/", type: TrackType.View) {}
@@ -377,6 +383,7 @@ tracks {
     "/sell/list/warranty_time"(platform: "/", type: TrackType.View) {}
     "/sell/list/warranty_type_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/warranty_time_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/whatsapp_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures/album_selector"(platform: "/mobile", type: TrackType.View) {}
@@ -390,6 +397,7 @@ tracks {
     "/sell/list/pictures_fallback/album_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures_fallback/pictures_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures_fallback/editor"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_fallback/crop"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures_fallback/album_selected"(platform: "/mobile", type: TrackType.Event) {
         album_name(required: false, description: "Album name", type: PropertyType.String)
     }
@@ -574,8 +582,10 @@ tracks {
     "/sell/update/warranty_time_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/warranty_type_catalog"(platform: "/", type: TrackType.View) {}
     "/sell/update/warranty_time_catalog"(platform: "/", type: TrackType.View) {}
+    "/sell/update/whatsapp"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/updateing_types"(platform: "/", type: TrackType.View) {}
     "/sell/update/updateing_types_review"(platform: "/", type: TrackType.View) {}
+    "/sell/update/phone"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/pictures"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/gallery"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/album_selector"(platform: "/", type: TrackType.View) {}
