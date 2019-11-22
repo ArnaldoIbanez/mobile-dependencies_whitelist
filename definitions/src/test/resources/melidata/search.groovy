@@ -138,7 +138,7 @@ trackTests {
             ]
         }
 
-        def category_definition = {[
+        def category_definition = { carousels = [
                                         carousel_id = "category",
                                         selected = [
                                                 name = "Hogar, Muebles y Jardín",
