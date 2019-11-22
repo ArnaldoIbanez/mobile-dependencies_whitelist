@@ -231,6 +231,7 @@ tracks {
     "/sell/list/draft/price"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/product_detail"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/draft/product_identifier"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/registration_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/seller_registration"(platform:"/mobile", type: TrackType.View){}
@@ -359,6 +360,7 @@ tracks {
     }
     "/sell/list/technical_specifications"(platform: "/", type: TrackType.View) {}
     "/sell/list/technical_specifications_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/product_detail"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/product_identifier"(platform: "/", type: TrackType.View) {}
     "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
     "/sell/list/condition"(platform: "/", type: TrackType.View) {}
