@@ -5,6 +5,7 @@ import com.ml.melidata.TrackType
 tracks {
 
     "/remedy"(platform: "/", isAbstract: true) {}
+    "/remedy/challenge"(platform: "/", isAbstract: true) {}
 
     // Challenges
     "/remedy/challenge_pep"(platform: "/", type: TrackType.View) {}
@@ -46,6 +47,8 @@ tracks {
     "/remedy/challenge_activity"(platform: "/", type: TrackType.View) {}
     "/remedy/challenge_proof_of_address"(platform: "/", type: TrackType.View) {}
     "/remedy/challenge_death"(platform: "/", type: TrackType.View) {}
+    "/remedy/identity_handler"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_under_age"(platform: "/", type: TrackType.View) {}
 
     "/remedy/identity_handler"(platform: "/", type: TrackType.Event) {
         remedy_id (required: true, type: PropertyType.String)
@@ -70,4 +73,25 @@ tracks {
         verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
     }
     "/remedy/profile"(platform: "/", type: TrackType.Event) {}
+
+    // challenge life cycle
+    "/remedy/challenge/start"(platform: "/", type: TrackType.Event) {
+        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
+    }
+
+    "/remedy/challenge/send"(platform: "/", type: TrackType.Event) {
+        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
+    }
+
+    "/remedy/challenge/success"(platform: "/", type: TrackType.Event) {
+        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
+    }
+
+    "/remedy/challenge/fail"(platform: "/", type: TrackType.Event) {
+        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
+    }
+
+    "/remedy/challenge/retry"(platform: "/", type: TrackType.Event) {
+        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
+    }
 }
