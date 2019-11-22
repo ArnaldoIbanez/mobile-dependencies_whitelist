@@ -617,6 +617,11 @@ trackTests {
             status = 'prepaid_disabled'
         }
 
+        "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_enabled'
+        }
+
+
         /******************************************
          *   End: Personal Loans Adoption
          ******************************************/
