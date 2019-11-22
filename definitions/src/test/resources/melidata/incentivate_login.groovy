@@ -27,14 +27,14 @@ trackTests {
     }
 
     test("navigation incentivate login for login link track") {
-        "/navigation/login/login-link"(platform: "/", type: TrackType.Event) {
+        "/navigation/login/login_link"(platform: "/", type: TrackType.Event) {
             app_id="web-vip"
             widget_type="modal"
         }
     }
 
     test("navigation incentivate login for register link track") {
-        "/navigation/login/register-link"(platform: "/", type: TrackType.Event) {
+        "/navigation/login/register_link"(platform: "/", type: TrackType.Event) {
             app_id="web-vip"
             widget_type="modal"
         }

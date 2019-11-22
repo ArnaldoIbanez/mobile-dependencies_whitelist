@@ -11,6 +11,6 @@ tracks {
     "/navigation/login/show"(platform: "/", type: TrackType.View) {}
     "/navigation/login/close"(platform: "/", type: TrackType.Event) {}
     "/navigation/login/autoclose"(platform: "/", type: TrackType.Event) {}
-    "/navigation/login/login-link"(platform: "/", type: TrackType.Event) {}
-    "/navigation/login/register-link"(platform: "/", type: TrackType.Event) {}
+    "/navigation/login/login_link"(platform: "/", type: TrackType.Event) {}
+    "/navigation/login/register_link"(platform: "/", type: TrackType.Event) {}
 }
