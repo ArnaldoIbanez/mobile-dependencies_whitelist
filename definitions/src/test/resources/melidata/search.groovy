@@ -139,12 +139,12 @@ trackTests {
         }
 
         def category_definition = [{
-            carousel_id = "category"
-            selected = [
-                    name = "Hogar, Muebles y Jardín",
-                    selected_id = "MLA1574"
-            ]
-        }]
+                                       carousel_id = "category"
+                                       selected = [
+                                               name = "Hogar, Muebles y Jardín",
+                                               selected_id = "MLA1574"
+                                       ]
+                                   }]
 
         "/search"(platform: "/web"){
             defaultWebTrack()

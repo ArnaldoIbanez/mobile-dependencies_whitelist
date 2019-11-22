@@ -26,7 +26,7 @@ tracks {
     }
 
     def category_definition = objectSchemaDefinitions {
-        carousel_id(type: PropertyType.string, required: true)
+        carousel_id(type: PropertyType.String, required: true)
         selected(type: PropertyType.Map(selected_definition), required: false)
     }
 
