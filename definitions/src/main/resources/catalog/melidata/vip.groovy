@@ -147,6 +147,8 @@ tracks {
     
         quantity_models(required: false, type: PropertyType.Numeric, description: "Quantity models real estate developments")
 
+        // PROMOTIONS
+        promotion(required: false, type: PropertyType.String, description: "determines if item is promoted")
 
     }
 
