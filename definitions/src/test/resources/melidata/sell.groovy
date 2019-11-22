@@ -1294,6 +1294,7 @@ trackTests {
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
+            has_free = true
         }
     }
 

@@ -268,6 +268,10 @@ trackTests {
         "/cart/checkout/loading/back"(platform: "/mobile", type: TrackType.Event, dataSet)
         "/cart/checkout/shipping"(platform: "/mobile", dataSet)
 
+        //Address Hub
+        "/cart/checkout/shipping/delivery_instructions"(platform:"/", dataSet)
+        "/cart/checkout/shipping/address_hub"(platform:"/", dataSet)
+
         // Addresses
         // Page
         "/cart/checkout/shipping/input_address"(platform:"/mobile") {

@@ -354,7 +354,8 @@ tracks {
         session_id(required: true, description: "Session Id of the list flow, that dies when the flow ends", type: PropertyType.String)
         category_domain(required: false, description: "Category Domain", type: PropertyType.String)
         is_custom_name(required: true, description: "True:The user changed the color´s name", type: PropertyType.Boolean)
-        category_path(required: true, description: "Category path", type: PropertyType.ArrayList)
+        category_path(required: false, description: "Category path", type: PropertyType.ArrayList)
+        category_id(required: false, description: "Category Id", type: PropertyType.String)
     }
     "/sell/list/technical_specifications"(platform: "/", type: TrackType.View) {}
     "/sell/list/technical_specifications_review"(platform: "/", type: TrackType.View) {}
@@ -905,6 +906,7 @@ tracks {
         categoryFlow
         item_id(required: false, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        has_free(required: true, type: PropertyType.Boolean)
     }
 
 
