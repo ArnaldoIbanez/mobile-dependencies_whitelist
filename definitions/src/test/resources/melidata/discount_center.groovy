@@ -17,7 +17,18 @@ trackTests {
     test("Mercado Pago discount center payers list show") {
         "/discount_center/payers/list/show" (platform: "/mobile", type: TrackType.Event) {
             items= [
-                [ tracking_id: "1004194" ]
+                [   tracking_id: "1004194",
+                    blocked: false,
+                    name: "Mc Donalds",
+                    category: "Fast Food",
+                    mcc: 5611201,
+                    position: 0,
+                    level: 1,
+                    distance: 258,
+                    store_id: 30091709,
+                    amount: 15,
+                    priority: 9
+                 ]
             ]
         }
     }
