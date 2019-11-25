@@ -105,14 +105,14 @@ tracks {
     }
     "/logistics/last_mile/list/retry_trip"(platform: "/mobile", type: TrackType.Event) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
-        route_status(required: true, type: PropertyType.Numeric, description: "Specifies the current status of the route", inheritable: false)
+        route_status(required: true, type: PropertyType.String, description: "Specifies the current status of the route", inheritable: false)
     }
     "/logistics/last_mile/list/fraud"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/congrats/final"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/congrats/ok"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/congrats/fail"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/detail"(platform: "/mobile", type: TrackType.View) {
-        is_next_destination(required: true, type: PropertyType.Boolean, description: "Specifies if the detail is from the next destination shipment")
+        is_next_destination(required: true, type: PropertyType.Boolean, description: "Specifies if the detail is from the next destination shipment", inheritable: false)
     }
     "/logistics/last_mile/detail/start_trip"(platform: "/mobile", type: TrackType.View) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")

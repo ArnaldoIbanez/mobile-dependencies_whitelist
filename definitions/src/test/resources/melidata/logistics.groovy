@@ -146,7 +146,7 @@ trackTests {
         "/logistics/last_mile/package/scanner/qr_detected"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             status = "ok"
-            json_data = "json"
+            qr_data = "qr_json"
         }
         "/logistics/last_mile/list"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
