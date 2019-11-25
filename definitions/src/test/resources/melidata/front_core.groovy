@@ -393,6 +393,10 @@ trackTests {
                     ]
                 ]
             ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
+            ]
         }
     }
 
@@ -516,6 +520,10 @@ trackTests {
                         tracking_id: "1004194"
                     ]
                 ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }
@@ -945,6 +953,10 @@ trackTests {
                     ]
                 ]
             ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
+            ]
         }
     }
 
@@ -1068,6 +1080,10 @@ trackTests {
                         tracking_id: "1004194"
                     ]
                 ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }
