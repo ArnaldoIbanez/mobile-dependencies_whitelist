@@ -30,6 +30,7 @@ tracks {
         cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
         assets(required: false, type: PropertyType.Map(assets_definition), description: "The assets section information")
         credits(required: false, type: PropertyType.Map(credits_definition), description: "The credits section information")
+        money_in(required: false, type: PropertyType.Map(balance_definition), description: "The balance money in section information")
     }
 
     def item_value_definition = objectSchemaDefinitions {
