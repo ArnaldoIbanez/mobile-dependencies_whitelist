@@ -26,6 +26,7 @@ trackTests {
                     level: 1,
                     distance: 258,
                     store_id: 30091709,
+                    availability: "full",
                     amount: 15,
                     priority: 9,
                     collector_id: 1234567
