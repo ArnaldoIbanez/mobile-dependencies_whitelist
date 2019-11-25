@@ -136,6 +136,7 @@ catalog {
         include business, "zip_finder.groovy"
         include business, "current_location.groovy"
         include business, "download_app.groovy"
+        include business, "incentivate_login.groovy"
         include business, "supermarket.groovy"
         include business, "contact.groovy"
         include business, "full.groovy"

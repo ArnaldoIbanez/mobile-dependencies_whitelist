@@ -25,6 +25,16 @@ tracks {
         url(type: PropertyType.String, required: true)
     }
 
+    def category_definition = objectSchemaDefinitions {
+        carousel_id(type: PropertyType.String, required: true)
+        selected(type: PropertyType.Map(selected_definition), required: false)
+    }
+
+    def selected_definition = objectSchemaDefinitions {
+        name(required:true, PropertyType.String)
+        selected_id(required:true, PropertyType.String)
+    }
+
     //SEARCH FLOW
     
     "/search"(platform: "/") {
@@ -217,8 +227,7 @@ tracks {
     }
 
     "/search/category_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
-        carousel_categories_selected_id(required: true, description: 'the id of the selected value in the category carousel', PropertyType.String)
-        carousel_categories_selected_name(required: true, description: 'the name of the selected value in the category carousel', PropertyType.String)
+        carousels(required:true, PropertyType.ArrayList(PropertyType.Map(category_definition)))
     }
 
     "/search/input/back"(platform: "/mobile") {}

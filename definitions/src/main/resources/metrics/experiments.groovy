@@ -287,9 +287,26 @@ metrics {
 		}
 	}
 
+	"vip_buys_qadb_domains"(description: "Track buys only in qadb-enabled domains") {
+		startWith {
+			experiment("qadb/qadb-on-vip")
+		}
+
+		countsOn {
+			condition {
+				or(
+						and(
+								equals("path", "/orders/ordercreated"),
+								like('event_data.items.item.category_path', '.*MLA(398582|1387|1676),.*')
+						)
+				)
+			}
+		}
+	}
+
 	"pdp_questions_qadb"(description: "Track PDP questions of users in QADB experiment") {
 		startWith {
-			experiment("qadb/qadb-on")
+			experiment(regex("qadb/(qadb-on|qadb-on-viewport)"))
 		}
 
 		countsOn {
@@ -308,7 +325,7 @@ metrics {
 
 	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment", compute_order: true) {
 		startWith {
-			experiment("qadb/qadb-on")
+			experiment(regex("qadb/(qadb-on|qadb-on-viewport)"))
 		}
 
 		countsOn {
