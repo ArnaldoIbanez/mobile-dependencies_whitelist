@@ -27,7 +27,8 @@ trackTests {
                     distance: 258,
                     store_id: 30091709,
                     amount: 15,
-                    priority: 9
+                    priority: 9,
+                    collector_id: 1234567
                  ]
             ]
         }

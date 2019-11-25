@@ -21,6 +21,7 @@ tracks {
         store_id(type: PropertyType.Numeric, required: false, description: "The store id of the closest store")
         amount(type: PropertyType.Numeric, required: false, description: "The discount amount in fixed values")
         priority(type: PropertyType.Numeric, required: true, description: "The discount brand priority")
+        collector_id(type: PropertyType.Numeric, required: false, description: "The discount collector id")
     }
 	
     "/discount_center" (platform: "/mobile", isAbstract: true) {}
