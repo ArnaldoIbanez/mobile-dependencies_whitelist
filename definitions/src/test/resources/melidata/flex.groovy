@@ -538,7 +538,7 @@ trackTests {
             defaultLocation()
             defaultPacksInfo()
             delivery_id = 123456
-            option_type = "TestOptionType"
+            option_type = "receives_another"
         }
 
         //Not delivered view
