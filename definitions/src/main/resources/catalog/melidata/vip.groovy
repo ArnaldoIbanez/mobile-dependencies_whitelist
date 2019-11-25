@@ -4,6 +4,10 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    def qadb_info_definition = objectSchemaDefinitions {
+        results(required:false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
+    }
+
     propertyDefinitions {
         cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)")
@@ -119,6 +123,9 @@ tracks {
 
         // PAYMENT
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
+
+        //QADB
+        qadb_info(required: false, type: PropertyType.Map(qadb_info_definition), description: "Tracking info for QADB component.")
 
         // SHIPPING
         shipping_info 
@@ -358,6 +365,8 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         event_source(required: true, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        catalog_listing(required: false, PropertyType.Boolean, description: "Item is catalog_listing or not")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
     }
 
     "/vip/contact_whatsapp"(platform: "/web", type: TrackType.Event) {
@@ -368,6 +377,8 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         event_source(required: true, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        catalog_listing(required: true, PropertyType.Boolean, description: "Item is catalog_listing or not")
+        source(required: true,  type: PropertyType.String, description: "Source of the referred")
     }
 
     "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {}
@@ -454,6 +465,11 @@ tracks {
     "/vip/captcha_showed"(platform: "/web", type: TrackType.Event) {
     }
 
+    "/vip/question/ask"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
+
+    "/vip/question/ask/prevent_stock"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true)
+    }
 
     //TODO chequear con mobile estos tracks
     //  DESCRIPTION

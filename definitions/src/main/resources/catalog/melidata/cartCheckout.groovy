@@ -232,6 +232,10 @@ tracks {
     "/cart/checkout/finish/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
     "/cart/checkout/finish/choose_action"(platform: "/", type: TrackType.View) {}
 
+    //Address Hub
+    "/cart/checkout/shipping/delivery_instructions"(platform:"/", type: TrackType.View) {}
+    "/cart/checkout/shipping/address_hub"(platform:"/", type: TrackType.View) {}
+
     "/cart/checkout/loading"(platform: "/", type: TrackType.View) {
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")

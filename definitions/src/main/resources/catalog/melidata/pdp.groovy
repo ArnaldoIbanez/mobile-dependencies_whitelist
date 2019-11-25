@@ -338,7 +338,7 @@ tracks {
     }
 
     "/pdp/sellers"(platform: "/", parentPropertiesInherited: false) {
-        catalog_parent_id(required: true, type: PropertyType.String, description: "Product ID")
+        catalog_parent_id(required: false, type: PropertyType.String, description: "Product ID")
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")

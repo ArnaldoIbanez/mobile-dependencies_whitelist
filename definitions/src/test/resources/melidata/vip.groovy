@@ -143,6 +143,8 @@ trackTests {
             item_seller_type = "AB001"
             from_view="vip"
             event_source="button"
+            catalog_listing=false
+            source=""
         })
 
         "/vip/call_seller"(platform:"/web/mobile", type: TrackType.Event, {
@@ -151,6 +153,8 @@ trackTests {
             item_seller_type = "AB001"
             from_view="vip"
             event_source="link"
+            catalog_listing=false
+            source=""
         })
 
         "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event, {
@@ -162,6 +166,8 @@ trackTests {
             item_seller_type="normal"
             event_source="button"
             from_view="vip"
+            catalog_listing=false
+            source=""
         })
 
         "/vip/contact_whatsapp"(platform: "/web/mobile", type: TrackType.Event, {
@@ -170,6 +176,8 @@ trackTests {
             event_source="button"
             from_view="vip"
             event_source = "link"
+            catalog_listing=false
+            source=""
         })
 
         "/vip/show_phone"(platform: "/mobile", type: TrackType.Event, {
@@ -1070,6 +1078,18 @@ trackTests {
 
         "/vip/reservation_intention/preload"(platform: "/mobile", type: TrackType.Event){
             properties()
+        }
+    }
+
+    test("VIP prevent stock question for web desktop") {
+        "/vip/question/ask/prevent_stock"(platform: "/web/desktop", type: TrackType.Event) {
+            item_id = "MLA792156560"
+        }
+    }
+
+    test("VIP prevent stock question for web mobile") {
+        "/vip/question/ask/prevent_stock"(platform: "/web/mobile", type: TrackType.Event) {
+            item_id = "MLA792156560"
         }
     }
 }
