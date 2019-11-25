@@ -20,7 +20,7 @@ tracks {
         type(type: PropertyType.String, required: true)
     }
     
-    "/onboarding/step"(platform: "/mobile", type: TrackType.View) {
+    "/onboarding/registration_step"(platform: "/mobile", type: TrackType.View) {
         onboarding_close_status(required: true, type: PropertyType.String, 
                                 values: ["DEFAULT", "HIDDEN", "SHOWN"],
                                 description: "Indicates if the close button is being shown, hidden or using its default state")
