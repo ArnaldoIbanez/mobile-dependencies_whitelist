@@ -155,6 +155,15 @@ trackTests {
             address_visible_new = false
             success = true
         }
+        "/mercado_shops/admin/sidebar/discovery"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            max_items = 4
+            categories = ["category1", "category2", "category3", "category4"]
+            success = true
+        }
         "/mercado_shops/admin/sidebar/flash_info"(platform: "/", type: TrackType.Event){
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
@@ -169,6 +178,14 @@ trackTests {
             ref = ""
             items_per_row = 3
             max_items = 6
+            success = true
+        }
+        "/mercado_shops/admin/sidebar/header_advanced"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            transparency = 0.3
             success = true
         }
         "/mercado_shops/admin/sidebar/header_info"(platform: "/", type: TrackType.Event){
