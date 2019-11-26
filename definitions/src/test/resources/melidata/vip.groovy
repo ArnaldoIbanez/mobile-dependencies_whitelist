@@ -50,6 +50,7 @@ trackTests {
             quote_demand_available = false
             new_wording_free = false
             quantity_models = 4
+            item_attributes = "promotions,cbt_ddu,discount"
         }
 
         "/vip"(platform:"/mobile", {
