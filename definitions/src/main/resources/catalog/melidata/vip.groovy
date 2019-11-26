@@ -148,7 +148,7 @@ tracks {
         quantity_models(required: false, type: PropertyType.Numeric, description: "Quantity models real estate developments")
 
         // ITEM_ATTRIBUTES
-        item_attributes(required: false, type: PropertyType.String, description: "")
+        item_attributes(required: false, type: PropertyType.String, description: "attributes of the item: discount, promotion, stock, cbt type")
 
     }
 
