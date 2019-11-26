@@ -47,11 +47,11 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
     "/cellphone_recharge/contingency"(platform: "/mobile", type: TrackType.View) {
-        companyId (required: true, type: PropertyType.String, description: "Company with contingency")
+        company_id (required: true, type: PropertyType.String, description: "Company with contingency")
     }
 
     "/cellphone_recharge/understood_contingency"(platform: "/mobile", type: TrackType.Event) {
-        companyId (required: true, type: PropertyType.String, description: "Company with contingency")
+        company_id (required: true, type: PropertyType.String, description: "Company with contingency")
     }
 
     "/cellphone_recharge/confirm"(platform: "/web"){}

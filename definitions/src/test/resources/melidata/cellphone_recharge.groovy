@@ -120,11 +120,11 @@ trackTests {
         }
 
         "/cellphone_recharge/contingency"(platform: "/mobile", type: TrackType.View) {
-            companyId = "1"
+            company_id = "1"
         }
 
         "/cellphone_recharge/understood_contingency"(platform: "/mobile", type: TrackType.Event) {
-            companyId = "1"
+            company_id = "1"
         }
 
         "/cellphone_recharge/confirm"(platform: "/web"){
@@ -355,11 +355,11 @@ trackTests {
         }
 
         "/cellphone_recharge/contingency"(platform: "/mobile", type: TrackType.View) {
-            companyId = "1"
+            company_id = "1"
         }
 
         "/cellphone_recharge/understood_contingency"(platform: "/mobile", type: TrackType.Event) {
-            companyId = "1"
+            company_id = "1"
         }
 
         "/cellphone_recharge/confirm"(platform: "/web"){
