@@ -1121,6 +1121,70 @@ trackTests {
         }
     }
 
+    test("Services Marketing landings") {
+        "/services/mkt_landing"(platform: "/web"){
+            campaign = "generic"
+        }
+        "/services/mkt_landing"(platform: "/web"){
+            campaign = "personal"
+        }
+        "/services/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/services/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/services/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+        "/services/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "footer"
+        } 
+    }
+
+    test("QR Payers Marketing landings") {
+        "/qr_payers/mkt_landing"(platform: "/web"){
+            campaign = "generic"
+        }
+        "/qr_payers/mkt_landing"(platform: "/web"){
+            campaign = "personal"
+        }
+        "/qr_payers/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "footer"
+        } 
+    }
+
     test("MP MLA/MLB/MLM Landing Bundles Point") {
         "/point/landings/landing_bundles_buy"(platform: "/", type: TrackType.Event) {
             quantity = 5
