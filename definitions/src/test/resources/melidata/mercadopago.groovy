@@ -3319,7 +3319,7 @@ trackTests {
         "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
-            name = "openinglock"
+            config_name = "openinglock"
             action = "enable"
             config = [
                 "transaction": "disabled",
@@ -3330,7 +3330,7 @@ trackTests {
         "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
-            name = "transaction"
+            config_name = "transaction"
             action = "enable"
             config = [
                 "transaction": "disabled",
@@ -3341,7 +3341,7 @@ trackTests {
         "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "disabled"
             os_status = "biometrics"
-            name = "transaction"
+            config_name = "transaction"
             action = "enable"
             config = [
                 "transaction": "disabled",
@@ -3352,7 +3352,7 @@ trackTests {
         "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "disabled"
             os_status = "biometrics"
-            name = "transaction"
+            config_name = "transaction"
             action = "enable"
             config = [
                 "transaction": "disabled",
