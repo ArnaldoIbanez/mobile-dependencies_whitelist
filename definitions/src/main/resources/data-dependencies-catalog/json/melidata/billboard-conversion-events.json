@@ -6,8 +6,9 @@
   "process_name": "billboard-conversion-events",
   "cron": "00 05 * * *",
   "partition": {
-    "name": "Fecha",
-    "type": "DATE"
+    "name": "ds",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
   },
   "extract": {
     "operation": "append",

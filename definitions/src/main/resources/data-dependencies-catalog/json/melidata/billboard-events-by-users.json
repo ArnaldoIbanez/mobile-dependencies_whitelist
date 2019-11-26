@@ -6,8 +6,9 @@
   "process_name": "billboard-events-by-users",
   "cron": "00 10 * * *",
   "partition": {
-    "name": "Fecha",
-    "type": "DATE"
+    "name": "ds",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
   },
   "extract": {
     "operation": "append",

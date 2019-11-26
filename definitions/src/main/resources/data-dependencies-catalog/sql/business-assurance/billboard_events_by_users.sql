@@ -15,7 +15,7 @@ SELECT
     END) as is_new_billboard,
     count(distinct (concat(usr.uid,'-',jest(event_data,'item_id')))) as Cantidad,
     count(*) as Cantidad_total_bb,
-    substr(ds,1,10) as Fecha
+    substr(ds,1,10) as ds
   FROM TRACKS
   WHERE
     jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE', 'MOTOR', 'MOTORCYCLE', 'motors', 'SERVICE', 'services')
