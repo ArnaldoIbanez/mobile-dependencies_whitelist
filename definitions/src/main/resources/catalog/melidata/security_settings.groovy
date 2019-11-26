@@ -34,10 +34,16 @@ tracks {
         lowend(type: PropertyType.Boolean, required: false, description: "Whether the user accessed from a lowend device or not")
     }
 
+    def screenlockConfigStructure = objectSchemaDefinitions {
+        transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        openinglock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+    }
+
     // Biometrics
     "/security_settings/screenlock"(platform: "/mobile", type: TrackType.View) {
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock"], description: "Screenlock Operating System status upon view")
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 
     "/security_settings/screenlock/toggle"(platform: "/mobile", type: TrackType.Event) { 
