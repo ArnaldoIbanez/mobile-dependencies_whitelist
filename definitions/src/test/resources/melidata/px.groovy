@@ -475,7 +475,6 @@ trackTests {
         }
 
         // One tap sin descuento
-
         "/px_checkout/review/one_tap"(platform: "/mobile", type: TrackType.View) {
             available_methods = [
                     {
@@ -550,8 +549,9 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
-
         }
+
+        "/px_checkout/review/one_tap/disabled_payment_method_detail"(platform: "/mobile", type: TrackType.View) {}
 
         "/px_checkout/result/success"(platform: "/mobile", type: TrackType.View) {
             style = "generic"
