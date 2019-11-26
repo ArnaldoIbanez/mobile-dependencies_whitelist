@@ -60,19 +60,19 @@ trackTests {
             executed_camera_action = "action"
         }
 
-        "/kyc/iv/ask_permissions"(platform: "/mobile/android") {
+        "/kyc/iv/permissions/ask"(platform: "/mobile/android") {
             permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
-        "/kyc/iv/permissions_fallback"(platform: "/mobile/android") {
+        "/kyc/iv/permissions/fallback"(platform: "/mobile/android") {
             permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
-        "/kyc/iv/permission_denied"(platform: "/mobile/android") {
+        "/kyc/iv/permissions/denied"(platform: "/mobile/android") {
             permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
-        "/kyc/iv/permission_accepted"(platform: "/mobile/android") {
+        "/kyc/iv/permissions/accepted"(platform: "/mobile/android") {
             permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
@@ -106,7 +106,10 @@ trackTests {
         "/kyc/iv/activity/landing"(platform: "/mobile/android") {}
         "/kyc/iv/activity/phone_landing"(platform: "/mobile/android") {}
         "/kyc/iv/activity/phone_validation"(platform: "/mobile/android") {}
-        "/kyc/iv/activity/image_upload"(platform: "/mobile/android") {}
+        "/kyc/iv/activity/image_upload"(platform: "/mobile/android") {
+            doc_type = "front"
+            model_id = "documentation_front"
+        }
         "/kyc/iv/activity/image_upload/landing"(platform: "/mobile/android") {
             doc_type = "front"
             model_id = "documentation_front"
@@ -169,19 +172,19 @@ trackTests {
             executed_camera_action = "action"
         }
 
-        "/kyc/iv/ask_permissions"(platform: "/mobile/ios") {
+        "/kyc/iv/permissions/ask"(platform: "/mobile/ios") {
             permissions = "CAMERA"
         }
 
-        "/kyc/iv/permissions_fallback"(platform: "/mobile/ios") {
+        "/kyc/iv/permissions/fallback"(platform: "/mobile/ios") {
             permissions = "CAMERA"
         }
 
-        "/kyc/iv/permission_denied"(platform: "/mobile/ios") {
+        "/kyc/iv/permissions/denied"(platform: "/mobile/ios") {
             permissions = "READ_EXTERNAL_STORAGE"
         }
 
-        "/kyc/iv/permission_accepted"(platform: "/mobile/ios") {
+        "/kyc/iv/permissions/accepted"(platform: "/mobile/ios") {
             permissions = "READ_EXTERNAL_STORAGE"
         }
 
@@ -198,7 +201,10 @@ trackTests {
         "/kyc/iv/activity/landing"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/phone_landing"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/phone_validation"(platform: "/mobile/ios") {}
-        "/kyc/iv/activity/image_upload"(platform: "/mobile/ios") {}
+        "/kyc/iv/activity/image_upload"(platform: "/mobile/ios") {
+            doc_type = "front"
+            model_id = "documentation_front"
+        }
         "/kyc/iv/activity/image_upload/landing"(platform: "/mobile/ios") {
             doc_type = "front"
             model_id = "documentation_front"
@@ -442,19 +448,19 @@ trackTests {
             executed_camera_action = "action"
         }
 
-        "/kyc/iv/ask_permissions"(platform: "/mobile/android") {
+        "/kyc/iv/permissions/ask"(platform: "/mobile/android") {
             permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
-        "/kyc/iv/permissions_fallback"(platform: "/mobile/android") {
+        "/kyc/iv/permissions/fallback"(platform: "/mobile/android") {
             permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
-        "/kyc/iv/permission_denied"(platform: "/mobile/android") {
+        "/kyc/iv/permissions/denied"(platform: "/mobile/android") {
             permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
-        "/kyc/iv/permission_accepted"(platform: "/mobile/android") {
+        "/kyc/iv/permissions/accepted"(platform: "/mobile/android") {
             permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
@@ -484,7 +490,10 @@ trackTests {
         "/kyc/iv/activity/landing"(platform: "/mobile/android") {}
         "/kyc/iv/activity/phone_landing"(platform: "/mobile/android") {}
         "/kyc/iv/activity/phone_validation"(platform: "/mobile/android") {}
-        "/kyc/iv/activity/image_upload"(platform: "/mobile/android") {}
+        "/kyc/iv/activity/image_upload"(platform: "/mobile/android") {
+            doc_type = "front"
+            model_id = "documentation_front"
+        }
         "/kyc/iv/activity/image_upload/landing"(platform: "/mobile/android") {
             doc_type = "front"
             model_id = "documentation_front"
@@ -547,19 +556,19 @@ trackTests {
             executed_camera_action = "action"
         }
 
-        "/kyc/iv/ask_permissions"(platform: "/mobile/ios") {
+        "/kyc/iv/permissions/ask"(platform: "/mobile/ios") {
             permissions = "CAMERA"
         }
 
-        "/kyc/iv/permissions_fallback"(platform: "/mobile/ios") {
+        "/kyc/iv/permissions/fallback"(platform: "/mobile/ios") {
             permissions = "CAMERA"
         }
 
-        "/kyc/iv/permission_denied"(platform: "/mobile/ios") {
+        "/kyc/iv/permissions/denied"(platform: "/mobile/ios") {
             permissions = "READ_EXTERNAL_STORAGE"
         }
 
-        "/kyc/iv/permission_accepted"(platform: "/mobile/ios") {
+        "/kyc/iv/permissions/accepted"(platform: "/mobile/ios") {
             permissions = "READ_EXTERNAL_STORAGE"
         }
 
@@ -576,7 +585,10 @@ trackTests {
         "/kyc/iv/activity/landing"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/phone_landing"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/phone_validation"(platform: "/mobile/ios") {}
-        "/kyc/iv/activity/image_upload"(platform: "/mobile/ios") {}
+        "/kyc/iv/activity/image_upload"(platform: "/mobile/ios") {
+            doc_type = "front"
+            model_id = "documentation_front"
+        }
         "/kyc/iv/activity/image_upload/landing"(platform: "/mobile/ios") {
             doc_type = "front"
             model_id = "documentation_front"
