@@ -4,7 +4,7 @@ SELECT
       substr(jest (event_data, 'category_id'),4,8) as category_id,
       device.platform as plataforma,
       path as path,
-      jest (event_data, 'is_new_billboard') as is_new_billboard,
+      cast(jest (event_data, 'is_new_billboard') as BOOLEAN) as is_new_billboard,
       IF (path = '/search/billboard', jest (event_data, 'position_shown'), jest (event_data, 'action')) AS detail,
       substr(ds,1,10) as ds
 FROM tracks

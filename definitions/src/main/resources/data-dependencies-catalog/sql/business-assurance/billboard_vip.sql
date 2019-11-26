@@ -21,7 +21,7 @@ application.business AS business,
                                     WHEN '/web/mobile/static' THEN '/web/mobile'
                                     ELSE '' END ) as plataforma,                                   
 path as path,
-jest(event_data,'billboard_clicked_position') as posicion,
+cast( jest(event_data,'billboard_clicked_position') as INTEGER ) as posicion,
 (CASE WHEN jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE')
   THEN jest(event_data, 'domain_id') like '%DEVELOPMENT%'
  WHEN jest(event_data, 'vertical') IN ('MOTOR', 'MOTORCYCLE', 'motors')
