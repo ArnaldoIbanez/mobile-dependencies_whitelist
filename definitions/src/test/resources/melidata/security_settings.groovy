@@ -62,7 +62,7 @@ trackTests {
             enrollment_status = "enabled"
             config = [
                 "transaction": "enabled",
-                "openinglock": "disabled"
+                "opening_lock": "disabled"
             ]
         }
 
@@ -71,7 +71,7 @@ trackTests {
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",
-                "openinglock": "enabled"
+                "opening_lock": "enabled"
             ]
         }
 
@@ -82,29 +82,29 @@ trackTests {
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "openinglock": "enabled"
+                "opening_lock": "enabled"
             ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
-            config_name = "openinglock"
+            config_name = "opening_lock"
             action = "disable"
             config = [
                 "transaction": "disabled",
-                "openinglock": "enabled"
+                "opening_lock": "enabled"
             ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "disabled"
             os_status = "biometrics"
-            config_name = "openinglock"
+            config_name = "opening_lock"
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "openinglock": "enabled"
+                "opening_lock": "enabled"
             ]
         }
 
@@ -115,7 +115,7 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "disabled",
-                "openinglock": "enabled"
+                "opening_lock": "enabled"
             ]
         }
     }

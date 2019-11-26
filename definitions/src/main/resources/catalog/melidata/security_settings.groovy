@@ -36,7 +36,7 @@ tracks {
 
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
-        openinglock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
     }
 
     // Biometrics
@@ -47,7 +47,7 @@ tracks {
     }
 
     "/security_settings/screenlock/toggle"(platform: "/mobile", type: TrackType.Event) { 
-        config_name(type: PropertyType.String, required: true, values: ["transaction", "openinglock"], description: "Which screenlock configuration toggle was used")
+        config_name(type: PropertyType.String, required: true, values: ["transaction", "opening_lock"], description: "Which screenlock configuration toggle was used")
         action(type: PropertyType.String, required: true, values: ["enable", "disable"], description: "action performed on config")
     }
 }

@@ -3303,7 +3303,7 @@ trackTests {
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",
-                "openinglock": "enabled"
+                "opening_lock": "enabled"
             ]
         }
 
@@ -3312,18 +3312,18 @@ trackTests {
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",
-                "openinglock": "enabled"
+                "opening_lock": "enabled"
             ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
-            config_name = "openinglock"
+            config_name = "opening_lock"
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "openinglock": "enabled"
+                "opening_lock": "enabled"
             ]
         }
 
@@ -3334,7 +3334,7 @@ trackTests {
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "openinglock": "enabled"
+                "opening_lock": "enabled"
             ]
         }
 
@@ -3345,7 +3345,7 @@ trackTests {
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "openinglock": "enabled"
+                "opening_lock": "enabled"
             ]
         }
 
@@ -3356,39 +3356,39 @@ trackTests {
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "openinglock": "enabled"
+                "opening_lock": "enabled"
             ]
         }
     }
 
     test("Screenlock app opening lock feature") {
         
-        "/screenlock/openinglock"(platform: "/mobile/android", type: TrackType.View) {
+        "/screenlock/opening_lock"(platform: "/mobile/android", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
         }
 
-        "/screenlock/openinglock"(platform: "/mobile/ios", type: TrackType.View) {
+        "/screenlock/opening_lock"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
         }
 
-        "/screenlock/openinglock/retry"(platform: "/mobile/android", type: TrackType.Event) {
+        "/screenlock/opening_lock/retry"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
         }
 
-        "/screenlock/openinglock/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+        "/screenlock/opening_lock/retry"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
         }
 
-        "/screenlock/openinglock/logout"(platform: "/mobile/android", type: TrackType.Event) {
+        "/screenlock/opening_lock/logout"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
         }
 
-        "/screenlock/openinglock/logout"(platform: "/mobile/ios", type: TrackType.Event) {
+        "/screenlock/opening_lock/logout"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
         }

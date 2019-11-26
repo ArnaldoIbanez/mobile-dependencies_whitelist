@@ -421,15 +421,15 @@ tracks {
         errors(type: PropertyType.ArrayList, required: false)
     }
 
-    "/screenlock/openinglock"(platform: "/mobile", type: TrackType.View) {
+    "/screenlock/opening_lock"(platform: "/mobile", type: TrackType.View) {
 
     }
 
-    "/screenlock/openinglock/retry"(platform: "/mobile", type: TrackType.Event) {
+    "/screenlock/opening_lock/retry"(platform: "/mobile", type: TrackType.Event) {
 
     }
 
-    "/screenlock/openinglock/logout"(platform: "/mobile", type: TrackType.Event) {
-        
+    "/screenlock/opening_lock/logout"(platform: "/mobile", type: TrackType.Event) {
+
     }
 }
