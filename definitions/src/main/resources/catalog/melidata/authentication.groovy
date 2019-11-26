@@ -420,4 +420,16 @@ tracks {
         result(type: PropertyType.String, required: true, values: ["success", "error"])
         errors(type: PropertyType.ArrayList, required: false)
     }
+
+    "/screenlock/openinglock"(platform: "/mobile", type: TrackType.View) {
+
+    }
+
+    "/screenlock/openinglock/retry"(platform: "/mobile", type: TrackType.Event) {
+
+    }
+
+    "/screenlock/openinglock/logout"(platform: "/mobile", type: TrackType.Event) {
+        
+    }
 }
