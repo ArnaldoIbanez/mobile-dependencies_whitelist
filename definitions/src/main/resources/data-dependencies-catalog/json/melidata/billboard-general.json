@@ -1,7 +1,7 @@
 {
   "users": [
     "lucia.blanc@mercadolibre.com",
-    "mariavirginia.navas@mercadolibre.cl" 
+    "mariavirginia.navas@mercadolibre.cl"
   ],
   "process_name": "billboard-general",
   "cron": "00 13 * * *",
