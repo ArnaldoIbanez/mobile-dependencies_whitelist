@@ -176,9 +176,9 @@ tracks {
 
     "/kyc/iv/camera_init_state"(platform: "/mobile", type: TrackType.Event) {
         default_flash(type: PropertyType.String, required: true, description: "Default flash configuration")
-        switch_flash(type: PropertyType.Boolean, required: true, description: "Possibility of switch flash enable")
+        switch_flash(type: PropertyType.Boolean, required: false, description: "Possibility of switch flash enable")
         default_lens(type: PropertyType.String, required: true, description: "Default camera mode")
-        switch_lens(type: PropertyType.Boolean, required: true, description: "Possibility of switch camera mode enable")
+        switch_lens(type: PropertyType.Boolean, required: false, description: "Possibility of switch camera mode enable")
         compression_rate(type: PropertyType.Numeric, required: true, description: "Compression rate")
         max_size(type: PropertyType.Numeric, required: true, description: "Max side size")
     }
