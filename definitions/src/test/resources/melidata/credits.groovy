@@ -50,6 +50,10 @@ trackTests {
             result = 'manual_review'
             source = 'vip'
         }
+        "/credits/consumer/opensea/integrated_flow/congrats/buy_intention"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
+            result = 'manual_review'
+            source = 'off'
+        }
         "/credits/consumer/opensea/integrated_flow/congrats/back_to_publication"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {
             result = 'manual_review'
             source = 'off'
@@ -71,6 +75,7 @@ trackTests {
         "/credits/consumer/opensea/redirect"(platform: "/mobile", type: TrackType.View, business:"mercadolibre") {}
         "/credits/consumer/opensea/redirect"(platform: "/mobile", type: TrackType.View, business:"mercadopago") {}
         "/credits/consumer/opensea/integrated_flow/vip"(platform: "/web/desktop", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/opensea/integrated_flow/vip"(platform: "/web/desktop", type: TrackType.Event, business:"mercadopago") {}
 
         /******************************************
          *   End: Consumers  Opensea Integrations

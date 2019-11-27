@@ -9,6 +9,9 @@ tracks {
     /******************************************
      *       Abstract definitions
      ******************************************/
+    "/credits"(platform: "/", isAbstract: true) {}
+    "/credits/consumer"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea/integrated_flow"(platform: "/", isAbstract: true) {}
 
     /***********************************************
