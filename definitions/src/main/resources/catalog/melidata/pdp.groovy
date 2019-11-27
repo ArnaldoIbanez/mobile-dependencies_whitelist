@@ -172,6 +172,7 @@ tracks {
 
         // General
         vpp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of vpp")
+
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
