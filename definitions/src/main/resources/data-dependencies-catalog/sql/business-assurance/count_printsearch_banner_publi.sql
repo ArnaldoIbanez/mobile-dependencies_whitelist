@@ -22,7 +22,7 @@ FROM (
           WHERE
                 path='/search' and exhibitor_id IS NOT NULL
                 AND
-                ds >= '2019-11-19' and ds < '2019-11-21' 
+                ds >= '@param01' and ds < '@param02' 
           group by
                   substr(ds,1,10),
                   device.platform,
@@ -38,7 +38,7 @@ inner JOIN
     SPLIT(split(jest(platform.fragment, 'banner_name'),':')[1],']')[0]  as ei
   
 FROM tracks
-WHERE ds >= '2019-11-19' AND ds < '2019-11-21'  
+WHERE ds >= '@param01' AND ds < '@param02'  
 AND path = '/search'
 AND jest(platform.fragment, 'banner_name') like '%TSB%'
 
