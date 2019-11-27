@@ -87,6 +87,7 @@ catalog {
         include business, "payers_growth.groovy"
         include business, "collaborators.groovy"
         include business, "loyalty_v2.groovy"
+        include business, "credits.groovy"
     }
 
     marketplace.each { business ->
