@@ -26,8 +26,8 @@ SELECT
                           LATERAL VIEW json_tuple(`event_data`,'c_element_order')  c_elem       AS element_order
                           LATERAL VIEW json_tuple(`event_data`,'c_event')      c_id      AS c_event
                           LATERAL VIEW json_tuple(`data`, 'path')           path      AS path
-                        WHERE ds >= '2019-11-22 04'
-                          AND ds < '2019-11-23 04'
+                        WHERE ds >= '@param01'
+                          AND ds < '@param02'
                           AND component like '/home/exhibitors%'
                           AND path='\/component'
                           AND c_event='print'  
