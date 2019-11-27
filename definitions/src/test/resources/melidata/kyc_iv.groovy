@@ -61,19 +61,19 @@ trackTests {
         }
 
         "/kyc/iv/permissions/ask"(platform: "/mobile/android") {
-            permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
+            permission = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
         "/kyc/iv/permissions/fallback"(platform: "/mobile/android") {
-            permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
+            permission = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
         "/kyc/iv/permissions/denied"(platform: "/mobile/android") {
-            permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
+            permission = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
         "/kyc/iv/permissions/accepted"(platform: "/mobile/android") {
-            permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
+            permission = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
         "/kyc/iv/camera_init_state"(platform: "/mobile/android") {
@@ -173,19 +173,19 @@ trackTests {
         }
 
         "/kyc/iv/permissions/ask"(platform: "/mobile/ios") {
-            permissions = "CAMERA"
+            permission = "CAMERA"
         }
 
         "/kyc/iv/permissions/fallback"(platform: "/mobile/ios") {
-            permissions = "CAMERA"
+            permission = "CAMERA"
         }
 
         "/kyc/iv/permissions/denied"(platform: "/mobile/ios") {
-            permissions = "READ_EXTERNAL_STORAGE"
+            permission = "READ_EXTERNAL_STORAGE"
         }
 
         "/kyc/iv/permissions/accepted"(platform: "/mobile/ios") {
-            permissions = "READ_EXTERNAL_STORAGE"
+            permission = "READ_EXTERNAL_STORAGE"
         }
 
         "/kyc/iv/camera_init_state"(platform: "/mobile/ios") {
@@ -449,19 +449,19 @@ trackTests {
         }
 
         "/kyc/iv/permissions/ask"(platform: "/mobile/android") {
-            permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
+            permission = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
         "/kyc/iv/permissions/fallback"(platform: "/mobile/android") {
-            permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
+            permission = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
         "/kyc/iv/permissions/denied"(platform: "/mobile/android") {
-            permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
+            permission = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
         "/kyc/iv/permissions/accepted"(platform: "/mobile/android") {
-            permissions = "{android.permission.READ_EXTERNAL_STORAGE}"
+            permission = "{android.permission.READ_EXTERNAL_STORAGE}"
         }
 
         "/kyc/iv/camera_init_state"(platform: "/mobile/android") {
@@ -557,19 +557,19 @@ trackTests {
         }
 
         "/kyc/iv/permissions/ask"(platform: "/mobile/ios") {
-            permissions = "CAMERA"
+            permission = "CAMERA"
         }
 
         "/kyc/iv/permissions/fallback"(platform: "/mobile/ios") {
-            permissions = "CAMERA"
+            permission = "CAMERA"
         }
 
         "/kyc/iv/permissions/denied"(platform: "/mobile/ios") {
-            permissions = "READ_EXTERNAL_STORAGE"
+            permission = "READ_EXTERNAL_STORAGE"
         }
 
         "/kyc/iv/permissions/accepted"(platform: "/mobile/ios") {
-            permissions = "READ_EXTERNAL_STORAGE"
+            permission = "READ_EXTERNAL_STORAGE"
         }
 
         "/kyc/iv/camera_init_state"(platform: "/mobile/ios") {

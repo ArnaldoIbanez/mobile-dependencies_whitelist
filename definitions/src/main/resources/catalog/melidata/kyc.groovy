@@ -163,7 +163,7 @@ tracks {
     }
 
     "/kyc/iv/permissions"(platform: "/mobile", isAbstract: true, type: TrackType.Event) {
-        permissions(type: PropertyType.String, required: true, description: "Asked permissions")
+        permission(type: PropertyType.String, required: true, description: "Asked permissions")
     }
 
     "/kyc/iv/permissions/ask"(platform: "/mobile", type: TrackType.Event) {}
