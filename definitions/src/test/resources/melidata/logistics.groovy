@@ -163,13 +163,13 @@ trackTests {
             packs_amount= 1
         }
 
-        "/logistics/last_mile/list/suggest_trip_modal"(platform: "/mobile", type: TrackType.View) {
+        "/logistics/last_mile/list/suggest_trip"(platform: "/mobile", type: TrackType.View) {
             packs_info = "pack"
             route_id = "123"
             driver_id = "1234"
         }
 
-        "/logistics/last_mile/list/suggest_trip_modal/start_trip"(platform: "/mobile", type: TrackType.Event) {
+        "/logistics/last_mile/list/suggest_trip/start_trip"(platform: "/mobile", type: TrackType.Event) {
             packs_info = "pack"
             route_id = "123"
         }
