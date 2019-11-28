@@ -49,6 +49,7 @@ trackTests {
         "/remedy/challenge_death"(platform: "/mobile") {}
         "/remedy/challenge_under_age"(platform: "/mobile") {}
         "/remedy/identity_handler"(platform: "/mobile") {}
+        "/remedy/identity_handler"(platform: "/mobile", business: "mercadolibre") {}
 
         "/remedy/url_external"(platform: "/mobile") {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"

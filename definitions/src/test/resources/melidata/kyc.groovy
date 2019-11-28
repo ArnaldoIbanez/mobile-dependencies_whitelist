@@ -50,6 +50,7 @@ trackTests {
         "/kyc/challenge_under_age"(platform: "/mobile") {}
         
         "/kyc/identity_handler"(platform: "/mobile") {}
+        "/kyc/identity_handler"(platform: "/mobile", business: "mercadolibre") {}
 
         "/kyc/url_external"(platform: "/mobile") {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
