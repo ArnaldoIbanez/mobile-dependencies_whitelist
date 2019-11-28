@@ -47,12 +47,8 @@ tracks {
     "/kyc/challenge_proof_of_address"(platform: "/", type: TrackType.View) {}
     "/kyc/challenge_death"(platform: "/", type: TrackType.View) {}
     "/kyc/challenge_under_age"(platform: "/", type: TrackType.View) {}
-    "/kyc/identity_handler"(platform: "/", type: TrackType.View) {}
-
-    "/kyc/identity_handler"(platform: "/", type: TrackType.Event) {
-        identifier (required: true, type: PropertyType.String)
-        status (required: false, type: PropertyType.String)
-    }
+    
+    "/kyc/identity_handler"(platform: "/", type: TrackType.Event) {}
 
     // WebView events
     "/kyc/url_external"(platform: "/", type: TrackType.Event) {

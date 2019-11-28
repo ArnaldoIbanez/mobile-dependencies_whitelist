@@ -49,9 +49,7 @@ trackTests {
         "/kyc/challenge_death"(platform: "/mobile") {}
         "/kyc/challenge_under_age"(platform: "/mobile") {}
         
-        "/kyc/identity_handler"(platform: "/mobile") {
-            identifier = "49cdb9b5-9585-42f3-a680-9d44548c8888"
-        }
+        "/kyc/identity_handler"(platform: "/mobile") {}
 
         "/kyc/url_external"(platform: "/mobile") {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
@@ -218,33 +216,5 @@ trackTests {
         }
 
         "/kyc/profile"(platform: "/mobile", business: "mercadolibre") {}
-
-        "/kyc/identity_handler"(platform: "/mobile") {
-            identifier = "49cdb9b5-9585-42f3-a680-9d44548c8888"
-        }
-
-        "/kyc/identity_handler"(platform: "/mobile") {
-            identifier = "49cdb9b5-9585-42f3-a680-9d44548c9822"
-            status = "mismatch"
-        }
-
-        "/kyc/identity_handler"(platform: "/mobile") {
-            identifier = "49cdb9b5-9585-42f3-a680-9d44548c9822"
-            status = "number_of_attempts_exceeded"
-        }
-
-        "/kyc/identity_handler"(platform: "/mobile", business: "mercadolibre") {
-            identifier = "49cdb9b5-9585-42f3-a680-9d44548c8888"
-        }
-
-        "/kyc/identity_handler"(platform: "/mobile", business: "mercadolibre") {
-            identifier = "49cdb9b5-9585-42f3-a680-9d44548c9822"
-            status = "mismatch"
-        }
-
-        "/kyc/identity_handler"(platform: "/mobile", business: "mercadolibre") {
-            identifier = "49cdb9b5-9585-42f3-a680-9d44548c9822"
-            status = "number_of_attempts_exceeded"
-        }
     }
 }
