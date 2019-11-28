@@ -32,6 +32,11 @@ trackTests {
                     collector_id: 1234567
                  ]
             ]
+            offset= 0
+            filters= [
+                "gastronomy",
+                "bars"
+            ]
         }
     }
 
