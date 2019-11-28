@@ -50,10 +50,7 @@ tracks {
     "/remedy/identity_handler"(platform: "/", type: TrackType.View) {}
     "/remedy/challenge_under_age"(platform: "/", type: TrackType.View) {}
 
-    "/remedy/identity_handler"(platform: "/", type: TrackType.Event) {
-        remedy_id (required: true, type: PropertyType.String)
-        status (required: false, type: PropertyType.String)
-    }
+    "/remedy/identity_handler"(platform: "/", type: TrackType.Event) {}
 
     // WebView events
     "/remedy/url_external"(platform: "/", type: TrackType.Event) {
