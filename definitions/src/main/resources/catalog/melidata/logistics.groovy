@@ -32,7 +32,7 @@ tracks {
                 description: "Specifies the stepId where the error happened.", inheritable: false)
     }
 
-    "/logistics/login/"(platform: "/mobile", isAbstract: true) {}
+    "/logistics/login"(platform: "/mobile", isAbstract: true) {}
 
     "/logistics/login/select_country"(platform: "/mobile", type: TrackType.View) {
         device_id(required: true, type: PropertyType.String, description: "Specifies the device's id", inheritable: false)
