@@ -29,6 +29,9 @@ trackTests {
             error_step_id = "example_step_id"
         }
 
+        //Abstract Login
+        "/logistics/login"(platform: "/mobile") {}
+
         //Login country selector
         "/logistics/login/select_country"(platform: "/mobile", type: TrackType.View) {
             device_id = "123"
