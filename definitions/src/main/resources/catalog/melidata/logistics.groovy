@@ -95,7 +95,7 @@ tracks {
     "/logistics/last_mile/list"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         route_status(required: true, type: PropertyType.String,
-                values: ["old", "pending", "finished", "ready_to_end", "empty"],
+                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station"],
                 description: "Specifies the status of the route", inheritable: false)
         packs_info(required: true, type: PropertyType.String, description: "Specifies the packages in the route", inheritable: false)
     }
@@ -106,28 +106,26 @@ tracks {
     }
     "/logistics/last_mile/list/start_trip"(platform: "/mobile", type: TrackType.Event) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
-        route_status(required: false, type: PropertyType.String, description: "Specifies the current status of the route", inheritable: false)
+        route_status(required: true, type: PropertyType.String,
+                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station"],
+                description: "Specifies the status of the route", inheritable: false)
     }
     "/logistics/last_mile/list/retry_trip"(platform: "/mobile", type: TrackType.Event) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
-        route_status(required: true, type: PropertyType.String, description: "Specifies the current status of the route", inheritable: false)
+        route_status(required: true, type: PropertyType.String,
+                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station"],
+                description: "Specifies the status of the route", inheritable: false)
     }
     "/logistics/last_mile/list/fraud"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/map"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         route_status(required: true, type: PropertyType.String,
-                values: ["old", "pending", "finished", "ready_to_end", "empty"],
-                description: "Specifies the status of the route", inheritable: false)
-        packs_info(required: true, type: PropertyType.String, description: "Specifies the packages in the route", inheritable: false)
+                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station"],
+                description: "Specifies the status of the route")
+        packs_info(required: true, type: PropertyType.String, description: "Specifies the packages in the route")
     }
-    "/logistics/last_mile/map/start_trip"(platform: "/mobile", type: TrackType.Event) {
-        packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
-        route_status(required: false, type: PropertyType.String, description: "Specifies the current status of the route", inheritable: false)
-    }
-    "/logistics/last_mile/map/retry_trip"(platform: "/mobile", type: TrackType.Event) {
-        packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
-        route_status(required: true, type: PropertyType.String, description: "Specifies the current status of the route", inheritable: false)
-    }
+    "/logistics/last_mile/map/start_trip"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/last_mile/map/retry_trip"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/last_mile/congrats/final"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/congrats/ok"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/congrats/fail"(platform: "/mobile", type: TrackType.View) {}

@@ -176,6 +176,7 @@ trackTests {
         "/logistics/last_mile/list/start_trip"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             packs_info = "pack"
+            route_status = "pending"
         }
 
         "/logistics/last_mile/list/retry_trip"(platform: "/mobile", type: TrackType.Event) {
