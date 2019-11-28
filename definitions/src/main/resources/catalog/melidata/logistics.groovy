@@ -83,14 +83,19 @@ tracks {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
     }
     "/logistics/last_mile/package/scanner/manual"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/package/scanner/view_list"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/last_mile/package/scanner/close_list"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/last_mile/package/scanner/qr_detected"(platform: "/mobile", type: TrackType.Event) {
         status(required: true, type: PropertyType.String,  values: ["ok", "already_registered", "invalid_format"], description: "The feedback of the scan for an specific QR.")
         qr_data(required: false , type: PropertyType.String, description: "The data of qr when it is invalid.")
     }
+    "/logistics/last_mile/package/scanner/confirm_amount"(platform: "/mobile", type: TrackType.View) {
+        packs_info(required: true, type: PropertyType.String, description: "Specifies the packages in the route", inheritable: false)
+    }
     "/logistics/last_mile/list"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         route_status(required: true, type: PropertyType.String,
-                values: ["old", "pending", "finished", "ready_to_end", "empty"],
+                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station"],
                 description: "Specifies the status of the route", inheritable: false)
         packs_info(required: true, type: PropertyType.String, description: "Specifies the packages in the route", inheritable: false)
     }
@@ -110,13 +115,26 @@ tracks {
     }
     "/logistics/last_mile/list/start_trip"(platform: "/mobile", type: TrackType.Event) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
-        route_status(required: false, type: PropertyType.Numeric, description: "Specifies the current status of the route", inheritable: false)
+        route_status(required: true, type: PropertyType.String,
+                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station"],
+                description: "Specifies the status of the route", inheritable: false)
     }
     "/logistics/last_mile/list/retry_trip"(platform: "/mobile", type: TrackType.Event) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
-        route_status(required: true, type: PropertyType.String, description: "Specifies the current status of the route", inheritable: false)
+        route_status(required: true, type: PropertyType.String,
+                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station"],
+                description: "Specifies the status of the route", inheritable: false)
     }
     "/logistics/last_mile/list/fraud"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/map"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        route_status(required: true, type: PropertyType.String,
+                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station"],
+                description: "Specifies the status of the route")
+        packs_info(required: true, type: PropertyType.String, description: "Specifies the packages in the route")
+    }
+    "/logistics/last_mile/map/start_trip"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/last_mile/map/retry_trip"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/last_mile/congrats/final"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/congrats/ok"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/congrats/fail"(platform: "/mobile", type: TrackType.View) {}
@@ -126,11 +144,11 @@ tracks {
     "/logistics/last_mile/detail/start_trip"(platform: "/mobile", type: TrackType.View) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
     }
-    "/logistics/last_mile/detail/retry_trip"(platform: "/mobile", type: TrackType.View) {
+    "/logistics/last_mile/detail/retry_trip"(platform: "/mobile", type: TrackType.Event) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
     }
     "/logistics/last_mile/detail/distance_modal"(platform: "/mobile", type: TrackType.View) {
-        current_distance(type: PropertyType.String, description: "Specifies the distance between the driver and the destination in meters")
+        current_distance(required: false, type: PropertyType.String, description: "Specifies the distance between the driver and the destination in meters")
         context(required: true, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't",
                 values: ["deliver", "could_not_deliver"])
     }
@@ -138,8 +156,25 @@ tracks {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
         buyer_id(required: true, PropertyType.String, description: "The id of the buyer")
     }
+    "/logistics/last_mile/detail/see_messages"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/last_mile/detail/view_map"(platform: "/mobile", type: TrackType.Event) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
+    }
+    "/logistics/last_mile/deliver/select_receiver"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/deliver/receives_another"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/deliver/signature"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/could_not_deliver/sections"(platform: "/mobile", type:  TrackType.View) {}
+    "/logistics/last_mile/could_not_deliver/package_problem"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/could_not_deliver/buyer_problem"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/could_not_deliver/address_problem"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/return_to_station"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        packages_to_return(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of pending shipment to return to the facility", inheritable: false)
+    }
+    "/logistics/last_mile/return_to_station/packages_to_return"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/return_to_station/open_route"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        packages_to_return(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of pending shipment to return to the facility", inheritable: false)
     }
 
     // First Mile
