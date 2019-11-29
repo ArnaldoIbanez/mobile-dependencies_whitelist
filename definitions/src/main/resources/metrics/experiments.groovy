@@ -415,4 +415,49 @@ metrics {
 		}
 	}
 
+	"buys_sparkle_toys"(description: "Track buys only in toys domain for Sparkle exp") {
+		startWith {
+			experiment("sparkle/redirects")
+		}
+
+		countsOn {
+			condition {
+				and(				
+					like('event_data.items.item.category_path', '.*"ML(A|M)1132".*'),
+					or(
+						and(
+							equals("path", "/orders/ordercreated"),
+							equals("event_data.is_carrito", false)
+						),
+						and(
+							equals("path","/purchases/purchasecreated")
+						)
+					)
+				)
+			}
+		}
+	}
+
+	"buys_sparkle_fashion"(description: "Track buys only in fashion domain for Sparkle exp") {
+		startWith {
+			experiment("sparkle/moda")
+		}
+
+		countsOn {
+			condition {
+				and(				
+					like('event_data.items.item.category_path', '.*"ML(A|M)1430".*'),
+					or(
+						and(
+							equals("path", "/orders/ordercreated"),
+							equals("event_data.is_carrito", false)
+						),
+						and(
+							equals("path","/purchases/purchasecreated")
+						)
+					)
+				)
+			}
+		}
+	}
 }
