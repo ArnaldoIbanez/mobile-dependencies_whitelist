@@ -100,12 +100,12 @@ tracks {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the packages in the route", inheritable: false)
     }
     "/logistics/last_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
-    "/logistics/last_mile/list/suggest_trip_modal"(platform: "/mobile", type: TrackType.View) {
+    "/logistics/last_mile/list/suggest_trip"(platform: "/mobile", type: TrackType.View) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered", inheritable: false)
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
     }
-    "/logistics/last_mile/list/suggest_trip_modal/start_trip"(platform: "/mobile", type: TrackType.Event) {
+    "/logistics/last_mile/list/suggest_trip/start_trip"(platform: "/mobile", type: TrackType.Event) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered", inheritable: false)
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
     }
