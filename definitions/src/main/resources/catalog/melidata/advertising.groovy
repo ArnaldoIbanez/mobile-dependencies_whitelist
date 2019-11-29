@@ -184,4 +184,35 @@ tracks {
     "/advertising/pads2/manager/lift/modal/close"(platform: "/web", type: TrackType.Event) {
         share_value(required: true, description: "Porcentual share value")
     }
+
+    //SLL
+    "/advertising/pads2/manager/card"(platform: "/web", isAbstract: true) {}
+
+    "/advertising/pads2/manager/card/sll"(platform: "/web", type: TrackType.View) {
+        sll_total(required: true, description: "Indicates the number total of sll")
+        campaign_id(required: true, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/manager/card/sll"(platform: "/web", type: TrackType.Event) {
+        sll_total(required: true, description: "Indicates the number total of sll")
+        campaign_id(required: true, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/manager/ssl"(platform: "/web", isAbstract: true) {}
+
+    "/advertising/pads2/manager/ssl/landing"(platform: "/web", type: TrackType.View) {
+        sll_total(required: true, description: "Indicates the number total of sll")
+        campaign_id(required: true, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/manager/ssl/landing/activated"(platform: "/web", type: TrackType.Event) {
+        sll_total_activated(required: true, description: "Indicates the number total of sll activated")
+        campaign_id(required: true, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/manager/ssl/landing/breadcrumb"(platform: "/web", type: TrackType.Event) {
+        sll_total(required: true, description: "Indicates the number total of sll")
+        campaign_id(required: true, description: "Id related to the campaign")
+    }
+
 }

@@ -321,4 +321,32 @@ trackTests {
             share_value = "20"
         }
     }
+
+    test("Advertising manager SLL") {
+        "/advertising/pads2/manager/card/sll"(platform: "/web", type: TrackType.View) {
+            campaign_id = "2222222"
+            sll_total = "10"
+        }
+
+        "/advertising/pads2/manager/card/sll"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            sll_total = "10"
+        }
+
+        "/advertising/pads2/manager/ssl/landing"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            sll_total = "10"
+        }
+
+        "/advertising/pads2/manager/ssl/landing/activated"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            sll_total_activated = "10"
+        }
+
+        "/advertising/pads2/manager/ssl/landing/breadcrumb"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            sll_total = "10"
+        }
+
+    }
 }
