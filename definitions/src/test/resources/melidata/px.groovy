@@ -2326,6 +2326,8 @@ trackTests {
 
         }
 
+        "/px_checkout/review/one_tap/disabled_payment_method_detail"(platform: "/mobile", type: TrackType.View) {}
+
         "/px_checkout/payments/applied_discount"(platform: "/mobile", type: TrackType.View) {
             flow_detail = {
                 collector_id = 1234
