@@ -33,6 +33,7 @@ tracks {
         preference_amount(required: true, type: PropertyType.Numeric , description: "Total amount")
         discount(required: false, description: "Discount if available")
         available_methods_quantity(required: false, type: PropertyType.Numeric , description: "Available methods quantity")
+        disabled_methods_quantity(required: false, type: PropertyType.Numeric , description: "Disabled methods quantity")
     }
     "/px_checkout/payments/select_method/ticket"(platform: "/mobile", type: TrackType.View) {
 
@@ -161,6 +162,7 @@ tracks {
         preference_amount(required: true, type: PropertyType.Numeric , description: "Total amount")
         available_methods(required: true, type: PropertyType.ArrayList , description: "Array of available payment methods to pay")
         available_methods_quantity(required: false, type: PropertyType.Numeric , description: "Available methods quantity")
+        disabled_methods_quantity(required: false, type: PropertyType.Numeric , description: "Disabled methods quantity")
         discount(required: false, description: "Discount if available")
         items(required: true, type: PropertyType.ArrayList , description: "Array of items to pay")
 
@@ -186,6 +188,10 @@ tracks {
         issuer_id(required: true, type: PropertyType.Numeric , description: "Issuer id")
         card_id(required: true, type: PropertyType.String , description: "Card id")
         available_installments(required: true, type: PropertyType.ArrayList , description: "Array of available installments")
+        externalData
+    }
+    
+    "/px_checkout/review/one_tap/disabled_payment_method_detail"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         externalData
     }
 
