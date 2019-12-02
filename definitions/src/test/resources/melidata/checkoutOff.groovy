@@ -22,6 +22,8 @@ trackTests {
             collector_id = 1010101001
             available_methods = ["credit_card", "account_money"]
             payment_amount_local = 100.00
+            flow_context = "init"
+            flow_type = "card_express"
         }
 
         def finishDefaultProperties = {

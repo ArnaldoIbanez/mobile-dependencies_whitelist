@@ -10,6 +10,7 @@ select CASE
   end as event_id,
       device.platform as plataforma,
       count(1) as cantidad,
+      application.site_id as site,
       substr(ds,1,10) as ds
 from tracks
 lateral view explode(json_to_array(jet(event_data, 'checkedFilters'))) tf as filters
@@ -18,6 +19,7 @@ AND ds < '@param02'
 AND (path = '/seller_central/listings/filters/applied' or path = '/seller_central/listings/action' or path = '/seller_central/listings/list/health')
 GROUP BY substr(ds,1,10),
         device.platform,
+        application.site_id,
         CASE
         WHEN path = '/seller_central/listings/filters/applied' then 'filters'
         WHEN  path = '/seller_central/listings/action' then 'action'

@@ -23,6 +23,7 @@ trackTests {
       "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "send_inventory_from_supplier"}
       "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "fees"}
       "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "manage_inventory"}
+      "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "send_any_product"}
       "/fbm/landing/cancel_opt_in"(platform: "/", type: TrackType.Event) {}
     }
 
@@ -43,6 +44,7 @@ trackTests {
         "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "send_inventory_from_supplier"}
         "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "fees"}
         "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "manage_inventory"}
+        "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "send_any_product"}
         "/fbm/landing/cancel_opt_in"(platform: "/", type: TrackType.Event) {}
     }
 

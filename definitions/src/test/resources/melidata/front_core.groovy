@@ -3,7 +3,6 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
 
-
 /**************************
 * WALLET HOME TEST TRACKS *
 **************************/
@@ -281,6 +280,7 @@ trackTests {
                 ]
             ]
             content_type = 'partial'
+            from = "drawer_ml"
             banking = [  
                 content_type : 'default',
                 ordinal: 1,
@@ -294,7 +294,12 @@ trackTests {
                     quantity: 9
                 ],
                 assets: [],
-                credits: []
+                credits: [],
+                money_in: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ]
+
             ]
             main_actions = [
                 content_type : 'complete',
@@ -392,6 +397,10 @@ trackTests {
                         tracking_id: "1004194"
                     ]
                 ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }
@@ -404,6 +413,7 @@ trackTests {
                 ]
             ]
             content_type = 'partial'
+            from = "drawer_ml"
             banking = [  
                 content_type : 'default',
                 ordinal: 1,
@@ -417,7 +427,11 @@ trackTests {
                     quantity: 9
                 ],
                 assets: [],
-                credits: []
+                credits: [],
+                money_in: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ]
             ]
             main_actions = [
                 content_type : 'complete',
@@ -515,6 +529,10 @@ trackTests {
                         tracking_id: "1004194"
                     ]
                 ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }
@@ -831,6 +849,7 @@ trackTests {
                 ]
             ]
             content_type = 'partial'
+            from = "drawer_ml"
             banking = [  
                 content_type : 'default',
                 ordinal: 1,
@@ -844,7 +863,11 @@ trackTests {
                     quantity: 9
                 ],
                 assets: [],
-                credits: []
+                credits: [],
+                money_in: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ]
             ]
             main_actions = [
                 content_type : 'complete',
@@ -942,6 +965,10 @@ trackTests {
                         tracking_id: "1004194"
                     ]
                 ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }
@@ -954,6 +981,7 @@ trackTests {
                 ]
             ]
             content_type = 'partial'
+            from = "my_account_ml"
             banking = [  
                 content_type : 'default',
                 ordinal: 1,
@@ -967,7 +995,11 @@ trackTests {
                     quantity: 9
                 ],
                 assets: [],
-                credits: []
+                credits: [],
+                money_in: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ]
             ]
             main_actions = [
                 content_type : 'complete',
@@ -1065,6 +1097,10 @@ trackTests {
                         tracking_id: "1004194"
                     ]
                 ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }

@@ -205,6 +205,10 @@ trackTests {
             dataSet()
             dataSetCongratsWeb()
         }
+        "/cart/checkout/congrats/input_sec_code"(platform: "/web") {
+            dataSet()
+            dataSetCongratsWeb()
+        }
         "/cart/checkout/congrats"(platform: "/mobile") {
             dataSet()
             dataSetCongrats()
@@ -263,6 +267,10 @@ trackTests {
         "/cart/checkout/loading"(platform: "/", dataSet)
         "/cart/checkout/loading/back"(platform: "/mobile", type: TrackType.Event, dataSet)
         "/cart/checkout/shipping"(platform: "/mobile", dataSet)
+
+        //Address Hub
+        "/cart/checkout/shipping/delivery_instructions"(platform:"/", dataSet)
+        "/cart/checkout/shipping/address_hub"(platform:"/", dataSet)
 
         // Addresses
         // Page

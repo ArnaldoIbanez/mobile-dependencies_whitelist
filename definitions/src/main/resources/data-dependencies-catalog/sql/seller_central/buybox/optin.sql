@@ -10,6 +10,7 @@ jest(event_data,'invalid_product_cause') as invalidCause,
 jest(event_data,'has_variations') as hasVariations,
 jest(event_data,'has_variations_already_opt_in') as hasVariationsOptIn,
 jest(event_data,'seller_profile') as sellerProfile,
+jest(event_data,'reputation_level') as reputationLevel,
 COUNT(DISTINCT tracks.path, jest(event_data,'session_id')) as total,
 substr(ds,1,10) as ds
 FROM tracks
@@ -30,4 +31,5 @@ jest(event_data,'from'),
 jest(event_data,'invalid_product_cause'),
 jest(event_data,'has_variations'),
 jest(event_data,'has_variations_already_opt_in'),
-jest(event_data,'seller_profile')
+jest(event_data,'seller_profile'),
+jest(event_data,'reputation_level')

@@ -233,10 +233,12 @@ trackTests {
         "/remedies/documentation_front"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
+            custom_cam_offered = true
         }
         "/remedies/documentation_back"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
+            custom_cam_offered = true
         }
         "/remedies/documentation_number"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
@@ -256,7 +258,17 @@ trackTests {
             challenge = "documentation"
             transaction_user_id = 109479273
         }
+        "/remedies/continue_phone_landing"(platform: "/web/mobile") {
+            flow = "ss_approve_iv_selfie"
+            challenge = "documentation"
+            transaction_user_id = 109479273
+        }
         "/remedies/continue_phone_congrats"(platform: "/web/desktop") {
+            flow = "ss_approve_iv_selfie"
+            challenge = "documentation"
+            transaction_user_id = 109479273
+        }
+        "/remedies/continue_phone_congrats"(platform: "/web/mobile") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
             transaction_user_id = 109479273
@@ -599,10 +611,12 @@ trackTests {
         "/remedies/documentation_front"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
+            custom_cam_offered = true
         }
         "/remedies/documentation_back"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
+            custom_cam_offered = true
         }
         "/remedies/documentation_number"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
@@ -617,12 +631,12 @@ trackTests {
             congrats_type = "warning"
             transaction_user_id = 109479273
         }
-        "/remedies/continue_phone_landing"(platform: "/web/desktop") {
+        "/remedies/continue_phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
             transaction_user_id = 109479273
         }
-        "/remedies/continue_phone_congrats"(platform: "/web/desktop") {
+        "/remedies/continue_phone_congrats"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             challenge = "documentation"
             transaction_user_id = 109479273

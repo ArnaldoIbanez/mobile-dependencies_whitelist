@@ -19,9 +19,7 @@ metrics {
 		}
 	}
      }
-	
-	
-	
+		
     "sell/full_relist_single_item"(description: "define properties for item_id at full_relist experiment") {
         startWith {
             set_property("item_id", "event_data.item_id")
@@ -35,20 +33,6 @@ metrics {
         }
     }
 
-	"orders.fbm"(description: "orders of fbm items", compute_order: true) {
-        startWith {
-            experiment("search/show_akins")
-        }
-
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-
-                equals("event_data.items.item.logistic_type", "fulfillment")
-			}
-		}
-	}
-	
 	"loyalty/buy_level_installments"(description: "define which buy level button to show in VIP modal to see which converts best") {
         startWith {
             experiment("loyalty/buy-level-installments")
@@ -221,7 +205,7 @@ metrics {
 	"quotations"(description: "track quotation as success for classifieds") {
 		countsOn {
 			condition {
-				path("/quotation/congrats")
+				path("/quotation/congrats", "/quotation/congrats/unregistered")
 			}
 		}
 	}
@@ -303,9 +287,26 @@ metrics {
 		}
 	}
 
+	"vip_buys_qadb_domains"(description: "Track buys only in qadb-enabled domains") {
+		startWith {
+			experiment("qadb/qadb-on-vip")
+		}
+
+		countsOn {
+			condition {
+				or(
+						and(
+								equals("path", "/orders/ordercreated"),
+								like('event_data.items.item.category_path', '.*MLA(398582|1387|1676),.*')
+						)
+				)
+			}
+		}
+	}
+
 	"pdp_questions_qadb"(description: "Track PDP questions of users in QADB experiment") {
 		startWith {
-			experiment("qadb/qadb-on")
+			experiment(regex("qadb/(qadb-on|qadb-on-viewport)"))
 		}
 
 		countsOn {
@@ -324,7 +325,7 @@ metrics {
 
 	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment", compute_order: true) {
 		startWith {
-			experiment("qadb/qadb-on")
+			experiment(regex("qadb/(qadb-on|qadb-on-viewport)"))
 		}
 
 		countsOn {
@@ -403,4 +404,60 @@ metrics {
 		}
 	}
 
+	"credits-open-sea.remedies_conversion"(description: "credits conversion under remedies experiment") {
+		startWith {
+			experiment("credits/openSeaRemedy")
+		}
+		countsOn {
+			condition {
+				equals("path", "/credits/consumer/public_landing/application_result")
+			}
+		}
+	}
+
+	"buys_sparkle_toys"(description: "Track buys only in toys domain for Sparkle exp") {
+		startWith {
+			experiment("sparkle/redirects")
+		}
+
+		countsOn {
+			condition {
+				and(				
+					like('event_data.items.item.category_path', '.*ML(A|M)1132.*'),
+					or(
+						and(
+							equals("path", "/orders/ordercreated"),
+							equals("event_data.is_carrito", false)
+						),
+						and(
+							equals("path","/purchases/purchasecreated")
+						)
+					)
+				)
+			}
+		}
+	}
+
+	"buys_sparkle_fashion"(description: "Track buys only in fashion domain for Sparkle exp") {
+		startWith {
+			experiment("sparkle/moda")
+		}
+
+		countsOn {
+			condition {
+				and(				
+					like('event_data.items.item.category_path', '.*ML(A|M)1430.*'),
+					or(
+						and(
+							equals("path", "/orders/ordercreated"),
+							equals("event_data.is_carrito", false)
+						),
+						and(
+							equals("path","/purchases/purchasecreated")
+						)
+					)
+				)
+			}
+		}
+	}
 }

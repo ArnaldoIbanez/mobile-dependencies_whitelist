@@ -72,6 +72,7 @@ trackTests {
         "/mgm_seller/referal/tap" (platform: "/mobile", type: TrackType.Event) {
             media = "whatsapp"
             device= "Point Mini"
+            link= "dashboard"
         }
 
         "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
@@ -147,6 +148,7 @@ trackTests {
         "/mgm_seller/referal/tap" (platform: "/mobile", type: TrackType.Event) {
             media = "whatsapp"
             device= "Point Mini"
+            link= "dashboard"
         }
 
         "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}

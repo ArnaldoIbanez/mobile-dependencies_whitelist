@@ -410,11 +410,26 @@ tracks {
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock"])
     }
 
-    "/screenlock/validation_start"(platform: "/mobile", type: TrackType.Event) { }
+    "/screenlock/validation_start"(platform: "/mobile", type: TrackType.Event) {
+        flow_id(type: PropertyType.String, required: true, description: "Flow identifier where validation is happening")
+     }
 
     "/screenlock/validation_end"(platform: "/mobile", type: TrackType.Event) {
+        flow_id(type: PropertyType.String, required: true)
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os validation flow")
         result(type: PropertyType.String, required: true, values: ["success", "error"])
         errors(type: PropertyType.ArrayList, required: false)
+    }
+
+    "/screenlock/opening_lock"(platform: "/mobile", type: TrackType.View) {
+
+    }
+
+    "/screenlock/opening_lock/retry"(platform: "/mobile", type: TrackType.Event) {
+
+    }
+
+    "/screenlock/opening_lock/logout"(platform: "/mobile", type: TrackType.Event) {
+
     }
 }

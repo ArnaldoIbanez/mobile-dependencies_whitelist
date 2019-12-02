@@ -119,6 +119,14 @@ trackTests {
             status_detail = "call_for_auth"
         }
 
+        "/cellphone_recharge/contingency"(platform: "/mobile", type: TrackType.View) {
+            company_id = "1"
+        }
+
+        "/cellphone_recharge/understood_contingency"(platform: "/mobile", type: TrackType.Event) {
+            company_id = "1"
+        }
+
         "/cellphone_recharge/confirm"(platform: "/web"){
 
         }
@@ -346,10 +354,17 @@ trackTests {
             status_detail = "call_for_auth"
         }
 
+        "/cellphone_recharge/contingency"(platform: "/mobile", type: TrackType.View) {
+            company_id = "1"
+        }
+
+        "/cellphone_recharge/understood_contingency"(platform: "/mobile", type: TrackType.Event) {
+            company_id = "1"
+        }
+
         "/cellphone_recharge/confirm"(platform: "/web"){
 
         }
-
         "/cellphone_recharge/suggested_phones"(platform: "/web", type: TrackType.View) {
             
         }

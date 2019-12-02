@@ -25,7 +25,14 @@ trackTests {
         }
     }
 
-
+    test("uninstall_event"){
+        "/application/uninstall_event" (platform: "/mobile", type: TrackType.Event){
+            type = "mobile"
+            date_created = "2019-08-08T09:25:01.000-04:00"
+            lang = "es-ar"
+            timezone = "-0300"
+        }
+    }
 
     test("Mobile Navigation Menu"){
         "/navigation"(platform: "/mobile/android"){
@@ -91,5 +98,4 @@ trackTests {
             device_id = "12345678"
         }
     }
-
 }

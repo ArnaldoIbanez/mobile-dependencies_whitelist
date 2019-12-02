@@ -76,8 +76,9 @@ tracks {
         sidebar_name(
                 required: false,
                 type: PropertyType.String,
-                values: ['AFIP', 'BANNER', 'BRANDS', 'CAROUSEL', 'COLORS', 'CONTACT', 'CONTACT_FROM_SHOP_NAME', 'FLASH', 'GRID', 'HEADER_MESSAGE',
-                         'LOGO', 'MOSAIC', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS', 'SUBDOMAIN', 'TEXT_BANNER']
+                values: ['AFIP', 'BANNER', 'BRANDS', 'CAROUSEL', 'COLORS', 'CONTACT', 'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED',
+                         'FLASH', 'GRID', 'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE', 'LOGO', 'MOSAIC', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS',
+                         'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TEXT_BANNER']
         )
     }
 
@@ -105,6 +106,12 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/sidebar/discovery"(platform: "/", type: TrackType.Event){
+        max_items(required: true, type: PropertyType.Numeric, description: "Number of categories to show")
+        categories(required: true, type: PropertyType.ArrayList, description: "Selected categories to show")
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/sidebar/flash_info"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
@@ -112,6 +119,11 @@ tracks {
     "/mercado_shops/admin/sidebar/grid"(platform: "/", type: TrackType.Event){
         items_per_row(required: true, type: PropertyType.Numeric)
         max_items(required: true, type: PropertyType.Numeric)
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/sidebar/header_advanced"(platform: "/", type: TrackType.Event){
+        transparency(required: false, type: PropertyType.Numeric, description: "Selected transparency for header")
         mshopsEventGroup
     }
 
@@ -140,10 +152,10 @@ tracks {
     }
 
     "/mercado_shops/admin/sidebar/social_networks"(platform: "/", type: TrackType.Event){
-        facebook(required: true, type: PropertyType.Boolean, description: "Facebook was configured")
-        twitter(required: true, type: PropertyType.Boolean, description: "Twitter was configured")
-        instagram(required: true, type: PropertyType.Boolean, description: "Instagram was configured")
-        youtube(required: true, type: PropertyType.Boolean, description: "Youtube was configured")
+        facebook(required: false, type: PropertyType.String, description: "Facebook was configured")
+        twitter(required: false, type: PropertyType.String, description: "Twitter was configured")
+        instagram(required: false, type: PropertyType.String, description: "Instagram was configured")
+        youtube(required: false, type: PropertyType.String, description: "Youtube was configured")
         mshopsEventGroup
     }
 
@@ -282,7 +294,6 @@ tracks {
     }
 
     "/mercado_shops/marketing/google_ads/remarketing"(platform: "/", type: TrackType.View){}
-
 
     "/mercado_shops/marketing/google_ads/remarketing/save"(platform: "/", type: TrackType.Event){
         mshopsEventGroup

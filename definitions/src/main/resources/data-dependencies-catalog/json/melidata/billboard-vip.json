@@ -1,17 +1,18 @@
 {
   "users": [
-    "lucia.blanc@mercadolibre.com"
+    "lucia.blanc@mercadolibre.com",
+    "mariavirginia.navas@mercadolibre.cl"
   ],
   "process_name": "billboard-vip",
   "cron": "00 13 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
+  },
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "site",
         "type": "UNICODE_STRING"
@@ -35,6 +36,10 @@
       {
         "name": "posicion",
         "type": "INTEGER"
+      },
+      {
+        "name": "is_new_billboard",
+        "type": "BOOLEAN"
       },
       {
         "name": "cantidad",
