@@ -34,7 +34,6 @@ tracks {
     "/collaborators_admin/roles/"(platform:"/", isAbstract: true, parentPropertiesInherited: false) {}
 
     "/collaborators_admin/roles/create"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
-        email(required: true, type: PropertyType.String, description: 'Email of the new operator.')
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
