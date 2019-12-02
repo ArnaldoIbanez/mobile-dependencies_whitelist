@@ -254,7 +254,11 @@ trackTests {
             dataSet()
             dataSetCongrats()
         }
-        
+
+        "/cart/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event){}
+        "/cart/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event){}
+        "/cart/checkout/congrats/use_now"(platform: "/", type: TrackType.Event){}
+
         "/cart/checkout/show_ticket"(platform: "/", dataSet)
         "/cart/checkout/finish/invalid_sec_code/input_code"(platform: "/", dataSet)
         "/cart/checkout/finish/invalid_sec_code/input_code/confirm_purchase"(platform: "/mobile", type: TrackType.Event) {

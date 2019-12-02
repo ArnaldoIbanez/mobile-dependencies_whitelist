@@ -1812,6 +1812,9 @@ trackTests {
             congrats_status = "APPROVED"
             token_generated_with_esc = "NO"
         }
+        "/checkout/congrats/pay_with_another"(platform: "/", type:  TrackType.Event){}
+        "/checkout/congrats/pay_now"(platform: "/", type:  TrackType.Event){}
+        "/checkout/congrats/use_now"(platform: "/", type:  TrackType.Event){}
 
     }
 

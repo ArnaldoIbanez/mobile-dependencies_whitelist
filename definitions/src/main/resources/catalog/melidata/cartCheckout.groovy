@@ -214,6 +214,9 @@ tracks {
     "/cart/checkout/congrats/contact_us"(platform: "/", type: TrackType.Event) {}
     "/cart/checkout/congrats/go_to_mercado_puntos"(platform: "/", type: TrackType.Event) {}
     "/cart/checkout/congrats/added_points"(platform: "/", type: TrackType.Event) {}
+    "/cart/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/cart/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/cart/checkout/congrats/use_now"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     "/cart/checkout/show_ticket"(platform: "/", type: TrackType.View) {}
 
@@ -379,7 +382,7 @@ tracks {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
-"/cart/checkout/shipping/input_address/back"(platform:"/mobile", type: TrackType.Event) {}
+    "/cart/checkout/shipping/input_address/back"(platform:"/mobile", type: TrackType.Event) {}
 
     "/cart/checkout/shipping/input_address#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")

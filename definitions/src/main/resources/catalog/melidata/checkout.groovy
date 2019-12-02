@@ -269,7 +269,7 @@ tracks {
     }
     //Fallback/inconsistency
     "/checkout/shipping/select_method/inconsistency"(platform: "/mobile") {
-       shipping_inconsistency
+        shipping_inconsistency
     }
     "/checkout/shipping/accord"(platform: "/mobile") {
         shipping_inconsistency
@@ -446,7 +446,7 @@ tracks {
     "/checkout/shipping/puis/select_store/back"(platform: "/mobile", type: TrackType.Event) {}
     "/checkout/shipping/select_store/back"(platform: "/mobile", type: TrackType.Event) {}
 
-     // Event for Defaults
+    // Event for Defaults
     "/checkout/shipping/puis/select_store/selected_store"(platform: "/", type: TrackType.Event) {
         default_location_info(required: true, description: "that indicate the type of default")
         latitude(type: PropertyType.Numeric, required: true, description: "the latitude at which we are requesting agencies")
@@ -1073,7 +1073,7 @@ tracks {
 
     "/checkout/shipping/agencies_contact_info"(platform:"/", type: TrackType.View) {}
 
-     "/checkout/congrats"(platform: "/web") {
+    "/checkout/congrats"(platform: "/web") {
         token_generated_with_esc(required: true, type: PropertyType.String, values: ["YES", "NO"])
         congrats_status(required: true, type: PropertyType.String, values: ["APPROVED", "REJECTED", "IN_PROCESS", "PENDING", "CANCELLED", "AUTHORIZED", "REFUNDED", "ERROR_NON_RECOVERABLE_BI", "ERROR_RECOVERABLE_BI"])
         payment_status_detail(required: true, type: PropertyType.String, values: ["ACCREDITED", "CC_REJECTED_BLACKLIST", "CC_REJECTED_HIGH_RISK", "CC_REJECTED_INSUFFICIENT_AMOUNT", "CC_REJECTED_INVALID_INSTALLMENTS", "CC_REJECTED_OTHER_REASON", "CC_REJECTED_MAX_ATTEMPTS", "CC_REJECTED_BAD_FILLED_CARD_NUMBER", "CC_REJECTED_BAD_FILLED_OTHER", "CC_REJECTED_BAD_FILLED_DATE", "CC_REJECTED_BAD_FILLED_SECURITY_CODE", "CC_REJECTED_CALL_FOR_AUTHORIZE", "CC_REJECTED_CARD_DISABLED", "DEFAULT", "ACCORD", "PENDING_CONTINGENCY", "PENDING_REVIEW_MANUAL", "PENDING_CHALLENGE", "CC_REJECTED_FRAUD", "CC_REJECTED_DUPLICATED_PAYMENT", "CC_REJECTED_BAD_FILLED_INVALID_DATE", "ACCOUNT_REJECTED_HIGH_RISK", "REJECTED_BY_REGULATIONS", "REJECTED_INSUFFICIENT_DATA", "REJECTED_BY_BANK", "ERROR_BI_WITHOUT_CNPJ", "ERROR_BI_DIFFERENT_IE", "ERROR_BI_CNPJ_NON_OPERATIONAL", "ERROR_BI_IE_INVALID_STATE", "PHONE_VERIFICATION"])
@@ -1346,4 +1346,7 @@ tracks {
 
     "/checkout/payment/select_unique_installment/select_installment"(platform: "/web", type: TrackType.Event) {}
 
+    "/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event) {}
+    "/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event) {}
+    "/checkout/congrats/use_now"(platform: "/", type: TrackType.Event) {}
 }
