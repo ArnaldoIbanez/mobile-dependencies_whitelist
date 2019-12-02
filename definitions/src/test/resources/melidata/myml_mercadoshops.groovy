@@ -147,12 +147,12 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
-            phone_visible = true
-            email_visible = true
-            address_visible = true
-            phone_visible_new = false
-            email_visible_new = false
-            address_visible_new = false
+            street = "Posta"
+            number = "3651"
+            city = "Saavedra"
+            state = "Buenos Aires"
+            email = "test@mercadolibre.com"
+            phone = "011 1234-5678"
             success = true
         }
         "/mercado_shops/admin/sidebar/flash_info"(platform: "/", type: TrackType.Event){
