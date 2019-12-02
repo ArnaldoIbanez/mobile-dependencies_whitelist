@@ -423,7 +423,7 @@ metrics {
 		countsOn {
 			condition {
 				and(				
-					like('event_data.items.item.category_path', '.*"ML(A|M)1132".*'),
+					like('event_data.items.item.category_path', '.*ML(A|M)1132.*'),
 					or(
 						and(
 							equals("path", "/orders/ordercreated"),
@@ -446,7 +446,7 @@ metrics {
 		countsOn {
 			condition {
 				and(				
-					like('event_data.items.item.category_path', '.*"ML(A|M)1430".*'),
+					like('event_data.items.item.category_path', '.*ML(A|M)1430.*'),
 					or(
 						and(
 							equals("path", "/orders/ordercreated"),
