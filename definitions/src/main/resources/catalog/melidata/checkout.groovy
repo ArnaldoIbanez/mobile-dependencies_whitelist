@@ -6,7 +6,7 @@ tracks {
 
     propertyDefinitions {
 
-        // For shºipping inconsistencies
+        // For shipping inconsistencies
         selections(required: true, type: PropertyType.ArrayList)
         error_code(required: false, type: PropertyType.String)
         inconsistency(required: false, type: PropertyType.String)
