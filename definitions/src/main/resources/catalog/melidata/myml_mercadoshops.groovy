@@ -96,6 +96,10 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/sidebar/categories"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/sidebar/collection"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
