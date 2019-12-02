@@ -795,10 +795,6 @@ tracks {
     }
 
     "/checkout/congrats/recommendations"(platform: "/", type: TrackType.View) {}
-    "/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event) {}
-    "/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event) {}
-    "/checkout/congrats/use_now"(platform: "/", type: TrackType.Event) {}
-
 
     "/checkout/finish/click"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -1350,4 +1346,7 @@ tracks {
 
     "/checkout/payment/select_unique_installment/select_installment"(platform: "/web", type: TrackType.Event) {}
 
+    "/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event) {}
+    "/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event) {}
+    "/checkout/congrats/use_now"(platform: "/", type: TrackType.Event) {}
 }
