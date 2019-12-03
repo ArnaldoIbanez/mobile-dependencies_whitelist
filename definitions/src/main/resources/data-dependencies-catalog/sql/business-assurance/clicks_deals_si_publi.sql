@@ -3,7 +3,7 @@ successfullitem AS SI,unit_price AS GMV,fecha_clic
 FROM 
 
 (
-----------CALCULO DE CLICKS-------------------------------------------------------------------------------------------------------------------------
+
 SELECT site_deal, platform_deal, deal_Label, deal_Source, deal_Position, deal_Type, deal_id, uid_deal,clics_totales,fecha_clic
 
 FROM(
@@ -47,7 +47,7 @@ group by 	site_deal,  platform_deal,  deal_Label,  deal_Source,  deal_Position,d
 	) clicks1 WHERE NumeroFila=1 ) T1
 
 LEFT JOIN
----------------------------------------ORDENES-----------------------------------------------------------------------------------------------------
+
 (
 select distinct
 			substr(ds,1,10) as fecha_order, 
