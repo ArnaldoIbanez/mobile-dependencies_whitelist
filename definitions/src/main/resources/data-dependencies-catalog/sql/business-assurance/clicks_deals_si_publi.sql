@@ -1,5 +1,5 @@
-SELECT site_deal, platform_deal, deal_Label, deal_Source, deal_Position, deal_Type, deal_id,clics_totales,order_id as Order,
-successfullitem AS SI,unit_price AS GMV,fecha_clic
+SELECT site_deal, platform_deal, deal_Label, deal_Source, deal_Position, deal_Type, deal_id,clics_totales,order_id as orderid,
+successfullitem AS si,unit_price AS gmv,fecha_clic
 FROM 
 
 (
