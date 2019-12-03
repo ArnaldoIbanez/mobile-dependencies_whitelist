@@ -143,7 +143,7 @@ from (
 				where ds >= '@param01' and ds < '@param02'
 					and device.platform like '/mobile/%'
 					and application.business  in ('mercadolibre','mercadopago')
-					and path = '/pos_seller/point/card_reader'
+					and path = '/pos_seller/point/waiting_for_card'
 					and jest(event_data,'payment_channel') = 'point'
 				)a2
 				group by fecha, site, bu, app_version, platform, transaction_id, uid 

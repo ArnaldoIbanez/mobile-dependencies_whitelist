@@ -38,6 +38,10 @@ trackTests {
 		id = "free_trial"
 	}
     }
+	
+    test("Mercadopago discount sellers congrats") {
+        "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {}
+    }
 
     test("Mercadopago discount sellers tap") {
         "/discount_sellers/tap" (platform: "/mobile", type: TrackType.Event) {

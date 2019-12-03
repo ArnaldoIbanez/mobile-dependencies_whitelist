@@ -12,6 +12,13 @@ trackTests {
             [id: "MLA2", score: 0.2441, status: "shown"]
     ]
 
+    def sparkleInfo = [
+        intervention_id:"1",
+        intervention_type:"REDIRECT",
+        config_value:"on",
+        url:"http://example.com"
+    ]
+
     test("Search core tracking"){
 
         def defaultSearchInformation = {
@@ -51,6 +58,7 @@ trackTests {
             show_supermarket_carousel=true
             show_apparel_carousel=false
             items_with_logos=["MLA1234", "MLA12345"]
+            promise_items=["MLA123411", "MLA12345645"]
             pdp_grouped_search=true
             pdp_info=pdpInfo
         }
@@ -130,13 +138,16 @@ trackTests {
             pdp_grouped_search=true
             pdp_info=pdpInfo
             user_profile_type="BUYER"
-            sparkle_info = [
-                    id:"1",
-                    intervention_type:"REDIRECT",
-                    config_value:"on",
-                    url:"http://example.com"
-            ]
+            sparkle_info = sparkleInfo
         }
+
+        def category_definition = {[
+            carousel_id: "category",
+            selected: [
+            name: "Hogar, Muebles y Jardin",
+            selected_id: "MLA1574"
+            ]
+        ]}
 
         "/search"(platform: "/web"){
             defaultWebTrack()
@@ -225,12 +236,7 @@ trackTests {
             pdp_grouped_search=true
             pdp_info=pdpInfo
             user_profile_type="BUYER"
-            sparkle_info = [
-                    id:"1",
-                    intervention_type:"REDIRECT",
-                    config_value:"on",
-                    url:"http://example.com"
-            ]
+            sparkle_info = sparkleInfo
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -285,8 +291,7 @@ trackTests {
         }
 
         "/search/category_carousel"(platform: "/mobile", type: TrackType.Event){
-            carousel_categories_selected_id = "21"
-            carousel_categories_selected_name = "Electronica"
+            carousels = category_definition()
         }
         
         "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event){
@@ -461,12 +466,7 @@ trackTests {
             pdp_grouped_search=true
             pdp_info=pdpInfo
             user_profile_type="BUYER"
-            sparkle_info = [
-                    id:"1",
-                    intervention_type:"REDIRECT",
-                    config_value:"on",
-                    url:"http://example.com"
-            ]
+            sparkle_info = sparkleInfo
         }
     }
 
@@ -485,6 +485,16 @@ trackTests {
 
     test("Search fintie navigation experiment"){
         "/search/finite_navigation"(platform: "/mobile/android"){
+        }
+        "/search/finite_navigation_os_filter"(platform: "/mobile/android"){
+        }
+    }
+
+    test("Search Sparkle Custom Track "){
+        "/search/sparkle"(platform: "/"){
+            query = "this is a query"
+            sparkle_info = sparkleInfo
+
         }
     }
 

@@ -495,6 +495,14 @@ trackTests {
         }
     }
 
+    test("catalog_search query"){
+        "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
+            query_filter = "philips"
+            domain_filter = "tv"
+            limit_filter = 20
+        }
+    }
+
     // Catalog search
     test("catalog_search wrong domain prediction"){
         "/structure_data/catalog_search/wrong_domain_prediction"(platform: "/web/desktop", type: TrackType.Event) {
