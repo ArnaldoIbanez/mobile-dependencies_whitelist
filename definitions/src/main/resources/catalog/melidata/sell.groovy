@@ -753,17 +753,17 @@ tracks {
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {
-        predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
+        categoryFlow
     }
     "/sell/item_data/category_suggested/show"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {
+        confirm_category_detail(required: true, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
+    }
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {
-        predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
+        categoryFlow
     }
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
-        sellGroup
-        categoryFlow
         confirm_category_detail(required: true, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
     }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
@@ -880,6 +880,7 @@ tracks {
         item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
         domain_id(required: true, type: PropertyType.String, description: "Item's category domain id")
         title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
+        predictions(required: true, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
