@@ -3,7 +3,7 @@
     "ext_jjaimes@mercadolibre.com",
     "julian.kreizerman@mercadolibre.com"
   ],
-  "process_name": "Clicks_deals_si_publi",
+  "process_name": "clicks_deals_si_publi",
  "cron": "00 01 * * *",
  "partition": {
   "name": "fecha_clic",
@@ -59,7 +59,7 @@
       }     
     ],
     "sql": {
-      "script": "business-assurance/Clicks_deals_si_publi.sql",
+      "script": "business-assurance/clicks_deals_si_publi.sql",
       "parameters": [
         {
           "name": "param01",
