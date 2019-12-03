@@ -133,7 +133,7 @@ tracks {
         category_prediction_score(required: false, description: "Category prediction scores result", type: PropertyType.ArrayList)
         category_prediction_zordon(required: false, description: "Category prediction path result from zordon", type: PropertyType.ArrayList)
         category_prediction_zordon_score(required: false, description: "Category prediction scores result from zordon", type: PropertyType.ArrayList)
-        chosen_categorization_model(required: true, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
+        chosen_categorization_model(required: false, description: "Which predictor we used to predict category: ZORDON/DEFAULT/etc...", type: PropertyType.String)
         attributes_values_predicted(required: false, description: "Attributes values that we predict by matchers", type: PropertyType.ArrayList)
         attributes_ids_predicted(required: false, description: "Attributes ids that we predict by matchers", type: PropertyType.ArrayList)
         attributes_selected_in_tree(required: false, description: "Attributes values selected by user", type: PropertyType.ArrayList)
@@ -880,7 +880,7 @@ tracks {
         item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
         domain_id(required: true, type: PropertyType.String, description: "Item's category domain id")
         title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
-        predictions(required: true, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
+        predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
