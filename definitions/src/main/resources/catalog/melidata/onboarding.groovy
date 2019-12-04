@@ -19,6 +19,14 @@ tracks {
     "/onboarding/registration"(platform: "/mobile", type: TrackType.Event) {
         type(type: PropertyType.String, required: true)
     }
+    
+    "/onboarding/registration_step"(platform: "/mobile", type: TrackType.View) {
+        onboarding_close_status(required: true, type: PropertyType.String, 
+                                values: ["DEFAULT", "HIDDEN", "SHOWN"],
+                                description: "Indicates if the close button is being shown, hidden or using its default state")
+        onboarding_fb_login_on(required: true, type: PropertyType.Boolean,
+                               description: "Indicates if the Facebook Login button is shown or not")
+    }
 
     "/onboarding/flow"(platform: "/mobile", type: TrackType.View) {}
 

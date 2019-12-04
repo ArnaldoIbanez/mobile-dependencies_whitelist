@@ -29,7 +29,6 @@ tracks {
     "/credits/consumer/myml/summary"(platform: "/", isAbstract: true) {}
     "/credits/consumer/my_account"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/opensea/integrated_flow"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -78,46 +77,6 @@ tracks {
     /******************************************
      *       End: Consumers Public Landings
      ******************************************/
-
-    /***********************************************
-     *       Start: Consumers Integrated Flow
-     ***********************************************/
-    //Integrated Flow - Start
-
-    //Page view
-    "/credits/consumer/opensea/integrated_flow/start"(platform: "/", type: TrackType.View) {
-        source(description: "Integrated flow source", type: PropertyType.String, required: true)
-    }
-
-    //Events
-    "/credits/consumer/opensea/integrated_flow/start/application_start"(platform: "/", type: TrackType.Event) {
-        source(description: "Integrated flow source", type: PropertyType.String, required: true)
-    }
-    "/credits/consumer/opensea/integrated_flow/start/application_cancel"(platform: "/", type: TrackType.Event) {
-        source(description: "Integrated flow source", type: PropertyType.String, required: true)
-    }
-
-    //Integrated Flow - Congrats
-
-    //Page view
-    "/credits/consumer/opensea/integrated_flow/congrats"(platform: "/", type: TrackType.View) {
-        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
-        source(description: "Integrated flow source", type: PropertyType.String, required: true)
-    }
-
-    //Events
-    "/credits/consumer/opensea/integrated_flow/congrats/buy_intention"(platform: "/", type: TrackType.Event) {
-        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
-        source(description: "Integrated flow source", type: PropertyType.String, required: true)
-    }
-    "/credits/consumer/opensea/integrated_flow/congrats/back_to_publication"(platform: "/", type: TrackType.Event) {
-        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
-        source(description: "Integrated flow source", type: PropertyType.String, required: true)
-    }
-
-    /*********************************************
-     *       End: Consumers Integrated Flow
-     *********************************************/
 
     /***********************************************
      *       Start: Consumers Intermediate Landing
@@ -672,6 +631,9 @@ tracks {
 
     "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {}
+
+
     /******************************************
      *   End: Personal Loans Adoption
      ******************************************/
@@ -689,16 +651,5 @@ tracks {
 
     /******************************************
      *   End: Consumers Experiments
-     ******************************************/
-
-    /******************************************
-     *    Start: Consumers Opensea Integrations
-     ******************************************/
-
-    "/credits/consumer/opensea/redirect"(platform: "/mobile", type: TrackType.View) {}
-    "/credits/consumer/opensea/integrated_flow/vip"(platform: "/web", type: TrackType.Event){}
-
-    /******************************************
-     *   End: Consumers  Opensea Integrations
      ******************************************/
 }

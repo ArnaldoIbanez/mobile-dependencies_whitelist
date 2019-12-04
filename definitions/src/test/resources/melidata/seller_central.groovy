@@ -402,6 +402,32 @@ trackTests {
       modal = 0
     }
   }
+
+  test("seller central bulk publish show adults modal") {
+    "/seller_central/bulk/publish/categories/adult/modal/show"(platform: "/web", type: TrackType.View) {
+      adult = false
+    }
+  }
+
+  test("seller central bulk publish cancel adults modal") {
+    "/seller_central/bulk/publish/categories/adult/modal"(platform: "/web", type: TrackType.Event) {
+      action = "cancel"
+      adult = false
+    }
+  }
+
+  test("seller central bulk publish confirm adults modal") {
+    "/seller_central/bulk/publish/categories/adult/modal"(platform: "/web", type: TrackType.Event) {
+      action = "confirm"
+      adult = false
+    }
+  }
+
+  test("seller central bulk publish confirm adult task") {
+    "/seller_central/bulk/publish/categories/adult/confirm"(platform: "/web", type: TrackType.Event) {
+      adult = true
+    }
+  }
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central modify
   //------------------------------------------------------------------------------------------------------------------------------------------------------

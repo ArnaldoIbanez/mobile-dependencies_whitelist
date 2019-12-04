@@ -449,6 +449,32 @@ trackTests {
             return_type = "return_type"
         }
 
+        //Problem Solver - Flan
+        "/wms/problem_solver/menu"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_inbound_shipment"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_destination"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_case"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_return_address"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
         //Events
         "/wms/login_successful"(platform: "/mobile/android") {
             trackData()

@@ -2,7 +2,7 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-	"checkout_congrats"( description: "all congrats, including carrito and checkout congrats", compute_order:true){
+	"checkout_congrats"( description: "all congrats, including carrito and checkout congrats", compute_order:true, deprecation_date:"2019/12/10"){
 		countsOn {
 			condition{
 				equals("event_data.congrats_seq",1)
@@ -10,7 +10,7 @@ metrics {
 		}
 	}
 
-	"single_checkout_congrats"(description: "/checkout/congrats* unique for each order_id (congrats_seq = 1)", compute_order: true) {
+	"single_checkout_congrats"(description: "/checkout/congrats* unique for each order_id (congrats_seq = 1)", compute_order: true, deprecation_date:"2019/12/10") {
 		countsOn {
 			condition {
 				path(regex("^/checkout/congrats(/.*|\$)"))
@@ -20,7 +20,7 @@ metrics {
 	}
 
 
-	"cart_checkout_congrats"(description: "/cart/checkout/congrats unique for each purchase_id (congrats_seq = 1)", compute_order: true) {
+	"cart_checkout_congrats"(description: "/cart/checkout/congrats unique for each purchase_id (congrats_seq = 1)", compute_order: true, deprecation_date:"2019/12/10") {
 		countsOn {
 			condition {
 				path("/cart/checkout/congrats")
@@ -29,7 +29,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.official.stores"(description: "Checkout congrats for items in any official store", compute_order: true) {
+	"checkout_congrats.official.stores"(description: "Checkout congrats for items in any official store", compute_order: true, deprecation_date:"2019/12/10") {
 		countsOn {
 			condition {
 				and(
@@ -40,7 +40,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.samedeal"(description: "Checkout congrats for items in the same deal of exposition", compute_order: true) {
+	"checkout_congrats.samedeal"(description: "Checkout congrats for items in the same deal of exposition", compute_order: true, deprecation_date:"2019/12/10") {
 		countsOn {
 			condition {
 				and(
@@ -56,6 +56,45 @@ metrics {
 			condition {
 				path("/orders/ordercreated")
 				equals("event_data.is_carrito", false)
+			}
+		}
+	}
+
+	"orders_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and (
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("status")
+							},
+							"paid"
+					),
+					equals("event_data.is_carrito", false)
+				)
+			}
+		}
+	}
+
+	"bids_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals(
+					externalCondition {
+						url("internal/orders/\$0")
+						replace("event_data.order_id")
+						method("get")
+						successfulCodes(200,206)
+						jsonPath("status")
+					},
+					"paid"
+				)
 			}
 		}
 	}
@@ -150,7 +189,7 @@ metrics {
 		}
 	}
 
-	"congrats_with_payment.sameOrder"(description: "congrats view with payments containing 'payment' string", compute_order: true) {
+	"congrats_with_payment.sameOrder"(description: "congrats view with payments containing 'payment' string", compute_order: true, deprecation_date:"2019/12/10") {
 		startWith {
 			experiment(regex("(.*email/order.*)"))
 		}
@@ -167,7 +206,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.payment_count"(description: "all orders by payment count (0mp vs 1mp vs 2mp)", compute_order: true) {
+	"checkout_congrats.payment_count"(description: "all orders by payment count (0mp vs 1mp vs 2mp)", compute_order: true, deprecation_date:"2019/12/10") {
 		startWith {
 			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
 		}
@@ -185,7 +224,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.by_payment"(description: "all orders by payment type, payment_method and installments (eg: credit_card/visa/1 vs credit_card/visa/6 vs credit_card/master/12 vs atm/redlink vs ticket/rapidpag)", compute_order: true) {
+	"checkout_congrats.by_payment"(description: "all orders by payment type, payment_method and installments (eg: credit_card/visa/1 vs credit_card/visa/6 vs credit_card/master/12 vs atm/redlink vs ticket/rapidpag)", compute_order: true, deprecation_date:"2019/12/10") {
 		startWith {
 			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
 		}
@@ -205,7 +244,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.by_payment_type"(description: "all orders by payment type (eg: credit_card vs atm vs ticket vs cash)", compute_order: true) {
+	"checkout_congrats.by_payment_type"(description: "all orders by payment type (eg: credit_card vs atm vs ticket vs cash)", compute_order: true, deprecation_date:"2019/12/10") {
 		startWith {
 			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
 		}
@@ -223,7 +262,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.by_payment_method"(description: "all orders by payment type, payment_method (eg: credit_card/visa vs cre    dit_card/master vs atm/redlink vs ticket/rapidpag)", compute_order: true) {
+	"checkout_congrats.by_payment_method"(description: "all orders by payment type, payment_method (eg: credit_card/visa vs cre    dit_card/master vs atm/redlink vs ticket/rapidpag)", compute_order: true, deprecation_date:"2019/12/10") {
 		startWith {
 			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
 		}
@@ -242,7 +281,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.by_payment_installments"(description: "all orders by payment installments (eg: /1 vs /6 vs /12)", compute_order: true) {
+	"checkout_congrats.by_payment_installments"(description: "all orders by payment installments (eg: /1 vs /6 vs /12)", compute_order: true, deprecation_date:"2019/12/10") {
 		startWith {
 			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
 		}
@@ -263,7 +302,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.by_payment_installments_and_without_fee"(description: "all orders by payment installments and without_fee (true or empty) (eg: /1/true vs /6 vs /12 vs /1-5/true-true)", compute_order: true) {
+	"checkout_congrats.by_payment_installments_and_without_fee"(description: "all orders by payment installments and without_fee (true or empty) (eg: /1/true vs /6 vs /12 vs /1-5/true-true)", compute_order: true, deprecation_date:"2019/12/10") {
 		startWith {
 			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
 		}
@@ -285,7 +324,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.by.payment"(description: "all orders by payment type, payment_method and installments (eg: credit_card/visa/1 vs credit_card/visa/6 vs credit_card/master/12 vs atm/redlink vs ticket/rapidpag)", compute_order: true) {
+	"checkout_congrats.by.payment"(description: "all orders by payment type, payment_method and installments (eg: credit_card/visa/1 vs credit_card/visa/6 vs credit_card/master/12 vs atm/redlink vs ticket/rapidpag)", compute_order: true, deprecation_date:"2019/12/10") {
 		startWith {
 			experiment(regex("(mlinsights/.*)"))
 		}

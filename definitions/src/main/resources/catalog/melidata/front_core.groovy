@@ -30,6 +30,7 @@ tracks {
         cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
         assets(required: false, type: PropertyType.Map(assets_definition), description: "The assets section information")
         credits(required: false, type: PropertyType.Map(credits_definition), description: "The credits section information")
+        money_in(required: false, type: PropertyType.Map(balance_definition), description: "The balance money in section information")
     }
 
     def item_value_definition = objectSchemaDefinitions {
@@ -88,6 +89,11 @@ tracks {
     def activities_link_definition = objectSchemaDefinitions {
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
         content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
+    }
+
+    def survey_definition = objectSchemaDefinitions {
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'])
     }
 
     def qr_map_definition = objectSchemaDefinitions {
@@ -278,8 +284,9 @@ tracks {
     }
 
     "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
-        header(required: true, type: PropertyType.Map(header_definition), description: "The header information")
+        header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
         content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
+        from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
         prepaid_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The banner section information")
@@ -291,11 +298,13 @@ tracks {
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
+        survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
     }
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
-        header(required: true, type: PropertyType.Map(header_definition), description: "The header information")
-        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
+        header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'])
+        from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
         prepaid_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The banner section information")
@@ -307,6 +316,7 @@ tracks {
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
+        survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
     }
 
     //Notification Center

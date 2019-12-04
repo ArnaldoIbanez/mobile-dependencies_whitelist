@@ -1121,6 +1121,70 @@ trackTests {
         }
     }
 
+    test("Services Marketing landings") {
+        "/services/mkt_landing"(platform: "/web"){
+            campaign = "generic"
+        }
+        "/services/mkt_landing"(platform: "/web"){
+            campaign = "personal"
+        }
+        "/services/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/services/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/services/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+        "/services/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "footer"
+        } 
+    }
+
+    test("QR Payers Marketing landings") {
+        "/qr_payers/mkt_landing"(platform: "/web"){
+            campaign = "generic"
+        }
+        "/qr_payers/mkt_landing"(platform: "/web"){
+            campaign = "personal"
+        }
+        "/qr_payers/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "footer"
+        } 
+    }
+
     test("MP MLA/MLB/MLM Landing Bundles Point") {
         "/point/landings/landing_bundles_buy"(platform: "/", type: TrackType.Event) {
             quantity = 5
@@ -2603,6 +2667,36 @@ trackTests {
             flow = "/withdraw"
             from = "/deep_link"
         }
+        "/withdraw/main"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/confirmation"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/make_withdraw"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/add_account"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/congrats"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/error/generic_error"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/error/withdraw_failed"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/error/high_risk"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/error/uif"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/delay/manual_review"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/delay/offline"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/uif_change_account"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/restriction"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/delay"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}            
+         "/withdraw/error"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}          
     }
 
     test("Withdraw_advance") {
@@ -2623,13 +2717,13 @@ trackTests {
     }
 
     test("Withdraw_delete_account") {
-        "/withdraw/select_bank/"(platform:"/"){ flow = "/withdraw" }
-        "/withdraw/select_bank/delete_account_modal"(platform:"/", type: TrackType.View){ flow = "/withdraw" }    
-        "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/", type: TrackType.Event){
+        "/withdraw/select_bank"(platform:"/mobile"){ flow = "/withdraw" }
+        "/withdraw/select_bank/delete_account_modal"(platform:"/mobile", type: TrackType.View){ flow = "/withdraw" }    
+        "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/mobile", type: TrackType.Event){
             bank_account_id = "1234523"
             flow = "/withdraw"
         } 
-        "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/", type: TrackType.Event){flow = "/withdraw"} 
+        "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/mobile", type: TrackType.Event){flow = "/withdraw"} 
     }
 
     test("Settings") {
@@ -2691,17 +2785,28 @@ trackTests {
             flow = "/money_detail"
         }
 
-        "/money_detail/withdraw"(platform: "/") {}
-        "/money_detail/daily_detail"(platform: "/") {}
-        "/money_detail/money-advance"(platform: "/") {}
-        "/money_detail/restrictions"(platform: "/") {}
-        "/money_detail/point_home"(platform: "/") {}
-        "/money_detail"(platform: "/") {}
-        "/money_detail/withdraw/main"(platform: "/") {}
-        "/money_detail/withdraw/confirmation"(platform: "/") {}
-        "/money_detail/withdraw/congrats"(platform: "/") {}
-        "/money_detail/withdraw/add_account"(platform: "/") {}
-        "/money_detail/withdraw/select_bank"(platform: "/") {}   
+        "/money_detail/withdraw"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/main"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/confirmation"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/congrats"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/add_account"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/select_bank"(platform: "/mobile") {flow = "/money_detail"}   
+        "/money_detail/withdraw/error"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/error/high_risk"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/error/generic_error"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/uif_change_account"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/delay/offline"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/delay/manual_review"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/shopping"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/credits"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/activities"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/daily_detail"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/money_advance"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/restrictions"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/point_home"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/manual_code"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/confirmation"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail"(platform: "/mobile") {flow = "/money_detail"}
     }
 
 // END -- MPMOBILE TEST
@@ -3192,36 +3297,102 @@ trackTests {
         }
     }
 
-    test("Screenlock") {
+    test("Screenlock config") {
         "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
             os_status = "biometrics"
             enrollment_status = "enabled"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
             os_status = "basic_screenlock"
             enrollment_status = "enabled"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
+            config_name = "opening_lock"
+            action = "enable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
+            config_name = "transaction"
+            action = "enable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "disabled"
             os_status = "biometrics"
+            config_name = "transaction"
+            action = "enable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "disabled"
             os_status = "biometrics"
+            config_name = "transaction"
+            action = "enable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
+    }
+
+    test("Screenlock app opening lock feature") {
+        
+        "/screenlock/opening_lock"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/opening_lock"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/opening_lock/retry"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/opening_lock/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/opening_lock/logout"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/opening_lock/logout"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
     }
 
     test("Push Notification") {

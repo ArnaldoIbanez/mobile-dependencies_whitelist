@@ -58,6 +58,7 @@ trackTests {
             show_supermarket_carousel=true
             show_apparel_carousel=false
             items_with_logos=["MLA1234", "MLA12345"]
+            promise_items=["MLA123411", "MLA12345645"]
             pdp_grouped_search=true
             pdp_info=pdpInfo
         }
@@ -139,6 +140,14 @@ trackTests {
             user_profile_type="BUYER"
             sparkle_info = sparkleInfo
         }
+
+        def category_definition = {[
+            carousel_id: "category",
+            selected: [
+            name: "Hogar, Muebles y Jardin",
+            selected_id: "MLA1574"
+            ]
+        ]}
 
         "/search"(platform: "/web"){
             defaultWebTrack()
@@ -282,8 +291,7 @@ trackTests {
         }
 
         "/search/category_carousel"(platform: "/mobile", type: TrackType.Event){
-            carousel_categories_selected_id = "21"
-            carousel_categories_selected_name = "Electronica"
+            carousels = category_definition()
         }
         
         "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event){

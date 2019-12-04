@@ -254,7 +254,7 @@ tracks {
         action_id(required: true, type: PropertyType.String, description: "Action id")
         view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
         count(required: true, type: PropertyType.Numeric, description: "Selected rows count")
-        
+
     }
 
     "/seller_central/listings/preferences"(platform: "/", type: TrackType.Event) {
@@ -420,6 +420,21 @@ tracks {
         most_used(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded from most used section")
         search_list(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded from search section")
         modal(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded from modal")
+    }
+
+    "/seller_central/bulk/publish/categories/adult"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/bulk/publish/categories/adult/confirm"(platform: "/web", type: TrackType.Event) {
+        adult(required: true, type: PropertyType.Boolean, description: "Value to know if user has select adult checkbox")
+    }
+
+    "/seller_central/bulk/publish/categories/adult/modal"(platform: "/web", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Modal action", values: ['confirm', 'cancel', 'show'])
+        adult(required: true, type: PropertyType.Boolean, description: "Value to know if user has select adult checkbox")
+    }
+
+    "/seller_central/bulk/publish/categories/adult/modal/show"(platform: "/web", parentPropertiesInherited:false, type: TrackType.View) {
+        adult(required: true, type: PropertyType.Boolean, description: "Value to know if user has select adult checkbox")
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------

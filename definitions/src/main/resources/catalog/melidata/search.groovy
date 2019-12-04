@@ -25,6 +25,16 @@ tracks {
         url(type: PropertyType.String, required: true)
     }
 
+    def category_definition = objectSchemaDefinitions {
+        carousel_id(type: PropertyType.String, required: true)
+        selected(type: PropertyType.Map(selected_definition), required: false)
+    }
+
+    def selected_definition = objectSchemaDefinitions {
+        name(required:true, PropertyType.String)
+        selected_id(required:true, PropertyType.String)
+    }
+
     //SEARCH FLOW
     
     "/search"(platform: "/") {
@@ -39,6 +49,7 @@ tracks {
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList)
         view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
+        promise_items(required: false, description:  "items with shipping promise", PropertyType.ArrayList(PropertyType.String))
 
         billboards(required: false, description: "items ids from billboard results", PropertyType.ArrayList)
         pads(required: false, description: "item_id from the pads returned for listings")
@@ -85,7 +96,6 @@ tracks {
         layout_forced(required: false, description:'true if layout is changed by the user')
         shown_as_product(required: false, description: 'item ids shown with product link')
         has_logos(required: false, description: "indicates if there is an item with logos", PropertyType.Boolean)
-        promise_items(required: false, description:  "items with shipping promise", PropertyType.ArrayList)
         geo_search(required: false, description: "search with geolocation", type: PropertyType.Boolean)
         available_filters(required: true, description: "available filters, sameday and nextday")
         user_zone(required: true, description: "the user zone registered", type: PropertyType.String)
@@ -217,8 +227,7 @@ tracks {
     }
 
     "/search/category_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
-        carousel_categories_selected_id(required: true, description: 'the id of the selected value in the category carousel', PropertyType.String)
-        carousel_categories_selected_name(required: true, description: 'the name of the selected value in the category carousel', PropertyType.String)
+        carousels(required:true, PropertyType.ArrayList(PropertyType.Map(category_definition)))
     }
 
     "/search/input/back"(platform: "/mobile") {}
