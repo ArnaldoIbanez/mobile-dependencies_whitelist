@@ -57,15 +57,15 @@ trackTests {
             blocked= false
             amount= 20.0
             amount_type= "percent"
-            status_= "active"
+            status= "active"
             stores_id= [
                     30091700
             ]
             sections= [
                     [
-                        id= "header",
-                        type= "header",
-                        position= 0
+                        id: "header",
+                        type: "header",
+                        position: 0
                     ]
             ]
             tracking_id= "1004194"

@@ -53,13 +53,14 @@ tracks {
         name(required: true, type: PropertyType.String, description: "The brand name")
         enabled(required: true, type: PropertyType.Boolean, description: "If the discount can be consumed or not")
         availability(required: true, type: PropertyType.String, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status of the discount")
+        mcc(required: false, type: PropertyType.String, description: "The mcc of the category of the discount")
         level(required: true, type: PropertyType.Numeric, description: "The discount level")
         blocked(required: true, type: PropertyType.Boolean, description: "If the discount is not available for the user level")
         amount(required: true, type: PropertyType.Numeric, description: "The discount campaign amount")
-        amount_type(required: true, type: PropertyType.String,  values: ['fixed', 'percentage'], description: "The amount type")
+        amount_type(required: true, type: PropertyType.String,  values: ['fixed', 'percent'], description: "The amount type")
         status(required: true, type: PropertyType.String, values: ['active', 'inactive', 'finished'], description: "The discount campaign status")
         stores_id(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "A list of stores who are in a nearby radius")
-        sections(required: true, type: PropertyType.ArrayList(section_definition), description: "Sections shown in the list")
+        sections(required: true, type: PropertyType.ArrayList(PropertyType.Map(section_definition)), description: "Sections shown in the list")
         tracking_id(required: true, type: PropertyType.String, description: "Tracking id of the presented detail")
     }
 
