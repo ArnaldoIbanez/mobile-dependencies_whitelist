@@ -294,11 +294,16 @@ metrics {
 
 		countsOn {
 			condition {
-				or(
-						and(
-								equals("path", "/orders/ordercreated"),
-								like('event_data.items.item.category_path', '.*MLA(398582|1387|1676),.*')
-						)
+				and(
+						or(
+								and(
+										equals("path", "/orders/ordercreated"),
+										equals("event_data.is_carrito", false),
+
+								),
+								equals("path", "/purchases/purchasecreated"),
+						),
+						like('event_data.items.item.category_path', '.*MLA(398582|1387|1676).*')
 				)
 			}
 		}
