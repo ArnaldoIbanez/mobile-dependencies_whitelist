@@ -126,6 +126,13 @@ trackTests {
             ref = ""
             success = true
         }
+        "/mercado_shops/admin/sidebar/categories"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            success = true
+        }
         "/mercado_shops/admin/sidebar/collection"(platform: "/", type: TrackType.Event){
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
@@ -147,12 +154,21 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
-            phone_visible = true
-            email_visible = true
-            address_visible = true
-            phone_visible_new = false
-            email_visible_new = false
-            address_visible_new = false
+            street = "Posta"
+            number = "3651"
+            city = "Saavedra"
+            state = "Buenos Aires"
+            email = "test@mercadolibre.com"
+            phone = "011 1234-5678"
+            success = true
+        }
+        "/mercado_shops/admin/sidebar/discovery"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            max_items = 4
+            categories = ["category1", "category2", "category3", "category4"]
             success = true
         }
         "/mercado_shops/admin/sidebar/flash_info"(platform: "/", type: TrackType.Event){
@@ -169,6 +185,14 @@ trackTests {
             ref = ""
             items_per_row = 3
             max_items = 6
+            success = true
+        }
+        "/mercado_shops/admin/sidebar/header_advanced"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            transparency = 0.3
             success = true
         }
         "/mercado_shops/admin/sidebar/header_info"(platform: "/", type: TrackType.Event){

@@ -1,53 +1,47 @@
 {
   "users": [
-    "lucia.blanc@mercadolibre.com",
-    "mariavirginia.navas@mercadolibre.cl"
+      "ext_jjaimes@mercadolibre.com",
+      "julian.kreizerman@mercadolibre.com"
+
   ],
-  "process_name": "billboard-vip",
-  "cron": "00 13 * * *",
+  "process_name": "count_printweb_banner_publi",
+  "cron": "00 08 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE",
     "format": "yyyy-MM-dd"
   },
+  
   "extract": {
     "operation": "append",
+    "site": "Advertising",
     "columns": [
+           
       {
-        "name": "site",
+        "name": "platform",
         "type": "UNICODE_STRING"
       },
+      
       {
-        "name": "business",
+        "name": "c_campaign",
         "type": "UNICODE_STRING"
       },
-      {
-        "name": "vertical",
+       {
+        "name": "element_order",
         "type": "UNICODE_STRING"
       },
-      {
-        "name": "plataforma",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "path",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "posicion",
+        {
+        "name": "prints",
         "type": "INTEGER"
       },
+       
       {
-        "name": "is_new_billboard",
-        "type": "BOOLEAN"
-      },
-      {
-        "name": "cantidad",
+        "name": "usr_unicos",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "business-assurance/billboard_vip.sql",
+      "script": "business-assurance/count_printweb_banner_publi.sql",
       "parameters": [
         {
           "name": "param01",

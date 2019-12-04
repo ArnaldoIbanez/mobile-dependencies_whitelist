@@ -294,7 +294,12 @@ trackTests {
                     quantity: 9
                 ],
                 assets: [],
-                credits: []
+                credits: [],
+                money_in: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ]
+
             ]
             main_actions = [
                 content_type : 'complete',
@@ -392,6 +397,10 @@ trackTests {
                         tracking_id: "1004194"
                     ]
                 ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }
@@ -418,7 +427,11 @@ trackTests {
                     quantity: 9
                 ],
                 assets: [],
-                credits: []
+                credits: [],
+                money_in: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ]
             ]
             main_actions = [
                 content_type : 'complete',
@@ -516,6 +529,10 @@ trackTests {
                         tracking_id: "1004194"
                     ]
                 ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }
@@ -846,7 +863,11 @@ trackTests {
                     quantity: 9
                 ],
                 assets: [],
-                credits: []
+                credits: [],
+                money_in: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ]
             ]
             main_actions = [
                 content_type : 'complete',
@@ -944,6 +965,10 @@ trackTests {
                         tracking_id: "1004194"
                     ]
                 ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }
@@ -970,7 +995,11 @@ trackTests {
                     quantity: 9
                 ],
                 assets: [],
-                credits: []
+                credits: [],
+                money_in: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ]
             ]
             main_actions = [
                 content_type : 'complete',
@@ -1068,6 +1097,10 @@ trackTests {
                         tracking_id: "1004194"
                     ]
                 ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }

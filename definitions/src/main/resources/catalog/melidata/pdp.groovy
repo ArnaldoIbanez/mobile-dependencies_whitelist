@@ -166,6 +166,12 @@ tracks {
         //Alternative Buying Options - BBW Alternatives
         alternative_buying_options(required: false, type: PropertyType.ArrayList(PropertyType.Map(alternative_buying_option_definition)), description: "Alternative Buying Options - BBW Alternatives")
 
+        // Stock
+        stock_type(required: false, type: PropertyType.String, inheritable: false, values: ["normal", "deferred"], description: "Indicates the type of stock for the product (normal = immediate stock, deferred = within x days)")
+        stock_deferred_time(required: false, type: PropertyType.Numeric, inheritable: false, description: "Amount of days when the product will have available stock. Will only be used when stock_type = deferred")
+
+        // General
+        pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
@@ -338,7 +344,7 @@ tracks {
     }
 
     "/pdp/sellers"(platform: "/", parentPropertiesInherited: false) {
-        catalog_parent_id(required: true, type: PropertyType.String, description: "Product ID")
+        catalog_parent_id(required: false, type: PropertyType.String, description: "Product ID")
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")

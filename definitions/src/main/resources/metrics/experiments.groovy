@@ -287,9 +287,31 @@ metrics {
 		}
 	}
 
+	"vip_buys_qadb_domains"(description: "Track buys only in qadb-enabled domains") {
+		startWith {
+			experiment("qadb/qadb-on-vip")
+		}
+
+		countsOn {
+			condition {
+				and(
+						or(
+								and(
+										equals("path", "/orders/ordercreated"),
+										equals("event_data.is_carrito", false),
+
+								),
+								equals("path", "/purchases/purchasecreated"),
+						),
+						like('event_data.items.item.category_path', '.*MLA(398582|1387|1676).*')
+				)
+			}
+		}
+	}
+
 	"pdp_questions_qadb"(description: "Track PDP questions of users in QADB experiment") {
 		startWith {
-			experiment("qadb/qadb-on")
+			experiment(regex("qadb/(qadb-on|qadb-on-viewport)"))
 		}
 
 		countsOn {
@@ -308,7 +330,7 @@ metrics {
 
 	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment", compute_order: true) {
 		startWith {
-			experiment("qadb/qadb-on")
+			experiment(regex("qadb/(qadb-on|qadb-on-viewport)"))
 		}
 
 		countsOn {
@@ -398,4 +420,49 @@ metrics {
 		}
 	}
 
+	"buys_sparkle_toys"(description: "Track buys only in toys domain for Sparkle exp") {
+		startWith {
+			experiment("sparkle/redirects")
+		}
+
+		countsOn {
+			condition {
+				and(				
+					like('event_data.items.item.category_path', '.*ML(A|M)1132.*'),
+					or(
+						and(
+							equals("path", "/orders/ordercreated"),
+							equals("event_data.is_carrito", false)
+						),
+						and(
+							equals("path","/purchases/purchasecreated")
+						)
+					)
+				)
+			}
+		}
+	}
+
+	"buys_sparkle_fashion"(description: "Track buys only in fashion domain for Sparkle exp") {
+		startWith {
+			experiment("sparkle/moda")
+		}
+
+		countsOn {
+			condition {
+				and(				
+					like('event_data.items.item.category_path', '.*ML(A|M)1430.*'),
+					or(
+						and(
+							equals("path", "/orders/ordercreated"),
+							equals("event_data.is_carrito", false)
+						),
+						and(
+							equals("path","/purchases/purchasecreated")
+						)
+					)
+				)
+			}
+		}
+	}
 }

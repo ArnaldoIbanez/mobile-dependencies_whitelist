@@ -46,6 +46,14 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/cellphone_recharge/contingency"(platform: "/mobile", type: TrackType.View) {
+        company_id (required: true, type: PropertyType.String, description: "Company with contingency")
+    }
+
+    "/cellphone_recharge/understood_contingency"(platform: "/mobile", type: TrackType.Event) {
+        company_id (required: true, type: PropertyType.String, description: "Company with contingency")
+    }
+
     "/cellphone_recharge/confirm"(platform: "/web"){}
 
     // Cellphone Recharge Frontend

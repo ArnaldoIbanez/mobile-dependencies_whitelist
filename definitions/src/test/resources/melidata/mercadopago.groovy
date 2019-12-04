@@ -1121,6 +1121,70 @@ trackTests {
         }
     }
 
+    test("Services Marketing landings") {
+        "/services/mkt_landing"(platform: "/web"){
+            campaign = "generic"
+        }
+        "/services/mkt_landing"(platform: "/web"){
+            campaign = "personal"
+        }
+        "/services/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/services/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/services/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+        "/services/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "footer"
+        } 
+    }
+
+    test("QR Payers Marketing landings") {
+        "/qr_payers/mkt_landing"(platform: "/web"){
+            campaign = "generic"
+        }
+        "/qr_payers/mkt_landing"(platform: "/web"){
+            campaign = "personal"
+        }
+        "/qr_payers/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "footer"
+        } 
+    }
+
     test("MP MLA/MLB/MLM Landing Bundles Point") {
         "/point/landings/landing_bundles_buy"(platform: "/", type: TrackType.Event) {
             quantity = 5
@@ -3233,36 +3297,102 @@ trackTests {
         }
     }
 
-    test("Screenlock") {
+    test("Screenlock config") {
         "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
             os_status = "biometrics"
             enrollment_status = "enabled"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
             os_status = "basic_screenlock"
             enrollment_status = "enabled"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
+            config_name = "opening_lock"
+            action = "enable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
+            config_name = "transaction"
+            action = "enable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "disabled"
             os_status = "biometrics"
+            config_name = "transaction"
+            action = "enable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "disabled"
             os_status = "biometrics"
+            config_name = "transaction"
+            action = "enable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
+    }
+
+    test("Screenlock app opening lock feature") {
+        
+        "/screenlock/opening_lock"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/opening_lock"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/opening_lock/retry"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/opening_lock/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/opening_lock/logout"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
+        "/screenlock/opening_lock/logout"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+        }
+
     }
 
     test("Push Notification") {

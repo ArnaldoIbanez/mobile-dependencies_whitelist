@@ -4,6 +4,10 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    def qadb_info_definition = objectSchemaDefinitions {
+        results(required:false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
+    }
+
     propertyDefinitions {
         cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)")
@@ -82,6 +86,8 @@ tracks {
         return_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has free return for the item")
         has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
+        stock_type(required: false, type: PropertyType.String, inheritable: false, values: ["normal", "deferred"], description: "Indicates the type of stock for the product (normal = immediate stock, deferred = within x days)")
+        stock_deferred_time(required: false, type: PropertyType.Numeric, inheritable: false, description: "Amount of days when the product will have available stock. Will only be used when stock_type = deferred")
         
         // CART
         add_cart_info
@@ -120,6 +126,9 @@ tracks {
         // PAYMENT
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
 
+        //QADB
+        qadb_info(required: false, type: PropertyType.Map(qadb_info_definition), description: "Tracking info for QADB component.")
+
         // SHIPPING
         shipping_info 
 
@@ -147,6 +156,8 @@ tracks {
     
         quantity_models(required: false, type: PropertyType.Numeric, description: "Quantity models real estate developments")
 
+        // ITEM_ATTRIBUTES
+        item_attributes(required: false, type: PropertyType.String, description: "attributes of the item: discount, promotion, stock, cbt type")
 
     }
 
@@ -358,6 +369,8 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         event_source(required: true, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        catalog_listing(required: false, PropertyType.Boolean, description: "Item is catalog_listing or not")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
     }
 
     "/vip/contact_whatsapp"(platform: "/web", type: TrackType.Event) {
@@ -462,6 +475,11 @@ tracks {
     "/vip/captcha_showed"(platform: "/web", type: TrackType.Event) {
     }
 
+    "/vip/question/ask"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
+
+    "/vip/question/ask/prevent_stock"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true)
+    }
 
     //TODO chequear con mobile estos tracks
     //  DESCRIPTION

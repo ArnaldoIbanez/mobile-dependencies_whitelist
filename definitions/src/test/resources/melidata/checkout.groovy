@@ -1812,6 +1812,9 @@ trackTests {
             congrats_status = "APPROVED"
             token_generated_with_esc = "NO"
         }
+        "/checkout/congrats/pay_with_another"(platform: "/", type:  TrackType.Event){}
+        "/checkout/congrats/pay_now"(platform: "/", type:  TrackType.Event){}
+        "/checkout/congrats/use_now"(platform: "/", type:  TrackType.Event){}
 
     }
 
@@ -1842,6 +1845,52 @@ trackTests {
                     "currency_id": "ARS"
             ]
         }
+
+        "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
+        "/checkout/garex/delete"(platform:"/mobile", type: TrackType.Event) {
+                    category_l1 = [ "MLA1051"]
+                    category_l2 = [ "MLA1051", "MLA1055"]
+                    business = "marketplace"
+                    page_vertical = "core"
+                    listing_type = "gold_special"
+                    item_id = "MLA817493981"
+                    item_condition = "used"
+                    store_type = "normal"
+                    loyalty_level = 1
+                    reputation_level = "2_orange"
+                    fulfillment = true
+                    available_consumer_credit = "NO"
+                    category_domain = "MLA-CELLPHONES"
+                    checkout_flow = "direct"
+                    products_quantity = 1
+                    item_attributes = "discount"
+                    context = "vip"
+                    collector_id = "84586819"
+                    collector_nickname = "FB MARKET"
+        }
+        "/checkout/garex/selected_garex"(platform:"/mobile", type: TrackType.Event) {
+                    category_l1 = [ "MLA1051"]
+                    category_l2 = [ "MLA1051", "MLA1055"]
+                    business = "marketplace"
+                    page_vertical = "core"
+                    listing_type = "gold_special"
+                    item_id = "MLA817493981"
+                    item_condition = "used"
+                    store_type = "normal"
+                    loyalty_level = 1
+                    reputation_level = "2_orange"
+                    fulfillment = true
+                    available_consumer_credit = "NO"
+                    category_domain = "MLA-CELLPHONES"
+                    checkout_flow = "direct"
+                    products_quantity = 1
+                    item_attributes = "discount"
+                    context = "vip"
+                    collector_id = "84586819"
+                    collector_nickname = "FB MARKET"
+        }
+        "/checkout/garex/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {}
+        "/checkout/garex/more_info"(platform:"/mobile", type: TrackType.Event) {}
     }
 
     test("checkout payment combination inconsistencies") {
@@ -2167,6 +2216,9 @@ trackTests {
         "/checkout/shipping/select_option"(platform:"/web", dataSet)
         "/checkout/shipping/input_zipcode"(platform:"/web", dataSet)
         "/checkout/shipping/input_zipcode/i_dont_know_my_cp"(platform:"/web", dataSet)
+        //Address Hub
+        "/checkout/shipping/delivery_instructions"(platform:"/",dataSet)
+        "/checkout/shipping/address_hub"(platform:"/", dataSet)
         // Addresses
         // Page
         "/checkout/shipping/input_address"(platform:"/mobile", dataSet)

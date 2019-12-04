@@ -25,7 +25,6 @@ trackTests {
     test("Start of creation of a role for the new operator" ) {
         "/collaborators_admin/roles"(platform:"/web", type: TrackType.View) {}
         "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
-            email = 'colaborador@owner.io'
             segmentation = 'first_stage'
         }
         "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View) {}
@@ -101,7 +100,6 @@ trackTests {
     test("Start of creation of a role for the new operator" ) {
         "/collaborators_admin/roles"(platform:"/web", type: TrackType.View) {}
         "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
-            email = 'colaborador@owner.io'
             segmentation = 'first_stage'
         }
         "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View) {}

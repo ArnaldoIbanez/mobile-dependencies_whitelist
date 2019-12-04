@@ -1,5 +1,4 @@
-SELECT 
-    substr(ds,1,10) as Fecha, 
+SELECT
     application.site_id as Site,
     application.business AS Business,
     jest(event_data, 'vertical') as Vertical,
@@ -15,7 +14,8 @@ SELECT
           THEN jest(event_data, 'item_condition') = 'new'
     END) as is_new_billboard,
     count(distinct (concat(usr.uid,'-',jest(event_data,'item_id')))) as Cantidad,
-    count(*) as Cantidad_total_bb
+    count(*) as Cantidad_total_bb,
+    substr(ds,1,10) as ds
   FROM TRACKS
   WHERE
     jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE', 'MOTOR', 'MOTORCYCLE', 'motors', 'SERVICE', 'services')

@@ -5,14 +5,14 @@
   ],
   "process_name": "billboard-events-by-users",
   "cron": "00 10 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
+  },
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "Fecha",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "Site",
         "type": "UNICODE_STRING"
