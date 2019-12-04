@@ -420,9 +420,9 @@ metrics {
 		}
 	}
 
-	"buys_sparkle_toys"(description: "Track buys only in toys domain for Sparkle exp") {
+	"buys_sparkle_toys"(description: "Track buys only in toys domain for Sparkle exp", compute_order: true) {
 		startWith {
-			experiment("sparkle/redirects")
+			experiment(regex("sparkle/.*"))
 		}
 
 		countsOn {
@@ -443,9 +443,9 @@ metrics {
 		}
 	}
 
-	"buys_sparkle_fashion"(description: "Track buys only in fashion domain for Sparkle exp") {
+	"buys_sparkle_fashion"(description: "Track buys only in fashion domain for Sparkle exp", compute_order: true) {
 		startWith {
-			experiment("sparkle/moda")
+			experiment(regex("sparkle/.*"))
 		}
 
 		countsOn {
