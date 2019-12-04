@@ -773,6 +773,7 @@ tracks {
     "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/category_suggested/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/category_suggested/another_category"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {

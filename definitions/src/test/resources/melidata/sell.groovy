@@ -783,6 +783,16 @@ trackTests {
             seller_reputation = "green"
         }
     }
+    test("SYI v4 category suggested click another category"){
+        "/sell/item_data/category_suggested/another_category"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            item_type = "default"
+            seller_reputation = "green"
+        }
+    }
     test("SYI v4 category card showed"){
         "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
