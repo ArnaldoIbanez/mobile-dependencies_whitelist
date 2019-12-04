@@ -160,12 +160,6 @@ tracks {
     }
 
     "/mercado_shops/admin/sidebar/contact"(platform: "/", type: TrackType.Event){
-        phone_visible(required: false, type: PropertyType.Boolean, description: "phone visibility original")
-        email_visible(required: false, type: PropertyType.Boolean, description: "email visibility original")
-        address_visible(required: false, type: PropertyType.Boolean, description: "address visibility original")
-        phone_visible_new(required: false, type: PropertyType.Boolean, description: "phone visibility original")
-        email_visible_new(required: false, type: PropertyType.Boolean, description: "email visibility new")
-        address_visible_new(required: false, type: PropertyType.Boolean, description: "address visibility original")
         street(required: true, type: PropertyType.String, description: "New street")
         number(required: true, type: PropertyType.String, description: "New street number")
         city(required: true, type: PropertyType.String, description: "New city name")
