@@ -439,6 +439,12 @@ tracks {
                 description: "source of the event")
     }
 
+    "/vip/question/show"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String)
+        catalog_product_id(required: true, type: PropertyType.String)
+
+    }
+
     "/vip/question_intention"(platform: "/web", type: TrackType.Event) {
         unregistered_contact(required: true, type: PropertyType.Boolean,
                 description: "User is unregister type")
