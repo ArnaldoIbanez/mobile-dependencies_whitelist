@@ -452,6 +452,10 @@ tracks {
                 description: "source of the event")
     }
 
+    "/vip/questions"(parentPropertiesInherited: false, isAbstract: true){
+
+    }
+
     "/vip/questions/show"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String)
         catalog_product_id(required: false, type: PropertyType.String)
