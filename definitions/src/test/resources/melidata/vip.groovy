@@ -590,6 +590,11 @@ trackTests {
             unregistered_contact_context = false
             event_source= "description"
         }
+
+        "/vip/questions/show"(platform: "/", type: TrackType.View) {
+            item_id = "MLA213512313"
+            catalog_product_id="MLA123456"
+        }
     }
 
     test("New Shipping calculator"){
