@@ -171,7 +171,7 @@ tracks {
         stock_deferred_time(required: false, type: PropertyType.Numeric, inheritable: false, description: "Amount of days when the product will have available stock. Will only be used when stock_type = deferred")
 
         // General
-        pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of vpp")
+        pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
