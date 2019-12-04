@@ -23,6 +23,12 @@ tracks {
         priority(type: PropertyType.Numeric, required: true, description: "The discount brand priority")
         collector_id(type: PropertyType.Numeric, required: false, description: "The discount collector id")
     }
+
+    def section_definition = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "The section identifier")
+        type(type: PropertyType.String, required: true, description: "The section type")
+        position(type: PropertyType.Numeric, required: true, description: "The position of the section in the list")
+    }
 	
     "/discount_center" (platform: "/mobile", isAbstract: true) {}
     "/discount_center/payers" (platform: "/mobile", isAbstract: true) {}
@@ -41,6 +47,20 @@ tracks {
 
     "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
       tracking_id(required: true, type: PropertyType.String, description: "Tracking id of the presented detail")
+    }
+
+    "/discount_center/payers/detail/show" (platform: "/mobile", type: TrackType.Event) {
+        name(required: true, type: PropertyType.String, description: "The brand name")
+        enabled(required: true, type: PropertyType.Boolean, description: "If the discount can be consumed or not")
+        availability(required: true, type: PropertyType.String, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status of the discount")
+        level(required: true, type: PropertyType.Numeric, description: "The discount level")
+        blocked(required: true, type: PropertyType.Boolean, description: "If the discount is not available for the user level")
+        amount(required: true, type: PropertyType.Numeric, description: "The discount campaign amount")
+        amount_type(required: true, type: PropertyType.String,  values: ['fixed', 'percentage'], description: "The amount type")
+        status(required: true, type: PropertyType.String, values: ['active', 'inactive', 'finished'], description: "The discount campaign status")
+        stores_id(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "A list of stores who are in a nearby radius")
+        sections(required: true, type: PropertyType.ArrayList(section_definition), description: "Sections shown in the list")
+        tracking_id(required: true, type: PropertyType.String, description: "Tracking id of the presented detail")
     }
 
     "/discount_center/payers/detail/share" (platform: "/mobile", type: TrackType.Event) {
