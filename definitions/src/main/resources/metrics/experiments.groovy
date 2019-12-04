@@ -287,7 +287,7 @@ metrics {
 		}
 	}
 
-	"vip_buys_qadb_domains"(description: "Track buys only in qadb-enabled domains") {
+	"vip_buys_qadb_domains"(description: "Track buys only in qadb-enabled domains", deprecation_date:"2019/12/10") {
 		startWith {
 			experiment("qadb/qadb-on-vip")
 		}
@@ -328,7 +328,7 @@ metrics {
 		}
 	}
 
-	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment", compute_order: true) {
+	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment", compute_order: true, deprecation_date:"2019/12/10") {
 		startWith {
 			experiment(regex("qadb/(qadb-on|qadb-on-viewport)"))
 		}
@@ -420,7 +420,7 @@ metrics {
 		}
 	}
 
-	"buys_sparkle_toys"(description: "Track buys only in toys domain for Sparkle exp") {
+	"buys_sparkle_toys"(description: "Track buys only in toys domain for Sparkle exp", deprecation_date:"2019/12/10") {
 		startWith {
 			experiment("sparkle/redirects")
 		}
@@ -443,7 +443,7 @@ metrics {
 		}
 	}
 
-	"buys_sparkle_fashion"(description: "Track buys only in fashion domain for Sparkle exp") {
+	"buys_sparkle_fashion"(description: "Track buys only in fashion domain for Sparkle exp", deprecation_date:"2019/12/10") {
 		startWith {
 			experiment("sparkle/moda")
 		}
