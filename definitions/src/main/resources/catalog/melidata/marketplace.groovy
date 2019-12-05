@@ -126,8 +126,8 @@ tracks {
     "/webkit" (platform: "/mobile", isAbstract: true){}
 
     "/webkit/deeplink_open"(platform: "/mobile", type:TrackType.Event) {
-        url(required:true, type: type: PropertyType.String, descripcion:"The url opening the deeplink")
-        deeplink(required: true, type: type: PropertyType.String, description: "the deeplink been opened")
+        url(required:true, type: PropertyType.String, descripcion:"The url opening the deeplink")
+        deeplink(required: true, type: PropertyType.String, description: "the deeplink been opened")
         opened(required: true, type: PropertyType.Boolean, description: "flag indicating if the deeplink exists in app")
     }
 
