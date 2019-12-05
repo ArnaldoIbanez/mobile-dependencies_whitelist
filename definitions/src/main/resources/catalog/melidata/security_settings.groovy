@@ -50,4 +50,8 @@ tracks {
         config_name(type: PropertyType.String, required: true, values: ["transaction", "opening_lock"], description: "Which screenlock configuration toggle was used")
         action(type: PropertyType.String, required: true, values: ["enable", "disable"], description: "action performed on config")
     }
+
+    "/security_settings/screenlock/toggle/modal"(platform: "/mobile", type: TrackType.View) {}
+
+    "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile", type: TrackType.Event) {}
 }
