@@ -50,15 +50,15 @@ trackTests {
 
     test("Mercado Pago discount center payers detail show") {
         "/discount_center/payers/detail/show" (platform: "/mobile", type: TrackType.Event) {
-            name= "Angus"
-            enabled= true
-            availability= "full"
-            level= 1
-            blocked= false
-            amount= 20.0
-            amount_type= "percent"
-            status= "active"
-            stores_id= [
+            name = "Angus"
+            enabled = true
+            availability = "full"
+            level = 1
+            blocked = false
+            amount = 20.0
+            amount_type = "percent"
+            status = "active"
+            stores_id = [
                     30091700
             ]
             sections= [
