@@ -800,6 +800,7 @@ trackTests {
             seller_reputation = "green"
             title_predicted = "celular"
             categorization_flow_successful = false
+            chosen_categorization_model = "ZORDON"
         }
     }
     test("SYI v4 category card showed"){
