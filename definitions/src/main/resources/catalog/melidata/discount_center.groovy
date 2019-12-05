@@ -38,9 +38,9 @@ tracks {
     }
 
     "/discount_center/payers/list/tap_filter" (platform: "/mobile", type: TrackType.Event) {
-        filter_id(required: false, type: PropertyType.String, description: "The filter identifier")
-        index(required: false, type: PropertyType.Numeric, description: "The filter position")
-        action(required: false, type: PropertyType.String, description: "The filter state")
+        filter_id(required: true, type: PropertyType.String, description: "The filter identifier")
+        index(required: true, type: PropertyType.Numeric, description: "The filter position")
+        action(required: true, type: PropertyType.String, description: "The filter state")
     }
 
     // DETAIL
