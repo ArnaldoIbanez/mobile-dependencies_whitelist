@@ -186,6 +186,8 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        catalog_listing(required: false, PropertyType.Boolean, description: "Item is catalog_listing or not")
+        review_rate(required: false, type: PropertyType.Numeric, description: "The rating average of the reviews")
     }
 
     "/vip/abort"(platform: "/mobile", type: TrackType.Event) {}

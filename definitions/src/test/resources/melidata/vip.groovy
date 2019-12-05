@@ -798,6 +798,8 @@ trackTests {
             deal_ids = []
             item_seller_type = "normal"
             from_view = "unitsAvailable"
+            catalog_listing = false
+            review_rate=-1
         }
 
         "/vip/buy_action"(platform: "/web", type: TrackType.View) {
