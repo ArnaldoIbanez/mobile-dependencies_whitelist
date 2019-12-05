@@ -1077,6 +1077,87 @@ trackTests {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
         }
 
+        // Buyer QR
+
+        "/instore/buyer_qr/buyer_qr"(platform: "/mobile", type: TrackType.View) {
+            code_type = "qr_code"
+            payment_methods_enabled = true
+            payment_method_preselected_id = "account_money"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/switch_code"(platform: "/mobile", type: TrackType.Event) {
+            code_type = "qr_code"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/refresh_code"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/swipe_up"(platform: "/mobile", type: TrackType.Event) {
+            view_time_in_millis = 140
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/swipe_down"(platform: "/mobile", type: TrackType.Event) {
+            view_time_in_millis = 140
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/payment_method_selected"(platform: "/mobile", type: TrackType.Event) {
+            payment_method_id = "account_money"
+            payment_method_disabled = false
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        //Buyer QR - FTU/Landings
+
+        "/instore/buyer_qr/landing/brief"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/landing/no_seed"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/landing/codes_expired"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/button_pressed"(platform: "/mobile", type: TrackType.Event) {
+            button_type = "show_codes"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/landing/funding_mandatory"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/landing/funding_mandatory_ftu"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/landing/account_money_only"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        //Buyer QR - Generic Error
+
+        "/instore/buyer_qr/generic_landing"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        //Buyer QR - Congrats
+
+        "/instore/buyer_qr/congrats"(platform: "/mobile", type: TrackType.View) {
+            status = "success"
+            amount_paid = "160"
+	        item_amount = "200"
+	        payment_method_name = "Dinero en Mercado Pago"
+            payment_method_id = ""
+            currency_id =  "ARS"
+            payment_date = "12/07/07:23.55.32hs"
+	        payment_id = "1879867544"
+	        collector_name = "Oxxo"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        "/instore/buyer_qr/congrats"(platform: "/mobile", type: TrackType.View) {
+            status = "failure"
+            collector_name = "Oxxo"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+   
         //Instore home sections
         "/instore/home_sections/promotion/generic/show"(platform: "/mobile", type: TrackType.View) {
             header_title = "Any title"
@@ -2171,6 +2252,87 @@ trackTests {
 
         "/instore/my_qr"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
+        }
+
+        // Buyer QR
+
+        "/instore/buyer_qr/buyer_qr"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            code_type = "qr_code"
+            payment_methods_enabled = true
+            payment_method_preselected_id = "account_money"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/switch_code"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            code_type = "qr_code"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/refresh_code"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/swipe_up"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            view_time_in_millis = 140
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/swipe_down"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            view_time_in_millis = 140
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/payment_method_selected"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            payment_method_id = "account_money"
+            payment_method_disabled = false
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        //Buyer QR - FTU/Landings
+
+        "/instore/buyer_qr/landing/brief"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/landing/no_seed"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/landing/codes_expired"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/button_pressed"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            button_type = "show_codes"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/landing/funding_mandatory"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/landing/funding_mandatory_ftu"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/buyer_qr/landing/account_money_only"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        //Buyer QR - Generic Error
+
+        "/instore/buyer_qr/generic_landing"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        //Buyer QR - Congrats
+
+        "/instore/buyer_qr/congrats"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            status = "success"
+            amount_paid = "160"
+	        item_amount = "200"
+	        payment_method_name = "Dinero en Mercado Pago"
+            payment_method_id = ""
+            currency_id =  "ARS"
+            payment_date = "12/07/07:23.55.32hs"
+	        payment_id = "1879867544"
+	        collector_name = "Oxxo"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        "/instore/buyer_qr/congrats"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            status = "failure"
+            collector_name = "Oxxo"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
     }
 
