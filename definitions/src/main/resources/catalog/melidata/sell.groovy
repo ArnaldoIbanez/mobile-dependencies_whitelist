@@ -386,6 +386,8 @@ tracks {
     "/sell/list/warranty_time"(platform: "/", type: TrackType.View) {}
     "/sell/list/warranty_type_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/warranty_time_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/warranty_type_condition_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/warranty_time_condition_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/whatsapp_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {}
@@ -585,6 +587,8 @@ tracks {
     "/sell/update/warranty_time_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/warranty_type_catalog"(platform: "/", type: TrackType.View) {}
     "/sell/update/warranty_time_catalog"(platform: "/", type: TrackType.View) {}
+    "/sell/update/warranty_type_force_change"(platform: "/", type: TrackType.View) {}
+    "/sell/update/warranty_time_force_change"(platform: "/", type: TrackType.View) {}
     "/sell/update/whatsapp"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/updateing_types"(platform: "/", type: TrackType.View) {}
     "/sell/update/updateing_types_review"(platform: "/", type: TrackType.View) {}
