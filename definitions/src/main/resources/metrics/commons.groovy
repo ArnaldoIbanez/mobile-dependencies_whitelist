@@ -271,7 +271,7 @@ metrics {
 		}
 	}
 
-	"pdp_buys"(description: "Track PDP buys", compute_order: true) {
+	"pdp_buys"(description: "Track PDP buys", compute_order: true, deprecation_date:"2019/12/10") {
 		countsOn {
 			condition {
 				or(
