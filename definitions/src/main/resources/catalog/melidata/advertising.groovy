@@ -190,28 +190,29 @@ tracks {
 
     //SLL
     "/advertising/pads2/manager/card/sll"(platform: "/web", type: TrackType.View) {
-        sll_total(required: false, description: "Indicates the number total of sll")
         campaign_id(required: true, description: "Id related to the campaign")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
     }
 
     "/advertising/pads2/manager/card/sll"(platform: "/web", type: TrackType.Event) {
-        sll_total(required: false, description: "Indicates the number total of sll")
         campaign_id(required: true, description: "Id related to the campaign")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
     }
 
     "/advertising/pads2/manager/ssl/landing"(platform: "/web", type: TrackType.View) {
-        sll_total(required: false, description: "Indicates the number total of sll")
         campaign_id(required: true, description: "Id related to the campaign")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
     }
 
     "/advertising/pads2/manager/ssl/landing/activated"(platform: "/web", type: TrackType.Event) {
-        sll_total_activated(required: false, description: "Indicates the number total of sll activated")
         campaign_id(required: true, description: "Id related to the campaign")
+        sll_total_activated(required: false, type: PropertyType.String, description: "Indicates the number total of sll activated")
     }
 
     "/advertising/pads2/manager/ssl/landing/breadcrumb"(platform: "/web", type: TrackType.Event) {
-        sll_total(required: true, description: "Indicates the number total of sll")
         campaign_id(required: true, description: "Id related to the campaign")
+        sll_total(required: true, type: PropertyType.String, description: "Indicates the number total of sll")
+
     }
 
 }
