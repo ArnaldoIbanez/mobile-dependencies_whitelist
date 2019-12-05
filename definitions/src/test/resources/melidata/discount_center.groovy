@@ -44,12 +44,6 @@ trackTests {
 
     test("Mercado Pago discount center payers detail") {
         "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
-            tracking_id= "1004194"
-        }
-    }
-
-    test("Mercado Pago discount center payers detail show") {
-        "/discount_center/payers/detail/show" (platform: "/mobile", type: TrackType.Event) {
             name = "Angus"
             enabled = true
             availability = "full"
@@ -74,6 +68,24 @@ trackTests {
 
     test("Mercado Pago discount center payers detail share") {
         "/discount_center/payers/detail/share" (platform: "/mobile", type: TrackType.Event) {
+            name = "Angus"
+            enabled = true
+            availability = "full"
+            level = 1
+            blocked = false
+            amount = 20.0
+            amount_type = "percent"
+            status = "active"
+            stores_id = [
+                    30091700
+            ]
+            sections= [
+                    [
+                        id: "header",
+                        type: "header",
+                        position: 0
+                    ]
+            ]
             tracking_id= "1004194"
         }
     }

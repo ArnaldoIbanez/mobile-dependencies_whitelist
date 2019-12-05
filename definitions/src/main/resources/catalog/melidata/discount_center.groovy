@@ -46,10 +46,6 @@ tracks {
     // DETAIL
 
     "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
-      tracking_id(required: true, type: PropertyType.String, description: "Tracking id of the presented detail")
-    }
-
-    "/discount_center/payers/detail/show" (platform: "/mobile", type: TrackType.Event) {
         name(required: false, type: PropertyType.String, description: "The brand name")
         enabled(required: true, type: PropertyType.Boolean, description: "If the discount can be consumed or not")
         availability(required: false, type: PropertyType.String, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status of the discount")
@@ -64,9 +60,7 @@ tracks {
         tracking_id(required: true, type: PropertyType.String, description: "Tracking id of the presented detail")
     }
 
-    "/discount_center/payers/detail/share" (platform: "/mobile", type: TrackType.Event) {
-      tracking_id(required: true, type: PropertyType.String, description: "Tracking id of the presented detail")
-    }
+    "/discount_center/payers/detail/share" (platform: "/mobile", type: TrackType.Event) {}
 
     // LOCATION REQUEST
 
