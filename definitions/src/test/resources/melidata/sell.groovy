@@ -772,15 +772,22 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
         }
     }
-    test("SYI v4 category suggested card showed"){
+    test("SYI v4 category suggested card confirmed"){
         "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            confirm_category_detail = "not_present"
         }
     }
     test("SYI v4 category suggested click another category"){
@@ -800,6 +807,9 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
         }
     }
     test("SYI v4 category card confirmed"){
@@ -823,6 +833,9 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
         }
     }
     test("SYI v4 product resume card showed"){
