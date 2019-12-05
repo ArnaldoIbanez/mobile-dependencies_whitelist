@@ -798,6 +798,8 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            title_predicted = "celular"
+            categorization_flow_successful = false
         }
     }
     test("SYI v4 category card showed"){
