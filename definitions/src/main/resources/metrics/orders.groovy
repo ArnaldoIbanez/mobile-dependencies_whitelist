@@ -442,50 +442,6 @@ metrics {
 		}
 	}
 
-	"buys.pdp|qadb"(description: "Track buys of users in QADB experiment", compute_order: true) {
-		startWith {
-			experiment(regex("qadb/(qadb-on|qadb-on-viewport)"))
-		}
-
-		countsOn {
-			condition {
-				or(
-						and(
-								equals("path", "/orders/ordercreated"),
-								equals("event_data.is_carrito", false),
-								equals('event_data.is_pdp',true)
-						),
-						and(
-								equals("path","/purchases/purchasecreated"),
-								equals('event_data.is_pdp',true)
-						)
-				)
-			}
-		}
-	}
-
-	"buys.vip|qadb_domains"(description: "Track buys only in qadb-enabled domains") {
-		startWith {
-			experiment("qadb/qadb-on-vip")
-		}
-
-		countsOn {
-			condition {
-				and(
-						or(
-								and(
-										equals("path", "/orders/ordercreated"),
-										equals("event_data.is_carrito", false),
-
-								),
-								equals("path", "/purchases/purchasecreated"),
-						),
-						like('event_data.items.item.category_path', '.*MLA(398582|1387|1676).*')
-				)
-			}
-		}
-	}
-
 	"buys.pdp"(description: "Track PDP buys", compute_order: true) {
 		countsOn {
 			condition {
