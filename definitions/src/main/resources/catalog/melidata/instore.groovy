@@ -178,7 +178,7 @@ tracks {
         collector_id(required: false, PropertyType.String, description: "collector user unique identifier")
         brand_name(required: false, PropertyType.String, description: "collector brand name")
         store_id(required: false, PropertyType.String, description: "collector store unique identifier")
-        pos_id(required: false, PropertyType.String, description: "collector user unique identifier")
+        pos_id(required: false, PropertyType.String, description: "collector point of sale unique identifier")
         qr_data(required: true, PropertyType.String, inheritable: false, description: "data scanned on the payment flow")
     }
     "/ask_device_permission/bluetooth_authorized/back"(platform: "/mobile", type: TrackType.Event) {}
