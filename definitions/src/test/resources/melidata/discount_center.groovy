@@ -11,7 +11,9 @@ trackTests {
     // LIST
 
     test("Mercado Pago discount center payers list") {
-        "/discount_center/payers/list" (platform: "/mobile", type: TrackType.View) {}
+        "/discount_center/payers/list" (platform: "/mobile", type: TrackType.View) {
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
     }
 
     test("Mercado Pago discount center payers list show") {
@@ -37,6 +39,7 @@ trackTests {
                 "gastronomy",
                 "bars"
             ]
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
 
@@ -45,28 +48,35 @@ trackTests {
     test("Mercado Pago discount center payers detail") {
         "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
             tracking_id= "1004194"
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
 
     test("Mercado Pago discount center payers detail share") {
         "/discount_center/payers/detail/share" (platform: "/mobile", type: TrackType.Event) {
             tracking_id= "1004194"
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
 
     // REQUEST LOCATION
 
     test("Mercado Pago discount center payers request location") {
-        "/discount_center/payers/request_location" (platform: "/mobile", type: TrackType.View) {}
+        "/discount_center/payers/request_location" (platform: "/mobile", type: TrackType.View) {
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
     }
 
     test("Mercado Pago discount center payers request location event") {
         "/discount_center/payers/request_location/result" (platform: "/mobile", type: TrackType.Event) {
             result= "enabled"
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
 
     test("Mercado Pago discount center payers request location back") {
-        "/discount_center/payers/request_location/back" (platform: "/mobile", type: TrackType.Event) {}
+        "/discount_center/payers/request_location/back" (platform: "/mobile", type: TrackType.Event) {
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
     }
 }

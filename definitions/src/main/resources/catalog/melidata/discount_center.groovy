@@ -29,7 +29,9 @@ tracks {
 
     // LIST
 
-    "/discount_center/payers/list" (platform: "/mobile", type: TrackType.View) {}
+    "/discount_center/payers/list" (platform: "/mobile", type: TrackType.View) {
+      session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+    }
 
     "/discount_center/payers/list/show" (platform: "/mobile", type: TrackType.Event) {
       items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the list")
@@ -40,16 +42,17 @@ tracks {
     // DETAIL
 
     "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
+      session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
       tracking_id(required: true, type: PropertyType.String, description: "Tracking id of the presented detail")
     }
 
-    "/discount_center/payers/detail/share" (platform: "/mobile", type: TrackType.Event) {
-      tracking_id(required: true, type: PropertyType.String, description: "Tracking id of the presented detail")
-    }
+    "/discount_center/payers/detail/share" (platform: "/mobile", type: TrackType.Event) {}
 
     // LOCATION REQUEST
 
-    "/discount_center/payers/request_location" (platform: "/mobile", type: TrackType.View) {}
+    "/discount_center/payers/request_location" (platform: "/mobile", type: TrackType.View) {
+      session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+    }
 
     "/discount_center/payers/request_location/result" (platform: "/mobile", type: TrackType.Event) {
       result(required: true, type: PropertyType.String, values: ['enabled','disabled'] )
