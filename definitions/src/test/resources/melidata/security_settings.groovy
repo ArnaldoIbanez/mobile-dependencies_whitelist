@@ -119,7 +119,7 @@ trackTests {
             ]
         }
 
-                "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.Event) {
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config_name = "opening_lock"

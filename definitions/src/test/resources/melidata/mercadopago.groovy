@@ -3360,7 +3360,7 @@ trackTests {
             ]
         }
 
-        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.Event) {
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config_name = "opening_lock"
@@ -3371,7 +3371,7 @@ trackTests {
             ]
         }
 
-        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/ios", type: TrackType.Event) {
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config_name = "transaction"
@@ -3382,7 +3382,7 @@ trackTests {
             ]
         }
 
-        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.Event) {
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.View) {
             enrollment_status = "disabled"
             os_status = "biometrics"
             config_name = "transaction"
@@ -3393,7 +3393,7 @@ trackTests {
             ]
         }
 
-        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/ios", type: TrackType.Event) {
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "disabled"
             os_status = "biometrics"
             config_name = "transaction"
