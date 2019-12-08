@@ -6,18 +6,18 @@ metrics {
 
     "reservation"(description: "orders that belong to a are a reservation", compute_order: true) {
 	    
-   	startWith {
-		experiment(regex(classiExperiments))
-	}
-	    
-	countsOn {
-		condition {
-			and (
-				equals("path", "/orders/ordercreated"),
-				equals("event_data.reservation", true)	
-			)
+		startWith {
+			experiment(regex(classiExperiments))
 		}
-	}
+
+		countsOn {
+			condition {
+				and (
+					equals("path", "/orders/ordercreated"),
+					equals("event_data.reservation", true)
+				)
+			}
+		}
      }
 		
     "sell/full_relist_single_item"(description: "define properties for item_id at full_relist experiment") {
