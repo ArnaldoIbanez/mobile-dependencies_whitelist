@@ -192,6 +192,11 @@ trackTests {
             is_main_url = true
             version = "2"
         }
+
+        "/webkit/deeplink_open/error"(platform: "/mobile") {
+            url = "https://www.mercadolibre.com"
+            deeplink = "meli://host/path/to/landing"
+        }
     }
 
 

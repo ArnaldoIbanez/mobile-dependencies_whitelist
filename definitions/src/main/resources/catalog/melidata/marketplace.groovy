@@ -123,6 +123,14 @@ tracks {
                 descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
     }
 
+    "/webkit" (platform: "/mobile", isAbstract: true){}
+    "/webkit/deeplink_open"(platform: "/mobile", isAbstract: true) {}
+
+    "/webkit/deeplink_open/error"(platform: "/mobile", type:TrackType.Event) {
+        url(required:true, type: PropertyType.String, descripcion:"The url opening the deeplink")
+        deeplink(required: true, type: PropertyType.String, description: "the deeplink been opened")
+    }
+
     "/official_stores"(platform: "/web", isAbstract: true) {}
 
     "/official_stores/home"(platform: "/web", type: TrackType.View) {
