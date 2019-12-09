@@ -165,7 +165,7 @@ tracks {
         products_with_status
     }
 
-    "/credits/merchant/administrator/history"(platform:"/", type: TrackType.Event) {}
+    "/credits/merchant/administrator/history"(platform:"/", type: TrackType.View) {}
 
     "/credits/merchant/administrator/payment_history"(platform:"/", type: TrackType.View) {
         products_with_status
