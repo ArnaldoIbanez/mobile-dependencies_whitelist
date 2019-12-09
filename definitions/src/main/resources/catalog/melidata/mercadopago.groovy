@@ -43,6 +43,9 @@ tracks {
     "/blog/home"(platform: "/web") {
     }
 
+    "/application"(platform:"/mobile", isAbstract: true) {}
+    "/application/open"(platform:"/mobile", type: TrackType.Event) { }
+
     // MP Landings Scope
     "/landing"(platform: "/web", isAbstract: true) {}
 
