@@ -1100,4 +1100,14 @@ trackTests {
             item_id = "MLA792156560"
         }
     }
+
+    test("VIP back to listing event") {
+        "/vip/back_to_listing"(platform:"/web/desktop", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            domain_id = "MLA7192"
+            vertical = "core"
+        }
+    }
 }
