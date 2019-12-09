@@ -4,7 +4,7 @@
     "sessions_security@mercadolibre.com"
   ],
   "process_name": "screenlock",
-  "cron": "0 0 9 1/1 * ? *",
+  "cron": "00 09 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE"
