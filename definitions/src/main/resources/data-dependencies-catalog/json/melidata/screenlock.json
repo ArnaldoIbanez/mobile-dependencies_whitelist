@@ -1,0 +1,77 @@
+{
+  "users": [
+    "pablo.carle@mercadolibre.com",
+    "sessions_security@mercadolibre.com"
+  ],
+  "process_name": "screenlock",
+  "cron": "0 0 9 1/1 * ? *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "dia",
+        "type": "DATE",
+        "format": "yyyy-MM-dd"
+      },
+      {
+        "name": "user_id",
+        "type": "INTEGER"
+      },
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "device_platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "app_version",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "business",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "flow_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "enrollment_status",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "result",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "os_status",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "elapsed_time",
+        "type": "DOUBLE"
+      }
+    ],
+    "sql": {
+      "script": "auth/screenlock.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

@@ -1,11 +1,11 @@
 select
   substr(ds, 1, 10) as dia,
-  usr.user_id,
+  usr.user_id as user_id,
   path,
-  device.platform,
-  application.site_id,
-  application.version,
-  application.business,
+  device.platform as device_platform,
+  application.site_id as site_id,
+  application.version as app_version,
+  application.business as business,
   get_json_object(event_data, '$.flow_id') as flow_id,
   get_json_object(event_data, '$.enrollment_status') as enrollment_status,
   get_json_object(event_data, '$.result') as result,
@@ -32,4 +32,5 @@ from
        and device.platform in ('/mobile/android', '/mobile/ios')
        and application.version >= '2.93.0'
        and application.business = 'mercadopago'
+       and application.site_id in ('MLA','MLM','MLB')
    ) t1
