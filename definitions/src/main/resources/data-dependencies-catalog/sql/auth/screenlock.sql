@@ -1,5 +1,6 @@
 select
   substr(ds, 1, 10) as dia,
+  ds,
   usr.user_id as user_id,
   path,
   device.platform as device_platform,

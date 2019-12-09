@@ -5,6 +5,10 @@
   ],
   "process_name": "screenlock",
   "cron": "0 0 9 1/1 * ? *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [
