@@ -124,6 +124,7 @@ tracks {
     }
 
     "/webkit" (platform: "/mobile", isAbstract: true){}
+    "/webkit/deeplink_open"(platform: "/mobile", isAbstract: true) {}
 
     "/webkit/deeplink_open/error"(platform: "/mobile", type:TrackType.Event) {
         url(required:true, type: PropertyType.String, descripcion:"The url opening the deeplink")
