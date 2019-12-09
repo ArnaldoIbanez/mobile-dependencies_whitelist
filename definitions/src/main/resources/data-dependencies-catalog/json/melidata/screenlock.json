@@ -11,6 +11,7 @@
   },
   "extract": {
     "operation": "append",
+    "site": "MeliLake",
     "columns": [
       {
         "name": "dia",
