@@ -1237,6 +1237,7 @@ tracks {
     "/notification/messages_new"(platform: "/") {}
     "/notification/messages_read"(platform: "/") {}
     "/notification/messages_driver_logistics"(platform: "/") {}
+    "/notification/messages_driver_flex"(platform: "/") {}
     "/notification/messages_flex"(platform: "/") {}
     "/notification/messages_quotes"(platform: "/") {}
 
