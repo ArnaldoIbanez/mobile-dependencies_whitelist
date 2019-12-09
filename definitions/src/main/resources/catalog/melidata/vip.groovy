@@ -821,7 +821,7 @@ tracks {
     "/vip/back_to_listing"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        domain_id(required: true, type: PropertyType.String, description: "Item's domain id")
+        domain_id(required: false, type: PropertyType.String, description: "Item's domain id")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
