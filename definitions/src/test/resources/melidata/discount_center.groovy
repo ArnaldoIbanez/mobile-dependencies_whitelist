@@ -43,6 +43,14 @@ trackTests {
         }
     }
 
+    test("Mercado Pago discount center payers list tap filter") {
+        "/discount_center/payers/list/tap_filter" (platform: "/mobile", type: TrackType.Event) {
+            filter_id="Bar"
+            index=0
+            action="enabled"
+        }
+    }
+
     // DETAIL
 
     test("Mercado Pago discount center payers detail") {
