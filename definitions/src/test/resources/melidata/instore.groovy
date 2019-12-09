@@ -97,7 +97,7 @@ trackTests {
         }
         "/ask_device_permission/bluetooth_authorized"(platform: "/mobile", type: TrackType.View) {
             context = "/instore"
-            collector_id = "12356"
+            collector_id = "12345"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
