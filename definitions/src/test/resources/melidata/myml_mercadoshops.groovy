@@ -132,6 +132,7 @@ trackTests {
             shop_name = "Test Shop"
             ref = ""
             success = true
+            categories = ["category1", "category2", "category3", "category4"]
         }
         "/mercado_shops/admin/sidebar/collection"(platform: "/", type: TrackType.Event){
             shop_id = 158689680
