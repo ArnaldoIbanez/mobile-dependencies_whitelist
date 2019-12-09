@@ -56,10 +56,6 @@
       {
         "name": "elapsed_time",
         "type": "DOUBLE"
-      },
-      {
-        "name": "ds",
-        "type": "DATE"
       }
     ],
     "sql": {
