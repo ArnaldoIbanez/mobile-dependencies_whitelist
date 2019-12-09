@@ -60,7 +60,7 @@ metrics {
 		}
 	}
 
-	"orders_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+	"orders_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, deprecation_date:"2019/12/10") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -81,7 +81,28 @@ metrics {
 		}
 	}
 
-	"bids_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+	"orders.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and (
+						equals(
+								externalCondition {
+									url("internal/orders/\$0")
+									replace("event_data.order_id")
+									method("get")
+									successfulCodes(200,206)
+									jsonPath("status")
+								},
+								"paid"
+						),
+						equals("event_data.is_carrito", false)
+				)
+			}
+		}
+	}
+
+	"bids_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, deprecation_date:"2019/12/10") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -94,6 +115,24 @@ metrics {
 						jsonPath("status")
 					},
 					"paid"
+				)
+			}
+		}
+	}
+
+	"bids.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"paid"
 				)
 			}
 		}
@@ -123,7 +162,25 @@ metrics {
 		}
 	}
 
-	"orders_new_buyers"(description: "New buyers from feed", compute_order: true) {
+	"orders_new_buyers"(description: "New buyers from feed", compute_order: true, deprecation_date:"2019/12/10") {
+		countsOn {
+			condition {
+				or(
+						and (
+								equals("path", "/orders/ordercreated"),
+								equals("event_data.is_carrito", false),
+								equals("event_data.buyer_segment", "new_buyer")
+						),
+						and (
+								equals("path","/purchases/purchasecreated"),
+								equals("event_data.buyer_segment", "new_buyer")
+						)
+				)
+			}
+		}
+	}
+
+	"orders.new_buyers"(description: "New buyers from feed", compute_order: true) {
 		countsOn {
 			condition {
 				or(
@@ -141,7 +198,7 @@ metrics {
 		}
 	}
 	
-	"orders_inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
+	"orders_inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true, deprecation_date:"2019/12/10") {
 		countsOn {
 			condition {
 				or(
@@ -164,8 +221,32 @@ metrics {
 			}
 		}
 	}
+
+	"orders.inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
+		countsOn {
+			condition {
+				or(
+						and (
+								equals("path", "/orders/ordercreated"),
+								equals("event_data.is_carrito", false),
+								or(
+										equals("event_data.buyer_segment", "new_buyer"),
+										equals("event_data.buyer_segment", "recovered_buyer")
+								)
+						),
+						and (
+								equals("path","/purchases/purchasecreated"),
+								or(
+										equals("event_data.buyer_segment", "new_buyer"),
+										equals("event_data.buyer_segment", "recovered_buyer")
+								)
+						)
+				)
+			}
+		}
+	}
 	
-	"orders_active_buyers"(description: "Active buyers from feed", compute_order: true) {
+	"orders_active_buyers"(description: "Active buyers from feed", compute_order: true, deprecation_date:"2019/12/10") {
 		countsOn {
 			condition {
 				or(
@@ -178,6 +259,24 @@ metrics {
 						equals("path","/purchases/purchasecreated"),
 						equals("event_data.buyer_segment", "active_buyer")
 					)
+				)
+			}
+		}
+	}
+
+	"orders.active_buyers"(description: "Active buyers from feed", compute_order: true) {
+		countsOn {
+			condition {
+				or(
+						and (
+								equals("path", "/orders/ordercreated"),
+								equals("event_data.is_carrito", false),
+								equals("event_data.buyer_segment", "active_buyer")
+						),
+						and (
+								equals("path","/purchases/purchasecreated"),
+								equals("event_data.buyer_segment", "active_buyer")
+						)
 				)
 			}
 		}
@@ -343,5 +442,21 @@ metrics {
 		}
 	}
 
-
+	"buys.pdp"(description: "Track PDP buys", compute_order: true) {
+		countsOn {
+			condition {
+				or(
+						and(
+								equals("path", "/orders/ordercreated"),
+								equals("event_data.is_carrito", false),
+								equals('event_data.is_pdp',true)
+						),
+						and(
+								equals("path","/purchases/purchasecreated"),
+								equals('event_data.is_pdp',true)
+						)
+				)
+			}
+		}
+	}
 }
