@@ -140,6 +140,9 @@ tracks {
         )
     }
 
+    "/credits/merchant/administrator/spc_click"(platform: "/", type: TrackType.Event) {
+        products_with_status
+    }
 
     "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {
         reason(
@@ -163,6 +166,10 @@ tracks {
     }
 
     "/credits/merchant/administrator/history"(platform:"/", type: TrackType.Event) {}
+
+    "/credits/merchant/administrator/payment_history"(platform:"/", type: TrackType.View) {
+        products_with_status
+    }
 
     //Voluntary Payment
     "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
