@@ -21,6 +21,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/questions/ask/post")
+				or ( 
+					equals("event_data.failed", false) ,
+					isNull("event_data.failed" )
+				)   					
 			}
 		}
 	}
@@ -265,7 +269,12 @@ metrics {
 						equals("event_data.context", "/pdp"),
 						equals("event_data.context", "/qadb"),
 						equals("event_data.context", "/questions/qadb")
-					)
+					),
+					or ( 
+						equals("event_data.failed", false) ,
+						isNull("event_data.failed" )
+					
+					)    
 				)
 			}
 		}
