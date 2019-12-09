@@ -386,6 +386,8 @@ tracks {
     "/sell/list/warranty_time"(platform: "/", type: TrackType.View) {}
     "/sell/list/warranty_type_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/warranty_time_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/warranty_type_condition_review"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/warranty_time_condition_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/whatsapp_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {}
@@ -585,6 +587,8 @@ tracks {
     "/sell/update/warranty_time_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/warranty_type_catalog"(platform: "/", type: TrackType.View) {}
     "/sell/update/warranty_time_catalog"(platform: "/", type: TrackType.View) {}
+    "/sell/update/warranty_type_force_change"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/warranty_time_force_change"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/whatsapp"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/updateing_types"(platform: "/", type: TrackType.View) {}
     "/sell/update/updateing_types_review"(platform: "/", type: TrackType.View) {}
@@ -777,6 +781,7 @@ tracks {
     "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {
         confirm_category_detail(required: true, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
     }
+    "/sell/item_data/category_suggested/another_category"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {
         categoryFlow
     }
