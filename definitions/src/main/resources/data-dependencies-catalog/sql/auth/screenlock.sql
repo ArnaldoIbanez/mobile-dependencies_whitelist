@@ -1,6 +1,4 @@
 select
-  substr(ds, 1, 10) as dia,
-  ds,
   usr.user_id as user_id,
   path,
   device.platform as device_platform,
@@ -11,7 +9,8 @@ select
   get_json_object(event_data, '$.enrollment_status') as enrollment_status,
   get_json_object(event_data, '$.result') as result,
   get_json_object(event_data, '$.os_status') as os_status,
-  get_json_object(event_data, '$.elapsed_time') as elapsed_time
+  get_json_object(event_data, '$.elapsed_time') as elapsed_time,
+  ds
 from
    (
      select

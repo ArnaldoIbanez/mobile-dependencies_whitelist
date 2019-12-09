@@ -14,11 +14,6 @@
     "site": "MeliLake",
     "columns": [
       {
-        "name": "dia",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
-      {
         "name": "user_id",
         "type": "INTEGER"
       },
@@ -61,6 +56,10 @@
       {
         "name": "elapsed_time",
         "type": "DOUBLE"
+      },
+      {
+        "name": "ds",
+        "type": "DATE"
       }
     ],
     "sql": {
