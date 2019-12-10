@@ -1310,6 +1310,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             domain_id = "MLA_CELLPHONES"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
             title_predicted = "test"
         }
     }

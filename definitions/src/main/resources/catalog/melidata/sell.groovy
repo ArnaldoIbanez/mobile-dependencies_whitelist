@@ -899,11 +899,9 @@ tracks {
 
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
+        categoryFlow
         item_id(required: true, type: PropertyType.String)
-        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
-        domain_id(required: true, type: PropertyType.String, description: "Item's category domain id")
-        title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
-        predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
