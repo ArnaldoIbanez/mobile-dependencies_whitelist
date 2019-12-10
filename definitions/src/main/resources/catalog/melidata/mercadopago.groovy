@@ -257,10 +257,10 @@ tracks {
     "/merchant_acquisition/flows/qr-point-assignment/unauthorized"(platform:"/", type: TrackType.View) {}
 
     // Fluxo de reversa Point - autogeração de etiqueta
-    "/merchant_acquisition/flows/point-reverse"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/point-reverse/info"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/point-reverse/address"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/point-reverse/success"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/info"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/address"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/success"(platform:"/", type: TrackType.View) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
