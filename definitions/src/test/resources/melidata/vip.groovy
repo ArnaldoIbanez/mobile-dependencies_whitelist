@@ -783,6 +783,11 @@ trackTests {
             }
         }
 
+        def variationInformation = {
+            preselection_type = "parcial"
+            enforced_preselection = "stock"
+        }
+
         "/vip/buy_action"(platform: "/", type: TrackType.View) {
             defaultTrackInformation()
             cartInformation()
@@ -811,6 +816,7 @@ trackTests {
             defaultTrackInformation()
             cartInformation()
             shippingInformation()
+            variationInformation()
             shipping_pay_before = false
         }
 
@@ -824,6 +830,7 @@ trackTests {
             defaultTrackInformation()
             cartInformation()
             shippingInformation()
+            variationInformation()
             shipping_pay_before = false
         }
         

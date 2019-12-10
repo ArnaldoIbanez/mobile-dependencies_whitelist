@@ -700,6 +700,13 @@ tracks {
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
 
+    //Sll Advertising Notifications
+    "/notification_center/sll_items_activate_items"(platform: "/web") {
+        site_id(required: true, type: PropertyType.String, description: "Site Id.")
+        seller_id(required: true, type: PropertyType.String, description: "Customer Id.")
+        items_count(required: true , type: PropertyType.Numeric, description: "Number of Items has to sell.")
+    }
+
 
 
       /**
@@ -1611,12 +1618,5 @@ tracks {
     "/notification/uninstalls_checker"(platform: "/mobile") {
         execution_id(required: true, type: PropertyType.String)
         advertising_id(required: true, type: PropertyType.String)
-    }
-
-    //Sll Advertising Notifications
-    "/notification/sll_items_activate_items"(platform: "/web") {
-        site_id(required: true, type: PropertyType.String, description: "Site Id.")
-        seller_id(required: true, type: PropertyType.String, description: "Customer Id.")
-        items_count(required: true , type: PropertyType.Numeric, description: "Number of Items has to sell.")
     }
 }

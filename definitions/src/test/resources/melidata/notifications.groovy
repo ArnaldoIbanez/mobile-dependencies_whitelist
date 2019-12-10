@@ -6053,13 +6053,11 @@ trackTests {
             latest_news_type= "openplatform_recommendations_p1"
             latest_news_id= "openplatform_recommendations_p1-12345"
         }
-
-        //Sll Advertising Notifications
-        "/notification/sll_items_activate_items"(platform: "/web") {
-            site_id = "MLA"
-            seller_id = "123456"
-            items_count = 4
-            event_type="shown"
+        "/notification_center/sll_items_activate_items"(platform: "/web") {
+            site_id="MLA"
+            seller_id="1234567"
+            items_count=5
+            event_type = "open"
         }
     }
 
@@ -6106,14 +6104,6 @@ trackTests {
         "/notification/cx_question_ml"(platform: "/web"){
             case_id= 12345678
             event_type = "open"
-        }
-
-        //Sll Advertising Notifications
-        "/notification/sll_items_activate_items"(platform: "/web") {
-            site_id = "MLA"
-            seller_id = "123456"
-            items_count = 4
-            event_type="shown"
         }
 
         "/notification/discount_central_missing_data"(platform: "/mobile") {
@@ -6199,6 +6189,13 @@ trackTests {
         "/notification_center/discount_central_missing_data"(platform: "/mobile"){
             latest_news_type= "discount_central_missing_data"
             latest_news_id= "discount_central_missing_data-12345"
+        }
+        //SLL
+        "/notification_center/sll_items_activate_items"(platform: "/web") {
+            site_id="MLA"
+            seller_id="1234567"
+            items_count=5
+            event_type = "open"
         }
     }
 
