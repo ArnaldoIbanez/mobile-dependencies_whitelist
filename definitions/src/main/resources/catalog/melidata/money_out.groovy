@@ -55,25 +55,17 @@ tracks {
     
     "/money_out/tecban/onboarding/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/tecban/onboarding"(platform: "/", type: TrackType.View) {}
-    //"/money_out/tecban/onboarding"(platform: "/", isAbstract: true) {}
 
     "/money_out/tecban/insufficient_amount"(platform: "/", type: TrackType.View) {}
-    //"/money_out/tecban/insufficient_amount"(platform: "/", isAbstract: true) {}
     "/money_out/tecban/insufficient_amount/exit"(platform: "/", type: TrackType.Event) {}
 
     "/money_out/tecban/select_amount"(platform: "/", type: TrackType.View) {}
 
     "/money_out/tecban/select_amount/help"(platform: "/", type: TrackType.Event) {}
     
-    "/money_outl/tecban"(platform: "/", isAbstract: true) {}
+    "/money_out/tecban/select_amount"(platform: "/", isAbstract: true) {}
 
-    "/tecban/scanner"(platform: "/", isAbstract: true) {}
-
-    "/tecban/success"(platform: "/", isAbstract: true) {}
-    
-    "/money_outl/tecban/select_amount"(platform: "/", isAbstract: true) {}
-
-    "/money_outl/tecban/select_amount/other"(platform: "/", type: TrackType.Event) {}
+    "/money_out/tecban/select_amount/other"(platform: "/", type: TrackType.Event) {}
     
     "/money_out/tecban/select_amount/amount"(platform: "/", type: TrackType.Event) {
         amount (required:true, description: "Continue amount entered")
@@ -85,7 +77,7 @@ tracks {
         qr (required:true, description: "Scanned QR code")
     }
 
-    "money_out/tecban/scanner/valid_qr"(platform: "/", type: TrackType.Event) {
+    "/money_out/tecban/scanner/valid_qr"(platform: "/", type: TrackType.Event) {
         qr (required:true, description: "Scanned QR code")
     }
 
@@ -93,7 +85,7 @@ tracks {
     
     "/money_out/tecban/success"(platform: "/", type: TrackType.View) {}
 
-    "money_out/tecban/success/exit"(platform: "/", type: TrackType.Event) {}
+    "/money_out/tecban/success/exit"(platform: "/", type: TrackType.Event) {}
     
     "/money_out/tecban/success/help"(platform: "/", type: TrackType.Event) {}
     
@@ -104,14 +96,4 @@ tracks {
     "/money_out/tecban/error/exit"(platform: "/", type: TrackType.Event) {
         error (required:true, description: "Status returned by wrapper")
     }
-
-
-    "/money_outl"(platform: "/", type: TrackType.Event) {}
-    //"/money_outl/tecban"(platform: "/", isAbstract: true) {}
-    //"/money_outl/tecban/select_amount"(platform: "/", type: TrackType.Event) {}
-    "/tecban"(platform: "/", type: TrackType.Event) {}
-    //"/tecban/scanner"(platform: "/", isAbstract: true) {}
-    "/tecban/scanner/valid_qr"(platform: "/", type: TrackType.Event) {}
-    //"/tecban/success"(platform: "/", isAbstract: true) {}
-    "/tecban/success/exit"(platform: "/", type: TrackType.Event) {}
 }

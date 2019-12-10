@@ -76,7 +76,7 @@ trackTests {
 
       "/money_out/tecban/select_amount/help"(platform: "/", type: TrackType.Event) {}
 
-      "/money_outl/tecban/select_amount/other"(platform: "/", type: TrackType.Event) {}
+      "/money_out/tecban/select_amount/other"(platform: "/", type: TrackType.Event) {}
 
       "/money_out/tecban/select_amount/amount"(platform: "/", type: TrackType.Event) {
          amount = "200" 
@@ -88,7 +88,7 @@ trackTests {
          qr = "ahjsdkaghjd1897ashdgajsgd" 
       }
 
-      "money_out/tecban/scanner/valid_qr"(platform: "/", type: TrackType.Event) {
+      "/money_out/tecban/scanner/valid_qr"(platform: "/", type: TrackType.Event) {
          qr = "ahjsdkaghjd1897ashdgajsgd" 
       }
 
@@ -96,7 +96,7 @@ trackTests {
 
       "/money_out/tecban/success"(platform: "/", type: TrackType.View) {}
 
-      "money_out/tecban/success/exit"(platform: "/", type: TrackType.Event) {}
+      "/money_out/tecban/success/exit"(platform: "/", type: TrackType.Event) {}
 
       "/money_out/tecban/success/help"(platform: "/", type: TrackType.Event) {}
 
@@ -108,16 +108,8 @@ trackTests {
          error = "rejected" 
       }
 
-      "/money_outl"(platform: "/", type: TrackType.Event) {}
-      "/money_outl/tecban"(platform: "/", type: TrackType.View) {}
-      "/money_outl/tecban/select_amount"(platform: "/", type: TrackType.View) {}
-      "/tecban"(platform: "/", type: TrackType.Event) {}
-      "/tecban/scanner"(platform: "/", type: TrackType.View) {}
-      "/tecban/scanner/valid_qr"(platform: "/", type: TrackType.Event) {
-         qr = "ahjsdkaghjd1897ashdgajsgd"
-      }
-      "/tecban/success"(platform: "/", type: TrackType.View) {}
-      "/tecban/success/exit"(platform: "/", type: TrackType.Event) {}
-
+      "/money_out"(platform: "/", type: TrackType.Event) {}
+      "/money_out/tecban"(platform: "/", type: TrackType.View) {}
+      "/money_out/tecban/select_amount"(platform: "/", type: TrackType.View) {}
     }    
 }
