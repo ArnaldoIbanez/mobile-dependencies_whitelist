@@ -131,6 +131,20 @@ tracks {
         deeplink(required: true, type: PropertyType.String, description: "the deeplink been opened")
     }
 
+    // siguientes tracks no pertenecen a mobile-arquitectura, sino que es de otro team que trackea sobre /landing
+
+    "/landing/brands"(platform: "/mobile", isAbstract: true){}
+
+    "/landing/brands/abort"(platform: "/mobile") {
+        query(required:true, type: PropertyType.String, descripcion:"Query used in screen")
+    }
+
+    "/landing/brands/open"(platform: "/mobile") {
+        query(required:true, type: PropertyType.String, descripcion:"Query used in screen")
+        official_store_id(required:true, type: PropertyType.String, descripcion:"Oficial store id opened")
+        official_store_name(required:true, type: PropertyType.String, descripcion:"Oficial store name opened")
+    }
+
     "/official_stores"(platform: "/web", isAbstract: true) {}
 
     "/official_stores/home"(platform: "/web", type: TrackType.View) {

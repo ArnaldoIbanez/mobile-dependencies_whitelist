@@ -199,6 +199,19 @@ trackTests {
         }
     }
 
+    test("Oficial stores landings") {
+
+        "/landing/brands/abort"(platform: "/mobile") {
+            query = "adidas"
+        }
+
+        "/landing/brands/open"(platform: "/mobile") {
+            query = "adidas"
+            official_store_id = "adidas_12345"
+            official_store_name = "Adidas oficial store"
+        }
+    }
+
 
     test("Mall Tracking") {
         "/official_stores/home"(platform: "/web") {
