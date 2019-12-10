@@ -6053,7 +6053,7 @@ trackTests {
             latest_news_type= "openplatform_recommendations_p1"
             latest_news_id= "openplatform_recommendations_p1-12345"
         }
-        "/notification/sll_items_activate_items"(platform: "/web") {
+        "/notification_center/sll_items_activate_items"(platform: "/web") {
             site_id="MLA"
             seller_id="1234567"
             items_count=5
@@ -6190,7 +6190,7 @@ trackTests {
             latest_news_type= "discount_central_missing_data"
             latest_news_id= "discount_central_missing_data-12345"
         }
-        "/notification/sll_items_activate_items"(platform: "/web") {
+        "/notification_center/sll_items_activate_items"(platform: "/web") {
             site_id="MLA"
             seller_id="1234567"
             items_count=5
