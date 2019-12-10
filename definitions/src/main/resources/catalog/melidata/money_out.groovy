@@ -49,26 +49,17 @@ tracks {
 
     // Tecban
     "/money_detail/tecban"(platform: "/", type: TrackType.Event) {}
-
     "/money_out/tecban/onboarding"(platform: "/", type: TrackType.View) {}
     "/money_out/tecban"(platform: "/", isAbstract: true) {}
-    
     "/money_out/tecban/onboarding/continue"(platform: "/", type: TrackType.Event) {}
-    "/money_out/tecban/onboarding"(platform: "/", type: TrackType.View) {}
-
     "/money_out/tecban/insufficient_amount"(platform: "/", type: TrackType.View) {}
     "/money_out/tecban/insufficient_amount/exit"(platform: "/", type: TrackType.Event) {}
-
     "/money_out/tecban/select_amount"(platform: "/", type: TrackType.View) {}
-
     "/money_out/tecban/select_amount/help"(platform: "/", type: TrackType.Event) {}
-    
-    "/money_out/tecban/select_amount"(platform: "/", isAbstract: true) {}
-
     "/money_out/tecban/select_amount/other"(platform: "/", type: TrackType.Event) {}
     
     "/money_out/tecban/select_amount/amount"(platform: "/", type: TrackType.Event) {
-        amount (required:true, description: "Continue amount entered")
+        amount (required:true, description: "Selected amount")
     }
 
     "/money_out/tecban/scanner"(platform: "/", type: TrackType.View) {}
@@ -82,11 +73,8 @@ tracks {
     }
 
     "/money_out/tecban/authorize"(platform: "/", type: TrackType.View) {}
-    
     "/money_out/tecban/success"(platform: "/", type: TrackType.View) {}
-
     "/money_out/tecban/success/exit"(platform: "/", type: TrackType.Event) {}
-    
     "/money_out/tecban/success/help"(platform: "/", type: TrackType.Event) {}
     
     "/money_out/tecban/error"(platform: "/", type: TrackType.View) {

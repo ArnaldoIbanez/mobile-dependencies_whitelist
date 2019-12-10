@@ -62,20 +62,14 @@ trackTests {
 
       // Tecban
       "/money_detail/tecban"(platform: "/", type: TrackType.Event) {}
-
       "/money_out/tecban/onboarding"(platform: "/", type: TrackType.View) {}
       "/money_out/tecban"(platform: "/", type: TrackType.View) {}
-
       "/money_out/tecban/onboarding/continue"(platform: "/", type: TrackType.Event) {}
       "/money_out/tecban/onboarding"(platform: "/", type: TrackType.View) {}
-
       "/money_out/tecban/insufficient_amount"(platform: "/", type: TrackType.View) {}
       "/money_out/tecban/insufficient_amount/exit"(platform: "/", type: TrackType.Event) {}
-
       "/money_out/tecban/select_amount"(platform: "/", type: TrackType.View) {}
-
       "/money_out/tecban/select_amount/help"(platform: "/", type: TrackType.Event) {}
-
       "/money_out/tecban/select_amount/other"(platform: "/", type: TrackType.Event) {}
 
       "/money_out/tecban/select_amount/amount"(platform: "/", type: TrackType.Event) {
@@ -93,11 +87,8 @@ trackTests {
       }
 
       "/money_out/tecban/authorize"(platform: "/", type: TrackType.View) {}
-
       "/money_out/tecban/success"(platform: "/", type: TrackType.View) {}
-
       "/money_out/tecban/success/exit"(platform: "/", type: TrackType.Event) {}
-
       "/money_out/tecban/success/help"(platform: "/", type: TrackType.Event) {}
 
       "/money_out/tecban/error"(platform: "/", type: TrackType.View) {
@@ -109,7 +100,6 @@ trackTests {
       }
 
       "/money_out"(platform: "/", type: TrackType.Event) {}
-      "/money_out/tecban"(platform: "/", type: TrackType.View) {}
       "/money_out/tecban/select_amount"(platform: "/", type: TrackType.View) {}
     }    
 }
