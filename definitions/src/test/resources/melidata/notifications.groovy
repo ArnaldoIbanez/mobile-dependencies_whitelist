@@ -6053,6 +6053,14 @@ trackTests {
             latest_news_type= "openplatform_recommendations_p1"
             latest_news_id= "openplatform_recommendations_p1-12345"
         }
+
+        //Sll Advertising Notifications
+        "/notification/sll_items_activate_items"(platform: "/web") {
+            site_id = "MLA"
+            seller_id = "123456"
+            items_count = 4
+            event_type="shown"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -6098,6 +6106,14 @@ trackTests {
         "/notification/cx_question_ml"(platform: "/web"){
             case_id= 12345678
             event_type = "open"
+        }
+
+        //Sll Advertising Notifications
+        "/notification/sll_items_activate_items"(platform: "/web") {
+            site_id = "MLA"
+            seller_id = "123456"
+            items_count = 4
+            event_type="shown"
         }
 
         "/notification/discount_central_missing_data"(platform: "/mobile") {
