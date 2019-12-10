@@ -9,7 +9,7 @@ select
   count(distinct (case when path = '/screenlock/validation_start' and enrollment_status = 'enabled' then usr.user_id else null end)) as cant_enabled,
   count(distinct (case when path = '/screenlock/validation_end' and enrollment_status = 'enabled' and result = 'success' then usr.user_id else null end)) as cant_enabled_success,
   count(distinct (case when flow_id = 'security-settings' and path = '/screenlock/validation_end' and result = 'success' and enrollment_status = 'disabled' and application.version < '2.99.0' then usr.user_id  else null end)) as cant_enrollments_legacy_android,
-    count(distinct (case when flow_id = 'security-settings' and path = '/screenlock/validation_end' and result = 'success' and enrollment_status = 'enabled' then usr.user_id  else null end)) as cant_enrollments,
+  count(distinct (case when flow_id = 'security-settings' and path = '/screenlock/validation_end' and result = 'success' and enrollment_status = 'enabled' then usr.user_id  else null end)) as cant_enrollments,
   count(distinct (case when flow_id = 'security-settings' and path = '/screenlock/validation_end' and result = 'success' and enrollment_status = 'enabled' and application.version < '2.99.0' then usr.user_id  else null end)) as cant_unenrollments_legacy_android,
   count(distinct (case when flow_id = 'security-settings' and path = '/screenlock/validation_end' and result = 'success' and enrollment_status = 'disabled' then usr.user_id  else null end)) as cant_unenrollments,
   count(distinct (case when flow_id is null and enrollment_status = 'enabled' then usr.user_id else null end)) as cant_enrollments_legacy_ios,
