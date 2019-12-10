@@ -35,6 +35,11 @@ tracks {
                 description: "Indicates if the user has free shipping benefit by loyalty")
         discount_shipping_benefit_lyl(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has discount benefit by loyalty")
+
+        // VARIATION FIELDS
+        preselection_type(required: false, type: PropertyType.String, values: ["none", "parcial", "full"], description: "Indicates the variation preselection type for this instance of the VIP")
+        enforced_preselection(required: false, type: PropertyType.String, values: ["search", "cart", "gallery", "stock"], description: "Indicates the type of enforced variation preselection for this instance of the VIP")
+
         //afterDispatch: if unknown or unknown_frame (true/false)
         //min_days: minimum number of days of the promise. (int)
         //max_days: maximun number of days of the promise. (int or null -If it doesn´t apply-)
@@ -46,6 +51,7 @@ tracks {
         add_cart_info(cart_content, add_to_cart_availability, main_action)
         shipping_info(shipping_preference, shipping_mode, free_shipping, local_pick_up, 
                 logistic_type, free_shipping_benefit, shipping_promise, free_shipping_benefit_lyl, discount_shipping_benefit_lyl)
+        variation_info(preselection_type, enforced_preselection)
     }
 
     //VIP FLOW
@@ -283,6 +289,7 @@ tracks {
 
     "/vip/buy_action"(platform: "/web", parentPropertiesInherited: false) {
         shipping_pay_before(required: true, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
+        variation_info
     }
 
     "/vip/add_cart_action"(platform: "/", parentPropertiesInherited: false) {
@@ -313,7 +320,8 @@ tracks {
     }
 
     "/vip/add_cart_action"(platform: "/web", parentPropertiesInherited: false) {
-      shipping_pay_before(required: true, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
+        shipping_pay_before(required: true, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
+        variation_info
     }
 
     "/vip/input_zip_code"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
