@@ -2905,6 +2905,10 @@ trackTests {
         }
     }
 
+    test("Application open") {
+        "/application/open"(platform:"/mobile", type: TrackType.Event) { }
+    }
+
     test("Login Status with Smart Lock for Passwords") {
         "/login/status"(platform: "/mobile", type: TrackType.Event) {
             is_logged = true
