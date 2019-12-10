@@ -1612,4 +1612,11 @@ tracks {
         execution_id(required: true, type: PropertyType.String)
         advertising_id(required: true, type: PropertyType.String)
     }
+
+    //SLL
+    "/notification/sll_items_activate_items"(platform: "/web") {
+        site_id(required: true, type: PropertyType.String)
+        seller_id(required: true, type: PropertyType.String)
+        items_count(required: true, type: PropertyType.Numeric)
+    }
 }
