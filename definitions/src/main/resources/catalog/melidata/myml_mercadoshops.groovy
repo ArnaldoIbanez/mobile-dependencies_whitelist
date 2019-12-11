@@ -147,7 +147,7 @@ tracks {
     }
 
     "/mercado_shops/admin/sidebar/menu"(platform: "/", type: TrackType.Event){
-        categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Selected categories to show in header menu")
+        categories(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Selected categories to show in header menu")
         mshopsEventGroup
     }
 
