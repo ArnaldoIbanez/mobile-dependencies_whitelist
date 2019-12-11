@@ -52,7 +52,7 @@ tracks {
     "/discount_sellers/form/create" (platform: "/mobile", type: TrackType.Event) {
         form_output(required: true, type: PropertyType.String, description: "Model sent to create the campaign")
     }
-    
+
     "/discount_sellers/form/back" (platform: "/mobile", type: TrackType.Event) {}
 
     "/discount_sellers/form/result" (platform: "/mobile", isAbstract: true) {}

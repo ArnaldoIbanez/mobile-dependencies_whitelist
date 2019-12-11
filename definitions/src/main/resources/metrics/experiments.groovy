@@ -6,22 +6,20 @@ metrics {
 
     "reservation"(description: "orders that belong to a are a reservation", compute_order: true) {
 	    
-   	startWith {
-		experiment(regex(classiExperiments))
-	}
-	    
-	countsOn {
-		condition {
-			and (
-				equals("path", "/orders/ordercreated"),
-				equals("event_data.reservation", true)	
-			)
+		startWith {
+			experiment(regex(classiExperiments))
 		}
-	}
+
+		countsOn {
+			condition {
+				and (
+					equals("path", "/orders/ordercreated"),
+					equals("event_data.reservation", true)
+				)
+			}
+		}
      }
-	
-	
-	
+		
     "sell/full_relist_single_item"(description: "define properties for item_id at full_relist experiment") {
         startWith {
             set_property("item_id", "event_data.item_id")
@@ -46,44 +44,6 @@ metrics {
 				and(
                 	equals("event_data.type", "buy_level")
 				)
-			}
-		}
-	}
-
-	// TODO REMOVE WHEN THIS EXPERIMENT IS OVER
-	"orders.InCarrouselCategories"(description: "extend experiment /search/brandCarrousel", parametricName: false, compute_order: true) {
-		startWith {
-			experiment("search/officialStoresCarousel")
-		}
-
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				or(
-					like('event_data.items.item.category_path', '.*MLM(6585|5607|120666|182735|81531|4651|8574|2827|158119|1271|180982|1676|168281|1285|187814|158842|1010|158828|1386|5723|1578|1712|8378),.*'),
-					like('event_data.items.item.category_path', '.*MLB(23332|181294|1248|1002|181294|1676|191839|1286|264721|1580|1386|21168|1456),.*'),
-					like('event_data.items.item.category_path', '.*MLA(109027|1002|398582|6839|1248|1676|1042|1285|409558|1575|409810|1618|1386|6750|18353|3959),.*')
-				)
-			}
-		}
-	}
-
-	"orders.officialStores.InCarrouselCategories"(description: "extend experiment /search/brandCarrousel", parametricName: false, compute_order: true) {
-		startWith {
-			experiment("search/officialStoresCarousel")
-		}
-
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				and(
-					empty("event_data.items.item.official_store_id", false),
-					or(
-						like('event_data.items.item.category_path', '.*MLM(6585|5607|120666|182735|81531|4651|8574|2827|158119|1271|180982|1676|168281|1285|187814|158842|1010|158828|1386|5723|1578|1712|8378),.*'),
-						like('event_data.items.item.category_path', '.*MLB(23332|181294|1248|1002|181294|1676|191839|1286|264721|1580|1386|21168|1456),.*'),
-						like('event_data.items.item.category_path', '.*MLA(109027|1002|398582|6839|1248|1676|1042|1285|409558|1575|409810|1618|1386|6750|18353|3959),.*')
-					)
-				)	
 			}
 		}
 	}
@@ -207,7 +167,7 @@ metrics {
 	"quotations"(description: "track quotation as success for classifieds") {
 		countsOn {
 			condition {
-				path("/quotation/congrats")
+				path("/quotation/congrats", "/quotation/congrats/unregistered")
 			}
 		}
 	}
@@ -289,9 +249,31 @@ metrics {
 		}
 	}
 
+	"vip_buys_qadb_domains"(description: "Track buys only in qadb-enabled domains", deprecation_date:"2019/12/10") {
+		startWith {
+			experiment("qadb/qadb-on-vip")
+		}
+
+		countsOn {
+			condition {
+				and(
+						or(
+								and(
+										equals("path", "/orders/ordercreated"),
+										equals("event_data.is_carrito", false),
+
+								),
+								equals("path", "/purchases/purchasecreated"),
+						),
+						like('event_data.items.item.category_path', '.*MLA(398582|1387|1676).*')
+				)
+			}
+		}
+	}
+
 	"pdp_questions_qadb"(description: "Track PDP questions of users in QADB experiment") {
 		startWith {
-			experiment("qadb/qadb-on")
+			experiment(regex("qadb/(qadb-on|qadb-on-viewport)"))
 		}
 
 		countsOn {
@@ -308,9 +290,9 @@ metrics {
 		}
 	}
 
-	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment", compute_order: true) {
+	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment", compute_order: true, deprecation_date:"2019/12/10") {
 		startWith {
-			experiment("qadb/qadb-on")
+			experiment(regex("qadb/(qadb-on|qadb-on-viewport)"))
 		}
 
 		countsOn {
@@ -389,4 +371,104 @@ metrics {
 		}
 	}
 
+	"credits-open-sea.remedies_conversion"(description: "credits conversion under remedies experiment") {
+		startWith {
+			experiment("credits/openSeaRemedy")
+		}
+		countsOn {
+			condition {
+				equals("path", "/credits/consumer/public_landing/application_result")
+			}
+		}
+	}
+
+	"buys.sparkle_toys"(description: "Track buys only in toys domain for Sparkle exp", compute_order: true) {
+		startWith {
+			experiment(regex("sparkle/.*"))
+		}
+
+		countsOn {
+			condition {
+				and(				
+					like('event_data.items.item.category_path', '.*ML(A|M)1132.*'),
+					or(
+						and(
+							equals("path", "/orders/ordercreated"),
+							equals("event_data.is_carrito", false)
+						),
+						and(
+							equals("path","/purchases/purchasecreated")
+						)
+					)
+				)
+			}
+		}
+	}
+
+	"buys.sparkle_fashion"(description: "Track buys only in fashion domain for Sparkle exp", compute_order: true) {
+		startWith {
+			experiment(regex("sparkle/.*"))
+		}
+
+		countsOn {
+			condition {
+				and(				
+					like('event_data.items.item.category_path', '.*ML(A|M)1430.*'),
+					or(
+						and(
+							equals("path", "/orders/ordercreated"),
+							equals("event_data.is_carrito", false)
+						),
+						and(
+							equals("path","/purchases/purchasecreated")
+						)
+					)
+				)
+			}
+		}
+	}
+
+	"buys.pdp|qadb"(description: "Track buys of users in QADB experiment", compute_order: true) {
+		startWith {
+			experiment(regex("qadb/(qadb-on|qadb-on-viewport)"))
+		}
+
+		countsOn {
+			condition {
+				or(
+						and(
+								equals("path", "/orders/ordercreated"),
+								equals("event_data.is_carrito", false),
+								equals('event_data.is_pdp',true)
+						),
+						and(
+								equals("path","/purchases/purchasecreated"),
+								equals('event_data.is_pdp',true)
+						)
+				)
+			}
+		}
+	}
+
+	"buys.vip|qadb_domains"(description: "Track buys only in qadb-enabled domains") {
+		startWith {
+			experiment("qadb/qadb-on-vip")
+		}
+
+		countsOn {
+			condition {
+				and(
+						or(
+								and(
+										equals("path", "/orders/ordercreated"),
+										equals("event_data.is_carrito", false),
+
+								),
+								equals("path", "/purchases/purchasecreated"),
+						),
+						like('event_data.items.item.category_path', '.*MLA(398582|1387|1676).*')
+				)
+			}
+		}
+	}
 }

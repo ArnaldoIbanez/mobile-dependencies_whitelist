@@ -76,6 +76,10 @@ trackTests {
     "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
       action = "clear"
     }
+    "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
+      action = "apply"
+      checked_filters = ["WITH_FULFILLMENT_WITHOUT_STOCK", "WITH_FULFILLMENT_LOW_STOCK"]
+    }
 
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
   }
@@ -398,6 +402,32 @@ trackTests {
       modal = 0
     }
   }
+
+  test("seller central bulk publish show adults modal") {
+    "/seller_central/bulk/publish/categories/adult/modal/show"(platform: "/web", type: TrackType.View) {
+      adult = false
+    }
+  }
+
+  test("seller central bulk publish cancel adults modal") {
+    "/seller_central/bulk/publish/categories/adult/modal"(platform: "/web", type: TrackType.Event) {
+      action = "cancel"
+      adult = false
+    }
+  }
+
+  test("seller central bulk publish confirm adults modal") {
+    "/seller_central/bulk/publish/categories/adult/modal"(platform: "/web", type: TrackType.Event) {
+      action = "confirm"
+      adult = false
+    }
+  }
+
+  test("seller central bulk publish confirm adult task") {
+    "/seller_central/bulk/publish/categories/adult/confirm"(platform: "/web", type: TrackType.Event) {
+      adult = true
+    }
+  }
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central modify
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -650,6 +680,155 @@ trackTests {
       seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
+    }
+  }
+
+  test("seller central modify catalog boost card show"){
+    "/seller_central/modify/catalog_boost"(platform: "/", type: TrackType.View){
+      item_type = "default"
+      category_id = "MLA12812"
+      item_id = "MLA776923789"
+      session_id = "416163910-update-79c25d849574"
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      item_attributes = [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      catalog_product_attributes= [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      item_title= "celular"
+      catalog_product_title= "iphone X 64 GB NEGRO"
+      catalog_product_id= "MLA123455"
+    }
+  }
+
+  test("seller central modify catalog boost seller click original_item action"){
+    "/seller_central/modify/catalog_boost/original_item"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLA12812"
+      item_id = "MLA776923789"
+      session_id = "416163910-update-79c25d849574"
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      item_attributes = [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      catalog_product_attributes= [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      item_title= "celular"
+      catalog_product_title= "iphone X 64 GB NEGRO"
+      catalog_product_id= "MLA123455"
+    }
+  }
+
+  test("seller central modify catalog boost seller click activate product item"){
+    "/seller_central/modify/catalog_boost/activate"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLA12812"
+      item_id = "MLA776923789"
+      session_id = "416163910-update-79c25d849574"
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      catalog_product_id= "MLA123455"
+      item_attributes = [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      catalog_product_attributes= [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      item_title= "celular"
+      catalog_product_title= "iphone X 64 GB NEGRO"
+      catalog_product_id= "MLA123455"
+    }
+  }
+
+  test("seller central modify catalog boost seller click not_my_product action"){
+    "/seller_central/modify/catalog_boost/not_my_product"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLA12812"
+      item_id = "MLA776923789"
+      session_id = "416163910-update-79c25d849574"
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      catalog_product_id= "MLA123455"
+      item_attributes = [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      catalog_product_attributes= [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      item_title= "celular"
+      catalog_product_title= "iphone X 64 GB NEGRO"
+      catalog_product_id= "MLA123455"
+    }
+  }
+
+  test("seller central modify catalog boost seller click not_my_product action"){
+    "/seller_central/modify/catalog_boost/modal/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLA12812"
+      item_id = "MLA776923789"
+      session_id = "416163910-update-79c25d849574"
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      catalog_product_id= "MLA123455"
+      seller_reasons= "modelo iphone 11 blanco"
+      item_attributes = [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      catalog_product_attributes= [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      item_title= "celular"
+      catalog_product_title= "iphone X 64 GB NEGRO"
+      catalog_product_id= "MLA123455"
+    }
+  }
+
+  test("seller central modify catalog boost seller click not_my_product action"){
+    "/seller_central/modify/catalog_boost/modal/cancel"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLA12812"
+      item_id = "MLA776923789"
+      session_id = "416163910-update-79c25d849574"
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      catalog_product_id= "MLA123455"
+      item_attributes = [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      catalog_product_attributes= [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      item_title= "celular"
+      catalog_product_title= "iphone X 64 GB NEGRO"
+      catalog_product_id= "MLA123455"
     }
   }
 

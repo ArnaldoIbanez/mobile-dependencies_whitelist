@@ -50,6 +50,7 @@ trackTests {
             quote_demand_available = false
             new_wording_free = false
             quantity_models = 4
+            item_attributes = "promotions,cbt_ddu,discount"
         }
 
         "/vip"(platform:"/mobile", {
@@ -143,6 +144,8 @@ trackTests {
             item_seller_type = "AB001"
             from_view="vip"
             event_source="button"
+            catalog_listing=false
+            source=""
         })
 
         "/vip/call_seller"(platform:"/web/mobile", type: TrackType.Event, {
@@ -151,6 +154,8 @@ trackTests {
             item_seller_type = "AB001"
             from_view="vip"
             event_source="link"
+            catalog_listing=false
+            source=""
         })
 
         "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event, {
@@ -162,6 +167,8 @@ trackTests {
             item_seller_type="normal"
             event_source="button"
             from_view="vip"
+            catalog_listing=false
+            source=""
         })
 
         "/vip/contact_whatsapp"(platform: "/web/mobile", type: TrackType.Event, {
@@ -170,6 +177,8 @@ trackTests {
             event_source="button"
             from_view="vip"
             event_source = "link"
+            catalog_listing=false
+            source=""
         })
 
         "/vip/show_phone"(platform: "/mobile", type: TrackType.Event, {
@@ -581,6 +590,11 @@ trackTests {
             unregistered_contact_context = false
             event_source= "description"
         }
+
+        "/vip/questions/show"(platform: "/", type: TrackType.View) {
+            item_id = "MLA213512313"
+            catalog_product_id="MLA123456"
+        }
     }
 
     test("New Shipping calculator"){
@@ -769,6 +783,11 @@ trackTests {
             }
         }
 
+        def variationInformation = {
+            preselection_type = "parcial"
+            enforced_preselection = "stock"
+        }
+
         "/vip/buy_action"(platform: "/", type: TrackType.View) {
             defaultTrackInformation()
             cartInformation()
@@ -776,10 +795,28 @@ trackTests {
             credits_opensea = true
         }
 
+        "/vip/profile_intention"(platform: "/", type: TrackType.Event) {
+            seller_id = 131662738
+            buying_mode = "classified"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            item_id = "MLA533657947"
+            vertical = "services"
+            item_condition = "new"
+            listing_type_id = "silver"
+            item_status = "active"
+            deal_ids = []
+            item_seller_type = "normal"
+            from_view = "unitsAvailable"
+            catalog_listing = false
+            review_rate=-1
+        }
+
         "/vip/buy_action"(platform: "/web", type: TrackType.View) {
             defaultTrackInformation()
             cartInformation()
             shippingInformation()
+            variationInformation()
             shipping_pay_before = false
         }
 
@@ -793,6 +830,7 @@ trackTests {
             defaultTrackInformation()
             cartInformation()
             shippingInformation()
+            variationInformation()
             shipping_pay_before = false
         }
         
@@ -820,7 +858,7 @@ trackTests {
                 }      
             }
         }
-        
+
         "/vip/quantity_change"(platform: "/", type: TrackType.Event) {
             item_id = "MLA533657947"
             price = 123
@@ -1055,6 +1093,28 @@ trackTests {
 
         "/vip/reservation_intention/preload"(platform: "/mobile", type: TrackType.Event){
             properties()
+        }
+    }
+
+    test("VIP prevent stock question for web desktop") {
+        "/vip/question/ask/prevent_stock"(platform: "/web/desktop", type: TrackType.Event) {
+            item_id = "MLA792156560"
+        }
+    }
+
+    test("VIP prevent stock question for web mobile") {
+        "/vip/question/ask/prevent_stock"(platform: "/web/mobile", type: TrackType.Event) {
+            item_id = "MLA792156560"
+        }
+    }
+
+    test("VIP back to listing event") {
+        "/vip/back_to_listing"(platform:"/web/desktop", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            domain_id = "MLA7192"
+            vertical = "core"
         }
     }
 }

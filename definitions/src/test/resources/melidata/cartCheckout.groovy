@@ -205,6 +205,10 @@ trackTests {
             dataSet()
             dataSetCongratsWeb()
         }
+        "/cart/checkout/congrats/input_sec_code"(platform: "/web") {
+            dataSet()
+            dataSetCongratsWeb()
+        }
         "/cart/checkout/congrats"(platform: "/mobile") {
             dataSet()
             dataSetCongrats()
@@ -250,7 +254,44 @@ trackTests {
             dataSet()
             dataSetCongrats()
         }
-        
+
+        "/cart/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event){
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event){
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/congrats/use_now"(platform: "/", type: TrackType.Event){
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+
         "/cart/checkout/show_ticket"(platform: "/", dataSet)
         "/cart/checkout/finish/invalid_sec_code/input_code"(platform: "/", dataSet)
         "/cart/checkout/finish/invalid_sec_code/input_code/confirm_purchase"(platform: "/mobile", type: TrackType.Event) {
@@ -263,6 +304,10 @@ trackTests {
         "/cart/checkout/loading"(platform: "/", dataSet)
         "/cart/checkout/loading/back"(platform: "/mobile", type: TrackType.Event, dataSet)
         "/cart/checkout/shipping"(platform: "/mobile", dataSet)
+
+        //Address Hub
+        "/cart/checkout/shipping/delivery_instructions"(platform:"/", dataSet)
+        "/cart/checkout/shipping/address_hub"(platform:"/", dataSet)
 
         // Addresses
         // Page

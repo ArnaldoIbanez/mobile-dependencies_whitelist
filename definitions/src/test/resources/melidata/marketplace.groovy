@@ -192,6 +192,24 @@ trackTests {
             is_main_url = true
             version = "2"
         }
+
+        "/webkit/deeplink_open/error"(platform: "/mobile") {
+            url = "https://www.mercadolibre.com"
+            deeplink = "meli://host/path/to/landing"
+        }
+    }
+
+    test("Oficial stores landings") {
+
+        "/landing/brands/abort"(platform: "/mobile") {
+            query = "adidas"
+        }
+
+        "/landing/brands/open"(platform: "/mobile") {
+            query = "adidas"
+            official_store_id = "adidas_12345"
+            official_store_name = "Adidas oficial store"
+        }
     }
 
 

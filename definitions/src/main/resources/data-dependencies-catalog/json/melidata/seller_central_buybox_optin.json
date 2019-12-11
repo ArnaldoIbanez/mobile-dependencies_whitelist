@@ -62,6 +62,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "reputationLevel",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "total",
         "type": "INTEGER"
       }

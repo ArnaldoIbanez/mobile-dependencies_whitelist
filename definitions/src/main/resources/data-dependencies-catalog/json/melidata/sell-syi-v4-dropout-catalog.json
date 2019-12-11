@@ -26,10 +26,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "attribute_type",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "parent_product_id",
         "type": "UNICODE_STRING"
       },

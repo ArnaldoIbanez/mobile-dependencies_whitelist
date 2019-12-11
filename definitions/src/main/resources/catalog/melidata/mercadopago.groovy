@@ -43,6 +43,9 @@ tracks {
     "/blog/home"(platform: "/web") {
     }
 
+    "/application"(platform:"/mobile", isAbstract: true) {}
+    "/application/open"(platform:"/mobile", type: TrackType.Event) { }
+
     // MP Landings Scope
     "/landing"(platform: "/web", isAbstract: true) {}
 
@@ -327,6 +330,11 @@ tracks {
     "/merchant_acquisition/flows/qr-point-assignment/error"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-point-assignment/unauthorized"(platform:"/", type: TrackType.View) {}
 
+    // Fluxo de reversa Point - autogeração de etiqueta
+    "/merchant_acquisition/flows/point_reverse"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/info"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/address"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/success"(platform:"/", type: TrackType.View) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -439,6 +447,40 @@ tracks {
     "/payers_growth"(platform: "/", isAbstract: true) {}
     "/payers_growth/landings"(platform: "/") {
         product (type: PropertyType.String, required: true, description: "Product name, example: 'mkt-combustibles'")
+    }
+
+    // Services landings
+    "/services"(platform: "/", isAbstract: true) {}
+    "/services/mkt_landing"(platform: "/web", type: TrackType.View) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/services/mkt_landing/sms"(platform: "/web", type: TrackType.Event) { 
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/services/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
+    }
+    "/services/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
+    }
+
+    // QR Payers Landings
+    "/qr_payers"(platform: "/", isAbstract: true) {}
+    "/qr_payers/mkt_landing"(platform: "/web", type: TrackType.View) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/qr_payers/mkt_landing/sms"(platform: "/web", type: TrackType.Event) { 
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
+    }
+    "/qr_payers/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }
 
     // MP Mobile Point
@@ -1072,7 +1114,6 @@ tracks {
     }
     "/withdraw/take_money_out"(platform: "/") {}
     "/withdraw/withdrawable_money"(platform: "/mobile") {}
-    "/withdraw/select_bank"(platform: "/mobile") {}
     "/withdraw/result"(platform: "/mobile") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
@@ -1089,18 +1130,34 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
     "/withdraw/bacen"(platform: "/mobile", isAbstract: true) {}
-    "/withdraw/bacen/ok"(platform: "/mobile") {}
-    "/withdraw/bacen/cancel"(platform: "/mobile") {}
-    "/withdraw/bacen/error"(platform: "/mobile") {}
-    "/withdraw/bacen/open"(platform: "/mobile") {}
-    "/withdraw/bacen/close"(platform: "/mobile") {}
+    "/withdraw/bacen/ok"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/bacen/cancel"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/bacen/error"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/bacen/open"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/bacen/close"(platform: "/mobile", type: TrackType.View) {}
 
-    "/withdraw/select_bank"(platform: "/", isAbstract: true) {}
-    "/withdraw/select_bank/delete_account_modal"(platform:"/", type: TrackType.Event){}    
-    "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/", type: TrackType.Event){
+    "/withdraw/select_bank"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/select_bank/delete_account_modal"(platform:"/mobile", type: TrackType.Event){}    
+    "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/mobile", type: TrackType.Event){
         bank_account_id (required: true, description: "Bank account selected to be deleted")
     } 
-    "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/", type: TrackType.Event){} 
+    "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/mobile", type: TrackType.Event){} 
+
+    "/withdraw/main"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/confirmation"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/make_withdraw"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/add_account"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/error"(platform: "/mobile", isAbstract: true) {}
+    "/withdraw/error/generic_error"(platform: "/mobile", type : TrackType.View) {}
+    "/withdraw/error/withdraw_failed"(platform: "/mobile", type : TrackType.View) {}
+    "/withdraw/error/high_risk"(platform: "/mobile", type : TrackType.View) {}
+    "/withdraw/error/uif"(platform: "/mobile", type : TrackType.View) {}
+    "/withdraw/delay"(platform: "/mobile", isAbstract : true) {}
+    "/withdraw/delay/manual_review"(platform: "/mobile",   type : TrackType.View) {}
+    "/withdraw/delay/offline"(platform: "/mobile",   type : TrackType.View) {}
+    "/withdraw/uif_change_account"(platform: "/mobile",   type : TrackType.View) {}
+    "/withdraw/restriction"(platform: "/mobile", type: TrackType.View) {}
 
     "/fund_account"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -1209,18 +1266,29 @@ tracks {
     "/money_detail/help_modal"(platform: "/mobile") {}
 
     //Withdraw
-    "/money_detail/withdraw/main"(platform: "/", type: TrackType.View) {}
-    "/money_detail/withdraw/confirmation"(platform: "/", type: TrackType.View) {}
-    "/money_detail/withdraw/congrats"(platform: "/", type: TrackType.View) {}
-    "/money_detail/withdraw/add_account"(platform: "/", type: TrackType.View) {}
-    "/money_detail/withdraw/select_bank"(platform: "/", type: TrackType.View) {}    
-    "/money_detail/withdraw"(platform: "/",, isAbstract: true) {}
-    "/money_detail/daily_detail"(platform: "/", , isAbstract: true) {}
-    "/money_detail/money-advance"(platform: "/", , isAbstract: true) {}
-    "/money_detail/restrictions"(platform: "/", , isAbstract: true) {}
-    "/money_detail/point_home"(platform: "/", , isAbstract: true) {}
-    "/money_detail/withdraw"(platform: "/", , isAbstract: true) {}
-    "/money_detail"(platform: "/", , isAbstract: true) {}
+    "/money_detail/withdraw/main"(platform: "/mobile", type: TrackType.View) {}
+    "/money_detail/withdraw/confirmation"(platform: "/mobile", type: TrackType.View) {}
+    "/money_detail/withdraw/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/money_detail/withdraw/add_account"(platform: "/mobile", type: TrackType.View) {}
+    "/money_detail/withdraw/select_bank"(platform: "/mobile", type: TrackType.View) {}    
+    "/money_detail/withdraw"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/daily_detail"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/money_advance"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/restrictions"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/point_home"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/manual_code"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/confirmation"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/withdraw/error"(platform: "/mobile", isAbstract: true) {}
+    "/money_detail/withdraw/error/high_risk"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/withdraw/error/generic_error"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/withdraw/uif_change_account"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/withdraw/delay"(platform: "/mobile", isAbstract: true) {}
+    "/money_detail/withdraw/delay/offline"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/shopping"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/withdraw/delay/manual_review"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/credits"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/activities"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail"(platform: "/mobile", isAbstract: true) {}
 
     /**
      * END NOTIFICATIONS

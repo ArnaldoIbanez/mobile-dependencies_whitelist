@@ -69,6 +69,10 @@ trackTests {
             description = "description"
         }
     }
+	
+    test("Mercadopago discount sellers congrats") {
+        "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {}
+    }
 
     test("Mercadopago discount sellers form create") {
         "/discount_sellers/form/create" (platform: "/mobile", type: TrackType.Event) {

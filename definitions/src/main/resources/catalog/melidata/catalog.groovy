@@ -87,6 +87,7 @@ catalog {
         include business, "payers_growth.groovy"
         include business, "collaborators.groovy"
         include business, "loyalty_v2.groovy"
+        include business, "credits.groovy"
     }
 
     marketplace.each { business ->
@@ -136,6 +137,7 @@ catalog {
         include business, "zip_finder.groovy"
         include business, "current_location.groovy"
         include business, "download_app.groovy"
+        include business, "incentivate_login.groovy"
         include business, "supermarket.groovy"
         include business, "contact.groovy"
         include business, "full.groovy"
@@ -145,6 +147,7 @@ catalog {
         include business, "myaccount_billing.groovy"
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
+        include business, "kyc.groovy"
         include business, "pdp.groovy"
         include business, "qadb.groovy"
         include business, "promotions.groovy"
@@ -169,6 +172,7 @@ catalog {
         include business, "sube_recharge.groovy"
         include business, "transport.groovy"
         include business, "remedy.groovy"
+        include business, "kyc.groovy"
         include business, "digital_account.groovy"
         include business, "front_core.groovy"
         include business, "mplayer.groovy"
