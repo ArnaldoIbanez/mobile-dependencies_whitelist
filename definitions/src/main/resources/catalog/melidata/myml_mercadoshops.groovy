@@ -76,9 +76,10 @@ tracks {
         sidebar_name(
                 required: false,
                 type: PropertyType.String,
-                values: ['AFIP', 'BANNER', 'BRANDS', 'CAROUSEL', 'COLORS', 'CONTACT', 'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED',
-                         'FLASH', 'GRID', 'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE', 'LOGO', 'MOSAIC', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS',
-                         'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TEXT_BANNER']
+                values: ['AFIP', 'BANNER', 'BRANDS', 'CATEGORIES', 'CAROUSEL', 'COLORS', 'CONTACT', 'CONTACT_FROM_SHOP_NAME',
+                         'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FOOTER', 'GRID', 'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE',
+                         'LOGO', 'MENU', 'MOSAIC', 'PRICE_AND_IMAGE', 'PRICE_AND_IMAGE_ADVANCED', 'SHOP_NAME', 'SLIDER',
+                         'SOCIAL_NETWORKS', 'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TABBED_CAROUSEL', 'TEXT_BANNER']
         )
     }
 
@@ -121,6 +122,10 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/sidebar/footer_message"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/sidebar/grid"(platform: "/", type: TrackType.Event){
         items_per_row(required: true, type: PropertyType.Numeric)
         max_items(required: true, type: PropertyType.Numeric)
@@ -141,8 +146,18 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/sidebar/menu"(platform: "/", type: TrackType.Event){
+        categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Selected categories to show in header menu")
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/sidebar/mosaic"(platform: "/", type: TrackType.Event){
         max_items(required: true, type: PropertyType.Numeric)
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/sidebar/price_and_image"(platform: "/", type: TrackType.Event){
+        categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Selected categories to show")
         mshopsEventGroup
     }
 
@@ -161,6 +176,11 @@ tracks {
         twitter(required: false, type: PropertyType.String, description: "Twitter was configured")
         instagram(required: false, type: PropertyType.String, description: "Instagram was configured")
         youtube(required: false, type: PropertyType.String, description: "Youtube was configured")
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/sidebar/tabbed_carousel"(platform: "/", type: TrackType.Event){
+        filters(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Array of filters ids to use in carousel")
         mshopsEventGroup
     }
 
