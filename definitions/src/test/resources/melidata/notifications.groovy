@@ -4341,6 +4341,11 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/messages_driver_flex"(platform: "/mobile"){
+            news_id = "messages-driver_flex-321953606"
+            event_type = "sent"
+        }
+
         "/notification/me_flex_optin_activation"(platform: "/mobile"){
             news_id = "me_flex-optin_activation-315571651"
             event_type = "sent"

@@ -880,7 +880,7 @@ trackTests {
             flow_decision = true
         }
     }
-     test("SYI v4 quantity with specifications card showed"){
+    test("SYI v4 quantity with specifications card showed"){
         "/sell/item_data/quantity_with_specifications/show"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
             seller_profile = "ADVANCED"
