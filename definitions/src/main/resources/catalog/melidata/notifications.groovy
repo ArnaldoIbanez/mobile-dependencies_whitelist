@@ -686,7 +686,6 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
-
     "/notification_center/seller_journey_congrats"(platform: "/", type: TrackType.Event){
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
@@ -698,6 +697,13 @@ tracks {
     }
     "/notification_center/seller_journey_do_something"(platform: "/", type: TrackType.Event){
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+
+    //Sll Advertising Notifications
+    "/notification_center/sll_items_activate_items"(platform: "/web") {
+        site_id(required: true, type: PropertyType.String, description: "Site Id.")
+        seller_id(required: true, type: PropertyType.String, description: "Customer Id.")
+        items_count(required: true , type: PropertyType.Numeric, description: "Number of Items has to sell.")
     }
 
 
@@ -1611,12 +1617,5 @@ tracks {
     "/notification/uninstalls_checker"(platform: "/mobile") {
         execution_id(required: true, type: PropertyType.String)
         advertising_id(required: true, type: PropertyType.String)
-    }
-
-    //SLL
-    "/notification/sll_items_activate_items"(platform: "/web") {
-        site_id(required: true, type: PropertyType.String)
-        seller_id(required: true, type: PropertyType.String)
-        items_count(required: true, type: PropertyType.Numeric)
     }
 }

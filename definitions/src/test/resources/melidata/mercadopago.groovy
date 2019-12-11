@@ -829,6 +829,13 @@ trackTests {
         "/merchant_acquisition/flows/qr-point-assignment/unauthorized"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Fluxo de reversa Point - autogeração de etiqueta") {
+        "/merchant_acquisition/flows/point_reverse"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/info"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/address"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/success"(platform: "/", type: TrackType.View) {}
+    }
+
     test("MP-MA Flow QR") {
         "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
