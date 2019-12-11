@@ -112,6 +112,18 @@ tracks {
 
     def discount_center_item_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the item we are showing")
+        blocked(type: PropertyType.Boolean, required: false, description: "If the discount is blocked or not")
+        name(type: PropertyType.String, required: false, description: "The name of the discount")
+        category(type: PropertyType.String, required: false, description: "The category of the discount")
+        mcc(type: PropertyType.Numeric, required: false, description: "The mcc of the category of the discount")
+        position(type: PropertyType.Numeric, required: false, description: "The position of the discount in the list")
+        availability(type: PropertyType.String, required: false, description: "Availability status of the discount")
+        level(type: PropertyType.Numeric, required: false, description: "The minimum loyalty level required for the discount")
+        distance(type: PropertyType.Numeric, required: false, description: "The distance to the closest store")
+        store_id(type: PropertyType.Numeric, required: false, description: "The store id of the closest store")
+        amount(type: PropertyType.Numeric, required: false, description: "The discount amount in fixed values")
+        priority(type: PropertyType.Numeric, required: false, description: "The discount brand priority")
+        collector_id(type: PropertyType.Numeric, required: false, description: "The collector_id of the campaign")
     }
     
     def loyalty_header_definition = objectSchemaDefinitions {
