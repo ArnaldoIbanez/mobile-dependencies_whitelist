@@ -1126,7 +1126,7 @@ trackTests {
 
         "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
             order_id=1234
-            status="payment_"
+            status="payment_required"
             total_amount=2000
             total_amount_with_shipping=2087.99
             total_paid_amount=3373.98
