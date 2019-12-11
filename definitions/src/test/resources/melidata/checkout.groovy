@@ -1126,7 +1126,7 @@ trackTests {
 
         "/checkout/payments/select_payment_method"(platform:"/web/desktop") {
             order_id=1234
-            status="payment_required"
+            status="payment_"
             total_amount=2000
             total_amount_with_shipping=2087.99
             total_paid_amount=3373.98
@@ -1812,10 +1812,62 @@ trackTests {
             congrats_status = "APPROVED"
             token_generated_with_esc = "NO"
         }
-        "/checkout/congrats/pay_with_another"(platform: "/", type:  TrackType.Event){}
-        "/checkout/congrats/pay_now"(platform: "/", type:  TrackType.Event){}
-        "/checkout/congrats/use_now"(platform: "/", type:  TrackType.Event){}
+        "/checkout/congrats/pay_with_another"(platform: "/", type:  TrackType.Event){
+            items=[
+                    [
+                            item:[
+                                    id:"MLA9876",
+                                    variation_id:null,
+                                    buying_mode:"buy_it_now",
+                                    shipping_mode:"me2",
+                                    category_id:"MLA1915",
+                                    deal_ids:null
+                            ],
+                            quantity:1,
+                            unit_price:2000,
+                            currency_id:"ARS"
+                    ]
+            ]
+            recovery_flow=true
+        }
 
+        "/checkout/congrats/pay_now"(platform: "/", type:  TrackType.Event){
+            items=[
+                    [
+                            item:[
+                                    id:"MLA9876",
+                                    variation_id:null,
+                                    buying_mode:"buy_it_now",
+                                    shipping_mode:"me2",
+                                    category_id:"MLA1915",
+                                    deal_ids:null
+                            ],
+                            quantity:1,
+                            unit_price:2000,
+                            currency_id:"ARS"
+                    ]
+            ]
+            recovery_flow=true
+        }
+
+        "/checkout/congrats/use_now"(platform: "/", type:  TrackType.Event){
+            items=[
+                    [
+                            item:[
+                                    id:"MLA9876",
+                                    variation_id:null,
+                                    buying_mode:"buy_it_now",
+                                    shipping_mode:"me2",
+                                    category_id:"MLA1915",
+                                    deal_ids:null
+                            ],
+                            quantity:1,
+                            unit_price:2000,
+                            currency_id:"ARS"
+                    ]
+            ]
+            recovery_flow=true
+        }
     }
 
     /*
