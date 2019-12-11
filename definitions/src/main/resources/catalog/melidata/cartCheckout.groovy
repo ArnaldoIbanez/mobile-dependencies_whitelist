@@ -214,14 +214,17 @@ tracks {
     "/cart/checkout/congrats/contact_us"(platform: "/", type: TrackType.Event) {}
     "/cart/checkout/congrats/go_to_mercado_puntos"(platform: "/", type: TrackType.Event) {}
     "/cart/checkout/congrats/added_points"(platform: "/", type: TrackType.Event) {}
+
     "/cart/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
     }
+
     "/cart/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
     }
+    
     "/cart/checkout/congrats/use_now"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
