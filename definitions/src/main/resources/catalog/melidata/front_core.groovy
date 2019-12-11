@@ -117,7 +117,7 @@ tracks {
         category(type: PropertyType.String, required: false, description: "The category of the discount")
         mcc(type: PropertyType.Numeric, required: false, description: "The mcc of the category of the discount")
         position(type: PropertyType.Numeric, required: false, description: "The position of the discount in the list")
-        availability(type: PropertyType.String, required: false, description: "Availability status of the discount")
+        availability(type: PropertyType.String, required: false, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status of the discount")
         level(type: PropertyType.Numeric, required: false, description: "The minimum loyalty level required for the discount")
         distance(type: PropertyType.Numeric, required: false, description: "The distance to the closest store")
         store_id(type: PropertyType.Numeric, required: false, description: "The store id of the closest store")
