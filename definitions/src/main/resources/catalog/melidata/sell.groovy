@@ -27,6 +27,11 @@ tracks {
         domain_id(required: false, PropertyType.String, description: "Item's domain_id")
         catalog_listing(required: true, PropertyType.Boolean, description: "Item is catalog_listing or not")
     }
+    def item_from_map = objectSchemaDefinitions {
+        category_id(required: true, PropertyType.String, description: "Original item's category id")
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+    }
+
 
     propertyDefinitions {
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
@@ -45,11 +50,13 @@ tracks {
         predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
         parent_product_id(required: false, type: PropertyType.String, description: "Catalog product parent id for item")
         product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
+        item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
     }
 
     propertyGroups {
-        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation)
-        categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id)
+        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode)
+        categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
     }
 
     // Sell
@@ -843,12 +850,12 @@ tracks {
     "/sell/item_data/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
-        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/item_data/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
-        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
@@ -900,7 +907,7 @@ tracks {
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_id(required: true, type: PropertyType.String)
-        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
         domain_id(required: true, type: PropertyType.String, description: "Item's category domain id")
         title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
         predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
