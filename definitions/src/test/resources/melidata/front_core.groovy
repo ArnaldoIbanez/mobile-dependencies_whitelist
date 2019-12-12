@@ -393,8 +393,20 @@ trackTests {
                 ordinal: 11,
                 content_type: 'partial',
                 items: [
-                    [
-                        tracking_id: "1004194"
+                    [   
+                        tracking_id: "1004194",
+                        blocked: false,
+                        name: "Mc Donalds",
+                        category: "Fast Food",
+                        mcc: 5611201,
+                        position: 0,
+                        level: 1,
+                        distance: 258,
+                        store_id: 30091709,
+                        availability: "full",
+                        amount: 15,
+                        priority: 9,
+                        collector_id: 123456
                     ]
                 ]
             ]
@@ -525,8 +537,20 @@ trackTests {
                 ordinal: 11,
                 content_type: 'partial',
                 items: [
-                    [
-                        tracking_id: "1004194"
+                    [   
+                        tracking_id: "1004194",
+                        blocked: false,
+                        name: "Mc Donalds",
+                        category: "Fast Food",
+                        mcc: 5611201,
+                        position: 0,
+                        level: 1,
+                        distance: 258,
+                        store_id: 30091709,
+                        availability: "full",
+                        amount: 15,
+                        priority: 9,
+                        collector_id: 123456
                     ]
                 ]
             ]
@@ -961,8 +985,20 @@ trackTests {
                 ordinal: 11,
                 content_type: 'partial',
                 items: [
-                    [
-                        tracking_id: "1004194"
+                    [   
+                        tracking_id: "1004194",
+                        blocked: false,
+                        name: "Mc Donalds",
+                        category: "Fast Food",
+                        mcc: 5611201,
+                        position: 0,
+                        level: 1,
+                        distance: 258,
+                        store_id: 30091709,
+                        availability: "full",
+                        amount: 15,
+                        priority: 9,
+                        collector_id: 123456
                     ]
                 ]
             ]
@@ -1093,8 +1129,20 @@ trackTests {
                 ordinal: 11,
                 content_type: 'partial',
                 items: [
-                    [
-                        tracking_id: "1004194"
+                    [   
+                        tracking_id: "1004194",
+                        blocked: false,
+                        name: "Mc Donalds",
+                        category: "Fast Food",
+                        mcc: 5611201,
+                        position: 0,
+                        level: 1,
+                        distance: 258,
+                        store_id: 30091709,
+                        availability: "full",
+                        amount: 15,
+                        priority: 9,
+                        collector_id: 123456
                     ]
                 ]
             ]
