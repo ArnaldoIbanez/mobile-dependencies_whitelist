@@ -144,6 +144,7 @@ trackTests {
         "/cart/checkout/error"(platform: "/") {
             dataSet()
             error='paused_item'
+            error_code='404'
         }
         "/cart/checkout/payment/billing_information"(platform: "/mobile") {
             dataSet()
