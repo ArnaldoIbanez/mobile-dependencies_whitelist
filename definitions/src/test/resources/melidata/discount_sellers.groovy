@@ -24,13 +24,15 @@ trackTests {
             form_model = "{modelo}"
             mcc = "1234"
             melicapaign_id = "1"
-            origin "push"
-            clone_campaign_id "1"
+            origin = "push"
+            clone_campaign_id = "1"
         }
     }
 
     test("Mercadopago discount sellers form redirect") {
-        "/discount_sellers/form/redirect" (platform: "/mobile", type: TrackType.Event) {}
+        "/discount_sellers/form/redirect" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "1"
+        }
     }
 
     test("Mercadopago discount sellers form section change") {
@@ -68,10 +70,6 @@ trackTests {
             session_id = "1"
             description = "description"
         }
-    }
-	
-    test("Mercadopago discount sellers congrats") {
-        "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {}
     }
 
     test("Mercadopago discount sellers form create") {
@@ -166,13 +164,14 @@ trackTests {
     test("Mercadopago discount sellers detail open") {
         "/discount_sellers/detail/open" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
+            status = "en curso"
         }
     }
 
     test("Mercadopago discount sellers detail view") {
         "/discount_sellers/detail" (platform: "/mobile", type: TrackType.View) {
             session_id = "1"
-            campaign_id(required: false, type: PropertyType.String, description: "Campaign Identifier")
+            campaign_id = "1"
             status = "en curso"
             budget_total = "1000"
             budget_used = "100"
@@ -186,6 +185,7 @@ trackTests {
     test("Mercadopago discount sellers detail tap") {
         "/discount_sellers/detail/tap" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
+            status = "en curso"
             target = "quick_action"
             title = "Pausar"
         }
@@ -194,6 +194,7 @@ trackTests {
     test("Mercadopago discount sellers detail modal open") {
         "/discount_sellers/detail/modal/open" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
+            status = "en curso"
             type = "pause"
         }
     }
@@ -201,6 +202,7 @@ trackTests {
     test("Mercadopago discount sellers detail modal close") {
         "/discount_sellers/detail/modal/close" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
+            status = "en curso"
             type = "pause"
         }
     }
@@ -208,6 +210,7 @@ trackTests {
     test("Mercadopago discount sellers detail modal confirm") {
         "/discount_sellers/detail/modal/confirm" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
+            status = "en curso"
             type = "pause"
         }
     }
@@ -215,6 +218,7 @@ trackTests {
     test("Mercadopago discount sellers detail error") {
         "/discount_sellers/detail/error" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
+            status = "en curso"
             description = "description"
         }
     }
@@ -222,6 +226,7 @@ trackTests {
     test("Mercadopago discount sellers detail back") {
         "/discount_sellers/detail/back" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
+            status = "en curso"
         }
     }
 
@@ -239,6 +244,7 @@ trackTests {
     test("Mercadopago discount sellers landing tap") {
         "/discount_sellers/landing/tap" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
+            landing_id = "ftu"
             title = "Title"
         }
     }
@@ -246,6 +252,7 @@ trackTests {
     test("Mercadopago discount sellers landing back") {
         "/discount_sellers/landing/back" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
+            landing_id = "ftu"
         }
     }
 }
