@@ -158,11 +158,11 @@ tracks {
 
     "/advertising/pads2/manager/lift/details"(platform: "/web", isAbstract: true) {}
     "/advertising/pads2/manager/lift/details/show"(platform: "/web", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/details/hide"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/details/close"(platform: "/web", type: TrackType.Event) {}
 
     "/advertising/pads2/manager/lift/chart"(platform: "/web", isAbstract: true) {}
     "/advertising/pads2/manager/lift/chart/show"(platform: "/web", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/chart/hide"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/chart/close"(platform: "/web", type: TrackType.Event) {}
 
     "/advertising/pads2/manager/lift/tooltip"(platform: "/web", isAbstract: true) {}
     "/advertising/pads2/manager/lift/tooltip/adv_sales"(platform: "/web", type: TrackType.Event) {}
@@ -186,6 +186,19 @@ tracks {
     }
     "/advertising/pads2/manager/lift/modal/close"(platform: "/web", type: TrackType.Event) {
         share_value(required: true, description: "Porcentual share value")
+    }
+
+    //Card Upselling
+    "/advertising/pads2/manager/card/upselling"(platform: "/web", type: TrackType.View) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: false, type: PropertyType.String, description: "Current budget related to the campaign")
+        budget_new(required: false, type: PropertyType.String, description: "New budget related to the campaig")
+    }
+
+    "/advertising/pads2/manager/card/upselling"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: false, type: PropertyType.String, description: "Current budget related to the campaign")
+        budget_new(required: false, type: PropertyType.String, description: "New budget related to the campaig")
     }
 
     //SLL
