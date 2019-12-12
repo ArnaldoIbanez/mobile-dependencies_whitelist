@@ -1306,10 +1306,12 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            categorization_flow_successful = true
             item_id = "MLA123456789"
             item_type = "default"
             seller_reputation = "green"
             domain_id = "MLA_CELLPHONES"
+            chosen_categorization_model = "ZORDON"
             title_predicted = "test"
         }
     }
