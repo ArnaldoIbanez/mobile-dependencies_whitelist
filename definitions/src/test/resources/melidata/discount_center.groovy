@@ -55,7 +55,7 @@ trackTests {
 
     test("Mercado Pago discount center payers detail") {
         "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
-            name = "Angus"
+            title = "Angus"
             enabled = true
             availability = "full"
             level = 1
@@ -80,7 +80,7 @@ trackTests {
 
     test("Mercado Pago discount center payers detail share") {
         "/discount_center/payers/detail/share" (platform: "/mobile", type: TrackType.Event) {
-            name = "Angus"
+            title = "Angus"
             enabled = true
             availability = "full"
             level = 1
