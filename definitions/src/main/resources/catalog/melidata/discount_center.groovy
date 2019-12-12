@@ -46,7 +46,7 @@ tracks {
     // DETAIL
 
     "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
-        name(required: false, type: PropertyType.String, description: "The brand name")
+        name(required: true, type: PropertyType.String, description: "The brand name")
         enabled(required: true, type: PropertyType.Boolean, description: "If the discount can be consumed or not")
         availability(required: false, type: PropertyType.String, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status of the discount")
         mcc(required: false, type: PropertyType.String, description: "The mcc of the category of the discount")
