@@ -97,6 +97,9 @@ tracks {
         )
     }
 
+    "/credits/merchant/declarative_form"(platform:"/", type: TrackType.View) {}
+    "/credits/merchant/declarative_form/congrats"(platform:"/", type: TrackType.View) {}
+
     /******************************************
      *       End: Merchants Public Landings
      ******************************************/

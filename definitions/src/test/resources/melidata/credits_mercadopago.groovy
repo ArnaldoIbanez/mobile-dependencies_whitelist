@@ -416,6 +416,10 @@ trackTests {
         "/credits/merchant/public_landing"(platform: "/web/desktop") {
             user_profile = 'no_offer'
         }
+
+        "/credits/merchant/declarative_form"(platform:"/web/desktop", type: TrackType.View) {}
+
+        "/credits/merchant/declarative_form/congrats"(platform:"/web/desktop", type: TrackType.View) {}
     }
 
     test('Merchant Collection') {
