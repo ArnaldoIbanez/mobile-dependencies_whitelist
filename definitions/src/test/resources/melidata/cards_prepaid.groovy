@@ -63,6 +63,7 @@ trackTests {
             current_balance_amount = "zero"
             needed_funding_amount = 20
             has_money = false
+            pending_ticket = false
         }
         "/prepaid/acquisition/change_dni"(platform: "/web/desktop") {}
         "/prepaid/acquisition/confirmation_account"(platform: "/web/desktop") {}
@@ -164,6 +165,7 @@ trackTests {
         "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "to_collect" }
         "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "not_delivered" }
         "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "soon_deliver" }
+        "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "reprogrammed" }
     }
 
 
