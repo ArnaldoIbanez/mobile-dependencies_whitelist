@@ -71,7 +71,7 @@ tracks {
         has_prepaid (required:false, type: PropertyType.Boolean, description: "User already has a prepaid")
         had_money_last_7d (required:false, type: PropertyType.Boolean, description: "User had money last seven days")
         is_point_seller (required:false, type: PropertyType.Boolean, description: "If user is a point seller")
-        bought_point_device (required:faºlse, type: PropertyType.Boolean, description: "User bought a point device")
+        bought_point_device (required:false, type: PropertyType.Boolean, description: "User bought a point device")
         current_balance_amount (required:false, type: PropertyType.String, description: "Current balance amount")
         needed_funding_amount (required:false, type: PropertyType.Numeric, description: "User needs fund money to continue")
         has_money (required:false, type: PropertyType.Boolean, description: "User already has money")
