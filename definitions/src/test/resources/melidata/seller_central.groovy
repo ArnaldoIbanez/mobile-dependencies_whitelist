@@ -253,13 +253,13 @@ trackTests {
     "/seller_central/bulk/changes/price"(platform: "/", type: TrackType.Event) {
       oldValue = "20"
       newValue = "25"
-      itemId = "MLB341920"
+      item_id = "MLB341920"
     }
   }
 
   test("seller central bulk shipping tooltip") {
     "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
-      itemId = "MLB341920"
+      item_id = "MLB341920"
     }
   }
   //------------------------------------------------------------------------------------------------------------------------------------------------------
