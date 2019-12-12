@@ -23,7 +23,7 @@ trackTests {
             action = "contact"
         }
         "/hybrid/shipping/tracking/show"(platform:"/", type: TrackType.Event) {
-            action = "banner_unlock"
+            component_id = "banner_unlock"
         }
 
     }
