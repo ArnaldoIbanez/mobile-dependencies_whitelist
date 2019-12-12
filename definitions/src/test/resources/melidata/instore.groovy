@@ -95,6 +95,31 @@ trackTests {
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/ask_device_permission/bluetooth_authorized"(platform: "/mobile", type: TrackType.View) {
+            context = "/instore"
+            collector_id = "12345"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/ask_device_permission/bluetooth_authorized/back"(platform: "/mobile", type: TrackType.Event) {
+            context = "/instore"
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/ask_device_permission/bluetooth_authorized/settings"(platform: "/mobile", type: TrackType.Event) {
+            context = "/instore"
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/ask_device_permission/camera"(platform: "/mobile", type: TrackType.View) {
             context = "/instore"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
@@ -1260,13 +1285,29 @@ trackTests {
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-        "/ask_device_permission/bluetooth/rejected"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+        "/ask_device_permission/bluetooth_authorized"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             context = "/instore"
             collector_id = "12356"
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
             qr_data = "Any scanned data"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/ask_device_permission/bluetooth_authorized/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            context = "/instore"
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/ask_device_permission/bluetooth_authorized/settings"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            context = "/instore"
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/camera"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {

@@ -38,7 +38,7 @@ tracks {
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
-        chosen_categorization_model(required: true, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT"], type: PropertyType.String)
+        chosen_categorization_model(required: true, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
         category_prediction_selected_index(required: false, description: "Index selected in Multiples Suggestions", PropertyType.Numeric)
         attribute_values(required: false, description: "Array of attributes in categorization", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
         title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
@@ -386,6 +386,8 @@ tracks {
     "/sell/list/warranty_time"(platform: "/", type: TrackType.View) {}
     "/sell/list/warranty_type_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/warranty_time_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/warranty_type_condition_review"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/warranty_time_condition_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/whatsapp_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {}
@@ -585,6 +587,8 @@ tracks {
     "/sell/update/warranty_time_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/warranty_type_catalog"(platform: "/", type: TrackType.View) {}
     "/sell/update/warranty_time_catalog"(platform: "/", type: TrackType.View) {}
+    "/sell/update/warranty_type_force_change"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/warranty_time_force_change"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/whatsapp"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/updateing_types"(platform: "/", type: TrackType.View) {}
     "/sell/update/updateing_types_review"(platform: "/", type: TrackType.View) {}
@@ -770,14 +774,19 @@ tracks {
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {
+        categoryFlow
+    }
     "/sell/item_data/category_suggested/show"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/category"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {
+        confirm_category_detail(required: true, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
+    }
+    "/sell/item_data/category_suggested/another_category"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/category"(platform: "/web", isAbstract: true) {
+        categoryFlow
+    }
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
-        sellGroup
-        categoryFlow
         confirm_category_detail(required: true, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
     }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
@@ -890,10 +899,9 @@ tracks {
 
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
+        categoryFlow
         item_id(required: true, type: PropertyType.String)
-        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
-        domain_id(required: true, type: PropertyType.String, description: "Item's category domain id")
-        title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -918,4 +926,5 @@ tracks {
     }
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
+
 }

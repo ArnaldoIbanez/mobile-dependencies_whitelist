@@ -40,4 +40,8 @@ trackTests {
     test("Mercadopago Activities Export") {
         "/activities/export" (platform: "/web", type: TrackType.View) {}
     }
+
+    test("Mercadopago Shields") {
+        "/shield" (platform: "/web", type: TrackType.View) {}
+    }
 }

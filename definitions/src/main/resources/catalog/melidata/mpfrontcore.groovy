@@ -28,4 +28,7 @@ tracks {
 
     // MP Activities Export
     "/activities/export"(platform: "/web", type: TrackType.View) {}
+
+    // MP Shields
+    "/shield"(platform: "/web", type: TrackType.View) {}
 }

@@ -590,6 +590,11 @@ trackTests {
             unregistered_contact_context = false
             event_source= "description"
         }
+
+        "/vip/questions/show"(platform: "/", type: TrackType.View) {
+            item_id = "MLA213512313"
+            catalog_product_id="MLA123456"
+        }
     }
 
     test("New Shipping calculator"){
@@ -778,6 +783,11 @@ trackTests {
             }
         }
 
+        def variationInformation = {
+            preselection_type = "parcial"
+            enforced_preselection = "stock"
+        }
+
         "/vip/buy_action"(platform: "/", type: TrackType.View) {
             defaultTrackInformation()
             cartInformation()
@@ -798,12 +808,15 @@ trackTests {
             deal_ids = []
             item_seller_type = "normal"
             from_view = "unitsAvailable"
+            catalog_listing = false
+            review_rate=-1
         }
 
         "/vip/buy_action"(platform: "/web", type: TrackType.View) {
             defaultTrackInformation()
             cartInformation()
             shippingInformation()
+            variationInformation()
             shipping_pay_before = false
         }
 
@@ -817,6 +830,7 @@ trackTests {
             defaultTrackInformation()
             cartInformation()
             shippingInformation()
+            variationInformation()
             shipping_pay_before = false
         }
         
@@ -1091,6 +1105,16 @@ trackTests {
     test("VIP prevent stock question for web mobile") {
         "/vip/question/ask/prevent_stock"(platform: "/web/mobile", type: TrackType.Event) {
             item_id = "MLA792156560"
+        }
+    }
+
+    test("VIP back to listing event") {
+        "/vip/back_to_listing"(platform:"/web/desktop", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            domain_id = "MLA7192"
+            vertical = "core"
         }
     }
 }

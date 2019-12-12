@@ -255,9 +255,42 @@ trackTests {
             dataSetCongrats()
         }
 
-        "/cart/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event){}
-        "/cart/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event){}
-        "/cart/checkout/congrats/use_now"(platform: "/", type: TrackType.Event){}
+        "/cart/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event){
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event){
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/congrats/use_now"(platform: "/", type: TrackType.Event){
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
 
         "/cart/checkout/show_ticket"(platform: "/", dataSet)
         "/cart/checkout/finish/invalid_sec_code/input_code"(platform: "/", dataSet)

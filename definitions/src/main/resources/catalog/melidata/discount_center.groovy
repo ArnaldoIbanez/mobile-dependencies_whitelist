@@ -35,7 +35,9 @@ tracks {
 
     // LIST
 
-    "/discount_center/payers/list" (platform: "/mobile", type: TrackType.View) {}
+    "/discount_center/payers/list" (platform: "/mobile", type: TrackType.View) {
+      session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+    }
 
     "/discount_center/payers/list/show" (platform: "/mobile", type: TrackType.Event) {
       items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the list")
@@ -43,20 +45,28 @@ tracks {
       filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The enabled filters")
     }
 
+    "/discount_center/payers/list/tap_filter" (platform: "/mobile", type: TrackType.Event) {
+        filter_id(required: true, type: PropertyType.String, description: "The filter identifier")
+        index(required: true, type: PropertyType.Numeric, description: "The filter position")
+        action(required: true, type: PropertyType.String, description: "The filter state")
+    }
+
     // DETAIL
 
     "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
-        name(required: true, type: PropertyType.String, description: "The brand name")
+        name(required: false, type: PropertyType.String, description: "The brand name")
         enabled(required: true, type: PropertyType.Boolean, description: "If the discount can be consumed or not")
         availability(required: false, type: PropertyType.String, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status of the discount")
         mcc(required: false, type: PropertyType.String, description: "The mcc of the category of the discount")
         level(required: true, type: PropertyType.Numeric, description: "The discount level")
         blocked(required: true, type: PropertyType.Boolean, description: "If the discount is not available for the user level")
-        amount(required: false, type: PropertyType.Numeric, description: "The discount campaign amount")
+        amount(required: true, type: PropertyType.Numeric, description: "The discount campaign amount")
         amount_type(required: false, type: PropertyType.String,  values: ['fixed', 'percent'], description: "The amount type")
         status(required: true, type: PropertyType.String, values: ['active', 'inactive', 'finished'], description: "The discount campaign status")
-        stores_id(required: false, type: PropertyType.ArrayList(PropertyType.Numeric), description: "A list of stores who are in a nearby radius")
+        stores_id(required: true, type: PropertyType.ArrayList(PropertyType.Numeric), description: "A list of stores who are in a nearby radius")
         sections(required: true, type: PropertyType.ArrayList(PropertyType.Map(section_definition)), description: "Sections shown in the list")
+        tracking_id(required: true, type: PropertyType.String, description: "Tracking id of the presented detail")
+        session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
         tracking_id(required: true, type: PropertyType.String, description: "Tracking id of the presented detail")
     }
 
@@ -64,7 +74,9 @@ tracks {
 
     // LOCATION REQUEST
 
-    "/discount_center/payers/request_location" (platform: "/mobile", type: TrackType.View) {}
+    "/discount_center/payers/request_location" (platform: "/mobile", type: TrackType.View) {
+      session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+    }
 
     "/discount_center/payers/request_location/result" (platform: "/mobile", type: TrackType.Event) {
       result(required: true, type: PropertyType.String, values: ['enabled','disabled'] )
