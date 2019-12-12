@@ -16,7 +16,7 @@ select
   count(distinct (case when flow_id is null and enrollment_status = 'disabled' and path = '/screenlock/validation_end' and elapsed_time >= '1' then usr.user_id else null end)) as cant_unenrollments_legacy_ios,
   count(distinct (case when path = '/security_settings' then usr.user_id else null end)) as cant_ss_views,
   count(distinct (case when path = '/security_settings/screenlock' then usr.user_id else null end)) as cant_ss_biometrics_views,
-  ds
+  substr(ds, 1, 10) as ds
 from
    (
      select
@@ -53,4 +53,4 @@ group by
   application.business,
   flow_id,
   os_status,
-  ds
+  substr(ds, 1, 10)
