@@ -334,13 +334,13 @@ tracks {
     "/seller_central/bulk/changes/price"(platform: "/", type: TrackType.Event) {
         oldValue(required: true, type: PropertyType.String, description: "Old value of the price cell")
         newValue(required: true, type: PropertyType.String, description: "New value")
-        itemId(required: true, type: PropertyType.String, description: "Id of the modified item")
+        item_id(required: true, type: PropertyType.String, description: "Id of the modified item")
     }
 
     "/seller_central/bulk/shipping"(platform: "/", isAbstract: true) {}
 
     "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
-        itemId(required: true, type: PropertyType.String, description: "item's id that showed the tooltip")
+        item_id(required: true, type: PropertyType.String, description: "item's id that showed the tooltip")
     }
 
     "/seller_central/bulk/offline"(platform: "/", isAbstract: true) {}
