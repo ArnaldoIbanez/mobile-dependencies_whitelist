@@ -118,6 +118,7 @@ tracks {
 
     "/cart/checkout/error"(platform: "/", type: TrackType.View) {
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user if known")
+        error_code(required: false, type: PropertyType.String, description: "Code of the error that was shown to the user if known")
     }
 
     "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
