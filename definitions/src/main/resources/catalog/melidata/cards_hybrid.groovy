@@ -10,18 +10,18 @@ tracks {
     //-----------------
 
     //Abstract Path
-    "/hybrid"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
     // --------
-    "/hybrid/shipping"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/shipping"(platform: "/", isAbstract: true) { }
 
     //Shipping: Tracking
-    "/hybrid/shipping/tracking"(platform: "/", type: TrackType.View) {
+    "/cards/hybrid/shipping/tracking"(platform: "/", type: TrackType.View) {
         banner_is_present (required:true, type: PropertyType.Boolean, description: "Banner is present in Screen")
         contact_is_present (required:true, type: PropertyType.Boolean, description: "Contact is present in Screen")
     }
-    "/hybrid/shipping/tracking/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/shipping/tracking/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true, 
             type: PropertyType.String, 
@@ -29,13 +29,13 @@ tracks {
             description: "Action tapped"
         )
     }
-    "/hybrid/shipping/tracking/show"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/shipping/tracking/show"(platform:"/", type: TrackType.Event) {
         component_id (required:true, type: PropertyType.String, description: "Component shown")
     }
 
     //Shipping: Delayed
-    "/hybrid/shipping/delayed"(platform: "/", type: TrackType.View) {}
-    "/hybrid/shipping/delayed/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/shipping/delayed"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/shipping/delayed/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true, 
             type: PropertyType.String, 
