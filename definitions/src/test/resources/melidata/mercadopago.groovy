@@ -3955,4 +3955,9 @@ trackTests {
 
         "/account/mydata/email"(platform: "/mobile/android", type: TrackType.View) {}
     }
+
+    test("Tu negocio") {
+        "/your_business"(platform: "/web", type: TrackType.View) {}
+        "/your_business"(platform: "/web/mobile", type: TrackType.View) {}
+    }
 }

@@ -1408,6 +1408,9 @@ tracks {
     "/account/mydata/email"(platform: "/", type: TrackType.View) {}
     "/account/mydata/email/congrats"(platform: "/web", type: TrackType.View) {}
 
+    //Tu negocio
+    "/your_business"(platform: "/web", type: TrackType.View) {}
+
 }
 
 
