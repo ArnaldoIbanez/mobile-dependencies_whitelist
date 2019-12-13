@@ -79,6 +79,20 @@ trackTests {
         }
     }
 
+    test("Show scopes") {
+        "/collaborators/scopes"(platform:"/", type: TrackType.View) {}
+    }
+
+    test("Show scope detail") {
+        "/collaborators/scopes/detail"(platform:"/", type: TrackType.View) {
+            scope = 'test_scope'
+        }
+    }
+
+    test("Tap continue") {
+        "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event) {}
+    }
+
     defaultBusiness = "mercadolibre"
 
     test("Came into new version" ) {
@@ -153,4 +167,19 @@ trackTests {
             segmentation = 'no-data'
         }
     }
+
+    test("Show scopes") {
+        "/collaborators/scopes"(platform:"/", type: TrackType.View) {}
+    }
+
+    test("Show scope detail") {
+        "/collaborators/scopes/detail"(platform:"/", type: TrackType.View) {
+            scope = 'test_scope'
+        }
+    }
+
+    test("Tap continue") {
+        "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event) {}
+    }
+
 }
