@@ -2275,6 +2275,7 @@ trackTests {
         // Page
         "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
         "/checkout/shipping/input_address"(platform:"/web", dataSet)
+        "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event, dataSet)
 
         // Event
         "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event){
