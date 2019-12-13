@@ -3957,7 +3957,7 @@ trackTests {
     }
 
     test("Tu negocio") {
-        "/business"(platform: "/web", type: TrackType.View) {}
-        "/business"(platform: "/web/mobile", type: TrackType.View) {}
+        "/your_business"(platform: "/web", type: TrackType.View) {}
+        "/your_business"(platform: "/web/mobile", type: TrackType.View) {}
     }
 }

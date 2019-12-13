@@ -1409,7 +1409,7 @@ tracks {
     "/account/mydata/email/congrats"(platform: "/web", type: TrackType.View) {}
 
     //Tu negocio
-    "/business"(platform: "/web", type: TrackType.View) {}
+    "/your_business"(platform: "/web", type: TrackType.View) {}
 
 }
 
