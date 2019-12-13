@@ -189,11 +189,7 @@ trackTests {
     }
 
     test("Landing App Download button") {
-        "/prepaid/acquisition/sellers_landing/store_button" (platform: "/", type: TrackType.Event) {
-            deviceType = "mobile"
-            osName = "android"
-         }
-    }
+        "/prepaid/acquisition/sellers_landing/store_button" (platform: "/", type: TrackType.Event) { }
 
     test("Prepaid cards MLM") {
         

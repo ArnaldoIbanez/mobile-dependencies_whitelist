@@ -217,10 +217,7 @@ tracks {
     "/prepaid/ask_from_app" (platform: "/", type: TrackType.View) {}
     "/prepaid/update_app/cta"(platform:"/mobile", type: TrackType.Event) {}
 
-    "/prepaid/acquisition/sellers_landing/store_button"(platform:"/", type: TrackType.Event) {
-        deviceType (required:true, type: PropertyType.String, description: "Device Type")
-        osName (required:true, type: PropertyType.String, description: "Operative System Name")
-    }
+    "/prepaid/acquisition/sellers_landing/store_button"(platform:"/", type: TrackType.Event) { }
 
     // Prepaid Detail
     "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.View) {}
