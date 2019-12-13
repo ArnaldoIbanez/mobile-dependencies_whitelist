@@ -137,7 +137,9 @@ tracks {
 
     "/cart/checkout/payment/select_store"(platform: "/", type: TrackType.View) {}
 
-    "/cart/checkout/payment/select_bank"(platform: "/", type: TrackType.View) {}
+    "/cart/checkout/payment/select_bank"(platform: "/", type: TrackType.View) {
+        available_issuers(required: false, type: PropertyType.ArrayList, description: "List of banks to select from")
+    }
     "/cart/checkout/payment/input_sec_code"(platform: "/", type: TrackType.View) {}
     "/cart/checkout/payment/esc_input_sec_code"(platform: "/", type: TrackType.View) {}
     "/cart/checkout/payment/view_location"(platform: "/", type: TrackType.View) {}
@@ -315,6 +317,12 @@ tracks {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
     "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/additional_info"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
