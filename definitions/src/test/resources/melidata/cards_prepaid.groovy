@@ -184,6 +184,13 @@ trackTests {
         "/prepaid/update_app/cta"(platform: "/mobile", type: TrackType.Event) { }
     }
 
+    test("Ask form App") {
+        "/prepaid/ask_from_app" (platform: "/mobile", type: TrackType.View) { }
+    }
+
+    test("Landing App Download button") {
+        "/prepaid/acquisition/sellers_landing/store_button" (platform: "/", type: TrackType.Event) { }
+    }
 
     test("Prepaid cards MLM") {
         
