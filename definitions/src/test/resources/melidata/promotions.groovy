@@ -108,4 +108,12 @@ trackTests {
             general()
         })
     }
+
+    //Promotions Android Landing
+    test("Mobile Landing") {
+        "/promotions/landing"(platform: "/mobile") {
+            url = "https://www.mercadolibre.com.ar/ofertas"
+            is_main_url = true
+        }
+    }
 }
