@@ -138,7 +138,7 @@ tracks {
     "/cart/checkout/payment/select_store"(platform: "/", type: TrackType.View) {}
 
     "/cart/checkout/payment/select_bank"(platform: "/", type: TrackType.View) {
-        available_issuers(required: false, type: PropertyType.ArrayList, description: "List of banks to select from")
+        available_issuers(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of banks to select from")
     }
     "/cart/checkout/payment/input_sec_code"(platform: "/", type: TrackType.View) {}
     "/cart/checkout/payment/esc_input_sec_code"(platform: "/", type: TrackType.View) {}
