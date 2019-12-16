@@ -642,6 +642,9 @@ tracks {
     //Credits Review
     "/checkout/review/credits_cover"(platform:"/", type: TrackType.Event) {}
     "/checkout/review/credits_terms_and_conditions"(platform:"/", type: TrackType.Event) {}
+    //Session
+    "checkout/session_expire"(platform:"/", type: TrackType.View){}
+
 
     // ESC: Enter the Sec Code to generate an Encrypted Security Code
     "/checkout/payment/encrypted_security_code_add"(platform:"/mobile") {}

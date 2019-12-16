@@ -2400,6 +2400,7 @@ trackTests {
             session_id="some_session_id"
         }
 
+        "checkout/session_expire"(platform:"/", dataSet)
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)
         "/checkout/shipping/input_address_number/whithout_number"(platform:"/web", dataSet)
         "/checkout/shipping/select_address"(platform:"/web", dataSet)
