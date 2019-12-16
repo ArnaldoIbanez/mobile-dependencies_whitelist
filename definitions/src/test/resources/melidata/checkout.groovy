@@ -2275,6 +2275,7 @@ trackTests {
         // Page
         "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
         "/checkout/shipping/input_address"(platform:"/web", dataSet)
+        "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event, dataSet)
 
         // Event
         "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event){
@@ -2380,6 +2381,23 @@ trackTests {
                     ]
             ]
             recovery_flow=false
+        }
+        "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event){
+            label = "Revisa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event){
+            label = "Revisa este dato"
+            session_id="some_session_id"
         }
 
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)

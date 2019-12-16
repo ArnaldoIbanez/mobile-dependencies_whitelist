@@ -1126,7 +1126,7 @@ tracks {
 
     // Page
     "/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
     }
 
@@ -1155,6 +1155,12 @@ tracks {
     "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
     }
+    "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+    }
+
+
+    "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event) {}
 
 
     "/checkout/shipping/input_address_number"(platform:"/", type: TrackType.View) {}
