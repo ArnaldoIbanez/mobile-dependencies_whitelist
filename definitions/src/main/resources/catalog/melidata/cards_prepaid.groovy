@@ -217,6 +217,7 @@ tracks {
     "/prepaid/ask_from_app" (platform: "/", type: TrackType.View) {}
     "/prepaid/update_app/cta"(platform:"/mobile", type: TrackType.Event) {}
 
+    "/prepaid/acquisition/sellers_landing"(platform: "/", isAbstract: true){}
     "/prepaid/acquisition/sellers_landing/store_button"(platform:"/", type: TrackType.Event) { }
 
     // Prepaid Detail
