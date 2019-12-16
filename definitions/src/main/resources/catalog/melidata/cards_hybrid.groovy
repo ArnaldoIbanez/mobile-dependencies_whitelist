@@ -54,7 +54,7 @@ tracks {
     // Unlock: Update App
     "/cards/hybrid/unlock/update-app"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/unlock/update-app"(platform: "/", type: TrackType.View) {}
-    "/cards/hybrid/unlocl/update-app/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/unlock/update-app/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true, 
             type: PropertyType.String, 
