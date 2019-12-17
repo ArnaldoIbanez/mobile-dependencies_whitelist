@@ -2263,6 +2263,7 @@ trackTests {
         "/checkout/call_for_auth/input_code"(platform:"/web", dataSet)
         "/checkout/shipping"(platform:"/web", dataSet)
         "/checkout/shipping/edit_address"(platform:"/web", dataSet)
+        "/checkout/session_expire"(platform:"/", dataSet)
         "/checkout/loading"(platform: "/web", dataSet)
         "/checkout/loading/error"(platform: "/web", dataSet)
         "/checkout/shipping/select_option"(platform:"/web", dataSet)
@@ -2400,7 +2401,6 @@ trackTests {
             session_id="some_session_id"
         }
 
-        "checkout/session_expire"(platform:"/", dataSet)
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)
         "/checkout/shipping/input_address_number/whithout_number"(platform:"/web", dataSet)
         "/checkout/shipping/select_address"(platform:"/web", dataSet)
