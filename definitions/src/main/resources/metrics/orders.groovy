@@ -12,6 +12,7 @@ metrics {
 		}
 	}
 
+
 	"orders.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
 		countsOn {
 			condition {
@@ -33,6 +34,7 @@ metrics {
 		}
 	}
 
+
 	"orders|new_buyers"(description: "New buyers from feed", compute_order: true) {
 		countsOn {
 			condition {
@@ -50,6 +52,7 @@ metrics {
 			}
 		}
 	}
+
 
 	"orders|inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
 		countsOn {
@@ -75,6 +78,7 @@ metrics {
 		}
 	}
 
+
 	"orders|active_buyers"(description: "Active buyers from feed", compute_order: true) {
 		countsOn {
 			condition {
@@ -93,6 +97,7 @@ metrics {
 		}
 	}
 
+
 	"purchases"(description: "/purchase/purchasecreated from feed", compute_order: true) {
 		countsOn {
 			condition {
@@ -101,6 +106,10 @@ metrics {
 		}
 	}
 
+
+	//Todo lo que esta en la tabla bids de melilake son ordenes pagas.
+	// Si se paga pero luego se cancela aparece igual
+	// Yo renombraria esta a buys para no mezclar
 	"bids.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
 		countsOn {
 			condition {
@@ -119,6 +128,7 @@ metrics {
 		}
 	}
 
+
 	"buys"(description: "orders or purchases creaated from feed", compute_order: true) {
 		countsOn {
 			condition {
@@ -134,6 +144,7 @@ metrics {
 			}
 		}
 	}
+
 
 	"buys.pdp"(description: "Track PDP buys", compute_order: true) {
 		countsOn {
@@ -205,47 +216,6 @@ metrics {
 				and(
 					equals("event_data.congrats_seq",1),
 					sameDeal("event_data.items.item.deal_ids", true)
-				)
-			}
-		}
-	}
-
-
-	"orders_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, deprecation_date:"2019/12/10") {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				and (
-					equals(
-							externalCondition {
-								url("internal/orders/\$0")
-								replace("event_data.order_id")
-								method("get")
-								successfulCodes(200,206)
-								jsonPath("status")
-							},
-							"paid"
-					),
-					equals("event_data.is_carrito", false)
-				)
-			}
-		}
-	}
-
-
-	"bids_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, deprecation_date:"2019/12/10") {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				equals(
-					externalCondition {
-						url("internal/orders/\$0")
-						replace("event_data.order_id")
-						method("get")
-						successfulCodes(200,206)
-						jsonPath("status")
-					},
-					"paid"
 				)
 			}
 		}
@@ -471,6 +441,53 @@ metrics {
 				"event_data.payments.payment_type"(default: "default")
 				"event_data.payments.payment_method"(default: "default")
 				"event_data.payments.installments"(default: "default")
+			}
+		}
+	}
+
+
+
+
+
+
+
+	//Solo nosotros la usamos --> eliminarla cuando haya mas dias de orders.paid para poder usarla
+	"orders_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, deprecation_date:"2019/12/10") {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and (
+						equals(
+								externalCondition {
+									url("internal/orders/\$0")
+									replace("event_data.order_id")
+									method("get")
+									successfulCodes(200,206)
+									jsonPath("status")
+								},
+								"paid"
+						),
+						equals("event_data.is_carrito", false)
+				)
+			}
+		}
+	}
+
+	//Solo nosotros la usamos --> eliminarla cuando haya mas dias de bids.paid para poder usarla
+	"bids_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, deprecation_date:"2019/12/10") {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"paid"
+				)
 			}
 		}
 	}
