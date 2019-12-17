@@ -251,7 +251,7 @@ metrics {
 
 	"vip_buys_qadb_domains"(description: "Track buys only in qadb-enabled domains", deprecation_date:"2019/12/10") {
 		startWith {
-			experiment("qadb/qadb-on-vip")
+			experiment(regex("qadb/(qadb-on-vip|qadb-on-viewport-vip)"))
 		}
 
 		countsOn {
