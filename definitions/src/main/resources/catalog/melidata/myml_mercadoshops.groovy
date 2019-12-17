@@ -337,11 +337,24 @@ tracks {
         mshopsEventGroup
     }
 
-  "/mercado_shops/marketing/facebook_pixel/cancel"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/facebook_pixel/cancel"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/facebook_pixel/context_help"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/facebook_pixel/delete"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
+
+    "/mercado_shops/template-selection/save"(platform: "/", type: TrackType.Event){
+        theme(
+            required: true,
+            type: PropertyType.String,
+            description: "Name of theme"
+        )
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/template-selection/preview"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View){}
 }
