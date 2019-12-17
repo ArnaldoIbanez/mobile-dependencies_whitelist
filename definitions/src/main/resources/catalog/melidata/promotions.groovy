@@ -95,4 +95,12 @@ tracks {
     "/promotions"(platform: "/", type: TrackType.View) {
         general_promotions_info
     }
+
+    //Promotions Android Landing
+    "/promotions/landing"(platform: "/mobile", parentPropertiesInherited: false) {
+        url(required:true, descripcion:"The url to be loaded by the promotions landing")
+        is_main_url(required:false, type: PropertyType.Boolean,
+                descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
+    }
+
 }

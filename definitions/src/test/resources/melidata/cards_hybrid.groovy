@@ -34,6 +34,21 @@ trackTests {
         "/cards/hybrid/shipping/delayed/tap"(platform:"/", type: TrackType.Event) {
             action = "reissue"
         }
+    }   
+
+
+    // UNLOCK
+    // ------
+
+    // Unlock: Update App
+    test("cards hybrid unlock update app") {
+        "/cards/hybrid/unlock/update-app"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/unlock/update-app/tap"(platform:"/", type: TrackType.Event) {
+            action = "update"
+        }
+        "/cards/hybrid/unlock/update-app/tap"(platform:"/", type: TrackType.Event) {
+            action = "exit"
+        }
     }
 
     //-----------------
@@ -64,6 +79,22 @@ trackTests {
         "/cards/hybrid/shipping/delayed"(platform: "/", type: TrackType.View) {}
         "/cards/hybrid/shipping/delayed/tap"(platform:"/", type: TrackType.Event) {
             action = "reissue"
+        }
+    }
+
+
+
+    // UNLOCK
+    // ------
+
+    // Unlock: Update App
+    test("cards hybrid unlock update app") {
+        "/cards/hybrid/unlock/update-app"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/unlock/update-app/tap"(platform:"/", type: TrackType.Event) {
+            action = "update"
+        }
+        "/cards/hybrid/unlock/update-app/tap"(platform:"/", type: TrackType.Event) {
+            action = "exit"
         }
     }
 }
