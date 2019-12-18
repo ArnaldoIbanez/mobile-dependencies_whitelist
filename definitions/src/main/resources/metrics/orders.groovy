@@ -34,8 +34,7 @@ metrics {
 			}
 		}
 	}
-
-
+	
 	"orders.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
 		countsOn {
 			condition {
@@ -79,7 +78,7 @@ metrics {
 	}
 
 	//Solo nosotros la usamos --> eliminarla cuando haya mas dias de bids.paid para poder usarla
-	"bids_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+	"bids_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true,deprecation_date:"2019/12/18") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
