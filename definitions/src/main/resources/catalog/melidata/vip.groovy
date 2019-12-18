@@ -35,6 +35,11 @@ tracks {
                 description: "Indicates if the user has free shipping benefit by loyalty")
         discount_shipping_benefit_lyl(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has discount benefit by loyalty")
+
+        // VARIATION FIELDS
+        preselection_type(required: false, type: PropertyType.String, values: ["none", "parcial", "full"], description: "Indicates the variation preselection type for this instance of the VIP")
+        enforced_preselection(required: false, type: PropertyType.String, values: ["search", "cart", "gallery", "stock"], description: "Indicates the type of enforced variation preselection for this instance of the VIP")
+
         //afterDispatch: if unknown or unknown_frame (true/false)
         //min_days: minimum number of days of the promise. (int)
         //max_days: maximun number of days of the promise. (int or null -If it doesn´t apply-)
@@ -46,6 +51,7 @@ tracks {
         add_cart_info(cart_content, add_to_cart_availability, main_action)
         shipping_info(shipping_preference, shipping_mode, free_shipping, local_pick_up, 
                 logistic_type, free_shipping_benefit, shipping_promise, free_shipping_benefit_lyl, discount_shipping_benefit_lyl)
+        variation_info(preselection_type, enforced_preselection)
     }
 
     //VIP FLOW
@@ -186,6 +192,8 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        catalog_listing(required: false, PropertyType.Boolean, description: "Item is catalog_listing or not")
+        review_rate(required: false, type: PropertyType.Numeric, description: "The rating average of the reviews")
     }
 
     "/vip/abort"(platform: "/mobile", type: TrackType.Event) {}
@@ -281,6 +289,7 @@ tracks {
 
     "/vip/buy_action"(platform: "/web", parentPropertiesInherited: false) {
         shipping_pay_before(required: true, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
+        variation_info
     }
 
     "/vip/add_cart_action"(platform: "/", parentPropertiesInherited: false) {
@@ -311,7 +320,8 @@ tracks {
     }
 
     "/vip/add_cart_action"(platform: "/web", parentPropertiesInherited: false) {
-      shipping_pay_before(required: true, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
+        shipping_pay_before(required: true, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
+        variation_info
     }
 
     "/vip/input_zip_code"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
@@ -450,6 +460,15 @@ tracks {
         event_source(required: false, type: PropertyType.String,
                 values: ["vip", "technicalSpecs", "description"],
                 description: "source of the event")
+    }
+
+    "/vip/questions"(parentPropertiesInherited: false, isAbstract: true){
+
+    }
+
+    "/vip/questions/show"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String)
+        catalog_product_id(required: false, type: PropertyType.String)
     }
 
     "/vip/question_intention"(platform: "/web", type: TrackType.Event) {
@@ -805,6 +824,15 @@ tracks {
 
     "/vip/reservation_intention/preload"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
         item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
+    "/vip/back_to_listing"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        domain_id(required: false, type: PropertyType.String, description: "Item's domain id")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
 
 }

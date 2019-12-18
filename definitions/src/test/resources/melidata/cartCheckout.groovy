@@ -144,6 +144,7 @@ trackTests {
         "/cart/checkout/error"(platform: "/") {
             dataSet()
             error='paused_item'
+            error_code='404'
         }
         "/cart/checkout/payment/billing_information"(platform: "/mobile") {
             dataSet()
@@ -158,6 +159,10 @@ trackTests {
         "/cart/checkout/payment/select_method/show_distances"(platform: "/", dataSet)
         "/cart/checkout/payment/select_store"(platform: "/", dataSet)
         "/cart/checkout/payment/select_bank"(platform: "/", dataSet)
+        "/cart/checkout/payment/select_bank"(platform: "/") {
+            dataSet()
+            available_issuers = ["santander", "banamex"]
+        }
         "/cart/checkout/payment/view_location"(platform: "/", dataSet)
         "/cart/checkout/payment/view_location/location"(platform: "/", dataSet)
         "/cart/checkout/payment/view_location/preloaded"(platform: "/", dataSet)
@@ -254,7 +259,44 @@ trackTests {
             dataSet()
             dataSetCongrats()
         }
-        
+
+        "/cart/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event){
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event){
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/congrats/use_now"(platform: "/", type: TrackType.Event){
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+
         "/cart/checkout/show_ticket"(platform: "/", dataSet)
         "/cart/checkout/finish/invalid_sec_code/input_code"(platform: "/", dataSet)
         "/cart/checkout/finish/invalid_sec_code/input_code/confirm_purchase"(platform: "/mobile", type: TrackType.Event) {
@@ -386,6 +428,20 @@ trackTests {
                     ]
             ]
             recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/additional_info"(platform: "/", type: TrackType.Event) {
+            label = "Revisa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+            session_id="some_session_id"
         }
 
         // address form mobile

@@ -1357,6 +1357,11 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/messages_driver_flex"(platform: "/mobile"){
+            news_id = "messages-driver_flex-321953606"
+            event_type = "sent"
+        }
+
         "/notification/me_flex_optin_activation"(platform: "/mobile"){
             news_id = "me_flex-optin_activation-315571651"
             event_type = "sent"
@@ -4336,6 +4341,11 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/messages_driver_flex"(platform: "/mobile"){
+            news_id = "messages-driver_flex-321953606"
+            event_type = "sent"
+        }
+
         "/notification/me_flex_optin_activation"(platform: "/mobile"){
             news_id = "me_flex-optin_activation-315571651"
             event_type = "sent"
@@ -6048,6 +6058,12 @@ trackTests {
             latest_news_type= "openplatform_recommendations_p1"
             latest_news_id= "openplatform_recommendations_p1-12345"
         }
+        "/notification_center/sll_items_activate_items"(platform: "/web") {
+            site_id="MLA"
+            seller_id="1234567"
+            items_count=5
+            event_type = "open"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -6178,6 +6194,12 @@ trackTests {
         "/notification_center/discount_central_missing_data"(platform: "/mobile"){
             latest_news_type= "discount_central_missing_data"
             latest_news_id= "discount_central_missing_data-12345"
+        }
+        "/notification_center/sll_items_activate_items"(platform: "/web") {
+            site_id="MLA"
+            seller_id="1234567"
+            items_count=5
+            event_type = "open"
         }
     }
 
