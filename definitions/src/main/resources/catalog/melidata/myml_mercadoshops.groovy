@@ -345,7 +345,7 @@ tracks {
         mshopsEventGroup
     }
 
-    "/mercado_shops/template-selection/"(platform: "/", type: TrackType.Event, isAbstract: true){}
+    "/mercado_shops/template-selection"(platform: "/", type: TrackType.Event, isAbstract: true){}
 
     "/mercado_shops/template-selection/save"(platform: "/", type: TrackType.Event){
         theme(
