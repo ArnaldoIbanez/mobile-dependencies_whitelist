@@ -10,7 +10,7 @@ metrics {
 		}
 	}
 
-	"single_checkout_congrats"(description: "/checkout/congrats* unique for each order_id (congrats_seq = 1)", compute_order: true) {
+	"checkout_congrats.single"(description: "/checkout/congrats* unique for each order_id (congrats_seq = 1)", compute_order: true) {
 		countsOn {
 			condition {
 				path(regex("^/checkout/congrats(/.*|\$)"))
@@ -20,7 +20,7 @@ metrics {
 	}
 
 
-	"cart_checkout_congrats"(description: "/cart/checkout/congrats unique for each purchase_id (congrats_seq = 1)", compute_order: true) {
+	"checkout_congrats.cart"(description: "/cart/checkout/congrats unique for each purchase_id (congrats_seq = 1)", compute_order: true) {
 		countsOn {
 			condition {
 				path("/cart/checkout/congrats")
@@ -68,7 +68,7 @@ metrics {
 	}
 
 
-	"congrats_with_payment.sameOrder"(description: "congrats view with payments containing 'payment' string", compute_order: true) {
+	"checkout_congrats.with_payment.sameOrder"(description: "congrats view with payments containing 'payment' string", compute_order: true) {
 		startWith {
 			experiment(regex("(.*email/order.*)"))
 		}
@@ -222,7 +222,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats_with_garex"(description: "orders_with_garex", sum_by: ["event_data.total_amount_including_garex"]) {
+	"checkout_congrats.garex"(description: "orders_with_garex", sum_by: ["event_data.total_amount_including_garex"]) {
 		startWith {
 			experiment("buyingflow/garex_mlm")
 		}
