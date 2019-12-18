@@ -29,7 +29,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.official.stores"(description: "Checkout congrats for items in any official store", compute_order: true) {
+	"checkout_congrats.official_stores"(description: "Checkout congrats for items in any official store", compute_order: true) {
 		countsOn {
 			condition {
 				and(
