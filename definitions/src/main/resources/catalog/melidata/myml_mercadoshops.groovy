@@ -78,7 +78,7 @@ tracks {
                 type: PropertyType.String,
                 values: ['AFIP', 'BANNER', 'BRANDS', 'CAROUSEL', 'COLORS', 'CONTACT', 'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED',
                          'FLASH', 'GRID', 'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE', 'LOGO', 'MOSAIC', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS',
-                         'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TEXT_BANNER']
+                         'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TEXT_BANNER', 'FISCAL_DATA']
         )
     }
 
