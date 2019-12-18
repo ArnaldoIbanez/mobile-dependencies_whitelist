@@ -39,6 +39,10 @@ tracks {
       session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
     }
 
+    "/discount_center/payers/list/print" (platform: "/mobile", type: TrackType.Event) {
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the list")
+    }
+
     "/discount_center/payers/list/show" (platform: "/mobile", type: TrackType.Event) {
       items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the list")
       offset(required: false, type: PropertyType.Numeric, description: "The offset in the list")
