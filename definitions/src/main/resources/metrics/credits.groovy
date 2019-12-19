@@ -62,6 +62,17 @@ metrics {
         }
     }
 
+    "credits-open-sea.remedies_conversion"(description: "credits conversion under remedies experiment") {
+        startWith {
+            experiment("credits/openSeaRemedy")
+        }
+        countsOn {
+            condition {
+                equals("path", "/credits/consumer/public_landing/application_result")
+            }
+        }
+    }
+
     "installment_merchant_debit_payment_fifteen"(description: "Send email from automatic debit installment for fifteen overdue credits merchant") {
         startWith {
             experiment("credits/merchant_whatsapp_fifteen_overdue")
