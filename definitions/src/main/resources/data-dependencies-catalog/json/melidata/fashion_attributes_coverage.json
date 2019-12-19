@@ -26,10 +26,6 @@
         {
             "name": "coverage",
             "type": "DOUBLE"
-        },
-        {
-            "name": "fecha",
-            "type": "DATE"
         }
       ],
       "sql": {
