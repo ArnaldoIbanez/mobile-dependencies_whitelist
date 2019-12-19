@@ -46,7 +46,7 @@ SELECT
   attribute_data.domain_id AS domain_id,
   attribute_data.attribute_id AS attribute_id,
   (CAST(attribute_data.total_with_attribute AS DOUBLE)/CAST(item_data.total_items AS DOUBLE)) AS coverage,
-  DATE_FORMAT(CURRENT_DATE, 'yyyy-MM-dd') AS fecha
+  '@date' AS fecha
   
 FROM attribute_data
   INNER JOIN item_data 

@@ -34,7 +34,13 @@
       ],
       "sql": {
         "script": "business-assurance/fashion_attributes_coverage.sql",
-        "parameters": []
+        "parameters": [
+          {
+            "name": "date",
+            "value": "DAY-0",
+            "format": "yyyy-MM-dd"
+          }
+        ]
       }
     }
   }
