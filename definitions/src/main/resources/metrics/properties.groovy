@@ -25,9 +25,9 @@ metrics {
         }
     }
 
-    "qadb/qadb-on-viewport"(description: "define properties for item_id qadb viewport experiment") {
+    "qadb/qadb-on-viewport"(description: "define properties for catalog_product_id qadb viewport experiment") {
         startWith {
-            set_property("item_id", "event_data.item_id")
+            set_property("catalog_product_id", "event_data.catalog_product_id")
         }
     }
 
