@@ -331,4 +331,98 @@ metrics {
 	}
 
 
+	"vip_buys_qadb_domains"(description: "Track buys only in qadb-enabled domains", deprecation_date:"2019/12/10") {
+		startWith {
+			experiment(regex("qadb/(qadb-on-vip|qadb-on-viewport-vip)"))
+		}
+
+		countsOn {
+			condition {
+				and(
+						or(
+								and(
+										equals("path", "/orders/ordercreated"),
+										equals("event_data.is_carrito", false),
+
+								),
+								equals("path", "/purchases/purchasecreated"),
+						),
+						like('event_data.items.item.category_path', '.*MLA(398582|1387|1676).*')
+				)
+			}
+		}
+	}
+
+
+	"buys.qadb_domains"(description: "Track buys only in qadb-enabled domains") {
+		startWith {
+			experiment(regex("qadb/(qadb-on-vip|qadb-on-viewport-vip)"))
+		}
+
+		countsOn {
+			condition {
+				and(
+						or(
+								and(
+										equals("path", "/orders/ordercreated"),
+										equals("event_data.is_carrito", false),
+
+								),
+								equals("path", "/purchases/purchasecreated"),
+						),
+						like('event_data.items.item.category_path', '.*MLA(398582|1387|1676).*')
+				)
+			}
+		}
+	}
+
+
+	"buys.sparkle_fashion"(description: "Track buys only in fashion domain for Sparkle exp", compute_order: true, deprecation_date:"2019/12/18") {
+		startWith {
+			experiment(regex("sparkle/.*"))
+		}
+
+		countsOn {
+			condition {
+				and(
+						like('event_data.items.item.category_path', '.*ML(A|M)1430.*'),
+						or(
+								and(
+										equals("path", "/orders/ordercreated"),
+										equals("event_data.is_carrito", false)
+								),
+								and(
+										equals("path","/purchases/purchasecreated")
+								)
+						)
+				)
+			}
+		}
+	}
+
+
+	"buys.fashion"(description: "Track buys only in fashion domain for Sparkle exp", compute_order: true) {
+		startWith {
+			experiment(regex("sparkle/.*"))
+		}
+
+		countsOn {
+			condition {
+				and(
+						like('event_data.items.item.category_path', '.*ML(A|M)1430.*'),
+						or(
+								and(
+										equals("path", "/orders/ordercreated"),
+										equals("event_data.is_carrito", false)
+								),
+								and(
+										equals("path","/purchases/purchasecreated")
+								)
+						)
+				)
+			}
+		}
+	}
+
+
 }
