@@ -260,7 +260,7 @@ metrics {
 		}
 	}
 
-	"orders"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
+	"orders.sameItem"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
