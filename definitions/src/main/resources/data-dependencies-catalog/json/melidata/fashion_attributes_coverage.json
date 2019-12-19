@@ -3,7 +3,7 @@
        "imagenes_it@mercadolibre.com"
     ],
     "partition": {
-      "name": "ds",
+      "name": "fecha",
       "type": "DATE"
     },
     "process_name": "fashion_attributes",
@@ -26,6 +26,10 @@
         {
             "name": "coverage",
             "type": "DOUBLE"
+        },
+        {
+            "name": "fecha",
+            "type": "DATE"
         }
       ],
       "sql": {

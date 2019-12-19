@@ -16,25 +16,6 @@ WITH attribute_data AS (
   
   WHERE categories.cat_categ_id_l1 = '1430'
     AND items.ite_status = 'active'
-    AND items.ite_condition = 'new'
-    AND SUBSTR(items.ite_domain_id, 5) IN (
-       'SHIRTS',
-       'T_SHIRTS',
-       'DRESSES',
-       'PANTS',
-       'SHORTS'
-    )
-    AND attributes.ite_att_attribute_id IN (
-      'ONE_SHOULDER',
-      'FABRIC_DESIGN',
-      'SLEEVE_TYPE',
-      'NECK_TYPE',
-      'DRESS_LENGTH',
-      'BACK_TYPE',
-      'LENGTH_TYPE',
-      'WITH_POCKETS',
-      'T_SHIRT_COLLAR_TYPE'
-    )
     
   GROUP BY attributes.ite_att_attribute_id,
     items.ite_domain_id, categories.sit_site_id
@@ -55,14 +36,6 @@ WITH attribute_data AS (
   
   WHERE categories.cat_categ_id_l1 = '1430'
     AND items.ite_status = 'active'
-    AND items.ite_condition = 'new'
-    AND SUBSTR(items.ite_domain_id, 5) IN (
-     'SHIRTS',
-     'T_SHIRTS',
-     'DRESSES',
-     'PANTS',
-     'SHORTS'
-  )
     
   GROUP BY items.ite_domain_id, categories.sit_site_id
   
@@ -72,7 +45,8 @@ SELECT
   attribute_data.site_id as site_id,
   attribute_data.domain_id AS domain_id,
   attribute_data.attribute_id AS attribute_id,
-  (CAST(attribute_data.total_with_attribute AS DOUBLE)/CAST(item_data.total_items AS DOUBLE)) AS coverage
+  (CAST(attribute_data.total_with_attribute AS DOUBLE)/CAST(item_data.total_items AS DOUBLE)) AS coverage,
+  DATE_FORMAT(CURRENT_DATE, 'yyyy-MM-dd') AS fecha
   
 FROM attribute_data
   INNER JOIN item_data 
