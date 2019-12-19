@@ -251,7 +251,7 @@ metrics {
 				path("/orders/ordercreated")
 				and(
 					equals("event_data.is_carrito", false),
-					equals("event_data.item_id", property("item_id"))
+					equals("event_data.items.item.id", property("item_id"))
 				)
 			}
 		}
