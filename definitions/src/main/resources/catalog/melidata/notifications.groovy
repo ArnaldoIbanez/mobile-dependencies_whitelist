@@ -700,7 +700,7 @@ tracks {
     }
 
     //Sll Advertising Notifications
-    "/notification_center/sll_items_activate_items"(platform: "/web") {
+    "/notification_center/sll_items_activate_items"(platform: "/") {
         site_id(required: true, type: PropertyType.String, description: "Site Id.")
         seller_id(required: true, type: PropertyType.String, description: "Customer Id.")
         items_count(required: true , type: PropertyType.Numeric, description: "Number of Items has to sell.")
