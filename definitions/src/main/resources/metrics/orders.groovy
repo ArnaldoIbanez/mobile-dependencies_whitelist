@@ -13,28 +13,7 @@ metrics {
 		}
 	}
 
-	//Solo nosotros la usamos --> eliminarla cuando haya mas dias de orders.paid para poder usarla
-	"orders_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, deprecation_date:"2019/12/10") {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				and (
-						equals(
-								externalCondition {
-									url("internal/orders/\$0")
-									replace("event_data.order_id")
-									method("get")
-									successfulCodes(200,206)
-									jsonPath("status")
-								},
-								"paid"
-						),
-						equals("event_data.is_carrito", false)
-				)
-			}
-		}
-	}
-	
+
 	"orders.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
 		countsOn {
 			condition {
@@ -56,29 +35,8 @@ metrics {
 		}
 	}
 
-	//Todo lo que esta en la tabla bids de melilake son ordenes pagas.
-	// Si se paga pero luego se cancela aparece igual
-	// Yo renombraria esta a buys para no mezclar
-	"bids.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				equals(
-						externalCondition {
-							url("internal/orders/\$0")
-							replace("event_data.order_id")
-							method("get")
-							successfulCodes(200,206)
-							jsonPath("status")
-						},
-						"paid"
-				)
-			}
-		}
-	}
 
-	//Solo nosotros la usamos --> eliminarla cuando haya mas dias de bids.paid para poder usarla
-	"bids_paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true,deprecation_date:"2019/12/18") {
+	"bids.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -334,7 +292,7 @@ metrics {
 		}
 	}
 
-	"buys.pdp"(description: "Track PDP buys", compute_order: true, deprecation_date:"2019/12/18") {
+	"buys.pdp"(description: "Track PDP buys", compute_order: true) {
 		countsOn {
 			condition {
 				or(
