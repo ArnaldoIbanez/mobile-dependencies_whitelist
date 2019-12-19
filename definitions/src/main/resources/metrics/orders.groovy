@@ -2,9 +2,8 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-	//METRIC.SUBMETRIC|SUBSEGMENT
 
-	"orders"(description: "/orders/ordercreated from feed", compute_order: true) {
+	"orders"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -31,6 +30,15 @@ metrics {
 						),
 						equals("event_data.is_carrito", false)
 				)
+			}
+		}
+	}
+
+
+	"bids"(description: "/orders/ordercreated from feed (carrito included)", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
 			}
 		}
 	}
@@ -63,7 +71,7 @@ metrics {
 		}
 	}
 	
-	"buys"(description: "orders or purchases creaated from feed", compute_order: true) {
+	"buys"(description: "orders or purchases created from feed", compute_order: true) {
 		countsOn {
 			condition {
 				or(
