@@ -25,6 +25,18 @@ metrics {
         }
     }
 
+    "qadb/qadb-on-viewport"(description: "define properties for item_id qadb viewport experiment") {
+        startWith {
+            set_property("item_id", "event_data.item_id")
+        }
+    }
+
+    "qadb/qadb-on-viewport-vip"(description: "define properties for item_id qadb viewport for vip experiment") {
+        startWith {
+            set_property("item_id", "event_data.item_id")
+        }
+    }
+
     "buyingflow/accountmoney_not_bep"(description: "define properties for order_id") {
         startWith {
             set_property("order_id", "event_data.order_id")
