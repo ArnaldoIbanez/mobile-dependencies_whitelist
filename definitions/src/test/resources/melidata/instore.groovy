@@ -65,6 +65,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -74,6 +75,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -83,6 +85,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -92,6 +95,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -101,6 +105,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -110,6 +115,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/bluetooth_authorized/settings"(platform: "/mobile", type: TrackType.Event) {
@@ -118,6 +124,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/camera"(platform: "/mobile", type: TrackType.View) {
@@ -144,8 +151,13 @@ trackTests {
             type = "qr"
             tags = "shell"
             display_at_least_one_store = true
+            extra_info = [flow: "shell"]
         }
         "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "wi234nuHSd83h478"
+            context = "/instore/map"
+        }
+        "/ask_device_permission/location/abort"(platform: "/mobile", type: TrackType.Event) {
             session_id = "wi234nuHSd83h478"
             context = "/instore/map"
         }
@@ -1264,6 +1276,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -1273,6 +1286,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -1282,6 +1296,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -1291,6 +1306,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -1300,6 +1316,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             qr_data = "Any scanned data"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -1309,6 +1326,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/bluetooth_authorized/settings"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
@@ -1317,6 +1335,7 @@ trackTests {
             brand_name = "YPF"
             store_id = "76840"
             pos_id = "65763"
+            currency = "ARS"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/ask_device_permission/camera"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
@@ -1343,8 +1362,13 @@ trackTests {
             type = "qr"
             tags = "shell"
             display_at_least_one_store = false
+            extra_info = [flow: "shell"]
         }
         "/ask_device_permission/location/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "wi234nuHSd83h478"
+            context = "/instore"
+        }
+        "/ask_device_permission/location/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "wi234nuHSd83h478"
             context = "/instore"
         }
