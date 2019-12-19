@@ -27,7 +27,8 @@ metrics {
 
     "qadb/qadb-on-viewport"(description: "define properties for catalog_product_id qadb viewport experiment") {
         startWith {
-            set_property("catalog_product_id", "event_data.catalog_product_id")
+            set_property("catalog_product_id", "event_data.items.item.catalog_product_id")
+            set_property("catalog_parent_id", "event_data.items.item.catalog_parent_id")
         }
     }
 

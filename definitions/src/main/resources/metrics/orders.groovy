@@ -257,13 +257,25 @@ metrics {
 		}
 	}
 
-	"orders.sameCatalog"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
+	"orders.sameProduct"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
 				and(
 						equals("event_data.is_carrito", false),
-						equals("event_data.catalog_product_id", property("catalog_product_id"))
+						equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
+				)
+			}
+		}
+	}
+
+	"orders.sameParent"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and(
+						equals("event_data.is_carrito", false),
+						equals("event_data.items.item.catalog_parent_id", property("catalog_parent_id"))
 				)
 			}
 		}
