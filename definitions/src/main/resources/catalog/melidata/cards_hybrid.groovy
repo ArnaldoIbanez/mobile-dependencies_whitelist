@@ -62,4 +62,21 @@ tracks {
             description: "Action tapped"
         )
     }
+
+    // ENGAGEMENT
+    // --------
+    "/cards/hybrid/engagement"(platform: "/", isAbstract: true) { }
+
+    // Change-Pin: Flow to change the pin of the hybrid card
+    "/cards/hybrid/engagement/change-pin"(platform: "/", isAbstract: true) { }
+
+    "/cards/hybrid/engagement/change-pin"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/engagement/change-pin/tap"(platform:"/", type: TrackType.Event) {
+        action (
+                required: true,
+                type: PropertyType.String,
+                values: ["back", "change-pin"],
+                description: "Action tapped"
+        )
+    }
 }
