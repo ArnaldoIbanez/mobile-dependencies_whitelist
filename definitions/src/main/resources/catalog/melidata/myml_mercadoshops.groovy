@@ -337,11 +337,25 @@ tracks {
         mshopsEventGroup
     }
 
-  "/mercado_shops/marketing/facebook_pixel/cancel"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/facebook_pixel/cancel"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/facebook_pixel/context_help"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/facebook_pixel/delete"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
+
+    "/mercado_shops/marketing/facebook/requisites"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/facebook/requisites/cancel"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/facebook/requisites/context_help"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/facebook/requisites/link_with_facebook"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/facebook/fan_pages"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/facebook/business_manager"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/facebook/user_procedure"(platform: "/", type: TrackType.Event){}
 }
