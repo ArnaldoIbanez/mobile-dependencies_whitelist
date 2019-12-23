@@ -490,7 +490,7 @@ tracks {
 
     "/vip/question/ask"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
 
-    "/vip/question/ask/prevent_stock"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/vip/question/ask/prevent_stock"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true)
     }
 
