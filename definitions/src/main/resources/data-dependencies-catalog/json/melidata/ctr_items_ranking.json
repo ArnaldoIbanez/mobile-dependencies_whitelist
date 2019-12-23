@@ -86,7 +86,7 @@
         "type": "INTEGER"
       },
       {
-        "name": "impresiones_unicas ",
+        "name": "impresiones_unicas",
         "type": "INTEGER"
       },
       {
