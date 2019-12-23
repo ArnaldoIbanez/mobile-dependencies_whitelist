@@ -292,7 +292,7 @@ trackTests {
             transaction_user_id = 109479273
         }
         "/kyc/iv/address"(platform: "/web") {
-            flow = "credirs_address"
+            flow = "credits_address"
             transaction_user_id = 109479273
         }
         "/kyc/iv/center/card"(platform: "/web") {
@@ -670,7 +670,7 @@ trackTests {
             transaction_user_id = 109479273
         }
         "/kyc/iv/address"(platform: "/web") {
-            flow = "credirs_address"
+            flow = "credits_address"
             transaction_user_id = 109479273
         }
         
