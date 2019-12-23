@@ -115,6 +115,12 @@ tracks {
         type(type: PropertyType.String, required: true)
     }
 
+    def attributes_values_map = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "Attribute id")
+        value_id(type: PropertyType.String, required: false, description: "Attribute selected value")
+        value_name(type: PropertyType.String, required: false, description: "Attribute custom value")
+    }
+
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
@@ -151,6 +157,11 @@ tracks {
         children_catalog_products_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of the children catalog products ids")
         has_variations(required: true, type: PropertyType.Boolean, description: "True if the item has variations")
         task_id(required: true, type: PropertyType.String, description: "The task id that has been modified")
+
+        item_attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "List of attributes from the original item")
+        catalog_product_attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "List of attributes from the product associated to an item")
+        item_title(required: true, type: PropertyType.String, description: "Item title")
+        catalog_product_title(required: true, type: PropertyType.String, description: "Product title associated with an item")
     }
 
     propertyGroups {
@@ -164,6 +175,8 @@ tracks {
 
         sellerCentralCatalogOptinGroup(item_id, session_id, category_id, category_path, category_domain, original_catalog_product_id, variation_id, has_variations_already_opt_in, children_catalog_products_ids, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause)
         sellerCentralCatalogOptinTaskGroup(task_id, to, from)
+
+        sellerCentralCatalogBoostGroup(item_attributes, catalog_product_attributes, item_title, catalog_product_title)
     }
 
     //LISTING SECTION
@@ -321,13 +334,13 @@ tracks {
     "/seller_central/bulk/changes/price"(platform: "/", type: TrackType.Event) {
         oldValue(required: true, type: PropertyType.String, description: "Old value of the price cell")
         newValue(required: true, type: PropertyType.String, description: "New value")
-        itemId(required: true, type: PropertyType.String, description: "Id of the modified item")
+        item_id(required: true, type: PropertyType.String, description: "Id of the modified item")
     }
 
     "/seller_central/bulk/shipping"(platform: "/", isAbstract: true) {}
 
     "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
-        itemId(required: true, type: PropertyType.String, description: "item's id that showed the tooltip")
+        item_id(required: true, type: PropertyType.String, description: "item's id that showed the tooltip")
     }
 
     "/seller_central/bulk/offline"(platform: "/", isAbstract: true) {}
@@ -546,6 +559,27 @@ tracks {
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
         is_official_store(required: true, type: PropertyType.Boolean, description: "User is official store")
     }
+
+    "/seller_central/modify/catalog_boost"(platform: "/", type: TrackType.View) {
+        sellerCentralCatalogBoostGroup
+        sellerCentralModifyCardsGroup
+    }
+
+    "/seller_central/modify/catalog_boost/original_item"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+    }
+
+    "/seller_central/modify/catalog_boost/activate"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/catalog_boost/not_my_product"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/catalog_boost/modal"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/modify/catalog_boost/modal/confirm"(platform: "/", type: TrackType.Event) {
+        seller_reasons(required: true, type: PropertyType.String, description: "reasons why a seller has decided not associate its item to a catalog product" )
+    }
+
+    "/seller_central/modify/catalog_boost/modal/cancel"(platform: "/", type: TrackType.Event) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Structured Data

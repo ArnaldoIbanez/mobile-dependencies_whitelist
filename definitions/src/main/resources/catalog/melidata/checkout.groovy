@@ -1115,6 +1115,7 @@ tracks {
 
     "/checkout/call_for_auth/input_code"(platform:"/", type: TrackType.View) {}
 
+    "/checkout/session_expire"(platform:"/", type: TrackType.View) {}
     "/checkout/loading"(platform: "/", type: TrackType.View) {}
     "/checkout/loading/error"(platform: "/", type: TrackType.View) {}
     "/checkout/shipping/edit_address"(platform:"/", type: TrackType.Event) {}
@@ -1126,7 +1127,7 @@ tracks {
 
     // Page
     "/checkout/shipping/input_address"(platform:"/", type: TrackType.View, isAbstract: true) {
-        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
     }
 
@@ -1155,6 +1156,12 @@ tracks {
     "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
     }
+    "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+    }
+
+
+    "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event) {}
 
 
     "/checkout/shipping/input_address_number"(platform:"/", type: TrackType.View) {}
@@ -1184,6 +1191,7 @@ tracks {
     * GarEx es una entidad que representa la garantia que el usuario elige para su producto
     * */
 
+    //web
 
     "/checkout/garex"(platform:"/web", type: TrackType.View) {}
     "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
@@ -1194,6 +1202,55 @@ tracks {
     "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
         garex(required: true, type: PropertyType.Map(garexTrackStructure) )
     }
+
+    //mobile
+
+    "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
+    "/checkout/garex/more_info"(platform:"/mobile", type: TrackType.Event) {}
+    "/checkout/garex/selected_garex"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        category_l1(required: true, type: PropertyType.ArrayList)
+        category_l2(required: true, type: PropertyType.ArrayList)
+        business(required: true, type: PropertyType.String)
+        page_vertical(required: true, type: PropertyType.String)
+        listing_type(required: true, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"], description: "Whether the item is new, used or refurbished")
+        store_type(required: true, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")
+        loyalty_level(required:true, type: PropertyType.Numeric, description:"The loyalty level of the buyer")
+        reputation_level(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
+        fulfillment(required: true, description: "True if the item has fulfillment")
+        available_consumer_credit(required:true, type: PropertyType.String, description:"If the user has active consumer credits")
+        category_domain(required: true, description: "Category Domain", type: PropertyType.String)
+        checkout_flow(required: true, type: PropertyType.String, values: ["direct", "cart"], description: "The type of checkout flow.")
+        products_quantity(required: true,description: "It is used to send the quantity of items that are purchased in a purchase.", type: PropertyType.Numeric)
+        item_attributes(required: true, type: PropertyType.String,values:["discount", "promotions","cbt","deferred_stock","available_stock","none", "promotions+cbt"], description: "attributes of the item: discount, promotion, stock, cbt type")
+        context(required: true, type: PropertyType.String, description: "Reference to the context that started checkout flow")
+        collector_id(required: true, PropertyType.String, description: "collector user unique identifier")
+        collector_nickname(required: true, type: PropertyType.String)
+    }
+    "/checkout/garex/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {}
+    "/checkout/garex/delete"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        category_l1(required: true, type: PropertyType.ArrayList)
+        category_l2(required: true, type: PropertyType.ArrayList)
+        business(required: true, type: PropertyType.String)
+        page_vertical(required: true, type: PropertyType.String)
+        listing_type(required: true, type: PropertyType.String)
+        item_id(required: true, type: PropertyType.String)
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"], description: "Whether the item is new, used or refurbished")
+        store_type(required: true, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")
+        loyalty_level(required:true, type: PropertyType.Numeric, description:"The loyalty level of the buyer")
+        reputation_level(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
+        fulfillment(required: true, description: "True if the item has fulfillment")
+        available_consumer_credit(required:true, type: PropertyType.String, description:"If the user has active consumer credits")
+        category_domain(required: true, description: "Category Domain", type: PropertyType.String)
+        checkout_flow(required: true, type: PropertyType.String, values: ["direct", "cart"], description: "The type of checkout flow.")
+        products_quantity(required: true,description: "It is used to send the quantity of items that are purchased in a purchase.", type: PropertyType.Numeric)
+        item_attributes(required: true, type: PropertyType.String,values:["discount", "promotions","cbt","deferred_stock","available_stock","none", "promotions+cbt"], description: "attributes of the item: discount, promotion, stock, cbt type")
+        context(required: true, type: PropertyType.String, description: "Reference to the context that started checkout flow")
+        collector_id(required: true, PropertyType.String, description: "collector user unique identifier")
+        collector_nickname(required: true, type: PropertyType.String)
+    }
+
 
     /*
     * end GarEx tracks
@@ -1346,7 +1403,18 @@ tracks {
 
     "/checkout/payment/select_unique_installment/select_installment"(platform: "/web", type: TrackType.Event) {}
 
-    "/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event) {}
-    "/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event) {}
-    "/checkout/congrats/use_now"(platform: "/", type: TrackType.Event) {}
+    "/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event) {
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+    }
+
+    "/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event) {
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+    }
+
+    "/checkout/congrats/use_now"(platform: "/", type: TrackType.Event) {
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+    }
 }

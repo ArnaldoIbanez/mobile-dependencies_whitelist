@@ -46,11 +46,11 @@
         "type": "INTEGER"
       },
         {
-        "name": "Order",
+        "name": "orderid",
         "type": "UNICODE_STRING"
       },
         {
-        "name": "SI",
+        "name": "si",
         "type": "INTEGER"
       },
         {

@@ -89,6 +89,16 @@ trackTests {
             ]
         }
 
+        def sales_percentage_map = {
+            [
+                product_type: 'fixed_term',
+                segment: 'online',
+                category: 'regular',
+                offer_type: 'early_offer',
+                status: 'on_time'
+            ]
+        }
+
         def express_money = {
             product_type = 'express_money'
             segment = 'online'
@@ -149,6 +159,13 @@ trackTests {
             ]
             show_cx_widget = true
         })
+
+        "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {}
+        
+        "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {
+            sales_percentage_map()
+        }
+
         "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
 
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
@@ -199,6 +216,10 @@ trackTests {
         }
 
         "/credits/merchant/administrator/history"(platform: "/web/desktop") {}
+
+        "/credits/merchant/administrator/payment_history"(platform: "/web/desktop") {
+            sales_percentage_map()
+        }
 
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
@@ -395,6 +416,10 @@ trackTests {
         "/credits/merchant/public_landing"(platform: "/web/desktop") {
             user_profile = 'no_offer'
         }
+
+        "/credits/merchant/declarative_form"(platform:"/web/desktop", type: TrackType.View) {}
+
+        "/credits/merchant/declarative_form/congrats"(platform:"/web/desktop", type: TrackType.View) {}
     }
 
     test('Merchant Collection') {

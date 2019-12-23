@@ -61,6 +61,7 @@ trackTests {
             promise_items=["MLA123411", "MLA12345645"]
             pdp_grouped_search=true
             pdp_info=pdpInfo
+            promoted_items=["MLA1", "MLA2"]
         }
 
         def defaultWebTrack = {
@@ -137,6 +138,7 @@ trackTests {
             pdp_highlight_enabled= true
             pdp_grouped_search=true
             pdp_info=pdpInfo
+            promoted_items=["MLA1", "MLA2"]
             user_profile_type="BUYER"
             sparkle_info = sparkleInfo
         }
@@ -235,6 +237,7 @@ trackTests {
             pdp_highlight_enabled= true
             pdp_grouped_search=true
             pdp_info=pdpInfo
+            promoted_items=["MLA1", "MLA2"]
             user_profile_type="BUYER"
             sparkle_info = sparkleInfo
         })
@@ -263,6 +266,7 @@ trackTests {
             carousel_filters=["BRAND", "official_store", "STYLE"]
             pdp_grouped_search=true
             pdp_info=pdpInfo
+            promoted_items=["MLA1", "MLA2"]
             carousel_categories_shown = true
         })
 
@@ -401,6 +405,7 @@ trackTests {
             query="iphone"
             pdp_grouped_search=true
             pdp_info=pdpInfo
+            promoted_items=["MLA1", "MLA2"]
         }
     }
 
@@ -424,6 +429,7 @@ trackTests {
             query="iphone"
             pdp_grouped_search=true
             pdp_info=pdpInfo
+            promoted_items=["MLA1", "MLA2"]
         }
     }
 
@@ -465,6 +471,7 @@ trackTests {
             pdp_highlight_enabled= true
             pdp_grouped_search=true
             pdp_info=pdpInfo
+            promoted_items=["MLA1", "MLA2"]
             user_profile_type="BUYER"
             sparkle_info = sparkleInfo
         }

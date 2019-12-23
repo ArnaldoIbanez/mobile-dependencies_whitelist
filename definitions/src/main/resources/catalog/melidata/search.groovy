@@ -67,6 +67,7 @@ tracks {
         items_with_logos(required: false, description: 'items ids that show the brand logo', PropertyType.ArrayList)
         pdp_grouped_search(required: false, description: 'indicates whether the product rows are result of grouping or not', PropertyType.Boolean)
         pdp_info(required: false, description: "info about status and scoring of the product offered by search backend", type: PropertyType.ArrayList)
+        promoted_items(required: false, description: 'ids of offer of the day items', type: PropertyType.ArrayList(PropertyType.String))
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
         //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
