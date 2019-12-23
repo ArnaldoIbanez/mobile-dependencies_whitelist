@@ -468,6 +468,122 @@ trackTests {
         }
     }
 
+    test("Phone registration") {
+        "/register/phone-registration/get-phone"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone-registration/get-phone/error"(platform: "/mobile") {
+            app = "mp"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'identification_phone'
+                    ]
+            ]
+        }
+
+        "/register/phone-registration/additional-data"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone-registration/additional-data/error"(platform: "/mobile") {
+            app = "mp"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'first_name'
+                    ]
+            ]
+        }
+
+        "/register/phone-registration/get-email"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone-registration/get-email/error"(platform: "/mobile") {
+            app = "mp"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'email'
+                    ]
+            ]
+        }
+
+        "/register/phone-registration/verification"(platform: "/mobile") {
+            app = "mp"
+            channel = "sms"
+        }
+
+        "/register/phone-registration/verification/error"(platform: "/mobile") {
+            app = "mp"
+            channel = "sms"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'verification_code'
+                    ]
+            ]
+        }
+
+        "/register/phone-registration/phone-already-registered"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone-registration/send-code"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone-registration/resend-code"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone-registration/email-link"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone-registration/verification/autodetect-code"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone-registration/sign-in"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone-registration/create-account"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone-registration/google-hint/show"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+
+        "/register/phone-registration/google-hint/use"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+
+        "/register/phone-registration/google-autofill/show"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+
+        "/register/phone-registration/google-autofill/use"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+    }
+
     test("Landing mercadopago home") {
         "/landing/home" (platform: "/web") {}
     }

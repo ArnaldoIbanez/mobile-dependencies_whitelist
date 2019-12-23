@@ -201,5 +201,59 @@ tracks {
     "/register/congrats/complete-fiscal-data"(platform: "/mobile", type: TrackType.Event){}
     "/register/congrats/complete-fiscal-data-later"(platform: "/mobile", type: TrackType.Event){}
 
+    //Nueva experiencia de registro: Registro por teléfono
+
+    "/register/phone-registration"(platform: "/mobile", isAbstract: true){
+        app(type: PropertyType.String, required:true, description: "Current Flow")
+        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+    }
+
+    "/register/phone-registration/get-phone"(platform: "/mobile", TrackType.View){}
+    "/register/phone-registration/get-phone/error"(platform: "/mobile", TrackType.View){
+        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
+        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+    }
+
+    "/register/phone-registration/additional-data"(platform: "/mobile", TrackType.View){}
+    "/register/phone-registration/additional-data/error"(platform: "/mobile", TrackType.View){
+        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
+        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+    }
+
+    "/register/phone-registration/get-email"(platform: "/mobile", TrackType.View){}
+    "/register/phone-registration/get-email/error"(platform: "/mobile", TrackType.View){
+        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
+        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+    }
+
+    "/register/phone-registration/verification"(platform: "/mobile", TrackType.View){
+        channel(type: PropertyType.String, required: true, values: ["sms", "call", "whatsapp"], description: "Channel to which verification code is sent")
+    }
+    "/register/phone-registration/verification/error"(platform: "/mobile", TrackType.View){
+        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
+        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+    }
+
+    "/register/phone-registration/phone-already-registered"(platform: "/mobile", TrackType.View){}
+
+
+    "/register/phone-registration/send-code"(platform: "/mobile", TrackType.Event){}
+    "/register/phone-registration/resend-code"(platform: "/mobile", TrackType.Event){}
+    "/register/phone-registration/email-link"(platform: "/mobile", TrackType.Event){}
+    "/register/phone-registration/verification/autodetect-code"(platform: "/mobile", TrackType.Event, parentPropertiesInherited: false){}
+    "/register/phone-registration/sign-in"(platform: "/mobile", TrackType.Event){}
+    "/register/phone-registration/create-account"(platform: "/mobile", TrackType.Event){}
+    "/register/phone-registration/google-hint"(platform: "/mobile", isAbstract: true){
+        step(type: PropertyType.String, required: true, values: ["registration", "phoneRegistration", "getEmail"], description: "Step where the google hint is provided to the user")
+        field(type: PropertyType.String, required: true, values: ["email", "phone"], description: "Field where the google hint is provided to the user")
+    }
+    "/register/phone-registration/google-hint/show"(platform: "/mobile", TrackType.Event){}
+    "/register/phone-registration/google-hint/use"(platform: "/mobile", TrackType.Event){}
+    "/register/phone-registration/google-autofill"(platform: "/mobile", isAbstract: true){
+        step(type: PropertyType.String, required: true, values: ["registration", "accountAdditionalData", "phoneRegistration"], description: "Step where the google autofill is provided to the user")
+        field(type: PropertyType.String, required: true, values: ["firstName", "lastName", "phone"], description: "Field where the google autofill is provided to the user")
+    }
+    "/register/phone-registration/google-autofill/show"(platform: "/mobile", TrackType.Event){}
+    "/register/phone-registration/google-autofill/use"(platform: "/mobile", TrackType.Event){}
 }
 
