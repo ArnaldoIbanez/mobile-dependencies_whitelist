@@ -1,7 +1,6 @@
 SELECT *
 FROM(
-    SELECT *, 
-      ROW_NUMBER() OVER (PARTITION BY site_id,category_id_l1,category_name_l2 ORDER BY site_id, category_id_l1, wcr DESC) AS cat_rank
+    SELECT ROW_NUMBER() OVER (PARTITION BY site_id,category_id_l1,category_name_l2 ORDER BY site_id, category_id_l1, wcr DESC) AS cat_rank, *
     FROM (
             SELECT
               site_id
