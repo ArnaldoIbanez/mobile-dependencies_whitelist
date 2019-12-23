@@ -579,5 +579,5 @@ tracks {
     }
 
     // Instore shortcut
-    "/instore/enable_shortcut"(platform:"/mobile", type: TrackType.View) {}
+    "/instore/enable_shortcut"(platform:"/mobile/android", type: TrackType.View, description: "The user is seeing the create shortcut dialog") {}
 }
