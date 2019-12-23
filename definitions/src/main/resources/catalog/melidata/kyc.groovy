@@ -285,6 +285,9 @@ tracks {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
 
+    "/kyc/iv/address"(platform: "/web", type: TrackType.View) {
+    }
+
     "/kyc/iv/center/card"(platform: "/web", type: TrackType.View) {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
     }
