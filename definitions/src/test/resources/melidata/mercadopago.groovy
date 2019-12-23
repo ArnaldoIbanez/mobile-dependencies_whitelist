@@ -3327,6 +3327,15 @@ trackTests {
             ]
         }
 
+        "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
+            os_status = "none"
+            enrollment_status = "disabled"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "disabled"
+            ]
+        }
+
         "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
@@ -3465,31 +3474,37 @@ trackTests {
         "/screenlock/opening_lock"(platform: "/mobile/android", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/screenlock/opening_lock"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/screenlock/opening_lock/retry"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/screenlock/opening_lock/retry"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
-        }
-
-        "/screenlock/opening_lock/logout"(platform: "/mobile/android", type: TrackType.Event) {
-            enrollment_status = "enabled"
-            os_status = "biometrics"
-        }
-
-        "/screenlock/opening_lock/logout"(platform: "/mobile/ios", type: TrackType.Event) {
-            enrollment_status = "enabled"
-            os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
     }

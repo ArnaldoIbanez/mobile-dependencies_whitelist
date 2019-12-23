@@ -422,14 +422,10 @@ tracks {
     }
 
     "/screenlock/opening_lock"(platform: "/mobile", type: TrackType.View) {
-
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 
     "/screenlock/opening_lock/retry"(platform: "/mobile", type: TrackType.Event) {
-
-    }
-
-    "/screenlock/opening_lock/logout"(platform: "/mobile", type: TrackType.Event) {
-
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 }
