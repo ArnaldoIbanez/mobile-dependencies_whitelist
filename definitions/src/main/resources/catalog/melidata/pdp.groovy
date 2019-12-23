@@ -35,6 +35,7 @@ tracks {
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
         seller_id(required: false, type: PropertyType.Numeric, description: "")
         seller_name(required: false, type: PropertyType.String, description: "")
+        seller_fraudulent(required: false, type: PropertyType.Boolean, description: "Indicates if the seller is fraudulent")
         subtitle_types(required: false, type: PropertyType.ArrayList, description: "seller subtitles types")
         available_quantity(required: false, type: PropertyType.Numeric, description: "Available product quantity at this pdp")
         cart_content(required: false, type: PropertyType.Boolean, description: "")
@@ -171,8 +172,7 @@ tracks {
         stock_deferred_time(required: false, type: PropertyType.Numeric, inheritable: false, description: "Amount of days when the product will have available stock. Will only be used when stock_type = deferred")
 
         // General
-        vpp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of vpp")
-
+        pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
