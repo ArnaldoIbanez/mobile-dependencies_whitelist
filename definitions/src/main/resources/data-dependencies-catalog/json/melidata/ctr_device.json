@@ -18,10 +18,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "fecha",
-        "type": "DATE"
-      },
-      {
         "name": "device",
         "type": "UNICODE_STRING"
       },

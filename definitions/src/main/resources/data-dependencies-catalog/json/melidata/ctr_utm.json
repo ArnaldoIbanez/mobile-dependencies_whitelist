@@ -18,10 +18,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "fecha",
-        "type": "DATE"
-      },
-      {
         "name": "utm_source",
         "type": "UNICODE_STRING"
       },

@@ -18,10 +18,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "fecha",
-        "type": "DATE"
-      },
-      {
         "name": "category_id_l1",
         "type": "UNICODE_STRING"
       },

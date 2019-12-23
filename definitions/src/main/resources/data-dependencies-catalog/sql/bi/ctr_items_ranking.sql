@@ -5,7 +5,6 @@ FROM(
     FROM (
             SELECT
               site_id
-              ,fecha
               ,category_id_l1
               ,category_name_l1
               ,category_id_l2
@@ -33,6 +32,7 @@ FROM(
               ,(COUNT(DISTINCT user_vip)*1.00)/(COUNT(DISTINCT user_impresiones)*1.00) AS CTR
               ,(COUNT(DISTINCT user_order)*1.00)/(COUNT(DISTINCT user_vip)*1.00) AS CVR
               ,(COUNT(DISTINCT user_order)*1.00)/(COUNT(DISTINCT user_impresiones)*1.00) AS WCR
+              ,fecha
             FROM 
               ctr.ctr_base
             GROUP BY site_id, fecha, category_id_l1, category_name_l1, category_id_l2, category_name_l2, category_id_l3, category_name_l3
