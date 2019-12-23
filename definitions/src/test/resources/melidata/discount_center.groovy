@@ -16,6 +16,28 @@ trackTests {
         }
     }
 
+    test("Mercado Pago discount center payers list print") {
+        "/discount_center/payers/list/print" (platform: "/mobile", type: TrackType.Event) {
+            items= [
+                    [   tracking_id: "1004194",
+                        blocked: false,
+                        name: "Mc Donalds",
+                        category: "Fast Food",
+                        mcc: 5611201,
+                        position: 0,
+                        level: 1,
+                        distance: 258,
+                        store_id: 30091709,
+                        availability: "full",
+                        amount: 15,
+                        priority: 9,
+                        collector_id: 1234567
+                    ]
+            ]
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+    }
+
     test("Mercado Pago discount center payers list show") {
         "/discount_center/payers/list/show" (platform: "/mobile", type: TrackType.Event) {
             items= [

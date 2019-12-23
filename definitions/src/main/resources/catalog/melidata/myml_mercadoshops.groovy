@@ -79,7 +79,7 @@ tracks {
                 values: ['AFIP', 'BANNER', 'BRANDS', 'CATEGORIES', 'CAROUSEL', 'COLORS', 'CONTACT', 'CONTACT_FROM_SHOP_NAME',
                          'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FOOTER', 'GRID', 'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE',
                          'LOGO', 'MENU', 'MOSAIC', 'PRICE_AND_IMAGE', 'PRICE_AND_IMAGE_ADVANCED', 'SHOP_NAME', 'SLIDER',
-                         'SOCIAL_NETWORKS', 'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TABBED_CAROUSEL', 'TEXT_BANNER']
+                         'SOCIAL_NETWORKS', 'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TABBED_CAROUSEL', 'TEXT_BANNER', 'FISCAL_DATA', 'FOOTER_MESSAGE']
         )
     }
 
@@ -196,6 +196,10 @@ tracks {
 
     "/mercado_shops/admin/sidebar/subdomain"(platform: "/", type: TrackType.Event){
         subdomain(required: true, type: PropertyType.String)
+    }
+
+    "/mercado_shops/admin/sidebar/fiscal_data"(platform: "/", type: TrackType.Event){
+        fiscal_data_visible(required: true, type: PropertyType.Boolean)
     }
 
     "/mercado_shops/admin/sidebar/text_banner"(platform: "/", type: TrackType.Event){
@@ -337,11 +341,26 @@ tracks {
         mshopsEventGroup
     }
 
-  "/mercado_shops/marketing/facebook_pixel/cancel"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/facebook_pixel/cancel"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/facebook_pixel/context_help"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/facebook_pixel/delete"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
+
+    "/mercado_shops/template-selection"(platform: "/", type: TrackType.Event, isAbstract: true){}
+
+    "/mercado_shops/template-selection/save"(platform: "/", type: TrackType.Event){
+        theme(
+            required: true,
+            type: PropertyType.String,
+            description: "Name of theme"
+        )
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/template-selection/preview"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View){}
 }

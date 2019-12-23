@@ -416,7 +416,33 @@ trackTests {
             ]
             recovery_flow=true
         }
+        "/cart/checkout/shipping/input_address/delivery_instructions"(platform: "/", type: TrackType.Event) {
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
         "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/telephone_input"(platform: "/", type: TrackType.Event) {
             label = "Ingresar solo valores numéricos"
             items = [
                     [
@@ -457,6 +483,10 @@ trackTests {
             label = "La cantidad de caracteres ingresados es inválida"
             session_id="some_session_id"
         }
+        "/cart/checkout/shipping/input_address/city"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+        }
         "/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event) {
             label = "La cantidad de caracteres ingresados es inválida"
             session_id="some_session_id"
@@ -474,7 +504,15 @@ trackTests {
             label = "La cantidad de caracteres ingresados es inválida"
             session_id="some_session_id"
         }
+        "/cart/checkout/shipping/input_address/delivery_instructions"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+        }
         "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/telephone_input"(platform: "/", type: TrackType.Event) {
             label = "La cantidad de caracteres ingresados es inválida"
             session_id="some_session_id"
         }

@@ -1,7 +1,7 @@
 package src.test.resources.melidata
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-import com.ml.melidata.TrackType;
+import com.ml.melidata.TrackType
 
 trackTests {
 
@@ -48,6 +48,20 @@ trackTests {
         }
         "/cards/hybrid/unlock/update-app/tap"(platform:"/", type: TrackType.Event) {
             action = "exit"
+        }
+    }
+
+    // ENGAGEMENT
+    // --------
+    // Change-Pin: Flow to change the pin of the hybrid card
+
+    test("cards hybrid change pin") {
+        "/cards/hybrid/engagement/change-pin"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/engagement/change-pin/tap"(platform:"/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/hybrid/engagement/change-pin/tap"(platform:"/", type: TrackType.Event) {
+            action = "change-pin"
         }
     }
 
@@ -151,7 +165,7 @@ trackTests {
             action = "confirm"
         }
     }
-
+  
     // Unlock: Update App
     test("cards hybrid unlock update app") {
         "/cards/hybrid/unlock/update-app"(platform: "/", type: TrackType.View) {}
@@ -160,6 +174,20 @@ trackTests {
         }
         "/cards/hybrid/unlock/update-app/tap"(platform:"/", type: TrackType.Event) {
             action = "exit"
+        }
+    }
+
+    // ENGAGEMENT
+    // --------
+    // Change-Pin: Flow to change the pin of the hybrid card
+
+    test("cards hybrid change pin") {
+        "/cards/hybrid/engagement/change-pin"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/engagement/change-pin/tap"(platform:"/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/hybrid/engagement/change-pin/tap"(platform:"/", type: TrackType.Event) {
+            action = "change-pin"
         }
     }
 }
