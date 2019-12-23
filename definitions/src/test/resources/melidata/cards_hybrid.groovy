@@ -40,6 +40,71 @@ trackTests {
     // UNLOCK
     // ------
 
+     // Unlock: Init point
+    test("cards hybrid unlock init point") {
+        "/cards/hybrid/unlock/init-point"(platform: "/", type: TrackType.View) {}
+    }
+
+    // Unlock: Scanner
+    test("cards hybrid unlock scanner") {
+        "/cards/hybrid/unlock/scanner"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/unlock/scanner/link"(platform:"/", type: TrackType.Event) {
+            action = "qr"
+        }
+        "/cards/hybrid/unlock/scanner/link"(platform:"/", type: TrackType.Event) {
+            action = "manual"
+        }
+    }
+
+    // Unlock: Manual Link
+    test("cards hybrid unlock manual link") {
+        "/cards/hybrid/unlock/manual-link"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/unlock/manual-link/tap"(platform:"/", type: TrackType.Event) {
+            action = "link"
+        }
+    }
+
+    // Unlock: Confirm Link
+    test("cards hybrid unlock confirm link") {
+        "/cards/hybrid/unlock/confirm-link"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/unlock/confirm-link/tap"(platform:"/", type: TrackType.Event) {
+            action = "confirm"
+        }
+        "/cards/hybrid/unlock/confirm-link/tap"(platform:"/", type: TrackType.Event) {
+            action = "logout"
+        }
+    }
+
+    // Unlock: Camera Permissions
+    test("cards hybrid unlock camera permissions") {
+        "/cards/hybrid/unlock/camera-permissions"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/unlock/camera-permissions/tap"(platform:"/", type: TrackType.Event) {
+            action = "qr"
+        }
+        "/cards/hybrid/unlock/camera-permissions/tap"(platform:"/", type: TrackType.Event) {
+            action = "manual"
+        }
+    }
+
+    // Unlock: Confirm Replacement
+    test("cards hybrid unlock confirm replacement") {
+        "/cards/hybrid/unlock/confirm-replacement"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/unlock/confirm-replacement/tap"(platform:"/", type: TrackType.Event) {
+            action = "confirm"
+        }
+        "/cards/hybrid/unlock/confirm-replacement/tap"(platform:"/", type: TrackType.Event) {
+            action = "exit"
+        }
+    }
+
+    // Unlock: Set Pin
+    test("cards hybrid unlock set pin") {
+        "/cards/hybrid/unlock/set-pin"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/unlock/set-pin/tap"(platform:"/", type: TrackType.Event) {
+            action = "confirm"
+        }
+    }
+
     // Unlock: Update App
     test("cards hybrid unlock update app") {
         "/cards/hybrid/unlock/update-app"(platform: "/", type: TrackType.View) {}
