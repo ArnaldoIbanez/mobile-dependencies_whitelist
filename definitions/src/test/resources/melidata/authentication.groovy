@@ -320,6 +320,97 @@ trackTests {
         }
     }
 
+    test("TOTP flow") {
+        "/auth/totp/enrollment/chooser"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_webview = true
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/congrats"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_webview = true
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/greeting"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_webview = true
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/scanner"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_webview = true
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/validation"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_webview = true
+            is_another_enroll = false
+        }
+        "/auth/totp/validation"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_webview = true
+        }
+        "/auth/totp/tooManyAttempts"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_webview = true
+        }
+        "/auth/totp/enrollment/chooser/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            is_webview = true
+            target = "config_on_this_device"
+            event_type = "click"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/chooser/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            is_webview = true
+            target = "config_manually"
+            event_type = "click"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/congrats/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_webview = true
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/congrats/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_webview = true
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/greeting/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_webview = true
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/scanner/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_webview = true
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/validation/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "submit"
+            target = "enter_code"
+            is_webview = true
+            is_another_enroll = false
+        }
+        "/auth/totp/validation/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "submit"
+            target = "enter_code"
+            is_webview = true
+        }
+    }
+
     test("Phone Enrollment flow") {
         "/auth/recovery/phone/registration"(platform: "/web", type: TrackType.Event) {
             redirect_url = 'www.mercadolibre.com'
