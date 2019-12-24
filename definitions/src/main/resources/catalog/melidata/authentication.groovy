@@ -246,6 +246,72 @@ tracks {
         status_code(type: PropertyType.String, required: true, description: "Describes relation between this view and current status code")
     }
 
+    //TOTP
+    "/auth/totp"(platform: "/", isAbstract: true) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
+    }
+
+    "/auth/totp/enrollment"(platform: "/", isAbstract: true) {
+        is_another_enroll(type: PropertyType.Boolean, required: true, description: "Refers to add_other enroll flow")
+    }
+
+    "/auth/totp/enrollment/chooser"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/enrollment/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/enrollment/greeting"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/enrollment/scanner"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/enrollment/validation"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/validation"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/tooManyAttempts"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/enrollment/chooser/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
+        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
+        event_type(type: PropertyType.String, required: true, description: "Type of event e.g click or submit")
+    }
+
+    "/auth/totp/enrollment/congrats/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
+        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
+        event_type(type: PropertyType.String, required: true, description: "Type of event e.g click or submit")
+    }
+
+    "/auth/totp/enrollment/greeting/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
+        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
+        event_type(type: PropertyType.String, required: true, description: "Type of event e.g click or submit")
+    }
+
+    "/auth/totp/enrollment/scanner/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
+        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
+        event_type(type: PropertyType.String, required: true, description: "Type of event e.g click or submit")
+    }
+
+    "/auth/totp/enrollment/validation/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
+        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
+        event_type(type: PropertyType.String, required: true, description: "Type of event e.g click or submit")
+    }
+
+    "/auth/totp/validation/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
+        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
+        event_type(type: PropertyType.String, required: true, description: "Type of event e.g click or submit")
+    }
+
     //Attestation App
     "/auth/attestation"(platform: "/mobile", isAbstract: true) {}
 
