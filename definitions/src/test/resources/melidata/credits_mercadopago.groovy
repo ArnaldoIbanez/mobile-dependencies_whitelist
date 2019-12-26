@@ -7,6 +7,40 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
+    test("Merchant Credits Enrollment Mobile") {
+        def full_offer_detail = {
+            [
+                segment: 'online',
+                offer_type: 'early_offer'
+            ]
+        }
+
+        def offer_detail_without_offer_type = {
+            [
+                segment: 'online'
+            ]
+        }
+
+        def offer_detail_without_segment = {
+            [
+                offer_type: 'early_offer'
+            ]
+        }
+
+        "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
+            offer = full_offer_detail
+            product_types = ['fixed_term_loan']
+        }
+        "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
+            offer = offer_detail_without_offer_type
+            product_types = ['sales_percentage_loan']
+        }
+        "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
+            offer = offer_detail_without_segment
+            product_types = ['fixed_term_loan', 'sales_percentage_loan']
+        }
+    }
+
     test("Merchant Credits Enrollment") {
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'pending'
