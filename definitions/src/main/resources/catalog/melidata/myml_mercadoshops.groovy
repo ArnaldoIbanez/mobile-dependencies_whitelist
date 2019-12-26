@@ -345,13 +345,7 @@ tracks {
         mshopsEventGroup
     }
 
-    "/mercado_shops/marketing/facebook/requisites"(platform: "/", type: TrackType.Event){}
-
-    "/mercado_shops/marketing/facebook/requisites/cancel"(platform: "/", type: TrackType.Event){}
-
-    "/mercado_shops/marketing/facebook/requisites/context_help"(platform: "/", type: TrackType.Event){}
-
-    "/mercado_shops/marketing/facebook/requisites/link_with_facebook"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/facebook/link_with_facebook"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/facebook/fan_pages"(platform: "/", type: TrackType.Event){}
 
