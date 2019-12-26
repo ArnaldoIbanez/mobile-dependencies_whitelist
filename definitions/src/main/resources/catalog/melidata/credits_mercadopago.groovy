@@ -1,51 +1,51 @@
 tracks {
     propertyDefinitions {
         product_type(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'fixed_term',
-                        'express_money',
-                        'sales_percentage'
-                ]
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'fixed_term',
+                'express_money',
+                'sales_percentage'
+            ]
         )
         status(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'on_time',
-                        'overdue',
-                        'finished'
-                ]
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'on_time',
+                'overdue',
+                'finished'
+            ]
         )
         segment(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'online',
-                        'in_store'
-                ]
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'online',
+                'in_store'
+            ]
         )
         category(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'regular',
-                        'refinance'
-                ]
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'regular',
+                'refinance'
+            ]
         )
         offer_type(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'early_offer',
-                        'full_offer',
-                        'special_full_offer'
-                ]
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'early_offer',
+                'full_offer',
+                'special_full_offer'
+            ]
         )
         is_first_offer(
-                required: false,
-                type: PropertyType.Boolean
+            required: false,
+            type: PropertyType.Boolean
         )
     }
 
@@ -96,8 +96,8 @@ tracks {
     //Public landing
     "/credits/merchant/public_landing"(platform: "/", type: TrackType.View) {
         user_profile(
-                type: PropertyType.String,
-                required: true
+            type: PropertyType.String,
+            required: true
         )
     }
 
@@ -115,35 +115,35 @@ tracks {
     //Dashboard
     "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {
         offers(
-                type: PropertyType.ArrayList(
-                        PropertyType.Map(offer)
-                ),
-                required: false,
-                inheritable: false
+            type: PropertyType.ArrayList(
+                PropertyType.Map(offer)
+            ),
+            required: false,
+            inheritable: false
         )
         products(
-                type: PropertyType.ArrayList(
-                        PropertyType.Map(with_status)
-                ),
-                required: false,
-                inheritable: false
+            type: PropertyType.ArrayList(
+                PropertyType.Map(with_status)
+            ),
+            required: false,
+            inheritable: false
         )
         show_cx_widget(
-                type: PropertyType.Boolean,
-                required: false,
-                inheritable: false
+            type: PropertyType.Boolean,
+            required: false,
+            inheritable: false
         )
 
         // Included in products properties. Deprecate after new web admin, check native first
         status(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'on_time',
-                        'overdue',
-                        'empty'
-                ],
-                inheritable: false
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'on_time',
+                'overdue',
+                'empty'
+            ],
+            inheritable: false
         )
     }
 
@@ -153,9 +153,9 @@ tracks {
 
     "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {
         reason(
-                type: PropertyType.String,
-                required: false,
-                inheritable: false
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
         )
     }
 
@@ -187,15 +187,15 @@ tracks {
     }
     "/credits/merchant/proactive_payment/error"(platform: "/", type: TrackType.View) {
         reason(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'insufficient_account_money',
-                        'lender_cannot_collect_installments',
-                        'installment_paid',
-                        'default'
-                ],
-                inheritable: false
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'insufficient_account_money',
+                'lender_cannot_collect_installments',
+                'installment_paid',
+                'default'
+            ],
+            inheritable: false
         )
         products_group
     }
@@ -212,39 +212,39 @@ tracks {
     //Page Views
     "/credits/merchant/enrollment"(platform: "/", type: TrackType.View) {
         status(
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        'pending',
-                        'rejected',
-                        'approved'
-                ],
-                inheritable: false
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'pending',
+                'rejected',
+                'approved'
+            ],
+            inheritable: false
         )
         sub_status(
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'missing_documentation',
-                        'review_pending',
-                        'loan_granted'
-                ],
-                inheritable: false
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'missing_documentation',
+                'review_pending',
+                'loan_granted'
+            ],
+            inheritable: false
         )
         product_type(
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        'default',
-                        'point',
-                        'early_offer'
-                ],
-                inheritable: false
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'default',
+                'point',
+                'early_offer'
+            ],
+            inheritable: false
         )
         is_capped_offer(
-                type: PropertyType.Boolean,
-                required: true,
-                inheritable: false
+            type: PropertyType.Boolean,
+            required: true,
+            inheritable: false
         )
     }
 
@@ -254,136 +254,136 @@ tracks {
     //Confirmation modal
     "/credits/merchant/enrollment/confirmation"(platform: "/", type: TrackType.View) {
         amount(
-                type: PropertyType.Numeric,
-                required: true
+            type: PropertyType.Numeric,
+            required: true
         )
         installments(
-                type: PropertyType.Numeric,
-                required: false
+            type: PropertyType.Numeric,
+            required: false
         )
     }
 
     //Congrats
     "/credits/merchant/enrollment/congrats"(platform: "/", type: TrackType.View) {
         product_type(
-                description: "Product type from the user's credit line",
-                type: PropertyType.String,
-                required: false,
+            description: "Product type from the user's credit line",
+            type: PropertyType.String,
+            required: false,
         )
         has_prepaid(
-                description: "Metric to track users who has accepted a loan and has prepaid card enabled",
-                type: PropertyType.Boolean,
-                required: false,
+            description: "Metric to track users who has accepted a loan and has prepaid card enabled",
+            type: PropertyType.Boolean,
+            required: false,
         )
         requested_amount(
-                description: "User requested amount",
-                type: PropertyType.Numeric,
-                required: false,
+            description: "User requested amount",
+            type: PropertyType.Numeric,
+            required: false,
         )
         max_amount(
-                description: "Credit line maximum allowed amount",
-                type: PropertyType.Numeric,
-                required: false,
+            description: "Credit line maximum allowed amount",
+            type: PropertyType.Numeric,
+            required: false,
         )
         min_amount(
-                description: "Credit line minimum allowed amount",
-                type: PropertyType.Numeric,
-                required: false,
+            description: "Credit line minimum allowed amount",
+            type: PropertyType.Numeric,
+            required: false,
         )
         option(
-                description: "User requested option",
-                type: PropertyType.Numeric,
-                required: false,
+            description: "User requested option",
+            type: PropertyType.Numeric,
+            required: false,
         )
         max_option(
-                description: "Credit line maximum allowed option",
-                type: PropertyType.Numeric,
-                required: false,
+            description: "Credit line maximum allowed option",
+            type: PropertyType.Numeric,
+            required: false,
         )
     }
 
     //Error
     "/credits/merchant/enrollment/error"(platform: "/", type: TrackType.View) {
         reason(
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        'loan_creation',
-                        'feedback_creation',
-                        'files_upload',
-                        'default'
-                ],
-                inheritable: false
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'loan_creation',
+                'feedback_creation',
+                'files_upload',
+                'default'
+            ],
+            inheritable: false
         )
     }
 
     //Documentation
     "/credits/merchant/enrollment/documentation"(platform: "/", type: TrackType.View) {
         user_type(
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        'physical',
-                        'moral'
-                ],
-                inheritable: false
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'physical',
+                'moral'
+            ],
+            inheritable: false
         )
     }
     "/credits/merchant/enrollment/documentation/congrats"(platform: "/", type: TrackType.View) {
         user_type(
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        'physical',
-                        'moral'
-                ],
-                inheritable: false
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'physical',
+                'moral'
+            ],
+            inheritable: false
         )
     }
     "/credits/merchant/enrollment/documentation/error"(platform: "/", type: TrackType.View) {
         reason(
-                type: PropertyType.String,
-                required: false
+            type: PropertyType.String,
+            required: false
         )
     }
 
     //Testimonials
     "/credits/merchant/enrollment/testimonials"(platform: "/", type: TrackType.View) {
         brand(
-                type: PropertyType.String,
-                required: true
+            type: PropertyType.String,
+            required: true
         )
     }
 
     //Feedback
     "/credits/merchant/enrollment/feedback"(platform: "/", type: TrackType.View) {
         reason(
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        'interested',
-                        'not_interested',
-                        'capped'
-                ],
-                inheritable: false
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'interested',
+                'not_interested',
+                'capped'
+            ],
+            inheritable: false
         )
     }
     "/credits/merchant/enrollment/feedback/congrats"(platform: "/", type: TrackType.View) {
         reason(
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        'interested',
-                        'not_interested',
-                        'capped'
-                ],
-                inheritable: false
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'interested',
+                'not_interested',
+                'capped'
+            ],
+            inheritable: false
         )
     }
     "/credits/merchant/enrollment/feedback/error"(platform: "/", type: TrackType.View) {
         reason(
-                type: PropertyType.String,
-                required: false
+            type: PropertyType.String,
+            required: false
         )
     }
 
@@ -393,91 +393,91 @@ tracks {
     //Onboarding
     "/credits/merchant/enrollment/onboarding"(platform: "/", type: TrackType.View) {
         offer(
-                description: "Properties from the user's credit line",
-                type: PropertyType.Map(offer_detail),
-                required: true,
+            description: "Properties from the user's credit line",
+            type: PropertyType.Map(offer_detail),
+            required: true,
         )
 
         product_types(
-                description: "Available product types in the user's credit line",
-                type: PropertyType.ArrayList(PropertyType.String),
-                required: true,
+            description: "Available product types in the user's credit line",
+            type: PropertyType.ArrayList(PropertyType.String),
+            required: true,
         )
     }
 
     //Hub
     "/credits/merchant/enrollment/hub"(platform: "/", type: TrackType.View) {
         offer(
-                description: "Properties from the user's credit line",
-                type: PropertyType.Map(offer_detail),
-                required: true,
+            description: "Properties from the user's credit line",
+            type: PropertyType.Map(offer_detail),
+            required: true,
         )
 
         product_types(
-                description: "Available product types in the user's credit line",
-                type: PropertyType.ArrayList(PropertyType.String),
-                required: true,
+            description: "Available product types in the user's credit line",
+            type: PropertyType.ArrayList(PropertyType.String),
+            required: true,
         )
     }
 
     //Simulator
     "/credits/merchant/enrollment/simulator"(platform: "/", type: TrackType.View) {
         offer(
-                description: "Properties from the user's credit line",
-                type: PropertyType.Map(offer_detail),
-                required: true,
+            description: "Properties from the user's credit line",
+            type: PropertyType.Map(offer_detail),
+            required: true,
         )
 
         product_type(
-                description: "Product type from the user's credit line",
-                type: PropertyType.String,
-                required: true,
+            description: "Product type from the user's credit line",
+            type: PropertyType.String,
+            required: true,
         )
 
         variant(
-                description: "Option types from the user's credit line",
-                type: PropertyType.String,
-                values: [
-                        "normal",
-                        "fixed_amount",
-                        "fixed_option",
-                        "fixed"
-                ],
-                required: true,
+            description: "Option types from the user's credit line",
+            type: PropertyType.String,
+            values: [
+                "normal",
+                "fixed_amount",
+                "fixed_option",
+                "fixed"
+            ],
+            required: true,
         )
     }
 
     //Summary
     "/credits/merchant/enrollment/summary"(platform: "/", type: TrackType.View) {
         product_type(
-                description: "Product type from the user's credit line",
-                type: PropertyType.String,
-                required: true,
+            description: "Product type from the user's credit line",
+            type: PropertyType.String,
+            required: true,
         )
         requested_amount(
-                description: "User requested amount",
-                type: PropertyType.Numeric,
-                required: true,
+            description: "User requested amount",
+            type: PropertyType.Numeric,
+            required: true,
         )
         max_amount(
-                description: "Credit line maximum allowed amount",
-                type: PropertyType.Numeric,
-                required: true,
+            description: "Credit line maximum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
         )
         min_amount(
-                description: "Credit line minimum allowed amount",
-                type: PropertyType.Numeric,
-                required: true,
+            description: "Credit line minimum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
         )
         option(
-                description: "User requested option",
-                type: PropertyType.Numeric,
-                required: true,
+            description: "User requested option",
+            type: PropertyType.Numeric,
+            required: true,
         )
         max_option(
-                description: "Credit line maximum allowed option",
-                type: PropertyType.Numeric,
-                required: true,
+            description: "Credit line maximum allowed option",
+            type: PropertyType.Numeric,
+            required: true,
         )
     }
 
@@ -495,20 +495,20 @@ tracks {
     //Congrats money advance
     "/credits/merchant/money_advance/congrats"(platform: "/web", type: TrackType.View) {
         status(
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        'on_time',
-                        'delayed'
-                ]
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'on_time',
+                'delayed'
+            ]
         )
         user_status(
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        'on_time',
-                        'overdue'
-                ]
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'on_time',
+                'overdue'
+            ]
         )
     }
 
@@ -518,12 +518,12 @@ tracks {
     //Hub money advance
     "/credits/merchant/money_advance/hub"(platform: "/web", type: TrackType.View) {
         user_status(
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        'on_time',
-                        'overdue'
-                ]
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'on_time',
+                'overdue'
+            ]
         )
     }
 
@@ -540,8 +540,8 @@ tracks {
     // Error money advance
     "/credits/merchant/money_advance/error"(platform: "/", type: TrackType.View) {
         reason(
-                type: PropertyType.String,
-                required: true
+            type: PropertyType.String,
+            required: true
         )
     }
 
@@ -557,46 +557,46 @@ tracks {
 
     "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
         campaign(
-                description: "Source of the contact",
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        'collection',
-                        'updates',
-                        'engage'
-                ]
+            description: "Source of the contact",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'collection',
+                'updates',
+                'engage'
+            ]
         )
         medium(
-                description: "Medium of the contact",
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        'email'
-                ]
+            description: "Medium of the contact",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'email'
+            ]
         )
         milestone(
-                description: "Number of days overdue of the contact",
-                type: PropertyType.Numeric,
-                required: false
+            description: "Number of days overdue of the contact",
+            type: PropertyType.Numeric,
+            required: false
         )
         stage(
-                description: "Credit stage of the contact",
-                type: PropertyType.String,
-                required: false,
-                values: [
-                        'educational',
-                        'to_expire',
-                        'expired_no_charges',
-                        'expired_fixed_charges',
-                        'expired_daily_charges',
-                        'congrats_debit_installment',
-                        'congrats_credited_loan',
-                        'congrats_pending',
-                        'em_congrats_credited_loan',
-                        'em_congrats_debit_installment',
-                        'em_insufficient_funds',
-                        'em_expired_daily_charges'
-                ]
+            description: "Credit stage of the contact",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'educational',
+                'to_expire',
+                'expired_no_charges',
+                'expired_fixed_charges',
+                'expired_daily_charges',
+                'congrats_debit_installment',
+                'congrats_credited_loan',
+                'congrats_pending',
+                'em_congrats_credited_loan',
+                'em_congrats_debit_installment',
+                'em_insufficient_funds',
+                'em_expired_daily_charges'
+            ]
         )
     }
 
@@ -610,66 +610,66 @@ tracks {
 
     "/credits/express_money/amount_input"(platform: "/", type: TrackType.View) {
         show_onboarding(
-                description: "Metric to track onboarding modal conversion",
-                type: PropertyType.Boolean,
-                required: false,
-                inheritable: false
+            description: "Metric to track onboarding modal conversion",
+            type: PropertyType.Boolean,
+            required: false,
+            inheritable: false
         )
     }
 
     "/credits/express_money/summary"(platform: "/", type: TrackType.View) {
         requested_amount(
-                description: "User requested amount",
-                type: PropertyType.Numeric,
-                required: true,
+            description: "User requested amount",
+            type: PropertyType.Numeric,
+            required: true,
         )
         max_amount(
-                description: "Credit line maximum allowed amount",
-                type: PropertyType.Numeric,
-                required: true,
+            description: "Credit line maximum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
         )
         min_amount(
-                description: "Credit line minimum allowed amount",
-                type: PropertyType.Numeric,
-                required: true,
+            description: "Credit line minimum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
         )
     }
 
     "/credits/express_money/congrats"(platform: "/", type: TrackType.View) {
         has_prepaid(
-                description: "Metric to track users who has accepted a loan and has prepaid card enabled",
-                type: PropertyType.Boolean,
-                required: true,
+            description: "Metric to track users who has accepted a loan and has prepaid card enabled",
+            type: PropertyType.Boolean,
+            required: true,
         )
         requested_amount(
-                description: "User requested amount",
-                type: PropertyType.Numeric,
-                required: true,
+            description: "User requested amount",
+            type: PropertyType.Numeric,
+            required: true,
         )
         max_amount(
-                description: "Credit line maximum allowed amount",
-                type: PropertyType.Numeric,
-                required: true,
+            description: "Credit line maximum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
         )
         min_amount(
-                description: "Credit line minimum allowed amount",
-                type: PropertyType.Numeric,
-                required: true,
+            description: "Credit line minimum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
         )
     }
 
     "/credits/express_money/error"(platform: "/", type: TrackType.View) {
         reason(
-                description: "Error reason",
-                type: PropertyType.String,
-                required: true,
-                values: [
-                        'server_error',
-                        'loan_creation',
-                        'ccb_creation',
-                        'simulation',
-                        'default',
-                ]
+            description: "Error reason",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'server_error',
+                'loan_creation',
+                'ccb_creation',
+                'simulation',
+                'default',
+            ]
         )
     }
 
