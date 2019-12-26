@@ -1409,7 +1409,17 @@ tracks {
     "/account/mydata/email/congrats"(platform: "/web", type: TrackType.View) {}
 
     //Tu negocio
-    "/your_business"(platform: "/web", type: TrackType.View) {}
+    "/your_business"(platform: "/web", isAbstract: true) {}
+    "/your_business/home"(platform: "/web", type: TrackType.View) {}
+    "/your_business/image_upload"(platform:"/web", type: TrackType.Event) {}
+    "/your_business/mydata_edit"(platform:"/web", type: TrackType.Event) {}
+    "/your_business/confirm_action"(platform:"/web", type: TrackType.Event) {
+        card_name(required: true, description: "the name of the card that triggered the event", type: PropertyType.String)
+    }
+    "/your_business/link"(platform:"/web", type: TrackType.Event) {
+        card_name(required: true, description: "the name of the card that triggered the event", type: PropertyType.String)
+        path(required: true, description: "path of the next page", type: PropertyType.String)
+    }
 
 }
 
