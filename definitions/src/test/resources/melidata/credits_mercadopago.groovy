@@ -27,6 +27,7 @@ trackTests {
             ]
         }
 
+        //Onboarding
         "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
             offer = full_offer_detail
             product_types = ['fixed_term_loan']
@@ -38,6 +39,75 @@ trackTests {
         "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
             offer = offer_detail_without_segment
             product_types = ['fixed_term_loan', 'sales_percentage_loan']
+        }
+
+        //Hub
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer = full_offer_detail
+            product_types = ['fixed_term_loan']
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer = offer_detail_without_offer_type
+            product_types = ['sales_percentage_loan']
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer = offer_detail_without_segment
+            product_types = ['fixed_term_loan', 'sales_percentage_loan']
+        }
+
+        //Simulator
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            offer = full_offer_detail
+            product_type = 'fixed_term_loan'
+            variant = 'normal'
+        }
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            offer = offer_detail_without_offer_type
+            product_type = 'sales_percentage_loan'
+            variant = 'fixed'
+        }
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            offer = offer_detail_without_segment
+            product_types = 'fixed_term_loan'
+            variant = 'fixed_amount'
+        }
+
+        //Summary
+        "/credits/merchant/enrollment/summary"(platform: "/mobile/android") {
+            requested_amount: 10000
+            max_amount: 20000
+            min_amount: 5000
+            max_option: 12
+            option: 12
+            product_type: 'fixed_term_loan'
+        }
+        "/credits/merchant/enrollment/summary"(platform: "/mobile/android") {
+            requested_amount: 10000
+            max_amount: 10000
+            min_amount: 10000
+            max_option: 120030
+            option: 30
+            product_type: 'sales_percentage_loan'
+        }
+
+        //Congrats
+        "/credits/merchant/enrollment/congrats"(platform: "/mobile/android") {
+            requested_amount: 10000
+            max_amount: 20000
+            min_amount: 5000
+            max_option: 12
+            option: 12
+            product_type: 'fixed_term_loan'
+            has_prepaid: true
+        }
+        "/credits/merchant/enrollment/congrats"(platform: "/mobile/android") {
+            requested_amount: 10000
+            max_amount: 10000
+            min_amount: 10000
+            max_option: 120030
+            option: 30
+            product_type: 'sales_percentage_loan'
+            has_prepaid: false
         }
     }
 

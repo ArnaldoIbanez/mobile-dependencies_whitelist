@@ -395,7 +395,7 @@ tracks {
         offer(
             description: "Properties from the user's credit line",
             type: PropertyType.Map(offer_detail),
-            required: true,
+            required: false,
         )
 
         product_types(
@@ -410,7 +410,7 @@ tracks {
         offer(
             description: "Properties from the user's credit line",
             type: PropertyType.Map(offer_detail),
-            required: true,
+            required: false,
         )
 
         product_types(
@@ -425,7 +425,7 @@ tracks {
         offer(
             description: "Properties from the user's credit line",
             type: PropertyType.Map(offer_detail),
-            required: true,
+            required: false,
         )
 
         product_type(
