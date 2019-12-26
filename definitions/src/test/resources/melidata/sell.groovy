@@ -892,6 +892,7 @@ trackTests {
             seller_reputation = "green"
             flow_decision = true
             list_mode = "LIST"
+            catalog_forced = true
         }
     }
     test("SYI v4 quantity with specifications card showed"){

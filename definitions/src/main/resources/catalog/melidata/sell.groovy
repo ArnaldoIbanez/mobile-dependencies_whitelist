@@ -806,6 +806,7 @@ tracks {
     "/sell/item_data/flow_decision/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/flow_decision/confirm"(platform: "/web", type: TrackType.Event) {
         flow_decision(required: true, description: "Flow decision - true if is catalog", type: PropertyType.Boolean)
+        catalog_forced(required: false, description: "Indicates if the flow decision card is forcing catalog", type: PropertyType.Boolean)
     }
     "/sell/item_data/quantity_with_specifications"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/quantity_with_specifications/show"(platform: "/web", type: TrackType.Event) {}
