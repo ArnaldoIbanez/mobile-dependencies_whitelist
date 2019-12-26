@@ -748,6 +748,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -757,6 +758,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -766,6 +768,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -775,6 +778,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             categorization_flow_successful = true
@@ -787,6 +791,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             categorization_flow_successful = true
@@ -801,6 +806,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             title_predicted = "celular"
@@ -813,6 +819,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             categorization_flow_successful = true
@@ -826,6 +833,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             categorization_flow_successful = true
@@ -839,6 +847,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             categorization_flow_successful = true
@@ -852,6 +861,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             categorization_flow_successful = true
@@ -876,6 +886,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             flow_decision = true
@@ -887,6 +898,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -897,6 +909,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -906,6 +919,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -915,6 +929,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -924,6 +939,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -933,6 +949,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -942,6 +959,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -951,6 +969,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -960,6 +979,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -969,6 +989,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -978,6 +999,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -987,6 +1009,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -996,6 +1019,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1005,6 +1029,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1014,6 +1039,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1023,6 +1049,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1032,6 +1059,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             category_domain = "SMARTPHONES"
             attribute_id = "MLA12345678"
             hierarchy = "FAMILY"
@@ -1047,6 +1075,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             category_domain = "SMARTPHONES"
             attribute_id = "MLA12345678"
             hierarchy = "FAMILY"
@@ -1061,6 +1090,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1070,6 +1100,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1079,6 +1110,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1088,6 +1120,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             has_free = true
             item_type = "default"
             seller_reputation = "green"
@@ -1098,6 +1131,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1107,6 +1141,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1116,6 +1151,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1125,6 +1161,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1134,6 +1171,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1143,6 +1181,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1152,6 +1191,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1161,6 +1201,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1170,6 +1211,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1179,6 +1221,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1188,6 +1231,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1197,6 +1241,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1206,6 +1251,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1215,6 +1261,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1224,6 +1271,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1233,6 +1281,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1242,6 +1291,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1260,6 +1310,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1269,6 +1320,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1278,6 +1330,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1288,6 +1341,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1298,6 +1352,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1307,6 +1362,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             categorization_flow_successful = true
             item_id = "MLA123456789"
             item_type = "default"
@@ -1321,6 +1377,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             categorization_flow_successful = true
@@ -1333,6 +1390,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             categorization_flow_successful = true
@@ -1347,6 +1405,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
         }
@@ -1358,6 +1417,7 @@ trackTests {
             seller_segment = "professional_sellers"
             seller_reputation = "green"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
         }
     }
@@ -1368,6 +1428,7 @@ trackTests {
             seller_segment = "professional_sellers"
             seller_reputation = "green"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
@@ -1380,6 +1441,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
