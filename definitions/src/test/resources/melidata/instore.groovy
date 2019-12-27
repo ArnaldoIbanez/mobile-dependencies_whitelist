@@ -2514,5 +2514,10 @@ trackTests {
             items = ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"]
             items_size = 3
         }
+
+        //Instore shortcut
+        "/instore/enable_shortcut"(platform:"/mobile/android", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
     }
 }
