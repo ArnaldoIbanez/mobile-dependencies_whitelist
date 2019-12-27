@@ -741,6 +741,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 render item_data"){
@@ -751,6 +752,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 title card showed"){
@@ -761,6 +763,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 title card confirmed"){
@@ -771,6 +774,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 category suggested card showed"){
@@ -784,6 +788,7 @@ trackTests {
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 category suggested card confirmed"){
@@ -798,6 +803,7 @@ trackTests {
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             confirm_category_detail = "not_present"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 category suggested click another category"){
@@ -812,6 +818,7 @@ trackTests {
             title_predicted = "celular"
             categorization_flow_successful = false
             chosen_categorization_model = "ZORDON"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 category card showed"){
@@ -825,6 +832,7 @@ trackTests {
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 category card confirmed"){
@@ -840,6 +848,7 @@ trackTests {
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             confirm_category_detail = "not_present"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 wrong category"){
@@ -853,6 +862,7 @@ trackTests {
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 product resume card showed"){
@@ -868,6 +878,7 @@ trackTests {
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             product_title = "Iphone X"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 flow decision card showed"){
@@ -878,6 +889,7 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 flow decision card confirmed"){
@@ -890,6 +902,8 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             flow_decision = true
+            list_mode = "LIST"
+            catalog_forced = true
         }
     }
     test("SYI v4 quantity with specifications card showed"){
@@ -901,6 +915,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 quantity with specifications card confirmed"){
@@ -912,6 +927,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 consequences modal showed"){
@@ -922,6 +938,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 consequences modal confirmed"){
@@ -932,6 +949,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 pks card showed"){
@@ -942,6 +960,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 pks card confirmed"){
@@ -952,6 +971,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 item condition card showed"){
@@ -962,6 +982,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 item condition card confirmed"){
@@ -972,6 +993,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 main variation card showed"){
@@ -982,6 +1004,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 main variation card confirmed"){
@@ -992,6 +1015,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 item variations card showed"){
@@ -1002,6 +1026,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 item variations card confirmed"){
@@ -1012,6 +1037,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 specifications card showed"){
@@ -1022,6 +1048,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 specifications card confirmed"){
@@ -1032,6 +1059,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 technical specifications card showed"){
@@ -1042,6 +1070,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 technical specifications card confirmed"){
@@ -1052,6 +1081,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 set multivalue input"){
@@ -1068,6 +1098,7 @@ trackTests {
             container = "technical_specifications"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 set autocomplete input"){
@@ -1083,6 +1114,7 @@ trackTests {
             container = "technical_specifications"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 render item_conditions"){
@@ -1093,6 +1125,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 price and currency card showed"){
@@ -1103,6 +1136,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 price and currency card confirmed"){
@@ -1113,6 +1147,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 listing types card showed"){
@@ -1124,6 +1159,7 @@ trackTests {
             has_free = true
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 listing types card confirmed"){
@@ -1134,6 +1170,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 free shipping card showed"){
@@ -1144,6 +1181,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 free shipping card confirmed"){
@@ -1154,6 +1192,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 consequences modal showed"){
@@ -1164,6 +1203,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 consequences modal confirmed"){
@@ -1174,6 +1214,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 calculator showed"){
@@ -1184,6 +1225,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 calculator hide"){
@@ -1194,6 +1236,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 shipping card showed"){
@@ -1204,6 +1247,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 shipping card confirmed"){
@@ -1214,6 +1258,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 localpickup card showed"){
@@ -1224,6 +1269,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 localpickup card confirmed"){
@@ -1234,6 +1280,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 payment_methods card showed"){
@@ -1244,6 +1291,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 payment_methods card confirmed"){
@@ -1254,6 +1302,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 warranty card showed"){
@@ -1264,6 +1313,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 warranty card confirmed"){
@@ -1274,6 +1324,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 manufacturing time card showed"){
@@ -1284,6 +1335,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 manufacturing time card confirmed"){
@@ -1294,6 +1346,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 description card showed"){
@@ -1303,6 +1356,7 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 description card confirmed"){
@@ -1313,6 +1367,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 video card showed"){
@@ -1323,6 +1378,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 video card confirmed"){
@@ -1333,6 +1389,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 invoice card showed"){
@@ -1344,6 +1401,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 invoice card confirmed"){
@@ -1355,6 +1413,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 render congrats"){
@@ -1370,6 +1429,7 @@ trackTests {
             domain_id = "MLA_CELLPHONES"
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 congrats card showed"){
@@ -1383,6 +1443,7 @@ trackTests {
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 listing types card showed"){
@@ -1397,6 +1458,7 @@ trackTests {
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             has_free = true
+            list_mode = "LIST"
         }
     }
 
@@ -1408,6 +1470,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
 
@@ -1419,6 +1482,7 @@ trackTests {
             session_id = "123-update-abc123"
             vertical = "core"
             item_type = "default"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 Category breadcrumb update"){
@@ -1433,6 +1497,7 @@ trackTests {
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 Category breadcrumb mount"){
@@ -1447,6 +1512,7 @@ trackTests {
             title_predicted = "test"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
 
