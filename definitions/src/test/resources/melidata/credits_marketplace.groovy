@@ -248,7 +248,9 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'empty_state'
         }
-        "/credits/consumer/administrator_v2/error_message/manually_paused"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/error_message/manually_paused"(platform: "/mobile", type: TrackType.Event) {
+            user_status = 'manually_paused'
+        }
 
 
         // "/credits/consumer/administrator_v2/suggested_product_modal"(platform: "/mobile", type: TrackType.Event) {}

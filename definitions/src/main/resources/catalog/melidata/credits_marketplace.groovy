@@ -178,7 +178,7 @@ tracks {
                             values: [ 
                                         "manually_paused"
                                     ]
-                        )
+                    )
     }
     "/credits/consumer/administrator_v2/suggested_modal"(platform: "/", type: TrackType.View) {}
 
