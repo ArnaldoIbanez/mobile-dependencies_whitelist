@@ -120,6 +120,7 @@ tracks {
 
     "/sp_prepaid/multiple_devices/selected_device"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
+        item_id(required: true, PropertyType.String, description: "Id of the selected device")
     }
     "/sp_prepaid/multiple_devices/another_device"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
