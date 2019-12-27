@@ -1107,6 +1107,12 @@ trackTests {
             item_id = "MLA792156560"
         }
     }
+	
+    test("VIP prevent stock question for mobile") {
+        "/vip/question/ask/prevent_stock"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA792156560"
+        }
+    }
 
     test("VIP back to listing event") {
         "/vip/back_to_listing"(platform:"/web/desktop", type: TrackType.Event) {

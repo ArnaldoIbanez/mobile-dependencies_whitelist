@@ -33,7 +33,7 @@ metrics {
                 }
         }
 
-        "deal_banner.shown"(description: "Search deal banner shown", acceptMultiVariantSession: true) {
+        "deal_banner_shown"(description: "Search deal banner shown", acceptMultiVariantSession: true) {
                 startWith {
                         condition {
                                 path("/search")
@@ -53,7 +53,7 @@ metrics {
                 }
         }
 
-        "deal_banner.click"(description: "Search deal banner clicked") {
+        "deal_banner_click"(description: "Search deal banner clicked") {
                 startWith {
                         experiment("deal_banner_shown")
                 }
@@ -70,7 +70,7 @@ metrics {
                 }
         }
 
-        "deal_banner.after_click"(description: "After click search deal banner", acceptMultiVariantSession: true) {
+        "deal_banner_after_click"(description: "After click search deal banner", acceptMultiVariantSession: true) {
                 startWith {
                         condition {
                                 path("/search")

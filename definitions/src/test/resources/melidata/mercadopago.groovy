@@ -3108,6 +3108,82 @@ trackTests {
         }
     }
 
+    test("TOTP flow") {
+        "/auth/totp/enrollment/chooser"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/congrats"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/greeting"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/scanner"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/validation"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/validation"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp/too_many_attempts"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp/enrollment/chooser/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "config_on_this_device"
+            event_type = "click"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/chooser/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "config_manually"
+            event_type = "click"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/congrats/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/congrats/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/greeting/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/scanner/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/validation/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "submit"
+            target = "enter_code"
+            is_another_enroll = false
+        }
+        "/auth/totp/validation/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "submit"
+            target = "enter_code"
+        }
+    }
+
     test("Phone Enrollment flow") {
         "/auth/recovery/phone/registration"(platform: "/web", type: TrackType.Event) {
             redirect_url = 'www.mercadopago.com'
@@ -3957,7 +4033,16 @@ trackTests {
     }
 
     test("Tu negocio") {
-        "/your_business"(platform: "/web", type: TrackType.View) {}
-        "/your_business"(platform: "/web/mobile", type: TrackType.View) {}
+        "/your_business/home"(platform: "/web", type: TrackType.View) {}
+        "/your_business/home"(platform: "/web/mobile", type: TrackType.View) {}
+        "/your_business/image_upload"(platform:"/web", type: TrackType.Event) {}
+        "/your_business/mydata_edit"(platform:"/web", type: TrackType.Event) {}
+        "/your_business/confirm_action"(platform:"/web", type: TrackType.Event) {
+            card_name = "splitPayment"
+        }
+        "/your_business/link"(platform:"/web", type: TrackType.Event) {
+            card_name = "releaseOptions"
+            path = "/settings/release-options"
+        }
     }
 }

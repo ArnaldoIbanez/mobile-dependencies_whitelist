@@ -3,7 +3,6 @@ import com.ml.melidata.catalog.PropertyType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
-
 tracks {
 
     def propertyCampaignDetail  = objectSchemaDefinitions {
@@ -13,6 +12,10 @@ tracks {
 
     def propertyActionDetail  = objectSchemaDefinitions {
         tag(required: false, type: PropertyType.String, description:  "brands to filter")
+    }
+
+    def propertyLocationExtraInfo  = objectSchemaDefinitions {
+        flow(required: true, type: PropertyType.String, description: "payment flow")
     }
 
     /**
@@ -162,17 +165,20 @@ tracks {
         type(required: false, PropertyType.String, description: "type of app launching the map")
         tags(required: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
         display_at_least_one_store(required: false, inheritable: false, PropertyType.Boolean, description: "whether the map is being forced to show the nearest store or not")
+        extra_info(required: false, PropertyType.Map(propertyLocationExtraInfo), description: "extra info about location permission")
     }
     "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/ask_device_permission/location/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {}
     "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {}
 
     "/ask_device_permission/bluetooth"(platform: "/mobile", type: TrackType.View) {
-        collector_id(required: false, PropertyType.String)
-        brand_name(required: false, PropertyType.String)
-        store_id(required: false, PropertyType.String)
-        pos_id(required: false, PropertyType.String)
-        qr_data(required: false, PropertyType.String)
+        collector_id(required: false, PropertyType.String, description: "collector user unique identifier")
+        brand_name(required: false, PropertyType.String, description: "collector brand name")
+        store_id(required: false, PropertyType.String, description: "collector store unique identifier")
+        pos_id(required: false, PropertyType.String, description: "collector point of sale unique identifier")
+        currency(required: false, PropertyType.String, description: "operation currency")
+        qr_data(required: false, PropertyType.String, description: "data scanned on the payment flow")
     }
     "/ask_device_permission/bluetooth/back"(platform: "/mobile", type: TrackType.Event) {}
     "/ask_device_permission/bluetooth/granted"(platform: "/mobile", type: TrackType.Event) {}
@@ -183,6 +189,7 @@ tracks {
         brand_name(required: false, PropertyType.String, description: "collector brand name")
         store_id(required: false, PropertyType.String, description: "collector store unique identifier")
         pos_id(required: false, PropertyType.String, description: "collector point of sale unique identifier")
+        currency(required: false, PropertyType.String, description: "operation currency")
         qr_data(required: true, PropertyType.String, inheritable: false, description: "data scanned on the payment flow")
     }
     "/ask_device_permission/bluetooth_authorized/back"(platform: "/mobile", type: TrackType.Event) {}

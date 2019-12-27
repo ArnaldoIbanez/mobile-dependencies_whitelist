@@ -115,6 +115,7 @@ catalog {
         include business, "myml.groovy"
         include business, "myml_mercadoshops.groovy"
         include business, "seller_central.groovy"
+        include business, "vendor_central.groovy"
         include business, "onboarding.groovy"
         include business, "orders_feed.groovy"
         include business, "pushNotifications.groovy"

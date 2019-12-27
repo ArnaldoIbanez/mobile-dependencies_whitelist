@@ -291,6 +291,10 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
+        "/kyc/iv/address"(platform: "/web") {
+            flow = "credits_address"
+            transaction_user_id = 109479273
+        }
         "/kyc/iv/center/card"(platform: "/web") {
             status = "landing"
             transaction_user_id = 109479273
@@ -663,6 +667,10 @@ trackTests {
         }
         "/kyc/iv/company"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
+        }
+        "/kyc/iv/address"(platform: "/web") {
+            flow = "credits_address"
             transaction_user_id = 109479273
         }
         
