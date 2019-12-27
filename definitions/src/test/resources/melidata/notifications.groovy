@@ -1009,6 +1009,32 @@ trackTests {
             event_type= "create"
         }
 
+        "/notification_center/single_player_directv_smartcard_expiration"(platform: "/") {
+            latest_news_type= "single_player_directv_smartcard_expiration"
+            latest_news_id= "single_player_directv_smartcard_expiration-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payment_reminder"(platform: "/") {
+            latest_news_type= "single_player_payment_reminder"
+            latest_news_id= "single_player_payment_reminder-143816022-MLB1013046714"
+            debt_id=123
+        }
+        "/notification_center/single_player_recharge_fail_ml"(platform: "/") {
+            latest_news_type= "single_player_recharge_fail_ml"
+            latest_news_id= "single_player_recharge_fail_ml-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_recharge_success_ml"(platform: "/") {
+            latest_news_type= "single_player_recharge_success_ml"
+            latest_news_id= "single_player_recharge_success_ml-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_recharge_fail_mp"(platform: "/") {
+            latest_news_type= "single_player_recharge_fail_mp"
+            latest_news_id= "single_player_recharge_fail_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_recharge_success_mp"(platform: "/") {
+            latest_news_type= "single_player_recharge_success_mp"
+            latest_news_id= "single_player_recharge_success_mp-143816022-MLB1013046714"
+        }
+
         "/notification/seller_journey_congrats"(platform: "/mobile"){
             step_id= 123
             event_type= "sent"
@@ -3012,6 +3038,32 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/single_player_directv_smartcard_expiration"(platform: "/mobile") {
+            news_id = "single_player_directv_smartcard_expiration_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payment_reminder"(platform: "/mobile") {
+            news_id = "single_player_payment_reminder_123"
+            event_type = "open"
+            debt_id=123
+        }
+        "/notification/single_player_recharge_fail_ml"(platform: "/mobile") {
+            news_id = "single_player_recharge_fail_ml_123"
+            event_type = "open"
+        }
+        "/notification/single_player_recharge_success_ml"(platform: "/mobile") {
+            news_id = "single_player_recharge_success_ml_123"
+            event_type = "open"
+        }
+        "/notification/single_player_recharge_fail_mp"(platform: "/mobile") {
+            news_id = "single_player_recharge_fail_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_recharge_success_mp"(platform: "/mobile") {
+            news_id = "single_player_recharge_success_mp_123"
+            event_type = "open"
+        }
+
         "/notification/orders_new"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
@@ -3998,6 +4050,7 @@ trackTests {
             latest_news_type= "recurring_recharge_second_auth_error"
             status= "read"
         }
+
         "/notification_center/withdraw_approved_contingency"(platform: "/mobile") {
             latest_news_type= "withdraw_approved_contingency"
             latest_news_id= "withdraw_approved_contingency-143816022-MLB1013046714"
@@ -4034,6 +4087,32 @@ trackTests {
         "/notification_center/seller_journey_do_something"(platform: "/mobile"){
             step_id= 123
             event_type= "create"
+        }
+
+        "/notification_center/single_player_directv_smartcard_expiration"(platform: "/") {
+            latest_news_type= "single_player_directv_smartcard_expiration"
+            latest_news_id= "single_player_directv_smartcard_expiration-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_payment_reminder"(platform: "/") {
+            latest_news_type= "single_player_payment_reminder"
+            latest_news_id= "single_player_payment_reminder-143816022-MLB1013046714"
+            debt_id=123
+        }
+        "/notification_center/single_player_recharge_fail_ml"(platform: "/") {
+            latest_news_type= "single_player_recharge_fail_ml"
+            latest_news_id= "single_player_recharge_fail_ml-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_recharge_success_ml"(platform: "/") {
+            latest_news_type= "single_player_recharge_success_ml"
+            latest_news_id= "single_player_recharge_success_ml-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_recharge_fail_mp"(platform: "/") {
+            latest_news_type= "single_player_recharge_fail_mp"
+            latest_news_id= "single_player_recharge_fail_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/single_player_recharge_success_mp"(platform: "/") {
+            latest_news_type= "single_player_recharge_success_mp"
+            latest_news_id= "single_player_recharge_success_mp-143816022-MLB1013046714"
         }
 
         "/notification/seller_journey_congrats"(platform: "/mobile"){
@@ -4703,6 +4782,32 @@ trackTests {
 
         "/notification/reputation_free_shipping_deactivation"(platform: "/mobile") {
             news_id = "12332323"
+            event_type = "open"
+        }
+
+        "/notification/single_player_directv_smartcard_expiration"(platform: "/mobile") {
+            news_id = "single_player_directv_smartcard_expiration_123"
+            event_type = "open"
+        }
+        "/notification/single_player_payment_reminder"(platform: "/mobile") {
+            news_id = "single_player_payment_reminder_123"
+            event_type = "open"
+            debt_id=123
+        }
+        "/notification/single_player_recharge_fail_ml"(platform: "/mobile") {
+            news_id = "single_player_recharge_fail_ml_123"
+            event_type = "open"
+        }
+        "/notification/single_player_recharge_success_ml"(platform: "/mobile") {
+            news_id = "single_player_recharge_success_ml_123"
+            event_type = "open"
+        }
+        "/notification/single_player_recharge_fail_mp"(platform: "/mobile") {
+            news_id = "single_player_recharge_fail_mp_123"
+            event_type = "open"
+        }
+        "/notification/single_player_recharge_success_mp"(platform: "/mobile") {
+            news_id = "single_player_recharge_success_mp_123"
             event_type = "open"
         }
 

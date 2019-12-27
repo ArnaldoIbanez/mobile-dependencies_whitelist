@@ -703,6 +703,33 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
+    //Single player
+    "/notification_center/single_player_directv_smartcard_expiration"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_payment_reminder"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        debt_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification_center/single_player_recharge_fail_ml"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_recharge_fail_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_recharge_success_ml"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/single_player_recharge_success_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
     "/notification_center/seller_journey_congrats"(platform: "/", type: TrackType.Event){
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
@@ -1619,6 +1646,16 @@ tracks {
     "/notification/seller_qr_payment_received"(platform: "/mobile") {}
     "/notification/seller_integrations_new_payment"(platform: "/mobile") {}
     "/notification/seller_integrations_erase_name"(platform: "/mobile") {}
+
+    //Single player
+    "/notification/single_player_directv_smartcard_expiration"(platform: "/mobile") {}
+    "/notification/single_player_payment_reminder"(platform: "/") {
+        debt_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/single_player_recharge_fail_ml"(platform: "/mobile") {}
+    "/notification/single_player_recharge_fail_mp"(platform: "/mobile") {}
+    "/notification/single_player_recharge_success_ml"(platform: "/mobile") {}
+    "/notification/single_player_recharge_success_mp"(platform: "/mobile") {}
 
     //Wallet
     "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {}
