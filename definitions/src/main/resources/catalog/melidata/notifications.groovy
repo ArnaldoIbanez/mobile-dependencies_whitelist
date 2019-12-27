@@ -512,6 +512,23 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    //Billing
+    "/notification_center/billing_iva_ganancias_reactive"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/billing_newtax"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/billing_newtaxhabituality"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/billing_responsable_inscripto_reminder"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/credits_merchants_expired_near_to_daily_charges"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -794,6 +811,12 @@ tracks {
       "/notification/credits_merchants_educational"(platform: "/") {
           loan_id(required: true, type: PropertyType.Numeric)
       }
+
+      //Billing
+      "/notification/billing_iva_ganancias_reactive"(platform: "/") {}
+      "/notification/billing_newtax"(platform: "/") {}
+      "/notification/billing_newtaxhabituality"(platform: "/") {}
+      "/notification/billing_responsable_inscripto_reminder"(platform: "/") {}
 
       //CX Question
       "/notification/cx_question_mp"(platform: "/") {
@@ -1348,7 +1371,7 @@ tracks {
       "/notification/fraud_iv_credentials"(platform: "/") {}
       "/notification/fraud_score_post_approval_last_chance_mp"(platform: "/") {}
       "/notification/fraud_score_post_approval_last_chance_ml"(platform: "/") {}
-    "/notification/fraud_remedies_trust_vote_ml"(platform: "/") {}
+      "/notification/fraud_remedies_trust_vote_ml"(platform: "/") {}
 
       //Loyalty
       "/notification/loyalty"(platform: "/") {}

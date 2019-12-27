@@ -650,6 +650,22 @@ trackTests {
             latest_news_type= "billing_mpoff"
             status= "read"
         }
+        "/notification_center/billing_iva_ganancias_reactive"(platform: "/mobile"){
+            latest_news_type= "billing_iva_ganancias_reactive"
+            latest_news_id= "billing_iva_ganancias_reactive-143816022-MLB1013046714"
+        }
+        "/notification_center/billing_newtaxhabituality"(platform: "/mobile"){
+            latest_news_type= "billing_newtaxhabituality"
+            latest_news_id= "billing_newtaxhabituality-143816022-MLB1013046714"
+        }
+        "/notification_center/billing_newtax"(platform: "/mobile"){
+            latest_news_type= "billing_newtax"
+            latest_news_id= "billing_newtax-143816022-MLB1013046714"
+        }
+        "/notification_center/billing_responsable_inscripto_reminder"(platform: "/mobile"){
+            latest_news_type= "billing_responsable_inscripto_reminder"
+            latest_news_id= "billing_responsable_inscripto_reminder-143816022-MLB1013046714"
+        }
         "/notification_center/chargeback_payer_intensify_mp"(platform: "/mobile"){
             newsgroup_id= "chargeback-payer_intensify_mp-186785675-76283123"
             latest_news_id= "chargeback-payer_intensify_mp-186785675-76283123"
@@ -1064,6 +1080,23 @@ trackTests {
 
         "/notification/anses_paid_benefit"(platform: "/mobile") {
             news_id = "anses_paid_benefit-12345678-123"
+            event_type = "shown"
+        }
+
+        "/notification/billing_iva_ganancias_reactive"(platform: "/mobile"){
+            news_id = "billing_iva_ganancias_reactive-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/billing_newtaxhabituality"(platform: "/mobile"){
+            news_id = "billing_newtaxhabituality-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/billing_newtax"(platform: "/mobile"){
+            news_id = "billing_newtax-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/billing_responsable_inscripto_reminder"(platform: "/mobile"){
+            news_id = "billing_responsable_inscripto_reminder-12345678-123"
             event_type = "shown"
         }
 
@@ -3645,6 +3678,22 @@ trackTests {
             latest_news_type= "billing_mpoff"
             status= "read"
         }
+        "/notification_center/billing_iva_ganancias_reactive"(platform: "/mobile"){
+            latest_news_type= "billing_iva_ganancias_reactive"
+            latest_news_id= "billing_iva_ganancias_reactive-143816022-MLB1013046714"
+        }
+        "/notification_center/billing_newtaxhabituality"(platform: "/mobile"){
+            latest_news_type= "billing_newtaxhabituality"
+            latest_news_id= "billing_newtaxhabituality-143816022-MLB1013046714"
+        }
+        "/notification_center/billing_newtax"(platform: "/mobile"){
+            latest_news_type= "billing_newtax"
+            latest_news_id= "billing_newtax-143816022-MLB1013046714"
+        }
+        "/notification_center/billing_responsable_inscripto_reminder"(platform: "/mobile"){
+            latest_news_type= "billing_responsable_inscripto_reminder"
+            latest_news_id= "billing_responsable_inscripto_reminder-143816022-MLB1013046714"
+        }
         "/notification_center/chargeback_payer_intensify_mp"(platform: "/mobile"){
             newsgroup_id= "chargeback-payer_intensify_mp-186785675-76283123"
             latest_news_id= "chargeback-payer_intensify_mp-186785675-76283123"
@@ -4057,6 +4106,23 @@ trackTests {
 
         "/notification/anses_paid_benefit"(platform: "/mobile") {
             news_id = "anses_paid_benefit-12345678-123"
+            event_type = "shown"
+        }
+
+        "/notification/billing_iva_ganancias_reactive"(platform: "/mobile"){
+            news_id = "billing_iva_ganancias_reactive-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/billing_newtaxhabituality"(platform: "/mobile"){
+            news_id = "billing_newtaxhabituality-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/billing_newtax"(platform: "/mobile"){
+            news_id = "billing_newtax-12345678-123"
+            event_type = "shown"
+        }
+        "/notification/billing_responsable_inscripto_reminder"(platform: "/mobile"){
+            news_id = "billing_responsable_inscripto_reminder-12345678-123"
             event_type = "shown"
         }
 
@@ -6159,6 +6225,23 @@ trackTests {
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
             event_type = "sent"
+        }
+
+        "/notification_center/billing_iva_ganancias_reactive"(platform: "/mobile"){
+            latest_news_type= "billing_iva_ganancias_reactive"
+            latest_news_id= "billing_iva_ganancias_reactive-143816022-MLB1013046714"
+        }
+        "/notification_center/billing_newtaxhabituality"(platform: "/mobile"){
+            latest_news_type= "billing_newtaxhabituality"
+            latest_news_id= "billing_newtaxhabituality-143816022-MLB1013046714"
+        }
+        "/notification_center/billing_newtax"(platform: "/mobile"){
+            latest_news_type= "billing_newtax"
+            latest_news_id= "billing_newtax-143816022-MLB1013046714"
+        }
+        "/notification_center/billing_responsable_inscripto_reminder"(platform: "/mobile"){
+            latest_news_type= "billing_responsable_inscripto_reminder"
+            latest_news_id= "billing_responsable_inscripto_reminder-143816022-MLB1013046714"
         }
 
         "/notification_center/openplatform_sellers_inhouse"(platform: "/mobile"){
