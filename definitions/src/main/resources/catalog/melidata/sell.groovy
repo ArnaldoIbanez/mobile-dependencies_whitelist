@@ -45,7 +45,7 @@ tracks {
         predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
         parent_product_id(required: false, type: PropertyType.String, description: "Catalog product parent id for item")
         product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
-        vertical(required: true, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
+        vertical(required: false, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
     }
 
     propertyGroups {
@@ -764,6 +764,7 @@ tracks {
     "/sell/hub"(platform: "/web", type: TrackType.View) {}
     "/sell/hub/select_vertical"(platform: "/web", type: TrackType.Event) {
         sellGroup
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
