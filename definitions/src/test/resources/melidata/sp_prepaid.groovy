@@ -183,6 +183,7 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
+            item_id = "9"
         }
         "/sp_prepaid/multiple_devices/another_device"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
@@ -439,6 +440,7 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
+            item_id = "9"
         }
         "/sp_prepaid/multiple_devices/another_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
