@@ -860,6 +860,13 @@ tracks {
         item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
     }
 
+    "/sell/item_data/kilometers"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/color"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event) {}
+
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
@@ -906,6 +913,26 @@ tracks {
     "/sell/item_conditions/invoice/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/invoice/confirm"(platform: "/web", type: TrackType.Event) {}
 
+    "/sell/item_conditions/sidebar-listing-type"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/sidebar-listing-type/show"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_conditions/reservation_info"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/reservation_info/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/reservation_info/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_conditions/location"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/location/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/location/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_conditions/seller_contact"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/seller_contact/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/seller_contact/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_conditions/instant_pay_listings"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/instant_pay_listings/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/instant_pay_listings/confirm"(platform: "/web", type: TrackType.Event) {}
+
+
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
         categoryFlow
@@ -935,5 +962,8 @@ tracks {
     }
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/sip/sidebar-listing-type"(platform: "/web", isAbstract: true) {}
+    "/sell/sip/sidebar-listing-type/show"(platform: "/web", type: TrackType.Event) {}
 
 }
