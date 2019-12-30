@@ -913,8 +913,8 @@ tracks {
     "/sell/item_conditions/invoice/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/invoice/confirm"(platform: "/web", type: TrackType.Event) {}
 
-    "/sell/item_conditions/sidebar-listing-type"(platform: "/web", isAbstract: true) {}
-    "/sell/item_conditions/sidebar-listing-type/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/item_conditions/reservation_info"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/reservation_info/show"(platform: "/web", type: TrackType.Event) {}
@@ -963,7 +963,7 @@ tracks {
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
 
-    "/sell/sip/sidebar-listing-type"(platform: "/web", isAbstract: true) {}
-    "/sell/sip/sidebar-listing-type/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/sip/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
+    "/sell/sip/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
 
 }
