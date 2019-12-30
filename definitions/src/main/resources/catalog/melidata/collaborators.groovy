@@ -57,4 +57,12 @@ tracks {
 
     "/collaborators/contact_owner"(platform:"/", type: TrackType.View) {}
 
+    "/collaborators/scopes"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {}
+
+    "/collaborators/scopes/detail"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+        scope(required: true, type: PropertyType.String, description: 'Indicates the scope that this view must show.')
+    }
+
+    "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
+
 }

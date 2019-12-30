@@ -829,6 +829,13 @@ trackTests {
         "/merchant_acquisition/flows/qr-point-assignment/unauthorized"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Fluxo de reversa Point - autogeração de etiqueta") {
+        "/merchant_acquisition/flows/point_reverse"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/info"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/address"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/success"(platform: "/", type: TrackType.View) {}
+    }
+
     test("MP-MA Flow QR") {
         "/merchant_acquisition/qr/onboarding"(platform:"/", type: TrackType.View) {}
         "/merchant_acquisition/qr/qr-code"(platform:"/", type: TrackType.View) {}
@@ -2905,6 +2912,10 @@ trackTests {
         }
     }
 
+    test("Application open") {
+        "/application/open"(platform:"/mobile", type: TrackType.Event) { }
+    }
+
     test("Login Status with Smart Lock for Passwords") {
         "/login/status"(platform: "/mobile", type: TrackType.Event) {
             is_logged = true
@@ -3094,6 +3105,82 @@ trackTests {
             target = "go_home_button"
             status_code = "403"
             is_webview = true
+        }
+    }
+
+    test("TOTP flow") {
+        "/auth/totp/enrollment/chooser"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/congrats"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/greeting"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/scanner"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/validation"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/validation"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp/too_many_attempts"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp/enrollment/chooser/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "config_on_this_device"
+            event_type = "click"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/chooser/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "config_manually"
+            event_type = "click"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/congrats/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/congrats/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/greeting/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/scanner/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/validation/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "submit"
+            target = "enter_code"
+            is_another_enroll = false
+        }
+        "/auth/totp/validation/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "submit"
+            target = "enter_code"
         }
     }
 
@@ -3357,6 +3444,94 @@ trackTests {
             config = [
                 "transaction": "disabled",
                 "opening_lock": "enabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "opening_lock"
+            action = "disable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                "transaction": "enabled",
+                "opening_lock": "disabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                "transaction": "enabled",
+                "opening_lock": "disabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                "transaction": "enabled",
+                "opening_lock": "disabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "opening_lock"
+            action = "disable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                "transaction": "enabled",
+                "opening_lock": "disabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                "transaction": "enabled",
+                "opening_lock": "disabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                "transaction": "enabled",
+                "opening_lock": "disabled"
             ]
         }
     }
@@ -3855,5 +4030,19 @@ trackTests {
         "/account/mydata/email/congrats"(platform: "/web/mobile", type: TrackType.View) {}
 
         "/account/mydata/email"(platform: "/mobile/android", type: TrackType.View) {}
+    }
+
+    test("Tu negocio") {
+        "/your_business/home"(platform: "/web", type: TrackType.View) {}
+        "/your_business/home"(platform: "/web/mobile", type: TrackType.View) {}
+        "/your_business/image_upload"(platform:"/web", type: TrackType.Event) {}
+        "/your_business/mydata_edit"(platform:"/web", type: TrackType.Event) {}
+        "/your_business/confirm_action"(platform:"/web", type: TrackType.Event) {
+            card_name = "splitPayment"
+        }
+        "/your_business/link"(platform:"/web", type: TrackType.Event) {
+            card_name = "releaseOptions"
+            path = "/settings/release-options"
+        }
     }
 }

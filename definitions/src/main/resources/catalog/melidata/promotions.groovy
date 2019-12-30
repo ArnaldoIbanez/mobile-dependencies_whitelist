@@ -75,6 +75,8 @@ tracks {
               description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")    
       promotion_type(required: true, type: PropertyType.String,
               values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "others"], description: "Type of promotion")
+      prime_discount(required: false, type: PropertyType.Boolean, 
+              description: "Indicates whether the item has discounts by mercado puntos")
     }
 
     propertyDefinitions {
@@ -95,4 +97,12 @@ tracks {
     "/promotions"(platform: "/", type: TrackType.View) {
         general_promotions_info
     }
+
+    //Promotions Android Landing
+    "/promotions/landing"(platform: "/mobile", parentPropertiesInherited: false) {
+        url(required:true, descripcion:"The url to be loaded by the promotions landing")
+        is_main_url(required:false, type: PropertyType.Boolean,
+                descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
+    }
+
 }

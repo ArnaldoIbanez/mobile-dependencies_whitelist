@@ -137,6 +137,12 @@ trackTests {
             position = 0
         }
 
+        "/loyalty/card/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            page = "offers"
+            type = "coupon-offers"
+            position = 0
+        }
+
         "/loyalty/card/download"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
             page = "status"
             type = "qr-benefits"

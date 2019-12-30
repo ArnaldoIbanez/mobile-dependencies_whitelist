@@ -322,6 +322,8 @@ trackTests {
         "/sell/list/warranty_time"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/warranty_time_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/warranty_type_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/warranty_time_condition_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/warranty_type_condition_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/whatsapp_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures/gallery"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -526,6 +528,7 @@ trackTests {
         "/sell/update/sip"(platform: "/mobile") {
             item_id = "MLA123456"
             has_selected_pictures = false
+            is_catalog_boost = true
         }
         "/sell/update/sip/publish/pictures_fail"(platform: "/mobile") {
             item_id = "MLA123456"
@@ -579,9 +582,11 @@ trackTests {
         "/sell/update/warranty_type"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/warranty_type_review"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/warranty_type_catalog"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/warranty_type_force_change"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/warranty_time"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/warranty_time_review"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/warranty_time_catalog"(platform: "/mobile") {item_id = "MLA123456"}
+        "/sell/update/warranty_time_force_change"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/whatsapp"(platform: "/mobile", type: TrackType.View) {item_id = "MLA123456"}
         "/sell/update/updateing_types"(platform: "/mobile") {item_id = "MLA123456"}
         "/sell/update/updateing_types_review"(platform: "/mobile") {item_id = "MLA123456"}
@@ -736,6 +741,7 @@ trackTests {
             vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 render item_data"){
@@ -743,8 +749,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 title card showed"){
@@ -752,8 +760,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 title card confirmed"){
@@ -761,8 +771,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 category suggested card showed"){
@@ -770,17 +782,43 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            list_mode = "LIST"
         }
     }
-    test("SYI v4 category suggested card showed"){
+    test("SYI v4 category suggested card confirmed"){
         "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            confirm_category_detail = "not_present"
+            list_mode = "LIST"
+        }
+    }
+    test("SYI v4 category suggested click another category"){
+        "/sell/item_data/category_suggested/another_category"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            title_predicted = "celular"
+            categorization_flow_successful = false
+            chosen_categorization_model = "ZORDON"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 category card showed"){
@@ -788,8 +826,13 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 category card confirmed"){
@@ -798,12 +841,14 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             confirm_category_detail = "not_present"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 wrong category"){
@@ -811,8 +856,13 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 product resume card showed"){
@@ -821,12 +871,14 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             product_title = "Iphone X"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 flow decision card showed"){
@@ -837,6 +889,7 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 flow decision card confirmed"){
@@ -845,19 +898,24 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             flow_decision = true
+            list_mode = "LIST"
+            catalog_forced = true
         }
     }
-     test("SYI v4 quantity with specifications card showed"){
+    test("SYI v4 quantity with specifications card showed"){
         "/sell/item_data/quantity_with_specifications/show"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 quantity with specifications card confirmed"){
@@ -866,8 +924,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 consequences modal showed"){
@@ -875,8 +935,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 consequences modal confirmed"){
@@ -884,8 +946,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 pks card showed"){
@@ -893,8 +957,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 pks card confirmed"){
@@ -902,8 +968,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 item condition card showed"){
@@ -911,8 +979,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 item condition card confirmed"){
@@ -920,8 +990,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 main variation card showed"){
@@ -929,8 +1001,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 main variation card confirmed"){
@@ -938,8 +1012,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 item variations card showed"){
@@ -947,8 +1023,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 item variations card confirmed"){
@@ -956,8 +1034,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 specifications card showed"){
@@ -965,8 +1045,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 specifications card confirmed"){
@@ -974,8 +1056,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 technical specifications card showed"){
@@ -983,8 +1067,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 technical specifications card confirmed"){
@@ -992,8 +1078,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 set multivalue input"){
@@ -1001,6 +1089,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             category_domain = "SMARTPHONES"
             attribute_id = "MLA12345678"
             hierarchy = "FAMILY"
@@ -1009,6 +1098,7 @@ trackTests {
             container = "technical_specifications"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 set autocomplete input"){
@@ -1016,6 +1106,7 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             category_domain = "SMARTPHONES"
             attribute_id = "MLA12345678"
             hierarchy = "FAMILY"
@@ -1023,6 +1114,7 @@ trackTests {
             container = "technical_specifications"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 render item_conditions"){
@@ -1030,8 +1122,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 price and currency card showed"){
@@ -1039,8 +1133,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 price and currency card confirmed"){
@@ -1048,8 +1144,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 listing types card showed"){
@@ -1057,9 +1155,11 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             has_free = true
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 listing types card confirmed"){
@@ -1067,8 +1167,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 free shipping card showed"){
@@ -1076,8 +1178,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 free shipping card confirmed"){
@@ -1085,8 +1189,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 consequences modal showed"){
@@ -1094,8 +1200,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 consequences modal confirmed"){
@@ -1103,8 +1211,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 calculator showed"){
@@ -1112,8 +1222,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 calculator hide"){
@@ -1121,8 +1233,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 shipping card showed"){
@@ -1130,8 +1244,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 shipping card confirmed"){
@@ -1139,8 +1255,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 localpickup card showed"){
@@ -1148,8 +1266,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 localpickup card confirmed"){
@@ -1157,8 +1277,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 payment_methods card showed"){
@@ -1166,8 +1288,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 payment_methods card confirmed"){
@@ -1175,8 +1299,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 warranty card showed"){
@@ -1184,8 +1310,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 warranty card confirmed"){
@@ -1193,8 +1321,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 manufacturing time card showed"){
@@ -1202,8 +1332,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 manufacturing time card confirmed"){
@@ -1211,8 +1343,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 description card showed"){
@@ -1222,6 +1356,7 @@ trackTests {
             session_id = "123-update-abc123"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 description card confirmed"){
@@ -1229,8 +1364,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 video card showed"){
@@ -1238,8 +1375,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 video card confirmed"){
@@ -1247,8 +1386,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 invoice card showed"){
@@ -1257,8 +1398,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 invoice card confirmed"){
@@ -1267,8 +1410,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 render congrats"){
@@ -1276,11 +1421,15 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
+            categorization_flow_successful = true
             item_id = "MLA123456789"
             item_type = "default"
             seller_reputation = "green"
             domain_id = "MLA_CELLPHONES"
+            chosen_categorization_model = "ZORDON"
             title_predicted = "test"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 congrats card showed"){
@@ -1288,11 +1437,13 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 listing types card showed"){
@@ -1300,12 +1451,14 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             has_free = true
+            list_mode = "LIST"
         }
     }
 
@@ -1314,8 +1467,10 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
 
@@ -1325,7 +1480,9 @@ trackTests {
             seller_segment = "professional_sellers"
             seller_reputation = "green"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 Category breadcrumb update"){
@@ -1335,10 +1492,12 @@ trackTests {
             seller_segment = "professional_sellers"
             seller_reputation = "green"
             session_id = "123-update-abc123"
+            vertical = "core"
             item_type = "default"
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
+            list_mode = "LIST"
         }
     }
     test("SYI v4 Category breadcrumb mount"){
@@ -1347,11 +1506,13 @@ trackTests {
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
+            vertical = "core"
             categorization_flow_successful = true
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             item_type = "default"
             seller_reputation = "green"
+            list_mode = "LIST"
         }
     }
 

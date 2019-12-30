@@ -5,7 +5,7 @@
   "process_name": "tracks_count",
   "cron": "45 10 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "ds",

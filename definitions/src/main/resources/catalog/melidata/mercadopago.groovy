@@ -43,6 +43,9 @@ tracks {
     "/blog/home"(platform: "/web") {
     }
 
+    "/application"(platform:"/mobile", isAbstract: true) {}
+    "/application/open"(platform:"/mobile", type: TrackType.Event) { }
+
     // MP Landings Scope
     "/landing"(platform: "/web", isAbstract: true) {}
 
@@ -327,6 +330,11 @@ tracks {
     "/merchant_acquisition/flows/qr-point-assignment/error"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-point-assignment/unauthorized"(platform:"/", type: TrackType.View) {}
 
+    // Fluxo de reversa Point - autogeração de etiqueta
+    "/merchant_acquisition/flows/point_reverse"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/info"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/address"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/success"(platform:"/", type: TrackType.View) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -1399,6 +1407,19 @@ tracks {
     "/account/mydata"(platform: "/web", isAbstract: true) {}
     "/account/mydata/email"(platform: "/", type: TrackType.View) {}
     "/account/mydata/email/congrats"(platform: "/web", type: TrackType.View) {}
+
+    //Tu negocio
+    "/your_business"(platform: "/web", isAbstract: true) {}
+    "/your_business/home"(platform: "/web", type: TrackType.View) {}
+    "/your_business/image_upload"(platform:"/web", type: TrackType.Event) {}
+    "/your_business/mydata_edit"(platform:"/web", type: TrackType.Event) {}
+    "/your_business/confirm_action"(platform:"/web", type: TrackType.Event) {
+        card_name(required: true, description: "the name of the card that triggered the event", type: PropertyType.String)
+    }
+    "/your_business/link"(platform:"/web", type: TrackType.Event) {
+        card_name(required: true, description: "the name of the card that triggered the event", type: PropertyType.String)
+        path(required: true, description: "path of the next page", type: PropertyType.String)
+    }
 
 }
 

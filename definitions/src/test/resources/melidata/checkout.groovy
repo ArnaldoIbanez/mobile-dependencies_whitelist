@@ -1812,10 +1812,62 @@ trackTests {
             congrats_status = "APPROVED"
             token_generated_with_esc = "NO"
         }
-        "/checkout/congrats/pay_with_another"(platform: "/", type:  TrackType.Event){}
-        "/checkout/congrats/pay_now"(platform: "/", type:  TrackType.Event){}
-        "/checkout/congrats/use_now"(platform: "/", type:  TrackType.Event){}
+        "/checkout/congrats/pay_with_another"(platform: "/", type:  TrackType.Event){
+            items=[
+                    [
+                            item:[
+                                    id:"MLA9876",
+                                    variation_id:null,
+                                    buying_mode:"buy_it_now",
+                                    shipping_mode:"me2",
+                                    category_id:"MLA1915",
+                                    deal_ids:null
+                            ],
+                            quantity:1,
+                            unit_price:2000,
+                            currency_id:"ARS"
+                    ]
+            ]
+            recovery_flow=true
+        }
 
+        "/checkout/congrats/pay_now"(platform: "/", type:  TrackType.Event){
+            items=[
+                    [
+                            item:[
+                                    id:"MLA9876",
+                                    variation_id:null,
+                                    buying_mode:"buy_it_now",
+                                    shipping_mode:"me2",
+                                    category_id:"MLA1915",
+                                    deal_ids:null
+                            ],
+                            quantity:1,
+                            unit_price:2000,
+                            currency_id:"ARS"
+                    ]
+            ]
+            recovery_flow=true
+        }
+
+        "/checkout/congrats/use_now"(platform: "/", type:  TrackType.Event){
+            items=[
+                    [
+                            item:[
+                                    id:"MLA9876",
+                                    variation_id:null,
+                                    buying_mode:"buy_it_now",
+                                    shipping_mode:"me2",
+                                    category_id:"MLA1915",
+                                    deal_ids:null
+                            ],
+                            quantity:1,
+                            unit_price:2000,
+                            currency_id:"ARS"
+                    ]
+            ]
+            recovery_flow=true
+        }
     }
 
     /*
@@ -2211,6 +2263,7 @@ trackTests {
         "/checkout/call_for_auth/input_code"(platform:"/web", dataSet)
         "/checkout/shipping"(platform:"/web", dataSet)
         "/checkout/shipping/edit_address"(platform:"/web", dataSet)
+        "/checkout/session_expire"(platform:"/", dataSet)
         "/checkout/loading"(platform: "/web", dataSet)
         "/checkout/loading/error"(platform: "/web", dataSet)
         "/checkout/shipping/select_option"(platform:"/web", dataSet)
@@ -2223,6 +2276,7 @@ trackTests {
         // Page
         "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
         "/checkout/shipping/input_address"(platform:"/web", dataSet)
+        "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event, dataSet)
 
         // Event
         "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event){
@@ -2328,6 +2382,23 @@ trackTests {
                     ]
             ]
             recovery_flow=false
+        }
+        "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event){
+            label = "Revisa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event){
+            label = "Revisa este dato"
+            session_id="some_session_id"
         }
 
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)

@@ -27,6 +27,10 @@ tracks {
         domain_id(required: false, PropertyType.String, description: "Item's domain_id")
         catalog_listing(required: true, PropertyType.Boolean, description: "Item is catalog_listing or not")
     }
+    def item_from_map = objectSchemaDefinitions {
+        category_id(required: true, PropertyType.String, description: "Original item's category id")
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+    }
 
     propertyDefinitions {
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
@@ -38,18 +42,21 @@ tracks {
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
-        chosen_categorization_model(required: true, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT"], type: PropertyType.String)
+        chosen_categorization_model(required: true, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
         category_prediction_selected_index(required: false, description: "Index selected in Multiples Suggestions", PropertyType.Numeric)
         attribute_values(required: false, description: "Array of attributes in categorization", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
         title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
         predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
         parent_product_id(required: false, type: PropertyType.String, description: "Catalog product parent id for item")
         product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
+        item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
+        list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        vertical(required: false, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
     }
 
     propertyGroups {
-        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation)
-        categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id)
+        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical)
+        categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
     }
 
     // Sell
@@ -386,6 +393,8 @@ tracks {
     "/sell/list/warranty_time"(platform: "/", type: TrackType.View) {}
     "/sell/list/warranty_type_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/warranty_time_review"(platform: "/", type: TrackType.View) {}
+    "/sell/list/warranty_type_condition_review"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/warranty_time_condition_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/whatsapp_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {}
@@ -510,6 +519,7 @@ tracks {
         pending_pictures(required: false, description: "Pending pictures", type: PropertyType.Numeric)
         fail_pictures(required: false, description: "Failed pictures", type: PropertyType.Numeric)
         pictures_errors(required: false, description: "Array of pictures error", type: PropertyType.ArrayList)
+        is_catalog_boost(required: false, description: "boolean - true if the item was created by Optinator (forced catalog optin) and item status is paused", type: PropertyType.Boolean)
     }
     "/sell/update/sip/section"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
@@ -585,6 +595,8 @@ tracks {
     "/sell/update/warranty_time_review"(platform: "/", type: TrackType.View) {}
     "/sell/update/warranty_type_catalog"(platform: "/", type: TrackType.View) {}
     "/sell/update/warranty_time_catalog"(platform: "/", type: TrackType.View) {}
+    "/sell/update/warranty_type_force_change"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/warranty_time_force_change"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/whatsapp"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/updateing_types"(platform: "/", type: TrackType.View) {}
     "/sell/update/updateing_types_review"(platform: "/", type: TrackType.View) {}
@@ -770,14 +782,19 @@ tracks {
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {
+        categoryFlow
+    }
     "/sell/item_data/category_suggested/show"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/category"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {
+        confirm_category_detail(required: true, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
+    }
+    "/sell/item_data/category_suggested/another_category"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/category"(platform: "/web", isAbstract: true) {
+        categoryFlow
+    }
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
-        sellGroup
-        categoryFlow
         confirm_category_detail(required: true, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
     }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
@@ -790,6 +807,7 @@ tracks {
     "/sell/item_data/flow_decision/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/flow_decision/confirm"(platform: "/web", type: TrackType.Event) {
         flow_decision(required: true, description: "Flow decision - true if is catalog", type: PropertyType.Boolean)
+        catalog_forced(required: false, description: "Indicates if the flow decision card is forcing catalog", type: PropertyType.Boolean)
     }
     "/sell/item_data/quantity_with_specifications"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/quantity_with_specifications/show"(platform: "/web", type: TrackType.Event) {}
@@ -890,10 +908,9 @@ tracks {
 
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
+        categoryFlow
         item_id(required: true, type: PropertyType.String)
-        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
-        domain_id(required: true, type: PropertyType.String, description: "Item's category domain id")
-        title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -918,4 +935,5 @@ tracks {
     }
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
+
 }

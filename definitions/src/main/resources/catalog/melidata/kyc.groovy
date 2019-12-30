@@ -228,40 +228,40 @@ tracks {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
     }
 
-    // Web desktop and web mobile tracks
-    "/kyc/iv/landing"(platform: "/web", type: TrackType.View) {
+    "/kyc/iv/landing"(platform: "/", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
 
+    "/kyc/iv/documentation_front"(platform: "/", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
+    }
+
+    "/kyc/iv/documentation_back"(platform: "/", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
+    }
+
+    "/kyc/iv/documentation_number"(platform: "/", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+
+    "/kyc/iv/selfie"(platform: "/", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+
+    "/kyc/iv/congrats"(platform: "/", type: TrackType.View) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        congrats_type(type: PropertyType.String, required: true, description: "Type of the congrats we show")
+    }
+
+    // Web desktop and web mobile tracks
     "/kyc/iv/phone_landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
 
     "/kyc/iv/phone_validation"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-    }
-
-    "/kyc/iv/documentation_front"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
-    }
-
-    "/kyc/iv/documentation_back"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
-    }
-
-    "/kyc/iv/documentation_number"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-    }
-
-    "/kyc/iv/selfie"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-    }
-
-    "/kyc/iv/congrats"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        congrats_type(type: PropertyType.String, required: true, description: "Type of the congrats we show")
     }
     "/kyc/iv/continue_phone_landing"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
@@ -283,6 +283,9 @@ tracks {
 
     "/kyc/iv/company"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+    }
+
+    "/kyc/iv/address"(platform: "/web", type: TrackType.View) {
     }
 
     "/kyc/iv/center/card"(platform: "/web", type: TrackType.View) {

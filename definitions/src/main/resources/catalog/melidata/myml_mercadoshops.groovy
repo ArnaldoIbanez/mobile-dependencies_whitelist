@@ -76,9 +76,10 @@ tracks {
         sidebar_name(
                 required: false,
                 type: PropertyType.String,
-                values: ['AFIP', 'BANNER', 'BRANDS', 'CAROUSEL', 'COLORS', 'CONTACT', 'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED',
-                         'FLASH', 'GRID', 'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE', 'LOGO', 'MOSAIC', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS',
-                         'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TEXT_BANNER']
+                values: ['AFIP', 'BANNER', 'BRANDS', 'CATEGORIES', 'CAROUSEL', 'COLORS', 'CONTACT', 'CONTACT_FROM_SHOP_NAME',
+                         'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FOOTER', 'GRID', 'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE',
+                         'LOGO', 'MENU', 'MOSAIC', 'PRICE_AND_IMAGE', 'PRICE_AND_IMAGE_ADVANCED', 'SHOP_NAME', 'SLIDER',
+                         'SOCIAL_NETWORKS', 'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TABBED_CAROUSEL', 'TEXT_BANNER', 'FISCAL_DATA', 'FOOTER_MESSAGE']
         )
     }
 
@@ -97,6 +98,7 @@ tracks {
     }
 
     "/mercado_shops/admin/sidebar/categories"(platform: "/", type: TrackType.Event){
+        categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Selected categories to show")
         mshopsEventGroup
     }
 
@@ -120,6 +122,10 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/sidebar/footer_message"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/sidebar/grid"(platform: "/", type: TrackType.Event){
         items_per_row(required: true, type: PropertyType.Numeric)
         max_items(required: true, type: PropertyType.Numeric)
@@ -140,8 +146,18 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/sidebar/menu"(platform: "/", type: TrackType.Event){
+        categories(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Selected categories to show in header menu")
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/sidebar/mosaic"(platform: "/", type: TrackType.Event){
         max_items(required: true, type: PropertyType.Numeric)
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/sidebar/price_and_image"(platform: "/", type: TrackType.Event){
+        categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Selected categories to show")
         mshopsEventGroup
     }
 
@@ -163,6 +179,11 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/sidebar/tabbed_carousel"(platform: "/", type: TrackType.Event){
+        filters(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Array of filters ids to use in carousel")
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/sidebar/contact"(platform: "/", type: TrackType.Event){
         street(required: true, type: PropertyType.String, description: "New street")
         number(required: true, type: PropertyType.String, description: "New street number")
@@ -175,6 +196,10 @@ tracks {
 
     "/mercado_shops/admin/sidebar/subdomain"(platform: "/", type: TrackType.Event){
         subdomain(required: true, type: PropertyType.String)
+    }
+
+    "/mercado_shops/admin/sidebar/fiscal_data"(platform: "/", type: TrackType.Event){
+        fiscal_data_visible(required: true, type: PropertyType.Boolean)
     }
 
     "/mercado_shops/admin/sidebar/text_banner"(platform: "/", type: TrackType.Event){
@@ -324,6 +349,7 @@ tracks {
         mshopsEventGroup
     }
 
+<<<<<<< HEAD
     "/mercado_shops/marketing/gsc"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/gsc/upload"(platform: "/", type: TrackType.Event){
@@ -333,4 +359,20 @@ tracks {
     "/mercado_shops/marketing/gsc/delete"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
+=======
+    "/mercado_shops/template-selection"(platform: "/", type: TrackType.Event, isAbstract: true){}
+
+    "/mercado_shops/template-selection/save"(platform: "/", type: TrackType.Event){
+        theme(
+            required: true,
+            type: PropertyType.String,
+            description: "Name of theme"
+        )
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/template-selection/preview"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View){}
+>>>>>>> 4a1b39d85799b053598d080258a39de30ca19882
 }

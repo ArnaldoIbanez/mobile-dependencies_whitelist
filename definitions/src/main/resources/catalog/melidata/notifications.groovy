@@ -686,7 +686,6 @@ tracks {
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
 
-
     "/notification_center/seller_journey_congrats"(platform: "/", type: TrackType.Event){
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
@@ -698,6 +697,13 @@ tracks {
     }
     "/notification_center/seller_journey_do_something"(platform: "/", type: TrackType.Event){
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
+    }
+
+    //Sll Advertising Notifications
+    "/notification_center/sll_items_activate_items"(platform: "/") {
+        site_id(required: true, type: PropertyType.String, description: "Site Id.")
+        seller_id(required: true, type: PropertyType.String, description: "Customer Id.")
+        items_count(required: true , type: PropertyType.Numeric, description: "Number of Items has to sell.")
     }
 
 
@@ -1237,6 +1243,7 @@ tracks {
     "/notification/messages_new"(platform: "/") {}
     "/notification/messages_read"(platform: "/") {}
     "/notification/messages_driver_logistics"(platform: "/") {}
+    "/notification/messages_driver_flex"(platform: "/") {}
     "/notification/messages_flex"(platform: "/") {}
     "/notification/messages_quotes"(platform: "/") {}
 
