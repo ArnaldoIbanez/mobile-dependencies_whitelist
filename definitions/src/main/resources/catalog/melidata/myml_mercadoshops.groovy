@@ -349,13 +349,13 @@ tracks {
         mshopsEventGroup
     }
 
-    "/mercado_shops/marketing/gsc"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/google_search_console"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/gsc/upload"(platform: "/", type: TrackType.Event){
+    "/mercado_shops/marketing/google_search_console/upload"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
 
-    "/mercado_shops/marketing/gsc/delete"(platform: "/", type: TrackType.Event){
+    "/mercado_shops/marketing/google_search_console/delete"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
 
