@@ -316,11 +316,21 @@ tracks {
         mshopsEventGroup
     }
 
-  "/mercado_shops/marketing/facebook_pixel/cancel"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/facebook_pixel/cancel"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/facebook_pixel/context_help"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/facebook_pixel/delete"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/gsc"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/gsc/upload"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/gsc/delete"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
 }

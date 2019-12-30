@@ -445,6 +445,12 @@ trackTests {
             shop_name = "Test Shop"
             ref = ""
         }
+        "/mercado_shops/marketing/gsc"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
     }
 
     test("Mercadoshops Merketing Tools events") {
@@ -562,6 +568,18 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+        }
+        "/mercado_shops/marketing/gsc/upload"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            success = true
+        }
+        "/mercado_shops/marketing/gsc/delete"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            success = true
         }
     }
 
