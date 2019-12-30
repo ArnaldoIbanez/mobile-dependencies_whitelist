@@ -349,7 +349,6 @@ tracks {
         mshopsEventGroup
     }
 
-<<<<<<< HEAD
     "/mercado_shops/marketing/gsc"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/gsc/upload"(platform: "/", type: TrackType.Event){
@@ -359,7 +358,7 @@ tracks {
     "/mercado_shops/marketing/gsc/delete"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
-=======
+
     "/mercado_shops/template-selection"(platform: "/", type: TrackType.Event, isAbstract: true){}
 
     "/mercado_shops/template-selection/save"(platform: "/", type: TrackType.Event){
@@ -374,5 +373,4 @@ tracks {
     "/mercado_shops/template-selection/preview"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View){}
->>>>>>> 4a1b39d85799b053598d080258a39de30ca19882
 }
