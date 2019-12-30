@@ -137,4 +137,15 @@ metrics {
             }
         }
     }
+
+    "credits-consumer.personal_loan_conversion"(description: "credits conversion under personal loans experiments", acceptMultiVariantSession: true) {
+        startWith {
+            experiment("credits/credits_short_onboarding", "credits/credits_default_selected_loans")
+        }
+        countsOn {
+            condition {
+                equals("path", "/credits/consumer/personal/adoption/congrats")
+            }
+        }
+    }
 }
