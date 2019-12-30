@@ -36,7 +36,6 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
-            device_number = "057212894981654584"
         }
         "/sp_prepaid/add_device_number/invalid_input"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
@@ -99,13 +98,12 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
-            device_number = "057212894981654584"
         }
         "/sp_prepaid/add_alias/invalid_alias"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
-            alias = "directv juan"
+            alias = "^_)(&/843sakdj*-%*L"
         }
 
 
@@ -119,7 +117,6 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
-            alias = "directv casa"
         }
         "/sp_prepaid/edit_alias/invalid_alias"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
@@ -293,7 +290,6 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
-            device_number = "057212894981654584"
         }
         "/sp_prepaid/add_device_number/invalid_input"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
@@ -356,13 +352,12 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
-            device_number = "057212894981654584"
         }
         "/sp_prepaid/add_alias/invalid_alias"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
-            alias = "directv oficina"
+            alias = "^_)(&/843sakdj*-%*L"
         }
 
 
@@ -376,7 +371,6 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
-            alias = "directv casa"
         }
         "/sp_prepaid/edit_alias/invalid_alias"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"

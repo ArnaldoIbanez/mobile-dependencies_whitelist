@@ -27,7 +27,6 @@ tracks {
 
     "/sp_prepaid/add_device_number/confirm"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
-        device_number(required: true, PropertyType.String, description: "Device number added by user")
     }
     "/sp_prepaid/add_device_number/invalid_input"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
@@ -67,7 +66,6 @@ tracks {
 
     "/sp_prepaid/add_alias/confirm"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
-        device_number(required: true, PropertyType.String, description: "Device number added by user")
     }
     "/sp_prepaid/add_alias/invalid_alias"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
@@ -80,7 +78,6 @@ tracks {
 
     "/sp_prepaid/edit_alias/confirm_edit"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
-        alias(required: true, PropertyType.String, description: "Alias added by user")
     }
     "/sp_prepaid/edit_alias/invalid_alias"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
@@ -148,11 +145,11 @@ tracks {
 
     // Errors
     "/sp_prepaid/error"(platform: "/mobile", type: TrackType.View) {
-        error_type(required: false, type: PropertyType.String, description: "Type of error")
+        error_type(required: false, type: PropertyType.String, values: ["internal", "server", "connection"], description: "Type of error")
     }
 
     "/sp_prepaid/error/action"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
-        type(required: true, PropertyType.String, description: "Type of action")
+        type(required: true, type: PropertyType.String, values: ["retry", "back_to_home", "back"], description: "Type of action")
     }
 }
