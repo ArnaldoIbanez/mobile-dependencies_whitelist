@@ -289,6 +289,10 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/fraud_delivery_cancellation_stop_mp"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/fraud-cash_release_iv"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -376,6 +380,11 @@ tracks {
     "/notification_center/package_seller"(platform: "/", type: TrackType.Event) {
         order_id(required: true, type: PropertyType.Numeric)
     }
+
+    "/notification_center/payments_release"(platform: "/", type: TrackType.Event) {
+        notification_id(required: true, type: PropertyType.String)
+    }
+
     "/notification_center/purchases-payments"(platform: "/", type: TrackType.Event) {
         purchase_id(required: true, type: PropertyType.Numeric)
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -604,6 +613,10 @@ tracks {
         gift_reason_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/money-transfer_request"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/money_advance"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -1328,6 +1341,9 @@ tracks {
     "/notification/messages_flex"(platform: "/") {}
     "/notification/messages_quotes"(platform: "/") {}
 
+    //Money Advance
+    "/notification/money_advance_congrats"(platform: "/") {}
+    "/notification/money_advance_fail"(platform: "/") {}
 
       //Reputation
       "/notification/reputation"(platform: "/") {
@@ -1430,6 +1446,7 @@ tracks {
       "/notification/fraud_score_post_approval_last_chance_mp"(platform: "/") {}
       "/notification/fraud_score_post_approval_last_chance_ml"(platform: "/") {}
       "/notification/fraud_remedies_trust_vote_ml"(platform: "/") {}
+      "/notification/fraud_delivery_cancellation_stop_mp"(platform: "/") {}
 
       //Loyalty
       "/notification/loyalty"(platform: "/") {}
@@ -1639,6 +1656,11 @@ tracks {
         notification_id(required: true, type: PropertyType.String)
     }
 
+    //Payments
+    "/notification/payments_release"(platform: "/mobile") {
+        notification_id(required: true, type: PropertyType.String)
+    }
+
     //Prepaid
     "/notification/prepaid_card_shipped"(platform: "/mobile") {}
     "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {}
@@ -1675,6 +1697,7 @@ tracks {
     "/notification/point_shipping_delayed_p1"(platform: "/mobile") {}
     "/notification/point_shipping_delayed_p4_p8"(platform: "/mobile") {}
     "/notification/point_shipping_ready_to_ship_delayed"(platform: "/mobile") {}
+    "/notification/point_audit_cash"(platform: "/mobile") {}
 
     //Recurring Recharge
     "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {}

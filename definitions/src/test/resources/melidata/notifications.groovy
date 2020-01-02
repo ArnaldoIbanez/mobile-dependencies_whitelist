@@ -394,6 +394,7 @@ trackTests {
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
         }
         "/notification_center/fraud-postpayment"(platform: "/mobile"){}
+
         "/notification_center/fraud-delivery_cancellation"(platform: "/mobile"){
             latest_news_type= "fraud-delivery_cancellation"
             latest_news_id= "fraud-delivery_cancellation-143816022-MLB1013046714"
@@ -405,6 +406,10 @@ trackTests {
         "/notification_center/fraud-identity_validation_reminder"(platform: "/mobile"){
             latest_news_type= "fraud-identity_validation_reminder"
             latest_news_id= "fraud-identity_validation_reminder-143816022-MLB1013046714"
+        }
+        "/notification_center/fraud_delivery_cancellation_stop_mp"(platform: "/mobile") {
+            latest_news_type= "fraud_delivery_cancellation_stop_mp"
+            latest_news_id= "fraud_delivery_cancellation_stop_mp-143816022-MLB1013046714"
         }
 
         "/notification_center/messages_quotes"(platform: "/mobile"){
@@ -445,6 +450,10 @@ trackTests {
             notification_id= "12345"
             latest_news_type= "openplatform_recommendations_p1"
             latest_news_id= "openplatform_recommendations_p1-12345"
+        }
+
+        "/notification_center/payments_release"(platform: "/mobile") {
+            notification_id = "12345"
         }
 
         "/notification_center/packages-buyer"(platform: "/mobile"){}
@@ -841,6 +850,10 @@ trackTests {
             latest_news_id= "money-transfer_request-186785675-76283123"
             latest_news_type= "money-transfer_request"
             status= "read"
+        }
+        "/notification_center/money_advance"(platform: "/mobile"){
+            latest_news_id= "money_advance-186785675-76283123"
+            latest_news_type= "money_advance"
         }
         "/notification_center/multiplayer_money_request"(platform: "/mobile"){
             newsgroup_id= "multiplayer-money_request-186785675-76283123"
@@ -1482,6 +1495,16 @@ trackTests {
             event_type = "discarded"
         }
 
+        //Money Advance
+        "/notification/money_advance_congrats"(platform: "/mobile"){
+            news_id = "money_advance_congrats-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/money_advance_fail"(platform: "/mobile"){
+            news_id = "money_advance_fail-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+
         "/notification/multiplayer_money_request"(platform: "/mobile"){
             news_id = "multiplayer-money_request-1004906131-ACAVAUNHASHRELINDOYRELOCO"
             event_type = "discarded"
@@ -1578,6 +1601,11 @@ trackTests {
 
         "/notification/openplatform_recommendations_p1"(platform: "/mobile"){
             notification_id= "12345"
+            event_type = "open"
+        }
+
+        "/notification/payments_release"(platform: "/mobile") {
+            notification_id = "12345"
             event_type = "open"
         }
 
@@ -2526,6 +2554,11 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/fraud_delivery_cancellation_stop_mp"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
         "/notification/fraud_cash_release_iv"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -3063,6 +3096,11 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/point_audit_cash"(platform: "/mobile") {
+            news_id = "point_audit_cash-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {
             news_id = "recurring_recharge_insufficient_balance_error-186785675"
@@ -3543,6 +3581,10 @@ trackTests {
             latest_news_type= "fraud-identity_validation_reminder"
             latest_news_id= "fraud-identity_validation_reminder-143816022-MLB1013046714"
         }
+        "/notification_center/fraud_delivery_cancellation_stop_mp"(platform: "/mobile") {
+            latest_news_type= "fraud_delivery_cancellation_stop_mp"
+            latest_news_id= "fraud_delivery_cancellation_stop_mp-143816022-MLB1013046714"
+        }
 
         "/notification_center/messages_quotes"(platform: "/mobile"){
             latest_news_type= "messages_quotes"
@@ -3586,6 +3628,10 @@ trackTests {
             notification_id= "12345"
             latest_news_type= "openplatform_recommendations_p1"
             latest_news_id= "openplatform_recommendations_p1-12345"
+        }
+
+        "/notification_center/payments_release"(platform: "/mobile") {
+            notification_id = "12345"
         }
 
         "/notification_center/packages-buyer"(platform: "/mobile"){}
@@ -3987,6 +4033,10 @@ trackTests {
             latest_news_id= "money-transfer_request-186785675-76283123"
             latest_news_type= "money-transfer_request"
             status= "read"
+        }
+        "/notification_center/money_advance"(platform: "/mobile"){
+            latest_news_id= "money_advance-186785675-76283123"
+            latest_news_type= "money_advance"
         }
         "/notification_center/mpcampaigns_campaigns"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns-campaigns-186785675-76283123"
@@ -4613,6 +4663,16 @@ trackTests {
         "/notification/moderations_message_banned"(platform: "/mobile"){
             news_id = "moderations-message_banned-1004906131-ACAVAUNHASHRELINDOYRELOCO"
             event_type = "discarded"
+        }
+
+        //Money Advance
+        "/notification/money_advance_congrats"(platform: "/mobile"){
+            news_id = "money_advance_congrats-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
+        }
+        "/notification/money_advance_fail"(platform: "/mobile"){
+            news_id = "money_advance_fail-1004906131-ACAVAUNHASHRELINDOYRELOCO"
+            event_type = "open"
         }
 
         "/notification/multiplayer_money_request"(platform: "/mobile"){
@@ -5646,6 +5706,11 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/fraud_delivery_cancellation_stop_mp"(platform: "/mobile") {
+            news_id = "123"
+            event_type = "open"
+        }
+
         "/notification/fraud_cash_release_iv"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -6183,6 +6248,11 @@ trackTests {
             event_type = "open"
             notification_type= "deep_linking"
         }
+        "/notification/point_audit_cash"(platform: "/mobile") {
+            news_id = "point_audit_cash-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
 
         "/notification/recurring_recharge_insufficient_balance_error"(platform: "/mobile") {
             news_id = "recurring_recharge_insufficient_balance_error-186785675"
@@ -6324,6 +6394,11 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/payments_release"(platform: "/mobile") {
+            notification_id = "12345"
+            event_type = "open"
+        }
+
         "/notification/uninstalls_checker"(platform: "/mobile"){
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
@@ -6360,6 +6435,11 @@ trackTests {
             latest_news_type= "openplatform_recommendations_p1"
             latest_news_id= "openplatform_recommendations_p1-12345"
         }
+
+        "/notification_center/payments_release"(platform: "/mobile") {
+            notification_id = "12345"
+        }
+
         "/notification_center/sll_items_activate_items"(platform: "/web") {
             site_id="MLA"
             seller_id="1234567"
@@ -6465,6 +6545,11 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/payments_release"(platform: "/mobile") {
+            notification_id = "12345"
+            event_type = "open"
+        }
+
         "/notification/uninstalls_checker"(platform: "/mobile"){
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
@@ -6518,6 +6603,11 @@ trackTests {
             latest_news_type= "openplatform_recommendations_p1"
             latest_news_id= "openplatform_recommendations_p1-12345"
         }
+
+        "/notification_center/payments_release"(platform: "/mobile") {
+            notification_id = "12345"
+        }
+
         "/notification_center/discount_central_missing_data"(platform: "/mobile"){
             latest_news_type= "discount_central_missing_data"
             latest_news_id= "discount_central_missing_data-12345"

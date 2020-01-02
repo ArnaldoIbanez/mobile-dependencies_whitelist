@@ -59,6 +59,10 @@ catalog {
 
     def mercadoenvios = ["mercadoenvios"]
 
+    def mercadoenviosflex = ["mercadoenviosflex"]
+
+    def mercadoenvioslogistics = ["mercadoenvioslogistics"]
+
     def all = marketplace + mercadopago
 
     all.each { business ->
@@ -201,6 +205,14 @@ catalog {
         include business, "wms.groovy"
         include business, "logistics.groovy"
         include business, "places.groovy"
+    }
+
+    mercadoenviosflex.each { business ->
+        include business, "flex.groovy"
+    }
+
+    mercadoenvioslogistics.each { business ->
+        include business, "logistics.groovy"
     }
 
 }
