@@ -76,10 +76,12 @@ tracks {
         sidebar_name(
                 required: false,
                 type: PropertyType.String,
-                values: ['AFIP', 'BANNER', 'BRANDS', 'CATEGORIES', 'CAROUSEL', 'COLORS', 'CONTACT', 'CONTACT_FROM_SHOP_NAME',
-                         'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FOOTER', 'GRID', 'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE',
-                         'LOGO', 'MENU', 'MOSAIC', 'PRICE_AND_IMAGE', 'PRICE_AND_IMAGE_ADVANCED', 'SHOP_NAME', 'SLIDER',
-                         'SOCIAL_NETWORKS', 'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TABBED_CAROUSEL', 'TEXT_BANNER', 'FISCAL_DATA', 'FOOTER_MESSAGE']
+                values: ['AFIP', 'BANNER', 'BRANDS', 'CATEGORIES', 'CAROUSEL', 'COLORS', 'CONTACT',
+                         'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FOOTER', 'GRID',
+                         'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE', 'LOGO', 'MENU', 'MOSAIC', 'PRICE_AND_IMAGE',
+                         'PRICE_AND_IMAGE_ADVANCED', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS',
+                         'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TABBED_CAROUSEL', 'TEXT_BANNER', 'FISCAL_DATA',
+                         'FOOTER_MESSAGE', 'WHATSAPP']
         )
     }
 
@@ -201,6 +203,8 @@ tracks {
     "/mercado_shops/admin/sidebar/fiscal_data"(platform: "/", type: TrackType.Event){
         fiscal_data_visible(required: true, type: PropertyType.Boolean)
     }
+
+    "/mercado_shops/admin/sidebar/whatsapp"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/admin/sidebar/text_banner"(platform: "/", type: TrackType.Event){
         desktop_image(required: true, type: PropertyType.String)
