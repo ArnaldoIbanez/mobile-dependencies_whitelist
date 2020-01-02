@@ -175,6 +175,7 @@ catalog {
         include business, "transport.groovy"
         include business, "remedy.groovy"
         include business, "kyc.groovy"
+        include business, "user_blocker.groovy"
         include business, "digital_account.groovy"
         include business, "front_core.groovy"
         include business, "mplayer.groovy"
