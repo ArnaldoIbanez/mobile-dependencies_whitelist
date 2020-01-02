@@ -422,7 +422,7 @@ tracks {
     "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {} 
 
 
     //Point Devices
