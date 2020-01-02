@@ -743,6 +743,19 @@ tracks {
         step_id(required: true , type: PropertyType.Numeric, description: "Corresponds to the step id of the seller in the journey to associate the step.")
     }
 
+    "/notification_center/shipping_moderation_cross_docking_release_below"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/shipping_moderation_cross_docking_recovery"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/shipping_moderation_cross_docking_downgrade"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+
     //Sll Advertising Notifications
     "/notification_center/sll_items_activate_items"(platform: "/") {
         site_id(required: true, type: PropertyType.String, description: "Site Id.")
@@ -1656,6 +1669,11 @@ tracks {
     "/notification/single_player_recharge_fail_mp"(platform: "/mobile") {}
     "/notification/single_player_recharge_success_ml"(platform: "/mobile") {}
     "/notification/single_player_recharge_success_mp"(platform: "/mobile") {}
+
+    //Shipping
+    "/notification/shipping_moderation_cross_docking_release_below"(platform: "/mobile") {}
+    "/notification/shipping_moderation_cross_docking_recovery"(platform: "/mobile") {}
+    "/notification/shipping_moderation_cross_docking_downgrade"(platform: "/mobile") {}
 
     //Wallet
     "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {}

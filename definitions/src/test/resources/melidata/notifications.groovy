@@ -1035,6 +1035,19 @@ trackTests {
             latest_news_id= "single_player_recharge_success_mp-143816022-MLB1013046714"
         }
 
+        "/notification_center/shipping_moderation_cross_docking_release_below"(platform: "/mobile"){
+            latest_news_type= "shipping_moderation_cross_docking_release_below"
+            latest_news_id= "shipping_moderation_cross_docking_release_below-143816022-MLB1013046714"
+        }
+        "/notification_center/shipping_moderation_cross_docking_recovery"(platform: "/mobile"){
+            latest_news_type= "shipping_moderation_cross_docking_recovery"
+            latest_news_id= "shipping_moderation_cross_docking_recovery-143816022-MLB1013046714"
+        }
+        "/notification_center/shipping_moderation_cross_docking_downgrade"(platform: "/mobile"){
+            latest_news_type= "shipping_moderation_cross_docking_downgrade"
+            latest_news_id= "shipping_moderation_cross_docking_downgrade-143816022-MLB1013046714"
+        }
+
         "/notification/seller_journey_congrats"(platform: "/mobile"){
             step_id= 123
             event_type= "sent"
@@ -1897,6 +1910,18 @@ trackTests {
             event_type = "arrived"
             deeplink = "meli://sales/11222#shipping"
             shipment_id = 1234
+        }
+        "/notification/shipping_moderation_cross_docking_release_below"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+        "/notification/shipping_moderation_cross_docking_recovery"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+        "/notification/shipping_moderation_cross_docking_downgrade"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
         }
 
         "/notification/collections_approved"(platform: "/mobile") {
@@ -3990,6 +4015,20 @@ trackTests {
             latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
             status= "read"
         }
+
+        "/notification_center/shipping_moderation_cross_docking_release_below"(platform: "/mobile"){
+            latest_news_type= "shipping_moderation_cross_docking_release_below"
+            latest_news_id= "shipping_moderation_cross_docking_release_below-143816022-MLB1013046714"
+        }
+        "/notification_center/shipping_moderation_cross_docking_recovery"(platform: "/mobile"){
+            latest_news_type= "shipping_moderation_cross_docking_recovery"
+            latest_news_id= "shipping_moderation_cross_docking_recovery-143816022-MLB1013046714"
+        }
+        "/notification_center/shipping_moderation_cross_docking_downgrade"(platform: "/mobile"){
+            latest_news_type= "shipping_moderation_cross_docking_downgrade"
+            latest_news_id= "shipping_moderation_cross_docking_downgrade-143816022-MLB1013046714"
+        }
+
         "/notification_center/transaction_approved_authorization"(platform: "/mobile"){
             newsgroup_id= "transaction_approved_authorization-186785675-76283123"
             latest_news_id= "transaction_approved_authorization-186785675-76283123"
@@ -4964,6 +5003,20 @@ trackTests {
             deeplink = "meli://sales/11222#shipping"
             shipment_id = 1234
         }
+
+        "/notification/shipping_moderation_cross_docking_release_below"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+        "/notification/shipping_moderation_cross_docking_recovery"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+        "/notification/shipping_moderation_cross_docking_downgrade"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+        }
+
         "/notification/collections_approved"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "dismiss"
