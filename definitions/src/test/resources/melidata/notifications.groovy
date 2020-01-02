@@ -395,9 +395,9 @@ trackTests {
         }
         "/notification_center/fraud-postpayment"(platform: "/mobile"){}
 
-        "/notification_center/fraud-delivery_cancellation"(platform: "/mobile"){
-            latest_news_type= "fraud-delivery_cancellation"
-            latest_news_id= "fraud-delivery_cancellation-143816022-MLB1013046714"
+        "/notification_center/fraud_delivery_cancellation"(platform: "/mobile"){
+            latest_news_type= "fraud_delivery_cancellation"
+            latest_news_id= "fraud_delivery_cancellation-143816022-MLB1013046714"
         }
         "/notification_center/fraud-cash_release_iv"(platform: "/mobile"){
             latest_news_type= "fraud-cash_release_iv"
@@ -410,6 +410,10 @@ trackTests {
         "/notification_center/fraud_delivery_cancellation_stop_mp"(platform: "/mobile") {
             latest_news_type= "fraud_delivery_cancellation_stop_mp"
             latest_news_id= "fraud_delivery_cancellation_stop_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/fraud_delivery_cancellation_mp"(platform: "/mobile") {
+            latest_news_type= "fraud_delivery_cancellation_mp"
+            latest_news_id= "fraud_delivery_cancellation_mp-143816022-MLB1013046714"
         }
 
         "/notification_center/messages_quotes"(platform: "/mobile"){
@@ -931,6 +935,18 @@ trackTests {
             latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
             status= "read"
         }
+        "/notification_center/transaction_rejected_authorization_by_invalid_amount"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_authorization_by_invalid_amount-186785675-76283123"
+            latest_news_id= "transaction_rejected_authorization_by_invalid_amount-186785675-76283123"
+            latest_news_type= "transaction_rejected_authorization_by_invalid_amount"
+            status= "read"
+        }
+        "/notification_center/transaction_rejected_withdraw_by_invalid_amount"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_withdraw_by_invalid_amount-186785675-76283123"
+            latest_news_id= "transaction_rejected_withdraw_by_invalid_amount-186785675-76283123"
+            latest_news_type= "transaction_rejected_withdraw_by_invalid_amount"
+            status= "read"
+        }
         "/notification_center/transaction_approved_authorization"(platform: "/mobile"){
             newsgroup_id= "transaction_approved_authorization-186785675-76283123"
             latest_news_id= "transaction_approved_authorization-186785675-76283123"
@@ -1022,19 +1038,23 @@ trackTests {
 
         "/notification_center/seller_journey_congrats"(platform: "/mobile"){
             step_id= 123
-            event_type= "create"
+            latest_news_type= "seller_journey_congrats"
+            latest_news_id= "seller_journey_congrats-143816022-MLB1013046714"
         }
         "/notification_center/seller_journey_keep_it_up"(platform: "/mobile"){
             step_id= 123
-            event_type= "create"
+            latest_news_type= "seller_journey_keep_it_up"
+            latest_news_id= "seller_journey_keep_it_up-143816022-MLB1013046714"
         }
         "/notification_center/seller_journey_work_harder"(platform: "/mobile"){
             step_id= 123
-            event_type= "create"
+            latest_news_type= "seller_journey_work_harder"
+            latest_news_id= "seller_journey_work_harder-143816022-MLB1013046714"
         }
         "/notification_center/seller_journey_do_something"(platform: "/mobile"){
             step_id= 123
-            event_type= "create"
+            latest_news_type= "seller_journey_work_harder"
+            latest_news_id= "seller_journey_work_harder-143816022-MLB1013046714"
         }
 
         "/notification_center/single_player_directv_smartcard_expiration"(platform: "/") {
@@ -3569,7 +3589,7 @@ trackTests {
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
         }
         "/notification_center/fraud-postpayment"(platform: "/mobile"){}
-        "/notification_center/fraud-delivery_cancellation"(platform: "/mobile"){
+        "/notification_center/fraud_delivery_cancellation"(platform: "/mobile"){
             latest_news_type= "fraud-delivery_cancellation"
             latest_news_id= "fraud-delivery_cancellation-143816022-MLB1013046714"
         }
@@ -3584,6 +3604,10 @@ trackTests {
         "/notification_center/fraud_delivery_cancellation_stop_mp"(platform: "/mobile") {
             latest_news_type= "fraud_delivery_cancellation_stop_mp"
             latest_news_id= "fraud_delivery_cancellation_stop_mp-143816022-MLB1013046714"
+        }
+        "/notification_center/fraud_delivery_cancellation_mp"(platform: "/mobile") {
+            latest_news_type= "fraud_delivery_cancellation_mp"
+            latest_news_id= "fraud_delivery_cancellation_mp-143816022-MLB1013046714"
         }
 
         "/notification_center/messages_quotes"(platform: "/mobile"){
@@ -4109,6 +4133,18 @@ trackTests {
             latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
             status= "read"
         }
+        "/notification_center/transaction_rejected_authorization_by_invalid_amount"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_authorization_by_invalid_amount-186785675-76283123"
+            latest_news_id= "transaction_rejected_authorization_by_invalid_amount-186785675-76283123"
+            latest_news_type= "transaction_rejected_authorization_by_invalid_amount"
+            status= "read"
+        }
+        "/notification_center/transaction_rejected_withdraw_by_invalid_amount"(platform: "/mobile"){
+            newsgroup_id= "transaction_rejected_withdraw_by_invalid_amount-186785675-76283123"
+            latest_news_id= "transaction_rejected_withdraw_by_invalid_amount-186785675-76283123"
+            latest_news_type= "transaction_rejected_withdraw_by_invalid_amount"
+            status= "read"
+        }
 
         "/notification_center/shipping_moderation_cross_docking_release_below"(platform: "/mobile"){
             latest_news_type= "shipping_moderation_cross_docking_release_below"
@@ -4215,19 +4251,23 @@ trackTests {
 
         "/notification_center/seller_journey_congrats"(platform: "/mobile"){
             step_id= 123
-            event_type= "create"
+            latest_news_type= "seller_journey_congrats"
+            latest_news_id= "seller_journey_congrats-143816022-MLB1013046714"
         }
         "/notification_center/seller_journey_keep_it_up"(platform: "/mobile"){
             step_id= 123
-            event_type= "create"
+            latest_news_type= "seller_journey_keep_it_up"
+            latest_news_id= "seller_journey_keep_it_up-143816022-MLB1013046714"
         }
         "/notification_center/seller_journey_work_harder"(platform: "/mobile"){
             step_id= 123
-            event_type= "create"
+            latest_news_type= "seller_journey_work_harder"
+            latest_news_id= "seller_journey_work_harder-143816022-MLB1013046714"
         }
         "/notification_center/seller_journey_do_something"(platform: "/mobile"){
             step_id= 123
-            event_type= "create"
+            latest_news_type= "seller_journey_work_harder"
+            latest_news_id= "seller_journey_work_harder-143816022-MLB1013046714"
         }
 
         "/notification_center/single_player_directv_smartcard_expiration"(platform: "/") {
