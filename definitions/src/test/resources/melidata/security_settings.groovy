@@ -75,6 +75,24 @@ trackTests {
             ]
         }
 
+        "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
+            os_status = "none"
+            enrollment_status = "disabled"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "disabled"
+            ]
+        }
+
+        "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
+            os_status = "none"
+            enrollment_status = "disabled"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "disabled"
+            ]
+        }
+
         "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
