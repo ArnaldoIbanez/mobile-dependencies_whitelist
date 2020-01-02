@@ -593,19 +593,26 @@ trackTests {
             event_type = "open"
             deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
         }
+
         "/notification_center/quotes_new"(platform: "/mobile") {
             latest_news_type= "quotes_new"
             latest_news_id= "quotes_new-123-123"
         }
-
         "/notification_center/quotes_reject"(platform: "/mobile") {
             latest_news_type= "quotes_reject"
             latest_news_id= "quotes_reject-123-123"
         }
-
         "/notification_center/quotes_cancel"(platform: "/mobile") {
             latest_news_type= "quotes_cancel"
             latest_news_id= "quotes_cancel-123-123"
+        }
+        "/notification_center/quotes_answer_send"(platform: "/mobile") {
+            latest_news_type= "quotes_answer_send"
+            latest_news_id= "quotes_answer_send-123-123"
+        }
+        "/notification_center/quotes_answer_pending"(platform: "/mobile") {
+            latest_news_type= "quotes_answer_pending"
+            latest_news_id= "quotes_answer_pending-123-123"
         }
 
         "/notification_center/account_balance_approved_mp"(platform: "/mobile"){
@@ -1579,14 +1586,20 @@ trackTests {
             news_id = "quotes-reject-123"
             event_type = "open"
         }
-
         "/notification/quotes_new"(platform: "/mobile") {
             news_id = "quotes-reject-123"
             event_type = "open"
         }
-
         "/notification/quotes_cancel"(platform: "/mobile") {
             news_id = "quotes-reject-123"
+            event_type = "open"
+        }
+        "/notification/quotes_answer_send"(platform: "/mobile") {
+            news_id = "quotes_answer_send-123"
+            event_type = "open"
+        }
+        "/notification/quotes_answer_pending"(platform: "/mobile") {
+            news_id = "quotes_answer_pending-123"
             event_type = "open"
         }
 
@@ -3722,19 +3735,26 @@ trackTests {
             event_type = "open"
             deeplink = "https=//www.mercadolibre.com.ar/chargebacks/payer/select-remedy/158213000000#entry=notification"
         }
+
         "/notification_center/quotes_new"(platform: "/mobile") {
             latest_news_type= "quotes_new"
             latest_news_id= "quotes_new-123-123"
         }
-
         "/notification_center/quotes_reject"(platform: "/mobile") {
             latest_news_type= "quotes_reject"
             latest_news_id= "quotes_reject-123-123"
         }
-
         "/notification_center/quotes_cancel"(platform: "/mobile") {
             latest_news_type= "quotes_cancel"
             latest_news_id= "quotes_cancel-123-123"
+        }
+        "/notification_center/quotes_answer_send"(platform: "/mobile") {
+            latest_news_type= "quotes_answer_send"
+            latest_news_id= "quotes_answer_send-123-123"
+        }
+        "/notification_center/quotes_answer_pending"(platform: "/mobile") {
+            latest_news_type= "quotes_answer_pending"
+            latest_news_id= "quotes_answer_pending-123-123"
         }
 
         "/notification_center/account_balance_approved_mp"(platform: "/mobile"){
@@ -4669,14 +4689,20 @@ trackTests {
             news_id = "quotes-reject-123"
             event_type = "open"
         }
-
         "/notification/quotes_new"(platform: "/mobile") {
             news_id = "quotes-reject-123"
             event_type = "open"
         }
-
         "/notification/quotes_cancel"(platform: "/mobile") {
             news_id = "quotes-reject-123"
+            event_type = "open"
+        }
+        "/notification/quotes_answer_send"(platform: "/mobile") {
+            news_id = "quotes_answer_send-123"
+            event_type = "open"
+        }
+        "/notification/quotes_answer_pending"(platform: "/mobile") {
+            news_id = "quotes_answer_pending-123"
             event_type = "open"
         }
 

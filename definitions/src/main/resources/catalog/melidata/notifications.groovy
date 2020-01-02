@@ -398,6 +398,14 @@ tracks {
         latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/quotes_answer_send"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/quotes_answer_pending"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: false, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: false, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/questions-buyer"(platform: "/", type: TrackType.Event) {
         question_id(required: true, type: PropertyType.Numeric)
     }
@@ -1227,6 +1235,8 @@ tracks {
       "/notification/quotes_reject"(platform: "/") {}
       "/notification/quotes_new"(platform: "/") {}
       "/notification/quotes_cancel"(platform: "/") {}
+      "/notification/quotes_answer_send"(platform: "/") {}
+      "/notification/quotes_answer_pending"(platform: "/") {}
 
       //Listings
       "/notification/listings"(platform: "/") {}
