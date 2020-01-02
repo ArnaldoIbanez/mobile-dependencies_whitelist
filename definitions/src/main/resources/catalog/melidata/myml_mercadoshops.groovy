@@ -364,11 +364,13 @@ tracks {
 
     "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/facebook/link_with_facebook"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/facebook"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/facebook/fan_pages"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/facebook/link_with_facebook"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/facebook/business_manager"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/facebook/fan_pages"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/facebook/user_procedure"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/facebook/business_manager"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/facebook/user_procedure"(platform: "/", type: TrackType.View){}
 }
