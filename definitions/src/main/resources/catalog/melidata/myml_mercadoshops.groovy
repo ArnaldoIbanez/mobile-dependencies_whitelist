@@ -204,10 +204,7 @@ tracks {
         fiscal_data_visible(required: true, type: PropertyType.Boolean)
     }
 
-    "/mercado_shops/admin/sidebar/whatsapp"(platform: "/", type: TrackType.Event){
-        phone(required: true, type: PropertyType.String, description: "User phone")
-        message(required: true, type: PropertyType.String, description: "Custom message")
-    }
+    "/mercado_shops/admin/sidebar/whatsapp"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/admin/sidebar/text_banner"(platform: "/", type: TrackType.Event){
         desktop_image(required: true, type: PropertyType.String)
