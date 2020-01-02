@@ -226,32 +226,49 @@ trackTests {
         }
 
 
-        // Errors
-        "/sp_prepaid/error"(platform: "/mobile", type: TrackType.View) {
+        // Internal error
+        "/sp_prepaid/error/internal"(platform: "/mobile", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
-            error_type = "internal"
-        }
-        "/sp_prepaid/error"(platform: "/mobile", type: TrackType.View) {
-            flow = "antenna"
-            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
-            error_type = "server"
-        }
-        "/sp_prepaid/error"(platform: "/mobile", type: TrackType.View) {
-            flow = "antenna"
-            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
-            error_type = "connection"
         }
 
-        "/sp_prepaid/error/retry"(platform: "/mobile", type: TrackType.Event) {
+        "/sp_prepaid/error/internal/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/sp_prepaid/error/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        "/sp_prepaid/error/internal/back"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/sp_prepaid/error/back"(platform: "/mobile", type: TrackType.Event) {
+
+
+        // Server error
+        "/sp_prepaid/error/server"(platform: "/mobile", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+        "/sp_prepaid/error/server/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/sp_prepaid/error/server/back"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+
+        // Connection error
+        "/sp_prepaid/error/connection"(platform: "/mobile", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+        "/sp_prepaid/error/connection/retry"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/sp_prepaid/error/connection/back"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
@@ -474,39 +491,51 @@ trackTests {
         }
 
 
-        // Errors
-        "/sp_prepaid/error"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
-            flow = "antenna"
-            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
-            error_type = "internal"
-        }
-        "/sp_prepaid/error"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
-            flow = "antenna"
-            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
-            error_type = "server"
-        }
-        "/sp_prepaid/error"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
-            flow = "antenna"
-            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
-            error_type = "connection"
-        }
-        "/sp_prepaid/error"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+        // Internal error
+        "/sp_prepaid/error/internal"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
 
-        "/sp_prepaid/error/retry"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/sp_prepaid/error/internal/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/sp_prepaid/error/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
-            flow = "antenna"
-            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
-        }
-        "/sp_prepaid/error/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/sp_prepaid/error/internal/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
 
+
+        // Server error
+        "/sp_prepaid/error/server"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+        "/sp_prepaid/error/server/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/sp_prepaid/error/server/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+
+        // Connection error
+        "/sp_prepaid/error/connection"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+        "/sp_prepaid/error/connection/retry"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/sp_prepaid/error/connection/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
     }
 }

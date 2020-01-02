@@ -144,11 +144,25 @@ tracks {
 
 
     // Errors
-    "/sp_prepaid/error"(platform: "/mobile", type: TrackType.View) {
-        error_type(required: false, type: PropertyType.String, values: ["internal", "server", "connection"], description: "Type of error")
-    }
+    "/sp_prepaid/error"(platform: "/mobile", isAbstract: true) {}
 
-    "/sp_prepaid/error/retry"(platform: "/mobile", type: TrackType.Event) {}
-    "/sp_prepaid/error/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
-    "/sp_prepaid/error/back"(platform: "/mobile", type: TrackType.Event) {}
+    // Errors - Internal error
+    "/sp_prepaid/error/internal"(platform: "/mobile", type: TrackType.View) {}
+
+    "/sp_prepaid/error/internal/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/sp_prepaid/error/internal/back"(platform: "/mobile", type: TrackType.Event) {}
+
+
+    // Errors - Server error
+    "/sp_prepaid/error/server"(platform: "/mobile", type: TrackType.View) {}
+
+    "/sp_prepaid/error/server/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/sp_prepaid/error/server/back"(platform: "/mobile", type: TrackType.Event) {}
+
+
+    // Errors - Connection error
+    "/sp_prepaid/error/connection"(platform: "/mobile", type: TrackType.View) {}
+
+    "/sp_prepaid/error/connection/retry"(platform: "/mobile", type: TrackType.Event) {}
+    "/sp_prepaid/error/connection/back"(platform: "/mobile", type: TrackType.Event) {}
 }
