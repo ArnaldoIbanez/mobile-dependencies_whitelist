@@ -37,7 +37,7 @@ tracks {
     }
 
     "/questions/qadb/show"(platform: "/", type: TrackType.View) {
-        catalog_product_id(required: true, type: PropertyType.String)
+        catalog_product_id(required: false, type: PropertyType.String)
         catalog_parent_id(required: false, type: PropertyType.String)
         item_id(required: true, type: PropertyType.String)
         results(required: false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
