@@ -243,23 +243,17 @@ trackTests {
             error_type = "connection"
         }
 
-        "/sp_prepaid/error/action"(platform: "/mobile", type: TrackType.Event) {
+        "/sp_prepaid/error/retry"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
-            view_time = 38927
-            type = "retry"
         }
-        "/sp_prepaid/error/action"(platform: "/mobile", type: TrackType.Event) {
+        "/sp_prepaid/error/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
-            view_time = 38927
-            type = "back_to_home"
         }
-        "/sp_prepaid/error/action"(platform: "/mobile", type: TrackType.Event) {
+        "/sp_prepaid/error/back"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
-            view_time = 38927
-            type = "back"
         }
 
 
@@ -501,23 +495,17 @@ trackTests {
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
 
-        "/sp_prepaid/error/action"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/sp_prepaid/error/retry"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
-            view_time = 38927
-            type = "retry"
         }
-        "/sp_prepaid/error/action"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/sp_prepaid/error/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
-            view_time = 38927
-            type = "back_to_home"
         }
-        "/sp_prepaid/error/action"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/sp_prepaid/error/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
-            view_time = 38927
-            type = "back"
         }
 
     }

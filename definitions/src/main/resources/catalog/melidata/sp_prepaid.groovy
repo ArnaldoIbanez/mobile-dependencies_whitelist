@@ -148,8 +148,7 @@ tracks {
         error_type(required: false, type: PropertyType.String, values: ["internal", "server", "connection"], description: "Type of error")
     }
 
-    "/sp_prepaid/error/action"(platform: "/mobile", type: TrackType.Event) {
-        view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
-        type(required: true, type: PropertyType.String, values: ["retry", "back_to_home", "back"], description: "Type of action")
-    }
+    "/sp_prepaid/error/retry"(platform: "/mobile", type: TrackType.Event) {}
+    "/sp_prepaid/error/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/sp_prepaid/error/back"(platform: "/mobile", type: TrackType.Event) {}
 }
