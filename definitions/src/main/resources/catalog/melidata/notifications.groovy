@@ -1463,6 +1463,12 @@ tracks {
       "/notification/returns_reminder_not_printed"(platform: "/") {
           order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
       }
+      "/notification/returns_refund_account_money"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
+      "/notification/returns_no_shipping_option"(platform: "/") {
+          order_id(required: true, type: PropertyType.Numeric, description: "Id of order.")
+      }
 
       //Security
       "/notification/security_enrollment"(platform: "/") {}

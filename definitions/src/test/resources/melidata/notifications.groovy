@@ -2452,6 +2452,18 @@ trackTests {
             order_id = 1703067817
         }
 
+        "/notification/returns_refund_account_money"(platform: "/mobile") {
+            news_id = "returns_refund_account_money-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
+        "/notification/returns_no_shipping_option"(platform: "/mobile") {
+            news_id = "returns_no_shipping_option-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
         "/notification/security_enrollment"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -5543,6 +5555,18 @@ trackTests {
 
         "/notification/returns_reminder_not_printed"(platform: "/mobile") {
             news_id = "returns-shipped_seller-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
+        "/notification/returns_refund_account_money"(platform: "/mobile") {
+            news_id = "returns_refund_account_money-1703067817-269729837"
+            event_type = "sent"
+            order_id = 1703067817
+        }
+
+        "/notification/returns_no_shipping_option"(platform: "/mobile") {
+            news_id = "returns_no_shipping_option-1703067817-269729837"
             event_type = "sent"
             order_id = 1703067817
         }
