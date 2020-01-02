@@ -386,6 +386,9 @@ tracks {
     "/point/landings/mgm/prepago"(platform:"/", type: TrackType.Event) {}
     "/point/landings/mgm/tyc"(platform:"/", type: TrackType.Event) {}
 
+    // Merchant Acquisition Point Landings: Resellers Form
+    "/point/landings/reseller"(platform:"/", type: TrackType.Event) {}
+
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
     "/point/flows/congrats"(platform:"/", type: TrackType.View) {
@@ -1326,7 +1329,3 @@ tracks {
     "/account/mydata/email/congrats"(platform: "/web", type: TrackType.View) {}
 
 }
-
-
-
-
