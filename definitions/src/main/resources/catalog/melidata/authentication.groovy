@@ -403,6 +403,10 @@ tracks {
 
     "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {}
 
+    def screenlockConfigStructure = objectSchemaDefinitions {
+        transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+    }
 
     // Biometrics / Screenlock
     "/screenlock"(platform: "/mobile", isAbstract: true) {
