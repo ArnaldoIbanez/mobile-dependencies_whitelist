@@ -646,7 +646,7 @@ trackTests {
             latest_news_type= "account_fund_salary"
             status= "unread"
         }
-        "/notification_center/account_fund_cvu"(platform: "/mobile"){
+        "/notification_center/account_fund-cvu"(platform: "/mobile"){
             newsgroup_id= "account_fund_cvu-12345678"
             latest_news_id= "account_fund_cvu-12345678"
             latest_news_type= "account_fund_cvu"
@@ -3845,7 +3845,7 @@ trackTests {
             latest_news_type= "account_fund_salary"
             status= "unread"
         }
-        "/notification_center/account_fund_cvu"(platform: "/mobile"){
+        "/notification_center/account_fund-cvu"(platform: "/mobile"){
             newsgroup_id= "account_fund-cvu-12345678"
             latest_news_id= "account_fund-cvu-12345678"
             latest_news_type= "account_fund_cvu"
