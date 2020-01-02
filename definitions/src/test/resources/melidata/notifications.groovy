@@ -988,8 +988,16 @@ trackTests {
             latest_news_id= "withdraw_approved_contingency-143816022-MLB1013046714"
         }
         "/notification_center/withdraw_rejected_contingency"(platform: "/mobile") {
-            latest_news_type= "coverages"
+            latest_news_type= "withdraw_rejected_contingency"
             latest_news_id= "withdraw_rejected_contingency-143816022-MLB1013046714"
+        }
+        "/notification_center/withdraw_approved"(platform: "/mobile") {
+            latest_news_type= "withdraw_approved"
+            latest_news_id= "withdraw_approved-143816022-MLB1013046714"
+        }
+        "/notification_center/withdraw_rejected"(platform: "/mobile") {
+            latest_news_type= "withdraw_rejected"
+            latest_news_id= "withdraw_rejected-143816022-MLB1013046714"
         }
 
         "/notification_center/seller_journey_congrats"(platform: "/mobile"){
@@ -3105,6 +3113,10 @@ trackTests {
             news_id = "withdraw-approved_contingency-186785675"
             event_type = "open"
         }
+        "/notification/withdraw_approved"(platform: "/mobile") {
+            news_id = "withdraw-approved-186785675"
+            event_type = "open"
+        }
 
         "/notification/discount_central_missing_data"(platform: "/mobile") {
             news_id = "discount_central-missing_data-12332323"
@@ -4095,8 +4107,16 @@ trackTests {
             latest_news_id= "withdraw_approved_contingency-143816022-MLB1013046714"
         }
         "/notification_center/withdraw_rejected_contingency"(platform: "/mobile") {
-            latest_news_type= "coverages"
+            latest_news_type= "withdraw_rejected_contingency"
             latest_news_id= "withdraw_rejected_contingency-143816022-MLB1013046714"
+        }
+        "/notification_center/withdraw_approved"(platform: "/mobile") {
+            latest_news_type= "withdraw_approved"
+            latest_news_id= "withdraw_approved-143816022-MLB1013046714"
+        }
+        "/notification_center/withdraw_rejected"(platform: "/mobile") {
+            latest_news_type= "withdraw_rejected"
+            latest_news_id= "withdraw_rejected-143816022-MLB1013046714"
         }
         "/notification_center/wallet_integrator_insufficient_amount"(platform: "/mobile"){
             newsgroup_id= "wallet_integrator-insufficient_amount-186785675-76283123"
@@ -6182,6 +6202,14 @@ trackTests {
             news_id = "withdraw_rejected_contingency-186785675"
             event_type = "open"
         }
+        "/notification/withdraw_approved"(platform: "/web") {
+            news_id = "withdraw_approved-186785675"
+            event_type = "open"
+        }
+        "/notification/withdraw_rejected"(platform: "/web") {
+            news_id = "withdraw_rejected-186785675"
+            event_type = "open"
+        }
 
         //Phone Enrollment
         "/notification/security_phone_enrollment"(platform: "/web") {
@@ -6299,6 +6327,14 @@ trackTests {
         }
         "/notification/withdraw_rejected_contingency"(platform: "/web") {
             news_id = "withdraw_rejected_contingency-186785675"
+            event_type = "open"
+        }
+        "/notification/withdraw_approved"(platform: "/web") {
+            news_id = "withdraw_approved-186785675"
+            event_type = "open"
+        }
+        "/notification/withdraw_rejected"(platform: "/web") {
+            news_id = "withdraw_rejected-186785675"
             event_type = "open"
         }
 
