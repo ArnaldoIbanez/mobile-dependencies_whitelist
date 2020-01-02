@@ -462,6 +462,10 @@ tracks {
 
     "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {}
 
+    def screenlockConfigStructure = objectSchemaDefinitions {
+        transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+    }
 
     // Biometrics / Screenlock
     "/screenlock"(platform: "/mobile", isAbstract: true) {
@@ -481,14 +485,10 @@ tracks {
     }
 
     "/screenlock/opening_lock"(platform: "/mobile", type: TrackType.View) {
-
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 
     "/screenlock/opening_lock/retry"(platform: "/mobile", type: TrackType.Event) {
-
-    }
-
-    "/screenlock/opening_lock/logout"(platform: "/mobile", type: TrackType.Event) {
-
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 }

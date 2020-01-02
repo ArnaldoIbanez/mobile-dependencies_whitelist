@@ -466,6 +466,8 @@ tracks {
 
     "/cart/checkout/payment/select_split_installments/select_installment"(platform: "/", type: TrackType.Event) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
     }
 
     "/cart/checkout/payment/select_split_installments/edit_installment_options"(platform: "/", type: TrackType.Event) {
@@ -474,15 +476,21 @@ tracks {
 
     "/cart/checkout/payment/select_split_installments/close_split_message"(platform: "/", type: TrackType.Event) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
     }
 
     "/cart/checkout/payment/select_unique_installment/select_installment"(platform: "/", type: TrackType.Event) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         total_amount(required: false, description: "totalAmount")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
     }
 
     "/cart/checkout/payment/select_unique_installment/edit_installment_options"(platform: "/", type: TrackType.Event) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
     }
 
     "/cart/checkout/payment/select_split_installments/split_detail"(platform: "/mobile", type: TrackType.View) {}
@@ -596,6 +604,8 @@ tracks {
     "/cart/checkout/review/confirm_purchase"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         status(required: false, type: PropertyType.String, description: "The result of the purchase")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
     }
     "/cart/checkout/review/confirm_purchase/abort"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -674,6 +684,8 @@ tracks {
     //Switch track
     "/cart/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {
         total_amount(required: false, description: "totalAmount")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
     }
     "/cart/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
     "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
@@ -684,6 +696,8 @@ tracks {
 
     "/cart/checkout/review/confirm_purchase"(platform: "/web", type: TrackType.Event) {
         total_amount(required: false, description: "totalAmount")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
     }
 
     "/cart/checkout/payment/input_card#card_config"(platform: "/web", type: TrackType.Event) {
