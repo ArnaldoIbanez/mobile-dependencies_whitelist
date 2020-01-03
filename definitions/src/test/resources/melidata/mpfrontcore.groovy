@@ -49,7 +49,7 @@ trackTests {
         "/shield" (platform: "/web", type: TrackType.View) {}
     }
 
-    test("Mercadopago Shields") {
+    test("Panel Layout") {
         "/panel-layout" (platform: "/web", type: TrackType.View) {
            navigationSections = { 
                 navigationSections: {
