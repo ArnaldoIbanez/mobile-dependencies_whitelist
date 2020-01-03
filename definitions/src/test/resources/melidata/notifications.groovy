@@ -1309,6 +1309,15 @@ trackTests {
         "/notification/cancellations_warning_seller_suspended"(platform: "/mobile") {
             event_type = "shown"
         }
+        "/notification/cancellations_warning_seller_too_many"(platform: "/mobile") {
+            event_type = "shown"
+        }
+        "/notification/cancellations_notice_delayed_reimbursement"(platform: "/mobile") {
+            event_type = "shown"
+        }
+        "/notification/cancellations_notice_cancelled_purchase"(platform: "/mobile") {
+            event_type = "shown"
+        }
 
         "/notification/coverages_compensation_complainant"(platform: "/mobile") {
             event_type = "shown"
@@ -6547,6 +6556,15 @@ trackTests {
         }
 
         "/notification/cancellations_warning_seller_suspended"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/cancellations_warning_seller_too_many"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/cancellations_notice_delayed_reimbursement"(platform: "/mobile") {
+            event_type = "open"
+        }
+        "/notification/cancellations_notice_cancelled_purchase"(platform: "/mobile") {
             event_type = "open"
         }
 
