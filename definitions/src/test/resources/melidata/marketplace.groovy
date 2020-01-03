@@ -610,6 +610,12 @@ trackTests {
         }
     }
 
+    test("deals landings") {
+        "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
     test("MP-MA Landing QR") {
         "/merchant_acquisition/" (platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/qr" (platform: "/", type: TrackType.View) {}
