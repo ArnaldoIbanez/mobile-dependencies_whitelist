@@ -144,7 +144,7 @@ metrics {
         }
         countsOn {
             condition {
-                equals("path", "/credits/consumer/personal/adoption/congrats")
+                path("/credits/consumer/personal/adoption/congrats")
             }
         }
     }
