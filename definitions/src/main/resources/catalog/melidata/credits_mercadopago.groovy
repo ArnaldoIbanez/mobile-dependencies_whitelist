@@ -5,8 +5,10 @@ tracks {
             required: false,
             values: [
                 'fixed_term',
+                'fixed_term_loan',
                 'express_money',
-                'sales_percentage'
+                'sales_percentage',
+                'sales_percentage_loan'
             ]
         )
         product_types(
@@ -121,8 +123,10 @@ tracks {
             required: true,
             values: [
                 'fixed_term',
+                'fixed_term_loan',
                 'express_money',
-                'sales_percentage'
+                'sales_percentage',
+                'sales_percentage_loan'
             ]
         )
         variant(
