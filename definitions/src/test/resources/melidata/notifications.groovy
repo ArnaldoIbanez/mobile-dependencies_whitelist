@@ -1372,11 +1372,15 @@ trackTests {
         "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/mobile") {
             news_id = "credits-consumer_expired_n_loans_third_notice-21680059-20180516"
             event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
         }
 
         "/notification/credits_consumer_expired_sixty_notice"(platform: "/mobile") {
             news_id = "credits-consumer_expired_n_loans_third_notice-21680059-20180516"
             event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
         }
 
         "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/mobile") {
@@ -1433,6 +1437,20 @@ trackTests {
 
         "/notification/credits_consumer_closing_date_notice"(platform: "/mobile") {
             news_id = "credits-consumer_closing_date_notice-186785675-20180409"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+
+        "/notification/credits_consumer_expired_sixty_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_expired_sixty_notice-186785675-20180409"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+
+        "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_expired_fortyfive_notice-186785675-20180409"
             event_type = "shown"
             installment_id= 9876
             loan_id= 12345433
@@ -4587,11 +4605,15 @@ trackTests {
         "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/mobile") {
             news_id = "credits-consumer_expired_n_loans_third_notice-21680059-20180516"
             event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
         }
 
         "/notification/credits_consumer_expired_sixty_notice"(platform: "/mobile") {
             news_id = "credits-consumer_expired_n_loans_third_notice-21680059-20180516"
             event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
         }
 
         "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/mobile") {
@@ -4648,6 +4670,20 @@ trackTests {
 
         "/notification/credits_consumer_closing_date_notice"(platform: "/mobile") {
             news_id = "credits-consumer_closing_date_notice-186785675-20180409"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+
+        "/notification/credits_consumer_expired_sixty_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_expired_sixty_notice-186785675-20180409"
+            event_type = "shown"
+            installment_id= 9876
+            loan_id= 12345433
+        }
+
+        "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/mobile") {
+            news_id = "credits_consumer_expired_fortyfive_notice-186785675-20180409"
             event_type = "shown"
             installment_id= 9876
             loan_id= 12345433

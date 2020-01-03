@@ -889,6 +889,15 @@ tracks {
           loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
           installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
       }
+    "/notification/credits_consumer_expired_sixty_notice"(platform: "/") {
+        loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+    "/notification/credits_consumer_expired_fortyfive_notice"(platform: "/") {
+        loan_id(required: true, type: PropertyType.Numeric, description: "Id of loan.")
+        installment_id(required: true, type: PropertyType.Numeric, description: "Id of installment.")
+    }
+
       "/notification/credits_consumer_expired_n_loans_first_notice"(platform: "/") {}
       "/notification/credits_consumer_about_to_expire_n_loans_first_notice"(platform: "/") {}
       "/notification/credits_consumer_expired_n_loans_fourth_notice"(platform: "/") {}
