@@ -32,4 +32,9 @@ tracks {
 
     // MP Shields
     "/shield"(platform: "/web", type: TrackType.View) {}
+
+    //MP Panel Layout
+    "/panel-layout"(platform: "/") {
+        navigationSections(description:"The sections that the user is receiving from the api.", type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.String)))
+    }
 }
