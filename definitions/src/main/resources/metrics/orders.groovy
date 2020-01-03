@@ -281,6 +281,18 @@ metrics {
 		}
 	}
 
+	"orders.sameSearch"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and(
+						equals("event_data.is_carrito", false),
+						equals("event_data.items.item.id", property("item_ids"))
+				)
+			}
+		}
+	}
+
 	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment", compute_order: true, deprecation_date:"2019/12/18") {
 		startWith {
 			experiment("qadb/qadb-on")

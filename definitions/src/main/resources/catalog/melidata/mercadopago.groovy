@@ -402,6 +402,9 @@ tracks {
     "/point/landings/mgm/prepago"(platform:"/", type: TrackType.Event) {}
     "/point/landings/mgm/tyc"(platform:"/", type: TrackType.Event) {}
 
+    // Merchant Acquisition Point Landings: Resellers Form
+    "/point/landings/reseller"(platform:"/", type: TrackType.Event) {}
+
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
     "/point/flows/congrats"(platform:"/", type: TrackType.View) {
@@ -435,7 +438,7 @@ tracks {
     "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {} 
 
 
     //Point Devices
@@ -1422,7 +1425,3 @@ tracks {
     }
 
 }
-
-
-
-

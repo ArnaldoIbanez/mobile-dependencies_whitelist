@@ -41,7 +41,7 @@ tracks {
 
     // Biometrics
     "/security_settings/screenlock"(platform: "/mobile", type: TrackType.View) {
-        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock"], description: "Screenlock Operating System status upon view")
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"], description: "Screenlock Operating System status upon view")
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
