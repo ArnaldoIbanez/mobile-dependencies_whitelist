@@ -52,11 +52,9 @@ trackTests {
     test("Panel Layout") {
         "/panel-layout" (platform: "/web", type: TrackType.View) {
            navigationSections = { 
-                navigationSections: {
                 section1: ['item11', 'item12'],
-                section2:['item21', 'item22'],
-                section3:['item31', 'item32']
-                }
+                section2: ['item21', 'item22'],
+                section3: ['item31', 'item32']
             }
         }
     }
