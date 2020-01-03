@@ -1450,7 +1450,7 @@ tracks {
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
-          deal_id(required: false, type: PropertyType.String, description: "Id of deal.")
+          deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
       }
 
       //Packages
@@ -1548,10 +1548,12 @@ tracks {
     }
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
-        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
-        sent_date(required: true, type: PropertyType.String, description: "Date of send notification.")
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+        test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
+        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
     }
     "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
