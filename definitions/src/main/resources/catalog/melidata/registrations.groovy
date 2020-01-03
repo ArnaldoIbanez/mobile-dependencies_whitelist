@@ -124,6 +124,18 @@ tracks {
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:false)
     }
     "/register/form/email-suggest"(platform: "/mobile", type: TrackType.Event){}
+    "/register/form/google-hint"(platform: "/mobile", isAbstract: true){
+        step(type: PropertyType.String, required: true, values: ["registration", "phoneRegistration", "getEmail"], description: "Step where the google hint is provided to the user")
+        field(type: PropertyType.String, required: true, values: ["email", "phone"], description: "Field where the google hint is provided to the user")
+    }
+    "/register/form/google-hint/show"(platform: "/mobile", TrackType.Event){}
+    "/register/form/google-hint/select"(platform: "/mobile", TrackType.Event){}
+    "/register/form/google-autofill"(platform: "/mobile", isAbstract: true){
+        step(type: PropertyType.String, required: true, values: ["registration", "accountAdditionalData", "phoneRegistration"], description: "Step where the google autofill is provided to the user")
+        field(type: PropertyType.String, required: true, values: ["firstName", "lastName", "phone"], description: "Field where the google autofill is provided to the user")
+    }
+    "/register/form/google-autofill/show"(platform: "/mobile", TrackType.Event){}
+    "/register/form/google-autofill/select"(platform: "/mobile", TrackType.Event){}
 
     "/register/form/challenge"(platform: "/mobile", isAbstract: true){}
     "/register/form/challenge/require"(platform: "/mobile", type: TrackType.Event){}
@@ -132,7 +144,7 @@ tracks {
     "/register/form/challenge/solve"(platform: "/mobile", type: TrackType.Event){}
 
     "/register/success"(platform: "/mobile", type: TrackType.Event){
-        source(type: PropertyType.String, description: "Source", required:false, values:["email","facebook","facebook_to_email"])
+        source(type: PropertyType.String, description: "Source", required:false, values:["email","facebook","facebook_to_email", "phone"])
         app(type: PropertyType.String, required:false, description: "Current Flow")
     }
 
@@ -243,17 +255,5 @@ tracks {
     "/register/phone-registration/verification/autodetect-code"(platform: "/mobile", TrackType.Event, parentPropertiesInherited: false){}
     "/register/phone-registration/sign-in"(platform: "/mobile", TrackType.Event){}
     "/register/phone-registration/create-account"(platform: "/mobile", TrackType.Event){}
-    "/register/phone-registration/google-hint"(platform: "/mobile", isAbstract: true){
-        step(type: PropertyType.String, required: true, values: ["registration", "phoneRegistration", "getEmail"], description: "Step where the google hint is provided to the user")
-        field(type: PropertyType.String, required: true, values: ["email", "phone"], description: "Field where the google hint is provided to the user")
-    }
-    "/register/phone-registration/google-hint/show"(platform: "/mobile", TrackType.Event){}
-    "/register/phone-registration/google-hint/use"(platform: "/mobile", TrackType.Event){}
-    "/register/phone-registration/google-autofill"(platform: "/mobile", isAbstract: true){
-        step(type: PropertyType.String, required: true, values: ["registration", "accountAdditionalData", "phoneRegistration"], description: "Step where the google autofill is provided to the user")
-        field(type: PropertyType.String, required: true, values: ["firstName", "lastName", "phone"], description: "Field where the google autofill is provided to the user")
-    }
-    "/register/phone-registration/google-autofill/show"(platform: "/mobile", TrackType.Event){}
-    "/register/phone-registration/google-autofill/use"(platform: "/mobile", TrackType.Event){}
 }
 

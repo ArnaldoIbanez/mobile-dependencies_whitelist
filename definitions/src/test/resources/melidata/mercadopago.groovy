@@ -444,6 +444,29 @@ trackTests {
             register_type = "company"
         }
 
+        "/register/form/google-hint/show"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+
+        "/register/form/google-hint/use"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+
+        "/register/form/google-autofill/show"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+
+        "/register/form/google-autofill/use"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
     }
 
     test("Company Registration Desktop") {
@@ -559,28 +582,9 @@ trackTests {
             app = "mp"
         }
 
-        "/register/phone-registration/google-hint/show"(platform: "/mobile") {
+        "/register/success"(platform:"/mobile") {
             app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
-        }
-
-        "/register/phone-registration/google-hint/use"(platform: "/mobile") {
-            app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
-        }
-
-        "/register/phone-registration/google-autofill/show"(platform: "/mobile") {
-            app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
-        }
-
-        "/register/phone-registration/google-autofill/use"(platform: "/mobile") {
-            app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
+            source = "phone"
         }
     }
 
