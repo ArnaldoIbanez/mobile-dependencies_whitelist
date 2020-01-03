@@ -2842,6 +2842,31 @@ trackTests {
             event_type = "shown"
             installment_id = 123
         }
+        "/notification/credits_merchants_em_congrats"(platform: "/mobile") {
+            news_id = "credits_merchants_em_congrats-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_std_expired_daily_charges_30"(platform: "/mobile") {
+            news_id = "credits_merchants_std_expired_daily_charges_30-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_std_expired_daily_charges_60"(platform: "/mobile") {
+            news_id = "credits_merchants_std_expired_daily_charges_60-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_std_expired_daily_charges_90"(platform: "/mobile") {
+            news_id = "credits_merchants_std_expired_daily_charges_90-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_std_expired_daily_charges_110"(platform: "/mobile") {
+            news_id = "credits_merchants_std_expired_daily_charges_110-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
 
         "/notification/credits_merchants_educational"(platform: "/mobile") {
             news_id = "credits-merchants_educational-9876"
@@ -6015,6 +6040,32 @@ trackTests {
         }
         "/notification/credits_merchants_em_expired_daily_charges_10"(platform: "/mobile") {
             news_id = "credits-merchants_em_expired_daily_charges_10-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+
+        "/notification/credits_merchants_em_congrats"(platform: "/mobile") {
+            news_id = "credits_merchants_em_congrats-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_std_expired_daily_charges_30"(platform: "/mobile") {
+            news_id = "credits_merchants_std_expired_daily_charges_30-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_std_expired_daily_charges_60"(platform: "/mobile") {
+            news_id = "credits_merchants_std_expired_daily_charges_60-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_std_expired_daily_charges_90"(platform: "/mobile") {
+            news_id = "credits_merchants_std_expired_daily_charges_90-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_std_expired_daily_charges_110"(platform: "/mobile") {
+            news_id = "credits_merchants_std_expired_daily_charges_110-9876"
             event_type = "shown"
             installment_id = 123
         }

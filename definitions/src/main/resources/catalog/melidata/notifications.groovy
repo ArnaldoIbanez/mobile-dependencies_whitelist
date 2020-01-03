@@ -1622,6 +1622,21 @@ tracks {
     "/notification/credits_merchants_em_expired_daily_charges_10"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric)
     }
+    "/notification/credits_merchants_std_expired_daily_charges_30"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_std_expired_daily_charges_60"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_std_expired_daily_charges_90"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_std_expired_daily_charges_110"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
+    "/notification/credits_merchants_em_congrats"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
 
     "/notification/coverages_compensation_complainant"(platform: "/mobile") {
         activity_id(required: true , type: PropertyType.String)
