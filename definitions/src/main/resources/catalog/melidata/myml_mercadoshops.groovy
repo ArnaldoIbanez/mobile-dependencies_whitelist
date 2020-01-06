@@ -387,4 +387,6 @@ tracks {
     "/mercado_shops/marketing/facebook/business_manager"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/facebook/user_procedure"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/instagram"(platform: "/", type: TrackType.View){}
 }
