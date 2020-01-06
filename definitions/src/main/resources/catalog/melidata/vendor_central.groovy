@@ -6,11 +6,17 @@ tracks {
 
     //BULK SECTION
     "/vendor_central"(platform: "/", isAbstract: true) {}
-    "/vendor_central/bulk"(platform: "/", isAbstract: true) {}
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor Central Summary
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    "/vendor_central/hub"(platform: "/web", type: TrackType.View) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Vendor Central BULK Offering Publish
     //------------------------------------------------------------------------------------------------------------------------------------------------------
+    "/vendor_central/bulk"(platform: "/", isAbstract: true) {}
+
     "/vendor_central/bulk/publish"(platform: "/web", isAbstract: true) {}
 
     "/vendor_central/bulk/publish/hub"(platform: "/web", type: TrackType.View) {}
