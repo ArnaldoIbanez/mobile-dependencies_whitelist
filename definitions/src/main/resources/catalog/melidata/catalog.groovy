@@ -90,6 +90,7 @@ catalog {
         include business, "loyalty_v2.groovy"
         include business, "credits.groovy"
         include business, "card_form.groovy"
+        include business, "merchengine.groovy"
     }
 
     marketplace.each { business ->
