@@ -13,13 +13,10 @@ tracks {
     "/merchengine"(platform: "/mobile", isAbstract: true) {}
 
     //Modal Events
-    "/merchengine/modal"(platform: "/mobile", isAbstract: true) {
+    "/merchengine/modal"(platform: "/mobile", type: TrackType.View) {
         realestate_id(required: true, type: PropertyType.String, description: "The container where we show the modal")
         content_id(required: true, type: PropertyType.String, description: "The identification of shown modal")
         origin(required: true, type: PropertyType.String, description: "The application that returns the modal")
-    }
-
-    "/merchengine/modal/show"(platform: "/mobile", type: TrackType.Event) {
     }
 
     "/merchengine/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {

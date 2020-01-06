@@ -11,7 +11,7 @@ trackTests {
     test("Merchengine ML track") {
 
 	    //Modal Events
-    	"/merchengine/modal/show"(platform: "/mobile", type: TrackType.Event) {
+    	"/merchengine/modal"(platform: "/mobile", type: TrackType.View) {
 			realestate_id = "modal_home_mp_v2"
 			content_id = "ftu_recarga_discount"
 			origin = "user_journey"
@@ -43,7 +43,7 @@ trackTests {
     test("Merchengine MP tracks") {
 
 		//Modal Events
-		"/merchengine/modal/show"(platform: "/mobile", type: TrackType.Event) {
+		"/merchengine/modal"(platform: "/mobile", type: TrackType.View) {
 			realestate_id = "modal_home_mp_v2"
 			content_id = "ftu_recarga_discount"
 			origin = "user_journey"
