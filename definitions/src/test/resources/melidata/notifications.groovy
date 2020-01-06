@@ -2919,8 +2919,6 @@ trackTests {
 
         //Merchant
         "/notification/merchants_growth_mgm"(platform: "/mobile") {
-            latest_news_type= "merchants_growth_mgm"
-            latest_news_id= "merchants_growth_mgm-126635313"
             gift_reason_id = "test"
             event_type = "open"
         }
@@ -6148,8 +6146,6 @@ trackTests {
         }
 
         "/notification/merchants_growth_mgm"(platform: "/mobile") {
-            latest_news_type= "merchants_growth_mgm"
-            latest_news_id= "merchants_growth_mgm-126635313"
             gift_reason_id = "test"
             event_type = "open"
         }
