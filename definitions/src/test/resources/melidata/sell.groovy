@@ -1485,7 +1485,6 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             vertical = "motors"
-            has_free = true
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
@@ -1509,7 +1508,6 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             vertical = "motors"
-            has_free = true
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
@@ -1533,7 +1531,6 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             vertical = "motors"
-            has_free = true
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
@@ -1558,7 +1555,6 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             vertical = "motors"
-            has_free = true
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
@@ -1583,7 +1579,6 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             vertical = "core"
-            has_free = true
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
