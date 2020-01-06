@@ -3882,7 +3882,10 @@ trackTests {
 
     test("Suscripciones"){
         "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
-        "/subscription_plan/confirm_create"(platform: "/web"){}
+        "/subscription_plan/confirm_create"(platform: "/web"){
+            flow = "/subscription_plan"
+            confirmButton = 'click'
+        }
     }
 
     //MP personalFrontend
