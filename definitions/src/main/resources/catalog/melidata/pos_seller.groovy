@@ -89,6 +89,8 @@
 
         "/pos_seller/nfce/client"(platform: "/", type: TrackType.View) {}
 
+        "/pos_seller/address_selection"(platform: "/mobile", type: TrackType.View) {}
+
         /**
         * pos seller event tracks
         */

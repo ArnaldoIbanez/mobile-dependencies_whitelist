@@ -1217,6 +1217,12 @@ trackTests {
       }
     }
 
+    test("Landing MercadoPago Point Resellers Form") {
+      "/point/landings/reseller"(platform:"/", type: TrackType.Event) {
+           product = "become_reseller"
+       }
+    }
+
     // MPMOBILE TEST
     test("account summary flow") {
         "/account_summary"(platform: "/mobile") {

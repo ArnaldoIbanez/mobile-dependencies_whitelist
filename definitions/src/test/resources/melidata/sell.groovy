@@ -1117,6 +1117,67 @@ trackTests {
             list_mode = "LIST"
         }
     }
+
+    test("SYI v4 item kilometers card showed"){
+        "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 item kilometers card showed"){
+        "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 item kilometers card confirmed"){
+        "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 item color card showed"){
+        "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 item color card confirmed"){
+        "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
     test("SYI v4 render item_conditions"){
         "/sell/item_conditions"(platform: "/web", type: TrackType.View){
             seller_profile = "ADVANCED"
@@ -1162,6 +1223,7 @@ trackTests {
             list_mode = "LIST"
         }
     }
+
     test("SYI v4 listing types card confirmed"){
         "/sell/item_conditions/listing_types/confirm"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
@@ -1416,6 +1478,118 @@ trackTests {
             list_mode = "LIST"
         }
     }
+
+    test("SYI v4 reservation info card showed"){
+        "/sell/item_conditions/reservation_info/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            has_free = true
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 reservation info card confirmed"){
+        "/sell/item_conditions/reservation_info/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+    test("SYI v4 location info card showed"){
+        "/sell/item_conditions/location/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            has_free = true
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 location info card confirmed"){
+        "/sell/item_conditions/location/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+    test("SYI v4 seller contact card showed"){
+        "/sell/item_conditions/seller_contact/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            has_free = true
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 seller contact  card confirmed"){
+        "/sell/item_conditions/seller_contact/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 instant pay listings card showed"){
+        "/sell/item_conditions/instant_pay_listings/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            has_free = true
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 instant pay listings  card confirmed"){
+        "/sell/item_conditions/instant_pay_listings/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 sidebar listing type card showed"){
+        "/sell/item_conditions/sidebar-listing-type/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            has_free = true
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
     test("SYI v4 render congrats"){
         "/sell/congrats"(platform: "/web", type: TrackType.View){
             seller_profile = "ADVANCED"
@@ -1485,6 +1659,19 @@ trackTests {
             list_mode = "LIST"
         }
     }
+
+    test("SYI v4 sidebar listing type showed"){
+        "/sell/sip/sidebar-listing-type/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            list_mode = "LIST"
+        }
+    }
+
     test("SYI v4 Category breadcrumb update"){
         "/sell/item_data/category_breadcrumb/update"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
