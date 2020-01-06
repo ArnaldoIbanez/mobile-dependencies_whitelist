@@ -499,7 +499,7 @@ trackTests {
             field = "phone"
         }
 
-        "/register/form/google-hint/use"(platform: "/mobile") {
+        "/register/form/google-hint/select"(platform: "/mobile") {
             app = "mp"
             step = "phoneRegistration"
             field = "phone"
@@ -511,7 +511,7 @@ trackTests {
             field = "phone"
         }
 
-        "/register/form/google-autofill/use"(platform: "/mobile") {
+        "/register/form/google-autofill/select"(platform: "/mobile") {
             app = "mp"
             step = "phoneRegistration"
             field = "phone"
@@ -621,6 +621,7 @@ trackTests {
 
         "/register/phone-registration/verification/autodetect-code"(platform: "/mobile") {
             app = "mp"
+            channel = "sms"
         }
 
         "/register/phone-registration/sign-in"(platform: "/mobile") {
