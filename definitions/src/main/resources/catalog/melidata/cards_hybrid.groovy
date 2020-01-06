@@ -51,6 +51,76 @@ tracks {
     // UNLOCK
     // --------
     "/cards/hybrid/unlock"(platform: "/", isAbstract: true) { }
+  
+    // Unlock: Init Point
+    "/cards/hybrid/unlock/init-point"(platform: "/", type: TrackType.View) {}
+
+    // Unlock: Scanner
+    "/cards/hybrid/unlock/scanner"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/unlock/scanner/link"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true, 
+            type: PropertyType.String, 
+            values: ["qr", "manual"],
+            description: "Link method used"
+        )
+    }
+
+    // Unlock: Manual Link
+    "/cards/hybrid/unlock/manual-link"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/unlock/manual-link/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true, 
+            type: PropertyType.String, 
+            values: ["link"],
+            description: "Manual link method selected"
+        )
+    }
+
+    // Unlock: Confirm Link
+    "/cards/hybrid/unlock/confirm-link"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/unlock/confirm-link/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true, 
+            type: PropertyType.String, 
+            values: ["confirm", "logout"],
+            description: "Action tapped"
+        )
+    }
+
+    // Unlock: Camera Permissions
+    "/cards/hybrid/unlock/camera-permissions"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/unlock/camera-permissions/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true, 
+            type: PropertyType.String, 
+            values: ["qr", "manual"],
+            description: "Link method selected"
+        )
+    }
+
+    // Unlock: Confirm Replacement
+    "/cards/hybrid/unlock/confirm-replacement"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/unlock/confirm-replacement/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true, 
+            type: PropertyType.String, 
+            values: ["confirm", "exit"],
+            description: "Action tapped"
+        )
+    }
+
+    // Unlock: Set Pin
+    "/cards/hybrid/unlock/set-pin"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/unlock/set-pin/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true, 
+            type: PropertyType.String, 
+            values: ["confirm"],
+            description: "Pin confirmed"
+        )
+    }
+
 
     // Unlock: Update App
     "/cards/hybrid/unlock/update-app"(platform: "/", type: TrackType.View) {}
@@ -60,7 +130,7 @@ tracks {
             type: PropertyType.String, 
             values: ["exit", "update"],
             description: "Action tapped"
-        )
+          )
     }
 
     // ENGAGEMENT

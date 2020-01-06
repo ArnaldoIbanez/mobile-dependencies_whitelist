@@ -153,7 +153,6 @@ trackTests {
         "/credits/consumer/administrator/summary"(platform: "/mobile", type: TrackType.View) {
             summary_status = 'empty_state'
         }
-
         //Events
         "/credits/consumer/administrator/tooltip"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator/payment_intention"(platform: "/web/desktop", type: TrackType.Event) {
@@ -193,6 +192,9 @@ trackTests {
         "/credits/consumer/administrator_v2"(platform: "/web/desktop") {}
         "/credits/consumer/administrator_v2/dashboard"(platform: "/web/desktop", type: TrackType.View) {
             dashboard_status = 'overdue'
+        }
+        "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
+            user_status = 'manually_paused'
         }
         "/credits/consumer/administrator_v2/suggested_modal"(platform: "/web/desktop", type: TrackType.View) {}
 
@@ -246,6 +248,10 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'empty_state'
         }
+        "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {
+            user_status = 'manually_paused'
+        }
+
 
         // "/credits/consumer/administrator_v2/suggested_product_modal"(platform: "/mobile", type: TrackType.Event) {}
         // "/credits/consumer/administrator_v2/weekly_deals_link"(platform: "/web/desktop", type: TrackType.Event) {}

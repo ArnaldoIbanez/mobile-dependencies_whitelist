@@ -27,6 +27,10 @@ tracks {
         domain_id(required: false, PropertyType.String, description: "Item's domain_id")
         catalog_listing(required: true, PropertyType.Boolean, description: "Item is catalog_listing or not")
     }
+    def item_from_map = objectSchemaDefinitions {
+        category_id(required: true, PropertyType.String, description: "Original item's category id")
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+    }
 
     propertyDefinitions {
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
@@ -45,11 +49,14 @@ tracks {
         predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
         parent_product_id(required: false, type: PropertyType.String, description: "Catalog product parent id for item")
         product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
+        item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
+        list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        vertical(required: false, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
     }
 
     propertyGroups {
-        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation)
-        categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id)
+        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical)
+        categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
     }
 
     // Sell
@@ -800,6 +807,7 @@ tracks {
     "/sell/item_data/flow_decision/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/flow_decision/confirm"(platform: "/web", type: TrackType.Event) {
         flow_decision(required: true, description: "Flow decision - true if is catalog", type: PropertyType.Boolean)
+        catalog_forced(required: false, description: "Indicates if the flow decision card is forcing catalog", type: PropertyType.Boolean)
     }
     "/sell/item_data/quantity_with_specifications"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/quantity_with_specifications/show"(platform: "/web", type: TrackType.Event) {}
@@ -852,6 +860,13 @@ tracks {
         item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
     }
 
+    "/sell/item_data/kilometers"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/color"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event) {}
+
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
@@ -898,6 +913,26 @@ tracks {
     "/sell/item_conditions/invoice/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/invoice/confirm"(platform: "/web", type: TrackType.Event) {}
 
+    "/sell/item_conditions/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_conditions/reservation_info"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/reservation_info/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/reservation_info/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_conditions/location"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/location/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/location/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_conditions/seller_contact"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/seller_contact/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/seller_contact/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_conditions/instant_pay_listings"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/instant_pay_listings/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/instant_pay_listings/confirm"(platform: "/web", type: TrackType.Event) {}
+
+
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
         categoryFlow
@@ -927,5 +962,8 @@ tracks {
     }
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/sip/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
+    "/sell/sip/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
 
 }

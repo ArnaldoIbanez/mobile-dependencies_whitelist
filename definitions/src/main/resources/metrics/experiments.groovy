@@ -18,15 +18,6 @@ metrics {
 		}
 	}
 
-	"quotations"(description: "track quotation as success for classifieds") {
-		countsOn {
-			condition {
-				path("/quotation/congrats")
-			}
-		}
-	}
-
-
 	"identity-validation/uniqueness.recommendation"(description: "Trust vote to login user") {
 		startWith {
 			experiment("auth/identity-validation_recommendation")

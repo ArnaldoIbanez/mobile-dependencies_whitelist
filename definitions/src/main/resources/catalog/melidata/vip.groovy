@@ -288,7 +288,7 @@ tracks {
     }
 
     "/vip/buy_action"(platform: "/web", parentPropertiesInherited: false) {
-        shipping_pay_before(required: true, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
+        shipping_pay_before(required: false, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
         variation_info
     }
 
@@ -320,7 +320,7 @@ tracks {
     }
 
     "/vip/add_cart_action"(platform: "/web", parentPropertiesInherited: false) {
-        shipping_pay_before(required: true, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
+        shipping_pay_before(required: false, type: PropertyType.Boolean, description: "Indicates if the shipping option selected has pay before")
         variation_info
     }
 
@@ -490,7 +490,7 @@ tracks {
 
     "/vip/question/ask"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
 
-    "/vip/question/ask/prevent_stock"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/vip/question/ask/prevent_stock"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true)
     }
 
