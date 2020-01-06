@@ -2516,6 +2516,10 @@ trackTests {
         }
 
         //Instore shortcut
+        "/instore/enable_shortcut"(platform:"/mobile/android", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
         "/instore/enable_shortcut"(platform:"/mobile/android", business: "mercadopago", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
