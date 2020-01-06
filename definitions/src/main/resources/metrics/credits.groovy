@@ -138,7 +138,7 @@ metrics {
         }
     }
 
-    "credits-consumer.personal_loan_conversion"(description: "credits conversion under personal loans experiments", acceptMultiVariantSession: true) {
+    "credits-consumer.personal_loan_conversion"(description: "Credits conversion under adoption personal loans flow") {
         startWith {
             experiment("credits/credits_short_onboarding", "credits/credits_default_selected_loans")
         }
