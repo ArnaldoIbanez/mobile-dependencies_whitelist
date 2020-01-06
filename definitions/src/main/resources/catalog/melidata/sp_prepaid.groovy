@@ -5,7 +5,7 @@ import com.ml.melidata.TrackType
 tracks {
 
     /**
-    * Single Player Prepaid Tracks 
+    * Single Player Prepaid Tracks
     */
     "/single_player"(platform: "/mobile", isAbstract: true) {}
     
