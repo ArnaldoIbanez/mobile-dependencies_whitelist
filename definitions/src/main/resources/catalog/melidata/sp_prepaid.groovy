@@ -7,7 +7,9 @@ tracks {
     /**
     * Single Player Prepaid Tracks 
     */
-
+    "/single_player"(platform: "/mobile", isAbstract: true) {}
+    
+    
     "/single_player/prepaid"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Name of the current flow")
         session_id (required: true, type: PropertyType.String, description: "Session id of the user")
