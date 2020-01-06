@@ -1637,6 +1637,9 @@ tracks {
     "/notification/credits_merchants_std_expired_daily_charges_60"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric)
     }
+    "/notification/credits_merchants_std_expired_daily_charges_75"(platform: "/mobile") {
+        installment_id(required: true, type: PropertyType.Numeric)
+    }
     "/notification/credits_merchants_std_expired_daily_charges_90"(platform: "/mobile") {
         installment_id(required: true, type: PropertyType.Numeric)
     }

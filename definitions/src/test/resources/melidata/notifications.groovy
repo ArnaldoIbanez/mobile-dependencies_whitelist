@@ -2875,6 +2875,11 @@ trackTests {
             event_type = "shown"
             installment_id = 123
         }
+        "/notification/credits_merchants_std_expired_daily_charges_75"(platform: "/mobile") {
+            news_id = "credits_merchants_std_expired_daily_charges_75-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
         "/notification/credits_merchants_std_expired_daily_charges_90"(platform: "/mobile") {
             news_id = "credits_merchants_std_expired_daily_charges_90-9876"
             event_type = "shown"
@@ -6092,6 +6097,11 @@ trackTests {
         }
         "/notification/credits_merchants_std_expired_daily_charges_60"(platform: "/mobile") {
             news_id = "credits_merchants_std_expired_daily_charges_60-9876"
+            event_type = "shown"
+            installment_id = 123
+        }
+        "/notification/credits_merchants_std_expired_daily_charges_75"(platform: "/mobile") {
+            news_id = "credits_merchants_std_expired_daily_charges_75-9876"
             event_type = "shown"
             installment_id = 123
         }
