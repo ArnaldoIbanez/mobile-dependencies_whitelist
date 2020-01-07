@@ -50,7 +50,7 @@ trackTests {
     }
 
     test("Panel Layout") {
-        "/panel-layout" (platform: "/web", type: TrackType.View) {
+        "/panel_layout" (platform: "/web", type: TrackType.View) {
            navigationSections = [
                 section_id: 'section1',
                 items: [

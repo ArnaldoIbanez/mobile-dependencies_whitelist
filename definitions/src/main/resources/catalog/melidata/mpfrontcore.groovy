@@ -2,8 +2,19 @@ import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.TrackType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
-tracks {
+def sub_item_definition = objectSchemaDefinitions {
+    sub_item_id(type: PropertyType.String)
+}
+def item_definition = objectSchemaDefinitions {
+    item_id(type: PropertyType.String)
+    sub_items(type: PropertyType.Map(sub_item_definition), required: false)
+}
+def section_definition = objectSchemaDefinitions {
+    section_id(type: PropertyType.String)
+    items(type: PropertyType.Map(item_definition))
+}
 
+tracks {
     /*************************
     *      ACTIVITY WEB      *
     *************************/
@@ -34,21 +45,10 @@ tracks {
     "/shield"(platform: "/web", type: TrackType.View) {}
 
     //MP Panel Layout
-    "/panel-layout"(platform: "/") {
-        def sub_item_definition = objectSchemaDefinitions {
-            sub_item_id(type: PropertyType.String, required: true)
-        }
-        def item_definition = objectSchemaDefinitions {
-            item_id(type: PropertyType.String, required: true)
-            sub_items(type: PropertyType.Map(sub_item_definition))
-        }
-        def section_definition = objectSchemaDefinitions {
-            section_id(type: PropertyType.String, required: true)
-            items(type: PropertyType.Map(item_definition))
-        }
+    "/panel_layout"(platform: "/") {
         navigationSections(
-                description:"The sections that the user is receiving from the api.",
-                type: PropertyType.ArrayList(PropertyType.Map(section_definition))
+            description:"The sections that the user is receiving from the api.",
+            type: PropertyType.ArrayList(PropertyType.Map(section_definition))
         )
     }
 }
