@@ -35,6 +35,20 @@ tracks {
 
     //MP Panel Layout
     "/panel-layout"(platform: "/") {
-        navigationSections(description:"The sections that the user is receiving from the api.", type: PropertyType.Map(PropertyType.String, PropertyType.ArrayList(PropertyType.String)))
+        def sub_item_definition = objectSchemaDefinitions {
+            sub_item_id(type: PropertyType.String, required: true)
+        }
+        def item_definition = objectSchemaDefinitions {
+            item_id(type: PropertyType.String, required: true)
+            sub_items(type: PropertyType.Map(sub_item_definition))
+        }
+        def section_definition = objectSchemaDefinitions {
+            section_id(type: PropertyType.String, required: true)
+            items(type: PropertyType.Map(item_definition))
+        }
+        navigationSections(
+                description:"The sections that the user is receiving from the api.",
+                type: PropertyType.ArrayList(PropertyType.Map(section_definition))
+        )
     }
 }
