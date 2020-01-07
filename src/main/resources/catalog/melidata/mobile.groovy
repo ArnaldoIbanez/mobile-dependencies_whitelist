@@ -36,6 +36,13 @@ tracks {
         exception (required: false, type: PropertyType.String)
     }
 
+    "/application/uninstall_event" (platform: "/mobile", type: TrackType.Event){
+        type (required: true, type: PropertyType.String)
+        date_created (required: true, type: PropertyType.String)
+        lang (required: true, type: PropertyType.String)
+        timezone (required: true, type: PropertyType.String)
+    }
+
     "/permissions"(platform: "/mobile", isAbstract: true){}
     "/permissions/location"(platform: "/mobile", type: TrackType.View){
         context(required: "true", description: "Where are we requesting the permissions")
@@ -46,5 +53,4 @@ tracks {
     "/permissions/location/native"(platform: "/mobile", isAbstract: true){}
     "/permissions/location/native/accept"(platform: "/mobile", type: TrackType.Event){}
     "/permissions/location/native/deny"(platform: "/mobile", type: TrackType.Event){}
-
 }

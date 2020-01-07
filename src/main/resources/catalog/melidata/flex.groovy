@@ -372,4 +372,15 @@ tracks {
         context(required: true, type: PropertyType.String,  values: ["login"],
                 description: "Indicates whether the event was triggered because login failed")
     }
+
+    "/flex/package/receiver_options/selection"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+        option_type(required: true, type: PropertyType.String, values: ["receives_buyer", "receives_another"], description: "The option of who receives the package", inheritable:false)
+    }
+
+    "/flex/package/receiver_options"(platform: "/mobile", type: TrackType.View) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
 }

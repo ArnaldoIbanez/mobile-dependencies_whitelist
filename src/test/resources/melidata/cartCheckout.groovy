@@ -144,6 +144,7 @@ trackTests {
         "/cart/checkout/error"(platform: "/") {
             dataSet()
             error='paused_item'
+            error_code='404'
         }
         "/cart/checkout/payment/billing_information"(platform: "/mobile") {
             dataSet()
@@ -158,6 +159,10 @@ trackTests {
         "/cart/checkout/payment/select_method/show_distances"(platform: "/", dataSet)
         "/cart/checkout/payment/select_store"(platform: "/", dataSet)
         "/cart/checkout/payment/select_bank"(platform: "/", dataSet)
+        "/cart/checkout/payment/select_bank"(platform: "/") {
+            dataSet()
+            available_issuers = ["santander", "banamex"]
+        }
         "/cart/checkout/payment/view_location"(platform: "/", dataSet)
         "/cart/checkout/payment/view_location/location"(platform: "/", dataSet)
         "/cart/checkout/payment/view_location/preloaded"(platform: "/", dataSet)
@@ -202,6 +207,10 @@ trackTests {
             status = "success"
         }
         "/cart/checkout/congrats"(platform: "/web") {
+            dataSet()
+            dataSetCongratsWeb()
+        }
+        "/cart/checkout/congrats/input_sec_code"(platform: "/web") {
             dataSet()
             dataSetCongratsWeb()
         }
@@ -250,7 +259,44 @@ trackTests {
             dataSet()
             dataSetCongrats()
         }
-        
+
+        "/cart/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event){
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event){
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/congrats/use_now"(platform: "/", type: TrackType.Event){
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+
         "/cart/checkout/show_ticket"(platform: "/", dataSet)
         "/cart/checkout/finish/invalid_sec_code/input_code"(platform: "/", dataSet)
         "/cart/checkout/finish/invalid_sec_code/input_code/confirm_purchase"(platform: "/mobile", type: TrackType.Event) {
@@ -263,6 +309,10 @@ trackTests {
         "/cart/checkout/loading"(platform: "/", dataSet)
         "/cart/checkout/loading/back"(platform: "/mobile", type: TrackType.Event, dataSet)
         "/cart/checkout/shipping"(platform: "/mobile", dataSet)
+
+        //Address Hub
+        "/cart/checkout/shipping/delivery_instructions"(platform:"/", dataSet)
+        "/cart/checkout/shipping/address_hub"(platform:"/", dataSet)
 
         // Addresses
         // Page
@@ -366,6 +416,19 @@ trackTests {
             ]
             recovery_flow=true
         }
+        "/cart/checkout/shipping/input_address/delivery_instructions"(platform: "/", type: TrackType.Event) {
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
         "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event) {
             label = "Ingresar solo valores numéricos"
             items = [
@@ -379,6 +442,33 @@ trackTests {
             ]
             recovery_flow=true
         }
+        "/cart/checkout/shipping/input_address/telephone_input"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/additional_info"(platform: "/", type: TrackType.Event) {
+            label = "Revisa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+            session_id="some_session_id"
+        }
 
         // address form mobile
          "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event) {
@@ -390,6 +480,10 @@ trackTests {
             session_id="some_session_id"
         }
         "/cart/checkout/shipping/input_address/zip_code"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/city"(platform: "/", type: TrackType.Event) {
             label = "La cantidad de caracteres ingresados es inválida"
             session_id="some_session_id"
         }
@@ -410,7 +504,15 @@ trackTests {
             label = "La cantidad de caracteres ingresados es inválida"
             session_id="some_session_id"
         }
+        "/cart/checkout/shipping/input_address/delivery_instructions"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+        }
         "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event) {
+            label = "La cantidad de caracteres ingresados es inválida"
+            session_id="some_session_id"
+        }
+        "/cart/checkout/shipping/input_address/telephone_input"(platform: "/", type: TrackType.Event) {
             label = "La cantidad de caracteres ingresados es inválida"
             session_id="some_session_id"
         }

@@ -24,6 +24,8 @@ tracks {
         width(type: PropertyType.Numeric, required: true)
         length(type: PropertyType.Numeric, required: true)
         weight(type: PropertyType.Numeric, required: true)
+        diameter(type: PropertyType.Numeric, required: false)
+        volume(type: PropertyType.Numeric, required: false)
     }
 
     def notification_payload_definition = objectSchemaDefinitions {

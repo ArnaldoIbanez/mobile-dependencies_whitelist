@@ -67,6 +67,7 @@ catalog {
         include business, "authentication.groovy"
         include business, "bugsnag.groovy"
         include business, "cx.groovy"
+        include business, "cards_hybrid.groovy"
         include business, "identity_validation.groovy"
         include business, "remedies.groovy"
         include business, "melidata_sdk.groovy"
@@ -89,6 +90,8 @@ catalog {
         include business, "payers_growth.groovy"
         include business, "collaborators.groovy"
         include business, "loyalty_v2.groovy"
+        include business, "credits.groovy"
+        include business, "merchengine.groovy"
     }
 
     marketplace.each { business ->
@@ -115,6 +118,7 @@ catalog {
         include business, "myml.groovy"
         include business, "myml_mercadoshops.groovy"
         include business, "seller_central.groovy"
+        include business, "vendor_central.groovy"
         include business, "onboarding.groovy"
         include business, "orders_feed.groovy"
         include business, "pushNotifications.groovy"
@@ -138,6 +142,7 @@ catalog {
         include business, "zip_finder.groovy"
         include business, "current_location.groovy"
         include business, "download_app.groovy"
+        include business, "incentivate_login.groovy"
         include business, "supermarket.groovy"
         include business, "contact.groovy"
         include business, "full.groovy"
@@ -147,9 +152,11 @@ catalog {
         include business, "myaccount_billing.groovy"
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
+        include business, "kyc.groovy"
         include business, "pdp.groovy"
         include business, "qadb.groovy"
         include business, "promotions.groovy"
+        include business, "sp_prepaid.groovy"
     }
 
     mercadopago.each { business ->
@@ -171,6 +178,8 @@ catalog {
         include business, "sube_recharge.groovy"
         include business, "transport.groovy"
         include business, "remedy.groovy"
+        include business, "kyc.groovy"
+        include business, "user_blocker.groovy"
         include business, "digital_account.groovy"
         include business, "front_core.groovy"
         include business, "mplayer.groovy"
@@ -184,6 +193,7 @@ catalog {
         include business, "discount_center.groovy"
         include business, "external.groovy"
         include business, "pos_billings.groovy"
+        include business, "sp_prepaid.groovy"
     }
 
     mercadoshops.each { business ->

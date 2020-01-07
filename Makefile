@@ -1,9 +1,11 @@
-CATALOG=Melidata
+CATALOG=All
 help:
 	@echo "run make test for running Melidata Catalog tests, or make test CATALOG=Melidata/Shipping/All for running Melidata, Shipping or both Catalog tests"
 test:
+	echo "Starting tests... "
 	./gradlew test$(CATALOG)
 productionTest:
-	./gradlew -Dhttp.proxyHost=172.16.0.89 -Dhttps.proxyHost=172.16.0.89 -Dhttp.proxyPort=80 -Dhttps.proxyPort=80  test$(CATALOG)
+	echo "Starting tests... "
+	./gradlew test$(CATALOG)
 
 .PHONY: test

@@ -91,6 +91,8 @@ import com.ml.melidata.TrackType
 
         "/pos_seller/nfce/client"(platform: "/", type: TrackType.View) {}
 
+        "/pos_seller/address_selection"(platform: "/mobile", type: TrackType.View) {}
+
         /**
         * pos seller event tracks
         */
@@ -263,7 +265,16 @@ import com.ml.melidata.TrackType
 
         "/pos_seller/friction/sat_not_found"(platform: "/", type: TrackType.View) {}
 
+
         // ----------- WEB -------------
+
+        /**
+        * pos seller web view tracks
+        */
+
+        "/pos_seller/onboarding"(platform: "/web", type: TrackType.View) {}
+        "/pos_seller/mobile_shield"(platform: "/web", type: TrackType.View) {}
+
 
         /**
         * pos seller web event tracks
@@ -283,4 +294,6 @@ import com.ml.melidata.TrackType
             message (required: true, type: PropertyType.Map(PosSellerFrictionMessage), description: "Message shown map")
             extra_info (required: true, type: PropertyType.Map(PosSellerCardFrictionExtraInfoWeb), description: "Friction extra data map")
         }
+        "/pos_seller/onboarding/start"(platform: "/web", type: TrackType.Event) {}
+        "/pos_seller/mobile_shield/start"(platform: "/web", type: TrackType.Event) {}
 }

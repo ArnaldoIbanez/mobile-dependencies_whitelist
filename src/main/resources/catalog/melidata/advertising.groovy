@@ -21,10 +21,13 @@ tracks {
 
     "/advertising/pads2"(platform: "/", isAbstract: true) {}
 
+    "/advertising/pads2/manager/card"(platform: "/", isAbstract: true) {}
+    "/advertising/pads2/manager/ssl"(platform: "/", isAbstract: true) {}
+
     "/advertising/pads2/manager"(platform: "/web", type: TrackType.View) {
         campaign_id(required: true, description: "Id related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        budget(required: true, description: "Current budget related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget(required: false, description: "Current budget related to the campaign")
         share_value(required: false,  description: "Porcentual share value")
         chart_visible(required: false, type: PropertyType.Boolean, description: "If the chart is visible")
         detailsMeli_visible(required: false, type: PropertyType.Boolean, description: "If the details are visible")
@@ -157,11 +160,11 @@ tracks {
 
     "/advertising/pads2/manager/lift/details"(platform: "/web", isAbstract: true) {}
     "/advertising/pads2/manager/lift/details/show"(platform: "/web", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/details/hide"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/details/close"(platform: "/web", type: TrackType.Event) {}
 
     "/advertising/pads2/manager/lift/chart"(platform: "/web", isAbstract: true) {}
     "/advertising/pads2/manager/lift/chart/show"(platform: "/web", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/chart/hide"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/chart/close"(platform: "/web", type: TrackType.Event) {}
 
     "/advertising/pads2/manager/lift/tooltip"(platform: "/web", isAbstract: true) {}
     "/advertising/pads2/manager/lift/tooltip/adv_sales"(platform: "/web", type: TrackType.Event) {}
@@ -186,4 +189,45 @@ tracks {
     "/advertising/pads2/manager/lift/modal/close"(platform: "/web", type: TrackType.Event) {
         share_value(required: true, description: "Porcentual share value")
     }
+
+    //Card Upselling
+    "/advertising/pads2/manager/card/upselling"(platform: "/web", type: TrackType.View) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: false, type: PropertyType.String, description: "Current budget related to the campaign")
+        budget_new(required: false, type: PropertyType.String, description: "New budget related to the campaig")
+    }
+
+    "/advertising/pads2/manager/card/upselling"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: false, type: PropertyType.String, description: "Current budget related to the campaign")
+        budget_new(required: false, type: PropertyType.String, description: "New budget related to the campaig")
+    }
+
+    //SLL
+    "/advertising/pads2/manager/card/sll"(platform: "/web", type: TrackType.View) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
+    }
+
+    "/advertising/pads2/manager/card/sll"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
+    }
+
+    "/advertising/pads2/manager/ssl/landing"(platform: "/web", type: TrackType.View) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
+    }
+
+    "/advertising/pads2/manager/ssl/landing/activated"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        sll_total_activated(required: false, type: PropertyType.String, description: "Indicates the number total of sll activated")
+    }
+
+    "/advertising/pads2/manager/ssl/landing/breadcrumb"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        sll_total(required: true, type: PropertyType.String, description: "Indicates the number total of sll")
+
+    }
+
 }

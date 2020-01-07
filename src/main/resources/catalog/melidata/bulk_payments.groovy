@@ -55,10 +55,6 @@ tracks {
     "/bulk_payments/suppliers/contact_select"(platform: "/",type: TrackType.Event) {
       supplier_id(required: true, type: PropertyType.Numeric, description: "UserId selected in this event")
     }
-    "/bulk_payments/suppliers/contact_add_reference"(platform: "/",type: TrackType.Event) {
-      supplier_email(required: true, type:PropertyType.String, description: "Email from the supplier that is changing the reference")
-      reference(required: true, type: PropertyType.String, description: "The reference added in this event")
-    }
     "/bulk_payments/suppliers/click_to_review"(platform: "/",type: TrackType.Event) {
       status(required:true, type: PropertyType.String, values:["success", "error"], description:"Status for the review action. Values possibles: Succes or Error")
       users(required:false, type: PropertyType.ArrayList(PropertyType.Map(userStructure)), description: 'Users that has been checked to receive a payment')

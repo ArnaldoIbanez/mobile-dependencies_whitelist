@@ -21,7 +21,9 @@ tracks {
         payment_quantity(required: true, description: "Payments quantity selected, e.g: 1", type: PropertyType.Numeric)
         available_methods(required: false, description: "Available payment methods types, e.g: ['credit_card', 'account_money']", type: PropertyType.ArrayList(PropertyType.String))
         payment_amount_local(required: true, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
-    }
+        flow_context(required: false, description: "Information about current flow's status, e.g: 'init'", type: PropertyType.String)
+        flow_type(required: false, description: "Current flow type, e.g: 'card_express'", type: PropertyType.String)
+    } 
 
     // EVENTS
     "/checkout_off/init"(platform: "/", type: TrackType.Event) {}
@@ -88,6 +90,8 @@ tracks {
         payment_type_id(required: false, description: "Current selected payment type, e.g: 'credit_card'", type: PropertyType.String)
         payment_amount_local(required: false, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
         payment_quantity(required: false, description: "Payments quantity selected, e.g: 1", type: PropertyType.Numeric)
+        flow_context(required: false, description: "Information about current flow's status, e.g: 'init'", type: PropertyType.String)
+        flow_type(required: false, description: "Current flow type, e.g: 'card_express'", type: PropertyType.String)
     }
 
     //Final Views
@@ -95,6 +99,7 @@ tracks {
         payment_installments(required: false, description: "Installments selected")
         payment_status_detail(required: true, description: "Reason for the payment status")
         payment_status(required: true, description: "Reason for the payment status")
+        payment_id(required: false, description: "Payment's identification in case that the payment was successful", type: PropertyType.String)
     }
 
     "/checkout_off/congrats/call_for_auth"(platform: "/", isAbstract: true) {}

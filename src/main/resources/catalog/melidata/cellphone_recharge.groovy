@@ -48,6 +48,14 @@ tracks {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
+    "/cellphone_recharge/contingency"(platform: "/mobile", type: TrackType.View) {
+        company_id (required: true, type: PropertyType.String, description: "Company with contingency")
+    }
+
+    "/cellphone_recharge/understood_contingency"(platform: "/mobile", type: TrackType.Event) {
+        company_id (required: true, type: PropertyType.String, description: "Company with contingency")
+    }
+
     "/cellphone_recharge/confirm"(platform: "/web"){}
 
     // Cellphone Recharge Frontend
@@ -66,13 +74,19 @@ tracks {
     "/cellphone_recharge/error"(platform: "/web", type: TrackType.View) {}
     "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {}
 
-    // Recharge Marketing landing 
-    "/cellphone_recharge/mkt_landing"(platform: "/web", type: TrackType.View) {}
-    "/cellphone_recharge/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {}
+    // Recharge Marketing Performance landing 
+    "/cellphone_recharge/mkt_landing"(platform: "/web", type: TrackType.View) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/cellphone_recharge/mkt_landing/sms"(platform: "/web", type: TrackType.Event) { 
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
     "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
         position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
     }
     "/cellphone_recharge/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
         position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }
 

@@ -14,6 +14,8 @@ tracks {
         newbie(required: false, type: PropertyType.Boolean)
         home_version(required: false, type: PropertyType.String)
         is_logged(required: false, type: PropertyType.Boolean)
+        should_hide_onboarding_close(required: false, type: PropertyType.Boolean)
+        should_hide_onboarding_close_date(required: false, type: PropertyType.String)
     }
 
     "/home/failure"(platform: "/mobile", type: TrackType.Event) {

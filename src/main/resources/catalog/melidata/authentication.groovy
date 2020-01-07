@@ -248,6 +248,65 @@ tracks {
         status_code(type: PropertyType.String, required: true, description: "Describes relation between this view and current status code")
     }
 
+    //TOTP
+    "/auth/totp"(platform: "/", isAbstract: true) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+    }
+
+    "/auth/totp/enrollment"(platform: "/", isAbstract: true) {
+        is_another_enroll(type: PropertyType.Boolean, required: true, description: "Refers to add_other enroll flow")
+    }
+
+    "/auth/totp/enrollment/chooser"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/enrollment/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/enrollment/greeting"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/enrollment/scanner"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/enrollment/validation"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/validation"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/too_many_attempts"(platform: "/", type: TrackType.View) {}
+
+    "/auth/totp/enrollment/chooser/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
+        event_type(values: ["click", "submit"], required: true, description: "Type of event")
+    }
+
+    "/auth/totp/enrollment/congrats/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
+        event_type(values: ["click", "submit"], required: true, description: "Type of event")
+    }
+
+    "/auth/totp/enrollment/greeting/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
+        event_type(values: ["click", "submit"], required: true, description: "Type of event")
+    }
+
+    "/auth/totp/enrollment/scanner/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
+        event_type(values: ["click", "submit"], required: true, description: "Type of event")
+    }
+
+    "/auth/totp/enrollment/validation/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
+        event_type(values: ["click", "submit"], required: true, description: "Type of event")
+    }
+
+    "/auth/totp/validation/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
+        event_type(values: ["click", "submit"], required: true, description: "Type of event")
+    }
+
     //Attestation App
     "/auth/attestation"(platform: "/mobile", isAbstract: true) {}
 
@@ -405,6 +464,10 @@ tracks {
 
     "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {}
 
+    def screenlockConfigStructure = objectSchemaDefinitions {
+        transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+    }
 
     // Biometrics / Screenlock
     "/screenlock"(platform: "/mobile", isAbstract: true) {
@@ -412,11 +475,22 @@ tracks {
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock"])
     }
 
-    "/screenlock/validation_start"(platform: "/mobile", type: TrackType.Event) { }
+    "/screenlock/validation_start"(platform: "/mobile", type: TrackType.Event) {
+        flow_id(type: PropertyType.String, required: true, description: "Flow identifier where validation is happening")
+     }
 
     "/screenlock/validation_end"(platform: "/mobile", type: TrackType.Event) {
+        flow_id(type: PropertyType.String, required: true)
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os validation flow")
         result(type: PropertyType.String, required: true, values: ["success", "error"])
         errors(type: PropertyType.ArrayList, required: false)
+    }
+
+    "/screenlock/opening_lock"(platform: "/mobile", type: TrackType.View) {
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+    }
+
+    "/screenlock/opening_lock/retry"(platform: "/mobile", type: TrackType.Event) {
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 }

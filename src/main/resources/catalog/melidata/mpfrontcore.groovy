@@ -10,11 +10,12 @@ tracks {
     *      ACTIVITY WEB      *
     *************************/
 
+    // MP Home
+    "/mp_home"(platform: "/web", type: TrackType.View) {}
+
     // MP Activities
     "/listing"(platform: "/", isAbstract: true) {}
-
     "/listing/activities"(platform: "/web", type: TrackType.View) {}
-
     "/listing/gateway"(platform: "/web", type: TrackType.View) {}
 
     // MP details
@@ -30,4 +31,7 @@ tracks {
 
     // MP Activities Export
     "/activities/export"(platform: "/web", type: TrackType.View) {}
+
+    // MP Shields
+    "/shield"(platform: "/web", type: TrackType.View) {}
 }

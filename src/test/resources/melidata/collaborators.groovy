@@ -25,7 +25,6 @@ trackTests {
     test("Start of creation of a role for the new operator" ) {
         "/collaborators_admin/roles"(platform:"/web", type: TrackType.View) {}
         "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
-            email = 'colaborador@owner.io'
             segmentation = 'first_stage'
         }
         "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View) {}
@@ -78,6 +77,20 @@ trackTests {
             type = 'form'
             segmentation = 'no-data'
         }
+    }
+
+    test("Show scopes") {
+        "/collaborators/scopes"(platform:"/", type: TrackType.View) {}
+    }
+
+    test("Show scope detail") {
+        "/collaborators/scopes/detail"(platform:"/", type: TrackType.View) {
+            scope = 'test_scope'
+        }
+    }
+
+    test("Tap continue") {
+        "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event) {}
     }
 
     defaultBusiness = "mercadolibre"
@@ -101,7 +114,6 @@ trackTests {
     test("Start of creation of a role for the new operator" ) {
         "/collaborators_admin/roles"(platform:"/web", type: TrackType.View) {}
         "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
-            email = 'colaborador@owner.io'
             segmentation = 'first_stage'
         }
         "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View) {}
@@ -155,4 +167,19 @@ trackTests {
             segmentation = 'no-data'
         }
     }
+
+    test("Show scopes") {
+        "/collaborators/scopes"(platform:"/", type: TrackType.View) {}
+    }
+
+    test("Show scope detail") {
+        "/collaborators/scopes/detail"(platform:"/", type: TrackType.View) {
+            scope = 'test_scope'
+        }
+    }
+
+    test("Tap continue") {
+        "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event) {}
+    }
+
 }

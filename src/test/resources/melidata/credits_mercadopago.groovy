@@ -7,6 +7,122 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
+    test("Merchant Credits Enrollment Mobile") {
+        def full_offer = {
+            offer: {
+                segment: 'online'
+                offer_type:'early_offer'
+            }
+            product_types: ['sales_percentage_loan']
+        }
+
+        def offer_without_offer_type = {
+            segment: 'online'
+            product_types: ['fixed_term_loan']
+        }
+
+        def offer_without_segment = {
+            offer_type: 'early_offer'
+            product_types: ['sales_percentage_loan', 'fixed_term_loan']
+        }
+
+        def full_variant_offer = {
+            offer: {
+                segment: 'online'
+                offer_type:'early_offer'
+            }
+            product_type: 'sales_percentage_loan'
+            variant: 'fixed_amount'
+        }
+
+        def variant_offer_without_offer_type = {
+            offer: {
+                segment: 'online'
+            }
+            product_type: 'fixed_term_loan'
+            variant: 'fixed'
+        }
+
+        def variant_offer_without_segment = {
+            offer: {
+                offer_type: 'early_offer'
+            }
+            product_type: 'sales_percentage_loan'
+            variant: 'normal'
+        }
+
+        //Onboarding
+        "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
+            full_offer()
+        }
+        "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
+            offer_without_offer_type()
+        }
+        "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
+            offer_without_segment()
+        }
+
+        //Hub
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            full_offer()
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer_without_offer_type()
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer_without_segment()
+        }
+
+        //Simulator
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            full_variant_offer
+        }
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            variant_offer_without_offer_type
+        }
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            variant_offer_without_segment
+        }
+
+        //Summary
+        "/credits/merchant/enrollment/summary"(platform: "/mobile/android") {
+            requested_amount = 10000
+            max_amount = 20000
+            min_amount = 5000
+            max_option = 12
+            option = 12
+            product_type = 'fixed_term_loan'
+        }
+        "/credits/merchant/enrollment/summary"(platform: "/mobile/android") {
+            requested_amount = 10000
+            max_amount = 10000
+            min_amount = 10000
+            max_option = 120030
+            option = 30
+            product_type = 'sales_percentage_loan'
+        }
+
+        //Congrats
+        "/credits/merchant/enrollment/congrats"(platform: "/mobile/android") {
+            requested_amount = 10000
+            max_amount = 20000
+            min_amount = 5000
+            max_option = 12
+            option = 12
+            product_type = 'fixed_term_loan'
+            has_prepaid = true
+        }
+        "/credits/merchant/enrollment/congrats"(platform: "/mobile/android") {
+            requested_amount = 10000
+            max_amount = 10000
+            min_amount = 10000
+            max_option = 120030
+            option = 30
+            product_type = 'sales_percentage_loan'
+            has_prepaid = false
+        }
+    }
+
     test("Merchant Credits Enrollment") {
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'pending'
@@ -89,6 +205,16 @@ trackTests {
             ]
         }
 
+        def sales_percentage_map = {
+            [
+                product_type: 'fixed_term',
+                segment: 'online',
+                category: 'regular',
+                offer_type: 'early_offer',
+                status: 'on_time'
+            ]
+        }
+
         def express_money = {
             product_type = 'express_money'
             segment = 'online'
@@ -115,6 +241,13 @@ trackTests {
             status = 'on_time'
         }
 
+        def sales_percentage_loan_on_time = {
+            product_type = 'sales_percentage_loan'
+            segment = 'in_store'
+            offer_type = 'full_offer'
+            status = 'on_time'
+        }
+
         def fixed_term = {
             product_type = 'fixed_term'
             segment = 'online'
@@ -124,6 +257,14 @@ trackTests {
 
         def fixed_term_on_time = {
             product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'on_time'
+        }
+
+        def fixed_term_loan_on_time = {
+            product_type = 'fixed_term_loan'
             segment = 'online'
             category = 'regular'
             offer_type = 'early_offer'
@@ -149,6 +290,13 @@ trackTests {
             ]
             show_cx_widget = true
         })
+
+        "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {}
+        
+        "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {
+            sales_percentage_map()
+        }
+
         "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
 
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
@@ -165,13 +313,22 @@ trackTests {
             fixed_term_on_time()
         }
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             express_money_overdue()
         }
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             sales_percentage_on_time()
         }
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
         }
 
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
@@ -179,26 +336,45 @@ trackTests {
             fixed_term_on_time()
         }
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             express_money_overdue()
         }
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             sales_percentage_on_time()
         }
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
         }
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
             fixed_term_on_time()
         }
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
             express_money_overdue()
         }
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
             sales_percentage_on_time()
         }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
+        }
 
         "/credits/merchant/administrator/history"(platform: "/web/desktop") {}
+
+        "/credits/merchant/administrator/payment_history"(platform: "/web/desktop") {
+            sales_percentage_map()
+        }
 
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
@@ -395,6 +571,10 @@ trackTests {
         "/credits/merchant/public_landing"(platform: "/web/desktop") {
             user_profile = 'no_offer'
         }
+
+        "/credits/merchant/declarative_form"(platform:"/web/desktop", type: TrackType.View) {}
+
+        "/credits/merchant/declarative_form/congrats"(platform:"/web/desktop", type: TrackType.View) {}
     }
 
     test('Merchant Collection') {

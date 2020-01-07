@@ -38,7 +38,7 @@ tracks {
 
 
     "/loyalty/card"(platform: "/", isAbstract: true) {
-        page(required: true, description: "On which page does the event takes place", type: PropertyType.String, values: ["hub", "status"])
+        page(required: true, description: "On which page does the event takes place", type: PropertyType.String, values: ["hub", "status", "offers"])
         type(required: true, description: "type of the card where the event is taking place", type: PropertyType.String)
         position(required: true, descripcion: "Position of the card in the page where the event is taking place", type: PropertyType.Numeric)
     }

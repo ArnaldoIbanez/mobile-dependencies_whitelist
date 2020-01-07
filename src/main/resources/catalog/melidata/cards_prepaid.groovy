@@ -77,6 +77,7 @@ tracks {
         current_balance_amount (required:false, type: PropertyType.String, description: "Current balance amount")
         needed_funding_amount (required:false, type: PropertyType.Numeric, description: "User needs fund money to continue")
         has_money (required:false, type: PropertyType.Boolean, description: "User already has money")
+        pending_ticket (required:false, type: PropertyType.Boolean, description: "User has a pending ticket")
     }
 
     "/prepaid/acquisition/change_dni"(platform: "/", type: TrackType.View) {}
@@ -196,7 +197,7 @@ tracks {
         status(
             required: true,
             type: PropertyType.String,
-            values: ["on_track", "delayed", "to_collect", "not_delivered", "soon_deliver"],
+            values: ["on_track", "delayed", "to_collect", "not_delivered", "soon_deliver", "reprogrammed"],
             description: "Shipment tracking status."
         )
     }
@@ -215,7 +216,10 @@ tracks {
     }
 
     "/prepaid/update_app" (platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/ask_from_app" (platform: "/", type: TrackType.View) {}
     "/prepaid/update_app/cta"(platform:"/mobile", type: TrackType.Event) {}
+    "/prepaid/acquisition/sellers_landing"(platform: "/", isAbstract: true) {}
+    "/prepaid/acquisition/sellers_landing/store_button"(platform:"/", type: TrackType.Event) { }
 
     // Prepaid Detail
     "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.View) {}

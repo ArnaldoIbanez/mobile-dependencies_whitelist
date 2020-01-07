@@ -9,6 +9,10 @@ trackTests {
     *     ACTIVITY WEB    *
     *************************/
 
+    test("Mercadopago Home") {
+        "/mp_home" (platform: "/web", type: TrackType.View) {}
+    }
+
     test("Mercadopago Activities List") {
         "/listing/activities" (platform: "/web", type: TrackType.View) {}
     }
@@ -39,5 +43,9 @@ trackTests {
 
     test("Mercadopago Activities Export") {
         "/activities/export" (platform: "/web", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Shields") {
+        "/shield" (platform: "/web", type: TrackType.View) {}
     }
 }
