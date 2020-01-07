@@ -1147,6 +1147,9 @@ tracks {
     "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
     }
+    "/checkout/shipping/input_address/city"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the city")
+    }
     "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
     }
@@ -1159,8 +1162,14 @@ tracks {
     "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
     }
+    "/checkout/shipping/input_address/delivery_instructions"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery_instructions")
+    }
     "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+    }
+    "/checkout/shipping/input_address/telephone_input"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the telephone_input")
     }
     "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
