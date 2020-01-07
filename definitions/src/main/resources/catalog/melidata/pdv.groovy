@@ -28,7 +28,7 @@ tracks {
     "/pdv/onboarding/init_onboarding"(platform: "/", type: TrackType.Event) {}
 
     //CREATE-STORE
-    "/pdv/onboarding/create_store"(platform: "/", type: TrackType.View) {}
+    "/pdv/onboarding/store_setup"(platform: "/", type: TrackType.View) {}
     "/pdv/onboarding/create_store"(platform: "/", type: TrackType.Event) {}
 
     //POS-SETUP
