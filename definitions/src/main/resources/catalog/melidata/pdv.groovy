@@ -25,7 +25,7 @@ tracks {
         
     //FTU
     "/pdv/onboarding/start"(platform: "/", type: TrackType.View) {}
-    "/pdv/onboarding/start"(platform: "/", type: TrackType.Event) {}
+    "/pdv/onboarding/init_onboarding"(platform: "/", type: TrackType.Event) {}
 
     //CREATE-STORE
     "/pdv/onboarding/create_store"(platform: "/", type: TrackType.View) {}

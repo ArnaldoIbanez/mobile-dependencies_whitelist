@@ -14,7 +14,7 @@ trackTests {
 
     test("PDV events") {
         //Onboarding
-        "/pdv/onboarding/start"(platform: "/", type: TrackType.Event) {}
+        "/pdv/onboarding/init_onboarding"(platform: "/", type: TrackType.Event) {}
         "/pdv/onboarding/create_store"(platform: "/", type: TrackType.Event) {}
         "/pdv/onboarding/pos_management"(platform: "/", type: TrackType.Event) {
             pos_management=true
