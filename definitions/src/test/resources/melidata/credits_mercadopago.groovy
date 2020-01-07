@@ -241,6 +241,13 @@ trackTests {
             status = 'on_time'
         }
 
+        def sales_percentage_loan_on_time = {
+            product_type = 'sales_percentage_loan'
+            segment = 'in_store'
+            offer_type = 'full_offer'
+            status = 'on_time'
+        }
+
         def fixed_term = {
             product_type = 'fixed_term'
             segment = 'online'
@@ -250,6 +257,14 @@ trackTests {
 
         def fixed_term_on_time = {
             product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'on_time'
+        }
+
+        def fixed_term_loan_on_time = {
+            product_type = 'fixed_term_loan'
             segment = 'online'
             category = 'regular'
             offer_type = 'early_offer'
@@ -298,13 +313,22 @@ trackTests {
             fixed_term_on_time()
         }
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             express_money_overdue()
         }
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             sales_percentage_on_time()
         }
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
         }
 
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
@@ -312,23 +336,38 @@ trackTests {
             fixed_term_on_time()
         }
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             express_money_overdue()
         }
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             sales_percentage_on_time()
         }
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
         }
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
             fixed_term_on_time()
         }
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
             express_money_overdue()
         }
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
             sales_percentage_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
         }
 
         "/credits/merchant/administrator/history"(platform: "/web/desktop") {}

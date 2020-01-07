@@ -89,6 +89,7 @@ catalog {
         include business, "collaborators.groovy"
         include business, "loyalty_v2.groovy"
         include business, "credits.groovy"
+        include business, "merchengine.groovy"
     }
 
     marketplace.each { business ->
@@ -153,6 +154,7 @@ catalog {
         include business, "pdp.groovy"
         include business, "qadb.groovy"
         include business, "promotions.groovy"
+        include business, "sp_prepaid.groovy"
     }
 
     mercadopago.each { business ->
@@ -190,6 +192,7 @@ catalog {
         include business, "external.groovy"
         include business, "pos_billings.groovy"
         include business, "pdv.groovy"
+        include business, "sp_prepaid.groovy"
     }
 
     mercadoshops.each { business ->

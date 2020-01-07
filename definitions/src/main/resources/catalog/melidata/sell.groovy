@@ -52,11 +52,13 @@ tracks {
         item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
         vertical(required: false, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
+        listing_type_id(required: false, description: "Item listing type id")
     }
 
     propertyGroups {
         sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
+        listingTypeFlow(listing_type_id)
     }
 
     // Sell
@@ -860,6 +862,13 @@ tracks {
         item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
     }
 
+    "/sell/item_data/kilometers"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/kilometers/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/kilometers/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/color"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event) {}
+
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
@@ -896,19 +905,44 @@ tracks {
     "/sell/item_conditions/manufacturing_time"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/manufacturing_time/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/manufacturing_time/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_conditions/description"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/description"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_conditions/description/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/description/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_conditions/video"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/video"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_conditions/video/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/video/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/invoice"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/invoice/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/invoice/confirm"(platform: "/web", type: TrackType.Event) {}
 
+    "/sell/item_conditions/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_conditions/reservation_info"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/reservation_info/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/reservation_info/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_conditions/location"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/location/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/location/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_conditions/seller_contact"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/seller_contact/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/seller_contact/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_conditions/instant_pay_listings"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/instant_pay_listings/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/instant_pay_listings/confirm"(platform: "/web", type: TrackType.Event) {}
+
+
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
         categoryFlow
+        listingTypeFlow
         item_id(required: true, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
@@ -935,5 +969,8 @@ tracks {
     }
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/sip/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
+    "/sell/sip/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
 
 }

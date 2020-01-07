@@ -353,6 +353,16 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/marketing/google_search_console"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/google_search_console/upload"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_search_console/delete"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
     "/mercado_shops/template-selection"(platform: "/", type: TrackType.Event, isAbstract: true){}
 
     "/mercado_shops/template-selection/save"(platform: "/", type: TrackType.Event){
