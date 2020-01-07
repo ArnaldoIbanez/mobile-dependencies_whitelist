@@ -444,25 +444,25 @@ trackTests {
             register_type = "company"
         }
 
-        "/register/form/google-hint/show"(platform: "/mobile") {
+        "/register/form/google_hint/show"(platform: "/mobile") {
             app = "mp"
             step = "phoneRegistration"
             field = "phone"
         }
 
-        "/register/form/google-hint/select"(platform: "/mobile") {
+        "/register/form/google_hint/select"(platform: "/mobile") {
             app = "mp"
             step = "phoneRegistration"
             field = "phone"
         }
 
-        "/register/form/google-autofill/show"(platform: "/mobile") {
+        "/register/form/google_autofill/show"(platform: "/mobile") {
             app = "mp"
             step = "phoneRegistration"
             field = "phone"
         }
 
-        "/register/form/google-autofill/select"(platform: "/mobile") {
+        "/register/form/google_autofill/select"(platform: "/mobile") {
             app = "mp"
             step = "phoneRegistration"
             field = "phone"
@@ -492,11 +492,11 @@ trackTests {
     }
 
     test("Phone registration") {
-        "/register/phone-registration/get-phone"(platform: "/mobile") {
+        "/register/phone_registration/get_phone"(platform: "/mobile") {
             app = "mp"
         }
 
-        "/register/phone-registration/get-phone/error"(platform: "/mobile") {
+        "/register/phone_registration/get_phone/error"(platform: "/mobile") {
             app = "mp"
             errors_validation = "back"
             errors = [
@@ -507,11 +507,11 @@ trackTests {
             ]
         }
 
-        "/register/phone-registration/additional-data"(platform: "/mobile") {
+        "/register/phone_registration/additional_data"(platform: "/mobile") {
             app = "mp"
         }
 
-        "/register/phone-registration/additional-data/error"(platform: "/mobile") {
+        "/register/phone_registration/additional_data/error"(platform: "/mobile") {
             app = "mp"
             errors_validation = "back"
             errors = [
@@ -522,11 +522,11 @@ trackTests {
             ]
         }
 
-        "/register/phone-registration/get-email"(platform: "/mobile") {
+        "/register/phone_registration/get_email"(platform: "/mobile") {
             app = "mp"
         }
 
-        "/register/phone-registration/get-email/error"(platform: "/mobile") {
+        "/register/phone_registration/get_email/error"(platform: "/mobile") {
             app = "mp"
             errors_validation = "back"
             errors = [
@@ -537,12 +537,12 @@ trackTests {
             ]
         }
 
-        "/register/phone-registration/verification"(platform: "/mobile") {
+        "/register/phone_registration/verification"(platform: "/mobile") {
             app = "mp"
             channel = "sms"
         }
 
-        "/register/phone-registration/verification/error"(platform: "/mobile") {
+        "/register/phone_registration/verification/error"(platform: "/mobile") {
             app = "mp"
             channel = "sms"
             errors_validation = "back"
@@ -554,32 +554,32 @@ trackTests {
             ]
         }
 
-        "/register/phone-registration/phone-already-registered"(platform: "/mobile") {
+        "/register/phone_registration/phone_already_registered"(platform: "/mobile") {
             app = "mp"
         }
 
-        "/register/phone-registration/send-code"(platform: "/mobile") {
+        "/register/phone_registration/send_code"(platform: "/mobile") {
             app = "mp"
         }
 
-        "/register/phone-registration/resend-code"(platform: "/mobile") {
+        "/register/phone_registration/resend_code"(platform: "/mobile") {
             app = "mp"
         }
 
-        "/register/phone-registration/email-link"(platform: "/mobile") {
+        "/register/phone_registration/email_link"(platform: "/mobile") {
             app = "mp"
         }
 
-        "/register/phone-registration/verification/autodetect-code"(platform: "/mobile") {
+        "/register/phone_registration/verification/autodetect_code"(platform: "/mobile") {
             app = "mp"
             channel = "sms"
         }
 
-        "/register/phone-registration/sign-in"(platform: "/mobile") {
+        "/register/phone_registration/sign_in"(platform: "/mobile") {
             app = "mp"
         }
 
-        "/register/phone-registration/create-account"(platform: "/mobile") {
+        "/register/phone_registration/create_account"(platform: "/mobile") {
             app = "mp"
         }
 
