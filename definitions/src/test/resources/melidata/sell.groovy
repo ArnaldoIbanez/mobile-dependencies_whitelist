@@ -1419,6 +1419,7 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            listing_type_id = "gold"
         }
     }
     test("SYI v4 description card confirmed"){
@@ -1430,6 +1431,7 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            listing_type_id = "gold"
         }
     }
     test("SYI v4 video card showed"){
@@ -1441,6 +1443,7 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            listing_type_id = "gold"
         }
     }
     test("SYI v4 video card confirmed"){
@@ -1452,6 +1455,7 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            listing_type_id = "gold"
         }
     }
     test("SYI v4 invoice card showed"){
@@ -1599,6 +1603,7 @@ trackTests {
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             list_mode = "LIST"
+            listing_type_id = "gold"
         }
     }
     test("SYI v4 congrats card showed"){
