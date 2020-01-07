@@ -1359,7 +1359,10 @@ tracks {
 
     "/subscription_plan"(platform: "/web", isAbstract: true){}
     "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
-    "/subscription_plan/confirm_create"(platform: "/web"){}
+    "/subscription_plan/confirm_create"(platform: "/web"){
+        flow(required: true, PropertyType.String, description: "The flow of the track")
+        confirmButton(required: true, PropertyType.String, description: "detail of action")
+    }
     //END -- MP frontend
 
     "/free_navigation"(platform:"/mobile", isAbstract: true) {}
