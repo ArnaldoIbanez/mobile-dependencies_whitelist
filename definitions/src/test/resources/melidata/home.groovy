@@ -49,7 +49,7 @@ trackTests {
 
     test("Home core tracking") {
         "/home"(platform: "/mobile") {
-            mp_installed = true
+            mp_installed = true 
         }
 
         "/home/navigation_history"(platform: "/mobile") {}
