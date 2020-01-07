@@ -16,6 +16,7 @@ trackTests {
         }
 
         "/notification_center/screen"(platform: "/", type: TrackType.View){}
+        "/notification_center/config"(platform: "/mobile", type: TrackType.View){}
         "/notification_center"(platform: "/mobile"){}
         "/notification_center/abort"(platform: "/mobile"){}
         "/notification_center/addresses-update"(platform: "/mobile") {

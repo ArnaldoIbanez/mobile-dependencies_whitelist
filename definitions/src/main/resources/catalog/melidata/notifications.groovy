@@ -19,6 +19,8 @@ tracks {
     "/notification_center/screen"(platform: "/", type: TrackType.View) {
     }
 
+    "/notification_center/config"(platform: "/mobile", type: TrackType.View) {
+    }
     "/notification_center"(platform: "/", type: TrackType.Event) {
         newsgroup_id(required: false, type: PropertyType.String)
         status(required: false, type: PropertyType.String, values:["unread", "read"])
