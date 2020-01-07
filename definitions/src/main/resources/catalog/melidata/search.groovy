@@ -49,7 +49,7 @@ tracks {
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList)
         view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
-        promise_items(required: false, description:  "items with shipping promise", PropertyType.ArrayList(PropertyType.String))
+        promise_items(required: false, description:  "items with shipping promise", PropertyType.Map(PropertyType.ArrayList(PropertyType.String)))
 
         billboards(required: false, description: "items ids from billboard results", PropertyType.ArrayList)
         pads(required: false, description: "item_id from the pads returned for listings")
