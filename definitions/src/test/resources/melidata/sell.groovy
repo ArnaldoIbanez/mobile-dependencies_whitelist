@@ -529,6 +529,7 @@ trackTests {
             item_id = "MLA123456"
             has_selected_pictures = false
             is_catalog_boost = true
+            is_item_inactive_moderated = true
         }
         "/sell/update/sip/publish/pictures_fail"(platform: "/mobile") {
             item_id = "MLA123456"
