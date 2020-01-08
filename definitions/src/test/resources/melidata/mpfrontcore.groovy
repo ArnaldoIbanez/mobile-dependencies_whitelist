@@ -48,4 +48,34 @@ trackTests {
     test("Mercadopago Shields") {
         "/shield" (platform: "/web", type: TrackType.View) {}
     }
+
+    test("Panel Layout") {
+        "/panel_layout" (platform: "/web", type: TrackType.View) {
+           navigationSections = [[
+                section_id: "section1",
+                items: [
+                  item_id: "item1",
+                  sub_items: [
+                      sub_item_id: "sub_item_1"
+                  ]
+                ]
+            ],
+            [
+                section_id: "section2",
+                items: [
+                    item_id: "item21",
+                    sub_items: [
+
+                    ]
+                ],
+            ],
+            [
+                section_id: "section3",
+                items: [
+                    item_id: "item21",
+                 ],
+             ],
+           ]
+        }
+    }
 }
