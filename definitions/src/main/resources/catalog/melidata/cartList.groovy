@@ -59,7 +59,7 @@ tracks {
     loyalty_level(required:false, type: PropertyType.Numeric)
     is_empty(required:false, type: PropertyType.String)
     page_vertical(required: false, type: PropertyType.String, description: "The vertical of the items")
-    item_attributes(required: false, type: PropertyType.Map(PropertyType.String), description: "attributes for each item")
+    item_attributes(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "attributes for each item")
 }
 
 "/cart/my_cart"(platform: "/") {
