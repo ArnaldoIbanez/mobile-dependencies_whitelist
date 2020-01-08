@@ -69,6 +69,12 @@ trackTests {
                     ]
                 ],
             ],
+            [
+                section_id: "section3",
+                items: [
+                    item_id: "item21",
+                 ],
+             ],
            ]
         }
     }
