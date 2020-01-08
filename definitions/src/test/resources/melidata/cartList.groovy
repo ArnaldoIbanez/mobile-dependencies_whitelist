@@ -103,6 +103,62 @@ trackTests {
             ]
         }
 
+        def dataSetWithSummaryAndAttributes = {
+
+            items = [
+                    [
+                            currency_id: "ARS",
+                            unit_price: 100,
+                            quantity: 1,
+                            item: [
+                                    category_id: "MLA63385",
+                                    buying_mode: "buy_it_now",
+                                    category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                    id: "MLA754486062",
+                                    official_store: "Adidas",
+                                    condition: "new",
+                                    listing_type: "gold_special",
+                                    title: "Conector 12 Vias",
+                                    shipping_mode: "me2"
+                            ]
+                    ],
+                    [
+                            currency_id: "ARS",
+                            unit_price: 1000,
+                            quantity: 3,
+                            item: [
+                                    category_id: "MLA63385",
+                                    buying_mode: "buy_it_now",
+                                    category_path: [ "MLA1499", "MLA2467", "MLA754486062" ],
+                                    id: "MLA754486062",
+                                    official_store: "SportCenter",
+                                    condition: "new",
+                                    listing_type: "gold_pro",
+                                    title: "Conector 12 Vias",
+                                    shipping_mode: "me2"
+                            ]
+                    ]
+            ]
+
+            summary = [
+                    "total":[
+                            "amount":1446.61,
+                            "symbol":"\$"
+                    ],
+                    "shipping_total":[
+                            "amount":0,
+                            "symbol":"\$"
+                    ],
+                    "shipping_promoted_amount": 0
+            ]
+
+            item_attributes = [ "STOCK_AVAILABLE" ]
+
+            page_vertical = "CORE"
+        }
+
+        "/cart/my_cart"(platform: "/", dataSetWithSummaryAndAttributes)
+
         "/cart/my_cart"(platform: "/web", dataSetWithSummary)
 
         "/cart/my_cart/save_for_later"(platform: "/web"){
@@ -176,6 +232,8 @@ trackTests {
         "/cart/my_cart/close_change_notification"(platform: "/web", dataSetWithSummary)
 
         "/cart/saved_for_later"(platform: "/web", dataSetWithSummary)
+
+        "/cart/saved_for_later"(platform: "/", dataSetWithSummaryAndAttributes)
 
         "/cart/saved_for_later/open_change_notification"(platform: "/web", dataSet)
 
