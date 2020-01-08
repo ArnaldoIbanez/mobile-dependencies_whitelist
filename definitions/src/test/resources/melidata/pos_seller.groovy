@@ -326,12 +326,18 @@
 
                     // WEB
                     test("pos seller web views") {
+                        //Collection flow
+                        "/pos_seller/select_method"(platform: "/web", type: TrackType.View) {}
+                        "/pos_seller/point/card_type"(platform: "/web", type: TrackType.View) {}
+                        "/pos_seller/point/installments"(platform: "/web", type: TrackType.View) {}
+                         
+                        //Onboarding & Mobile shield
                         "/pos_seller/onboarding"(platform: "/web", type: TrackType.View) {}
                         "/pos_seller/mobile_shield"(platform: "/web", type: TrackType.View) {}
                     }
 
                     test("pos seller web events") {
-                        
+                        //Collection Flow
                         "/pos_seller/start"(platform: "/web", type: TrackType.Event) {
                             flow_id= "UUID"
                             amount= 2.00
@@ -356,7 +362,20 @@
                             installments= 3
                         }
 
-                        "/pos_seller/point/end"(platform: "/web", type: TrackType.Event) {
+                        "/pos_seller/qr/waiting_for_scan"(platform: "/web", type: TrackType.Event) {
+                            flow_id= "UUID"
+                            amount= 2.00
+                            items= 1
+                            mode= "amount"
+                            payment_channel= "qr"
+                            currency =  "ARS"
+                            store= "13040339"
+                            pos= "13040340"
+                            payment_method_type= "credit_card"
+                            installments= 3
+                        }
+
+                        "/pos_seller/end"(platform: "/web", type: TrackType.Event) {
                             flow_id= "UUID"
                             amount= 2.00
                             items= 1
@@ -369,23 +388,7 @@
                             installments= 3
                         }
 
-                        "/pos_seller/friction/card_reader"(platform: "/web", type: TrackType.Event) {
-                            context = "/pos_seller/point/card_reader"
-                            message = [ style: "screen", title: "Titulo", content: "Mensaje de error", primary_button: "Iniciar un nuevo cobro", secondary_button: "Volver" ]
-                            extra_info = [ 
-                                flow_id: "UUID",
-                                amount: 2.00,
-                                items: 1,
-                                mode: "amount",
-                                payment_channel: "point",
-                                currency:  "ARS",
-                                store: "13040339",
-                                pos: "13040340",
-                                payment_method_type: "credit_card",
-                                installments: 3, 
-                                error_type: "card_reader"]
-                            }
-                        
+                        //Onboarding & Mobile shield
                         "/pos_seller/onboarding/start"(platform: "/web", type: TrackType.Event) {}
                         "/pos_seller/mobile_shield/start"(platform: "/web", type: TrackType.Event) {}
                     }

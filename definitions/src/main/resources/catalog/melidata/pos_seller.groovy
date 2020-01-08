@@ -277,14 +277,23 @@
         /**
         * pos seller web event tracks
         */
-        
+        "/pos_seller/point"(platform: "/web", isAbstract: true) {}
+        "/pos_seller/qr"(platform: "/web", isAbstract: true) {}
+
+        "/pos_seller/select_method"(platform: "/web", type: TrackType.View) {}
         "/pos_seller/start"(platform: "/web", type: TrackType.Event) {
             paymentDataWeb
         }
+        "/pos_seller/point/card_type"(platform: "/web", type: TrackType.View) {}
+        "/pos_seller/point/installments"(platform: "/web", type: TrackType.View) {}
         "/pos_seller/point/waiting_for_card"(platform: "/web", type: TrackType.Event) {
             paymentDataWeb
         }
-        "/pos_seller/point/end"(platform: "/web", type: TrackType.Event) {
+        "/pos_seller/qr/waiting_for_scan"(platform: "/web", type: TrackType.Event) {
+            paymentDataWeb
+        }
+        
+        "/pos_seller/end"(platform: "/web", type: TrackType.Event) {
             paymentDataWeb
         }
         "/pos_seller/friction/card_reader"(platform: "/web", type: TrackType.Event) {
