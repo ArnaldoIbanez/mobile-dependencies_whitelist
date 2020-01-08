@@ -44,7 +44,7 @@ tracks {
     // MP Shields
     "/shield"(platform: "/web", type: TrackType.View) {}
 
-    //MP Panel Layout
+    //MP Panel Layout 
     "/panel_layout"(platform: "/") {
         navigationSections(
             description:"The sections that the user is receiving from the api.",
