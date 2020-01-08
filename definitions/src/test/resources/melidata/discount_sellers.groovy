@@ -244,7 +244,6 @@ trackTests {
     test("Mercadopago discount sellers landing tap") {
         "/discount_sellers/landing/tap" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
-            landing_id = "ftu"
             title = "Title"
         }
     }
@@ -252,7 +251,6 @@ trackTests {
     test("Mercadopago discount sellers landing back") {
         "/discount_sellers/landing/back" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
-            landing_id = "ftu"
         }
     }
 }
