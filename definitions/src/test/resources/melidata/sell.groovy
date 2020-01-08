@@ -1419,6 +1419,7 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            listing_type_id = "gold"
         }
     }
     test("SYI v4 description card confirmed"){
@@ -1430,6 +1431,7 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            listing_type_id = "gold"
         }
     }
     test("SYI v4 video card showed"){
@@ -1441,6 +1443,7 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            listing_type_id = "gold"
         }
     }
     test("SYI v4 video card confirmed"){
@@ -1452,6 +1455,7 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            listing_type_id = "gold"
         }
     }
     test("SYI v4 invoice card showed"){
@@ -1485,7 +1489,6 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             vertical = "motors"
-            has_free = true
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
@@ -1509,7 +1512,6 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             vertical = "motors"
-            has_free = true
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
@@ -1533,7 +1535,6 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             vertical = "motors"
-            has_free = true
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
@@ -1558,7 +1559,6 @@ trackTests {
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             vertical = "motors"
-            has_free = true
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
@@ -1578,12 +1578,11 @@ trackTests {
     }
 
     test("SYI v4 sidebar listing type card showed"){
-        "/sell/item_conditions/sidebar-listing-type/show"(platform: "/web", type: TrackType.Event){
+        "/sell/item_conditions/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
             vertical = "core"
-            has_free = true
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
@@ -1604,6 +1603,7 @@ trackTests {
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             list_mode = "LIST"
+            listing_type_id = "gold"
         }
     }
     test("SYI v4 congrats card showed"){
@@ -1661,7 +1661,7 @@ trackTests {
     }
 
     test("SYI v4 sidebar listing type showed"){
-        "/sell/sip/sidebar-listing-type/show"(platform: "/web", type: TrackType.Event){
+        "/sell/sip/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             seller_reputation = "green"

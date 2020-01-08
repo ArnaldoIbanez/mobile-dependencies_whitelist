@@ -57,6 +57,7 @@ trackTests {
             mandatory()
             optionals()
             catalog_listing = false
+            attribute_combinations = 1
         })
 
         "/vip"(platform:"/mobile", {
@@ -68,6 +69,7 @@ trackTests {
             default_tab = "subscription"
             whatsapp_installed = true
             catalog_listing = false
+            attribute_combinations = null
         })
 
         "/vip/failure"(platform:"/mobile", {

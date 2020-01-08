@@ -2318,6 +2318,19 @@ trackTests {
             ]
             recovery_flow=false
         }
+        "/checkout/shipping/input_address/city"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
         "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             items = [
@@ -2370,7 +2383,33 @@ trackTests {
             ]
             recovery_flow=false
         }
+        "/checkout/shipping/input_address/delivery_instructions"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
         "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/telephone_input"(platform:"/", type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
             items = [
                     [

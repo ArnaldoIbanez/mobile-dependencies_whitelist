@@ -242,6 +242,7 @@ tracks {
 
     "/deals/landing"(platform: "/") {
         deal_id(required: false, type: PropertyType.String)
+        deal_print_id(required: false, type: PropertyType.String)
     }
 
     "/sso" (platform: "/mobile", isAbstract: true){}

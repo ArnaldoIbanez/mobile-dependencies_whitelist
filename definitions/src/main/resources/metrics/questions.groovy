@@ -71,4 +71,13 @@ metrics {
 		}
 	}
     }
+
+	"questions.sameItem"(description: "questions count over same item") {
+		countsOn {
+			condition {
+				path("/questions/ask/post")
+				equals("event_data.item_id", property("item_id"))
+			}
+		}
+	}
 }
