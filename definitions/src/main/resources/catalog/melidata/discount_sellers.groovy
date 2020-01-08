@@ -103,7 +103,7 @@ tracks {
 
     "/discount_sellers/detail" (platform: "/mobile", type: TrackType.View) {
         campaign_id(required: false, type: PropertyType.String, description: "Campaign Identifier")
-        status(required: true, type: PropertyType.String, description: "Campaign Status")
+        status(required: true, inheritable: false, type: PropertyType.String, description: "Campaign Status")
         budget_total(required: false, type: PropertyType.String, description: "Campaign budget")
         budget_used(required: false, type: PropertyType.String, description: "Campaign budget used")
         payments(required: false, type: PropertyType.String, description: "Number of payments")
@@ -143,7 +143,7 @@ tracks {
     // **********************************************************
 
     "/discount_sellers/landing" (platform: "/mobile", type: TrackType.View) {
-        landing_id(required: true, type: PropertyType.String, description: "Landing Identifier")
+        landing_id(required: true, inheritable: false, type: PropertyType.String, description: "Landing Identifier")
     }
 
     "/discount_sellers/landing/tap" (platform: "/mobile", type: TrackType.Event) {
