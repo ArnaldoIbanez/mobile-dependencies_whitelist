@@ -164,7 +164,6 @@ trackTests {
     test("Mercadopago discount sellers detail open") {
         "/discount_sellers/detail/open" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
-            status = "en curso"
         }
     }
 
@@ -185,7 +184,6 @@ trackTests {
     test("Mercadopago discount sellers detail tap") {
         "/discount_sellers/detail/tap" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
-            status = "en curso"
             target = "quick_action"
             title = "Pausar"
         }
@@ -194,7 +192,6 @@ trackTests {
     test("Mercadopago discount sellers detail modal open") {
         "/discount_sellers/detail/modal/open" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
-            status = "en curso"
             type = "pause"
         }
     }
@@ -202,7 +199,6 @@ trackTests {
     test("Mercadopago discount sellers detail modal close") {
         "/discount_sellers/detail/modal/close" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
-            status = "en curso"
             type = "pause"
         }
     }
@@ -210,7 +206,6 @@ trackTests {
     test("Mercadopago discount sellers detail modal confirm") {
         "/discount_sellers/detail/modal/confirm" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
-            status = "en curso"
             type = "pause"
         }
     }
@@ -218,7 +213,6 @@ trackTests {
     test("Mercadopago discount sellers detail error") {
         "/discount_sellers/detail/error" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
-            status = "en curso"
             description = "description"
         }
     }
@@ -226,7 +220,6 @@ trackTests {
     test("Mercadopago discount sellers detail back") {
         "/discount_sellers/detail/back" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
-            status = "en curso"
         }
     }
 
