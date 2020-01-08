@@ -81,10 +81,6 @@ trackTests {
         "/bulk_payments/suppliers/contact_select"(platform: "/",type: TrackType.Event) {
           supplier_id = 1234567
         }
-        "/bulk_payments/suppliers/contact_add_reference"(platform: "/",type: TrackType.Event) {
-          supplier_email = 'supplier1@mp.com'
-          reference = "Proveedor 1"
-        }
         
         "/bulk_payments/suppliers/click_to_review"(platform: "/",type: TrackType.Event) {
           status = 'success'

@@ -26,6 +26,9 @@ tracks {
         attributes_submitted(required: false, description:"Number of attributes submitted", type: PropertyType.Numeric)
 
         // Catalog search properties
+        query_filter(required: true, description: "Search query input by the user", type: PropertyType.String)
+        domain_filter(required: true, description: "Domain filter input by the user", type: PropertyType.String)
+        limit_filter(required: true, description: "Query limit filter selected by the user", type: PropertyType.Numeric)
         product_id(required: true, description: "Product ID", type: PropertyType.String)
         product_source(required: true, description: "Product external source", type: PropertyType.String)
         product_external_id(required: true, description: "Product external ID or Marketplace attribute primary key", type: PropertyType.String)
@@ -41,6 +44,7 @@ tracks {
         catalogWidgetCompletenessGroup(completeness_level, attributes_submitted, items_left, missing_attributes, inferred_attributes)
 
         // Catalog search property groups
+        catalogSearchQuery(query_filter, domain_filter, limit_filter)
         catalogSearchWrongDomainPrediction(product_id, product_source, product_external_id, external_domain, predicted_domain, selected_domain)
         catalogSearchWrongExternalDomain(product_id, product_source, product_external_id, external_domain)
         catalogSearchWrongExternalAttribute(product_id, product_source, product_external_id, external_attribute_key, external_attribute_value)
@@ -230,6 +234,10 @@ tracks {
 
     // Catalog search tracks
     "/structure_data/catalog_search"(platform: "/web/desktop",isAbstract: true) {}
+
+    "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
+        catalogSearchQuery
+    }
 
     "/structure_data/catalog_search/wrong_domain_prediction"(platform: "/web/desktop", type:TrackType.Event) {
         catalogSearchWrongDomainPrediction

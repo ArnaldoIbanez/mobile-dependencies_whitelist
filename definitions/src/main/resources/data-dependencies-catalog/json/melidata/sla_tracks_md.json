@@ -5,15 +5,15 @@
     ],
     "process_name": "sla_tracks_md",
     "cron": "00 04 * * *",
+    "partition": {
+      "name": "fecha",
+      "type": "DATE",
+      "format": "yyyy-MM-dd"
+    },
     "extract": {
       "operation": "append",
       "site": "QA",
       "columns": [
-        {
-          "name": "fecha",
-          "type": "DATE",
-          "format": "yyyy-MM-dd"
-        },
         {
           "name": "iniciativa",
           "type": "UNICODE_STRING"

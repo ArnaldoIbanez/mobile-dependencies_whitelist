@@ -5,7 +5,7 @@ apply plugin:'application'
 apply plugin:'maven'
 apply plugin:'java'
 
-project.version = '1.2.20'
+project.version = '1.2.23'
 project.group = 'com.mercadolibre.melidata.catalog'
 
 task wrapper(type: Wrapper) {
@@ -30,7 +30,7 @@ dependencies {
     compile 'org.codehaus.groovy:groovy-all:1.8.6'
     compile 'com.amazonaws:aws-java-sdk:1.11.68'
     compile 'commons-io:commons-io:2.4'
-    compile 'com.mercadolibre.melidata.catalog:commons:1.4.4'
+    compile 'com.mercadolibre.melidata.catalog:commons:1.4.8' 
     compile group: 'com.mercadolibre.melidata.catalog', name: 'definitions', version: '1.2.17'
     compile group: 'com.facebook.presto', name: 'presto-jdbc', version: '0.220'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
@@ -68,7 +68,7 @@ task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
 task testAll (dependsOn: 'classes', type: JavaExec) {
     main = 'tests'
     classpath = sourceSets.main.runtimeClasspath
-    args = ["melidata", "shipping"]
+    args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "pushnotifications", "recommendations", "reviews"]
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
@@ -81,6 +81,42 @@ task testShipping (dependsOn: 'classes', type: JavaExec) {
     main = 'testCatalog'
     classpath = sourceSets.main.runtimeClasspath
     args = ["shipping"]
+}
+
+task testAdvertising (dependsOn: 'classes', type: JavaExec) {
+    main = 'testCatalog'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["advertising"]
+}
+
+task testComponentPrints (dependsOn: 'classes', type: JavaExec) {
+    main = 'testCatalog'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["component_prints"]
+}
+
+task testCxHelpChannels (dependsOn: 'classes', type: JavaExec) {
+    main = 'testCatalog'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["cx_help_channels"]
+}
+
+task testPushnotifications (dependsOn: 'classes', type: JavaExec) {
+    main = 'testCatalog'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["pushnotifications"]
+}
+
+task testRecommendations (dependsOn: 'classes', type: JavaExec) {
+    main = 'testCatalog'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["recommendations"]
+}
+
+task testReviews (dependsOn: 'classes', type: JavaExec) {
+    main = 'testCatalog'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["reviews"]
 }
 
 task testCronnedQueries (dependsOn: 'classes', type: JavaExec) {
@@ -96,7 +132,7 @@ task testMetrics (dependsOn: 'classes', type: JavaExec) {
 task uploadAllCatalog(type:JavaExec) {
     main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
-    args = ["melidata", "shipping"]
+    args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "pushnotifications", "recommendations", "reviews"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
@@ -109,6 +145,42 @@ task uploadShippingCatalog(type:JavaExec) {
     main = 'com.melidata.definitions.uploaders.CatalogUploader'
     classpath = sourceSets.main.runtimeClasspath
     args = ["shipping"]
+}
+
+task uploadAdvertisingCatalog(type:JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["advertising"]
+}
+
+task uploadComponentPrintsCatalog(type:JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["component_prints"]
+}
+
+task uploadCxHelpChannelsPrintsCatalog(type:JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["cx_help_channels"]
+}
+
+task uploadPushnotificationsCatalog(type:JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["pushnotifications"]
+}
+
+task uploadRecommendationsCatalog(type:JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["recommendations"]
+}
+
+task uploadReviewsCatalog(type:JavaExec) {
+    main = 'com.melidata.definitions.uploaders.CatalogUploader'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ["reviews"]
 }
 
 task uploadMetrics(type:JavaExec) {
@@ -158,6 +230,72 @@ task exportShipping(type:JavaExec) {
     main = mainClass
     classpath = sourceSets.main.runtimeClasspath
     args ["shipping"]
+}
+
+task exportAdvertising(type:JavaExec) {
+    def mainClass
+    if (format == 'hive')
+        mainClass = "com.melidata.definitions.format.HiveFormatter"
+    else
+        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
+    main = mainClass
+    classpath = sourceSets.main.runtimeClasspath
+    args ["advertising"]
+}
+
+task exportComponentPrints(type:JavaExec) {
+    def mainClass
+    if (format == 'hive')
+        mainClass = "com.melidata.definitions.format.HiveFormatter"
+    else
+        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
+    main = mainClass
+    classpath = sourceSets.main.runtimeClasspath
+    args ["component_prints"]
+}
+
+task exportCxHelpChannels(type:JavaExec) {
+    def mainClass
+    if (format == 'hive')
+        mainClass = "com.melidata.definitions.format.HiveFormatter"
+    else
+        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
+    main = mainClass
+    classpath = sourceSets.main.runtimeClasspath
+    args ["cx_help_channels"]
+}
+
+task exportPushnotifications(type:JavaExec) {
+    def mainClass
+    if (format == 'hive')
+        mainClass = "com.melidata.definitions.format.HiveFormatter"
+    else
+        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
+    main = mainClass
+    classpath = sourceSets.main.runtimeClasspath
+    args ["pushnotifications"]
+}
+
+task exportRecommendations(type:JavaExec) {
+    def mainClass
+    if (format == 'hive')
+        mainClass = "com.melidata.definitions.format.HiveFormatter"
+    else
+        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
+    main = mainClass
+    classpath = sourceSets.main.runtimeClasspath
+    args ["recommendations"]
+}
+
+task exportReviews(type:JavaExec) {
+    def mainClass
+    if (format == 'hive')
+        mainClass = "com.melidata.definitions.format.HiveFormatter"
+    else
+        throw new IllegalArgumentException("Invalid format. Must be 'hive' or 'json'")
+    main = mainClass
+    classpath = sourceSets.main.runtimeClasspath
+    args ["reviews"]
 }
 
 task exportMetrics(type:JavaExec) {

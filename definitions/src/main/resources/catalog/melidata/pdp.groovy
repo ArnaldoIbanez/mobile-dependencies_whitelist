@@ -35,6 +35,8 @@ tracks {
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
         seller_id(required: false, type: PropertyType.Numeric, description: "")
         seller_name(required: false, type: PropertyType.String, description: "")
+        seller_fraudulent(required: false, type: PropertyType.Boolean, description: "Indicates if the seller is fraudulent")
+        subtitle_types(required: false, type: PropertyType.ArrayList, description: "seller subtitles types")
         available_quantity(required: false, type: PropertyType.Numeric, description: "Available product quantity at this pdp")
         cart_content(required: false, type: PropertyType.Boolean, description: "")
         has_full_filment(required: false, type: PropertyType.Boolean, description: "")
@@ -138,6 +140,7 @@ tracks {
         reputation_level(required: false, type: PropertyType.String,
                 values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
                 description: "Seller's reputation level in case of having a PDP with BBW")
+        subtitle_types(required: false, type: PropertyType.ArrayList, description: "seller subtitles types")
 
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
@@ -164,6 +167,12 @@ tracks {
         //Alternative Buying Options - BBW Alternatives
         alternative_buying_options(required: false, type: PropertyType.ArrayList(PropertyType.Map(alternative_buying_option_definition)), description: "Alternative Buying Options - BBW Alternatives")
 
+        // Stock
+        stock_type(required: false, type: PropertyType.String, inheritable: false, values: ["normal", "deferred"], description: "Indicates the type of stock for the product (normal = immediate stock, deferred = within x days)")
+        stock_deferred_time(required: false, type: PropertyType.Numeric, inheritable: false, description: "Amount of days when the product will have available stock. Will only be used when stock_type = deferred")
+
+        // General
+        pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
@@ -257,19 +266,19 @@ tracks {
 
     "/pdp/other_buying_options"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
-        seller_id(required: true, type: PropertyType.Numeric)
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
+        seller_id(required: false, type: PropertyType.Numeric)
         seller_name(required: false, type: PropertyType.String, description: "The name of the seller")
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
-        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
                 description: "Whether the item is new, used or refurbished")
-        listing_type_id(required: true, type: PropertyType.String,
+        listing_type_id(required: false, type: PropertyType.String,
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
                 description: "Listing type of the item")
-        product_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
+        product_status(required: false, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
                 description: "Whenever the items is active, closed or paused")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
-        filter(required: false, type: PropertyType.String, values: ["new", "none"], description: "Indicates filter type when going to other buying options")
+        context(required: true, type: PropertyType.String, values: ["other_products_new", "alternatives", "main_actions_no_winner"], description: "Indicates the context in where the event was triggered from the PDP")
     }
 
     "/pdp/share"(platform: "/", parentPropertiesInherited: false) {
@@ -336,7 +345,7 @@ tracks {
     }
 
     "/pdp/sellers"(platform: "/", parentPropertiesInherited: false) {
-        catalog_parent_id(required: true, type: PropertyType.String, description: "Product ID")
+        catalog_parent_id(required: false, type: PropertyType.String, description: "Product ID")
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
