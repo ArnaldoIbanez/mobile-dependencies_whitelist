@@ -52,11 +52,13 @@ tracks {
         item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
         vertical(required: false, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
+        listing_type_id(required: false, description: "Item listing type id")
     }
 
     propertyGroups {
         sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
+        listingTypeFlow(listing_type_id)
     }
 
     // Sell
@@ -903,10 +905,14 @@ tracks {
     "/sell/item_conditions/manufacturing_time"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/manufacturing_time/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/manufacturing_time/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_conditions/description"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/description"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_conditions/description/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/description/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_conditions/video"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/video"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_conditions/video/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/video/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/invoice"(platform: "/web", isAbstract: true) {}
@@ -936,6 +942,7 @@ tracks {
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
         categoryFlow
+        listingTypeFlow
         item_id(required: true, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
