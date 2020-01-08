@@ -27,6 +27,10 @@ trackTests {
                         official_store: null,
                         listing_type_id: "gold_special",
                         score: 0.89,
+                        prior_score: 0.7,
+                        prior_position: 1,
+                        posterior_score: 0.6,
+                        posterior_position: 1,
                         benefit: 0.05,
                         credibility: 1,
                         interest: 0.98,
@@ -66,6 +70,10 @@ trackTests {
                         official_store: null,
                         listing_type_id: "gold_special",
                         score: 0.89,
+                        prior_score: 0.7,
+                        prior_position: 1,
+                        posterior_score: 0.6,
+                        posterior_position: 1,
                         benefit: 0.05,
                         credibility: 1,
                         interest: 0.98,
@@ -99,5 +107,13 @@ trackTests {
         "/promotions"(platform:"/web/desktop", type: TrackType.Event, {
             general()
         })
+    }
+
+    //Promotions Android Landing
+    test("Mobile Landing") {
+        "/promotions/landing"(platform: "/mobile") {
+            url = "https://www.mercadolibre.com.ar/ofertas"
+            is_main_url = true
+        }
     }
 }

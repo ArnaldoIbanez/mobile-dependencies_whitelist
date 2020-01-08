@@ -68,7 +68,7 @@ tracks {
         total_amount_local(serverSide: true) // -> Lo completa Melidata automaticamente
         total_amount_usd(serverSide: true) // -> Lo completa Melidata automaticamente
 
-        total_amount_with_shipping(required: true, description: "totalAmount with shipping cost")
+        total_amount_with_shipping(required: false, description: "totalAmount with shipping cost")
         total_paid_amount(required: false, description: "total pais Amount is total_amount_with_shipping plus installments fee")
 
         //TO-DO: Eliminar cuando /mobile/ios deje de mandar platform
@@ -112,12 +112,18 @@ tracks {
 
         //Router
         checkout_flow_reason(required: false, type: PropertyType.String, description: "Reason why the purchase went through cart flow or direct flow")
+
+        //@SMELL -> https://mercadolibre.atlassian.net/browse/CHKON-9650 Aplicar logica utilizada en G.A. de filtrar en las paginas que se necesite y no arrastrar mediante backs
+        token_generated_with_esc(required: false, type: PropertyType.String, values: ["YES", "NO"])
+        congrats_status(required: false, type: PropertyType.String, values: ["APPROVED", "REJECTED", "IN_PROCESS", "PENDING", "CANCELLED", "AUTHORIZED", "REFUNDED", "ERROR_NON_RECOVERABLE_BI", "ERROR_RECOVERABLE_BI"])
+        payment_status_detail(required: false, type: PropertyType.String, values: ["PENDING_CAPTURE","ACCREDITED", "CC_REJECTED_BLACKLIST", "CC_REJECTED_HIGH_RISK", "CC_REJECTED_INSUFFICIENT_AMOUNT", "CC_REJECTED_INVALID_INSTALLMENTS", "CC_REJECTED_OTHER_REASON", "CC_REJECTED_MAX_ATTEMPTS", "CC_REJECTED_BAD_FILLED_CARD_NUMBER", "CC_REJECTED_BAD_FILLED_OTHER", "CC_REJECTED_BAD_FILLED_DATE", "CC_REJECTED_BAD_FILLED_SECURITY_CODE", "CC_REJECTED_CALL_FOR_AUTHORIZE", "CC_REJECTED_CARD_DISABLED", "DEFAULT", "ACCORD", "PENDING_CONTINGENCY", "PENDING_REVIEW_MANUAL", "PENDING_CHALLENGE", "CC_REJECTED_FRAUD", "CC_REJECTED_DUPLICATED_PAYMENT", "CC_REJECTED_BAD_FILLED_INVALID_DATE", "ACCOUNT_REJECTED_HIGH_RISK", "REJECTED_BY_REGULATIONS", "REJECTED_INSUFFICIENT_DATA", "REJECTED_BY_BANK", "ERROR_BI_WITHOUT_CNPJ", "ERROR_BI_DIFFERENT_IE", "ERROR_BI_CNPJ_NON_OPERATIONAL", "ERROR_BI_IE_INVALID_STATE", "PHONE_VERIFICATION"])
     }
 
     "/cart/checkout/items_not_available"(platform: "/", type: TrackType.View) {}
 
     "/cart/checkout/error"(platform: "/", type: TrackType.View) {
         error(required: false, type: PropertyType.String, description: "Error that was shown to the user if known")
+        error_code(required: false, type: PropertyType.String, description: "Code of the error that was shown to the user if known")
     }
 
     "/cart/checkout/payment"(platform: "/", isAbstract: true) {}
@@ -136,7 +142,9 @@ tracks {
 
     "/cart/checkout/payment/select_store"(platform: "/", type: TrackType.View) {}
 
-    "/cart/checkout/payment/select_bank"(platform: "/", type: TrackType.View) {}
+    "/cart/checkout/payment/select_bank"(platform: "/", type: TrackType.View) {
+        available_issuers(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of banks to select from")
+    }
     "/cart/checkout/payment/input_sec_code"(platform: "/", type: TrackType.View) {}
     "/cart/checkout/payment/esc_input_sec_code"(platform: "/", type: TrackType.View) {}
     "/cart/checkout/payment/view_location"(platform: "/", type: TrackType.View) {}
@@ -204,6 +212,12 @@ tracks {
         loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
     }
 
+    "/cart/checkout/congrats"(platform: "/web", type: TrackType.View) {
+        token_generated_with_esc(required: true, type: PropertyType.String, values: ["YES", "NO"])
+        congrats_status(required: true, type: PropertyType.String, values: ["APPROVED", "REJECTED", "IN_PROCESS", "PENDING", "CANCELLED", "AUTHORIZED", "REFUNDED", "ERROR_NON_RECOVERABLE_BI", "ERROR_RECOVERABLE_BI"])
+        payment_status_detail(required: true, type: PropertyType.String, values: ["PENDING_CAPTURE","ACCREDITED", "CC_REJECTED_BLACKLIST", "CC_REJECTED_HIGH_RISK", "CC_REJECTED_INSUFFICIENT_AMOUNT", "CC_REJECTED_INVALID_INSTALLMENTS", "CC_REJECTED_OTHER_REASON", "CC_REJECTED_MAX_ATTEMPTS", "CC_REJECTED_BAD_FILLED_CARD_NUMBER", "CC_REJECTED_BAD_FILLED_OTHER", "CC_REJECTED_BAD_FILLED_DATE", "CC_REJECTED_BAD_FILLED_SECURITY_CODE", "CC_REJECTED_CALL_FOR_AUTHORIZE", "CC_REJECTED_CARD_DISABLED", "DEFAULT", "ACCORD", "PENDING_CONTINGENCY", "PENDING_REVIEW_MANUAL", "PENDING_CHALLENGE", "CC_REJECTED_FRAUD", "CC_REJECTED_DUPLICATED_PAYMENT", "CC_REJECTED_BAD_FILLED_INVALID_DATE", "ACCOUNT_REJECTED_HIGH_RISK", "REJECTED_BY_REGULATIONS", "REJECTED_INSUFFICIENT_DATA", "REJECTED_BY_BANK", "ERROR_BI_WITHOUT_CNPJ", "ERROR_BI_DIFFERENT_IE", "ERROR_BI_CNPJ_NON_OPERATIONAL", "ERROR_BI_IE_INVALID_STATE", "PHONE_VERIFICATION"])
+    }
+
     "/cart/checkout/congrats/keep_buying"(platform: "/", type: TrackType.Event) {}
     "/cart/checkout/congrats/go_to_myml"(platform: "/", type: TrackType.Event) {}
     "/cart/checkout/congrats/go_to_page_bank"(platform: "/", type: TrackType.Event) {}
@@ -214,6 +228,21 @@ tracks {
     "/cart/checkout/congrats/contact_us"(platform: "/", type: TrackType.Event) {}
     "/cart/checkout/congrats/go_to_mercado_puntos"(platform: "/", type: TrackType.Event) {}
     "/cart/checkout/congrats/added_points"(platform: "/", type: TrackType.Event) {}
+
+    "/cart/checkout/congrats/pay_with_another"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+    }
+
+    "/cart/checkout/congrats/pay_now"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+    }
+
+    "/cart/checkout/congrats/use_now"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+    }
 
     "/cart/checkout/show_ticket"(platform: "/", type: TrackType.View) {}
 
@@ -231,6 +260,10 @@ tracks {
     "/cart/checkout/finish/call_for_auth/later"(platform: "/", type: TrackType.View) {}
     "/cart/checkout/finish/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
     "/cart/checkout/finish/choose_action"(platform: "/", type: TrackType.View) {}
+
+    //Address Hub
+    "/cart/checkout/shipping/delivery_instructions"(platform:"/", type: TrackType.View) {}
+    "/cart/checkout/shipping/address_hub"(platform:"/", type: TrackType.View) {}
 
     "/cart/checkout/loading"(platform: "/", type: TrackType.View) {
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
@@ -270,6 +303,12 @@ tracks {
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
+    "/cart/checkout/shipping/input_address/city"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the city")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
     "/cart/checkout/shipping/input_address/colony"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
@@ -294,7 +333,25 @@ tracks {
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
+    "/cart/checkout/shipping/input_address/delivery_instructions"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
     "/cart/checkout/shipping/input_address/phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/telephone_input"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the telephone_input")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/cart/checkout/shipping/input_address/additional_info"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
@@ -375,7 +432,7 @@ tracks {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
-"/cart/checkout/shipping/input_address/back"(platform:"/mobile", type: TrackType.Event) {}
+    "/cart/checkout/shipping/input_address/back"(platform:"/mobile", type: TrackType.Event) {}
 
     "/cart/checkout/shipping/input_address#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
@@ -409,6 +466,8 @@ tracks {
 
     "/cart/checkout/payment/select_split_installments/select_installment"(platform: "/", type: TrackType.Event) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
     }
 
     "/cart/checkout/payment/select_split_installments/edit_installment_options"(platform: "/", type: TrackType.Event) {
@@ -417,14 +476,21 @@ tracks {
 
     "/cart/checkout/payment/select_split_installments/close_split_message"(platform: "/", type: TrackType.Event) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
     }
 
     "/cart/checkout/payment/select_unique_installment/select_installment"(platform: "/", type: TrackType.Event) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        total_amount(required: false, description: "totalAmount")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
     }
 
     "/cart/checkout/payment/select_unique_installment/edit_installment_options"(platform: "/", type: TrackType.Event) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
     }
 
     "/cart/checkout/payment/select_split_installments/split_detail"(platform: "/mobile", type: TrackType.View) {}
@@ -538,6 +604,8 @@ tracks {
     "/cart/checkout/review/confirm_purchase"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         status(required: false, type: PropertyType.String, description: "The result of the purchase")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
     }
     "/cart/checkout/review/confirm_purchase/abort"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -614,7 +682,11 @@ tracks {
     "/cart/checkout/shipping/input_new_address"(platform: "/web", type: TrackType.View) {}
 
     //Switch track
-    "/cart/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
+    "/cart/checkout/payment/select_type/account_money"(platform: "/web", type: TrackType.Event, isAbstract: true) {
+        total_amount(required: false, description: "totalAmount")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
+    }
     "/cart/checkout/payment/select_type/account_money/use"(platform: "/web", type: TrackType.Event) {}
     "/cart/checkout/payment/select_type/account_money/not_use"(platform: "/web", type: TrackType.Event) {}
 
@@ -622,18 +694,18 @@ tracks {
         geolocation_error(required: true, description: "Why the geo failed")
     }
 
-    "/cart/checkout/review/confirm_purchase"(platform: "/web", type: TrackType.Event) {}
+    "/cart/checkout/review/confirm_purchase"(platform: "/web", type: TrackType.Event) {
+        total_amount(required: false, description: "totalAmount")
+        seller(required: false, type: PropertyType.ArrayList, description: "Array of sellers with their data")
+        buy_equal_pay(required: false, description: "BP flag")
+    }
 
     "/cart/checkout/payment/input_card#card_config"(platform: "/web", type: TrackType.Event) {
         bin(required: true, type: PropertyType.String)
         success(required: true, type: PropertyType.Boolean)
     }
 
-    "/cart/checkout/congrats"(platform: "/web", type: TrackType.View) {
-        token_generated_with_esc(required: true, type: PropertyType.String, values: ["YES", "NO"])
-        congrats_status(required: true, type: PropertyType.String, values: ["APPROVED", "REJECTED", "IN_PROCESS", "PENDING", "CANCELLED", "AUTHORIZED", "REFUNDED", "ERROR_NON_RECOVERABLE_BI", "ERROR_RECOVERABLE_BI"])
-        payment_status_detail(required: true, type: PropertyType.String, values: ["ACCREDITED", "CC_REJECTED_BLACKLIST", "CC_REJECTED_HIGH_RISK", "CC_REJECTED_INSUFFICIENT_AMOUNT", "CC_REJECTED_INVALID_INSTALLMENTS", "CC_REJECTED_OTHER_REASON", "CC_REJECTED_MAX_ATTEMPTS", "CC_REJECTED_BAD_FILLED_CARD_NUMBER", "CC_REJECTED_BAD_FILLED_OTHER", "CC_REJECTED_BAD_FILLED_DATE", "CC_REJECTED_BAD_FILLED_SECURITY_CODE", "CC_REJECTED_CALL_FOR_AUTHORIZE", "CC_REJECTED_CARD_DISABLED", "DEFAULT", "ACCORD", "PENDING_CONTINGENCY", "PENDING_REVIEW_MANUAL", "PENDING_CHALLENGE", "CC_REJECTED_FRAUD", "CC_REJECTED_DUPLICATED_PAYMENT", "CC_REJECTED_BAD_FILLED_INVALID_DATE", "ACCOUNT_REJECTED_HIGH_RISK", "REJECTED_BY_REGULATIONS", "REJECTED_INSUFFICIENT_DATA", "REJECTED_BY_BANK", "ERROR_BI_WITHOUT_CNPJ", "ERROR_BI_DIFFERENT_IE", "ERROR_BI_CNPJ_NON_OPERATIONAL", "ERROR_BI_IE_INVALID_STATE", "PHONE_VERIFICATION"])
-    }
+    "/cart/checkout/congrats/input_sec_code"(platform: "/web", type: TrackType.View) {}
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fin Web platform

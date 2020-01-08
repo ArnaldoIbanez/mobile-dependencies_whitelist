@@ -153,7 +153,16 @@ trackTests {
             defaultTrackInformation()
         }
 
+        "/email/form-optout"(platform: "/web/mobile"){
+            defaultTrackInformation()
+        }
+
         "/email/form-optout/unsubscribe"(platform: "/web"){
+            defaultTrackInformation()
+            selected_option = 1
+        }
+
+        "/email/form-optout/unsubscribe"(platform: "/web/mobile"){
             defaultTrackInformation()
             selected_option = 1
         }

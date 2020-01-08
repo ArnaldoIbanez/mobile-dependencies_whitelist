@@ -34,11 +34,24 @@ tracks {
         lowend(type: PropertyType.Boolean, required: false, description: "Whether the user accessed from a lowend device or not")
     }
 
-    // Biometrics
-    "/security_settings/screenlock"(platform: "/mobile", type: TrackType.View) {
-        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock"], description: "Screenlock Operating System status upon view")
-        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
+    def screenlockConfigStructure = objectSchemaDefinitions {
+        transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
     }
 
-    "/security_settings/screenlock/toggle"(platform: "/mobile", type: TrackType.Event) { }
+    // Biometrics
+    "/security_settings/screenlock"(platform: "/mobile", type: TrackType.View) {
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"], description: "Screenlock Operating System status upon view")
+        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+    }
+
+    "/security_settings/screenlock/toggle"(platform: "/mobile", type: TrackType.Event) { 
+        config_name(type: PropertyType.String, required: true, values: ["transaction", "opening_lock"], description: "Which screenlock configuration toggle was used")
+        action(type: PropertyType.String, required: true, values: ["enable", "disable"], description: "action performed on config")
+    }
+
+    "/security_settings/screenlock/toggle/modal"(platform: "/mobile", type: TrackType.View) {}
+
+    "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile", type: TrackType.Event) {}
 }

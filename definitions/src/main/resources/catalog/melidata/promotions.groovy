@@ -41,6 +41,14 @@ tracks {
               description: "Variable used to calculate item score in promotions backend")
       score(required: true, type: PropertyType.Numeric, 
               description: "Item's score calculated by promotions backend based on several variables")
+      prior_score(required: false, type: PropertyType.Numeric, 
+              description: "Item's score calculated by ML model")
+      prior_position(required: false, type: PropertyType.Numeric, 
+              description: "Item's position calculated by prior_score")
+      posterior_score(required: false, type: PropertyType.Numeric, 
+              description: "Item's score calculated with prior_score and learning data")
+      posterior_position(required: false, type: PropertyType.Numeric, 
+              description: "Item's position calculated by posterior_score")
       credibility(required: true, type: PropertyType.Numeric, 
               description: "Variable used to calculate item score in promotions backend")
       benefit(required: true, type: PropertyType.Numeric)
@@ -67,6 +75,8 @@ tracks {
               description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")    
       promotion_type(required: true, type: PropertyType.String,
               values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "others"], description: "Type of promotion")
+      prime_discount(required: false, type: PropertyType.Boolean, 
+              description: "Indicates whether the item has discounts by mercado puntos")
     }
 
     propertyDefinitions {
@@ -87,4 +97,12 @@ tracks {
     "/promotions"(platform: "/", type: TrackType.View) {
         general_promotions_info
     }
+
+    //Promotions Android Landing
+    "/promotions/landing"(platform: "/mobile", parentPropertiesInherited: false) {
+        url(required:true, descripcion:"The url to be loaded by the promotions landing")
+        is_main_url(required:false, type: PropertyType.Boolean,
+                descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
+    }
+
 }

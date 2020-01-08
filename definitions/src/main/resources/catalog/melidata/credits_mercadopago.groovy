@@ -1,8 +1,3 @@
-import com.ml.melidata.catalog.PropertyType
-import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
-import com.ml.melidata.TrackType
-
-
 tracks {
     propertyDefinitions {
         product_type(
@@ -10,9 +5,16 @@ tracks {
             required: false,
             values: [
                 'fixed_term',
+                'fixed_term_loan',
                 'express_money',
-                'sales_percentage'
+                'sales_percentage',
+                'sales_percentage_loan'
             ]
+        )
+        product_types(
+            description: "Available product types in the user's credit line",
+            type: PropertyType.ArrayList(product_type),
+            required: true,
         )
         status(
             type: PropertyType.String,
@@ -44,12 +46,24 @@ tracks {
             required: false,
             values: [
                 'early_offer',
-                'full_offer'
+                'full_offer',
+                'special_full_offer'
             ]
         )
         is_first_offer(
             required: false,
             type: PropertyType.Boolean
+        )
+        variant(
+            description: "Option types from the user's credit line",
+            type: PropertyType.String,
+            values: [
+                "normal",
+                "fixed_amount",
+                "fixed_option",
+                "fixed"
+            ],
+            required: true,
         )
     }
 
@@ -72,6 +86,62 @@ tracks {
     def offer = objectSchemaDefinitions {
         offer_group
     }
+
+    def offer_map = objectSchemaDefinitions {
+        offer_type(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'early_offer',
+                'full_offer',
+                'special_full_offer'
+            ]
+        )
+        segment(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'online',
+                'in_store'
+            ]
+        )
+    }
+
+    def offer_with_products = objectSchemaDefinitions {
+        offer_map
+        product_types(
+            description: "Available product types in the user's credit line",
+            type: PropertyType.ArrayList(product_type),
+            required: true,
+        )
+    }
+
+    def offer_with_variant = objectSchemaDefinitions {
+        offer_map
+        product_type(
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'fixed_term',
+                'fixed_term_loan',
+                'express_money',
+                'sales_percentage',
+                'sales_percentage_loan'
+            ]
+        )
+        variant(
+            description: "Option types from the user's credit line",
+            type: PropertyType.String,
+            values: [
+                "normal",
+                "fixed_amount",
+                "fixed_option",
+                "fixed"
+            ],
+            required: true,
+        )
+    }
+
 
     defaultBusiness = "mercadopago"
 
@@ -96,6 +166,9 @@ tracks {
             required: true
         )
     }
+
+    "/credits/merchant/declarative_form"(platform:"/", type: TrackType.View) {}
+    "/credits/merchant/declarative_form/congrats"(platform:"/", type: TrackType.View) {}
 
     /******************************************
      *       End: Merchants Public Landings
@@ -140,6 +213,9 @@ tracks {
         )
     }
 
+    "/credits/merchant/administrator/spc_click"(platform: "/", type: TrackType.Event) {
+        products_with_status
+    }
 
     "/credits/merchant/administrator/error"(platform: "/", type: TrackType.View) {
         reason(
@@ -162,7 +238,11 @@ tracks {
         products_with_status
     }
 
-    "/credits/merchant/administrator/history"(platform:"/", type: TrackType.Event) {}
+    "/credits/merchant/administrator/history"(platform:"/", type: TrackType.View) {}
+
+    "/credits/merchant/administrator/payment_history"(platform:"/", type: TrackType.View) {
+        products_with_status
+    }
 
     //Voluntary Payment
     "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
@@ -249,8 +329,44 @@ tracks {
         )
     }
 
-    //Congrats merchant
-    "/credits/merchant/enrollment/congrats"(platform: "/", type: TrackType.View) {}
+    //Congrats
+    "/credits/merchant/enrollment/congrats"(platform: "/", type: TrackType.View) {
+        product_type(
+            description: "Product type from the user's credit line",
+            type: PropertyType.String,
+            required: false,
+        )
+        has_prepaid(
+            description: "Metric to track users who has accepted a loan and has prepaid card enabled",
+            type: PropertyType.Boolean,
+            required: false,
+        )
+        requested_amount(
+            description: "User requested amount",
+            type: PropertyType.Numeric,
+            required: false,
+        )
+        max_amount(
+            description: "Credit line maximum allowed amount",
+            type: PropertyType.Numeric,
+            required: false,
+        )
+        min_amount(
+            description: "Credit line minimum allowed amount",
+            type: PropertyType.Numeric,
+            required: false,
+        )
+        option(
+            description: "User requested option",
+            type: PropertyType.Numeric,
+            required: false,
+        )
+        max_option(
+            description: "Credit line maximum allowed option",
+            type: PropertyType.Numeric,
+            required: false,
+        )
+    }
 
     //Error
     "/credits/merchant/enrollment/error"(platform: "/", type: TrackType.View) {
@@ -338,6 +454,57 @@ tracks {
     }
 
     "/credits/merchant/collection"(platform: "/mobile", type: TrackType.Event) {}
+
+    //Mobile
+    //Onboarding
+    "/credits/merchant/enrollment/onboarding"(platform: "/", type: TrackType.View) {
+        offer_with_products
+
+    }
+
+    //Hub
+    "/credits/merchant/enrollment/hub"(platform: "/", type: TrackType.View) {
+        offer_with_products
+    }
+
+    //Simulator
+    "/credits/merchant/enrollment/simulator"(platform: "/", type: TrackType.View) {
+        offer_with_variant
+    }
+
+    //Summary
+    "/credits/merchant/enrollment/summary"(platform: "/", type: TrackType.View) {
+        product_type(
+            description: "Product type from the user's credit line",
+            type: PropertyType.String,
+            required: true,
+        )
+        requested_amount(
+            description: "User requested amount",
+            type: PropertyType.Numeric,
+            required: true,
+        )
+        max_amount(
+            description: "Credit line maximum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
+        )
+        min_amount(
+            description: "Credit line minimum allowed amount",
+            type: PropertyType.Numeric,
+            required: true,
+        )
+        option(
+            description: "User requested option",
+            type: PropertyType.Numeric,
+            required: true,
+        )
+        max_option(
+            description: "Credit line maximum allowed option",
+            type: PropertyType.Numeric,
+            required: true,
+        )
+    }
 
     /******************************************
      *       End: Merchants Enrollment
@@ -537,3 +704,8 @@ tracks {
      *   End: Express money
      ******************************************/
 }
+import com.ml.melidata.catalog.PropertyType
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
+
+
+import com.ml.melidata.TrackType
