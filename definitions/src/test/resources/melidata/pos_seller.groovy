@@ -375,6 +375,24 @@
                             installments= 3
                         }
 
+                        "/pos_seller/friction/card_reader"(platform: "/web", type: TrackType.Event) {
+                            context = "pos_seller/card_reader"
+                            message = [ style: "dialog", title: "Titulo", content: "Mensaje de error", primary_button: "Reintentar", secondary_button: "Volver" ]
+                            extra_info = [ 
+                                error_type: "card_reader",
+                                flow_id: "UUID",
+                                amount: 2.00,
+                                items: 1,
+                                mode: "amount",
+                                payment_channel: "qr",
+                                currency :  "ARS",
+                                store: "13040339",
+                                pos: "13040340",
+                                payment_method_type: "credit_card",
+                                installments: 3,
+                            ]
+                        }
+
                         "/pos_seller/end"(platform: "/web", type: TrackType.Event) {
                             flow_id= "UUID"
                             amount= 2.00

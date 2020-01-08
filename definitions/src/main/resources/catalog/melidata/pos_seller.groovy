@@ -292,7 +292,6 @@
         "/pos_seller/qr/waiting_for_scan"(platform: "/web", type: TrackType.Event) {
             paymentDataWeb
         }
-        
         "/pos_seller/end"(platform: "/web", type: TrackType.Event) {
             paymentDataWeb
         }
