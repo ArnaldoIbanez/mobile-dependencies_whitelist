@@ -92,16 +92,14 @@ tracks {
 
     //kyc/iv
 
-    "/kyc/iv"(platform: "/", isAbstract: true) {}
-
-    "/kyc/iv"(platform: "/mobile", isAbstract: true) {}
-
-    "/kyc/iv"(platform: "/web", isAbstract: true) {
+    "/kyc/iv"(platform: "/", isAbstract: true) {
         transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
         initiative(required: false, type: PropertyType.String, description: "Users initiative")
         kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
     }
+
+    "/kyc/iv"(platform: "/mobile", isAbstract: true) {}
 
     "/kyc/iv/activity"(platform: "/", isAbstract: true) {
         initiative(required: false, type: PropertyType.String, description: "Users initiative")
