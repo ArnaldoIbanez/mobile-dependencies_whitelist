@@ -70,7 +70,7 @@
       {
         "name": "empty_model_response",
         "type": "INTEGER"
-      },
+      }
     ],
     "sql": {
       "script": "melidata/recommendations-track-errors-v2.sql",
