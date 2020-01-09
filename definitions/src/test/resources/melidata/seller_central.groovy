@@ -448,6 +448,21 @@ trackTests {
     }
   }
 
+  test("seller central render detail for motors"){
+    "/seller_central/modify/detail"(platform: "/", type: TrackType.View){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509591"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
   test("seller central render variations"){
     "/seller_central/modify/variations"(platform: "/", type: TrackType.View){
       item_type = "default"
