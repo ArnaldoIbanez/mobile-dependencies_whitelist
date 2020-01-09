@@ -5,7 +5,7 @@ apply plugin:'application'
 apply plugin:'maven'
 apply plugin:'java'
 
-project.version = '1.2.23'
+project.version = '1.2.24'
 project.group = 'com.mercadolibre.melidata.catalog'
 
 task wrapper(type: Wrapper) {
