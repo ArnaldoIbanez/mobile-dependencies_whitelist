@@ -47,9 +47,10 @@ metrics {
         }
     }
 
-    "search/apparelBrandsCarousel"(description: "define properties for order_id") {
+    "search_properties"(description: "define properties for order_id") {
         startWith {
             set_property("item_ids", "event_data.results")
+            experiment(regex("search/.*"))
         }
     }
 
