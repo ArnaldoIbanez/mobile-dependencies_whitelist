@@ -384,7 +384,7 @@ tracks {
         type(required: true, type: PropertyType.String, description: "Which congrats is the user reac", values:["success","failed", "partial", "no changes", "mail"])
     }
 
-    "/seller_central/bulk/offline/cbt/upload"(platform: "/", type: cbt/TrackType.View) {}
+    "/seller_central/bulk/offline/cbt/upload"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/offline/cbt/upload/congrats"(platform: "/", type: TrackType.View) {
         type(required: true, type: PropertyType.String, description: "Which congrats is the user reac", values:["success","failed", "partial", "no changes", "mail"])
