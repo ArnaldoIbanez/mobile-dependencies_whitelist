@@ -1174,6 +1174,9 @@ tracks {
     "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
     }
+    "/checkout/shipping/input_address/internal_number"(platform:"/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the internal number")
+    }
 
 
     "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event) {}
