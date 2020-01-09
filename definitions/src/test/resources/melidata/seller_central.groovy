@@ -307,8 +307,10 @@ trackTests {
   }
 
   test("seller central offline bulk upload") {
-    "/seller_central/bulk/offline/cbt/upload"(platform: "/", type: cbt/TrackType.View) {}
+    "/seller_central/bulk/offline/cbt/upload"(platform: "/", type: TrackType.View) {}
   }
+
+
 
   test("seller central offline bulk download confirm") {
     "/seller_central/bulk/offline/cbt/download/confirm"(platform: "/", type: TrackType.Event) {
@@ -329,6 +331,8 @@ trackTests {
       type = "failed"
     }
   }
+
+
 
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
