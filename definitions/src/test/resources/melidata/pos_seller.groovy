@@ -422,7 +422,6 @@
                         /**
                         *MISC
                         */
-                        "/pos_seller/onboarding/start"(platform: "/web", type: TrackType.Event) {}
                         "/pos_seller/mobile_shield/start"(platform: "/web", type: TrackType.Event) {}
                     }
 
