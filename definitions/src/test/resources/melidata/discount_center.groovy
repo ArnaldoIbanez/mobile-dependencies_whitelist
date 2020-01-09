@@ -145,4 +145,10 @@ trackTests {
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
+
+    test("Mercado Pago discount center payers session end") {
+        "/discount_center/payers/session/end" (platform: "/mobile", type: TrackType.Event) {
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+    }
 }

@@ -86,4 +86,12 @@ tracks {
     }
 
     "/discount_center/payers/request_location/back" (platform: "/mobile", type: TrackType.Event) {}
+
+    // SESSION
+
+    "/discount_center/payers/session" (platform: "/mobile", isAbstract: true) {}
+
+    "/discount_center/payers/session/end" (platform: "/mobile", type: TrackType.Event) {
+        session_id(required: true, type: PropertyType.String, description: "Unique code that identifies a user's session")
+    }
 }
