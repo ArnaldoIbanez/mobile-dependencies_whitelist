@@ -1021,6 +1021,8 @@ tracks {
 
     "/myml/myreputation"(platform: "/mobile") {}
 
+    "/myml/settings"(platform: "/mobile", type: TrackType.View) {}
+
     "/myml/message"(platform: "/mobile") {}
 
     "/myml/message/activity"(platform:"/mobile", type: TrackType.View) {}

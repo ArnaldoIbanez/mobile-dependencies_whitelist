@@ -1115,6 +1115,10 @@ trackTests {
         "/myml/myreputation"(platform: "/mobile") {}
     }
 
+    test("Myml settings") {
+        "/myml/settings"(platform: "/mobile", type: TrackType.View) {}
+    }
+
     test("Myml message activity") {
         "/myml/message"(platform: "/mobile") {}
         "/myml/message/questions"(platform: "/mobile", type: TrackType.View) {}
