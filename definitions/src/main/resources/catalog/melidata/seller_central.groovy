@@ -375,19 +375,19 @@ tracks {
     "/seller_central/bulk/offline/cbt/download"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/offline/cbt/download/confirm"(platform: "/", type: TrackType.Event) {
-        items(required: true, type: PropertyType.Numeric, description: "Amount of downloaded items")
+        items(required: false, type: PropertyType.Numeric, description: "Amount of downloaded items")
         filters(required: false, type: PropertyType.ArrayList, description: "List of applied filters")
         categories(required: false, type: PropertyType.ArrayList, description: "List of applied categories")
     }
 
     "/seller_central/bulk/offline/cbt/download/congrats"(platform: "/", type: TrackType.View) {
-        type(required: true, type: PropertyType.String, description: "Which congrats is the user reac", values:["success","failed", "partial", "no changes", "mail"])
+        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values:["success","failed", "partial", "no changes", "mail"])
     }
 
     "/seller_central/bulk/offline/cbt/upload"(platform: "/", type: TrackType.View) {}
 
     "/seller_central/bulk/offline/cbt/upload/congrats"(platform: "/", type: TrackType.View) {
-        type(required: true, type: PropertyType.String, description: "Which congrats is the user reac", values:["success","failed", "partial", "no changes", "mail"])
+        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values:["success","failed", "partial", "no changes", "mail"])
     }
 
 
