@@ -380,7 +380,6 @@
                         /**
                         *MISC
                         */
-                        "/pos_seller/onboarding"(platform: "/web", type: TrackType.View) {}
                         "/pos_seller/mobile_shield"(platform: "/web", type: TrackType.View) {}
                     }
 
