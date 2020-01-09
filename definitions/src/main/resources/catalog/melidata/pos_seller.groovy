@@ -309,8 +309,8 @@
         "/pos_seller/select_method"(platform: "/web", type: TrackType.Event) {
             paymentDataWeb
         }
-        "/pos_seller/point/change_interest_expense"(platform: "/web", type: TrackType.Event) {
-            interest_expense(required: false, type: PropertyType.String, description: "interest expense",values: ["seller", "buyer"])
+        "/pos_seller/point/set_financing_cost"(platform: "/web", type: TrackType.Event) {
+            financing_cost(required: false, type: PropertyType.String, description: "interest expense",values: ["seller", "buyer"])
         }
         "/pos_seller/friction/card_reader"(platform: "/web", type: TrackType.Event) {
             context (required: true, type: PropertyType.String, description: "Friction context")

@@ -397,8 +397,8 @@
                             store= "13040339"
                             pos= "13040340"
                         }
-                        "/pos_seller/point/change_interest_expense"(platform: "/web", type: TrackType.Event) {
-                            interest_expense= "seller"
+                        "/pos_seller/point/set_financing_cost"(platform: "/web", type: TrackType.Event) {
+                            financing_cost= "seller"
                         }
                         "/pos_seller/friction/card_reader"(platform: "/web", type: TrackType.Event) {
                             context = "pos_seller/card_reader"
