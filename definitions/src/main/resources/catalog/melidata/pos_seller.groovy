@@ -265,33 +265,59 @@
 
 
         // ----------- WEB -------------
+        /**
+        * abstract paths
+        */
+
+        "/pos_seller/point"(platform: "/web", isAbstract: true) {}
+        "/pos_seller/qr"(platform: "/web", isAbstract: true) {}
 
         /**
         * pos seller web view tracks
         */
 
-        "/pos_seller/onboarding"(platform: "/web", type: TrackType.View) {}
+        /**
+        * COLLECTION FUNNEL
+        */
+
+        //Collection funnel start
+        "/pos_seller/collect"(platform: "/web", type: TrackType.View) {}
+        "/pos_seller/start"(platform: "/web", type: TrackType.View) {}
+
+        //Point Pro Flow
+        "/pos_seller/point/card_type"(platform: "/web", type: TrackType.View) {}
+        "/pos_seller/point/installments"(platform: "/web", type: TrackType.View) {}
+        "/pos_seller/point/waiting_for_card"(platform: "/web", type: TrackType.View) {
+            paymentDataWeb
+        }
+        //QR Flow
+        "/pos_seller/qr/waiting_for_scan"(platform: "/web", type: TrackType.View) {
+            paymentDataWeb
+        }
+        //Collection funnel end success
+        "/pos_seller/end"(platform: "/web", type: TrackType.View) {
+            paymentDataWeb
+        }
+
+        //Misc
         "/pos_seller/mobile_shield"(platform: "/web", type: TrackType.View) {}
 
 
         /**
         * pos seller web event tracks
         */
-        
-        "/pos_seller/start"(platform: "/web", type: TrackType.Event) {
+        "/pos_seller/select_method"(platform: "/web", type: TrackType.Event) {
             paymentDataWeb
         }
-        "/pos_seller/point/waiting_for_card"(platform: "/web", type: TrackType.Event) {
-            paymentDataWeb
-        }
-        "/pos_seller/point/end"(platform: "/web", type: TrackType.Event) {
-            paymentDataWeb
+        "/pos_seller/point/set_financing_cost"(platform: "/web", type: TrackType.Event) {
+            financing_cost(required: false, type: PropertyType.String, description: "interest expense",values: ["seller", "buyer"])
         }
         "/pos_seller/friction/card_reader"(platform: "/web", type: TrackType.Event) {
             context (required: true, type: PropertyType.String, description: "Friction context")
             message (required: true, type: PropertyType.Map(PosSellerFrictionMessage), description: "Message shown map")
             extra_info (required: true, type: PropertyType.Map(PosSellerCardFrictionExtraInfoWeb), description: "Friction extra data map")
         }
-        "/pos_seller/onboarding/start"(platform: "/web", type: TrackType.Event) {}
+
+        //Misc
         "/pos_seller/mobile_shield/start"(platform: "/web", type: TrackType.Event) {}
 }

@@ -326,13 +326,68 @@
 
                     // WEB
                     test("pos seller web views") {
-                        "/pos_seller/onboarding"(platform: "/web", type: TrackType.View) {}
+                        /**
+                        * COLLECTION FUNNEL
+                        */
+
+                        //Collection funnel start
+                        "/pos_seller/collect"(platform: "/web", type: TrackType.View) {}
+                        "/pos_seller/start"(platform: "/web", type: TrackType.View) {}
+
+                        //Point Pro Flow
+                        "/pos_seller/point/card_type"(platform: "/web", type: TrackType.View) {}
+                        "/pos_seller/point/installments"(platform: "/web", type: TrackType.View) {}
+                        "/pos_seller/point/waiting_for_card"(platform: "/web", type: TrackType.View) {
+                            flow_id= "UUID"
+                            amount= 2.00
+                            items= 1
+                            mode= "amount"
+                            payment_channel= "point"
+                            currency =  "ARS"
+                            store= "13040339"
+                            pos= "13040340"
+                            payment_method_type= "credit_card"
+                            installments= 3
+                        }
+                        //QR Flow
+                        "/pos_seller/qr/waiting_for_scan"(platform: "/web", type: TrackType.View) {
+                            flow_id= "UUID"
+                            amount= 2.00
+                            items= 1
+                            mode= "amount"
+                            payment_channel= "qr"
+                            currency =  "ARS"
+                            store= "13040339"
+                            pos= "13040340"
+                            payment_method_type= "credit_card"
+                            installments= 3
+                        }
+                        
+                        //Collection funnel end success
+                        "/pos_seller/end"(platform: "/web", type: TrackType.View) {
+                            flow_id= "UUID"
+                            amount= 2.00
+                            items= 1
+                            mode= "amount"
+                            payment_channel= "point"
+                            currency =  "ARS"
+                            store= "13040339"
+                            pos= "13040340"
+                            payment_method_type= "credit_card"
+                            installments= 3
+                        }
+                         
+                        /**
+                        *MISC
+                        */
                         "/pos_seller/mobile_shield"(platform: "/web", type: TrackType.View) {}
                     }
 
                     test("pos seller web events") {
-                        
-                        "/pos_seller/start"(platform: "/web", type: TrackType.Event) {
+                        /**
+                        * COLLECTION FUNNEL
+                        */
+                        "/pos_seller/select_method"(platform: "/web", type: TrackType.Event) {
                             flow_id= "UUID"
                             amount= 2.00
                             items= 1
@@ -342,51 +397,30 @@
                             store= "13040339"
                             pos= "13040340"
                         }
-
-                        "/pos_seller/point/waiting_for_card"(platform: "/web", type: TrackType.Event) {
-                            flow_id= "UUID"
-                            amount= 2.00
-                            items= 1
-                            mode= "amount"
-                            payment_channel= "point"
-                            currency =  "ARS"
-                            store= "13040339"
-                            pos= "13040340"
-                            payment_method_type= "credit_card"
-                            installments= 3
+                        "/pos_seller/point/set_financing_cost"(platform: "/web", type: TrackType.Event) {
+                            financing_cost= "seller"
                         }
-
-                        "/pos_seller/point/end"(platform: "/web", type: TrackType.Event) {
-                            flow_id= "UUID"
-                            amount= 2.00
-                            items= 1
-                            mode= "amount"
-                            payment_channel= "point"
-                            currency =  "ARS"
-                            store= "13040339"
-                            pos= "13040340"
-                            payment_method_type= "credit_card"
-                            installments= 3
-                        }
-
                         "/pos_seller/friction/card_reader"(platform: "/web", type: TrackType.Event) {
-                            context = "/pos_seller/point/card_reader"
-                            message = [ style: "screen", title: "Titulo", content: "Mensaje de error", primary_button: "Iniciar un nuevo cobro", secondary_button: "Volver" ]
+                            context = "pos_seller/card_reader"
+                            message = [ style: "dialog", title: "Title", content: "Message", primary_button: "Retry", secondary_button: "Back" ]
                             extra_info = [ 
+                                error_type: "card_reader",
                                 flow_id: "UUID",
                                 amount: 2.00,
                                 items: 1,
                                 mode: "amount",
                                 payment_channel: "point",
-                                currency:  "ARS",
+                                currency :  "ARS",
                                 store: "13040339",
                                 pos: "13040340",
                                 payment_method_type: "credit_card",
-                                installments: 3, 
-                                error_type: "card_reader"]
-                            }
-                        
-                        "/pos_seller/onboarding/start"(platform: "/web", type: TrackType.Event) {}
+                                installments: 3,
+                            ]
+                        }
+
+                        /**
+                        *MISC
+                        */
                         "/pos_seller/mobile_shield/start"(platform: "/web", type: TrackType.Event) {}
                     }
 
