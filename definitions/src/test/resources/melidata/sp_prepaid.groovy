@@ -70,18 +70,18 @@ trackTests {
 
 
         // Recommended products
-        "/single_player/prepaid/recommended_product"(platform: "/mobile", type: TrackType.View) {
+        "/single_player/prepaid/recommended_products"(platform: "/mobile", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
 
-        "/single_player/prepaid/recommended_product/selected_product"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/recommended_products/selected_product"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
             item_id = "7"
         }
-        "/single_player/prepaid/recommended_product/more_products"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/recommended_products/more_products"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
@@ -335,18 +335,18 @@ trackTests {
 
 
         // Recommended products
-        "/single_player/prepaid/recommended_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+        "/single_player/prepaid/recommended_products"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
 
-        "/single_player/prepaid/recommended_product/selected_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/prepaid/recommended_products/selected_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
             item_id = "7"
         }
-        "/single_player/prepaid/recommended_product/more_products"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/prepaid/recommended_products/more_products"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
