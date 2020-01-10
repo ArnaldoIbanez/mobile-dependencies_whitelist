@@ -377,6 +377,7 @@ tracks {
     "/mercado_shops/template-selection/preview"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View){}
+    
 
     "/mercado_shops/marketing/facebook"(platform: "/", type: TrackType.View){}
 
@@ -387,4 +388,6 @@ tracks {
     "/mercado_shops/marketing/facebook/business_manager"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/facebook/user_procedure"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/instagram"(platform: "/", type: TrackType.View){}
 }
