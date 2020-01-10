@@ -274,6 +274,13 @@ trackTests {
         }
 
 
+        // Shield
+        "/single_player/prepaid/shield"(platform: "/mobile", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Meli
@@ -534,6 +541,13 @@ trackTests {
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
         "/single_player/prepaid/error/connection/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+
+        // Shield
+        "/single_player/prepaid/shield"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
