@@ -206,6 +206,7 @@ catalog {
         include business, "wms.groovy"
         include business, "logistics.groovy"
         include business, "places.groovy"
+        include business, "notifications.groovy"
     }
 
 }
