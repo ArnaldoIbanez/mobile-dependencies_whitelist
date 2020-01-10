@@ -379,8 +379,8 @@ tracks {
 
     "/seller_central/bulk/offline/cbt/download/confirm"(platform: "/", type: TrackType.Event) {
         items(required: false, type: PropertyType.Numeric, description: "Amount of downloaded items")
-        filters(required: false, type: PropertyType.ArrayList, description: "List of applied filters")
-        categories(required: false, type: PropertyType.ArrayList, description: "List of applied categories")
+        filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied filters")
+        categories(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied categories")
     }
 
     "/seller_central/bulk/offline/cbt/download/congrats"(platform: "/", type: TrackType.View) {
