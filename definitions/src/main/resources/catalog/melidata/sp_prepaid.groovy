@@ -167,4 +167,8 @@ tracks {
 
     "/single_player/prepaid/error/connection/retry"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/error/connection/back"(platform: "/mobile", type: TrackType.Event) {}
+
+
+    // Shield
+    "/single_player/prepaid/shield"(platform: "/mobile", type: TrackType.View) {}
 }
