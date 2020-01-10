@@ -2439,6 +2439,19 @@ trackTests {
             label = "Revisa este dato"
             session_id="some_session_id"
         }
+        "/checkout/shipping/input_address/internal_number"(platform:"/", type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
 
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)
         "/checkout/shipping/input_address_number/whithout_number"(platform:"/web", dataSet)
