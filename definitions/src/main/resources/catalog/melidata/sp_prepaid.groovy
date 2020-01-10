@@ -52,13 +52,13 @@ tracks {
 
 
     // Recommended products
-    "/single_player/prepaid/recommended_product"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/recommended_products"(platform: "/mobile", type: TrackType.View) {}
 
-    "/single_player/prepaid/recommended_product/selected_product"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/recommended_products/selected_product"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
         item_id(required: true, PropertyType.String, description: "Id of the selected product")
     }
-    "/single_player/prepaid/recommended_product/more_products"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/recommended_products/more_products"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
     }
 
