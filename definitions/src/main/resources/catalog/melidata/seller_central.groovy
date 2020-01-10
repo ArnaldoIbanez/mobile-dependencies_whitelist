@@ -162,6 +162,8 @@ tracks {
         catalog_product_attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "List of attributes from the product associated to an item")
         item_title(required: true, type: PropertyType.String, description: "Item title")
         catalog_product_title(required: true, type: PropertyType.String, description: "Product title associated with an item")
+
+        mercado_lider(required: true, type: PropertyType.Boolean, description: "Seller is mercadolider")
     }
 
     propertyGroups {
@@ -177,6 +179,8 @@ tracks {
         sellerCentralCatalogOptinTaskGroup(task_id, to, from)
 
         sellerCentralCatalogBoostGroup(item_attributes, catalog_product_attributes, item_title, catalog_product_title)
+
+        sellerCentralUserSales(seller_profile, seller_reputation, mercado_lider)
     }
 
     //LISTING SECTION
@@ -185,7 +189,7 @@ tracks {
     "/seller_central/listings/quantity"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/inventory_status"(platform: "/", isAbstract: true) {}
     "/seller_central/listings/list"(platform: "/", type: TrackType.View) {
-      view_id(required:false, type: PropertyType.String, descritpion: "View that has been called")
+        view_id(required:false, type: PropertyType.String, descritpion: "View that has been called")
     }
 
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
@@ -757,7 +761,13 @@ tracks {
     "/seller_central/sales/list/action"(platform: "/web", isAbstract: true) {
         id(required: true, type: PropertyType.String, description: "Action id")
     }
-    "/seller_central/sales/list/action/primary"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/sales/list/action/primary"(platform: "/web", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+        filters(required: false, type: PropertyType.ArrayList, description: "List of applied filters")
+        sellerCentralUserSales
+
+
+    }
     "/seller_central/sales/list/action/primary/show"(platform: "/web", type: TrackType.Event) {}
     "/seller_central/sales/list/action/secondary"(platform: "/web", type: TrackType.Event) {}
 
@@ -768,7 +778,9 @@ tracks {
     "/seller_central/sales/detail/action"(platform: "/web", isAbstract: true) {
         id(required: true, type: PropertyType.String, description: "Action id")
     }
-    "/seller_central/sales/detail/action/primary"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/sales/detail/action/primary"(platform: "/web", type: TrackType.Event) {
+
+    }
     "/seller_central/sales/detail/action/primary/show"(platform: "/web", type: TrackType.Event) {}
     "/seller_central/sales/detail/action/secondary"(platform: "/web", type: TrackType.Event) {}
     "/seller_central/sales/detail/action/print"(platform: "/web", parentPropertiesInherited:false, type: TrackType.Event) {}
