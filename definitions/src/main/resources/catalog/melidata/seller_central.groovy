@@ -139,7 +139,7 @@ tracks {
         new_competition_status(required: false, type: PropertyType.String, description: "The new buy box status of the item")
         catalog_product_id(required: false, type: PropertyType.String, description: "The product id")
         listing_type(required: true, type: PropertyType.String, description: "The product listing type")
-        shipping_local_pickup(required: true, type: PropertyType.Boolean, description: "The product local pick up")
+        shipping_local_pickup(required: false, type: PropertyType.Boolean, description: "The product local pick up")
         winner_item_id(required: false, type: PropertyType.String, description: "The item id of the winner")
         price_to_win(required: false, type: PropertyType.Numeric, description: "The price to win that we suggest to the user")
 
@@ -162,11 +162,12 @@ tracks {
         catalog_product_attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "List of attributes from the product associated to an item")
         item_title(required: true, type: PropertyType.String, description: "Item title")
         catalog_product_title(required: true, type: PropertyType.String, description: "Product title associated with an item")
+        vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
 
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
-        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation)
+        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical)
         sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
