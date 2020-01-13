@@ -22,9 +22,9 @@ tracks {
     "/myaccount/billing/detail/collapsible"(type: TrackType.Event) {
         row_type(type: PropertyType.String, required: true)
     }
-    "/myaccount/search_alerts/list"(type: TrackType.View) {
-        platform(type: PropertyType.String, required: true)
-        quantity(type: PropertyType.Numeric, required: true)
+    "/myaccount/search_alerts/list"(platform: "/", type: TrackType.View) {
+        platform(required: true, type: PropertyType.String, values: ["ML", "PI", "MT", "TC", "TM"], description: "Platforms of classi mercadolibre")
+        quantity(required: true, type: PropertyType.Numeric, description: "Quantity of search alerts")
     }
 
 }

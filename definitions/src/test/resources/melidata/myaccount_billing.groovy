@@ -31,8 +31,15 @@ trackTests {
 
     test("Search Alerts List") {
         "/myaccount/search_alerts/list"(platform: "/", type: TrackType.View) {
-            platform = "MLC"
+            platform = "ML"
             quantity = 2
+        }
+    }
+
+    test("Search Alerts List") {
+        "/myaccount/search_alerts/list"(platform: "/", type: TrackType.View) {
+            platform = "PI"
+            quantity = 0
         }
     }
 }
