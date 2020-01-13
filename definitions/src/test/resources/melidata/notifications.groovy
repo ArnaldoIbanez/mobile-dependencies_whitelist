@@ -162,8 +162,6 @@ trackTests {
             test_notification= false
             sent_date= "20180508"
             batch_id= "MLB_PACK_20180508_2"
-            latest_news_type= "campaigns-generic"
-            latest_news_id= "campaigns-generic-143816022-MLB1013046714"
         }
         "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile"){
             campaign_id= "campaign1"
@@ -3414,8 +3412,6 @@ trackTests {
             test_notification= false
             sent_date= "20180508"
             batch_id= "MLB_PACK_20180508_2"
-            latest_news_type= "campaigns-generic"
-            latest_news_id= "campaigns-generic-143816022-MLB1013046714"
         }
         "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile"){
             campaign_id= "campaign1"
