@@ -1461,7 +1461,7 @@ tracks {
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
-          deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+          deal_id(required: false, type: PropertyType.String, description: "Id of deal.")
       }
 
       //Packages
