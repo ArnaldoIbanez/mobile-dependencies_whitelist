@@ -27,5 +27,12 @@ trackTests {
                 has_automatic_debit = true
                 completed = true
             }
+    }
+
+    test("Search Alerts List") {
+        "/myaccount/search_alerts/list"(platform: "/", type: TrackType.View) {
+            platform = "MLC"
+            quantity = 2
         }
+    }
 }

@@ -22,4 +22,9 @@ tracks {
     "/myaccount/billing/detail/collapsible"(type: TrackType.Event) {
         row_type(type: PropertyType.String, required: true)
     }
+    "/myaccount/search_alerts/list"(type: TrackType.View) {
+        platform(type: PropertyType.String, required: true)
+        quantity(type: PropertyType.Numeric, required: true)
+    }
+
 }
