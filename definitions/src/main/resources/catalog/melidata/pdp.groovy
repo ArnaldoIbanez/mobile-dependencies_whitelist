@@ -416,7 +416,7 @@ tracks {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
     }
 
-    "/pdp/public_similar_intention" (platform: "/", parentPropertiesInherited: false) {
+    "/pdp/public_similar_intention" (platform: "/web/desktop", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")

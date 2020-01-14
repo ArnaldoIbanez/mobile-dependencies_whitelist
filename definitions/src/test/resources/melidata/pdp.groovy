@@ -384,7 +384,7 @@ trackTests {
             catalog_product_id = "MLA1234"
         })
 
-        "/pdp/public_similar_intention"(platform: "/", {
+        "/pdp/public_similar_intention"(platform: "/web/desktop", {
             catalog_product_id = "MLA1234"
             category_id = "MLA43718"
             category_path = ["MLA1234", "MLA6789"]
