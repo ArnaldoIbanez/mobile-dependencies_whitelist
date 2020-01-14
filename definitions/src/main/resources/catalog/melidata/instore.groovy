@@ -507,6 +507,19 @@ tracks {
 
     "/instore/buyer_qr/landing/account_money_only"(platform: "/mobile", type: TrackType.View) {}
 
+    "/instore/buyer_qr/landing/insufficient_money"(platform: "/mobile", type: TrackType.View) {
+        status(required: true, PropertyType.String, description: "Failure", values: ["failure"])
+        amount_paid(required: false, PropertyType.String, description: "Paid amount in local currency")
+        item_amount(required: false, PropertyType.String, description: "Item's value in local currency")
+        payment_method_name(required: false, PropertyType.String, description: "example: Dinero en Mercado Pago")
+        payment_method_id(required: false, PropertyType.String, description: "Payment method id (visa, masterCard, account_money, etc")
+        currency_id(required: false, PropertyType.String, description: "Currency identifier")
+        payment_date(required: false, PropertyType.String)
+        payment_id(required: false, PropertyType.String)
+        collector_name(required: false, PropertyType.String)
+        collector_id(required: false, PropertyType.String)
+    }
+
     //Buyer QR - Generic Error
 
     "/instore/buyer_qr/generic_landing"(platform: "/mobile", type: TrackType.View) {}
