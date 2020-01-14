@@ -19,7 +19,10 @@ tracks {
         externalData
     }
 
-    // ********************************************* Events ********************************************* 
+    "/card_form/expiration_security/date"(platform: "/mobile", isAbstract: true) {}
+    "/card_form/expiration_security/cvv"(platform: "/mobile", isAbstract: true) {}
+
+    // ********************************************* Events *********************************************
     // Init & success
     "/card_form/init"(platform: "/mobile", type: TrackType.Event) {}
     "/card_form/success"(platform: "/mobile", type: TrackType.Event) {}
