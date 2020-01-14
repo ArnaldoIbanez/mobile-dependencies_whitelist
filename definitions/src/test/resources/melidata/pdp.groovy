@@ -455,6 +455,13 @@ trackTests {
             item_id = "MLA112341"
             seller_id = 2345678
         })
+
+        "/pdp/questions/quick_access"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+            domain_id = "celulares"
+            type = "payment"
+        })
     }
 
     //Sellers page FLOW

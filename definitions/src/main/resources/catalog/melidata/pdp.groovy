@@ -361,7 +361,17 @@ tracks {
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of the product that the user is trying to buy or add to cart")
         available_quantity(required: true, type: PropertyType.Numeric, description: "Max Available quantity for the selected product")
     }
-"/pdp/questions"(platform: "/", isAbstract:true) {}
+
+    "/pdp/questions"(platform: "/", isAbstract:true) {}
+
+    "/pdp/questions/quick_access"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product id")
+        item_id(required: true, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
+        type(required: true, type: PropertyType.String,values: ["payment", "returns", "shipping", "warranty"], description: "quick access type")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+    }
+
+
     "/pdp/questions/show"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product id")
         item_id(required: false, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
