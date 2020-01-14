@@ -28,5 +28,4 @@ trackTests {
                 completed = true
             }
     }
-
 }

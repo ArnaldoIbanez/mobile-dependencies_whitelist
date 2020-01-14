@@ -22,5 +22,4 @@ tracks {
     "/myaccount/billing/detail/collapsible"(type: TrackType.Event) {
         row_type(type: PropertyType.String, required: true)
     }
-
 }
