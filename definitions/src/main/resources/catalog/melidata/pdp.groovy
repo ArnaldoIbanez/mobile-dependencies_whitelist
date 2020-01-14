@@ -418,8 +418,8 @@ tracks {
 
     "/pdp/public_similar_intention" (platform: "/web/desktop", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         domain_id(required: true, type: PropertyType.String, description: "Item's domain ID")
         item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
