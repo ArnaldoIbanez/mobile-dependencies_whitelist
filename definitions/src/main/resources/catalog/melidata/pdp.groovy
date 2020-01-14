@@ -422,7 +422,7 @@ tracks {
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         domain_id(required: true, type: PropertyType.String, description: "Item's domain ID")
-        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
                 description: "Whether the item is new, used or refurbished")
         vertical(required: false, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
