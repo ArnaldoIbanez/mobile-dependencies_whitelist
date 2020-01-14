@@ -27,5 +27,5 @@ trackTests {
                 has_automatic_debit = true
                 completed = true
             }
-    }
+        }
 }
