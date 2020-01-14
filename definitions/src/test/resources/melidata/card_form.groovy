@@ -15,11 +15,11 @@ trackTests {
 	   	}
 
 	    "/card_form/name"(platform: "/mobile", type: TrackType.View) {
-	    	site_id = "MLA"
+	    	  site_id = "MLA"
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	    	prepopulated = false
+	    	  prepopulated = false
 	    }
 
 	    "/card_form/expiration_security"(platform: "/mobile", type: TrackType.View) {
@@ -42,7 +42,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	        issuers_quantity = 5
 	    }
     }
@@ -53,7 +52,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	    }
 
 	    "/card_form/success"(platform: "/mobile", type: TrackType.Event) {
@@ -61,7 +59,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	    }
 
 	    "/card_form/next"(platform: "/mobile", type: TrackType.Event) {
@@ -69,7 +66,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	        current_step = "bin_number"
 	    }
 
@@ -78,7 +74,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	        current_step = "bin_number"
 	    }
 
@@ -87,7 +82,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	        error_step = "bin_number"
 	        error_message = "Invalid bin"
 	    }
@@ -97,7 +91,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	    }
 
 	    "/card_form/bin_number/invalid"(platform: "/mobile", type: TrackType.Event) {
@@ -105,24 +98,21 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	        bin_number = 123456
 	    }
-	    
+
 	    "/card_form/bin_number/valid"(platform: "/mobile", type: TrackType.Event) {
 	    	site_id = "MLA"
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	    }
-	    
+
 	    "/card_form/bin_number/recognized"(platform: "/mobile", type: TrackType.Event) {
 	    	site_id = "MLA"
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	    }
 
 	    "/card_form/bin_number/unknown"(platform: "/mobile", type: TrackType.Event) {
@@ -130,7 +120,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	        bin_number = 123456
 	    }
 
@@ -139,7 +128,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	    }
 
 	    "/card_form/name/valid"(platform: "/mobile", type: TrackType.Event) {
@@ -147,7 +135,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	    }
 
 	    "/card_form/expiration_security/date/valid"(platform: "/mobile", type: TrackType.Event) {
@@ -155,7 +142,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	    }
 
 	    "/card_form/expiration_security/date/invalid"(platform: "/mobile", type: TrackType.Event) {
@@ -163,7 +149,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	    }
 
 	    "/card_form/expiration_security/cvv/valid"(platform: "/mobile", type: TrackType.Event) {
@@ -171,7 +156,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	    }
 
 	    "/card_form/expiration_security/cvv/invalid"(platform: "/mobile", type: TrackType.Event) {
@@ -179,7 +163,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	    }
 
 	    "/card_form/identification/valid"(platform: "/mobile", type: TrackType.Event) {
@@ -187,7 +170,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	    }
 
 	    "/card_form/identification/invalid"(platform: "/mobile", type: TrackType.Event) {
@@ -195,7 +177,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	        type = "dni"
 	        value = "13456764"
 	    }
@@ -205,8 +186,7 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
-	    	issuer_id = 4
+	    	  issuer_id = 4
 	    }
 
 	    "/card_form/issuers/close"(platform: "/mobile", type: TrackType.Event) {
@@ -214,7 +194,6 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        prepopulated = false
 	    }
     }
 }
