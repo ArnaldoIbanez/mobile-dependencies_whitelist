@@ -142,7 +142,7 @@ tracks {
         user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
         pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
-        carousel_categories_shown(required: false, description: 'category carousel is show when user make a search', PropertyType.Boolean)
+        carousel_categories_shown(required: false, description: 'category carousel is shown when user makes a search', PropertyType.Boolean)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -169,7 +169,12 @@ tracks {
         offset(required: false, description: "override required property")
     }
 
-    "/search/filters"(platform: "/mobile") {}
+    "/search/filters"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        show_all_values_used(required: false, description: 'above the fold from tooltip is used', PropertyType.Boolean)
+        multiple_values_qty(required: false, description: 'qty of multiple values selected before the request is made', PropertyType.Numeric)
+        clean_filters_used_single(required: false, description: 'single clean_filters is used', PropertyType.Boolean)
+        clean_filters_used_all(required: false, description: 'general clean_filters is used', PropertyType.Boolean)
+    }
     
     "/search/breadcrumb"(platform: "/mobile", isAbstract: true) {}
     
