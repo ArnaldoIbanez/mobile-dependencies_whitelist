@@ -852,6 +852,21 @@ trackTests {
             list_mode = "LIST"
         }
     }
+    test("SYI v4 category card confirmed motors"){
+        "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLM24287"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            list_mode = "LIST"
+        }
+    }
     test("SYI v4 wrong category"){
         "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"

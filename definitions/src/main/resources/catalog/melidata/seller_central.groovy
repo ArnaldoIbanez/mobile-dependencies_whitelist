@@ -365,6 +365,35 @@ tracks {
 
     "/seller_central/bulk/offline/download/warning"(platform: "/", type: TrackType.Event){}
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central BULK Offline Cbt
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/bulk/offline/cbt"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/offline/cbt/hub"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/cbt/download"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/cbt/upload"(platform: "/", type: TrackType.View) {}
+
+
+    "/seller_central/bulk/offline/cbt/download/confirm"(platform: "/", type: TrackType.Event) {
+        items(required: true, type: PropertyType.Numeric, description: "Amount of downloaded items")
+        filters(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied filters")
+        categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied categories")
+    }
+
+    "/seller_central/bulk/offline/cbt/download/congrats"(platform: "/", type: TrackType.View) {
+        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values:["success","failed", "partial", "no changes", "mail"])
+    }
+
+
+    "/seller_central/bulk/offline/cbt/upload/congrats"(platform: "/", type: TrackType.View) {
+        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values:["success","failed", "partial", "no changes", "mail"])
+    }
+
+
     //BULK SECTION - DISCOUNTS VERSION
 
     "/seller_central/bulk/discounts"(platform: "/", isAbstract: true) {}
@@ -410,6 +439,22 @@ tracks {
     "/seller_central/bulk/discounts/offline/download/error"(platform: "/", type: TrackType.Event){}
 
     "/seller_central/bulk/discounts/offline/download/warning"(platform: "/", type: TrackType.Event){}
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central BULK Offline Cbt
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/bulk/offline"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/offline/home"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/download"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/download/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/upload"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/upload/congrats"(platform: "/", type: TrackType.View) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Publish

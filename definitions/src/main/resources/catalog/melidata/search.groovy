@@ -35,6 +35,11 @@ tracks {
         selected_id(required:true, PropertyType.String)
     }
 
+    def promise_item_definition = objectSchemaDefinitions{
+        sameday(type: PropertyType.ArrayList(PropertyType.String), required: false)
+        nextday(type: PropertyType.ArrayList(PropertyType.String), required: false)
+    }
+
     //SEARCH FLOW
     
     "/search"(platform: "/") {
@@ -44,12 +49,12 @@ tracks {
         total(required: true, description: "amount of search items returned", type: PropertyType.Numeric)
         category_id(required: false, regex: categoryRegex)
         category_path(required: false, description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList)
-        sort_id(required: true, description: "relevance, price_asc or price_desc", values: ["relevance", "price_asc", "price_desc", "publication_begins_desc", "manually_selected", "publication_begins_asc"])
+        sort_id(required: true, description: "relevance, price_asc, price_desc, publication_begins_desc, publication_begins_asc, manually_selected", values: ["relevance", "price_asc", "price_desc", "publication_begins_desc", "manually_selected", "publication_begins_asc"])
         filters(required: true, description: "filters applied")
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList)
         view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
-        promise_items(required: false, description:  "items with shipping promise", PropertyType.ArrayList(PropertyType.String))
+        promise_items(required: false, description:  "items with shipping promise", type: PropertyType.Map(promise_item_definition))
 
         billboards(required: false, description: "items ids from billboard results", PropertyType.ArrayList)
         pads(required: false, description: "item_id from the pads returned for listings")
