@@ -628,6 +628,38 @@ tracks {
     "/seller_central/modify/catalog_boost/modal/cancel"(platform: "/", type: TrackType.Event) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS CLASSI V4
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/modify/detail/seller_contact"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/seller_contact/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/seller_contact/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/reservation_info"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/reservation_info/show"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/location"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/location/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/location/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/instant_pay_listings"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/instant_pay_listings/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/instant_pay_listings/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/description"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/description/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/description/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/video"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/video/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/video/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/change_category"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/change_category/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/change_category/confirm"(platform: "/", type: TrackType.Event) {}
+
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Structured Data
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -711,6 +743,10 @@ tracks {
         attribute(required: true, type: PropertyType.String, description: "ID of the attribute")
         value(required: true, type: PropertyType.String, description: "New attribute value")
     }
+
+    "/seller_central/modify/detail/technical_specifications/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/technical_specifications/confirm"(platform: "/", type: TrackType.Event) {}
+
 
     // SETTINGS SECTION
 
