@@ -505,6 +505,36 @@ trackTests {
     }
   }
 
+  test("seller central render detail quick_edit_standard for motors"){
+    "/seller_central/modify/detail/quick_edit_standard/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail quick_edit_standard for motors"){
+    "/seller_central/modify/detail/quick_edit_standard/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
   test("seller central render detail technical_specifications for motors"){
     "/seller_central/modify/detail/technical_specifications/show"(platform: "/", type: TrackType.Event){
       item_type = "default"

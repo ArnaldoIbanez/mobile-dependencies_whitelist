@@ -631,6 +631,11 @@ tracks {
     // TRACKS CLASSI V4
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
+    "/seller_central/modify/detail/quick_edit_standard"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/quick_edit_standard/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/quick_edit_standard/confirm"(platform: "/", type: TrackType.Event) {}
+
+
     "/seller_central/modify/detail/seller_contact"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/seller_contact/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/modify/detail/seller_contact/confirm"(platform: "/", type: TrackType.Event) {}
