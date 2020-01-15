@@ -67,9 +67,18 @@ tracks {
     }
 
     "/landing/sellers/mss/click"(platform:"/", type: TrackType.Event) {
-      id (type: PropertyType.String, required: true, description: "ID from clicked element")
-      label (type: PropertyType.String, required: true, description: "Element text")
-      page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
+        id (type: PropertyType.String, required: false, description: "ID from clicked element")
+        label (type: PropertyType.String, required: false, description: "Element text")
+        page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
+        fixed_fee (type: PropertyType.String, required: false, description: "Fixed Fee")
+        advance (type: PropertyType.String, required: false, description: "Advance days")
+        advance_fee (type: PropertyType.String, required: false, description: "Advance days fee")
+        advance_value (type: PropertyType.String, required: false, description: "Advance fee final value")
+        installments (type: PropertyType.String, required: false, description: "Total installments")
+        installments_fee (type: PropertyType.String, required: false, description: "Installments fee")
+        installments_value (type: PropertyType.String, required: false, description: "Installments final value")
+        initial_sale_value (type: PropertyType.String, required: false, description: "Initial sale value")
+        final_sale_value (type: PropertyType.String, required: false, description: "Final sale value (with fees)")
     }
 
     // MP Buyers
