@@ -416,4 +416,19 @@ tracks {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
     }
 
+    "/pdp/public_similar_intention" (platform: "/web/desktop", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        domain_id(required: true, type: PropertyType.String, description: "Item's domain ID")
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        vertical(required: false, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        listing_type_id(required: false, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
 }

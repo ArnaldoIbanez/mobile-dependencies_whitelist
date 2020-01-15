@@ -383,6 +383,16 @@ trackTests {
         "/pdp/catalog_tag_click"(platform: "/", {
             catalog_product_id = "MLA1234"
         })
+
+        "/pdp/public_similar_intention"(platform: "/web/desktop", {
+            catalog_product_id = "MLA1234"
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            item_id = "MLA99221"
+            vertical = "core"
+            domain_id = "MLA-CELLPHONES"
+            item_condition = "new"
+        })
     }
 
     test("mobile special actions") {
