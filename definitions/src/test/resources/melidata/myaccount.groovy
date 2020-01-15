@@ -9,14 +9,12 @@ trackTests {
 
     test("Search Alerts List") {
         "/myaccount/search_alerts/list"(platform: "/", type: TrackType.View) {
-            platform = "ML"
             quantity = 2
         }
     }
 
-    test("Search Alerts List Portalinmobiliario") {
+    test("Search Alerts List Empty") {
         "/myaccount/search_alerts/list"(platform: "/", type: TrackType.View) {
-            platform = "PI"
             quantity = 0
         }
     }
