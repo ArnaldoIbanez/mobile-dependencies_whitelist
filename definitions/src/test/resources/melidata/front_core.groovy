@@ -404,9 +404,12 @@ trackTests {
                         distance: 258,
                         store_id: 30091709,
                         availability: "full",
+                        amount_type: "percent",
                         amount: 15,
                         priority: 9,
-                        collector_id: 123456
+                        collector_id: 123456,
+                        has_logo: true,
+                        coupon_used: false
                     ]
                 ]
             ]
@@ -548,9 +551,12 @@ trackTests {
                         distance: 258,
                         store_id: 30091709,
                         availability: "full",
+                        amount_type: "percent",
                         amount: 15,
                         priority: 9,
-                        collector_id: 123456
+                        collector_id: 123456,
+                        has_logo: true,
+                        coupon_used: false
                     ]
                 ]
             ]
@@ -996,9 +1002,12 @@ trackTests {
                         distance: 258,
                         store_id: 30091709,
                         availability: "full",
+                        amount_type: "percent",
                         amount: 15,
                         priority: 9,
-                        collector_id: 123456
+                        collector_id: 123456,
+                        has_logo: true,
+                        coupon_used: false
                     ]
                 ]
             ]
@@ -1140,9 +1149,12 @@ trackTests {
                         distance: 258,
                         store_id: 30091709,
                         availability: "full",
+                        amount_type: "fixed",
                         amount: 15,
                         priority: 9,
-                        collector_id: 123456
+                        collector_id: 123456,
+                        has_logo: true,
+                        coupon_used: false
                     ]
                 ]
             ]
