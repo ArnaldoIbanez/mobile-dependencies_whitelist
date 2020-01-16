@@ -35,6 +35,11 @@ tracks {
         selected_id(required:true, PropertyType.String)
     }
 
+    def action_definition = objectSchemaDefinitions {
+        action_id(type: PropertyType.String, required: true)
+        filter_id(type: PropertyType.String, required: true)
+    }
+
     def promise_item_definition = objectSchemaDefinitions{
         sameday(type: PropertyType.ArrayList(PropertyType.String), required: false)
         nextday(type: PropertyType.ArrayList(PropertyType.String), required: false)
@@ -169,11 +174,11 @@ tracks {
         offset(required: false, description: "override required property")
     }
 
-    "/search/filters"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-        show_all_values_used(required: false, description: 'above the fold from tooltip is used', PropertyType.Boolean)
+    "/search/filters"(platform: "/mobile") {}
+
+    "/search/filters/action"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         multiple_values_qty(required: false, description: 'qty of multiple values selected before the request is made', PropertyType.Numeric)
-        clean_filters_used_single(required: false, description: 'single clean_filters is used', PropertyType.Boolean)
-        clean_filters_used_all(required: false, description: 'general clean_filters is used', PropertyType.Boolean)
+        action(required: false, description: 'the action made, if any', PropertyType.Map(action_definition))
     }
     
     "/search/breadcrumb"(platform: "/mobile", isAbstract: true) {}
