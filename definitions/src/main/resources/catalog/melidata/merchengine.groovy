@@ -23,7 +23,7 @@ tracks {
     }
 
     "/merchengine/modal/cta"(platform: "/mobile", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, description: "Which type of button did the user clicked", values: ["primary", "secondary", "option"])
+        type(required: true, type: PropertyType.String, description: "Which type of button did the user clicked", values: ["primary", "secondary", "option", "content_link"])
     }
 
     "/merchengine/modal/swipe"(platform: "/mobile", type: TrackType.Event) {
