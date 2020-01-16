@@ -1157,4 +1157,10 @@ tracks {
         show(required: true, type: PropertyType.Boolean, description: "Visible or hidden")
         times(required: true, type: PropertyType.Numeric, description: "Quantity of view")
     }
+
+    //TRACKS MYML Search Bookmarks Alerts
+    "/myml/search_alerts"(type: TrackType.View, isAbstract: true) {}
+    "/myml/search_alerts/list"(platform: "/", type: TrackType.View) {
+        quantity(required: true, type: PropertyType.Numeric, description: "Quantity of search alerts")
+    }
 }
