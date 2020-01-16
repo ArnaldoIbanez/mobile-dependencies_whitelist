@@ -749,6 +749,7 @@ tracks {
         value(required: true, type: PropertyType.String, description: "New attribute value")
     }
 
+    "/seller_central/modify/detail/technical_specifications"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/technical_specifications/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/modify/detail/technical_specifications/confirm"(platform: "/", type: TrackType.Event) {}
 
