@@ -161,7 +161,7 @@ trackTests {
         }
 
         def action_definition = {
-            action_id: "show_all_values"
+            action_id: "show_all"
             filter_id: "BRAND"
         }
 
