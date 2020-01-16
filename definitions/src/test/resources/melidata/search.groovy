@@ -160,6 +160,11 @@ trackTests {
             ]
         }
 
+        def action_definition = {
+            action_id: "show_all_values"
+            filter_id: "BRAND"
+        }
+
         "/search"(platform: "/web") {
             defaultWebTrack()
             landing = "base"
@@ -295,11 +300,11 @@ trackTests {
             error_message = "No connection error"
         }
 
-        "/search/filters"(platform: "/mobile", defaultSearchInformation) {
-            show_all_values_used = false
-            multiple_values_qty = 12
-            clean_filters_used_single = true
-            clean_filters_used_all = false
+        "/search/filters"(platform: "/mobile", defaultSearchInformation)
+
+        "/search/filters/action"(platform: "/mobile", defaultSearchInformation) {
+            multiple_values_qty = 3
+            action = action_definition()
         }
 
         "/search/filters_carousel/click"(platform: "/web", type: TrackType.Event) {
