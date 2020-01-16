@@ -1331,4 +1331,15 @@ trackTests {
             times = 3
         }
     }
+
+    //TRACKS MYML Search Bookmarks Alerts
+    test("Search Alerts List") {
+        "/myml/search_alerts/list"(platform: "/", type: TrackType.View) {
+            quantity = 2
+        }
+
+        "/myml/search_alerts/list"(platform: "/", type: TrackType.View) {
+            quantity = 0
+        }
+    }
 }
