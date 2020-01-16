@@ -343,7 +343,8 @@ tracks {
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
     }
-    
+
+
 
     "/pdp/sellers"(platform: "/", parentPropertiesInherited: false) {
         catalog_parent_id(required: false, type: PropertyType.String, description: "Product ID")
