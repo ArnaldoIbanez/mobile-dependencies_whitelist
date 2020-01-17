@@ -7,8 +7,8 @@ SELECT
     jest(t.event_data,'external_domain') as external_domain,
     jest(t.event_data,'predicted_domain') as predicted_domain,
     jest(t.event_data,'selected_domain') as selected_domain,
-    t.application,
-    t.usr
+    jest(t.application, 'server_poolname') as server_poolname,
+    jest(t.usr, 'uid') as user_id,
 FROM default.tracks t
 WHERE t.path = '/structure_data/catalog_search/wrong_domain_prediction'
   AND ds >= '@param01' AND ds < '@param02';
