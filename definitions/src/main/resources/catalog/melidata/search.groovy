@@ -35,6 +35,11 @@ tracks {
         selected_id(required:true, PropertyType.String)
     }
 
+    def action_definition = objectSchemaDefinitions {
+        action_id(type: PropertyType.String, required: true)
+        filter_id(type: PropertyType.String, required: true)
+    }
+
     def promise_item_definition = objectSchemaDefinitions{
         sameday(type: PropertyType.ArrayList(PropertyType.String), required: false)
         nextday(type: PropertyType.ArrayList(PropertyType.String), required: false)
@@ -142,7 +147,7 @@ tracks {
         user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
         pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
-        carousel_categories_shown(required: false, description: 'category carousel is show when user make a search', PropertyType.Boolean)
+        carousel_categories_shown(required: false, description: 'category carousel is shown when user makes a search', PropertyType.Boolean)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -170,6 +175,11 @@ tracks {
     }
 
     "/search/filters"(platform: "/mobile") {}
+
+    "/search/filters/action"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        multiple_values_qty(required: false, description: 'qty of multiple values selected before the request is made', PropertyType.Numeric)
+        action(required: false, description: 'the action made, if any', PropertyType.Map(action_definition))
+    }
     
     "/search/breadcrumb"(platform: "/mobile", isAbstract: true) {}
     

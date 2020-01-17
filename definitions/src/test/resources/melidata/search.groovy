@@ -160,6 +160,11 @@ trackTests {
             ]
         }
 
+        def action_definition = {
+            action_id: "show_all"
+            filter_id: "BRAND"
+        }
+
         "/search"(platform: "/web") {
             defaultWebTrack()
             landing = "base"
@@ -311,6 +316,12 @@ trackTests {
         }
 
         "/search/filters"(platform: "/mobile", defaultSearchInformation)
+
+        "/search/filters/action"(platform: "/mobile") {
+            multiple_values_qty = 3
+            action = action_definition()
+        }
+
         "/search/filters_carousel/click"(platform: "/web", type: TrackType.Event) {
             defaultWebTrack()
             filter_name = "shoes"
