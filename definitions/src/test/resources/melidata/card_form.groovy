@@ -15,7 +15,7 @@ trackTests {
 	   	}
 
 	    "/card_form/name"(platform: "/mobile", type: TrackType.View) {
-	    	  site_id = "MLA"
+    	  site_id = "MLA"
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
@@ -98,7 +98,7 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        bin_number = 123456
+	        bin_number = "123456"
 	    }
 
 	    "/card_form/bin_number/valid"(platform: "/mobile", type: TrackType.Event) {
@@ -120,11 +120,11 @@ trackTests {
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
-	        bin_number = 123456
+	        bin_number = "123456"
 	    }
 
 	    "/card_form/name/clear"(platform: "/mobile", type: TrackType.Event) {
-	    	site_id = "MLA"
+    	  site_id = "MLA"
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
@@ -173,7 +173,7 @@ trackTests {
 	    }
 
 	    "/card_form/identification/invalid"(platform: "/mobile", type: TrackType.Event) {
-	    	site_id = "MLA"
+    	  site_id = "MLA"
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
@@ -182,7 +182,7 @@ trackTests {
 	    }
 
 	    "/card_form/issuers/selected"(platform: "/mobile", type: TrackType.Event) {
-	    	site_id = "MLA"
+    	  site_id = "MLA"
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234
@@ -190,7 +190,7 @@ trackTests {
 	    }
 
 	    "/card_form/issuers/close"(platform: "/mobile", type: TrackType.Event) {
-	    	site_id = "MLA"
+    	  site_id = "MLA"
         	flow_id = "instore"
         	session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         	session_time = 1234

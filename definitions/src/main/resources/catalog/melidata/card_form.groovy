@@ -53,8 +53,12 @@ tracks {
     }
 
     // Name step
-    "/card_form/name/clear"(platform: "/mobile", type: TrackType.Event) {}
-    "/card_form/name/valid"(platform: "/mobile", type: TrackType.Event) {}
+    "/card_form/name/clear"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/card_form/name/valid"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
 
     // Security & expiration step
     "/card_form/expiration_security/date/valid"(platform: "/mobile", type: TrackType.Event) {}
@@ -63,17 +67,23 @@ tracks {
     "/card_form/expiration_security/cvv/invalid"(platform: "/mobile", type: TrackType.Event) {}
 
     // Identification step
-    "/card_form/identification/valid"(platform: "/mobile", type: TrackType.Event) {}
-    "/card_form/identification/invalid"(platform: "/mobile", type: TrackType.Event) {
+    "/card_form/identification/valid"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/card_form/identification/invalid"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
         type(required: true, type: PropertyType.String, description: "Type of identification selected by user")
         value(required: true, type: PropertyType.String, description: "Value entered by user")
     }
 
     // Issuers step
-    "/card_form/issuers/selected"(platform: "/mobile", type: TrackType.Event) {
+    "/card_form/issuers/selected"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
         issuer_id(required: true, type: PropertyType.Numeric, description: "Id of selected issuer")
     }
-    "/card_form/issuers/close"(platform: "/mobile", type: TrackType.Event) {}
+    "/card_form/issuers/close"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
 
 
     // ********************************************* Views *********************************************
