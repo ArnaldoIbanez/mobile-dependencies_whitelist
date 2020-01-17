@@ -82,7 +82,7 @@ tracks {
     "/mplayer/money_split"(platform: "/mobile", isAbstract: true) {}
     "/mplayer/money_split/activities_selection"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/money_split/activities_selection/activity_selected"(platform: "/mobile", type: TrackType.Event) {
-        source(required: true, PropertyType.String, description: "the source of the activity selected, select from list or manually typed")
+        input_type(required: true, PropertyType.String, description: "the input type of the activity selected, select from list or manually typed")
         position_list(required: false, PropertyType.Numeric, description: "the position in the list of the activity selected")
     }
     "/mplayer/money_split/activities_selection/continue"(platform: "/mobile", type: TrackType.Event) {
@@ -97,7 +97,7 @@ tracks {
 
     "/mplayer/money_split/contact_picker"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/money_split/contact_picker/select_contact"(platform: "/mobile", type: TrackType.Event) {
-        source(required: true, PropertyType.String, description: "the source of the contact selected, select from list or manually typed")
+        input_type(required: true, PropertyType.String, description: "the input type of contact selected, select from list or manually typed")
         is_recent(required: true, PropertyType.Boolean, description: "the contact is recently used or not")
     }
     "/mplayer/money_split/contact_picker/continue"(platform: "/mobile", type: TrackType.Event) {
@@ -111,10 +111,15 @@ tracks {
 
     "/mplayer/money_split/split_detail"(platform: "/mobile", type: TrackType.View) {}
 
-    "/mplayer/money_split/result"(platform: "/mobile", type: TrackType.View) {}
-    "/mplayer/money_split/result/exit"(platform: "/mobile", type: TrackType.Event) {
+    "/mplayer/money_split/split_created"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/split_created/exit"(platform: "/mobile", type: TrackType.Event) {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
+
+    "/mplayer/money_split/result"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/money_split/result/success"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/result/error"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/result/in_process"(platform: "/mobile", type: TrackType.View) {}
 
     // Tracing
     "/mplayer/tracing"(platform: "/mobile", isAbstract: true) {}
@@ -146,6 +151,4 @@ tracks {
     "/mplayer/tracing/reject_event/exit"(platform: "/mobile", type: TrackType.Event) {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
-
-
 }
