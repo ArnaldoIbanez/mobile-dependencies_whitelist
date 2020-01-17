@@ -302,7 +302,7 @@ trackTests {
 
         "/search/filters"(platform: "/mobile", defaultSearchInformation)
 
-        "/search/filters/action"(platform: "/mobile", defaultSearchInformation) {
+        "/search/filters/action"(platform: "/mobile") {
             multiple_values_qty = 3
             action = action_definition()
         }
