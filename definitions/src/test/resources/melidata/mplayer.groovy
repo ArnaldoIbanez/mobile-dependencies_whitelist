@@ -78,7 +78,7 @@ trackTests {
          // Money Split
         "/mplayer/money_split/activities_selection"(platform: "/mobile") {}
         "/mplayer/money_split/activities_selection/activity_selected"(platform: "/mobile") {
-            source = "manual"
+            input_type = "manual"
             position_list = 2
         }
         "/mplayer/money_split/activities_selection/continue"(platform: "/mobile") {
@@ -93,7 +93,7 @@ trackTests {
 
         "/mplayer/money_split/contact_picker"(platform: "/mobile") {}
         "/mplayer/money_split/contact_picker/select_contact"(platform: "/mobile") {
-            source = "manual"
+            input_type = "manual"
             is_recent = false
         }
         "/mplayer/money_split/contact_picker/continue"(platform: "/mobile") {
@@ -107,10 +107,14 @@ trackTests {
 
         "/mplayer/money_split/split_detail"(platform: "/mobile") {}
 
-        "/mplayer/money_split/result"(platform: "/mobile") {}
-        "/mplayer/money_split/result/exit"(platform: "/mobile") {
+        "/mplayer/money_split/split_created"(platform: "/mobile") {}
+        "/mplayer/money_split/split_created/exit"(platform: "/mobile") {
             button = "main_button"
         }
+
+        "/mplayer/money_split/result/success"(platform: "/mobile") {}
+        "/mplayer/money_split/result/error"(platform: "/mobile") {}
+        "/mplayer/money_split/result/in_process"(platform: "/mobile") {}
 
         // Tracing
         "/mplayer/tracing/event_list"(platform: "/mobile") {}
