@@ -503,7 +503,7 @@ trackTests {
             reputation_level = "1_red"
             seller_id = 123
             seller_name = "name"
-            priceer discount = 123
+            price = 123
             original_price = 12
             currency_id = "ARS"
             pdp_type = "RED"
@@ -515,7 +515,7 @@ trackTests {
             reputation_level = "1_red"
             seller_id = 123
             seller_name = "name"
-            priceer discount = 123
+            price = 123
             original_price = 12
             currency_id = "ARS"
             pdp_type = "RED"
