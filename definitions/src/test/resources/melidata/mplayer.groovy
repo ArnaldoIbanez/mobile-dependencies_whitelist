@@ -138,7 +138,7 @@ trackTests {
         }
 
         "/mplayer/tracing/reject_event"(platform: "/mobile") {}
-        "/mplayer/tracing/reject_event/exit"(platform: "/mobile", type: TrackType.Event) {
+        "/mplayer/tracing/reject_event/exit"(platform: "/mobile") {
             button = "close_button"
         }
     }
