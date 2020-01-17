@@ -855,12 +855,70 @@ tracks {
     "/sell/item_data/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
-        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/item_data/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
-        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+    }
+    "/sell/item_data/catalog_decision"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/catalog_decision/show"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+    }
+    "/sell/item_data/catalog_decision/confirm"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+        flow_decision(required: true, type: PropertyType.Boolean, description: "Flow decision - true if is catalog")
+        catalog_forced(required: true, type: PropertyType.Boolean, description: "Indicates if the flow decision card is forcing catalog")
+    }
+    "/sell/item_data/catalog_forced"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/catalog_forced/show"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+    }
+    "/sell/item_data/catalog_forced/confirm"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+        flow_decision(required: true, type: PropertyType.Boolean, description: "Flow decision - true if is catalog")
+        catalog_forced(required: true, type: PropertyType.Boolean, description: "Indicates if the flow decision card is forcing catalog")
+    }
+    "/sell/item_data/marketplace_customizer"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/marketplace_customizer/show"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+    }
+    "/sell/item_data/marketplace_customizer/confirm"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+    }
+    "/sell/item_data/marketplace_customizer/edit"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+        id(required: true, PropertyType.String, description: "id from inner edited component")
+        new_value(required: true, PropertyType.String, description: "new value from inner edited component")
     }
 
     "/sell/item_data/kilometers"(platform: "/web", isAbstract: true) {}
@@ -961,6 +1019,12 @@ tracks {
         item_id(required: false, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
         has_free(required: true, type: PropertyType.Boolean)
+    }
+    "/sell/congrats/congrats_catalog_items"(platform: "/web", isAbstract: true) {}
+    "/sell/congrats/congrats_catalog_items/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
+        sellGroup
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
     }
 
 
