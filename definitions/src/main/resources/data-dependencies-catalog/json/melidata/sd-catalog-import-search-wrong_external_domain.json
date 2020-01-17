@@ -2,7 +2,7 @@
   "users": [
     "catalog-import@mercadolibre.com"
   ],
-  "process_name": "sd-catalog-import-search-query",
+  "process_name": "sd-catalog-import-search-wrong_external_domain",
   "cron": "0 6 * * *",
   "partition": {
     "name": "ds",
@@ -21,15 +21,19 @@
         "type": "DATETIME"
       },
       {
-        "name": "query_filter",
+        "name": "product_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "domain_filter",
+        "name": "product_source",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "input_filter",
+        "name": "product_external_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "external_domain",
         "type": "UNICODE_STRING"
       },
       {
@@ -42,7 +46,7 @@
       }
     ],
     "sql": {
-      "script": "structured_data/catalog_import-search-query.sql",
+      "script": "structured_data/catalog_import-search-wrong_external_domain.sql",
       "parameters": [
         {
           "name": "param01",
