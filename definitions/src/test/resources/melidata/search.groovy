@@ -167,7 +167,22 @@ trackTests {
 
         "/search"(platform: "/web") {
             defaultWebTrack()
-            landing = "official_store"
+            sort_id="publication_begins_desc"
+        }
+
+        "/search"(platform: "/web"){
+            defaultWebTrack()
+            sort_id="publication_begins_asc"
+        }
+
+        "/search"(platform: "/web"){
+            defaultWebTrack()
+            sort_id="manually_selected"
+        }
+
+        "/search"(platform: "/web"){
+            defaultWebTrack()
+            landing="official_store"
         }
 
         "/search"(platform: "/web", {
