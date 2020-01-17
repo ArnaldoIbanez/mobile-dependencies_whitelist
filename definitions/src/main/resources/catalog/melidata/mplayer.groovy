@@ -135,8 +135,7 @@ tracks {
     "/mplayer/tracing/member_detail"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/tracing/member_detail/see_more"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/tracing/member_detail/send_money"(platform: "/mobile", type: TrackType.Event) {}
-    "/mplayer/tracing/member_detail/reject_event"(platform: "/mobile", type: TrackType.Event) {
-    }
+    "/mplayer/tracing/member_detail/reject_event"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/tracing/close_event"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/tracing/close_event/exit"(platform: "/mobile", type: TrackType.Event) {
