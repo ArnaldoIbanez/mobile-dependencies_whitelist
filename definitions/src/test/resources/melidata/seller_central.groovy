@@ -505,6 +505,261 @@ trackTests {
     }
   }
 
+  test("seller central render detail quick_edit_standard for motors"){
+    "/seller_central/modify/detail/quick_edit_standard/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail quick_edit_standard for motors"){
+    "/seller_central/modify/detail/quick_edit_standard/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail technical_specifications for motors"){
+    "/seller_central/modify/detail/technical_specifications/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail technical_specifications for motors"){
+    "/seller_central/modify/detail/technical_specifications/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail seller_contact for motors"){
+    "/seller_central/modify/detail/seller_contact/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail seller_contact for motors"){
+    "/seller_central/modify/detail/seller_contact/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail reservation_info for motors"){
+    "/seller_central/modify/detail/reservation_info/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail location for motors"){
+    "/seller_central/modify/detail/location/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail location for motors"){
+    "/seller_central/modify/detail/location/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail instant_pay_listings for motors"){
+    "/seller_central/modify/detail/instant_pay_listings/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail instant_pay_listings for motors"){
+    "/seller_central/modify/detail/instant_pay_listings/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail description for motors"){
+    "/seller_central/modify/detail/description/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail description for motors"){
+    "/seller_central/modify/detail/description/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail video for motors"){
+    "/seller_central/modify/detail/video/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail video for motors"){
+    "/seller_central/modify/detail/video/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail change_category for motors"){
+    "/seller_central/modify/detail/change_category/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail change_category for motors"){
+    "/seller_central/modify/detail/change_category/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
   test("seller central render variations"){
     "/seller_central/modify/variations"(platform: "/", type: TrackType.View){
       item_type = "default"
