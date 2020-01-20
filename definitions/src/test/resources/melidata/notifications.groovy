@@ -6444,6 +6444,12 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/installs_checker"(platform: "/mobile"){
+            date_created= "2020-01-20T10:31:18.162-04:00"
+            advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
+            event_type = "sent"
+        }
+
         "/notification/uninstalls_checker"(platform: "/mobile"){
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
@@ -6538,6 +6544,12 @@ trackTests {
         "/notification/payments_release"(platform: "/mobile") {
             notification_id = "12345"
             event_type = "open"
+        }
+
+        "/notification/installs_checker"(platform: "/mobile"){
+            date_created= "2020-01-20T10:31:18.162-04:00"
+            advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
+            event_type = "sent"
         }
 
         "/notification/uninstalls_checker"(platform: "/mobile"){
@@ -6698,6 +6710,12 @@ trackTests {
         "/notification/payments_release"(platform: "/mobile") {
             notification_id = "12345"
             event_type = "open"
+        }
+
+        "/notification/installs_checker"(platform: "/mobile"){
+            date_created= "2020-01-20T10:31:18.162-04:00"
+            advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
+            event_type = "sent"
         }
 
         "/notification/uninstalls_checker"(platform: "/mobile"){
