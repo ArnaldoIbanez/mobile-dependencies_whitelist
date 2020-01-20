@@ -2,7 +2,7 @@
   "users": [
     "catalog-import@mercadolibre.com"
   ],
-  "process_name": "sd-catalog-import-search-wrong_external_domain",
+  "process_name": "sd-catalog-import-search-metrics",
   "cron": "0 6 * * *",
   "partition": {
     "name": "ds",
@@ -17,8 +17,32 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "event_type",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "server_timestamp",
         "type": "DATETIME"
+      },
+      {
+        "name": "server_poolname",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "user_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "query_filter",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "domain_filter",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "limit_filter",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "product_id",
@@ -37,16 +61,24 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "server_poolname",
+        "name": "predicted_domain",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "user_id",
+        "name": "selected_domain",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "external_attribute_key",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "external_attribute_value",
         "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "structured_data/catalog_import-search-wrong_external_domain.sql",
+      "script": "structured_data/catalog_import-search-metrics.sql",
       "parameters": [
         {
           "name": "param01",
