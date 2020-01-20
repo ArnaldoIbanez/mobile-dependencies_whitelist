@@ -78,7 +78,7 @@
       }
     ],
     "sql": {
-      "script": "structured_data/catalog_import-search-metrics.sql",
+      "script": "structure_data/catalog_import-search-metrics.sql",
       "parameters": [
         {
           "name": "param01",
