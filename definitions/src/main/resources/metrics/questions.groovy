@@ -29,27 +29,6 @@ metrics {
         }
     }
 
-    "pdp_questions"(description: "Track PDP questions", deprecation_date:"2019/12/18") {
-        countsOn {
-			condition {
-				path("/questions/ask/post")
-				and(
-					or(
-						equals("event_data.context", "/pdp"),
-						and(
-							equals("event_data.context", "/qadb"),
-							empty("event_data.catalog_product_id", false)
-						)
-					),
-					or (
-						equals("event_data.failed", false) ,
-						isNull("event_data.failed" )
-
-					)
-				)
-			}
-		}
-    }
 
     "questions.pdp"(description: "Track PDP questions") {
       	countsOn {
