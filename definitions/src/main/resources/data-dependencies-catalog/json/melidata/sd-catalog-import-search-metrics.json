@@ -17,7 +17,7 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "event_type",
+        "name": "path",
         "type": "UNICODE_STRING"
       },
       {

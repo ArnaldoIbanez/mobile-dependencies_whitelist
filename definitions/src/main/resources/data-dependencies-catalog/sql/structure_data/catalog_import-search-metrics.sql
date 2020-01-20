@@ -1,6 +1,6 @@
 SELECT
     t.id,
-    t.event_type,
+    t.path,
     t.server_timestamp,
     jest(t.application, 'server_poolname') as server_poolname,
     jest(t.usr, 'uid') as user_id,
