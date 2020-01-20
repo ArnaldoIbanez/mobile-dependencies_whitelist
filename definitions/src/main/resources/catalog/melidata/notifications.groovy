@@ -1792,6 +1792,11 @@ tracks {
     //Fiscal Data
     "/notification/fiscal_data_mp_business_registration"(platform: "/web", type: TrackType.Event) {}
 
+    "/notification/installs_checker"(platform: "/mobile") {
+        date_created(required: true, type: PropertyType.String, description:"Corresponds to the date created device.")
+        advertising_id(required: true, type: PropertyType.String)
+    }
+
     "/notification/uninstalls_checker"(platform: "/mobile") {
         execution_id(required: true, type: PropertyType.String)
         advertising_id(required: true, type: PropertyType.String)
