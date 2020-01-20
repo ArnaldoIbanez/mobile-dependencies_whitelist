@@ -19,7 +19,7 @@ tracks {
         origin(required: true, type: PropertyType.String, description: "The application that returns the modal")
     }
 
-    "/merchengine/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {
+    "/merchengine/modal/dismiss"(platform: "/mobile", type: TrackType.Event) { 
     }
 
     "/merchengine/modal/cta"(platform: "/mobile", type: TrackType.Event) {
