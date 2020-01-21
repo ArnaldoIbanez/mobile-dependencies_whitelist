@@ -47,7 +47,8 @@
        "type": "DOUBLE"
     }],
     "sql": {
-      "script": "bi/ctr_tab3_category.sql"
+      "script": "bi/ctr_tab3_category.sql",
+      "parameters": []
     }
   }
 }

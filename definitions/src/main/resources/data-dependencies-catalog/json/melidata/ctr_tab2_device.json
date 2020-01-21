@@ -44,7 +44,8 @@
        "type": "DOUBLE"
     }],
     "sql": {
-      "script": "bi/ctr_tab2_device.sql"
+      "script": "bi/ctr_tab2_device.sql",
+      "parameters": []
     }
   }
 }
