@@ -20,7 +20,7 @@
         "name": "path",
         "type": "UNICODE_STRING"
       },
-      {
+      
         "name": "date",
         "type": "UNICODE_STRING"
       },
