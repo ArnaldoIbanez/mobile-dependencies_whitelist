@@ -10,7 +10,7 @@
   },
   "extract": {
     "operation": "append",
-    "site": "Catálogos Externos",
+    "site": "Catalogo",
     "columns": [
       {
         "name": "id",
