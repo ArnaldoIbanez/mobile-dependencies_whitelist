@@ -21,8 +21,8 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "server_timestamp",
-        "type": "TIMESTAMP"
+        "name": "ds",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "server_poolname",
