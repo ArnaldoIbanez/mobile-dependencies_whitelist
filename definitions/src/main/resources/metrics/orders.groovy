@@ -196,28 +196,6 @@ metrics {
 		}
 	}
 
-	"pdp_buys_qadb"(description: "Track buys of users in QADB experiment", compute_order: true, deprecation_date:"2019/12/18") {
-		startWith {
-			experiment("qadb/qadb-on")
-		}
-
-		countsOn {
-			condition {
-				or(
-						and(
-								equals("path", "/orders/ordercreated"),
-								equals("event_data.is_carrito", false),
-								equals('event_data.is_pdp',true)
-						),
-						and(
-								equals("path","/purchases/purchasecreated"),
-								equals('event_data.is_pdp',true)
-						)
-				)
-			}
-		}
-	}
-
 	"buys.pdp"(description: "Track PDP buys", compute_order: true) {
 		countsOn {
 			condition {
