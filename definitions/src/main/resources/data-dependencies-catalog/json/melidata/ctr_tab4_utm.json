@@ -13,9 +13,6 @@
       "name": "site_id",
        "type": "UNICODE_STRING"
      }, {
-      "name": "fecha",
-       "type": "DATE"
-     }, {
       "name": "utm_source",
        "type": "UNICODE_STRING"
      }, {
@@ -50,7 +47,7 @@
        "type": "DOUBLE"
     }],
     "sql": {
-      "script": "your_department/your_script.sql"
+      "script": "bi/ctr_tab4_utm.sql"
     }
   }
 }
