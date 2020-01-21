@@ -22,7 +22,7 @@
       },
       {
         "name": "server_timestamp",
-        "type": "DATETIME"
+        "type": "TIMESTAMP"
       },
       {
         "name": "server_poolname",
