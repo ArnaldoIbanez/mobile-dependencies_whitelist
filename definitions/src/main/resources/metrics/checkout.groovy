@@ -239,23 +239,4 @@ metrics {
 	}
 
 
-	"single_checkout_congrats"(description: "/checkout/congrats* unique for each order_id (congrats_seq = 1)", compute_order: true, deprecation_date:"2019/12/10") {
-		countsOn {
-			condition {
-				path(regex("^/checkout/congrats(/.*|\$)"))
-				equals("event_data.congrats_seq", 1)
-			}
-		}
-	}
-
-
-	"cart_checkout_congrats"(description: "/cart/checkout/congrats unique for each purchase_id (congrats_seq = 1)", compute_order: true, deprecation_date:"2019/12/10") {
-		countsOn {
-			condition {
-				path("/cart/checkout/congrats")
-				equals("event_data.congrats_seq", 1)
-			}
-		}
-	}
-
 }
