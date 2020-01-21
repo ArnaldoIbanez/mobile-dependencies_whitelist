@@ -1,7 +1,7 @@
 SELECT
     t.id,
     t.path,
-    ds as date,
+    ds,
     application.server_poolname,
     usr.uid user_id,
     jest(event_data, 'query_filter') as query_filter,
