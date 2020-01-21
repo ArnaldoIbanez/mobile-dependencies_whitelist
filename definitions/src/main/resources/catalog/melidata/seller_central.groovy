@@ -579,6 +579,15 @@ tracks {
         count(required: true, type: PropertyType.Numeric, description: "Sale rows count")
     }
 
+    "/seller_central/sales/list/onboarding"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/onboarding/massive"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/onboarding/massive/confirm"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Id of user that confirmed the massive emission onboarding modal")
+    }
+    "/seller_central/sales/list/onboarding/massive/close"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Id of user that closed the massive emission onboarding modal")
+    }
+
     "/seller_central/sales/list/row"(platform: "/web", isAbstract: true) {}
     "/seller_central/sales/list/row/open"(platform: "/web", type: TrackType.Event) {}
 

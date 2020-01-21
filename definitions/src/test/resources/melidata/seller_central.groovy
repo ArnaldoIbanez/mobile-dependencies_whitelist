@@ -911,6 +911,30 @@ trackTests {
             count = 20
         }
     }
+    
+    test("seller central sales onboarding massive invoice emission") {
+        "/seller_central/sales/list/onboarding"(platform: "/") {}
+    }
+
+    test("seller central sales onboarding massive invoice emission") {
+        "/seller_central/sales/list/onboarding/massive"(platform: "/") {}
+    }
+
+    test("seller central sales onboarding massive invoice emission modal confirm") {
+        "/seller_central/sales/list/onboarding/massive/confirm"(platform: "/") {
+            id = "22222"
+        }
+    }
+
+    test("seller central sales onboarding massive invoice emission modal close") {
+        "/seller_central/sales/list/onboarding/massive/close"(platform: "/") {
+            id = "33333"
+        }
+    }
+
+    test("seller central sales onboarding modal") {
+        "/seller_central/sales/list/onboarding"(platform: "/") {}
+    }
 
     test("seller central sales row open") {
         "/seller_central/sales/list/row/open"(platform: "/web", type: TrackType.Event) {}
