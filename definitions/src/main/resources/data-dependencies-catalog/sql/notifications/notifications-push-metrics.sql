@@ -57,7 +57,7 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
         AND path LIKE '/notification/%'
         AND jest(event_data, 'news_id') IS NOT null
         AND jest(event_data, 'device_id') IS NOT null
-        AND device.platform = '@platform'
+        AND device.platform in ('/mobile/android')
         AND application.business in ('mercadolibre', 'mercadopago', 'mercadoenvios')
         AND jest(event_data, 'event_type') NOT IN ('sent')
         GROUP BY jest(event_data, 'device_id'), jest(event_data, 'news_id')
@@ -66,7 +66,7 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
   AND ds < '@one_day_after_send_date'
   AND path LIKE '/notification/%'
   AND jest(event_data, 'news_id') IS NOT null
-  AND device.platform = '@platform'
+  AND device.platform in ('/mobile/android')
   AND application.business in ('mercadolibre', 'mercadopago', 'mercadoenvios')
   AND jest(event_data, 'event_type') IN ('sent')
 ) summary

@@ -73,9 +73,6 @@
         "name": "one_day_after_send_date",
         "value": "DAY-2",
         "format": "yyyy-MM-dd"
-      }, {
-        "name": "platform",
-        "value": "/mobile/android"
       }]
     }
   }
