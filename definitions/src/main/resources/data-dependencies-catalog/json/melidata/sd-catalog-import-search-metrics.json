@@ -21,10 +21,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "ds",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "server_poolname",
         "type": "UNICODE_STRING"
       },
