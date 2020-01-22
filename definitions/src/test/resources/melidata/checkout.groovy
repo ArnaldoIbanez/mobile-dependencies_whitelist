@@ -1900,7 +1900,7 @@ trackTests {
 
         "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
         "/checkout/garex/delete"(platform:"/mobile", type: TrackType.Event) {
-            id = "MLA390289_GAR16001"
+            garex_id = "MLA390289_GAR16001"
             period = 24
             cost = 1234
             revenue_share_fee = 70
@@ -1908,7 +1908,7 @@ trackTests {
             currency_id = "ARS"
         }
         "/checkout/garex/selected_garex"(platform:"/mobile", type: TrackType.Event) {
-            id = "MLA390289_GAR16001"
+            garex_id = "MLA390289_GAR16001"
             period = 24
             cost = 1234
             revenue_share_fee = 70

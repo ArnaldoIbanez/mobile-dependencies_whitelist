@@ -1226,21 +1226,21 @@ tracks {
     "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
     "/checkout/garex/more_info"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/garex/selected_garex"(platform:"/mobile", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String)
-        period(required: true, type: PropertyType.Numeric)
-        cost(required: true, type: PropertyType.Numeric)
-        revenue_share_fee(required: true, type: PropertyType.Numeric)
-        revenue(required: true, type: PropertyType.Numeric)
-        currency_id(required: true, type: PropertyType.String)
+        garex_id(required: true, type: PropertyType.String, description: "Selected warranty id")
+        period(required: true, type: PropertyType.Numeric, description: "Contracted warranty period")
+        cost(required: true, type: PropertyType.Numeric, description: "Warranty cost")
+        revenue_share_fee(required: true, type: PropertyType.Numeric, description: "Percentage of revenue for mercado libre")
+        revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for mercado libre")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
     }
     "/checkout/garex/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/garex/delete"(platform:"/mobile", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String)
-        period(required: true, type: PropertyType.Numeric)
-        cost(required: true, type: PropertyType.Numeric)
-        revenue_share_fee(required: true, type: PropertyType.Numeric)
-        revenue(required: true, type: PropertyType.Numeric)
-        currency_id(required: true, type: PropertyType.String)
+        garex_id(required: true, type: PropertyType.String, description: "Warranty id removed")
+        period(required: true, type: PropertyType.Numeric, description: "Contracted warranty period")
+        cost(required: true, type: PropertyType.Numeric, description: "Warranty cost")
+        revenue_share_fee(required: true, type: PropertyType.Numeric, description: "Percentage of revenue for mercado libre")
+        revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for mercado libre")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
     }
 
     /*
