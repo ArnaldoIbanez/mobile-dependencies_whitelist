@@ -1366,14 +1366,6 @@ trackTests {
       }
   }
 
-  test("seller central sales onboarding modal") {
-      "/seller_central/sales/list/onboarding"(platform: "/") {}
-  }
-
-  test("seller central sales row open") {
-      "/seller_central/sales/list/row/open"(platform: "/web", type: TrackType.Event) {}
-  }
-
   test("seller central sales nfe onboarding action") {
     "/seller_central/sales/list/nfe_onboarding/action"(platform: "/", type: TrackType.Event) {
       id = "start"
