@@ -35,7 +35,7 @@
        "type": "UNICODE_STRING"
      }, {
       "name": "seller_nickname",
-       "type": "CHAR_STRING"
+       "type": "UNICODE_STRING"
      }, {
       "name": "order_logistic",
        "type": "UNICODE_STRING" 
@@ -44,7 +44,7 @@
        "type": "UNICODE_STRING"
      }, {
       "name": "order_title",
-       "type": "CHAR_STRING"
+       "type": "UNICODE_STRING"
      }, {
       "name": "stock",
        "type": "INTEGER"
