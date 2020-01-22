@@ -34,131 +34,80 @@ FROM
           Count(DISTINCT COALESCE(chattable.id, c2ctable.id, sactable.id)) AS quantity,
           Count(DISTINCT COALESCE(chattable.user_id, c2ctable.user_id, sactable.user_id, 'aUserId')) AS unique_quantity
    FROM
-     (SELECT v1.id AS id,
-             From_unixtime(Unix_timestamp(Regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH:mm') AS requested_datetime_minute,
-             v2.site_id AS site_id,
-             v3.problem_type AS problem_type,
-             v3.reason AS reason,
-             v3.origin AS origin,
-             v3.is_available AS is_available,
-             v3.ml_seller_profile AS ml_seller_profile,
-             v3.mp_seller_profile AS mp_seller_profile,
-             v3.ml_buyer_profile AS ml_buyer_profile,
-             v2.business AS business,
-             v3.segment AS segment,
-             v2.app_id AS app_id,
-             v3.queue_id AS queue_id,
-             v4.user_id AS user_id,
-             v3.track_id AS track_id
-      FROM cx_help_channels tj LATERAL VIEW json_tuple(tj.data, 'application', 'event_data', 'user_timestamp', 'user', 'id', 'path') v1 AS application,
-                                            event_data,
-                                            user_timestamp,
-                                            anuser,
-                                            id,
-                                            path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business', 'site_id') v2 AS app_id,
-                                                              business,
-                                                              site_id LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'queue_id', 'environment', 'track_id', 'segment') v3 AS problem_type,
-                                                                                   reason,
-                                                                                   origin,
-                                                                                   is_available,
-                                                                                   ml_seller_profile,
-                                                                                   mp_seller_profile,
-                                                                                   ml_buyer_profile,
-                                                                                   queue_id,
-                                                                                   environment,
-                                                                                   track_id,
-                                                                                   segment LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
+     (SELECT tj.id AS id,
+             From_unixtime(Unix_timestamp(Regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH:mm') AS requested_datetime_minute,
+             jest(tj.event_data, 'custom_site_id') AS site_id,
+             jest(tj.event_data, 'problem_type') AS problem_type,
+             jest(tj.event_data, 'reason') AS reason,
+             jest(tj.event_data, 'origin') AS origin,
+             jest(tj.event_data, 'is_available') AS is_available,
+             jest(tj.event_data, 'ml_seller_profile') AS ml_seller_profile,
+             jest(tj.event_data, 'mp_seller_profile') AS mp_seller_profile,
+             jest(tj.event_data, 'ml_buyer_profile') AS ml_buyer_profile,
+             tj.application.business AS business,
+             jest(tj.event_data, 'segment') AS segment,
+             tj.application.app_id AS app_id,
+             jest(tj.event_data, 'queue_id') AS queue_id,
+             tj.`user`.user_id AS user_id,
+             jest(tj.event_data, 'track_id') AS track_id
+      FROM cx_help_channels_parquet tj 
       WHERE tj.ds >= '@param01 02'
         AND tj.ds < '@param02 05'
-        AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
-        AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
-        AND v1.path = '/availability/requested'
-        AND v3.environment = 'PRODUCTION'
-        AND v2.app_id = 'CHAT') chattable
+        AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
+        AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
+        AND tj.path = '/availability/requested'
+        AND jest(tj.event_data, 'environment') = 'PRODUCTION'
+        AND tj.application.app_id = 'CHAT') chattable
    FULL OUTER JOIN
-     (SELECT v1.id AS id,
-             from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH:mm') AS requested_datetime_minute,
-             v2.site_id AS site_id,
-             v3.problem_type AS problem_type,
-             v3.reason AS reason,
-             v3.origin AS origin,
-             v3.is_available AS is_available,
-             v3.ml_seller_profile AS ml_seller_profile,
-             v3.mp_seller_profile AS mp_seller_profile,
-             v3.ml_buyer_profile AS ml_buyer_profile,
-             v2.business AS business,
-             v3.segment AS segment,
-             v2.app_id AS app_id,
-             v3.queue_id AS queue_id,
-             v4.user_id AS user_id,
-             v3.track_id AS track_id
-      FROM cx_help_channels tj LATERAL VIEW json_tuple(tj.data, 'application', 'event_data', 'user_timestamp', 'user', 'id', 'path') v1 AS application,
-                                            event_data,
-                                            user_timestamp,
-                                            anuser,
-                                            id,
-                                            path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business', 'site_id') v2 AS app_id,
-                                                              business,
-                                                              site_id LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available', 'ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'queue_id', 'environment', 'track_id', 'segment') v3 AS problem_type,
-                                                                                   reason,
-                                                                                   origin,
-                                                                                   is_available,
-                                                                                   ml_seller_profile,
-                                                                                   mp_seller_profile,
-                                                                                   ml_buyer_profile,
-                                                                                   queue_id,
-                                                                                   environment,
-                                                                                   track_id,
-                                                                                   segment LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
+     (SELECT tj.id AS id,
+             From_unixtime(Unix_timestamp(Regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH:mm') AS requested_datetime_minute,
+             jest(tj.event_data, 'custom_site_id') AS site_id,
+             jest(tj.event_data, 'problem_type') AS problem_type,
+             jest(tj.event_data, 'reason') AS reason,
+             jest(tj.event_data, 'origin') AS origin,
+             jest(tj.event_data, 'is_available') AS is_available,
+             jest(tj.event_data, 'ml_seller_profile') AS ml_seller_profile,
+             jest(tj.event_data, 'mp_seller_profile') AS mp_seller_profile,
+             jest(tj.event_data, 'ml_buyer_profile') AS ml_buyer_profile,
+             tj.application.business AS business,
+             jest(tj.event_data, 'segment') AS segment,
+             tj.application.app_id AS app_id,
+             jest(tj.event_data, 'queue_id') AS queue_id,
+             tj.`user`.user_id AS user_id,
+             jest(tj.event_data, 'track_id') AS track_id
+      FROM cx_help_channels_parquet tj 
       WHERE tj.ds >= '@param01 02'
         AND tj.ds < '@param02 05'
-        AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
-        AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
-        AND v1.path = '/availability/requested'
-        AND v3.environment = 'PRODUCTION'
-        AND v2.app_id = 'CLICKTOCALL') c2ctable ON (c2ctable.track_id = chattable.track_id)
+        AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
+        AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
+        AND tj.path = '/availability/requested'
+        AND jest(tj.event_data, 'environment') = 'PRODUCTION'
+        AND tj.application.app_id = 'CLICKTOCALL') c2ctable ON (c2ctable.track_id = chattable.track_id)
    FULL OUTER JOIN
-     (SELECT v1.id AS id,
-             from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH:mm') AS requested_datetime_minute,
-             v2.site_id AS site_id,
-             v3.problem_type AS problem_type,
-             v3.reason AS reason,
-             v3.origin AS origin,
-             v3.is_available AS is_available,
-             v3.ml_seller_profile AS ml_seller_profile,
-             v3.mp_seller_profile AS mp_seller_profile,
-             v3.ml_buyer_profile AS ml_buyer_profile,
-             v2.business AS business,
-             v3.segment AS segment,
-             v2.app_id AS app_id,
-             v3.queue_id AS queue_id,
-             v4.user_id AS user_id,
-             v3.track_id AS track_id
-      FROM cx_help_channels tj LATERAL VIEW json_tuple(tj.data, 'application', 'event_data', 'user_timestamp', 'user', 'id', 'path') v1 AS application,
-                                            event_data,
-                                            user_timestamp,
-                                            anuser,
-                                            id,
-                                            path LATERAL VIEW json_tuple(v1.application, 'app_id', 'business', 'site_id') v2 AS app_id,
-                                                              business,
-                                                              site_id LATERAL VIEW json_tuple(v1.event_data, 'problem_type', 'reason', 'origin', 'is_available','ml_seller_profile', 'mp_seller_profile', 'ml_buyer_profile', 'queue_id', 'environment', 'track_id', 'segment') v3 AS problem_type,
-                                                                                   reason,
-                                                                                   origin,
-                                                                                   is_available,
-                                                                                   ml_seller_profile,
-                                                                                   mp_seller_profile,
-                                                                                   ml_buyer_profile,
-                                                                                   queue_id,
-                                                                                   environment,
-                                                                                   track_id,
-                                                                                   segment LATERAL VIEW json_tuple(v1.anuser, 'user_id') v4 AS user_id
+     (SELECT tj.id AS id,
+             From_unixtime(Unix_timestamp(Regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH:mm') AS requested_datetime_minute,
+             jest(tj.event_data, 'custom_site_id') AS site_id,
+             jest(tj.event_data, 'problem_type') AS problem_type,
+             jest(tj.event_data, 'reason') AS reason,
+             jest(tj.event_data, 'origin') AS origin,
+             jest(tj.event_data, 'is_available') AS is_available,
+             jest(tj.event_data, 'ml_seller_profile') AS ml_seller_profile,
+             jest(tj.event_data, 'mp_seller_profile') AS mp_seller_profile,
+             jest(tj.event_data, 'ml_buyer_profile') AS ml_buyer_profile,
+             tj.application.business AS business,
+             jest(tj.event_data, 'segment') AS segment,
+             tj.application.app_id AS app_id,
+             jest(tj.event_data, 'queue_id') AS queue_id,
+             tj.`user`.user_id AS user_id,
+             jest(tj.event_data, 'track_id') AS track_id
+      FROM cx_help_channels_parquet tj 
       WHERE tj.ds >= '@param01 02'
         AND tj.ds < '@param02 05'
-        AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
-        AND from_unixtime(unix_timestamp(regexp_replace(v1.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
-        AND v1.path = '/availability/requested'
-        AND v3.environment = 'PRODUCTION'
-        AND v2.app_id = 'SAC') sactable ON (sactable.track_id = nvl(c2ctable.track_id, chattable.track_id))
+        AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
+        AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
+        AND tj.path = '/availability/requested'
+        AND jest(tj.event_data, 'environment') = 'PRODUCTION'
+        AND tj.application.app_id = 'SAC') sactable ON (sactable.track_id = nvl(c2ctable.track_id, chattable.track_id))
    GROUP BY COALESCE(chattable.requested_datetime_minute, c2ctable.requested_datetime_minute, sactable.requested_datetime_minute),
             COALESCE(chattable.site_id, c2ctable.site_id, sactable.site_id),
             COALESCE(chattable.problem_type, c2ctable.problem_type, sactable.problem_type),
