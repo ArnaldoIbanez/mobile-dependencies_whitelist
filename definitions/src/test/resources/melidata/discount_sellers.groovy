@@ -15,6 +15,7 @@ trackTests {
     test("Mercadopago discount sellers form open") {
         "/discount_sellers/form/open" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
+            origin = "push"
         }
     }
 
