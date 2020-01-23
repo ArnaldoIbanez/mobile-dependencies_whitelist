@@ -13,7 +13,9 @@ tracks {
     // ******************** Events - Form ********************
     // *******************************************************
 
-    "/discount_sellers/form/open" (platform: "/mobile", type: TrackType.Event) {}
+    "/discount_sellers/form/open" (platform: "/mobile", type: TrackType.Event) {
+        origin(required: false, type: PropertyType.String, description: "Form origin, like push, history, empty, etc")
+    }
 
     "/discount_sellers/form" (platform: "/mobile", type: TrackType.View) {
         form_model(required: false, type: PropertyType.String, description: "Model to identify the sections drawed")
