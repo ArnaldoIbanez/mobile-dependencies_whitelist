@@ -2,7 +2,7 @@
   "users": [
     "notifications-it@mercadolibre.com"
   ],
-  "process_name": "notifications_push_metrics",
+  "process_name": "notifications_push_metrics_governance",
   "cron": "00 03 * * *",
   "partition": {
     "name": "ds",
@@ -60,7 +60,7 @@
       "type": "INTEGER"
     }],
     "sql": {
-      "script": "notifications/notifications-push-metrics.sql",
+      "script": "notifications/notifications-push-metrics-governance.sql",
       "parameters": [{
         "name": "send_date",
         "value": "DAY-3",
