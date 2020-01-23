@@ -1355,15 +1355,11 @@ trackTests {
   }
 
   test("seller central sales onboarding massive invoice emission modal confirm") {
-      "/seller_central/sales/list/onboarding/massive/confirm"(platform: "/") {
-          id = "22222"
-      }
+      "/seller_central/sales/list/onboarding/massive/confirm"(platform: "/", type: TrackType.Event) {}
   }
 
   test("seller central sales onboarding massive invoice emission modal close") {
-      "/seller_central/sales/list/onboarding/massive/close"(platform: "/") {
-          id = "33333"
-      }
+      "/seller_central/sales/list/onboarding/massive/close"(platform: "/", type: TrackType.Event) {}
   }
 
   test("seller central sales nfe onboarding action") {
