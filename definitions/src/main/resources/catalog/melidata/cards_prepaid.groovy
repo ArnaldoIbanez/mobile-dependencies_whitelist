@@ -16,6 +16,14 @@ tracks {
     "/wallet/cards"(platform: "/", type: TrackType.View) {} 
     "/wallet/cards/prepaid"(platform: "/", type: TrackType.View) {} 
 
+    "/wallet/cards/activation_modal"(platform: "/", isAbstract: true){}
+    "/wallet/cards/activation_modal/activation"(platform: "/", type: TrackType.View) {}
+
+    "/wallet/cards/activation_modal/close"(platform: "/", type: TrackType.Event) {} 
+    "/wallet/cards/activation_modal/activate_card"(platform: "/", type: TrackType.Event) {} 
+    "/wallet/cards/activation_modal/not_receive_card"(platform: "/", type: TrackType.Event) {} 
+
+
     "/prepaid"(platform: "/", isAbstract: true) {
         user_profile(
             required: false,

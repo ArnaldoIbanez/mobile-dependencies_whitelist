@@ -269,6 +269,13 @@ trackTests {
         "/prepaid/reissue/inactivate_card" (platform: "/", type: TrackType.View) {}
         "/prepaid/reissue/phone_info" (platform: "/", type: TrackType.View) {}
     }
+
+    test ("Cards activation modal in card list") {
+        "/wallet/cards/activation_modal/activation"(platform: "/", type: TrackType.View) {}
+        "/wallet/cards/activation_modal/close"(platform: "/", type: TrackType.Event) {} 
+        "/wallet/cards/activation_modal/activate_card"(platform: "/", type: TrackType.Event) {} 
+        "/wallet/cards/activation_modal/not_receive_card"(platform: "/", type: TrackType.Event) {} 
+    }
     
     test ("Prepaid FAQs") {
         "/prepaid/faq" (platform: "/", type: TrackType.View) {}
