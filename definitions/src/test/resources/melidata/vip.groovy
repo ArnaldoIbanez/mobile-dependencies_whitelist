@@ -562,7 +562,15 @@ trackTests {
             defaultTrackInformation()
         }
 
+        "/vip/coordinate_availability"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+
         "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+
+        "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
 
