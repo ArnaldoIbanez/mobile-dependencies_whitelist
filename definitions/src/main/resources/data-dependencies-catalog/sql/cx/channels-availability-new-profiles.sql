@@ -36,7 +36,7 @@ FROM
    FROM
      (SELECT tj.id AS id,
              From_unixtime(Unix_timestamp(Regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH:mm') AS requested_datetime_minute,
-             jest(tj.event_data, 'custom_site_id') AS site_id,
+             tj.application.site_id AS site_id,
              jest(tj.event_data, 'problem_type') AS problem_type,
              jest(tj.event_data, 'reason') AS reason,
              jest(tj.event_data, 'origin') AS origin,
@@ -61,7 +61,7 @@ FROM
    FULL OUTER JOIN
      (SELECT tj.id AS id,
              From_unixtime(Unix_timestamp(Regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH:mm') AS requested_datetime_minute,
-             jest(tj.event_data, 'custom_site_id') AS site_id,
+             tj.application.site_id AS site_id,
              jest(tj.event_data, 'problem_type') AS problem_type,
              jest(tj.event_data, 'reason') AS reason,
              jest(tj.event_data, 'origin') AS origin,
@@ -86,7 +86,7 @@ FROM
    FULL OUTER JOIN
      (SELECT tj.id AS id,
              From_unixtime(Unix_timestamp(Regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH:mm') AS requested_datetime_minute,
-             jest(tj.event_data, 'custom_site_id') AS site_id,
+             tj.application.site_id AS site_id,
              jest(tj.event_data, 'problem_type') AS problem_type,
              jest(tj.event_data, 'reason') AS reason,
              jest(tj.event_data, 'origin') AS origin,
