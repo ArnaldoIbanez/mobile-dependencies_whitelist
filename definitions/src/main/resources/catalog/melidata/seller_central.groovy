@@ -471,6 +471,10 @@ tracks {
 
     "/seller_central/bulk/publish/upload"(platform: "/web", type: TrackType.View) {}
 
+    "/seller_central/bulk/publish/upload/show_custom_mail_box"(platform: "/web", type: TrackType.Event) {
+        show_custom_mail_box(required: true, type: PropertyType.Boolean, description: "Value to know if user has clicked on Add other email")
+    }
+
     "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
 
     "/seller_central/bulk/publish/categories/download_excel"(platform: "/web", type: TrackType.Event) {
