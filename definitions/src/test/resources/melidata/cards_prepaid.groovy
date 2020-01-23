@@ -275,10 +275,10 @@ trackTests {
     }
 
     test ("Cards activation modal in card list") {
-        "/wallet/cards/modal/activation"(platform: "/", type: TrackType.View) {}
-        "/wallet/cards/modal/close"(platform: "/", type: TrackType.Event) {} 
-        "/wallet/cards/modal/activate_card"(platform: "/", type: TrackType.Event) {} 
-        "/wallet/cards/modal/not_receive_card"(platform: "/", type: TrackType.Event) {} 
+        "/wallet/cards/activation_modal/activation"(platform: "/", type: TrackType.View) {}
+        "/wallet/cards/activation_modal/close"(platform: "/", type: TrackType.Event) {} 
+        "/wallet/cards/activation_modal/activate_card"(platform: "/", type: TrackType.Event) {} 
+        "/wallet/cards/activation_modal/not_receive_card"(platform: "/", type: TrackType.Event) {} 
     }
     
     test ("Prepaid FAQs") {
