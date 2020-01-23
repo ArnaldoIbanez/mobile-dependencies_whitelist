@@ -439,7 +439,7 @@ trackTests {
 
   test("seller central bulk publish upload congrats view") {
     "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
-  
+  }
 
   test("seller central bulk publish download categories event") {
     "/seller_central/bulk/publish/categories/download_excel"(platform: "/web", type: TrackType.Event) {
