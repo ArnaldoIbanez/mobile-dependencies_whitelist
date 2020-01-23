@@ -152,7 +152,7 @@ SELECT
              tj.application.business AS business,
              jest(tj.event_data, 'segment') AS segment,
              tj.application.app_id AS app_id,
-             jest(tj.event_data, 'queue_id') AS queue_id,
+             'mail_queue' AS queue_id,
              tj.`user`.user_id AS user_id,
              jest(tj.event_data, 'track_id') AS track_id,
              jest(tj.event_data, 'source_id') AS source_id,
