@@ -408,8 +408,10 @@ tracks {
     }
 
     "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {}
+    "/vip/coordinate_availability"(platform: "/web", type: TrackType.Event) {}
 
     "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {}
+    "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {}
 
     "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {}
 
