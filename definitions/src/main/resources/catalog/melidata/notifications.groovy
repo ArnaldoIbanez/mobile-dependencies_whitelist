@@ -631,6 +631,7 @@ tracks {
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+        sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
     }
     "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -1554,13 +1555,14 @@ tracks {
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+        sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
     }
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
         test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
-        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
         deal_id(required: false, type: PropertyType.String, description: "Id of deal.")
     }
