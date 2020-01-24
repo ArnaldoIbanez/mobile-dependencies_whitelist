@@ -269,6 +269,13 @@ trackTests {
         }
         "/myml/invoices/company-info/success"(platform: "/") {}
         "/myml/invoices/company-info/tax-rules-information"(platform: "/") {}
+        "/myml/invoices/company-info/emission-validation"(platform: "/") {}
+        "/myml/invoices/company-info/emission-validation/success"(platform: "/") {
+            emission_validation_status = "SUCCESS"
+        }
+        "/myml/invoices/company-info/emission-validation/error"(platform: "/") {
+            emission_validation_status = "NOT_MAPPED_ERROR"
+        }
     }
 
     test("Order pages") {

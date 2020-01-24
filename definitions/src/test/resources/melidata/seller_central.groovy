@@ -1349,6 +1349,18 @@ trackTests {
       page = 3
     }
   }
+      
+  test("seller central sales onboarding massive invoice emission") {
+      "/seller_central/sales/list/onboarding/massive"(platform: "/") {}
+  }
+
+  test("seller central sales onboarding massive invoice emission modal confirm") {
+      "/seller_central/sales/list/onboarding/massive/confirm"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central sales onboarding massive invoice emission modal close") {
+      "/seller_central/sales/list/onboarding/massive/close"(platform: "/", type: TrackType.Event) {}
+  }
 
   test("seller central sales nfe onboarding action") {
     "/seller_central/sales/list/nfe_onboarding/action"(platform: "/", type: TrackType.Event) {

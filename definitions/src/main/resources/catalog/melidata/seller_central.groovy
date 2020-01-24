@@ -789,6 +789,10 @@ tracks {
         page(required: false, type: PropertyType.Numeric, description: "Page number")
     }
 
+    "/seller_central/sales/list/onboarding/massive"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/onboarding/massive/confirm"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/list/onboarding/massive/close"(platform: "/", type: TrackType.Event) {}
+
     "/seller_central/sales/list/nfe_onboarding"(platform: "/", isAbstract: true) {}
     "/seller_central/sales/list/nfe_onboarding/action"(platform: "/", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "start"])
