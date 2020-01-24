@@ -427,6 +427,12 @@ trackTests {
     "/seller_central/bulk/publish/upload"(platform: "/web", type: TrackType.View) {}
   }
 
+  test("seller central bulk publish upload view") {
+    "/seller_central/bulk/publish/upload/show_custom_mail_box"(platform: "/web", type: TrackType.Event) {
+      show_custom_mail_box = true
+    }
+  }
+
   test("seller central bulk publish download congrats view") {
     "/seller_central/bulk/publish/download/congrats"(platform: "/web", type: TrackType.View) {}
   }
