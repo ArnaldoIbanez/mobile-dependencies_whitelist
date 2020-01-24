@@ -9,24 +9,18 @@ SELECT
 FROM
 
 (SELECT from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') - 14400, 'yyyy-MM-dd HH') AS `dsx`,
-    `jt`.`id` AS `component`,
-    `jt2`.`platform` AS `platform`,
-    `jt3`.`site_id` AS  `site_id`,
-    COUNT(`jt`.`id`) AS `prints_count`
-FROM component_prints
-LATERAL VIEW json_tuple(`data`, 'event_data') ed AS `event_data`
-LATERAL VIEW json_tuple(ed.`event_data`, 'c_event', 'c_id') jt AS `event`, `id`
-LATERAL VIEW json_tuple(`data`, 'device') dev AS `device`
-LATERAL VIEW json_tuple(dev.`device`, 'platform') jt2 AS `platform`
-LATERAL VIEW json_tuple(`data`, 'application') app AS `application`
-LATERAL VIEW json_tuple(app.`application`, 'site_id') jt3 AS `site_id`
-LATERAL VIEW json_tuple(`data`, 'path') jt4 AS `path`
-WHERE ds >= '@param01 04' AND ds < '@param02 04'
-    AND `jt`.`id` IS NOT NULL
-    AND `jt4`.`path` = '/component'
-    AND `jt`.`id` RLIKE '.*(?<!\/element)$'
-    AND `jt`.`id` RLIKE '.*(?<!\/item)$'
-GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') - 14400, 'yyyy-MM-dd HH'), `jt2`.`platform`,`jt3`.`site_id`, `jt`.`id`) AS prints
+        jest(event_data, 'c_id') as component,
+        device.platform as platform,
+        application.site_id as site_id,
+        COUNT(jest(event_data, 'c_id')) AS prints_count
+
+FROM component_prints_parquet
+WHERE ds >= '@param01' AND ds < '@param02'
+    AND jest(event_data, 'c_id') IS NOT NULL
+    AND path = '/component'
+    AND jest(event_data, 'c_id') RLIKE '.*(?<!\/element)$'
+    AND jest(event_data, 'c_id') RLIKE '.*(?<!\/item)$'
+GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') - 14400, 'yyyy-MM-dd HH'), device.platform, application.site_id, jest(event_data, 'c_id')) AS prints
 
 LEFT JOIN
 
@@ -50,5 +44,3 @@ ON
     prints.platform = clicks.platform AND
     prints.site_id = clicks.site_id AND
     prints.component = clicks.component
-
-
