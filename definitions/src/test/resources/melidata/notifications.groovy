@@ -2718,6 +2718,7 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
+            sent_date = "20181211"
         }
 
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
@@ -4125,6 +4126,7 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
+            sent_date = "20181211"
         }
         "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns-mpcampaignsinfo-186785675-76283123"
