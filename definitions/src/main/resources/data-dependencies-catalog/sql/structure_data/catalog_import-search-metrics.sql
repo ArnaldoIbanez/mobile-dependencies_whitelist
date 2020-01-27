@@ -14,6 +14,7 @@ SELECT
     jest(event_data, 'selected_domain') as selected_domain,
     jest(event_data, 'external_attribute_key') as external_attribute_key,
     jest(event_data, 'external_attribute_value') as external_attribute_value,
+    SUBSTR(ds, 1, 10) as created_at,
     ds
 FROM default.tracks t
 WHERE t.path IN (
