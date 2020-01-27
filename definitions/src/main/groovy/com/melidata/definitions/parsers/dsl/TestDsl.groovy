@@ -1,6 +1,7 @@
 package com.melidata.definitions.parsers.dsl
 
 import com.ml.melidata.Track
+import com.ml.melidata.catalog.exceptions.CatalogException
 
 /**
  * Created by apetalas on 19/11/14.
@@ -14,7 +15,7 @@ class TestDsl{
 
     //prefix fields with _ to avoid conflict with test properties definition
     def _messages = []
-    def _status = true
+    boolean _status = true
 
     def propertyMissing(String name, value){
         this.tracks.last().event_data[name] = value
@@ -36,9 +37,9 @@ class TestDsl{
         closure()
     }
 
-    def assertValid(Catalog catalog){
+    def assertValid(catalog){
 
-        this.tracks.each { Track singleTrack ->
+        this.tracks.each { singleTrack ->
             catalog.catalogCoverage.addTestRun(singleTrack.path,singleTrack.business)
 
             validateEventData(catalog, singleTrack)
@@ -48,7 +49,7 @@ class TestDsl{
         return _status
     }
 
-    def validateEventData(Catalog catalog, Track singleTrack) {
+    def validateEventData(catalog, singleTrack) {
         def eventDataValidation = catalog.validate(singleTrack)
         _status = _status && eventDataValidation.status
 
@@ -57,16 +58,23 @@ class TestDsl{
         }
     }
 
-    def validateInitiative(Catalog catalog, Track singleTrack) {
+    private void validateInitiative(catalog, singleTrack) {
         def trackInitiative = catalog.getTrackInitiative(singleTrack)
+        def trackApplication = catalog.getTrackApplication(singleTrack)
 
+        if(!trackInitiative && !trackApplication) {
+            _messages = _messages + [(singleTrack.path): "Track " + singleTrack.path + " does not have an initiative nor an application declared"]
+            _status = false
+        } else {
+            if(!trackInitiative) {
+                trackInitiative = InitiativeValidate.getInitiativeFromApplication(trackApplication)
+            }
 
-        _status = _status && initiativeValidation.status
-
-        if ( !initiativeValidation.status ) {
-            _messages = _messages + [(singleTrack.path): initiativeValidation.messages]
+            if ( !InitiativeValidate.initiatives.contains(trackInitiative) ) {
+                _messages = _messages + [(singleTrack.path): "Initiative: " + trackInitiative + ", does not exist"]
+                _status = false
+            }
         }
     }
-
 }
 

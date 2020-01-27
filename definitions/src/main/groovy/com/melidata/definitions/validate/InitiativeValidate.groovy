@@ -1,11 +1,11 @@
 package com.melidata.definitions.validate
 
 import groovy.sql.Sql
-
+import com.melidata.definitions.validate.*
 
 class InitiativeValidate {
 
-    private static List initiatives
+    private static List initiatives = []
 
     static void generateInitiativesList() {
         initiatives = getAllInitiativesFromDump()
@@ -14,9 +14,6 @@ class InitiativeValidate {
     private static List getAllInitiativesFromDump() {
         def query = buildQuery()
         def presto_certs_path = System.getProperty("user.dir") + "/src/main/resources/presto_cacerts"
-        System.err.println("Query:")
-        System.err.println("${query}")
-        System.err.println("")
 
         def db = [url:"jdbc:presto://melidata-presto.ml.com:443/hive/default?SSL=true&SSLKeyStorePath=${presto_certs_path}&applicationNamePrefix=catalog",
                   user:'catalog_md', password:'Entrada.10', driver:'com.facebook.presto.jdbc.PrestoDriver']
@@ -33,4 +30,7 @@ class InitiativeValidate {
         return "SELECT externalname \n" + "FROM initiatives_export \n"
     }
 
+    static String getInitiativeFromApplication() {
+        return ""
+    }
 }
