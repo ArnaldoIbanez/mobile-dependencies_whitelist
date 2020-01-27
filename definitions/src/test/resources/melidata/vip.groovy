@@ -560,6 +560,9 @@ trackTests {
 
         "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {
             defaultTrackInformation()
+            item_seller_type= "normal"
+            from_view="vip"
+            catalog_listing="Item's catalog listing"
         }
 
         "/vip/coordinate_availability"(platform: "/web", type: TrackType.Event) {

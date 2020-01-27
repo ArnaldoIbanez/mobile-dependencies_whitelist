@@ -407,7 +407,19 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
     }
 
-    "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {}
+    "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
+        from_view(required: false, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form"],
+                description: "Section where it's coming from"
+        )
+        catalog_listing(
+                required: false,
+                type: PropertyType.Boolean,
+                description: "Item's catalog listing"
+        )
+    }
     "/vip/coordinate_availability"(platform: "/web", type: TrackType.Event) {}
 
     "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {}
