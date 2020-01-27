@@ -1,5 +1,6 @@
 package com.melidata.definitions.parsers.dsl
 
+import com.melidata.definitions.validate.InitiativeValidate
 import com.ml.melidata.Track
 import com.ml.melidata.catalog.exceptions.CatalogException
 
@@ -70,6 +71,8 @@ class TestDsl{
                 trackInitiative = InitiativeValidate.getInitiativeFromApplication(trackApplication)
             }
 
+            System.err.println("IM HERE BRO4 " + trackInitiative)
+            System.err.println("IM HERE BRO5 " + InitiativeValidate.initiatives.get(0))
             if ( !InitiativeValidate.initiatives.contains(trackInitiative) ) {
                 _messages = _messages + [(singleTrack.path): "Initiative: " + trackInitiative + ", does not exist"]
                 _status = false

@@ -4,6 +4,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "Core Mktplace - Soporte a Home, VIP,  Search, Recomendaciones, Notificaciones"
+
     //def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
     //def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
     //todo dejar los originales en septiembre

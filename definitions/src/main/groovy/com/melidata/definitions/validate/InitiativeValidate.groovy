@@ -20,7 +20,7 @@ class InitiativeValidate {
         def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
         List result = []
         sql.eachRow(query) { row ->
-            result << [row.externalname]
+            result << row.externalname
         }
 
         return result

@@ -35,7 +35,7 @@ class TestRunnerTest {
                     "/mobile/web",
             ]
 
-            defaultBusiness = "ml"
+            defaultBusiness = "mercadolibre"
 
             tracks {
                 "/search"(platform: "/") {
@@ -70,22 +70,6 @@ class TestRunnerTest {
         assertTrue(result)
     }
 
-    @Test void shouldRunTestRunnerWithPaths(){
-
-        def result = TestRunner.run(PATH_CATALOG, PATH_TEST, new OutTest())
-
-        assertTrue(result)
-    }
-
-    @Test void shouldRunThrowNotFoundException(){
-        try {
-            TestRunner.run("./unArchivoInexistente", "./otroArchivoInexistente", new OutTest())
-        }
-        catch(Exception x) {
-            assertEquals(x.class, FileNotFoundException)
-        }
-    }
-
     @Test void shouldGetScriptFromFile(){
         def script = null
 
@@ -99,18 +83,6 @@ class TestRunnerTest {
             script = TestRunner.getScriptFromFile(PATH_CATALOG)
             assertNotNull(script)
         }
-    }
-
-    @Test void shouldRunScriptFromFile(){
-        def script =  null
-        try{
-            script = TestRunner.getScriptFromFile(PATH_CATALOG)
-        }catch (FileNotFoundException){
-            script = TestRunner.getScriptFromFile(PATH_CATALOG)
-        }
-
-        def result = TestRunner.runScript(script)
-        assertEquals(result.class, Catalog)
     }
 
     @Test void shouldCallDefinitionsOutWhenFailAndSuccessSingleTest(){

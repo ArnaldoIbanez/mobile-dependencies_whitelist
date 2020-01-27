@@ -13,5 +13,5 @@ metrics.json
 .project
 
 definitions/build
-
+definitions/out
 *.DS_Store
