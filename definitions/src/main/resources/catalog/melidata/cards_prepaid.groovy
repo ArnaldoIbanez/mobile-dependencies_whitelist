@@ -188,6 +188,9 @@ tracks {
     "/prepaid/activation/last_digits"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/marital_status"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {}
+    "/prepaid/activation/congrats/change_pin_tap"(platform: "/", type: TrackType.Event) {}
+    "/prepaid/activation/congrats/home_tap"(platform: "/", type: TrackType.Event) {}
+    "/prepaid/activation/congrats/add_money_tap"(platform: "/", type: TrackType.Event) {}
     "/prepaid/activation/error"(platform: "/", type: TrackType.View) {
         error_type(
             required: true, 
