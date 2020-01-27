@@ -36,19 +36,36 @@ class TestDsl{
         closure()
     }
 
-    def assertValid(catalog){
-        def result = null
+    def assertValid(Catalog catalog){
 
-        this.tracks.each { singleTrack ->
+        this.tracks.each { Track singleTrack ->
             catalog.catalogCoverage.addTestRun(singleTrack.path,singleTrack.business)
-            result = catalog.validate(singleTrack)
-            _status = _status && result.status
-            if ( !result.status ) {
-                _messages = _messages + [(singleTrack.path): result.messages]
-            }
+
+            validateEventData(catalog, singleTrack)
+            validateInitiative(catalog, singleTrack)
         }
 
         return _status
+    }
+
+    def validateEventData(Catalog catalog, Track singleTrack) {
+        def eventDataValidation = catalog.validate(singleTrack)
+        _status = _status && eventDataValidation.status
+
+        if ( !eventDataValidation.status ) {
+            _messages = _messages + [(singleTrack.path): eventDataValidation.messages]
+        }
+    }
+
+    def validateInitiative(Catalog catalog, Track singleTrack) {
+        def trackInitiative = catalog.getTrackInitiative(singleTrack)
+
+
+        _status = _status && initiativeValidation.status
+
+        if ( !initiativeValidation.status ) {
+            _messages = _messages + [(singleTrack.path): initiativeValidation.messages]
+        }
     }
 
 }

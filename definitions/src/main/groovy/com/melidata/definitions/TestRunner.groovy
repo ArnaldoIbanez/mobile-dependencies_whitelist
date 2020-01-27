@@ -3,8 +3,8 @@ package com.melidata.definitions
 import com.melidata.definitions.parsers.dsl.TestDsl
 import com.melidata.definitions.outs.DefinitionsOut
 import com.ml.melidata.catalog.Catalog
+import com.melidata.definitions.validate.*
 import groovy.transform.Synchronized
-import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 
 /**
  * Created by apetalas on 20/11/14.
@@ -12,6 +12,9 @@ import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 class TestRunner {
 
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
+        //Prepare initiatives list
+        InitiativeValidate.generateInitiativesList()
+
         def runOk = true
         out.beforeRun(catalog, tests)
         tests?.each { singleTest ->

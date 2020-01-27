@@ -27,10 +27,10 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:1.8.6'
+    compile 'org.codehaus.groovy:groovy-all:2.2.2'
     compile 'com.amazonaws:aws-java-sdk:1.11.68'
     compile 'commons-io:commons-io:2.4'
-    compile 'com.mercadolibre.melidata.catalog:commons:1.5.0-rc-3'
+    compile 'com.mercadolibre.melidata.catalog:commons:0.0.1-initiativetest'
     compile group: 'com.mercadolibre.melidata.catalog', name: 'definitions', version: '1.2.17'
     compile group: 'com.facebook.presto', name: 'presto-jdbc', version: '0.220'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
