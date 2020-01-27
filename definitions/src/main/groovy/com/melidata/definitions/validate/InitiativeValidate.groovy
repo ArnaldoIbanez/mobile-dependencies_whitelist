@@ -20,17 +20,23 @@ class InitiativeValidate {
         def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
         List result = []
         sql.eachRow(query) { row ->
-            result << row.externalname
+            InitiativeModel im = new InitiativeModel(row.idinitiative, row.externalname, row.name)
+            result << im
         }
 
         return result
     }
 
     private static String buildQuery() {
-        return "SELECT externalname \n" + "FROM initiatives_export \n"
+        return "SELECT name,  application.idinitiative, externalName from application_initiatives_export as application\n" +
+                "JOIN initiatives_export as initiative ON initiative.idinitiative = application.idinitiative"
     }
 
-    static String getInitiativeFromApplication() {
-        return ""
+    static validateInitiative(String initiative) {
+        initiatives.any() {InitiativeModel init -> init.getInitiativeName() == initiative }
+    }
+
+    static String getInitiativeFromApplication(String application) {
+        return initiatives.find({InitiativeModel init -> init.getApplicationName() == application}).getInitiativeName()
     }
 }
