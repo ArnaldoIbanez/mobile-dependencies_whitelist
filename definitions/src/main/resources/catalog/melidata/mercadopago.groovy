@@ -112,15 +112,15 @@ tracks {
       coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
     }
 
-    "/point/buyingflow/shippingOptions"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/newAddress"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/new_address"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
@@ -128,11 +128,11 @@ tracks {
       groupCheckoutProperties
     }
     
-    "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_installments"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
+    "/point/buyingflow/payment_installments/installments"(platform: "/", type: TrackType.Event) {
       groupCheckoutProperties
     }
 
@@ -140,15 +140,15 @@ tracks {
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_new_card"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/paymentCardSecurityCode"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_card_security_code"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/paymentReview"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_review"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
       selected_payment_method_id (type: PropertyType.String, required: false, description: "Selected payment method ID")
       selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
@@ -160,14 +160,14 @@ tracks {
       type (type: PropertyType.String, required: true, description: "Error type")
     }
 
-    "/point/buyingflow/paymentRejected"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_rejected"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
       selected_payment_method_id (type: PropertyType.String, required: true, description: "Selected payment method ID")
       selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
       installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
     }
 
-    "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
+    "/point/buyingflow/payment_review/confirm_purchase"(platform: "/", type: TrackType.Event) {
       groupCheckoutProperties
     }
 
