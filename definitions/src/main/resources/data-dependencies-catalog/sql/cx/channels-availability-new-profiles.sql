@@ -52,7 +52,7 @@ FROM
              jest(tj.event_data, 'track_id') AS track_id
       FROM cx_help_channels_parquet tj 
       WHERE tj.ds >= '@param01 02'
-        AND tj.ds < '@param02 05'
+        AND tj.ds < '@param02 15'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
         AND tj.path = '/availability/requested'
@@ -77,7 +77,7 @@ FROM
              jest(tj.event_data, 'track_id') AS track_id
       FROM cx_help_channels_parquet tj 
       WHERE tj.ds >= '@param01 02'
-        AND tj.ds < '@param02 05'
+        AND tj.ds < '@param02 15'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
         AND tj.path = '/availability/requested'
@@ -102,7 +102,7 @@ FROM
              jest(tj.event_data, 'track_id') AS track_id
       FROM cx_help_channels_parquet tj 
       WHERE tj.ds >= '@param01 02'
-        AND tj.ds < '@param02 05'
+        AND tj.ds < '@param02 15'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
         AND tj.path = '/availability/requested'
