@@ -8,7 +8,7 @@
     "georgina.zerbini@mercadolibre.com"
   ],
   "process_name": "channels-availability-and-clicks-2019",
-  "cron": "00 06 * * *",
+  "cron": "00 04 * * *",
   "partition": {
           "name": "requested_datetime_day",
           "type": "UNICODE_STRING"
