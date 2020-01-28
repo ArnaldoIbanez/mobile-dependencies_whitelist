@@ -2,7 +2,6 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-
 	"orders"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
 		countsOn {
 			condition {
@@ -159,6 +158,15 @@ metrics {
 			}
 		}
 	}
+	
+	"bids.sameItem"(description: "/orders/ordercreated from feed in the sam item of experiement", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals("event_data.items.item.id", property("item_id"))
+			}
+		}
+	}
 
 	"orders.sameProduct"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
 		countsOn {
@@ -171,6 +179,15 @@ metrics {
 			}
 		}
 	}
+				       
+	"bids.sameProduct"(description: "/orders/ordercreated from feed in the same product of experiement", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
+			}
+		}
+	}			       
 
 	"orders.sameParent"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
 		countsOn {
@@ -184,6 +201,16 @@ metrics {
 		}
 	}
 
+	"bids.sameParent"(description: "/orders/ordercreated from feed in the same parent product of experiement", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals("event_data.items.item.catalog_parent_id", property("catalog_parent_id"))
+			}
+		}
+	}
+				  
+
 	"orders.sameSearch"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
 		countsOn {
 			condition {
@@ -195,6 +222,15 @@ metrics {
 			}
 		}
 	}
+				       
+	"bids.sameSearch"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals("event_data.items.item.id", property("item_ids"))
+			}
+		}
+	}			       
 
 	"buys.pdp"(description: "Track PDP buys", compute_order: true) {
 		countsOn {
