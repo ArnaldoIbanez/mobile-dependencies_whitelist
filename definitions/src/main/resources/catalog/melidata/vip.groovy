@@ -420,10 +420,18 @@ tracks {
                 description: "Item's catalog listing"
         )
     }
-    "/vip/coordinate_availability"(platform: "/web", type: TrackType.Event) {}
+    
+    "/vip/coordinate_availability"(platform: "/web", type: TrackType.Event) {
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
 
     "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {}
-    "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {}
+
+    "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
 
     "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {}
 
