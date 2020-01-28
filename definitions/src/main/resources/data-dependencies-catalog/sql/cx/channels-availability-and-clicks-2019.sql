@@ -75,7 +75,7 @@ SELECT
              jest(tj.event_data, 'process_id') AS process_id
       FROM cx_help_channels_parquet tj 
       WHERE tj.ds >= '@param01 02'
-        AND tj.ds < '@param02 05'
+        AND tj.ds < '@param02 15'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
         AND tj.path = '/availability/requested'
@@ -103,7 +103,7 @@ SELECT
              jest(tj.event_data, 'process_id') AS process_id
       FROM cx_help_channels_parquet tj 
       WHERE tj.ds >= '@param01 02'
-        AND tj.ds < '@param02 05'
+        AND tj.ds < '@param02 15'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
         AND tj.path = '/availability/requested'
@@ -131,7 +131,7 @@ SELECT
              jest(tj.event_data, 'process_id') AS process_id
       FROM cx_help_channels_parquet tj 
       WHERE tj.ds >= '@param01 02'
-        AND tj.ds < '@param02 05'
+        AND tj.ds < '@param02 15'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
         AND tj.path = '/availability/requested'
@@ -159,7 +159,7 @@ SELECT
              jest(tj.event_data, 'process_id') AS process_id
       FROM cx_help_channels_parquet tj 
       WHERE tj.ds >= '@param01 02'
-        AND tj.ds < '@param02 05'
+        AND tj.ds < '@param02 15'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') >= '@param03 23'
         AND from_unixtime(unix_timestamp(regexp_replace(tj.user_timestamp, 'T', ' ')), 'yyyy-MM-dd HH') < '@param04 23'
         AND tj.path = '/availability/requested'
@@ -175,7 +175,7 @@ SELECT
             SELECT distinct jest(tj.event_data, 'track_id') AS track_id
             FROM cx_help_channels_parquet tj 
             WHERE tj.ds >= '@param01 02'
-            AND tj.ds < '@param02 07'
+            AND tj.ds < '@param02 17'
             AND tj.path = '/click/registered'
             AND jest(tj.event_data, 'environment') = 'PRODUCTION'
             AND tj.application.app_id = 'MAIL') mailti
@@ -183,7 +183,7 @@ SELECT
             SELECT distinct jest(tj.event_data, 'track_id') AS track_id
             FROM cx_help_channels_parquet tj 
             WHERE tj.ds >= '@param01 02'
-            AND tj.ds < '@param02 07'
+            AND tj.ds < '@param02 17'
             AND tj.path = '/click/registered'
             AND jest(tj.event_data, 'environment') = 'PRODUCTION'
             AND tj.application.app_id = 'CLICKTOCALL') c2cti
@@ -192,7 +192,7 @@ SELECT
             SELECT distinct jest(tj.event_data, 'track_id') AS track_id
             FROM cx_help_channels_parquet tj 
             WHERE tj.ds >= '@param01 02'
-            AND tj.ds < '@param02 07'
+            AND tj.ds < '@param02 17'
             AND tj.path = '/click/registered'
             AND jest(tj.event_data, 'environment') = 'PRODUCTION'
             AND tj.application.app_id = 'CHAT') chatti
@@ -201,7 +201,7 @@ SELECT
             SELECT distinct jest(tj.event_data, 'track_id') AS track_id
             FROM cx_help_channels_parquet tj 
             WHERE tj.ds >= '@param01 02'
-            AND tj.ds < '@param02 07'
+            AND tj.ds < '@param02 17'
             AND tj.path = '/click/registered'
             AND jest(tj.event_data, 'environment') = 'PRODUCTION'
             AND tj.application.app_id = 'SAC') sacti

@@ -4,7 +4,7 @@
     "juan.laura@mercadolibre.com"
   ],
   "process_name": "channels-joint-availability-new-profiles",
-  "cron": "00 05 * * *",
+  "cron": "00 07 * * *",
   "extract": {
     "operation": "append",
     "columns": [
