@@ -175,7 +175,7 @@ SELECT
             SELECT distinct jest(tj.event_data, 'track_id') AS track_id
             FROM cx_help_channels_parquet tj 
             WHERE tj.ds >= '@param01 02'
-            AND tj.ds < '@param02 07'
+            AND tj.ds < '@param02 17'
             AND tj.path = '/click/registered'
             AND jest(tj.event_data, 'environment') = 'PRODUCTION'
             AND tj.application.app_id = 'MAIL') mailti
@@ -183,7 +183,7 @@ SELECT
             SELECT distinct jest(tj.event_data, 'track_id') AS track_id
             FROM cx_help_channels_parquet tj 
             WHERE tj.ds >= '@param01 02'
-            AND tj.ds < '@param02 07'
+            AND tj.ds < '@param02 17'
             AND tj.path = '/click/registered'
             AND jest(tj.event_data, 'environment') = 'PRODUCTION'
             AND tj.application.app_id = 'CLICKTOCALL') c2cti
@@ -192,7 +192,7 @@ SELECT
             SELECT distinct jest(tj.event_data, 'track_id') AS track_id
             FROM cx_help_channels_parquet tj 
             WHERE tj.ds >= '@param01 02'
-            AND tj.ds < '@param02 07'
+            AND tj.ds < '@param02 17'
             AND tj.path = '/click/registered'
             AND jest(tj.event_data, 'environment') = 'PRODUCTION'
             AND tj.application.app_id = 'CHAT') chatti
@@ -201,7 +201,7 @@ SELECT
             SELECT distinct jest(tj.event_data, 'track_id') AS track_id
             FROM cx_help_channels_parquet tj 
             WHERE tj.ds >= '@param01 02'
-            AND tj.ds < '@param02 07'
+            AND tj.ds < '@param02 17'
             AND tj.path = '/click/registered'
             AND jest(tj.event_data, 'environment') = 'PRODUCTION'
             AND tj.application.app_id = 'SAC') sacti
