@@ -662,7 +662,7 @@ trackTests {
           coupon_code = "GHZM"
         }
 
-        "/point/buyingflow/shippingOptions"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -670,7 +670,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/newAddress"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/new_address"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -678,7 +678,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -694,7 +694,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_installments"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -702,7 +702,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
+        "/point/buyingflow/payment_installments/installments"(platform: "/", type: TrackType.Event) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -710,7 +710,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_new_card"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -718,7 +718,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/paymentCardSecurityCode"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_card_security_code"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -734,7 +734,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/paymentReview"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_review"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -745,7 +745,7 @@ trackTests {
           installments = 6
         }
 
-        "/point/buyingflow/paymentRejected"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_rejected"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -761,7 +761,7 @@ trackTests {
           type = "error: Session ended"
         }
 
-        "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
+        "/point/buyingflow/payment_review/confirm_purchase"(platform: "/", type: TrackType.Event) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
