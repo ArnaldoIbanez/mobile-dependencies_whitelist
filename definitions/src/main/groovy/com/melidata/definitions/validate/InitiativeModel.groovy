@@ -2,21 +2,21 @@ package com.melidata.definitions.validate
 
 class InitiativeModel {
 
-    private String id
+    private int id
     private String initiativeName
     private String applicationName
 
-    InitiativeModel(String id, String initiativeName, String applicationName) {
+    InitiativeModel(int id, String initiativeName, String applicationName) {
         this.id = id
         this.initiativeName = initiativeName
         this.applicationName = applicationName
     }
 
-    String getId() {
+    int getId() {
         return id
     }
 
-    void setId(String id) {
+    void setId(int id) {
         this.id = id
     }
 

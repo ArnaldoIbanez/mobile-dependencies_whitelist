@@ -1,6 +1,9 @@
 package com.melidata.definitions.validate
 
 import groovy.sql.Sql
+import groovyx.net.http.ContentType
+import groovyx.net.http.HttpResponseDecorator
+import groovyx.net.http.RESTClient
 import com.melidata.definitions.validate.*
 
 class InitiativeValidate {
@@ -8,6 +11,7 @@ class InitiativeValidate {
     private static List initiatives = []
 
     static void generateInitiativesList() {
+        //getAllInitiativesFromAPI()
         initiatives = getAllInitiativesFromDump()
     }
 
@@ -25,6 +29,23 @@ class InitiativeValidate {
         }
 
         return result
+    }
+
+    private static List getAllInitiativesFromAPI() {
+        def initiativesMap = [:]
+        def client = new RESTClient('https://initiatives-api.furycloud.io')
+        HttpResponseDecorator resultInitiatives = client.get(path: '/initiatives', contentType: ContentType.JSON)
+        HttpResponseDecorator resultApplication = client.get(path: '/applications', contentType: ContentType.JSON)
+
+        System.err.println('IVE JUST RECEIVED SMTH')
+
+        for(initiative in resultInitiatives.data) {
+            initiativesMap[initiative.id_initiative] = initiative.external_name
+        }
+
+        for(application in resultApplication.data) {
+            initiatives << InitiativeModel(application.id_initiative, initiativesMap[application.id_initiative], application.name)
+        }
     }
 
     private static String buildQuery() {

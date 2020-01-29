@@ -28,6 +28,13 @@ repositories {
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    compile('com.mercadolibre.opensource.frameworks:restclient:1.1.4'){
+        exclude group:'org.codehaus.groovy', module:'groovy-all'
+    }
+    compile('org.codehaus.groovy.modules.http-builder:http-builder:0.7') {
+        exclude group:'org.codehaus.groovy', module:'groovy-all'
+    }
+
     compile 'com.amazonaws:aws-java-sdk:1.11.68'
     compile 'commons-io:commons-io:2.4'
     compile 'com.mercadolibre.melidata.catalog:commons:0.0.6-initaitive'
