@@ -71,10 +71,6 @@
       {
         "name": "external_attribute_value",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "created_at",
-        "type": "DATE"
       }
     ],
     "sql": {
