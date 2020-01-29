@@ -10,7 +10,7 @@ tracks {
         id (required: true, type: PropertyType.String, description: "The challenge name")
         initiative (required: true, type: PropertyType.String, description: "The initiative")
         configuration_token (required: false, type: PropertyType.String, description: "The configuration token")
-        callback (required: false, type: PropertyType.String, description: "The callback")
+        callback (required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
     }
 
     // challenge life cyclev v2

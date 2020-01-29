@@ -10,7 +10,7 @@ tracks {
     "/remedy/challenge"(platform: "/", type: TrackType.View) {
         id (required: true, type: PropertyType.String, description: "The challenge name")
         process_id (required: true, type: PropertyType.String, description: "The initiative")
-        callback (required: false, type: PropertyType.String, description: "The callback")
+        callback (required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
     }
 
     "/remedy/challenge/start"(platform: "/", type: TrackType.Event) {}
