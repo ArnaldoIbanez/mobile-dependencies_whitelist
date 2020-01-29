@@ -131,6 +131,19 @@ trackTests {
             product_type = 'point'
             is_capped_offer= false
         }
+        "/credits/merchant/enrollment"(platform: "/web/desktop") {
+            offer = [
+                segment : 'online',
+                offer_type : 'early_offer',
+                is_capped_offer: false
+            ]
+            product_types = [
+                [
+                    product_type: 'sales_percentage_loan',
+                    variant: 'normal'
+                ]
+            ]
+        }
         "/credits/merchant/enrollment/without_proposal"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/confirmation"(platform: "/web/desktop") {
             amount = 200000
@@ -175,6 +188,44 @@ trackTests {
             reason = 'capped'
         }
         "/credits/merchant/enrollment/feedback/error"(platform: "/web/desktop") {}
+
+        //Summary
+        "/credits/merchant/enrollment/summary"(platform: "/web/desktop") {
+            requested_amount = 10000
+            max_amount = 20000
+            min_amount = 5000
+            max_option = 12
+            option = 12
+            product_type = 'fixed_term_loan'
+        }
+        "/credits/merchant/enrollment/summary"(platform: "/web/desktop") {
+            requested_amount = 10000
+            max_amount = 10000
+            min_amount = 10000
+            max_option = 120030
+            option = 30
+            product_type = 'sales_percentage_loan'
+        }
+
+        //Congrats
+        "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {
+            requested_amount = 10000
+            max_amount = 20000
+            min_amount = 5000
+            max_option = 12
+            option = 12
+            product_type = 'fixed_term_loan'
+            has_prepaid = true
+        }
+        "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {
+            requested_amount = 10000
+            max_amount = 10000
+            min_amount = 10000
+            max_option = 120030
+            option = 30
+            product_type = 'sales_percentage_loan'
+            has_prepaid = false
+        }
     }
 
     test("Merchant Credits Administrator") {
@@ -283,7 +334,7 @@ trackTests {
         })
 
         "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {}
-        
+
         "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {
             sales_percentage_map()
         }

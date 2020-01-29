@@ -105,6 +105,35 @@ tracks {
                 'in_store'
             ]
         )
+        is_capped_offer(
+            type: PropertyType.Boolean,
+            required: false,
+            inheritable: false
+        )
+    }
+
+    def product_type_map = objectSchemaDefinitions {
+        product_type(
+            description: "Product type from the user's credit line",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'fixed_term_loan',
+                'express_money',
+                'sales_percentage_loan'
+            ]
+        )
+        variant(
+            description: "Option types from the user's credit line",
+            type: PropertyType.String,
+            values: [
+                "normal",
+                "fixed_amount",
+                "fixed_option",
+                "fixed"
+            ],
+            required: true,
+        )
     }
 
     defaultBusiness = "mercadopago"
@@ -243,7 +272,7 @@ tracks {
     "/credits/merchant/enrollment"(platform: "/", type: TrackType.View) {
         status(
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'pending',
                 'rejected',
@@ -263,18 +292,29 @@ tracks {
         )
         product_type(
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'default',
                 'point',
-                'early_offer'
+                'early_offer',
             ],
             inheritable: false
         )
         is_capped_offer(
             type: PropertyType.Boolean,
-            required: true,
+            required: false,
             inheritable: false
+        )
+        offer(
+            type: PropertyType.Map(offer_map),
+            required: false,
+        )
+        product_types(
+            description: "Available product types in the user's credit line",
+            type: PropertyType.ArrayList(
+                PropertyType.Map(product_type_map)
+            ),
+            required: false,
         )
     }
 
