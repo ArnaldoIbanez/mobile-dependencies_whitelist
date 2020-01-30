@@ -4,11 +4,13 @@ import groovy.sql.Sql
 import groovyx.net.http.ContentType
 import groovyx.net.http.HttpResponseDecorator
 import groovyx.net.http.RESTClient
-import com.melidata.definitions.validate.*
 
 class InitiativeValidate {
 
-    private static List initiatives = []
+    private static List<InitiativeModel> initiatives = []
+    private static Set validPaths = []
+    private static Set totalPaths = []
+    private static double baseCoverage = 0.6
 
     static void generateInitiativesList() {
         //getAllInitiativesFromAPI()
@@ -24,7 +26,7 @@ class InitiativeValidate {
         def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
         List result = []
         sql.eachRow(query) { row ->
-            InitiativeModel im = new InitiativeModel(row.idinitiative, row.externalname, row.name)
+            InitiativeModel im = new InitiativeModel(Integer.parseInt(row.idinitiative), row.externalname, row.name)
             result << im
         }
 
@@ -53,11 +55,37 @@ class InitiativeValidate {
                 "JOIN initiatives_export as initiative ON initiative.idinitiative = application.idinitiative"
     }
 
-    static validateInitiative(String initiative) {
-        initiatives.any() {InitiativeModel init -> init.getInitiativeName() == initiative }
+    static validateInitiative(String path, String initiative) {
+        totalPaths << path
+
+        if(initiative && initiatives.any() {InitiativeModel init -> init.getInitiativeName() == initiative }) {
+            validPaths << path
+            return true
+        } else {
+            return false
+        }
     }
 
     static String getInitiativeFromApplication(String application) {
-        return initiatives.find({InitiativeModel init -> init.getApplicationName() == application}).getInitiativeName()
+        return initiatives.find({InitiativeModel init -> init.getApplicationName() == application})?.getInitiativeName()
+    }
+
+    static boolean checkCoverage() {
+        def actualCoverage = (validPaths.size() / totalPaths.size()) * 100
+        def isValidStatus = actualCoverage > baseCoverage
+        if(!isValidStatus) {
+            println "\n"+starBar()
+            println("\tInitiatives coverage is too low!")
+            println starBar()+"\n"
+
+            println("\033[91m - Actual coverage: "+actualCoverage+"\033[0m")
+            println("\033[92m - Intended coverage: "+baseCoverage+"\033[0m")
+        }
+
+        return isValidStatus
+    }
+
+    def static starBar() {
+        return "**************************************************"
     }
 }

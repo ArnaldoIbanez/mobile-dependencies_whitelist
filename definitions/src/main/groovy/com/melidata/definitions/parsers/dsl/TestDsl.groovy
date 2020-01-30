@@ -1,5 +1,6 @@
 package com.melidata.definitions.parsers.dsl
 
+import com.melidata.definitions.TestRunner
 import com.melidata.definitions.validate.InitiativeValidate
 import com.ml.melidata.Track
 import com.ml.melidata.catalog.exceptions.CatalogException
@@ -43,6 +44,7 @@ class TestDsl{
         this.tracks.each { singleTrack ->
             catalog.catalogCoverage.addTestRun(singleTrack.path,singleTrack.business)
 
+            TestRunner.paths << singleTrack.path
             validateEventData(catalog, singleTrack)
             validateInitiative(catalog, singleTrack)
         }
@@ -63,19 +65,11 @@ class TestDsl{
         def trackInitiative = catalog.getTrackInitiative(singleTrack)
         def trackApplication = catalog.getTrackApplication(singleTrack)
 
-        if(!trackInitiative && !trackApplication) {
-            _messages = _messages + [(singleTrack.path): "Track " + singleTrack.path + " does not have an initiative nor an application declared"]
-            _status = false
-        } else {
-            if(!trackInitiative) {
-                trackInitiative = InitiativeValidate.getInitiativeFromApplication(trackApplication)
-            }
-
-            if ( !InitiativeValidate.validateInitiative(trackInitiative) ) {
-                _messages = _messages + [(singleTrack.path): "Initiative: " + trackInitiative + ", does not exist"]
-                _status = false
-            }
+        if(!trackInitiative && trackApplication) {
+            trackInitiative = InitiativeValidate.getInitiativeFromApplication(trackApplication)
         }
+
+        InitiativeValidate.validateInitiative(singleTrack.path, trackInitiative)
     }
 }
 
