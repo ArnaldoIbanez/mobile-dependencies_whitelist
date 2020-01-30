@@ -7,58 +7,28 @@ import groovyx.net.http.RESTClient
 
 class InitiativeValidate {
 
-    private static List<ApplicationModel> initiatives = []
+    private static List<ApplicationModel> applications = []
     private static Set validPaths = []
     private static Set totalPaths = []
     private static double baseCoverage = 50
 
     static void generateInitiativesList() {
-        //getAllInitiativesFromAPI()
-        initiatives = getAllInitiativesFromDump()
-    }
-
-    private static List getAllInitiativesFromDump() {
-        def query = buildQuery()
-        def presto_certs_path = System.getProperty("user.dir") + "/src/main/resources/presto_cacerts"
-
-        def db = [url:"jdbc:presto://melidata-presto.ml.com:443/hive/default?SSL=true&SSLKeyStorePath=${presto_certs_path}&applicationNamePrefix=catalog",
-                  user:'catalog_md', password:'Entrada.10', driver:'com.facebook.presto.jdbc.PrestoDriver']
-        def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
-        List result = []
-        sql.eachRow(query) { row ->
-            ApplicationModel im = new ApplicationModel(row.idinitiative, row.idapplication)
-            result << im
-        }
-
-        return result
+        getAllInitiativesFromAPI()
     }
 
     private static List getAllInitiativesFromAPI() {
-        def initiativesMap = [:]
         def client = new RESTClient('https://initiatives-api.furycloud.io')
-        HttpResponseDecorator resultInitiatives = client.get(path: '/initiatives', contentType: ContentType.JSON)
         HttpResponseDecorator resultApplication = client.get(path: '/applications', contentType: ContentType.JSON)
 
-        System.err.println('IVE JUST RECEIVED SMTH')
-
-        for(initiative in resultInitiatives.data) {
-            initiativesMap[initiative.id_initiative] = initiative.external_name
-        }
-
         for(application in resultApplication.data) {
-            initiatives << new ApplicationModel(Integer.toString(application.id_initiative), Integer.toString(application.id_application))
+            applications << new ApplicationModel(Integer.toString(application.id_initiative), Integer.toString(application.id_application))
         }
     }
 
-    private static String buildQuery() {
-        return "SELECT idapplication, application.idinitiative from application_initiatives_export as application\n" +
-                "JOIN initiatives_export as initiative ON initiative.idinitiative = application.idinitiative"
-    }
-
-    static validateInitiative(String path, String initiative) {
+    static validateInitiative(String path, String initiativeId) {
         totalPaths << path
 
-        if(initiative && initiatives.any() {ApplicationModel init -> init.getInitiativeId() == initiative }) {
+        if(initiativeId && applications.any() {ApplicationModel init -> init.getInitiativeId() == initiativeId }) {
             validPaths << path
             return true
         } else {
@@ -66,8 +36,8 @@ class InitiativeValidate {
         }
     }
 
-    static String getInitiativeFromApplication(String application) {
-        return initiatives.find({ApplicationModel init -> init.getApplicationId() == application})?.getInitiativeId()
+    static String getInitiativeFromApplication(String applicationId) {
+        return applications.find({ApplicationModel init -> init.getApplicationId() == applicationId})?.getInitiativeId()
     }
 
     static boolean checkCoverage() {
