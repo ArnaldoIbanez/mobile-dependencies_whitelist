@@ -92,23 +92,28 @@ trackTests {
         }
 
         "/remedy/challenge/start"(platform: "/mobile") {
-            label = "pep"
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
         }
 
         "/remedy/challenge/send"(platform: "/mobile") {
-            label = "pep"
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
         }
 
         "/remedy/challenge/success"(platform: "/mobile") {
-            label = "pep"
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
         }
 
         "/remedy/challenge/fail"(platform: "/mobile") {
-            label = "pep"
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
         }
 
         "/remedy/challenge/retry"(platform: "/mobile") {
-            label = "pep"
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
         }
 
         "/remedy/profile"(platform: "/mobile") {}
@@ -196,23 +201,62 @@ trackTests {
         }
 
         "/remedy/challenge/start"(platform: "/mobile", business: "mercadolibre") {
-            label = "pep"
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
         }
 
         "/remedy/challenge/send"(platform: "/mobile", business: "mercadolibre") {
-            label = "pep"
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
         }
 
         "/remedy/challenge/success"(platform: "/mobile", business: "mercadolibre") {
-            label = "pep"
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
         }
 
         "/remedy/challenge/fail"(platform: "/mobile", business: "mercadolibre") {
-            label = "pep"
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
         }
 
         "/remedy/challenge/retry"(platform: "/mobile", business: "mercadolibre") {
-            label = "pep"
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/remedy/challenge"(platform: "/mobile", business: "mercadopago") {
+            id = "identification"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            callback = "meli://home"
+        }
+
+        "/remedy/challenge"(platform: "/mobile", business: "mercadopago") {
+            id = "identification"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            callback = "meli://home"
+        }
+
+        "/remedy/challenge"(platform: "/mobile", business: "mercadopago") {
+            id = "identification"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/remedy/challenge"(platform: "/mobile", business: "mercadolibre") {
+            id = "identification"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            callback = "meli://home"
+        }
+
+        "/remedy/challenge"(platform: "/mobile", business: "mercadolibre") {
+            id = "identification"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            callback = "meli://home"
+        }
+
+        "/remedy/challenge"(platform: "/mobile", business: "mercadolibre") {
+            id = "identification"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
         }
 
         "/remedy/profile"(platform: "/mobile", business: "mercadolibre") {}
