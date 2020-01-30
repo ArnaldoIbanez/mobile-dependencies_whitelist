@@ -7,10 +7,10 @@ import groovyx.net.http.RESTClient
 
 class InitiativeValidate {
 
-    private static List<InitiativeModel> initiatives = []
+    private static List<ApplicationModel> initiatives = []
     private static Set validPaths = []
     private static Set totalPaths = []
-    private static double baseCoverage = 0.6
+    private static double baseCoverage = 50
 
     static void generateInitiativesList() {
         //getAllInitiativesFromAPI()
@@ -26,7 +26,7 @@ class InitiativeValidate {
         def sql = Sql.newInstance(db.url, db.user, db.password, db.driver)
         List result = []
         sql.eachRow(query) { row ->
-            InitiativeModel im = new InitiativeModel(Integer.parseInt(row.idinitiative), row.externalname, row.name)
+            ApplicationModel im = new ApplicationModel(row.idinitiative, row.idapplication)
             result << im
         }
 
@@ -46,19 +46,19 @@ class InitiativeValidate {
         }
 
         for(application in resultApplication.data) {
-            initiatives << InitiativeModel(application.id_initiative, initiativesMap[application.id_initiative], application.name)
+            initiatives << new ApplicationModel(Integer.toString(application.id_initiative), Integer.toString(application.id_application))
         }
     }
 
     private static String buildQuery() {
-        return "SELECT name,  application.idinitiative, externalName from application_initiatives_export as application\n" +
+        return "SELECT idapplication, application.idinitiative from application_initiatives_export as application\n" +
                 "JOIN initiatives_export as initiative ON initiative.idinitiative = application.idinitiative"
     }
 
     static validateInitiative(String path, String initiative) {
         totalPaths << path
 
-        if(initiative && initiatives.any() {InitiativeModel init -> init.getInitiativeName() == initiative }) {
+        if(initiative && initiatives.any() {ApplicationModel init -> init.getInitiativeId() == initiative }) {
             validPaths << path
             return true
         } else {
@@ -67,7 +67,7 @@ class InitiativeValidate {
     }
 
     static String getInitiativeFromApplication(String application) {
-        return initiatives.find({InitiativeModel init -> init.getApplicationName() == application})?.getInitiativeName()
+        return initiatives.find({ApplicationModel init -> init.getApplicationId() == application})?.getInitiativeId()
     }
 
     static boolean checkCoverage() {

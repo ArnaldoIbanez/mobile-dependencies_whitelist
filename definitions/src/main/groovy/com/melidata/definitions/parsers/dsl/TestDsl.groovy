@@ -44,7 +44,6 @@ class TestDsl{
         this.tracks.each { singleTrack ->
             catalog.catalogCoverage.addTestRun(singleTrack.path,singleTrack.business)
 
-            TestRunner.paths << singleTrack.path
             validateEventData(catalog, singleTrack)
             validateInitiative(catalog, singleTrack)
         }

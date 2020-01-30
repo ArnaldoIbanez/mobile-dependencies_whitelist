@@ -11,8 +11,6 @@ import groovy.transform.Synchronized
  */
 class TestRunner {
 
-    static Set<String> paths = []
-
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         //Prepare initiatives list
         InitiativeValidate.generateInitiativesList()
