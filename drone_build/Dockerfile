@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 MAINTAINER Alexis Petalas, Gabriel Eisbruch <arquitectura@mercadolibre.com>
 
@@ -12,8 +12,8 @@ RUN pip install --upgrade virtualenv
 RUN apt-add-repository ppa:webupd8team/java -y
 
 # Install Java
-RUN apt-get update && apt-get install -y default-jdk
-
+RUN apt-get update
+RUN apt-get install -y openjdk-8-jdk
 #Instal make
 RUN apt-get -y install make git-core unzip
 
