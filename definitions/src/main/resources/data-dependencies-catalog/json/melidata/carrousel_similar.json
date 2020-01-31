@@ -9,7 +9,7 @@
   "process_name": "carrousel_similar",
   "cron": "00 03 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "platform",
@@ -50,11 +50,6 @@
         {
           "name": "param01",
           "value": "DAY-0",
-          "format": "yyyy-MM-dd"
-        },
-        {
-          "name": "param02",
-          "value": "DAY-5",
           "format": "yyyy-MM-dd"
         }
       ]
