@@ -27,6 +27,7 @@ trackTests {
             melicapaign_id = "1"
             origin = "push"
             clone_campaign_id = "1"
+            tooltip = "Budget"
         }
     }
 
@@ -69,6 +70,22 @@ trackTests {
     test("Mercadopago discount sellers form error") {
         "/discount_sellers/form/error" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
+            description = "description"
+        }
+    }
+    
+    test("Mercadopago discount sellers form error") {
+        "/discount_sellers/form/modal_confirm/open" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "1"
+            type = "amount"
+            description = "description"
+        }
+    }
+    
+    test("Mercadopago discount sellers form error") {
+        "/discount_sellers/form/modal_confirm/close" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "1"
+            type = "amount"
             description = "description"
         }
     }
