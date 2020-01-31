@@ -9,11 +9,10 @@ RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
 RUN apt-get update && apt-get install -y software-properties-common python-software-properties python python-pip python-dev build-essential
 RUN pip install --upgrade pip
 RUN pip install --upgrade virtualenv
-RUN add-apt-repository ppa:webupd8team/java -y
+RUN apt-add-repository ppa:webupd8team/java -y
 
 # Install Java
-RUN apt-get update
-RUN apt install -y openjdk-8-jre-headless
+RUN apt-get update && apt-get install -y default-jdk
 
 #Instal make
 RUN apt-get -y install make git-core unzip
