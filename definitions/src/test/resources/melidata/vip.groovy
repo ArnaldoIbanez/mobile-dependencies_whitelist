@@ -58,6 +58,7 @@ trackTests {
             optionals()
             catalog_listing = false
             attribute_combinations = 1
+            attributes_quantities = [11]
         })
 
         "/vip"(platform:"/mobile", {
@@ -70,6 +71,7 @@ trackTests {
             whatsapp_installed = true
             catalog_listing = false
             attribute_combinations = null
+            attributes_quantities = null
         })
 
         "/vip/failure"(platform:"/mobile", {

@@ -93,6 +93,7 @@ tracks {
                 description: "Indicates if the user has free return for the item")
         has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         attribute_combinations(required: false, type: PropertyType.Numeric, description: "Indicates the amount of variation pickers an item has")
+        attributes_quantities(required: false, type: PropertyType.ArrayList, description: "Indicates the amount of values of each variation")
         stock_type(required: false, type: PropertyType.String, inheritable: false, values: ["normal", "deferred"], description: "Indicates the type of stock for the product (normal = immediate stock, deferred = within x days)")
         stock_deferred_time(required: false, type: PropertyType.Numeric, inheritable: false, description: "Amount of days when the product will have available stock. Will only be used when stock_type = deferred")
         
