@@ -23,6 +23,7 @@ tracks {
         melicapaign_id(required: false, type: PropertyType.String, description: "Melicampaign identifier")
         origin(required: false, type: PropertyType.String, description: "Form origin, like push, history, empty, etc")
         clone_campaign_id(required: false, type: PropertyType.String, description: "Clone campaign identifier")
+        tooltip(required: false, type: PropertyType.String, description: "Tooltip description")
     }
 
     "/discount_sellers/form/redirect" (platform: "/mobile", type: TrackType.Event) {}
@@ -49,6 +50,18 @@ tracks {
     
     "/discount_sellers/form/error" (platform: "/mobile", type: TrackType.Event) {
         description(required: false, type: PropertyType.String, description: "Error description")
+    }
+
+    "/discount_sellers/form/modal_confirm" (platform: "/mobile", isAbstract: true) {}
+    
+    "/discount_sellers/form/modal_confirm/open" (platform: "/mobile", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Type description")
+        description(required: false, type: PropertyType.String, description: "Modal description")
+    }
+    
+    "/discount_sellers/form/modal_confirm/close" (platform: "/mobile", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Type description")
+        description(required: false, type: PropertyType.String, description: "Modal description")
     }
 
     "/discount_sellers/form/create" (platform: "/mobile", type: TrackType.Event) {
