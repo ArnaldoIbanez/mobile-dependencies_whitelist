@@ -39,3 +39,5 @@ WORKDIR /tmp/fake_app
 ADD fake_app /tmp/fake_app
 RUN cd /tmp/fake_app
 RUN ./gradlew cacheDependencies
+
+RUN javac -version

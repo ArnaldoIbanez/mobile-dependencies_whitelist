@@ -29,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    compile 'org.codehaus.groovy:groovy-all:1.8.6'
     compile('com.mercadolibre.opensource.frameworks:restclient:1.1.4'){
         exclude group:'org.codehaus.groovy', module:'groovy'
     }
