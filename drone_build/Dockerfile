@@ -13,7 +13,7 @@ RUN apt-add-repository ppa:webupd8team/java -y
 
 # Install Java
 RUN apt-get update
-RUN apt-get install -y openjdk-8-jdk
+RUN apt-get install -y default-jdk
 #Instal make
 RUN apt-get -y install make git-core unzip
 
