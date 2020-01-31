@@ -13,8 +13,7 @@ RUN add-apt-repository ppa:webupd8team/java -y
 
 # Install Java
 RUN apt-get update
-RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-RUN apt-get install -y oracle-java7-installer
+RUN apt install -y openjdk-8-jre-headless
 
 #Instal make
 RUN apt-get -y install make git-core unzip
