@@ -16,7 +16,8 @@ FROM (
     substr(ds,1,10) as ds
   FROM 
     recommendations
-  WHERE ds == '@param01'
+  WHERE ds < '@param01'
+    and ds >= '@param02'
     and jest(data, 'path') = '/recommendations/print'
     and jest(data, 'application.site_id') IN ('MLA','MLB','MLM', 'MLC', 'MLU', 'MCO')
     and jest(data, 'event_data.recommendations.client') ='vip'
@@ -31,8 +32,8 @@ FROM (
     substr(ds, 1, 10) as ds
   FROM 
     tracks
-  WHERE 
-    ds == '@param01'
+  WHERE ds < '@param01'
+    and ds >= '@param02'
     and path = '/vip'
     and application.site_id IN ('MLA' ,'MLB','MLM', 'MLC', 'MLU', 'MCO') 
     and type = 'view'
