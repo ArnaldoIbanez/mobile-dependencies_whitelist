@@ -561,7 +561,7 @@ trackTests {
         "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {
             defaultTrackInformation()
             item_seller_type= "normal"
-            from_view="vip"
+            from_view="howToContract"
             catalog_listing="Item's catalog listing"
         }
 
@@ -570,7 +570,17 @@ trackTests {
         }
 
         "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {
-            defaultTrackInformation()
+            buying_mode= "classified"
+            category_id= "MLA43972"
+            category_path= ["MLA1540","MLA122258"]
+            from_view="howToContract"
+            item_condition="not_specified"
+            item_id="MLA812057056"
+            item_seller_type = "normal"
+            item_status = "active"
+            listing_type_id = "gold_premium"
+            seller_id= 86995812
+            vertical= "services"
         }
 
         "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {
