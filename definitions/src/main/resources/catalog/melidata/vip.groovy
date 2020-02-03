@@ -93,6 +93,7 @@ tracks {
                 description: "Indicates if the user has free return for the item")
         has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         attribute_combinations(required: false, type: PropertyType.Numeric, description: "Indicates the amount of variation pickers an item has")
+        attributes_quantities(required: false, type: PropertyType.ArrayList, description: "Indicates the amount of values of each variation")
         stock_type(required: false, type: PropertyType.String, inheritable: false, values: ["normal", "deferred"], description: "Indicates the type of stock for the product (normal = immediate stock, deferred = within x days)")
         stock_deferred_time(required: false, type: PropertyType.Numeric, inheritable: false, description: "Amount of days when the product will have available stock. Will only be used when stock_type = deferred")
         
@@ -411,7 +412,7 @@ tracks {
         item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
         deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
         from_view(required: false, type: PropertyType.String,
-                values: ["vip", "description", "technicalSpecs", "form"],
+                values: ["vip", "description", "technicalSpecs", "form", "howToContract", "reputation"],
                 description: "Section where it's coming from"
         )
         catalog_listing(
@@ -420,14 +421,34 @@ tracks {
                 description: "Item's catalog listing"
         )
     }
-    
+
     "/vip/coordinate_availability"(platform: "/web", type: TrackType.Event) {
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
     }
 
-    "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {}
+    "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        buying_mode(required: true, type: PropertyType.String, values: ["classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        from_view(required: true, type: PropertyType.String,
+                values: ["vip", "description", "technicalSpecs", "form", "howToContract", "reputation"],
+                description: "Section where it's coming from"
+        )
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
+        item_status(required: true, type: PropertyType.String, description: "Whenever the items is active, closed or paused")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        seller_id(required: true, type: PropertyType.Numeric)
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
 
+    }
     "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
