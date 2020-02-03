@@ -269,6 +269,13 @@ trackTests {
         }
         "/myml/invoices/company-info/success"(platform: "/") {}
         "/myml/invoices/company-info/tax-rules-information"(platform: "/") {}
+        "/myml/invoices/company-info/emission-validation"(platform: "/") {}
+        "/myml/invoices/company-info/emission-validation/success"(platform: "/") {
+            emission_validation_status = "SUCCESS"
+        }
+        "/myml/invoices/company-info/emission-validation/error"(platform: "/") {
+            emission_validation_status = "NOT_MAPPED_ERROR"
+        }
     }
 
     test("Order pages") {
@@ -1115,6 +1122,10 @@ trackTests {
         "/myml/myreputation"(platform: "/mobile") {}
     }
 
+    test("Myml settings") {
+        "/myml/settings"(platform: "/mobile", type: TrackType.View) {}
+    }
+
     test("Myml message activity") {
         "/myml/message"(platform: "/mobile") {}
         "/myml/message/questions"(platform: "/mobile", type: TrackType.View) {}
@@ -1325,6 +1336,17 @@ trackTests {
             selected = "MSwyLDMsNA=="
             show = false
             times = 3
+        }
+    }
+
+    //TRACKS MYML Search Bookmarks Alerts
+    test("Search Alerts List") {
+        "/myml/search_alerts/list"(platform: "/", type: TrackType.View) {
+            quantity = 2
+        }
+
+        "/myml/search_alerts/list"(platform: "/", type: TrackType.View) {
+            quantity = 0
         }
     }
 }

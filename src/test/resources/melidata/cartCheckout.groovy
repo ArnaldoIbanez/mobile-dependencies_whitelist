@@ -469,6 +469,19 @@ trackTests {
             recovery_flow=true
             session_id="some_session_id"
         }
+        "/cart/checkout/shipping/input_address/internal_number"(platform: "/", type: TrackType.Event) {
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
 
         // address form mobile
          "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event) {

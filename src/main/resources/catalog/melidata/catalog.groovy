@@ -91,6 +91,7 @@ catalog {
         include business, "collaborators.groovy"
         include business, "loyalty_v2.groovy"
         include business, "credits.groovy"
+        include business, "card_form.groovy"
         include business, "merchengine.groovy"
     }
 
@@ -193,6 +194,7 @@ catalog {
         include business, "discount_center.groovy"
         include business, "external.groovy"
         include business, "pos_billings.groovy"
+        include business, "pdv.groovy"
         include business, "sp_prepaid.groovy"
     }
 
@@ -207,6 +209,7 @@ catalog {
         include business, "wms.groovy"
         include business, "logistics.groovy"
         include business, "places.groovy"
+        include business, "notifications.groovy"
     }
 
 }

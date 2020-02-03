@@ -141,7 +141,7 @@ tracks {
         new_competition_status(required: false, type: PropertyType.String, description: "The new buy box status of the item")
         catalog_product_id(required: false, type: PropertyType.String, description: "The product id")
         listing_type(required: true, type: PropertyType.String, description: "The product listing type")
-        shipping_local_pickup(required: true, type: PropertyType.Boolean, description: "The product local pick up")
+        shipping_local_pickup(required: false, type: PropertyType.Boolean, description: "The product local pick up")
         winner_item_id(required: false, type: PropertyType.String, description: "The item id of the winner")
         price_to_win(required: false, type: PropertyType.Numeric, description: "The price to win that we suggest to the user")
 
@@ -164,11 +164,12 @@ tracks {
         catalog_product_attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "List of attributes from the product associated to an item")
         item_title(required: true, type: PropertyType.String, description: "Item title")
         catalog_product_title(required: true, type: PropertyType.String, description: "Product title associated with an item")
+        vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
 
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
-        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation)
+        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical)
         sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
@@ -366,6 +367,35 @@ tracks {
 
     "/seller_central/bulk/offline/download/warning"(platform: "/", type: TrackType.Event){}
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central BULK Offline Cbt
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/bulk/offline/cbt"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/offline/cbt/hub"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/cbt/download"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/cbt/upload"(platform: "/", type: TrackType.View) {}
+
+
+    "/seller_central/bulk/offline/cbt/download/confirm"(platform: "/", type: TrackType.Event) {
+        items(required: true, type: PropertyType.Numeric, description: "Amount of downloaded items")
+        filters(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied filters")
+        categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied categories")
+    }
+
+    "/seller_central/bulk/offline/cbt/download/congrats"(platform: "/", type: TrackType.View) {
+        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values:["success","failed", "partial", "no changes", "mail"])
+    }
+
+
+    "/seller_central/bulk/offline/cbt/upload/congrats"(platform: "/", type: TrackType.View) {
+        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values:["success","failed", "partial", "no changes", "mail"])
+    }
+
+
     //BULK SECTION - DISCOUNTS VERSION
 
     "/seller_central/bulk/discounts"(platform: "/", isAbstract: true) {}
@@ -413,6 +443,22 @@ tracks {
     "/seller_central/bulk/discounts/offline/download/warning"(platform: "/", type: TrackType.Event){}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central BULK Offline Cbt
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/bulk/offline"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/bulk/offline/home"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/download"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/download/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/upload"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/bulk/offline/upload/congrats"(platform: "/", type: TrackType.View) {}
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Publish
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     "/seller_central/bulk/publish"(platform: "/web", isAbstract: true) {}
@@ -426,6 +472,10 @@ tracks {
     "/seller_central/bulk/publish/download/congrats"(platform: "/web", type: TrackType.View) {}
 
     "/seller_central/bulk/publish/upload"(platform: "/web", type: TrackType.View) {}
+
+    "/seller_central/bulk/publish/upload/show_custom_mail_box"(platform: "/web", type: TrackType.Event) {
+        show_custom_mail_box(required: true, type: PropertyType.Boolean, description: "Value to know if user has clicked on Add other email")
+    }
 
     "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
 
@@ -584,6 +634,43 @@ tracks {
     "/seller_central/modify/catalog_boost/modal/cancel"(platform: "/", type: TrackType.Event) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS CLASSI V4
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/modify/detail/quick_edit_standard"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/quick_edit_standard/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/quick_edit_standard/confirm"(platform: "/", type: TrackType.Event) {}
+
+
+    "/seller_central/modify/detail/seller_contact"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/seller_contact/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/seller_contact/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/reservation_info"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/reservation_info/show"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/location"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/location/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/location/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/instant_pay_listings"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/instant_pay_listings/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/instant_pay_listings/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/description"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/description/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/description/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/video"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/video/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/video/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/change_category"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/change_category/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/change_category/confirm"(platform: "/", type: TrackType.Event) {}
+
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller central Structured Data
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -668,6 +755,11 @@ tracks {
         value(required: true, type: PropertyType.String, description: "New attribute value")
     }
 
+    "/seller_central/modify/detail/technical_specifications"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/technical_specifications/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/technical_specifications/confirm"(platform: "/", type: TrackType.Event) {}
+
+
     // SETTINGS SECTION
 
     "/seller_central/settings"(platform: "/", type: TrackType.View) {
@@ -702,6 +794,10 @@ tracks {
         id(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "start"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
     }
+
+    "/seller_central/sales/list/onboarding/massive"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/onboarding/massive/confirm"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/list/onboarding/massive/close"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/sales/list/nfe_onboarding"(platform: "/", isAbstract: true) {}
     "/seller_central/sales/list/nfe_onboarding/action"(platform: "/", type: TrackType.Event) {

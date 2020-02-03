@@ -93,26 +93,79 @@ trackTests {
         }
 
         "/kyc/challenge/start"(platform: "/mobile") {
-            label = "pep"
+            id = "pep"
+            initiative = "cvu"
         }
 
         "/kyc/challenge/send"(platform: "/mobile") {
-            label = "pep"
+            id = "pep"
+            initiative = "cvu"
         }
 
         "/kyc/challenge/success"(platform: "/mobile") {
-            label = "pep"
+            id = "pep"
+            initiative = "cvu"
         }
 
         "/kyc/challenge/fail"(platform: "/mobile") {
-            label = "pep"
+            id = "pep"
+            initiative = "cvu"
         }
 
         "/kyc/challenge/retry"(platform: "/mobile") {
-            label = "pep"
+            id = "pep"
+            initiative = "cvu"
         }
 
         "/kyc/profile"(platform: "/mobile") {}
+
+        "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
+            id = "user_identification"
+            initiative = "credits"
+            configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            callback = "meli://home"
+        }
+
+        "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
+            id = "user_identification"
+            initiative = "credits"
+            callback = "meli://home"
+        }
+
+        "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
+            id = "user_identification"
+            initiative = "credits"
+            configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
+            id = "user_identification"
+            initiative = "credits"
+        }
+
+        "/kyc/challenge"(platform: "/mobile", business: "mercadolibre") {
+            id = "user_identification"
+            initiative = "credits"
+            configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            callback = "meli://home"
+        }
+
+        "/kyc/challenge"(platform: "/mobile", business: "mercadolibre") {
+            id = "user_identification"
+            initiative = "credits"
+            callback = "meli://home"
+        }
+
+        "/kyc/challenge"(platform: "/mobile", business: "mercadolibre") {
+            id = "user_identification"
+            initiative = "credits"
+            configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/kyc/challenge"(platform: "/mobile", business: "mercadolibre") {
+            id = "user_identification"
+            initiative = "credits"
+        }
 
         // Meli tests
         "/kyc/challenge_pep"(platform: "/mobile", business: "mercadolibre") {}
@@ -197,23 +250,28 @@ trackTests {
         }
 
         "/kyc/challenge/start"(platform: "/mobile", business: "mercadolibre") {
-            label = "pep"
+            id = "pep"
+            initiative = "cvu"
         }
 
         "/kyc/challenge/send"(platform: "/mobile", business: "mercadolibre") {
-            label = "pep"
+            id = "pep"
+            initiative = "cvu"
         }
 
         "/kyc/challenge/success"(platform: "/mobile", business: "mercadolibre") {
-            label = "pep"
+            id = "pep"
+            initiative = "cvu"
         }
 
         "/kyc/challenge/fail"(platform: "/mobile", business: "mercadolibre") {
-            label = "pep"
+            id = "pep"
+            initiative = "cvu"
         }
 
         "/kyc/challenge/retry"(platform: "/mobile", business: "mercadolibre") {
-            label = "pep"
+            id = "pep"
+            initiative = "cvu"
         }
 
         "/kyc/profile"(platform: "/mobile", business: "mercadolibre") {}

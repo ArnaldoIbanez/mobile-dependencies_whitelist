@@ -444,6 +444,29 @@ trackTests {
             register_type = "company"
         }
 
+        "/register/form/google_hint/show"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+
+        "/register/form/google_hint/select"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+
+        "/register/form/google_autofill/show"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+
+        "/register/form/google_autofill/select"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
     }
 
     test("Company Registration Desktop") {
@@ -465,6 +488,104 @@ trackTests {
 
         "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
             error_type = "connectionError/invalidOneTimePassword/operatorNotSupported"
+        }
+    }
+
+    test("Phone registration") {
+        "/register/phone_registration/get_phone"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/get_phone/error"(platform: "/mobile") {
+            app = "mp"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'identification_phone'
+                    ]
+            ]
+        }
+
+        "/register/phone_registration/additional_data"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/additional_data/error"(platform: "/mobile") {
+            app = "mp"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'first_name'
+                    ]
+            ]
+        }
+
+        "/register/phone_registration/get_email"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/get_email/error"(platform: "/mobile") {
+            app = "mp"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'email'
+                    ]
+            ]
+        }
+
+        "/register/phone_registration/verification"(platform: "/mobile") {
+            app = "mp"
+            channel = "sms"
+        }
+
+        "/register/phone_registration/verification/error"(platform: "/mobile") {
+            app = "mp"
+            channel = "sms"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'verification_code'
+                    ]
+            ]
+        }
+
+        "/register/phone_registration/phone_already_registered"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/send_code"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/resend_code"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/email_link"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/verification/autodetect_code"(platform: "/mobile") {
+            app = "mp"
+            channel = "sms"
+        }
+
+        "/register/phone_registration/sign_in"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/create_account"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/success"(platform:"/mobile") {
+            app = "mp"
+            source = "phone"
         }
     }
 
@@ -492,8 +613,6 @@ trackTests {
 
     test("Landing mercadopago sellers mss click event") {
         "/landing/sellers/mss/click" (platform: "/web") {
-            id = "dzero"
-            label = "test label"
             page_name = "dzero"
         }
     }
@@ -543,7 +662,7 @@ trackTests {
           coupon_code = "GHZM"
         }
 
-        "/point/buyingflow/shippingOptions"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -551,7 +670,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/newAddress"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/new_address"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -559,7 +678,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -575,7 +694,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_installments"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -583,7 +702,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
+        "/point/buyingflow/payment_installments/installments"(platform: "/", type: TrackType.Event) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -591,7 +710,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_new_card"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -599,7 +718,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/paymentCardSecurityCode"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_card_security_code"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -615,7 +734,7 @@ trackTests {
           is_guest = true
         }
 
-        "/point/buyingflow/paymentReview"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_review"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -626,7 +745,7 @@ trackTests {
           installments = 6
         }
 
-        "/point/buyingflow/paymentRejected"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_rejected"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -642,7 +761,7 @@ trackTests {
           type = "error: Session ended"
         }
 
-        "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
+        "/point/buyingflow/payment_review/confirm_purchase"(platform: "/", type: TrackType.Event) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"

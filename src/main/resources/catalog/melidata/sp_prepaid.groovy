@@ -3,7 +3,6 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
-
     /**
     * Single Player Prepaid Tracks  
     */
@@ -52,13 +51,13 @@ tracks {
 
 
     // Recommended products
-    "/single_player/prepaid/recommended_product"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/recommended_products"(platform: "/mobile", type: TrackType.View) {}
 
-    "/single_player/prepaid/recommended_product/selected_product"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/recommended_products/selected_product"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
         item_id(required: true, PropertyType.String, description: "Id of the selected product")
     }
-    "/single_player/prepaid/recommended_product/more_products"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/recommended_products/more_products"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
     }
 
@@ -108,6 +107,7 @@ tracks {
     }
     "/single_player/prepaid/one_device/more_products"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
+        item_id(required: true, PropertyType.String, description: "Id of the item")
     }
     "/single_player/prepaid/one_device/another_device"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
@@ -156,9 +156,13 @@ tracks {
 
 
     // Errors - Server error
-    "/single_player/prepaid/error/server"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/error/server"(platform: "/mobile", type: TrackType.View) {
+        error_code(required: false, PropertyType.String, description: "Error code in server")
+    }
 
-    "/single_player/prepaid/error/server/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/error/server/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
+    }
     "/single_player/prepaid/error/server/back"(platform: "/mobile", type: TrackType.Event) {}
 
 
@@ -167,4 +171,22 @@ tracks {
 
     "/single_player/prepaid/error/connection/retry"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/error/connection/back"(platform: "/mobile", type: TrackType.Event) {}
+
+
+    // Shield
+    "/single_player/prepaid/shield"(platform: "/mobile", type: TrackType.View) {}
+
+
+    // Contingency
+    "/single_player/prepaid/contingency"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/contingency/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
+    }
+    "/single_player/prepaid/contingency/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
+    }
+    "/single_player/prepaid/contingency/abort"(platform: "/mobile", type: TrackType.Event) {
+        view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
+    }
 }

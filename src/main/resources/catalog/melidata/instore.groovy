@@ -580,4 +580,6 @@ tracks {
         items_size(required: true, PropertyType.Numeric, description: "the size of items recived form endpoint or cache")
     }
 
+    // Instore shortcut
+    "/instore/enable_shortcut"(platform:"/mobile/android", type: TrackType.View) {}
 }

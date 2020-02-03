@@ -17,6 +17,7 @@
     "/register/success",
     "/register/failure",
     "/asset_management/error",
-    "/remedy/error"
+    "/remedy/error",
+    "/kyc/error"
   ]
 }

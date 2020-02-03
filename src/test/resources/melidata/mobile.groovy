@@ -98,4 +98,12 @@ trackTests {
             device_id = "12345678"
         }
     }
+
+    test("About settings") {
+        "/settings/about"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Choose Country settings") {
+        "/settings/country"(platform: "/mobile", type: TrackType.View) {}
+    }
 }

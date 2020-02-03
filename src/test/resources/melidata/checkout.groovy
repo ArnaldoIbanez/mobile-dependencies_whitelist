@@ -1900,46 +1900,20 @@ trackTests {
 
         "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
         "/checkout/garex/delete"(platform:"/mobile", type: TrackType.Event) {
-                    category_l1 = [ "MLA1051"]
-                    category_l2 = [ "MLA1051", "MLA1055"]
-                    business = "marketplace"
-                    page_vertical = "core"
-                    listing_type = "gold_special"
-                    item_id = "MLA817493981"
-                    item_condition = "used"
-                    store_type = "normal"
-                    loyalty_level = 1
-                    reputation_level = "2_orange"
-                    fulfillment = true
-                    available_consumer_credit = "NO"
-                    category_domain = "MLA-CELLPHONES"
-                    checkout_flow = "direct"
-                    products_quantity = 1
-                    item_attributes = "discount"
-                    context = "vip"
-                    collector_id = "84586819"
-                    collector_nickname = "FB MARKET"
+            garex_id = "MLA390289_GAR16001"
+            period = 24
+            cost = 1234
+            revenue_share_fee = 70
+            revenue = 863.80
+            currency_id = "ARS"
         }
         "/checkout/garex/selected_garex"(platform:"/mobile", type: TrackType.Event) {
-                    category_l1 = [ "MLA1051"]
-                    category_l2 = [ "MLA1051", "MLA1055"]
-                    business = "marketplace"
-                    page_vertical = "core"
-                    listing_type = "gold_special"
-                    item_id = "MLA817493981"
-                    item_condition = "used"
-                    store_type = "normal"
-                    loyalty_level = 1
-                    reputation_level = "2_orange"
-                    fulfillment = true
-                    available_consumer_credit = "NO"
-                    category_domain = "MLA-CELLPHONES"
-                    checkout_flow = "direct"
-                    products_quantity = 1
-                    item_attributes = "discount"
-                    context = "vip"
-                    collector_id = "84586819"
-                    collector_nickname = "FB MARKET"
+            garex_id = "MLA390289_GAR16001"
+            period = 24
+            cost = 1234
+            revenue_share_fee = 70
+            revenue = 863.80
+            currency_id = "ARS"
         }
         "/checkout/garex/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {}
         "/checkout/garex/more_info"(platform:"/mobile", type: TrackType.Event) {}
@@ -2318,6 +2292,19 @@ trackTests {
             ]
             recovery_flow=false
         }
+        "/checkout/shipping/input_address/city"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
         "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
             items = [
@@ -2370,7 +2357,33 @@ trackTests {
             ]
             recovery_flow=false
         }
+        "/checkout/shipping/input_address/delivery_instructions"(platform:"/", type: TrackType.Event){
+            label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
         "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
+        }
+        "/checkout/shipping/input_address/telephone_input"(platform:"/", type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
             items = [
                     [
@@ -2399,6 +2412,19 @@ trackTests {
         "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event){
             label = "Revisa este dato"
             session_id="some_session_id"
+        }
+        "/checkout/shipping/input_address/internal_number"(platform:"/", type: TrackType.Event){
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=false
         }
 
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)

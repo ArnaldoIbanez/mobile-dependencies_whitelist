@@ -4,7 +4,21 @@ import com.ml.melidata.TrackType
 
 tracks {
     "/kyc"(platform: "/", isAbstract: true) {}
-    "/kyc/challenge"(platform: "/", isAbstract: true) {}
+
+    // Challenges v2
+    "/kyc/challenge"(platform: "/", type: TrackType.View) {
+        id (required: true, type: PropertyType.String, description: "The challenge name")
+        initiative (required: true, type: PropertyType.String, description: "The initiative")
+        configuration_token (required: false, type: PropertyType.String, description: "The configuration token")
+        callback (required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
+    }
+
+    // challenge life cyclev v2
+    "/kyc/challenge/start"(platform: "/", type: TrackType.Event) {}
+    "/kyc/challenge/send"(platform: "/", type: TrackType.Event) {}
+    "/kyc/challenge/success"(platform: "/", type: TrackType.Event) {}
+    "/kyc/challenge/fail"(platform: "/", type: TrackType.Event) {}
+    "/kyc/challenge/retry"(platform: "/", type: TrackType.Event) {}
 
     // Challenges
     "/kyc/challenge_pep"(platform: "/", type: TrackType.View) {}
@@ -67,41 +81,19 @@ tracks {
         label (required: false, type: PropertyType.String, description: "The label attached to the current event")
         verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
     }
+
     "/kyc/profile"(platform: "/", type: TrackType.Event) {}
-
-    // challenge life cycle
-    "/kyc/challenge/start"(platform: "/", type: TrackType.Event) {
-        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
-    }
-
-    "/kyc/challenge/send"(platform: "/", type: TrackType.Event) {
-        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
-    }
-
-    "/kyc/challenge/success"(platform: "/", type: TrackType.Event) {
-        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
-    }
-
-    "/kyc/challenge/fail"(platform: "/", type: TrackType.Event) {
-        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
-    }
-
-    "/kyc/challenge/retry"(platform: "/", type: TrackType.Event) {
-        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
-    }
 
     //kyc/iv
 
-    "/kyc/iv"(platform: "/", isAbstract: true) {}
-
-    "/kyc/iv"(platform: "/mobile", isAbstract: true) {}
-
-    "/kyc/iv"(platform: "/web", isAbstract: true) {
+    "/kyc/iv"(platform: "/", isAbstract: true) {
         transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
         initiative(required: false, type: PropertyType.String, description: "Users initiative")
         kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
     }
+
+    "/kyc/iv"(platform: "/mobile", isAbstract: true) {}
 
     "/kyc/iv/activity"(platform: "/", isAbstract: true) {
         initiative(required: false, type: PropertyType.String, description: "Users initiative")

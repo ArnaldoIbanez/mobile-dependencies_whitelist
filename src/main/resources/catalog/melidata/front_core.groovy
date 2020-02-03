@@ -123,9 +123,12 @@ tracks {
         level(type: PropertyType.Numeric, required: false, description: "The minimum loyalty level required for the discount")
         distance(type: PropertyType.Numeric, required: false, description: "The distance to the closest store")
         store_id(type: PropertyType.Numeric, required: false, description: "The store id of the closest store")
+        amount_type(type: PropertyType.String, required: true, values: ['fixed', 'percent'], description: "The amount type")
         amount(type: PropertyType.Numeric, required: false, description: "The discount amount in fixed values")
         priority(type: PropertyType.Numeric, required: false, description: "The discount brand priority")
         collector_id(type: PropertyType.Numeric, required: false, description: "The collector_id of the campaign")
+        has_logo(type: PropertyType.Boolean, required: true, description: "If the discount has a logo or not")
+        coupon_used(type: PropertyType.Boolean, required: true, description: "If the coupon is used")
     }
     
     def loyalty_header_definition = objectSchemaDefinitions {

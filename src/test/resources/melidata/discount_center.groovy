@@ -29,9 +29,12 @@ trackTests {
                         distance: 258,
                         store_id: 30091709,
                         availability: "full",
+                        amount_type: "fixed",
                         amount: 15,
                         priority: 9,
-                        collector_id: 1234567
+                        collector_id: 1234567,
+                        has_logo: false,
+                        coupon_used: true
                     ]
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
@@ -51,9 +54,12 @@ trackTests {
                     distance: 258,
                     store_id: 30091709,
                     availability: "full",
+                    amount_type: "fixed",
                     amount: 15,
                     priority: 9,
-                    collector_id: 1234567
+                    collector_id: 1234567,
+                    has_logo: false,
+                    coupon_used: true
                  ]
             ]
             offset= 0
@@ -61,6 +67,7 @@ trackTests {
                 "gastronomy",
                 "bars"
             ]
+            user_loyalty_level= 2
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
@@ -88,6 +95,8 @@ trackTests {
             stores_id = [
                     30091700
             ]
+            has_logo = false
+            coupon_used = true
             sections= [
                     [
                         id: "header",
@@ -113,6 +122,8 @@ trackTests {
             stores_id = [
                     30091700
             ]
+            has_logo = false
+            coupon_used = true
             sections= [
                     [
                         id: "header",
@@ -142,6 +153,12 @@ trackTests {
 
     test("Mercado Pago discount center payers request location back") {
         "/discount_center/payers/request_location/back" (platform: "/mobile", type: TrackType.Event) {
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+    }
+
+    test("Mercado Pago discount center payers session end") {
+        "/discount_center/payers/session/end" (platform: "/mobile", type: TrackType.Event) {
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }

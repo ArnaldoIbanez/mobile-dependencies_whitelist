@@ -28,6 +28,8 @@ import com.ml.melidata.TrackType
             items(required: false, type: PropertyType.Numeric, description: "number of items in the cart")
             store(required: false, type: PropertyType.String, description: "store/branch name")
             pos(required: false, type: PropertyType.String, description: "cashier name")
+            account_type(required: false, type: PropertyType.String, description: "account type", values:["checking", "savings"])
+            tax(required: false, type: PropertyType.String, description: "tax")
         }
 
 
@@ -61,6 +63,8 @@ import com.ml.melidata.TrackType
 
         "/pos_seller/point/pairing"(platform: "/mobile", type: TrackType.View) {}
 
+        "/pos_seller/onboarding/point_preorder"(platform: "/mobile", type: TrackType.View) {}
+
 
         "/pos_seller/point/idempotency"(platform: "/mobile", isAbstract: true) {
             cardData
@@ -92,6 +96,12 @@ import com.ml.melidata.TrackType
         "/pos_seller/nfce/client"(platform: "/", type: TrackType.View) {}
 
         "/pos_seller/address_selection"(platform: "/mobile", type: TrackType.View) {}
+
+        "/pos_seller/onboarding/liable_for_tax"(platform: "/mobile", type: TrackType.View) {}
+
+        "/pos_seller/point/tax"(platform: "/mobile", type: TrackType.View) {}
+
+        "/pos_seller/point/account_type"(platform: "/mobile", type: TrackType.View) {}
 
         /**
         * pos seller event tracks
@@ -185,10 +195,12 @@ import com.ml.melidata.TrackType
           payment_method_id(required: false, type: PropertyType.String, description: "payment method id")
           store(required: true, type: PropertyType.String, description: "store id")
           pos(required: true, type: PropertyType.String, description: "pos id")
+          account_type(required: false, type: PropertyType.String, description: "account type", values:["checking", "savings"])
+          tax(required: false, type: PropertyType.String, description: "tax")
         }
  
         propertyGroups {
-        paymentData(flow_origin, payment_method_type, mode,payment_channel,amount,currency,installments,description,discount,discount_type,items,payment_method_id)
+        paymentData(flow_origin, payment_method_type, mode,payment_channel,amount,currency,installments,description,discount,discount_type,items,payment_method_id, account_type, tax)
         paymentDataWeb(flow_id, amount, items, mode, payment_channel, currency, store, pos, installments, payment_method_type)
         }
 
@@ -267,33 +279,59 @@ import com.ml.melidata.TrackType
 
 
         // ----------- WEB -------------
+        /**
+        * abstract paths
+        */
+
+        "/pos_seller/point"(platform: "/web", isAbstract: true) {}
+        "/pos_seller/qr"(platform: "/web", isAbstract: true) {}
 
         /**
         * pos seller web view tracks
         */
 
-        "/pos_seller/onboarding"(platform: "/web", type: TrackType.View) {}
+        /**
+        * COLLECTION FUNNEL
+        */
+
+        //Collection funnel start
+        "/pos_seller/collect"(platform: "/web", type: TrackType.View) {}
+        "/pos_seller/start"(platform: "/web", type: TrackType.View) {}
+
+        //Point Pro Flow
+        "/pos_seller/point/card_type"(platform: "/web", type: TrackType.View) {}
+        "/pos_seller/point/installments"(platform: "/web", type: TrackType.View) {}
+        "/pos_seller/point/waiting_for_card"(platform: "/web", type: TrackType.View) {
+            paymentDataWeb
+        }
+        //QR Flow
+        "/pos_seller/qr/waiting_for_scan"(platform: "/web", type: TrackType.View) {
+            paymentDataWeb
+        }
+        //Collection funnel end success
+        "/pos_seller/end"(platform: "/web", type: TrackType.View) {
+            paymentDataWeb
+        }
+
+        //Misc
         "/pos_seller/mobile_shield"(platform: "/web", type: TrackType.View) {}
 
 
         /**
         * pos seller web event tracks
         */
-        
-        "/pos_seller/start"(platform: "/web", type: TrackType.Event) {
+        "/pos_seller/select_method"(platform: "/web", type: TrackType.Event) {
             paymentDataWeb
         }
-        "/pos_seller/point/waiting_for_card"(platform: "/web", type: TrackType.Event) {
-            paymentDataWeb
-        }
-        "/pos_seller/point/end"(platform: "/web", type: TrackType.Event) {
-            paymentDataWeb
+        "/pos_seller/point/set_financing_cost"(platform: "/web", type: TrackType.Event) {
+            financing_cost(required: false, type: PropertyType.String, description: "interest expense",values: ["seller", "buyer"])
         }
         "/pos_seller/friction/card_reader"(platform: "/web", type: TrackType.Event) {
             context (required: true, type: PropertyType.String, description: "Friction context")
             message (required: true, type: PropertyType.Map(PosSellerFrictionMessage), description: "Message shown map")
             extra_info (required: true, type: PropertyType.Map(PosSellerCardFrictionExtraInfoWeb), description: "Friction extra data map")
         }
-        "/pos_seller/onboarding/start"(platform: "/web", type: TrackType.Event) {}
+
+        //Misc
         "/pos_seller/mobile_shield/start"(platform: "/web", type: TrackType.Event) {}
 }

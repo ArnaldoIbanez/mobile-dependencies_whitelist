@@ -25,7 +25,7 @@ This repository contains all the definitions for the information tracked in *mel
 
 - Always remember to define how your tracking "should be" not "as it is". We want this catalog to represent "the tracking we want" and not "the one we have". The catalog helps us to keep governance on our data and making it more predictable and easy to exploit
 
-- Before making PR. Try to follow other definition examples and make sure your data is not already tracked.
+- Before making PR. Try to follow other definition examples and make sure your data is not already tracked. 
 
 ### REQUIREMENT
 

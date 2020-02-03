@@ -61,7 +61,6 @@ trackTests {
                     transactional_type = "SHIPPING"
                 }
             ]
-            is_zqp = true
         }
 
         "/questions/qadb/feedback"(platform: "/", type: TrackType.Event) {
