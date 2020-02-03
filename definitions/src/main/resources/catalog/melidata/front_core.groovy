@@ -368,4 +368,40 @@ tracks {
     "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty header information")
     }
+
+    /**********************************/
+    //    NEW TRACKS HOME TAP v3      //
+    /**********************************/
+
+    "/wallet_home/section" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/section/tap" (platform: "/mobile", isAbstract: true) {
+        link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
+        section_id(required: true, type: PropertyType.String, description: "Section where the deeplink was launched")
+        component_id(required: false, type: PropertyType.String, description: "Specific component id where the user tapped")
+    }
+
+    "/wallet_home/section/tap/banking" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/main_actions" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/activities" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/activities_link" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/qr_map" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/discount_center" (platform: "/mobile", type: TrackType.Event){}
+
+    "/wallet_home/section/tap/loyalty" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {}
 }
