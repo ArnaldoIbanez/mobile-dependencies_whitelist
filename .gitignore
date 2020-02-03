@@ -41,3 +41,7 @@ catalog.json
 catalog.csv
 metrics.json
 build
+
+definitions/build
+definitions/out
+*.DS_Store

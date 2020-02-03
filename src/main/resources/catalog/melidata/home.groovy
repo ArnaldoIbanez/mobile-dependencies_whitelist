@@ -8,6 +8,8 @@ tracks {
 
     //HOME FLOW
 
+    initiative = "1171"
+
     "/home"(platform: "/mobile") {
         retry_after_error(required: false)
         component_count(required: false, type: PropertyType.Numeric)

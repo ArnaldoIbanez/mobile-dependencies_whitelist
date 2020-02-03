@@ -3,6 +3,7 @@ package com.melidata.definitions.validators
 import com.melidata.definitions.parsers.dsl.TestDsl
 import com.melidata.definitions.outs.DefinitionsOut
 import com.ml.melidata.catalog.Catalog
+import com.melidata.definitions.validate.*
 import groovy.transform.Synchronized
 
 /**
@@ -11,6 +12,9 @@ import groovy.transform.Synchronized
 class CatalogValidator {
 
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
+        //Prepare initiatives list
+        InitiativeValidate.generateInitiativesList()
+
         def runOk = true
         out.beforeRun(catalog, tests)
         tests?.each { singleTest ->
@@ -24,6 +28,7 @@ class CatalogValidator {
             }
         }
         out.afterRun(catalog)
+        runOk = runOk && InitiativeValidate.checkCoverage()
         return runOk
     }
 

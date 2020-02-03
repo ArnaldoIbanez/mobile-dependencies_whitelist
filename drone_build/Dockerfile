@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 MAINTAINER Alexis Petalas, Gabriel Eisbruch <arquitectura@mercadolibre.com>
 
@@ -9,13 +9,11 @@ RUN sed 's/main$/main universe/' -i /etc/apt/sources.list
 RUN apt-get update && apt-get install -y software-properties-common python-software-properties python python-pip python-dev build-essential
 RUN pip install --upgrade pip
 RUN pip install --upgrade virtualenv
-RUN add-apt-repository ppa:webupd8team/java -y
+RUN apt-add-repository ppa:webupd8team/java -y
 
 # Install Java
 RUN apt-get update
-RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-RUN apt-get install -y oracle-java7-installer
-
+RUN apt-get install -y default-jdk
 #Instal make
 RUN apt-get -y install make git-core unzip
 
@@ -41,3 +39,5 @@ WORKDIR /tmp/fake_app
 ADD fake_app /tmp/fake_app
 RUN cd /tmp/fake_app
 RUN ./gradlew cacheDependencies
+
+RUN javac -version

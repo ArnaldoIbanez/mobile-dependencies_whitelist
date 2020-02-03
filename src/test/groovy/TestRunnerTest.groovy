@@ -66,6 +66,21 @@ class TestRunnerTest {
         assertTrue(result)
     }
 
+    @Test void shouldGetScriptFromFile(){
+        def script = null
+
+        try{
+            script = TestRunner.getScriptFromFile(PATH_CATALOG)
+            assertNotNull(script)
+
+        }catch (NotFileException){
+
+            // El classpath es distinto al correr esta test con idea
+            script = TestRunner.getScriptFromFile(PATH_CATALOG)
+            assertNotNull(script)
+        }
+    }
+
     @Test void shouldCallDefinitionsOutWhenFailAndSuccessSingleTest(){
 
         def std = new OutTest()
