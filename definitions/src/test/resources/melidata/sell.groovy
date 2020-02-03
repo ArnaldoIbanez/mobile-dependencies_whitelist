@@ -1608,6 +1608,30 @@ trackTests {
         }
     }
 
+    test("SYI v4 instant pay listings card with free showed"){
+        "/sell/item_conditions/instant_pay_listings_free/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 instant pay listings with free card confirmed"){
+        "/sell/item_conditions/instant_pay_listings_free/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
     test("SYI v4 sidebar listing type card showed"){
         "/sell/item_conditions/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
