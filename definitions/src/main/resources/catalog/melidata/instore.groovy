@@ -508,29 +508,29 @@ tracks {
     "/instore/buyer_qr/landing/account_money_only"(platform: "/mobile", type: TrackType.View) {}
 
     "/instore/buyer_qr/landing/insufficient_money_change_payment_method"(platform: "/mobile", type: TrackType.View) {
-        status(required: true, PropertyType.String, description: "Failure", values: ["failure"])
-        amount_paid(required: false, PropertyType.String, description: "Paid amount in local currency")
+        collector_id(required: false, PropertyType.Long, description: "Collector's identifier")
+        collector_name(required: false, PropertyType.String, description: "Collector's name")
         item_amount(required: false, PropertyType.String, description: "Item's value in local currency")
-        payment_method_name(required: false, PropertyType.String, description: "example: Dinero en Mercado Pago")
         payment_method_id(required: false, PropertyType.String, description: "Payment method id (visa, masterCard, account_money, etc")
-        currency_id(required: false, PropertyType.String, description: "Currency identifier")
-        payment_date(required: false, PropertyType.String)
-        payment_id(required: false, PropertyType.String)
-        collector_name(required: false, PropertyType.String)
-        collector_id(required: false, PropertyType.String)
+        payment_method_name(required: false, PropertyType.String, description: "Payment method name")
+        payment_id(required: true, PropertyType.String)
+        amount_paid(required: true, PropertyType.String, description: "Paid amount in local currency")
+        currency_id(required: true, PropertyType.String, description: "Currency identifier")
+        payment_date(required: true, PropertyType.Long)
+        status(required: true, PropertyType.String)
     }
 
     "/instore/buyer_qr/landing/insufficient_money_add_card"(platform: "/mobile", type: TrackType.View) {
-        status(required: true, PropertyType.String, description: "Failure", values: ["failure"])
-        amount_paid(required: false, PropertyType.String, description: "Paid amount in local currency")
+        collector_id(required: false, PropertyType.Long, description: "Collector's identifier")
+        collector_name(required: false, PropertyType.String, description: "Collector's name")
         item_amount(required: false, PropertyType.String, description: "Item's value in local currency")
-        payment_method_name(required: false, PropertyType.String, description: "example: Dinero en Mercado Pago")
         payment_method_id(required: false, PropertyType.String, description: "Payment method id (visa, masterCard, account_money, etc")
-        currency_id(required: false, PropertyType.String, description: "Currency identifier")
-        payment_date(required: false, PropertyType.String)
-        payment_id(required: false, PropertyType.String)
-        collector_name(required: false, PropertyType.String)
-        collector_id(required: false, PropertyType.String)
+        payment_method_name(required: false, PropertyType.String, description: "Payment method name")
+        payment_id(required: true, PropertyType.String)
+        amount_paid(required: true, PropertyType.String, description: "Paid amount in local currency")
+        currency_id(required: true, PropertyType.String, description: "Currency identifier")
+        payment_date(required: true, PropertyType.Long)
+        status(required: true, PropertyType.String)
     }
 
     //Buyer QR - Generic Error
