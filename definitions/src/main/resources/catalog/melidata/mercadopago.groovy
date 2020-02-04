@@ -112,7 +112,7 @@ tracks {
       coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
     }
 
-    "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) { 
       groupCheckoutProperties
     }
 
