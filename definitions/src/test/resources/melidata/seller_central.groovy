@@ -427,9 +427,17 @@ trackTests {
     "/seller_central/bulk/publish/upload"(platform: "/web", type: TrackType.View) {}
   }
 
-  test("seller central bulk publish upload view") {
+  test("seller central bulk publish show email") {
     "/seller_central/bulk/publish/upload/show_custom_mail_box"(platform: "/web", type: TrackType.Event) {
       show_custom_mail_box = true
+    }
+  }
+
+  test("seller central bulk publish send custom email") {
+    "/seller_central/bulk/publish/upload/send_custom_mail_box"(platform: "/web", type: TrackType.Event) {
+      show_custom_mail_box = true
+      custom_mail = ''
+      invalid_mail = false
     }
   }
 
@@ -1355,7 +1363,7 @@ trackTests {
       page = 3
     }
   }
-      
+
   test("seller central sales onboarding massive invoice emission") {
       "/seller_central/sales/list/onboarding/massive"(platform: "/") {}
   }
