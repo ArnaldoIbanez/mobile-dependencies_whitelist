@@ -1020,7 +1020,12 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
   test("seller central sales list view") {
-    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
+    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {
+        seller_profile = "ADVANCED"
+        seller_reputation = "5_green"
+        seller_segment = "MEDIUM_SELLERS_III"
+        mercado_lider = false
+    }
   }
 
   test("seller central sales onboarding action") {
@@ -1136,6 +1141,43 @@ trackTests {
     }
   }
 
+  test("Seller central sales excel snackbar") {
+    "/seller_central/sales/list/excel/snackbar"(platform: "/web", type: TrackType.Event) {
+      id = "ERROR"
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+    }
+  }
+
+
+  test("Seller Central sale excel generation") {
+    "/seller_central/sales/list/excel/generation"(platform: "/web", type: TrackType.Event) {
+      id = "SUCCESS"
+      time = 200
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+    }
+  }
+
+  test("Seller Central sale excel packs") {
+    "/seller_central/sales/list/excel/packs"(platform: "/web", type: TrackType.Event) {
+      total_sales = 150
+      total_rows = 200
+      total_error_rows = 5
+      total_error_cells = 5
+      total_packs = 2
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+    }
+  }
+
+
   test("seller central sales row open") {
     "/seller_central/sales/list/row/open"(platform: "/web", type: TrackType.Event) {}
   }
@@ -1152,6 +1194,7 @@ trackTests {
       filters = ["active", "inactive"]
       seller_profile = "ADVANCED"
       seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
       mercado_lider = false
     }
   }
