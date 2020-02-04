@@ -157,7 +157,7 @@ tracks {
 
     "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
-      error_code (type: PropertyType.String, required: true, description: "Error code")
+      error_code (type: PropertyType.Numeric, required: true, description: "Error code")
     }
 
     "/point/buyingflow/payment_rejected"(platform: "/", type: TrackType.View) {

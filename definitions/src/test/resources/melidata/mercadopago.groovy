@@ -758,7 +758,11 @@ trackTests {
         
         "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          type = "error: Session ended"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          error_code = 6
         }
 
         "/point/buyingflow/payment_review/confirm_purchase"(platform: "/", type: TrackType.Event) {
