@@ -1,6 +1,7 @@
 {
   "users": [
-    "catalog-import@mercadolibre.com"
+    "catalog-import@mercadolibre.com",
+    "nahuel.sotelo@mercadolibre.com"
   ],
   "process_name": "sd-catalog-import-search-metrics",
   "cron": "0 6 * * *",
@@ -71,10 +72,6 @@
       {
         "name": "external_attribute_value",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "created_at",
-        "type": "DATE"
       }
     ],
     "sql": {

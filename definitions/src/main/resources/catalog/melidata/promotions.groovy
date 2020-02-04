@@ -24,6 +24,25 @@ tracks {
       has_loyalty_discount(required: true, type: PropertyType.Boolean)
     }
 
+    def installmentsDefinition = objectSchemaDefinitions {
+      quantity(required: true, type: PropertyType.Numeric)
+      amount(required: true, type: PropertyType.Numeric)
+      no_interest(required: true, type: PropertyType.Boolean)
+      currency_id(required: true, type: PropertyType.String)
+    }
+
+    def lightningDealConfigurationDefinition = objectSchemaDefinitions {
+        end_date(required: true, type: PropertyType.String)
+        initial_stock(required: true, type: PropertyType.Numeric)
+        start_date(required: true, type: PropertyType.String)
+        remaining_stock(required: false, type: PropertyType.Numeric)
+    }
+
+    def dealOfTheDayConfigurationDefinition = objectSchemaDefinitions {
+        end_date(required: true, type: PropertyType.String)
+        start_date(required: true, type: PropertyType.String)
+    }
+
     def itemStructure = objectSchemaDefinitions {
       id(required: true, type: PropertyType.String, description: "Item's id")
       title(required: true, type: PropertyType.String, description: "Item's title")
@@ -41,18 +60,18 @@ tracks {
               description: "Variable used to calculate item score in promotions backend")
       score(required: true, type: PropertyType.Numeric, 
               description: "Item's score calculated by promotions backend based on several variables")
-      prior_score(required: false, type: PropertyType.Numeric, 
+      score_prior(required: false, type: PropertyType.Numeric, 
               description: "Item's score calculated by ML model")
-      prior_position(required: false, type: PropertyType.Numeric, 
+      position_prior(required: false, type: PropertyType.Numeric, 
               description: "Item's position calculated by prior_score")
       posterior_score(required: false, type: PropertyType.Numeric, 
               description: "Item's score calculated with prior_score and learning data")
-      posterior_position(required: false, type: PropertyType.Numeric, 
+      position_posterior(required: false, type: PropertyType.Numeric, 
               description: "Item's position calculated by posterior_score")
-      credibility(required: true, type: PropertyType.Numeric, 
+      credibility(required: false, type: PropertyType.Numeric, 
               description: "Variable used to calculate item score in promotions backend")
       benefit(required: true, type: PropertyType.Numeric)
-      interest(required: true, type: PropertyType.Numeric)
+      interest(required: false, type: PropertyType.Numeric)
       item_clicks(required: false, type: PropertyType.Numeric)
       conversion_rate(required: false, type: PropertyType.Numeric)
       expected_clicks(required: false, type: PropertyType.Numeric)
@@ -77,6 +96,10 @@ tracks {
               values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "others"], description: "Type of promotion")
       prime_discount(required: false, type: PropertyType.Boolean, 
               description: "Indicates whether the item has discounts by mercado puntos")
+      deal_print_id(required: false, type: PropertyType.String, description: "Unique id per render")
+      installments(required: false, type: PropertyType.Map(installmentsDefinition), description: "Installments info for the item")
+      lightning_deal_configuration(required: false, type: PropertyType.Map(lightningDealConfigurationDefinition), description: "Configuration for the item if is lighting deal")
+      deal_of_the_day_configuration(required: false, type: PropertyType.Map(dealOfTheDayConfigurationDefinition), description: "Configuration for the item if is deal of the day")
     }
 
     propertyDefinitions {
@@ -104,5 +127,4 @@ tracks {
         is_main_url(required:false, type: PropertyType.Boolean,
                 descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
     }
-
 }

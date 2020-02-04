@@ -1349,4 +1349,9 @@ trackTests {
             quantity = 0
         }
     }
+
+    // TRACKS MYML MyContact Section
+    test("MyContact Main"){
+        "/myml/mycontact/main"(platform: "/", type: TrackType.View){}
+    }
 }

@@ -69,6 +69,12 @@ trackTests {
             pdp_grouped_search = true
             pdp_info = pdpInfo
             promoted_items = ["MLA1", "MLA2"]
+            location_info = [
+                    "zipcode": "1430",
+                    "default_zipcode": false,
+                    "city_id": "SP-BR",
+                    "user_zone": "X1"
+            ]
         }
 
         def defaultWebTrack = {
@@ -148,6 +154,12 @@ trackTests {
             promoted_items = ["MLA1", "MLA2"]
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
+            location_info = [
+                    "zipcode": "1430",
+                    "default_zipcode": false,
+                    "city_id": "SP-BR",
+                    "user_zone": "X1"
+            ]
         }
 
         def category_definition = {
@@ -269,6 +281,12 @@ trackTests {
             promoted_items = ["MLA1", "MLA2"]
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
+            location_info = [
+                    "zipcode": "1430",
+                    "default_zipcode": false,
+                    "city_id": "SP-BR",
+                    "user_zone": "X1"
+            ]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -297,6 +315,12 @@ trackTests {
             pdp_info = pdpInfo
             promoted_items = ["MLA1", "MLA2"]
             carousel_categories_shown = true
+            location_info = [
+                    "zipcode": "1430",
+                    "default_zipcode": false,
+                    "city_id": "SP-BR",
+                    "user_zone": "X1"
+            ]
         })
 
         "/search/color_picker"(platform: "/web") {
@@ -441,6 +465,12 @@ trackTests {
             pdp_grouped_search = true
             pdp_info = pdpInfo
             promoted_items = ["MLA1", "MLA2"]
+            location_info = [
+                    "zipcode": "1430",
+                    "default_zipcode": false,
+                    "city_id": "SP-BR",
+                    "user_zone": "X1"
+            ]
         }
     }
 
@@ -465,6 +495,12 @@ trackTests {
             pdp_grouped_search = true
             pdp_info = pdpInfo
             promoted_items = ["MLA1", "MLA2"]
+            location_info = [
+                    "zipcode": "1430",
+                    "default_zipcode": false,
+                    "city_id": "SP-BR",
+                    "user_zone": "X1"
+            ]
         }
     }
 
@@ -509,6 +545,12 @@ trackTests {
             promoted_items = ["MLA1", "MLA2"]
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
+            location_info = [
+                    "zipcode": "1430",
+                    "default_zipcode": false,
+                    "city_id": "SP-BR",
+                    "user_zone": "X1"
+            ]
         }
     }
 

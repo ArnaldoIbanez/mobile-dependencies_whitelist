@@ -997,6 +997,10 @@ tracks {
     "/sell/item_conditions/instant_pay_listings/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/instant_pay_listings/confirm"(platform: "/web", type: TrackType.Event) {}
 
+    "/sell/item_conditions/instant_pay_listings_free"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/instant_pay_listings_free/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/instant_pay_listings_free/confirm"(platform: "/web", type: TrackType.Event) {}
+
 
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
@@ -1037,5 +1041,22 @@ tracks {
 
     "/sell/sip/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
     "/sell/sip/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
+
+    // Catalog Optin flow for apps
+    "/sell/catalog_optin"(platform: "/mobile", isAbstract: true) {
+        session_id(required: true, description: "Session id for a specific user flow", type: PropertyType.String)
+    }
+    "/sell/catalog_optin/on_boarding"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/confirmation_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/variation_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/product_detail"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/category_navigation"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/condition"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/warranty_type"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/warranty_time"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/invoice"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/congrats_invalid_product"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/color_selection_buybox"(platform: "/mobile", type: TrackType.View) {}
 
 }

@@ -1731,6 +1731,7 @@ trackTests {
             experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
             notification_style = "c"
             device_id = "f140e3faf4c6ee7d"
+            device_status = "active"
             order_id = 1957429460
         }
         "/notification/orders_ticket_payment_pending_reminder_general_notice"(platform: "/mobile") {
@@ -1739,6 +1740,7 @@ trackTests {
             experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
             notification_style = "c"
             device_id = "f140e3faf4c6ee7d"
+            device_status = "not_engaged"
             order_id = 1957429460
         }
         "/notification/purchases_payments_approved"(platform: "/mobile") {
@@ -3082,6 +3084,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_transaction_rejected_international_authorization_by_invalid_amount"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_international_authorization_by_invalid_amount-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_withdraw_by_invalid_amount-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "arrived"
@@ -4189,6 +4197,13 @@ trackTests {
             latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
             status= "read"
         }
+
+        "/notification/prepaid_card_transaction_rejected_international_authorization_by_invalid_amount"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_international_authorization_by_invalid_amount-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
         "/notification_center/transaction_rejected_authorization_by_invalid_amount"(platform: "/mobile"){
             newsgroup_id= "transaction_rejected_authorization_by_invalid_amount-186785675-76283123"
             latest_news_id= "transaction_rejected_authorization_by_invalid_amount-186785675-76283123"
