@@ -24,10 +24,11 @@ tracks {
       currency (type: PropertyType.String, required: true, description: "ISO Currency")
       price (type: PropertyType.Numeric, required: true, description: "Price of device")
       is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+      user_id (type: PropertyType.Numeric, required: true, description: "User ID")
     }
 
     propertyGroups {
-      groupCheckoutProperties(flow_id, product, currency, price, is_guest)
+      groupCheckoutProperties(flow_id, product, currency, price, is_guest, user_id)
     }
 
     "/"(platform: "/", isAbstract: true) {
