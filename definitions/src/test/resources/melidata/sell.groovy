@@ -35,9 +35,46 @@ trackTests {
     }
 
     test("Selected a photo album in the list catalog fallback flow") {
+        def defaultCategoryFlowMobile =
+                {
+                    session_id = "123-list-abc123"
+                    category_id = "MLA123"
+                    parent_product_id = "MLA1234"
+                    product_id = "MLA12345";
+                    categorization_flow_successful = false
+                    attribute_id = "TEST"
+                    domain_id = "MLA_TEST"
+                    chosen_categorization_model = "ZORDON"
+                    title_predicted = "test"
+                    category_path = ["MLA12345", "MLA61216"]
+                    category_prediction_selected_index = 0
+                    attribute_values = [
+                            [
+                                    "name": "test",
+                                    "id": "TEST",
+                                    "value_id": "123",
+                                    "value_name": "TEST"
+                            ]
+                    ]
+                    predictions = [
+                            attributes: [
+                                    [
+                                            "id": "TEST",
+                                            "value_id": "123"
+                                    ]
+                            ],
+                            categories: [
+                                    [
+                                            path: ["MLA123", "MLA1234"],
+                                            score: 0.99
+                                    ]
+                            ]
+                    ]
+                }
+
         "/sell/list/pictures_fallback/album_selected"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "245084411-list-4519bc3c72aa"
             album_name = "Galería de fotos"
+            defaultCategoryFlowMobile()
         }
     }
 
@@ -252,7 +289,48 @@ trackTests {
     }
 
     test("Native Sell List flow steps"){
-        "/sell/list/congrats"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
+
+        def defaultCategoryFlowMobile =
+                {
+                    session_id = "123-list-abc123"
+                    category_id = "MLA123"
+                    parent_product_id = "MLA1234"
+                    product_id = "MLA12345";
+                    categorization_flow_successful = false
+                    attribute_id = "TEST"
+                    domain_id = "MLA_TEST"
+                    chosen_categorization_model = "ZORDON"
+                    title_predicted = "test"
+                    category_path = ["MLA12345", "MLA61216"]
+                    category_prediction_selected_index = 0
+                    attribute_values = [
+                            [
+                                    "name": "test",
+                                    "id": "TEST",
+                                    "value_id": "123",
+                                    "value_name": "TEST"
+                            ]
+                    ]
+                    predictions = [
+                            attributes: [
+                                    [
+                                            "id": "TEST",
+                                            "value_id": "123"
+                                    ]
+                            ],
+                            categories: [
+                                    [
+                                            path: ["MLA123", "MLA1234"],
+                                            score: 0.99
+                                    ]
+                            ]
+                    ]
+                }
+
+
+        "/sell/list/congrats"(platform: "/mobile") {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/hub"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/hub_old"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/sip"(platform: "/mobile" ) {
@@ -293,18 +371,34 @@ trackTests {
         "/sell/list/sip/update/title"(platform:"/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/catalog_trim_selection"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/catalog_vehicle_year_selection"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/category_suggestion"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/category_navigation"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/category_suggestion"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/category_navigation"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/catalog"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/catalog/decision"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/classifieds_reservation_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/color_selection"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/catalog/decision"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/classifieds_reservation_landing"(platform: "/mobile" ) {}
+        "/sell/list/color_selection"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/color_selection_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/color_selection_fallback"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/color_selection_catalog"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/condition"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/color_selection_fallback"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/color_selection_catalog"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/condition"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/condition_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/condition_fallback"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/condition_fallback"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/description"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/description_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/description_fallback"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
@@ -331,12 +425,24 @@ trackTests {
         "/sell/list/pictures/pictures_selector"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures/editor"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures/crop"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures_fallback"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures_fallback/gallery"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures_fallback/album_selector"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures_fallback/pictures_selector"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures_fallback/editor"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/pictures_fallback/crop"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/pictures_fallback"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/pictures_fallback/gallery"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/pictures_fallback/album_selector"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/pictures_fallback/pictures_selector"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/pictures_fallback/editor"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/pictures_fallback/crop"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/picture_uploader/delete"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/picture_uploader/rotate"(platform: "/mobile") {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/pictures_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -376,14 +482,25 @@ trackTests {
         "/sell/list/listing_types"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/listing_types_upgrade"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/congrats_upgrade"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/congrats/payment_pending" (platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/congrats/payment_pending" (platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
 
         "/sell/list/technical_specifications"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/technical_specifications_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/product_detail"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/technical_specifications_catalog"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/product_detail"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/product_identifier"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/attribute"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/attribute/kilometers"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/attribute"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/attribute/kilometers"(platform: "/mobile" ) {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/category/selection/l1"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category/selection/l2"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/category/selection/l3"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -437,20 +554,72 @@ trackTests {
     }
 
     test("Native Sell List draft flow steps") {
+        def defaultCategoryFlowMobile =
+                {
+                    session_id = "123-list-abc123"
+                    category_id = "MLA123"
+                    parent_product_id = "MLA1234"
+                    product_id = "MLA12345";
+                    categorization_flow_successful = false
+                    attribute_id = "TEST"
+                    domain_id = "MLA_TEST"
+                    chosen_categorization_model = "ZORDON"
+                    title_predicted = "test"
+                    category_path = ["MLA12345", "MLA61216"]
+                    category_prediction_selected_index = 0
+                    attribute_values = [
+                            [
+                                    "name": "test",
+                                    "id": "TEST",
+                                    "value_id": "123",
+                                    "value_name": "TEST"
+                            ]
+                    ]
+                    predictions = [
+                            attributes: [
+                                    [
+                                            "id": "TEST",
+                                            "value_id": "123"
+                                    ]
+                            ],
+                            categories: [
+                                    [
+                                            path: ["MLA123", "MLA1234"],
+                                            score: 0.99
+                                    ]
+                            ]
+                    ]
+                }
+
         "/sell/list/drafts"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile", type: TrackType.Event) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/drafts/draft_action/draft_resumed"(platform: "/mobile", type: TrackType.Event) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/attribute"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/attribute/kilometers"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/category_navigation"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/category_suggestion"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/color_selection"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/color_selection_fallback"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/condition"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/category_navigation"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/draft/category_suggestion"(platform: "/mobile", type: TrackType.View) {defaultCategoryFlowMobile()
+        }
+        "/sell/list/draft/color_selection"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/draft/color_selection_fallback"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/draft/condition"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/draft/condition_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/condition_fallback"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/congrats"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/congrats/payment_pending"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/condition_fallback"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/draft/congrats"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/draft/congrats/payment_pending"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/draft/description"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/description_fallback"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/description_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
@@ -468,11 +637,19 @@ trackTests {
         "/sell/list/draft/pictures/album_selector"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/pictures/pictures_selector"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/pictures/editor"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/pictures_fallback"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/pictures_fallback"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/draft/pictures_landing_fallback"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/pictures_fallback/album_selector"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/pictures_fallback/pictures_selector"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/pictures_fallback/editor"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/pictures_fallback/album_selector"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/draft/pictures_fallback/pictures_selector"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
+        "/sell/list/draft/pictures_fallback/editor"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/draft/pictures_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/pictures_review/album_selector"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/pictures_review/pictures_selector"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
@@ -480,7 +657,9 @@ trackTests {
         "/sell/list/draft/price"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/price_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/price_modality"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/product_detail"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/product_detail"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/draft/product_identifier"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/registration_landing"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/seller_registration"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
@@ -496,6 +675,9 @@ trackTests {
         "/sell/list/draft/size_selection_fallback"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/technical_specifications"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/technical_specifications_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/technical_specifications_catalog"(platform: "/mobile", type: TrackType.View) {
+            defaultCategoryFlowMobile()
+        }
         "/sell/list/draft/title"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/title_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/warranty_time"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
@@ -528,11 +710,47 @@ trackTests {
     }
 
     test("Custom color name changed - List"){
+        def defaultCategoryFlowMobile =
+                {
+                    session_id = "123-list-abc123"
+                    category_id = "MLA123"
+                    parent_product_id = "MLA1234"
+                    product_id = "MLA12345";
+                    categorization_flow_successful = false
+                    attribute_id = "TEST"
+                    domain_id = "MLA_TEST"
+                    chosen_categorization_model = "ZORDON"
+                    title_predicted = "test"
+                    category_path = ["MLA12345", "MLA61216"]
+                    category_prediction_selected_index = 0
+                    attribute_values = [
+                            [
+                                    "name": "test",
+                                    "id": "TEST",
+                                    "value_id": "123",
+                                    "value_name": "TEST"
+                            ]
+                    ]
+                    predictions = [
+                            attributes: [
+                                    [
+                                            "id": "TEST",
+                                            "value_id": "123"
+                                    ]
+                            ],
+                            categories: [
+                                    [
+                                            path: ["MLA123", "MLA1234"],
+                                            score: 0.99
+                                    ]
+                            ]
+                    ]
+                }
+
         "/sell/list/color_selection/custom_color"(platform: "/web"){
-            session_id = "290061169-list-32b1d9b3eae8"
             category_domain = "MLA-GLOVES"
             is_custom_name = true
-            category_path = ["MLA12345", "MLA61216"]
+            defaultCategoryFlowMobile()
         }
     }
 
