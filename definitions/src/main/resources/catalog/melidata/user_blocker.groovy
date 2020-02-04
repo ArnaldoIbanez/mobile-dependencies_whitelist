@@ -28,9 +28,6 @@ tracks {
         label(required: false, type: PropertyType.String, description: "if the continue is from service or cache")
         duration(required: true, type: PropertyType.String, description: "the time to continue in ms")
     }
-    "/user_blocker/redirect/cache_fail"(platform: "/", type: TrackType.Event) {
-        verbose(required: false, type: PropertyType.String, description: "in case of cache fail, the error description")
-    }
 
     //Shield events
     "/user_blocker/shield/close"(platform: "/", type: TrackType.Event) {

@@ -26,9 +26,6 @@ trackTests {
             label = "service"
             duration = "1245"
         }
-        "/user_blocker/redirect/cache_fail"(platform: "/") {
-            verbose = "Fail trying to parse the JSON"
-        }
 
         //Shield events
         "/user_blocker/shield/close"(platform: "/") {
