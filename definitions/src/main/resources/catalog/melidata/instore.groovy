@@ -513,10 +513,10 @@ tracks {
         item_amount(required: false, PropertyType.String, description: "Item's value in local currency")
         payment_method_id(required: false, PropertyType.String, description: "Payment method id (visa, masterCard, account_money, etc")
         payment_method_name(required: false, PropertyType.String, description: "Payment method name")
-        payment_id(required: true, PropertyType.String)
+        payment_id(required: true, PropertyType.String, description: "Payment's identifier")
         amount_paid(required: true, PropertyType.String, description: "Paid amount in local currency")
         currency_id(required: true, PropertyType.String, description: "Currency identifier")
-        payment_date(required: true, PropertyType.Long)
+        payment_date(required: true, PropertyType.Long, description: "Date of the payment")
         status(required: true, PropertyType.String)
     }
 
@@ -526,10 +526,10 @@ tracks {
         item_amount(required: false, PropertyType.String, description: "Item's value in local currency")
         payment_method_id(required: false, PropertyType.String, description: "Payment method id (visa, masterCard, account_money, etc")
         payment_method_name(required: false, PropertyType.String, description: "Payment method name")
-        payment_id(required: true, PropertyType.String)
+        payment_id(required: true, PropertyType.String, description: "Payment's identifier")
         amount_paid(required: true, PropertyType.String, description: "Paid amount in local currency")
         currency_id(required: true, PropertyType.String, description: "Currency identifier")
-        payment_date(required: true, PropertyType.Long)
+        payment_date(required: true, PropertyType.Long, description: "Date of the payment")
         status(required: true, PropertyType.String)
     }
 
