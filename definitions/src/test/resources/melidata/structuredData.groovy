@@ -529,6 +529,7 @@ trackTests {
             product_id = "b7c088e9-502f-4ed2-9446-0c865e024d7a"
             product_source = "ice-cat"
             product_external_id = "554178"
+            external_domain = "Ordenadores móviles industriales"
             external_attribute_key = "Interfaz"
             external_attribute_value = "Bluetooth v2.0"
         }
@@ -539,6 +540,7 @@ trackTests {
             product_id = "b7c088e9-502f-4ed2-9446-0c865e024d7a"
             product_source = "ice-cat"
             product_external_id = "554178"
+            external_domain = "Ordenadores móviles industriales"
             external_attribute_key = "GTIN"
             external_attribute_value = "0882780449312,0882780449459"
         }
