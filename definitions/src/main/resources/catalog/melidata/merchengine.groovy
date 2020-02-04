@@ -19,11 +19,11 @@ tracks {
         origin(required: true, type: PropertyType.String, description: "The application that returns the modal")
     }
 
-    "/merchengine/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {
+    "/merchengine/modal/dismiss"(platform: "/mobile", type: TrackType.Event) { 
     }
 
     "/merchengine/modal/cta"(platform: "/mobile", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, description: "Which type of button did the user clicked", values: ["primary", "secondary", "option"])
+        type(required: true, type: PropertyType.String, description: "Which type of button did the user clicked", values: ["primary", "secondary", "option", "content_link"])
     }
 
     "/merchengine/modal/swipe"(platform: "/mobile", type: TrackType.Event) {

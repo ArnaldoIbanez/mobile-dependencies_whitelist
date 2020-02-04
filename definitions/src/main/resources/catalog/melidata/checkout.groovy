@@ -1225,50 +1225,23 @@ tracks {
 
     "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
     "/checkout/garex/more_info"(platform:"/mobile", type: TrackType.Event) {}
-    "/checkout/garex/selected_garex"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-        category_l1(required: true, type: PropertyType.ArrayList)
-        category_l2(required: true, type: PropertyType.ArrayList)
-        business(required: true, type: PropertyType.String)
-        page_vertical(required: true, type: PropertyType.String)
-        listing_type(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
-        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"], description: "Whether the item is new, used or refurbished")
-        store_type(required: true, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")
-        loyalty_level(required:true, type: PropertyType.Numeric, description:"The loyalty level of the buyer")
-        reputation_level(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
-        fulfillment(required: true, description: "True if the item has fulfillment")
-        available_consumer_credit(required:true, type: PropertyType.String, description:"If the user has active consumer credits")
-        category_domain(required: true, description: "Category Domain", type: PropertyType.String)
-        checkout_flow(required: true, type: PropertyType.String, values: ["direct", "cart"], description: "The type of checkout flow.")
-        products_quantity(required: true,description: "It is used to send the quantity of items that are purchased in a purchase.", type: PropertyType.Numeric)
-        item_attributes(required: true, type: PropertyType.String,values:["discount", "promotions","cbt","deferred_stock","available_stock","none", "promotions+cbt"], description: "attributes of the item: discount, promotion, stock, cbt type")
-        context(required: true, type: PropertyType.String, description: "Reference to the context that started checkout flow")
-        collector_id(required: true, PropertyType.String, description: "collector user unique identifier")
-        collector_nickname(required: true, type: PropertyType.String)
+    "/checkout/garex/selected_garex"(platform:"/mobile", type: TrackType.Event) {
+        garex_id(required: true, type: PropertyType.String, description: "Selected warranty id")
+        period(required: true, type: PropertyType.Numeric, description: "Contracted warranty period")
+        cost(required: true, type: PropertyType.Numeric, description: "Warranty cost")
+        revenue_share_fee(required: true, type: PropertyType.Numeric, description: "Percentage of revenue for mercado libre")
+        revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for mercado libre")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
     }
     "/checkout/garex/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {}
-    "/checkout/garex/delete"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
-        category_l1(required: true, type: PropertyType.ArrayList)
-        category_l2(required: true, type: PropertyType.ArrayList)
-        business(required: true, type: PropertyType.String)
-        page_vertical(required: true, type: PropertyType.String)
-        listing_type(required: true, type: PropertyType.String)
-        item_id(required: true, type: PropertyType.String)
-        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"], description: "Whether the item is new, used or refurbished")
-        store_type(required: true, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")
-        loyalty_level(required:true, type: PropertyType.Numeric, description:"The loyalty level of the buyer")
-        reputation_level(required: true, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
-        fulfillment(required: true, description: "True if the item has fulfillment")
-        available_consumer_credit(required:true, type: PropertyType.String, description:"If the user has active consumer credits")
-        category_domain(required: true, description: "Category Domain", type: PropertyType.String)
-        checkout_flow(required: true, type: PropertyType.String, values: ["direct", "cart"], description: "The type of checkout flow.")
-        products_quantity(required: true,description: "It is used to send the quantity of items that are purchased in a purchase.", type: PropertyType.Numeric)
-        item_attributes(required: true, type: PropertyType.String,values:["discount", "promotions","cbt","deferred_stock","available_stock","none", "promotions+cbt"], description: "attributes of the item: discount, promotion, stock, cbt type")
-        context(required: true, type: PropertyType.String, description: "Reference to the context that started checkout flow")
-        collector_id(required: true, PropertyType.String, description: "collector user unique identifier")
-        collector_nickname(required: true, type: PropertyType.String)
+    "/checkout/garex/delete"(platform:"/mobile", type: TrackType.Event) {
+        garex_id(required: true, type: PropertyType.String, description: "Warranty id removed")
+        period(required: true, type: PropertyType.Numeric, description: "Contracted warranty period")
+        cost(required: true, type: PropertyType.Numeric, description: "Warranty cost")
+        revenue_share_fee(required: true, type: PropertyType.Numeric, description: "Percentage of revenue for mercado libre")
+        revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for mercado libre")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
     }
-
 
     /*
     * end GarEx tracks

@@ -504,6 +504,21 @@ trackTests {
         "/sell/list/draft/warranty_type_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
     }
 
+    test("Native Sell Catalog Optin flow steps") {
+        "/sell/catalog_optin/on_boarding"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/catalog_optin/confirmation_landing"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/catalog_optin/variation_selection"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/catalog_optin/product_detail"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/catalog_optin/category_navigation"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/catalog_optin/condition"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/catalog_optin/warranty_type"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/catalog_optin/warranty_time"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/catalog_optin/invoice"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/catalog_optin/congrats"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/catalog_optin/congrats_invalid_product"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/catalog_optin/color_selection_buybox"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+    }
+
     test("Custom color name changed - Update"){
         "/sell/update/color_selection/custom_color"(platform: "/web"){
             session_id = "290061169-update-32b1d9b3eae8"
@@ -849,6 +864,21 @@ trackTests {
             chosen_categorization_model = "ZORDON"
             title_predicted = "test"
             confirm_category_detail = "not_present"
+            list_mode = "LIST"
+        }
+    }
+    test("SYI v4 category card confirmed motors"){
+        "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLM24287"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
             list_mode = "LIST"
         }
     }
@@ -1578,6 +1608,30 @@ trackTests {
         }
     }
 
+    test("SYI v4 instant pay listings card with free showed"){
+        "/sell/item_conditions/instant_pay_listings_free/show"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 instant pay listings with free card confirmed"){
+        "/sell/item_conditions/instant_pay_listings_free/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
     test("SYI v4 sidebar listing type card showed"){
         "/sell/item_conditions/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
@@ -1736,4 +1790,129 @@ trackTests {
             modifications = ["currency", "price", "variations", "title"]
         }
     }
+
+    test("SYI v4 Catalog decision show"){
+        "/sell/item_data/catalog_decision/show"(platform: "/web", type: TrackType.Event){
+            session_id = "123-update-abc123"
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+            domain_id = "MLA_CELLPHONES"
+            list_mode = "LIST"
+            item_type = "default"
+            parent_product_id = "MLA390783"
+        }
+    }
+
+    test("SYI v4 Catalog decision confirm"){
+        "/sell/item_data/catalog_decision/confirm"(platform: "/web", type: TrackType.Event){
+            session_id = "123-update-abc123"
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+            domain_id = "MLA_CELLPHONES"
+            list_mode = "LIST"
+            item_type = "default"
+            parent_product_id = "MLA390783"
+            flow_decision = true
+            catalog_forced = false
+        }
+    }
+
+    test("SYI v4 Catalog forced show"){
+        "/sell/item_data/catalog_forced/show"(platform: "/web", type: TrackType.Event){
+            session_id = "123-update-abc123"
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+            domain_id = "MLA_CELLPHONES"
+            list_mode = "LIST"
+            item_type = "default"
+            parent_product_id = "MLA390783"
+        }
+    }
+
+    test("SYI v4 Catalog forced confirm"){
+        "/sell/item_data/catalog_forced/confirm"(platform: "/web", type: TrackType.Event){
+            session_id = "123-update-abc123"
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+            domain_id = "MLA_CELLPHONES"
+            list_mode = "LIST"
+            item_type = "default"
+            parent_product_id = "MLA390783"
+            flow_decision = false
+            catalog_forced = true
+        }
+    }
+
+    test("SYI v4 Congrats catalog items displayer"){
+        "/sell/congrats/congrats_catalog_items/show"(platform: "/web", type: TrackType.Event) {
+            session_id = "123-update-abc123"
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+            item_type = "product"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 marketplace customizer show"){
+        "/sell/item_data/marketplace_customizer/show"(platform: "/web", type: TrackType.Event) {
+            session_id = "123-update-abc123"
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+            item_type = "product"
+            list_mode = "LIST"
+            domain_id = "MLA_CELLPHONES"
+            parent_product_id = "MLA390783"
+        }
+    }
+
+    test("SYI v4 marketplace customizer confirm"){
+        "/sell/item_data/marketplace_customizer/confirm"(platform: "/web", type: TrackType.Event) {
+            session_id = "123-update-abc123"
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+            item_type = "product"
+            list_mode = "LIST"
+            domain_id = "MLA_CELLPHONES"
+            parent_product_id = "MLA390783"
+        }
+    }
+
+    test("SYI v4 marketplace customizer inner edit"){
+        "/sell/item_data/marketplace_customizer/edit"(platform: "/web", type: TrackType.Event) {
+            session_id = "123-update-abc123"
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+            item_type = "product"
+            list_mode = "LIST"
+            domain_id = "MLA_CELLPHONES"
+            parent_product_id = "MLA390783"
+            id = "description"
+            new_value = "this is the new description"
+        }
+    }
+
 }

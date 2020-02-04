@@ -135,8 +135,6 @@ tracks {
         test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
         sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
-        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
-        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/", type: TrackType.Event) {
         campaign_id(required: false, description: "Id of the campaign related to the campaigns notification sent.")
@@ -633,6 +631,7 @@ tracks {
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+        sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
     }
     "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
@@ -843,6 +842,8 @@ tracks {
           status(required: false, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
 
           device_id(required: false, description: "The real device_id, may differ from device field")
+          device_status(required: false, values: ["active", "not_engaged"], description: "Device status at the moment")
+
           context(required: false, type: PropertyType.String)
       }
 
@@ -1461,7 +1462,7 @@ tracks {
           test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
-          deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+          deal_id(required: false, type: PropertyType.String, description: "Id of deal.")
       }
 
       //Packages
@@ -1556,15 +1557,16 @@ tracks {
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+        sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
     }
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
         test_notification(required: false, type: PropertyType.Boolean, description: "Indicates if notification is for test")
-        sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
+        sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
         batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
-        deal_id(required: true, type: PropertyType.String, description: "Id of deal.")
+        deal_id(required: false, type: PropertyType.String, description: "Id of deal.")
     }
     "/notification/mpcampaigns_mpcampaignspromo"(platform: "/mobile") {
         campaign_id(required: true, description: "Id of the campaign related to the notification sent.")
@@ -1734,11 +1736,11 @@ tracks {
     "/notification/prepaid_card_transaction_rejected_regulations_bacen_data_incomplete"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_authorization_freeze"(platform: "/mobile") {}
     "/notification/prepaid_card_reissue_reminder"(platform: "/mobile") {}
-
     "/notification/prepaid_card_delivery"(platform: "/mobile") {}
     "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_red_link_bug"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_international_authorization_by_invalid_amount"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {}
     "/notification/prepaid_card_soon_deliver"(platform: "/mobile") {}
 
@@ -1793,6 +1795,11 @@ tracks {
 
     //Fiscal Data
     "/notification/fiscal_data_mp_business_registration"(platform: "/web", type: TrackType.Event) {}
+
+    "/notification/installs_checker"(platform: "/mobile") {
+        date_created(required: true, type: PropertyType.String, description:"Corresponds to the date created device.")
+        advertising_id(required: true, type: PropertyType.String)
+    }
 
     "/notification/uninstalls_checker"(platform: "/mobile") {
         execution_id(required: true, type: PropertyType.String)

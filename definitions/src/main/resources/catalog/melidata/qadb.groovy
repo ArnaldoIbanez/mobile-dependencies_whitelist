@@ -45,13 +45,12 @@ tracks {
     }
 
     "/questions/qadb/search"(platform: "/", type: TrackType.Event) {
-        catalog_product_id(required: true, type: PropertyType.String)
+        catalog_product_id(required: false, type: PropertyType.String)
         catalog_parent_id(required: false, type: PropertyType.String)
         item_id(required: true, type: PropertyType.String)
         results(required: false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
         query(required: true, type: PropertyType.String, description: "Search query")
         transactional_results(required: false, type: PropertyType.ArrayList(PropertyType.Map(transactional_result)))
-        is_zqp(required: true, type: PropertyType.Boolean, description: "If the search is zero question page or not")
         context(required: true, type: PropertyType.String, description: "If the context is pdp or vip", values:["PDP", "VIP"])
     }
 

@@ -269,6 +269,13 @@ trackTests {
         }
         "/myml/invoices/company-info/success"(platform: "/") {}
         "/myml/invoices/company-info/tax-rules-information"(platform: "/") {}
+        "/myml/invoices/company-info/emission-validation"(platform: "/") {}
+        "/myml/invoices/company-info/emission-validation/success"(platform: "/") {
+            emission_validation_status = "SUCCESS"
+        }
+        "/myml/invoices/company-info/emission-validation/error"(platform: "/") {
+            emission_validation_status = "NOT_MAPPED_ERROR"
+        }
     }
 
     test("Order pages") {
@@ -1330,5 +1337,21 @@ trackTests {
             show = false
             times = 3
         }
+    }
+
+    //TRACKS MYML Search Bookmarks Alerts
+    test("Search Alerts List") {
+        "/myml/search_alerts/list"(platform: "/", type: TrackType.View) {
+            quantity = 2
+        }
+
+        "/myml/search_alerts/list"(platform: "/", type: TrackType.View) {
+            quantity = 0
+        }
+    }
+
+    // TRACKS MYML MyContact Section
+    test("MyContact Main"){
+        "/myml/mycontact/main"(platform: "/", type: TrackType.View){}
     }
 }

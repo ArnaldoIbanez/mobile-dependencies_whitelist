@@ -83,7 +83,7 @@ tracks {
         products_with_status
     }
 
-    def offer = objectSchemaDefinitions {
+    def offer_definition = objectSchemaDefinitions {
         offer_group
     }
 
@@ -105,27 +105,21 @@ tracks {
                 'in_store'
             ]
         )
-    }
-
-    def offer_with_products = objectSchemaDefinitions {
-        offer_map
-        product_types(
-            description: "Available product types in the user's credit line",
-            type: PropertyType.ArrayList(product_type),
-            required: true,
+        is_capped_offer(
+            type: PropertyType.Boolean,
+            required: false,
+            inheritable: false
         )
     }
 
-    def offer_with_variant = objectSchemaDefinitions {
-        offer_map
+    def product_type_map = objectSchemaDefinitions {
         product_type(
+            description: "Product type from the user's credit line",
             type: PropertyType.String,
             required: true,
             values: [
-                'fixed_term',
                 'fixed_term_loan',
                 'express_money',
-                'sales_percentage',
                 'sales_percentage_loan'
             ]
         )
@@ -141,7 +135,6 @@ tracks {
             required: true,
         )
     }
-
 
     defaultBusiness = "mercadopago"
 
@@ -182,7 +175,7 @@ tracks {
     "/credits/merchant/administrator"(platform: "/", type: TrackType.View) {
         offers(
             type: PropertyType.ArrayList(
-                PropertyType.Map(offer)
+                PropertyType.Map(offer_definition)
             ),
             required: false,
             inheritable: false
@@ -279,7 +272,7 @@ tracks {
     "/credits/merchant/enrollment"(platform: "/", type: TrackType.View) {
         status(
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'pending',
                 'rejected',
@@ -299,18 +292,29 @@ tracks {
         )
         product_type(
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'default',
                 'point',
-                'early_offer'
+                'early_offer',
             ],
             inheritable: false
         )
         is_capped_offer(
             type: PropertyType.Boolean,
-            required: true,
+            required: false,
             inheritable: false
+        )
+        offer(
+            type: PropertyType.Map(offer_map),
+            required: false,
+        )
+        product_types(
+            description: "Available product types in the user's credit line",
+            type: PropertyType.ArrayList(
+                PropertyType.Map(product_type_map)
+            ),
+            required: false,
         )
     }
 
@@ -458,18 +462,58 @@ tracks {
     //Mobile
     //Onboarding
     "/credits/merchant/enrollment/onboarding"(platform: "/", type: TrackType.View) {
-        offer_with_products
+        offer(
+            type: PropertyType.Map(offer_map),
+            required: false,
+        )
+        product_types(
+            description: "Available product types in the user's credit line",
+            type: PropertyType.ArrayList,
+            required: true,
+        )
 
     }
 
     //Hub
     "/credits/merchant/enrollment/hub"(platform: "/", type: TrackType.View) {
-        offer_with_products
+        offer(
+            type: PropertyType.Map(offer_map),
+            required: false,
+        )
+        product_types(
+            description: "Available product types in the user's credit line",
+            type: PropertyType.ArrayList,
+            required: true,
+        )
     }
 
     //Simulator
     "/credits/merchant/enrollment/simulator"(platform: "/", type: TrackType.View) {
-        offer_with_variant
+        offer(
+            type: PropertyType.Map(offer_map),
+            required: false,
+        )
+        product_type(
+            description: "Product type from the user's credit line",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'fixed_term_loan',
+                'express_money',
+                'sales_percentage_loan'
+            ]
+        )
+        variant(
+            description: "Option types from the user's credit line",
+            type: PropertyType.String,
+            values: [
+                "normal",
+                "fixed_amount",
+                "fixed_option",
+                "fixed"
+            ],
+            required: true,
+        )
     }
 
     //Summary

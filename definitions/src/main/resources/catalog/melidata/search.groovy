@@ -18,6 +18,13 @@ tracks {
         is_on_seo_whitelist_experiment(type: PropertyType.Boolean, required: true)
     }
 
+    def location_info_definition = objectSchemaDefinitions {
+        zipcode(type: PropertyType.String, required: false, description: "zipcode of the user; can be missing if user is not logged or never registered an address")
+        default_zipcode(type: PropertyType.Boolean, required: false, description: "indicates if the zipcode was assumed; this happens in MLA when no zipcode is found for the user. The default is 1430")
+        city_id(type: PropertyType.String, required: false, description: "as MLB has too many zipcode, we translate the zipcode to the city of the user's address")
+        user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
+    }
+
     def sparkle_info_object = objectSchemaDefinitions {
         intervention_id(type: PropertyType.String, required: true)
         intervention_type(type: PropertyType.String, required: true, values: ["REDIRECT", "INLINE"])
@@ -35,6 +42,16 @@ tracks {
         selected_id(required:true, PropertyType.String)
     }
 
+    def action_definition = objectSchemaDefinitions {
+        action_id(type: PropertyType.String, required: true)
+        filter_id(type: PropertyType.String, required: true)
+    }
+
+    def promise_item_definition = objectSchemaDefinitions{
+        sameday(type: PropertyType.ArrayList(PropertyType.String), required: false)
+        nextday(type: PropertyType.ArrayList(PropertyType.String), required: false)
+    }
+
     //SEARCH FLOW
     
     "/search"(platform: "/") {
@@ -44,12 +61,12 @@ tracks {
         total(required: true, description: "amount of search items returned", type: PropertyType.Numeric)
         category_id(required: false, regex: categoryRegex)
         category_path(required: false, description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList)
-        sort_id(required: true, description: "relevance, price_asc or price_desc", values: ["relevance", "price_asc", "price_desc"])
+        sort_id(required: true, description: "relevance, price_asc, price_desc, publication_begins_desc, publication_begins_asc, manually_selected", values: ["relevance", "price_asc", "price_desc", "publication_begins_desc", "manually_selected", "publication_begins_asc"])
         filters(required: true, description: "filters applied")
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList)
         view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
-        promise_items(required: false, description:  "items with shipping promise", PropertyType.ArrayList(PropertyType.String))
+        promise_items(required: false, description:  "items with shipping promise", type: PropertyType.Map(promise_item_definition))
 
         billboards(required: false, description: "items ids from billboard results", PropertyType.ArrayList)
         pads(required: false, description: "item_id from the pads returned for listings")
@@ -68,6 +85,7 @@ tracks {
         pdp_grouped_search(required: false, description: 'indicates whether the product rows are result of grouping or not', PropertyType.Boolean)
         pdp_info(required: false, description: "info about status and scoring of the product offered by search backend", type: PropertyType.ArrayList)
         promoted_items(required: false, description: 'ids of offer of the day items', type: PropertyType.ArrayList(PropertyType.String))
+        location_info(required: false, description: "contains info about the users, for example, shipping info", type: PropertyType.Map(location_info_definition))
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
         //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
@@ -137,7 +155,7 @@ tracks {
         user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
         pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
-        carousel_categories_shown(required: false, description: 'category carousel is show when user make a search', PropertyType.Boolean)
+        carousel_categories_shown(required: false, description: 'category carousel is shown when user makes a search', PropertyType.Boolean)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
@@ -165,6 +183,11 @@ tracks {
     }
 
     "/search/filters"(platform: "/mobile") {}
+
+    "/search/filters/action"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        multiple_values_qty(required: false, description: 'qty of multiple values selected before the request is made', PropertyType.Numeric)
+        action(required: false, description: 'the action made, if any', PropertyType.Map(action_definition))
+    }
     
     "/search/breadcrumb"(platform: "/mobile", isAbstract: true) {}
     

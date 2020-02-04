@@ -1,6 +1,6 @@
 {
   "users": [
-    "maria.mena@mercadolibre.cl"
+    "mobile-arquitectura@mercadolibre.com"
   ],
   "process_name": "canejo-crashes",
   "cron": "00 01 * * *",

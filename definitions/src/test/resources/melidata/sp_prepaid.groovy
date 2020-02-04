@@ -70,21 +70,22 @@ trackTests {
 
 
         // Recommended products
-        "/single_player/prepaid/recommended_product"(platform: "/mobile", type: TrackType.View) {
+        "/single_player/prepaid/recommended_products"(platform: "/mobile", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
 
-        "/single_player/prepaid/recommended_product/selected_product"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/recommended_products/selected_product"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
             item_id = "7"
         }
-        "/single_player/prepaid/recommended_product/more_products"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/recommended_products/more_products"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
+            item_id = "7"
         }
 
 
@@ -162,6 +163,7 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
+            item_id = "7"
         }
         "/single_player/prepaid/one_device/another_device"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
@@ -246,11 +248,13 @@ trackTests {
         "/single_player/prepaid/error/server"(platform: "/mobile", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+            error_code = "3"
         }
 
         "/single_player/prepaid/error/server/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+            view_time = 38927
         }
         "/single_player/prepaid/error/server/back"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
@@ -271,6 +275,36 @@ trackTests {
         "/single_player/prepaid/error/connection/back"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+
+        // Shield
+        "/single_player/prepaid/shield"(platform: "/mobile", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+
+        // Contingency
+        "/single_player/prepaid/contingency"(platform: "/mobile", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+        "/single_player/prepaid/contingency/confirm"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+            view_time = 38927
+        }
+        "/single_player/prepaid/contingency/back"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+            view_time = 38927
+        }
+        "/single_player/prepaid/contingency/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+            view_time = 38927
         }
 
 
@@ -335,21 +369,22 @@ trackTests {
 
 
         // Recommended products
-        "/single_player/prepaid/recommended_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+        "/single_player/prepaid/recommended_products"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
 
-        "/single_player/prepaid/recommended_product/selected_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/prepaid/recommended_products/selected_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
             item_id = "7"
         }
-        "/single_player/prepaid/recommended_product/more_products"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/prepaid/recommended_products/more_products"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
+            item_id = "7"
         }
 
 
@@ -427,6 +462,7 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
+            item_id = "7"
         }
         "/single_player/prepaid/one_device/another_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
@@ -511,11 +547,13 @@ trackTests {
         "/single_player/prepaid/error/server"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+            error_code = "3"
         }
 
         "/single_player/prepaid/error/server/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+            view_time = 38927
         }
         "/single_player/prepaid/error/server/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
@@ -536,6 +574,36 @@ trackTests {
         "/single_player/prepaid/error/connection/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+
+        // Shield
+        "/single_player/prepaid/shield"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+
+        // Contingency
+        "/single_player/prepaid/contingency"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+        "/single_player/prepaid/contingency/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+            view_time = 38927
+        }
+        "/single_player/prepaid/contingency/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+            view_time = 38927
+        }
+        "/single_player/prepaid/contingency/abort"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+            view_time = 38927
         }
     }
 }

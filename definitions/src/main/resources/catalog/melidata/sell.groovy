@@ -798,7 +798,7 @@ tracks {
     }
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
-        confirm_category_detail(required: true, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
+        confirm_category_detail(required: false, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
     }
     "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/product_bullet_resume"(platform: "/web", isAbstract: true) {}
@@ -855,12 +855,70 @@ tracks {
     "/sell/item_data/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
-        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/item_data/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
-        item_type(required: true, description: "item type", values:["default", "catalog"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+    }
+    "/sell/item_data/catalog_decision"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/catalog_decision/show"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+    }
+    "/sell/item_data/catalog_decision/confirm"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+        flow_decision(required: true, type: PropertyType.Boolean, description: "Flow decision - true if is catalog")
+        catalog_forced(required: true, type: PropertyType.Boolean, description: "Indicates if the flow decision card is forcing catalog")
+    }
+    "/sell/item_data/catalog_forced"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/catalog_forced/show"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+    }
+    "/sell/item_data/catalog_forced/confirm"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+        flow_decision(required: true, type: PropertyType.Boolean, description: "Flow decision - true if is catalog")
+        catalog_forced(required: true, type: PropertyType.Boolean, description: "Indicates if the flow decision card is forcing catalog")
+    }
+    "/sell/item_data/marketplace_customizer"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/marketplace_customizer/show"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+    }
+    "/sell/item_data/marketplace_customizer/confirm"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+    }
+    "/sell/item_data/marketplace_customizer/edit"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        domain_id(required: true, PropertyType.String, description: "Item's domain_id")
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_type(required: true, type: PropertyType.String, description: "item type", values:["default", "product"])
+        parent_product_id(required: true, type: PropertyType.String, description: "Catalog product parent id for item")
+        id(required: true, PropertyType.String, description: "id from inner edited component")
+        new_value(required: true, PropertyType.String, description: "new value from inner edited component")
     }
 
     "/sell/item_data/kilometers"(platform: "/web", isAbstract: true) {}
@@ -939,6 +997,10 @@ tracks {
     "/sell/item_conditions/instant_pay_listings/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/instant_pay_listings/confirm"(platform: "/web", type: TrackType.Event) {}
 
+    "/sell/item_conditions/instant_pay_listings_free"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/instant_pay_listings_free/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/instant_pay_listings_free/confirm"(platform: "/web", type: TrackType.Event) {}
+
 
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
@@ -962,6 +1024,12 @@ tracks {
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
         has_free(required: true, type: PropertyType.Boolean)
     }
+    "/sell/congrats/congrats_catalog_items"(platform: "/web", isAbstract: true) {}
+    "/sell/congrats/congrats_catalog_items/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
+        sellGroup
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+    }
 
 
     "/sell/sip"(platform: "/web", type: TrackType.View) {
@@ -973,5 +1041,22 @@ tracks {
 
     "/sell/sip/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
     "/sell/sip/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
+
+    // Catalog Optin flow for apps
+    "/sell/catalog_optin"(platform: "/mobile", isAbstract: true) {
+        session_id(required: true, description: "Session id for a specific user flow", type: PropertyType.String)
+    }
+    "/sell/catalog_optin/on_boarding"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/confirmation_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/variation_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/product_detail"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/category_navigation"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/condition"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/warranty_type"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/warranty_time"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/invoice"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/congrats_invalid_product"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/color_selection_buybox"(platform: "/mobile", type: TrackType.View) {}
 
 }

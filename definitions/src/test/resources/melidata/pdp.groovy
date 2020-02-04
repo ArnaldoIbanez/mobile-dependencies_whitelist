@@ -383,6 +383,16 @@ trackTests {
         "/pdp/catalog_tag_click"(platform: "/", {
             catalog_product_id = "MLA1234"
         })
+
+        "/pdp/public_similar_intention"(platform: "/web/desktop", {
+            catalog_product_id = "MLA1234"
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            item_id = "MLA99221"
+            vertical = "core"
+            domain_id = "MLA-CELLPHONES"
+            item_condition = "new"
+        })
     }
 
     test("mobile special actions") {
@@ -455,6 +465,13 @@ trackTests {
             item_id = "MLA112341"
             seller_id = 2345678
         })
+
+        "/pdp/questions/quick_access"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+            domain_id = "celulares"
+            type = "payment"
+        })
     }
 
     //Sellers page FLOW
@@ -478,6 +495,30 @@ trackTests {
             selected_page = 5
             total_pages = 10
             total_items = 100
+        })
+
+        "/pdp/sellers/buy_action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA123"
+            reputation_level = "1_red"
+            seller_id = 123
+            seller_name = "name"
+            price = 123
+            original_price = 12
+            currency_id = "ARS"
+            pdp_type = "RED"
+        })
+
+        "/pdp/sellers/add_to_cart_action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA123"
+            reputation_level = "1_red"
+            seller_id = 123
+            seller_name = "name"
+            price = 123
+            original_price = 12
+            currency_id = "ARS"
+            pdp_type = "RED"
         })
     }
 }

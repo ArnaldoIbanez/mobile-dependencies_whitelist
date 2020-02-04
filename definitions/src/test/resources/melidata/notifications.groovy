@@ -162,8 +162,6 @@ trackTests {
             test_notification= false
             sent_date= "20180508"
             batch_id= "MLB_PACK_20180508_2"
-            latest_news_type= "campaigns-generic"
-            latest_news_id= "campaigns-generic-143816022-MLB1013046714"
         }
         "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile"){
             campaign_id= "campaign1"
@@ -1733,6 +1731,7 @@ trackTests {
             experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
             notification_style = "c"
             device_id = "f140e3faf4c6ee7d"
+            device_status = "active"
             order_id = 1957429460
         }
         "/notification/orders_ticket_payment_pending_reminder_general_notice"(platform: "/mobile") {
@@ -1741,6 +1740,7 @@ trackTests {
             experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
             notification_style = "c"
             device_id = "f140e3faf4c6ee7d"
+            device_status = "not_engaged"
             order_id = 1957429460
         }
         "/notification/purchases_payments_approved"(platform: "/mobile") {
@@ -2720,6 +2720,7 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
+            sent_date = "20181211"
         }
 
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
@@ -3083,6 +3084,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_transaction_rejected_international_authorization_by_invalid_amount"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_international_authorization_by_invalid_amount-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_withdraw_by_invalid_amount-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "arrived"
@@ -3414,8 +3421,6 @@ trackTests {
             test_notification= false
             sent_date= "20180508"
             batch_id= "MLB_PACK_20180508_2"
-            latest_news_type= "campaigns-generic"
-            latest_news_id= "campaigns-generic-143816022-MLB1013046714"
         }
         "/notification_center/campaigns-suggested_discounts_buyer"(platform: "/mobile"){
             campaign_id= "campaign1"
@@ -4129,6 +4134,7 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
+            sent_date = "20181211"
         }
         "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns-mpcampaignsinfo-186785675-76283123"
@@ -4191,6 +4197,13 @@ trackTests {
             latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
             status= "read"
         }
+
+        "/notification/prepaid_card_transaction_rejected_international_authorization_by_invalid_amount"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_international_authorization_by_invalid_amount-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
         "/notification_center/transaction_rejected_authorization_by_invalid_amount"(platform: "/mobile"){
             newsgroup_id= "transaction_rejected_authorization_by_invalid_amount-186785675-76283123"
             latest_news_id= "transaction_rejected_authorization_by_invalid_amount-186785675-76283123"
@@ -6448,6 +6461,12 @@ trackTests {
             event_type = "open"
         }
 
+        "/notification/installs_checker"(platform: "/mobile"){
+            date_created= "2020-01-20T10:31:18.162-04:00"
+            advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
+            event_type = "sent"
+        }
+
         "/notification/uninstalls_checker"(platform: "/mobile"){
             execution_id= "160295629"
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
@@ -6542,6 +6561,12 @@ trackTests {
         "/notification/payments_release"(platform: "/mobile") {
             notification_id = "12345"
             event_type = "open"
+        }
+
+        "/notification/installs_checker"(platform: "/mobile"){
+            date_created= "2020-01-20T10:31:18.162-04:00"
+            advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
+            event_type = "sent"
         }
 
         "/notification/uninstalls_checker"(platform: "/mobile"){
@@ -6702,6 +6727,12 @@ trackTests {
         "/notification/payments_release"(platform: "/mobile") {
             notification_id = "12345"
             event_type = "open"
+        }
+
+        "/notification/installs_checker"(platform: "/mobile"){
+            date_created= "2020-01-20T10:31:18.162-04:00"
+            advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
+            event_type = "sent"
         }
 
         "/notification/uninstalls_checker"(platform: "/mobile"){
