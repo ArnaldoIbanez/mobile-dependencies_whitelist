@@ -513,19 +513,17 @@ tracks {
 
     //Buyer QR - Congrats
 
-    "/instore/buyer_qr/congrats"(platform: "/mobile", isAbstract: true) {
-        collector_name(required: true, PropertyType.String)
-     }
-
     "/instore/buyer_qr/congrats"(platform: "/mobile", type: TrackType.View) {
         status(required: true, PropertyType.String, description: "Success of failure", values: ["success", "failure"])
-        amount_paid(required: false, PropertyType.String, description: "Paid amount in local currency")
+        amount_paid(required: true, PropertyType.String, description: "Paid amount in local currency")
         item_amount(required: false, PropertyType.String, description: "Item's value in local currency")
         payment_method_name(required: false, PropertyType.String, description: "example: Dinero en Mercado Pago")
         payment_method_id(required: false, PropertyType.String, description: "Payment method id (visa, masterCard, account_money, etc")
-        currency_id(required: false, PropertyType.String, description: "Currency identifier")
-        payment_date(required: false, PropertyType.String)
-        payment_id(required: false, PropertyType.String)
+        currency_id(required: true, PropertyType.String, description: "Currency identifier")
+        payment_date(required: true, PropertyType.Numeric, description: "date of the payment")
+        payment_id(required: true, PropertyType.String, description: "payment identifier")
+        collector_id(required:false, PropertyType.Numeric, description: "collector identifier")
+        collector_name(required:false, PropertyType.String, description: "collector name")
     }
 
     // Scale Features
@@ -579,5 +577,5 @@ tracks {
     }
 
     // Instore shortcut
-    "/instore/enable_shortcut"(platform:"/mobile/android", type: TrackType.View) {}
+    "/instore/create_shortcut"(platform:"/mobile/android", type: TrackType.View) {}
 }
