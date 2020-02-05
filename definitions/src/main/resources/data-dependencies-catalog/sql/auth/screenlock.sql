@@ -23,6 +23,7 @@ select
       when path = '/screenlock/validation_end'
         and enrollment_status = 'enabled'
         and result = 'success'
+        and flow_id != 'security-settings'
           then usr.user_id
           else null
     end)) as cant_enabled_success,
@@ -32,7 +33,9 @@ select
         and path = '/screenlock/validation_end'
         and result = 'success'
         and enrollment_status = 'disabled'
-        and application.version < '2.99.0'
+        and device.platform = '/mobile/android'
+        and major <= '2'
+        and minor < '99'
           then usr.user_id
           else null
     end)) as cant_enrollments_legacy_android,
@@ -51,7 +54,8 @@ select
         and path = '/screenlock/validation_end'
         and result = 'success'
         and enrollment_status = 'enabled'
-        and application.version < '2.99.0'
+        and major <= '2'
+        and minor < '99'
           then usr.user_id
           else null
     end)) as cant_unenrollments_legacy_android,
@@ -101,9 +105,9 @@ from
        usr,
        path,
        application,
-       split(application.version, '\\.')[0], as major,
-       split(application.version, '\\.')[1], as minor,
-       split(application.version, '\\.')[2], as patch,
+       cast(split(application.version, '\\.')[0] as integer), as major,
+       cast(split(application.version, '\\.')[1] as integer), as minor,
+       cast(split(application.version, '\\.')[2] as integer), as patch,
        get_json_object(event_data, '$.flow_id') as flow_id,
        get_json_object(event_data, '$.enrollment_status') as enrollment_status,
        get_json_object(event_data, '$.result') as result,
@@ -119,8 +123,7 @@ from
          '/security_settings',
          '/screenlock/validation_end',
          '/screenlock/validation_start',
-         '/security_settings/screenlock/toggle'
-       )
+         '/security_settings/screenlock/toggle')
        and application.business = 'mercadopago'
        and application.site_id in ('MLA','MLM','MLB')
    ) t1
