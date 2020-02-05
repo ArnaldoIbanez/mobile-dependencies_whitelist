@@ -165,6 +165,8 @@ tracks {
         catalog_product_title(required: true, type: PropertyType.String, description: "Product title associated with an item")
         vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         mercado_lider(required: false, type: PropertyType.Boolean, description: "Seller is mercadolider")
+        user_type(required: false, type: PropertyType.String, description: "The user type")
+
     }
 
     propertyGroups {
@@ -181,7 +183,7 @@ tracks {
 
         sellerCentralCatalogBoostGroup(item_attributes, catalog_product_attributes, item_title, catalog_product_title)
 
-        sellerCentralUserSales(seller_profile, seller_reputation, mercado_lider, seller_segment)
+        sellerCentralUserSales(seller_profile, seller_reputation, mercado_lider, seller_segment, user_type)
     }
 
     //LISTING SECTION
