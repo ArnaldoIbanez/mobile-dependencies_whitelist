@@ -54,6 +54,7 @@ select
         and path = '/screenlock/validation_end'
         and result = 'success'
         and enrollment_status = 'enabled'
+        and device.platform = '/mobile/android'
         and major <= '2'
         and minor < '99'
           then usr.user_id
@@ -61,10 +62,11 @@ select
     end)) as cant_unenrollments_legacy_android,
   count(distinct (
     case
-      when flow_id = 'security-settings'
-        and path = '/screenlock/validation_end'
-        and result = 'success'
+      when path = '/security_settings/screenlock/toggle'
+        and toggleaction = 'disable'
         and enrollment_status = 'disabled'
+        and major >= '2'
+        and minor >= '99'
           then usr.user_id
           else null
     end)) as cant_unenrollments,
@@ -72,6 +74,7 @@ select
     case
       when flow_id is null
         and enrollment_status = 'enabled'
+        and device.platform = '/mobile/ios'
           then usr.user_id
           else null
     end)) as cant_enrollments_legacy_ios,
@@ -80,6 +83,7 @@ select
       when flow_id is null
         and enrollment_status = 'disabled'
         and path = '/screenlock/validation_end'
+        and device.platform = '/mobile/ios'
         and elapsed_time >= '1'
           then usr.user_id
           else null
@@ -97,22 +101,21 @@ select
           else null
     end)) as cant_ss_biometrics_views,
   substr(ds, 1, 10) as ds
-from
-   (
-     select
+FROM ( SELECT
        ds,
        device,
        usr,
        path,
        application,
-       cast(split(application.version, '\\.')[0] as integer), as major,
-       cast(split(application.version, '\\.')[1] as integer), as minor,
-       cast(split(application.version, '\\.')[2] as integer), as patch,
+       cast(split(application.version, '\\.')[0] as integer) as major,
+       cast(split(application.version, '\\.')[1] as integer) as minor,
+       cast(split(application.version, '\\.')[2] as integer) as patch,
        get_json_object(event_data, '$.flow_id') as flow_id,
        get_json_object(event_data, '$.enrollment_status') as enrollment_status,
        get_json_object(event_data, '$.result') as result,
        get_json_object(event_data, '$.os_status') as os_status,
-       get_json_object(event_data, '$.elapsed_time') as elapsed_time
+       get_json_object(event_data, '$.elapsed_time') as elapsed_time,
+       get_json_object(event_data, '$.action') as toggleaction
      from tracks
      where 1 = 1
        and ds >= '@param01'
@@ -127,6 +130,8 @@ from
        and application.business = 'mercadopago'
        and application.site_id in ('MLA','MLM','MLB')
    ) t1
+where major >= '2'
+and minor >= '96'
 group by
   device.platform,
   application.site_id,
