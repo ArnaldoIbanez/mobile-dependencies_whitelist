@@ -125,8 +125,8 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
         seller_profile(required: false, type: PropertyType.String, description: "Type of seller")
-        seller_reputation(required: true, type: PropertyType.String, description: "Reputation of the seller")
-        seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
+        seller_reputation(required: false, type: PropertyType.String, description: "Reputation of the seller")
+        seller_segment(required: false, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
         category_path(required: false, type: PropertyType.ArrayList, description: "Path of category")
@@ -164,7 +164,7 @@ tracks {
         item_title(required: true, type: PropertyType.String, description: "Item title")
         catalog_product_title(required: true, type: PropertyType.String, description: "Product title associated with an item")
         vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-        mercado_lider(required: true, type: PropertyType.Boolean, description: "Seller is mercadolider")
+        mercado_lider(required: false, type: PropertyType.Boolean, description: "Seller is mercadolider")
     }
 
     propertyGroups {
