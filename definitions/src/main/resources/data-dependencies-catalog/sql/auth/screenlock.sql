@@ -5,17 +5,93 @@ select
   application.business as business,
   flow_id,
   os_status,
-  count(distinct (case when path = '/screenlock/validation_start' then usr.user_id else null end)) as cant_validaciones_tot,
-  count(distinct (case when path = '/screenlock/validation_start' and enrollment_status = 'enabled' then usr.user_id else null end)) as cant_enabled,
-  count(distinct (case when path = '/screenlock/validation_end' and enrollment_status = 'enabled' and result = 'success' then usr.user_id else null end)) as cant_enabled_success,
-  count(distinct (case when flow_id = 'security-settings' and path = '/screenlock/validation_end' and result = 'success' and enrollment_status = 'disabled' and application.version < '2.99.0' then usr.user_id  else null end)) as cant_enrollments_legacy_android,
-  count(distinct (case when flow_id = 'security-settings' and path = '/screenlock/validation_end' and result = 'success' and enrollment_status = 'enabled' then usr.user_id  else null end)) as cant_enrollments,
-  count(distinct (case when flow_id = 'security-settings' and path = '/screenlock/validation_end' and result = 'success' and enrollment_status = 'enabled' and application.version < '2.99.0' then usr.user_id  else null end)) as cant_unenrollments_legacy_android,
-  count(distinct (case when flow_id = 'security-settings' and path = '/screenlock/validation_end' and result = 'success' and enrollment_status = 'disabled' then usr.user_id  else null end)) as cant_unenrollments,
-  count(distinct (case when flow_id is null and enrollment_status = 'enabled' then usr.user_id else null end)) as cant_enrollments_legacy_ios,
-  count(distinct (case when flow_id is null and enrollment_status = 'disabled' and path = '/screenlock/validation_end' and elapsed_time >= '1' then usr.user_id else null end)) as cant_unenrollments_legacy_ios,
-  count(distinct (case when path = '/security_settings' then usr.user_id else null end)) as cant_ss_views,
-  count(distinct (case when path = '/security_settings/screenlock' then usr.user_id else null end)) as cant_ss_biometrics_views,
+  count(distinct (
+    case
+      when path = '/screenlock/validation_start'
+          then usr.user_id
+          else null
+    end)) as cant_validaciones_tot,
+  count(distinct (
+    case
+      when path = '/screenlock/validation_start'
+        and enrollment_status = 'enabled'
+          then usr.user_id
+          else null
+    end)) as cant_enabled,
+  count(distinct (
+    case
+      when path = '/screenlock/validation_end'
+        and enrollment_status = 'enabled'
+        and result = 'success'
+          then usr.user_id
+          else null
+    end)) as cant_enabled_success,
+  count(distinct (
+    case
+      when flow_id = 'security-settings'
+        and path = '/screenlock/validation_end'
+        and result = 'success'
+        and enrollment_status = 'disabled'
+        and application.version < '2.99.0'
+          then usr.user_id
+          else null
+    end)) as cant_enrollments_legacy_android,
+  count(distinct (
+    case
+      when flow_id = 'security-settings'
+        and path = '/screenlock/validation_end'
+        and result = 'success'
+        and enrollment_status = 'enabled'
+          then usr.user_id
+          else null
+    end)) as cant_enrollments,
+  count(distinct (
+    case
+      when flow_id = 'security-settings'
+        and path = '/screenlock/validation_end'
+        and result = 'success'
+        and enrollment_status = 'enabled'
+        and application.version < '2.99.0'
+          then usr.user_id
+          else null
+    end)) as cant_unenrollments_legacy_android,
+  count(distinct (
+    case
+      when flow_id = 'security-settings'
+        and path = '/screenlock/validation_end'
+        and result = 'success'
+        and enrollment_status = 'disabled'
+          then usr.user_id
+          else null
+    end)) as cant_unenrollments,
+  count(distinct (
+    case
+      when flow_id is null
+        and enrollment_status = 'enabled'
+          then usr.user_id
+          else null
+    end)) as cant_enrollments_legacy_ios,
+  count(distinct (
+    case
+      when flow_id is null
+        and enrollment_status = 'disabled'
+        and path = '/screenlock/validation_end'
+        and elapsed_time >= '1'
+          then usr.user_id
+          else null
+    end)) as cant_unenrollments_legacy_ios,
+  count(distinct (
+    case
+      when path = '/security_settings'
+          then usr.user_id
+          else null
+    end)) as cant_ss_views,
+  count(distinct (
+    case
+      when path = '/security_settings/screenlock'
+          then usr.user_id
+          else null
+    end)) as cant_ss_biometrics_views,
   substr(ds, 1, 10) as ds
 from
    (
@@ -25,6 +101,9 @@ from
        usr,
        path,
        application,
+       split(application.version, '\\.')[0], as major,
+       split(application.version, '\\.')[1], as minor,
+       split(application.version, '\\.')[2], as patch,
        get_json_object(event_data, '$.flow_id') as flow_id,
        get_json_object(event_data, '$.enrollment_status') as enrollment_status,
        get_json_object(event_data, '$.result') as result,
@@ -42,7 +121,6 @@ from
          '/screenlock/validation_start',
          '/security_settings/screenlock/toggle'
        )
-       and application.version >= '2.93.0'
        and application.business = 'mercadopago'
        and application.site_id in ('MLA','MLM','MLB')
    ) t1
