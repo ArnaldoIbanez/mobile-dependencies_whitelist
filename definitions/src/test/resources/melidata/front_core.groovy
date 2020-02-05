@@ -673,6 +673,8 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="loyalty"
             component_id="user_loyalty"
+            level=4
+            percentage=0.32
         }
     }
 
@@ -1379,6 +1381,8 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="loyalty"
             component_id="user_loyalty"
+            level=4
+            percentage=0.32
         }
     }
 
