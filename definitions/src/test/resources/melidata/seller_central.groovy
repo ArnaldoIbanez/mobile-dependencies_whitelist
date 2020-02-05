@@ -1338,7 +1338,12 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
   test("seller central sales list view") {
-    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
+    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {
+        seller_profile = "ADVANCED"
+        seller_reputation = "5_green"
+        seller_segment = "MEDIUM_SELLERS_III"
+        mercado_lider = false
+    }
   }
 
   test("seller central sales onboarding action") {
@@ -1466,6 +1471,43 @@ trackTests {
     }
   }
 
+  test("Seller central sales excel snackbar") {
+    "/seller_central/sales/list/excel/snackbar"(platform: "/web", type: TrackType.Event) {
+      id = "ERROR"
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+    }
+  }
+
+
+  test("Seller Central sale excel generation") {
+    "/seller_central/sales/list/excel/generation"(platform: "/web", type: TrackType.Event) {
+      id = "SUCCESS"
+      time = 200
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+    }
+  }
+
+  test("Seller Central sale excel packs") {
+    "/seller_central/sales/list/excel/packs"(platform: "/web", type: TrackType.Event) {
+      total_sales = 150
+      total_rows = 200
+      total_error_rows = 5
+      total_error_cells = 5
+      total_packs = 2
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+    }
+  }
+
+
   test("seller central sales row open") {
     "/seller_central/sales/list/row/open"(platform: "/web", type: TrackType.Event) {}
   }
@@ -1479,6 +1521,11 @@ trackTests {
   test("seller central sales list primary action") {
     "/seller_central/sales/list/action/primary"(platform: "/web", type: TrackType.Event) {
       id = "action_id"
+      filters = ["active", "inactive"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
     }
   }
 
@@ -1777,19 +1824,19 @@ trackTests {
     "/seller_central/promotions/actions"(platform: "/web", type: TrackType.Event){
       action = "SAVE_PROMOTION"
       promotion = [
-      site_time_offset: 0,
-      start_date: "2019-09-18T03:00:00.000Z",
-      finish_date: "2019-10-05T02:59:00.000Z",
-      state: "started",
-      is_highlight: false,
-      price: 500,
-      prime_price: 400,
-      list_price: 1000,
-      error_price: null,
-      error_prime: null,
-      input_price: "500",
-      input_prime_price: "400",
-      type: "always_on",
+              site_time_offset: 0,
+              start_date: "2019-09-18T03:00:00.000Z",
+              finish_date: "2019-10-05T02:59:00.000Z",
+              state: "started",
+              is_highlight: false,
+              price: 500,
+              prime_price: 400,
+              list_price: 1000,
+              error_price: null,
+              error_prime: null,
+              input_price: "500",
+              input_prime_price: "400",
+              type: "always_on",
       ]
       promotion_duration = 17
     }

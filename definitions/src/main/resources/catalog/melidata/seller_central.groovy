@@ -126,6 +126,7 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
         seller_profile(required: false, type: PropertyType.String, description: "Type of seller")
         seller_reputation(required: true, type: PropertyType.String, description: "Reputation of the seller")
+        seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
         category_path(required: false, type: PropertyType.ArrayList, description: "Path of category")
@@ -163,6 +164,7 @@ tracks {
         item_title(required: true, type: PropertyType.String, description: "Item title")
         catalog_product_title(required: true, type: PropertyType.String, description: "Product title associated with an item")
         vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        mercado_lider(required: true, type: PropertyType.Boolean, description: "Seller is mercadolider")
     }
 
     propertyGroups {
@@ -178,6 +180,8 @@ tracks {
         sellerCentralCatalogOptinTaskGroup(task_id, to, from)
 
         sellerCentralCatalogBoostGroup(item_attributes, catalog_product_attributes, item_title, catalog_product_title)
+
+        sellerCentralUserSales(seller_profile, seller_reputation, mercado_lider, seller_segment)
     }
 
     //LISTING SECTION
@@ -785,32 +789,34 @@ tracks {
 
     "/seller_central/sales"(platform: "/", isAbstract: true) {}
 
-    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
+    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {
+        sellerCentralUserSales
+    }
 
-    "/seller_central/sales/list/onboarding"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/onboarding"(platform: "/", isAbstract: true, parentPropertiesInherited: false) {}
     "/seller_central/sales/list/onboarding/action"(platform: "/", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "start"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
     }
 
-    "/seller_central/sales/list/onboarding/massive"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/onboarding/massive"(platform: "/", isAbstract: true,  parentPropertiesInherited: false) {}
     "/seller_central/sales/list/onboarding/massive/confirm"(platform: "/", type: TrackType.Event) {}
     "/seller_central/sales/list/onboarding/massive/close"(platform: "/", type: TrackType.Event) {}
 
-    "/seller_central/sales/list/nfe_onboarding"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/nfe_onboarding"(platform: "/", isAbstract: true, parentPropertiesInherited:false) {}
     "/seller_central/sales/list/nfe_onboarding/action"(platform: "/", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "start"])
         page(required: false, type: PropertyType.Numeric, description: "Page number")
     }
 
-    "/seller_central/sales/list/search"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/sales/list/search"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
-    "/seller_central/sales/list/pagination"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/sales/list/pagination"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         page(required: true, type: PropertyType.Numeric, description: "Page number")
         total(required: true, type: PropertyType.Numeric, description: "Total pages number")
     }
 
-    "/seller_central/sales/list/modal_action"(platform: "/web", isAbstract: true) {
+    "/seller_central/sales/list/modal_action"(platform: "/web", isAbstract: true, parentPropertiesInherited: false) {
         id(required: true, type: PropertyType.String, description: "Action id")
     }
     "/seller_central/sales/list/modal_action/open"(platform: "/web", type: TrackType.Event) {}
@@ -819,7 +825,7 @@ tracks {
         option(required: false, type: PropertyType.String, description: "Option selected")
     }
 
-    "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true) {}
+    "/seller_central/sales/list/dashboard"(platform: "/", isAbstract: true, parentPropertiesInherited: false) {}
     "/seller_central/sales/list/dashboard/open"(platform: "/web", type: TrackType.Event) {
         substates(required: true, type: PropertyType.ArrayList, description: "List of available tasks")
     }
@@ -834,27 +840,57 @@ tracks {
         count(required: true, type: PropertyType.Numeric, description: "Task count")
     }
 
-    "/seller_central/sales/list/filters"(platform: "/mobile", type: TrackType.View) {}
-    "/seller_central/sales/list/filters/open"(platform: "/web", type: TrackType.Event) {}
-    "/seller_central/sales/list/filters/action"(platform: "/", type: TrackType.Event) {
+    "/seller_central/sales/list/filters"(platform: "/mobile", type: TrackType.View, parentPropertiesInherited: false) {}
+    "/seller_central/sales/list/filters/open"(platform: "/web", type: TrackType.Event,  parentPropertiesInherited: false) {}
+    "/seller_central/sales/list/filters/action"(platform: "/", type: TrackType.Event,  parentPropertiesInherited: false) {
         id(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
         filters(required: false, type: PropertyType.ArrayList, description: "List of applied filters")
         sort(required: false, type: PropertyType.String, description: "Sort id")
     }
 
-    "/seller_central/sales/list/massive"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/sales/list/massive"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         id(required: true, type: PropertyType.String, description: "Action id")
         count(required: true, type: PropertyType.Numeric, description: "Sale rows count")
     }
 
-    "/seller_central/sales/list/row"(platform: "/web", isAbstract: true) {}
-    "/seller_central/sales/list/row/open"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/sales/list/excel"(platform: "/", isAbstract: true) {}
 
-    "/seller_central/sales/list/action"(platform: "/web", isAbstract: true) {
+    "/seller_central/sales/list/excel/snackbar"(platform: "/web", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Action id")
     }
-    "/seller_central/sales/list/action/primary"(platform: "/web", type: TrackType.Event) {}
-    "/seller_central/sales/list/action/primary/show"(platform: "/web", type: TrackType.Event) {}
+
+
+    "/seller_central/sales/list/excel/generation"(platform: "/web", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+        time(required: true, type: PropertyType.Numeric, description: "How much time does it takes to generate the excel")
+    }
+
+    "/seller_central/sales/list/excel/packs"(platform: "/web", type: TrackType.Event) {
+        total_sales(required: true, type: PropertyType.Numeric, description: "Sales quantity")
+        total_rows(required: true, type: PropertyType.Numeric, description: "Rows quantity")
+        total_error_rows(required: true, type: PropertyType.Numeric, description: "Rows error quantity")
+        total_error_cells(required: true, type: PropertyType.Numeric, description: "Cell error quantity")
+        total_packs(required: true, type: PropertyType.Numeric, description: "Packs quantityy")
+    }
+
+
+    "/seller_central/sales/list/row"(platform: "/web", isAbstract: true, parentPropertiesInherited: false) {}
+    "/seller_central/sales/list/row/open"(platform: "/web", type: TrackType.Event) {}
+
+    "/seller_central/sales/list/action"(platform: "/web", isAbstract: true, parentPropertiesInherited: false) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+    }
+    "/seller_central/sales/list/action/primary"(platform: "/web", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+        filters(required: false, type: PropertyType.ArrayList, description: "List of applied filters")
+        sellerCentralUserSales
+
+
+    }
+    "/seller_central/sales/list/action/primary/show"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false ) {
+        id(required: true, type: PropertyType.String, description: "Action id")
+    }
+
     "/seller_central/sales/list/action/secondary"(platform: "/web", type: TrackType.Event) {}
 
     "/seller_central/sales/detail"(platform: "/", type: TrackType.View) {}
@@ -864,7 +900,9 @@ tracks {
     "/seller_central/sales/detail/action"(platform: "/web", isAbstract: true) {
         id(required: true, type: PropertyType.String, description: "Action id")
     }
-    "/seller_central/sales/detail/action/primary"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/sales/detail/action/primary"(platform: "/web", type: TrackType.Event) {
+
+    }
     "/seller_central/sales/detail/action/primary/show"(platform: "/web", type: TrackType.Event) {}
     "/seller_central/sales/detail/action/secondary"(platform: "/web", type: TrackType.Event) {}
     "/seller_central/sales/detail/action/print"(platform: "/web", parentPropertiesInherited:false, type: TrackType.Event) {}
