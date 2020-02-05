@@ -393,7 +393,10 @@ tracks {
 
     "/wallet_home/section/tap/discount_center" (platform: "/mobile", type: TrackType.Event){}
 
-    "/wallet_home/section/tap/loyalty" (platform: "/mobile", type: TrackType.Event) {}
+    "/wallet_home/section/tap/loyalty" (platform: "/mobile", type: TrackType.Event) {
+        level(type: PropertyType.Numeric, required: true, description: "The user's loyalty level")
+        percentage(type: PropertyType.Numeric, required: true, description: "The user's loyalty level percentage")
+    }
 
     "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {}
 
