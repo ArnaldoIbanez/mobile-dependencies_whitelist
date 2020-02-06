@@ -508,7 +508,7 @@ tracks {
     "/instore/buyer_qr/landing/account_money_only"(platform: "/mobile", type: TrackType.View) {}
 
     "/instore/buyer_qr/landing/insufficient_money_change_payment_method"(platform: "/mobile", type: TrackType.View) {
-        collector_id(required: false, PropertyType.Long, description: "Collector's identifier")
+        collector_id(required: false, PropertyType.Numeric, description: "Collector's identifier")
         collector_name(required: false, PropertyType.String, description: "Collector's name")
         item_amount(required: false, PropertyType.String, description: "Item's value in local currency")
         payment_method_id(required: false, PropertyType.String, description: "Payment method id (visa, masterCard, account_money, etc")
@@ -516,12 +516,12 @@ tracks {
         payment_id(required: true, PropertyType.String, description: "Payment's identifier")
         amount_paid(required: true, PropertyType.String, description: "Paid amount in local currency")
         currency_id(required: true, PropertyType.String, description: "Currency identifier")
-        payment_date(required: true, PropertyType.Long, description: "Date of the payment")
+        payment_date(required: true, PropertyType.Numeric, description: "Date of the payment")
         status(required: true, PropertyType.String)
     }
 
     "/instore/buyer_qr/landing/insufficient_money_add_card"(platform: "/mobile", type: TrackType.View) {
-        collector_id(required: false, PropertyType.Long, description: "Collector's identifier")
+        collector_id(required: false, PropertyType.Numeric, description: "Collector's identifier")
         collector_name(required: false, PropertyType.String, description: "Collector's name")
         item_amount(required: false, PropertyType.String, description: "Item's value in local currency")
         payment_method_id(required: false, PropertyType.String, description: "Payment method id (visa, masterCard, account_money, etc")
@@ -529,7 +529,7 @@ tracks {
         payment_id(required: true, PropertyType.String, description: "Payment's identifier")
         amount_paid(required: true, PropertyType.String, description: "Paid amount in local currency")
         currency_id(required: true, PropertyType.String, description: "Currency identifier")
-        payment_date(required: true, PropertyType.Long, description: "Date of the payment")
+        payment_date(required: true, PropertyType.Numeric, description: "Date of the payment")
         status(required: true, PropertyType.String)
     }
 
