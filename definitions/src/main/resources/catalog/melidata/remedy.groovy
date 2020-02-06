@@ -6,6 +6,19 @@ tracks {
 
     "/remedy"(platform: "/", isAbstract: true) {}
 
+    // Challenges v2
+    "/remedy/challenge"(platform: "/", type: TrackType.View) {
+        id (required: true, type: PropertyType.String, description: "The challenge name")
+        process_id (required: true, type: PropertyType.String, description: "The initiative")
+        callback (required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
+    }
+
+    "/remedy/challenge/start"(platform: "/", type: TrackType.Event) {}
+    "/remedy/challenge/send"(platform: "/", type: TrackType.Event) {}
+    "/remedy/challenge/success"(platform: "/", type: TrackType.Event) {}
+    "/remedy/challenge/fail"(platform: "/", type: TrackType.Event) {}
+    "/remedy/challenge/retry"(platform: "/", type: TrackType.Event) {}
+
     // Challenges
     "/remedy/challenge_pep"(platform: "/", type: TrackType.View) {}
     "/remedy/challenge_fatca"(platform: "/", type: TrackType.View) {}
@@ -46,11 +59,10 @@ tracks {
     "/remedy/challenge_activity"(platform: "/", type: TrackType.View) {}
     "/remedy/challenge_proof_of_address"(platform: "/", type: TrackType.View) {}
     "/remedy/challenge_death"(platform: "/", type: TrackType.View) {}
+    "/remedy/identity_handler"(platform: "/", type: TrackType.View) {}
+    "/remedy/challenge_under_age"(platform: "/", type: TrackType.View) {}
 
-    "/remedy/identity_handler"(platform: "/", type: TrackType.Event) {
-        remedy_id (required: true, type: PropertyType.String)
-        status (required: false, type: PropertyType.String)
-    }
+    "/remedy/identity_handler"(platform: "/", type: TrackType.Event) {}
 
     // WebView events
     "/remedy/url_external"(platform: "/", type: TrackType.Event) {
@@ -69,5 +81,6 @@ tracks {
         label (required: false, type: PropertyType.String, description: "The label attached to the current event")
         verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
     }
+
     "/remedy/profile"(platform: "/", type: TrackType.Event) {}
 }

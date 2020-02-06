@@ -1,7 +1,6 @@
 package src.test.resources.melidata
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-import com.ml.melidata.TrackType;
 
 trackTests {
     defaultBusiness = "mercadopago"
@@ -10,9 +9,7 @@ trackTests {
 
         def defaultProperties = {
             checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
-            collector_nickname = "DUMMY_SELLER"
             product_id = "BC32A4JU643001OI3920"
-            site = "MLA"
             productive = true
             preference_id = "123456-ef5abdf8-6c2f-4f3e-a0b9-56a824203e61"
             operation_type = "regular_payment"
@@ -24,21 +21,25 @@ trackTests {
             payment_quantity = 1
             collector_id = 1010101001
             available_methods = ["credit_card", "account_money"]
+            payment_amount_local = 100.00
+            flow_context = "init"
+            flow_type = "card_express"
         }
 
         def finishDefaultProperties = {
             payment_installments = 3
             payment_status_detail = "accredited"
             payment_status = "approved"
+            payment_id = "5408994392"
         }
 
         def onlyRequiredProperties = {
             checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
             product_id = "BC32A4JU643001OI3920"
-            site = "MLA"
             productive = true
             is_split = false
             payment_quantity = 1
+            payment_amount_local = 100.00
         }
 
         def finishOnlyRequiredProperties = {
@@ -260,6 +261,16 @@ trackTests {
         "/checkout_off/congrats/call_for_auth/input_code"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
+        }
+
+        // Properties not necessary but minimum
+        "/checkout_off/error"(platform: "/web/mobile") {
+            product_id = "BC32A4JU643001OI3920"
+            productive = true
+        }
+
+        // Properties not necessary
+        "/checkout_off/error"(platform: "/web/mobile") {
         }
     }
 }

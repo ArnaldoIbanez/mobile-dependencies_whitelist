@@ -34,7 +34,6 @@ tracks {
     "/collaborators_admin/roles/"(platform:"/", isAbstract: true, parentPropertiesInherited: false) {}
 
     "/collaborators_admin/roles/create"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
-        email(required: true, type: PropertyType.String, description: 'Email of the new operator.')
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
@@ -58,4 +57,19 @@ tracks {
 
     "/collaborators/contact_owner"(platform:"/", type: TrackType.View) {}
 
+    "/collaborators/scopes"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {}
+
+    "/collaborators/scopes/detail"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+        scope(required: true, type: PropertyType.String, description: 'Indicates the scope that this view must show.')
+    }
+
+    "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    "/collaborators/role"(platform:"/", isAbstract: true, parentPropertiesInherited: false) {}
+
+    "/collaborators/role/name"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {}
+
+    "/collaborators/role/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+    	type(required: true, type: PropertyType.String, description: 'Indicates the result of the congrats.')
+    }
 }

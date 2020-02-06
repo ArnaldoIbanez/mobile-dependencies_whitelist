@@ -17,7 +17,7 @@ tracks {
 
     propertyGroups {
         quotationDetails(seller_id, category_id, vertical, error_type, model_id, unit_id)
-        quotationUnregistered(item_id, source)
+        quotationEventData(item_id, source)
     }
     //TODO: Se agregaron al catálogo unos fix con los datos que hoy mandan las apis y los fronts, como estos van a ser refactorizados, queda pendiente volver a ajustar este catálogo y dejarlo con la info correcta.
 
@@ -25,6 +25,8 @@ tracks {
     "/quotation"(platform: "/", isAbstract: true) {}
     "/quotation/unregistered"(platform: "/", isAbstract: true) {}
     "/quotation/unregistered_form"(platform: "/", isAbstract: true) {}
+    "/quotation/modal"(platform: "/", isAbstract: true) {}
+    "/quotation/models"(platform: "/", isAbstract: true) {}
 
     //Quotation :: Details
     "/quotation/details"(platform: "/") {
@@ -57,13 +59,17 @@ tracks {
     "/quotation/gallery"(platform: "/mobile") { }
 
     // Quotation :: Models
-    "/quotation/models"(platform: "/mobile") {
+    "/quotation/models"(platform: "/") {
         item_id(required: true, type:PropertyType.String, description: "Item id")
         model_id(required: false, type:PropertyType.String, description: "Model id")
     }
 
+    "/quotation/models/scroll"(platform: "/web") {
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+    }
+
     //Quotation :: Units
-    "/quotation/units"(platform: "/mobile") {
+    "/quotation/units"(platform: "/") {
         item_id(required: true, type:PropertyType.String, description: "Item id")
         unit_id(required: false, type:PropertyType.String, description: "Unit id")
     }
@@ -152,11 +158,15 @@ tracks {
     }
 
     "/quotation/unregistered/quote_intention"(platform: "/web", type: TrackType.Event) {
-        quotationUnregistered
+        quotationEventData
     }
 
     "/quotation/unregistered/edit_info"(platform: "/web", type: TrackType.Event) {
-        quotationUnregistered
+        quotationEventData
+    }
+
+    "/quotation/modal/close"(platform: "/web", type: TrackType.Event) {
+        quotationEventData
     }
 
 }

@@ -7,6 +7,113 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
+    test("Merchant Credits Enrollment Mobile") {
+
+        //Onboarding
+        "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
+            offer = [
+                segment : 'online',
+                offer_type : 'early_offer'
+            ]
+            product_types = ['sales_percentage_loan']
+        }
+        "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
+            offer = [
+                segment : 'online'
+            ]
+            product_types = ['fixed_term_loan']
+        }
+        "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
+            offer = [
+                offer_type : 'early_offer'
+            ]
+            product_types = ['sales_percentage_loan', 'fixed_term_loan']
+        }
+
+        //Hub
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer = [
+                segment : 'online',
+                offer_type : 'early_offer'
+            ]
+            product_types = ['sales_percentage_loan']
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer = [
+                segment : 'online'
+            ]
+            product_types = ['fixed_term_loan']
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer = [
+                offer_type : 'early_offer'
+            ]
+            product_types = ['sales_percentage_loan', 'fixed_term_loan']
+        }
+
+        //Simulator
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            offer = [
+                segment : 'online',
+                offer_type : 'early_offer'
+            ]
+            product_type = 'sales_percentage_loan'
+            variant = 'fixed_amount'
+        }
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            offer = [
+                segment : 'online'
+            ]
+            product_type = 'fixed_term_loan'
+            variant = 'fixed'
+        }
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            offer = [
+                offer_type: 'early_offer'
+            ]
+            product_type = 'sales_percentage_loan'
+            variant = 'normal'
+        }
+
+        //Summary
+        "/credits/merchant/enrollment/summary"(platform: "/mobile/android") {
+            requested_amount = 10000
+            max_amount = 20000
+            min_amount = 5000
+            max_option = 12
+            option = 12
+            product_type = 'fixed_term_loan'
+        }
+        "/credits/merchant/enrollment/summary"(platform: "/mobile/android") {
+            requested_amount = 10000
+            max_amount = 10000
+            min_amount = 10000
+            max_option = 120030
+            option = 30
+            product_type = 'sales_percentage_loan'
+        }
+
+        //Congrats
+        "/credits/merchant/enrollment/congrats"(platform: "/mobile/android") {
+            requested_amount = 10000
+            max_amount = 20000
+            min_amount = 5000
+            max_option = 12
+            option = 12
+            product_type = 'fixed_term_loan'
+            has_prepaid = true
+        }
+        "/credits/merchant/enrollment/congrats"(platform: "/mobile/android") {
+            requested_amount = 10000
+            max_amount = 10000
+            min_amount = 10000
+            max_option = 120030
+            option = 30
+            product_type = 'sales_percentage_loan'
+            has_prepaid = false
+        }
+    }
+
     test("Merchant Credits Enrollment") {
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'pending'
@@ -23,6 +130,19 @@ trackTests {
             sub_status = 'review_pending'
             product_type = 'point'
             is_capped_offer= false
+        }
+        "/credits/merchant/enrollment"(platform: "/web/desktop") {
+            offer = [
+                segment : 'online',
+                offer_type : 'early_offer',
+                is_capped_offer: false
+            ]
+            product_types = [
+                [
+                    product_type: 'sales_percentage_loan',
+                    variant: 'normal'
+                ]
+            ]
         }
         "/credits/merchant/enrollment/without_proposal"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/confirmation"(platform: "/web/desktop") {
@@ -68,6 +188,44 @@ trackTests {
             reason = 'capped'
         }
         "/credits/merchant/enrollment/feedback/error"(platform: "/web/desktop") {}
+
+        //Summary
+        "/credits/merchant/enrollment/summary"(platform: "/web/desktop") {
+            requested_amount = 10000
+            max_amount = 20000
+            min_amount = 5000
+            max_option = 12
+            option = 12
+            product_type = 'fixed_term_loan'
+        }
+        "/credits/merchant/enrollment/summary"(platform: "/web/desktop") {
+            requested_amount = 10000
+            max_amount = 10000
+            min_amount = 10000
+            max_option = 120030
+            option = 30
+            product_type = 'sales_percentage_loan'
+        }
+
+        //Congrats
+        "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {
+            requested_amount = 10000
+            max_amount = 20000
+            min_amount = 5000
+            max_option = 12
+            option = 12
+            product_type = 'fixed_term_loan'
+            has_prepaid = true
+        }
+        "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {
+            requested_amount = 10000
+            max_amount = 10000
+            min_amount = 10000
+            max_option = 120030
+            option = 30
+            product_type = 'sales_percentage_loan'
+            has_prepaid = false
+        }
     }
 
     test("Merchant Credits Administrator") {
@@ -89,6 +247,16 @@ trackTests {
             ]
         }
 
+        def sales_percentage_map = {
+            [
+                product_type: 'fixed_term',
+                segment: 'online',
+                category: 'regular',
+                offer_type: 'early_offer',
+                status: 'on_time'
+            ]
+        }
+
         def express_money = {
             product_type = 'express_money'
             segment = 'online'
@@ -101,7 +269,7 @@ trackTests {
             offer_type = 'early_offer'
             status = 'overdue'
         }
-        
+
         def sales_percentage = {
             product_type = 'sales_percentage'
             segment = 'in_store'
@@ -110,6 +278,13 @@ trackTests {
 
         def sales_percentage_on_time = {
             product_type = 'sales_percentage'
+            segment = 'in_store'
+            offer_type = 'full_offer'
+            status = 'on_time'
+        }
+
+        def sales_percentage_loan_on_time = {
+            product_type = 'sales_percentage_loan'
             segment = 'in_store'
             offer_type = 'full_offer'
             status = 'on_time'
@@ -124,6 +299,14 @@ trackTests {
 
         def fixed_term_on_time = {
             product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+            status = 'on_time'
+        }
+
+        def fixed_term_loan_on_time = {
+            product_type = 'fixed_term_loan'
             segment = 'online'
             category = 'regular'
             offer_type = 'early_offer'
@@ -149,6 +332,13 @@ trackTests {
             ]
             show_cx_widget = true
         })
+
+        "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {}
+
+        "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {
+            sales_percentage_map()
+        }
+
         "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
 
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
@@ -165,41 +355,69 @@ trackTests {
             fixed_term_on_time()
         }
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             express_money_overdue()
         }
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             sales_percentage_on_time()
         }
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             fixed_term_on_time()
         }
-        
+        "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             fixed_term_on_time()
         }
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             express_money_overdue()
         }
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             sales_percentage_on_time()
         }
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
         }
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
             fixed_term_on_time()
         }
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
             express_money_overdue()
         }
         "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
             sales_percentage_on_time()
         }
+        "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
+        }
 
         "/credits/merchant/administrator/history"(platform: "/web/desktop") {}
-        
+
+        "/credits/merchant/administrator/payment_history"(platform: "/web/desktop") {
+            sales_percentage_map()
+        }
+
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
             fixed_term()
@@ -207,7 +425,7 @@ trackTests {
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
             express_money()
         }
-        
+
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
             fixed_term()
@@ -215,7 +433,7 @@ trackTests {
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
             express_money()
         }
-        
+
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'insufficient_account_money'
         }
@@ -308,34 +526,40 @@ trackTests {
         "/credits/express_money/summary"(platform: "/web/desktop") {
             requested_amount = 700
             max_amount = 1000
+			min_amount = 500
         }
 
         "/credits/express_money/summary"(platform: "/mobile/android") {
             requested_amount = 700
             max_amount = 1000
+            min_amount = 500
         }
 
         "/credits/express_money/congrats"(platform: "/web/desktop") {
             requested_amount = 700
             max_amount = 1000
+            min_amount = 500
             has_prepaid = true
         }
 
         "/credits/express_money/congrats"(platform: "/mobile/android") {
             requested_amount = 700
             max_amount = 1000
+            min_amount = 500
             has_prepaid = true
         }
 
         "/credits/express_money/congrats"(platform: "/web/desktop") {
             requested_amount = 700
             max_amount = 1000
+            min_amount = 500
             has_prepaid = false
         }
 
         "/credits/express_money/congrats"(platform: "/mobile/android") {
             requested_amount = 700
             max_amount = 1000
+            min_amount = 500
             has_prepaid = false
         }
 
@@ -389,6 +613,10 @@ trackTests {
         "/credits/merchant/public_landing"(platform: "/web/desktop") {
             user_profile = 'no_offer'
         }
+
+        "/credits/merchant/declarative_form"(platform:"/web/desktop", type: TrackType.View) {}
+
+        "/credits/merchant/declarative_form/congrats"(platform:"/web/desktop", type: TrackType.View) {}
     }
 
     test('Merchant Collection') {

@@ -16,6 +16,14 @@ tracks {
     "/wallet/cards"(platform: "/", type: TrackType.View) {} 
     "/wallet/cards/prepaid"(platform: "/", type: TrackType.View) {} 
 
+    "/wallet/cards/activation_modal"(platform: "/", isAbstract: true){}
+    "/wallet/cards/activation_modal/activation"(platform: "/", type: TrackType.View) {}
+
+    "/wallet/cards/activation_modal/close"(platform: "/", type: TrackType.Event) {} 
+    "/wallet/cards/activation_modal/activate_card"(platform: "/", type: TrackType.Event) {} 
+    "/wallet/cards/activation_modal/not_receive_card"(platform: "/", type: TrackType.Event) {} 
+
+
     "/prepaid"(platform: "/", isAbstract: true) {
         user_profile(
             required: false,
@@ -75,6 +83,7 @@ tracks {
         current_balance_amount (required:false, type: PropertyType.String, description: "Current balance amount")
         needed_funding_amount (required:false, type: PropertyType.Numeric, description: "User needs fund money to continue")
         has_money (required:false, type: PropertyType.Boolean, description: "User already has money")
+        pending_ticket (required:false, type: PropertyType.Boolean, description: "User has a pending ticket")
     }
 
     "/prepaid/acquisition/change_dni"(platform: "/", type: TrackType.View) {}
@@ -179,6 +188,9 @@ tracks {
     "/prepaid/activation/last_digits"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/marital_status"(platform: "/", type: TrackType.View) {}
     "/prepaid/activation/congrats"(platform: "/", type: TrackType.View) {}
+    "/prepaid/activation/congrats/change_pin_tap"(platform: "/", type: TrackType.Event) {}
+    "/prepaid/activation/congrats/home_tap"(platform: "/", type: TrackType.Event) {}
+    "/prepaid/activation/congrats/add_money_tap"(platform: "/", type: TrackType.Event) {}
     "/prepaid/activation/error"(platform: "/", type: TrackType.View) {
         error_type(
             required: true, 
@@ -194,7 +206,7 @@ tracks {
         status(
             required: true,
             type: PropertyType.String,
-            values: ["on_track", "delayed", "to_collect", "not_delivered", "soon_deliver"],
+            values: ["on_track", "delayed", "to_collect", "not_delivered", "soon_deliver", "reprogrammed"],
             description: "Shipment tracking status."
         )
     }
@@ -212,8 +224,11 @@ tracks {
         )
     }
 
-    "/prepaid/block_view" (platform: "/mobile", type: TrackType.View) {}
-    "/prepaid/block_view/cta"(platform:"/mobile", type: TrackType.Event) {}
+    "/prepaid/update_app" (platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/ask_from_app" (platform: "/", type: TrackType.View) {}
+    "/prepaid/update_app/cta"(platform:"/mobile", type: TrackType.Event) {}
+    "/prepaid/acquisition/sellers_landing"(platform: "/", isAbstract: true) {}
+    "/prepaid/acquisition/sellers_landing/store_button"(platform:"/", type: TrackType.Event) { }
 
     // Prepaid Detail
     "/wallet/cards/prepaid/detail" (platform: "/", type: TrackType.View) {}
@@ -251,11 +266,14 @@ tracks {
     "/prepaid/faq/detail" (platform: "/", type: TrackType.View) {}
     "/prepaid/faq/detail/payment_rejected" (platform: "/", type: TrackType.View) {}
     "/prepaid/faq/detail/extraction_rejected" (platform: "/", type: TrackType.View) {}
+    "/prepaid/faq/detail/rejected_international_authorization" (platform: "/", type: TrackType.View) {}
 
     //Prepaid FAQ Details Events
     "/prepaid/faq/detail/payment_rejected/money_in" (platform: "/", type: TrackType.Event) {}
     "/prepaid/faq/detail/payment_rejected/reissue" (platform: "/", type: TrackType.Event) {}
     "/prepaid/faq/detail/extraction_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+    "/prepaid/faq/detail/rejected_international_authorization/money_in" (platform: "/", type: TrackType.Event) {}
+    "/prepaid/faq/detail/rejected_international_authorization/reissue" (platform: "/", type: TrackType.Event) {}
     
     //-----------------
     // PREPAID MLM

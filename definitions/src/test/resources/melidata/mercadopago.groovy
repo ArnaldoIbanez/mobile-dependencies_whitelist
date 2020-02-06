@@ -444,6 +444,29 @@ trackTests {
             register_type = "company"
         }
 
+        "/register/form/google_hint/show"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+
+        "/register/form/google_hint/select"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+
+        "/register/form/google_autofill/show"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+
+        "/register/form/google_autofill/select"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
     }
 
     test("Company Registration Desktop") {
@@ -465,6 +488,104 @@ trackTests {
 
         "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
             error_type = "connectionError/invalidOneTimePassword/operatorNotSupported"
+        }
+    }
+
+    test("Phone registration") {
+        "/register/phone_registration/get_phone"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/get_phone/error"(platform: "/mobile") {
+            app = "mp"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'identification_phone'
+                    ]
+            ]
+        }
+
+        "/register/phone_registration/additional_data"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/additional_data/error"(platform: "/mobile") {
+            app = "mp"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'first_name'
+                    ]
+            ]
+        }
+
+        "/register/phone_registration/get_email"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/get_email/error"(platform: "/mobile") {
+            app = "mp"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'email'
+                    ]
+            ]
+        }
+
+        "/register/phone_registration/verification"(platform: "/mobile") {
+            app = "mp"
+            channel = "sms"
+        }
+
+        "/register/phone_registration/verification/error"(platform: "/mobile") {
+            app = "mp"
+            channel = "sms"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'verification_code'
+                    ]
+            ]
+        }
+
+        "/register/phone_registration/phone_already_registered"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/send_code"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/resend_code"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/email_link"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/verification/autodetect_code"(platform: "/mobile") {
+            app = "mp"
+            channel = "sms"
+        }
+
+        "/register/phone_registration/sign_in"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/create_account"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/success"(platform:"/mobile") {
+            app = "mp"
+            source = "phone"
         }
     }
 
@@ -492,8 +613,6 @@ trackTests {
 
     test("Landing mercadopago sellers mss click event") {
         "/landing/sellers/mss/click" (platform: "/web") {
-            id = "dzero"
-            label = "test label"
             page_name = "dzero"
         }
     }
@@ -541,65 +660,91 @@ trackTests {
           is_guest = true
           has_coupon = true
           coupon_code = "GHZM"
+          user_id = 5010815
         }
 
-        "/point/buyingflow/shippingOptions"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
-        "/point/buyingflow/newAddress"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/new_address"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
-
-        "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
+        
+        "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
+        "/point/buyingflow/payment_installments"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_installments/installments"(platform: "/", type: TrackType.Event) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentCardSecurityCode"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_new_card"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentReview"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_card_security_code"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          user_id = 5010815
+        }
+
+        "/point/buyingflow/payment_bank_selector"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          user_id = 5010815
+        }
+
+        "/point/buyingflow/payment_review"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -608,9 +753,10 @@ trackTests {
           selected_payment_method_id = "tarshop"
           selected_payment_method_type = "credit_card"
           installments = 6
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentRejected"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_rejected"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -619,19 +765,26 @@ trackTests {
           selected_payment_method_id = "tarshop"
           selected_payment_method_type = "credit_card"
           installments = 6
+          user_id = 5010815
         }
         
         "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          type = "error: Session ended"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          error_code = 6
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
+        "/point/buyingflow/payment_review/confirm_purchase"(platform: "/", type: TrackType.Event) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
     }
 
@@ -748,11 +901,52 @@ trackTests {
     }
 
     test("MP Micrositio Reseller") {
-        "/merchant_acquisition/flows/resellers"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/sales"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/benefits"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/metrics"(platform: "/", type: TrackType.View) {}
-        "/merchant_acquisition/flows/resellers/after_sales"(platform: "/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/bundles"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/bundles/share"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/bundles/click"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/bundles/open"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/bundles/close"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/mgm"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/mgm/click"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/mgm/share"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/mgm/open"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/mgm/close"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/dashboard"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/dashboard/click"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/share"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/open"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/close"(platform:"/", type: TrackType.View) {
+      page_resource = 'device-item'
+    }
+    "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/associate_device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/individual"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/bundle"(platform:"/", type: TrackType.View) {}
     }
 
     test("// Associar Point - Micrositio - reseller") {
@@ -770,6 +964,13 @@ trackTests {
         "/merchant_acquisition/flows/qr-point-assignment/congrats"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/qr-point-assignment/error"(platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/flows/qr-point-assignment/unauthorized"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Fluxo de reversa Point - autogeração de etiqueta") {
+        "/merchant_acquisition/flows/point_reverse"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/info"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/address"(platform: "/", type: TrackType.View) {}
+        "/merchant_acquisition/flows/point_reverse/success"(platform: "/", type: TrackType.View) {}
     }
 
     test("MP-MA Flow QR") {
@@ -1064,6 +1265,70 @@ trackTests {
         }
     }
 
+    test("Services Marketing landings") {
+        "/services/mkt_landing"(platform: "/web"){
+            campaign = "generic"
+        }
+        "/services/mkt_landing"(platform: "/web"){
+            campaign = "personal"
+        }
+        "/services/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/services/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/services/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/services/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+        "/services/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "footer"
+        } 
+    }
+
+    test("QR Payers Marketing landings") {
+        "/qr_payers/mkt_landing"(platform: "/web"){
+            campaign = "generic"
+        }
+        "/qr_payers/mkt_landing"(platform: "/web"){
+            campaign = "personal"
+        }
+        "/qr_payers/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+        "/qr_payers/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "footer"
+        } 
+    }
+
     test("MP MLA/MLB/MLM Landing Bundles Point") {
         "/point/landings/landing_bundles_buy"(platform: "/", type: TrackType.Event) {
             quantity = 5
@@ -1087,6 +1352,12 @@ trackTests {
       "/point/landings/mgm/tyc"(platform:"/", type: TrackType.Event) {
           product = "mgm"
       }
+    }
+
+    test("Landing MercadoPago Point Resellers Form") {
+      "/point/landings/reseller"(platform:"/", type: TrackType.Event) {
+           product = "become_reseller"
+       }
     }
 
     // MPMOBILE TEST
@@ -1977,6 +2248,18 @@ trackTests {
         }
     }
 
+    test("MGM Navigation") {
+        "/mgm/navigation" (platform: "/mobile", type: TrackType.Event) {
+            realestates = [
+                    [
+                            "content_id": "drawer_mgm_seller_mp",
+                            "origin": "user_journey",
+                            "realestate_id": "drawer_mgm"
+                    ]
+            ]
+        }
+    }
+
     test("Digital Goods") {
         "/digital_goods/list"(platform: "/mobile") {
             flow = "/digital_goods"
@@ -2534,6 +2817,36 @@ trackTests {
             flow = "/withdraw"
             from = "/deep_link"
         }
+        "/withdraw/main"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/confirmation"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/make_withdraw"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/add_account"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/congrats"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/error/generic_error"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/error/withdraw_failed"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/error/high_risk"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/error/uif"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/delay/manual_review"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/delay/offline"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/uif_change_account"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/restriction"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
+        "/withdraw/delay"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}            
+         "/withdraw/error"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}          
     }
 
     test("Withdraw_advance") {
@@ -2551,6 +2864,16 @@ trackTests {
             result_status = "rejected"
             status_detail = "internal_server_error"
         }
+    }
+
+    test("Withdraw_delete_account") {
+        "/withdraw/select_bank"(platform:"/mobile"){ flow = "/withdraw" }
+        "/withdraw/select_bank/delete_account_modal"(platform:"/mobile", type: TrackType.View){ flow = "/withdraw" }    
+        "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/mobile", type: TrackType.Event){
+            bank_account_id = "1234523"
+            flow = "/withdraw"
+        } 
+        "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/mobile", type: TrackType.Event){flow = "/withdraw"} 
     }
 
     test("Settings") {
@@ -2612,17 +2935,28 @@ trackTests {
             flow = "/money_detail"
         }
 
-        "/money_detail/withdraw"(platform: "/") {}
-        "/money_detail/daily_detail"(platform: "/") {}
-        "/money_detail/money-advance"(platform: "/") {}
-        "/money_detail/restrictions"(platform: "/") {}
-        "/money_detail/point_home"(platform: "/") {}
-        "/money_detail"(platform: "/") {}
-        "/money_detail/withdraw/main"(platform: "/") {}
-        "/money_detail/withdraw/confirmation"(platform: "/") {}
-        "/money_detail/withdraw/congrats"(platform: "/") {}
-        "/money_detail/withdraw/add_account"(platform: "/") {}
-        "/money_detail/withdraw/select_bank"(platform: "/") {}   
+        "/money_detail/withdraw"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/main"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/confirmation"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/congrats"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/add_account"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/select_bank"(platform: "/mobile") {flow = "/money_detail"}   
+        "/money_detail/withdraw/error"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/error/high_risk"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/error/generic_error"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/uif_change_account"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/delay/offline"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/withdraw/delay/manual_review"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/shopping"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/credits"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/activities"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/daily_detail"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/money_advance"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/restrictions"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/point_home"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/manual_code"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/confirmation"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail"(platform: "/mobile") {flow = "/money_detail"}
     }
 
 // END -- MPMOBILE TEST
@@ -2719,6 +3053,10 @@ trackTests {
             source = "LFE"
             authorize = true
         }
+    }
+
+    test("Application open") {
+        "/application/open"(platform:"/mobile", type: TrackType.Event) { }
     }
 
     test("Login Status with Smart Lock for Passwords") {
@@ -2913,6 +3251,82 @@ trackTests {
         }
     }
 
+    test("TOTP flow") {
+        "/auth/totp/enrollment/chooser"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/congrats"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/greeting"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/scanner"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/validation"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
+        "/auth/totp/validation"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp/too_many_attempts"(platform: "/", type: TrackType.View) {
+            id = "id"
+        }
+        "/auth/totp/enrollment/chooser/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "config_on_this_device"
+            event_type = "click"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/chooser/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            target = "config_manually"
+            event_type = "click"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/congrats/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/congrats/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/greeting/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/scanner/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/validation/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "submit"
+            target = "enter_code"
+            is_another_enroll = false
+        }
+        "/auth/totp/validation/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "submit"
+            target = "enter_code"
+        }
+    }
+
     test("Phone Enrollment flow") {
         "/auth/recovery/phone/registration"(platform: "/web", type: TrackType.Event) {
             redirect_url = 'www.mercadopago.com'
@@ -3076,16 +3490,19 @@ trackTests {
 
     test("Biometrics / Screenlock") {
         "/screenlock/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "enabled"
             os_status = "biometrics"
         }
 
         "/screenlock/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "disabled"
             os_status = "biometrics"
         }
 
         "/screenlock/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "enabled"
             os_status = "biometrics"
             elapsed_time = 50
@@ -3093,6 +3510,7 @@ trackTests {
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
             elapsed_time = 50
@@ -3101,6 +3519,7 @@ trackTests {
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+            flow_id = "flow"
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
             elapsed_time = 50
@@ -3108,36 +3527,205 @@ trackTests {
         }
     }
 
-    test("Screenlock") {
+    test("Screenlock config") {
         "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
             os_status = "biometrics"
             enrollment_status = "enabled"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
             os_status = "basic_screenlock"
             enrollment_status = "enabled"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
+        }
+
+        "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
+            os_status = "none"
+            enrollment_status = "disabled"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "disabled"
+            ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
+            config_name = "opening_lock"
+            action = "enable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "enabled"
             os_status = "biometrics"
+            config_name = "transaction"
+            action = "enable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/android", type: TrackType.Event) {
             enrollment_status = "disabled"
             os_status = "biometrics"
+            config_name = "transaction"
+            action = "enable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
 
         "/security_settings/screenlock/toggle"(platform: "/mobile/ios", type: TrackType.Event) {
             enrollment_status = "disabled"
             os_status = "biometrics"
+            config_name = "transaction"
+            action = "enable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
         }
+
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "opening_lock"
+            action = "disable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                "transaction": "enabled",
+                "opening_lock": "disabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                "transaction": "enabled",
+                "opening_lock": "disabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                "transaction": "enabled",
+                "opening_lock": "disabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "opening_lock"
+            action = "disable"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                "transaction": "enabled",
+                "opening_lock": "disabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                "transaction": "enabled",
+                "opening_lock": "disabled"
+            ]
+        }
+
+        "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config_name = "transaction"
+            action = "disable"
+            config = [
+                "transaction": "enabled",
+                "opening_lock": "disabled"
+            ]
+        }
+    }
+
+    test("Screenlock app opening lock feature") {
+        
+        "/screenlock/opening_lock"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
+        }
+
+        "/screenlock/opening_lock"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
+        }
+
+        "/screenlock/opening_lock/retry"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
+        }
+
+        "/screenlock/opening_lock/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled"
+            ]
+        }
+
     }
 
     test("Push Notification") {
@@ -3431,7 +4019,10 @@ trackTests {
 
     test("Suscripciones"){
         "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
-        "/subscription_plan/confirm_create"(platform: "/web"){}
+        "/subscription_plan/confirm_create"(platform: "/web"){
+            flow = "/subscription_plan"
+            confirmButton = 'click'
+        }
     }
 
     //MP personalFrontend
@@ -3600,5 +4191,19 @@ trackTests {
         "/account/mydata/email/congrats"(platform: "/web/mobile", type: TrackType.View) {}
 
         "/account/mydata/email"(platform: "/mobile/android", type: TrackType.View) {}
+    }
+
+    test("Tu negocio") {
+        "/your_business/home"(platform: "/web", type: TrackType.View) {}
+        "/your_business/home"(platform: "/web/mobile", type: TrackType.View) {}
+        "/your_business/image_upload"(platform:"/web", type: TrackType.Event) {}
+        "/your_business/mydata_edit"(platform:"/web", type: TrackType.Event) {}
+        "/your_business/confirm_action"(platform:"/web", type: TrackType.Event) {
+            card_name = "splitPayment"
+        }
+        "/your_business/link"(platform:"/web", type: TrackType.Event) {
+            card_name = "releaseOptions"
+            path = "/settings/release-options"
+        }
     }
 }

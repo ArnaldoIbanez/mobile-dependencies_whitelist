@@ -50,7 +50,7 @@
       {
         "name": "L4_name",
         "type": "UNICODE_STRING"
-      },
+      }
     ],
     "sql": {
       "script": "business-assurance/categories.sql",

@@ -52,6 +52,11 @@ trackTests {
             flow = "/recharge_sube"
             from = "/deep_link"
         }
+        "/recharge_sube/result"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+            result_status = "rejected"
+        }
         "/recharge_sube/px_payment_method_search"(platform: "/mobile") {
             flow = "/recharge_sube"
             from = "/deep_link"
@@ -166,6 +171,11 @@ trackTests {
         "/recharge_sube/second_password"(platform: "/mobile") {
             flow = "/recharge_sube"
             from = "/deep_link"
+        }
+        "/recharge_sube/result"(platform: "/mobile") {
+            flow = "/recharge_sube"
+            from = "/deep_link"
+            result_status = "rejected"
         }
         "/recharge_sube/px_payment_method_search"(platform: "/mobile") {
             flow = "/recharge_sube"

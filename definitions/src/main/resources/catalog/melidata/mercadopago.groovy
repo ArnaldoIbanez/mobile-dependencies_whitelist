@@ -24,10 +24,11 @@ tracks {
       currency (type: PropertyType.String, required: true, description: "ISO Currency")
       price (type: PropertyType.Numeric, required: true, description: "Price of device")
       is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+      user_id (type: PropertyType.Numeric, required: true, description: "User ID")
     }
 
     propertyGroups {
-      groupCheckoutProperties(flow_id, product, currency, price, is_guest)
+      groupCheckoutProperties(flow_id, product, currency, price, is_guest, user_id)
     }
 
     "/"(platform: "/", isAbstract: true) {
@@ -42,6 +43,9 @@ tracks {
 
     "/blog/home"(platform: "/web") {
     }
+
+    "/application"(platform:"/mobile", isAbstract: true) {}
+    "/application/open"(platform:"/mobile", type: TrackType.Event) { }
 
     // MP Landings Scope
     "/landing"(platform: "/web", isAbstract: true) {}
@@ -64,9 +68,18 @@ tracks {
     }
 
     "/landing/sellers/mss/click"(platform:"/", type: TrackType.Event) {
-      id (type: PropertyType.String, required: true, description: "ID from clicked element")
-      label (type: PropertyType.String, required: true, description: "Element text")
-      page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
+        id (type: PropertyType.String, required: false, description: "ID from clicked element")
+        label (type: PropertyType.String, required: false, description: "Element text")
+        page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
+        fixed_fee (type: PropertyType.String, required: false, description: "Fixed Fee")
+        advance (type: PropertyType.String, required: false, description: "Advance days")
+        advance_fee (type: PropertyType.String, required: false, description: "Advance days fee")
+        advance_value (type: PropertyType.String, required: false, description: "Advance fee final value")
+        installments (type: PropertyType.String, required: false, description: "Total installments")
+        installments_fee (type: PropertyType.String, required: false, description: "Installments fee")
+        installments_value (type: PropertyType.String, required: false, description: "Installments final value")
+        initial_sale_value (type: PropertyType.String, required: false, description: "Initial sale value")
+        final_sale_value (type: PropertyType.String, required: false, description: "Final sale value (with fees)")
     }
 
     // MP Buyers
@@ -100,35 +113,43 @@ tracks {
       coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
     }
 
-    "/point/buyingflow/shippingOptions"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) { 
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/newAddress"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/new_address"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
     
-    "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_installments"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
+    "/point/buyingflow/payment_installments/installments"(platform: "/", type: TrackType.Event) {
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_bank_selector"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/paymentCardSecurityCode"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_new_card"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
     }
 
-    "/point/buyingflow/paymentReview"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_card_security_code"(platform: "/", type: TrackType.View) {
+      groupCheckoutProperties
+    }
+
+    "/point/buyingflow/payment_review"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
       selected_payment_method_id (type: PropertyType.String, required: false, description: "Selected payment method ID")
       selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
@@ -136,18 +157,18 @@ tracks {
     }
 
     "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
-      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-      type (type: PropertyType.String, required: true, description: "Error type")
+      groupCheckoutProperties
+      error_code (type: PropertyType.Numeric, required: true, description: "Error code")
     }
 
-    "/point/buyingflow/paymentRejected"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/payment_rejected"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
       selected_payment_method_id (type: PropertyType.String, required: true, description: "Selected payment method ID")
       selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
       installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
     }
 
-    "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
+    "/point/buyingflow/payment_review/confirm_purchase"(platform: "/", type: TrackType.Event) {
       groupCheckoutProperties
     }
 
@@ -225,10 +246,58 @@ tracks {
 
     // Micrositio - reseller
     "/merchant_acquisition/flows/resellers"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/resellers/sales"(platform:"/", type: TrackType.View) {}
+    //bundles
+    "/merchant_acquisition/flows/resellers/bundles"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/bundles/click"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/bundles/share"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/bundles/open"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/bundles/close"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    //mgm
+    "/merchant_acquisition/flows/resellers/mgm"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/mgm/click"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/mgm/share"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/mgm/open"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/mgm/close"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    //dashboard
+    "/merchant_acquisition/flows/resellers/dashboard"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/dashboard/click"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/share"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/open"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    "/merchant_acquisition/flows/resellers/dashboard/close"(platform:"/", type: TrackType.Event) {
+        page_resource (type: PropertyType.String, required: true, description: "Name of page section, example: 'share-code', 'device-bundle', ..")
+    }
+    //benefits
     "/merchant_acquisition/flows/resellers/benefits"(platform:"/", type: TrackType.View) {}
+    //metrics
     "/merchant_acquisition/flows/resellers/metrics"(platform:"/", type: TrackType.View) {}
-    "/merchant_acquisition/flows/resellers/after_sales"(platform:"/", type: TrackType.View) {}
+    //associate_device
+    "/merchant_acquisition/flows/resellers/associate_device"(platform:"/", type: TrackType.View) {}
+    //register_device
+    "/merchant_acquisition/flows/resellers/register_device"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/individual"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/resellers/register_device/bundle"(platform:"/", type: TrackType.View) {}
     
     // Share MGM Web > Pageviews
     "/merchant_acquisition/flows"(platform: "/", isAbstract: true) {}
@@ -271,6 +340,11 @@ tracks {
     "/merchant_acquisition/flows/qr-point-assignment/error"(platform:"/", type: TrackType.View) {}
     "/merchant_acquisition/flows/qr-point-assignment/unauthorized"(platform:"/", type: TrackType.View) {}
 
+    // Fluxo de reversa Point - autogeração de etiqueta
+    "/merchant_acquisition/flows/point_reverse"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/info"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/address"(platform:"/", type: TrackType.View) {}
+    "/merchant_acquisition/flows/point_reverse/success"(platform:"/", type: TrackType.View) {}
 
     // QR Landing > Pageviews
     "/merchant_acquisition/qr/landing"(platform:"/", type: TrackType.View) {}
@@ -338,6 +412,9 @@ tracks {
     "/point/landings/mgm/prepago"(platform:"/", type: TrackType.Event) {}
     "/point/landings/mgm/tyc"(platform:"/", type: TrackType.Event) {}
 
+    // Merchant Acquisition Point Landings: Resellers Form
+    "/point/landings/reseller"(platform:"/", type: TrackType.Event) {}
+
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
     "/point/flows/congrats"(platform:"/", type: TrackType.View) {
@@ -371,7 +448,7 @@ tracks {
     "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
+    "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {} 
 
 
     //Point Devices
@@ -383,6 +460,40 @@ tracks {
     "/payers_growth"(platform: "/", isAbstract: true) {}
     "/payers_growth/landings"(platform: "/") {
         product (type: PropertyType.String, required: true, description: "Product name, example: 'mkt-combustibles'")
+    }
+
+    // Services landings
+    "/services"(platform: "/", isAbstract: true) {}
+    "/services/mkt_landing"(platform: "/web", type: TrackType.View) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/services/mkt_landing/sms"(platform: "/web", type: TrackType.Event) { 
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/services/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
+    }
+    "/services/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
+    }
+
+    // QR Payers Landings
+    "/qr_payers"(platform: "/", isAbstract: true) {}
+    "/qr_payers/mkt_landing"(platform: "/web", type: TrackType.View) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/qr_payers/mkt_landing/sms"(platform: "/web", type: TrackType.Event) { 
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
+    }
+    "/qr_payers/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }
 
     // MP Mobile Point
@@ -858,6 +969,17 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    //MGM Navigation (Android Drawer or iOS Settings)
+    def realestate = objectSchemaDefinitions {
+        realestate_id(type: PropertyType.String, required: true, description: "The container where we show contents")
+        content_id(type: PropertyType.String, required: true, description: "The identification of shown content")
+        origin(type: PropertyType.String, required: false, description: "The application that returns the content")
+    }
+
+    "/mgm/navigation"(platform: "/mobile", type: TrackType.Event) {
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate information")
+    }
+
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
@@ -1005,7 +1127,6 @@ tracks {
     }
     "/withdraw/take_money_out"(platform: "/") {}
     "/withdraw/withdrawable_money"(platform: "/mobile") {}
-    "/withdraw/select_bank"(platform: "/mobile") {}
     "/withdraw/result"(platform: "/mobile") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
@@ -1022,11 +1143,34 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
     "/withdraw/bacen"(platform: "/mobile", isAbstract: true) {}
-    "/withdraw/bacen/ok"(platform: "/mobile") {}
-    "/withdraw/bacen/cancel"(platform: "/mobile") {}
-    "/withdraw/bacen/error"(platform: "/mobile") {}
-    "/withdraw/bacen/open"(platform: "/mobile") {}
-    "/withdraw/bacen/close"(platform: "/mobile") {}
+    "/withdraw/bacen/ok"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/bacen/cancel"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/bacen/error"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/bacen/open"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/bacen/close"(platform: "/mobile", type: TrackType.View) {}
+
+    "/withdraw/select_bank"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/select_bank/delete_account_modal"(platform:"/mobile", type: TrackType.Event){}    
+    "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/mobile", type: TrackType.Event){
+        bank_account_id (required: true, description: "Bank account selected to be deleted")
+    } 
+    "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/mobile", type: TrackType.Event){} 
+
+    "/withdraw/main"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/confirmation"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/make_withdraw"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/add_account"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/error"(platform: "/mobile", isAbstract: true) {}
+    "/withdraw/error/generic_error"(platform: "/mobile", type : TrackType.View) {}
+    "/withdraw/error/withdraw_failed"(platform: "/mobile", type : TrackType.View) {}
+    "/withdraw/error/high_risk"(platform: "/mobile", type : TrackType.View) {}
+    "/withdraw/error/uif"(platform: "/mobile", type : TrackType.View) {}
+    "/withdraw/delay"(platform: "/mobile", isAbstract : true) {}
+    "/withdraw/delay/manual_review"(platform: "/mobile",   type : TrackType.View) {}
+    "/withdraw/delay/offline"(platform: "/mobile",   type : TrackType.View) {}
+    "/withdraw/uif_change_account"(platform: "/mobile",   type : TrackType.View) {}
+    "/withdraw/restriction"(platform: "/mobile", type: TrackType.View) {}
 
     "/fund_account"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -1135,18 +1279,29 @@ tracks {
     "/money_detail/help_modal"(platform: "/mobile") {}
 
     //Withdraw
-    "/money_detail/withdraw/main"(platform: "/", type: TrackType.View) {}
-    "/money_detail/withdraw/confirmation"(platform: "/", type: TrackType.View) {}
-    "/money_detail/withdraw/congrats"(platform: "/", type: TrackType.View) {}
-    "/money_detail/withdraw/add_account"(platform: "/", type: TrackType.View) {}
-    "/money_detail/withdraw/select_bank"(platform: "/", type: TrackType.View) {}    
-    "/money_detail/withdraw"(platform: "/",, isAbstract: true) {}
-    "/money_detail/daily_detail"(platform: "/", , isAbstract: true) {}
-    "/money_detail/money-advance"(platform: "/", , isAbstract: true) {}
-    "/money_detail/restrictions"(platform: "/", , isAbstract: true) {}
-    "/money_detail/point_home"(platform: "/", , isAbstract: true) {}
-    "/money_detail/withdraw"(platform: "/", , isAbstract: true) {}
-    "/money_detail"(platform: "/", , isAbstract: true) {}
+    "/money_detail/withdraw/main"(platform: "/mobile", type: TrackType.View) {}
+    "/money_detail/withdraw/confirmation"(platform: "/mobile", type: TrackType.View) {}
+    "/money_detail/withdraw/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/money_detail/withdraw/add_account"(platform: "/mobile", type: TrackType.View) {}
+    "/money_detail/withdraw/select_bank"(platform: "/mobile", type: TrackType.View) {}    
+    "/money_detail/withdraw"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/daily_detail"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/money_advance"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/restrictions"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/point_home"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/manual_code"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/confirmation"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/withdraw/error"(platform: "/mobile", isAbstract: true) {}
+    "/money_detail/withdraw/error/high_risk"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/withdraw/error/generic_error"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/withdraw/uif_change_account"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/withdraw/delay"(platform: "/mobile", isAbstract: true) {}
+    "/money_detail/withdraw/delay/offline"(platform: "/mobile",   type : TrackType.View) {}
+    "/money_detail/shopping"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/withdraw/delay/manual_review"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/credits"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/activities"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail"(platform: "/mobile", isAbstract: true) {}
 
     /**
      * END NOTIFICATIONS
@@ -1214,7 +1369,10 @@ tracks {
 
     "/subscription_plan"(platform: "/web", isAbstract: true){}
     "/subscription_plan/create"(platform: "/web", type: TrackType.View){}
-    "/subscription_plan/confirm_create"(platform: "/web"){}
+    "/subscription_plan/confirm_create"(platform: "/web"){
+        flow(required: true, PropertyType.String, description: "The flow of the track")
+        confirmButton(required: true, PropertyType.String, description: "detail of action")
+    }
     //END -- MP frontend
 
     "/free_navigation"(platform:"/mobile", isAbstract: true) {}
@@ -1266,8 +1424,17 @@ tracks {
     "/account/mydata/email"(platform: "/", type: TrackType.View) {}
     "/account/mydata/email/congrats"(platform: "/web", type: TrackType.View) {}
 
+    //Tu negocio
+    "/your_business"(platform: "/web", isAbstract: true) {}
+    "/your_business/home"(platform: "/web", type: TrackType.View) {}
+    "/your_business/image_upload"(platform:"/web", type: TrackType.Event) {}
+    "/your_business/mydata_edit"(platform:"/web", type: TrackType.Event) {}
+    "/your_business/confirm_action"(platform:"/web", type: TrackType.Event) {
+        card_name(required: true, description: "the name of the card that triggered the event", type: PropertyType.String)
+    }
+    "/your_business/link"(platform:"/web", type: TrackType.Event) {
+        card_name(required: true, description: "the name of the card that triggered the event", type: PropertyType.String)
+        path(required: true, description: "path of the next page", type: PropertyType.String)
+    }
+
 }
-
-
-
-

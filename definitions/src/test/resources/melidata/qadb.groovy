@@ -11,6 +11,7 @@ trackTests {
             catalog_product_id = "MLA14141085"
             catalog_parent_id = "MLA1234"
             item_id = "MLA8092342"
+            context = "PDP"
             results = [
                 {
                     question_id = "1452322"
@@ -60,7 +61,6 @@ trackTests {
                     transactional_type = "SHIPPING"
                 }
             ]
-            is_zqp = true
         }
 
         "/questions/qadb/feedback"(platform: "/", type: TrackType.Event) {
@@ -73,21 +73,25 @@ trackTests {
             qadbBaseInfo()
             see_more_limit = 3
             total_answers = 8
+            context = "PDP"
         }
 
         "/questions/qadb/more_info"(platform: "/", type: TrackType.Event) {
             qadbBaseInfo()
             transactional_type = "SHIPPING"
+            context = "PDP"
         }
 
         "/questions/qadb/input_focus"(platform: "/", type: TrackType.Event) {
             catalog_product_id = "MLA14141085"
             catalog_parent_id = "MLA1234"
             item_id = "MLA8092342"
+            context = "PDP"
         }
 
         "/questions/qadb/question"(platform: "/") {
             qadbBaseInfo()
+            context = "PDP"
         }
     }
     

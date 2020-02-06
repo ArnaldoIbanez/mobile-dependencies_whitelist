@@ -192,6 +192,24 @@ trackTests {
             is_main_url = true
             version = "2"
         }
+
+        "/webkit/deeplink_open/error"(platform: "/mobile") {
+            url = "https://www.mercadolibre.com"
+            deeplink = "meli://host/path/to/landing"
+        }
+    }
+
+    test("Oficial stores landings") {
+
+        "/landing/brands/abort"(platform: "/mobile") {
+            query = "adidas"
+        }
+
+        "/landing/brands/open"(platform: "/mobile") {
+            query = "adidas"
+            official_store_id = "adidas_12345"
+            official_store_name = "Adidas oficial store"
+        }
     }
 
 
@@ -424,9 +442,9 @@ trackTests {
                              id:111222,
                              nickname:"seller02"
                      ]]
-            paymentStatusDetail = "ACCREDITED"
-            congratsStatus = "APPROVED"
-            tokenGeneratedWithEsc = "NO"
+            payment_status_detail = "ACCREDITED"
+            congrats_status = "APPROVED"
+            token_generated_with_esc = "NO"
         }
         "/checkout/congrats"(platform: "/web", type: TrackType.View) {
             //recommendations data
@@ -507,9 +525,9 @@ trackTests {
                              id:111222,
                              nickname:"seller02"
                      ]]
-            paymentStatusDetail = "ACCREDITED"
-            congratsStatus = "APPROVED"
-            tokenGeneratedWithEsc = "NO"
+            payment_status_detail = "ACCREDITED"
+            congrats_status = "APPROVED"
+            token_generated_with_esc = "NO"
         }
     }
 
@@ -589,6 +607,12 @@ trackTests {
     test("deals landings") {
         "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
             deal_id = "mla_1234"
+        }
+    }
+
+    test("deals landings with deals_print_id") {
+        "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
         }
     }
 

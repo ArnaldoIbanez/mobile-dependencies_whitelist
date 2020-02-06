@@ -63,6 +63,7 @@ trackTests {
             current_balance_amount = "zero"
             needed_funding_amount = 20
             has_money = false
+            pending_ticket = false
         }
         "/prepaid/acquisition/change_dni"(platform: "/web/desktop") {}
         "/prepaid/acquisition/confirmation_account"(platform: "/web/desktop") {}
@@ -149,6 +150,9 @@ trackTests {
         "/prepaid/activation/last_digits"(platform: "/web/desktop") {}
         "/prepaid/activation/marital_status"(platform: "/web/desktop") {}
         "/prepaid/activation/congrats"(platform: "/web/desktop") {}
+        "/prepaid/activation/congrats/change_pin_tap"(platform: "/", type: TrackType.Event) {}
+        "/prepaid/activation/congrats/home_tap"(platform: "/", type: TrackType.Event) {}
+        "/prepaid/activation/congrats/add_money_tap"(platform: "/", type: TrackType.Event) {}
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "main_error" }
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "not_found" }
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "max_attempt" }
@@ -164,6 +168,7 @@ trackTests {
         "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "to_collect" }
         "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "not_delivered" }
         "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "soon_deliver" }
+        "/prepaid/tracking"(platform: "/", type: TrackType.View) { status = "reprogrammed" }
     }
 
 
@@ -178,10 +183,17 @@ trackTests {
     }
 
     test("Upgrade Webview") {
-        "/prepaid/block_view" (platform: "/mobile", type: TrackType.View) { }
-        "/prepaid/block_view/cta"(platform: "/mobile", type: TrackType.Event) { }
+        "/prepaid/update_app" (platform: "/mobile", type: TrackType.View) { }
+        "/prepaid/update_app/cta"(platform: "/mobile", type: TrackType.Event) { }
     }
 
+    test("Ask form App") {
+        "/prepaid/ask_from_app" (platform: "/mobile", type: TrackType.View) { }
+    }
+
+    test("Landing App Download button") {
+        "/prepaid/acquisition/sellers_landing/store_button" (platform: "/", type: TrackType.Event) { }
+    }
 
     test("Prepaid cards MLM") {
         
@@ -264,14 +276,24 @@ trackTests {
         "/prepaid/reissue/inactivate_card" (platform: "/", type: TrackType.View) {}
         "/prepaid/reissue/phone_info" (platform: "/", type: TrackType.View) {}
     }
+
+    test ("Cards activation modal in card list") {
+        "/wallet/cards/activation_modal/activation"(platform: "/", type: TrackType.View) {}
+        "/wallet/cards/activation_modal/close"(platform: "/", type: TrackType.Event) {} 
+        "/wallet/cards/activation_modal/activate_card"(platform: "/", type: TrackType.Event) {} 
+        "/wallet/cards/activation_modal/not_receive_card"(platform: "/", type: TrackType.Event) {} 
+    }
     
     test ("Prepaid FAQs") {
         "/prepaid/faq" (platform: "/", type: TrackType.View) {}
         "/prepaid/faq/detail" (platform: "/", type: TrackType.View) {}
         "/prepaid/faq/detail/payment_rejected" (platform: "/", type: TrackType.View) {}
         "/prepaid/faq/detail/extraction_rejected" (platform: "/", type: TrackType.View) {}
+        "/prepaid/faq/detail/rejected_international_authorization" (platform: "/", type: TrackType.View) {}
         "/prepaid/faq/detail/payment_rejected/money_in" (platform: "/", type: TrackType.Event) {}
         "/prepaid/faq/detail/payment_rejected/reissue" (platform: "/", type: TrackType.Event) {}
         "/prepaid/faq/detail/extraction_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+        "/prepaid/faq/detail/rejected_international_authorization/money_in" (platform: "/", type: TrackType.Event) {}
+        "/prepaid/faq/detail/rejected_international_authorization/reissue" (platform: "/", type: TrackType.Event) {}
     }
 }

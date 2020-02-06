@@ -599,7 +599,10 @@ tracks {
     "/myml/invoices/company-info/certificate"(platform: "/") {}
     "/myml/invoices/company-info/certificate/help_tooltip"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/invoices/company-info/certificate/a1"(platform: "/") {}
+    "/myml/invoices/company-info/certificate/a1"(platform: "/") {
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
     "/myml/invoices/company-info/certificate/a1/help_tooltip"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/installer_download"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/company-info/certificate/a1/save"(platform: "/", isAbstract: true) {}
@@ -608,6 +611,10 @@ tracks {
         error(required: false, description: "Error type when user uploads an A1 digital certificate")
         message(required: false, description: "Description of error when user uploads an A1 digital certificate")
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
+        certificateFrom(required: false, type:  PropertyType.String, description: "Certificate type that the seller had before uploading")
+        certificateTo(required: false, type:  PropertyType.String, description: "Certificate type uploaded by seller")
+        campaign(required: false, type: PropertyType.String, description: "Campaign description")
+        campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
     "/myml/invoices/company-info/certificate/a3"(platform: "/") {}
@@ -732,6 +739,17 @@ tracks {
 
     //tax-rules-information
     "/myml/invoices/company-info/tax-rules-information"(platform: "/") {}
+
+    //emission-validation/success
+    "/myml/invoices/company-info/emission-validation"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/emission-validation/success"(platform: "/") {
+        emission_validation_status(required: true, PropertyType.String, description: "Success status of the emission validation" )
+    }
+
+    //emission-validation/error
+    "/myml/invoices/company-info/emission-validation/error"(platform: "/") {
+        emission_validation_status(required: true, PropertyType.String, description: "Error status of the emission validation" )
+    }
 
     //:::: Order
     "/myml/invoices/order"(platform: "/", isAbstract: true) {
@@ -1014,6 +1032,8 @@ tracks {
 
     "/myml/myreputation"(platform: "/mobile") {}
 
+    "/myml/settings"(platform: "/mobile", type: TrackType.View) {}
+
     "/myml/message"(platform: "/mobile") {}
 
     "/myml/message/activity"(platform:"/mobile", type: TrackType.View) {}
@@ -1074,4 +1094,88 @@ tracks {
         next_page(required: true, type: PropertyType.Numeric , description: "Next page")
         amount(required: true, type: PropertyType.Numeric , description: "Amount per page")
     }
+
+    // Massive Page
+
+    "/myml/fiscal_rules/massive"(platform: "/", type: TrackType.View) {
+        callback(required: true, type: PropertyType.String, description: "Callback URL")
+        action(required: true, type: PropertyType.String, description: "Action of sheets")
+        selected(required: true, type: PropertyType.String, description: "Ids selected")
+    }
+
+    "/myml/fiscal_rules/massive/button"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/massive/button/download"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action type of download")
+        selected(required: true, type: PropertyType.String, description: "Ids of download")
+    }
+
+    "/myml/fiscal_rules/massive/button/upload"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/modal"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/download"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/massive/download/helper"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/download/button"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/massive/download/button/start"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/download/action"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/massive/download/action/primary"(platform: "/", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "Link of button primary")
+    }
+
+    "/myml/fiscal_rules/massive/download/action/secondary"(platform: "/", type: TrackType.Event) {
+        link(required: true, type: PropertyType.String, description: "Link of button secondary")
+    }
+
+    "/myml/fiscal_rules/massive/upload"(platform: "/", type: TrackType.View) {}
+
+    "/myml/fiscal_rules/massive/upload/modal"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/upload/status"(platform: "/", type: TrackType.View) {
+        status(required: true, type: PropertyType.String, description: "Status of upload")
+    }
+
+    "/myml/fiscal_rules/massive/upload/status/helpers"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/upload/action"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/massive/upload/action/upload"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/upload/action/edit"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/upload/action/rules"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/upload/action/download"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/upload/actions"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/massive/upload/actions/helper"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/upload/button"(platform: "/", isAbstract: true) {}
+    
+    "/myml/fiscal_rules/massive/upload/button/start"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/upload/button/remove"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/upload/button/uplater"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/fiscal_rules/massive/wizard"(platform: "/", type: TrackType.Event) {
+        show(required: true, type: PropertyType.Boolean, description: "Visible or hidden")
+        times(required: true, type: PropertyType.Numeric, description: "Quantity of view")
+    }
+
+    //TRACKS MYML Search Bookmarks Alerts
+    "/myml/search_alerts"(type: TrackType.View, isAbstract: true) {}
+    "/myml/search_alerts/list"(platform: "/", type: TrackType.View) {
+        quantity(required: true, type: PropertyType.Numeric, description: "Quantity of search alerts")
+    }
+
+    //TRACKS MYML MYContact Section
+    "/myml/mycontact" (type: TrackType.View, isAbstract: true) {}
+    "/myml/mycontact/main" (type: TrackType.View) {}
 }

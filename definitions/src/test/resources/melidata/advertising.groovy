@@ -227,7 +227,7 @@ trackTests {
             budget = "22.22"
             share_value = "20"
         }
-        "/advertising/pads2/manager/lift/details/hide"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/lift/details/close"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "active"
             budget = "22.22"
@@ -240,7 +240,7 @@ trackTests {
             budget = "22.22"
             share_value = "20"
         }
-        "/advertising/pads2/manager/lift/chart/hide"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/lift/chart/close"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "active"
             budget = "22.22"
@@ -320,5 +320,45 @@ trackTests {
             budget = "22.22"
             share_value = "20"
         }
+    }
+
+    test("Advertising manager SLL") {
+        "/advertising/pads2/manager/card/sll"(platform: "/web", type: TrackType.View) {
+            campaign_id = "2222222"
+            sll_total = "10"
+        }
+
+        "/advertising/pads2/manager/card/sll"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            sll_total = "10"
+        }
+
+        "/advertising/pads2/manager/ssl/landing"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            sll_total = "10"
+        }
+
+        "/advertising/pads2/manager/ssl/landing/activated"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            sll_total_activated = "10"
+        }
+
+        "/advertising/pads2/manager/ssl/landing/breadcrumb"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            sll_total = "10"
+        }
+
+        "/advertising/pads2/manager/card/upselling"(platform: "/web", type: TrackType.View) {
+            campaign_id = "2222222"
+            budget = "10"
+            budget_new = "20"
+        }
+
+        "/advertising/pads2/manager/card/upselling"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            budget = "10"
+            budget_new = "20"
+        }
+
     }
 }

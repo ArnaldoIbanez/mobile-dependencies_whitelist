@@ -24,11 +24,31 @@ tracks {
         attribute_type(required: true, description:"If its an item_attribute, a variation_attribute or an allow_variation_attribute", type:PropertyType.String, values: ["item_attribute","variation_attribute","allow_variation_attribute"])
         attributes_showed(required: false, description:"Number of attributes showed", type: PropertyType.Numeric)
         attributes_submitted(required: false, description:"Number of attributes submitted", type: PropertyType.Numeric)
+
+        // Catalog search properties
+        query_filter(required: true, description: "Search query input by the user", type: PropertyType.String)
+        domain_filter(required: true, description: "Domain filter input by the user", type: PropertyType.String)
+        limit_filter(required: true, description: "Query limit filter selected by the user", type: PropertyType.Numeric)
+        product_id(required: true, description: "Product ID", type: PropertyType.String)
+        product_source(required: true, description: "Product external source", type: PropertyType.String)
+        product_external_id(required: true, description: "Product external ID or Marketplace attribute primary key", type: PropertyType.String)
+        external_domain(required: true, description: "Product external domain", type: PropertyType.String)
+        predicted_domain(required: true, description: "Product predicted domain", type: PropertyType.String)
+        selected_domain(required: false, description: "Product domain based on user selection", type: PropertyType.String)
+        external_attribute_key(required: true, description: "Product external attribute key", type: PropertyType.String)
+        external_attribute_value(required: true, description: "Product external attribute value", type: PropertyType.String)
     }
 
     propertyGroups {
         catalogWidgetGroup(category_id, page, item_id, officialstore, domain_id, seller_id, pi, condition, category_path, label,attribute_type, attributes_showed)
         catalogWidgetCompletenessGroup(completeness_level, attributes_submitted, items_left, missing_attributes, inferred_attributes)
+
+        // Catalog search property groups
+        catalogSearchQuery(query_filter, domain_filter, limit_filter)
+        catalogSearchWrongDomainPrediction(product_id, product_source, product_external_id, external_domain, predicted_domain, selected_domain)
+        catalogSearchWrongExternalDomain(product_id, product_source, product_external_id, external_domain)
+        catalogSearchWrongExternalAttribute(product_id, product_source, product_external_id, external_domain, external_attribute_key, external_attribute_value)
+        catalogSearchCopiedExternalAttribute(product_id, product_source, product_external_id, external_domain, external_attribute_key, external_attribute_value)
     }
 
     "/catalogwidget"(platform: "/", isAbstract: true, type: TrackType.Event) {}
@@ -199,5 +219,39 @@ tracks {
          sections_comments(required: true, description: "Reviews comments", type: PropertyType.String)
          errors_codes(required: true, description: "Reviews errors codes", type: PropertyType.String)
          user_initials(required: true, description: "Bs user initials", type: PropertyType.String)
-     }
+    }
+    "/structure_data/product_modificator"(platform: "/",isAbstract: true) {}
+    "/structure_data/product_modificator/quality-reports"(platform: "/", type:TrackType.Event){
+        domain_id(required: true, description: "Domain ID", type: PropertyType.String)
+        parent_id(required: true, description: "Parent product ID", type: PropertyType.String)
+        product_id(required: true, description: "Product ID", type: PropertyType.String)
+        errors(required: true, description: "Error collection", type: PropertyType.ArrayList(PropertyType.String))
+        warnings(required: true, description: "Warnings collection", type: PropertyType.ArrayList(PropertyType.String))
+        errors_quantity(required: true, description: "Errors quantity", type: PropertyType.Numeric)
+        warning_quantity(required: true, description: "Warning quantity", type: PropertyType.Numeric)
+        step(required: true, description: "Analysis step", values: ["INITIAL", "PARENT", "CHILD"], type: PropertyType.String)
+    }
+
+    // Catalog search tracks
+    "/structure_data/catalog_search"(platform: "/web/desktop",isAbstract: true) {}
+
+    "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
+        catalogSearchQuery
+    }
+
+    "/structure_data/catalog_search/wrong_domain_prediction"(platform: "/web/desktop", type:TrackType.Event) {
+        catalogSearchWrongDomainPrediction
+    }
+
+    "/structure_data/catalog_search/wrong_external_domain"(platform: "/web/desktop", type:TrackType.Event) {
+        catalogSearchWrongExternalDomain
+    }
+
+    "/structure_data/catalog_search/wrong_external_attribute"(platform: "/web/desktop", type:TrackType.Event) {
+        catalogSearchWrongExternalAttribute
+    }
+
+    "/structure_data/catalog_search/copied_external_attribute"(platform: "/web/desktop", type:TrackType.Event) {
+        catalogSearchCopiedExternalAttribute
+    }
 }

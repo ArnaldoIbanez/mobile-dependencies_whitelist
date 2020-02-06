@@ -5,7 +5,7 @@
   "process_name": "checkout_tpv",
   "cron": "00 11 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "destroy",
     "columns": [
       {
         "name": "ds",

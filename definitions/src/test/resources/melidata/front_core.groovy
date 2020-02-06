@@ -3,7 +3,6 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
 
-
 /**************************
 * WALLET HOME TEST TRACKS *
 **************************/
@@ -275,8 +274,13 @@ trackTests {
 
     test("Mercadopago Home Show") {
         "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
-            header = "name"
+            header = [
+                loyalty: [
+                    level: 5
+                ]
+            ]
             content_type = 'partial'
+            from = "drawer_ml"
             banking = [  
                 content_type : 'default',
                 ordinal: 1,
@@ -290,7 +294,12 @@ trackTests {
                     quantity: 9
                 ],
                 assets: [],
-                credits: []
+                credits: [],
+                money_in: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ]
+
             ]
             main_actions = [
                 content_type : 'complete',
@@ -356,31 +365,70 @@ trackTests {
                     ]
                 ]
             ]
-            activities= [
+            loyalty= [
                 content_type : 'partial',
                 ordinal: 7,
+                level: 3,
+                percentage: 17
+            ]
+            activities= [
+                content_type : 'partial',
+                ordinal: 8,
                 quantity: 3,
                 is_ftu: false,
                 has_footer: true
             ]
             qr_map= [
                 content_type : 'partial',
-                ordinal: 8,
+                ordinal: 9,
                 header_title: "¡Pagá con QR en tus locales favoritos!",
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
             activities_link= [
-                ordinal: 9,
+                ordinal: 10,
                 content_type : 'partial'
+            ]
+            discount_center= [
+                ordinal: 11,
+                content_type: 'partial',
+                items: [
+                    [   
+                        tracking_id: "1004194",
+                        blocked: false,
+                        name: "Mc Donalds",
+                        category: "Fast Food",
+                        mcc: 5611201,
+                        position: 0,
+                        level: 1,
+                        distance: 258,
+                        store_id: 30091709,
+                        availability: "full",
+                        amount_type: "percent",
+                        amount: 15,
+                        priority: 9,
+                        collector_id: 123456,
+                        has_logo: true,
+                        coupon_used: false
+                    ]
+                ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }
 
     test("Mercadopago Home Update") {
         "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
-            header = "name"
+            header = [
+                loyalty: [
+                    level: 5
+                ]
+            ]
             content_type = 'partial'
+            from = "drawer_ml"
             banking = [  
                 content_type : 'default',
                 ordinal: 1,
@@ -394,7 +442,11 @@ trackTests {
                     quantity: 9
                 ],
                 assets: [],
-                credits: []
+                credits: [],
+                money_in: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ]
             ]
             main_actions = [
                 content_type : 'complete',
@@ -460,23 +512,57 @@ trackTests {
                     ]
                 ]
             ]
-            activities= [
+            loyalty= [
                 content_type : 'partial',
                 ordinal: 7,
+                level: 3,
+                percentage: 17
+            ]
+            activities= [
+                content_type : 'partial',
+                ordinal: 8,
                 quantity: 3,
                 is_ftu: false,
                 has_footer: true
             ]
             qr_map= [
                 content_type : 'partial',
-                ordinal: 8,
+                ordinal: 9,
                 header_title: "¡Pagá con QR en tus locales favoritos!",
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
             activities_link= [
-                ordinal: 9,
+                ordinal: 10,
                 content_type : 'partial'
+            ]
+            discount_center= [
+                ordinal: 11,
+                content_type: 'partial',
+                items: [
+                    [   
+                        tracking_id: "1004194",
+                        blocked: false,
+                        name: "Mc Donalds",
+                        category: "Fast Food",
+                        mcc: 5611201,
+                        position: 0,
+                        level: 1,
+                        distance: 258,
+                        store_id: 30091709,
+                        availability: "full",
+                        amount_type: "percent",
+                        amount: 15,
+                        priority: 9,
+                        collector_id: 123456,
+                        has_logo: true,
+                        coupon_used: false
+                    ]
+                ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }
@@ -510,6 +596,125 @@ trackTests {
     test("Modal close") {
         "/wallet_home/modal/close" (platform: "/mobile", type: TrackType.Event) {
             id = "modalid"
+        }
+    }
+
+    //Loyalty
+    test("Loyalty header tap") {
+        "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
+            loyalty = [
+                level: 9
+            ]
+        }
+    }
+
+    /*****************************
+     * WALLET HOME TEST TRACKS V3 *
+     *****************************/
+
+    test("Mercadopago Home Tap v3") {
+        "/wallet_home/section/tap" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="banking"
+            component_id="user_banking"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Banking") {
+        "/wallet_home/section/tap/banking" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="banking"
+            component_id="user_banking"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Main Actions") {
+        "/wallet_home/section/tap/main_actions" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="main_actions"
+            component_id="user_main_actions"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Activities") {
+        "/wallet_home/section/tap/activities" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="activities"
+            component_id="user_activities"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Activities Link") {
+        "/wallet_home/section/tap/activities_link" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="activities_link"
+            component_id="user_activities_link"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - QR Map") {
+        "/wallet_home/section/tap/qr_map" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="qr_map"
+            component_id="user_qr_map"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Discount Center") {
+        "/wallet_home/section/tap/discount_center" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="discount_center"
+            component_id="user_discount_center"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Loyalty") {
+        "/wallet_home/section/tap/loyalty" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="loyalty"
+            component_id="user_loyalty"
+            level=4
+            percentage=0.32
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Survey") {
+        "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="survey"
+            component_id="user_survey"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Secondary Actions") {
+        "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="secondary_actions"
+            component_id="user_secondary_actions"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Cross Selling") {
+        "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="cross_selling"
+            component_id="user_cross_selling"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Prepaid Banner") {
+        "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="prepaid_banner"
+            component_id="user_prepaid_banner"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Benefits") {
+        "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="benefits"
+            component_id="user_benefits"
         }
     }
 
@@ -778,8 +983,13 @@ trackTests {
 
     test("Mercadopago Home Show") {
         "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
-            header = "name"
+            header = [
+                loyalty: [
+                    level: 5
+                ]
+            ]
             content_type = 'partial'
+            from = "drawer_ml"
             banking = [  
                 content_type : 'default',
                 ordinal: 1,
@@ -793,7 +1003,11 @@ trackTests {
                     quantity: 9
                 ],
                 assets: [],
-                credits: []
+                credits: [],
+                money_in: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ]
             ]
             main_actions = [
                 content_type : 'complete',
@@ -859,31 +1073,70 @@ trackTests {
                     ]
                 ]
             ]
-            activities= [
+            loyalty= [
                 content_type : 'partial',
                 ordinal: 7,
+                level: 3,
+                percentage: 17
+            ]
+            activities= [
+                content_type : 'partial',
+                ordinal: 8,
                 quantity: 3,
                 is_ftu: false,
                 has_footer: true
             ]
             qr_map= [
                 content_type : 'partial',
-                ordinal: 8,
+                ordinal: 9,
                 header_title: "¡Pagá con QR en tus locales favoritos!",
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
             activities_link= [
-                ordinal: 9,
+                ordinal: 10,
                 content_type : 'partial'
+            ]
+            discount_center= [
+                ordinal: 11,
+                content_type: 'partial',
+                items: [
+                    [   
+                        tracking_id: "1004194",
+                        blocked: false,
+                        name: "Mc Donalds",
+                        category: "Fast Food",
+                        mcc: 5611201,
+                        position: 0,
+                        level: 1,
+                        distance: 258,
+                        store_id: 30091709,
+                        availability: "full",
+                        amount_type: "percent",
+                        amount: 15,
+                        priority: 9,
+                        collector_id: 123456,
+                        has_logo: true,
+                        coupon_used: false
+                    ]
+                ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }
 
     test("Mercadopago Home Update") {
         "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
-            header = "name"
+            header = [
+                loyalty: [
+                    level: 5
+                ]
+            ]
             content_type = 'partial'
+            from = "my_account_ml"
             banking = [  
                 content_type : 'default',
                 ordinal: 1,
@@ -897,7 +1150,11 @@ trackTests {
                     quantity: 9
                 ],
                 assets: [],
-                credits: []
+                credits: [],
+                money_in: [
+                    pending_balance: false,
+                    balance_histogram: 6
+                ]
             ]
             main_actions = [
                 content_type : 'complete',
@@ -963,23 +1220,57 @@ trackTests {
                     ]
                 ]
             ]
-            activities= [
+            loyalty= [
                 content_type : 'partial',
                 ordinal: 7,
+                level: 3,
+                percentage: 17
+            ]
+            activities= [
+                content_type : 'partial',
+                ordinal: 8,
                 quantity: 3,
                 is_ftu: false,
                 has_footer: true
             ]
             qr_map= [
                 content_type : 'partial',
-                ordinal: 8,
+                ordinal: 9,
                 header_title: "¡Pagá con QR en tus locales favoritos!",
                 items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                 link: "mercadopago://discovery/map?from=home_instore_map_section"              
             ]
             activities_link= [
-                ordinal: 9,
+                ordinal: 10,
                 content_type : 'partial'
+            ]
+            discount_center= [
+                ordinal: 11,
+                content_type: 'partial',
+                items: [
+                    [   
+                        tracking_id: "1004194",
+                        blocked: false,
+                        name: "Mc Donalds",
+                        category: "Fast Food",
+                        mcc: 5611201,
+                        position: 0,
+                        level: 1,
+                        distance: 258,
+                        store_id: 30091709,
+                        availability: "full",
+                        amount_type: "fixed",
+                        amount: 15,
+                        priority: 9,
+                        collector_id: 123456,
+                        has_logo: true,
+                        coupon_used: false
+                    ]
+                ]
+            ]
+            survey= [
+                ordinal: 12,
+                content_type : 'complete'
             ]
         }
     }
@@ -1016,5 +1307,122 @@ trackTests {
         }
     }
 
+    //Loyalty
+    test("Loyalty header tap") {
+        "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
+            loyalty = [
+                level: 9
+            ]
+        }
+    }
 
+    /*****************************
+     * WALLET HOME TEST TRACKS V3 *
+     *****************************/
+
+    test("Mercadopago Home Tap v3") {
+        "/wallet_home/section/tap" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="banking"
+            component_id="user_banking"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Banking") {
+        "/wallet_home/section/tap/banking" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="banking"
+            component_id="user_banking"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Main Actions") {
+        "/wallet_home/section/tap/main_actions" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="main_actions"
+            component_id="user_main_actions"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Activities") {
+        "/wallet_home/section/tap/activities" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="activities"
+            component_id="user_activities"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Activities Link") {
+        "/wallet_home/section/tap/activities_link" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="activities_link"
+            component_id="user_activities_link"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - QR Map") {
+        "/wallet_home/section/tap/qr_map" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="qr_map"
+            component_id="user_qr_map"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Discount Center") {
+        "/wallet_home/section/tap/discount_center" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="discount_center"
+            component_id="user_discount_center"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Loyalty") {
+        "/wallet_home/section/tap/loyalty" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="loyalty"
+            component_id="user_loyalty"
+            level=4
+            percentage=0.32
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Survey") {
+        "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="survey"
+            component_id="user_survey"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Secondary Actions") {
+        "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="secondary_actions"
+            component_id="user_secondary_actions"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Cross Selling") {
+        "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="cross_selling"
+            component_id="user_cross_selling"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Prepaid Banner") {
+        "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="prepaid_banner"
+            component_id="user_prepaid_banner"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Benefits") {
+        "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="benefits"
+            component_id="user_benefits"
+        }
+    }
 }

@@ -25,7 +25,7 @@ This repository contains all the definitions for the information tracked in *mel
 
 - Always remember to define how your tracking "should be" not "as it is". We want this catalog to represent "the tracking we want" and not "the one we have". The catalog helps us to keep governance on our data and making it more predictable and easy to exploit
 
-- Before making PR. Try to follow other definition examples and make sure your data is not already tracked.
+- Before making PR. Try to follow other definition examples and make sure your data is not already tracked. 
 
 ### REQUIREMENT
 
@@ -58,7 +58,6 @@ If you want to run all available tests **```make test CATALOG=${All}```**
 5. [FAQ](https://github.com/mercadolibre/melidata-catalog/wiki/FAQ) 
 
 ### CONTACT
-
 <melidata_dev@mercadolibre.com>
 
 We internally rotate in the Melidata team to periodically take PRs at this catalog. In case of a hurry ( just in that case ) you can reach catalog owner of the week by checking [this rotation](https://nasdaq-meli.app.opsgenie.com/settings/schedule/detail/e9e18d88-3536-4572-9351-6ab680d4b1ed)

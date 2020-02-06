@@ -29,7 +29,6 @@ tracks {
     "/credits/consumer/myml/summary"(platform: "/", isAbstract: true) {}
     "/credits/consumer/my_account"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/opensea/integrated_flow"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -53,6 +52,9 @@ tracks {
     "/credits/consumer/public_landing/application_start"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/error"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/public_landing/paused"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/public_landing/remedy"(platform: "/", type: TrackType.View) {
+        remedy_name(description: "Remedy name", type: PropertyType.String, required: true)
+    }
 
     //Events
     "/credits/consumer/public_landing/click_hero"(platform: "/", type: TrackType.Event) {
@@ -75,46 +77,6 @@ tracks {
     /******************************************
      *       End: Consumers Public Landings
      ******************************************/
-
-    /***********************************************
-     *       Start: Consumers Integrated Flow
-     ***********************************************/
-    //Integrated Flow - Start
-
-    //Page view
-    "/credits/consumer/opensea/integrated_flow/start"(platform: "/", type: TrackType.View) {
-        source(description: "Integrated flow source", type: PropertyType.String, required: true)
-    }
-
-    //Events
-    "/credits/consumer/opensea/integrated_flow/start/application_start"(platform: "/", type: TrackType.Event) {
-        source(description: "Integrated flow source", type: PropertyType.String, required: true)
-    }
-    "/credits/consumer/opensea/integrated_flow/start/application_cancel"(platform: "/", type: TrackType.Event) {
-        source(description: "Integrated flow source", type: PropertyType.String, required: true)
-    }
-
-    //Integrated Flow - Congrats
-
-    //Page view
-    "/credits/consumer/opensea/integrated_flow/congrats"(platform: "/", type: TrackType.View) {
-        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
-        source(description: "Integrated flow source", type: PropertyType.String, required: true)
-    }
-
-    //Events
-    "/credits/consumer/opensea/integrated_flow/congrats/buy_intention"(platform: "/", type: TrackType.Event) {
-        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
-        source(description: "Integrated flow source", type: PropertyType.String, required: true)
-    }
-    "/credits/consumer/opensea/integrated_flow/congrats/back_to_publication"(platform: "/", type: TrackType.Event) {
-        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
-        source(description: "Integrated flow source", type: PropertyType.String, required: true)
-    }
-
-    /*********************************************
-     *       End: Consumers Integrated Flow
-     *********************************************/
 
     /***********************************************
      *       Start: Consumers Intermediate Landing
@@ -198,7 +160,7 @@ tracks {
     "/credits/consumer/administrator_v2"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
         dashboard_status(
-                            required: true, 
+                            required: true,
                             description: "Current status of the Dashboard", 
                             type: PropertyType.String, 
                             values: [ 
@@ -208,6 +170,17 @@ tracks {
                                     ]
                         )
     }
+    "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
+        user_status(
+                            required: true,
+                            description: "Credit line's current status", 
+                            type: PropertyType.String, 
+                            values: [ 
+                                        "manually_paused"
+                                    ]
+                    )
+    }
+    "/credits/consumer/administrator_v2/suggested_modal"(platform: "/", type: TrackType.View) {}
 
     //Events
     "/credits/consumer/administrator_v2/payment_intention_all"(platform: "/", type: TrackType.Event) {
@@ -220,6 +193,9 @@ tracks {
     "/credits/consumer/administrator_v2/educational_landing"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/suggested_product"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/home"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/suggested_modal/suggested_product_modal"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/", type: TrackType.Event) {}
 
     //Mobile Events 
     "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
@@ -234,7 +210,7 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard/go_mp"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
-
+    "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
 
     //Admin History (Compras Finalizadas)
 
@@ -664,6 +640,9 @@ tracks {
     "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {}
 
     "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {}
+
 
     /******************************************
      *   End: Personal Loans Adoption

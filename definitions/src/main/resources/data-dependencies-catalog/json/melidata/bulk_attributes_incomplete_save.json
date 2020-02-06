@@ -1,6 +1,6 @@
 {
   "users": [
-    "nicolas.vespoli@mercadolibre.com",
+    "nicolas.vespoli@mercadolibre.com"
   ],
   "process_name": "bulk_attributes_incomplete_save",
   "cron": "00 07 * * *",

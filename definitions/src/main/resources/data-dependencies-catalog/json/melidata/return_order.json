@@ -34,7 +34,7 @@
       },
       {
         "name": "Category_order",
-        "type": "UNICODE_STRING",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
