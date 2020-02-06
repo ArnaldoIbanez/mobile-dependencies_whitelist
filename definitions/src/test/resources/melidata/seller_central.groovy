@@ -59,37 +59,6 @@ trackTests {
     "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
   }
 
-  test("seller central listing action") {
-      "/seller_central/listings/action/confirm"(platform: "/", type: TrackType.Event) {
-          action_id = "MODIFY"
-      }
-  }
-
-  test("seller central listing secondary_actions") {
-      "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
-  }
-
-  test("seller central listing filters view") {
-      "/seller_central/listings/filters"(platform: "/mobile", type: TrackType.View) {}
-  }
-
-  test("seller central listing filters view") {
-      "/seller_central/listings/filters/applied"(platform: "/", type: TrackType.Event) {
-          checkedFilters = ["inactive", "premium"]
-      }
-  }
-
-  test("seller central listing filters actions and search") {
-      "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
-          action = "apply"
-      }
-      "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
-          action = "clear"
-      }
-
-      "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
-  }
-
   test("seller central hunting actions") {
       "/seller_central/listings/hunting/change_step"(platform: "/", type: TrackType.Event) {
           viewId = "fulfillment"
@@ -101,9 +70,6 @@ trackTests {
           viewId = "fulfillment"
       }
   }
-
-  test("seller central listing onboarding view") {
-        "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
 
   test("seller central listing filters view") {
     "/seller_central/listings/filters"(platform: "/mobile", type: TrackType.View) {}
