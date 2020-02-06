@@ -436,7 +436,7 @@ trackTests {
   test("seller central bulk publish send custom email") {
     "/seller_central/bulk/publish/upload/send_custom_mail_box"(platform: "/web", type: TrackType.Event) {
       show_custom_mail_box = true
-      custom_mail = ''
+      custom_mail = false
       invalid_mail = false
     }
   }
