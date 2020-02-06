@@ -422,9 +422,14 @@ tracks {
         )
     }
 
-    "/vip/coordinate_availability"(platform: "/web", type: TrackType.Event) {
+    "/vip/coordinate_intention"(platform: "/web", type: TrackType.Event) {
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        catalog_listing(
+                required: false,
+                type: PropertyType.Boolean,
+                description: "Item's catalog listing"
+        )
     }
 
     "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -452,6 +457,11 @@ tracks {
     "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        catalog_listing(
+                required: false,
+                type: PropertyType.Boolean,
+                description: "Item's catalog listing"
+        )
     }
 
     "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {}
