@@ -66,7 +66,17 @@ trackTests {
         "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
     }
 
-
+    test("seller central hunting actions") {
+        "/seller_central/listings/hunting/change_step"(platform: "/", type: TrackType.Event) {
+            viewId = "fulfillment"
+        }
+        "/seller_central/listings/hunting/view_more"(platform: "/", type: TrackType.Event) {
+            viewId = "fulfillment"
+        }
+        "/seller_central/listings/hunting/sell_with_full"(platform: "/", type: TrackType.Event) {
+            viewId = "fulfillment"
+        }
+    }
 
     test("seller central listing onboarding view") {
         "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
