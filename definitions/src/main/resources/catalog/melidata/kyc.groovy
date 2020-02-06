@@ -338,4 +338,13 @@ tracks {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
     }
+
+    "/kyc/iv/trust_vote_recommender"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/kyc/iv/trust_vote_recommendation"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/kyc/iv/error_page"(platform: "/web", type: TrackType.View) {
+    }
 }

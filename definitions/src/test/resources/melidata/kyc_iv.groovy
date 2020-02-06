@@ -394,6 +394,18 @@ trackTests {
             transaction_user_id = 109479272
             reason = "thereason"
         }
+        "/kyc/iv/trust_vote_recommender"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
+            transaction_user_id = 109479273
+        }
+        "/kyc/iv/trust_vote_recommendation"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
+            transaction_user_id = 109479273
+        }
+        "/kyc/iv/error_page"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
+            transaction_user_id = 109479273
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -671,6 +683,18 @@ trackTests {
         }
         "/kyc/iv/address"(platform: "/web") {
             flow = "credits_address"
+            transaction_user_id = 109479273
+        }
+        "/kyc/iv/trust_vote_recommender"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
+            transaction_user_id = 109479273
+        }
+        "/kyc/iv/trust_vote_recommendation"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
+            transaction_user_id = 109479273
+        }
+        "/kyc/iv/error_page"(platform: "/web") {
+            flow = "poc_trust_vote_tc"
             transaction_user_id = 109479273
         }
         
