@@ -1126,13 +1126,8 @@ trackTests {
         // Buyer QR
 
         "/instore/buyer_qr/buyer_qr"(platform: "/mobile", type: TrackType.View) {
-            code_type = "qr_code"
             payment_methods_enabled = true
             payment_method_preselected_id = "account_money"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/buyer_qr/switch_code"(platform: "/mobile", type: TrackType.Event) {
-            code_type = "qr_code"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/buyer_qr/refresh_code"(platform: "/mobile", type: TrackType.Event) {
@@ -2344,13 +2339,8 @@ trackTests {
         // Buyer QR
 
         "/instore/buyer_qr/buyer_qr"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            code_type = "qr_code"
             payment_methods_enabled = true
             payment_method_preselected_id = "account_money"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/buyer_qr/switch_code"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            code_type = "qr_code"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/buyer_qr/refresh_code"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {

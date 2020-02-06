@@ -463,13 +463,8 @@ tracks {
     "/instore/buyer_qr"(platform: "/mobile", isAbstract: true) {}
 
     "/instore/buyer_qr/buyer_qr"(platform: "/mobile", type: TrackType.View) {
-        code_type(required: true, PropertyType.String, description: "type of code (QR or bar code)", values: ["qr_code", "bar_code"])
         payment_methods_enabled(required: true, PropertyType.Boolean, description: "feature flag for payment methods")
         payment_method_preselected_id(required: true, PropertyType.String, description: "payment method id (visa, master, account_money, etc)")
-    }
-
-    "/instore/buyer_qr/switch_code"(platform: "/mobile", type: TrackType.Event) {
-        code_type(required: true, PropertyType.String, description: "type of code (QR or bar code)", values: ["qr_code", "bar_code"])
     }
 
     "/instore/buyer_qr/refresh_code"(platform: "/mobile", type: TrackType.Event) {}
