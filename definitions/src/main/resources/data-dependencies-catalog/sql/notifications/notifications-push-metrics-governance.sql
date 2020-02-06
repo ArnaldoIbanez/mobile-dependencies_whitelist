@@ -71,4 +71,3 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
   AND jest(event_data, 'event_type') IN ('sent')
 ) summary
 GROUP BY summary.business, summary.fecha, summary.site_id, summary.path, summary.device_status, summary.has_user, summary.app_version
-ORDER BY summary.fecha, summary.business, summary.site_id, summary.path, summary.device_status, summary.has_user, summary.app_version
