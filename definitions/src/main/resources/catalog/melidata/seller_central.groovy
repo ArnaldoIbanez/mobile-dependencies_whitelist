@@ -125,8 +125,8 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
         seller_profile(required: false, type: PropertyType.String, description: "Type of seller")
-        seller_reputation(required: true, type: PropertyType.String, description: "Reputation of the seller")
-        seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
+        seller_reputation(required: false, type: PropertyType.String, description: "Reputation of the seller")
+        seller_segment(required: false, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         category_domain(required: false, type: PropertyType.String, description: "Item category domain")
         category_path(required: false, type: PropertyType.ArrayList, description: "Path of category")
@@ -164,7 +164,9 @@ tracks {
         item_title(required: true, type: PropertyType.String, description: "Item title")
         catalog_product_title(required: true, type: PropertyType.String, description: "Product title associated with an item")
         vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-        mercado_lider(required: true, type: PropertyType.Boolean, description: "Seller is mercadolider")
+        mercado_lider(required: false, type: PropertyType.Boolean, description: "Seller is mercadolider")
+        user_type(required: false, type: PropertyType.String, description: "The user type")
+
     }
 
     propertyGroups {
@@ -181,7 +183,7 @@ tracks {
 
         sellerCentralCatalogBoostGroup(item_attributes, catalog_product_attributes, item_title, catalog_product_title)
 
-        sellerCentralUserSales(seller_profile, seller_reputation, mercado_lider, seller_segment)
+        sellerCentralUserSales(seller_profile, seller_reputation, mercado_lider, seller_segment, user_type)
     }
 
     //LISTING SECTION
@@ -873,7 +875,7 @@ tracks {
     "/seller_central/sales/list/excel"(platform: "/", isAbstract: true) {}
 
     "/seller_central/sales/list/excel/snackbar"(platform: "/web", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Action id")
+        id(required: true, type: PropertyType.String, description: "Error id")
     }
 
 
