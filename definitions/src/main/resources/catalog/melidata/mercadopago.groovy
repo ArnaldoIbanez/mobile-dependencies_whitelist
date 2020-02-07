@@ -408,12 +408,6 @@ tracks {
         quantity (required:true, type: PropertyType.Numeric, description: "bundle quantity")
     }
 
-    // Payers Growth Landings
-    "/payers_growth"(platform: "/", isAbstract: true) {}
-    "/payers_growth/landings"(platform: "/") {
-        product (type: PropertyType.String, required: true, description: "Product name, example: 'mkt-combustibles'")
-    }
-
     // Services landings
     "/services"(platform: "/", isAbstract: true) {}
     "/services/mkt_landing"(platform: "/web", type: TrackType.View) {
@@ -696,13 +690,12 @@ tracks {
     "/account_summary/filters"(platform: "/mobile") {}
     "/account_summary/filtered_list"(platform: "/mobile") {}
 
-    "/activity_detail"(platform: "/mobile") { }
+
     "/transaction_detail"(platform: "/mobile", initiative: "1100") { }
     "/social_detail"(platform: "/mobile", initiative: "1100") { }
     "/event_detail"(platform: "/mobile", initiative: "1100") { }
 
-    "/shopping"(platform: "/mobile") {
-        from (required:false, type: PropertyType.String, description: "Where the flow start") }
+
     "/crop_image"(platform: "/mobile", initiative: "1100") { }
 
     "/login"(platform: "/mobile", isAbstract: true) {
@@ -714,48 +707,6 @@ tracks {
     "/login/sign_up"(platform: "/mobile", type: TrackType.View) {}
     "/login/identification"(platform: "/mobile") {}
 
-    "/sign_in"(platform: "/mobile", type: TrackType.View) {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/sign_in/sso"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-    }
-    "/sign_in/smart_lock"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-        description (required:false, type: PropertyType.String, description: "Status description")
-    }
-    "/sign_in/recovery_account_button"(platform: "/mobile", type: TrackType.Event) {
-        label (required:false, type: PropertyType.String, description: "Status")
-    }
-    "/sign_in/facebook"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-        description (required:false, type: PropertyType.String, description: "Status description")
-    }
-    "/sign_in/google"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-        description (required:false, type: PropertyType.String, description: "Status description")
-    }
-    "/sign_in/mail"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-        description (required:false, type: PropertyType.String, description: "Status description")
-    }
-    "/sign_up"(platform: "/mobile", isAbstract: true) {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/sign_up/facebook"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-    }
-    "/sign_up/google"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-    }
-    "/sign_up/mail"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-        description (required:false, type: PropertyType.String, description: "Status description")
-    }
-
-    "/camera"(platform: "/mobile/android", type: TrackType.View) {
-        from (required:false, type: PropertyType.String, description: "Where the Camera start in picture profile or person validataion in android")
-    }
 
     "/login_success"(platform: "/mobile/ios", type: TrackType.View) {
         from (required:false, type: PropertyType.String, description: "When user login success in ios")
@@ -804,48 +755,6 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
-    "/qr_code"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/qr_code/qr_reader"(platform: "/mobile") {}
-    "/qr_code/fill_transaction_data"(platform: "/mobile") {}
-    "/qr_code/pay"(platform: "/mobile") {}
-    "/qr_code/deals"(platform: "/mobile") {}
-    "/qr_code/deals/terms"(platform: "/mobile") {}
-    "/qr_code/payment_methods"(platform: "/mobile") {}
-    "/qr_code/other_payment_methods"(platform: "/mobile") {}
-    "/qr_code/cards"(platform: "/mobile") {}
-    "/qr_code/add_card"(platform: "/mobile") {}
-    "/qr_code/issuers"(platform: "/mobile") {}
-    "/qr_code/my_cards"(platform: "/mobile") {}
-    "/qr_code/result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
-    "/qr_code/px_payment_method_search"(platform: "/mobile") {}
-    "/qr_code/px_discount_summary"(platform: "/mobile") {}
-    "/qr_code/px_card_vault"(platform: "/mobile") {}
-    "/qr_code/px_card_number"(platform: "/mobile") {}
-    "/qr_code/px_card_holder_name"(platform: "/mobile") {}
-    "/qr_code/px_card_expiry_date"(platform: "/mobile") {}
-    "/qr_code/px_card_security_code"(platform: "/mobile") {}
-    "/qr_code/px_identification_number"(platform: "/mobile") {}
-    "/qr_code/px_card_issuers"(platform: "/mobile") {}
-    "/qr_code/px_card_installments"(platform: "/mobile") {}
-    "/qr_code/px_review_and_confirm"(platform: "/mobile") {}
-    "/qr_code/px_result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
-
-    "/qr_read"(platform: "/mobile", isAbstract: true) {}
-    "/qr_read/store"(platform: "/mobile") {
-        _label (required:true, type: PropertyType.String, description: "Operation status")
-        deep_link (required:false, type: PropertyType.String, description: "Navigation info")
-        qr_info (required:false, type: PropertyType.String, description: "Data read")
-        additional_info (required:false, description: "Extra info")
-    }
 
     "/px_result"(platform: "/mobile") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
@@ -993,79 +902,8 @@ tracks {
     }
 
 
-    //tracks for new flow (withdraw and new account)
-    "/new-withdraw"(platform: "/", type: TrackType.View) {}
-    "/new-withdraw/confirm"(platform: "/", type: TrackType.View) {
-        type (required: true, type: PropertyType.String, description: "tipo de confirm")
-        type_detail (required: true, type: PropertyType.String, description: "detalle de confirm")
-    }
-    "/new-withdraw/account-select"(platform: "/", type: TrackType.View) {}
-    "/new-withdraw/second-password"(platform: "/", type: TrackType.View) {}
-    "/new-withdraw/congrats"(platform: "/", type: TrackType.View) {}
-    "/new-withdraw/congrats-advance"(platform: "/", type: TrackType.View) {}
-    "/new-account"(platform: "/", type: TrackType.View) {}
 
-    "/withdraw"(platform: "/", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/withdraw/take_money_out"(platform: "/") {}
-    "/withdraw/withdrawable_money"(platform: "/mobile") {}
-    "/withdraw/result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
 
-    "/withdraw_advance"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/withdraw_advance/take_money_out"(platform: "/mobile") {}
-    "/withdraw_advance/select_bank"(platform: "/mobile") {}
-    "/withdraw_advance/result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
-    "/withdraw/bacen"(platform: "/mobile", isAbstract: true) {}
-    "/withdraw/bacen/ok"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/bacen/cancel"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/bacen/error"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/bacen/open"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/bacen/close"(platform: "/mobile", type: TrackType.View) {}
-
-    "/withdraw/select_bank"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/select_bank/delete_account_modal"(platform:"/mobile", type: TrackType.Event){}    
-    "/withdraw/select_bank/delete_account_modal/confirm"(platform:"/mobile", type: TrackType.Event){
-        bank_account_id (required: true, description: "Bank account selected to be deleted")
-    } 
-    "/withdraw/select_bank/delete_account_modal/cancel"(platform:"/mobile", type: TrackType.Event){} 
-
-    "/withdraw/main"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/confirmation"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/make_withdraw"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/add_account"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/congrats"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/error"(platform: "/mobile", isAbstract: true) {}
-    "/withdraw/error/generic_error"(platform: "/mobile", type : TrackType.View) {}
-    "/withdraw/error/withdraw_failed"(platform: "/mobile", type : TrackType.View) {}
-    "/withdraw/error/high_risk"(platform: "/mobile", type : TrackType.View) {}
-    "/withdraw/error/uif"(platform: "/mobile", type : TrackType.View) {}
-    "/withdraw/delay"(platform: "/mobile", isAbstract : true) {}
-    "/withdraw/delay/manual_review"(platform: "/mobile",   type : TrackType.View) {}
-    "/withdraw/delay/offline"(platform: "/mobile",   type : TrackType.View) {}
-    "/withdraw/uif_change_account"(platform: "/mobile",   type : TrackType.View) {}
-    "/withdraw/restriction"(platform: "/mobile", type: TrackType.View) {}
-
-    "/fund_account"(platform: "/", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/fund_account/fund_amount"(platform: "/mobile") {}
-    "/fund_account/other_payment_methods"(platform: "/mobile") {}
-    "/fund_account/result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
 
     "/settings"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -1116,13 +954,6 @@ tracks {
         new_release_days (required: true, type: PropertyType.Numeric, description: "The new release day configuration")
     }
 
-    "/associate_phone"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/associate_phone/sync_phone"(platform: "/mobile") {}
-    "/associate_phone/verify_pin"(platform: "/mobile") {}
-    "/associate_phone/synced_phone"(platform: "/mobile") {}
 
     //Digital Goods
      "/digital_goods"(platform: "/mobile", isAbstract: true) {
@@ -1154,38 +985,6 @@ tracks {
     "/digital_goods/terms_and_conditions"(platform: "/mobile") {}
     "/digital_goods/recommended_click"(platform: "/mobile", type: TrackType.Event) {}
 
-
-    "/money_detail"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/money_detail/balance"(platform: "/mobile") {}
-    "/money_detail/help_modal"(platform: "/mobile") {}
-
-    //Withdraw
-    "/money_detail/withdraw/main"(platform: "/mobile", type: TrackType.View) {}
-    "/money_detail/withdraw/confirmation"(platform: "/mobile", type: TrackType.View) {}
-    "/money_detail/withdraw/congrats"(platform: "/mobile", type: TrackType.View) {}
-    "/money_detail/withdraw/add_account"(platform: "/mobile", type: TrackType.View) {}
-    "/money_detail/withdraw/select_bank"(platform: "/mobile", type: TrackType.View) {}    
-    "/money_detail/withdraw"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/daily_detail"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/money_advance"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/restrictions"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/point_home"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/manual_code"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/confirmation"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/withdraw/error"(platform: "/mobile", isAbstract: true) {}
-    "/money_detail/withdraw/error/high_risk"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/withdraw/error/generic_error"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/withdraw/uif_change_account"(platform: "/mobile",   type : TrackType.View) {}
-    "/money_detail/withdraw/delay"(platform: "/mobile", isAbstract: true) {}
-    "/money_detail/withdraw/delay/offline"(platform: "/mobile",   type : TrackType.View) {}
-    "/money_detail/shopping"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/withdraw/delay/manual_review"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/credits"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/activities"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail"(platform: "/mobile", isAbstract: true) {}
 
     /**
      * END NOTIFICATIONS

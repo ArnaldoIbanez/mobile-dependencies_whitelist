@@ -3,6 +3,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+
+    initiative = '1047'
+
     // Root
     "/asset_management"(platform: "/", isAbstract: true) {
         label (required: false, type: PropertyType.String, description: "The label attached to the current event")

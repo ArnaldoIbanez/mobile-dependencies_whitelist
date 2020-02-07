@@ -156,9 +156,4 @@ tracks {
     "/merchant_acquisition/qr/landing"(platform:"/", isAbstract: true) {}
     "/merchant_acquisition/qr/landing/buyers"(platform:"/", type: TrackType.View) {}
 
-    // Payers Growth Landings
-    "/payers_growth"(platform: "/", isAbstract: true) {}
-    "/payers_growth/landings"(platform: "/") {
-        product (type: PropertyType.String, required: true, description: "Product name, example: 'mkt-combustibles'")
-    }
 }
