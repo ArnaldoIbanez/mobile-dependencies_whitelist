@@ -20,6 +20,27 @@ tracks {
     def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
     def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
 
+    "/"(platform: "/", isAbstract: true) {
+        //Recommendations data
+        recommendations (required: false, description: "Recommendations data map")
+        // has_errors,
+        // hidden_by_client,
+        // client,
+        // backend_id,
+        // track_info:[
+        //              has_recommendations,
+        //              item_category,
+        //              recommended_items:[]
+        //              recommended_categories:[]
+        //    ]
+        //
+    }
+
+    "/"(platform: "/mobile", isAbstract: true) {
+        sent_again(required: false, description: "This field is sent by mobile apps if a track is being re-sent. Probably due to a bad impl on native module. It shouldn't be present on event_data, in fact, we remove it on our consumers. But we catalog it, for desa catalogo validations, while we remove it")
+    }
+
+
     //EXTERNAL
     //TODO revisar /external/XXX
 
