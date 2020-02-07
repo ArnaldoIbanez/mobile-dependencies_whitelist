@@ -4,6 +4,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1046"
+
     "/onboarding"(platform: "/mobile", isAbstract: true) {}
 
     "/onboarding/step"(platform: "/mobile", isAbstract: true) {}
