@@ -66,6 +66,26 @@ trackTests {
         }
     }
 
+    test("Login") {
+        "/login/splitter"(platform: "/mobile") {
+            flow = "/login"
+        }
+        "/login/sign_in"(platform: "/mobile") {
+            flow = "/login"
+        }
+        "/login/sign_up"(platform: "/mobile") {
+            flow = "/login"
+        }
+        "/login/identification"(platform: "/mobile") {
+            flow = "/login"
+        }
+    }
+
+    test("Login Success") {
+        "/login_success"(platform: "/mobile/ios") {
+        }
+    }
+
     test("Login conversion tracks") {
         "/login"(platform: "/") {
             source = "LFE"
