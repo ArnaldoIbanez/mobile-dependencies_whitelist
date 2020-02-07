@@ -5,6 +5,8 @@ import com.ml.melidata.catalog.PropertyType
 
 tracks {
 
+    initiative = '1142'
+
     propertyDefinitions {   
         session_id(required: false, description: "Session id")
         flow(required: false, description: "Flow name")
