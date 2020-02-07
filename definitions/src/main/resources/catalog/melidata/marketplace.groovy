@@ -235,15 +235,6 @@ tracks {
     "/payers_growth/landings"(platform: "/") {
         product (type: PropertyType.String, required: true, description: "Product name, example: 'mkt-combustibles'")
     }
-    
-    //Landings Deals
-
-    "/deals"(platform: "/", isAbstract: true) {}
-
-    "/deals/landing"(platform: "/") {
-        deal_id(required: false, type: PropertyType.String)
-        deal_print_id(required: false, type: PropertyType.String)
-    }
 
     "/sso" (platform: "/mobile", isAbstract: true){}
     "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}

@@ -3,6 +3,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+
+    initiative = "1052"
+
     //Advertising flow
     "/advertising"(platform: "/", isAbstract: true) {}
 
@@ -226,6 +229,14 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
         sll_total(required: true, type: PropertyType.String, description: "Indicates the number total of sll")
 
+    }
+
+    //Landings Deals
+    "/deals"(platform: "/", isAbstract: true) {}
+
+    "/deals/landing"(platform: "/") {
+        deal_id(required: false, type: PropertyType.String)
+        deal_print_id(required: false, type: PropertyType.String)
     }
 
 }
