@@ -5,6 +5,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = "1148"
+
     "/profile_check" (platform: "/mobile", isAbstract: true) {}
 
     // Views

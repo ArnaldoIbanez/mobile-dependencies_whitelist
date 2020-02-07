@@ -3,6 +3,9 @@ import com.ml.melidata.TrackType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
+
+    initiative = "1130"
+
     /*************************
     *      ACTIVITY WEB      *
     *************************/
@@ -50,5 +53,55 @@ tracks {
             description:"The sections that the user is receiving from the api.",
             type: PropertyType.ArrayList(PropertyType.Map(section_definition))
         )
+    }
+
+    "/charts"(platform: "/web", isAbstract: true){}
+    "/charts/show"(platform: "/web", type: TrackType.View){}
+
+    // MP Landings Scope
+    "/landing"(platform: "/web", isAbstract: true) {}
+
+    // MP Home
+    "/landing/home"(platform: "/web"){}
+
+    // MP Sellers
+    "/landing/sellers"(platform: "/web"){}
+
+    // MP Sellers Websites
+    "/landing/sellers/websites"(platform: "/web"){}
+
+    // MP Sellers Social
+    "/landing/sellers/social"(platform: "/web"){}
+
+    // MP Sellers Merchant Services
+    "/landing/sellers/mss"(platform: "/web"){
+        page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
+    }
+
+    "/landing/sellers/mss/click"(platform:"/", type: TrackType.Event) {
+        id (type: PropertyType.String, required: false, description: "ID from clicked element")
+        label (type: PropertyType.String, required: false, description: "Element text")
+        page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
+        fixed_fee (type: PropertyType.String, required: false, description: "Fixed Fee")
+        advance (type: PropertyType.String, required: false, description: "Advance days")
+        advance_fee (type: PropertyType.String, required: false, description: "Advance days fee")
+        advance_value (type: PropertyType.String, required: false, description: "Advance fee final value")
+        installments (type: PropertyType.String, required: false, description: "Total installments")
+        installments_fee (type: PropertyType.String, required: false, description: "Installments fee")
+        installments_value (type: PropertyType.String, required: false, description: "Installments final value")
+        initial_sale_value (type: PropertyType.String, required: false, description: "Initial sale value")
+        final_sale_value (type: PropertyType.String, required: false, description: "Final sale value (with fees)")
+    }
+
+    // MP Buyers
+    "/landing/buyers"(platform: "/web"){}
+
+    // MP Promotions
+    "/landing/promotions"(platform: "/web"){}
+
+    "/landing/formcomercial"(platform: "/", type: TrackType.View) {}
+
+    "/landing/formcomercial/send_email"(platform:"/", type: TrackType.Event) {
+        email (type: PropertyType.String, required: true, description: "Email from user")
     }
 }

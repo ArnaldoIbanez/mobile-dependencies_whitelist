@@ -17,6 +17,9 @@ import com.ml.melidata.TrackType
 */
 
 tracks {
+
+    initiative = "1148"
+
     "/collaborators_admin"(platform:"/", type: TrackType.View) {
         from(required: true, values: ['unknown', 'mail', 'banner'], description: 'Indicates from which CTA was redirected. Unknown means that it did not come from any CTA.')
         source(required: true, type: PropertyType.String, description: 'Indicates the type of origin')

@@ -46,53 +46,6 @@ tracks {
     "/application"(platform:"/mobile", isAbstract: true, initiative: "1096") {}
     "/application/open"(platform:"/mobile", type: TrackType.Event) { }
 
-    // MP Landings Scope
-    "/landing"(platform: "/web", isAbstract: true, initiative: "1096") {}
-
-    // MP Home
-    "/landing/home"(platform: "/web"){}
-
-    // MP Sellers
-    "/landing/sellers"(platform: "/web"){}
-
-    // MP Sellers Websites
-    "/landing/sellers/websites"(platform: "/web"){}
-
-    // MP Sellers Social
-    "/landing/sellers/social"(platform: "/web"){}
-
-    // MP Sellers Merchant Services
-    "/landing/sellers/mss"(platform: "/web"){
-        page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
-    }
-
-    "/landing/sellers/mss/click"(platform:"/", type: TrackType.Event) {
-        id (type: PropertyType.String, required: false, description: "ID from clicked element")
-        label (type: PropertyType.String, required: false, description: "Element text")
-        page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
-        fixed_fee (type: PropertyType.String, required: false, description: "Fixed Fee")
-        advance (type: PropertyType.String, required: false, description: "Advance days")
-        advance_fee (type: PropertyType.String, required: false, description: "Advance days fee")
-        advance_value (type: PropertyType.String, required: false, description: "Advance fee final value")
-        installments (type: PropertyType.String, required: false, description: "Total installments")
-        installments_fee (type: PropertyType.String, required: false, description: "Installments fee")
-        installments_value (type: PropertyType.String, required: false, description: "Installments final value")
-        initial_sale_value (type: PropertyType.String, required: false, description: "Initial sale value")
-        final_sale_value (type: PropertyType.String, required: false, description: "Final sale value (with fees)")
-    }
-
-    // MP Buyers
-    "/landing/buyers"(platform: "/web"){}
-
-    // MP Promotions
-    "/landing/promotions"(platform: "/web"){}
-
-    "/landing/formcomercial"(platform: "/", type: TrackType.View) {}
-
-    "/landing/formcomercial/send_email"(platform:"/", type: TrackType.Event) {
-      email (type: PropertyType.String, required: true, description: "Email from user")
-    }
-
     // MP Alliance BancoColombioa
     "/alliance"(platform: "/web", isAbstract: true) {}
     "/alliance/landing"(platform: "/", type: TrackType.View) {
@@ -1039,74 +992,6 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
-    // Traks for dashboard section
-    "/tfs_dashboard"(platform: "/", isAbstract: true) {}
-    "/tfs_dashboard/home"(platform: "/", type: TrackType.View) {}
-    "/tfs_dashboard/home/general"(platform: "/", type: TrackType.View) {}
-    "/tfs_dashboard/home/offline"(platform: "/", type: TrackType.View) {}
-    "/tfs_dashboard/home/online"(platform: "/", type: TrackType.View) {}
-    "/tfs_dashboard/home/meli"(platform: "/", type: TrackType.View) {}
-    "/tfs_dashboard/detail"(platform: "/", type: TrackType.View) {
-        chart_id (required: true, type: PropertyType.String, description: "The chart ID of the detail")
-        section (required: true, type: PropertyType.String, description: "The section owner of the chart")
-    }
-    "/tfs_dashboard/compare"(platform: "/", type: TrackType.View) {}
-    "/tfs_dashboard/filters"(platform: "/", type: TrackType.View) {}
- 
-    // Events for dashboard section
-    "/tfs_dashboard/tab_selection"(platform: "/", type: TrackType.Event) {
-        section (required: true, type: PropertyType.String, description: "The selected section")
-    }
-    "/tfs_dashboard/hint"(platform: "/", type: TrackType.Event) {
-        chart_id (required: true, type: PropertyType.String, description: "The chart ID of the hint")
-        section (required: true, type: PropertyType.String, description: "The section owner of the hint")
-    }
-    "/tfs_dashboard/home/delta"(platform: "/", type: TrackType.Event) {
-        chart_id (required: true, type: PropertyType.String, description: "The chart ID of the delta")
-        section (required: true, type: PropertyType.String, description: "The section owner of the delta")
-    }
-    "/tfs_dashboard/detail/delta"(platform: "/", type: TrackType.Event) {
-        chart_id (required: true, type: PropertyType.String, description: "The chart ID of the delta")
-        section (required: true, type: PropertyType.String, description: "The section owner of the delta")
-    }
-
-    //filter definition
-    def filter_definition = objectSchemaDefinitions {
-        filter_id (type: PropertyType.String, required: true)
-        filter_value (type: PropertyType.String, required: true)
-    }
-
-    "/tfs_dashboard/home/filters_apply"(platform: "/", type: TrackType.Event) {
-        section (required: true, type: PropertyType.String, description: "The section when filter")
-        filters (required: true, type: PropertyType.ArrayList(PropertyType.Map(filter_definition)), description: "Filters")
-    }
-    "/tfs_dashboard/detail/filters_apply"(platform: "/", type: TrackType.Event) {
-        chart_id (required: true, type: PropertyType.String, description: "The chart ID when filter")
-        section (required: true, type: PropertyType.String, description: "The section when filter")
-        filters (required: true, type: PropertyType.ArrayList(PropertyType.Map(filter_definition)), description: "Filters")
-    }
-    "/tfs_dashboard/compare"(platform: "/", type: TrackType.Event) {
-        chart_id (required: false, type: PropertyType.String, description: "The chart ID when compare")
-        section (required: false, type: PropertyType.String, description: "The section when compare")
-    }
-
-    // Errors for dashboard section
-    "/tfs_dashboard/home/error"(platform: "/", type: TrackType.Event) {
-        status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
-    }
-    "/tfs_dashboard/detail/error"(platform: "/", type: TrackType.Event) {
-        chart_id (required: true, type: PropertyType.String, description: "The chart ID when error")
-        section (required: true, type: PropertyType.String, description: "The section when error")
-        status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
-    }
-
-    "/tfs_dashboard/home/card"(platform: "/", isAbstract: true) {}
-    "/tfs_dashboard/home/card/error"(platform: "/", type: TrackType.Event) {
-        chart_id (required: true, type: PropertyType.String, description: "The chart ID when error")
-        section (required: true, type: PropertyType.String, description: "The section when error")
-        status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
-    }
-
 
     //tracks for new flow (withdraw and new account)
     "/new-withdraw"(platform: "/", type: TrackType.View) {}
@@ -1322,32 +1207,8 @@ tracks {
     "/tools/create"(platform: "/web", type: TrackType.View){}
     "/tools/confirm_create_edit"(platform: "/web"){}
 
-    "/charts"(platform: "/web", isAbstract: true){}
-    "/charts/show"(platform: "/web", type: TrackType.View){}
-
     "/balance"(platform: "/web", isAbstract: true){}
     "/balance/reports"(platform: "/web", type: TrackType.View){}
-
-    "/my_business"(platform: "/", type: TrackType.View){}
-    "/my_business/how_it_works_ME"(platform: "/", type: TrackType.Event){
-        how_it_works_me(required: true, type: PropertyType.String, values: ["click", "tap"], description: "Indicates how works the track")
-    }
-    "/my_business/enable_ME"(platform: "/", type: TrackType.Event){
-        mercado_envios(required: true, type: PropertyType.String, values: ["enable", "disable"],description: "Indicates if mercado envios is enabled")
-    }
-    "/my_business/disable_ME"(platform: "/", type: TrackType.Event){
-        mercado_envios(required: true, type: PropertyType.String, values: ["enable", "disable"],description: "Indicates if mercado envios is enabled")
-    }
-
-    "/my_business/split_payment"(platform: "/", type: TrackType.Event){
-        split_payment(required: true, type: PropertyType.String, values: ["enabled", "disabled"],description: "Indicates if split payment is enabled")
-    }
-    "/my_business/recovery_mails"(platform: "/", type: TrackType.Event){
-        recovery_mails(required: true, type: PropertyType.String, values: ["enabled", "disabled"],description: "Indicates if recovery mail is enabled")
-    }
-    "/my_business/cost_absorption"(platform: "/", type: TrackType.Event){
-        cost_absorption(required: true, type: PropertyType.String, values: ["deactivate", "activate", "modificate"],description: "Indicates cost absorption status")
-    }
 
     //END -- MP personalFrontend
 
@@ -1403,37 +1264,6 @@ tracks {
 
     "/single_player/open_deep_link"(platform:"/web/mobile", type: TrackType.Event) {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
-    }
-
-    "/stores"(platform: "/", isAbstract: true) {}
-    "/stores/create"(platform: "/", type: TrackType.View) {}
-    "/stores/link_operators"(platform: "/", type: TrackType.View) {}
-    "/stores/list"(platform: "/", type: TrackType.View) {}
-    "/stores/update"(platform: "/", type: TrackType.View) {}
-    "/stores/details"(platform: "/", type: TrackType.View) {}
-    "/stores/pos"(platform: "/", type: TrackType.View, isAbstract:true) {}
-    "/stores/pos/create"(platform: "/", type: TrackType.View) {}
-    "/stores/pos/update"(platform: "/", type: TrackType.View) {}
-    "/stores/standalone_pos"(platform: "/", type: TrackType.View) {}
-    "/stores/move_pos"(platform: "/", type: TrackType.View) {}
-
-    //Account mydata
-    "/account"(platform: "/web", isAbstract: true) {}
-    "/account/mydata"(platform: "/web", isAbstract: true) {}
-    "/account/mydata/email"(platform: "/", type: TrackType.View) {}
-    "/account/mydata/email/congrats"(platform: "/web", type: TrackType.View) {}
-
-    //Tu negocio
-    "/your_business"(platform: "/web", isAbstract: true) {}
-    "/your_business/home"(platform: "/web", type: TrackType.View) {}
-    "/your_business/image_upload"(platform:"/web", type: TrackType.Event) {}
-    "/your_business/mydata_edit"(platform:"/web", type: TrackType.Event) {}
-    "/your_business/confirm_action"(platform:"/web", type: TrackType.Event) {
-        card_name(required: true, description: "the name of the card that triggered the event", type: PropertyType.String)
-    }
-    "/your_business/link"(platform:"/web", type: TrackType.Event) {
-        card_name(required: true, description: "the name of the card that triggered the event", type: PropertyType.String)
-        path(required: true, description: "path of the next page", type: PropertyType.String)
     }
 
 }
