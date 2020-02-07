@@ -567,7 +567,7 @@ trackTests {
             catalog_listing="Item's catalog listing"
         }
 
-        "/vip/coordinate_availability"(platform: "/web", type: TrackType.Event) {
+        "/vip/coordinate_intention"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
 
