@@ -61,13 +61,13 @@ trackTests {
 
   test("seller central hunting actions") {
       "/seller_central/listings/hunting/change_step"(platform: "/", type: TrackType.Event) {
-          viewId = "fulfillment"
+          view_id = "fulfillment"
       }
       "/seller_central/listings/hunting/view_more"(platform: "/", type: TrackType.Event) {
-          viewId = "fulfillment"
+          view_id = "fulfillment"
       }
       "/seller_central/listings/hunting/sell_with_full"(platform: "/", type: TrackType.Event) {
-          viewId = "fulfillment"
+          view_id = "fulfillment"
       }
   }
 
