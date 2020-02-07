@@ -59,13 +59,13 @@ tracks {
     "/charts/show"(platform: "/web", type: TrackType.View){}
 
     // MP Landings Scope
-    "/landing"(platform: "/web", isAbstract: true) {}
+    "/landing"(platform: "/", isAbstract: true) {}
 
     // MP Home
     "/landing/home"(platform: "/web"){}
 
     // MP Sellers
-    "/landing/sellers"(platform: "/web"){}
+    "/landing/sellers"(platform: "/"){}
 
     // MP Sellers Websites
     "/landing/sellers/websites"(platform: "/web"){}
@@ -74,7 +74,7 @@ tracks {
     "/landing/sellers/social"(platform: "/web"){}
 
     // MP Sellers Merchant Services
-    "/landing/sellers/mss"(platform: "/web"){
+    "/landing/sellers/mss"(platform: "/"){
         page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
     }
 

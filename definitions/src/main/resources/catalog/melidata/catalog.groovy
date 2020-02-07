@@ -194,6 +194,7 @@ catalog {
         include business, "pos_billings.groovy"
         include business, "pdv.groovy"
         include business, "sp_prepaid.groovy"
+        include business, "tools_for_sellers.groovy"
     }
 
     mercadoshops.each { business ->
