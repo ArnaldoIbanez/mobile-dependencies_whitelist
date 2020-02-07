@@ -5,6 +5,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = "1161"
+
     /**
     * MultiPlayer MoneyTransfer Screen Tracks
     */
@@ -152,4 +154,44 @@ tracks {
     "/mplayer/tracing/reject_event/exit"(platform: "/mobile", type: TrackType.Event) {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
+
+    "/money_request"(platform: "/", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/money_request/picker"(platform: "/mobile") {}
+    "/money_request/fill_transaction_data"(platform: "/mobile") {}
+    "/money_request/social_share"(platform: "/mobile") {}
+    "/money_request/result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+    "/money_request/confirm"(platform: "/web", type: TrackType.Event){}
+    "/money_request/congrats"(platform: "/web"){}
+
+    "/send_money"(platform: "/", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/send_money/fill_transaction_data"(platform: "/mobile") {}
+    "/send_money/pay"(platform: "/mobile") {}
+    "/send_money/deals"(platform: "/mobile") {}
+    "/send_money/deals/terms"(platform: "/mobile") {}
+    "/send_money/payment_methods"(platform: "/mobile") {}
+    "/send_money/other_payment_methods"(platform: "/mobile") {}
+    "/send_money/cards"(platform: "/mobile") {}
+    "/send_money/add_card"(platform: "/mobile") {}
+    "/send_money/issuers"(platform: "/mobile") {}
+    "/send_money/my_cards"(platform: "/mobile") {}
+    "/send_money/result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+    "/send_money/bacen"(platform: "/mobile", isAbstract: true) {}
+    "/send_money/bacen/ok"(platform: "/mobile") {}
+    "/send_money/bacen/cancel"(platform: "/mobile") {}
+    "/send_money/bacen/error"(platform: "/mobile") {}
+    "/send_money/bacen/open"(platform: "/mobile") {}
+    "/send_money/bacen/close"(platform: "/mobile") {}
+    "/send_money/confirm"(platform: "/web", type: TrackType.Event){}
 }

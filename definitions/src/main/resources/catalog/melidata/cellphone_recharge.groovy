@@ -3,6 +3,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+
+    initiative = "1131"
+
     "/cellphone_recharge"(platform: "/", isAbstract: true) {
         session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
     }

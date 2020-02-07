@@ -5,7 +5,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    defaultBusiness = "mercadolibre"
+    initiative = "1048"
 
     // Acquisition
     // MLM => https://www.mercadolibre.com.mx/tarjeta-credito

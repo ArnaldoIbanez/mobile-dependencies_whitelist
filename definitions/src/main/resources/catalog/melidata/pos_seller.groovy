@@ -5,6 +5,8 @@
 
     tracks {
 
+        initiative = "1046"
+
         /**
         * pos seller screen tracks
         */

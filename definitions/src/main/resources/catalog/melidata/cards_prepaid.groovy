@@ -5,7 +5,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    defaultBusiness = "mercadopago"
+    initiative = "1048"
 
     //-----------------
     // PREPAID MLA/MLB

@@ -4,7 +4,9 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-"/recharge_sube"(platform: "/mobile", isAbstract: true) {
+    initiative = "1131"
+
+    "/recharge_sube"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
         session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
