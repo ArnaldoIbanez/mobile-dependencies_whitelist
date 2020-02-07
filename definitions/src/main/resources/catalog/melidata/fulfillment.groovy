@@ -4,6 +4,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1196"
+
     def offline_error_msg_structure = objectSchemaDefinitions {
         inventory_id_not_created(required: true, type: PropertyType.Numeric)
         invalid_product_identifier(required: true, type: PropertyType.Numeric)
@@ -39,14 +41,12 @@ tracks {
     "/fbm"(platform: "/", isAbstract: true) {}
     "/fbm/panel"(platform: "/", isAbstract: true) {}
     "/fbm/panel/inbound"(platform: "/", isAbstract: true) {}
-    "/full"(platform: "/", isAbstract: true) {}
-    "/full/landing"(platform: "/", isAbstract: true) {}
+
 
     //Views
     "/fbm/panel/inbound/units"(platform: "/", type: TrackType.View) {}
     "/fbm/panel/inbound/labeling"(platform: "/", type: TrackType.View) {}
     "/fbm/panel/inbound/identifiers"(platform: "/", type: TrackType.View) {}
-    "/full/landing/buyer"(platform: "/", type: TrackType.View) {}
     "/fbm/panel/inbound/offline"(platform: "/", type: TrackType.View) {}
 
     // Events
@@ -152,4 +152,8 @@ tracks {
             description: "Sum of quantity declared"
         )
     }
+
+    "/full"(platform: "/", isAbstract: true, initiative: "1025") {}
+    "/full/landing"(platform: "/", isAbstract: true) {}
+    "/full/landing/buyer"(platform: "/", type: TrackType.View) {}
 }

@@ -17,8 +17,10 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1127"
+
     "/login"(platform: "/", isAbstract: true) {
-	flow(type: PropertyType.String, required: false)
+	    flow(type: PropertyType.String, required: false)
         source(type: PropertyType.String, required: false, description: "Context on which the login is presented")
         old_user_id(type: PropertyType.String, required: false)
         old_user_nick(type: PropertyType.String, required: false)
@@ -491,4 +493,15 @@ tracks {
     "/screenlock/opening_lock/retry"(platform: "/mobile", type: TrackType.Event) {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
+
+
+    //Maybe deprecated tracks
+    "/login/splitter"(platform: "/mobile", type: TrackType.View) {}
+    "/login/sign_in"(platform: "/mobile", type: TrackType.View) {}
+    "/login/sign_up"(platform: "/mobile", type: TrackType.View) {}
+    "/login/identification"(platform: "/mobile") {}
+    "/login_success"(platform: "/mobile/ios", type: TrackType.View) {
+        from (required:false, type: PropertyType.String, description: "When user login success in ios")
+    }
+
 }

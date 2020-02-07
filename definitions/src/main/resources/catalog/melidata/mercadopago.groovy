@@ -297,14 +297,6 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the flow start") }
     "/crop_image"(platform: "/mobile", initiative: "1100") { }
 
-    "/login"(platform: "/mobile", isAbstract: true) {
-        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/login/splitter"(platform: "/mobile", type: TrackType.View) {}
-    "/login/sign_in"(platform: "/mobile", type: TrackType.View) {}
-    "/login/sign_up"(platform: "/mobile", type: TrackType.View) {}
-    "/login/identification"(platform: "/mobile") {}
 
     "/sign_in"(platform: "/mobile", type: TrackType.View) {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
@@ -347,10 +339,6 @@ tracks {
 
     "/camera"(platform: "/mobile/android", type: TrackType.View) {
         from (required:false, type: PropertyType.String, description: "Where the Camera start in picture profile or person validataion in android")
-    }
-
-    "/login_success"(platform: "/mobile/ios", type: TrackType.View) {
-        from (required:false, type: PropertyType.String, description: "When user login success in ios")
     }
 
     "/send_money"(platform: "/", isAbstract: true) {
