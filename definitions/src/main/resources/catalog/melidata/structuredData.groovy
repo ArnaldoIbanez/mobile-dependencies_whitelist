@@ -179,7 +179,8 @@ tracks {
         badItems(required: false, description:"True if the user has items with few attributes completed.", PropertyType.Boolean)
     }
 
-    "/structure_data"(platform: "/", isAbstract: true) {}
+    "/structure_data"(platform: "/", isAbstract: true, initiative: "1024") {}
+
     "/structure_data/product_creator"(platform: "/",isAbstract: true) {}
     "/structure_data/product_creator/other_domain"(platform: "/", type: TrackType.Event) {
         score(required: true, description: "Score of zordon api")

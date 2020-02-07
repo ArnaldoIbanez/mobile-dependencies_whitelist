@@ -4,6 +4,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1020"
+
     "/return"(platform: "/", isAbstract: true) {
       loyalty_level(required: true, type: PropertyType.Numeric, description: 'buyer level loyalty')
       order_id(required: true, type: PropertyType.Numeric, description: 'order identifier')
