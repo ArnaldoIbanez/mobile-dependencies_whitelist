@@ -120,7 +120,6 @@ catalog {
         include business, "vendor_central.groovy"
         include business, "onboarding.groovy"
         include business, "orders_feed.groovy"
-        include business, "pushNotifications.groovy"
         include business, "quotation.groovy"
         include business, "quote.groovy"
         include business, "questions.groovy"
