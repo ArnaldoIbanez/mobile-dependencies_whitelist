@@ -207,17 +207,16 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["accept", "cancel"])
     }
 
-    "/seller_central/listings/hunting/change_step"(platform: "/", type: TrackType.Event) {
-        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
-    }
 
-    "/seller_central/listings/hunting/view_more"(platform: "/", type: TrackType.Event) {
+    "/seller_central/listings/hunting"(platform: "/", isAbstract: true) {        
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
+    
+    "/seller_central/listings/hunting/change_step"(platform: "/", type: TrackType.Event) {}
 
-    "/seller_central/listings/hunting/sell_with_full"(platform: "/", type: TrackType.Event) {
-        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
-    }
+    "/seller_central/listings/hunting/view_more"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/listings/hunting/sell_with_full"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
