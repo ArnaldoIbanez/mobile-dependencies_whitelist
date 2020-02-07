@@ -858,7 +858,7 @@ tracks {
     "/seller_central/sales/list/excel"(platform: "/", isAbstract: true) {}
 
     "/seller_central/sales/list/excel/snackbar"(platform: "/web", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Action id")
+        id(required: true, type: PropertyType.String, description: "Error id")
     }
 
 
