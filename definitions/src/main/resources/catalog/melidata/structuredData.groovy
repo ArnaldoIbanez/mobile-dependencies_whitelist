@@ -51,7 +51,7 @@ tracks {
         catalogSearchCopiedExternalAttribute(product_id, product_source, product_external_id, external_attribute_key, external_attribute_value)
     }
 
-    "/catalogwidget"(platform: "/", isAbstract: true, type: TrackType.Event) {}
+    "/catalogwidget"(platform: "/", isAbstract: true, type: TrackType.Event, initiative: "1033") {}
 
     "/catalogwidget/show"(platform: "/", type: TrackType.Event) {
         catalogWidgetGroup
@@ -169,7 +169,7 @@ tracks {
 
 
     //Tracks for Massive Attribute Editor
-    "/bulk_attributes"(platform: "/",isAbstract: true) {}
+    "/bulk_attributes"(platform: "/",isAbstract: true, initiative: "1033") {}
     "/bulk_attributes/incomplete"(platform: "/",isAbstract: true) {}
 
     "/bulk_attributes/incomplete/save" (platform: "/web",type: TrackType.Event) {

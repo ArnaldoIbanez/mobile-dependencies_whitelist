@@ -4,6 +4,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1033"
+
     propertyDefinitions {
 	    cart_content(required:false, type: PropertyType.String)
         CartContent(required:false, type: PropertyType.String)//solo va a existir por un mes, hasta que hagamos la subida para mobile

@@ -5,6 +5,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1155"
+
     "/cx" (platform: "/mobile", isAbstract: true){}
     "/cx/click_on_article" (platform: "/mobile", type: TrackType.Event){
         article_id(required: true, type: PropertyType.String)

@@ -4,6 +4,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1029"
+
     def category_prediction_map = objectSchemaDefinitions {
         path(type: PropertyType.ArrayList(PropertyType.String), required: true, description: "Category path")
         score(type: PropertyType.Numeric, required: true, description: "Score of the prediction")
