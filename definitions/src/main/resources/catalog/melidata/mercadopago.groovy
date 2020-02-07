@@ -43,11 +43,11 @@ tracks {
     "/blog/home"(platform: "/web") {
     }
 
-    "/application"(platform:"/mobile", isAbstract: true) {}
+    "/application"(platform:"/mobile", isAbstract: true, initiative: "1096") {}
     "/application/open"(platform:"/mobile", type: TrackType.Event) { }
 
     // MP Landings Scope
-    "/landing"(platform: "/web", isAbstract: true) {}
+    "/landing"(platform: "/web", isAbstract: true, initiative: "1096") {}
 
     // MP Home
     "/landing/home"(platform: "/web"){}

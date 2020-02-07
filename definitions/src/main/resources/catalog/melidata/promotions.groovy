@@ -3,6 +3,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+
+    initiative = "1026"
+
     def pageStructure = objectSchemaDefinitions {
       limit(required: true, type: PropertyType.Numeric, description: "max number of items per page")
       offset(required: true, type: PropertyType.Numeric, description: "item list offset")

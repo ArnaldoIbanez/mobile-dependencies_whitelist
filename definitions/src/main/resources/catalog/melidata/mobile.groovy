@@ -4,6 +4,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1096"
+
     //Navigation
     "/navigation"(platform: "/mobile") {
         origin(required: false, type: PropertyType.String, description: "Analytic's name of the screen where the menu was opened")
@@ -55,4 +57,40 @@ tracks {
     "/settings"(platform: "/mobile", isAbstract: true){}
     "/settings/about"(platform: "/mobile", type: TrackType.View){}
     "/settings/country"(platform: "/mobile", type: TrackType.View){}
+
+    "/landing"(platform: "/mobile", isAbstract: true) {}
+
+    "/landing/generic"(platform: "/mobile") {
+        version(required:false, descripcion: "Version of generic landing")º
+        url(required:true, descripcion:"The url to be loaded by the generic landing")
+        is_main_url(required:false, type: PropertyType.Boolean,
+                descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
+    }
+
+    "/sso" (platform: "/mobile", isAbstract: true){}
+    "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
+    "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
+    "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event){}
+    "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event){}
+
+    /**
+     * DEVICES
+     */
+
+    "/devices_settings"(platform:"/mobile", isAbstract:true) {}
+
+    //Bloqueo de notificaciones (Android > = API 19)
+    "/devices_settings/notifications"(platform:"/mobile", type:TrackType.Event) {
+        enable(required:true, type:PropertyType.Boolean)
+        registration_id(required:true, type:PropertyType.String)
+        device_id(required:true, type:PropertyType.String)
+    }
+
+    "/device_settings"(platform: "/", isAbstract: true){}
+
+    "/device_settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
+        device_id(required: true, description: "The real device_id, may differ from device field")
+        enable(required:true, type:PropertyType.Boolean, description: "Indicates if settings are enabled")
+        registration_id(required: false, description: "The registration id", type: PropertyType.String)
+    }
 }

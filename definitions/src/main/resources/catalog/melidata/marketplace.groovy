@@ -100,28 +100,6 @@ tracks {
 
     "/seller_reputation/ratings/back"(platform: "/mobile") {}
 
-    /**
-     * DEVICES
-     */
-
-    "/devices_settings"(platform:"/mobile", isAbstract:true) {}
-
-    //Bloqueo de notificaciones (Android > = API 19)
-    "/devices_settings/notifications"(platform:"/mobile", type:TrackType.Event) {
-        enable(required:true, type:PropertyType.Boolean)
-        registration_id(required:true, type:PropertyType.String)
-        device_id(required:true, type:PropertyType.String)
-    }
-
-
-    "/landing"(platform: "/mobile", isAbstract: true) {}
-
-    "/landing/generic"(platform: "/mobile") {
-        version(required:false, descripcion: "Version of generic landing")
-        url(required:true, descripcion:"The url to be loaded by the generic landing")
-        is_main_url(required:false, type: PropertyType.Boolean,
-                descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
-    }
 
     "/webkit" (platform: "/mobile", isAbstract: true){}
     "/webkit/deeplink_open"(platform: "/mobile", isAbstract: true) {}
@@ -213,7 +191,7 @@ tracks {
     }
 
     //Feedback
-    "/feedback"(platform: "/", isAbstract: true) {}
+    "/feedback"(platform: "/", isAbstract: true, initiative: "1110") {}
 
     "/feedback/congrats"(platform: "/") {}
 
@@ -229,12 +207,4 @@ tracks {
     "/payers_growth/landings"(platform: "/") {
         product (type: PropertyType.String, required: true, description: "Product name, example: 'mkt-combustibles'")
     }
-
-    "/sso" (platform: "/mobile", isAbstract: true){}
-    "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
-    "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
-    "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event){}
-    "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event){}
-
-
 }
