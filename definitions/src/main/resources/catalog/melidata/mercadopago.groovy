@@ -696,7 +696,7 @@ tracks {
     "/account_summary/filters"(platform: "/mobile") {}
     "/account_summary/filtered_list"(platform: "/mobile") {}
 
-    "/activity_detail"(platform: "/mobile") { }
+
     "/transaction_detail"(platform: "/mobile", initiative: "1100") { }
     "/social_detail"(platform: "/mobile", initiative: "1100") { }
     "/event_detail"(platform: "/mobile", initiative: "1100") { }
