@@ -59,7 +59,6 @@ tracks {
         sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
         listingTypeFlow(listing_type_id)
-        catalogNativeFlow(category_id, domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from, category_path)
     }
 
     // Sell
@@ -133,6 +132,7 @@ tracks {
     }
     "/sell/modify_and_relist/massive/row"(platform: "/web", type: TrackType.View){}
 
+    // Tambien se utiliza para Apps
     "/sell/list/congrats"(platform: "/", type: TrackType.View){
         session_id(required: false, description: "The listing session id")
         item_id(required: false, description: "Item id")
@@ -155,10 +155,6 @@ tracks {
         placement(required: false, description: "Place where track was dispatched")
         adv_segmentation(required: false, description: "Adevrtasement segmentation ")
         reputation_level(required: false, description: "Reputation for Pads")
-    }
-
-    "/sell/list/congrats"(platform: "/mobile", type: TrackType.View){
-        catalogNativeFlow
     }
 
     // List Similar/Equals modifications
@@ -206,28 +202,14 @@ tracks {
     }
     "/sell/list/draft/attribute"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/attribute/kilometers"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/category_navigation"(platform:"/mobile", type: TrackType.View){
-        catalogNativeFlow
-    }
-    "/sell/list/draft/category_suggestion"(platform:"/mobile", type: TrackType.View){
-        catalogNativeFlow
-    }
-    "/sell/list/draft/color_selection"(platform:"/mobile", type: TrackType.View){
-        catalogNativeFlow
-    }
-    "/sell/list/draft/color_selection_fallback"(platform:"/mobile", type: TrackType.View){
-        catalogNativeFlow
-    }
-    "/sell/list/draft/condition"(platform:"/mobile", type: TrackType.View){
-        catalogNativeFlow
-    }
+    "/sell/list/draft/category_navigation"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/category_suggestion"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/color_selection"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/color_selection_fallback"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/condition"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/condition_review"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/condition_fallback"(platform:"/mobile", type: TrackType.View){
-        catalogNativeFlow
-    }
-    "/sell/list/draft/congrats"(platform:"/mobile", type: TrackType.View){
-        catalogNativeFlow
-    }
+    "/sell/list/draft/condition_fallback"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/congrats"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/congrats/payment_pending"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/description"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/description_fallback"(platform:"/mobile", type: TrackType.View) {}
@@ -246,9 +228,7 @@ tracks {
     "/sell/list/draft/pictures/album_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures/pictures_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures/editor"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/pictures_fallback"(platform:"/mobile", type: TrackType.View){
-        catalogNativeFlow
-    }
+    "/sell/list/draft/pictures_fallback"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_landing_fallback"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_fallback/album_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_fallback/pictures_selector"(platform:"/mobile", type: TrackType.View){}
@@ -260,9 +240,7 @@ tracks {
     "/sell/list/draft/price"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/product_detail"(platform: "/mobile", type: TrackType.View) {
-        catalogNativeFlow
-    }
+    "/sell/list/draft/product_detail"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/draft/product_identifier"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/registration_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/seller_registration"(platform:"/mobile", type: TrackType.View){}
@@ -278,9 +256,6 @@ tracks {
     "/sell/list/draft/title"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/title_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/draft/technical_specifications_catalog"(platform: "/mobile", type: TrackType.View) {
-        catalogNativeFlow
-    }
     "/sell/list/draft/technical_specifications_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/draft/warranty_time"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_time_review"(platform: "/mobile", type: TrackType.View){}
@@ -289,9 +264,7 @@ tracks {
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
     "/sell/list/hub_old"(platform: "/", type: TrackType.View) {}
-    "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {
-        catalogNativeFlow
-    }
+    "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/attribute/kilometers"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {}
@@ -378,28 +351,15 @@ tracks {
     "/sell/list/location_street"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/catalog_trim_selection"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog_vehicle_year_selection"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/category_suggestion"(platform: "/", type: TrackType.View) {
-        catalogNativeFlow
-    }
-    "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {
-        catalogNativeFlow
-    }
+    "/sell/list/category_suggestion"(platform: "/", type: TrackType.View) {}
+    "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
     "/sell/list/catalog"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {
-        catalogNativeFlow
-    }
+    "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/classifieds_reservation_landing"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/color_selection"(platform: "/", type: TrackType.View) {
-        catalogNativeFlow
-
-    }
+    "/sell/list/color_selection"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {}
-    "/sell/list/color_selection_fallback"(platform: "/", type: TrackType.View) {
-        catalogNativeFlow
-    }
-    "/sell/list/color_selection_catalog"(platform: "/", type: TrackType.View) {
-        catalogNativeFlow
-    }
+    "/sell/list/color_selection_fallback"(platform: "/", type: TrackType.View) {}
+    "/sell/list/color_selection_catalog"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
         session_id(required: true, description: "Session Id of the list flow, that dies when the flow ends", type: PropertyType.String)
         category_domain(required: false, description: "Category Domain", type: PropertyType.String)
@@ -408,22 +368,13 @@ tracks {
         category_id(required: false, description: "Category Id", type: PropertyType.String)
     }
     "/sell/list/technical_specifications"(platform: "/", type: TrackType.View) {}
-    "/sell/list/technical_specifications_catalog"(platform: "/", type: TrackType.View) {
-        catalogNativeFlow
-    }
     "/sell/list/technical_specifications_review"(platform: "/", type: TrackType.View) {}
-    "/sell/list/product_detail"(platform: "/mobile", type: TrackType.View) {
-        catalogNativeFlow
-    }
+    "/sell/list/product_detail"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/product_identifier"(platform: "/", type: TrackType.View) {}
     "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
-    "/sell/list/condition"(platform: "/", type: TrackType.View) {
-        catalogNativeFlow
-    }
+    "/sell/list/condition"(platform: "/", type: TrackType.View) {}
     "/sell/list/condition_review"(platform: "/", type: TrackType.View) {}
-    "/sell/list/condition_fallback"(platform: "/", type: TrackType.View) {
-        catalogNativeFlow
-    }
+    "/sell/list/condition_fallback"(platform: "/", type: TrackType.View) {}
     "/sell/list/condition_confirmation_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description"(platform: "/", type: TrackType.View) {}
     "/sell/list/description_review"(platform: "/", type: TrackType.View) {}
@@ -455,9 +406,7 @@ tracks {
     "/sell/list/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
         album_name(required: false, description: "Album name", type: PropertyType.String)
     }
-    "/sell/list/pictures_fallback"(platform: "/", type: TrackType.View) {
-        catalogNativeFlow
-    }
+    "/sell/list/pictures_fallback"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures_fallback/gallery"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures_fallback/album_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures_fallback/pictures_selector"(platform: "/mobile", type: TrackType.View) {}

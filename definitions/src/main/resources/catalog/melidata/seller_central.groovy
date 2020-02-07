@@ -479,6 +479,12 @@ tracks {
         show_custom_mail_box(required: true, type: PropertyType.Boolean, description: "Value to know if user has clicked on Add other email")
     }
 
+    "/seller_central/bulk/publish/upload/send_custom_mail_box"(platform: "/web", type: TrackType.Event) {
+        show_custom_mail_box(required: true, type: PropertyType.Boolean, description: "Value to know if user has clicked on Add other email")
+        custom_mail(required: true, type: PropertyType.Boolean, description: "Value to know if user was completed the custom email field")
+        invalid_mail(required: true, type: PropertyType.Boolean, description: "Value to know if email value is valid or invalid")
+    }
+
     "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}
 
     "/seller_central/bulk/publish/categories/download_excel"(platform: "/web", type: TrackType.Event) {
