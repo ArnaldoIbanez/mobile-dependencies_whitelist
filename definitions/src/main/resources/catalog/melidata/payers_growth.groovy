@@ -4,9 +4,18 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = '1176'
+
     /**
     * PayersGrowth Screen Tracks
     */
+
+
+    // Payers Growth Landings
+    "/payers_growth"(platform: "/", isAbstract: true) {}
+    "/payers_growth/landings"(platform: "/") {
+        product (type: PropertyType.String, required: true, description: "Product name, example: 'mkt-combustibles'")
+    }
 
     "/payers_growth"(platform: "/mobile", isAbstract: true) {}
 

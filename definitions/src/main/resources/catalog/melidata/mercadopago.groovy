@@ -408,12 +408,6 @@ tracks {
         quantity (required:true, type: PropertyType.Numeric, description: "bundle quantity")
     }
 
-    // Payers Growth Landings
-    "/payers_growth"(platform: "/", isAbstract: true) {}
-    "/payers_growth/landings"(platform: "/") {
-        product (type: PropertyType.String, required: true, description: "Product name, example: 'mkt-combustibles'")
-    }
-
     // Services landings
     "/services"(platform: "/", isAbstract: true) {}
     "/services/mkt_landing"(platform: "/web", type: TrackType.View) {
