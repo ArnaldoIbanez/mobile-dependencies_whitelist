@@ -62,6 +62,7 @@ catalog {
     def all = marketplace + mercadopago
 
     all.each { business ->
+        include business, "mp_frontend.groovy"
         include business, "authentication.groovy"
         include business, "bugsnag.groovy"
         include business, "cx.groovy"
@@ -159,7 +160,9 @@ catalog {
     }
 
     mercadopago.each { business ->
+        include business, "mp_architecture.groovy"
         include business, "activities.groovy"
+        include business, "mp_digital_account.groovy"
         include business, "mpfrontcore.groovy"
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"

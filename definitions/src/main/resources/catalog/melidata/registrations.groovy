@@ -200,7 +200,7 @@ tracks {
     }
 
     // TODO, PLEASE MOVE THIS TO SOMETHING LIKE /register/progresive o algo que sea más acorde a todo el tracking del modulo
-
+    "/progressive_registration"(platform: "/mobile", type: TrackType.View, initiative:'1125') {}
 
     "/register/form/company-link"(platform: "/mobile", type: TrackType.Event){}
     "/register/form/person-link"(platform: "/mobile", type: TrackType.Event){}

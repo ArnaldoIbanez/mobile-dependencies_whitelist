@@ -1349,6 +1349,7 @@ trackTests {
         }
         "/account_summary/filters"(platform: "/mobile") {}
         "/account_summary/filtered_list"(platform: "/mobile") {}
+        "/activity_detail"(platform: "/mobile") {}
         "/transaction_detail"(platform: "/mobile") {}
         "/social_detail"(platform: "/mobile") { }
         "/event_detail"(platform: "/mobile") { }

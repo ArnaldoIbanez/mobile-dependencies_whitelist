@@ -821,6 +821,10 @@ trackTests {
     * WALLET HOME TEST TRACKS V2 *
     *****************************/
 
+    test("Mercadolibre activity Detail") {
+        "/activity_detail"(platform: "/mobile") {}
+    }
+
     test("Mercadopago Home") {
         "/wallet_home" (platform: "/mobile", type: TrackType.View) {}
     }
