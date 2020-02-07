@@ -701,8 +701,7 @@ tracks {
     "/social_detail"(platform: "/mobile", initiative: "1100") { }
     "/event_detail"(platform: "/mobile", initiative: "1100") { }
 
-    "/shopping"(platform: "/mobile") {
-        from (required:false, type: PropertyType.String, description: "Where the flow start") }
+
     "/crop_image"(platform: "/mobile", initiative: "1100") { }
 
     "/login"(platform: "/mobile", isAbstract: true) {
@@ -714,48 +713,6 @@ tracks {
     "/login/sign_up"(platform: "/mobile", type: TrackType.View) {}
     "/login/identification"(platform: "/mobile") {}
 
-    "/sign_in"(platform: "/mobile", type: TrackType.View) {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/sign_in/sso"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-    }
-    "/sign_in/smart_lock"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-        description (required:false, type: PropertyType.String, description: "Status description")
-    }
-    "/sign_in/recovery_account_button"(platform: "/mobile", type: TrackType.Event) {
-        label (required:false, type: PropertyType.String, description: "Status")
-    }
-    "/sign_in/facebook"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-        description (required:false, type: PropertyType.String, description: "Status description")
-    }
-    "/sign_in/google"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-        description (required:false, type: PropertyType.String, description: "Status description")
-    }
-    "/sign_in/mail"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-        description (required:false, type: PropertyType.String, description: "Status description")
-    }
-    "/sign_up"(platform: "/mobile", isAbstract: true) {
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/sign_up/facebook"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-    }
-    "/sign_up/google"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-    }
-    "/sign_up/mail"(platform: "/mobile", type: TrackType.Event) {
-        label (required:true, type: PropertyType.String, description: "Status")
-        description (required:false, type: PropertyType.String, description: "Status description")
-    }
-
-    "/camera"(platform: "/mobile/android", type: TrackType.View) {
-        from (required:false, type: PropertyType.String, description: "Where the Camera start in picture profile or person validataion in android")
-    }
 
     "/login_success"(platform: "/mobile/ios", type: TrackType.View) {
         from (required:false, type: PropertyType.String, description: "When user login success in ios")
@@ -839,13 +796,7 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
-    "/qr_read"(platform: "/mobile", isAbstract: true) {}
-    "/qr_read/store"(platform: "/mobile") {
-        _label (required:true, type: PropertyType.String, description: "Operation status")
-        deep_link (required:false, type: PropertyType.String, description: "Navigation info")
-        qr_info (required:false, type: PropertyType.String, description: "Data read")
-        additional_info (required:false, description: "Extra info")
-    }
+
 
     "/px_result"(platform: "/mobile") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
@@ -1116,13 +1067,6 @@ tracks {
         new_release_days (required: true, type: PropertyType.Numeric, description: "The new release day configuration")
     }
 
-    "/associate_phone"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-    }
-    "/associate_phone/sync_phone"(platform: "/mobile") {}
-    "/associate_phone/verify_pin"(platform: "/mobile") {}
-    "/associate_phone/synced_phone"(platform: "/mobile") {}
 
     //Digital Goods
      "/digital_goods"(platform: "/mobile", isAbstract: true) {
