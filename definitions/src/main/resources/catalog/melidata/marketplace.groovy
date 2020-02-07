@@ -123,7 +123,7 @@ tracks {
         official_store_name(required:true, type: PropertyType.String, descripcion:"Oficial store name opened")
     }
 
-    "/download-app"(platform: "/web") {}
+    "/download-app"(platform: "/web", initiative: "1144") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
         user_phone_number()
         final_phone_number()

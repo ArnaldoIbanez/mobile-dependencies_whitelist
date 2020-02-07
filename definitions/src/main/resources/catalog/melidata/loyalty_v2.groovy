@@ -4,6 +4,9 @@ import com.ml.melidata.TrackType
 
 
 tracks {
+
+    initiative = "1018"
+
     "/loyalty"(platform: "/", isAbstract: true) {
         level(type: PropertyType.Numeric, required: false)
         points(type: PropertyType.Numeric, required: false)

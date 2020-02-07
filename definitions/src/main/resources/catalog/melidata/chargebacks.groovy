@@ -5,6 +5,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1100"
+
     "/chargebacks"(platform: "/", isAbstract: true) {}
     "/chargebacks/payer"(platform: "/", isAbstract: true) {}
 

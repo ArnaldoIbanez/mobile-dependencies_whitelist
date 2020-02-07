@@ -4,6 +4,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1034"
+
     "/traffic"(platform: "/", isAbstract: true) {}
 
     "/traffic/inbound"(platform: "/", isAbstract: true) {}

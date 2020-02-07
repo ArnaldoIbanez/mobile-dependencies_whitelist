@@ -3,6 +3,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+
+    initiative = "1144"
+
     "/current_location"(platform: "/", isAbstract: true) {}
     "/current_location/navigation"(platform: "/", isAbstract: true) {}
     "/current_location/navigation/pick"(platform: "/", type: TrackType.Event) {}

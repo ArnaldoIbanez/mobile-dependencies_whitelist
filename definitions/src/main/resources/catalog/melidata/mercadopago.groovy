@@ -37,7 +37,7 @@ tracks {
         sent_again(required: false)
     }
 
-    "/blog"(platform: "/web", isAbstract: true) {
+    "/blog"(platform: "/web", isAbstract: true, initiative: "1145") {
     }
 
     "/blog/home"(platform: "/web") {
@@ -171,7 +171,7 @@ tracks {
       groupCheckoutProperties
     }
 
-    "/point"(platform: "/", isAbstract: true) {}
+    "/point"(platform: "/", isAbstract: true, initiative: "1175") {}
 
     // Merchant Acquisition
     "/merchant_acquisition"(platform: "/", isAbstract: true) {}
@@ -744,13 +744,13 @@ tracks {
     "/account_summary/filtered_list"(platform: "/mobile") {}
 
     "/activity_detail"(platform: "/mobile") { }
-    "/transaction_detail"(platform: "/mobile") { }
-    "/social_detail"(platform: "/mobile") { }
-    "/event_detail"(platform: "/mobile") { }
+    "/transaction_detail"(platform: "/mobile", initiative: "1100") { }
+    "/social_detail"(platform: "/mobile", initiative: "1100") { }
+    "/event_detail"(platform: "/mobile", initiative: "1100") { }
 
     "/shopping"(platform: "/mobile") {
         from (required:false, type: PropertyType.String, description: "Where the flow start") }
-    "/crop_image"(platform: "/mobile") { }
+    "/crop_image"(platform: "/mobile", initiative: "1100") { }
 
     "/login"(platform: "/mobile", isAbstract: true) {
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")

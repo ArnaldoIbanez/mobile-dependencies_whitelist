@@ -4,6 +4,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1034"
+
     "/email"(platform: "/", isAbstract: true) {
         email_template(required: true)
         event_type(required: true,

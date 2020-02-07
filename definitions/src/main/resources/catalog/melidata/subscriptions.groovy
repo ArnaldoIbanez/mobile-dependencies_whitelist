@@ -5,6 +5,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1100"
+
     // Subscriptions
     "/subscriptions"(platform: "/", isAbstract: true) {
         order_id(required: true, type: PropertyType.String)
