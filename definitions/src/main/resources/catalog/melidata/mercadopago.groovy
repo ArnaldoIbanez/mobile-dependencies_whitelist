@@ -439,7 +439,7 @@ tracks {
         additional_info (required:false, description: "Extra info")
     }
 
-    "/px_result"(platform: "/mobile") {
+    "/px_result"(platform: "/mobile", initiative: "1131") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
@@ -523,54 +523,6 @@ tracks {
     "/mgm/navigation"(platform: "/mobile", type: TrackType.Event) {
         realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate information")
     }
-
-    "/bill_payments"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
-    }
-    "/bill_payments/help"(platform: "/mobile") {}
-    "/bill_payments/associated_entities"(platform: "/mobile") {}
-    "/bill_payments/no_money"(platform: "/mobile") {}
-    "/bill_payments/permissions_rationale"(platform: "/mobile") {}
-    "/bill_payments/scan"(platform: "/mobile") {}
-    "/bill_payments/manual_code"(platform: "/mobile") {}
-    "/bill_payments/confirmation"(platform: "/mobile") {}
-    "/bill_payments/add_info"(platform: "/mobile") {
-        type (required: true, type: PropertyType.String, description: "Additional info type")
-    }
-    "/bill_payments/second_password"(platform: "/mobile") {}
-    "/bill_payments/result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
-    "/bill_payments/px_payment_method_search"(platform: "/mobile") {}
-    "/bill_payments/px_discount_summary"(platform: "/mobile") {}
-    "/bill_payments/px_card_vault"(platform: "/mobile") {}
-    "/bill_payments/px_card_number"(platform: "/mobile") {}
-    "/bill_payments/px_card_holder_name"(platform: "/mobile") {}
-    "/bill_payments/px_card_expiry_date"(platform: "/mobile") {}
-    "/bill_payments/px_card_security_code"(platform: "/mobile") {}
-    "/bill_payments/px_identification_number"(platform: "/mobile") {}
-    "/bill_payments/px_card_issuers"(platform: "/mobile") {}
-    "/bill_payments/px_card_installments"(platform: "/mobile") {}
-    "/bill_payments/px_review_and_confirm"(platform: "/mobile") {}
-    "/bill_payments/px_result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
-    "/bill_payments/fixed_amount"(platform: "/mobile") {}
-    "/bill_payments/ticket_data"(platform: "/mobile") {}
-    "/bill_payments/fee"(platform: "/mobile"){}
-    "/bill_payments/generic_paybills_screen"(platform: "/mobile") {}
-    "/bill_payments/categories"(platform: "/mobile") {}
-    "/bill_payments/barcode_scanner"(platform: "/mobile") {}
-    "/bill_payments/products"(platform: "/mobile") {
-        type (required:true, type: PropertyType.String, description: "Type of product")
-    }
-    "/bill_payments/shopping"(platform: "/mobile") {}
-    "/bill_payments/input_validation_error"(platform: "/mobile", type: TrackType.Event) {}
-
 
     "/money_request"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -716,36 +668,6 @@ tracks {
     "/associate_phone/verify_pin"(platform: "/mobile") {}
     "/associate_phone/synced_phone"(platform: "/mobile") {}
 
-    //Digital Goods
-     "/digital_goods"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
-        from (required:false, type: PropertyType.String, description: "Where the flow start")
-        session_id (required:false, type: PropertyType.String, description: "Session Id of flow")
-    }
-    "/digital_goods/list"(platform: "/mobile") {}
-    "/digital_goods/no_money"(platform: "/mobile") {}
-    "/digital_goods/search_entities"(platform: "/mobile") {}
-    "/digital_goods/products"(platform: "/mobile") {
-        type (required:true, type: PropertyType.String, description: "Option")
-    }
-    "/digital_goods/px_payment_method_search"(platform: "/mobile") {}
-    "/digital_goods/px_discount_summary"(platform: "/mobile") {}
-    "/digital_goods/px_card_vault"(platform: "/mobile") {}
-    "/digital_goods/px_card_number"(platform: "/mobile") {}
-    "/digital_goods/px_card_holder_name"(platform: "/mobile") {}
-    "/digital_goods/px_card_expiry_date"(platform: "/mobile") {}
-    "/digital_goods/px_card_security_code"(platform: "/mobile") {}
-    "/digital_goods/px_identification_number"(platform: "/mobile") {}
-    "/digital_goods/px_card_issuers"(platform: "/mobile") {}
-    "/digital_goods/px_card_installments"(platform: "/mobile") {}
-    "/digital_goods/px_review_and_confirm"(platform: "/mobile") {}
-    "/digital_goods/px_result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
-    "/digital_goods/terms_and_conditions"(platform: "/mobile") {}
-    "/digital_goods/recommended_click"(platform: "/mobile", type: TrackType.Event) {}
-
 
     "/money_detail"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -828,7 +750,7 @@ tracks {
     }
 
     // Single Player Frontend Views
-    "/single_player"(platform: "/", isAbstract: true) {}
+    "/single_player"(platform: "/", isAbstract: true, initiative: "1131") {}
     "/single_player/entertainment"(platform: "/web", type: TrackType.View) {}
     "/single_player/services"(platform: "/web", type: TrackType.View) {}
     "/single_player/sube"(platform: "/web", type: TrackType.View) {}
