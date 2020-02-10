@@ -160,7 +160,10 @@ tracks {
     "/logistics/last_mile/detail/view_map"(platform: "/mobile", type: TrackType.Event) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
     }
-    "/logistics/last_mile/deliver/select_receiver"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/deliver/select_receiver"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+    }
     "/logistics/last_mile/deliver/receives_another"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/deliver/signature"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/could_not_deliver/sections"(platform: "/mobile", type:  TrackType.View) {}
@@ -209,7 +212,7 @@ tracks {
     }
     "/logistics/last_mile/deliver/buyer_document_form"(platform: "/mobile", type: TrackType.View) {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
-        pack_id(required: true, type: PropertyType.String, description: "Specifies the delivered package", inheritable: false)
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
     }
 
     // First Mile
