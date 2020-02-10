@@ -207,6 +207,10 @@ tracks {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         target_route(required: true, type: PropertyType.String, description: "Specifies the route id from where the packages will be transloaded.")
     }
+    "/logistics/last_mile/deliver/buyer_document_form"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        pack_id(required: true, type: PropertyType.String, description: "Specifies the delivered package", inheritable: false)
+    }
 
     // First Mile
     "/logistics/first_mile/scanner/modal_back"(platform: "/mobile", type: TrackType.View) {
