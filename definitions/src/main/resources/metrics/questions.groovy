@@ -18,6 +18,7 @@ metrics {
 			and(
 				or(
 					equals("event_data.context", "/pdp"),
+					equals("event_data.context", "/qadb/pdp"),
 					and(
 						equals("event_data.context", "/qadb"),
 						empty("event_data.catalog_product_id", false)
