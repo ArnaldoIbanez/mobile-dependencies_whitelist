@@ -997,6 +997,10 @@ tracks {
     "/sell/item_conditions/instant_pay_listings/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/instant_pay_listings/confirm"(platform: "/web", type: TrackType.Event) {}
 
+    "/sell/item_conditions/instant_pay_listings_free"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/instant_pay_listings_free/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/instant_pay_listings_free/confirm"(platform: "/web", type: TrackType.Event) {}
+
 
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup

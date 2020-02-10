@@ -1731,6 +1731,7 @@ trackTests {
             experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
             notification_style = "c"
             device_id = "f140e3faf4c6ee7d"
+            device_status = "active"
             order_id = 1957429460
         }
         "/notification/orders_ticket_payment_pending_reminder_general_notice"(platform: "/mobile") {
@@ -1739,6 +1740,7 @@ trackTests {
             experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
             notification_style = "c"
             device_id = "f140e3faf4c6ee7d"
+            device_status = "not_engaged"
             order_id = 1957429460
         }
         "/notification/purchases_payments_approved"(platform: "/mobile") {

@@ -25,7 +25,7 @@ repositories {
 	maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
 	maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
 }
-
+ 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:1.8.6'
     compile 'com.amazonaws:aws-java-sdk:1.11.68'

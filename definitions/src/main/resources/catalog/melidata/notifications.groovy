@@ -842,6 +842,8 @@ tracks {
           status(required: false, values: ["read", "unread"], deprecated: true, description: "*Deprecated*: Just for old NotifCenter.")
 
           device_id(required: false, description: "The real device_id, may differ from device field")
+          device_status(required: false, values: ["active", "not_engaged"], description: "Device status at the moment")
+
           context(required: false, type: PropertyType.String)
       }
 

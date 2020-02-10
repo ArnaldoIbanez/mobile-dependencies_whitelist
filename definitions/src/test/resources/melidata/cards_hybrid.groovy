@@ -54,6 +54,18 @@ trackTests {
         "/cards/hybrid/unlock/scanner/link"(platform:"/", type: TrackType.Event) {
             action = "manual"
         }
+        "/cards/hybrid/unlock/scanner/link/status"(platform:"/", type: TrackType.Event) {
+            action = "initializing"
+        }
+        "/cards/hybrid/unlock/scanner/link/status"(platform:"/", type: TrackType.Event) {
+            action = "scanning"
+        }
+        "/cards/hybrid/unlock/scanner/link/status"(platform:"/", type: TrackType.Event) {
+            action = "resolving"
+        }
+        "/cards/hybrid/unlock/scanner/link/status"(platform:"/", type: TrackType.Event) {
+            action = "failed"
+        }
     }
 
     // Unlock: Manual Link
@@ -179,6 +191,18 @@ trackTests {
         }
         "/cards/hybrid/unlock/scanner/link"(platform:"/", type: TrackType.Event) {
             action = "manual"
+        }
+        "/cards/hybrid/unlock/scanner/link/status"(platform:"/", type: TrackType.Event) {
+            action = "initializing"
+        }
+        "/cards/hybrid/unlock/scanner/link/status"(platform:"/", type: TrackType.Event) {
+            action = "scanning"
+        }
+        "/cards/hybrid/unlock/scanner/link/status"(platform:"/", type: TrackType.Event) {
+            action = "resolving"
+        }
+        "/cards/hybrid/unlock/scanner/link/status"(platform:"/", type: TrackType.Event) {
+            action = "failed"
         }
     }
 

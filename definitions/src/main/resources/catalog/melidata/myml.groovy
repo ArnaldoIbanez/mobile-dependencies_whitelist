@@ -1174,4 +1174,8 @@ tracks {
     "/myml/search_alerts/list"(platform: "/", type: TrackType.View) {
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of search alerts")
     }
+
+    //TRACKS MYML MYContact Section
+    "/myml/mycontact" (type: TrackType.View, isAbstract: true) {}
+    "/myml/mycontact/main" (type: TrackType.View) {}
 }
