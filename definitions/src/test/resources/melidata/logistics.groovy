@@ -335,6 +335,10 @@ trackTests {
             driver_id = "222"
             target_route = "321"
         }
+        "/logistics/last_mile/deliver/buyer_document_form"(platform: "/mobile", type: TrackType.View) {
+            driver_id = "123"
+            pack_id = "222"
+        }
     }
 
     test("Testing Logistics First Mile") {
