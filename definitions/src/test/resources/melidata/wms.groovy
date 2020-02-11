@@ -465,22 +465,37 @@ trackTests {
             warehouse_id = "BRTW01"
         }
 
-        "/wms/problem_solver/manual_input_case"(platform: "/mobile/android") {
-                    trackData()
-                    warehouse_id = "BRTW01"
-                }
-
-        "/wms/problem_solver/scan_destination"(platform: "/mobile/android") {
-            trackData()
-            warehouse_id = "BRTW01"
-        }
-
         "/wms/problem_solver/scan_case"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRTW01"
         }
 
-        "/wms/problem_solver/scan_return_address"(platform: "/mobile/android") {
+        "/wms/problem_solver/manual_input_case"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_inbound_destination"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_finish_transactions"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_transaction_destination"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_oriented_origin"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_origin"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRTW01"
         }
