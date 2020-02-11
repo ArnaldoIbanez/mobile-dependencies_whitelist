@@ -8,6 +8,7 @@
 
                         test("start views") {
 
+                            "/pos_seller/onboarding/point_preorder"(platform: "/mobile", type: TrackType.View) {}
 
                             "/pos_seller/new_payment"(platform: "/", type: TrackType.View) {}
 
@@ -99,9 +100,33 @@
 
                             "/pos_seller/address_selection"(platform: "/mobile", type: TrackType.View) {}
 
+                            "/pos_seller/onboarding/liable_for_tax"(platform: "/mobile", type: TrackType.View) {
+                                payment_channel =  "point"
+                            }
+
+                            "/pos_seller/point/tax"(platform: "/mobile", type: TrackType.View) {
+                                flow_id= "UUID"
+                                description= "nuevo cobro"
+                                amount= 2.00
+                                flow_origin= "shortcut"
+                                mode= "amount"
+                                payment_channel= "point"
+                            }
+
+                            "/pos_seller/point/account_type"(platform: "/mobile", type: TrackType.View) {
+                                payment_method_type= "debit_card"
+                                flow_id= "UUID"
+                                description= "nuevo cobro"
+                                amount= 2.00
+                                flow_origin= "shortcut"
+                                mode= "amount"
+                                payment_channel= "point"
+                            }
+
                             "/pos_seller/friction/sat_unavailable"(platform: "/", type: TrackType.View) {}
 
                             "/pos_seller/friction/sat_not_found"(platform: "/", type: TrackType.View) {}
+
                     }
 
 

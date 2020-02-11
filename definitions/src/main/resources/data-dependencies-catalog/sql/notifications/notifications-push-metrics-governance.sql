@@ -21,9 +21,9 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
        application.site_id as site_id,
        jest(event_data, 'news_id') as news_id,
        device.device_id as device_id,
-       COALESCE(jest(event_data, 'device_status'), 'ACTIVE') as device_status,
+       UPPER(COALESCE(jest(event_data, 'device_status'), 'ACTIVE')) as device_status,
        (CASE WHEN usr.user_id is not null OR TRIM(usr.user_id) <> '' THEN 'SI' ELSE 'NO' END) as has_user,
-       regexp_extract(application.version, '^(\d+\.)(\d+)') as app_version,
+       regexp_extract(application.version, '(^[0-9]+\.[0-9]+)') as app_version,
        1 AS sent,
        (CASE WHEN app_event.arrived != 0 THEN 1 ELSE 0 END) as arrived,
        (CASE WHEN app_event.no_reason_discarded != 0 AND app_event.arrived = 0 THEN 1 ELSE 0 END) as no_reason_discarded,
@@ -71,4 +71,3 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
   AND jest(event_data, 'event_type') IN ('sent')
 ) summary
 GROUP BY summary.business, summary.fecha, summary.site_id, summary.path, summary.device_status, summary.has_user, summary.app_version
-ORDER BY summary.fecha, summary.business, summary.site_id, summary.path, summary.device_status, summary.has_user, summary.app_version

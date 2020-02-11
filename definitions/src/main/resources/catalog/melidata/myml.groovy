@@ -742,6 +742,17 @@ tracks {
     //tax-rules-information
     "/myml/invoices/company-info/tax-rules-information"(platform: "/") {}
 
+    //emission-validation/success
+    "/myml/invoices/company-info/emission-validation"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/company-info/emission-validation/success"(platform: "/") {
+        emission_validation_status(required: true, PropertyType.String, description: "Success status of the emission validation" )
+    }
+
+    //emission-validation/error
+    "/myml/invoices/company-info/emission-validation/error"(platform: "/") {
+        emission_validation_status(required: true, PropertyType.String, description: "Error status of the emission validation" )
+    }
+
     //:::: Order
     "/myml/invoices/order"(platform: "/", isAbstract: true) {
         error(required: false, type:  PropertyType.String, description: "Error message that pop to user after request")
@@ -1165,4 +1176,8 @@ tracks {
     "/myml/search_alerts/list"(platform: "/", type: TrackType.View) {
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of search alerts")
     }
+
+    //TRACKS MYML MYContact Section
+    "/myml/mycontact" (type: TrackType.View, isAbstract: true) {}
+    "/myml/mycontact/main" (type: TrackType.View) {}
 }

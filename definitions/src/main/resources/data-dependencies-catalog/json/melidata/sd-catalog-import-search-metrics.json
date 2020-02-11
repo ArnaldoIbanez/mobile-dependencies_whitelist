@@ -1,6 +1,7 @@
 {
   "users": [
-    "catalog-import@mercadolibre.com"
+    "catalog-import@mercadolibre.com",
+    "nahuel.sotelo@mercadolibre.com"
   ],
   "process_name": "sd-catalog-import-search-metrics",
   "cron": "0 6 * * *",

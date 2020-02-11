@@ -14,7 +14,7 @@ SELECT
     jest(event_data, 'selected_domain') as selected_domain,
     jest(event_data, 'external_attribute_key') as external_attribute_key,
     jest(event_data, 'external_attribute_value') as external_attribute_value,
-    ds
+    SUBSTR(ds, 1, 10) as ds
 FROM default.tracks t
 WHERE t.path IN (
                  '/structure_data/catalog_search/query',

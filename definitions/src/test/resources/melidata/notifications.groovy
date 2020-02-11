@@ -302,6 +302,7 @@ trackTests {
             latest_news_type= "campaigns-remarketing"
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
             hash="hash1"
+            mantika_id="26491bbb-b9d2-4dac-8ce7-7f739ea74d7b"
             items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
             items_history="MLB595398238,MLB649162181,MLB656729144"
         }
@@ -1731,6 +1732,7 @@ trackTests {
             experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
             notification_style = "c"
             device_id = "f140e3faf4c6ee7d"
+            device_status = "active"
             order_id = 1957429460
         }
         "/notification/orders_ticket_payment_pending_reminder_general_notice"(platform: "/mobile") {
@@ -1739,6 +1741,7 @@ trackTests {
             experiment_id = "TICKET_RECOVERY_MLA_20190312_PROD"
             notification_style = "c"
             device_id = "f140e3faf4c6ee7d"
+            device_status = "not_engaged"
             order_id = 1957429460
         }
         "/notification/purchases_payments_approved"(platform: "/mobile") {
@@ -2393,6 +2396,7 @@ trackTests {
             sent_date= "20180508"
             batch_id = "MLB_PACK_20180508_2"
             hash="hash1"
+            mantika_id="26491bbb-b9d2-4dac-8ce7-7f739ea74d7b"
             items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
             items_history="MLB595398238,MLB649162181,MLB656729144"
         }
@@ -2718,6 +2722,7 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
+            sent_date = "20181211"
         }
 
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
@@ -3077,6 +3082,12 @@ trackTests {
 
         "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_authorization_by_invalid_amount-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_international_authorization_by_invalid_amount"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_international_authorization_by_invalid_amount-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "arrived"
             notification_type= "deep_linking"
         }
@@ -3552,6 +3563,7 @@ trackTests {
             latest_news_type= "campaigns-remarketing"
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
             hash="hash1"
+            mantika_id="26491bbb-b9d2-4dac-8ce7-7f739ea74d7b"
             items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
             items_history="MLB595398238,MLB649162181,MLB656729144"
         }
@@ -4125,6 +4137,7 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
             communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             campaign_type = "adhoc"
+            sent_date = "20181211"
         }
         "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns-mpcampaignsinfo-186785675-76283123"
@@ -4187,6 +4200,13 @@ trackTests {
             latest_news_type= "prepaid_card_transaction_rejected_activation_reminder"
             status= "read"
         }
+
+        "/notification/prepaid_card_transaction_rejected_international_authorization_by_invalid_amount"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_international_authorization_by_invalid_amount-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
         "/notification_center/transaction_rejected_authorization_by_invalid_amount"(platform: "/mobile"){
             newsgroup_id= "transaction_rejected_authorization_by_invalid_amount-186785675-76283123"
             latest_news_id= "transaction_rejected_authorization_by_invalid_amount-186785675-76283123"
@@ -5611,6 +5631,7 @@ trackTests {
             sent_date= "20180508"
             batch_id = "MLB_PACK_20180508_2"
             hash="hash1"
+            mantika_id="26491bbb-b9d2-4dac-8ce7-7f739ea74d7b"
             items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
             items_history="MLB595398238,MLB649162181,MLB656729144"
         }

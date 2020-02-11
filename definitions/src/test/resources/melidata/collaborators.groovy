@@ -93,6 +93,17 @@ trackTests {
         "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event) {}
     }
 
+    test("Create o edit role") {
+        "/collaborators/role"(platform:"/", type: TrackType.View) {}
+        "/collaborators/role/name"(platform:"/", type: TrackType.View) {}
+    }
+
+    test("Show congrats in create role") {
+        "/collaborators/role/congrats"(platform:"/", type: TrackType.View) {
+            type = "success"
+        }
+    }
+
     defaultBusiness = "mercadolibre"
 
     test("Came into new version" ) {
@@ -182,4 +193,14 @@ trackTests {
         "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event) {}
     }
 
+    test("Create o edit role") {
+        "/collaborators/role"(platform:"/", type: TrackType.View) {}
+        "/collaborators/role/name"(platform:"/", type: TrackType.View) {}
+    }
+
+    test("Show congrats in create role") {
+        "/collaborators/role/congrats"(platform:"/", type: TrackType.View) {
+            type = "success"
+        }
+    }
 }

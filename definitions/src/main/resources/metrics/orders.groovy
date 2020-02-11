@@ -2,7 +2,6 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-
 	"orders"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
 		countsOn {
 			condition {
@@ -61,7 +60,42 @@ metrics {
 			}
 		}
 	}
+	
+	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq?authuser=0#h.p_2qPD6v_1dTSd", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"cancelled"
+				)
+			}
+		}
+	}
 
+	"mediations"(description: "/orders/ordercreated that had mediations.", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				notEquals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("mediations")
+						},
+						""
+				)
+			}
+		}
+	}
 
 	"purchases"(description: "/purchase/purchasecreated from feed", compute_order: true) {
 		countsOn {
@@ -159,6 +193,15 @@ metrics {
 			}
 		}
 	}
+	
+	"bids.sameItem"(description: "/orders/ordercreated from feed in the sam item of experiement", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals("event_data.items.item.id", property("item_id"))
+			}
+		}
+	}
 
 	"orders.sameProduct"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
 		countsOn {
@@ -171,6 +214,15 @@ metrics {
 			}
 		}
 	}
+				       
+	"bids.sameProduct"(description: "/orders/ordercreated from feed in the same product of experiement", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
+			}
+		}
+	}			       
 
 	"orders.sameParent"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
 		countsOn {
@@ -184,6 +236,16 @@ metrics {
 		}
 	}
 
+	"bids.sameParent"(description: "/orders/ordercreated from feed in the same parent product of experiement", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals("event_data.items.item.catalog_parent_id", property("catalog_parent_id"))
+			}
+		}
+	}
+				  
+
 	"orders.sameSearch"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
 		countsOn {
 			condition {
@@ -195,6 +257,15 @@ metrics {
 			}
 		}
 	}
+				       
+	"bids.sameSearch"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals("event_data.items.item.id", property("item_ids"))
+			}
+		}
+	}			       
 
 	"buys.pdp"(description: "Track PDP buys", compute_order: true) {
 		countsOn {

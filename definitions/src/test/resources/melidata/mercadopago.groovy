@@ -660,30 +660,34 @@ trackTests {
           is_guest = true
           has_coupon = true
           coupon_code = "GHZM"
+          user_id = 5010815
         }
 
-        "/point/buyingflow/shippingOptions"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
-        "/point/buyingflow/newAddress"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/new_address"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentMethods"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
         
         "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
@@ -692,38 +696,43 @@ trackTests {
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentInstallments"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_installments"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentInstallments/installments"(platform: "/", type: TrackType.Event) {
+        "/point/buyingflow/payment_installments/installments"(platform: "/", type: TrackType.Event) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentNewCard"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_new_card"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentCardSecurityCode"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_card_security_code"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
         "/point/buyingflow/payment_bank_selector"(platform: "/", type: TrackType.View) {
@@ -732,9 +741,10 @@ trackTests {
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentReview"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_review"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -743,9 +753,10 @@ trackTests {
           selected_payment_method_id = "tarshop"
           selected_payment_method_type = "credit_card"
           installments = 6
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentRejected"(platform: "/", type: TrackType.View) {
+        "/point/buyingflow/payment_rejected"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
@@ -754,19 +765,26 @@ trackTests {
           selected_payment_method_id = "tarshop"
           selected_payment_method_type = "credit_card"
           installments = 6
+          user_id = 5010815
         }
         
         "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
-          type = "error: Session ended"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          error_code = 6
+          user_id = 5010815
         }
 
-        "/point/buyingflow/paymentReview/confirmPurchase"(platform: "/", type: TrackType.Event) {
+        "/point/buyingflow/payment_review/confirm_purchase"(platform: "/", type: TrackType.Event) {
           flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
           product = "11"
           currency = "ARS"
           price = 299
           is_guest = true
+          user_id = 5010815
         }
     }
 
@@ -3249,6 +3267,10 @@ trackTests {
             id = "id"
             is_another_enroll = false
         }
+        "/auth/totp/enrollment/code"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
         "/auth/totp/enrollment/validation"(platform: "/", type: TrackType.View) {
             id = "id"
             is_another_enroll = false
@@ -3293,6 +3315,18 @@ trackTests {
             id = "id"
             event_type = "click"
             target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/code/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/code/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "config_app_using_qr"
             is_another_enroll = false
         }
         "/auth/totp/enrollment/validation/action"(platform: "/", type: TrackType.Event) {

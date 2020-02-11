@@ -68,4 +68,11 @@ tracks {
 
     "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
+    "/collaborators/role"(platform:"/", isAbstract: true, parentPropertiesInherited: false) {}
+
+    "/collaborators/role/name"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {}
+
+    "/collaborators/role/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+    	type(required: true, type: PropertyType.String, description: 'Indicates the result of the congrats.')
+    }
 }

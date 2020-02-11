@@ -146,6 +146,9 @@ trackTests {
         "/prepaid/activation/last_digits"(platform: "/web/desktop") {}
         "/prepaid/activation/marital_status"(platform: "/web/desktop") {}
         "/prepaid/activation/congrats"(platform: "/web/desktop") {}
+        "/prepaid/activation/congrats/change_pin_tap"(platform: "/", type: TrackType.Event) {}
+        "/prepaid/activation/congrats/home_tap"(platform: "/", type: TrackType.Event) {}
+        "/prepaid/activation/congrats/add_money_tap"(platform: "/", type: TrackType.Event) {}
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "main_error" }
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "not_found" }
         "/prepaid/activation/error"(platform: "/", type: TrackType.View) { error_type = "max_attempt" }
@@ -282,8 +285,11 @@ trackTests {
         "/prepaid/faq/detail" (platform: "/", type: TrackType.View) {}
         "/prepaid/faq/detail/payment_rejected" (platform: "/", type: TrackType.View) {}
         "/prepaid/faq/detail/extraction_rejected" (platform: "/", type: TrackType.View) {}
+        "/prepaid/faq/detail/rejected_international_authorization" (platform: "/", type: TrackType.View) {}
         "/prepaid/faq/detail/payment_rejected/money_in" (platform: "/", type: TrackType.Event) {}
         "/prepaid/faq/detail/payment_rejected/reissue" (platform: "/", type: TrackType.Event) {}
         "/prepaid/faq/detail/extraction_rejected/reissue" (platform: "/", type: TrackType.Event) {}
+        "/prepaid/faq/detail/rejected_international_authorization/money_in" (platform: "/", type: TrackType.Event) {}
+        "/prepaid/faq/detail/rejected_international_authorization/reissue" (platform: "/", type: TrackType.Event) {}
     }
 }

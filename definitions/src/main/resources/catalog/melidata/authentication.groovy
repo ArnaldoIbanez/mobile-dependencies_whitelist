@@ -265,6 +265,8 @@ tracks {
 
     "/auth/totp/enrollment/scanner"(platform: "/", type: TrackType.View) {}
 
+    "/auth/totp/enrollment/code"(platform: "/", type: TrackType.View) {}
+
     "/auth/totp/enrollment/validation"(platform: "/", type: TrackType.View) {}
 
     "/auth/totp/validation"(platform: "/", type: TrackType.View) {}
@@ -274,37 +276,43 @@ tracks {
     "/auth/totp/enrollment/chooser/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         target(type: PropertyType.String, required: true, description: "Describes element related to user action")
-        event_type(values: ["click", "submit"], required: true, description: "Type of event")
+        event_type(type: PropertyType.String, required: true, description: "Type of event")
     }
 
     "/auth/totp/enrollment/congrats/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         target(type: PropertyType.String, required: true, description: "Describes element related to user action")
-        event_type(values: ["click", "submit"], required: true, description: "Type of event")
+        event_type(type: PropertyType.String, required: true, description: "Type of event")
     }
 
     "/auth/totp/enrollment/greeting/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         target(type: PropertyType.String, required: true, description: "Describes element related to user action")
-        event_type(values: ["click", "submit"], required: true, description: "Type of event")
+        event_type(type: PropertyType.String, required: true, description: "Type of event")
     }
 
     "/auth/totp/enrollment/scanner/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         target(type: PropertyType.String, required: true, description: "Describes element related to user action")
-        event_type(values: ["click", "submit"], required: true, description: "Type of event")
+        event_type(type: PropertyType.String, required: true, description: "Type of event")
+    }
+
+    "/auth/totp/enrollment/code/action"(platform: "/", type: TrackType.Event) {
+        id(type: PropertyType.String, required: true, description: "Current transaction id")
+        target(type: PropertyType.String, required: true, description: "Describes element related to user action")
+        event_type(type: PropertyType.String, required: true, description: "Type of event")
     }
 
     "/auth/totp/enrollment/validation/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         target(type: PropertyType.String, required: true, description: "Describes element related to user action")
-        event_type(values: ["click", "submit"], required: true, description: "Type of event")
+        event_type(type: PropertyType.String, required: true, description: "Type of event")
     }
 
     "/auth/totp/validation/action"(platform: "/", type: TrackType.Event) {
         id(type: PropertyType.String, required: true, description: "Current transaction id")
         target(type: PropertyType.String, required: true, description: "Describes element related to user action")
-        event_type(values: ["click", "submit"], required: true, description: "Type of event")
+        event_type(type: PropertyType.String, required: true, description: "Type of event")
     }
 
     //Attestation App

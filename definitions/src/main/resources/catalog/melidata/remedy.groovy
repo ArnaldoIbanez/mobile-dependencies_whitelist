@@ -7,7 +7,19 @@ tracks {
     initiative = "1173"
 
     "/remedy"(platform: "/", isAbstract: true) {}
-    "/remedy/challenge"(platform: "/", isAbstract: true) {}
+
+    // Challenges v2
+    "/remedy/challenge"(platform: "/", type: TrackType.View) {
+        id (required: true, type: PropertyType.String, description: "The challenge name")
+        process_id (required: true, type: PropertyType.String, description: "The initiative")
+        callback (required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
+    }
+
+    "/remedy/challenge/start"(platform: "/", type: TrackType.Event) {}
+    "/remedy/challenge/send"(platform: "/", type: TrackType.Event) {}
+    "/remedy/challenge/success"(platform: "/", type: TrackType.Event) {}
+    "/remedy/challenge/fail"(platform: "/", type: TrackType.Event) {}
+    "/remedy/challenge/retry"(platform: "/", type: TrackType.Event) {}
 
     // Challenges
     "/remedy/challenge_pep"(platform: "/", type: TrackType.View) {}
@@ -71,26 +83,6 @@ tracks {
         label (required: false, type: PropertyType.String, description: "The label attached to the current event")
         verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
     }
+
     "/remedy/profile"(platform: "/", type: TrackType.Event) {}
-
-    // challenge life cycle
-    "/remedy/challenge/start"(platform: "/", type: TrackType.Event) {
-        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
-    }
-
-    "/remedy/challenge/send"(platform: "/", type: TrackType.Event) {
-        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
-    }
-
-    "/remedy/challenge/success"(platform: "/", type: TrackType.Event) {
-        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
-    }
-
-    "/remedy/challenge/fail"(platform: "/", type: TrackType.Event) {
-        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
-    }
-
-    "/remedy/challenge/retry"(platform: "/", type: TrackType.Event) {
-        label (required: false, type: PropertyType.String, description: "The label attached to the current event")
-    }
 }

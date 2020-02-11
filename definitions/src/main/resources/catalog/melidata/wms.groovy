@@ -375,10 +375,13 @@ tracks {
     "/wms/problem_solver/menu"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/problem_solver/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/problem_solver/manual_input_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/problem_solver/manual_input_case"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/problem_solver/scan_destination"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/problem_solver/scan_case"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/problem_solver/scan_return_address"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/problem_solver/manual_input_case"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/problem_solver/scan_inbound_destination"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/problem_solver/scan_finish_transactions"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/problem_solver/scan_transaction_destination"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/problem_solver/scan_oriented_origin"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/problem_solver/scan_origin"(platform: "/mobile/android", type: TrackType.View) {}
 
     /* Stock audit*/
     "/wms/stock_audit/confirmation"(platform: "/mobile/android", type: TrackType.View) {}

@@ -58,6 +58,7 @@ trackTests {
             optionals()
             catalog_listing = false
             attribute_combinations = 1
+            attributes_quantities = [11]
         })
 
         "/vip"(platform:"/mobile", {
@@ -70,6 +71,7 @@ trackTests {
             whatsapp_installed = true
             catalog_listing = false
             attribute_combinations = null
+            attributes_quantities = null
         })
 
         "/vip/failure"(platform:"/mobile", {
@@ -560,9 +562,30 @@ trackTests {
 
         "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {
             defaultTrackInformation()
+            item_seller_type= "normal"
+            from_view="howToContract"
+            catalog_listing="Item's catalog listing"
+        }
+
+        "/vip/coordinate_intention"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
         }
 
         "/vip/contract_intention"(platform: "/mobile", type: TrackType.Event) {
+            buying_mode= "classified"
+            category_id= "MLA43972"
+            category_path= ["MLA1540","MLA122258"]
+            from_view="howToContract"
+            item_condition="not_specified"
+            item_id="MLA812057056"
+            item_seller_type = "normal"
+            item_status = "active"
+            listing_type_id = "gold_premium"
+            seller_id= 86995812
+            vertical= "services"
+        }
+
+        "/vip/contract_intention"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
 

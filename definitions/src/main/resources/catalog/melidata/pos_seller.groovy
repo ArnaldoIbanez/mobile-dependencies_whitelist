@@ -28,6 +28,8 @@
             items(required: false, type: PropertyType.Numeric, description: "number of items in the cart")
             store(required: false, type: PropertyType.String, description: "store/branch name")
             pos(required: false, type: PropertyType.String, description: "cashier name")
+            account_type(required: false, type: PropertyType.String, description: "account type", values:["checking", "savings"])
+            tax(required: false, type: PropertyType.String, description: "tax")
         }
 
 
@@ -61,6 +63,8 @@
 
         "/pos_seller/point/pairing"(platform: "/mobile", type: TrackType.View) {}
 
+        "/pos_seller/onboarding/point_preorder"(platform: "/mobile", type: TrackType.View) {}
+
 
         "/pos_seller/point/idempotency"(platform: "/mobile", isAbstract: true) {
             cardData
@@ -92,6 +96,12 @@
         "/pos_seller/nfce/client"(platform: "/", type: TrackType.View) {}
 
         "/pos_seller/address_selection"(platform: "/mobile", type: TrackType.View) {}
+
+        "/pos_seller/onboarding/liable_for_tax"(platform: "/mobile", type: TrackType.View) {}
+
+        "/pos_seller/point/tax"(platform: "/mobile", type: TrackType.View) {}
+
+        "/pos_seller/point/account_type"(platform: "/mobile", type: TrackType.View) {}
 
         /**
         * pos seller event tracks
@@ -185,10 +195,12 @@
           payment_method_id(required: false, type: PropertyType.String, description: "payment method id")
           store(required: true, type: PropertyType.String, description: "store id")
           pos(required: true, type: PropertyType.String, description: "pos id")
+          account_type(required: false, type: PropertyType.String, description: "account type", values:["checking", "savings"])
+          tax(required: false, type: PropertyType.String, description: "tax")
         }
  
         propertyGroups {
-        paymentData(flow_origin, payment_method_type, mode,payment_channel,amount,currency,installments,description,discount,discount_type,items,payment_method_id)
+        paymentData(flow_origin, payment_method_type, mode,payment_channel,amount,currency,installments,description,discount,discount_type,items,payment_method_id, account_type, tax)
         paymentDataWeb(flow_id, amount, items, mode, payment_channel, currency, store, pos, installments, payment_method_type)
         }
 

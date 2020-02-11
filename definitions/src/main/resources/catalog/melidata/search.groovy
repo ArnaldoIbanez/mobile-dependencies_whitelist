@@ -20,6 +20,13 @@ tracks {
         is_on_seo_whitelist_experiment(type: PropertyType.Boolean, required: true)
     }
 
+    def location_info_definition = objectSchemaDefinitions {
+        zipcode(type: PropertyType.String, required: false, description: "zipcode of the user; can be missing if user is not logged or never registered an address")
+        default_zipcode(type: PropertyType.Boolean, required: false, description: "indicates if the zipcode was assumed; this happens in MLA when no zipcode is found for the user. The default is 1430")
+        city_id(type: PropertyType.String, required: false, description: "as MLB has too many zipcode, we translate the zipcode to the city of the user's address")
+        user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
+    }
+
     def sparkle_info_object = objectSchemaDefinitions {
         intervention_id(type: PropertyType.String, required: true)
         intervention_type(type: PropertyType.String, required: true, values: ["REDIRECT", "INLINE"])
@@ -80,6 +87,7 @@ tracks {
         pdp_grouped_search(required: false, description: 'indicates whether the product rows are result of grouping or not', PropertyType.Boolean)
         pdp_info(required: false, description: "info about status and scoring of the product offered by search backend", type: PropertyType.ArrayList)
         promoted_items(required: false, description: 'ids of offer of the day items', type: PropertyType.ArrayList(PropertyType.String))
+        location_info(required: false, description: "contains info about the users, for example, shipping info", type: PropertyType.Map(location_info_definition))
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
         //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
