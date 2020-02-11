@@ -34,6 +34,8 @@ class TestRunnerTest {
             defaultBusiness = "mercadolibre"
 
             tracks {
+                initiative = "1148"
+
                 "/search"(platform: "/") {
                     limit(description:"amount of search items returned")
                     offset(type: PropertyType.Numeric, regex:".*")
@@ -64,21 +66,6 @@ class TestRunnerTest {
 
         def result = CatalogValidator.run(this.catalog, tests, new OutTest())
         assertTrue(result)
-    }
-
-    @Test void shouldGetScriptFromFile(){
-        def script = null
-
-        try{
-            script = TestRunner.getScriptFromFile(PATH_CATALOG)
-            assertNotNull(script)
-
-        }catch (NotFileException){
-
-            // El classpath es distinto al correr esta test con idea
-            script = TestRunner.getScriptFromFile(PATH_CATALOG)
-            assertNotNull(script)
-        }
     }
 
     @Test void shouldCallDefinitionsOutWhenFailAndSuccessSingleTest(){
