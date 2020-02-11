@@ -106,6 +106,7 @@ tracks {
         delivery_status(required: false, type: PropertyType.String,  values: ["ready_to_end"],
             description: "This field declares the status of the delivery, depending on each pack status", inheritable:false)
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+        show_historical_badge(required: false, type: PropertyType.String, values: ["true"], description:"This field indicates if we are showing the badge or not")
     }
 
     "/flex/package/start_trip"(platform: "/mobile", type: TrackType.Event) {
@@ -381,4 +382,8 @@ tracks {
         packsAndLocation
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
     }
+
+    "/flex/package/record/summary"(platform: "/mobile", type: TrackType.View) {}
+
+    "/flex/package/record/detail"(platform: "/mobile", type: TrackType.View) {}
 }
