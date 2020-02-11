@@ -1126,13 +1126,8 @@ trackTests {
         // Buyer QR
 
         "/instore/buyer_qr/buyer_qr"(platform: "/mobile", type: TrackType.View) {
-            code_type = "qr_code"
             payment_methods_enabled = true
             payment_method_preselected_id = "account_money"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/buyer_qr/switch_code"(platform: "/mobile", type: TrackType.Event) {
-            code_type = "qr_code"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/buyer_qr/refresh_code"(platform: "/mobile", type: TrackType.Event) {
@@ -1248,16 +1243,20 @@ trackTests {
 	        payment_method_name = "Dinero en Mercado Pago"
             payment_method_id = ""
             currency_id =  "ARS"
-            payment_date = "12/07/07:23.55.32hs"
+            payment_date = 1580065807
 	        payment_id = "1879867544"
-	        collector_name = "Oxxo"
+	        collector_id = 123456
+            collector_name = "Oxxo"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         "/instore/buyer_qr/congrats"(platform: "/mobile", type: TrackType.View) {
             status = "failure"
-            collector_name = "Oxxo"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            payment_date = 5648464155
+            currency_id = "ARS"
+            amount_paid = "300"
+            payment_id = "468795132"
         }
    
         //Instore home sections
@@ -2396,13 +2395,8 @@ trackTests {
         // Buyer QR
 
         "/instore/buyer_qr/buyer_qr"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            code_type = "qr_code"
             payment_methods_enabled = true
             payment_method_preselected_id = "account_money"
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
-        "/instore/buyer_qr/switch_code"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            code_type = "qr_code"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/buyer_qr/refresh_code"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
@@ -2462,9 +2456,10 @@ trackTests {
 	        payment_method_name = "Dinero en Mercado Pago"
             payment_method_id = ""
             currency_id =  "ARS"
-            payment_date = "12/07/07:23.55.32hs"
+            payment_date = 120707235532
 	        payment_id = "1879867544"
 	        collector_name = "Oxxo"
+            collector_id = 456789123
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
@@ -2472,6 +2467,10 @@ trackTests {
             status = "failure"
             collector_name = "Oxxo"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            amount_paid = "180"
+            currency_id = "ARS"
+            payment_date = 120707235532
+            payment_id = "1879867544"
         }
     }
 
@@ -2572,11 +2571,11 @@ trackTests {
         }
 
         //Instore shortcut
-        "/instore/enable_shortcut"(platform:"/mobile/android", type: TrackType.View) {
+        "/instore/create_shortcut"(platform:"/mobile/android", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
-        "/instore/enable_shortcut"(platform:"/mobile/android", business: "mercadopago", type: TrackType.View) {
+        "/instore/create_shortcut"(platform:"/mobile/android", business: "mercadopago", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
     }
