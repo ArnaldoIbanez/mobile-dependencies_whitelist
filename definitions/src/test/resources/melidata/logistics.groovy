@@ -272,6 +272,8 @@ trackTests {
 
         "/logistics/last_mile/deliver/select_receiver"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            driver_id = "123"
+            shipment_id = "222"
         }
         "/logistics/last_mile/deliver/receives_another"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
@@ -337,7 +339,7 @@ trackTests {
         }
         "/logistics/last_mile/deliver/buyer_document_form"(platform: "/mobile", type: TrackType.View) {
             driver_id = "123"
-            pack_id = "222"
+            shipment_id = "222"
         }
     }
 
