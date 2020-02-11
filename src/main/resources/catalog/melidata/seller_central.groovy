@@ -6,6 +6,8 @@ import com.ml.melidata.catalog.PropertyType
 
 tracks {
 
+    initiative = "1029"
+
     def winnerData = objectSchemaDefinitions {
         winner_price(required: true, type: PropertyType.Numeric, description: "The item winner of the buy box price")
         winner_currency_id(required: true, type: PropertyType.String, description: "The item winner of the buy box currency")

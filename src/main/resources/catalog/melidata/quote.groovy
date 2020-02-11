@@ -6,6 +6,9 @@ import com.ml.melidata.TrackType
 
 
 tracks {
+
+    initiative = "1075"
+
     propertyDefinitions {
         vertical(required: true, type: PropertyType.String, values: ["services"], description: "Vertical services")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")

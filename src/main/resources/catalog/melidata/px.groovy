@@ -7,6 +7,8 @@ import com.ml.melidata.catalog.PropertyType
 
 tracks {
 
+    initiative = '1142'
+
     propertyDefinitions {
         flow_detail(required: false, description: "External info")
         flow(required: false, type: PropertyType.String, description: "External flow name")

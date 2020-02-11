@@ -10,14 +10,14 @@ class InitiativeValidate {
     private static List<ApplicationModel> applications = []
     private static Set validPaths = []
     private static Set totalPaths = []
-    private static double baseCoverage = 50
+    private static double baseCoverage = 80
 
     static void generateInitiativesList() {
         getAllInitiativesFromAPI()
     }
 
     private static List getAllInitiativesFromAPI() {
-        def client = new RESTClient('https://initiatives-api.furycloud.io/')
+        def client = new RESTClient('http://initiatives-api.furycloud.io/')
         HttpResponseDecorator resultApplication = client.get(path: '/applications', contentType: ContentType.JSON)
 
         for(application in resultApplication.data) {

@@ -6,6 +6,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1173"
+
     "/remedy"(platform: "/", isAbstract: true) {}
 
     // Challenges v2

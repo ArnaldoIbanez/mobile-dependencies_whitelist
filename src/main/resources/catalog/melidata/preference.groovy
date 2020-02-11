@@ -7,6 +7,8 @@ import com.ml.melidata.catalog.PropertyType
 
 tracks {
 
+    initiative = '1142'
+
     propertyDefinitions {   
         session_id(required: true, description: "Session id")
     }

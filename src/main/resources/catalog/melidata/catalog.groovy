@@ -64,6 +64,7 @@ catalog {
     def all = marketplace + mercadopago
 
     all.each { business ->
+        include business, "mp_frontend.groovy"
         include business, "authentication.groovy"
         include business, "bugsnag.groovy"
         include business, "cx.groovy"
@@ -122,7 +123,6 @@ catalog {
         include business, "vendor_central.groovy"
         include business, "onboarding.groovy"
         include business, "orders_feed.groovy"
-        include business, "pushNotifications.groovy"
         include business, "quotation.groovy"
         include business, "quote.groovy"
         include business, "questions.groovy"
@@ -158,10 +158,13 @@ catalog {
         include business, "qadb.groovy"
         include business, "promotions.groovy"
         include business, "sp_prepaid.groovy"
+        include business, "official_stores.groovy"
     }
 
     mercadopago.each { business ->
+        include business, "mp_architecture.groovy"
         include business, "activities.groovy"
+        include business, "mp_digital_account.groovy"
         include business, "mpfrontcore.groovy"
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"
@@ -196,6 +199,11 @@ catalog {
         include business, "pos_billings.groovy"
         include business, "pdv.groovy"
         include business, "sp_prepaid.groovy"
+        include business, "tools_for_sellers.groovy"
+        include business, "mp_growth.groovy"
+        include business, "point_payment.groovy"
+        include business, "digital_goods.groovy"
+        include business, "sp_bill_payments.groovy"
     }
 
     mercadoshops.each { business ->

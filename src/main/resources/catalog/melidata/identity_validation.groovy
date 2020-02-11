@@ -7,6 +7,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1100"
+
     //Identity Validation
 
     "/identity-validation"(platform: "/", isAbstract: true) {}

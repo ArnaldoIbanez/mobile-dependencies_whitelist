@@ -53,7 +53,7 @@ tracks {
         catalogSearchCopiedExternalAttribute(product_id, product_source, product_external_id, external_attribute_key, external_attribute_value)
     }
 
-    "/catalogwidget"(platform: "/", isAbstract: true, type: TrackType.Event) {}
+    "/catalogwidget"(platform: "/", isAbstract: true, type: TrackType.Event, initiative: "1033") {}
 
     "/catalogwidget/show"(platform: "/", type: TrackType.Event) {
         catalogWidgetGroup
@@ -171,7 +171,7 @@ tracks {
 
 
     //Tracks for Massive Attribute Editor
-    "/bulk_attributes"(platform: "/",isAbstract: true) {}
+    "/bulk_attributes"(platform: "/",isAbstract: true, initiative: "1033") {}
     "/bulk_attributes/incomplete"(platform: "/",isAbstract: true) {}
 
     "/bulk_attributes/incomplete/save" (platform: "/web",type: TrackType.Event) {
@@ -181,7 +181,8 @@ tracks {
         badItems(required: false, description:"True if the user has items with few attributes completed.", PropertyType.Boolean)
     }
 
-    "/structure_data"(platform: "/", isAbstract: true) {}
+    "/structure_data"(platform: "/", isAbstract: true, initiative: "1024") {}
+
     "/structure_data/product_creator"(platform: "/",isAbstract: true) {}
     "/structure_data/product_creator/other_domain"(platform: "/", type: TrackType.Event) {
         score(required: true, description: "Score of zordon api")

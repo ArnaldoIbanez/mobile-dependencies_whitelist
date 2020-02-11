@@ -6,6 +6,9 @@ import com.ml.melidata.TrackType
 
 
 tracks {
+
+    initiative = "1075"
+
     propertyDefinitions {
         seller_id(required: true, type:PropertyType.Numeric, inheritable: false)
         category_id(required: false, type:PropertyType.String, description: "Item category id")

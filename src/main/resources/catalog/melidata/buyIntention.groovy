@@ -11,6 +11,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1104"
+
     def garexTrackStructure = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String)
         period(required: true, type: PropertyType.Numeric)

@@ -10,6 +10,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = '1074'
+
     def balance_definition = objectSchemaDefinitions {
         pending_balance(required: true, type: PropertyType.Boolean, description: "Unavailable balance")
         balance_histogram(required: true, type: PropertyType.Numeric, description: "Balance segmentation")
@@ -147,12 +149,11 @@ tracks {
     }
 
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}
-    "/home_wallet/drawer" (platform: "/mobile", isAbstract: true) {}
     "/wallet/home/secondary_actions" (platform: "/mobile", isAbstract: true) {}
 
     // Views
     "/wallet/home" (platform: "/mobile", type: TrackType.View) {}
-    "/home_wallet" (platform: "/mobile", type: TrackType.View) {}
+
 
     // Events
     "/wallet/home/pull" (platform: "/mobile", type: TrackType.Event) {}
@@ -167,9 +168,6 @@ tracks {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
 
-    "/home_wallet/drawer/tap" (platform: "/mobile", type: TrackType.Event) {
-        link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
-    }
 
     //Sections
     // TODO: This track will be removed

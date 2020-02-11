@@ -7,6 +7,9 @@ import com.ml.melidata.TrackType
 
 
 tracks {
+
+    initiative = "1205"
+
     propertyDefinitions {
         product_type(
             type: PropertyType.String,

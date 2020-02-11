@@ -1361,21 +1361,6 @@ trackTests {
         }
     }
 
-    test("Login") {
-        "/login/splitter"(platform: "/mobile") {
-            flow = "/login"
-        }
-        "/login/sign_in"(platform: "/mobile") {
-            flow = "/login"
-        }
-        "/login/sign_up"(platform: "/mobile") {
-            flow = "/login"
-        }
-        "/login/identification"(platform: "/mobile") {
-            flow = "/login"
-        }
-    }
-
     test("Camera") {
         "/camera"(platform: "/mobile/android") {
         }
@@ -1385,7 +1370,6 @@ trackTests {
     test("Login Success") {
         "/login_success"(platform: "/mobile/ios") {
         }
-
     }
 
 
@@ -2942,6 +2926,21 @@ trackTests {
     }
 
 // END -- MPMOBILE TEST
+
+    test("Login") {
+        "/login/splitter"(platform: "/mobile") {
+            flow = "/login"
+        }
+        "/login/sign_in"(platform: "/mobile") {
+            flow = "/login"
+        }
+        "/login/sign_up"(platform: "/mobile") {
+            flow = "/login"
+        }
+        "/login/identification"(platform: "/mobile") {
+            flow = "/login"
+        }
+    }
 
     test("Login conversion tracks") {
         "/login"(platform: "/") {

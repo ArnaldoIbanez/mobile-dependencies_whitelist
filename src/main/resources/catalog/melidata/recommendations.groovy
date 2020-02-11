@@ -11,6 +11,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1024"
+
     def track_info_definition = objectSchemaDefinitions {
         has_recommendations(required: false, type: PropertyType.Boolean, description: "Has recommended items")
         model_id(required: false, type: PropertyType.String, description: "Model which generated the recommendation")
@@ -60,6 +62,14 @@ tracks {
         add_cart_info(backend_id, client, direct, items, recommendation_id, shipping_benefit)
         see_more(backend_id, client)
     }
+
+    //Recommendations => Should be embebed in host tracks, except for client-side clientes ( i.e. /vip )
+    "/recommendations"(platform: "/") {
+
+    }
+
+    "/recommendations/print" (platform: "/"){}
+
 
     "/recommendations/add_to_cart"(platform: "/", type: TrackType.Event) {
         add_cart_info

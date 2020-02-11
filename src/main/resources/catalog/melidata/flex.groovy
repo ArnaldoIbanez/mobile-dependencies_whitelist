@@ -7,6 +7,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = "1091"
+
     propertyDefinitions {
         packs_info(required: true, type: PropertyType.ArrayList, description: "Array of packages to deliver", inheritable:false)
         latitude(required:false, type: PropertyType.String, description:"The latitude of driver at that point", inheritable:false)

@@ -6,6 +6,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1104"
+
     propertyDefinitions {
 
         // For shipping inconsistencies
@@ -1410,4 +1412,12 @@ tracks {
         items(required: true, type: PropertyType.ArrayList, description: "Array of items in the order with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
     }
+
+    //notifications
+    "/checkout_recovery"(platform: "/", type: TrackType.View, initiative: "1171") {
+        item_id(required: true, type: PropertyType.String, description: "main item id")
+        item_status(required: true, type: PropertyType.String, description: "main item status (no-stock, inative, etc)")
+    }
+    "/checkout_recovery/error"(platform: "/", type: TrackType.View) {}
+    "/checkout_recovery/notfound"(platform: "/", type: TrackType.View) {}
 }

@@ -589,7 +589,7 @@ tracks {
 
     // SHIPPING FLOW
 
-    "/shipping"(platform: '/mobile', isAbstract: true) {}
+    "/shipping"(platform: '/mobile', isAbstract: true, initiative: "1123") {}
 
     "/shipping/mercadoenvios"(platform: '/mobile', isAbstract: true) {}
 

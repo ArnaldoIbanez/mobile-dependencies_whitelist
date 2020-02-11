@@ -11,6 +11,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1171"
+
 // Questions
 
     "/questions"(platform: "/", isAbstract: true) { // THIS IS A VIP MOBILE TRACK THAT TRACKS THE VIEW OF QUESTIONS LISTS FROM VIP

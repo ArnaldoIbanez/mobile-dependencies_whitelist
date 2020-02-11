@@ -6,6 +6,9 @@ import com.ml.melidata.TrackType
 
 
 tracks {
+
+    initiative = "1205"
+
     propertyDefinitions {        
         installments_qty( type: PropertyType.Numeric, required: true, description: "The total number of installments to pay")
     }

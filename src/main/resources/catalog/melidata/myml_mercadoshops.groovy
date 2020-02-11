@@ -5,6 +5,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+
+    initiative = "1129"
+
     propertyDefinitions {
         shop_id(required: true, type: PropertyType.Numeric)
         shop_domain(required: true, type: PropertyType.String)
