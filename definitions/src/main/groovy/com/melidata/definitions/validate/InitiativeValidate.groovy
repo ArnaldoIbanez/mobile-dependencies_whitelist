@@ -17,7 +17,7 @@ class InitiativeValidate {
     }
 
     private static List getAllInitiativesFromAPI() {
-        def client = new RESTClient('https://initiatives-api.furycloud.io/')
+        def client = new RESTClient('http://initiatives-api.furycloud.io/')
         HttpResponseDecorator resultApplication = client.get(path: '/applications', contentType: ContentType.JSON)
 
         for(application in resultApplication.data) {
