@@ -194,7 +194,6 @@ tracks {
     "/download-app"(platform: "/web") {}
     "/download-app/send"(platform: "/web", type: TrackType.Event) {
         user_phone_number()
-        final_phone_number()
     }
     "/download-app/send/success"(platform: "/web", type: TrackType.Event) {
         user_phone_number()
