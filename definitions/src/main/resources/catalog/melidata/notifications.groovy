@@ -239,6 +239,7 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
         hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
+        mantika_id(required: false, type: PropertyType.String, description: "Id of Mantika XP.")
         items_recommendations(required: false, type: PropertyType.String, description: "Items sent from recommendations.")
         items_history(required: false, type: PropertyType.String, description: "Items sent from history.")
     }
@@ -1443,6 +1444,7 @@ tracks {
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
           hash(required: false, type: PropertyType.String, description: "Hash of the message in claim check.")
+          mantika_id(required: false, type: PropertyType.String, description: "Id of Mantika XP.")
           items_recommendations(required: true, type: PropertyType.String, description: "Items sent from recommendations.")
           items_history(required: true, type: PropertyType.String, description: "Items sent from history.")
       }
