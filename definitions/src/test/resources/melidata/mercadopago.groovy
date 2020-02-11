@@ -3268,6 +3268,10 @@ trackTests {
             id = "id"
             is_another_enroll = false
         }
+        "/auth/totp/enrollment/code"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
         "/auth/totp/enrollment/validation"(platform: "/", type: TrackType.View) {
             id = "id"
             is_another_enroll = false
@@ -3312,6 +3316,18 @@ trackTests {
             id = "id"
             event_type = "click"
             target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/code/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/code/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "config_app_using_qr"
             is_another_enroll = false
         }
         "/auth/totp/enrollment/validation/action"(platform: "/", type: TrackType.Event) {
