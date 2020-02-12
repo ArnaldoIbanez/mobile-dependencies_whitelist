@@ -407,4 +407,11 @@ tracks {
     "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {}
+
+    /************************************/
+    //  TRACKS CROSS SELL EXPERIMENTS   //
+    /************************************/
+
+    "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
+
 }

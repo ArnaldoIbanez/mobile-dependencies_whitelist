@@ -718,6 +718,10 @@ trackTests {
         }
     }
 
+    test("Mercadopago cross sell experiments") {
+        "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
     defaultBusiness = "mercadolibre"
 
         test("Mercadopago Home") {
@@ -1424,5 +1428,9 @@ trackTests {
             section_id="benefits"
             component_id="user_benefits"
         }
+    }
+
+    test("Mercadopago cross sell experiments") {
+        "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
     }
 }
