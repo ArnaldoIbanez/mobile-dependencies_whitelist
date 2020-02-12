@@ -1,0 +1,1059 @@
+[
+  {
+    "id_initiative": 1052,
+    "external_code": "advertising",
+    "external_name": "Advertising",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1101,
+    "external_code": "apiCore",
+    "external_name": "APICore",
+    "status": true,
+    "last_update": "2019-10-21T00:00:00Z"
+  },
+  {
+    "id_initiative": 1184,
+    "external_code": "1563472864307",
+    "external_name": "Automations (Core)",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1085,
+    "external_code": "INFBI",
+    "external_name": "BI",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1075,
+    "external_code": "1547664566255",
+    "external_name": "Classifieds - Motors",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1041,
+    "external_code": "1547664542955",
+    "external_name": "Classifieds - Real Estate",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1119,
+    "external_code": "1547664591005",
+    "external_name": "Classifieds - Services",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1106,
+    "external_code": "INFDBA",
+    "external_name": "Cloud \u0026 Platform - Bases de Datos",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1192,
+    "external_code": "1564602566994",
+    "external_name": "Cloud \u0026 Platform - Foundations \u0026 Services",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1193,
+    "external_code": "1564602595678",
+    "external_name": "Cloud \u0026 Platform - Fury Core",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1190,
+    "external_code": "1564602523743",
+    "external_name": "Cloud \u0026 Platform - Governance",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1191,
+    "external_code": "1564602546803",
+    "external_name": "Cloud \u0026 Platform - Infraestructura",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1107,
+    "external_code": "1547472243259",
+    "external_name": "Cloud \u0026 Platform - Monitoring Engineering",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1024,
+    "external_code": "1549020935350",
+    "external_name": "Core Mktplace - Buy Box + Structured Data",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1169,
+    "external_code": "1563469097536",
+    "external_name": "Core Mktplace - Cancelaciones",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1103,
+    "external_code": "coremktplcCBT",
+    "external_name": "Core Mktplace - CBT",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1104,
+    "external_code": "coremktplcChON",
+    "external_name": "Core Mktplace - Checkout ON",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1020,
+    "external_code": "1547471416710",
+    "external_name": "Core Mktplace - Conflict + BPP",
+    "status": true,
+    "last_update": "2019-10-02T00:00:00Z"
+  },
+  {
+    "id_initiative": 1201,
+    "external_code": "1571343003093",
+    "external_name": "Core Mktplace - Contacto Garantizado",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1053,
+    "external_code": "coremktplcSelProm",
+    "external_name": "Core Mktplace - Deals",
+    "status": true,
+    "last_update": "2020-01-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1170,
+    "external_code": "1563469235197",
+    "external_name": "Core Mktplace - Devoluciones",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1200,
+    "external_code": "1571342968776",
+    "external_name": "Core Mktplace - Dinero en Cuenta",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1229,
+    "external_code": "1579803629177",
+    "external_name": "Core Mktplace - Experiencia PC",
+    "status": true,
+    "last_update": "2020-01-23T00:00:00Z"
+  },
+  {
+    "id_initiative": 1017,
+    "external_code": "1538576576577",
+    "external_name": "Core Mktplace - Fakes",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1015,
+    "external_code": "1554211945827",
+    "external_name": "Core Mktplace - First Party",
+    "status": true,
+    "last_update": "2020-02-04T00:00:00Z"
+  },
+  {
+    "id_initiative": 1198,
+    "external_code": "1570018372354",
+    "external_name": "Core Mktplace - Mis Compras",
+    "status": true,
+    "last_update": "2019-10-02T00:00:00Z"
+  },
+  {
+    "id_initiative": 1096,
+    "external_code": "coremktplcMblCore",
+    "external_name": "Core Mktplace - Mobile Core",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1016,
+    "external_code": "1554212114338",
+    "external_name": "Core Mktplace - Moderaciones",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1143,
+    "external_code": "coremktplcOpenPlat",
+    "external_name": "Core Mktplace - Open Platform",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1109,
+    "external_code": "coremktplcRegistras",
+    "external_name": "Core Mktplace - Registraciones",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1042,
+    "external_code": "coremktplcSrchInf",
+    "external_name": "Core Mktplace - Search Infrastructure ",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1110,
+    "external_code": "coremktplcSellerRep",
+    "external_name": "Core Mktplace - Seller Reputation",
+    "status": true,
+    "last_update": "2019-08-08T00:00:00Z"
+  },
+  {
+    "id_initiative": 1202,
+    "external_code": "1571343034315",
+    "external_name": "Core Mktplace - Site Merchandising",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1171,
+    "external_code": "1563471581927",
+    "external_name": "Core Mktplace - Soporte a Home, VIP,  Search, Recomendaciones, Notificaciones",
+    "status": true,
+    "last_update": "2019-07-21T00:00:00Z"
+  },
+  {
+    "id_initiative": 1187,
+    "external_code": "1563740814890",
+    "external_name": "Core Mktplace - Soportes a Deals",
+    "status": true,
+    "last_update": "2020-01-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1163,
+    "external_code": "1554922645889",
+    "external_name": "Core Mktplace - Structured Data - Support",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1162,
+    "external_code": "1554922755360",
+    "external_name": "Core Mktplace - Supply - SD - Adoption/Categorization",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1029,
+    "external_code": "coremktplcSpSC",
+    "external_name": "Core Mktplace - Supply - Seller Central + SYI",
+    "status": true,
+    "last_update": "2019-07-21T00:00:00Z"
+  },
+  {
+    "id_initiative": 1033,
+    "external_code": "1547486354877",
+    "external_name": "Core Mktplace - Supply - Seller Central y SYI impacto en otras BUs (excepto ME)",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1040,
+    "external_code": "coremktplcSellerInv",
+    "external_name": "Core Mktplace - Supply - Seller Invoices",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1097,
+    "external_code": "1547486275103",
+    "external_name": "Core Mktplace - Supply - Seller migration to XD",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1199,
+    "external_code": "1571342813867",
+    "external_name": "Core Mktplace - Supply - Soportes a ME",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1203,
+    "external_code": "1571343081179",
+    "external_name": "Credits - Backend",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1205,
+    "external_code": "1571343139075",
+    "external_name": "Credits - Consumer",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1204,
+    "external_code": "1571343117268",
+    "external_name": "Credits - Merchants",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1155,
+    "external_code": "cx",
+    "external_name": "CX (Help + Cx-One)",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1014,
+    "external_code": "a\u0026fNeeds",
+    "external_name": "FBI (Finance and Billing Information - Ex A\u0026F Needs)",
+    "status": true,
+    "last_update": "2020-01-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1173,
+    "external_code": "1563471865492",
+    "external_name": "Fraud - Marketplace",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1100,
+    "external_code": "fraud",
+    "external_name": "Fraud - Payments",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1144,
+    "external_code": "frontendCore",
+    "external_name": "Frontend Core",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1023,
+    "external_code": "INFGesInc",
+    "external_name": "Gestión de Incidentes",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1034,
+    "external_code": "coremktplcGrwth",
+    "external_name": "Growth",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1212,
+    "external_code": "1579213424806",
+    "external_name": "Insurtech",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1209,
+    "external_code": "1571344260059",
+    "external_name": "Internal Systems - Governance / Obras",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1086,
+    "external_code": "INFIntSys",
+    "external_name": "Internal Systems - Infra",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1210,
+    "external_code": "1571344285663",
+    "external_name": "Internal Systems - Servicios",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1211,
+    "external_code": "1571344233212",
+    "external_name": "Internal Systems - Soporte Negocio",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1167,
+    "external_code": "1556539974947",
+    "external_name": "Machine Learning",
+    "status": true,
+    "last_update": "2019-05-10T00:00:00Z"
+  },
+  {
+    "id_initiative": 1145,
+    "external_code": "melidata",
+    "external_name": "Melidata",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1018,
+    "external_code": "coremktplcLoy",
+    "external_name": "Mercado Puntos",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1049,
+    "external_code": "paymentsAllAO",
+    "external_name": "Payments - All - Approval Optimization",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1044,
+    "external_code": "paymentsAllCS",
+    "external_name": "Payments - All - Compliance Support ",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1117,
+    "external_code": "paymAlCcknA",
+    "external_name": "Payments - All - Core backend - Account",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1030,
+    "external_code": "paymAlMOA",
+    "external_name": "Payments - All - Core backend - Activities",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1221,
+    "external_code": "1579279807304",
+    "external_name": "Payments - All - Core backend - Adquirencia",
+    "status": true,
+    "last_update": "2020-01-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1054,
+    "external_code": "1547471390942",
+    "external_name": "Payments - All - Core backend - Backend Features",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1126,
+    "external_code": "pymtsAlCcknSRESL",
+    "external_name": "Payments - All - Core backend - Banking Connects",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1207,
+    "external_code": "1571343425708",
+    "external_name": "Payments - All - Core backend - CBT MP",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1206,
+    "external_code": "1571343362962",
+    "external_name": "Payments - All - Core backend - Discounts Central",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1222,
+    "external_code": "1579279832816",
+    "external_name": "Payments - All - Core backend - Emision",
+    "status": true,
+    "last_update": "2020-01-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1045,
+    "external_code": "paymentsAllOP",
+    "external_name": "Payments - All - Core backend - Gateway",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1133,
+    "external_code": "paymAlCcknPM",
+    "external_name": "Payments - All - Core backend - Payment Methods",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1146,
+    "external_code": "1544809059765",
+    "external_name": "Payments - All - Core backend - Payment Router",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1064,
+    "external_code": "paymAlCBcknPR",
+    "external_name": "Payments - All - Core backend - Payments Core",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1019,
+    "external_code": "1547486675614",
+    "external_name": "Payments - All - Core backend - Payments MELI",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1067,
+    "external_code": "paymentsMSM",
+    "external_name": "Payments - All - Core backend - Payments MSS",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1232,
+    "external_code": "1580418920487",
+    "external_name": "Payments - All - Core Backend - Payouts",
+    "status": true,
+    "last_update": "2020-01-30T00:00:00Z"
+  },
+  {
+    "id_initiative": 1118,
+    "external_code": "paymAlCcknPr",
+    "external_name": "Payments - All - Core backend - Pricing",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1213,
+    "external_code": "1579213462242",
+    "external_name": "Payments - All - Core backend - Reconciliations",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1132,
+    "external_code": "paymAlCcknR",
+    "external_name": "Payments - All - Core backend - Retiros",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1135,
+    "external_code": "1547733150272",
+    "external_name": "Payments - All - Core backend - Services",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1130,
+    "external_code": "paymentsAllFENE",
+    "external_name": "Payments - All - Front End Core",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1147,
+    "external_code": "paymentsAllGrth",
+    "external_name": "Payments - All - Marketing Tools",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1138,
+    "external_code": "paymentsMSOP",
+    "external_name": "Payments - All - Offline Payments",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1055,
+    "external_code": "paymentsAllOS",
+    "external_name": "Payments - All - Operations Support ",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1148,
+    "external_code": "paymAlTS",
+    "external_name": "Payments - All - Tools for Sellers",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1048,
+    "external_code": "paymentsWC",
+    "external_name": "Payments - Cards",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1215,
+    "external_code": "1579213526438",
+    "external_name": "Payments - Customer Reliability (CRE)",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1175,
+    "external_code": "1563472117845",
+    "external_name": "Payments - Mobile Merchants - Growth",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1050,
+    "external_code": "paymentsMSCBT",
+    "external_name": "Payments - Online Payments - Advanced Payments",
+    "status": true,
+    "last_update": "2019-11-22T00:00:00Z"
+  },
+  {
+    "id_initiative": 1066,
+    "external_code": "paymentsMSCW",
+    "external_name": "Payments - Online Payments - Checkout Web ",
+    "status": true,
+    "last_update": "2019-11-22T00:00:00Z"
+  },
+  {
+    "id_initiative": 1065,
+    "external_code": "paymentsMSDX",
+    "external_name": "Payments - Online Payments - DX (Developer Experience)",
+    "status": true,
+    "last_update": "2019-11-22T00:00:00Z"
+  },
+  {
+    "id_initiative": 1160,
+    "external_code": "1554922503990",
+    "external_name": "Payments - Online Payments - Fraud Prevention Tools",
+    "status": true,
+    "last_update": "2019-11-22T00:00:00Z"
+  },
+  {
+    "id_initiative": 1159,
+    "external_code": "1554922478131",
+    "external_name": "Payments - Online Payments - Growth",
+    "status": true,
+    "last_update": "2019-11-22T00:00:00Z"
+  },
+  {
+    "id_initiative": 1225,
+    "external_code": "1579298678364",
+    "external_name": "Payments - Online Payments - Integraciones Brasil",
+    "status": true,
+    "last_update": "2020-01-28T00:00:00Z"
+  },
+  {
+    "id_initiative": 1226,
+    "external_code": "1579298696337",
+    "external_name": "Payments - Online Payments - Integraciones Hispanos",
+    "status": true,
+    "last_update": "2020-01-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1036,
+    "external_code": "1547672029030",
+    "external_name": "Payments - Online Payments - Key Merchants",
+    "status": true,
+    "last_update": "2019-11-22T00:00:00Z"
+  },
+  {
+    "id_initiative": 1224,
+    "external_code": "1579298654293",
+    "external_name": "Payments - Online Payments - Link de Pago",
+    "status": true,
+    "last_update": "2020-01-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1038,
+    "external_code": "1547727706718",
+    "external_name": "Payments - Online Payments - Plugins \u0026 Partners",
+    "status": true,
+    "last_update": "2019-11-22T00:00:00Z"
+  },
+  {
+    "id_initiative": 1037,
+    "external_code": "paymentsAllRC",
+    "external_name": "Payments - Online Payments - Reporting",
+    "status": true,
+    "last_update": "2019-11-22T00:00:00Z"
+  },
+  {
+    "id_initiative": 1174,
+    "external_code": "1563472094112",
+    "external_name": "Payments - Online Payments - SDKs",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1214,
+    "external_code": "1579213508258",
+    "external_name": "Payments - Platform Security",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1046,
+    "external_code": "paymentsPoint",
+    "external_name": "Payments - Point",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1108,
+    "external_code": "1547472355297",
+    "external_name": "Payments - Uptime \u0026 Performance (SRE)",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1125,
+    "external_code": "paymentsWArc",
+    "external_name": "Payments - Wallet - Architecture",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1047,
+    "external_code": "paymentsWAM",
+    "external_name": "Payments - Wallet - Asset Management ",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1142,
+    "external_code": "paymentsWN",
+    "external_name": "Payments - Wallet - Checkout Native",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1149,
+    "external_code": "paymentsWM",
+    "external_name": "Payments - Wallet - Digital Account",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1074,
+    "external_code": "1547491261299",
+    "external_name": "Payments - Wallet - Front End Native",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1176,
+    "external_code": "1563472263325",
+    "external_name": "Payments - Wallet - Growth",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1139,
+    "external_code": "paymentsWS",
+    "external_name": "Payments - Wallet - In Store - Core",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1218,
+    "external_code": "1579213626613",
+    "external_name": "Payments - Wallet - In Store - Discounts Central Demand",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1217,
+    "external_code": "1579213609316",
+    "external_name": "Payments - Wallet - In Store - Payers",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1216,
+    "external_code": "1579213593151",
+    "external_name": "Payments - Wallet - In Store - Sellers",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1228,
+    "external_code": "1579298736477",
+    "external_name": "Payments - Wallet - Instore - Integraciones Hispanos",
+    "status": true,
+    "last_update": "2020-01-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1161,
+    "external_code": "1554922523668",
+    "external_name": "Payments - Wallet - Multiplayer",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1223,
+    "external_code": "1579280599302",
+    "external_name": "Payments - Wallet - Single Player - Pospago",
+    "status": true,
+    "last_update": "2020-01-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1131,
+    "external_code": "paymentsWP",
+    "external_name": "Payments - Wallet - Single Player - Prepago",
+    "status": true,
+    "last_update": "2020-01-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1152,
+    "external_code": "1547725875574",
+    "external_name": "Seg. Inf. - Compliance",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1220,
+    "external_code": "1579213906024",
+    "external_name": "Seg. Inf. - Data Security",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1094,
+    "external_code": "1547725800295",
+    "external_name": "Seg. Inf. - Identity and Access Management \u0026 SAPSec",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1093,
+    "external_code": "1547725768458",
+    "external_name": "Seg. Inf. - Incident Response",
+    "status": true,
+    "last_update": "2019-04-29T00:00:00Z"
+  },
+  {
+    "id_initiative": 1112,
+    "external_code": "1547725940079",
+    "external_name": "Seg. Inf. - Monitoreo de Seguridad",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1095,
+    "external_code": "1547725897022",
+    "external_name": "Seg. Inf. - Seguridad Aplicativa",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1141,
+    "external_code": "1547725921472",
+    "external_name": "Seg. Inf. - Seguridad Cloud",
+    "status": true,
+    "last_update": "2019-04-09T00:00:00Z"
+  },
+  {
+    "id_initiative": 1127,
+    "external_code": "security",
+    "external_name": "Seguridad 360 - Account Security",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1208,
+    "external_code": "1571343954397",
+    "external_name": "Seguridad 360 - Data Privacy",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1172,
+    "external_code": "1563471886324",
+    "external_name": "Seguridad 360 - Digital Identity",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1219,
+    "external_code": "1579213689249",
+    "external_name": "Shipping - Adoption, Preferences \u0026 Pyme",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1090,
+    "external_code": "shippingBackoffice",
+    "external_name": "Shipping - Backoffice",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1136,
+    "external_code": "shippingCalAdo\u0026Pre",
+    "external_name": "Shipping - Calculator",
+    "status": true,
+    "last_update": "2020-01-16T00:00:00Z"
+  },
+  {
+    "id_initiative": 1123,
+    "external_code": "shippingInt\u0026Cha",
+    "external_name": "Shipping - Carriers Integration \u0026 Charges",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1177,
+    "external_code": "1563472523164",
+    "external_name": "Shipping - Costs, Me1 \u0026 API Calls",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1197,
+    "external_code": "1565043099893",
+    "external_name": "Shipping - FBM - Fiscal",
+    "status": true,
+    "last_update": "2019-08-05T00:00:00Z"
+  },
+  {
+    "id_initiative": 1194,
+    "external_code": "1565043028104",
+    "external_name": "Shipping - FBM - Inbound",
+    "status": true,
+    "last_update": "2019-08-05T00:00:00Z"
+  },
+  {
+    "id_initiative": 1134,
+    "external_code": "shippingFBM",
+    "external_name": "Shipping - FBM - Outbound",
+    "status": true,
+    "last_update": "2019-08-05T00:00:00Z"
+  },
+  {
+    "id_initiative": 1196,
+    "external_code": "1565043084099",
+    "external_name": "Shipping - FBM - Product \u0026 Experience",
+    "status": true,
+    "last_update": "2019-08-05T00:00:00Z"
+  },
+  {
+    "id_initiative": 1195,
+    "external_code": "1565043065353",
+    "external_name": "Shipping - FBM - Stock",
+    "status": true,
+    "last_update": "2019-08-05T00:00:00Z"
+  },
+  {
+    "id_initiative": 1091,
+    "external_code": "shippingFle\u0026Log",
+    "external_name": "Shipping - Flex",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1178,
+    "external_code": "1563472593080",
+    "external_name": "Shipping - Gestion Operativa",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1137,
+    "external_code": "shippingCoLT\u0026CS",
+    "external_name": "Shipping - Lead Time, Coverage \u0026 Capacity",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1179,
+    "external_code": "1563472672454",
+    "external_name": "Shipping - Logistics",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1180,
+    "external_code": "1563472691773",
+    "external_name": "Shipping - Places",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1181,
+    "external_code": "1563472705627",
+    "external_name": "Shipping - Service Selector \u0026 Simulator",
+    "status": true,
+    "last_update": "2019-10-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1087,
+    "external_code": "shippingshipment",
+    "external_name": "Shipping - Shipments \u0026 Steps",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1182,
+    "external_code": "1563472746612",
+    "external_name": "Shipping - Shipping BI",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1025,
+    "external_code": "shippingPro\u0026Exp",
+    "external_name": "Shipping - Shipping Experience",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1183,
+    "external_code": "1563472784003",
+    "external_name": "Shipping - Taxes",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1124,
+    "external_code": "shippingXD",
+    "external_name": "Shipping - TMS, UCS \u0026 XD Core",
+    "status": true,
+    "last_update": "2019-07-18T00:00:00Z"
+  },
+  {
+    "id_initiative": 1129,
+    "external_code": "shops",
+    "external_name": "Shops",
+    "status": true,
+    "last_update": "2020-01-17T00:00:00Z"
+  },
+  {
+    "id_initiative": 1168,
+    "external_code": "sinIniciativa",
+    "external_name": "SIN INICIATIVA",
+    "status": true,
+    "last_update": "2019-05-28T00:00:00Z"
+  }
+]
