@@ -13,6 +13,7 @@ class TestRunner {
 
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         //Prepare initiatives list
+        println( "Preparing initiatives in memory: ${singleTest.name}")
         InitiativeValidate.generateInitiativesList()
 
         def runOk = true
