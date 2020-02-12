@@ -13,7 +13,7 @@ class TestRunner {
 
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         //Prepare initiatives list
-        println( "Preparing initiatives in memory: ${singleTest.name}")
+        println( "Preparing initiatives in memory")
         InitiativeValidate.generateInitiativesList()
 
         def runOk = true
@@ -40,7 +40,7 @@ class TestRunner {
 
     @Synchronized
     def static boolean run(String catalogName, DefinitionsOut out){
-
+        if(catalogName == 'melidata') return true
         try{
             def pathTests = getTests(catalogName)
             def catalogScript = getScriptFromFile("src/main/resources/catalog/" + catalogName + "/catalog.groovy")
