@@ -6,8 +6,8 @@
               ELSE 'rejected'
           END AS Action,
           CASE
-              WHEN path LIKE '%flexible%' THEN 'Google Flexible'
-              WHEN path LIKE '%immediate%' THEN 'Google Immediate'
+              WHEN event_data LIKE '%flexible%' THEN 'Google Flexible'
+              WHEN event_data LIKE '%immediate%' THEN 'Google Immediate'
               ELSE 'Bump'
           END AS Flow_Type,
           COUNT
@@ -33,8 +33,8 @@ UNION
               ELSE 'rejected'
           END AS Action,
           CASE
-              WHEN path LIKE '%flexible%' THEN 'Google Flexible'
-              WHEN path LIKE '%immediate%' THEN 'Google Immediate'
+              WHEN event_data LIKE '%flexible%' THEN 'Google Flexible'
+              WHEN event_data LIKE '%immediate%' THEN 'Google Immediate'
               ELSE 'Bump'
           END AS Flow_Type,
           COUNT
