@@ -341,6 +341,11 @@ trackTests {
             driver_id = "123"
             shipment_id = "222"
         }
+        "logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
+            driver_id = "123"
+            shipment_id = "222"
+            error_type = "document_form"
+        }
     }
 
     test("Testing Logistics First Mile") {
