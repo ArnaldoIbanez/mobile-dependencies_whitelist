@@ -8,7 +8,8 @@
           jest
   (event_data, 'type') AS flow_type,
           COUNT
-     (1) AS How_Many
+     (1) AS How_Many,
+     substr(ds,1,10)
    FROM tracks
    WHERE ds >= '@param01'
      AND ds < '@param02'
