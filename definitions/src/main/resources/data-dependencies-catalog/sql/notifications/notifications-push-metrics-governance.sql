@@ -47,8 +47,8 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
         ) THEN 1 ELSE 0 END ) as usr_interaction,
         SUM ( CASE WHEN jest(event_data, 'event_type') IN ('shown') THEN 1 ELSE 0 END ) as shown,
         SUM ( CASE WHEN jest(event_data, 'event_type') IN ('discarded') AND jest(event_data, 'discard_reason') IS NOT NULL AND TRIM(jest(event_data, 'discard_reason')) <> '' THEN 1 ELSE 0 END ) as discarded,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('open') THEN 1 ELSE 0 END ) as open,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('action_open') THEN 1 ELSE 0 END ) as action_open,
+        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('open') AND (jest(event_data, 'action_type') IS NULL OR TRIM(jest(event_data, 'action_type')) = '') THEN 1 ELSE 0 END ) as open,
+        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('action_open') OR (jest(event_data, 'event_type') IN ('open') AND jest(event_data, 'action_type') IS NOT NULL AND TRIM(jest(event_data, 'action_type')) <> '') THEN 1 ELSE 0 END ) as action_open,
         SUM ( CASE WHEN jest(event_data, 'event_type') IN ('dismiss') THEN 1 ELSE 0 END ) as dismiss,
         SUM ( CASE WHEN jest(event_data, 'event_type') IN ('auto_dismiss') THEN 1 ELSE 0 END ) as auto_dismiss
         FROM tracks
