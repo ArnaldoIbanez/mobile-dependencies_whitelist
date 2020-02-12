@@ -8,6 +8,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = "1218"
+
     def item_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the item we are showing")
         blocked(type: PropertyType.Boolean, required: true, description: "If the discount is blocked or not")

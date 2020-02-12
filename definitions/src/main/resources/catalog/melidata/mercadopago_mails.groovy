@@ -4,6 +4,9 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
+
+    initiative = '1101'
+
     defaultBusiness = "mercadopago"
     "/email"(platform: "/email", isAbstract: true) {
         email_template(required: true)

@@ -3,6 +3,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+
+    initiative= "1096"
+
     "/navigation"(platform: "/", isAbstract: true) {}
     "/navigation/download-app"(platform: "/", isAbstract: true) {
         app_id(required: true, type: PropertyType.String,  description: "Refering app")

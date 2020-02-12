@@ -3,6 +3,9 @@ import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
 
 tracks {
+
+    initiative = "1048"
+
     propertyDefinitions {
         site_id(required: true, type: PropertyType.String, description: "Site of current session integration")
         flow_id(required: true, type: PropertyType.String, description: "Flow of session intgration")
