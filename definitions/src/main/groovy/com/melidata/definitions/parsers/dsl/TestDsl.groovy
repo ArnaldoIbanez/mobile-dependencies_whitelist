@@ -45,7 +45,7 @@ class TestDsl{
             catalog.catalogCoverage.addTestRun(singleTrack.path,singleTrack.business)
 
             validateEventData(catalog, singleTrack)
-            validateInitiative(catalog, singleTrack)
+            //validateInitiative(catalog, singleTrack)
         }
 
         return _status
