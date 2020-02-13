@@ -5,7 +5,7 @@
     "process_name": "in-app_updates_conversion",
     "cron": "00 01 * * *",
     "partition": {
-      "name": "date_only",
+      "name": "ds",
       "type": "DATE"
     },
     "extract": {

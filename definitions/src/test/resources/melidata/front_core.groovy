@@ -417,6 +417,10 @@ trackTests {
                 ordinal: 12,
                 content_type : 'complete'
             ]
+            paragraph= [
+                ordinal: 13,
+                content_type : 'complete'
+            ]
         }
     }
 
@@ -562,6 +566,10 @@ trackTests {
             ]
             survey= [
                 ordinal: 12,
+                content_type : 'complete'
+            ]
+            paragraph= [
+                ordinal: 13,
                 content_type : 'complete'
             ]
         }
