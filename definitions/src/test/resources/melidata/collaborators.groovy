@@ -51,6 +51,13 @@ trackTests {
         }
     }
 
+    test("Detail of a created invitation") {
+        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+            type = 'invitation'
+            segmentation = 'no-data'
+        }
+    }
+
     test("Collaborators") {
         "/collaborators"(platform:"/web", type: TrackType.View) {
             type = 'form'
@@ -161,6 +168,13 @@ trackTests {
     test("Detail of a created operator") {
         "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
             type = 'operator'
+            segmentation = 'no-data'
+        }
+    }
+
+    test("Detail of a created invitation") {
+        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+            type = 'invitation'
             segmentation = 'no-data'
         }
     }
