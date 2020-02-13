@@ -531,7 +531,7 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
         }
-        "/mercado_shops/marketing/facebook/store/pixel-activation"(platform: "/", type: TrackType.View) {
+        "/mercado_shops/marketing/facebook/store/pixel_activation"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
@@ -676,7 +676,7 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
         }
-        "/mercado_shops/marketing/facebook/store/pixel-activation/active"(platform: "/", type: TrackType.Event) {
+        "/mercado_shops/marketing/facebook/store/pixel_activation/active"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"

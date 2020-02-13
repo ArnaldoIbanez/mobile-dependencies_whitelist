@@ -389,9 +389,9 @@ tracks {
 
     "/mercado_shops/marketing/facebook/store/user_procedure"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/facebook/store/pixel-activation"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook/store/pixel_activation"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/facebook/store/pixel-activation/active"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/facebook/store/pixel_activation/active"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/instagram"(platform: "/", type: TrackType.View){}
 }
