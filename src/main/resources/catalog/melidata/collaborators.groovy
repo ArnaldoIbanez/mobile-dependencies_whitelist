@@ -46,6 +46,11 @@ tracks {
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
+    "/collaborators_admin/detail"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+        type(required: true, values: ['role', 'operator', 'invitation'], type: PropertyType.String, description: 'Indicates the type of detail that is selected.')
+        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
+    }
+
     "/collaborators"(platform:"/", isAbstract: true) {
         type(required: true, type: PropertyType.String, description: 'Indicates the source of the tracking, i.e. form')
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')

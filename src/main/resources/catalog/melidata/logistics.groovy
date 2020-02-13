@@ -218,6 +218,11 @@ tracks {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
     }
+    "logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        error_type(required: true, type: PropertyType.String, description: "Specifies the current error type", inheritable: false, values: ["document_form", "regex"])
+    }
 
     // First Mile
     "/logistics/first_mile/scanner/modal_back"(platform: "/mobile", type: TrackType.View) {
