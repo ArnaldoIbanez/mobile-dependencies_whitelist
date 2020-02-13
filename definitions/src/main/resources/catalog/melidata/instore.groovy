@@ -528,6 +528,11 @@ tracks {
         status(required: true, PropertyType.String)
     }
 
+    "/instore/buyer_qr/landing/wrong_time"(platform: "/mobile", type: TrackType.View) {
+        device_time_difference(required: true, PropertyType.Numeric, description: "Time difference between the server and the device in millis")
+        device_time_range_status(required: true, PropertyType.String, description:  "if the server accepted or not the difference and why: below_time_range || above_time_range")
+    }
+
     //Buyer QR - Generic Error
 
     "/instore/buyer_qr/generic_landing"(platform: "/mobile", type: TrackType.View) {}
