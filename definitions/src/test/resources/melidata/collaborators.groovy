@@ -37,6 +37,20 @@ trackTests {
         }
     }
 
+    test("Detail of a created role") {
+        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+            type = 'role'
+            segmentation = 'no-data'
+        }
+    }
+
+    test("Detail of a created operator") {
+        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+            type = 'operator'
+            segmentation = 'no-data'
+        }
+    }
+
     test("Collaborators") {
         "/collaborators"(platform:"/web", type: TrackType.View) {
             type = 'form'
@@ -134,6 +148,20 @@ trackTests {
         "/collaborators_admin/congrats"(platform:"/web", type: TrackType.View) {
             type = 'success'
             segmentation = 'first_stage'
+        }
+    }
+
+        test("Detail of a created role") {
+        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+            type = 'role'
+            segmentation = 'no-data'
+        }
+    }
+
+    test("Detail of a created operator") {
+        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+            type = 'operator'
+            segmentation = 'no-data'
         }
     }
 
