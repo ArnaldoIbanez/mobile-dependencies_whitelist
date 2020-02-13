@@ -14,7 +14,7 @@ class TestRunner {
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         //Prepare initiatives list
         println( "Preparing initiatives in memory")
-        //InitiativeValidate.generateInitiativesList()
+        InitiativeValidate.generateInitiativesList()
 
         def runOk = true
         out.beforeRun(catalog, tests)
@@ -29,7 +29,7 @@ class TestRunner {
             }
         }
         out.afterRun(catalog)
-        //runOk = runOk && InitiativeValidate.checkCoverage()
+        runOk = runOk && InitiativeValidate.checkCoverage()
         return runOk
     }
 

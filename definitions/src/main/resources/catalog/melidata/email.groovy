@@ -79,7 +79,7 @@ tracks {
 
     "/email/message"(platform: "/email"){}
 
-    "/email/checkout"(platform: "/email", isAbstract: true, initiative="1104"){
+    "/email/checkout"(platform: "/email", isAbstract: true, initiative: "1104"){
         purchase_id(required: true)
         purchase_status(required:false, type: PropertyType.String, description: "Purchase status based on its payments statuses")
         shipping_type(required:true, type: PropertyType.String, description: "First purchase's shipping option type.")
