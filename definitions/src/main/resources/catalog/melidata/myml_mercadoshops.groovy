@@ -379,6 +379,8 @@ tracks {
     "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View){}
     
 
+    "/mercado_shops/marketing/facebook"(platform: "/", type: TrackType.View){}
+
     "/mercado_shops/marketing/facebook/store"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/facebook/store/link_with_facebook"(platform: "/", type: TrackType.Event){}
