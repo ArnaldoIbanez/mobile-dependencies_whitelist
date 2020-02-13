@@ -10,7 +10,7 @@ class InitiativeValidate {
     private static List<ApplicationModel> applications = []
     private static Set validPaths = []
     private static Set totalPaths = []
-    private static double baseCoverage = 80
+    private static double baseCoverage = 100
 
     static void generateInitiativesList() {
         getAllInitiativesFromAPI()

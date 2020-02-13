@@ -8,6 +8,9 @@ import com.ml.melidata.catalog.PropertyType
 
 tracks {
 
+
+    initiative = "1163"
+
     propertyDefinitions {
         category_id(required: true, description: "Category ID")
         page(required: true, description: "Page")
@@ -49,8 +52,8 @@ tracks {
         catalogSearchQuery(query_filter, domain_filter, limit_filter)
         catalogSearchWrongDomainPrediction(product_id, product_source, product_external_id, external_domain, predicted_domain, selected_domain)
         catalogSearchWrongExternalDomain(product_id, product_source, product_external_id, external_domain)
-        catalogSearchWrongExternalAttribute(product_id, product_source, product_external_id, external_attribute_key, external_attribute_value)
-        catalogSearchCopiedExternalAttribute(product_id, product_source, product_external_id, external_attribute_key, external_attribute_value)
+        catalogSearchWrongExternalAttribute(product_id, product_source, product_external_id, external_domain, external_attribute_key, external_attribute_value)
+        catalogSearchCopiedExternalAttribute(product_id, product_source, product_external_id, external_domain, external_attribute_key, external_attribute_value)
     }
 
     "/catalogwidget"(platform: "/", isAbstract: true, type: TrackType.Event, initiative: "1033") {}

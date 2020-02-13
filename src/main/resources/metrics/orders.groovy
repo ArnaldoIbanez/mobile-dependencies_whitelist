@@ -62,7 +62,42 @@ metrics {
 			}
 		}
 	}
+	
+	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq?authuser=0#h.p_2qPD6v_1dTSd", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"cancelled"
+				)
+			}
+		}
+	}
 
+	"mediations"(description: "/orders/ordercreated that had mediations.", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				notEquals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("mediations")
+						},
+						""
+				)
+			}
+		}
+	}
 
 	"purchases"(description: "/purchase/purchasecreated from feed", compute_order: true) {
 		countsOn {

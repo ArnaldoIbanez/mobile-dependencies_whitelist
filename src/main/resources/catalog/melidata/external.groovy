@@ -5,6 +5,9 @@ import com.ml.melidata.catalog.PropertyType
 import com.ml.melidata.TrackType
 
 tracks {
+
+    initiative= "1036"
+
     def domainRegex = /(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/
 
     // External merchants tracks

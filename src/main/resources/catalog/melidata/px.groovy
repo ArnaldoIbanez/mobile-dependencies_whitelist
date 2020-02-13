@@ -185,6 +185,12 @@ tracks {
         ] */
     }
 
+    // One tap view
+    "/px_checkout/review/one_tap/offline_methods"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        available_methods(required: true, type: PropertyType.ArrayList , description: "Array of available off payment methods to pay")
+        externalData
+    }
+
     // One tap installments view
     "/px_checkout/review/one_tap/installments"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
@@ -245,6 +251,11 @@ tracks {
         esc_enabled(required: true, type: PropertyType.Boolean, description: "Has esc feauture")
         express_enabled(required: true, type: PropertyType.Boolean, description: "Has one tap feauture")
         split_enabled(required: true, type: PropertyType.Boolean, description: "Has split enabled")
+    }
+
+    // One Tap Off Methods event
+    "/px_checkout/review/one_tap/offline_methods/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
     }
 
     // Payment Selection event

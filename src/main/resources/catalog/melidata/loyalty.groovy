@@ -7,6 +7,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1065"
+
     //Loyalty
 
     // Base path /loyalty and loyalty v2 tracks moved to loyalty_v2.groovy

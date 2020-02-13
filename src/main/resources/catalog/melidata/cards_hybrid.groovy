@@ -5,6 +5,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1048"
+
     //-----------------
     // HYBRID
     //-----------------
@@ -63,6 +65,14 @@ tracks {
             type: PropertyType.String, 
             values: ["qr", "manual"],
             description: "Link method used"
+        )
+    }
+    "/cards/hybrid/unlock/scanner/link/status"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true, 
+            type: PropertyType.String, 
+            values: ["initializing", "scanning", "resolving", "failed"],
+            description: "Scanner state"
         )
     }
 

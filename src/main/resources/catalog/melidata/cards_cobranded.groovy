@@ -7,6 +7,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1048"
+
     defaultBusiness = "mercadopago"
 
     // General Path

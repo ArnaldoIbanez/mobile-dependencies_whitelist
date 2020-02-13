@@ -3,6 +3,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+
+    initiative = "1131"
+
     /**
     * Single Player Prepaid Tracks  
     */
@@ -59,6 +62,7 @@ tracks {
     }
     "/single_player/prepaid/recommended_products/more_products"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
+        item_id(required: true, PropertyType.String, description: "Id of the item")
     }
 
 

@@ -26,10 +26,11 @@ tracks {
       currency (type: PropertyType.String, required: true, description: "ISO Currency")
       price (type: PropertyType.Numeric, required: true, description: "Price of device")
       is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+      user_id (type: PropertyType.Numeric, required: true, description: "User ID")
     }
 
     propertyGroups {
-      groupCheckoutProperties(flow_id, product, currency, price, is_guest)
+      groupCheckoutProperties(flow_id, product, currency, price, is_guest, user_id)
     }
 
     "/"(platform: "/", isAbstract: true) {
@@ -56,7 +57,7 @@ tracks {
       coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
     }
 
-    "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) { 
       groupCheckoutProperties
     }
 
@@ -100,8 +101,8 @@ tracks {
     }
 
     "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
-      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-      type (type: PropertyType.String, required: true, description: "Error type")
+      groupCheckoutProperties
+      error_code (type: PropertyType.Numeric, required: true, description: "Error code")
     }
 
     "/point/buyingflow/payment_rejected"(platform: "/", type: TrackType.View) {

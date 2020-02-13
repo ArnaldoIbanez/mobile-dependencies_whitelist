@@ -7,6 +7,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = "1180"
+
     propertyDefinitions {
         place_id(required: true, type: PropertyType.String,
                 description: "ID of place (agency) user operates in.")

@@ -6,6 +6,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1196"
+
     "/fbm"(platform: "/", isAbstract: true) {}
     "/full"(platform: "/", isAbstract: true) {}
     "/full/landing"(platform: "/", isAbstract: true) {}

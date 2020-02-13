@@ -13,6 +13,7 @@ class CatalogValidator {
 
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         //Prepare initiatives list
+        println( "Preparing initiatives in memory")
         InitiativeValidate.generateInitiativesList()
 
         def runOk = true
@@ -34,7 +35,6 @@ class CatalogValidator {
 
     @Synchronized
     def static boolean run(String catalogName, DefinitionsOut out){
-
         try{
             def pathTests = getTests(catalogName)
             def catalogScript = getScriptFromFile("src/main/resources/catalog/" + catalogName + "/catalog.groovy")

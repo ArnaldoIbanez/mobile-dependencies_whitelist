@@ -7,6 +7,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = "1171"
+
     propertyDefinitions {
         transactional_type(required: true, type: PropertyType.String, values: ["STOCK", "SHIPPING", "INTEREST", "CASH", "INSTALLMENT", "BILLING", "WARRANTY"], description: "Type of the transacional result")
     }
