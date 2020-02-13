@@ -5,6 +5,9 @@ import com.ml.melidata.catalog.PropertyType
 
 tracks {
 
+    initiative = '1096'
+
+
     // Generic error
     "/friction"(platform: "/mobile", type: TrackType.Event) {
         path(required: true, type: PropertyType.String , description: "Error path")

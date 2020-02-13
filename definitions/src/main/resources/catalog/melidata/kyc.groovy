@@ -3,6 +3,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+    initiative = '1127'
+
     "/kyc"(platform: "/", isAbstract: true) {}
 
     // Challenges v2

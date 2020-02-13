@@ -6,6 +6,9 @@ import com.ml.melidata.catalog.PropertyType
 
 tracks {
 
+
+    initiative = "1163"
+
     propertyDefinitions {
         category_id(required: true, description: "Category ID")
         page(required: true, description: "Page")

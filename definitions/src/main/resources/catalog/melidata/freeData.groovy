@@ -7,6 +7,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
  */
 tracks {
 
+    initiative="1096"
+
     "/free_navigation"(platform:"/mobile", type:TrackType.Event) {
         status(type: PropertyType.String, required: false)
     }

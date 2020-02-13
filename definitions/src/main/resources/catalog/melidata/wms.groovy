@@ -5,6 +5,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = "1194"
+
     "/wms"(platform: "/mobile/android", type: TrackType.View, isAbstract: true) {
         warehouse_id(required: true, type: PropertyType.String,
                 description: "Id of the warehouse to track")

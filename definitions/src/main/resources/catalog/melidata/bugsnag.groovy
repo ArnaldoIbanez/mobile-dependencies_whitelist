@@ -4,6 +4,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1096"
+
     "/mobile" (platform: "/mobile", isAbstract: true){}
     "/mobile/bugsnag"(platform: "/mobile", type: TrackType.Event) {
         error_type               (required:false, type: PropertyType.String, description: "Track of Bugsnag error: error type")

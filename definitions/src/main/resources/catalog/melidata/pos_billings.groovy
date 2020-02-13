@@ -3,6 +3,9 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
+
+    initiative = "1046"
+
     propertyDefinitions {
         share_type(required: true, type: PropertyType.String, description: "export share type", values: ["download", "email"])
         context(required: true, type: PropertyType.String, description: "screen triggering the event", values: ["billings", "invoice"])

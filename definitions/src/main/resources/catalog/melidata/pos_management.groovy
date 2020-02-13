@@ -5,6 +5,8 @@
 
     tracks {
 
+        initiative = "1046"
+
         /**
         * pos management screen tracks
         */
