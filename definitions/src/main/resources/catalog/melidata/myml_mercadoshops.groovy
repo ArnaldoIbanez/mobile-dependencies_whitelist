@@ -381,7 +381,7 @@ tracks {
 
     "/mercado_shops/marketing/facebook/store"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/facebook/store/link_with_facebook"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook/store/link_with_facebook"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/facebook/store/fan_pages"(platform: "/", type: TrackType.View){}
 
@@ -390,6 +390,8 @@ tracks {
     "/mercado_shops/marketing/facebook/store/user_procedure"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/facebook/store/pixel-activation"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/facebook/store/pixel-activation/active"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/instagram"(platform: "/", type: TrackType.View){}
 }
