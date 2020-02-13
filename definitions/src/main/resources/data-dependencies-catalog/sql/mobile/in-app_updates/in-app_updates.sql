@@ -1,29 +1,32 @@
-SELECT application.business,
-       application.site_id AS site,
-       CASE
-           WHEN path = '/in_app_updates/updatable/showed' THEN 'showed'
-           WHEN path = '/in_app_updates/updatable/accepted' THEN 'accepted'
-           ELSE 'rejected'
-       END AS Action,
-       jest
-  (event_data, 'type') AS Flow_type,
-       COUNT
-  (1) AS How_Many,
-             substr
-  (ds,1,10) AS ds
+SELECT  application.business,
+        application.site_id AS site,
+        CASE
+          WHEN path = '/in_app_updates/updatable/showed' THEN 'showed'
+          WHEN path = '/in_app_updates/inactive/showed' THEN 'showed'
+          WHEN path = '/in_app_updates/updatable/accepted' THEN 'accepted'
+          WHEN path = '/in_app_updates/inactive/accepted' THEN 'accepted'
+          ELSE 'rejected'
+        END AS Action,
+        CASE 
+          WHEN POSITION('inactive' IN path) <> 0 THEN 'inactive'
+          WHEN POSITION('updatable' IN path) <> 0 THEN 'updatable' 
+          ELSE 'unexpected'
+        END AS update_type,
+        jest(event_data, 'type') AS Flow_type,
+        COUNT(1) AS How_Many,
+        substr(ds,1,10) AS ds
 FROM tracks
 WHERE ds >= '@param01'
   AND ds < '@param02'
-  AND
-    (path = '/in_app_updates/updatable/showed'
-     OR path = '/in_app_updates/updatable/accepted'
-     OR path = '/in_app_updates/updatable/postponed')
+  AND (path = '/in_app_updates/updatable/showed'
+      or path = '/in_app_updates/updatable/postponed'
+      or path = '/in_app_updates/updatable/accepted'
+      or path = '/in_app_updates/inactive/showed'
+      or path = '/in_app_updates/inactive/accepted')
   AND device.platform = '/mobile/android'
-GROUP BY substr
-  (ds,1,10),
+GROUP BY substr(ds,1,10),
          application.business,
-         jest
-  (event_data, 'type'),
+         jest(event_data, 'type'),
          path,
          application.site_id
 ORDER BY Action DESC,
