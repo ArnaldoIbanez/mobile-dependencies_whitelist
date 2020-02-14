@@ -44,9 +44,7 @@ catalog {
             "mercadolibre",
             "tucarro",
             "tumoto",
-            "tulancha",
             "tuinmueble",
-            "autoplaza",
             "metroscubicos",
             "portalinmobiliario"
     ]
