@@ -8,8 +8,8 @@ SELECT  application.business,
           ELSE 'rejected'
         END AS Action,
         CASE 
-          WHEN POSITION('inactive' IN path) <> 0 THEN 'inactive'
-          WHEN POSITION('updatable' IN path) <> 0 THEN 'updatable' 
+          WHEN instr(path, 'inactive') <> 0 THEN 'inactive'
+          WHEN instr(path, 'updatable') <> 0 THEN 'updatable' 
           ELSE 'unexpected'
         END AS update_type,
         jest(event_data, 'type') AS Flow_type,
