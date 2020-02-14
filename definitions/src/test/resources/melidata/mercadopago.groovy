@@ -1,7 +1,5 @@
-package src.test.resources.melidata
-
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-import com.ml.melidata.TrackType;
+import com.ml.melidata.TrackType
 
 trackTests {
     defaultBusiness = "mercadopago"
@@ -451,18 +449,6 @@ trackTests {
         }
 
         "/register/form/google_hint/select"(platform: "/mobile") {
-            app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
-        }
-
-        "/register/form/google_autofill/show"(platform: "/mobile") {
-            app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
-        }
-
-        "/register/form/google_autofill/select"(platform: "/mobile") {
             app = "mp"
             step = "phoneRegistration"
             field = "phone"
