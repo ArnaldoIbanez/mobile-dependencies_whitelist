@@ -150,8 +150,6 @@ tracks {
     "/logistics/last_mile/detail/distance_modal"(platform: "/mobile", type: TrackType.View) {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
-        driver_latitude(required: true, type: PropertyType.String, description:"The latitude of the driver at that point")
-        driver_longitude(required: true, type: PropertyType.String, description:"The longitude of the driver at that point")
         buyer_latitude(required: true, type: PropertyType.String, description:"The latitude of the buyer at that point")
         buyer_longitude(required: true, type: PropertyType.String, description:"The longitude of the buyer at that point")
         current_distance(required: false, type: PropertyType.String, description: "Specifies the distance between the driver and the destination in meters")
