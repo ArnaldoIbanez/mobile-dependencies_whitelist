@@ -607,34 +607,4 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/qr_code/qr_reader"(platform: "/mobile") {}
-    "/qr_code/fill_transaction_data"(platform: "/mobile") {}
-    "/qr_code/pay"(platform: "/mobile") {}
-    "/qr_code/deals"(platform: "/mobile") {}
-    "/qr_code/deals/terms"(platform: "/mobile") {}
-    "/qr_code/payment_methods"(platform: "/mobile") {}
-    "/qr_code/other_payment_methods"(platform: "/mobile") {}
-    "/qr_code/cards"(platform: "/mobile") {}
-    "/qr_code/add_card"(platform: "/mobile") {}
-    "/qr_code/issuers"(platform: "/mobile") {}
-    "/qr_code/my_cards"(platform: "/mobile") {}
-    "/qr_code/result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
-    "/qr_code/px_payment_method_search"(platform: "/mobile") {}
-    "/qr_code/px_discount_summary"(platform: "/mobile") {}
-    "/qr_code/px_card_vault"(platform: "/mobile") {}
-    "/qr_code/px_card_number"(platform: "/mobile") {}
-    "/qr_code/px_card_holder_name"(platform: "/mobile") {}
-    "/qr_code/px_card_expiry_date"(platform: "/mobile") {}
-    "/qr_code/px_card_security_code"(platform: "/mobile") {}
-    "/qr_code/px_identification_number"(platform: "/mobile") {}
-    "/qr_code/px_card_issuers"(platform: "/mobile") {}
-    "/qr_code/px_card_installments"(platform: "/mobile") {}
-    "/qr_code/px_review_and_confirm"(platform: "/mobile") {}
-    "/qr_code/px_result"(platform: "/mobile") {
-        result_status (required:true, type: PropertyType.String, description: "Operation result status")
-        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
-    }
-
 }
