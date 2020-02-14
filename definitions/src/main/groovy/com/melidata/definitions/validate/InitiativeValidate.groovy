@@ -1,7 +1,7 @@
 package com.melidata.definitions.validate
 
-import com.ml.melidata.catalog.initiatives.ApplicationModel
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
+import com.ml.melidata.catalog.model.ApplicationModel
 
 class InitiativeValidate {
 
