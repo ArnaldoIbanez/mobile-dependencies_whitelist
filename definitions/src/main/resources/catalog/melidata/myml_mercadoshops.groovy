@@ -381,13 +381,19 @@ tracks {
 
     "/mercado_shops/marketing/facebook"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/facebook/link_with_facebook"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook/store"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/facebook/fan_pages"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook/store/link_with_facebook"(platform: "/", type: TrackType.Event){}
 
-    "/mercado_shops/marketing/facebook/business_manager"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook/store/fan_pages"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/facebook/user_procedure"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/marketing/facebook/store/business_manager"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/facebook/store/user_procedure"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/facebook/store/pixel_activation"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/facebook/store/pixel_activation/active"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/instagram"(platform: "/", type: TrackType.View){}
 }
