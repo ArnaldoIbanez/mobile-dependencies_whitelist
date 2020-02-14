@@ -3718,10 +3718,6 @@ trackTests {
 
     test("Identity Validation ") {
 
-        "/identity-validation/validation_landing"(platform: "/web/mobile") {
-            flow = "ms_hard_validation"
-        }
-
         "/identity-validation/start_validation"(platform: "/web/mobile") {
             flow = "ms_hard_validation"
         }
@@ -3738,10 +3734,6 @@ trackTests {
 
         "/identity-validation/finish_validation"(platform: "/web/mobile") {
             result = "valid"
-            flow = "ms_hard_validation"
-        }
-
-        "/identity-validation/validation_landing"(platform: "/web/desktop") {
             flow = "ms_hard_validation"
         }
 
@@ -3769,10 +3761,6 @@ trackTests {
             flow = "ms_hard_validation"
         }
 
-        "/identity-validation/validation_landing"(platform: "/mobile/android") {
-            flow = "ms_hard_validation"
-        }
-
         "/identity-validation/start_validation"(platform: "/mobile/android") {
             flow = "ms_hard_validation"
         }
@@ -3794,10 +3782,6 @@ trackTests {
 
         "/identity-validation/finish_validation"(platform: "/mobile/android") {
             result = "valid"
-            flow = "ms_hard_validation"
-        }
-
-        "/identity-validation/validation_landing"(platform: "/mobile/ios") {
             flow = "ms_hard_validation"
         }
 
@@ -3843,22 +3827,6 @@ trackTests {
         "/identity-validation/upload_compress"(platform: "/web/desktop") {
             upload_time = 10
             compression_time = 10
-        }
-
-        "/identity-validation/image_error"(platform: "/mobile/ios") {
-            source = "TAKE_PHOTO"
-        }
-
-        "/identity-validation/image_error"(platform: "/mobile/android") {
-            source = "TAKE_PHOTO"
-        }
-
-        "/identity-validation/image_error"(platform: "/web/mobile") {
-            source = "TAKE_PHOTO"
-        }
-
-        "/identity-validation/image_error"(platform: "/web/desktop") {
-            source = "TAKE_PHOTO"
         }
 
         "/identity-validation/phone_code"(platform: "/mobile") {}
