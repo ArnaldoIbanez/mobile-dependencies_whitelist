@@ -3043,23 +3043,6 @@ trackTests {
         "/login/smartlock/multiple_credentials/cancel"(platform: "/mobile", type: TrackType.Event) {}
     }
 
-    test("Abuse Prevention in Identification and Authentication") {
-      "/auth/abuse_prevention"(platform: "/mobile", type: TrackType.Event) {
-        result = "low"
-      }
-      "/auth/abuse_prevention/ban"(platform: "/web", type: TrackType.Event) {
-          result = "low"
-      }
-      "/auth/abuse_prevention/login"(platform: "/web", type: TrackType.Event) {
-        device_id = "1"
-        platform = "web"
-      }
-      "/auth/abuse_prevention/login"(platform: "/mobile", type: TrackType.Event) {
-        device_id = "1"
-        platform = "mobile"
-      }
-    }
-
     test("Security feedback flow") {
         "/login/auth/feedback"(platform: "/web", type: TrackType.Event) {
             view = "answer"
@@ -3083,10 +3066,6 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/recovery_confirmation"(platform: "/web", type: TrackType.View) {
-            id = "id--fury"
-            is_webview = true
-        }
         "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
@@ -3101,18 +3080,6 @@ trackTests {
         }
         "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
-        }
-        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "confirm_button"
-            is_webview = true
-        }
-        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "cancel_button"
             is_webview = true
         }
         "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
@@ -3394,17 +3361,6 @@ trackTests {
             status = "success"
             available_channels = ["sms", "call"]
             selected_channel = "call"
-        }
-    }
-
-    test("Change Password") {
-        "/auth/authentication_methods/password/change_form"(platform: "/", type: TrackType.Event) {
-            redirect_url = "https://accountrecovery.mercadolibre.com.ar/collect/userInfo"
-        }
-
-        "/auth/authentication_methods/password/change"(platform: "/", type: TrackType.Event) {
-            redirect_url = "https://accountrecovery.mercadolibre.com.ar/collect/userInfo"
-            device_profile_id = "abc-123-def-456"
         }
     }
 
