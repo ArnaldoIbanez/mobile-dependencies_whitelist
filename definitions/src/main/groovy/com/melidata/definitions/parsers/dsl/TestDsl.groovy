@@ -3,6 +3,7 @@ package com.melidata.definitions.parsers.dsl
 import com.melidata.definitions.TestRunner
 import com.melidata.definitions.validate.InitiativeValidate
 import com.ml.melidata.Track
+import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.exceptions.CatalogException
 
 /**
@@ -60,15 +61,8 @@ class TestDsl{
         }
     }
 
-    private void validateInitiative(catalog, singleTrack) {
-        def trackInitiative = catalog.getTrackInitiative(singleTrack)
-        def trackApplication = catalog.getTrackApplication(singleTrack)
-
-        if(!trackInitiative && trackApplication) {
-            trackInitiative = InitiativeValidate.getInitiativeFromApplication(trackApplication)
-        }
-
-        InitiativeValidate.validateInitiative(singleTrack.path, trackInitiative)
+    private void validateInitiative(Catalog catalog, Track singleTrack) {
+        InitiativeValidate.validateInitiative(singleTrack.path, catalog.getTrackInitiativeWithFallBack(singleTrack))
     }
 }
 

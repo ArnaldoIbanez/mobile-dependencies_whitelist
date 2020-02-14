@@ -1,43 +1,24 @@
 package com.melidata.definitions.validate
 
-import groovy.sql.Sql
-import groovyx.net.http.ContentType
-import groovyx.net.http.HttpResponseDecorator
-import groovyx.net.http.RESTClient
+import com.ml.melidata.catalog.initiatives.ApplicationModel
+import com.ml.melidata.catalog.initiatives.InitiativeAPI
 
 class InitiativeValidate {
 
-    private static List<ApplicationModel> applications = []
     private static Set validPaths = []
     private static Set totalPaths = []
     private static double baseCoverage = 100
 
-    static void generateInitiativesList() {
-        getAllInitiativesFromAPI()
-    }
-
-    private static List getAllInitiativesFromAPI() {
-        def client = new RESTClient('http://initiatives-api.furycloud.io/')
-        HttpResponseDecorator resultApplication = client.get(path: '/applications', contentType: ContentType.JSON)
-
-        for(application in resultApplication.data) {
-            applications << new ApplicationModel(Integer.toString(application.id_initiative), Integer.toString(application.id_application))
-        }
-    }
 
     static validateInitiative(String path, String initiativeId) {
         totalPaths << path
 
-        if(initiativeId && applications.any() {ApplicationModel init -> init.getInitiativeId() == initiativeId }) {
+        if(initiativeId && InitiativeAPI.getInstance().applications.any() { ApplicationModel init -> init.getInitiativeId() == initiativeId }) {
             validPaths << path
             return true
         } else {
             return false
         }
-    }
-
-    static String getInitiativeFromApplication(String applicationId) {
-        return applications.find({ApplicationModel init -> init.getApplicationId() == applicationId})?.getInitiativeId()
     }
 
     static boolean checkCoverage() {

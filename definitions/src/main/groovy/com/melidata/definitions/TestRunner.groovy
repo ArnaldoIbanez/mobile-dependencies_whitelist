@@ -4,6 +4,7 @@ import com.melidata.definitions.parsers.dsl.TestDsl
 import com.melidata.definitions.outs.DefinitionsOut
 import com.ml.melidata.catalog.Catalog
 import com.melidata.definitions.validate.*
+import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import groovy.transform.Synchronized
 
 /**
@@ -14,7 +15,7 @@ class TestRunner {
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         //Prepare initiatives list
         println( "Preparing initiatives in memory")
-        InitiativeValidate.generateInitiativesList()
+        InitiativeAPI.getInstance().generateInitiativesList()
 
         def runOk = true
         out.beforeRun(catalog, tests)
