@@ -3,6 +3,7 @@ SELECT summary.business AS marketplace,
   summary.path as path,
   summary.device_status as device_status,
   summary.has_user as has_user,
+  summary.device_platform as device_platform,
   summary.app_version as app_version,
   sum(summary.sent) AS sent,
   sum(summary.arrived) AS arrived,
@@ -23,6 +24,7 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
        device.device_id as device_id,
        UPPER(COALESCE(jest(event_data, 'device_status'), 'ACTIVE')) as device_status,
        (CASE WHEN usr.user_id is not null OR TRIM(usr.user_id) <> '' THEN 'SI' ELSE 'NO' END) as has_user,
+       device.platform as device_platform,
        regexp_extract(application.version, '(^[0-9]+\.[0-9]+)') as app_version,
        1 AS sent,
        (CASE WHEN app_event.arrived != 0 THEN 1 ELSE 0 END) as arrived,
@@ -47,8 +49,8 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
         ) THEN 1 ELSE 0 END ) as usr_interaction,
         SUM ( CASE WHEN jest(event_data, 'event_type') IN ('shown') THEN 1 ELSE 0 END ) as shown,
         SUM ( CASE WHEN jest(event_data, 'event_type') IN ('discarded') AND jest(event_data, 'discard_reason') IS NOT NULL AND TRIM(jest(event_data, 'discard_reason')) <> '' THEN 1 ELSE 0 END ) as discarded,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('open') THEN 1 ELSE 0 END ) as open,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('action_open') THEN 1 ELSE 0 END ) as action_open,
+        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('open') AND (jest(event_data, 'action_type') IS NULL OR TRIM(jest(event_data, 'action_type')) = '') THEN 1 ELSE 0 END ) as open,
+        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('action_open') OR (jest(event_data, 'event_type') IN ('open') AND jest(event_data, 'action_type') IS NOT NULL AND TRIM(jest(event_data, 'action_type')) <> '') THEN 1 ELSE 0 END ) as action_open,
         SUM ( CASE WHEN jest(event_data, 'event_type') IN ('dismiss') THEN 1 ELSE 0 END ) as dismiss,
         SUM ( CASE WHEN jest(event_data, 'event_type') IN ('auto_dismiss') THEN 1 ELSE 0 END ) as auto_dismiss
         FROM tracks
@@ -70,4 +72,4 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
   AND application.business in ('mercadolibre', 'mercadopago', 'mercadoenvios')
   AND jest(event_data, 'event_type') IN ('sent')
 ) summary
-GROUP BY summary.business, summary.fecha, summary.site_id, summary.path, summary.device_status, summary.has_user, summary.app_version
+GROUP BY summary.business, summary.fecha, summary.site_id, summary.path, summary.device_status, summary.has_user, summary.device_platform, summary.app_version

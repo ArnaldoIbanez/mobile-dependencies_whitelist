@@ -26,6 +26,9 @@
       "name": "has_user",
       "type": "UNICODE_STRING"
     }, {
+      "name": "device_platform",
+      "type": "UNICODE_STRING"
+    }, {
       "name": "app_version",
       "type": "UNICODE_STRING"
     }, {
