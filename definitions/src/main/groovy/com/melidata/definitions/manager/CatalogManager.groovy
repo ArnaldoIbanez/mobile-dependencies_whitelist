@@ -2,6 +2,8 @@ package com.melidata.definitions.manager
 
 import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.Track
+import com.ml.melidata.catalog.initiatives.InitiativeAPI
+
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
@@ -34,6 +36,7 @@ class CatalogManager implements Runnable {
 	}
 
 	void init() {
+		InitiativeAPI.getInstance().init()
 		catalogHandlers.each{ _, catalogHandler -> catalogHandler.reload()}
 		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(this, 0, 5, TimeUnit.MINUTES)
 	}
