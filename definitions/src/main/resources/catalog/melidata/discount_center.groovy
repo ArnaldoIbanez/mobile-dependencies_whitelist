@@ -104,13 +104,13 @@ tracks {
     // TOUCH POINT
 
     "/discount_center/payers/touchpoint" (platform: "/mobile", isAbstract: true) {}
-    "/discount_center/payers/touchpoint/px_congrats" (platform: "/mobile", isAbstract: true) {}
+    "/discount_center/payers/touchpoint/px-congrats" (platform: "/mobile", isAbstract: true) {}
 
-    "/discount_center/payers/touchpoint/px_congrats/tap" (platform: "/mobile", type: TrackType.Event) {
+    "/discount_center/payers/touchpoint/px-congrats/tap" (platform: "/mobile", type: TrackType.Event) {
         tracking_id(required: true, type: PropertyType.String, description: "The id campaign")
     }
 
-    "/discount_center/payers/touchpoint/px_congrats/show" (platform: "/mobile", type: TrackType.Event) {
+    "/discount_center/payers/touchpoint/px-congrats/show" (platform: "/mobile", type: TrackType.Event) {
         tracking_id(required: true, type: PropertyType.String, description: "The id campaign")
     }
 }

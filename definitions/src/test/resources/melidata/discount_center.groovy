@@ -166,13 +166,13 @@ trackTests {
     // TOUCH POINT
 
     test("Mercado Pago discount center payers touchpoint px congrats tap") {
-        "/discount_center/payers/touchpoint/px_congrats/tap" (platform: "/mobile", type: TrackType.Event) {
+        "/discount_center/payers/touchpoint/px-congrats/tap" (platform: "/mobile", type: TrackType.Event) {
             tracking_id= "346859234"
         }
     }
 
     test("Mercado Pago discount center payers touchpoint px congrats show") {
-        "/discount_center/payers/touchpoint/px_congrats/show" (platform: "/mobile", type: TrackType.Event) {
+        "/discount_center/payers/touchpoint/px-congrats/show" (platform: "/mobile", type: TrackType.Event) {
             tracking_id= "346859234"
         }
     }
