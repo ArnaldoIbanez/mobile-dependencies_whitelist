@@ -2450,7 +2450,7 @@ trackTests {
         "/instore/buyer_qr/landing/wrong_time"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2123"
             device_time_difference = 800
-            device_time_range_status = "ok_time_range"
+            device_time_range_status = "below_time_range"
         }
 
         //Buyer QR - Generic Error

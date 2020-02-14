@@ -530,7 +530,7 @@ tracks {
 
     "/instore/buyer_qr/landing/wrong_time"(platform: "/mobile", type: TrackType.View) {
         device_time_difference(required: true, PropertyType.Numeric, description: "Time difference between the server and the device in millis")
-        device_time_range_status(required: true, PropertyType.String, description:  "if the server accepted or not the difference and why: below_time_range || above_time_range")
+        device_time_range_status(required: true, PropertyType.String, values:["below_time_range", "above_time_range"], description:  "if the time difference is below or above the servers")
     }
 
     //Buyer QR - Generic Error
