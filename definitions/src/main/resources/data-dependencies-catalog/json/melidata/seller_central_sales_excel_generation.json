@@ -3,7 +3,7 @@
     "noel.podesta@mercadolibre.com",
     "seller_central_sales@mercadolibre.com"
   ],
-  "process_name": "sc_clicks_views",
+  "process_name": "sc_excel_generation",
   "cron": "00 08 * * *",
   "partition": {
     "name": "ds",
