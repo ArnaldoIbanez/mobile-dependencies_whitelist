@@ -1,7 +1,7 @@
 {
   "users": ["delia.delaguila@mercadolibre.com.mx"],
   "process_name": "ctr_tab1_item",
-  "cron": "00 09 * * *",
+  "cron": "00 11 * * *",
   "partition": {
     "name": "fecha",
     "type": "DATE"

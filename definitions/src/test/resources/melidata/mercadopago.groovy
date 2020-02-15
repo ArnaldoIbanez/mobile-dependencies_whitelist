@@ -1,7 +1,5 @@
-package src.test.resources.melidata
-
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
-import com.ml.melidata.TrackType;
+import com.ml.melidata.TrackType
 
 trackTests {
     defaultBusiness = "mercadopago"
@@ -451,18 +449,6 @@ trackTests {
         }
 
         "/register/form/google_hint/select"(platform: "/mobile") {
-            app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
-        }
-
-        "/register/form/google_autofill/show"(platform: "/mobile") {
-            app = "mp"
-            step = "phoneRegistration"
-            field = "phone"
-        }
-
-        "/register/form/google_autofill/select"(platform: "/mobile") {
             app = "mp"
             step = "phoneRegistration"
             field = "phone"
@@ -3268,6 +3254,10 @@ trackTests {
             id = "id"
             is_another_enroll = false
         }
+        "/auth/totp/enrollment/code"(platform: "/", type: TrackType.View) {
+            id = "id"
+            is_another_enroll = false
+        }
         "/auth/totp/enrollment/validation"(platform: "/", type: TrackType.View) {
             id = "id"
             is_another_enroll = false
@@ -3312,6 +3302,18 @@ trackTests {
             id = "id"
             event_type = "click"
             target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/code/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "continue"
+            is_another_enroll = false
+        }
+        "/auth/totp/enrollment/code/action"(platform: "/", type: TrackType.Event) {
+            id = "id"
+            event_type = "click"
+            target = "config_app_using_qr"
             is_another_enroll = false
         }
         "/auth/totp/enrollment/validation/action"(platform: "/", type: TrackType.Event) {

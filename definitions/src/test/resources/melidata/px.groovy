@@ -522,6 +522,29 @@ trackTests {
 
         }
 
+        "/px_checkout/review/one_tap/offline_methods"(platform: "/mobile", type: TrackType.View) {
+            available_methods = [
+                    {
+                        payment_method_type = "ticket"
+                        payment_method_id = "rapipago"
+                    },
+                    {
+                        payment_method_type = "bank_transfer"
+                        payment_method_id = "redlink"
+                    }
+
+            ]
+
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
         "/px_checkout/review/one_tap/installments"(platform: "/mobile", type: TrackType.View) {
             payment_method_type = "credit_card"
             payment_method_id = "visa"
@@ -786,6 +809,18 @@ trackTests {
             esc_enabled = true
             express_enabled = true
             split_enabled = false
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        // Offline Payment Selection event
+        "/px_checkout/review/one_tap/offline_methods/abort"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
@@ -2293,7 +2328,29 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
 
+        "/px_checkout/review/one_tap/offline_methods"(platform: "/mobile", type: TrackType.View) {
+            available_methods = [
+                    {
+                        payment_method_type = "ticket"
+                        payment_method_id = "rapipago"
+                    },
+                    {
+                        payment_method_type = "bank_transfer"
+                        payment_method_id = "redlink"
+                    }
+
+            ]
+
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
         "/px_checkout/review/one_tap/installments"(platform: "/mobile", type: TrackType.View) {
@@ -2697,6 +2754,18 @@ trackTests {
             esc_enabled = true
             express_enabled = true
             split_enabled = true
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        // Offline Payment Selection event
+        "/px_checkout/review/one_tap/offline_methods/abort"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"

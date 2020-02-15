@@ -302,6 +302,7 @@ trackTests {
             latest_news_type= "campaigns-remarketing"
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
             hash="hash1"
+            mantika_id="26491bbb-b9d2-4dac-8ce7-7f739ea74d7b"
             items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
             items_history="MLB595398238,MLB649162181,MLB656729144"
         }
@@ -2395,6 +2396,7 @@ trackTests {
             sent_date= "20180508"
             batch_id = "MLB_PACK_20180508_2"
             hash="hash1"
+            mantika_id="26491bbb-b9d2-4dac-8ce7-7f739ea74d7b"
             items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
             items_history="MLB595398238,MLB649162181,MLB656729144"
         }
@@ -3561,6 +3563,7 @@ trackTests {
             latest_news_type= "campaigns-remarketing"
             latest_news_id= "campaigns-remarketing-143816022-MLB1013046714"
             hash="hash1"
+            mantika_id="26491bbb-b9d2-4dac-8ce7-7f739ea74d7b"
             items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
             items_history="MLB595398238,MLB649162181,MLB656729144"
         }
@@ -5628,6 +5631,7 @@ trackTests {
             sent_date= "20180508"
             batch_id = "MLB_PACK_20180508_2"
             hash="hash1"
+            mantika_id="26491bbb-b9d2-4dac-8ce7-7f739ea74d7b"
             items_recommendations="MLB557314949,MLB613999012,MLB677993650,MLB695215973"
             items_history="MLB595398238,MLB649162181,MLB656729144"
         }

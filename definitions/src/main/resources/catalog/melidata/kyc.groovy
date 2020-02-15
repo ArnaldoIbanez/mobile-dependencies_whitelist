@@ -82,6 +82,11 @@ tracks {
         verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
     }
 
+    "/kyc/odr_error"(platform: "/", type: TrackType.Event) {
+        image (required: false, type: PropertyType.String, description: "The Image name to the current event")
+        verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
+    }
+
     "/kyc/profile"(platform: "/", type: TrackType.Event) {}
 
     //kyc/iv
@@ -337,5 +342,14 @@ tracks {
     "/kyc/iv/camera/exit_camera"(platform: "/web", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
+    }
+
+    "/kyc/iv/trust_vote_recommender"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/kyc/iv/trust_vote_recommendation"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/kyc/iv/error_page"(platform: "/web", type: TrackType.View) {
     }
 }

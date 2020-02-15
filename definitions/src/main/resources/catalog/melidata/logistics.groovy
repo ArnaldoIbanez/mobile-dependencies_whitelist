@@ -160,7 +160,10 @@ tracks {
     "/logistics/last_mile/detail/view_map"(platform: "/mobile", type: TrackType.Event) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
     }
-    "/logistics/last_mile/deliver/select_receiver"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/deliver/select_receiver"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+    }
     "/logistics/last_mile/deliver/receives_another"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/deliver/signature"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/could_not_deliver/sections"(platform: "/mobile", type:  TrackType.View) {}
@@ -175,6 +178,46 @@ tracks {
     "/logistics/last_mile/return_to_station/open_route"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         packages_to_return(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the list of pending shipment to return to the facility", inheritable: false)
+    }
+    "/logistics/last_mile/list/transloaded_shipments_modal"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id from where the packages will be transloaded", inheritable: false)
+        packs_amount(required: true, type: PropertyType.Numeric, description: "Specifies the transloaded packages amout", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        destination_route(required: true, type: PropertyType.String, description: "Specifies the route to where the packages will be transloaded.")
+    }
+    "/logistics/last_mile/package/scanner/transloading_selection_modal"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        target_route(required: true, type: PropertyType.String, description: "Specifies the route id from where the packages will be transloaded.")
+    }
+    "/logistics/last_mile/transloading_congrats/success"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        target_route(required: true, type: PropertyType.String, description: "Specifies the route id from where the packages will be transloaded.")
+    }
+    "/logistics/last_mile/transloading_congrats/fail"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        target_route(required: true, type: PropertyType.String, description: "Specifies the route id from where the packages will be transloaded.")
+    }
+    "/logistics/last_mile/package/scanner/transloading_selection_modal/transload_all"(platform: "/mobile", type: TrackType.Event) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        target_route(required: true, type: PropertyType.String, description: "Specifies the route id from where the packages will be transloaded.")
+    }
+    "/logistics/last_mile/package/scanner/transloading_selection_modal/transload_some"(platform: "/mobile", type: TrackType.Event) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        target_route(required: true, type: PropertyType.String, description: "Specifies the route id from where the packages will be transloaded.")
+    }
+    "/logistics/last_mile/deliver/buyer_document_form"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+    }
+    "logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        error_type(required: true, type: PropertyType.String, description: "Specifies the current error type", inheritable: false, values: ["document_form", "regex"])
     }
 
     // First Mile

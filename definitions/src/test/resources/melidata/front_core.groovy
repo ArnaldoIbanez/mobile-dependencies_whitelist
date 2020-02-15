@@ -417,6 +417,10 @@ trackTests {
                 ordinal: 12,
                 content_type : 'complete'
             ]
+            paragraph= [
+                ordinal: 13,
+                content_type : 'complete'
+            ]
         }
     }
 
@@ -562,6 +566,10 @@ trackTests {
             ]
             survey= [
                 ordinal: 12,
+                content_type : 'complete'
+            ]
+            paragraph= [
+                ordinal: 13,
                 content_type : 'complete'
             ]
         }
@@ -716,6 +724,10 @@ trackTests {
             section_id="benefits"
             component_id="user_benefits"
         }
+    }
+
+    test("Mercadopago cross sell experiments") {
+        "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
     }
 
     defaultBusiness = "mercadolibre"
@@ -1424,5 +1436,9 @@ trackTests {
             section_id="benefits"
             component_id="user_benefits"
         }
+    }
+
+    test("Mercadopago cross sell experiments") {
+        "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
     }
 }

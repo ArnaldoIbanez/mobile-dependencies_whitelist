@@ -79,6 +79,23 @@ metrics {
 		}
 	}
 
+	"mediations"(description: "/orders/ordercreated that had mediations.", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				notEquals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("mediations")
+						},
+						""
+				)
+			}
+		}
+	}
 
 	"purchases"(description: "/purchase/purchasecreated from feed", compute_order: true) {
 		countsOn {

@@ -272,6 +272,8 @@ trackTests {
 
         "/logistics/last_mile/deliver/select_receiver"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            driver_id = "123"
+            shipment_id = "222"
         }
         "/logistics/last_mile/deliver/receives_another"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
@@ -303,6 +305,46 @@ trackTests {
             defaultLocation()
             route_id = "123"
             packages_to_return = "package1, package2"
+        }
+        "/logistics/last_mile/list/transloaded_shipments_modal"(platform: "/mobile", type: TrackType.View) {
+            route_id = "123"
+            packs_amount = 3
+            driver_id = "222"
+            destination_route = "321"
+        }
+        "/logistics/last_mile/package/scanner/transloading_selection_modal"(platform: "/mobile", type: TrackType.View) {
+            route_id = "123"
+            driver_id = "222"
+            target_route = "321"
+        }
+        "/logistics/last_mile/transloading_congrats/success"(platform: "/mobile", type: TrackType.View) {
+            route_id = "123"
+            driver_id = "222"
+            target_route = "321"
+        }
+        "/logistics/last_mile/transloading_congrats/fail"(platform: "/mobile", type: TrackType.View) {
+            route_id = "123"
+            driver_id = "222"
+            target_route = "321"
+        }
+        "/logistics/last_mile/package/scanner/transloading_selection_modal/transload_all"(platform: "/mobile", type: TrackType.Event) {
+            route_id = "123"
+            driver_id = "222"
+            target_route = "321"
+        }
+        "/logistics/last_mile/package/scanner/transloading_selection_modal/transload_some"(platform: "/mobile", type: TrackType.Event) {
+            route_id = "123"
+            driver_id = "222"
+            target_route = "321"
+        }
+        "/logistics/last_mile/deliver/buyer_document_form"(platform: "/mobile", type: TrackType.View) {
+            driver_id = "123"
+            shipment_id = "222"
+        }
+        "logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
+            driver_id = "123"
+            shipment_id = "222"
+            error_type = "document_form"
         }
     }
 

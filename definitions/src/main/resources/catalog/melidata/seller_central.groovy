@@ -209,6 +209,17 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["accept", "cancel"])
     }
 
+
+    "/seller_central/listings/hunting"(platform: "/", isAbstract: true) {        
+        view_id(required:true, type: PropertyType.String, descritpion: "View where the event has been called")
+    }
+
+    "/seller_central/listings/hunting/change_step"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/listings/hunting/view_more"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/listings/hunting/sell_with_full"(platform: "/", type: TrackType.Event) {}
+
     "/seller_central/listings/communication"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
         id(required: false, type: PropertyType.String, description: "Id of the communication ")
@@ -479,6 +490,12 @@ tracks {
 
     "/seller_central/bulk/publish/upload/show_custom_mail_box"(platform: "/web", type: TrackType.Event) {
         show_custom_mail_box(required: true, type: PropertyType.Boolean, description: "Value to know if user has clicked on Add other email")
+    }
+
+    "/seller_central/bulk/publish/upload/send_custom_mail_box"(platform: "/web", type: TrackType.Event) {
+        show_custom_mail_box(required: true, type: PropertyType.Boolean, description: "Value to know if user has clicked on Add other email")
+        custom_mail(required: true, type: PropertyType.Boolean, description: "Value to know if user was completed the custom email field")
+        invalid_mail(required: true, type: PropertyType.Boolean, description: "Value to know if email value is valid or invalid")
     }
 
     "/seller_central/bulk/publish/upload/congrats"(platform: "/web", type: TrackType.View) {}

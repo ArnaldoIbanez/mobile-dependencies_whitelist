@@ -43,7 +43,6 @@ metrics {
         }
     }
 
-
     "qadb/qadb-on-viewport-vip"(description: "define properties for item_id qadb viewport for vip experiment") {
         startWith {
             set_property("item_id", "event_data.item_id")
@@ -60,6 +59,21 @@ metrics {
         startWith {
             set_property("item_ids", "event_data.results")
             experiment(regex("search/.*"))
+        }
+    }
+    
+    "qadb_properties"(description: "define properties for order_id") {
+        startWith {
+            set_property("catalog_product_id", "event_data.catalog_product_id")
+            set_property("item_id", "event_data.item_id")
+            experiment(regex("qadb/.*"))
+        }
+    }
+    
+    "qadb/qadb-input"(description: "define properties for catalog_product_id qadb input experiment") {
+        startWith {
+            set_property("catalog_product_id", "event_data.catalog_product_id")
+            set_property("item_id", "event_data.item_id")
         }
     }
 

@@ -65,6 +65,14 @@ tracks {
             description: "Link method used"
         )
     }
+    "/cards/hybrid/unlock/scanner/link/status"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true, 
+            type: PropertyType.String, 
+            values: ["initializing", "scanning", "resolving", "failed"],
+            description: "Scanner state"
+        )
+    }
 
     // Unlock: Manual Link
     "/cards/hybrid/unlock/manual-link"(platform: "/", type: TrackType.View) {}
