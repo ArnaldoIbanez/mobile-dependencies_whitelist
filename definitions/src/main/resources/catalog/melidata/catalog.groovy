@@ -37,16 +37,6 @@ catalog {
             "/mobile/ios",
     ]
 
-
-    def marketplace = [
-            "mercadolibre",
-            "tucarro",
-            "tumoto",
-            "tuinmueble",
-            "metroscubicos",
-            "portalinmobiliario"
-    ]
-
     def mercadolibre = ["mercadolibre"]
 
     def mercadopago = ["mercadopago"]
@@ -55,7 +45,15 @@ catalog {
 
     def mercadoenvios = ["mercadoenvios"]
 
-    def all = marketplace + mercadopago
+    def extra_marketplace = [
+            "tucarro",
+            "tumoto",
+            "tuinmueble",
+            "metroscubicos",
+            "portalinmobiliario"
+    ]
+
+    def all = mercadolibre + mercadopago
 
     all.each { business ->
         include business, "mp_frontend.groovy"
@@ -89,7 +87,7 @@ catalog {
         include business, "merchengine.groovy"
     }
 
-    marketplace.each { business ->
+    mercadolibre.each { business ->
         include business, "add_to_cart.groovy"
         include business, "bookmarks.groovy"
         include business, "buyIntention.groovy"
@@ -152,11 +150,7 @@ catalog {
         include business, "promotions.groovy"
         include business, "sp_prepaid.groovy"
         include business, "official_stores.groovy"
-    }
-
-    mercadolibre.each { business ->
         include business, "notifications.groovy"
-
     }
 
     mercadopago.each { business ->
@@ -217,6 +211,31 @@ catalog {
         include business, "logistics.groovy"
         include business, "places.groovy"
         include business, "notifications_menvios.groovy"
+    }
+
+    extra_marketplace.each { business ->
+        include business, "authentication.groovy"
+        include business, "bookmarks.groovy"
+        include business, "contact.groovy"
+        include business, "advertising.groovy"
+        include business, "moderations.groovy"
+        include business, "email.groovy"
+        include business, "home.groovy"
+        include business, "myml.groovy"
+        include business, "myaccount_billing.groovy"
+        include business, "download_app.groovy"
+        include business, "official_stores.groovy"
+        include business, "qadb.groovy"
+        include business, "quotation.groovy"
+        include business, "recommendations.groovy"
+        include business, "registrations.groovy"
+        include business, "search.groovy"
+        include business, "security_settings.groovy"
+        include business, "sell.groovy"
+        include business, "seller_central.groovy"
+        include business, "cx.groovy"
+        include business, "traffic.groovy"
+        include business, "vip.groovy"
     }
 
 }
