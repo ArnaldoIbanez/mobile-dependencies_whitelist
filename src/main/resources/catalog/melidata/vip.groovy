@@ -15,12 +15,12 @@ tracks {
     propertyDefinitions {
         cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)")
-        add_to_cart_availability(required: false, type: PropertyType.String, values: ["yes_default", "yes_discount", "yes_fs", "no_high_ratio", "no_too_many_items", "no_item_price_too_low"], 
+        add_to_cart_availability(required: false, type: PropertyType.String, values: ["yes_default", "yes_discount", "yes_fs", "no_high_ratio", "no_too_many_items", "no_item_price_too_low"],
                 description: "Indicates which add_to_cart button the VIP is showing (Default, Discount, Free Shipping). In case it doesn't show it, also indicates the reason why it doesn't show it (High Ratio, Item price too low, Too many items in cart)")
         main_action(required: false, type: PropertyType.String, values: ["buy", "a2c_fs", "a2c_discount", "a2c_default"],
                 description: "Indicates which button the VIP is showing as main_action (ie, shown as blue button). If it is a2c, it then specifies which button type (default, fs, discount)")
 
-        // SHIPPING_FIELDS (NOT PRESENT IN CLASI) 
+        // SHIPPING_FIELDS (NOT PRESENT IN CLASI)
         shipping_preference(required: false, type: PropertyType.String,
                 description: "Shipping method's name shown when the user has zipcode/location preloaded")
         shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
@@ -50,10 +50,10 @@ tracks {
         //price: {amount, currency_id, is_loyalty_discount}
         //destination: zipcode | city/state
     }
-    
+
     propertyGroups {
         add_cart_info(cart_content, add_to_cart_availability, main_action)
-        shipping_info(shipping_preference, shipping_mode, free_shipping, local_pick_up, 
+        shipping_info(shipping_preference, shipping_mode, free_shipping, local_pick_up,
                 logistic_type, free_shipping_benefit, shipping_promise, free_shipping_benefit_lyl, discount_shipping_benefit_lyl)
         variation_info(preselection_type, enforced_preselection)
     }
@@ -100,7 +100,7 @@ tracks {
         attributes_quantities(required: false, type: PropertyType.ArrayList, description: "Indicates the amount of values of each variation")
         stock_type(required: false, type: PropertyType.String, inheritable: false, values: ["normal", "deferred"], description: "Indicates the type of stock for the product (normal = immediate stock, deferred = within x days)")
         stock_deferred_time(required: false, type: PropertyType.Numeric, inheritable: false, description: "Amount of days when the product will have available stock. Will only be used when stock_type = deferred")
-        
+
         // CART
         add_cart_info
 
@@ -142,7 +142,7 @@ tracks {
         qadb_info(required: false, type: PropertyType.Map(qadb_info_definition), description: "Tracking info for QADB component.")
 
         // SHIPPING
-        shipping_info 
+        shipping_info
 
         // USER FIELD
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
@@ -154,7 +154,7 @@ tracks {
                 description: "The value of the discount when the user subscribes to the item")
         default_tab(required: false, type: PropertyType.String, values: ["buy", "subscription"],
                 description: "Indicates if the 'buy' tab or the 'subscription' tab is shown by default in the short description")
-        
+
         // TOOLTIPS
         shown_tooltip(required: false, type: PropertyType.String,
                       description: "Indicates which tooltip is shown in the VIP at the time, if any. In case it does not show anything, it should be 'none'. E.g: 'credits', 'subscription', 'cart_benefit_free_shipping', etc.")
@@ -165,12 +165,13 @@ tracks {
 
         // PUBLI FIELDS
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
-    
+
         quantity_models(required: false, type: PropertyType.Numeric, description: "Quantity models real estate developments")
 
         // ITEM_ATTRIBUTES
         item_attributes(required: false, type: PropertyType.String, description: "attributes of the item: discount, promotion, stock, cbt type")
 
+        original_item(required: false, type: PropertyType.Boolean , description:  "Indicates if it is an original item")
     }
 
     "/vip"(platform: "/web") {
@@ -255,7 +256,7 @@ tracks {
         review_rate(required: false, type: PropertyType.Numeric, description: "The rating average of the reviews")
         reviews_attributes(required: false, type: PropertyType.ArrayList, description: "Reviewable catalog attribute names")
     }
-    
+
     "/vip/quantity_change"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
@@ -264,7 +265,7 @@ tracks {
         shipping_method(required: false)
         has_shipping(requered: true,type: PropertyType.Boolean)
     }
-    
+
     "/vip/buy_action"(platform: "/", parentPropertiesInherited: false) {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
         quantity(required: false, type: PropertyType.Numeric, description: "Quantity of this item that the user is trying to buy")
@@ -668,7 +669,7 @@ tracks {
 
     "/vip/shipping/calculator/choose_state"(platform: "/", type: TrackType.View) {
     }
- 
+
     "/vip/shipping/calculator/choose_city"(platform: "/", type: TrackType.View) {
     }
 
@@ -764,7 +765,7 @@ tracks {
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
         original_price(required: true, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
-        
+
     }
 
     "/vip/shipping_calculator"(platform: "/", type: TrackType.View, parentPropertiesInherited: false){
@@ -774,10 +775,10 @@ tracks {
             //value: String
             shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
     //Shipping Method
-        //promise 
+        //promise
         //  from: Integer
         //  to: Integer
-        //  deferred: Bool 
+        //  deferred: Bool
         //cost: Integer
         //promoted_amount: Integer
         //delivery_type: [seller_agreement|puis|delivery|post_office]

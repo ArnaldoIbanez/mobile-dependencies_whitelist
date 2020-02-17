@@ -81,6 +81,7 @@ tracks {
         sections(required: false, type: PropertyType.ArrayList(PropertyType.Map(section_definition)), description: "Sections shown in the list")
         tracking_id(required: false, type: PropertyType.String, description: "Tracking id of the presented detail")
         session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+        referer_origin(required: false, type: PropertyType.String, description: "The user who share the discount")
     }
 
     "/discount_center/payers/detail/share" (platform: "/mobile", type: TrackType.Event) {}

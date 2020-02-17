@@ -92,6 +92,16 @@ trackTests {
             label = "date_validation_invalid"
         }
 
+        "/kyc/odr_error"(platform: "/", business: "mercadopago") {
+            image = "rmdy_ic_error_dni_ml"
+            verbose = "LA CONEXIÓN DE RED SE PERDIÓ"
+        }
+
+        "/kyc/odr_error"(platform: "/", business: "mercadolibre") {
+            image = "rmdy_ic_error_dni_ml"
+            verbose = "LA CONEXIÓN DE RED SE PERDIÓ"
+        }
+
         "/kyc/challenge/start"(platform: "/mobile") {
             id = "pep"
             initiative = "cvu"

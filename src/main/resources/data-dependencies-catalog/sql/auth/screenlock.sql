@@ -41,7 +41,7 @@ select
     end)) as cant_enrollments_legacy_android,
   count(distinct (
     case
-      when flow_id = 'security-settings'
+      when flow_id in ('security-settings', 'security_settings', 'auto_enrollment')
         and path = '/screenlock/validation_end'
         and result = 'success'
         and enrollment_status = 'enabled'
@@ -50,7 +50,7 @@ select
     end)) as cant_enrollments,
   count(distinct (
     case
-      when flow_id = 'security-settings'
+      when flow_id in ('security-settings', 'security_settings')
         and path = '/screenlock/validation_end'
         and result = 'success'
         and enrollment_status = 'enabled'

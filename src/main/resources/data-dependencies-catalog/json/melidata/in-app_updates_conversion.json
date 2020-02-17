@@ -24,11 +24,11 @@
           "type": "UNICODE_STRING"
         },
         {
-          "name": "Flow_Type",
+          "name": "update_type",
           "type": "UNICODE_STRING"
         },
         {
-          "name": "update_type",
+          "name": "Flow_Type",
           "type": "UNICODE_STRING"
         },
         {
