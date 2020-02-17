@@ -47,6 +47,8 @@ catalog {
             "portalinmobiliario"
     ]
 
+    def mercadolibre = ["mercadolibre"]
+
     def mercadopago = ["mercadopago"]
 
     def mercadoshops = ["mercadoshops"]
@@ -78,7 +80,6 @@ catalog {
         include business, "esc_manager.groovy"
         include business, "traffic.groovy"
         include business, "coupon.groovy"
-        include business, "notifications.groovy"
         include business, "dynamic_stop_landing.groovy"
         include business, "payers_growth.groovy"
         include business, "collaborators.groovy"
@@ -153,6 +154,11 @@ catalog {
         include business, "official_stores.groovy"
     }
 
+    mercadolibre.each { business ->
+        include business, "notifications.groovy"
+
+    }
+
     mercadopago.each { business ->
         include business, "mp_architecture.groovy"
         include business, "activities.groovy"
@@ -196,11 +202,12 @@ catalog {
         include business, "point_payment.groovy"
         include business, "digital_goods.groovy"
         include business, "sp_bill_payments.groovy"
+        include business, "notifications.groovy"
     }
 
     mercadoshops.each { business ->
         include business, "authentication.groovy"
-        include business, "notifications.groovy"
+        include business, "notifications_mshops.groovy"
     }
 
     mercadoenvios.each { business ->
@@ -209,7 +216,7 @@ catalog {
         include business, "wms.groovy"
         include business, "logistics.groovy"
         include business, "places.groovy"
-        include business, "notifications.groovy"
+        include business, "notifications_menvios.groovy"
     }
 
 }

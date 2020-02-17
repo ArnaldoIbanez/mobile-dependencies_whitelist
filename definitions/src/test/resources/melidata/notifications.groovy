@@ -2443,16 +2443,6 @@ trackTests {
             event_type = "auto_dismiss"
         }
 
-        "/notification/mshops_questions"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-        }
-
-        "/notification/mshops_orders"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-        }
-
         "/notification/puis_agency_withdrawal"(platform: "/mobile") {
             news_id = "puis-agency_withdrawal-21409256437"
             event_type = "sent"
@@ -5674,16 +5664,6 @@ trackTests {
         }
 
         "/notification/loyalty_freeshipping"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-        }
-
-        "/notification/mshops_questions"(platform: "/mobile") {
-            news_id = "123"
-            event_type = "auto_dismiss"
-        }
-
-        "/notification/mshops_orders"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
         }
