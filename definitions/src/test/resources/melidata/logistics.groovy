@@ -243,6 +243,12 @@ trackTests {
             defaultLocation()
             current_distance = "500"
             context = "could_not_deliver"
+        }
+        
+        "/logistics/last_mile/detail/deliver_modal"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            current_distance = "500"
+            context = "could_not_deliver"
             driver_id = "1234"
             shipment_id = "1234"
             receiver_latitude = "1234"
