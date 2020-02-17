@@ -56,7 +56,7 @@
 
     ],
     "sql": {
-      "script": "seller_central/sales/seller_central_sales_clicks_views",
+      "script": "seller_central/sales/seller_central_sales_clicks_views.sql",
       "parameters": [
         {
           "name": "param01",

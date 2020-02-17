@@ -80,7 +80,7 @@
 
     ],
     "sql": {
-      "script": "seller_central/sales/seller_central_sales_excel_generation",
+      "script": "seller_central/sales/seller_central_sales_excel_generation.sql",
       "parameters": [
         {
           "name": "param01",

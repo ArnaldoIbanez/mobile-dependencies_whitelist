@@ -64,7 +64,7 @@
 
     ],
     "sql": {
-      "script": "seller_central/sales/seller_central_sales_click_filters",
+      "script": "seller_central/sales/seller_central_sales_click_filters.sql",
       "parameters": [
         {
           "name": "param01",
