@@ -127,12 +127,27 @@ tracks {
     }
 
 
-    // Congrats
-    "/single_player/prepaid/congrats"(platform: "/mobile", isAbstract: true) {}
-    "/single_player/prepaid/congrats/show_receipt"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats/add_alias"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    // Congrats success
+    "/single_player/prepaid/congrats_success"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+        application_name(required: true, PropertyType.String, description: "Name of the external application that was opened")
+    }
+
+
+    // Congrats rejected
+    "/single_player/prepaid/congrats_rejected"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/congrats_rejected/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+
+    // Congrats pending
+    "/single_player/prepaid/congrats_pending"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/congrats_pending/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_pending/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
 
     // Congrats alias

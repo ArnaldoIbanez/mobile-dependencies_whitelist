@@ -191,20 +191,58 @@ trackTests {
         }
 
 
-        // Congrats
-        "/single_player/prepaid/congrats/show_receipt"(platform: "/mobile", type: TrackType.Event) {
+        // Congrats success
+        "/single_player/prepaid/congrats_success"(platform: "/mobile", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats/add_alias"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats/another_recharge"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_success/another_recharge"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+            flow = "transport"
+            application_name = "sube"
+        }
+
+
+        // Congrats rejected
+        "/single_player/prepaid/congrats_rejected"(platform: "/mobile", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_rejected/another_recharge"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+
+        // Congrats pending
+        "/single_player/prepaid/congrats_pending"(platform: "/mobile", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_pending/another_recharge"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_pending/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
@@ -490,20 +528,58 @@ trackTests {
         }
 
 
-        // Congrats
-        "/single_player/prepaid/congrats/show_receipt"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        // Congrats success
+        "/single_player/prepaid/congrats_success"(platform: "/mobile", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats/add_alias"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats/another_recharge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_success/another_recharge"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+            flow = "transport"
+            application_name = "sube"
+        }
+
+
+        // Congrats rejected
+        "/single_player/prepaid/congrats_rejected"(platform: "/mobile", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_rejected/another_recharge"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+
+        // Congrats pending
+        "/single_player/prepaid/congrats_pending"(platform: "/mobile", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_pending/another_recharge"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_pending/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
