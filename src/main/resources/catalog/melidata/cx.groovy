@@ -9,16 +9,6 @@ tracks {
 
     initiative = "1155"
 
-    "/cx" (platform: "/mobile", isAbstract: true){}
-    "/cx/click_on_article" (platform: "/mobile", type: TrackType.Event){
-        article_id(required: true, type: PropertyType.String)
-    }
-    "/cx/click_on_help" (platform: "/mobile", type: TrackType.Event){}
-    "/cx/click_on_error" (platform: "/mobile", type: TrackType.Event){}
-    "/cx/click_on_suggestion" (platform: "/mobile", type: TrackType.Event){}
-    "/cx/contact_types" (platform: "/mobile", isAbstract: true){}
-    "/cx/contact_types/click_on_contact_form" (platform: "/mobile", type: TrackType.Event){}
-
     propertyDefinitions {
         portal_contact(required: true, type: PropertyType.Map,
             description: "Indicates if the current hub has channels enabled and why it hasn't")

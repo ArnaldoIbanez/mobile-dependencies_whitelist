@@ -1989,101 +1989,6 @@ trackTests {
             flow = "/qr_code"
             from = "/deep_link"
         }
-        "/qr_code/fill_transaction_data"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/pay"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/deals"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/deals/terms"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/payment_methods"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/other_payment_methods"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/cards"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/add_card"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/issuers"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/my_cards"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/result"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-            result_status = "rejected"
-            status_detail = "call_for_auth"
-        }
-        "/qr_code/px_payment_method_search"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/px_discount_summary"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/px_card_vault"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/px_card_number"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/px_card_holder_name"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/px_card_expiry_date"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/px_card_security_code"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/px_identification_number"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/px_card_issuers"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/px_card_installments"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/px_review_and_confirm"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-        }
-        "/qr_code/px_result"(platform: "/mobile") {
-            flow = "/qr_code"
-            from = "/deep_link"
-            result_status = "rejected"
-        }
     }
 
     test("QRRead Stores event") {
@@ -3124,23 +3029,6 @@ trackTests {
         "/login/smartlock/multiple_credentials/cancel"(platform: "/mobile", type: TrackType.Event) {}
     }
 
-    test("Abuse Prevention in Identification and Authentication") {
-      "/auth/abuse_prevention"(platform: "/mobile", type: TrackType.Event) {
-        result = "low"
-      }
-      "/auth/abuse_prevention/ban"(platform: "/web", type: TrackType.Event) {
-          result = "low"
-      }
-      "/auth/abuse_prevention/login"(platform: "/web", type: TrackType.Event) {
-        device_id = "1"
-        platform = "web"
-      }
-      "/auth/abuse_prevention/login"(platform: "/mobile", type: TrackType.Event) {
-        device_id = "1"
-        platform = "mobile"
-      }
-    }
-
     test("Security feedback flow") {
         "/login/auth/feedback"(platform: "/web", type: TrackType.Event) {
             view = "answer"
@@ -3164,10 +3052,6 @@ trackTests {
     }
 
     test("Account recovery flow") {
-        "/auth/account_recovery/recovery_confirmation"(platform: "/web", type: TrackType.View) {
-            id = "id--fury"
-            is_webview = true
-        }
         "/auth/account_recovery/congrats"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
@@ -3182,18 +3066,6 @@ trackTests {
         }
         "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
-            is_webview = true
-        }
-        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "confirm_button"
-            is_webview = true
-        }
-        "/auth/account_recovery/recovery_confirmation/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "cancel_button"
             is_webview = true
         }
         "/auth/account_recovery/congrats/action"(platform: "/web", type: TrackType.Event) {
@@ -3475,17 +3347,6 @@ trackTests {
             status = "success"
             available_channels = ["sms", "call"]
             selected_channel = "call"
-        }
-    }
-
-    test("Change Password") {
-        "/auth/authentication_methods/password/change_form"(platform: "/", type: TrackType.Event) {
-            redirect_url = "https://accountrecovery.mercadolibre.com.ar/collect/userInfo"
-        }
-
-        "/auth/authentication_methods/password/change"(platform: "/", type: TrackType.Event) {
-            redirect_url = "https://accountrecovery.mercadolibre.com.ar/collect/userInfo"
-            device_profile_id = "abc-123-def-456"
         }
     }
 
@@ -3843,10 +3704,6 @@ trackTests {
 
     test("Identity Validation ") {
 
-        "/identity-validation/validation_landing"(platform: "/web/mobile") {
-            flow = "ms_hard_validation"
-        }
-
         "/identity-validation/start_validation"(platform: "/web/mobile") {
             flow = "ms_hard_validation"
         }
@@ -3863,10 +3720,6 @@ trackTests {
 
         "/identity-validation/finish_validation"(platform: "/web/mobile") {
             result = "valid"
-            flow = "ms_hard_validation"
-        }
-
-        "/identity-validation/validation_landing"(platform: "/web/desktop") {
             flow = "ms_hard_validation"
         }
 
@@ -3894,10 +3747,6 @@ trackTests {
             flow = "ms_hard_validation"
         }
 
-        "/identity-validation/validation_landing"(platform: "/mobile/android") {
-            flow = "ms_hard_validation"
-        }
-
         "/identity-validation/start_validation"(platform: "/mobile/android") {
             flow = "ms_hard_validation"
         }
@@ -3919,10 +3768,6 @@ trackTests {
 
         "/identity-validation/finish_validation"(platform: "/mobile/android") {
             result = "valid"
-            flow = "ms_hard_validation"
-        }
-
-        "/identity-validation/validation_landing"(platform: "/mobile/ios") {
             flow = "ms_hard_validation"
         }
 
@@ -3968,22 +3813,6 @@ trackTests {
         "/identity-validation/upload_compress"(platform: "/web/desktop") {
             upload_time = 10
             compression_time = 10
-        }
-
-        "/identity-validation/image_error"(platform: "/mobile/ios") {
-            source = "TAKE_PHOTO"
-        }
-
-        "/identity-validation/image_error"(platform: "/mobile/android") {
-            source = "TAKE_PHOTO"
-        }
-
-        "/identity-validation/image_error"(platform: "/web/mobile") {
-            source = "TAKE_PHOTO"
-        }
-
-        "/identity-validation/image_error"(platform: "/web/desktop") {
-            source = "TAKE_PHOTO"
         }
 
         "/identity-validation/phone_code"(platform: "/mobile") {}

@@ -10,10 +10,6 @@ trackTests {
 
     test("Identity Validation ") {
 
-        "/identity-validation/validation_landing"(platform: "/web/mobile") {
-            flow = "ms_hard_validation"
-        }
-
         "/identity-validation/start_validation"(platform: "/web/mobile") {
             flow = "ms_hard_validation"
         }
@@ -40,10 +36,6 @@ trackTests {
 
         "/identity-validation/final_reached"(platform: "/") {
             result = "valid"
-            flow = "ms_hard_validation"
-        }
-
-        "/identity-validation/validation_landing"(platform: "/web/desktop") {
             flow = "ms_hard_validation"
         }
 
@@ -76,10 +68,6 @@ trackTests {
             flow = "ms_hard_validation"
         }
 
-        "/identity-validation/validation_landing"(platform: "/mobile/android") {
-            flow = "ms_hard_validation"
-        }
-
         "/identity-validation/start_validation"(platform: "/mobile/android") {
             flow = "ms_hard_validation"
         }
@@ -106,10 +94,6 @@ trackTests {
 
         "/identity-validation/finish_validation"(platform: "/mobile/android") {
             result = "valid"
-            flow = "ms_hard_validation"
-        }
-
-        "/identity-validation/validation_landing"(platform: "/mobile/ios") {
             flow = "ms_hard_validation"
         }
 
@@ -170,28 +154,8 @@ trackTests {
             _label = "documentation_landing"
         }
 
-        "/identity-validation/pick_photo"(platform: "/mobile/android") {
-            _label = "documentation_landing"
-        }
-
         "/identity-validation/landing/back"(platform: "/") {
 
-        }
-
-        "/identity-validation/image_error"(platform: "/mobile/ios") {
-            source = "TAKE_PHOTO"
-        }
-
-        "/identity-validation/image_error"(platform: "/mobile/android") {
-            source = "TAKE_PHOTO"
-        }
-
-        "/identity-validation/image_error"(platform: "/web/mobile") {
-            source = "TAKE_PHOTO"
-        }
-
-        "/identity-validation/image_error"(platform: "/web/desktop") {
-            source = "TAKE_PHOTO"
         }
 
         "/identity-validation/phone_code"(platform: "/mobile") {}
@@ -230,10 +194,6 @@ trackTests {
         "/identity-validation/skip_flow"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             flow = "ms_hard_validation"
             step = "documentation"
-        }
-
-        "/identity-validation/pick_photo"(platform: "/mobile/android", business:"mercadopago") {
-            _label = "documentation_landing"
         }
 
         "/identity-validation/take_photo"(platform: "/mobile/android", business:"mercadopago") {
