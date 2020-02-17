@@ -17,7 +17,7 @@ class TestRunner {
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         //Prepare initiatives list
         println( "Preparing initiatives in memory")
-        //InitiativeAPI.getInstance().generateInitiativesList()
+        InitiativeAPI.getInstance().generateInitiativesList()
 
         def runOk = true
         out.beforeRun(catalog, tests)
