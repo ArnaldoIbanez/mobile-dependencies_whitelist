@@ -4,6 +4,6 @@ help:
 test:
 	./gradlew test$(CATALOG)
 productionTest:
-	./gradlew -Dhttp.proxyHost=172.16.0.89 -Dhttps.proxyHost=172.16.0.89 -Dhttp.proxyPort=80 -Dhttps.proxyPort=80 -DMaxPermSize=4g  test$(CATALOG)
+	./gradlew -Dhttp.proxyHost=172.16.0.89 -Dhttps.proxyHost=172.16.0.89 -Dhttp.proxyPort=80 -Dhttps.proxyPort=80 test$(CATALOG)
 
 .PHONY: test

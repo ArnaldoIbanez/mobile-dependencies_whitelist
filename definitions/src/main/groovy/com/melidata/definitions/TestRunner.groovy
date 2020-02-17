@@ -6,6 +6,8 @@ import com.ml.melidata.catalog.Catalog
 import com.melidata.definitions.validate.*
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import groovy.transform.Synchronized
+import org.apache.log4j.Level
+import org.apache.log4j.Logger
 
 /**
  * Created by apetalas on 20/11/14.
@@ -41,6 +43,7 @@ class TestRunner {
 
     @Synchronized
     def static boolean run(String catalogName, DefinitionsOut out){
+        Logger.getRootLogger().setLevel(Level.WARN);
         try{
             def pathTests = getTests(catalogName)
             def catalogScript = getScriptFromFile("src/main/resources/catalog/" + catalogName + "/catalog.groovy")
