@@ -108,8 +108,8 @@ tracks {
         source(type: PropertyType.String, required: false, description: "Context on which the login is presented")
         has_error(type: PropertyType.Boolean, required: false, description: "Indicates if there's an error shown in screen")
         recaptcha(type: PropertyType.Boolean, required: false, description: "Indicates whether recaptcha is present or not")
-        flow(type: PropertyType.String, required: false, description: "indicates whether flow is native or generic")
-        channel(type: PropertyType.String, required: false, description: "indicates whether channel is SMS or call")
+        flow(type: PropertyType.String, required: false, description: "indicates whether flow is native or generic", values: ["login_by_phone", "registration","change_user_phone", "login", "forgot_password"])
+        channel(type: PropertyType.String, required: false, description: "indicates whether channel is SMS or call", values: ["sms", "call", "whatsApp"])
     }
 
     "/login/auth/error"(platform: "/", type: TrackType.View) {

@@ -3788,7 +3788,7 @@ trackTests {
             tracking_id = "123"
             user = [nickname: "nickname", email:"email@email.com"]
             flow = "login_by_phone"
-            channel = "SMS"
+            channel = "sms"
         }
         "/login/auth/challenge/error"(platform: "/mobile", type: TrackType.View) {
             challenge = "nickname_or_email"

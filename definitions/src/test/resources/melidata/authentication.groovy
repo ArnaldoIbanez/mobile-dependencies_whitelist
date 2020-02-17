@@ -463,7 +463,7 @@ trackTests {
             tracking_id = "123"
             user = [nickname: "nickname", email:"email@email.com"]
             flow = "login_by_phone"
-            channel = "SMS"
+            channel = "sms"
         }
         "/login/auth/error"(platform: "/mobile", type: TrackType.View) {
             error = "network"
