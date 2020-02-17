@@ -3769,6 +3769,13 @@ trackTests {
             tracking_id = "123"
             user = [nickname: "nickname", email:"email@email.com"]
         }
+        "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
+            challenge = "enter_password"
+            tracking_id = "123"
+            user = [nickname: "nickname", email:"email@email.com"]
+            flow = "login_by_phone"
+            channel = "sms"
+        }
         "/login/auth/challenge/error"(platform: "/mobile", type: TrackType.View) {
             challenge = "nickname_or_email"
             tracking_id = "123"
@@ -3787,6 +3794,14 @@ trackTests {
             challenge = "enter_password"
             tracking_id = "123"
         }
+
+        "/login/auth/phone_validation/rechallenge"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/login/auth/phone_validation/fallback"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/login/auth/phone_validation/sms_detection/autodetect_code_success"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/login/auth/phone_validation/sms_detection/autodetect_code_failure"(platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Security Settings") {
