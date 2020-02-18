@@ -1344,6 +1344,9 @@ trackTests {
       "/point/landings/reseller"(platform:"/", type: TrackType.Event) {
            product = "become_reseller"
        }
+      "/point/landings/reseller/congrats"(platform:"/", type: TrackType.Event) {
+           product = "become_reseller"
+       }
     }
 
     // MPMOBILE TEST
