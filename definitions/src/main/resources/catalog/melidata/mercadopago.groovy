@@ -388,6 +388,7 @@ tracks {
 
     // Merchant Acquisition Point Landings: Resellers Form
     "/point/landings/reseller"(platform:"/", type: TrackType.Event) {}
+    "/point/landings/reseller/congrats"(platform:"/", type: TrackType.Event) {}
 
     // Point Flows
     "/point/flows"(platform: "/", isAbstract: true) {}
