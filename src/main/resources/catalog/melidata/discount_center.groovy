@@ -105,4 +105,17 @@ tracks {
     "/discount_center/payers/session/end" (platform: "/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Unique code that identifies a user's session")
     }
+
+    // TOUCH POINT
+
+    "/discount_center/payers/touchpoint" (platform: "/mobile", isAbstract: true) {}
+    "/discount_center/payers/touchpoint/px_congrats" (platform: "/mobile", isAbstract: true) {}
+
+    "/discount_center/payers/touchpoint/px_congrats/tap" (platform: "/mobile", type: TrackType.Event) {
+        tracking_id(required: true, type: PropertyType.String, description: "The id campaign")
+    }
+
+    "/discount_center/payers/touchpoint/px_congrats/show" (platform: "/mobile", type: TrackType.Event) {
+        tracking_id(required: true, type: PropertyType.String, description: "The id campaign")
+    }
 }
