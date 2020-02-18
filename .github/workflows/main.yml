@@ -8,7 +8,6 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    container: hub.furycloud.io/mercadolibre/java-gradle:jdk8
     steps:
     - name: publish
       run: ./gradlew uploadAllCatalog
