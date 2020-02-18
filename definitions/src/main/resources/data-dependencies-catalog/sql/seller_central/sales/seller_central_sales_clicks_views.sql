@@ -1,6 +1,7 @@
 SELECT count(1) as cantidad,
     case when path = '/seller_central/sales/list/action/primary' then 'CLICK'
-        when path = '/seller_central/sales/list' then 'VIEW'
+        when path = '/seller_central/sales/list' then 'VIEW_LIST'
+        when path = '/seller_central/sales/detail' then 'VIEW_DETAIL'
     end as event,
     jest(event_data, 'id') as id_type,
     platform.fragment as fragment,
@@ -15,6 +16,6 @@ SELECT count(1) as cantidad,
 FROM tracks
 WHERE ds >= '@param01'
 AND ds < '@param02'
-AND path in ('/seller_central/sales/list/action/primary', '/seller_central/sales/list')
+AND path in ('/seller_central/sales/list/action/primary', '/seller_central/sales/list', '/seller_central/sales/detail')
 GROUP BY 2,3,4,5,6,7,8,9,10,11
 
