@@ -5,6 +5,7 @@ import com.ml.melidata.TrackType
 tracks {
 
     "/return"(platform: "/", isAbstract: true) {
+      ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
       loyalty_level(required: true, type: PropertyType.Numeric, description: 'buyer level loyalty')
       order_id(required: true, type: PropertyType.Numeric, description: 'order identifier')
       buyer_scoring(required: false, type: PropertyType.String, description: 'buyer reputation level')
@@ -16,32 +17,25 @@ tracks {
     }
 
     // STEP 01
-    "/return/potential_resolutions"(platform: "/", type: TrackType.View) {
-        ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
-    }
+    "/return/potential_resolutions"(platform: "/", type: TrackType.View) {}
     "/return/potential_resolutions/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         request_type(required: true, type: PropertyType.String, description: 'kind of operation (repurchase, return or change)')
     }
 
     // STEP 02
-    "/return/typifications"(platform: "/", type: TrackType.View) {
-      ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
-    }
+    "/return/typifications"(platform: "/", type: TrackType.View) { }
     "/return/typifications/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
       typification(required: true, type: PropertyType.String, description: 'reason why the product is returned')
     }
 
     // STEP 03
-    "/return/conditions"(platform: "/", type: TrackType.View) {
-      ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
-    }
+    "/return/conditions"(platform: "/", type: TrackType.View) { }
     "/return/conditions/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
       selection(required: true, values:['accepted', 'rejected'], type: PropertyType.String, description: 'selected option button')
     }
 
     // STEP 04
     "/return/payments"(platform: "/", type: TrackType.View) {
-      ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
       showed_payment_methods(required: true, type: PropertyType.String, description: 'what payment refund methods are shown to the buyer')
     }
     "/return/payments/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -77,7 +71,6 @@ tracks {
       pickup_time(required: false, type: PropertyType.String, description: 'pickup time product to seller')
       showed_payment_methods(required: false, type: PropertyType.String, description: 'origin of the payment method')
       refund_account_money(required: true, type: PropertyType.Boolean, description: 'refund money in the buyers account')
-      ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
       cart_order(required: true, type: PropertyType.Boolean, description: 'order created by cart')
       payment_refund_at(required: true, type: PropertyType.String, description: 'when will the buyer be refunded', values:['shipped', 'delivered'])
     }
@@ -115,5 +108,15 @@ tracks {
 
     "/return/error"(platform: "/", type: TrackType.View) {
         previous_step(required: false, type: PropertyType.String, description: 'step before the error')
+    }
+
+    "/return/delivered_confirmation"(platform: "/", type: TrackType.View) { }
+    "/return/delivered_confirmation/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        selection(required: true, type: PropertyType.String, description: 'button selected by the user', values: ['accepted', 'rejected'])
+    }
+
+    "/return/self_dispatch"(platform: "/", type: TrackType.View) { }
+    "/return/self_dispatch/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        selection(required: true, type: PropertyType.String, description: 'button selected by the user', values: ['accepted', 'rejected'])
     }
 }
