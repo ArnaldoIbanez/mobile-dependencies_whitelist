@@ -7,7 +7,7 @@ class InitiativeValidate {
 
     private static Set validPaths = []
     private static Set totalPaths = []
-    private static double baseCoverage = 100
+    private static double baseCoverage = 95
 
 
     static validateInitiative(String path, String initiativeId) {
