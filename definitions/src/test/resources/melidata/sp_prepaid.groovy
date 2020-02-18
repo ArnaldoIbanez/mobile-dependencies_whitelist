@@ -212,10 +212,6 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event) {
-            flow = "transport"
-            application_name = "sube"
-        }
 
 
         // Congrats rejected
@@ -263,6 +259,23 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
+        }
+
+        // Accreditation information
+        "/single_player/prepaid/accreditation_information"(platform: "/mobile", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/accreditation_information/show_terminals"(platform: "/mobile", type: TrackType.Event) {
+            flow = "transport"
+            view_time = 38927
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/accreditation_information/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+            flow = "transport"
+            application_name = "sube"
+            view_time = 38927
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
 
 
@@ -549,10 +562,6 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event) {
-            flow = "transport"
-            application_name = "sube"
-        }
 
 
         // Congrats rejected
@@ -600,6 +609,24 @@ trackTests {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
+        }
+
+
+        // Accreditation information
+        "/single_player/prepaid/accreditation_information"(platform: "/mobile", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/accreditation_information/show_terminals"(platform: "/mobile", type: TrackType.Event) {
+            flow = "transport"
+            view_time = 38927
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/accreditation_information/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+            flow = "transport"
+            application_name = "sube"
+            view_time = 38927
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
 
 

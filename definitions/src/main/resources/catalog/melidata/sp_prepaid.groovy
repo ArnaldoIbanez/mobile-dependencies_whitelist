@@ -133,9 +133,6 @@ tracks {
     "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_success/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event) {
-        application_name(required: true, PropertyType.String, description: "Name of the external application that was opened")
-    }
 
 
     // Congrats rejected
@@ -157,6 +154,17 @@ tracks {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
     }
     "/single_player/prepaid/congrats_alias/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
+    }
+
+
+    // Accreditation information
+    "/single_player/prepaid/accreditation_information"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/accreditation_information/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+        application_name(required: true, PropertyType.String, description: "Name of the external application that was opened")
+        view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
+    }
+    "/single_player/prepaid/accreditation_information/show_terminals"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
     }
 
