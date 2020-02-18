@@ -62,7 +62,7 @@
         "type": "INTEGER"
       },
       {
-        "name": "total_error_cells",
+        "name": "total_error_rows",
         "type": "INTEGER"
       },
       {
