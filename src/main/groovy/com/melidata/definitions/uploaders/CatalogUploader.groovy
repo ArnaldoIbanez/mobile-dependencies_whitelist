@@ -25,7 +25,7 @@ class CatalogUploader {
     HiveFormatter hiveFormatter
 
     CatalogUploader(String catalogName) {
-        s3Controller = new S3Controller(S3_BUCKET + "/" + catalogName,  AWS_ACCESS_KEY, AWS_SECRET_KEY)
+        s3Controller = new S3Controller(S3_BUCKET + "/" + catalogName + '-fury',  AWS_ACCESS_KEY, AWS_SECRET_KEY)
         this.catalogHandler = new CatalogHandler(catalogName)
         this.hiveFormatter = new HiveFormatter(catalogName)
         CatalogDsl.setBaseDir(BASE_CATALOG_DIR + catalogName + "/")

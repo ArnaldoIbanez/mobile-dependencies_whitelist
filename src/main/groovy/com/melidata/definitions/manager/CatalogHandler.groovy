@@ -34,8 +34,8 @@ class CatalogHandler {
 
 		LAST_VERSION_OBJECT = "last" + catalogName.capitalize() + "Version"
 		LAST_VERSION_FILE_NAME = "last" + catalogName.capitalize()
-		LOCAL_FOLDER = "/data/catalog/" + catalogName + "/"
-		S3_CONTAINER = catalogName + "/" + LAST_VERSION_FILE_NAME + ".dsl/"
+		LOCAL_FOLDER = "/tmp/data/catalog/" + catalogName + "/"
+		S3_CONTAINER = catalogName + "-fury" + "/" + LAST_VERSION_FILE_NAME + ".dsl/"
 		CSV_FILE_NAME = catalogName + "_last.csv/" + catalogName + "_catalog.csv"
 		this.catalogName = catalogName
 

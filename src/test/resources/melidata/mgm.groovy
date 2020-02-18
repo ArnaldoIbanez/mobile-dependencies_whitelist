@@ -60,10 +60,24 @@ trackTests {
         "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
             promoter = "123456"
         }
+
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
             promoter = "123456"
         }
+
+        // MGM Seller
+        "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}
+        "/mgm_seller/dashboard" (platform: "/mobile", type: TrackType.View) {}
+
+        "/mgm_seller/referal/tap" (platform: "/mobile", type: TrackType.Event) {
+            media = "whatsapp"
+            device= "Point Mini"
+            link= "dashboard"
+        }
+
+        "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
     }
+    
 
     defaultBusiness = "mercadopago"
 
@@ -122,5 +136,21 @@ trackTests {
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
             promoter = "123456"
         }
+
+        "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
+            promoter = "123456"
+        }
+
+        // MGM Seller
+        "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}
+        "/mgm_seller/dashboard" (platform: "/mobile", type: TrackType.View) {}
+
+        "/mgm_seller/referal/tap" (platform: "/mobile", type: TrackType.Event) {
+            media = "whatsapp"
+            device= "Point Mini"
+            link= "dashboard"
+        }
+
+        "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
     }
 }

@@ -15,11 +15,7 @@ catalog {
             "/",
             "/web",
             "/web/desktop",
-            "/web/desktop/forced",
-            "/web/desktop/static",
             "/web/mobile",
-            "/web/mobile/forced",
-            "/web/mobile/static",
             "/mobile",
             "/mobile/android",
             "/mobile/ios",
@@ -43,17 +39,7 @@ catalog {
             "/mobile/ios",
     ]
 
-
-    def marketplace = [
-            "mercadolibre",
-            "tucarro",
-            "tumoto",
-            "tulancha",
-            "tuinmueble",
-            "autoplaza",
-            "metroscubicos",
-            "portalinmobiliario"
-    ]
+    def mercadolibre = ["mercadolibre"]
 
     def mercadopago = ["mercadopago"]
 
@@ -61,12 +47,22 @@ catalog {
 
     def mercadoenvios = ["mercadoenvios"]
 
-    def all = marketplace + mercadopago
+    def extra_marketplace = [
+            "tucarro",
+            "tumoto",
+            "tuinmueble",
+            "metroscubicos",
+            "portalinmobiliario"
+    ]
+
+    def all = mercadolibre + mercadopago
 
     all.each { business ->
+        include business, "mp_frontend.groovy"
         include business, "authentication.groovy"
         include business, "bugsnag.groovy"
         include business, "cx.groovy"
+        include business, "cards_hybrid.groovy"
         include business, "identity_validation.groovy"
         include business, "remedies.groovy"
         include business, "melidata_sdk.groovy"
@@ -84,13 +80,16 @@ catalog {
         include business, "esc_manager.groovy"
         include business, "traffic.groovy"
         include business, "coupon.groovy"
-        include business, "notifications.groovy"
         include business, "dynamic_stop_landing.groovy"
         include business, "payers_growth.groovy"
         include business, "collaborators.groovy"
+        include business, "loyalty_v2.groovy"
+        include business, "credits.groovy"
+        include business, "card_form.groovy"
+        include business, "merchengine.groovy"
     }
 
-    marketplace.each { business ->
+    mercadolibre.each { business ->
         include business, "add_to_cart.groovy"
         include business, "bookmarks.groovy"
         include business, "buyIntention.groovy"
@@ -114,9 +113,9 @@ catalog {
         include business, "myml.groovy"
         include business, "myml_mercadoshops.groovy"
         include business, "seller_central.groovy"
+        include business, "vendor_central.groovy"
         include business, "onboarding.groovy"
         include business, "orders_feed.groovy"
-        include business, "pushNotifications.groovy"
         include business, "quotation.groovy"
         include business, "quote.groovy"
         include business, "questions.groovy"
@@ -137,6 +136,7 @@ catalog {
         include business, "zip_finder.groovy"
         include business, "current_location.groovy"
         include business, "download_app.groovy"
+        include business, "incentivate_login.groovy"
         include business, "supermarket.groovy"
         include business, "contact.groovy"
         include business, "full.groovy"
@@ -146,13 +146,19 @@ catalog {
         include business, "myaccount_billing.groovy"
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
+        include business, "kyc.groovy"
         include business, "pdp.groovy"
         include business, "qadb.groovy"
         include business, "promotions.groovy"
+        include business, "sp_prepaid.groovy"
+        include business, "official_stores.groovy"
+        include business, "notifications.groovy"
     }
 
     mercadopago.each { business ->
+        include business, "mp_architecture.groovy"
         include business, "activities.groovy"
+        include business, "mp_digital_account.groovy"
         include business, "mpfrontcore.groovy"
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"
@@ -170,6 +176,8 @@ catalog {
         include business, "sube_recharge.groovy"
         include business, "transport.groovy"
         include business, "remedy.groovy"
+        include business, "kyc.groovy"
+        include business, "user_blocker.groovy"
         include business, "digital_account.groovy"
         include business, "front_core.groovy"
         include business, "mplayer.groovy"
@@ -183,11 +191,19 @@ catalog {
         include business, "discount_center.groovy"
         include business, "external.groovy"
         include business, "pos_billings.groovy"
+        include business, "pdv.groovy"
+        include business, "sp_prepaid.groovy"
+        include business, "tools_for_sellers.groovy"
+        include business, "mp_growth.groovy"
+        include business, "point_payment.groovy"
+        include business, "digital_goods.groovy"
+        include business, "sp_bill_payments.groovy"
+        include business, "notifications.groovy"
     }
 
     mercadoshops.each { business ->
         include business, "authentication.groovy"
-        include business, "notifications.groovy"
+        include business, "notifications_mshops.groovy"
     }
 
     mercadoenvios.each { business ->
@@ -196,6 +212,32 @@ catalog {
         include business, "wms.groovy"
         include business, "logistics.groovy"
         include business, "places.groovy"
+        include business, "notifications_menvios.groovy"
+    }
+
+    extra_marketplace.each { business ->
+        include business, "authentication.groovy"
+        include business, "bookmarks.groovy"
+        include business, "contact.groovy"
+        include business, "advertising.groovy"
+        include business, "moderations.groovy"
+        include business, "email.groovy"
+        include business, "home.groovy"
+        include business, "myml.groovy"
+        include business, "myaccount_billing.groovy"
+        include business, "download_app.groovy"
+        include business, "official_stores.groovy"
+        include business, "qadb.groovy"
+        include business, "quotation.groovy"
+        include business, "recommendations.groovy"
+        include business, "registrations.groovy"
+        include business, "search.groovy"
+        include business, "security_settings.groovy"
+        include business, "sell.groovy"
+        include business, "seller_central.groovy"
+        include business, "cx.groovy"
+        include business, "traffic.groovy"
+        include business, "vip.groovy"
     }
 
 }

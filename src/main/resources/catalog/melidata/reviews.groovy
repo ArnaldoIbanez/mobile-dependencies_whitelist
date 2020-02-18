@@ -2,50 +2,39 @@ package catalog.melidata
 
 import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
-import com.ml.melidata.TrackType
 
 tracks {
 
-    //REVIEWS FRONTEND
-    "/reviews/form"(platform: "/") {
-        item_id()
-        step()
-        flow(required: false)
-        action(required: false)
-    }
-
-    "/reviews/edit"(platform: "/") {
-        item_id()
-    }
-
-    "/reviews/congrats/delete"(platform: "/") {
-        item_id()
-    }
-
-    "/reviews/congrats/edit"(platform: "/") {
-        item_id()
-        review_length()
-    }
-
-    "/reviews/congrats"(platform: "/") {
-        item_id()
-        review_length(inheritable: false)
-    }
-
-    "/reviews/error"(platform: "/") {
-        item_id()
-    }
-
-    "/reviews/email"(platform: "/email") {
-        item_id()
-    }
+    initiative = "1171"
 
     "/reviews"(platform: "/") {
         item_id()
     }
 
+    //REVIEWS FRONTEND
+    "/reviews/form"(platform: "/") {
+        step()
+        flow(required: false)
+        action(required: false)
+    }
+
+    "/reviews/edit"(platform: "/") {}
+
+    "/reviews/congrats/delete"(platform: "/") {}
+
+    "/reviews/congrats/edit"(platform: "/") {
+        review_length()
+    }
+
+    "/reviews/congrats"(platform: "/") {
+        review_length(inheritable: false)
+    }
+
+    "/reviews/error"(platform: "/") {}
+
+    "/reviews/email"(platform: "/email") {}
+
     "/reviews/show"(platform: "/") {
-        item_id(required: true)
         type(required: true)
         access(required: false)
         catalog_product_id(required: false)

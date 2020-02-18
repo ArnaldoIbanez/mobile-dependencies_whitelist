@@ -47,6 +47,9 @@ trackTests {
         "/remedy/challenge_activity"(platform: "/mobile") {}
         "/remedy/challenge_proof_of_address"(platform: "/mobile") {}
         "/remedy/challenge_death"(platform: "/mobile") {}
+        "/remedy/challenge_under_age"(platform: "/mobile") {}
+        "/remedy/identity_handler"(platform: "/mobile") {}
+        "/remedy/identity_handler"(platform: "/mobile", business: "mercadolibre") {}
 
         "/remedy/url_external"(platform: "/mobile") {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
@@ -86,6 +89,31 @@ trackTests {
         }
         "/remedy/error"(platform: "/mobile") {
             label = "date_validation_invalid"
+        }
+
+        "/remedy/challenge/start"(platform: "/mobile") {
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/remedy/challenge/send"(platform: "/mobile") {
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/remedy/challenge/success"(platform: "/mobile") {
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/remedy/challenge/fail"(platform: "/mobile") {
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/remedy/challenge/retry"(platform: "/mobile") {
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
         }
 
         "/remedy/profile"(platform: "/mobile") {}
@@ -130,6 +158,7 @@ trackTests {
         "/remedy/challenge_activity"(platform: "/mobile", business: "mercadolibre") {}
         "/remedy/challenge_proof_of_address"(platform: "/mobile", business: "mercadolibre") {}
         "/remedy/challenge_death"(platform: "/mobile", business: "mercadolibre") {}
+        "/remedy/challenge_under_age"(platform: "/mobile", business: "mercadolibre") {}
 
         "/remedy/url_external"(platform: "/mobile", business: "mercadolibre") {
             url = "https://www.mercadopago.com.ar/ayuda/Ayuda_con_tus_Inversiones_4048"
@@ -171,34 +200,65 @@ trackTests {
             label = "date_validation_invalid"
         }
 
+        "/remedy/challenge/start"(platform: "/mobile", business: "mercadolibre") {
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/remedy/challenge/send"(platform: "/mobile", business: "mercadolibre") {
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/remedy/challenge/success"(platform: "/mobile", business: "mercadolibre") {
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/remedy/challenge/fail"(platform: "/mobile", business: "mercadolibre") {
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/remedy/challenge/retry"(platform: "/mobile", business: "mercadolibre") {
+            id = "pep"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/remedy/challenge"(platform: "/mobile", business: "mercadopago") {
+            id = "identification"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            callback = "meli://home"
+        }
+
+        "/remedy/challenge"(platform: "/mobile", business: "mercadopago") {
+            id = "identification"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            callback = "meli://home"
+        }
+
+        "/remedy/challenge"(platform: "/mobile", business: "mercadopago") {
+            id = "identification"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
+        "/remedy/challenge"(platform: "/mobile", business: "mercadolibre") {
+            id = "identification"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            callback = "meli://home"
+        }
+
+        "/remedy/challenge"(platform: "/mobile", business: "mercadolibre") {
+            id = "identification"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            callback = "meli://home"
+        }
+
+        "/remedy/challenge"(platform: "/mobile", business: "mercadolibre") {
+            id = "identification"
+            process_id = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+        }
+
         "/remedy/profile"(platform: "/mobile", business: "mercadolibre") {}
-
-        "/remedy/identity_handler"(platform: "/mobile") {
-            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c8888"
-        }
-
-        "/remedy/identity_handler"(platform: "/mobile") {
-            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c9822"
-            status = "mismatch"
-        }
-
-        "/remedy/identity_handler"(platform: "/mobile") {
-            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c9822"
-            status = "number_of_attempts_exceeded"
-        }
-
-        "/remedy/identity_handler"(platform: "/mobile", business: "mercadolibre") {
-            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c8888"
-        }
-
-        "/remedy/identity_handler"(platform: "/mobile", business: "mercadolibre") {
-            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c9822"
-            status = "mismatch"
-        }
-
-        "/remedy/identity_handler"(platform: "/mobile", business: "mercadolibre") {
-            remedy_id = "49cdb9b5-9585-42f3-a680-9d44548c9822"
-            status = "number_of_attempts_exceeded"
-        }
     }
 }

@@ -11,20 +11,23 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1171"
+
 // Questions
 
     "/questions"(platform: "/", isAbstract: true) { // THIS IS A VIP MOBILE TRACK THAT TRACKS THE VIEW OF QUESTIONS LISTS FROM VIP
         item_id(required: false)
     }
     "/questions/ask"(platform: "/", isAbstract: true) {
-        context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/vip","/bookmarks","/questions","/notifications","/pdp", "/qadb"])
+        context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/vip","/bookmarks","/questions","/notifications","/pdp", "/qadb", "/qadb-auto","/qadb/pdp","/qadb/vip", "/qadb-auto/pdp", "/qadb-auto/vip"])
         item_id( required: true, description: "Item id in which we are performing the question")
-        catalog_product_id(required: false, description: "Id of the product", PropertyType.String)
+        catalog_product_id(required: false, description: "Id of the product", type: PropertyType.String)
     }
 
     "/questions/ask/post"(platform: "/", type: TrackType.Event) {
         //TODO revisar si no conviene pasar failed() a otro path "/questions/ask/post/failed"
         question_id(required: false, description: "it has no value if failed is true")
+        question_text(required:false, description: "The question ask by the user", type:PropertyType.String)
         failed( required: true, description: "whenever the post was succesful or not")
     }
 

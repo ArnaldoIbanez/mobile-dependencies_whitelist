@@ -139,6 +139,36 @@ trackTests {
             inbound_id = 1234
         }
 
+        // new put away
+        "/wms/put_away/scan_origin"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/put_away/scan_product"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/put_away/scan_product_destination"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/put_away/scan_product/cancel"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            put_away_id = 111
+        }
+
+        "/wms/put_away/scan_product/finish"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRWT01"
+            put_away_id = 111
+            inventory_id = "ABCD12345"
+        }
+
+        // put away
         "/wms/receiving/device/printer/mobile/reprint"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
@@ -417,6 +447,57 @@ trackTests {
             inbound_id = "1234"
             destination_address = "destination_address"
             return_type = "return_type"
+        }
+
+        //Problem Solver - Flan
+        "/wms/problem_solver/menu"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_inbound_shipment"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/manual_input_inbound_shipment"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_case"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/manual_input_case"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_inbound_destination"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_finish_transactions"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_transaction_destination"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_oriented_origin"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
+        }
+
+        "/wms/problem_solver/scan_origin"(platform: "/mobile/android") {
+            trackData()
+            warehouse_id = "BRTW01"
         }
 
         //Events
@@ -779,176 +860,176 @@ trackTests {
             address_from_id = "CA-0-001-000-00-00"
             inventory_id = "AAAA11880"
             problem_type = "wet"
-        } 
+        }
         "/wms/quarantine/report/confirmation/confirm"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             address_from_id = "CA-0-001-000-00-00"
             inventory_id = "AAAA11880"
             problem_type = "wet"
-        } 
+        }
         "/wms/quarantine/report/confirmation/cancel"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             address_from_id = "CA-0-001-000-00-00"
             inventory_id = "AAAA11880"
             problem_type = "wet"
-        } 
+        }
         "/wms/quarantine/picking/scan_inventory"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             pickup_id = "1234"
             checkpoint_id = "1234"
-        } 
+        }
         "/wms/quarantine/picking/scan_inventory/cancel"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             pickup_id = "1234"
             checkpoint_id = "1234"
-        } 
+        }
         "/wms/quarantine/picking/select_problem"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             pickup_id = "1234"
             checkpoint_id = "1234"
-        } 
+        }
         "/wms/quarantine/picking/select_problem/confirm"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             pickup_id = "1234"
             checkpoint_id = "1234"
             problem_type = "wet"
-        } 
+        }
         "/wms/quarantine/picking/select_problem/other"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             pickup_id = "1234"
             checkpoint_id = "1234"
-        } 
+        }
         "/wms/quarantine/picking/select_problem/other/confirm"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             pickup_id = "1234"
             checkpoint_id = "1234"
             description = "Es fraudulento"
-        } 
+        }
         "/wms/quarantine/picking/select_problem/cancel"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             pickup_id = "1234"
             checkpoint_id = "1234"
-        } 
+        }
         "/wms/quarantine/picking/confirmation"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             pickup_id = "1234"
             checkpoint_id = "1234"
             problem_type = "wet"
-        } 
+        }
         "/wms/quarantine/picking/confirmation/confirm"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             pickup_id = "1234"
             checkpoint_id = "1234"
             problem_type = "wet"
-        } 
+        }
         "/wms/quarantine/picking/confirmation/cancel"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             pickup_id = "1234"
             checkpoint_id = "1234"
             problem_type = "wet"
-        } 
+        }
         "/wms/quarantine/transfer/scan_inventory"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             address_from_id = "CA-0-001-000-00-00"
-        } 
+        }
         "/wms/quarantine/transfer/scan_address_destination"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             address_from_id = "CA-0-001-000-00-00"
             inventory_id = "AAAA11880"
-        } 
+        }
         "/wms/quarantine/transfer/select_problem"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             address_from_id = "CA-0-001-000-00-00"
             inventory_id = "AAAA11880"
             address_from_id = "RR-0-001-000-00-00"
-        } 
+        }
         "/wms/quarantine/transfer/select_problem/confirm"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             address_from_id = "CA-0-001-000-00-00"
             inventory_id = "AAAA11880"
             address_from_id = "RR-0-001-000-00-00"
             problem_type = "wet"
-        } 
+        }
          "/wms/quarantine/resolve/confirmation"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
-        } 
+        }
         "/wms/quarantine/resolve/confirmation/confirm"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
-        } 
+        }
         "/wms/quarantine/resolve/confirmation/cancel"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
-        } 
+        }
         "/wms/quarantine/resolve/scan_address_from"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
-        } 
+        }
         "/wms/quarantine/resolve/item"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
-        } 
+        }
         "/wms/quarantine/resolve/item/not_found"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
-        } 
+        }
         "/wms/quarantine/resolve/confirm_problem"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
-        } 
+        }
         "/wms/quarantine/resolve/confirm_problem/continue"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
             confirmed = true
-        } 
+        }
         "/wms/quarantine/resolve/select_problem"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
-        } 
+        }
         "/wms/quarantine/resolve/select_problem/confirm"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
             problem_type = "wet"
-        } 
+        }
         "/wms/quarantine/resolve/select_subtype"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
             problem_type = "other"
-        } 
+        }
         "/wms/quarantine/resolve/select_subtype/confirm"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
             problem_type = "other"
             problem_sub_type = "wet"
-        } 
+        }
         "/wms/quarantine/resolve/select_subtype/other"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
             problem_type = "other"
-        } 
+        }
         "/wms/quarantine/resolve/select_subtype/other/confirm"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
             problem_type = "other"
             description = "Es fraudulento"
-        } 
+        }
         "/wms/quarantine/resolve/summary"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
             problem_type = "other"
-        } 
+        }
         "/wms/quarantine/resolve/summary/confirm"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
             problem_type = "other"
-        } 
+        }
         "/wms/quarantine/resolve/summary/confirm"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
             problem_type = "damaged"
             sub_problem_type = "broken"
-        } 
+        }
         "/wms/quarantine/resolve/scan_address_destination"(platform: "/mobile/android") {
             warehouse_id = "BRTW01"
             task_id = 1234
-        } 
+        }
     }
 }

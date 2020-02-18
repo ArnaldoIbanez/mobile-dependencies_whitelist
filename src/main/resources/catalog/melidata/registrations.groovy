@@ -5,6 +5,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+
+    initiative = "1109"
+
     // REGISTER
 
     "/register"(platform: "/", isAbstract: true) {}
@@ -125,6 +128,12 @@ tracks {
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:false)
     }
     "/register/form/email-suggest"(platform: "/mobile", type: TrackType.Event){}
+    "/register/form/google_hint"(platform: "/mobile", isAbstract: true){
+        step(type: PropertyType.String, required: true, values: ["registration", "phoneRegistration", "getEmail"], description: "Step where the google hint is provided to the user")
+        field(type: PropertyType.String, required: true, values: ["email", "phone"], description: "Field where the google hint is provided to the user")
+    }
+    "/register/form/google_hint/show"(platform: "/mobile", type: TrackType.Event){}
+    "/register/form/google_hint/select"(platform: "/mobile", type: TrackType.Event){}
 
     "/register/form/challenge"(platform: "/mobile", isAbstract: true){}
     "/register/form/challenge/require"(platform: "/mobile", type: TrackType.Event){}
@@ -133,7 +142,7 @@ tracks {
     "/register/form/challenge/solve"(platform: "/mobile", type: TrackType.Event){}
 
     "/register/success"(platform: "/mobile", type: TrackType.Event){
-        source(type: PropertyType.String, description: "Source", required:false, values:["email","facebook","facebook_to_email"])
+        source(type: PropertyType.String, description: "Source", required:false, values:["email","facebook","facebook_to_email", "phone"])
         app(type: PropertyType.String, required:false, description: "Current Flow")
     }
 
@@ -186,7 +195,7 @@ tracks {
     }
 
     // TODO, PLEASE MOVE THIS TO SOMETHING LIKE /register/progresive o algo que sea más acorde a todo el tracking del modulo
-    "/progressive_registration"(platform: "/mobile", type: TrackType.View) {}
+    "/progressive_registration"(platform: "/mobile", type: TrackType.View, initiative:'1125') {}
 
     "/register/form/company-link"(platform: "/mobile", type: TrackType.Event){}
     "/register/form/person-link"(platform: "/mobile", type: TrackType.Event){}
@@ -202,5 +211,47 @@ tracks {
     "/register/congrats/complete-fiscal-data"(platform: "/mobile", type: TrackType.Event){}
     "/register/congrats/complete-fiscal-data-later"(platform: "/mobile", type: TrackType.Event){}
 
+    //Nueva experiencia de registro: Registro por teléfono
+
+    "/register/phone_registration"(platform: "/mobile", isAbstract: true){
+        app(type: PropertyType.String, required:true, description: "Current Flow")
+        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+    }
+
+    "/register/phone_registration/get_phone"(platform: "/mobile", type: TrackType.View){}
+    "/register/phone_registration/get_phone/error"(platform: "/mobile", type: TrackType.View){
+        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
+        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+    }
+
+    "/register/phone_registration/additional_data"(platform: "/mobile", type: TrackType.View){}
+    "/register/phone_registration/additional_data/error"(platform: "/mobile", type: TrackType.View){
+        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
+        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+    }
+
+    "/register/phone_registration/get_email"(platform: "/mobile", type: TrackType.View){}
+    "/register/phone_registration/get_email/error"(platform: "/mobile", type: TrackType.View){
+        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
+        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+    }
+
+    "/register/phone_registration/verification"(platform: "/mobile", type: TrackType.View){
+        channel(type: PropertyType.String, required: true, values: ["sms", "call", "whatsapp"], description: "Channel to which verification code is sent")
+    }
+    "/register/phone_registration/verification/error"(platform: "/mobile", type: TrackType.View){
+        errors_validation(type: PropertyType.String, description: "Where the validation is performed. back|front", required:false)
+        errors(type: PropertyType.ArrayList, description: "Errors on form", required:false)
+    }
+
+    "/register/phone_registration/phone_already_registered"(platform: "/mobile", type: TrackType.View){}
+
+
+    "/register/phone_registration/send_code"(platform: "/mobile", type: TrackType.Event){}
+    "/register/phone_registration/resend_code"(platform: "/mobile", type: TrackType.Event){}
+    "/register/phone_registration/email_link"(platform: "/mobile", type: TrackType.Event){}
+    "/register/phone_registration/verification/autodetect_code"(platform: "/mobile", type: TrackType.Event){}
+    "/register/phone_registration/sign_in"(platform: "/mobile", type: TrackType.Event){}
+    "/register/phone_registration/create_account"(platform: "/mobile", type: TrackType.Event){}
 }
 

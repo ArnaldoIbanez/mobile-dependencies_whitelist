@@ -7,6 +7,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1014"
+
     //Myaccount_Billing
     "/myaccount"(type: TrackType.View, isAbstract: true) {}
     "/myaccount/billing"(type: TrackType.View, isAbstract: true) {}

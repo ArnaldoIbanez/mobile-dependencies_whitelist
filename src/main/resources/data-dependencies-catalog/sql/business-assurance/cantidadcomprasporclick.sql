@@ -1,7 +1,6 @@
 select
 application.site_id as Site,
 device.platform AS Plataforma,
-usr.uid as uid,
 jest(event_data, 'seller[0].id') AS SellerID,
 jest(event_data, 'seller.nickname') AS SellerNickname,
 jest(event_data, 'buyer.id') AS BuyerID,
@@ -37,7 +36,6 @@ and path = '/orders/ordercreated'
 group by substr(ds,1,10),
 application.site_id,
 device.platform,
-usr.uid,
 jest(event_data, 'seller[0].id'),
 jest(event_data, 'seller.nickname'),
 jest(event_data, 'buyer.id'),

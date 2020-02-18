@@ -34,7 +34,6 @@ class MetricsManager implements Runnable {
 		}
 	}
 
-	@Override
 	public void close() throws IOException {
 	}
 

@@ -1,7 +1,6 @@
 {
   "users": [
-     "federico.carballo@mercadolibre.com",
-     "matias.kopp@mercadolibre.com"
+     "imagenes_it@mercadolibre.com"
   ],
   "partition": {
     "name": "ds",
@@ -10,7 +9,7 @@
   "process_name": "carrousel_similar",
   "cron": "00 03 * * *",
   "extract": {
-    "operation": "overwrite",
+    "operation": "append",
     "columns": [
       {
         "name": "platform",
@@ -55,7 +54,7 @@
         },
         {
           "name": "param02",
-          "value": "DAY-5",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         }
       ]

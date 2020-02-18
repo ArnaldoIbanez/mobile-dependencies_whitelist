@@ -7,6 +7,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = "1161"
+
     /**
     * MultiPlayer MoneyTransfer Screen Tracks
     */
@@ -80,4 +82,118 @@ tracks {
     "/mplayer/money_request/result/in_process"(platform: "/mobile", type: TrackType.View) {
     }
 
+    // Money Split
+    "/mplayer/money_split"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/money_split/activities_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/activities_selection/activity_selected"(platform: "/mobile", type: TrackType.Event) {
+        input_type(required: true, PropertyType.String, description: "the input type of the activity selected, select from list or manually typed")
+        position_list(required: false, PropertyType.Numeric, description: "the position in the list of the activity selected")
+    }
+    "/mplayer/money_split/activities_selection/continue"(platform: "/mobile", type: TrackType.Event) {
+        quantity(required: true, PropertyType.Numeric, description: "the number of selected activities to split")
+        reason_flow(required: true, PropertyType.String, description: "the way to access mandatory reason")
+    }
+
+    "/mplayer/money_split/new_activity"(platform: "/mobile", type: TrackType.View) {}
+
+    "/mplayer/money_split/reason"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/reason/emoji_selected"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/mplayer/money_split/contact_picker"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/contact_picker/select_contact"(platform: "/mobile", type: TrackType.Event) {
+        input_type(required: true, PropertyType.String, description: "the input type of contact selected, select from list or manually typed")
+        is_recent(required: true, PropertyType.Boolean, description: "the contact is recently used or not")
+    }
+    "/mplayer/money_split/contact_picker/continue"(platform: "/mobile", type: TrackType.Event) {
+        quantity(required: true, PropertyType.Numeric, description: "the number of selected contacts")
+    }
+
+    "/mplayer/money_split/review_and_confirm"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/review_and_confirm/continue"(platform: "/mobile", type: TrackType.Event) {
+        has_open_detail(required: true, PropertyType.Boolean, description: "the detail was opened or not")
+    }
+
+    "/mplayer/money_split/split_detail"(platform: "/mobile", type: TrackType.View) {}
+
+    "/mplayer/money_split/split_created"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/split_created/exit"(platform: "/mobile", type: TrackType.Event) {
+        button(required: true, PropertyType.String, description: "the button selected to exit")
+    }
+
+    "/mplayer/money_split/result"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/money_split/result/success"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/result/error"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/result/in_process"(platform: "/mobile", type: TrackType.View) {}
+
+    // Tracing
+    "/mplayer/tracing"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/tracing/event_list"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/tracing/event_list/select_event"(platform: "/mobile", type: TrackType.Event) {
+        source(required: true, PropertyType.String, description: "the list of the activity selected")
+    }
+    "/mplayer/tracing/event_list/go_to_history"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/mplayer/tracing/history"(platform: "/mobile", type: TrackType.View) {}
+
+    "/mplayer/tracing/collector_detail"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/tracing/collector_detail/see_more"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/tracing/collector_detail/close_menu"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/tracing/collector_detail/remember_button"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/tracing/collector_detail/see_detail"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/mplayer/tracing/member_detail"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/tracing/member_detail/see_more"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/tracing/member_detail/send_money"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/tracing/member_detail/reject_event"(platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "/mplayer/tracing/close_event"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/tracing/close_event/exit"(platform: "/mobile", type: TrackType.Event) {
+        button(required: true, PropertyType.String, description: "the button selected to exit")
+    }
+
+    "/mplayer/tracing/reject_event"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/tracing/reject_event/exit"(platform: "/mobile", type: TrackType.Event) {
+        button(required: true, PropertyType.String, description: "the button selected to exit")
+    }
+
+    "/money_request"(platform: "/", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/money_request/picker"(platform: "/mobile") {}
+    "/money_request/fill_transaction_data"(platform: "/mobile") {}
+    "/money_request/social_share"(platform: "/mobile") {}
+    "/money_request/result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+    "/money_request/confirm"(platform: "/web", type: TrackType.Event){}
+    "/money_request/congrats"(platform: "/web"){}
+
+    "/send_money"(platform: "/", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/send_money/fill_transaction_data"(platform: "/mobile") {}
+    "/send_money/pay"(platform: "/mobile") {}
+    "/send_money/deals"(platform: "/mobile") {}
+    "/send_money/deals/terms"(platform: "/mobile") {}
+    "/send_money/payment_methods"(platform: "/mobile") {}
+    "/send_money/other_payment_methods"(platform: "/mobile") {}
+    "/send_money/cards"(platform: "/mobile") {}
+    "/send_money/add_card"(platform: "/mobile") {}
+    "/send_money/issuers"(platform: "/mobile") {}
+    "/send_money/my_cards"(platform: "/mobile") {}
+    "/send_money/result"(platform: "/mobile") {
+        result_status (required:true, type: PropertyType.String, description: "Operation result status")
+        status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
+    }
+    "/send_money/bacen"(platform: "/mobile", isAbstract: true) {}
+    "/send_money/bacen/ok"(platform: "/mobile") {}
+    "/send_money/bacen/cancel"(platform: "/mobile") {}
+    "/send_money/bacen/error"(platform: "/mobile") {}
+    "/send_money/bacen/open"(platform: "/mobile") {}
+    "/send_money/bacen/close"(platform: "/mobile") {}
+    "/send_money/confirm"(platform: "/web", type: TrackType.Event){}
 }

@@ -218,64 +218,25 @@ trackTests {
     }
 
     test("Remedies web") {
-        "/remedies/landing"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
-        "/remedies/phone_landing"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
-        "/remedies/phone_validation"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
         "/remedies/documentation_front"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
+            custom_cam_offered = true
         }
-        "/remedies/documentation_back"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
-        "/remedies/documentation_number"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
+
         "/remedies/selfie"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
-        "/remedies/congrats"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-            congrats_type = "warning"
-        }
-        "/remedies/continue_phone_landing"(platform: "/web/desktop") {
-            flow = "ss_approve_iv_selfie"
-            challenge = "documentation"
-        }
-        "/remedies/continue_phone_congrats"(platform: "/web/desktop") {
-            flow = "ss_approve_iv_selfie"
-            challenge = "documentation"
-        }
-        "/remedies/detail_landing"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
-        "/remedies/threeds"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
-        "/remedies/company"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
+
         "/remedies/center/card"(platform: "/web") {
             status = "landing"
+            transaction_user_id = 109479273
         }
 
         "/remedies/center/row"(platform: "/mobile") {
             status = "landing"
         }
-
-        "/remedies/camera/open_camera"(platform: "/web") {
-            devices = 2
-        }
-        "/remedies/camera/capture_image"(platform: "/web") {
-            is_landscape = false
-        }
-        "/remedies/camera/pick_from_gallery"(platform: "/web") {}
-        "/remedies/camera/unavailable"(platform: "/web") {}
     }
 
     defaultBusiness = "mercadopago"
@@ -488,65 +449,25 @@ trackTests {
     }
 
     test("Remedies web") {
-        "/remedies/landing"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
-        "/remedies/phone_landing"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
-        "/remedies/phone_validation"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
         "/remedies/documentation_front"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
+            custom_cam_offered = true
         }
-        "/remedies/documentation_back"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
-        "/remedies/documentation_number"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
+
         "/remedies/selfie"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
-        }
-        "/remedies/congrats"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-            congrats_type = "warning"
-        }
-        "/remedies/continue_phone_landing"(platform: "/web/desktop") {
-            flow = "ss_approve_iv_selfie"
-            challenge = "documentation"
-        }
-        "/remedies/continue_phone_congrats"(platform: "/web/desktop") {
-            flow = "ss_approve_iv_selfie"
-            challenge = "documentation"
-        }
-        "/remedies/detail_landing"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
-        "/remedies/threeds"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
-        }
-        "/remedies/company"(platform: "/web") {
-            flow = "ss_approve_iv_selfie"
+            transaction_user_id = 109479273
         }
         
         "/remedies/center/card"(platform: "/web") {
             status = "landing"
+            transaction_user_id = 109479273
         }
 
         "/remedies/center/row"(platform: "/mobile") {
             status = "landing"
         }
-
-        "/remedies/camera/open_camera"(platform: "/web") {
-            devices = 1
-        }
-        "/remedies/camera/capture_image"(platform: "/web") {
-            is_landscape = true
-        }
-        "/remedies/camera/pick_from_gallery"(platform: "/web") {}
-        "/remedies/camera/unavailable"(platform: "/web") {}
     }
 
 }

@@ -20,6 +20,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = '1125'
+
     "/google_connect"(platform: "/mobile", isAbstract: true) {}
     "/google_connect/init_flow"(platform: "/mobile") {
         type (required:true, type: PropertyType.String, description: "type of operation that google want", values: ["normal", "reauthentication", "no_params"])

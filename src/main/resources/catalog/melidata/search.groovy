@@ -6,6 +6,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1171"
+
     //def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
     //def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
     //todo dejar los originales en septiembre
@@ -20,6 +22,40 @@ tracks {
         is_on_seo_whitelist_experiment(type: PropertyType.Boolean, required: true)
     }
 
+    def location_info_definition = objectSchemaDefinitions {
+        zipcode(type: PropertyType.String, required: false, description: "zipcode of the user; can be missing if user is not logged or never registered an address")
+        default_zipcode(type: PropertyType.Boolean, required: false, description: "indicates if the zipcode was assumed; this happens in MLA when no zipcode is found for the user. The default is 1430")
+        city_id(type: PropertyType.String, required: false, description: "as MLB has too many zipcode, we translate the zipcode to the city of the user's address")
+        user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
+    }
+
+    def sparkle_info_object = objectSchemaDefinitions {
+        intervention_id(type: PropertyType.String, required: true)
+        intervention_type(type: PropertyType.String, required: true, values: ["REDIRECT", "INLINE"])
+        config_value(type: PropertyType.String, required: true)
+        url(type: PropertyType.String, required: true)
+    }
+
+    def category_definition = objectSchemaDefinitions {
+        carousel_id(type: PropertyType.String, required: true)
+        selected(type: PropertyType.Map(selected_definition), required: false)
+    }
+
+    def selected_definition = objectSchemaDefinitions {
+        name(required:true, PropertyType.String)
+        selected_id(required:true, PropertyType.String)
+    }
+
+    def action_definition = objectSchemaDefinitions {
+        action_id(type: PropertyType.String, required: true)
+        filter_id(type: PropertyType.String, required: true)
+    }
+
+    def promise_item_definition = objectSchemaDefinitions{
+        sameday(type: PropertyType.ArrayList(PropertyType.String), required: false)
+        nextday(type: PropertyType.ArrayList(PropertyType.String), required: false)
+    }
+
     //SEARCH FLOW
     
     "/search"(platform: "/") {
@@ -29,11 +65,12 @@ tracks {
         total(required: true, description: "amount of search items returned", type: PropertyType.Numeric)
         category_id(required: false, regex: categoryRegex)
         category_path(required: false, description: "path from root category", regex: categoryPathRegex, type: PropertyType.ArrayList)
-        sort_id(required: true, description: "relevance, price_asc or price_desc", values: ["relevance", "price_asc", "price_desc"])
+        sort_id(required: true, description: "relevance, price_asc, price_desc, publication_begins_desc, publication_begins_asc, manually_selected", values: ["relevance", "price_asc", "price_desc", "publication_begins_desc", "manually_selected", "publication_begins_asc"])
         filters(required: true, description: "filters applied")
         autoselected_filters(required: false, description: "filters not applied by the user (category from canonical or adults)", PropertyType.ArrayList)
         view_mode(required: true, description: "MOSAIC, LIST or GALLERY on WM and apps and STACK or GRID on desktop", values:["STACK","GRID","LIST","MOSAIC","GALLERY"])
         results(required: true, description: "item ids from search result", PropertyType.ArrayList)
+        promise_items(required: false, description:  "items with shipping promise", type: PropertyType.Map(promise_item_definition))
 
         billboards(required: false, description: "items ids from billboard results", PropertyType.ArrayList)
         pads(required: false, description: "item_id from the pads returned for listings")
@@ -42,12 +79,17 @@ tracks {
         show_supermarket_carousel(required: false, description: "search with supermarket carousel", type: PropertyType.Boolean)
         show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
+        sparkle_info(required: false, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
+
 
         //Tracks from Search Backend:
         backend_data(required: false)
         official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
         items_with_logos(required: false, description: 'items ids that show the brand logo', PropertyType.ArrayList)
-        pdp_grouped_search(required: true, description: 'indicates whether the product rows are result of grouping or not', PropertyType.Boolean)
+        pdp_grouped_search(required: false, description: 'indicates whether the product rows are result of grouping or not', PropertyType.Boolean)
+        pdp_info(required: false, description: "info about status and scoring of the product offered by search backend", type: PropertyType.ArrayList)
+        promoted_items(required: false, description: 'ids of offer of the day items', type: PropertyType.ArrayList(PropertyType.String))
+        location_info(required: false, description: "contains info about the users, for example, shipping info", type: PropertyType.Map(location_info_definition))
         //ab(required: false, description:'ab testing related. to be deprecated')
         //ab_bucket(required: false, PropertyType.ArrayList, description:'ab testing related. to be doprecated')
         //aa(required: false, PropertyType.ArrayList, description:'applied search algorithim tag. Comblinable')
@@ -77,17 +119,15 @@ tracks {
         layout_forced(required: false, description:'true if layout is changed by the user')
         shown_as_product(required: false, description: 'item ids shown with product link')
         has_logos(required: false, description: "indicates if there is an item with logos", PropertyType.Boolean)
-        promise_items(required: false, description:  "items with shipping promise", PropertyType.ArrayList)
         geo_search(required: false, description: "search with geolocation", type: PropertyType.Boolean)
         available_filters(required: true, description: "available filters, sameday and nextday")
         user_zone(required: true, description: "the user zone registered", type: PropertyType.String)
         is_googlebot(required: false, description: 'is google bot request', PropertyType.Boolean)
         pdp_rows(required: true, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: true, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
-        pdp_tracking_info(required: true, description: 'pdp products info', PropertyType.Map(PropertyType.String, PropertyType.String))
         pdp_highlight_enabled(required: true, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
         seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
-        user_profile_type(required: false, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
+        user_profile_type(required: true, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
     }
 
     "/search"(platform: "/mobile") {
@@ -119,12 +159,14 @@ tracks {
         user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
         pdp_rows(required: false, description: 'lists the pdp rows added to the results', type: PropertyType.ArrayList)
         carousel_filters(required: false, description: 'carousel filter ids shown in search', PropertyType.ArrayList)
+        carousel_categories_shown(required: false, description: 'category carousel is shown when user makes a search', PropertyType.Boolean)
     }
 
     "/search/failure"(platform: "/mobile", type: TrackType.Event) {
         error_message()
         limit(required: false, description: "override required property")
         offset(required: false, description: "override required property")
+        total(required: false, description: "override required property")
         filters(required: false, description: "override required property")
         billboards(required: false, description: "override required property")
     }
@@ -145,6 +187,11 @@ tracks {
     }
 
     "/search/filters"(platform: "/mobile") {}
+
+    "/search/filters/action"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        multiple_values_qty(required: false, description: 'qty of multiple values selected before the request is made', PropertyType.Numeric)
+        action(required: false, description: 'the action made, if any', PropertyType.Map(action_definition))
+    }
     
     "/search/breadcrumb"(platform: "/mobile", isAbstract: true) {}
     
@@ -207,6 +254,10 @@ tracks {
 
     }
 
+    "/search/category_carousel"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false){
+        carousels(required:true, PropertyType.ArrayList(PropertyType.Map(category_definition)))
+    }
+
     "/search/input/back"(platform: "/mobile") {}
 
     "/search/promoted_items/"(platform: "/web", isAbstract: true) {}
@@ -216,11 +267,15 @@ tracks {
     }
 
     "/search/billboard"(platform: "/", type: TrackType.Event) {
+        item_id(required: false, type: PropertyType.String)
+        is_new_billboard(required: false, type: PropertyType.Boolean)
         position_shown(required: false, type: PropertyType.Numeric)
         move(required: false, values: ["forward","backward"])
     }
 
     "/search/billboard/click"(platform: "/", type: TrackType.Event){
+        item_id(required: false, type: PropertyType.String)
+        is_new_billboard(required: false, type: PropertyType.Boolean)
         position(required: true, description: "the position of the selected billboard in the carousel", type: PropertyType.Numeric)
     }
 
@@ -246,10 +301,17 @@ tracks {
 
     "/search/finite_navigation"(platform: "/mobile/android", type: TrackType.Control, parentPropertiesInherited:false) {
     }
+    "/search/finite_navigation_os_filter"(platform: "/mobile/android", type: TrackType.Control, parentPropertiesInherited:false) {
+    }
 
     "/search/banner"(platform: "/web", isAbstract: true){}
 
     "/search/banner/click"(platform: "/web", type: TrackType.Event){
+    }
+
+    "/search/sparkle"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        query(required: true, description: "the words used to make a search", type: PropertyType.String)
+        sparkle_info(required: true, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
     }
 
 }

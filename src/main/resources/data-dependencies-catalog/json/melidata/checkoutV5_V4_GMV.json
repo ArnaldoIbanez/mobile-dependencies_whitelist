@@ -195,8 +195,7 @@
     {
         "name": "total_amount_with_shipping",
         "type": "DOUBLE"
-      },
-
+      }
 ],
 "sql": {
       "script": "business-assurance/checkoutV5_V4_GMV.sql",

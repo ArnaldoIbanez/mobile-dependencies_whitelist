@@ -47,8 +47,28 @@ trackTests {
     }
   }
 
+  test("seller central listing massive action") {
+    "/seller_central/listings/massive_action"(platform: "/", type: TrackType.Event) {
+      action_id = "MAKE_WITHDRAWAL"
+      view_id = "aging"
+      count = 10
+    }
+  }
+
   test("seller central listing secondary_actions") {
     "/seller_central/listings/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central hunting actions") {
+      "/seller_central/listings/hunting/change_step"(platform: "/", type: TrackType.Event) {
+          view_id = "fulfillment"
+      }
+      "/seller_central/listings/hunting/view_more"(platform: "/", type: TrackType.Event) {
+          view_id = "fulfillment"
+      }
+      "/seller_central/listings/hunting/sell_with_full"(platform: "/", type: TrackType.Event) {
+          view_id = "fulfillment"
+      }
   }
 
   test("seller central listing filters view") {
@@ -67,6 +87,10 @@ trackTests {
     }
     "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
       action = "clear"
+    }
+    "/seller_central/listings/filters/action"(platform: "/", type: TrackType.Event) {
+      action = "apply"
+      checked_filters = ["WITH_FULFILLMENT_WITHOUT_STOCK", "WITH_FULFILLMENT_LOW_STOCK"]
     }
 
     "/seller_central/listings/search"(platform: "/", type: TrackType.Event) {}
@@ -241,13 +265,13 @@ trackTests {
     "/seller_central/bulk/changes/price"(platform: "/", type: TrackType.Event) {
       oldValue = "20"
       newValue = "25"
-      itemId = "MLB341920"
+      item_id = "MLB341920"
     }
   }
 
   test("seller central bulk shipping tooltip") {
     "/seller_central/bulk/shipping/tooltip"(platform: "/", type: TrackType.Event) {
-      itemId = "MLB341920"
+      item_id = "MLB341920"
     }
   }
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -280,6 +304,48 @@ trackTests {
     "/seller_central/bulk/offline/download/warning"(platform: "/", type: TrackType.Event) {}
     "/seller_central/bulk/offline/download/error"(platform: "/", type: TrackType.Event) {}
   }
+
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central Bulk Offline Cbt
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("seller central offline bulk hub") {
+    "/seller_central/bulk/offline/cbt/hub"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central offline bulk download") {
+    "/seller_central/bulk/offline/cbt/download"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central offline bulk upload") {
+    "/seller_central/bulk/offline/cbt/upload"(platform: "/", type: TrackType.View) {}
+  }
+
+
+
+  test("seller central offline bulk download confirm") {
+    "/seller_central/bulk/offline/cbt/download/confirm"(platform: "/", type: TrackType.Event) {
+      categories = ["Mochilas", "Banquetas", "Bicicletas"]
+      filters = ["active", "status"]
+      items = 3
+    }
+  }
+
+  test("seller central offline bulk download congrats") {
+    "/seller_central/bulk/offline/cbt/download/congrats"(platform: "/", type: TrackType.View) {
+    type = "success"
+    }
+  }
+
+  test("seller central offline bulk upload congrats") {
+    "/seller_central/bulk/offline/cbt/upload/congrats"(platform: "/", type: TrackType.View) {
+      type = "failed"
+    }
+  }
+
+
+
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk - DISCOUNTS version
@@ -373,6 +439,20 @@ trackTests {
     "/seller_central/bulk/publish/upload"(platform: "/web", type: TrackType.View) {}
   }
 
+  test("seller central bulk publish show email") {
+    "/seller_central/bulk/publish/upload/show_custom_mail_box"(platform: "/web", type: TrackType.Event) {
+      show_custom_mail_box = true
+    }
+  }
+
+  test("seller central bulk publish send custom email") {
+    "/seller_central/bulk/publish/upload/send_custom_mail_box"(platform: "/web", type: TrackType.Event) {
+      show_custom_mail_box = true
+      custom_mail = false
+      invalid_mail = false
+    }
+  }
+
   test("seller central bulk publish download congrats view") {
     "/seller_central/bulk/publish/download/congrats"(platform: "/web", type: TrackType.View) {}
   }
@@ -390,6 +470,32 @@ trackTests {
       modal = 0
     }
   }
+
+  test("seller central bulk publish show adults modal") {
+    "/seller_central/bulk/publish/categories/adult/modal/show"(platform: "/web", type: TrackType.View) {
+      adult = false
+    }
+  }
+
+  test("seller central bulk publish cancel adults modal") {
+    "/seller_central/bulk/publish/categories/adult/modal"(platform: "/web", type: TrackType.Event) {
+      action = "cancel"
+      adult = false
+    }
+  }
+
+  test("seller central bulk publish confirm adults modal") {
+    "/seller_central/bulk/publish/categories/adult/modal"(platform: "/web", type: TrackType.Event) {
+      action = "confirm"
+      adult = false
+    }
+  }
+
+  test("seller central bulk publish confirm adult task") {
+    "/seller_central/bulk/publish/categories/adult/confirm"(platform: "/web", type: TrackType.Event) {
+      adult = true
+    }
+  }
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central modify
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -404,8 +510,279 @@ trackTests {
       category_domain = "MLA-FRAGRANCES"
       category_path = ["MLA1234", "MLA12345"]
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
+    }
+  }
+
+  test("seller central render detail for motors"){
+    "/seller_central/modify/detail"(platform: "/", type: TrackType.View){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail quick_edit_standard for motors"){
+    "/seller_central/modify/detail/quick_edit_standard/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail quick_edit_standard for motors"){
+    "/seller_central/modify/detail/quick_edit_standard/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail technical_specifications for motors"){
+    "/seller_central/modify/detail/technical_specifications/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail technical_specifications for motors"){
+    "/seller_central/modify/detail/technical_specifications/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail seller_contact for motors"){
+    "/seller_central/modify/detail/seller_contact/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail seller_contact for motors"){
+    "/seller_central/modify/detail/seller_contact/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail reservation_info for motors"){
+    "/seller_central/modify/detail/reservation_info/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail location for motors"){
+    "/seller_central/modify/detail/location/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail location for motors"){
+    "/seller_central/modify/detail/location/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail instant_pay_listings for motors"){
+    "/seller_central/modify/detail/instant_pay_listings/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail instant_pay_listings for motors"){
+    "/seller_central/modify/detail/instant_pay_listings/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail description for motors"){
+    "/seller_central/modify/detail/description/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail description for motors"){
+    "/seller_central/modify/detail/description/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail video for motors"){
+    "/seller_central/modify/detail/video/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail video for motors"){
+    "/seller_central/modify/detail/video/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail change_category for motors"){
+    "/seller_central/modify/detail/change_category/show"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
+    }
+  }
+
+  test("seller central render detail change_category for motors"){
+    "/seller_central/modify/detail/change_category/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLM27420"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      category_domain = "MLM-CARS_AND_VANS"
+      category_path = ["MLM1743", "MLM1744", "MLM5739", "MLM27420"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold"
+      vertical = "motors"
     }
   }
 
@@ -418,6 +795,7 @@ trackTests {
       category_domain = "MLA-FRAGRANCES"
       category_path = ["MLA1234", "MLA12345"]
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
     }
@@ -432,6 +810,7 @@ trackTests {
       category_domain = "MLA-FRAGRANCES"
       category_path = ["MLA1234", "MLA12345"]
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
     }
@@ -446,6 +825,7 @@ trackTests {
       category_domain = "MLA-FRAGRANCES"
       category_path = ["MLA1234", "MLA12345"]
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
     }
@@ -460,6 +840,7 @@ trackTests {
       category_domain = "MLA-FRAGRANCES"
       category_path = ["MLA1234", "MLA12345"]
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
     }
@@ -472,6 +853,7 @@ trackTests {
       item_id = "MLA682118081"
       session_id = "123-update-abc123"
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       from = "1200"
       to = "1500"
       listing_type = "gold_pro"
@@ -486,6 +868,7 @@ trackTests {
       item_id = "MLA682118081"
       session_id = "123-update-abc123"
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       from = "3"
       to = "4"
       listing_type = "gold_pro"
@@ -500,6 +883,7 @@ trackTests {
       item_id = "MLA682118081"
       session_id = "123-update-abc123"
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       from = "NO"
       to = "SI"
       listing_type = "gold_pro"
@@ -514,6 +898,7 @@ trackTests {
       item_id = "MLA682118081"
       session_id = "123-update-abc123"
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       from = "WARRANTY_TYPE 6150835"
       to = "WARRANTY_TYPE 2230280"
       listing_type = "gold_pro"
@@ -528,6 +913,7 @@ trackTests {
       item_id = "MLA682118081"
       session_id = "123-update-abc123"
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       from = "gold_special"
       to = "gold_pro"
       listing_type = "gold_pro"
@@ -542,6 +928,7 @@ trackTests {
       item_id = "MLA682118081"
       session_id = "123-update-abc123"
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       from = "true"
       to = "false"
       listing_type = "gold_pro"
@@ -556,6 +943,7 @@ trackTests {
       item_id = "MLA682118081"
       session_id = "123-update-abc123"
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       from = "new"
       to = "used"
       listing_type = "gold_pro"
@@ -570,6 +958,7 @@ trackTests {
       item_id = "MLA682118081"
       session_id = "123-update-abc123"
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       from = "-1"
       to = "6270"
       listing_type = "gold_pro"
@@ -584,6 +973,7 @@ trackTests {
       item_id = "MLA682118081"
       session_id = "123-update-abc123"
       seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
       from = "-1"
       to = "6270"
       listing_type = "gold_pro"
@@ -625,8 +1015,158 @@ trackTests {
       item_id = "MLA776923789"
       session_id = "416163910-update-79c25d849574"
       seller_profile = "NEWBIE"
+      seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
+    }
+  }
+
+  test("seller central modify catalog boost card show"){
+    "/seller_central/modify/catalog_boost"(platform: "/", type: TrackType.View){
+      item_type = "default"
+      category_id = "MLA12812"
+      item_id = "MLA776923789"
+      session_id = "416163910-update-79c25d849574"
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      item_attributes = [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      catalog_product_attributes= [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      item_title= "celular"
+      catalog_product_title= "iphone X 64 GB NEGRO"
+      catalog_product_id= "MLA123455"
+    }
+  }
+
+  test("seller central modify catalog boost seller click original_item action"){
+    "/seller_central/modify/catalog_boost/original_item"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLA12812"
+      item_id = "MLA776923789"
+      session_id = "416163910-update-79c25d849574"
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      item_attributes = [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      catalog_product_attributes= [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      item_title= "celular"
+      catalog_product_title= "iphone X 64 GB NEGRO"
+      catalog_product_id= "MLA123455"
+    }
+  }
+
+  test("seller central modify catalog boost seller click activate product item"){
+    "/seller_central/modify/catalog_boost/activate"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLA12812"
+      item_id = "MLA776923789"
+      session_id = "416163910-update-79c25d849574"
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      catalog_product_id= "MLA123455"
+      item_attributes = [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      catalog_product_attributes= [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      item_title= "celular"
+      catalog_product_title= "iphone X 64 GB NEGRO"
+      catalog_product_id= "MLA123455"
+    }
+  }
+
+  test("seller central modify catalog boost seller click not_my_product action"){
+    "/seller_central/modify/catalog_boost/not_my_product"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLA12812"
+      item_id = "MLA776923789"
+      session_id = "416163910-update-79c25d849574"
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      catalog_product_id= "MLA123455"
+      item_attributes = [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      catalog_product_attributes= [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      item_title= "celular"
+      catalog_product_title= "iphone X 64 GB NEGRO"
+      catalog_product_id= "MLA123455"
+    }
+  }
+
+  test("seller central modify catalog boost seller click not_my_product action"){
+    "/seller_central/modify/catalog_boost/modal/confirm"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLA12812"
+      item_id = "MLA776923789"
+      session_id = "416163910-update-79c25d849574"
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      catalog_product_id= "MLA123455"
+      seller_reasons= "modelo iphone 11 blanco"
+      item_attributes = [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      catalog_product_attributes= [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      item_title= "celular"
+      catalog_product_title= "iphone X 64 GB NEGRO"
+      catalog_product_id= "MLA123455"
+    }
+  }
+
+  test("seller central modify catalog boost seller click not_my_product action"){
+    "/seller_central/modify/catalog_boost/modal/cancel"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      category_id = "MLA12812"
+      item_id = "MLA776923789"
+      session_id = "416163910-update-79c25d849574"
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      catalog_product_id= "MLA123455"
+      item_attributes = [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      catalog_product_attributes= [
+              [ id:"COLOR", value_id:"3434" ],
+              [ id:"MODEL", value_id:"1234" ]
+      ]
+      item_title= "celular"
+      catalog_product_title= "iphone X 64 GB NEGRO"
+      catalog_product_id= "MLA123455"
     }
   }
 
@@ -818,7 +1358,12 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
   test("seller central sales list view") {
-    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {}
+    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {
+        seller_profile = "ADVANCED"
+        seller_reputation = "5_green"
+        seller_segment = "MEDIUM_SELLERS_III"
+        mercado_lider = false
+    }
   }
 
   test("seller central sales onboarding action") {
@@ -834,6 +1379,18 @@ trackTests {
       id = "close"
       page = 3
     }
+  }
+
+  test("seller central sales onboarding massive invoice emission") {
+      "/seller_central/sales/list/onboarding/massive"(platform: "/") {}
+  }
+
+  test("seller central sales onboarding massive invoice emission modal confirm") {
+      "/seller_central/sales/list/onboarding/massive/confirm"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central sales onboarding massive invoice emission modal close") {
+      "/seller_central/sales/list/onboarding/massive/close"(platform: "/", type: TrackType.Event) {}
   }
 
   test("seller central sales nfe onboarding action") {
@@ -934,6 +1491,43 @@ trackTests {
     }
   }
 
+  test("Seller central sales excel snackbar") {
+    "/seller_central/sales/list/excel/snackbar"(platform: "/web", type: TrackType.Event) {
+      id = "ERROR"
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+    }
+  }
+
+
+  test("Seller Central sale excel generation") {
+    "/seller_central/sales/list/excel/generation"(platform: "/web", type: TrackType.Event) {
+      id = "SUCCESS"
+      time = 200
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+    }
+  }
+
+  test("Seller Central sale excel packs") {
+    "/seller_central/sales/list/excel/packs"(platform: "/web", type: TrackType.Event) {
+      total_sales = 150
+      total_rows = 200
+      total_error_rows = 5
+      total_error_cells = 5
+      total_packs = 2
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+    }
+  }
+
+
   test("seller central sales row open") {
     "/seller_central/sales/list/row/open"(platform: "/web", type: TrackType.Event) {}
   }
@@ -947,6 +1541,11 @@ trackTests {
   test("seller central sales list primary action") {
     "/seller_central/sales/list/action/primary"(platform: "/web", type: TrackType.Event) {
       id = "action_id"
+      filters = ["active", "inactive"]
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
     }
   }
 
@@ -1245,19 +1844,19 @@ trackTests {
     "/seller_central/promotions/actions"(platform: "/web", type: TrackType.Event){
       action = "SAVE_PROMOTION"
       promotion = [
-        site_time_offset: 0,
-        start_date: "2019-09-18T03:00:00.000Z",
-        finish_date: "2019-10-05T02:59:00.000Z",
-        state: "started",
-        is_highlight: false,
-        price: 500,
-        prime_price: 400,
-        list_price: 1000,
-        error_price: null,
-        error_prime: null,
-        input_price: "500",
-        input_prime_price: "400",
-        type: "always_on",
+              site_time_offset: 0,
+              start_date: "2019-09-18T03:00:00.000Z",
+              finish_date: "2019-10-05T02:59:00.000Z",
+              state: "started",
+              is_highlight: false,
+              price: 500,
+              prime_price: 400,
+              list_price: 1000,
+              error_price: null,
+              error_prime: null,
+              input_price: "500",
+              input_prime_price: "400",
+              type: "always_on",
       ]
       promotion_duration = 17
     }
@@ -1418,4 +2017,50 @@ trackTests {
       context = "CREATE"
     }
   }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central Listing
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("seller central listing main page") {
+    "/seller_central/promotions/list"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central listing action") {
+    "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
+      action_id = "MODIFY"
+    }
+  }
+
+  test("seller central listing action") {
+    "/seller_central/promotions/action/confirm"(platform: "/", type: TrackType.Event) {
+      action_id = "MODIFY"
+    }
+  }
+
+  test("seller central listing secondary_actions") {
+    "/seller_central/promotions/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing filters view") {
+    "/seller_central/promotions/filters"(platform: "/mobile", type: TrackType.View) {}
+  }
+
+  test("seller central listing filters view") {
+    "/seller_central/promotions/filters/applied"(platform: "/", type: TrackType.Event) {
+      checkedFilters = ["inactive", "premium"]
+    }
+  }
+
+  test("seller central listing filters actions and search") {
+    "/seller_central/promotions/filters/action"(platform: "/", type: TrackType.Event) {
+      action = "apply"
+    }
+    "/seller_central/promotions/filters/action"(platform: "/", type: TrackType.Event) {
+      action = "clear"
+    }
+
+    "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {}
+  }
 }
+

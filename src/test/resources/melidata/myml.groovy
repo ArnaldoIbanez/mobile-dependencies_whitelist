@@ -269,6 +269,13 @@ trackTests {
         }
         "/myml/invoices/company-info/success"(platform: "/") {}
         "/myml/invoices/company-info/tax-rules-information"(platform: "/") {}
+        "/myml/invoices/company-info/emission-validation"(platform: "/") {}
+        "/myml/invoices/company-info/emission-validation/success"(platform: "/") {
+            emission_validation_status = "SUCCESS"
+        }
+        "/myml/invoices/company-info/emission-validation/error"(platform: "/") {
+            emission_validation_status = "NOT_MAPPED_ERROR"
+        }
     }
 
     test("Order pages") {
@@ -1115,6 +1122,10 @@ trackTests {
         "/myml/myreputation"(platform: "/mobile") {}
     }
 
+    test("Myml settings") {
+        "/myml/settings"(platform: "/mobile", type: TrackType.View) {}
+    }
+
     test("Myml message activity") {
         "/myml/message"(platform: "/mobile") {}
         "/myml/message/questions"(platform: "/mobile", type: TrackType.View) {}
@@ -1191,5 +1202,156 @@ trackTests {
             next_page = 3
             amount = 4
         }
+    }
+
+    test("Myml Massive Page") {
+        "/myml/fiscal_rules/massive"(platform: "/", type: TrackType.View) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/button/download"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/button/upload"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/modal"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+
+        "/myml/fiscal_rules/massive/download/button/start"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/download/action/primary"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+            link = "www.mercadolivre.com.br"
+        }
+
+        "/myml/fiscal_rules/massive/download/action/secondary"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+            link = "www.mercadolivre.com.br"
+        }
+
+        "/myml/fiscal_rules/massive/download/helper"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/upload"(platform: "/", type: TrackType.View) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/upload/status"(platform: "/", type: TrackType.View) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+            status = "warning"
+        }
+
+        "/myml/fiscal_rules/massive/upload/modal"(platform: "/", type: TrackType.View) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/upload/status/helpers"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+            status = "warning"
+        }
+
+        "/myml/fiscal_rules/massive/upload/action/upload"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/upload/action/edit"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/upload/action/rules"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/upload/action/download"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/upload/actions/helper"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+        
+        "/myml/fiscal_rules/massive/upload/button/start"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/upload/button/remove"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/upload/button/uplater"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+        }
+
+        "/myml/fiscal_rules/massive/wizard"(platform: "/", type: TrackType.Event) {
+            callback = "www.mercadolivre.com.br"
+            action = "edit"
+            selected = "MSwyLDMsNA=="
+            show = false
+            times = 3
+        }
+    }
+
+    //TRACKS MYML Search Bookmarks Alerts
+    test("Search Alerts List") {
+        "/myml/search_alerts/list"(platform: "/", type: TrackType.View) {
+            quantity = 2
+        }
+
+        "/myml/search_alerts/list"(platform: "/", type: TrackType.View) {
+            quantity = 0
+        }
+    }
+
+    // TRACKS MYML MyContact Section
+    test("MyContact Main"){
+        "/myml/mycontact/main"(platform: "/", type: TrackType.View){}
     }
 }

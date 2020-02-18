@@ -1,5 +1,3 @@
-package src.test.resources.melidata
-
 import com.ml.melidata.TrackType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
@@ -492,6 +490,18 @@ trackTests {
             app = "normal"
             register_type = "company"
         }
+
+        "/register/form/google_hint/show"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
+
+        "/register/form/google_hint/select"(platform: "/mobile") {
+            app = "mp"
+            step = "phoneRegistration"
+            field = "phone"
+        }
     }
 
     test("Company Registration Desktop") {
@@ -513,6 +523,104 @@ trackTests {
 
         "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
             error_type = "connectionError/invalidOneTimePassword/operatorNotSupported"
+        }
+    }
+
+    test("Phone registration") {
+        "/register/phone_registration/get_phone"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/get_phone/error"(platform: "/mobile") {
+            app = "mp"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'identification_phone'
+                    ]
+            ]
+        }
+
+        "/register/phone_registration/additional_data"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/additional_data/error"(platform: "/mobile") {
+            app = "mp"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'first_name'
+                    ]
+            ]
+        }
+
+        "/register/phone_registration/get_email"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/get_email/error"(platform: "/mobile") {
+            app = "mp"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'email'
+                    ]
+            ]
+        }
+
+        "/register/phone_registration/verification"(platform: "/mobile") {
+            app = "mp"
+            channel = "sms"
+        }
+
+        "/register/phone_registration/verification/error"(platform: "/mobile") {
+            app = "mp"
+            channel = "sms"
+            errors_validation = "back"
+            errors = [
+                    [
+                            code:00,
+                            field: 'verification_code'
+                    ]
+            ]
+        }
+
+        "/register/phone_registration/phone_already_registered"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/send_code"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/resend_code"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/email_link"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/verification/autodetect_code"(platform: "/mobile") {
+            app = "mp"
+            channel = "sms"
+        }
+
+        "/register/phone_registration/sign_in"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/phone_registration/create_account"(platform: "/mobile") {
+            app = "mp"
+        }
+
+        "/register/success"(platform:"/mobile") {
+            app = "mp"
+            source = "phone"
         }
     }
 

@@ -1,6 +1,7 @@
 {
   "path": [
     "/vip",
+    "/vip/quote_demand_intention_lower",
     "/add_to_cart",
     "/traffic/inbound/matt",
     "/buy_intention",
@@ -16,6 +17,7 @@
     "/register/success",
     "/register/failure",
     "/asset_management/error",
-    "/remedy/error"
+    "/remedy/error",
+    "/kyc/error"
   ]
 }

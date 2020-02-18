@@ -27,6 +27,10 @@ trackTests {
                         official_store: null,
                         listing_type_id: "gold_special",
                         score: 0.89,
+                        score_prior: 0.7,
+                        position_prior: 1,
+                        posterior_score: 0.6,
+                        position_posterior: 1,
                         benefit: 0.05,
                         credibility: 1,
                         interest: 0.98,
@@ -47,7 +51,15 @@ trackTests {
                         boosted: true,
                         model_version: "0.0.1",
                         position: 1,
-                        created_date: "2019-10-07T17:51:21Z"
+                        created_date: "2019-10-07T17:51:21Z",
+                        promotion_type: "TODAY_PROMOTION",
+                        lightning_deal_configuration: [
+                          end_date: "2020-01-29T19:00:00-06:00",
+                          initial_stock: 64,
+                          remaining_stock: 2,
+                          start_date: "2020-01-29T11:00:00-06:00"
+                        ],
+                        deal_of_the_day_configuration: null,
                       ], 
                       [
                         id: "MLA611663122",
@@ -65,6 +77,10 @@ trackTests {
                         official_store: null,
                         listing_type_id: "gold_special",
                         score: 0.89,
+                        score_prior: 0.7,
+                        position_prior: 1,
+                        posterior_score: 0.6,
+                        position_posterior: 1,
                         benefit: 0.05,
                         credibility: 1,
                         interest: 0.98,
@@ -81,7 +97,16 @@ trackTests {
                           "cart_eligible"
                         ],
                         warranty: "",
-                        accepts_mercadopago: true
+                        accepts_mercadopago: true,
+                        alpha: 0.7,
+                        beta: 0.5,
+                        gamma: 0.6,
+                        rebate: 1,
+                        one_p: 0,
+                        private_label: 1,
+                        promotion_type: "DEAL_OF_THE_DAY",
+                        lightning_deal_configuration: null,
+                        deal_of_the_day_configuration: null,
                       ]
                     ]
             // algorithms = [scoring: "threshold", selection: "bci_v1", sorting: "max_10pct_l2"]
@@ -91,5 +116,13 @@ trackTests {
         "/promotions"(platform:"/web/desktop", type: TrackType.Event, {
             general()
         })
+    }
+
+    //Promotions Android Landing
+    test("Mobile Landing") {
+        "/promotions/landing"(platform: "/mobile") {
+            url = "https://www.mercadolibre.com.ar/ofertas"
+            is_main_url = true
+        }
     }
 }

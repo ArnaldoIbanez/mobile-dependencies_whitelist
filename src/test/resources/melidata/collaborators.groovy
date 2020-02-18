@@ -25,7 +25,6 @@ trackTests {
     test("Start of creation of a role for the new operator" ) {
         "/collaborators_admin/roles"(platform:"/web", type: TrackType.View) {}
         "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
-            email = 'colaborador@owner.io'
             segmentation = 'first_stage'
         }
         "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View) {}
@@ -35,6 +34,27 @@ trackTests {
         "/collaborators_admin/congrats"(platform:"/web", type: TrackType.View) {
             type = 'success'
             segmentation = 'first_stage'
+        }
+    }
+
+    test("Detail of a created role") {
+        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+            type = 'role'
+            segmentation = 'no-data'
+        }
+    }
+
+    test("Detail of a created operator") {
+        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+            type = 'operator'
+            segmentation = 'no-data'
+        }
+    }
+
+    test("Detail of a created invitation") {
+        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+            type = 'invitation'
+            segmentation = 'no-data'
         }
     }
 
@@ -77,6 +97,31 @@ trackTests {
         "/collaborators/contact_owner"(platform:"/web", type: TrackType.View) {
             type = 'form'
             segmentation = 'no-data'
+        }
+    }
+
+    test("Show scopes") {
+        "/collaborators/scopes"(platform:"/", type: TrackType.View) {}
+    }
+
+    test("Show scope detail") {
+        "/collaborators/scopes/detail"(platform:"/", type: TrackType.View) {
+            scope = 'test_scope'
+        }
+    }
+
+    test("Tap continue") {
+        "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event) {}
+    }
+
+    test("Create o edit role") {
+        "/collaborators/role"(platform:"/", type: TrackType.View) {}
+        "/collaborators/role/name"(platform:"/", type: TrackType.View) {}
+    }
+
+    test("Show congrats in create role") {
+        "/collaborators/role/congrats"(platform:"/", type: TrackType.View) {
+            type = "success"
         }
     }
 
@@ -101,7 +146,6 @@ trackTests {
     test("Start of creation of a role for the new operator" ) {
         "/collaborators_admin/roles"(platform:"/web", type: TrackType.View) {}
         "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
-            email = 'colaborador@owner.io'
             segmentation = 'first_stage'
         }
         "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View) {}
@@ -111,6 +155,27 @@ trackTests {
         "/collaborators_admin/congrats"(platform:"/web", type: TrackType.View) {
             type = 'success'
             segmentation = 'first_stage'
+        }
+    }
+
+        test("Detail of a created role") {
+        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+            type = 'role'
+            segmentation = 'no-data'
+        }
+    }
+
+    test("Detail of a created operator") {
+        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+            type = 'operator'
+            segmentation = 'no-data'
+        }
+    }
+
+    test("Detail of a created invitation") {
+        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+            type = 'invitation'
+            segmentation = 'no-data'
         }
     }
 
@@ -153,6 +218,31 @@ trackTests {
         "/collaborators/contact_owner"(platform:"/web", type: TrackType.View) {
             type = 'form'
             segmentation = 'no-data'
+        }
+    }
+
+    test("Show scopes") {
+        "/collaborators/scopes"(platform:"/", type: TrackType.View) {}
+    }
+
+    test("Show scope detail") {
+        "/collaborators/scopes/detail"(platform:"/", type: TrackType.View) {
+            scope = 'test_scope'
+        }
+    }
+
+    test("Tap continue") {
+        "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event) {}
+    }
+
+    test("Create o edit role") {
+        "/collaborators/role"(platform:"/", type: TrackType.View) {}
+        "/collaborators/role/name"(platform:"/", type: TrackType.View) {}
+    }
+
+    test("Show congrats in create role") {
+        "/collaborators/role/congrats"(platform:"/", type: TrackType.View) {
+            type = "success"
         }
     }
 }

@@ -4,9 +4,10 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
-
 tracks {
 
+    initiative = "1173"
+    
     //Remedies
 
     "/remedies"(platform: "/", isAbstract: true) {}
@@ -14,6 +15,7 @@ tracks {
     "/remedies"(platform: "/mobile", isAbstract: true) {}
 
     "/remedies"(platform: "/web", isAbstract: true) {
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
         initiative(required: false, type: PropertyType.String, description: "Users initiative")
         kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
@@ -163,75 +165,17 @@ tracks {
     }
 
     // Web desktop and web mobile tracks
-    "/remedies/landing"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-    }
-
-    "/remedies/phone_landing"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-    }
-
-    "/remedies/phone_validation"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-    }
 
     "/remedies/documentation_front"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-    }
-
-    "/remedies/documentation_back"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-    }
-
-    "/remedies/documentation_number"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
     }
 
     "/remedies/selfie"(platform: "/web", type: TrackType.View) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
 
-    "/remedies/congrats"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        congrats_type(type: PropertyType.String, required: true, description: "Type of the congrats we show")
-    }
-    "/remedies/continue_phone_landing"(platform: "/web/desktop", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        challenge(type: PropertyType.String, required: true, description: "Current challenge")
-    }
-
-    "/remedies/continue_phone_congrats"(platform: "/web/desktop", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-        challenge(type: PropertyType.String, required: true, description: "Current challenge")
-    }
-
-    "/remedies/detail_landing"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-    }
-
-    "/remedies/threeds"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-    }
-
-    "/remedies/company"(platform: "/web", type: TrackType.View) {
-        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
-    }
-
     "/remedies/center/card"(platform: "/web", type: TrackType.View) {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
     }
-
-    "/remedies/camera"(platform: "/web", isAbstract: true) {}
-
-    "/remedies/camera/open_camera"(platform: "/web", type: TrackType.Event) {
-        devices(type: PropertyType.Numeric, required: true, description: "The number of camera devices the user has")
-    }
-
-    "/remedies/camera/capture_image"(platform: "/web", type: TrackType.Event) {
-        is_landscape(type: PropertyType.Boolean, required: true, description: "Indicates if the picture was taken on landscape mode")
-    }
-
-    "/remedies/camera/pick_from_gallery"(platform: "/web", type: TrackType.Event) {}
-
-    "/remedies/camera/unavailable"(platform: "/web", type: TrackType.Event) {}
 }

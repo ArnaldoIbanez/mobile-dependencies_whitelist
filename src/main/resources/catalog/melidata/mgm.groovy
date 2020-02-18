@@ -6,6 +6,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = '1176'
+
     /**
      * MGM Screen Tracks
      */
@@ -57,4 +59,19 @@ tracks {
         promoter (required:true, type: PropertyType.String, description: "Indicates the id of the inviter/promoter")
     }
     "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
+
+    // MGM Seller Mobile
+    "/mgm_seller" (platform: "/mobile", isAbstract: true) {}
+
+    // Views
+    "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}
+    "/mgm_seller/dashboard" (platform: "/mobile", type: TrackType.View) {}
+    
+    // Events
+    "/mgm_seller/referal/tap" (platform: "/mobile", type: TrackType.Event) {
+        media(required: false, type: PropertyType.String, description: "media to share the content")
+        device(required: false, type: PropertyType.String, description: "Device to share")
+        link(required: false, type: PropertyType.String, description: "link to screen")
+    }
+    "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
 }

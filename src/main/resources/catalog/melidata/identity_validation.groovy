@@ -7,15 +7,13 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1100"
+
     //Identity Validation
 
     "/identity-validation"(platform: "/", isAbstract: true) {}
 
     "/identity-validation/landing"(platform: "/", isAbstract: true) {}
-
-    "/identity-validation/validation_landing"(platform: "/", type: TrackType.Event) {
-        flow(type: PropertyType.String, required: true, description: "The flow to call identity validation. Ej. ms_hard_validation")
-    }
 
     "/identity-validation/start_validation"(platform: "/", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "The flow to call identity validation. Ej. ms_hard_validation")
@@ -42,20 +40,12 @@ tracks {
         _label(type: PropertyType.String, required: false, description: "The activity name")
     }
 
-    "/identity-validation/image_error"(platform: "/", type: TrackType.Event) {
-        source(type: PropertyType.String, required: true, description: "The image source selected by user.", values: ["TAKE_PHOTO","PICK_PHOTO"])
-    }
-
     "/identity-validation/skip_flow"(platform: "/", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "The flow the user skipped. Ej. ms_hard_validation")
         step(type: PropertyType.String, required: true, description: "The challenge the user skipped. Ej. documentation")
     }
 
     "/identity-validation/take_photo"(platform: "/mobile/android", type: TrackType.Event) {
-        _label(type: PropertyType.String, required: true, description: "The activity name")
-    }
-
-    "/identity-validation/pick_photo"(platform: "/mobile/android", type: TrackType.Event) {
         _label(type: PropertyType.String, required: true, description: "The activity name")
     }
 

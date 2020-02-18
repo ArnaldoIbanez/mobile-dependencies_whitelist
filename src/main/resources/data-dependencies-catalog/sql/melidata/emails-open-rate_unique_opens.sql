@@ -10,7 +10,7 @@ WHERE (ds >= '@param01'
         AND ds < '@param02'
         AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) >= '@param01'
         AND substr(get_json_object(tracks.event_data,'$.sent_date') ,1,10) < '@param02'
-        AND get_json_object(tracks.event_data,'$.event_type') = 'send'
+        AND get_json_object(tracks.event_data,'$.event_type') in ( 'send', 'delivered' )
         AND path like '/email%'
         )
 ) AS Sent

@@ -6,6 +6,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1034"
+
     "/email"(platform: "/", isAbstract: true) {
         email_template(required: true)
         event_type(required: true,
@@ -79,7 +81,7 @@ tracks {
 
     "/email/message"(platform: "/email"){}
 
-    "/email/checkout"(platform: "/email", isAbstract: true){
+    "/email/checkout"(platform: "/email", isAbstract: true, initiative: "1104"){
         purchase_id(required: true)
         purchase_status(required:false, type: PropertyType.String, description: "Purchase status based on its payments statuses")
         shipping_type(required:true, type: PropertyType.String, description: "First purchase's shipping option type.")
@@ -114,10 +116,10 @@ tracks {
     "/email/checkout/refunded"(platform: "/email"){}
 
     // mails for: showing unsubscribe view
-    "/email/form-optout"(platform: "/web"){}
+    "/email/form-optout"(platform: "/"){}
 
     // mails for: unsubscribe from emails reception
-    "/email/form-optout/unsubscribe"(platform: "/web", type: TrackType.Event){
+    "/email/form-optout/unsubscribe"(platform: "/", type: TrackType.Event){
         selected_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
     }
 

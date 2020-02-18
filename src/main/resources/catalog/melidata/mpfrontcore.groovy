@@ -6,15 +6,30 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = "1130"
+
     /*************************
     *      ACTIVITY WEB      *
     *************************/
 
+    def sub_item_definition = objectSchemaDefinitions {
+        sub_item_id(type: PropertyType.String)
+    }
+    def item_definition = objectSchemaDefinitions {
+        item_id(type: PropertyType.String)
+        sub_items(type: PropertyType.Map(sub_item_definition), required: false)
+    }
+    def section_definition = objectSchemaDefinitions {
+        section_id(type: PropertyType.String)
+        items(type: PropertyType.Map(item_definition))
+    }
+
+    // MP Home
+    "/mp_home"(platform: "/web", type: TrackType.View) {}
+
     // MP Activities
     "/listing"(platform: "/", isAbstract: true) {}
-
     "/listing/activities"(platform: "/web", type: TrackType.View) {}
-
     "/listing/gateway"(platform: "/web", type: TrackType.View) {}
 
     // MP details
@@ -30,4 +45,65 @@ tracks {
 
     // MP Activities Export
     "/activities/export"(platform: "/web", type: TrackType.View) {}
+
+    // MP Shields
+    "/shield"(platform: "/web", type: TrackType.View) {}
+
+    //MP Panel Layout 
+    "/panel_layout"(platform: "/") {
+        navigationSections(
+            description:"The sections that the user is receiving from the api.",
+            type: PropertyType.ArrayList(PropertyType.Map(section_definition))
+        )
+    }
+
+    "/charts"(platform: "/web", isAbstract: true){}
+    "/charts/show"(platform: "/web", type: TrackType.View){}
+
+    // MP Landings Scope
+    "/landing"(platform: "/", isAbstract: true) {}
+
+    // MP Home
+    "/landing/home"(platform: "/web"){}
+
+    // MP Sellers
+    "/landing/sellers"(platform: "/"){}
+
+    // MP Sellers Websites
+    "/landing/sellers/websites"(platform: "/web"){}
+
+    // MP Sellers Social
+    "/landing/sellers/social"(platform: "/web"){}
+
+    // MP Sellers Merchant Services
+    "/landing/sellers/mss"(platform: "/"){
+        page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
+    }
+
+    "/landing/sellers/mss/click"(platform:"/", type: TrackType.Event) {
+        id (type: PropertyType.String, required: false, description: "ID from clicked element")
+        label (type: PropertyType.String, required: false, description: "Element text")
+        page_name (type: PropertyType.String, required: true, description: "Landing page unique name")
+        fixed_fee (type: PropertyType.String, required: false, description: "Fixed Fee")
+        advance (type: PropertyType.String, required: false, description: "Advance days")
+        advance_fee (type: PropertyType.String, required: false, description: "Advance days fee")
+        advance_value (type: PropertyType.String, required: false, description: "Advance fee final value")
+        installments (type: PropertyType.String, required: false, description: "Total installments")
+        installments_fee (type: PropertyType.String, required: false, description: "Installments fee")
+        installments_value (type: PropertyType.String, required: false, description: "Installments final value")
+        initial_sale_value (type: PropertyType.String, required: false, description: "Initial sale value")
+        final_sale_value (type: PropertyType.String, required: false, description: "Final sale value (with fees)")
+    }
+
+    // MP Buyers
+    "/landing/buyers"(platform: "/web"){}
+
+    // MP Promotions
+    "/landing/promotions"(platform: "/web"){}
+
+    "/landing/formcomercial"(platform: "/", type: TrackType.View) {}
+
+    "/landing/formcomercial/send_email"(platform:"/", type: TrackType.Event) {
+        email (type: PropertyType.String, required: true, description: "Email from user")
+    }
 }

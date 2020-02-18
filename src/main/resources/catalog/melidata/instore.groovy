@@ -5,8 +5,9 @@ import com.ml.melidata.catalog.PropertyType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
-
 tracks {
+
+    initiative = '1139'
 
     def propertyCampaignDetail  = objectSchemaDefinitions {
         source(required: false, type: PropertyType.String, description:  "indicates the component that starts capaign")
@@ -15,6 +16,10 @@ tracks {
 
     def propertyActionDetail  = objectSchemaDefinitions {
         tag(required: false, type: PropertyType.String, description:  "brands to filter")
+    }
+
+    def propertyLocationExtraInfo  = objectSchemaDefinitions {
+        flow(required: true, type: PropertyType.String, description: "payment flow")
     }
 
     /**
@@ -147,6 +152,10 @@ tracks {
     "/instore/error/no_response_received/back"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/no_response_received/abort"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/error/cant_pay_buyer_qr"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/cant_pay_buyer_qr/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/cant_pay_buyer_qr/abort"(platform: "/mobile", type: TrackType.Event) {}
+
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
@@ -160,21 +169,35 @@ tracks {
         type(required: false, PropertyType.String, description: "type of app launching the map")
         tags(required: false, PropertyType.ArrayList(PropertyType.String), description: "an array of strings used to know the type of stores to show on the map")
         display_at_least_one_store(required: false, inheritable: false, PropertyType.Boolean, description: "whether the map is being forced to show the nearest store or not")
+        extra_info(required: false, PropertyType.Map(propertyLocationExtraInfo), description: "extra info about location permission")
     }
     "/ask_device_permission/location/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/ask_device_permission/location/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/ask_device_permission/location/granted"(platform: "/mobile", type: TrackType.Event) {}
     "/ask_device_permission/location/rejected"(platform: "/mobile", type: TrackType.Event) {}
 
     "/ask_device_permission/bluetooth"(platform: "/mobile", type: TrackType.View) {
-        collector_id(required: false, PropertyType.String)
-        brand_name(required: false, PropertyType.String)
-        store_id(required: false, PropertyType.String)
-        pos_id(required: false, PropertyType.String)
-        qr_data(required: false, PropertyType.String)
+        collector_id(required: false, PropertyType.String, description: "collector user unique identifier")
+        brand_name(required: false, PropertyType.String, description: "collector brand name")
+        store_id(required: false, PropertyType.String, description: "collector store unique identifier")
+        pos_id(required: false, PropertyType.String, description: "collector point of sale unique identifier")
+        currency(required: false, PropertyType.String, description: "operation currency")
+        qr_data(required: false, PropertyType.String, description: "data scanned on the payment flow")
     }
     "/ask_device_permission/bluetooth/back"(platform: "/mobile", type: TrackType.Event) {}
     "/ask_device_permission/bluetooth/granted"(platform: "/mobile", type: TrackType.Event) {}
     "/ask_device_permission/bluetooth/rejected"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/ask_device_permission/bluetooth_authorized"(platform: "/mobile", type: TrackType.View) {
+        collector_id(required: false, PropertyType.String, description: "collector user unique identifier")
+        brand_name(required: false, PropertyType.String, description: "collector brand name")
+        store_id(required: false, PropertyType.String, description: "collector store unique identifier")
+        pos_id(required: false, PropertyType.String, description: "collector point of sale unique identifier")
+        currency(required: false, PropertyType.String, description: "operation currency")
+        qr_data(required: true, PropertyType.String, inheritable: false, description: "data scanned on the payment flow")
+    }
+    "/ask_device_permission/bluetooth_authorized/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/ask_device_permission/bluetooth_authorized/settings"(platform: "/mobile", type: TrackType.Event) {}
 
     "/ask_device_permission/camera"(platform: "/mobile", type: TrackType.View) {}
     "/ask_device_permission/camera/back"(platform: "/mobile", type: TrackType.Event) {}
@@ -439,6 +462,100 @@ tracks {
         session_id(required: false, PropertyType.String, description: "this flow is outside instore, does not have session_id")
     }
 
+    //Buyer QR
+
+    "/instore/buyer_qr"(platform: "/mobile", isAbstract: true) {}
+
+    "/instore/buyer_qr/buyer_qr"(platform: "/mobile", type: TrackType.View) {
+        payment_methods_enabled(required: true, PropertyType.Boolean, description: "feature flag for payment methods")
+        payment_method_preselected_id(required: true, PropertyType.String, description: "payment method id (visa, master, account_money, etc)")
+    }
+
+    "/instore/buyer_qr/refresh_code"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/buyer_qr/swipe_up"(platform: "/mobile", type: TrackType.Event) {
+        view_time_in_millis(required: true, PropertyType.Numeric, description: "time that the user kept the view collapsed")
+    }
+
+    "/instore/buyer_qr/swipe_down"(platform: "/mobile", type: TrackType.Event) {
+        view_time_in_millis(required: true, PropertyType.Numeric, description: "time that the user kept the view expanded")
+    }
+
+    "/instore/buyer_qr/payment_method_selected"(platform: "/mobile", type: TrackType.Event) {
+        payment_method_id(required: true, PropertyType.String, description: "payment method id (visa, master, account_money, etc)")
+        payment_method_disabled(required: true, PropertyType.Boolean, description: "feature flag to check if payment method is disabled")
+    }
+
+    //Buyer QR - FTU/Landings
+
+    "/instore/buyer_qr/landing"(platform: "/mobile", isAbstract: true) {}
+
+    "/instore/buyer_qr/landing/brief"(platform: "/mobile", type: TrackType.View) {}
+
+    "/instore/buyer_qr/landing/no_seed"(platform: "/mobile", type: TrackType.View) {}
+
+    "/instore/buyer_qr/landing/codes_expired"(platform: "/mobile", type: TrackType.View) {}
+
+    "/instore/buyer_qr/button_pressed"(platform: "/mobile", type: TrackType.Event) {
+        button_type(required: true, PropertyType.String, description: "'show_codes' | 'understood' | 'retry' | 'add_money' | 'add_card' | 'maybe_later'")
+    }
+
+    "/instore/buyer_qr/landing/funding_mandatory"(platform: "/mobile", type: TrackType.View) {}
+
+    "/instore/buyer_qr/landing/funding_mandatory_ftu"(platform: "/mobile", type: TrackType.View) {}
+
+    "/instore/buyer_qr/landing/account_money_only"(platform: "/mobile", type: TrackType.View) {}
+
+    "/instore/buyer_qr/landing/insufficient_money_change_payment_method"(platform: "/mobile", type: TrackType.View) {
+        collector_id(required: false, PropertyType.Numeric, description: "Collector's identifier")
+        collector_name(required: false, PropertyType.String, description: "Collector's name")
+        item_amount(required: false, PropertyType.String, description: "Item's value in local currency")
+        payment_method_id(required: false, PropertyType.String, description: "Payment method id (visa, masterCard, account_money, etc")
+        payment_method_name(required: false, PropertyType.String, description: "Payment method name")
+        payment_id(required: true, PropertyType.String, description: "Payment's identifier")
+        amount_paid(required: true, PropertyType.String, description: "Paid amount in local currency")
+        currency_id(required: true, PropertyType.String, description: "Currency identifier")
+        payment_date(required: true, PropertyType.Numeric, description: "Date of the payment")
+        status(required: true, PropertyType.String)
+    }
+
+    "/instore/buyer_qr/landing/insufficient_money_add_card"(platform: "/mobile", type: TrackType.View) {
+        collector_id(required: false, PropertyType.Numeric, description: "Collector's identifier")
+        collector_name(required: false, PropertyType.String, description: "Collector's name")
+        item_amount(required: false, PropertyType.String, description: "Item's value in local currency")
+        payment_method_id(required: false, PropertyType.String, description: "Payment method id (visa, masterCard, account_money, etc")
+        payment_method_name(required: false, PropertyType.String, description: "Payment method name")
+        payment_id(required: true, PropertyType.String, description: "Payment's identifier")
+        amount_paid(required: true, PropertyType.String, description: "Paid amount in local currency")
+        currency_id(required: true, PropertyType.String, description: "Currency identifier")
+        payment_date(required: true, PropertyType.Numeric, description: "Date of the payment")
+        status(required: true, PropertyType.String)
+    }
+
+    "/instore/buyer_qr/landing/wrong_time"(platform: "/mobile", type: TrackType.View) {
+        device_time_difference(required: true, PropertyType.Numeric, description: "Time difference between the server and the device in millis")
+        device_time_range_status(required: true, PropertyType.String, values:["below_time_range", "above_time_range"], description:  "if the time difference is below or above the servers")
+    }
+
+    //Buyer QR - Generic Error
+
+    "/instore/buyer_qr/generic_landing"(platform: "/mobile", type: TrackType.View) {}
+
+    //Buyer QR - Congrats
+
+    "/instore/buyer_qr/congrats"(platform: "/mobile", type: TrackType.View) {
+        status(required: true, PropertyType.String, description: "Success of failure", values: ["success", "failure"])
+        amount_paid(required: true, PropertyType.String, description: "Paid amount in local currency")
+        item_amount(required: false, PropertyType.String, description: "Item's value in local currency")
+        payment_method_name(required: false, PropertyType.String, description: "example: Dinero en Mercado Pago")
+        payment_method_id(required: false, PropertyType.String, description: "Payment method id (visa, masterCard, account_money, etc")
+        currency_id(required: true, PropertyType.String, description: "Currency identifier")
+        payment_date(required: true, PropertyType.Numeric, description: "date of the payment")
+        payment_id(required: true, PropertyType.String, description: "payment identifier")
+        collector_id(required:false, PropertyType.Numeric, description: "collector identifier")
+        collector_name(required:false, PropertyType.String, description: "collector name")
+    }
+
     // Scale Features
     // QR Assignment
     
@@ -489,4 +606,12 @@ tracks {
         items_size(required: true, PropertyType.Numeric, description: "the size of items recived form endpoint or cache")
     }
 
+    // Instore shortcut
+    "/instore/create_shortcut"(platform:"/mobile/android", type: TrackType.View) {}
+
+    "/qr_code"(platform: "/mobile", isAbstract: true) {
+        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        from (required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/qr_code/qr_reader"(platform: "/mobile") {}
 }

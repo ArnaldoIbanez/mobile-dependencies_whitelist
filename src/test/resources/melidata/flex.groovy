@@ -227,6 +227,15 @@ trackTests {
             delivery_id = 123456
         }
 
+        //List page success with badge
+        "/flex/package/list"(platform:"/mobile", type: TrackType.View) {
+            delivered_packages = "2-10"
+            defaultPacksInfo()
+            defaultLocation()
+            delivery_id = 123456
+            show_historical_badge = "true"
+        }
+
         //Start trip event on list success
         "/flex/package/start_trip"(platform:"/mobile", type: TrackType.Event) {
             defaultPacksInfo()
@@ -532,5 +541,29 @@ trackTests {
         "/flex/registration/error"(platform:"/mobile", type: TrackType.Event) {
             context = "login"
         }
+
+        //Option receiver event
+        "/flex/package/receiver_options/selection"(platform:"/mobile", type: TrackType.Event) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+            option_type = "receives_another"
+        }
+
+        //Not delivered view
+        "/flex/package/receiver_options"(platform:"/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultPacksInfo()
+            delivery_id = 123456
+        }
+
+        //Historical summary view
+        "/flex/package/record/summary"(platform: "/mobile", type: TrackType.View) {
+        }
+
+        //Historical detail view
+        "/flex/package/record/detail"(platform: "/mobile", type: TrackType.View) {
+        }
+
     }
 }

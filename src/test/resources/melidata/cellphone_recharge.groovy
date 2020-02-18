@@ -119,6 +119,14 @@ trackTests {
             status_detail = "call_for_auth"
         }
 
+        "/cellphone_recharge/contingency"(platform: "/mobile", type: TrackType.View) {
+            company_id = "1"
+        }
+
+        "/cellphone_recharge/understood_contingency"(platform: "/mobile", type: TrackType.Event) {
+            company_id = "1"
+        }
+
         "/cellphone_recharge/confirm"(platform: "/web"){
 
         }
@@ -204,22 +212,29 @@ trackTests {
 
         // Recharge Marketing Landing
         "/cellphone_recharge/mkt_landing"(platform: "/web"){
+            campaign = 'generic'
         }
         "/cellphone_recharge/mkt_landing/sms"(platform: "/web"){
+            campaign = 'generic'
         } 
         "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = 'generic'
             position = "coupon"
         } 
         "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = 'generic'
             position = "steps"
         } 
         "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            campaign = 'generic'
             position = "hero"
         } 
         "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            campaign = 'generic'
             position = "fixed"
         } 
         "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            campaign = 'generic'
             position = "footer"
         } 
     }
@@ -339,10 +354,17 @@ trackTests {
             status_detail = "call_for_auth"
         }
 
+        "/cellphone_recharge/contingency"(platform: "/mobile", type: TrackType.View) {
+            company_id = "1"
+        }
+
+        "/cellphone_recharge/understood_contingency"(platform: "/mobile", type: TrackType.Event) {
+            company_id = "1"
+        }
+
         "/cellphone_recharge/confirm"(platform: "/web"){
 
         }
-
         "/cellphone_recharge/suggested_phones"(platform: "/web", type: TrackType.View) {
             
         }
@@ -426,22 +448,32 @@ trackTests {
 
         // Recharge Marketing Landing
         "/cellphone_recharge/mkt_landing"(platform: "/web"){
+            campaign = "generic"
+        }
+        "/cellphone_recharge/mkt_landing"(platform: "/web"){
+            campaign = "personal"
         }
         "/cellphone_recharge/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
         } 
         "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
             position = "coupon"
         } 
         "/cellphone_recharge/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
             position = "steps"
         } 
         "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
             position = "hero"
         } 
         "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
             position = "fixed"
         } 
         "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
             position = "footer"
         } 
     }

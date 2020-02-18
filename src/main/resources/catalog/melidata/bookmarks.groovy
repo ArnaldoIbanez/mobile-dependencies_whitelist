@@ -11,6 +11,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1171"
+
 
     "/bookmarks"(platform: "/", type: TrackType.Event, isAbstract: true) {
         item_id( required: false ,description: "Item id")

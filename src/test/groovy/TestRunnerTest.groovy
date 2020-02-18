@@ -14,10 +14,6 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
  * Created by apetalas on 21/11/14.
  */
 class TestRunnerTest {
-
-    public static final String PATH_CATALOG = "src/main/resources/catalog/melidata/catalog.groovy"
-    public static final String PATH_TEST = "testCatalog/marketplace.groovy"
-
     def catalog = null
 
     @Before void createCatalogAndTest(){
@@ -35,9 +31,11 @@ class TestRunnerTest {
                     "/mobile/web",
             ]
 
-            defaultBusiness = "ml"
+            defaultBusiness = "mercadolibre"
 
             tracks {
+                initiative = "1148"
+
                 "/search"(platform: "/") {
                     limit(description:"amount of search items returned")
                     offset(type: PropertyType.Numeric, regex:".*")
@@ -68,49 +66,6 @@ class TestRunnerTest {
 
         def result = CatalogValidator.run(this.catalog, tests, new OutTest())
         assertTrue(result)
-    }
-
-    @Test void shouldRunTestRunnerWithPaths(){
-
-        def result = CatalogValidator.run(PATH_CATALOG, PATH_TEST, new OutTest())
-
-        assertTrue(result)
-    }
-
-    @Test void shouldRunThrowNotFoundException(){
-        try {
-            CatalogValidator.run("./unArchivoInexistente", "./otroArchivoInexistente", new OutTest())
-        }
-        catch(Exception x) {
-            assertEquals(x.class, FileNotFoundException)
-        }
-    }
-
-    @Test void shouldGetScriptFromFile(){
-        def script = null
-
-        try{
-            script = CatalogValidator.getScriptFromFile(PATH_CATALOG)
-            assertNotNull(script)
-
-        }catch (NotFileException){
-
-            // El classpath es distinto al correr esta test con idea
-            script = CatalogValidator.getScriptFromFile(PATH_CATALOG)
-            assertNotNull(script)
-        }
-    }
-
-    @Test void shouldRunScriptFromFile(){
-        def script =  null
-        try{
-            script = CatalogValidator.getScriptFromFile(PATH_CATALOG)
-        }catch (FileNotFoundException){
-            script = CatalogValidator.getScriptFromFile(PATH_CATALOG)
-        }
-
-        def result = CatalogValidator.runScript(script)
-        assertEquals(result.class, Catalog)
     }
 
     @Test void shouldCallDefinitionsOutWhenFailAndSuccessSingleTest(){

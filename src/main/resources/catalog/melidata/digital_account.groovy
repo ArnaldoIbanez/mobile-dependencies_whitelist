@@ -7,6 +7,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = "1048"
+
     /**
      * Onboarding Screen Tracks
      */
@@ -33,24 +35,6 @@ tracks {
     "/anses/onboarding/terms_and_conditions"(platform: "/", type: TrackType.Event) {
         terms_and_conditions_row(required: false, description: "When the row is shown")
         terms_and_conditions_checkbox(required: false, description: "When the checkbox is clicked")
-    }
-
-    /**
-     * Digital Wallet Screen Tracks
-     */
-
-    "/digital_wallet"(platform: "/", type: TrackType.View) {}
-
-    /**
-     * Digital Wallet Events Tracks
-     */
-
-    "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
-        section(required: true, description: "Section from which the event comes", type: PropertyType.String)
-    }
-
-    "/digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
-        section_store(required: true, description: "Section from which the event comes and Store (Google Play or App Store)", type: PropertyType.String)
     }
     
 }

@@ -6,6 +6,9 @@ import com.ml.melidata.TrackType
 
 
 tracks {
+
+    initiative = "1075"
+
     propertyDefinitions {
         seller_id(required: true, type:PropertyType.Numeric, inheritable: false)
         category_id(required: false, type:PropertyType.String, description: "Item category id")
@@ -28,6 +31,7 @@ tracks {
     "/quotation/unregistered"(platform: "/", isAbstract: true) {}
     "/quotation/unregistered_form"(platform: "/", isAbstract: true) {}
     "/quotation/modal"(platform: "/", isAbstract: true) {}
+    "/quotation/models"(platform: "/", isAbstract: true) {}
 
     //Quotation :: Details
     "/quotation/details"(platform: "/") {
@@ -60,13 +64,17 @@ tracks {
     "/quotation/gallery"(platform: "/mobile") { }
 
     // Quotation :: Models
-    "/quotation/models"(platform: "/mobile") {
+    "/quotation/models"(platform: "/") {
         item_id(required: true, type:PropertyType.String, description: "Item id")
         model_id(required: false, type:PropertyType.String, description: "Model id")
     }
 
+    "/quotation/models/scroll"(platform: "/web") {
+        item_id(required: true, type:PropertyType.String, description: "Item id")
+    }
+
     //Quotation :: Units
-    "/quotation/units"(platform: "/mobile") {
+    "/quotation/units"(platform: "/") {
         item_id(required: true, type:PropertyType.String, description: "Item id")
         unit_id(required: false, type:PropertyType.String, description: "Unit id")
     }

@@ -6,6 +6,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1196"
+
     "/fbm"(platform: "/", isAbstract: true) {}
     "/full"(platform: "/", isAbstract: true) {}
     "/full/landing"(platform: "/", isAbstract: true) {}
@@ -32,7 +34,7 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Which FAQ has been opened.",
-            values: ["opt_in", "dc_location", "send_my_inventory", "send_inventory_from_supplier", "fees", "manage_inventory"]
+            values: ["opt_in", "dc_location", "send_my_inventory", "send_inventory_from_supplier", "fees", "manage_inventory", "send_any_product"]
         )
     }
 

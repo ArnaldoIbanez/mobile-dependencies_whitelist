@@ -7,14 +7,11 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1065"
+
     //Loyalty
 
-    "/loyalty"(platform: "/", isAbstract: true) {
-        level(type: PropertyType.Numeric, required: false)
-        points(type: PropertyType.Numeric, required: false)
-        percentage(type: PropertyType.Numeric, required: false)
-        origin(required: false, values: ["mail", "push", "vip", "marketplace", "loyalty_frontend", "new_vip", "landing", "aerolineas"], description: "Where was the path flow initiated from.")
-    }
+    // Base path /loyalty and loyalty v2 tracks moved to loyalty_v2.groovy
 
     "/loyalty/score"(type: TrackType.View) {}
 
@@ -162,6 +159,7 @@ tracks {
         type(required: true, description: "Indicates the kind of modal whose action was triggered", values: ["benefit", "milestone"])
         benefit_id(required: false, description: "Indicates the id of the benefit that corresponds to the modal")
         milestone_id(required: false, description: "Indicates the id of the milestone that corresponds to the modal")
+        link(required: false, description: "Indicates the url that the milestone is opening")
     }
     
     // VIP Modal
@@ -343,16 +341,4 @@ tracks {
     "/loyalty/main/partners_landing"(platform: "/", type: TrackType.Event) {
         original_place(required: true, values: ["keep","move"], description: "From where the partners landing was accesed", type: PropertyType.String)
     }
-
-    // Loyalty v2 pageviews
-    "/loyalty/hub"(platform: "/", type: TrackType.View) {}
-    "/loyalty/hub/skeleton"(platform: "/", type: TrackType.View) {}
-    "/loyalty/status"(platform: "/", type: TrackType.View) {}
-    "/loyalty/status/skeleton"(platform: "/", type: TrackType.View) {}
-    "/loyalty/milestones_v2"(platform: "/", type: TrackType.View) {}
-    "/loyalty/milestone_v2"(platform: "/", type: TrackType.View) {
-        milestone_id(required: true, description: "id of the milestone", type: PropertyType.String)
-    }
-
-
 }

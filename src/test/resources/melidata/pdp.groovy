@@ -29,24 +29,24 @@ trackTests {
                         [
                                 catalog_product_id: "MLA123",
                                 selected          : true,
-                                disabled          : false
+                                picker_type       : "normal"
                         ],
                         [
                                 catalog_product_id: "MLA125",
                                 selected          : false,
-                                disabled          : false
+                                picker_type       : "normal"
                         ]
                 ],
                 "MEMORY": [
                         [
                                 catalog_product_id: "MLA123",
                                 selected          : true,
-                                disabled          : false
+                                picker_type       : "normal"
                         ],
                         [
                                 catalog_product_id: "MLA125",
                                 selected          : false,
-                                disabled          : false
+                                picker_type       : "normal"
                         ]
                 ]
         ]
@@ -130,6 +130,7 @@ trackTests {
 
         "/pdp/picker_selection"(platform: "/", {
             catalog_product_id = "MLA1234"
+            visible = true
         })
 
         "/pdp/other_buying_options"(platform: "/", {
@@ -140,6 +141,7 @@ trackTests {
             listing_type_id = "gold_special"
             product_status = "paused"
             domain_id = "celulares"
+            context = "alternatives"
         })
 
         "/pdp/share"(platform: "/", {
@@ -228,6 +230,7 @@ trackTests {
             installment_info = "6f"
             loyalty_level = 2
             previous_catalog_product_id = "MLA43720"
+            collapsed_pickers = true
 
             filters = ["installments": "no_interest", "price":"1000-2000"]
 
@@ -303,21 +306,20 @@ trackTests {
         "/pdp/picker_selection"(platform: "/", {
             catalog_product_id = "MLA1234"
             picker_id = "MLA14545"
-            picker_disabled = false
+            picker_type = "normal"
+            visible = false
+        })
+
+        "/pdp/picker_collapse"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            picker_id = "MLA14545"
+            collapse = true
         })
 
         "/pdp/other_buying_options"(platform: "/", {
             catalog_product_id = "MLA1234"
-            item_id = "MLA112341"
-            seller_id = 2345678
-            item_condition = "used"
-            listing_type_id = "gold_special"
-            product_status = "paused"
             domain_id = "celulares"
-
-            seller_name = "fulano"
-            official_store_id = 1234
-            filter = "new"
+            context = "main_actions_no_winner"
         })
 
         "/pdp/share"(platform: "/", {
@@ -353,6 +355,7 @@ trackTests {
             domain_id = "MLA-CELLPHONES"
             review_rate = 1
             loyalty_level = 3
+            collapsed_pickers = true
 
             pickers = pickers_data()
             items = items_data()
@@ -379,6 +382,16 @@ trackTests {
 
         "/pdp/catalog_tag_click"(platform: "/", {
             catalog_product_id = "MLA1234"
+        })
+
+        "/pdp/public_similar_intention"(platform: "/web/desktop", {
+            catalog_product_id = "MLA1234"
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            item_id = "MLA99221"
+            vertical = "core"
+            domain_id = "MLA-CELLPHONES"
+            item_condition = "new"
         })
     }
 
@@ -452,6 +465,13 @@ trackTests {
             item_id = "MLA112341"
             seller_id = 2345678
         })
+
+        "/pdp/questions/quick_access"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+            domain_id = "celulares"
+            type = "payment"
+        })
     }
 
     //Sellers page FLOW
@@ -465,7 +485,8 @@ trackTests {
         "/pdp/sellers/picker_selection"(platform: "/", {
             catalog_product_id = "MLA1234"
             picker_id = "COLOR"
-            picker_disabled = false
+            picker_type = "normal"
+            visible = false
         })
 
         "/pdp/sellers/page_selection"(platform: "/", {
@@ -474,6 +495,30 @@ trackTests {
             selected_page = 5
             total_pages = 10
             total_items = 100
+        })
+
+        "/pdp/sellers/buy_action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA123"
+            reputation_level = "1_red"
+            seller_id = 123
+            seller_name = "name"
+            price = 123
+            original_price = 12
+            currency_id = "ARS"
+            pdp_type = "RED"
+        })
+
+        "/pdp/sellers/add_to_cart_action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA123"
+            reputation_level = "1_red"
+            seller_id = 123
+            seller_name = "name"
+            price = 123
+            original_price = 12
+            currency_id = "ARS"
+            pdp_type = "RED"
         })
     }
 }

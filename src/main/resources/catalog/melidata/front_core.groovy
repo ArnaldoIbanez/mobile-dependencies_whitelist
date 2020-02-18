@@ -10,6 +10,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = '1074'
+
     def balance_definition = objectSchemaDefinitions {
         pending_balance(required: true, type: PropertyType.Boolean, description: "Unavailable balance")
         balance_histogram(required: true, type: PropertyType.Numeric, description: "Balance segmentation")
@@ -25,13 +27,14 @@ tracks {
     def credits_definition = objectSchemaDefinitions {}
 
     def banking_definition = objectSchemaDefinitions {
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
         collapsed(required: true, type: PropertyType.Boolean, description: "If banking is collapsed")
         balance(required: false, type: PropertyType.Map(balance_definition), description: "The balance section information")
         cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
         assets(required: false, type: PropertyType.Map(assets_definition), description: "The assets section information")
         credits(required: false, type: PropertyType.Map(credits_definition), description: "The credits section information")
+        money_in(required: false, type: PropertyType.Map(balance_definition), description: "The balance money in section information")
     }
 
     def item_value_definition = objectSchemaDefinitions {
@@ -48,20 +51,20 @@ tracks {
     }
 
     def main_actions_definition = objectSchemaDefinitions {
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of main actions")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(main_action_definition)), description: "The main action items information")
     }
 
     def realestate_definition = objectSchemaDefinitions {
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
         realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate information")
     }
 
     def secondary_actions_definition = objectSchemaDefinitions {
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
         realestates_payers(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate payers information")
         realestates_sellers(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate sellers information")
@@ -80,7 +83,7 @@ tracks {
     }
 
     def activities_definition = objectSchemaDefinitions {
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
         quantity(type: PropertyType.Numeric, required: true, description: "Quantity of activities")
         is_ftu(type: PropertyType.Boolean, required: true, description: "Whether it is an ftu or not")
@@ -89,11 +92,16 @@ tracks {
 
     def activities_link_definition = objectSchemaDefinitions {
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
+    }
+
+    def survey_definition = objectSchemaDefinitions {
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'])
     }
 
     def qr_map_definition = objectSchemaDefinitions {
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
         header_title(type: PropertyType.String, required: true, description: "The container header title")
         items(required: true, PropertyType.ArrayList(PropertyType.String), description: "the items recived form endpoint or cache")
@@ -106,8 +114,28 @@ tracks {
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(discount_center_item_definition)), description: "The discount center items information")
     }
 
+    def paragraph_definition = objectSchemaDefinitions {
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+    }
+
     def discount_center_item_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the item we are showing")
+        blocked(type: PropertyType.Boolean, required: false, description: "If the discount is blocked or not")
+        name(type: PropertyType.String, required: false, description: "The name of the discount")
+        category(type: PropertyType.String, required: false, description: "The category of the discount")
+        mcc(type: PropertyType.Numeric, required: false, description: "The mcc of the category of the discount")
+        position(type: PropertyType.Numeric, required: false, description: "The position of the discount in the list")
+        availability(type: PropertyType.String, required: false, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status of the discount")
+        level(type: PropertyType.Numeric, required: false, description: "The minimum loyalty level required for the discount")
+        distance(type: PropertyType.Numeric, required: false, description: "The distance to the closest store")
+        store_id(type: PropertyType.Numeric, required: false, description: "The store id of the closest store")
+        amount_type(type: PropertyType.String, required: true, values: ['fixed', 'percent'], description: "The amount type")
+        amount(type: PropertyType.Numeric, required: false, description: "The discount amount in fixed values")
+        priority(type: PropertyType.Numeric, required: false, description: "The discount brand priority")
+        collector_id(type: PropertyType.Numeric, required: false, description: "The collector_id of the campaign")
+        has_logo(type: PropertyType.Boolean, required: true, description: "If the discount has a logo or not")
+        coupon_used(type: PropertyType.Boolean, required: true, description: "If the coupon is used")
     }
     
     def loyalty_header_definition = objectSchemaDefinitions {
@@ -126,12 +154,11 @@ tracks {
     }
 
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}
-    "/home_wallet/drawer" (platform: "/mobile", isAbstract: true) {}
     "/wallet/home/secondary_actions" (platform: "/mobile", isAbstract: true) {}
 
     // Views
     "/wallet/home" (platform: "/mobile", type: TrackType.View) {}
-    "/home_wallet" (platform: "/mobile", type: TrackType.View) {}
+
 
     // Events
     "/wallet/home/pull" (platform: "/mobile", type: TrackType.Event) {}
@@ -146,9 +173,6 @@ tracks {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
 
-    "/home_wallet/drawer/tap" (platform: "/mobile", type: TrackType.Event) {
-        link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
-    }
 
     //Sections
     // TODO: This track will be removed
@@ -270,6 +294,7 @@ tracks {
         cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
         assets(required: false, type: PropertyType.Map(assets_definition), description: "The assets section information")
         credits(required: false, type: PropertyType.Map(credits_definition), description: "The credits section information")
+        money_in(required: false, type: PropertyType.Map(balance_definition), description: "The balance money in section information")
     }
 
     "/wallet_home/banking/expand" (platform: "/mobile", type: TrackType.Event) {
@@ -277,11 +302,13 @@ tracks {
         cards(required: false, type: PropertyType.Map(cards_definition), description: "The cards section information")
         assets(required: false, type: PropertyType.Map(assets_definition), description: "The assets section information")
         credits(required: false, type: PropertyType.Map(credits_definition), description: "The credits section information")
+        money_in(required: false, type: PropertyType.Map(balance_definition), description: "The balance money in section information")
     }
 
     "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
-        header(required: true, type: PropertyType.Map(header_definition), description: "The header information")
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
+        from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
         prepaid_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The banner section information")
@@ -293,11 +320,14 @@ tracks {
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
+        survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
+        paragraph(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
     }
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
-        header(required: true, type: PropertyType.Map(header_definition), description: "The header information")
-        content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
+        header(required: false, type: PropertyType.Map(header_definition), description: "The header information")
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'])
+        from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
         prepaid_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The banner section information")
@@ -309,6 +339,8 @@ tracks {
         qr_map(required: false, type: PropertyType.Map(qr_map_definition), description: "The qr_map section information")
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
+        survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
+        paragraph(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
     }
 
     //Notification Center
@@ -343,4 +375,50 @@ tracks {
     "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty header information")
     }
+
+    /**********************************/
+    //    NEW TRACKS HOME TAP v3      //
+    /**********************************/
+
+    "/wallet_home/section" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/section/tap" (platform: "/mobile", isAbstract: true) {
+        link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
+        section_id(required: true, type: PropertyType.String, description: "Section where the deeplink was launched")
+        component_id(required: false, type: PropertyType.String, description: "Specific component id where the user tapped")
+    }
+
+    "/wallet_home/section/tap/banking" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/main_actions" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/activities" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/activities_link" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/qr_map" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/discount_center" (platform: "/mobile", type: TrackType.Event){}
+
+    "/wallet_home/section/tap/loyalty" (platform: "/mobile", type: TrackType.Event) {
+        level(type: PropertyType.Numeric, required: true, description: "The user's loyalty level")
+        percentage(type: PropertyType.Numeric, required: true, description: "The user's loyalty level percentage")
+    }
+
+    "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {}
+
+    /************************************/
+    //  TRACKS CROSS SELL EXPERIMENTS   //
+    /************************************/
+
+    "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
+
 }

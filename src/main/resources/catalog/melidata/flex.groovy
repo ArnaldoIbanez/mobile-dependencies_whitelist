@@ -7,6 +7,8 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    initiative = "1091"
+
     propertyDefinitions {
         packs_info(required: true, type: PropertyType.ArrayList, description: "Array of packages to deliver", inheritable:false)
         latitude(required:false, type: PropertyType.String, description:"The latitude of driver at that point", inheritable:false)
@@ -108,6 +110,7 @@ tracks {
         delivery_status(required: false, type: PropertyType.String,  values: ["ready_to_end"],
             description: "This field declares the status of the delivery, depending on each pack status", inheritable:false)
         delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+        show_historical_badge(required: false, type: PropertyType.String, values: ["true"], description:"This field indicates if we are showing the badge or not")
     }
 
     "/flex/package/start_trip"(platform: "/mobile", type: TrackType.Event) {
@@ -372,4 +375,19 @@ tracks {
         context(required: true, type: PropertyType.String,  values: ["login"],
                 description: "Indicates whether the event was triggered because login failed")
     }
+
+    "/flex/package/receiver_options/selection"(platform: "/mobile", type: TrackType.Event) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+        option_type(required: true, type: PropertyType.String, values: ["receives_buyer", "receives_another"], description: "The option of who receives the package", inheritable:false)
+    }
+
+    "/flex/package/receiver_options"(platform: "/mobile", type: TrackType.View) {
+        packsAndLocation
+        delivery_id(required: true, type: PropertyType.Numeric, description: "The delivery id for session created", inheritable:false)
+    }
+
+    "/flex/package/record/summary"(platform: "/mobile", type: TrackType.View) {}
+
+    "/flex/package/record/detail"(platform: "/mobile", type: TrackType.View) {}
 }

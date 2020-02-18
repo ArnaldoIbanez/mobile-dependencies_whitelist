@@ -45,6 +45,7 @@ from (
 		    	when '/pos_seller/start'  then 'point'
 		      	when '/instore/scan_qr' then 'qr'
 		      	when '/cellphone_recharge/recents'  then 'cellphone_recharge'
+		      	when '/cellphone_recharge/set_telephone_number' then 'cellphone_recharge'
 		      	when '/bill_payments/scan' then 'services'
 		      	when '/recharge_sube/select_recharge_card' then 'transport'
 		      	when '/mplayer/send_money/contact_picker' then 'money_transfer'
@@ -54,7 +55,8 @@ from (
 		where ds >= '@param01' and ds < '@param02'
 			and device.platform like '/mobile/%'
 			and application.business  in ('mercadolibre','mercadopago')
-			and path in ('/pos_seller/start','/instore/scan_qr','/cellphone_recharge/recents','/bill_payments/scan','/recharge_sube/select_recharge_card','/mplayer/send_money/contact_picker')
+			and ((path ='/pos_seller/start' and jest(event_data,'payment_channel') = 'point') or 
+			path in ('/instore/scan_qr','/cellphone_recharge/recents','/cellphone_recharge/set_telephone_number','/bill_payments/scan','/recharge_sube/select_recharge_card','/mplayer/send_money/contact_picker'))
 		) t_init
 		left join (
 				select 
@@ -134,6 +136,7 @@ left join (
 		    	when '/pos_seller/start'  then 'point'
 		      	when '/instore/scan_qr' then 'qr'
 		      	when '/cellphone_recharge/recents'  then 'cellphone_recharge'
+		      	when '/cellphone_recharge/set_telephone_number' then 'cellphone_recharge'
 		      	when '/bill_payments/scan' then 'services'
 		      	when '/recharge_sube/select_recharge_card' then 'transport'
 		      	when '/mplayer/send_money/contact_picker' then 'money_transfer'
@@ -142,6 +145,7 @@ left join (
 	      		when '/pos_seller/start' then jest(event_data,'flow_id')
 	      		when '/instore/scan_qr' then jest(event_data,'session_id')
 	      		when '/cellphone_recharge/recents'  then jest(event_data,'session_id')
+	      		when '/cellphone_recharge/set_telephone_number'  then jest(event_data,'session_id')
 		      	when '/bill_payments/scan' then jest(event_data,'session_id')
 		      	when '/recharge_sube/select_recharge_card' then jest(event_data,'session_id')
 		      	when '/mplayer/send_money/contact_picker' then jest(event_data,'session_id')
@@ -150,7 +154,8 @@ left join (
 		where ds >= '@param01' and ds < '@param02'
 			and device.platform like '/mobile/%'
 			and application.business  in ('mercadolibre','mercadopago')
-			and path in ('/pos_seller/start','/instore/scan_qr','/cellphone_recharge/recents','/bill_payments/scan','/recharge_sube/select_recharge_card','/mplayer/send_money/contact_picker')
+			and ((path ='/pos_seller/start' and jest(event_data,'payment_channel') = 'point') or 
+			path in ('/instore/scan_qr','/cellphone_recharge/recents','/cellphone_recharge/set_telephone_number','/bill_payments/scan','/recharge_sube/select_recharge_card','/mplayer/send_money/contact_picker'))
 		) t_init
 
 		left join (
