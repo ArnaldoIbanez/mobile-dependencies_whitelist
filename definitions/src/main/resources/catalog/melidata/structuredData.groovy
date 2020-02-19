@@ -26,9 +26,9 @@ tracks {
         attributes_submitted(required: false, description:"Number of attributes submitted", type: PropertyType.Numeric)
 
         // Catalog search properties
-        query_filter(required: true, description: "Search query input by the user", type: PropertyType.String)
-        domain_filter(required: true, description: "Domain filter input by the user", type: PropertyType.String)
-        limit_filter(required: true, description: "Query limit filter selected by the user", type: PropertyType.Numeric)
+        site_filter(required: false, description: "Site filter selected by the user", type: PropertyType.String)
+        query_filter(required: false, description: "Search query input by the user", type: PropertyType.String)
+        domain_filter(required: false, description: "Domain filter input by the user", type: PropertyType.String)
         product_id(required: true, description: "Product ID", type: PropertyType.String)
         product_source(required: true, description: "Product external source", type: PropertyType.String)
         product_external_id(required: true, description: "Product external ID or Marketplace attribute primary key", type: PropertyType.String)
@@ -44,7 +44,7 @@ tracks {
         catalogWidgetCompletenessGroup(completeness_level, attributes_submitted, items_left, missing_attributes, inferred_attributes)
 
         // Catalog search property groups
-        catalogSearchQuery(query_filter, domain_filter, limit_filter)
+        catalogSearchQuery(site_filter, query_filter, domain_filter)
         catalogSearchWrongDomainPrediction(product_id, product_source, product_external_id, external_domain, predicted_domain, selected_domain)
         catalogSearchWrongExternalDomain(product_id, product_source, product_external_id, external_domain)
         catalogSearchWrongExternalAttribute(product_id, product_source, product_external_id, external_domain, external_attribute_key, external_attribute_value)
