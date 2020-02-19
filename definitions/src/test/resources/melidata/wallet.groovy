@@ -26,6 +26,28 @@ trackTests {
         "/wallet/cards/add_card_header"(platform: "/mobile", {})
     }
 
+    test("New Digital Wallet - Ukraine Lab") {
+        /**
+         * Digital Wallet Tracks
+         */
+
+        "/new_digital_wallet"(platform: "/", type: TrackType.View) {
+            landing_id = 'ukraine lab'
+        }
+        "/new_digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
+            landing_id = 'ukraine lab'
+            section_store = "hero_googleplay"
+        }
+        "/new_digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
+            landing_id = 'ukraine lab'
+            section_store = "fixed_appstore"
+        }
+        "/new_digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
+            landing_id = 'ukraine lab'
+            section_store = "footer_appstore"
+        }
+    }
+
     defaultBusiness = "mercadopago"
 
     //Card Listing Flow
