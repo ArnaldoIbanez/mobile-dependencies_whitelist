@@ -26,7 +26,10 @@ tracks {
         tooltip(required: false, type: PropertyType.String, description: "Tooltip description")
     }
 
-    "/discount_sellers/form/redirect" (platform: "/mobile", type: TrackType.Event) {}
+    "/discount_sellers/form/redirect" (platform: "/mobile", type: TrackType.Event) {
+        melicampaign_id(required: false, type: PropertyType.String, description: "Melicampaign identifier")
+	redirection_to(required: false, type: PropertyType.String, description: "profile_check, landing, disabled_feature, etc")
+    }
 
     "/discount_sellers/form/section" (platform: "/mobile", isAbstract: true) {}
 
