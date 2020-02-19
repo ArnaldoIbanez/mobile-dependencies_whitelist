@@ -101,7 +101,7 @@ tracks {
     "/seller_reputation/ratings/back"(platform: "/mobile") {}
 
 
-    "/webkit" (platform: "/mobile", isAbstract: true){}
+    "/webkit" (platform: "/mobile", isAbstract: true, initiative: "1096"){}
     "/webkit/deeplink_open"(platform: "/mobile", isAbstract: true) {}
 
     "/webkit/deeplink_open/error"(platform: "/mobile", type:TrackType.Event) {
@@ -150,7 +150,7 @@ tracks {
 
 
     // Merchant Acquisition
-    "/merchant_acquisition"(platform: "/", isAbstract: true) {}
+    "/merchant_acquisition"(platform: "/", isAbstract: true, initiative: "1175" ) {}
     "/merchant_acquisition/qr"(platform: "/", isAbstract: true) {}
     "/merchant_acquisition/qr/landing"(platform:"/", isAbstract: true) {}
     "/merchant_acquisition/qr/landing/buyers"(platform:"/", type: TrackType.View) {}

@@ -4,31 +4,31 @@ import com.ml.melidata.TrackType
 
 
 /**
-*
-* The events means actions that happens without launch a View,
-* as example of that we can consider Bookmark an item in a VIP page
-* Every event is an action, so the verbs available are:
-*
-* - back:  the event of back from a page, specially in mobile
-* - abort: the user abort the action (e.g: back pressed before api response)
-* - delete: when something is deleted
-* - apply: when a criteria is applied
-* - post: create a new entity
-*/
+ *
+ * The events means actions that happens without launch a View,
+ * as example of that we can consider Bookmark an item in a VIP page
+ * Every event is an action, so the verbs available are:
+ *
+ * - back:  the event of back from a page, specially in mobile
+ * - abort: the user abort the action (e.g: back pressed before api response)
+ * - delete: when something is deleted
+ * - apply: when a criteria is applied
+ * - post: create a new entity
+ */
 /**/
 tracks {
 
     propertyDefinitions {
-      flow_id (type: PropertyType.String, required: true, description: "Flow ID")
-      product (type: PropertyType.String, required: true, description: "Product identifier")
-      currency (type: PropertyType.String, required: true, description: "ISO Currency")
-      price (type: PropertyType.Numeric, required: true, description: "Price of device")
-      is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
-      user_id (type: PropertyType.Numeric, required: true, description: "User ID")
+        flow_id (type: PropertyType.String, required: true, description: "Flow ID")
+        product (type: PropertyType.String, required: true, description: "Product identifier")
+        currency (type: PropertyType.String, required: true, description: "ISO Currency")
+        price (type: PropertyType.Numeric, required: true, description: "Price of device")
+        is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
+        user_id (type: PropertyType.Numeric, required: true, description: "User ID")
     }
 
     propertyGroups {
-      groupCheckoutProperties(flow_id, product, currency, price, is_guest, user_id)
+        groupCheckoutProperties(flow_id, product, currency, price, is_guest, user_id)
     }
 
     "/"(platform: "/", isAbstract: true) {
@@ -50,68 +50,68 @@ tracks {
     "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1046") {}
 
     "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
-      groupCheckoutProperties
-      has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
-      coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
+        groupCheckoutProperties
+        has_coupon (type: PropertyType.Boolean, required: false, description: "Flag to detect if a sell has coupon")
+        coupon_code (type: PropertyType.String, required: false, description: "MGM CuponCode")
     }
 
-    "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) { 
-      groupCheckoutProperties
+    "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
     }
 
     "/point/buyingflow/new_address"(platform: "/", type: TrackType.View) {
-      groupCheckoutProperties
+        groupCheckoutProperties
     }
 
     "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
-      groupCheckoutProperties
+        groupCheckoutProperties
     }
 
     "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
-      groupCheckoutProperties
+        groupCheckoutProperties
     }
-    
+
     "/point/buyingflow/payment_installments"(platform: "/", type: TrackType.View) {
-      groupCheckoutProperties
+        groupCheckoutProperties
     }
 
     "/point/buyingflow/payment_installments/installments"(platform: "/", type: TrackType.Event) {
-      groupCheckoutProperties
+        groupCheckoutProperties
     }
 
     "/point/buyingflow/payment_bank_selector"(platform: "/", type: TrackType.View) {
-      groupCheckoutProperties
+        groupCheckoutProperties
     }
 
     "/point/buyingflow/payment_new_card"(platform: "/", type: TrackType.View) {
-      groupCheckoutProperties
+        groupCheckoutProperties
     }
 
     "/point/buyingflow/payment_card_security_code"(platform: "/", type: TrackType.View) {
-      groupCheckoutProperties
+        groupCheckoutProperties
     }
 
     "/point/buyingflow/payment_review"(platform: "/", type: TrackType.View) {
-      groupCheckoutProperties
-      selected_payment_method_id (type: PropertyType.String, required: false, description: "Selected payment method ID")
-      selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
-      installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
+        groupCheckoutProperties
+        selected_payment_method_id (type: PropertyType.String, required: false, description: "Selected payment method ID")
+        selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
+        installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
     }
 
     "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
-      groupCheckoutProperties
-      error_code (type: PropertyType.Numeric, required: true, description: "Error code")
+        groupCheckoutProperties
+        error_code (type: PropertyType.Numeric, required: true, description: "Error code")
     }
 
     "/point/buyingflow/payment_rejected"(platform: "/", type: TrackType.View) {
-      groupCheckoutProperties
-      selected_payment_method_id (type: PropertyType.String, required: true, description: "Selected payment method ID")
-      selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
-      installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
+        groupCheckoutProperties
+        selected_payment_method_id (type: PropertyType.String, required: true, description: "Selected payment method ID")
+        selected_payment_method_type (type: PropertyType.String, required: false, description: "Selected payment method type, ex: credit card")
+        installments (type: PropertyType.Numeric, required: false, description: "Selected installments")
     }
 
     "/point/buyingflow/payment_review/confirm_purchase"(platform: "/", type: TrackType.Event) {
-      groupCheckoutProperties
+        groupCheckoutProperties
     }
 
     "/point"(platform: "/", isAbstract: true, initiative: "1175") {}
@@ -127,7 +127,7 @@ tracks {
         discount (type: PropertyType.Numeric, required: false, description: "Discount in price")
         price_with_discount (type: PropertyType.Numeric, required: false, description: "Total price")
     }
-    
+
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
 
     // Merchant Acquisition Point Landings: MGM > Events
@@ -174,7 +174,7 @@ tracks {
     "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/print"(platform:"/", type: TrackType.Event) {}
     "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {}
-    "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {} 
+    "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {}
 
 
     //Point Devices
@@ -183,11 +183,11 @@ tracks {
     }
 
     // Services landings
-    "/services"(platform: "/", isAbstract: true) {}
+    "/services"(platform: "/", isAbstract: true, initiative: "1159") {}
     "/services/mkt_landing"(platform: "/web", type: TrackType.View) {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
-    "/services/mkt_landing/sms"(platform: "/web", type: TrackType.Event) { 
+    "/services/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
     "/services/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
@@ -200,11 +200,11 @@ tracks {
     }
 
     // QR Payers Landings
-    "/qr_payers"(platform: "/", isAbstract: true) {}
+    "/qr_payers"(platform: "/", isAbstract: true, initiative: "1159") {}
     "/qr_payers/mkt_landing"(platform: "/web", type: TrackType.View) {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
-    "/qr_payers/mkt_landing/sms"(platform: "/web", type: TrackType.Event) { 
+    "/qr_payers/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
     "/qr_payers/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
@@ -216,7 +216,7 @@ tracks {
         position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }
 
-    "/pos_mobile"(platform: "/mobile", type: TrackType.Event) {}
+    "/pos_mobile"(platform: "/mobile", type: TrackType.Event, initiative: "1175") {}
     "/pos_mobile/friction"(platform: "/mobile", type: TrackType.Event) {
         flow_id(required: false, type: PropertyType.String, description: "Flow id.")
         id(required: true, type: PropertyType.String, description: "Flow id.")
@@ -227,7 +227,7 @@ tracks {
         extra_info(required: false, type: PropertyType.String, description: "Extra info")
     }
 
-    "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/shortcuts"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: "1125" ) {}
 
     "/shortcuts/point"(platform: "/mobile", type: TrackType.Event) {}
     "/shortcuts/scan_qr"(platform: "/mobile", type: TrackType.Event) {}
@@ -248,9 +248,9 @@ tracks {
     "/shortcuts/transport"(platform: "/mobile", type: TrackType.Event) {}
     "/shortcuts/coupon"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/get_member/point"(platform: "/mobile", type: TrackType.View) {}
+    "/get_member/point"(platform: "/mobile", type: TrackType.View, initiative: "1159") {}
 
-    "/ftu_release"(platform: "/mobile", type: TrackType.View, isAbstract: true) {}
+    "/ftu_release"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: "1159") {}
     "/ftu_release/point_app"(platform: "/mobile", type: TrackType.View) {}
     "/ftu_release/point_&_mp_app"(platform: "/mobile", type: TrackType.View) {}
 
@@ -277,7 +277,7 @@ tracks {
     "/catalog/discount"(platform: "/mobile", type: TrackType.View) {}
 
     // MPMOBILE
-    "/account_summary"(platform: "/mobile") {
+    "/account_summary"(platform: "/mobile", initiative: "1074") {
         from (required:false, type: PropertyType.String, description: "Where the flow start", values:["/deep_link_ml","/deep_link","push"])
     }
     "/account_summary/filters"(platform: "/mobile") {}
@@ -298,26 +298,26 @@ tracks {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/checkout/pay"(platform: "/mobile") {}
-    "/checkout/deals"(platform: "/mobile") {}
-    "/checkout/deals/terms"(platform: "/mobile") {}
-    "/checkout/payment_methods"(platform: "/mobile") {}
-    "/checkout/other_payment_methods"(platform: "/mobile") {}
-    "/checkout/cards"(platform: "/mobile") {}
-    "/checkout/add_card"(platform: "/mobile") {}
-    "/checkout/issuers"(platform: "/mobile") {}
-    "/checkout/result"(platform: "/mobile") {
+    "/checkout/pay"(platform: "/mobile",initiative: "1142") {}
+    "/checkout/deals"(platform: "/mobile",initiative: "1142") {}
+    "/checkout/deals/terms"(platform: "/mobile",initiative: "1142") {}
+    "/checkout/payment_methods"(platform: "/mobile",initiative: "1142") {}
+    "/checkout/other_payment_methods"(platform: "/mobile",initiative: "1142") {}
+    "/checkout/cards"(platform: "/mobile",initiative: "1142") {}
+    "/checkout/add_card"(platform: "/mobile",initiative: "1142") {}
+    "/checkout/issuers"(platform: "/mobile",initiative: "1142") {}
+    "/checkout/result"(platform: "/mobile",initiative: "1142") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
 
-    "/px_result"(platform: "/mobile", initiative: "1131") {
+    "/px_result"(platform: "/mobile", initiative: "1142") {
         result_status (required:true, type: PropertyType.String, description: "Operation result status")
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
-    "/pay_preference"(platform: "/mobile", isAbstract: true) {
+    "/pay_preference"(platform: "/mobile", isAbstract: true,initiative: "1142") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
@@ -340,7 +340,7 @@ tracks {
     }
 
 
-    "/scheduled_recharge"(platform: "/mobile", isAbstract: true) {
+    "/scheduled_recharge"(platform: "/mobile", isAbstract: true, initiative: "1142") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
@@ -393,7 +393,7 @@ tracks {
         origin(type: PropertyType.String, required: false, description: "The application that returns the content")
     }
 
-    "/mgm/navigation"(platform: "/mobile", type: TrackType.Event) {
+    "/mgm/navigation"(platform: "/mobile", type: TrackType.Event, ) {
         realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate information")
     }
 
@@ -401,7 +401,7 @@ tracks {
 
 
 
-    "/settings"(platform: "/mobile", isAbstract: true) {
+    "/settings"(platform: "/mobile", isAbstract: true,initiative: "1125" ) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
@@ -459,15 +459,15 @@ tracks {
     // END -- MPMOBILE
 
     //MP listings
-    "/listings"(platform: "/web", isAbstract: true){}
+    "/listings"(platform: "/web", isAbstract: true,initiative: "1074"){}
     "/listings/movements"(platform: "/web", type: TrackType.View){}
     "/listings/with_holdings"(platform: "/web", type: TrackType.View){}
 
     //MP frontend
 
-    "/fund_account/confirm"(platform: "/web"){}
+    "/fund_account/confirm"(platform: "/web", initiative: "1047"){}
 
-    "/campaigns"(platform: "/web", isAbstract: true){}
+    "/campaigns"(platform: "/web", isAbstract: true, initiative: ""){}
     "/campaigns/create"(platform: "/web", type: TrackType.View){}
     "/campaigns/confirm_create"(platform: "/web"){}
 
@@ -479,13 +479,13 @@ tracks {
     }
     //END -- MP frontend
 
-    "/free_navigation"(platform:"/mobile", isAbstract: true) {}
+    "/free_navigation"(platform:"/mobile", isAbstract: true,initiative: "1096" ) {}
 
     "/free_navigation/not_available"(platform:"/mobile", type:TrackType.Event) {}
 
     "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
 
-    "/device_settings/"(platform: "/", isAbstract: true){}
+    "/device_settings/"(platform: "/", isAbstract: true,initiative: "1096" ){}
 
     "/device_settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
         device_id(required: true, description: "The real device_id, may differ from device field")
