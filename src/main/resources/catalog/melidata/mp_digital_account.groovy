@@ -29,6 +29,8 @@ tracks {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
+
+    "/fund_account/confirm"(platform: "/web", initiative: "1047"){}
     "/fund_account/fund_amount"(platform: "/mobile") {}
     "/fund_account/other_payment_methods"(platform: "/mobile") {}
     "/fund_account/result"(platform: "/mobile") {
