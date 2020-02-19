@@ -2824,6 +2824,8 @@ trackTests {
             from = "/deep_link"}
         "/withdraw/error/uif"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}
+        "/withdraw/manual_code"(platform: "/mobile") { flow = "/withdraw"
+            from = "/deep_link"}
         "/withdraw/delay/manual_review"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}
         "/withdraw/delay/offline"(platform: "/mobile") { flow = "/withdraw"
@@ -2938,9 +2940,18 @@ trackTests {
         "/money_detail/withdraw/delay/manual_review"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/shopping"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/credits"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/credits-merchant-admin"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/tecban"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/activities_v2_list"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/activities"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/daily_detail"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/money_advance"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/money-out"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/scan"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/result"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/add_info"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/congrats"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/web_view"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/restrictions"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/point_home"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/manual_code"(platform: "/mobile") {flow = "/money_detail"}
