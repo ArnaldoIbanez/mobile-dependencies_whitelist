@@ -1062,6 +1062,7 @@ tracks {
     "/sell/variation_selection"(platform: "/web", isAbstract: true) {
         sellGroup
     }
+
     "/sell/variation_selection/source_variations"(platform: "/web", type: TrackType.View) {
         sellGroup
         variations_id(required: true, platform: "/web", description: "ids of variations showed", type: PropertyType.ArrayList(PropertyType.Numeric))
