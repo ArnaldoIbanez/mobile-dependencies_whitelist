@@ -1,4 +1,4 @@
-package com.melidata.metrics.format
+package com.ml.melidata.metrics.format
 
 import com.ml.melidata.metrics.MetricDefinition
 import com.ml.melidata.metrics.Metrics

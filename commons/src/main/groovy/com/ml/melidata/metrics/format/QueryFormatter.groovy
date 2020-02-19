@@ -1,4 +1,4 @@
-package com.melidata.metrics.format
+package com.ml.melidata.metrics.format
 
 import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper

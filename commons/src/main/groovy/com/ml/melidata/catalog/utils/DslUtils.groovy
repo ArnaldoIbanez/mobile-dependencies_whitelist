@@ -1,4 +1,4 @@
-package com.ml.melidata.catalog
+package com.ml.melidata.catalog.utils
 
 import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 
