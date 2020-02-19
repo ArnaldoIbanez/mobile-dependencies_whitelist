@@ -62,6 +62,8 @@ trackTests {
         }
 
         "/single_player/prepaid/invalid_input/retry"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
         }
 
@@ -436,6 +438,8 @@ trackTests {
         }
 
         "/single_player/prepaid/invalid_input/retry"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             view_time = 38927
         }
 
