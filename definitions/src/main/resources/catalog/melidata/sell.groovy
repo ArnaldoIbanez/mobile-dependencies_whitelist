@@ -1068,6 +1068,7 @@ tracks {
         variations_id(required: true, platform: "/web", description: "ids of variations showed", type: PropertyType.ArrayList(PropertyType.Numeric))
     }
 
+
     "/sell/variation_selection/source_variations/confirm_variation"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         sellGroup
         variation_id(required: false, description: "variation id picked", type: PropertyType.Numeric)
