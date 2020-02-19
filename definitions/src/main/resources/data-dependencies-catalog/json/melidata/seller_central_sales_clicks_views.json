@@ -67,7 +67,7 @@
       "script": "seller_central/sales/seller_central_sales_clicks_views.sql",
       "parameters": [
         {
-          "name": "param01",
+          "name": "param01", 
           "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },
