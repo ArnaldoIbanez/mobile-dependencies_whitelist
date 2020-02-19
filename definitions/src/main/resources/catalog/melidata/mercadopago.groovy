@@ -393,7 +393,7 @@ tracks {
         origin(type: PropertyType.String, required: false, description: "The application that returns the content")
     }
 
-    "/mgm/navigation"(platform: "/mobile", type: TrackType.Event, ) {
+    "/mgm/navigation"(platform: "/mobile", type: TrackType.Event,  initiative: "1059") {
         realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate information")
     }
 
@@ -467,7 +467,7 @@ tracks {
 
     "/fund_account/confirm"(platform: "/web", initiative: "1047"){}
 
-    "/campaigns"(platform: "/web", isAbstract: true, initiative: ""){}
+    "/campaigns"(platform: "/web", isAbstract: true, initiative: "1175"){}
     "/campaigns/create"(platform: "/web", type: TrackType.View){}
     "/campaigns/confirm_create"(platform: "/web"){}
 
