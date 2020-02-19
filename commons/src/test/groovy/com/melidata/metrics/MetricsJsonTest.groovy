@@ -1,5 +1,6 @@
 package com.melidata.metrics
 
+import com.ml.melidata.metrics.format.MetricsFormatter
 import org.junit.Test
 
 import static org.junit.Assert.*
@@ -18,7 +19,7 @@ class MetricsJsonTest {
 			}
 		}
 
-		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def formatter = new MetricsFormatter(metrics)
 		def json = formatter.generate()
 
 		assertEquals([null], json.measures.experiments)
@@ -37,7 +38,7 @@ class MetricsJsonTest {
 			}
 		}
 
-		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def formatter = new MetricsFormatter(metrics)
 		def json = formatter.generate()
 
 		assertEquals([["exp1"]], json.measures.experiments)
@@ -54,7 +55,7 @@ class MetricsJsonTest {
 			}
 		}
 
-		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def formatter = new MetricsFormatter(metrics)
 		def json = formatter.generate()
 
 		assertEquals([["exp1", "exp2"]], json.measures.experiments)
@@ -71,7 +72,7 @@ class MetricsJsonTest {
 			}
 		}
 
-		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def formatter = new MetricsFormatter(metrics)
 		def json = formatter.generate()
 
 		assertEquals(["exp.*"], json.measures.experiment)
@@ -97,7 +98,7 @@ class MetricsJsonTest {
 			}
 		}
 
-		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def formatter = new MetricsFormatter(metrics)
 		def json = formatter.generate()
 
 		assertEquals(["orders.congrats"], json.measures.name)
@@ -126,7 +127,7 @@ class MetricsJsonTest {
 			}
 		}
 
-		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def formatter = new MetricsFormatter(metrics)
 		def json = formatter.generate()
 
 		assertEquals(["orders.congrats"], json.measures.name)
@@ -156,7 +157,7 @@ class MetricsJsonTest {
 			}
 		}
 
-		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def formatter = new MetricsFormatter(metrics)
 		def json = formatter.generate()
 
 		assertEquals(1, json.measures.size())
@@ -195,7 +196,7 @@ class MetricsJsonTest {
 			}
 		}
 
-		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def formatter = new MetricsFormatter(metrics)
 		def json = formatter.generate()
 
 		assertEquals(["orders.congrats"], json.measures.name)
@@ -235,7 +236,7 @@ class MetricsJsonTest {
 			}
 		}
 
-		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def formatter = new MetricsFormatter(metrics)
 		def json = formatter.generate()
 
 		assertEquals(["orders.congrats_quick"], json.measures.name)
@@ -277,7 +278,7 @@ class MetricsJsonTest {
             }
         }
 
-        def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+        def formatter = new MetricsFormatter(metrics)
         def json = formatter.generate()
 
         assertEquals(["orders.congrats"], json.measures.name)
@@ -319,7 +320,7 @@ class MetricsJsonTest {
             }
         }
 
-        def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+        def formatter = new MetricsFormatter(metrics)
         def json = formatter.generate()
 
         assertEquals(["orders.congrats"], json.measures.name)
@@ -352,7 +353,7 @@ class MetricsJsonTest {
 			}
 		}
 
-		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def formatter = new MetricsFormatter(metrics)
 		def json = formatter.generate()
 
 
@@ -394,7 +395,7 @@ class MetricsJsonTest {
 
 		}
 
-		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def formatter = new MetricsFormatter(metrics)
 		def json = formatter.generate()
 
 		assertEquals("orders.congrats", json.measures[0].name)
@@ -430,7 +431,7 @@ class MetricsJsonTest {
 			}
 		}
 
-		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def formatter = new MetricsFormatter(metrics)
 		def json = formatter.generate()
 
 		println json
@@ -464,7 +465,7 @@ class MetricsJsonTest {
 
 		}
 
-		def formatter = new com.melidata.metrics.format.MetricsFormatter(metrics)
+		def formatter = new MetricsFormatter(metrics)
 		def json = formatter.generate()
 
 		assertEquals("custom1", json.insights[0].name)

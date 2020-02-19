@@ -1,6 +1,7 @@
 package com.melidata.definitions.uploaders
 
 import com.melidata.definitions.manager.S3Controller
+import com.ml.melidata.metrics.format.MetricsFormatter
 
 /**
  * Created by geisbruch on 12/16/14.
@@ -31,7 +32,7 @@ class MetricsUploader {
         println("Starting uploader")
         println("Reading [${metricsDir}]")
 
-        def json =  new com.melidata.metrics.format.MetricsFormatter(com.ml.melidata.metrics.MetricsFactory.metrics).output
+        def json =  new MetricsFormatter(com.ml.melidata.metrics.MetricsFactory.metrics).output
 
         println("JSON loaded")
 

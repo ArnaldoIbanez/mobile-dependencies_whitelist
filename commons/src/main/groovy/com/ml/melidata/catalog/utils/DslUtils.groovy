@@ -1,5 +1,6 @@
 package com.ml.melidata.catalog.utils
 
+import com.ml.melidata.catalog.Catalog
 import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
 
 /**

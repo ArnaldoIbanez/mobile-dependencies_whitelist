@@ -1,7 +1,7 @@
 package com.ml.melidata.catalog.parsers.dsl
 
 import com.ml.melidata.catalog.Catalog
-import com.ml.melidata.catalog.DslUtils
+import com.ml.melidata.catalog.utils.DslUtils
 
 /**
  * Created by geisbruch on 11/17/14.
