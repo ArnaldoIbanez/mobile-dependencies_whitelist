@@ -55,6 +55,17 @@ trackTests {
         }
 
 
+        // Invalid input
+        "/single_player/prepaid/invalid_input"(platform: "/mobile", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+        "/single_player/prepaid/invalid_input/retry"(platform: "/mobile", type: TrackType.Event) {
+            view_time = 38927
+        }
+
+
         // Products
         "/single_player/prepaid/product_list"(platform: "/mobile", type: TrackType.View) {
             flow = "antenna"
@@ -209,6 +220,19 @@ trackTests {
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
         "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+            application_name = "Sube"
+        }
+        "/single_player/prepaid/congrats_success/credit_charge"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_success/show_terminals"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
@@ -405,6 +429,17 @@ trackTests {
         }
 
 
+        // Invalid input
+        "/single_player/prepaid/invalid_input"(platform: "/mobile", type: TrackType.View) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+
+        "/single_player/prepaid/invalid_input/retry"(platform: "/mobile", type: TrackType.Event) {
+            view_time = 38927
+        }
+
+
         // Products
         "/single_player/prepaid/product_list"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             flow = "antenna"
@@ -559,6 +594,19 @@ trackTests {
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
         "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+            application_name = "Sube"
+        }
+        "/single_player/prepaid/congrats_success/credit_charge"(platform: "/mobile", type: TrackType.Event) {
+            flow = "antenna"
+            session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
+        }
+        "/single_player/prepaid/congrats_success/show_terminals"(platform: "/mobile", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }

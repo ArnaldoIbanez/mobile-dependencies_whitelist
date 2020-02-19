@@ -41,6 +41,14 @@ tracks {
     }
 
 
+    // Invalid input
+    "/single_player/prepaid/invalid_input"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/invalid_input/retry"(platform: "/mobile", type: TrackType.Event) {
+        view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
+    }
+
+
     // Products
     "/single_player/prepaid/product_list"(platform: "/mobile", type: TrackType.View) {}
 
@@ -133,6 +141,11 @@ tracks {
     "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_success/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+        application_name(required: true, PropertyType.String, description: "Name of the external application that was opened")
+    }
+    "/single_player/prepaid/congrats_success/credit_charge"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/show_terminals"(platform: "/mobile", type: TrackType.Event) {}
 
 
     // Congrats rejected
