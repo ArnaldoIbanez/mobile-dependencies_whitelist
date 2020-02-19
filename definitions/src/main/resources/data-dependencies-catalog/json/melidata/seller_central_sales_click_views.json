@@ -14,16 +14,24 @@
     "site": "QA",
     "columns": [
       {
+        "name": "cantidad",
+        "type": "INTEGER"
+      },
+      {
+        "name": "event",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "id_type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "fragment",
         "type": "UNICODE_STRING"
       },
       {
       "name": "user_id",
       "type": "UNICODE_STRING"
-      },
-      {
-        "name": "filters",
-        "type": "UNICODE_STRING"
       },
       {
         "name": "seller_profile",
@@ -56,7 +64,7 @@
 
     ],
     "sql": {
-      "script": "seller_central/sales/seller_central_sales_clicks_views.sql",
+      "script": "seller_central/sales/seller_central_sales_click_filters.sql",
       "parameters": [
         {
           "name": "param01",

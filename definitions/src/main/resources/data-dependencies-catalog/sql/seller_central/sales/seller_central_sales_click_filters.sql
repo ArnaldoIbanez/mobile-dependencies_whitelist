@@ -1,6 +1,5 @@
 SELECT
   count(1) as cantidad,
-  jest(event_data, 'id') as id_type,
   usr.user_id as user_id,
   filters,
   jest(event_data, 'seller_profile') as seller_profile,
@@ -16,4 +15,4 @@ WHERE ds >= '@param01'
 AND ds < '@param02'
 AND path in ('/seller_central/sales/list/action/primary')
 AND jest(event_data, 'id') = 'DOWNLOAD_EXCEL_BUTTON'
-GROUP BY 2,3,4,5,6,7,8,9,10,11
+GROUP BY 2,3,4,5,6,7,8,9,10
