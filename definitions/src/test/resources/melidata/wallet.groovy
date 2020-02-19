@@ -36,15 +36,15 @@ trackTests {
         }
         "/new_digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
             landing_id = 'ukraine lab'
-            section_store = "hero_googleplay"
+            section = "hero"
         }
         "/new_digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
             landing_id = 'ukraine lab'
-            section_store = "fixed_appstore"
+            section = "fixed"
         }
         "/new_digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
             landing_id = 'ukraine lab'
-            section_store = "footer_appstore"
+            section = "footer"
         }
     }
 

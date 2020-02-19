@@ -41,6 +41,6 @@ tracks {
     }
     "/new_digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
         landing_id (required: true, type: PropertyType.String, description: "Indicate landing id")
-        section_store (required: true, type: PropertyType.String, values: ["hero_appstore", "hero_googleplay", "fixed_appstore", "fixed_googleplay", "footer_appstore", "footer_googleplay"], description: "Section from which the event comes and Store (Google Play or App Store)")
+        section (required: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Section from which the event comes")
     }
 }
