@@ -6,8 +6,9 @@ import com.ml.melidata.catalog.Catalog
 import com.melidata.definitions.validate.*
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import groovy.transform.Synchronized
-import org.apache.log4j.Level
-import org.apache.log4j.Logger
+
+import java.util.logging.Level
+import java.util.logging.Logger
 
 /**
  * Created by apetalas on 20/11/14.
