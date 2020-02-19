@@ -430,12 +430,12 @@ trackTests {
 
 
         // Invalid input
-        "/single_player/prepaid/invalid_input"(platform: "/mobile", type: TrackType.View) {
+        "/single_player/prepaid/invalid_input"(platform: "/mobile", business: "mercadolibre", type: TrackType.View)  {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
 
-        "/single_player/prepaid/invalid_input/retry"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/invalid_input/retry"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             view_time = 38927
         }
 
@@ -577,66 +577,66 @@ trackTests {
 
 
         // Congrats success
-        "/single_player/prepaid/congrats_success"(platform: "/mobile", type: TrackType.View) {
+        "/single_player/prepaid/congrats_success"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats_success/another_recharge"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_success/another_recharge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
             application_name = "Sube"
         }
-        "/single_player/prepaid/congrats_success/credit_charge"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_success/credit_charge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats_success/show_terminals"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_success/show_terminals"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
 
 
         // Congrats rejected
-        "/single_player/prepaid/congrats_rejected"(platform: "/mobile", type: TrackType.View) {
+        "/single_player/prepaid/congrats_rejected"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats_rejected/another_recharge"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_rejected/another_recharge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_rejected/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
 
 
         // Congrats pending
-        "/single_player/prepaid/congrats_pending"(platform: "/mobile", type: TrackType.View) {
+        "/single_player/prepaid/congrats_pending"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats_pending/another_recharge"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_pending/another_recharge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/congrats_pending/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/congrats_pending/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
@@ -661,16 +661,16 @@ trackTests {
 
 
         // Accreditation information
-        "/single_player/prepaid/accreditation_information"(platform: "/mobile", type: TrackType.View) {
+        "/single_player/prepaid/accreditation_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             flow = "antenna"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/accreditation_information/show_terminals"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/accreditation_information/show_terminals"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "transport"
             view_time = 38927
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
-        "/single_player/prepaid/accreditation_information/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/accreditation_information/open_external_application"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             flow = "transport"
             application_name = "sube"
             view_time = 38927
