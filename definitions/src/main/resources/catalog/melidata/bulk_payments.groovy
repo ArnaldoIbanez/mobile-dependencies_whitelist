@@ -3,6 +3,9 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
+
+    initiative = "1161"
+
     def userStructure = objectSchemaDefinitions {
       user_id(required: true, type: PropertyType.Numeric)
       payment_amount(required: true, type: PropertyType.Numeric)

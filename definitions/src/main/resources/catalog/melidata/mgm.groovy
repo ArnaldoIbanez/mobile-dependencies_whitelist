@@ -4,6 +4,13 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
+    //MGM Navigation (Android Drawer or iOS Settings)
+    def realestate = objectSchemaDefinitions {
+        realestate_id(type: PropertyType.String, required: true, description: "The container where we show contents")
+        content_id(type: PropertyType.String, required: true, description: "The identification of shown content")
+        origin(type: PropertyType.String, required: false, description: "The application that returns the content")
+    }
+
     initiative = '1176'
 
     /**
@@ -12,6 +19,12 @@ tracks {
 
     // General Path
     "/mgm"(platform: "/", isAbstract: true) {}
+
+
+    "/mgm/navigation"(platform: "/mobile", type: TrackType.Event,  initiative: "1059") {
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate information")
+    }
+
     "/mgm/payers"(platform: "/", isAbstract: true) {}
 
     // MOBILE
@@ -72,4 +85,5 @@ tracks {
         link(required: false, type: PropertyType.String, description: "link to screen")
     }
     "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
+
 }
