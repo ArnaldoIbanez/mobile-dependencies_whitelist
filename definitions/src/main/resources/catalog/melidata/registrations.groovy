@@ -130,12 +130,6 @@ tracks {
     }
     "/register/form/google_hint/show"(platform: "/mobile", type: TrackType.Event){}
     "/register/form/google_hint/select"(platform: "/mobile", type: TrackType.Event){}
-    "/register/form/google_autofill"(platform: "/mobile", isAbstract: true){
-        step(type: PropertyType.String, required: true, values: ["registration", "accountAdditionalData", "phoneRegistration"], description: "Step where the google autofill is provided to the user")
-        field(type: PropertyType.String, required: true, values: ["firstName", "lastName", "phone"], description: "Field where the google autofill is provided to the user")
-    }
-    "/register/form/google_autofill/show"(platform: "/mobile", type: TrackType.Event){}
-    "/register/form/google_autofill/select"(platform: "/mobile", type: TrackType.Event){}
 
     "/register/form/challenge"(platform: "/mobile", isAbstract: true){}
     "/register/form/challenge/require"(platform: "/mobile", type: TrackType.Event){}

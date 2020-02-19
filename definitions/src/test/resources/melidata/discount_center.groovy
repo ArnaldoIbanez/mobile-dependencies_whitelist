@@ -106,6 +106,7 @@ trackTests {
             ]
             tracking_id= "1004194"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            referer_origin= "12341234"
         }
     }
 
@@ -133,6 +134,7 @@ trackTests {
             ]
             tracking_id= "1004194"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            referer_origin= "12341234"
         }
     }
 
@@ -160,6 +162,20 @@ trackTests {
     test("Mercado Pago discount center payers session end") {
         "/discount_center/payers/session/end" (platform: "/mobile", type: TrackType.Event) {
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+    }
+
+    // TOUCH POINT
+
+    test("Mercado Pago discount center payers touchpoint px congrats tap") {
+        "/discount_center/payers/touchpoint/px_congrats/tap" (platform: "/mobile", type: TrackType.Event) {
+            tracking_id= "346859234"
+        }
+    }
+
+    test("Mercado Pago discount center payers touchpoint px congrats show") {
+        "/discount_center/payers/touchpoint/px_congrats/show" (platform: "/mobile", type: TrackType.Event) {
+            tracking_id= "346859234"
         }
     }
 }

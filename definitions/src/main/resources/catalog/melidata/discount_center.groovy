@@ -77,6 +77,7 @@ tracks {
         sections(required: false, type: PropertyType.ArrayList(PropertyType.Map(section_definition)), description: "Sections shown in the list")
         tracking_id(required: false, type: PropertyType.String, description: "Tracking id of the presented detail")
         session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+        referer_origin(required: false, type: PropertyType.String, description: "The user who share the discount")
     }
 
     "/discount_center/payers/detail/share" (platform: "/mobile", type: TrackType.Event) {}
@@ -99,5 +100,18 @@ tracks {
 
     "/discount_center/payers/session/end" (platform: "/mobile", type: TrackType.Event) {
         session_id(required: true, type: PropertyType.String, description: "Unique code that identifies a user's session")
+    }
+
+    // TOUCH POINT
+
+    "/discount_center/payers/touchpoint" (platform: "/mobile", isAbstract: true) {}
+    "/discount_center/payers/touchpoint/px_congrats" (platform: "/mobile", isAbstract: true) {}
+
+    "/discount_center/payers/touchpoint/px_congrats/tap" (platform: "/mobile", type: TrackType.Event) {
+        tracking_id(required: true, type: PropertyType.String, description: "The id campaign")
+    }
+
+    "/discount_center/payers/touchpoint/px_congrats/show" (platform: "/mobile", type: TrackType.Event) {
+        tracking_id(required: true, type: PropertyType.String, description: "The id campaign")
     }
 }
