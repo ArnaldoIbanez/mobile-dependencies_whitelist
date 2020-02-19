@@ -785,7 +785,7 @@ trackTests {
 
         "/checkout/payment/encrypted_security_code_add#submit"(platform:"/mobile") {
             status = "success"
-            checkout_flow = "direct"
+            checkout_flow = "checkout"
             session_id = "asodas98a9sd8a"
         }
 
@@ -844,11 +844,11 @@ trackTests {
 
         "/checkout/review#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
-            checkout_flow = "direct"
+            checkout_flow = "checkout"
         }
 
         "/checkout/review#submit/abort"(platform:"/mobile", type:TrackType.Event) {
-            checkout_flow = "direct"
+            checkout_flow = "checkout"
             session_id = "some_session_id"
         }
 
@@ -916,7 +916,10 @@ trackTests {
         }
         "/checkout/finish/call_for_auth/instructions#submit"(platform:"/mobile", type:TrackType.Event) {
             status = "success"
-            checkout_flow = "direct"
+            checkout_flow = "checkout"
+        }
+        "/checkout/finish/call_for_auth/instructions#submit/abort"(platform:"/mobile", type:TrackType.Event) {
+            checkout_flow = "checkout"
         }
         "/checkout/finish/call_for_auth/later"(platform:"/mobile", type:TrackType.View) {
             checkoutStatus()
@@ -2118,7 +2121,7 @@ trackTests {
             user_identification = ["doc_type", "doc_number"]
             available_methods = ["visa", "master", "amex"]
             nearest_store_distance = 250000
-            checkout_flow = "direct"
+            checkout_flow = "checkout"
             flow_type = "buy_it_now"
             stored_cards_quantity = 3
             checkout_flow_reason = "default_case"
@@ -2529,7 +2532,7 @@ trackTests {
 
         "/checkout/shipping"(platform:"/web") {
             dataSet()
-            checkout_flow = "direct"
+            checkout_flow = "checkout"
         }
 
         "/checkout/review/edit_frequency"(platform:"/web") {
