@@ -47,6 +47,10 @@ tracks {
 
     "/login/auth"(platform: "/", isAbstract: true){}
 
+    "/login/auth/phone_validation"(platform: "/mobile", isAbstract: true){}
+
+    "/login/auth/phone_validation/sms_detection"(platform: "/mobile", isAbstract: true){}
+
     "/login/auth/success"(platform: "/web", type: TrackType.Event) {
         source(type: PropertyType.String, required: true, description: "Context on which the login is presented")
         tracking_id(type: PropertyType.String, required: true, description: "tracking id for the transaction started")
@@ -106,6 +110,8 @@ tracks {
         source(type: PropertyType.String, required: false, description: "Context on which the login is presented")
         has_error(type: PropertyType.Boolean, required: false, description: "Indicates if there's an error shown in screen")
         recaptcha(type: PropertyType.Boolean, required: false, description: "Indicates whether recaptcha is present or not")
+        flow(type: PropertyType.String, required: false, description: "indicates whether flow is native or generic", values: ["login_by_phone", "registration","change_user_phone", "login", "forgot_password"])
+        channel(type: PropertyType.String, required: false, description: "indicates whether channel is SMS or call", values: ["sms", "call", "whatsApp"])
     }
 
     "/login/auth/error"(platform: "/", type: TrackType.View) {
@@ -116,6 +122,14 @@ tracks {
     "/login/auth/challenge/submit"(platform: "/", type: TrackType.Event) {}
 
     "/login/auth/challenge/cancel"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/auth/phone_validation/rechallenge"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/auth/phone_validation/fallback"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/auth/phone_validation/sms_detection/autodetect_code_success"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/login/auth/phone_validation/sms_detection/autodetect_code_failure"(platform: "/mobile", type: TrackType.Event) {}
 
     "/login/auth/challenge/decline"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         challenge(type: PropertyType.String, required: true, description: "Login Step")

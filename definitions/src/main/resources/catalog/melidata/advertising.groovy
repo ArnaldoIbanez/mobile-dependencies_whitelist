@@ -75,6 +75,7 @@ tracks {
     "/advertising/pads2/landing"(platform: "/web", type: TrackType.View) {
         free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
         budget(required: true, description: "Budget related to the landing", inheritable:false)
+        ui_version(required: false, description: "UI version rendered in Search", inheritable:false)
     }
 
     "/advertising/pads2/landing/main_action"(platform: "/web", type: TrackType.Event) {

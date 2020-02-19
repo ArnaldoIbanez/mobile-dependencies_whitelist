@@ -112,6 +112,11 @@ tracks {
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(discount_center_item_definition)), description: "The discount center items information")
     }
 
+    def paragraph_definition = objectSchemaDefinitions {
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+    }
+
     def discount_center_item_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the item we are showing")
         blocked(type: PropertyType.Boolean, required: false, description: "If the discount is blocked or not")
@@ -314,6 +319,7 @@ tracks {
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
+        paragraph(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
     }
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
@@ -332,6 +338,7 @@ tracks {
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
+        paragraph(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
     }
 
     //Notification Center
@@ -405,4 +412,11 @@ tracks {
     "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {}
+
+    /************************************/
+    //  TRACKS CROSS SELL EXPERIMENTS   //
+    /************************************/
+
+    "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
+
 }
