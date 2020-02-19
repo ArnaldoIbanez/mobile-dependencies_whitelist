@@ -44,7 +44,7 @@ tracks {
     //EXTERNAL
     //TODO revisar /external/XXX
 
-    "/external/"(platform: "/mobile") {
+    "/external/"(platform: "/mobile", initiative : "1127") {
         query(required: false)
         limit(type: PropertyType.Numeric, required: false)
         offset(type: PropertyType.Numeric, required: false)
@@ -80,7 +80,7 @@ tracks {
 
     // PAYMENTS FLOW
 
-    "/payments"(platform: "/mobile", type: TrackType.View) {
+    "/payments"(platform: "/mobile", type: TrackType.View, initiative: "1145") {
         context()
         item_id()
     }
@@ -89,7 +89,7 @@ tracks {
 
     // SELLER
 
-    "/seller_reputation"(platform: "/mobile") {
+    "/seller_reputation"(platform: "/mobile", initiative : "1029") {
         context()
         item_id(required: false)
     }
@@ -111,7 +111,7 @@ tracks {
 
     // siguientes tracks no pertenecen a mobile-arquitectura, sino que es de otro team que trackea sobre /landing
 
-    "/landing/brands"(platform: "/mobile", isAbstract: true){}
+    "/landing/brands"(platform: "/mobile", isAbstract: true, initiative : "1063"){}
 
     "/landing/brands/abort"(platform: "/mobile") {
         query(required:true, type: PropertyType.String, descripcion:"Query used in screen")
@@ -138,7 +138,7 @@ tracks {
     }
 
     //Logout
-    "/logout"(platform: "/", isAbstract: true) {}
+    "/logout"(platform: "/", isAbstract: true, initiative : "1127") {}
     "/logout/modal"(platform: "/mobile") {
         action(required: true, type:PropertyType.String, description: "Indicates whether the logout action was either confirmed or canceled")
     }

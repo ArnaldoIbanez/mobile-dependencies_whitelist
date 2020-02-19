@@ -47,7 +47,7 @@ tracks {
     "/application"(platform:"/mobile", isAbstract: true, initiative: "1096") {}
     "/application/open"(platform:"/mobile", type: TrackType.Event) { }
 
-    "/point/buyingflow"(platform: "/", isAbstract: true) {}
+    "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1046") {}
 
     "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
       groupCheckoutProperties
