@@ -47,6 +47,8 @@ tracks {
     "/application"(platform:"/mobile", isAbstract: true, initiative: "1096") {}
     "/application/open"(platform:"/mobile", type: TrackType.Event) { }
 
+    "/point"(platform: "/", isAbstract: true, initiative: "1175") {}
+
     "/point/buyingflow"(platform: "/", isAbstract: true, initiative : "1046") {}
 
     "/point/buyingflow/start"(platform: "/", type: TrackType.View) {
@@ -113,8 +115,6 @@ tracks {
     "/point/buyingflow/payment_review/confirm_purchase"(platform: "/", type: TrackType.Event) {
         groupCheckoutProperties
     }
-
-    "/point"(platform: "/", isAbstract: true, initiative: "1175") {}
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
@@ -248,8 +248,6 @@ tracks {
     "/shortcuts/transport"(platform: "/mobile", type: TrackType.Event) {}
     "/shortcuts/coupon"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/get_member/point"(platform: "/mobile", type: TrackType.View, initiative: "1159") {}
-
     "/ftu_release"(platform: "/mobile", type: TrackType.View, isAbstract: true, initiative: "1159") {}
     "/ftu_release/point_app"(platform: "/mobile", type: TrackType.View) {}
     "/ftu_release/point_&_mp_app"(platform: "/mobile", type: TrackType.View) {}
@@ -291,10 +289,7 @@ tracks {
 
     "/crop_image"(platform: "/mobile", initiative: "1100") { }
 
-
-
-
-    "/checkout"(platform: "/mobile", isAbstract: true) {
+    "/checkout"(platform: "/mobile", isAbstract: true, initiative: "1142") {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
@@ -386,26 +381,13 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
-    //MGM Navigation (Android Drawer or iOS Settings)
-    def realestate = objectSchemaDefinitions {
-        realestate_id(type: PropertyType.String, required: true, description: "The container where we show contents")
-        content_id(type: PropertyType.String, required: true, description: "The identification of shown content")
-        origin(type: PropertyType.String, required: false, description: "The application that returns the content")
-    }
-
-    "/mgm/navigation"(platform: "/mobile", type: TrackType.Event,  initiative: "1059") {
-        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)), description: "The realestate information")
-    }
-
-
-
-
+    "/get_member/point"(platform: "/mobile", type: TrackType.View, initiative: "1159") {}
 
     "/settings"(platform: "/mobile", isAbstract: true,initiative: "1125" ) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false) {}
+    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false,initiative: "1125") {}
     "/settings/my_profile"(platform: "/mobile") {}
     "/settings/balance"(platform: "/mobile") {}
     "/settings/my_cards"(platform: "/mobile") {}
@@ -450,8 +432,6 @@ tracks {
         new_release_days (required: true, type: PropertyType.Numeric, description: "The new release day configuration")
     }
 
-
-
     /**
      * END NOTIFICATIONS
      **/
@@ -464,8 +444,6 @@ tracks {
     "/listings/with_holdings"(platform: "/web", type: TrackType.View){}
 
     //MP frontend
-
-    "/fund_account/confirm"(platform: "/web", initiative: "1047"){}
 
     "/campaigns"(platform: "/web", isAbstract: true, initiative: "1175"){}
     "/campaigns/create"(platform: "/web", type: TrackType.View){}

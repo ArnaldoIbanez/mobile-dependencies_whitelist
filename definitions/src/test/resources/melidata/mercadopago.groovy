@@ -2147,6 +2147,17 @@ trackTests {
                     ]
             ]
         }
+
+        "/mgm/navigation" (platform: "/mobile", type: TrackType.Event, business:"mercadolibre") {
+            realestates = [
+                    [
+                            "content_id": "drawer_mgm_seller_mp",
+                            "origin": "user_journey",
+                            "realestate_id": "drawer_mgm"
+                    ]
+            ]
+        }
+
     }
 
     test("Digital Goods") {
