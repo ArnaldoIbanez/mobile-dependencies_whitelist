@@ -13,7 +13,6 @@ class CatalogValidator {
 
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
         //Prepare initiatives list
-        println( "Preparing initiatives in memory")
         InitiativeAPI.getInstance().generateInitiativesList()
 
         def runOk = true

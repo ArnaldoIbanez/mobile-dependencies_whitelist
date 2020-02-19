@@ -7,6 +7,11 @@ import com.ml.melidata.catalog.parsers.dsl.CatalogDsl
  * Created by geisbruch on 17/12/14.
  */
 class DslUtils {
+    static String getCatalogName() {
+        def splittenPath = CatalogDsl.baseDir.split("/")
+        return splittenPath[splittenPath.length - 1]
+    }
+
     def public static Catalog parseCatalog(InputStream stream) {
         return parseCatalog(new InputStreamReader(stream))
     }

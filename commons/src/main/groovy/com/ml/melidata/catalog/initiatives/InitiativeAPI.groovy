@@ -30,7 +30,9 @@ class InitiativeAPI implements Runnable {
     }
 
     void generateInitiativesList() {
-        getAllApplicationsFromAPI()
+        if(!applications) {
+            getAllApplicationsFromAPI()
+        }
     }
 
     private void getAllApplicationsFromAPI() {
