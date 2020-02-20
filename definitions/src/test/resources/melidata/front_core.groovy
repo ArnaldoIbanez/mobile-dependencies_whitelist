@@ -730,6 +730,27 @@ trackTests {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
     }
 
+    test("New Digital Wallet - Ukraine Lab") {
+        /**
+         * New Digital Wallet Tracks - Ukraine Lab
+         */
+        "/new_digital_wallet_landing"(platform: "/"){
+            landing_id = "ukraine lab"
+        }
+        "/new_digital_wallet_landing/click_download_app"(platform: "/"){
+            landing_id = "ukraine lab"
+            section = "hero"
+        }
+        "/new_digital_wallet_landing/click_download_app"(platform: "/"){
+            landing_id = "ukraine lab"
+            section = "fixed"
+        }
+        "/new_digital_wallet_landing/click_download_app"(platform: "/"){
+            landing_id = "ukraine lab"
+            section = "footer"
+        }
+    }
+
     defaultBusiness = "mercadolibre"
 
         test("Mercadopago Home") {
@@ -1440,5 +1461,26 @@ trackTests {
 
     test("Mercadopago cross sell experiments") {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("New Digital Wallet - Ukraine Lab") {
+        /**
+         * New Digital Wallet Tracks - Ukraine Lab
+         */
+        "/new_digital_wallet_landing"(platform: "/"){
+            landing_id = "ukraine lab"
+        }
+        "/new_digital_wallet_landing/click_download_app"(platform: "/"){
+            landing_id = "ukraine lab"
+            section = "hero"
+        }
+        "/new_digital_wallet_landing/click_download_app"(platform: "/"){
+            landing_id = "ukraine lab"
+            section = "fixed"
+        }
+        "/new_digital_wallet_landing/click_download_app"(platform: "/"){
+            landing_id = "ukraine lab"
+            section = "footer"
+        }
     }
 }
