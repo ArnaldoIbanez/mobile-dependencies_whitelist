@@ -75,7 +75,7 @@ metrics {
     }
   }
 
-  "payment.moneyin"(description: "Counts when a user pays in Transport") {
+  "payment.moneyin"(description: "Counts when a user inserts money into his/her account") {
     startWith {
       experiment(regex("wallet/.*"))
     }
