@@ -69,4 +69,24 @@ trackTests {
         "/wallet/cards/add_card_header"(platform: "/mobile", {})
     }
     
+    test("New Digital Wallet - Ukraine Lab") {
+        /**
+         * New Digital Wallet Tracks - Ukraine Lab
+         */
+        "/new_digital_wallet"(platform: "/"){
+            landing_id = "ukraine lab"
+        }
+        "/new_digital_wallet/click_download_app"(platform: "/"){
+            landing_id = "ukraine lab"
+            section = "hero"
+        }
+        "/new_digital_wallet/click_download_app"(platform: "/"){
+            landing_id = "ukraine lab"
+            section = "fixed"
+        }
+        "/new_digital_wallet/click_download_app"(platform: "/"){
+            landing_id = "ukraine lab"
+            section = "footer"
+        }
+    }
 }
