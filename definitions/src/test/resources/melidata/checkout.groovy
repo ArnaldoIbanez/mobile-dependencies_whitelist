@@ -2121,7 +2121,7 @@ trackTests {
             user_identification = ["doc_type", "doc_number"]
             available_methods = ["visa", "master", "amex"]
             nearest_store_distance = 250000
-            checkout_flow = "checkout"
+            checkout_flow = "direct"
             flow_type = "buy_it_now"
             stored_cards_quantity = 3
             checkout_flow_reason = "default_case"
@@ -2532,7 +2532,7 @@ trackTests {
 
         "/checkout/shipping"(platform:"/web") {
             dataSet()
-            checkout_flow = "checkout"
+            checkout_flow = "direct"
         }
 
         "/checkout/review/edit_frequency"(platform:"/web") {
