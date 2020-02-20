@@ -1,7 +1,7 @@
 package com.melidata.definitions.uploaders
 
 import com.melidata.definitions.manager.S3Controller
-import com.ml.melidata.metrics.format.QueryFormatter
+import com.melidata.metrics.format.QueryFormatter
 
 class QueriesUploader {
 

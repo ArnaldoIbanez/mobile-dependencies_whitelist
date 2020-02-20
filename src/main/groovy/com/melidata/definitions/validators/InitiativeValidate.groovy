@@ -1,8 +1,8 @@
 package com.melidata.definitions.validate
 
+import com.ml.melidata.catalog.DslUtils
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import com.ml.melidata.catalog.model.ApplicationModel
-import com.ml.melidata.catalog.utils.DslUtils
 
 class InitiativeValidate {
 
@@ -25,7 +25,6 @@ class InitiativeValidate {
     static boolean checkCoverage() {
         def isValidStatus = true
 
-        if(DslUtils.getCatalogName() in coveragebleCatalogs) {
             def actualCoverage = (validPaths.size() / totalPaths.size()) * 100
             isValidStatus = actualCoverage >= baseCoverage
             if(!isValidStatus) {
@@ -36,7 +35,6 @@ class InitiativeValidate {
                 println("\033[91m - Actual coverage: "+actualCoverage+"\033[0m")
                 println("\033[92m - Intended coverage: "+baseCoverage+"\033[0m")
             }
-        }
 
         validPaths = []
         totalPaths = []

@@ -1,7 +1,7 @@
 package com.melidata.definitions.uploaders
 
 import com.melidata.definitions.manager.S3Controller
-import com.ml.melidata.metrics.format.MetricsFormatter
+import com.melidata.metrics.format.MetricsFormatter
 
 /**
  * Created by geisbruch on 12/16/14.
