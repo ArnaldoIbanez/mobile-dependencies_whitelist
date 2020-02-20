@@ -2940,13 +2940,13 @@ trackTests {
         "/money_detail/withdraw/delay/manual_review"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/shopping"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/credits"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/credits-merchant-admin"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/credits_merchant_admin"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/tecban"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/activities_v2_list"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/activities"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/daily_detail"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/money_advance"(platform: "/mobile") {flow = "/money_detail"}
-        "/money_detail/money-out"(platform: "/mobile") {flow = "/money_detail"}
+        "/money_detail/money_out"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/scan"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/result"(platform: "/mobile") {flow = "/money_detail"}
         "/money_detail/add_info"(platform: "/mobile") {flow = "/money_detail"}
