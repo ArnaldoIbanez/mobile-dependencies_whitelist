@@ -944,4 +944,17 @@ tracks {
     "/sell/catalog_optin/congrats_invalid_product"(platform: "/mobile", type: TrackType.View) {}
     "/sell/catalog_optin/color_selection_buybox"(platform: "/mobile", type: TrackType.View) {}
 
+    "/sell/variation_selection"(platform: "/web", isAbstract: true) {
+        sellGroup
+    }
+
+    "/sell/variation_selection/source_variations"(platform: "/web", type: TrackType.View) {
+        sellGroup
+        variations_id(required: true, platform: "/web", description: "ids of variations showed", type: PropertyType.ArrayList(PropertyType.Numeric))
+    }
+
+    "/sell/variation_selection/source_variations/confirm_variation"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        sellGroup
+        variation_id(required: false, description: "variation id picked", type: PropertyType.Numeric)
+    }
 }

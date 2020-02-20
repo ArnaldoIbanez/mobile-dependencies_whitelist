@@ -4,6 +4,8 @@ import com.ml.melidata.catalog.PropertyType
 
 tracks {
 
+    initiative = "1029"
+
     //BULK SECTION
     "/vendor_central"(platform: "/", isAbstract: true) {}
 

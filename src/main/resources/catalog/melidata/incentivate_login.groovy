@@ -5,6 +5,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1096"
+
     "/navigation"(platform: "/", isAbstract: true) {}
     "/navigation/login"(platform: "/", isAbstract: true, initiative: "1127") {
         app_id(required: true, type: PropertyType.String,  description: "Refering app")

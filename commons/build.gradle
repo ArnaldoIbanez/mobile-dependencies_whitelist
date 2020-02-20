@@ -1,0 +1,97 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'jacoco'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
+    maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
+    maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
+}
+
+configurations {
+    providedRuntime
+}
+
+dependencies {
+    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+    testCompile 'junit:junit:4.+'
+    
+    compile('org.codehaus.groovy.modules.http-builder:http-builder:0.7') {
+        exclude group:'org.codehaus.groovy', module:'groovy'
+    }
+
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    compile 'com.googlecode.json-simple:json-simple:1.1'
+    testCompile 'org.assertj:assertj-core:1.7.0'
+    compile 'com.google.code.gson:gson:2.2.4'
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled true
+        csv.enabled false
+    }
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: ['com/ml/melidata/catalog/**/*'])
+        })
+    }
+}
+
+jacoco {
+    toolVersion = "0.7.1.201405082137"
+}
+
+test {
+    testLogging.showStandardStreams = true
+    afterTest { desc, result ->
+        println "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+    }
+}
+
+task coverage(dependsOn:[":test",":jacocoTestReport"]) doLast {
+    println("Coverage, check: ${buildDir}/jacocoHtml")
+}
+
+task bootRepackage {
+}
+
+uploadArchives {
+    def version = System.getenv("APP_VERSION")
+
+    repositories {
+        mavenDeployer {
+            repository(url: 'http://git.ml.com/nexus/content/repositories/releases') {
+                authentication(userName: 'mlGrailsPluginDeployer', password: '123456')
+            }
+            pom.groupId = 'com.mercadolibre.melidata.catalog'
+            pom.artifactId = 'commons'
+            if(version != null) {
+                pom.version = version
+            } else {
+                pom.version = '0'
+            }
+        }
+    }
+}
