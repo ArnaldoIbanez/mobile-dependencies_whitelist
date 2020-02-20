@@ -420,4 +420,15 @@ tracks {
     /************************************/
 
     "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
+
+    /**
+     * New Digital Wallet Tracks - Ukraine Lab
+     */
+    "/new_digital_wallet_landing"(platform: "/", type: TrackType.View) {
+        landing_id (required: true, type: PropertyType.String, description: "Indicate landing id")
+    }
+    "/new_digital_wallet_landing/click_download_app"(platform: "/", type: TrackType.Event) {
+        landing_id (required: true, type: PropertyType.String, description: "Indicate landing id")
+        section (required: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Section from which the event comes")
+    }
 }

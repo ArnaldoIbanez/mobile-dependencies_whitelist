@@ -32,15 +32,4 @@ tracks {
 
     // Back button
     "/wallet/cards/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
-
-    /**
-     * New Digital Wallet Tracks - Ukraine Lab
-     */
-    "/new_digital_wallet"(platform: "/", type: TrackType.View) {
-        landing_id (required: true, type: PropertyType.String, description: "Indicate landing id")
-    }
-    "/new_digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
-        landing_id (required: true, type: PropertyType.String, description: "Indicate landing id")
-        section (required: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Section from which the event comes")
-    }
 }
