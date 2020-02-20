@@ -1,6 +1,5 @@
 package com.melidata.definitions.validate
 
-import com.ml.melidata.catalog.DslUtils
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import com.ml.melidata.catalog.model.ApplicationModel
 
@@ -24,7 +23,7 @@ class InitiativeValidate {
 
     static boolean checkCoverage() {
         def isValidStatus = true
-
+/*
             def actualCoverage = (validPaths.size() / totalPaths.size()) * 100
             isValidStatus = actualCoverage >= baseCoverage
             if(!isValidStatus) {
@@ -38,7 +37,7 @@ class InitiativeValidate {
 
         validPaths = []
         totalPaths = []
-
+*/
         return isValidStatus
     }
 
