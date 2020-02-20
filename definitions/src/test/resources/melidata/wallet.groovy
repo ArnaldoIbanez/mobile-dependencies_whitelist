@@ -28,22 +28,21 @@ trackTests {
 
     test("New Digital Wallet - Ukraine Lab") {
         /**
-         * Digital Wallet Tracks
+         * New Digital Wallet Tracks - Ukraine Lab
          */
-
-        "/new_digital_wallet"(platform: "/", type: TrackType.View) {
-            landing_id = 'ukraine lab'
+        "/new_digital_wallet"(platform: "/"){
+            landing_id = "ukraine lab"
         }
-        "/new_digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
-            landing_id = 'ukraine lab'
+        "/new_digital_wallet/click_download_app"(platform: "/"){
+            landing_id = "ukraine lab"
             section = "hero"
         }
-        "/new_digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
-            landing_id = 'ukraine lab'
+        "/new_digital_wallet/click_download_app"(platform: "/"){
+            landing_id = "ukraine lab"
             section = "fixed"
         }
-        "/new_digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
-            landing_id = 'ukraine lab'
+        "/new_digital_wallet/click_download_app"(platform: "/"){
+            landing_id = "ukraine lab"
             section = "footer"
         }
     }
@@ -69,5 +68,5 @@ trackTests {
 
         "/wallet/cards/add_card_header"(platform: "/mobile", {})
     }
-
+    
 }
