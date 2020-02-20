@@ -421,6 +421,7 @@ tracks {
                 type: PropertyType.Boolean,
                 description: "Item's catalog listing"
         )
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
     }
 
     "/vip/coordinate_intention"(platform: "/web", type: TrackType.Event) {
@@ -437,7 +438,7 @@ tracks {
         buying_mode(required: true, type: PropertyType.String, values: ["classified"],
                 description: "Indicates if it's an auction, buy_it_now or classified")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        category_path(required: true, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         from_view(required: true, type: PropertyType.String,
                 values: ["vip", "description", "technicalSpecs", "form", "howToContract", "reputation"],
                 description: "Section where it's coming from"
