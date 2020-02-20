@@ -25,5 +25,12 @@ trackTests {
             request_type = "change_product"
         }
 
+        "/post_purchase/external"(platform: "/", type: TrackType.View) {
+            reason = "PDD6565"
+            flow = "claim"
+            order_id = "2328726398"
+            resolution = "change_product"
+        }
+
     }
 }
