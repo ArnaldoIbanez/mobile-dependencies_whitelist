@@ -3,7 +3,7 @@ package com.melidata.definitions.format
 import com.melidata.definitions.manager.CatalogHandler
 import com.melidata.definitions.uploaders.CatalogUploader
 import com.ml.melidata.catalog.Catalog
-import com.ml.melidata.catalog.utils.DslUtils
+import com.ml.melidata.catalog.DslUtils
 import com.ml.melidata.catalog.tree.PlatformTree
 
 
