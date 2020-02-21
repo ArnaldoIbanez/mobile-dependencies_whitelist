@@ -84,7 +84,11 @@ metrics {
       condition {
         path("/px_checkout/result/success")
         and(
-          equals("event_data.flow", "/moneyin"),
+          or(
+            equals("event_data.flow", "account_fund"),
+            equals("event_data.flow", "/account_fund"),
+            equals("event_data.flow", "/moneyin")
+          ),
           equals("application.business", "mercadopago")
         )
       }
@@ -153,25 +157,6 @@ metrics {
         and(
           equals("event_data.flow", "/miniapps/starbucks"),
           equals("application.business", "mercadopago")
-        )
-      }
-    }
-  }
-
-  "payment.account_fund"(description: "Counts when a user makes an account fund") {
-    startWith {
-      experiment(regex("wallet/.*"))
-    }
-
-    countsOn {
-      condition {
-        path("/px_checkout/result/success")
-        and(
-          equals("application.business", "mercadopago"),
-          or(
-            equals("event_data.flow", "account_fund"),
-            equals("event_data.flow", "/account_fund")
-          )
         )
       }
     }
