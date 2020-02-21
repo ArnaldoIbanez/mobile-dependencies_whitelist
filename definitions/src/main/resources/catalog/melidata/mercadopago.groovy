@@ -1159,8 +1159,9 @@ tracks {
 
     "/withdraw/main"(platform: "/mobile", type: TrackType.View) {}
     "/withdraw/confirmation"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/make_withdraw"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/make_withdraw"(platform: "/mobile", type: TrackType.Event) {}
     "/withdraw/add_account"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/add_account"(platform: "/mobile", type: TrackType.Event) {}
     "/withdraw/congrats"(platform: "/mobile", type: TrackType.View) {}
     "/withdraw/error"(platform: "/mobile", isAbstract: true) {}
     "/withdraw/error/generic_error"(platform: "/mobile", type : TrackType.View) {}
@@ -1288,7 +1289,7 @@ tracks {
     "/money_detail/withdraw/select_bank"(platform: "/mobile", type: TrackType.View) {}    
     "/money_detail/withdraw"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/daily_detail"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/money_advance"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/money_advance"(platform: "/mobile", type : TrackType.Event) {}
     "/money_detail/money_out"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/scan"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/result"(platform: "/mobile", type : TrackType.View) {}
@@ -1308,7 +1309,7 @@ tracks {
     "/money_detail/shopping"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/withdraw/delay/manual_review"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/credits"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/credits_merchant_admin"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/credits_merchant_admin"(platform: "/mobile", type : TrackType.Event) {}
     "/money_detail/tecban"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/activities"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/activities_v2_list"(platform: "/mobile", type : TrackType.View) {}
