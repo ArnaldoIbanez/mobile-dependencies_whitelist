@@ -412,6 +412,10 @@ trackTests {
             domain_id = "celulares"
         })
 
+        "/pdp/description/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+        })
+
         "/pdp/show_more_features"(platform: "/mobile", {
             catalog_product_id = "MLA1234"
             item_id = "MLA112341"
