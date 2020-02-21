@@ -243,6 +243,10 @@ trackTests {
             defaultLocation()
             current_distance = "500"
             context = "could_not_deliver"
+            driver_id = "1234"
+            shipment_id = "1234"
+            receiver_latitude = "1234"
+            receiver_longitude = "1234"
         }
 
         "/logistics/last_mile/detail/start_trip"(platform: "/mobile", type: TrackType.Event) {

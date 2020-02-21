@@ -321,7 +321,7 @@ tracks {
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
-        paragraph(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
+        bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
     }
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
@@ -340,7 +340,7 @@ tracks {
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
-        paragraph(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
+        bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
     }
 
     //Notification Center
@@ -421,4 +421,14 @@ tracks {
 
     "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
 
+    /**
+     * New Digital Wallet Tracks - Ukraine Lab
+     */
+    "/new_digital_wallet_landing"(platform: "/", type: TrackType.View) {
+        landing_id (required: true, type: PropertyType.String, description: "Indicate landing id")
+    }
+    "/new_digital_wallet_landing/click_download_app"(platform: "/", type: TrackType.Event) {
+        landing_id (required: true, type: PropertyType.String, description: "Indicate landing id")
+        section (required: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Section from which the event comes")
+    }
 }

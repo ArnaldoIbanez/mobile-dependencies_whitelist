@@ -29,12 +29,17 @@ tracks {
 
 
     // Scan QR
+    "/instore/scanner_selection"(platform: "/mobile", type: TrackType.View) {
+        session_id(required: false, PropertyType.String, description: "scanner selection hasn't session_id")
+        selected(required: true, PropertyType.Boolean, description: "indicates if a new scanner version was selected")
+    }
     "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {
         camera_permissions(required: false, PropertyType.Boolean)
         location_permissions(required: false, PropertyType.Boolean)
         notification_permissions(required: false, PropertyType.Boolean)
         bluetooth_permissions(required: false, PropertyType.Boolean)
         qr_data(required: false, PropertyType.String)
+        scanner_version(required: false, PropertyType.String, description: "version of scanner input")
 
         camera_flash(required: false, PropertyType.Boolean)
         view_time_in_millis(required: false, PropertyType.String)

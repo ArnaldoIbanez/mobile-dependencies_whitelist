@@ -565,6 +565,7 @@ trackTests {
             item_seller_type= "normal"
             from_view="howToContract"
             catalog_listing="Item's catalog listing"
+            category_path=["MLA1540","MLA122258"]
         }
 
         "/vip/coordinate_intention"(platform: "/web", type: TrackType.Event) {

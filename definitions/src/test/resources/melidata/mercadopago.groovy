@@ -1225,9 +1225,11 @@ trackTests {
             coupon_code = "Y96XA"
             coupon_type = "default"
         }
+
         "/point/landings/buy"(platform:"/", type: TrackType.Event) {
             product = "bbpos"
         }
+
         // Landing MGM
         "/point/landings" (platform: "/") {
             product = "mgm"
@@ -1236,6 +1238,11 @@ trackTests {
         // Landing Bundles - bundle_point_* Depends on site.
         "/point/landings" (platform: "/") {
             product = "bundle_point_mini"
+        }
+
+        // Landing Multiproduct
+        "/point/landings/compare" (platform: "/") {
+            product = "Point Mini"
         }
     }
 

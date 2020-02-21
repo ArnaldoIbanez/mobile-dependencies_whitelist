@@ -148,6 +148,10 @@ tracks {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
     }
     "/logistics/last_mile/detail/distance_modal"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: false, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        shipment_id(required: false, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        receiver_latitude(required: false, type: PropertyType.String, description:"The latitude of the receiver at that point")
+        receiver_longitude(required: false, type: PropertyType.String, description:"The longitude of the receiver at that point")
         current_distance(required: false, type: PropertyType.String, description: "Specifies the distance between the driver and the destination in meters")
         context(required: true, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't",
                 values: ["deliver", "could_not_deliver"])

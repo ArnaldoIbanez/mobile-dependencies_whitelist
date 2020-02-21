@@ -497,9 +497,30 @@ trackTests {
 
     test("catalog_search query"){
         "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
+            site_filter = "MLA"
             query_filter = "philips"
             domain_filter = "tv"
-            limit_filter = 20
+        }
+    }
+
+    test("catalog_search query with no site"){
+        "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
+            query_filter = "philips"
+            domain_filter = "tv"
+        }
+    }
+
+    test("catalog_search query with no domain"){
+        "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
+            site_filter = "MLB"
+            query_filter = "philips"
+        }
+    }
+
+    test("catalog_search query with no query"){
+        "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
+            site_filter = "MLB"
+            query_filter = "AUTOMOTIVE_TIRES"
         }
     }
 

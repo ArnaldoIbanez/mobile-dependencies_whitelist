@@ -50,4 +50,10 @@ tracks {
     "/user_blocker/finish"(platform: "/", type: TrackType.Event) {
         deeplink(required: true, type: PropertyType.String, description: "the redirect deeplink")
     }
+
+    //async mode events
+    "/user_blocker/async_mode_load"(platform: "/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "the result of the load")
+        deeplink(required: false, type: PropertyType.String, description: "the redirect deeplink")
+    }
 }
