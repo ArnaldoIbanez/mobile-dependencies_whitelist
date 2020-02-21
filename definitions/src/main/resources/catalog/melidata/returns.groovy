@@ -14,6 +14,7 @@ tracks {
       category_l1_id(required: false, type: PropertyType.String, description: 'main category of item')
       category_path(required: false, type: PropertyType.ArrayList, description: 'the path of the category')
       request_type(required: false, type: PropertyType.String, description: 'request type of the operation', values:['RETURN', 'REPURCHASE', 'CHANGE'])
+      layout(required: false, type: PropertyType.String, description: 'identify the specific type of layout of the payment')
     }
 
     // STEP 01
@@ -45,7 +46,7 @@ tracks {
     // STEP 05
     "/return/shipping"(platform: "/", type: TrackType.View) { }
     "/return/shipping/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-      shipment_type(required: true, values:['delivery', 'pickup'], type: PropertyType.String, description: 'selected shipment type')
+      shipment_type(required: true, type: PropertyType.String, description: 'Selected shipment type', values:['delivery', 'pickup', 'self_dispatch'])
     }
 
     // STEP 06.a
@@ -67,7 +68,7 @@ tracks {
     "/return/congrats"(platform: "/", type: TrackType.View) {
       typification(required: true, type: PropertyType.String, description: 'reason why the product is returned')
       payment_refund_method(required: false, type: PropertyType.String, description: 'payment refund method selected by the user')
-      shipment_type(required: true, type: PropertyType.String, description: 'shipment type')
+      shipment_type(required: true, type: PropertyType.String, description: 'Selected shipment type', values:['delivery', 'pickup', 'self_dispatch'])
       pickup_time(required: false, type: PropertyType.String, description: 'pickup time product to seller')
       showed_payment_methods(required: false, type: PropertyType.String, description: 'origin of the payment method')
       refund_account_money(required: true, type: PropertyType.Boolean, description: 'refund money in the buyers account')
@@ -83,7 +84,7 @@ tracks {
     "/return/congrats_error"(platform: "/", type: TrackType.View) {
       typification(required: true, type: PropertyType.String, description: 'reason why the product is returned')
       payment_refund_method(required: false, type: PropertyType.String, description: 'origin of payment')
-      shipment_type(required: true, type: PropertyType.String, description: 'shipment type')
+      shipment_type(required: true, type: PropertyType.String, description: 'Selected shipment type', values:['delivery', 'pickup', 'self_dispatch'])
       pickup_time(required: false, type: PropertyType.String, description: 'pickup time product to seller')
       showed_payment_methods(required: false, type: PropertyType.String, description: 'origin of the payment method')
       cart_order(required: true, type: PropertyType.Boolean, description: 'order created by cart')
@@ -91,7 +92,8 @@ tracks {
     }
 
     "/return/congrats_error/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        selection(required: true, type: PropertyType.String, description: 'selected option button')
+        selection(required: true, type: PropertyType.String, description: 'Selected option button')
+        type(required: false, type: PropertyType.String, description: 'Scoring of user in the flow')
     }
 
     "/return/external"(platform: "/", type: TrackType.View) {

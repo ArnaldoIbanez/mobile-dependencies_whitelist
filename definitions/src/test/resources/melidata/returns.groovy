@@ -19,6 +19,7 @@ trackTests {
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
         category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
+        layout = "single_option_layout"
       }
 
       "/return/potential_resolutions/selection"(platform: "/", type: TrackType.Event)  {
@@ -170,10 +171,11 @@ trackTests {
         payment_refund_at = "shipped"
       }
 
-
       "/return/congrats_error/selection"(platform: "/", type: TrackType.Event) {
         selection = "to_myml"
+        type = "scoring_high"
       }
+
       // Redirect to Claims
       "/return/external"(platform: "/") {
         id = "claims"
