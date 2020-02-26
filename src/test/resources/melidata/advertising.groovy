@@ -361,4 +361,26 @@ trackTests {
         }
 
     }
+
+    test("Advertising manager Sort Filters") {
+        "/advertising/pads2/manager/sort"(platform: "/web", type: TrackType.View) {
+            campaign_id = "2222222"
+            sort_by = "price"
+            sort_value= "asc"
+        }
+        "/advertising/pads2/manager/sort"(platform: "/web", type: TrackType.View) {
+            campaign_id = "2222222"
+            sort_by = "sales"
+            sort_value= "asc"
+        }
+         "/advertising/pads2/manager/sort"(platform: "/web", type: TrackType.View) {
+            campaign_id = "2222222"
+            sort_by = "sales"
+            sort_value= "desc"
+        }
+         "/advertising/pads2/manager/filters"(platform: "/web", type: TrackType.View) {
+            campaign_id = "2222222"
+            filters = [:]
+        }
+    }
 }
