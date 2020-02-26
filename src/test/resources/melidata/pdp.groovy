@@ -471,6 +471,7 @@ trackTests {
             item_id = "MLA112341"
             domain_id = "celulares"
             type = "payment"
+            context = "/qadb"
         })
     }
 

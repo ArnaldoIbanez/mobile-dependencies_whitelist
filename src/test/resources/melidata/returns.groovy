@@ -11,6 +11,7 @@ trackTests {
 
       // STEP 01
       "/return/potential_resolutions"(platform: "/", type: TrackType.View)  {
+        ref = "mediations_init"
         loyalty_level = 5
         order_id = 1763279429
         buyer_scoring = "low"
@@ -18,7 +19,7 @@ trackTests {
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
         category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
-        ref = "mediations_init"
+        layout = "single_option_layout"
       }
 
       "/return/potential_resolutions/selection"(platform: "/", type: TrackType.Event)  {
@@ -27,6 +28,7 @@ trackTests {
 
       // STEP 02
       "/return/typifications"(platform: "/", type: TrackType.View)  {
+        ref = "mediations_init"
         loyalty_level = 5
         order_id = 1763279429
         buyer_scoring = "low"
@@ -34,7 +36,6 @@ trackTests {
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
         category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
-        ref = "mediations_init"
       }
 
       "/return/typifications/selection"(platform: "/", type: TrackType.Event)  {
@@ -43,6 +44,7 @@ trackTests {
 
       // STEP 03
       "/return/conditions"(platform: "/", type: TrackType.View) {
+        ref = "mediations_init"
         loyalty_level = 4
         order_id = 1763279429
         buyer_scoring = "low"
@@ -50,7 +52,6 @@ trackTests {
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
         category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
-        ref = "mediations_init"
       }
 
       "/return/conditions/selection"(platform: "/", type: TrackType.Event) {
@@ -59,6 +60,7 @@ trackTests {
 
       // STEP 04
       "/return/payments"(platform: "/", type: TrackType.View) {
+        ref = "mediations_init"
         loyalty_level = 4
         order_id = 1763279429
         buyer_scoring = "low"
@@ -66,7 +68,6 @@ trackTests {
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
         category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
-        ref = "mediations_init"
         showed_payment_methods = "credit_card"
       }
 
@@ -170,10 +171,11 @@ trackTests {
         payment_refund_at = "shipped"
       }
 
-
       "/return/congrats_error/selection"(platform: "/", type: TrackType.Event) {
         selection = "to_myml"
+        type = "scoring_high"
       }
+
       // Redirect to Claims
       "/return/external"(platform: "/") {
         id = "claims"
@@ -212,6 +214,36 @@ trackTests {
         category_id = "MLB48550"
         category_l1_id = "MLB48551"
         category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
+      }
+
+      "/return/delivered_confirmation"(platform: "/"){
+        ref = "mediations_init"
+        loyalty_level = 5
+        order_id = 1763279429
+        buyer_scoring = "low"
+        seller_scoring = "low"
+        category_id = "MLB48550"
+        category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
+      }
+
+      "/return/delivered_confirmation/selection"(platform: "/"){
+        selection = "accepted"
+      }
+
+      "/return/self_dispatch"(platform: "/"){
+        ref = "mediations_init"
+        loyalty_level = 5
+        order_id = 1763279429
+        buyer_scoring = "low"
+        seller_scoring = "low"
+        category_id = "MLB48550"
+        category_l1_id = "MLB48551"
+        category_path = ["MLB1648","MLB1700","MLB5210","MLB9634","MLB277393"]
+      }
+
+      "/return/self_dispatch/selection"(platform: "/"){
+        selection = "accepted"
       }
     }
 }

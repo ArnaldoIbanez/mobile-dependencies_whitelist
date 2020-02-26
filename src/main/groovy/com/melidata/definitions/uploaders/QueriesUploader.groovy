@@ -19,8 +19,8 @@ class QueriesUploader {
     def static void main(String[] args) {
         def queriesDir = "./src/main/resources/data-dependencies-catalog/"
         def s3Bucket = "melidata-croned-queries"
-        def accessKey = "AKIAJ4K4ZOXUNJLTL4NQ"
-        def secretKey = "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"
+        def accessKey = "AKIAJFRFUW5LZXNX5TWQ"
+        def secretKey = "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"
 
         new QueriesUploader(queriesDir,s3Bucket,accessKey,secretKey).upload();
     }

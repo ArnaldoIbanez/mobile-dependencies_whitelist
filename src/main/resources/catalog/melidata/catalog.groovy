@@ -151,6 +151,7 @@ catalog {
         include business, "sp_prepaid.groovy"
         include business, "official_stores.groovy"
         include business, "notifications.groovy"
+        include business, "post_purchase.groovy"
     }
 
     mercadopago.each { business ->
