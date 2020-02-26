@@ -45,16 +45,11 @@ configurations {
 
 dependencies {
 	compile 'org.codehaus.groovy:groovy-all:2.3.11'
-	compile('com.mercadolibre.opensource.frameworks:restclient:1.1.4'){
-		exclude group:'org.codehaus.groovy', module:'groovy'
-	}
-	compile('org.codehaus.groovy.modules.http-builder:http-builder:0.7') {
-		exclude group:'org.codehaus.groovy', module:'groovy'
-	}
+	compile 'log4j:log4j:1.2.16'
 
 	compile 'com.amazonaws:aws-java-sdk:1.11.68'
 	compile 'commons-io:commons-io:2.4'
-	compile 'com.mercadolibre.melidata.catalog:commons:0.0.2-java8'
+	compile 'com.mercadolibre.melidata.catalog:commons:2.0.0'
 	compile group: 'com.facebook.presto', name: 'presto-jdbc', version: '0.220'
 	compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 	compile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
