@@ -20,10 +20,6 @@ apply plugin: 'idea'
 apply plugin: 'application'
 apply plugin: 'maven'
 
-
-group = 'com.mercadolibre.melidata.catalog'
-version = '1.2.20'
-
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -33,10 +29,6 @@ repositories {
 	maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
 	maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
 	maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
-}
-
-war {
-	archiveName 'ROOT.war'
 }
 
 configurations {
@@ -289,9 +281,9 @@ uploadArchives {
 			repository(url: 'http://git.ml.com/nexus/content/repositories/releases') {
 				authentication(userName: 'mlGrailsPluginDeployer', password: '123456')
 			}
-			pom.groupId = project.group
+			pom.groupId = 'com.mercadolibre.melidata.catalog'
 			pom.artifactId = 'definitions'
-			pom.version = project.version
+			pom.version = '2.0.0'
 		}
 	}
 }
