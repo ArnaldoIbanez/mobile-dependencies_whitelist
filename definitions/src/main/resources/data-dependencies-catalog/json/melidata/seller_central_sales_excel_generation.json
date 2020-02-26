@@ -73,7 +73,6 @@
         "name": "site_id",
         "type": "UNICODE_STRING"
       }
-
     ],
     "sql": {
       "script": "seller_central/sales/seller_central_sales_excel_generation.sql",
