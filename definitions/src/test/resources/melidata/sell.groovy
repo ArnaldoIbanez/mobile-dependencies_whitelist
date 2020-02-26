@@ -822,8 +822,8 @@ trackTests {
             list_mode = "LIST"
         }
     }
-    test("SYI v4 category suggested click another category"){
-        "/sell/item_data/category_suggested/another_category"(platform: "/web", type: TrackType.Event){
+    test("SYI v4 category suggested click wrong category"){
+        "/sell/item_data/category_suggested/wrong_category"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"

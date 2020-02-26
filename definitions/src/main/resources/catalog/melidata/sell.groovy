@@ -792,7 +792,7 @@ tracks {
     "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {
         confirm_category_detail(required: true, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
     }
-    "/sell/item_data/category_suggested/another_category"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/category_suggested/wrong_category"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {
         categoryFlow
     }
