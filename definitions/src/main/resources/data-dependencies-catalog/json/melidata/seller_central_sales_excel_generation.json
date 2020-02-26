@@ -70,10 +70,6 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "ds",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "site_id",
         "type": "UNICODE_STRING"
       }

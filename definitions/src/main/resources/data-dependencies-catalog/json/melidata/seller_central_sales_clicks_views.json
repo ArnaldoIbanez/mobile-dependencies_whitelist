@@ -54,17 +54,13 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "ds",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "site_id",
         "type": "UNICODE_STRING"
       },
 
     ],
     "sql": {
-      "script": "seller_central/sales/seller_central_sales_clicks_views.sql", 
+      "script": "seller_central/sales/seller_central_sales_clicks_views.sql",
       "parameters": [
         {
           "name": "param01", 
