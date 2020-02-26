@@ -1,9 +1,8 @@
 package com.melidata.definitions.parsers.dsl
 
-import com.melidata.definitions.validate.InitiativeValidate
+import com.melidata.definitions.validators.InitiativeValidate
 import com.ml.melidata.Track
 import com.ml.melidata.catalog.Catalog
-import com.ml.melidata.catalog.exceptions.CatalogException
 
 /**
  * Created by apetalas on 19/11/14.

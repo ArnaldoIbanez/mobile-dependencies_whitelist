@@ -3,8 +3,6 @@ package com.melidata.definitions.validators
 import com.melidata.definitions.parsers.dsl.TestDsl
 import com.melidata.definitions.outs.DefinitionsOut
 import com.ml.melidata.catalog.Catalog
-import com.melidata.definitions.validate.*
-import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import groovy.transform.Synchronized
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
@@ -15,10 +13,6 @@ import org.apache.log4j.Logger
 class CatalogValidator {
 
     def static boolean run(Catalog catalog, ArrayList<TestDsl> tests, DefinitionsOut out){
-        //Prepare initiatives list
-        println( "Preparing initiatives in memory")
-        InitiativeAPI.getInstance().generateInitiativesList()
-
         def runOk = true
         out.beforeRun(catalog, tests)
         tests?.each { singleTest ->
@@ -52,7 +46,7 @@ class CatalogValidator {
             def tests = new ArrayList<TestDsl>()
             testsScript.each { tests.addAll(runScript(it)) }
 
-            return CatalogValidator.run(catalog, tests, out)
+            return run(catalog, tests, out)
 
         }
         catch (FileNotFoundException x){

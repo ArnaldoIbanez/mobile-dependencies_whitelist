@@ -1,4 +1,4 @@
-package com.melidata.definitions.validate
+package com.melidata.definitions.validators
 
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import com.ml.melidata.catalog.model.ApplicationModel
@@ -7,7 +7,7 @@ class InitiativeValidate {
 
     private static Set validPaths = []
     private static Set totalPaths = []
-    private static double baseCoverage = 95
+    private static double baseCoverage = 100
 
 
     static validateInitiative(String path, String initiativeId) {
