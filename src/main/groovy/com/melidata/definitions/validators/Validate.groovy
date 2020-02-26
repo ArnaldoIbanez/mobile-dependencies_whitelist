@@ -1,6 +1,5 @@
 package com.melidata.definitions.validators
 
-
 import com.ml.melidata.catalog.DslUtils
 import com.ml.melidata.catalog.tree.TrackValidationResponse
 import groovy.json.*

@@ -1,5 +1,6 @@
-package com.melidata.definitions.validate
+package com.melidata.definitions.validators
 
+import com.ml.melidata.catalog.DslUtils
 import com.ml.melidata.catalog.initiatives.InitiativeAPI
 import com.ml.melidata.catalog.model.ApplicationModel
 
@@ -7,8 +8,8 @@ class InitiativeValidate {
 
     private static Set validPaths = []
     private static Set totalPaths = []
-    private static double baseCoverage = 95
-
+    private static double baseCoverage = 100
+    private static Set coveragebleCatalogs = ['melidata']
 
     static validateInitiative(String path, String initiativeId) {
         totalPaths << path
@@ -22,16 +23,23 @@ class InitiativeValidate {
     }
 
     static boolean checkCoverage() {
-        def actualCoverage = (validPaths.size() / totalPaths.size()) * 100
-        def isValidStatus = actualCoverage > baseCoverage
-        if(!isValidStatus) {
-            println "\n"+starBar()
-            println("\tInitiatives coverage is too low!")
-            println starBar()+"\n"
+        def isValidStatus = true
 
-            println("\033[91m - Actual coverage: "+actualCoverage+"\033[0m")
-            println("\033[92m - Intended coverage: "+baseCoverage+"\033[0m")
+        if(DslUtils.getCatalogName() in coveragebleCatalogs) {
+            def actualCoverage = (validPaths.size() / totalPaths.size()) * 100
+            isValidStatus = actualCoverage >= baseCoverage
+            if(!isValidStatus) {
+                println "\n"+starBar()
+                println("\tInitiatives coverage is too low!")
+                println starBar()+"\n"
+
+                println("\033[91m - Actual coverage: "+actualCoverage+"\033[0m")
+                println("\033[92m - Intended coverage: "+baseCoverage+"\033[0m")
+            }
         }
+
+        validPaths = []
+        totalPaths = []
 
         return isValidStatus
     }
