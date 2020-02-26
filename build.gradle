@@ -45,6 +45,7 @@ configurations {
 
 dependencies {
 	compile 'org.codehaus.groovy:groovy-all:2.3.11'
+	compile 'log4j:log4j:1.2.16'
 
 	compile 'com.amazonaws:aws-java-sdk:1.11.68'
 	compile 'commons-io:commons-io:2.4'
@@ -55,7 +56,6 @@ dependencies {
 	compile group: 'joda-time', name: 'joda-time', version: '2.9.4'
 	compile group: 'junit', name: 'junit', version: '4.12'
 	compile group: 'commons-cli', name: 'commons-cli', version: '1.2'
-
 	compile 'junit:junit:4.+'
 }
 
