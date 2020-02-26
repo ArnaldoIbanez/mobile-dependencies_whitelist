@@ -393,6 +393,10 @@ trackTests {
             domain_id = "MLA-CELLPHONES"
             item_condition = "new"
         })
+
+        "/pdp/description/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+        })
     }
 
     test("mobile special actions") {
@@ -410,10 +414,6 @@ trackTests {
             listing_type_id = "gold_special"
             product_status = "paused"
             domain_id = "celulares"
-        })
-
-        "/pdp/description/show"(platform: "/", {
-            catalog_product_id = "MLA1234"
         })
 
         "/pdp/show_more_features"(platform: "/mobile", {
