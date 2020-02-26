@@ -4,7 +4,7 @@ FROM hub.furycloud.io/mercadolibre/java-gradle:jdk8
 # Override the following env variable to call another task for packaging your app
 ENV GRADLE_PACKAGE="bootRepackage"
 
-ENV GRADLE_PACKAGE_PATH="build/libs/*.war"
+ENV GRADLE_PACKAGE_PATH="/tmp/definitions/*.war"
 
 # Default value in image is "test jacocoTestReport".
 # Override the following env variable to call another task for testing your app

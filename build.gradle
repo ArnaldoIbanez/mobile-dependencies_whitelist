@@ -1,38 +1,34 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.8.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse-wtp'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'war'
-apply plugin: 'jacoco'
 apply plugin: 'groovy'
 apply plugin: 'idea'
-apply plugin: 'application'
 apply plugin: 'maven'
+apply plugin: 'jacoco'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-	mavenCentral()
-	jcenter()
-	maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
-	maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
-	maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
+    mavenCentral()
+    jcenter()
+    maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
+    maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
+    maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
 }
 
 configurations {
-	providedRuntime
+    providedRuntime
 }
 
 dependencies {
@@ -273,6 +269,9 @@ task exportRecommendations(type:JavaExec) {
 task exportMetrics(type:JavaExec) {
 	main = "com.melidata.metrics.format.MetricsFormatter"
 	classpath = sourceSets.main.runtimeClasspath
+}
+
+task bootRepackage {
 }
 
 uploadArchives {
