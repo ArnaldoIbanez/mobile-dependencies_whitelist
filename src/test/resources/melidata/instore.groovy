@@ -15,11 +15,15 @@ trackTests {
         //------------------------------------------------------------------------------------------------------------------------------------------------------
 
         // Scan QR
+        "/instore/scanner_selection"(platform: "/mobile", type: TrackType.View) {
+            selected = true
+        }
         "/instore/scan_qr"(platform: "/mobile", type: TrackType.View) {
             camera_permissions = true
             location_permissions = true
             notification_permissions = true
             bluetooth_permissions = true
+            scanner_version = "2"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             new_session = true
         }
@@ -1280,15 +1284,18 @@ trackTests {
 
 
         // Scan QR
+        "/instore/scanner_selection"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            selected = true
+        }
         "/instore/scan_qr"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             camera_permissions = true
             location_permissions = true
             notification_permissions = true
             bluetooth_permissions = true
+            scanner_version = "2"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             new_session = true
         }
-        
         "/instore/scan_qr/qr_discovery"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             qr_data = "Any scanned data"
             camera_flash = false

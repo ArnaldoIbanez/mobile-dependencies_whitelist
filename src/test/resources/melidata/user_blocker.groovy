@@ -53,5 +53,11 @@ trackTests {
         "/user_blocker/finish"(platform: "/") {
             deeplink = "mercadopago://home"
         }
+
+        //Async mode events
+        "/user_blocker/async_mode_load"(platform: "/") {
+            label = "service_success"
+            deeplink = "mercadopago://home"
+        }
     }
 }

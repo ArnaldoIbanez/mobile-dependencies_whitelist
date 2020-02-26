@@ -657,7 +657,7 @@ tracks {
     "/checkout/payment/encrypted_security_code_add#submit"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         status(required: true, type: PropertyType.String)
-        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
+        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "checkout"])
     }
 
     //Billing info
@@ -674,12 +674,12 @@ tracks {
     "/checkout/review#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         status(required: true, type: PropertyType.String)
-        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
+        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "checkout"])
     }
 
     "/checkout/review#submit/abort"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
-        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct", "purchase"])
+        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "checkout", "purchase"])
     }
 
     "/checkout/review/quantity#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -820,7 +820,11 @@ tracks {
     "/checkout/finish/call_for_auth/instructions#submit"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         status(required: true, type: PropertyType.String)
-        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "direct"])
+        checkout_flow(required: true, type: PropertyType.String, values: ["contract", "reservation", "subscription", "checkout"])
+    }
+    "/checkout/finish/call_for_auth/instructions#submit/abort"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+        checkout_flow(required: false, type: PropertyType.String, values: ["contract", "reservation", "subscription", "checkout", "purchase"])
     }
     "/checkout/finish/call_for_auth/later"(platform: "/mobile") {}
 
