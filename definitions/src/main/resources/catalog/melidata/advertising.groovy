@@ -229,4 +229,31 @@ tracks {
 
     }
 
+    //Sorting
+    "/advertising/pads2/manager/sort"(
+        platform: "/web",
+        type: TrackType.Event) {
+            sort_by(
+                required: true,
+                description: "Sort column id"
+            )
+            sort_value(
+                required: true,
+                values: ["asc", "desc"],
+                description: "Sort direction"
+            )
+    }
+
+    //Filters
+    def filters_definition = objectSchemaDefinitions {}
+
+    "/advertising/pads2/manager/filters"(
+        platform: "/web",
+        type: TrackType.Event) {
+            filters(
+                required: true,
+                type: PropertyType.Map(filters_definition)
+            )
+    }
+
 }
