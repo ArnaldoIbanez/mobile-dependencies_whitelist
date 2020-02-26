@@ -38,6 +38,7 @@ tracks {
         status_detail (required:false, type: PropertyType.String, description: "Operation result status detail")
     }
 
+    "/money_detail"(platform: "/", isAbstract: true) {}
     "/money_detail"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
@@ -53,7 +54,15 @@ tracks {
     "/money_detail/withdraw/select_bank"(platform: "/mobile", type: TrackType.View) {}
     "/money_detail/withdraw"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/daily_detail"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail/money_advance"(platform: "/mobile", type : TrackType.View) {}
+
+    "/money_detail/money_advance"(platform: "/mobile", type : TrackType.Event) {}
+    "/money_detail/money_out"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/scan"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/result"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/add_info"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/congrats"(platform: "/mobile", type : TrackType.View) {}
+    "/money_detail/web_view"(platform: "/mobile", type : TrackType.View) {}
+
     "/money_detail/restrictions"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/point_home"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/manual_code"(platform: "/mobile", type : TrackType.View) {}
@@ -68,7 +77,11 @@ tracks {
     "/money_detail/withdraw/delay/manual_review"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/credits"(platform: "/mobile", type : TrackType.View) {}
     "/money_detail/activities"(platform: "/mobile", type : TrackType.View) {}
-    "/money_detail"(platform: "/mobile", isAbstract: true) {}
+
+    "/money_detail/tecban"(platform: "/", type : TrackType.View) {}
+    "/money_detail/credits_merchant_admin"(platform: "/mobile", type : TrackType.Event) {}
+    "/money_detail/activities_v2_list"(platform: "/mobile", type : TrackType.View) {}
+
 
     "/new-account"(platform: "/", type: TrackType.View) {}
 
@@ -128,6 +141,7 @@ tracks {
     "/withdraw/error/withdraw_failed"(platform: "/mobile", type : TrackType.View) {}
     "/withdraw/error/high_risk"(platform: "/mobile", type : TrackType.View) {}
     "/withdraw/error/uif"(platform: "/mobile", type : TrackType.View) {}
+    "/withdraw/manual_code"(platform: "/mobile", type : TrackType.View) {}
     "/withdraw/delay"(platform: "/mobile", isAbstract : true) {}
     "/withdraw/delay/manual_review"(platform: "/mobile",   type : TrackType.View) {}
     "/withdraw/delay/offline"(platform: "/mobile",   type : TrackType.View) {}

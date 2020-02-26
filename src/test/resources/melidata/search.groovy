@@ -430,6 +430,9 @@ trackTests {
         "/search/save"(platform: "/") {
             defaultSearchInformation()
         }
+        "/search/alert_intention"(platform: "/") {
+            defaultSearchInformation()
+        }
         "/search/official_stores_carousel"(platform: "/") {
             defaultSearchInformation()
         }

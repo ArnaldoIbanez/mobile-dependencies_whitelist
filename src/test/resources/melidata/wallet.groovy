@@ -47,5 +47,4 @@ trackTests {
 
         "/wallet/cards/add_card_header"(platform: "/mobile", {})
     }
-
 }

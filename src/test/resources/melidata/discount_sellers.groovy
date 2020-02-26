@@ -34,6 +34,8 @@ trackTests {
     test("Mercadopago discount sellers form redirect") {
         "/discount_sellers/form/redirect" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
+            melicampaign_id = "1"
+            redirection_to = "landing"
         }
     }
 
@@ -143,6 +145,7 @@ trackTests {
     test("Mercadopago discount sellers history redirect") {
         "/discount_sellers/history/redirect" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
+            redirection_to = "landing"
         }
     }
 

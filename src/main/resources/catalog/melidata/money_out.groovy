@@ -53,9 +53,8 @@ tracks {
     }
 
     // Tecban
-    "/money_detail/tecban"(platform: "/", type: TrackType.Event) {}
-    "/money_out/tecban/onboarding"(platform: "/", type: TrackType.View) {}
     "/money_out/tecban"(platform: "/", isAbstract: true) {}
+    "/money_out/tecban/onboarding"(platform: "/", type: TrackType.View) {}
     "/money_out/tecban/onboarding/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/tecban/insufficient_amount"(platform: "/", type: TrackType.View) {}
     "/money_out/tecban/insufficient_amount/exit"(platform: "/", type: TrackType.Event) {}

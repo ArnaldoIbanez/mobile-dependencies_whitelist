@@ -132,6 +132,9 @@ tracks {
 
     "/point/landings/buy"(platform:"/", type: TrackType.Event) {}
 
+    // [Merchants Growth] Landing Multiproduct > Events
+    "/point/landings/compare"(platform:"/", type: TrackType.Event) {}
+
     // Merchant Acquisition Point Landings: MGM > Events
     "/point/landings/mgm"(platform: "/", isAbstract: true) {}
     "/point/landings/mgm/share"(platform:"/", type: TrackType.Event) {}

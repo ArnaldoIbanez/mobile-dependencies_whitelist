@@ -44,6 +44,14 @@ tracks {
     }
 
 
+    // Invalid input
+    "/single_player/prepaid/invalid_input"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/invalid_input/retry"(platform: "/mobile", type: TrackType.Event) {
+        view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
+    }
+
+
     // Products
     "/single_player/prepaid/product_list"(platform: "/mobile", type: TrackType.View) {}
 
@@ -130,12 +138,29 @@ tracks {
     }
 
 
-    // Congrats
-    "/single_player/prepaid/congrats"(platform: "/mobile", isAbstract: true) {}
-    "/single_player/prepaid/congrats/show_receipt"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats/add_alias"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
-    "/single_player/prepaid/congrats/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    // Congrats success
+    "/single_player/prepaid/congrats_success"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+        application_name(required: true, PropertyType.String, description: "Name of the external application that was opened")
+    }
+    "/single_player/prepaid/congrats_success/credit_charge"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_success/show_terminals"(platform: "/mobile", type: TrackType.Event) {}
+
+
+    // Congrats rejected
+    "/single_player/prepaid/congrats_rejected"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/congrats_rejected/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+
+    // Congrats pending
+    "/single_player/prepaid/congrats_pending"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/congrats_pending/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/congrats_pending/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
 
     // Congrats alias
@@ -145,6 +170,17 @@ tracks {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
     }
     "/single_player/prepaid/congrats_alias/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
+    }
+
+
+    // Accreditation information
+    "/single_player/prepaid/accreditation_information"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/accreditation_information/open_external_application"(platform: "/mobile", type: TrackType.Event) {
+        application_name(required: true, PropertyType.String, description: "Name of the external application that was opened")
+        view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
+    }
+    "/single_player/prepaid/accreditation_information/show_terminals"(platform: "/mobile", type: TrackType.Event) {
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
     }
 
