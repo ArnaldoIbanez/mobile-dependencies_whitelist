@@ -5,7 +5,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
-    
+
     //Advertising flow
     "/advertising"(platform: "/", isAbstract: true) {}
 
