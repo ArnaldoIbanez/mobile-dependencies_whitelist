@@ -1344,6 +1344,9 @@ trackTests {
       "/point/landings/reseller"(platform:"/", type: TrackType.Event) {
            product = "become_reseller"
        }
+      "/point/landings/reseller/congrats"(platform:"/", type: TrackType.Event) {
+           product = "become_reseller"
+       }
     }
 
     // MPMOBILE TEST
@@ -2133,6 +2136,17 @@ trackTests {
                     ]
             ]
         }
+
+        "/mgm/navigation" (platform: "/mobile", type: TrackType.Event, business:"mercadolibre") {
+            realestates = [
+                    [
+                            "content_id": "drawer_mgm_seller_mp",
+                            "origin": "user_journey",
+                            "realestate_id": "drawer_mgm"
+                    ]
+            ]
+        }
+
     }
 
     test("Digital Goods") {

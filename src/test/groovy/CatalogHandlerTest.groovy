@@ -144,7 +144,7 @@ import static org.junit.Assert.assertTrue
 class CatalogHandlerTest {
 
     //TODO testMultiFileCatalog and CatalogManager
-
+/*
     @Test void testSingleFileCatalog(){
 
         CatalogHandler handler = new CatalogHandler("melidata")
@@ -199,7 +199,7 @@ class CatalogHandlerTest {
         TrackValidationResponse response = handler.getCatalog().validate(new com.ml.melidata.Track("/path1", com.ml.melidata.TrackType.View, "/prueba", "prueba_business"))
         assertTrue(response.status)
     }
-
+*/
     public class S3ClientMock implements AmazonS3 {
 
         def ObjectListing list

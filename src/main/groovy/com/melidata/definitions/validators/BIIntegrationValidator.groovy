@@ -1,8 +1,8 @@
 package com.melidata.definitions.validators
 
-import com.melidata.metrics.format.QueryFormatter
-import com.melidata.metrics.format.MetricsFormatter
 import com.ml.melidata.metrics.MetricsFactory
+import com.melidata.metrics.format.MetricsFormatter
+import com.melidata.metrics.format.QueryFormatter
 import groovy.json.JsonException
 
 

@@ -1773,4 +1773,59 @@ trackTests {
         }
     }
 
+    test("SYI v4 List Similar variation selection page"){
+        "/sell/variation_selection"(platform: "/web", type: TrackType.View) {
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            vertical = "core"
+        }
+    }
+
+    test("SYI v4 List Similar variation selection, source variations card show"){
+        "/sell/variation_selection/source_variations"(platform: "/web", type: TrackType.View) {
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            vertical = "core"
+            variations_id = [123423, 123123, 123123]
+        }
+    }
+
+    test("SYI v4 List Similar variation selection, source variations, confirm variation"){
+        "/sell/variation_selection/source_variations/confirm_variation"(platform: "/web", type: TrackType.Event) {
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            vertical = "core"
+            variation_id = 123
+        }
+    }
+
+    test("SYI v4 List Similar variation selection, source variations, confirm variation null"){
+        "/sell/variation_selection/source_variations/confirm_variation"(platform: "/web", type: TrackType.Event) {
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            vertical = "core"
+            variation_id = null
+        }
+    }
+
 }
