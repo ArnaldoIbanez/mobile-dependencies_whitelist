@@ -5,6 +5,8 @@ import com.melidata.definitions.uploaders.WhitelistPathUploader
 
 static void main(String[] args) {
 
+    tests.main(args)
+
     println("Starting upload of all catalogs")
     CatalogUploader.main(args)
     println("Starting upload json for batch queries")
