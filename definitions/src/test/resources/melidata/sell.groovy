@@ -1928,7 +1928,7 @@ trackTests {
         }
     }
 
-    test("SYI v4 List Similar variation selection, source variations card show"){
+    test("SYI v4 List Similar variation selection, source variations, card show"){
         "/sell/variation_selection/source_variations/show"(platform: "/web", type: TrackType.Event) {
             category_id = "MLA390784"
             category_path = ["MLA1", "MLA2", "MLA3"]
