@@ -4,6 +4,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
+    initiative = "1169"
+
     "/post_purchase"(platform: "/", isAbstract: true) {
         ref(required: false, type: PropertyType.String, description: 'reference of the beginning of the flow')
     }
