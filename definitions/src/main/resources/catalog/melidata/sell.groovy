@@ -1063,13 +1063,13 @@ tracks {
         sellGroup
     }
 
-    "/sell/variation_selection/source_variations"(platform: "/web", type: TrackType.View) {
-        sellGroup
+    "/sell/variation_selection/source_variations"(platform: "/web", isAbstract: true) {}
+
+    "/sell/variation_selection/source_variations/show"(platform: "/web", type: TrackType.Event) {
         variations_id(required: true, platform: "/web", description: "ids of variations showed", type: PropertyType.ArrayList(PropertyType.Numeric))
     }
 
-    "/sell/variation_selection/source_variations/confirm_variation"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
-        sellGroup
+    "/sell/variation_selection/source_variations/confirm_variation"(platform: "/web", type: TrackType.Event) {
         variation_id(required: false, description: "variation id picked", type: PropertyType.Numeric)
     }
 }
