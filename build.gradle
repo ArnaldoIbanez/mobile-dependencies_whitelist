@@ -86,48 +86,48 @@ task uploadAll(type:JavaExec) {
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
-	main = 'com.melidata.definitions.task.testCatalog'
+	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["melidata"]
 }
 
 task testShipping (dependsOn: 'classes', type: JavaExec) {
-	main = 'com.melidata.definitions.task.testCatalog'
+	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["shipping"]
 }
 
 task testAdvertising (dependsOn: 'classes', type: JavaExec) {
-	main = 'com.melidata.definitions.task.testCatalog'
+	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["advertising"]
 }
 
 task testComponentPrints (dependsOn: 'classes', type: JavaExec) {
-	main = 'com.melidata.definitions.tasktestCatalog'
+	main = 'com.melidata.definitions.taskCatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["component_prints"]
 }
 
 task testCxHelpChannels (dependsOn: 'classes', type: JavaExec) {
-	main = 'com.melidata.definitions.task.testCatalog'
+	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["cx_help_channels"]
 }
 
 task testRecommendations (dependsOn: 'classes', type: JavaExec) {
-	main = 'com.melidata.definitions.task.testCatalog'
+	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["recommendations"]
 }
 
 task testCronnedQueries (dependsOn: 'classes', type: JavaExec) {
-	main = 'com.melidata.definitions.task.testCronnedQueries'
+	main = 'com.melidata.definitions.task.CronnedQueriesTest'
 	classpath = sourceSets.main.runtimeClasspath
 }
 
 task testMetrics (dependsOn: 'classes', type: JavaExec) {
-	main = 'com.melidata.definitions.task.testMetrics'
+	main = 'com.melidata.definitions.task.MetricsTest'
 	classpath = sourceSets.main.runtimeClasspath
 }
 
