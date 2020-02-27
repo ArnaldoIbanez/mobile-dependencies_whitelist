@@ -41,10 +41,6 @@ If your JAVA_HOME is set to JDK 9+, it might trigger incompatibility problems.
 
 If you want to run the tests, you should execute **```make test```**
 
-If you want to run the tests for a specific catalog, you should execute **```make test CATALOG=${catalogName}```** with the catalogName capitalized
-
-If you want to run all available tests **```make test CATALOG=${All}```** 
-
 ### REFERENCES
 
 1. [**Tracking Definitions**](https://github.com/mercadolibre/melidata-catalog/wiki/Tracking-Style-Guide)
