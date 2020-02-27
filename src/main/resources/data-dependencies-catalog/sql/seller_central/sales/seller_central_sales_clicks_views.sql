@@ -17,5 +17,19 @@ FROM tracks
 WHERE ds >= '@param01'
 AND ds < '@param02'
 AND path in ('/seller_central/sales/list/action/primary', '/seller_central/sales/list', '/seller_central/sales/detail')
-GROUP BY 2,3,4,5,6,7,8,9,10,11
+GROUP BY
+case when path = '/seller_central/sales/list/action/primary' then 'CLICK'
+       when path = '/seller_central/sales/list' then 'VIEW_LIST'
+       when path = '/seller_central/sales/detail' then 'VIEW_DETAIL'
+  end,
+ jest(event_data, 'id'),
+  platform.fragment,
+  usr.user_id,
+  jest(event_data, 'seller_profile'),
+  jest(event_data, 'seller_reputation'),
+  jest(event_data, 'mercado_lider'),
+  jest(event_data, 'seller_segment'),
+  jest(event_data, 'user_type'),
+  substr(ds,1,10),
+  application.site_id
 
