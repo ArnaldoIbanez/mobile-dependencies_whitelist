@@ -1,46 +1,34 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.8.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse-wtp'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'war'
-apply plugin: 'jacoco'
 apply plugin: 'groovy'
 apply plugin: 'idea'
-apply plugin: 'application'
 apply plugin: 'maven'
-
-
-group = 'com.mercadolibre.melidata.catalog'
-version = '1.2.20'
+apply plugin: 'jacoco'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-	mavenCentral()
-	jcenter()
-	maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
-	maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
-	maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
-}
-
-war {
-	archiveName 'ROOT.war'
+    mavenCentral()
+    jcenter()
+    maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
+    maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
+    maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
 }
 
 configurations {
-	providedRuntime
+    providedRuntime
 }
 
 dependencies {
@@ -86,60 +74,60 @@ task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
 }
 
 task testAll (dependsOn: 'classes', type: JavaExec) {
-	main = 'tests'
+	main = 'com.melidata.definitions.task.TestManager'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations"]
 }
 
 task uploadAll(type:JavaExec) {
-    main = 'uploads'
+    main = 'com.melidata.definitions.task.UploadManager'
     classpath = sourceSets.main.runtimeClasspath
     args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations"]
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
-	main = 'testCatalog'
+	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["melidata"]
 }
 
 task testShipping (dependsOn: 'classes', type: JavaExec) {
-	main = 'testCatalog'
+	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["shipping"]
 }
 
 task testAdvertising (dependsOn: 'classes', type: JavaExec) {
-	main = 'testCatalog'
+	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["advertising"]
 }
 
 task testComponentPrints (dependsOn: 'classes', type: JavaExec) {
-	main = 'testCatalog'
+	main = 'com.melidata.definitions.taskCatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["component_prints"]
 }
 
 task testCxHelpChannels (dependsOn: 'classes', type: JavaExec) {
-	main = 'testCatalog'
+	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["cx_help_channels"]
 }
 
 task testRecommendations (dependsOn: 'classes', type: JavaExec) {
-	main = 'testCatalog'
+	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["recommendations"]
 }
 
 task testCronnedQueries (dependsOn: 'classes', type: JavaExec) {
-	main = 'testCronnedQueries'
+	main = 'com.melidata.definitions.task.CronnedQueriesTest'
 	classpath = sourceSets.main.runtimeClasspath
 }
 
 task testMetrics (dependsOn: 'classes', type: JavaExec) {
-	main = 'testMetrics'
+	main = 'com.melidata.definitions.task.MetricsTest'
 	classpath = sourceSets.main.runtimeClasspath
 }
 
@@ -283,15 +271,24 @@ task exportMetrics(type:JavaExec) {
 	classpath = sourceSets.main.runtimeClasspath
 }
 
+task bootRepackage {
+}
+
 uploadArchives {
-	repositories {
-		mavenDeployer {
-			repository(url: 'http://git.ml.com/nexus/content/repositories/releases') {
-				authentication(userName: 'mlGrailsPluginDeployer', password: '123456')
-			}
-			pom.groupId = project.group
-			pom.artifactId = 'definitions'
-			pom.version = project.version
-		}
-	}
+    def version = System.getenv("APP_VERSION")
+
+    repositories {
+        mavenDeployer {
+            repository(url: 'http://git.ml.com/nexus/content/repositories/releases') {
+                authentication(userName: 'mlGrailsPluginDeployer', password: '123456')
+            }
+            pom.groupId = 'com.mercadolibre.melidata.catalog'
+            pom.artifactId = 'definitions'
+            if(version != null) {
+                pom.version = version
+            } else {
+                pom.version = '0'
+            }
+        }
+    }
 }
