@@ -20,8 +20,6 @@ tracks {
     }
 
     "/account_fund/amount"(platform: "/", type: TrackType.View) {}
-    "/account_fund/amount/preset"(platform: "/", isAbstract: true) {}
-
     // Amount presets buttons
     "/account_fund/amount/preset"(platform: "/", type: TrackType.Event) {
         preset (required:true, description: "Amount preset button value", values: ["30", "60", "120", "240", "500", "1000", "2000", "5000"])
@@ -74,7 +72,6 @@ tracks {
         result_status (required:false, description: "Operation result status") // Change in the future with required true
         result_type (required:false, description: "Operation result type")
     }
-    
     "/account_fund/cvu/pending"(platform: "/", type: TrackType.View) {}
     
     "/account_fund/cvu/main/instructions"(platform: "/", type: TrackType.Event) {}
