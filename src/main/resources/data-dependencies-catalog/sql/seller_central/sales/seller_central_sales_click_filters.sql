@@ -8,7 +8,7 @@ SELECT
   jest(event_data, 'seller_segment') as seller_segment,
   jest(event_data, 'user_type') as user_type,
   application.site_id as site_id,
-  substr(ds,1,10) as ds,
+  substr(ds,1,10) as ds
 FROM default.tracks
 lateral view explode(json_to_array(jet(event_data, 'filters'))) tf as filters
 WHERE ds >= '@param01'
