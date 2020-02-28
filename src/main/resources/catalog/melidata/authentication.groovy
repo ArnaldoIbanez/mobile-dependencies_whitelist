@@ -202,16 +202,6 @@ tracks {
 
     //Abuse Prevention
     "/auth"(platform: "/", isAbstract: true) {}
-    "/auth/abuse_prevention"(platform: "/", type: TrackType.Event) {
-        result(type: PropertyType.String, required: true)
-    }
-    "/auth/abuse_prevention/login"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        device_id(type: PropertyType.String, required: true)
-        platform(type: PropertyType.String, required: true)
-    }
-    "/auth/abuse_prevention/ban"(platform: "/", type: TrackType.Event) {
-        result(type: PropertyType.String, required: true)
-    }
 
     //Security Feedback
     "/login/auth/feedback"(platform: "/", type: TrackType.Event) {
@@ -228,8 +218,6 @@ tracks {
         is_webview(type: PropertyType.Boolean, required: true, description: "Identifies if request comes from webview")
     }
 
-    "/auth/account_recovery/recovery_confirmation"(platform: "/", type: TrackType.View) {}
-
     "/auth/account_recovery/congrats"(platform: "/", type: TrackType.View) {}
 
     "/auth/account_recovery/landing"(platform: "/", type: TrackType.View) {}
@@ -237,11 +225,6 @@ tracks {
     "/auth/account_recovery/phone_number_verification"(platform: "/", type: TrackType.View) {}
 
     "/auth/account_recovery/on_hold"(platform: "/", type: TrackType.View) {}
-
-    "/auth/account_recovery/recovery_confirmation/action"(platform: "/", type: TrackType.Event) {
-        event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
-        target(type: PropertyType.String, required: false, description: "Describes element related to user action")
-    }
 
     "/auth/account_recovery/congrats/action"(platform: "/", type: TrackType.Event) {
         event_type(type: PropertyType.String, required: false, description: "Describes user action in current step")
@@ -429,12 +412,6 @@ tracks {
 
     "/auth/authentication_methods/password"(platform: "/", isAbstract: true) {
         redirect_url(type: PropertyType.String, required: true, description: "Describes flow redirect url")
-    }
-
-    "/auth/authentication_methods/password/change_form"(platform: "/", type: TrackType.Event) {}
-
-    "/auth/authentication_methods/password/change"(platform: "/", type: TrackType.Event) {
-        device_profile_id(type: PropertyType.String, required: true, description: "Describes user device profile id")
     }
 
     // Device Authorization Authenticator
