@@ -1,3 +1,5 @@
+package catalog.melidata
+
 import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
@@ -27,20 +29,33 @@ tracks {
     }
     "/cards/hybrid/shipping/tracking/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
-            values: ["back", "contact", "help", "banner_unlock"],
-            description: "Action tapped"
+                required: true,
+                type: PropertyType.String,
+                values: ["back", "contact", "help", "banner_unlock"],
+                description: "Action tapped"
         )
     }
     "/cards/hybrid/shipping/tracking/show"(platform:"/", type: TrackType.Event) {
         component_id (required:true, type: PropertyType.String, description: "Component shown")
     }
 
+    //Shipping: Delayed
+    "/cards/hybrid/shipping/delayed"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/shipping/delayed"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/shipping/delayed/tap"(platform:"/", type: TrackType.Event) {
+        action (
+                required: true,
+                type: PropertyType.String,
+                values: ["back", "exit", "reissue"],
+                description: "Action tapped"
+        )
+    }
+
+
     // UNLOCK
     // --------
     "/cards/hybrid/unlock"(platform: "/", isAbstract: true) { }
-  
+
     // Unlock: Init Point
     "/cards/hybrid/unlock/init-point"(platform: "/", type: TrackType.View) {}
 
@@ -48,18 +63,18 @@ tracks {
     "/cards/hybrid/unlock/scanner"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/scanner/link"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
-            values: ["qr", "manual"],
-            description: "Link method used"
+                required: true,
+                type: PropertyType.String,
+                values: ["qr", "manual"],
+                description: "Link method used"
         )
     }
     "/cards/hybrid/unlock/scanner/link/status"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
-            values: ["initializing", "scanning", "resolving", "failed"],
-            description: "Scanner state"
+                required: true,
+                type: PropertyType.String,
+                values: ["initializing", "scanning", "resolving", "failed"],
+                description: "Scanner state"
         )
     }
 
@@ -67,10 +82,10 @@ tracks {
     "/cards/hybrid/unlock/manual-link"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/manual-link/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
-            values: ["link"],
-            description: "Manual link method selected"
+                required: true,
+                type: PropertyType.String,
+                values: ["link"],
+                description: "Manual link method selected"
         )
     }
 
@@ -78,10 +93,10 @@ tracks {
     "/cards/hybrid/unlock/confirm-link"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/confirm-link/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
-            values: ["confirm", "logout"],
-            description: "Action tapped"
+                required: true,
+                type: PropertyType.String,
+                values: ["confirm", "logout"],
+                description: "Action tapped"
         )
     }
 
@@ -89,10 +104,10 @@ tracks {
     "/cards/hybrid/unlock/camera-permissions"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/camera-permissions/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
-            values: ["qr", "manual"],
-            description: "Link method selected"
+                required: true,
+                type: PropertyType.String,
+                values: ["qr", "manual"],
+                description: "Link method selected"
         )
     }
 
@@ -100,10 +115,10 @@ tracks {
     "/cards/hybrid/unlock/confirm-replacement"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/confirm-replacement/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
-            values: ["confirm", "exit"],
-            description: "Action tapped"
+                required: true,
+                type: PropertyType.String,
+                values: ["confirm", "exit"],
+                description: "Action tapped"
         )
     }
 
@@ -111,10 +126,10 @@ tracks {
     "/cards/hybrid/unlock/set-pin"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/set-pin/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
-            values: ["confirm"],
-            description: "Pin confirmed"
+                required: true,
+                type: PropertyType.String,
+                values: ["confirm"],
+                description: "Pin confirmed"
         )
     }
 
@@ -123,10 +138,27 @@ tracks {
     "/cards/hybrid/unlock/update-app"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/update-app/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
-            values: ["exit", "update"],
-            description: "Action tapped"
-          )
+                required: true,
+                type: PropertyType.String,
+                values: ["exit", "update"],
+                description: "Action tapped"
+        )
+    }
+
+    // ENGAGEMENT
+    // --------
+    "/cards/hybrid/engagement"(platform: "/", isAbstract: true) { }
+
+    // Change-Pin: Flow to change the pin of the hybrid card
+    "/cards/hybrid/engagement/change-pin"(platform: "/", isAbstract: true) { }
+
+    "/cards/hybrid/engagement/change-pin"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/engagement/change-pin/tap"(platform:"/", type: TrackType.Event) {
+        action (
+                required: true,
+                type: PropertyType.String,
+                values: ["back", "change-pin"],
+                description: "Action tapped"
+        )
     }
 }
