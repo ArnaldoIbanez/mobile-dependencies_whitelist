@@ -156,7 +156,6 @@ tracks {
 
     "/withdraw/main"(platform: "/mobile", type: TrackType.View) {}
     "/withdraw/confirmation"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/make_withdraw"(platform: "/mobile", type: TrackType.View) {}
     "/withdraw/make_withdraw"(platform: "/mobile", type: TrackType.Event) {
         data    (required:false, type: PropertyType.Map(structDataMakeWithdraw), description: "Contains information of windows show to user e.g title, disable or not button")
         _label  (required:false, type: PropertyType.String, description: "Operation congrats")
