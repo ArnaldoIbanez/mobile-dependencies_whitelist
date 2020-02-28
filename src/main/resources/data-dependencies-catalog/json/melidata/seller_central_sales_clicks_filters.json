@@ -14,6 +14,10 @@
     "site": "QA",
     "columns": [
       {
+        "name": "cantidad",
+        "type": "INTEGER"
+      },
+      {
       "name": "user_id",
       "type": "UNICODE_STRING"
       },
