@@ -606,6 +606,28 @@ trackTests {
         "/credits/express_money/onboarding"(platform: "/mobile/android") {}
     }
 
+    test("Merchant Open Market") {
+        "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
+
+        "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {}
+
+        "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {}
+
+        "/credits/merchant/open-market/bank_click"(platform: "/", type: TrackType.Event) {
+            bank = "caixa"
+        }
+
+        "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {}
+
+        "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {}
+
+        "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
+            bank = "caixa"
+        }
+
+        "/credits/merchant/open-market/form/sent"(platform: "/", type: TrackType.Event) {}
+    }
+
     test("Merchant Public Landing") {
         "/credits/merchant/public_landing"(platform: "/web/desktop") {
             user_profile = 'offer'

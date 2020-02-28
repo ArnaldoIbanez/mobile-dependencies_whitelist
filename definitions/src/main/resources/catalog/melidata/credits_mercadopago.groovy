@@ -264,6 +264,58 @@ tracks {
      ******************************************/
 
     /******************************************
+    *       Start: Merchants Open Market
+    *******************************************/
+
+    "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/merchant/open-market/bank_click"(platform: "/", type: TrackType.Event) {
+        bank(
+            type: PropertyType.String,
+            required: true,
+            inheritable: false,
+            description: "bank identifier clicked",
+            values: [
+                'caixa', 
+                'santander', 
+                'banco_do_brasil', 
+                'bradesco',
+                'itau',
+            ]
+        )
+    }
+
+    "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {}
+
+    "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {}
+
+    "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
+        bank(
+            type: PropertyType.String,
+            required: true,
+            inheritable: false,
+            description: "bank identifier clicked",
+            values: [
+                'caixa', 
+                'santander', 
+                'banco_do_brasil', 
+                'bradesco',
+                'itau',
+            ]
+        )
+    }
+
+    "/credits/merchant/open-market/form/sent"(platform: "/", type: TrackType.Event) {}
+
+    /******************************************
+     *       End: Merchants Open Market
+     ******************************************/
+
+    /******************************************
      *       Start: Merchants Enrollment
      ******************************************/
 
