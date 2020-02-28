@@ -67,11 +67,3 @@ tracks {
       status(required:true, type: PropertyType.String, values:["success", "error"], description:"Status for the send invitation action. Values possibles: Succes or Error")
     }
 }
-
-
-
-
-
-	 
-	 
-	 
