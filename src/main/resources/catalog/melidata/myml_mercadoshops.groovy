@@ -383,6 +383,8 @@ tracks {
 
     "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View){}
 
+    "/mercado_shops/custom-categories"(platform: "/", type: TrackType.Event, isAbstract: true){}
+
     "/mercado_shops/custom-categories/save"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
