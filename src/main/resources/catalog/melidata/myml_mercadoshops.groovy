@@ -382,7 +382,12 @@ tracks {
     "/mercado_shops/template-selection/preview"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View){}
-    
+
+    "/mercado_shops/custom-categories/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/custom-categories/summary"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/facebook"(platform: "/", type: TrackType.View){}
 
