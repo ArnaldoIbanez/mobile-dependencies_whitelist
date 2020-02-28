@@ -279,17 +279,17 @@ tracks {
 
     "/credits/merchant/open-market/bank_click"(platform: "/", type: TrackType.Event) {
         bank(
-                type: PropertyType.String,
-                required: true,
-                inheritable: false,
-                description: "bank identifier clicked",
-                values: [
-                        'caixa',
-                        'santander',
-                        'banco_do_brasil',
-                        'bradesco',
-                        'itau',
-                ]
+            type: PropertyType.String,
+            required: true,
+            inheritable: false,
+            description: "bank identifier clicked",
+            values: [
+                'caixa', 
+                'santander', 
+                'banco_do_brasil', 
+                'bradesco',
+                'itau',
+            ]
         )
     }
 
@@ -299,17 +299,17 @@ tracks {
 
     "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
         bank(
-                type: PropertyType.String,
-                required: true,
-                inheritable: false,
-                description: "bank identifier clicked",
-                values: [
-                        'caixa',
-                        'santander',
-                        'banco_do_brasil',
-                        'bradesco',
-                        'itau',
-                ]
+            type: PropertyType.String,
+            required: true,
+            inheritable: false,
+            description: "bank identifier clicked",
+            values: [
+                'caixa', 
+                'santander', 
+                'banco_do_brasil', 
+                'bradesco',
+                'itau',
+            ]
         )
     }
 

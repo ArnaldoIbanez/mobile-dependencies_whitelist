@@ -393,6 +393,10 @@ trackTests {
             domain_id = "MLA-CELLPHONES"
             item_condition = "new"
         })
+
+        "/pdp/description/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+        })
     }
 
     test("mobile special actions") {
