@@ -181,7 +181,7 @@ tracks {
     "/wallet/home/tap"(platform: "/mobile", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
-    
+
     "/home_wallet/drawer/tap"(platform: "/mobile", type: TrackType.Event) {
         link(required: true, type: PropertyType.String, description: "Deeplink to execute an action")
     }
