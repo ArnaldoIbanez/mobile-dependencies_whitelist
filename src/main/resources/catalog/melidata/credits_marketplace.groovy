@@ -17,11 +17,6 @@ tracks {
         installments_group(installments_qty)
     }
 
-    defaultBusiness = "mercadolibre"
-
-    "/"(platform: "/web", isAbstract: true) {
-    }
-
     /******************************************
      *       Abstract definitions
      ******************************************/
