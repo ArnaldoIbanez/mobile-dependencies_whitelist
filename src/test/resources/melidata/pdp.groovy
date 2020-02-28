@@ -522,4 +522,8 @@ trackTests {
             pdp_type = "RED"
         })
     }
+
+    test("Pdp Server Side") {
+        "/pdp/backend/questions_redirect"(platform: "/") {}
+    }
 }
