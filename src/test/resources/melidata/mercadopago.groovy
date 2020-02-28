@@ -1891,6 +1891,19 @@ trackTests {
         "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
         "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
 
+        "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {
+            sent_again:true
+            flow:"settings"
+        }
+        "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {
+            sent_again:false
+            flow:"settings"
+        }
+        "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {
+            sent_again:true
+            flow:"settings"
+        }
+
         "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
             flow = "settings"
             channel = "point"
