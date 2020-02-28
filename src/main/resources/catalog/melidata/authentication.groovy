@@ -407,13 +407,6 @@ tracks {
         is_microsoft_account_of_different_user(type: PropertyType.String, required: false, description: "Differs between user emails")
     }
 
-    // Change password
-    "/auth/authentication_methods"(platform: "/", isAbstract: true) {}
-
-    "/auth/authentication_methods/password"(platform: "/", isAbstract: true) {
-        redirect_url(type: PropertyType.String, required: true, description: "Describes flow redirect url")
-    }
-
     // Device Authorization Authenticator
     "/authenticators"(platform: "/", isAbstract: true) {}
 
