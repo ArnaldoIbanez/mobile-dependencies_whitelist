@@ -677,7 +677,7 @@ tracks {
     "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {
         confirm_category_detail(required: true, description: "category detail confirmation", values:["true", "false", "not_present"], type: PropertyType.String)
     }
-    "/sell/item_data/category_suggested/another_category"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/category_suggested/wrong_category"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {
         categoryFlow
     }
@@ -948,13 +948,13 @@ tracks {
         sellGroup
     }
 
-    "/sell/variation_selection/source_variations"(platform: "/web", type: TrackType.View) {
-        sellGroup
+    "/sell/variation_selection/source_variations"(platform: "/web", isAbstract: true) {}
+
+    "/sell/variation_selection/source_variations/show"(platform: "/web", type: TrackType.Event) {
         variations_id(required: true, platform: "/web", description: "ids of variations showed", type: PropertyType.ArrayList(PropertyType.Numeric))
     }
 
-    "/sell/variation_selection/source_variations/confirm_variation"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
-        sellGroup
+    "/sell/variation_selection/source_variations/confirm_variation"(platform: "/web", type: TrackType.Event) {
         variation_id(required: false, description: "variation id picked", type: PropertyType.Numeric)
     }
 }

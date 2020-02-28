@@ -317,6 +317,11 @@ tracks {
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
     }
 
+    "/pdp/description"(platform: "/", isAbstract: true) {}
+    "/pdp/description/show"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+    }
+
     "/pdp/show_more_features"(platform: "/mobile", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
         item_id(required: true, type: PropertyType.String, description: "Item ID")
