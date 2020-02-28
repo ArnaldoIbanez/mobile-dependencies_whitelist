@@ -82,16 +82,44 @@ trackTests {
         "/wallet/home/show/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
             realestates_payers = [
                     [
-                            realestate_id: "secondary_actions_mp_pay_services",
                             content_id: "pay_services",
-                            origin: "secondary_actions"
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ]
             ]
             realestates_sellers = [
                     [
-                            realestate_id: "secondary_actions_mp_charge_with_qr",
-                            content_id: "charge_with_qr",
-                            origin: "secondary_actions"
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
+                    ]
+            ]
+            realestates_friends = [
+                    [
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ]
             ]
         }
@@ -102,14 +130,28 @@ trackTests {
         "/wallet/home/show/discount_benefits" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                            realestate_id : "discount_benefits_advice",
-                            content_id : "mgm_payer",
-                            origin : "user_journey"
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ],
                     [
-                            realestate_id : "discount_benefits_coupon",
-                            content_id : "coupon",
-                            origin : "user_journey"
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ]
             ]
         }
@@ -120,9 +162,16 @@ trackTests {
         "/wallet/home/show/dismissible_row" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                            realestate_id : "dismissible_row",
-                            content_id : "available_acquisition",
-                            origin : "user_journey"
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ]
             ]
         }
@@ -133,14 +182,28 @@ trackTests {
         "/wallet/home/show/cross_selling" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                            realestate_id: "cross_selling_home_mp_prepaid",
-                            content_id   : "cross_selling_prepaid",
-                            origin       : "user_journey"
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ],
                     [
-                            realestate_id: "cross_selling_home_mp_point",
-                            content_id   : "cross_selling_point",
-                            origin       : "user_journey"
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ]
             ]
 
@@ -470,9 +533,7 @@ trackTests {
                 ordinal: 3,
                 realestates: [
                     [
-                        realestate_id: "dismissible_row",
-                        content_id: "available_acquisition",
-                        origin: "customer_journey"
+                        content_id: "available_acquisition"
                     ]
                 ]
             ]
@@ -480,17 +541,13 @@ trackTests {
                 content_type : 'partial',
                 ordinal: 4,
                 realestates_payers: [
-                    [ 
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_pay_services_MARZO_20",
-                        origin: "campaigns"
+                    [
+                        content_id: "secondary_actions_mp_pay_services_MARZO_20"
                     ]
                 ],
                 realestates_sellers: [
                     [
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_pay_services_MARZO_20",
-                        origin: "campaigns"
+                        content_id: "secondary_actions_mp_pay_services_MARZO_20"
                     ]
                 ]
             ]
@@ -499,9 +556,7 @@ trackTests {
                 ordinal: 5,
                 realestates: [
                     [
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_recharge_default",
-                        origin: "campaigns"
+                        content_id: "secondary_actions_mp_recharge_default"
                     ]
                 ]
             ]
@@ -510,9 +565,7 @@ trackTests {
                 ordinal: 6,
                 realestates: [
                     [
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_recharge_default",
-                        origin: "campaigns"
+                        content_id: "secondary_actions_mp_recharge_default"
                     ]
                 ]
             ]
@@ -699,30 +752,58 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="secondary_actions"
             component_id="user_secondary_actions"
+            action_id = "default"
+            audience = "all"
+            bu_line = "default"
+            content_id = "prepaid_mla_2019_10"
+            flow = "default"
+            logic = "campaigns"
+            position = 1.0
         }
     }
 
     test("Mercadopago Home Tap v3 - Cross Selling") {
         "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
-            section_id="cross_selling"
-            component_id="user_cross_selling"
+            section_id="secondary_actions"
+            component_id="user_secondary_actions"
+            action_id = "default"
+            audience = "all"
+            bu_line = "default"
+            content_id = "prepaid_mla_2019_10"
+            flow = "default"
+            logic = "campaigns"
+            position = 1.0
         }
     }
 
     test("Mercadopago Home Tap v3 - Prepaid Banner") {
         "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
-            section_id="prepaid_banner"
-            component_id="user_prepaid_banner"
+            section_id="secondary_actions"
+            component_id="user_secondary_actions"
+            action_id = "default"
+            audience = "all"
+            bu_line = "default"
+            content_id = "prepaid_mla_2019_10"
+            flow = "default"
+            logic = "campaigns"
+            position = 1.0
         }
     }
 
     test("Mercadopago Home Tap v3 - Benefits") {
         "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
-            section_id="benefits"
-            component_id="user_benefits"
+            section_id="secondary_actions"
+            component_id="user_secondary_actions"
+            action_id = "default"
+            audience = "all"
+            bu_line = "default"
+            content_id = "prepaid_mla_2019_10"
+            flow = "default"
+            logic = "campaigns"
+            position = 1.0
         }
     }
 
@@ -824,16 +905,44 @@ trackTests {
         "/wallet/home/show/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
             realestates_payers = [
                     [
-                            realestate_id: "secondary_actions_mp_pay_services",
                             content_id: "pay_services",
-                            origin: "secondary_actions"
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ]
             ]
             realestates_sellers = [
                     [
-                            realestate_id: "secondary_actions_mp_charge_with_qr",
-                            content_id: "charge_with_qr",
-                            origin: "secondary_actions"
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
+                    ]
+            ]
+            realestates_friends = [
+                    [
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ]
             ]
         }
@@ -844,14 +953,28 @@ trackTests {
         "/wallet/home/show/discount_benefits" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                            realestate_id : "discount_benefits_advice",
-                            content_id : "mgm_payer",
-                            origin : "user_journey"
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ],
                     [
-                            realestate_id : "discount_benefits_coupon",
-                            content_id : "coupon",
-                            origin : "user_journey"
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ]
             ]
         }
@@ -862,9 +985,16 @@ trackTests {
         "/wallet/home/show/dismissible_row" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                            realestate_id : "dismissible_row",
-                            content_id : "available_acquisition",
-                            origin : "user_journey"
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ]
             ]
         }
@@ -875,14 +1005,28 @@ trackTests {
         "/wallet/home/show/cross_selling" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                            realestate_id: "cross_selling_home_mp_prepaid",
-                            content_id   : "cross_selling_prepaid",
-                            origin       : "user_journey"
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ],
                     [
-                            realestate_id: "cross_selling_home_mp_point",
-                            content_id   : "cross_selling_point",
-                            origin       : "user_journey"
+                            content_id: "pay_services",
+                            link: "mercadopago://instore/scan_qr",
+                            section_id:"benefits",
+                            component_id:"user_benefits",
+                            action_id: "default",
+                            audience: "all",
+                            bu_line: "default",
+                            flow: "default",
+                            logic: "campaigns",
+                            position: 1.0
                     ]
             ]
 
@@ -1209,7 +1353,17 @@ trackTests {
                     [
                         realestate_id: "dismissible_row",
                         content_id: "available_acquisition",
-                        origin: "customer_journey"
+                        origin: "customer_journey",
+                        link: "mercadopago://instore/scan_qr",
+                        section_id: "benefits",
+                        component_id: "user_benefits",
+                        action_id: "default",
+                        audience: "all",
+                        bu_line: "default",
+                        content_id: "prepaid_mla_2019_10",
+                        flow: "default",
+                        logic: "campaigns",
+                        position: 1.0
                     ]
                 ]
             ]
@@ -1220,14 +1374,34 @@ trackTests {
                     [ 
                         realestate_id: "secondary_actions_mp_pay_services",
                         content_id: "secondary_actions_mp_pay_services_MARZO_20",
-                        origin: "campaigns"
+                        origin: "campaigns",
+                        link: "mercadopago://instore/scan_qr",
+                        section_id: "benefits",
+                        component_id: "user_benefits",
+                        action_id: "default",
+                        audience: "all",
+                        bu_line: "default",
+                        content_id: "prepaid_mla_2019_10",
+                        flow: "default",
+                        logic: "campaigns",
+                        position: 1.0
                     ]
                 ],
                 realestates_sellers: [
                     [
                         realestate_id: "secondary_actions_mp_pay_services",
                         content_id: "secondary_actions_mp_pay_services_MARZO_20",
-                        origin: "campaigns"
+                        origin: "campaigns",
+                        link: "mercadopago://instore/scan_qr",
+                        section_id: "benefits",
+                        component_id: "user_benefits",
+                        action_id: "default",
+                        audience: "all",
+                        bu_line: "default",
+                        content_id: "prepaid_mla_2019_10",
+                        flow: "default",
+                        logic: "campaigns",
+                        position: 1.0
                     ]
                 ]
             ]
@@ -1238,7 +1412,17 @@ trackTests {
                     [
                         realestate_id: "secondary_actions_mp_pay_services",
                         content_id: "secondary_actions_mp_recharge_default",
-                        origin: "campaigns"
+                        origin: "campaigns",
+                        link: "mercadopago://instore/scan_qr",
+                        section_id: "benefits",
+                        component_id: "user_benefits",
+                        action_id: "default",
+                        audience: "all",
+                        bu_line: "default",
+                        content_id: "prepaid_mla_2019_10",
+                        flow: "default",
+                        logic: "campaigns",
+                        position: 1.0
                     ]
                 ]
             ]
@@ -1249,7 +1433,17 @@ trackTests {
                     [
                         realestate_id: "secondary_actions_mp_pay_services",
                         content_id: "secondary_actions_mp_recharge_default",
-                        origin: "campaigns"
+                        origin: "campaigns",
+                        link: "mercadopago://instore/scan_qr",
+                        section_id: "benefits",
+                        component_id: "user_benefits",
+                        action_id: "default",
+                        audience: "all",
+                        bu_line: "default",
+                        content_id: "prepaid_mla_2019_10",
+                        flow: "default",
+                        logic: "campaigns",
+                        position: 1.0
                     ]
                 ]
             ]
@@ -1432,6 +1626,13 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="secondary_actions"
             component_id="user_secondary_actions"
+            action_id = "default"
+            audience = "all"
+            bu_line = "default"
+            content_id = "prepaid_mla_2019_10"
+            flow = "default"
+            logic = "campaigns"
+            position = 1.0
         }
     }
 
@@ -1440,6 +1641,13 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="cross_selling"
             component_id="user_cross_selling"
+            action_id = "default"
+            audience = "all"
+            bu_line = "default"
+            content_id = "prepaid_mla_2019_10"
+            flow = "default"
+            logic = "campaigns"
+            position = 1.0
         }
     }
 
@@ -1448,6 +1656,13 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="prepaid_banner"
             component_id="user_prepaid_banner"
+            action_id = "default"
+            audience = "all"
+            bu_line = "default"
+            content_id = "prepaid_mla_2019_10"
+            flow = "default"
+            logic = "campaigns"
+            position = 1.0
         }
     }
 
@@ -1456,6 +1671,13 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="benefits"
             component_id="user_benefits"
+            action_id = "default"
+            audience = "all"
+            bu_line = "default"
+            content_id = "prepaid_mla_2019_10"
+            flow = "default"
+            logic = "campaigns"
+            position = 1.0
         }
     }
 
