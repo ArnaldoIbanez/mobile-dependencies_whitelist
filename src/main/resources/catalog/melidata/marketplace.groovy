@@ -18,13 +18,11 @@ import com.ml.melidata.TrackType
  */
 
 tracks {
-
-
     
     def categoryRegex = /(ROOT|[a-zA-Z]{1,3}[0-9]+)/
     def categoryPathRegex = /\[([a-zA-Z]{1,3}[0-9]+(, )?)*\]/
 
-    "/"(platform: "/", isAbstract: true) {
+    "/"(platform: "/", isAbstract: true, initiative: "1145") {
         //Recommendations data
         recommendations (required: false, description: "Recommendations data map")
         // has_errors,

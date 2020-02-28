@@ -4,8 +4,6 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
-
-
 tracks {
 
     initiative = "1205"
@@ -147,11 +145,6 @@ tracks {
         )
     }
 
-    defaultBusiness = "mercadopago"
-
-    "/"(platform: "/web", isAbstract: true) {
-    }
-
     /******************************************
      *       Abstract definitions
      ******************************************/
@@ -275,8 +268,8 @@ tracks {
      ******************************************/
 
     /******************************************
-    *       Start: Merchants Open Market
-    *******************************************/
+     *       Start: Merchants Open Market
+     *******************************************/
 
     "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
 
@@ -811,8 +804,3 @@ tracks {
      *   End: Express money
      ******************************************/
 }
-import com.ml.melidata.catalog.PropertyType
-import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
-
-
-import com.ml.melidata.TrackType

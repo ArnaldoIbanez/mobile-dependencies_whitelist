@@ -27,8 +27,8 @@ tracks {
     }
     "/cards/hybrid/shipping/tracking/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
+            required: true,
+            type: PropertyType.String,
             values: ["back", "contact", "help", "banner_unlock"],
             description: "Action tapped"
         )
@@ -40,7 +40,7 @@ tracks {
     // UNLOCK
     // --------
     "/cards/hybrid/unlock"(platform: "/", isAbstract: true) { }
-  
+
     // Unlock: Init Point
     "/cards/hybrid/unlock/init-point"(platform: "/", type: TrackType.View) {}
 
@@ -48,16 +48,16 @@ tracks {
     "/cards/hybrid/unlock/scanner"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/scanner/link"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
+            required: true,
+            type: PropertyType.String,
             values: ["qr", "manual"],
             description: "Link method used"
         )
     }
     "/cards/hybrid/unlock/scanner/link/status"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
+            required: true,
+            type: PropertyType.String,
             values: ["initializing", "scanning", "resolving", "failed"],
             description: "Scanner state"
         )
@@ -67,8 +67,8 @@ tracks {
     "/cards/hybrid/unlock/manual-link"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/manual-link/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
+            required: true,
+            type: PropertyType.String,
             values: ["link"],
             description: "Manual link method selected"
         )
@@ -78,8 +78,8 @@ tracks {
     "/cards/hybrid/unlock/confirm-link"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/confirm-link/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
+            required: true,
+            type: PropertyType.String,
             values: ["confirm", "logout"],
             description: "Action tapped"
         )
@@ -89,8 +89,8 @@ tracks {
     "/cards/hybrid/unlock/camera-permissions"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/camera-permissions/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
+            required: true,
+            type: PropertyType.String,
             values: ["qr", "manual"],
             description: "Link method selected"
         )
@@ -100,8 +100,8 @@ tracks {
     "/cards/hybrid/unlock/confirm-replacement"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/confirm-replacement/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
+            required: true,
+            type: PropertyType.String,
             values: ["confirm", "exit"],
             description: "Action tapped"
         )
@@ -111,8 +111,8 @@ tracks {
     "/cards/hybrid/unlock/set-pin"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/set-pin/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
+            required: true,
+            type: PropertyType.String,
             values: ["confirm"],
             description: "Pin confirmed"
         )
@@ -123,8 +123,8 @@ tracks {
     "/cards/hybrid/unlock/update-app"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/update-app/tap"(platform:"/", type: TrackType.Event) {
         action (
-            required: true, 
-            type: PropertyType.String, 
+            required: true,
+            type: PropertyType.String,
             values: ["exit", "update"],
             description: "Action tapped"
           )

@@ -202,6 +202,7 @@ tracks {
 
     //Abuse Prevention
     "/auth"(platform: "/", isAbstract: true) {}
+
     //Security Feedback
     "/login/auth/feedback"(platform: "/", type: TrackType.Event) {
         view(type: PropertyType.String, required: true, description: "Current Feedback step name where the action is taking place")
