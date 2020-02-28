@@ -2817,8 +2817,10 @@ trackTests {
             from = "/deep_link"}
         "/withdraw/confirmation"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}
-        "/withdraw/make_withdraw"(platform: "/mobile") { flow = "/withdraw"
-            from = "/deep_link"}
+        "/withdraw/make_withdraw"(platform: "/mobile") { 
+            flow = "/withdraw"
+            from = "/deep_link"
+            _label = "CONGRATS"}
         "/withdraw/add_account"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}
         "/withdraw/congrats"(platform: "/mobile") { flow = "/withdraw"
