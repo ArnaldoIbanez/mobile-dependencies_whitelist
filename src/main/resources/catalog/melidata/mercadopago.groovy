@@ -433,6 +433,7 @@ tracks {
     "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
     "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
     "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/my_cards_webview"(platform: "/mobile", type: TrackType.View) {}
 
     "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
         channel (required: true, type: PropertyType.String, description: "The channel that was modified")

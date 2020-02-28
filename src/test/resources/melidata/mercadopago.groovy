@@ -2820,6 +2820,10 @@ trackTests {
             flow = "/settings"
             from = "/deep_link"
         }
+
+        "/settings/my_cards_webview"(platform: "/mobile") {
+            flow = "/settings"
+        }
     }
 
     test("Associate phone") {
