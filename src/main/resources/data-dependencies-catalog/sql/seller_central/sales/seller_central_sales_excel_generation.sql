@@ -13,8 +13,8 @@ SELECT
   jest(event_data, 'total_error_cells') as total_error_cells,
   jest(event_data, 'total_error_rows') as total_error_rows,
   usr.user_id user_id,
-  substr(ds,1,10) as ds,
   application.site_id as site_id
+  substr(ds,1,10) as ds,
 FROM default.tracks
 WHERE ds >= '@param01'
 AND ds < '@param02'
