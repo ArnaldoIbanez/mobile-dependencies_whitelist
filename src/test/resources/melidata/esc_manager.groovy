@@ -31,6 +31,8 @@ trackTests {
         "/esc_manager/delete"(platform: "/mobile", type: TrackType.Event) {
             key = "1234"
             flow = "/instore"
+            reason = "unexpected_tokenization_error"
+            detail = "123;456;789"
         }
 
         // Delete all without session id
@@ -92,6 +94,8 @@ trackTests {
         "/esc_manager/delete"(platform: "/mobile", type: TrackType.Event) {
             key = "1234"
             flow = "/instore"
+            reason = "unexpected_tokenization_error"
+            detail = "123;456;789"
         }
 
         // Delete all without session id
