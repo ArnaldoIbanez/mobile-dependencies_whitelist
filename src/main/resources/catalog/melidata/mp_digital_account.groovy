@@ -120,7 +120,7 @@ tracks {
     "/new-withdraw/congrats-advance"(platform: "/", type: TrackType.View) {}
 
     "/withdraw"(platform: "/", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/withdraw/take_money_out"(platform: "/") {}
