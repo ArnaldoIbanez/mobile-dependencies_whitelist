@@ -2829,7 +2829,7 @@ trackTests {
             from = "/deep_link"
         }
 
-        "/settings/my_cards_webview"(platform: "/mobile") {
+        "/settings/help"(platform: "/mobile") {
             flow = "/settings"
         }
     }
