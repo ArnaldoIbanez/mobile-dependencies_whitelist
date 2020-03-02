@@ -390,7 +390,7 @@ tracks {
     "/get_member/point"(platform: "/mobile", type: TrackType.View, initiative: "1159") {}
 
     "/settings"(platform: "/mobile", isAbstract: true,initiative: "1125" ) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false,initiative: "1125") {

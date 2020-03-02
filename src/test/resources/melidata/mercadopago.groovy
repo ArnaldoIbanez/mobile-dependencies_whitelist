@@ -1907,6 +1907,11 @@ trackTests {
             cost_type:"charge"
         }
 
+        "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {
+            sent_again:true
+            cost_type:"charge"
+        }
+
         "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
             flow = "settings"
             channel = "point"
