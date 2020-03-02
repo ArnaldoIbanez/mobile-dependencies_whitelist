@@ -82,6 +82,9 @@ tracks {
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
         catalog_listing(required: true, inheritable: false, type: PropertyType.Boolean, description: "Item's catalog listing")
         domain_id(required: false, type: PropertyType.String, description: "Item's domain id")
+        city(required: false, type: PropertyType.String, description: "Item location's city name, 'none' if unavailable")
+        neighborhood(required: false, type: PropertyType.String, description: "Item location's neighborhood name, 'none' if unavailable")
+        state(required: false, type: PropertyType.String, description: "Item location's state name, 'none' if unavailable")
 
         // ONLY CORE FIELDS
         quantity( required: false, type: PropertyType.Numeric, description: "Available items quantity show at this vip")
