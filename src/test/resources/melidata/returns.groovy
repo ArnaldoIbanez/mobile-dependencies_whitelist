@@ -72,6 +72,7 @@ trackTests {
       }
 
       "/return/payments/selection"(platform: "/", type: TrackType.Event) {
+        action = "selection"
         payment_refund_method = "credit_card"
       }
 
