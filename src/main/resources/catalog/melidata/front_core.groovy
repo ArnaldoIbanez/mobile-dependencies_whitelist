@@ -325,7 +325,7 @@ tracks {
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
-        paragraph(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
+        bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
     }
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
@@ -344,7 +344,7 @@ tracks {
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
-        paragraph(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
+        bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
     }
 
     //Notification Center
