@@ -189,7 +189,7 @@ task exportCronQueries(type:JavaExec) {
 }
 
 task validate(type:JavaExec) {
-	main = 'com.melidata.definitions.validate.Validate'
+	main = 'com.melidata.definitions.validators.Validate'
 	classpath = sourceSets.main.runtimeClasspath
 	if (project.hasProperty('args')) args project.args.split()
 }
