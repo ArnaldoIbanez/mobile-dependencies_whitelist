@@ -394,8 +394,9 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false,initiative: "1125") {
-        sent_again(required: false)
+        sent_again (required: false)
         flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        cost_type (required:false, type: PropertyType.String, description: "Cost type receive/charge")
     }
     "/settings/my_profile"(platform: "/mobile") {}
     "/settings/balance"(platform: "/mobile") {}
