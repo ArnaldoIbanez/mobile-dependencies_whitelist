@@ -88,7 +88,7 @@ tracks {
     // Bloqueo Scoring High
     "/return/congrats_error"(platform: "/", type: TrackType.View) {
       typification(required: true, type: PropertyType.String, description: 'reason why the product is returned')
-      payment_refund_method('required': false, type: PropertyType.String, description: 'origin of payment')
+      payment_refund_method(required: false, type: PropertyType.String, description: 'origin of payment')
       shipment_type(required: true, type: PropertyType.String, description: 'Selected shipment type', values:['delivery', 'pickup', 'self_dispatch'])
       pickup_time(required: false, type: PropertyType.String, description: 'pickup time product to seller')
       showed_payment_methods(required: false, type: PropertyType.String, description: 'origin of the payment method')
