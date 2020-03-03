@@ -1891,6 +1891,27 @@ trackTests {
         "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
         "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
 
+        "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {
+            sent_again:true
+            flow:"settings"
+            cost_type:"charge"
+        }
+        "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {
+            sent_again:false
+            flow:"settings"
+            cost_type:"charge"
+        }
+        "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {
+            sent_again:true
+            flow:"settings"
+            cost_type:"charge"
+        }
+
+        "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {
+            sent_again:true
+            cost_type:"charge"
+        }
+
         "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
             flow = "settings"
             channel = "point"
@@ -2808,6 +2829,10 @@ trackTests {
         "/settings/about"(platform: "/mobile") {
             flow = "/settings"
             from = "/deep_link"
+        }
+
+        "/settings/help"(platform: "/mobile") {
+            flow = "/settings"
         }
     }
 
