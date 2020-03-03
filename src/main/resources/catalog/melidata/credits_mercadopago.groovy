@@ -437,7 +437,7 @@ tracks {
                 'loan_creation',
                 'feedback_creation',
                 'files_upload',
-                'rejected_by_regulation',
+                'rejected_loan_by_regulation',
                 'unknown-error',
                 'admin-is-restricted',
                 'default'
