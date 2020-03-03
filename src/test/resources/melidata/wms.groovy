@@ -158,13 +158,13 @@ trackTests {
         "/wms/put_away/scan_product/cancel"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            put_away_id = 111
+            putaway_id = 111
         }
 
         "/wms/put_away/scan_product/finish"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            put_away_id = 111
+            putaway_id = 111
             inventory_id = "ABCD12345"
         }
 

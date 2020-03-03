@@ -188,10 +188,10 @@ tracks {
     "/wms/put_away/scan_product"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/put_away/scan_product_destination"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/put_away/scan_product/cancel"(platform: "/mobile/android", type: TrackType.Event) {
-        put_away_id(required: false, type: PropertyType.Numeric, description: "Put away id")
+        putaway_id(required: false, type: PropertyType.Numeric, description: "Put away id")
     }
     "/wms/put_away/scan_product/finish"(platform: "/mobile/android", type: TrackType.Event) {
-        put_away_id(required: false, type: PropertyType.Numeric, description: "Put away id")
+        putaway_id(required: false, type: PropertyType.Numeric, description: "Put away id")
         inventory_id(required: false, type: PropertyType.String, description: "inventory id")
     }
     "/wms/receiving/device/printer/mobile/reprint"(platform: "/mobile/android", type: TrackType.Event) {
