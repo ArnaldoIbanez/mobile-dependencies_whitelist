@@ -92,7 +92,7 @@ trackTests {
     }
 
     test("Devices Metadata") {
-        "/device_metadata"(platform:"/mobile") {
+        "/devices/metadata"(platform:"/mobile") {
             total_storage = 12582912
             free_storage = 6291456
             app_storage = 307200
@@ -100,7 +100,7 @@ trackTests {
     }
 
     test("Devices Notification Settings") {
-        "/devices_settings/notifications"(platform:"/mobile") {
+        "/devices/settings/notifications"(platform:"/mobile") {
             enable = true
             registration_id = "1234567890ASDVH7766527892"
             device_id = "12345678"

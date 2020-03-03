@@ -79,25 +79,27 @@ tracks {
      * DEVICES
      */
 
+    "/devices"(platform: "/", isAbstract: true){}
+    
     // Device Metadata sent from backend (Notifications ACK) & application startup
-    "/device_metadata"(platform: "/", type: TrackType.Event) {
+    "/devices/metadata"(platform: "/", type: TrackType.Event) {
         total_storage(required: true, type: PropertyType.Numeric, description: "Total storage in the device in bytes")
         free_storage(required: true, type: PropertyType.Numeric, description: "Free storage in the device in bytes")
         app_storage(required: true, type: PropertyType.Numeric, description: "Application occupied storage in bytes")
     }
 
-    "/devices_settings"(platform:"/mobile", isAbstract:true) {}
+    "/devices/settings"(platform:"/mobile", isAbstract:true) {}
 
     //Bloqueo de notificaciones (Android > = API 19)
-    "/devices_settings/notifications"(platform:"/mobile", type:TrackType.Event) {
+    "/devices/settings/notifications"(platform:"/mobile", type:TrackType.Event) {
         enable(required:true, type:PropertyType.Boolean)
         registration_id(required:true, type:PropertyType.String)
         device_id(required:true, type:PropertyType.String)
     }
 
-    "/device_settings"(platform: "/", isAbstract: true){}
+    "/devices/settings"(platform: "/", isAbstract: true){}
 
-    "/device_settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
+    "/devices/settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
         device_id(required: true, description: "The real device_id, may differ from device field")
         enable(required:true, type:PropertyType.Boolean, description: "Indicates if settings are enabled")
         registration_id(required: false, description: "The registration id", type: PropertyType.String)
