@@ -417,7 +417,7 @@ trackTests {
                     ordinal: 12,
                     content_type : 'complete'
             ]
-            paragraph= [
+            bcra_regulation= [
                     ordinal: 13,
                     content_type : 'complete'
             ]
@@ -568,7 +568,7 @@ trackTests {
                     ordinal: 12,
                     content_type : 'complete'
             ]
-            paragraph= [
+            bcra_regulation= [
                     ordinal: 13,
                     content_type : 'complete'
             ]
