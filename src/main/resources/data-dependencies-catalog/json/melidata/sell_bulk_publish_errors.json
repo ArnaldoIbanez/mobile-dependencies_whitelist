@@ -22,20 +22,8 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "period",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "quantity",
         "type": "INTEGER"
-      },
-      {
-        "name": "listingsNotPublished",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "errors",
-        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
