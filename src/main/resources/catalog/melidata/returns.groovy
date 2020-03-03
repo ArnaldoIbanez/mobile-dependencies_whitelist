@@ -44,6 +44,7 @@ tracks {
       showed_payment_methods(required: true, type: PropertyType.String, description: 'what payment refund methods are shown to the buyer')
     }
     "/return/payments/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+      action(required: true, type: PropertyType.String, description: 'action selected in the flow')
       payment_refund_method(required: true, type: PropertyType.String, description: 'payment refund method selected by the user')
     }
 
