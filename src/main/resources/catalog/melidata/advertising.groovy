@@ -234,7 +234,6 @@ tracks {
 
     }
 
-
     //Sorting
     "/advertising/pads2/manager/sort"(
         platform: "/web",

@@ -680,8 +680,8 @@ trackTests {
             list_mode = "LIST"
         }
     }
-    test("SYI v4 category suggested click another category"){
-        "/sell/item_data/category_suggested/another_category"(platform: "/web", type: TrackType.Event){
+    test("SYI v4 category suggested click wrong category"){
+        "/sell/item_data/category_suggested/wrong_category"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
@@ -1786,8 +1786,8 @@ trackTests {
         }
     }
 
-    test("SYI v4 List Similar variation selection, source variations card show"){
-        "/sell/variation_selection/source_variations"(platform: "/web", type: TrackType.View) {
+    test("SYI v4 List Similar variation selection, source variations, card show"){
+        "/sell/variation_selection/source_variations/show"(platform: "/web", type: TrackType.Event) {
             category_id = "MLA390784"
             category_path = ["MLA1", "MLA2", "MLA3"]
             seller_profile = "ADVANCED"

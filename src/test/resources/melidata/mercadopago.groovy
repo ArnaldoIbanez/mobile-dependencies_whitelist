@@ -1891,6 +1891,27 @@ trackTests {
         "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
         "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
 
+        "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {
+            sent_again:true
+            flow:"settings"
+            cost_type:"charge"
+        }
+        "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {
+            sent_again:false
+            flow:"settings"
+            cost_type:"charge"
+        }
+        "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {
+            sent_again:true
+            flow:"settings"
+            cost_type:"charge"
+        }
+
+        "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {
+            sent_again:true
+            cost_type:"charge"
+        }
+
         "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
             flow = "settings"
             channel = "point"
@@ -2717,8 +2738,10 @@ trackTests {
             from = "/deep_link"}
         "/withdraw/confirmation"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}
-        "/withdraw/make_withdraw"(platform: "/mobile") { flow = "/withdraw"
-            from = "/deep_link"}
+        "/withdraw/make_withdraw"(platform: "/mobile") { 
+            flow = "/withdraw"
+            from = "/deep_link"
+            _label = "CONGRATS"}
         "/withdraw/add_account"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}
         "/withdraw/congrats"(platform: "/mobile") { flow = "/withdraw"
@@ -2806,6 +2829,10 @@ trackTests {
         "/settings/about"(platform: "/mobile") {
             flow = "/settings"
             from = "/deep_link"
+        }
+
+        "/settings/help"(platform: "/mobile") {
+            flow = "/settings"
         }
     }
 

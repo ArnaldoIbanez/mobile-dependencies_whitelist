@@ -23,7 +23,7 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
        device.device_id as device_id,
        UPPER(COALESCE(jest(event_data, 'device_status'), 'ACTIVE')) as device_status,
        (CASE WHEN usr.user_id is not null OR TRIM(usr.user_id) <> '' THEN 'SI' ELSE 'NO' END) as has_user,
-       regexp_extract(application.version, '(^[0-9]+\.[0-9]+)') as app_version,
+       CONCAT(regexp_extract(application.version, '(^[0-9]+\.[0-9]+)'), '|', device.platform) as app_version,
        1 AS sent,
        (CASE WHEN app_event.arrived != 0 THEN 1 ELSE 0 END) as arrived,
        (CASE WHEN app_event.no_reason_discarded != 0 AND app_event.arrived = 0 THEN 1 ELSE 0 END) as no_reason_discarded,
@@ -38,15 +38,15 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
     LEFT JOIN (
         SELECT CONCAT(jest(event_data, 'device_id'), '-', jest(event_data, 'news_id')) AS event_id,
         SUM ( CASE WHEN jest(event_data, 'event_type') IN ('arrived') THEN 1 ELSE 0 END ) as arrived,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('discarded') AND (jest(event_data, 'discard_reason') IS NULL OR TRIM(jest(event_data, 'discard_reason')) = '')  THEN 1 ELSE 0 END ) as no_reason_discarded,
+        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('discarded') AND device.platform in ('/mobile/android') AND (jest(event_data, 'discard_reason') IS NULL OR TRIM(jest(event_data, 'discard_reason')) = '')  THEN 1 ELSE 0 END ) as no_reason_discarded,
         SUM ( CASE WHEN
                     jest(event_data, 'event_type') IN ('shown', 'auto_dismiss', 'open', 'action_open', 'swipe', 'dismiss')
                     OR (
-                      jest(event_data, 'event_type') IN ('discarded') AND
-                      (jest(event_data, 'discard_reason') IS NOT NULL OR TRIM(jest(event_data, 'discard_reason')) <> '')
+                      jest(event_data, 'event_type') IN ('discarded') AND ( device.platform in ('/mobile/ios') OR
+                      (jest(event_data, 'discard_reason') IS NOT NULL OR TRIM(jest(event_data, 'discard_reason')) <> ''))
         ) THEN 1 ELSE 0 END ) as usr_interaction,
         SUM ( CASE WHEN jest(event_data, 'event_type') IN ('shown') THEN 1 ELSE 0 END ) as shown,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('discarded') AND jest(event_data, 'discard_reason') IS NOT NULL AND TRIM(jest(event_data, 'discard_reason')) <> '' THEN 1 ELSE 0 END ) as discarded,
+        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('discarded') AND ( device.platform in ('/mobile/ios') OR (jest(event_data, 'discard_reason') IS NOT NULL AND TRIM(jest(event_data, 'discard_reason')) <> '')) THEN 1 ELSE 0 END ) as discarded,
         SUM ( CASE WHEN jest(event_data, 'event_type') IN ('open') AND (jest(event_data, 'action_type') IS NULL OR TRIM(jest(event_data, 'action_type')) = '') THEN 1 ELSE 0 END ) as open,
         SUM ( CASE WHEN jest(event_data, 'event_type') IN ('action_open') OR (jest(event_data, 'event_type') IN ('open') AND jest(event_data, 'action_type') IS NOT NULL AND TRIM(jest(event_data, 'action_type')) <> '') THEN 1 ELSE 0 END ) as action_open,
         SUM ( CASE WHEN jest(event_data, 'event_type') IN ('dismiss') THEN 1 ELSE 0 END ) as dismiss,
@@ -57,7 +57,7 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
         AND path LIKE '/notification/%'
         AND jest(event_data, 'news_id') IS NOT null
         AND jest(event_data, 'device_id') IS NOT null
-        AND device.platform in ('/mobile/android')
+        AND device.platform in ('/mobile/android', '/mobile/ios')
         AND application.business in ('mercadolibre', 'mercadopago', 'mercadoenvios')
         AND jest(event_data, 'event_type') NOT IN ('sent')
         GROUP BY jest(event_data, 'device_id'), jest(event_data, 'news_id')
@@ -66,7 +66,7 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
   AND ds < '@one_day_after_send_date'
   AND path LIKE '/notification/%'
   AND jest(event_data, 'news_id') IS NOT null
-  AND device.platform in ('/mobile/android')
+  AND device.platform in ('/mobile/android', '/mobile/ios')
   AND application.business in ('mercadolibre', 'mercadopago', 'mercadoenvios')
   AND jest(event_data, 'event_type') IN ('sent')
 ) summary

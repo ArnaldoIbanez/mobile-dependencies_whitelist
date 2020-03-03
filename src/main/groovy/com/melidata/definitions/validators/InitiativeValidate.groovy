@@ -35,6 +35,7 @@ class InitiativeValidate {
 
                 println("\033[91m - Actual coverage: "+actualCoverage+"\033[0m")
                 println("\033[92m - Intended coverage: "+baseCoverage+"\033[0m")
+                println(totalPaths - validPaths)
             }
         }
 

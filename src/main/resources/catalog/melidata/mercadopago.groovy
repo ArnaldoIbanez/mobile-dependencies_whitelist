@@ -390,10 +390,14 @@ tracks {
     "/get_member/point"(platform: "/mobile", type: TrackType.View, initiative: "1159") {}
 
     "/settings"(platform: "/mobile", isAbstract: true,initiative: "1125" ) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false,initiative: "1125") {}
+    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false,initiative: "1125") {
+        sent_again (required: false)
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        cost_type (required:false, type: PropertyType.String, description: "Cost type receive/charge")
+    }
     "/settings/my_profile"(platform: "/mobile") {}
     "/settings/balance"(platform: "/mobile") {}
     "/settings/my_cards"(platform: "/mobile") {}
@@ -430,6 +434,7 @@ tracks {
     "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
     "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
     "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/help"(platform: "/mobile", type: TrackType.View) {}
 
     "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
         channel (required: true, type: PropertyType.String, description: "The channel that was modified")

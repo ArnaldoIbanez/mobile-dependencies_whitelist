@@ -51,6 +51,9 @@ trackTests {
             new_wording_free = false
             quantity_models = 4
             item_attributes = "promotions,cbt_ddu,discount"
+			city = "none"
+			neighborhood = "none"
+			state = "none"
         }
 
         "/vip"(platform:"/mobile", {

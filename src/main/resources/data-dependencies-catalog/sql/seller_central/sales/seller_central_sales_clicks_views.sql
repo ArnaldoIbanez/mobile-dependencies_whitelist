@@ -11,8 +11,8 @@ SELECT count(1) as cantidad,
     jest(event_data, 'mercado_lider') as mercado_lider,
     jest(event_data, 'seller_segment') as seller_segment,
     jest(event_data, 'user_type') as user_type,
-    substr(ds,1,10) as ds,
-    application.site_id as site_id
+    application.site_id as site_id,
+    substr(ds,1,10) as ds
 FROM tracks
 WHERE ds >= '@param01'
 AND ds < '@param02'

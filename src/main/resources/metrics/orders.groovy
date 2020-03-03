@@ -203,6 +203,18 @@ metrics {
 		}
 	}
 	
+	"orders.sameItemQuick"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true, ttl: 30) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and(
+					equals("event_data.is_carrito", false),
+					equals("event_data.items.item.id", property("item_id"))
+				)
+			}
+		}
+	}
+	
 	"bids.sameItem"(description: "/orders/ordercreated from feed in the sam item of experiement", compute_order: true) {
 		countsOn {
 			condition {
@@ -213,6 +225,18 @@ metrics {
 	}
 
 	"orders.sameProduct"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and(
+						equals("event_data.is_carrito", false),
+						equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
+				)
+			}
+		}
+	}
+	
+	"orders.sameProductQuick"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true, ttl: 30) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")

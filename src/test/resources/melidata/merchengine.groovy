@@ -12,29 +12,45 @@ trackTests {
 
 	    //Modal Events
     	"/merchengine/modal"(platform: "/mobile", type: TrackType.View) {
-			realestate_id = "modal_home_mp_v2"
 			content_id = "ftu_recarga_discount"
-			origin = "user_journey"
+			position = 1.0
+			component_id="user_secondary_actions"
+			audience = "all"
+			bu_line = "default"
+			flow = "default"
+			logic = "campaigns"
 		}
 
     	"/merchengine/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {
-			realestate_id = "modal_home_mp_v2"
 			content_id = "ftu_recarga_discount"
-			origin = "user_journey"
+			position = 1.0
+			component_id="user_secondary_actions"
+			audience = "all"
+			bu_line = "default"
+			flow = "default"
+			logic = "campaigns"
 		}
 
 		"/merchengine/modal/cta"(platform: "/mobile", type: TrackType.Event) {
-			realestate_id = "modal_home_mp_v2"
 			content_id = "ftu_recarga_discount"
-			origin = "user_journey"
 			type = "primary"
+			link = "mercadopago://asset-management/"
+			position = 1.0
+			component_id="user_secondary_actions"
+			audience = "all"
+			bu_line = "default"
+			flow = "default"
+			logic = "campaigns"
 		}
 
 		"/merchengine/modal/swipe"(platform: "/mobile", type: TrackType.Event) {
-			realestate_id = "modal_home_mp_v2"
 			content_id = "ftu_recarga_discount"
-			origin = "user_journey"
-			position = "1"
+			position = 1.0
+			component_id="user_secondary_actions"
+			audience = "all"
+			bu_line = "default"
+			flow = "default"
+			logic = "campaigns"
 		}
     }
 
@@ -44,29 +60,45 @@ trackTests {
 
 		//Modal Events
 		"/merchengine/modal"(platform: "/mobile", type: TrackType.View) {
-			realestate_id = "modal_home_mp_v2"
 			content_id = "ftu_recarga_discount"
-			origin = "user_journey"
+			position = 1.0
+			component_id="user_secondary_actions"
+			audience = "all"
+			bu_line = "default"
+			flow = "default"
+			logic = "campaigns"
 		}
 
 		"/merchengine/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {
-			realestate_id = "modal_home_mp_v2"
 			content_id = "ftu_recarga_discount"
-			origin = "user_journey"
+			position = 1.0
+			component_id="user_secondary_actions"
+			audience = "all"
+			bu_line = "default"
+			flow = "default"
+			logic = "campaigns"
 		}
 
 		"/merchengine/modal/cta"(platform: "/mobile", type: TrackType.Event) {
-			realestate_id = "modal_home_mp_v2"
 			content_id = "ftu_recarga_discount"
-			origin = "user_journey"
 			type = "primary"
+			link = "mercadopago://asset-management/"
+			position = 1.0
+			component_id="user_secondary_actions"
+			audience = "all"
+			bu_line = "default"
+			flow = "default"
+			logic = "campaigns"
 		}
 
 		"/merchengine/modal/swipe"(platform: "/mobile", type: TrackType.Event) {
-			realestate_id = "modal_home_mp_v2"
 			content_id = "ftu_recarga_discount"
-			origin = "user_journey"
-			position = "1"
+			position = 1.0
+			component_id="user_secondary_actions"
+			audience = "all"
+			bu_line = "default"
+			flow = "default"
+			logic = "campaigns"
 		}
     }
 }

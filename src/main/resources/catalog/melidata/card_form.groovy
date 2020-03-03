@@ -1,3 +1,5 @@
+package catalog.melidata
+
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
