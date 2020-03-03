@@ -1,0 +1,57 @@
+{
+  "users": [
+    "santiago.marchioni@mercadolibre.com",
+    "syi-puma@mercadolibre.com"
+  ],
+  "process_name": "sc_puma_errors",
+  "cron": "00 06 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
+  "extract": {
+    "operation": "append",
+    "site": "QA",
+    "columns": [
+      {
+      "name": "category",
+      "type": "UNICODE_STRING"
+      },
+      {
+        "name": "errorCode",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "period",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "quantity",
+        "type": "INTEGER"
+      },
+      {
+        "name": "listingsNotPublished",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "errors",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "sell/sell-bulk-errors.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
