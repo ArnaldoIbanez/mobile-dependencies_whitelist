@@ -470,4 +470,11 @@ tracks {
                 description: "Listing type of the item")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
     }
+
+
+    //Server Side
+    "/pdp/backend"(platform: "/", isAbstract : true) {}
+
+    "/pdp/backend/questions_redirect"(platform: "/", parentPropertiesInherited: false) {
+    }
 }
