@@ -44,7 +44,7 @@ tracks {
       showed_payment_methods(required: true, type: PropertyType.String, description: 'what payment refund methods are shown to the buyer')
     }
     "/return/payments/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-      action(required: true, type: PropertyType.String, description: 'action selected in the flow')
+      action(required: false, type: PropertyType.String, description: 'action selected in the flow')
       payment_refund_method(required: true, type: PropertyType.String, description: 'payment refund method selected by the user')
     }
 
@@ -88,7 +88,7 @@ tracks {
     // Bloqueo Scoring High
     "/return/congrats_error"(platform: "/", type: TrackType.View) {
       typification(required: true, type: PropertyType.String, description: 'reason why the product is returned')
-      payment_refund_method(required: false, type: PropertyType.String, description: 'origin of payment')
+      payment_refund_method('required': false, type: PropertyType.String, description: 'origin of payment')
       shipment_type(required: true, type: PropertyType.String, description: 'Selected shipment type', values:['delivery', 'pickup', 'self_dispatch'])
       pickup_time(required: false, type: PropertyType.String, description: 'pickup time product to seller')
       showed_payment_methods(required: false, type: PropertyType.String, description: 'origin of the payment method')
