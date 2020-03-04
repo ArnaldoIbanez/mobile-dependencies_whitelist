@@ -1360,11 +1360,11 @@ trackTests {
 
     test("Traceability Flow") {
         "/flow/init"(platform: "/mobile", type: TrackType.Event) {
-            name = "Instore"
+            flow_name = "Instore"
             from = "Home"
         }
         "/flow/end"(platform: "/mobile", type: TrackType.Event) {
-            name = "Instore"
+            flow_name = "Instore"
             from = "Home"
         }
     }
