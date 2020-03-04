@@ -624,6 +624,13 @@ trackTests {
             item_id = "MLA213512313"
             catalog_product_id="MLA123456"
         }
+
+        "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {
+            item_id = "MLA112341"
+            domain_id = "celulares"
+            type = "payment"
+            context = "/qadb"
+        }
     }
 
     test("New Shipping calculator"){
