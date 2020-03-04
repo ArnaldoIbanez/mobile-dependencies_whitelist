@@ -1357,6 +1357,18 @@ trackTests {
     }
 
     // MPMOBILE TEST
+
+    test("Traceability Flow") {
+        "/flow/init"(platform: "/mobile", type: TrackType.Event) {
+            flow_name = "Instore"
+            from = "Home"
+        }
+        "/flow/end"(platform: "/mobile", type: TrackType.Event) {
+            flow_name = "Instore"
+            from = "Home"
+        }
+    }
+
     test("account summary flow") {
         "/account_summary"(platform: "/mobile") {
             from = "/deep_link"
