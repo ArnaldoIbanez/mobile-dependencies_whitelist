@@ -14,11 +14,15 @@
     "site": "QA",
     "columns": [
       {
+      "name": "site_id",
+      "type": "UNICODE_STRING"
+      },
+      {
       "name": "category",
       "type": "UNICODE_STRING"
       },
       {
-        "name": "errorCode",
+        "name": "error_code",
         "type": "UNICODE_STRING"
       },
       {
