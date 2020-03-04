@@ -471,7 +471,7 @@ tracks {
 
     "/devices/settings"(platform: "/", isAbstract: true,initiative: "1096" ){}
 
-    "/devices/settingsnotifications"(platform: "/mobile/android", type:TrackType.Event) {
+    "/devices/settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
         device_id(required: true, description: "The real device_id, may differ from device field")
         enable(required:true, type:PropertyType.Boolean, description: "Indicates if settings are enabled")
         registration_id(required: false, description: "The registration id", type: PropertyType.String)
