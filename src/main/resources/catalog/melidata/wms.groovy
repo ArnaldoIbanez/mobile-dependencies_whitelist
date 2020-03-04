@@ -336,7 +336,10 @@ tracks {
     "/wms/withdrawals_collector/item/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/withdrawals_collector/item/start_unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/withdrawals_collector/congrats/finish_unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/withdrawals_collector/congrats/finish_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/withdrawals_collector/congrats/finish_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {
+        pickup_id(required: true, type: PropertyType.String, description: "Id of the pickup for the withdrawal flow")
+    }
 
     /* Inbound Problem solver tracks */
     "/wms/problem_solver_inbound_tasks"(platform: "/mobile/android", type: TrackType.View) {}
