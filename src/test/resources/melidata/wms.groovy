@@ -119,11 +119,6 @@ trackTests {
 
         "/wms/receiving/inbound_rejection"(platform: "/mobile/android") {
             trackData()
-            warehouse_id = "BRWT01"
-        }
-
-        "/wms/receiving/inbound_rejection"(platform: "/mobile/android") {
-            trackData()
             inbound_id = 1234
             receiving_id = "1234abv"
             rejection_reason = "key01"
