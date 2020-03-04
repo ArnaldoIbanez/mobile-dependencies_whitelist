@@ -44,5 +44,7 @@ trackTests {
     test("melidata AB URL Spliting "){
         "/melidata/ab_split"(platform:"/mobile/ios", type:TrackType.Event){}
         "/melidata/ab_split"(platform:"/mobile/android", type:TrackType.Event){}
+        
+        "/melidata/ab_split"(platform:"/mobile/ios", type:TrackType.Event, business:"mercadopago"){}
     }
 }
