@@ -488,11 +488,6 @@ trackTests {
             warehouse_id = "BRTW01"
         }
 
-        "/wms/problem_solver/scan_inbound_destination"(platform: "/mobile/android") {
-            trackData()
-            warehouse_id = "BRTW01"
-        }
-
         "/wms/problem_solver/scan_finish_transactions"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRTW01"
