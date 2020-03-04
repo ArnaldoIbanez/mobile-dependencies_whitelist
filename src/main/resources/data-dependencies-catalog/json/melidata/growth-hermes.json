@@ -1,5 +1,5 @@
 {
-    "users": ["emkt-devs@mercadolibre.com"],
+    "users": ["engagement-it@mercadolibre.com"],
     "process_name": "growth-hermes",
     "cron": "00 08 * * *",
     "partition": {
