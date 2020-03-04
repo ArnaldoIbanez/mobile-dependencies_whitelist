@@ -3,7 +3,7 @@
     "santiago.marchioni@mercadolibre.com",
     "syi-puma@mercadolibre.com"
   ],
-  "process_name": "sc_puma_errors",
+  "process_name": "sell_bulk_publish_errors",
   "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
