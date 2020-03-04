@@ -169,7 +169,7 @@ tracks {
     "/wms/receiving/inbound_rejection"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/receiving/inbound_rejection"(platform: "/mobile/android", type: TrackType.Event) {
         inbound_id(required: true, type: PropertyType.Numeric, description: "Inbound id")
-        receiving_id(required: true, type: PropertyType.Numeric, description: "Receiving id")
+        receiving_id(required: true, type: PropertyType.String, description: "Receiving id")
         rejection_reason(required: true, type: PropertyType.String, description: "Rejection reason selected to track")
     }
 

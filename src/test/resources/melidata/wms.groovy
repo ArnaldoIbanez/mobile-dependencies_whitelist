@@ -117,6 +117,19 @@ trackTests {
             warehouse_id = "BRWT01"
         }
 
+        "/wms/receiving/inbound_rejection"(platform: "/mobile/android", type: "view") {
+            trackData()
+            warehouse_id = "BRWT01"
+        }
+
+        "/wms/receiving/inbound_rejection"(platform: "/mobile/android", type: "event") {
+            trackData()
+            inbound_id = 1234
+            receiving_id = "1234abv"
+            rejection_reason = "key01"
+            warehouse_id = "BRWT01"
+        }
+
         "/wms/receiving/receiving_finished"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
