@@ -402,6 +402,12 @@ tracks {
 
     "/wms/stock_audit/scan_inventory/empty_address"(platform: "/mobile/android", type: TrackType.Event) {}
 
+    "/wms/stock_audit/scan_address/empty_address"(platform: "/mobile/android", type: TrackType.Event) {
+        address_id(required: true, type: PropertyType.String, description: "Address id")
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+        cross_counting(required: true, type: PropertyType.Boolean, description: "Whether is a cross counting")
+    }
+
     "/wms/stock_audit/item"(platform: "/mobile/android", type: TrackType.View) {
         address_id(required: true, type: PropertyType.String, description: "Address id")
         inventory_id(required: false, type: PropertyType.String, description: "Inventory id")
