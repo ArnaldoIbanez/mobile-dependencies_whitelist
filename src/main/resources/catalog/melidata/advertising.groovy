@@ -250,7 +250,13 @@ tracks {
     }
 
     //Filters
-    def filters_definition = objectSchemaDefinitions {}
+    def filters_definition = objectSchemaDefinitions {
+        status(required: false, type: PropertyType.String, values: ['A', 'P', 'H'])
+        release_date(required: false, type: PropertyType.String)
+        category(required: false, type: PropertyType.String)
+        features(required: false, type: PropertyType.String)
+        query(required: false, type: PropertyType.String)
+    }
 
     "/advertising/pads2/manager/filters"(
         platform: "/web",
@@ -267,6 +273,16 @@ tracks {
     "/deals/landing"(platform: "/") {
         deal_id(required: false, type: PropertyType.String)
         deal_print_id(required: false, type: PropertyType.String)
+    }
+
+    // Range
+    "/advertising/pads2/manager/metrics_range"(
+        platform: "/web",
+        type: TrackType.Event) {
+        days(required: true, type: PropertyType.Numeric)
+        to(required: true, type: PropertyType.String)
+        from(required: true, type: PropertyType.String)
+        yesterday(required: true, type: PropertyType.String)
     }
 
 }
