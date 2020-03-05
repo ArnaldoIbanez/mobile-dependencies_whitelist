@@ -404,7 +404,6 @@ trackTests {
             days = 31
             to = "2020-03-20"
             from = "2020-02-19"
-            yesterday = "2020-03-04"
         }
     }
 }
