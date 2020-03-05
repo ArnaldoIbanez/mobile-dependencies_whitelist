@@ -42,7 +42,7 @@ tracks {
     // STEP 04
     "/return/payments"(platform: "/", type: TrackType.View) {
       showed_payment_methods(required: true, description: 'what payment refund methods are shown to the buyer', type: PropertyType.String)
-      layout(required: false, value:['table_layout', 'cards_layout'], description: 'identify the specific type of layout of the payment', type: PropertyType.String)
+      layout(required: false, value:['table_layout', 'cards_layout', 'single_option_layout'], description: 'identify the specific type of layout of the payment', type: PropertyType.String)
     }
     "/return/payments/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
       selection(required: false, values:['accepted', 'rejected'], description: 'Selected option button', type: PropertyType.String)
