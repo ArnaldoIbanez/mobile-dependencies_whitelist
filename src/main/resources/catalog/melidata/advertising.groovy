@@ -282,7 +282,6 @@ tracks {
         days(required: true, type: PropertyType.Numeric)
         to(required: true, type: PropertyType.String)
         from(required: true, type: PropertyType.String)
-        yesterday(required: true, type: PropertyType.String)
     }
 
 }
