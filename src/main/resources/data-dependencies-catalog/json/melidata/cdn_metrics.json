@@ -1,0 +1,72 @@
+{
+    "users": [
+        "frontendcore@mercadolibre.com"
+    ],
+    "process_name": "cdn_metrics",
+    "cron": "0 6 * * *",
+    "partition": {
+        "name": "ds",
+        "type": "DATE"
+    },
+    "extract": {
+        "operation": "append",
+        "site": "Desarrollo-IT",
+        "columns": [
+            {
+                "name": "SiteId",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "CDNProvider",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "ConnectionType",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "Filename",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "DevicePlatform",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "CacheStatus",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "FileSize",
+                "type": "DOUBLE"
+            },
+            {
+                "name": "Duration",
+                "type": "DOUBLE"
+            },
+            {
+                "name": "RemoteIP",
+                "type": "UNICODE_STRING"
+            },
+            {
+                "name": "DS",
+                "type": "DATE"
+            }
+        ],
+        "sql": {
+            "script": "melidata/cdn_metrics.sql",
+            "parameters": [
+                {
+                    "name": "dateFROM",
+                    "value": "DATE-FROM",
+                    "format": "yyyy-MM-dd"
+                },
+                {
+                    "name": "dateTO",
+                    "value": "DATE-TO",
+                    "format": "yyyy-MM-dd"
+                }
+            ]
+        }
+    }
+}
