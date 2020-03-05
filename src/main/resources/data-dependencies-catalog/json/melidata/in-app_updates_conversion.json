@@ -34,6 +34,10 @@
         {
           "name": "How_Many",
           "type": "INTEGER"
+        },
+        {
+          "name": "platform",
+          "type": "UNICODE_STRING"
         }
       ],
       "sql": {

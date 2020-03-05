@@ -14,6 +14,11 @@ SELECT  application.business,
         END AS update_type,
         jest(event_data, 'type') AS Flow_type,
         COUNT(1) AS How_Many,
+        CASE 
+          WHEN instr(device.platform, 'android') <> 0 THEN 'android'
+          WHEN instr(device.platform, 'ios') <> 0 THEN 'ios' 
+          ELSE 'unexpected'
+        END AS platform,
         substr(ds,1,10) AS ds
 FROM tracks
 WHERE ds >= '@param01'
@@ -23,11 +28,13 @@ WHERE ds >= '@param01'
       or path = '/in_app_updates/updatable/accepted'
       or path = '/in_app_updates/inactive/showed'
       or path = '/in_app_updates/inactive/accepted')
-  AND device.platform = '/mobile/android'
+  AND (device.platform = '/mobile/android'
+      or device.platform = '/mobile/ios')
 GROUP BY substr(ds,1,10),
          application.business,
          jest(event_data, 'type'),
          path,
-         application.site_id
+         application.site_id,
+         platform
 ORDER BY Action DESC,
          How_Many DESC
