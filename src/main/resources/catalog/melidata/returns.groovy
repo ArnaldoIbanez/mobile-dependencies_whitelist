@@ -17,14 +17,13 @@ tracks {
       category_id(required: false, type: PropertyType.String, description: 'category identifier')
       category_l1_id(required: false, type: PropertyType.String, description: 'main category of item')
       category_path(required: false, type: PropertyType.ArrayList, description: 'the path of the category')
-      request_type(required: false, type: PropertyType.String, description: 'request type of the operation', values:['RETURN', 'REPURCHASE', 'CHANGE'])
-      layout(required: false, type: PropertyType.String, description: 'identify the specific type of layout of the payment')
+      flow_version(required: true, description: 'identify the specific flow version', type: PropertyType.String)
     }
 
     // STEP 01
     "/return/potential_resolutions"(platform: "/", type: TrackType.View) {}
     "/return/potential_resolutions/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        request_type(required: true, type: PropertyType.String, description: 'kind of operation (repurchase, return or change)')
+      request_type(required: false, values:['RETURN', 'REPURCHASE', 'CHANGE'], description: 'request type of the operation', type: PropertyType.String)
     }
 
     // STEP 02
@@ -36,18 +35,20 @@ tracks {
     // STEP 03
     "/return/conditions"(platform: "/", type: TrackType.View) { }
     "/return/conditions/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-      selection(required: false, values:['accepted', 'rejected'], type: PropertyType.String, description: 'Selected option button')
-      refund_info(required: false, values:['refund_account_money', 'credit_card', 'debit_card', 'account_money'], type: PropertyType.String, description: 'Opened modal with more info about the refund')
+      selection(required: false, values:['accepted', 'rejected'], description: 'Selected option button', type: PropertyType.String)
+      refund_info(required: false, values:['refund_account_money', 'credit_card', 'debit_card', 'account_money'], description: 'Opened modal with more info about the refund', type: PropertyType.String)
     }
 
     // STEP 04
     "/return/payments"(platform: "/", type: TrackType.View) {
-      showed_payment_methods(required: true, type: PropertyType.String, description: 'what payment refund methods are shown to the buyer')
+      showed_payment_methods(required: true, description: 'what payment refund methods are shown to the buyer', type: PropertyType.String)
+      layout(required: false, value:['table_layout', 'cards_layout'], description: 'identify the specific type of layout of the payment', type: PropertyType.String)
     }
     "/return/payments/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-      selection(required: false, values:['accepted', 'rejected'], type: PropertyType.String, description: 'Selected option button')
-      payment_refund_method(required: true, type: PropertyType.String, description: 'Payment refund method selected by the user')
-      refund_info(required: false, values:['refund_account_money', 'credit_card', 'debit_card', 'account_money'], type: PropertyType.String, description: 'Opened modal with more info about the refund')
+      selection(required: false, values:['accepted', 'rejected'], description: 'Selected option button', type: PropertyType.String)
+      payment_refund_method(required: false, description: 'Payment refund method selected by the user', type: PropertyType.String)
+      refund_info(required: false, values:['refund_account_money', 'credit_card', 'debit_card', 'account_money'], description: 'Opened modal with more info about the refund', type: PropertyType.String)
+
     }
 
     // STEP 05
