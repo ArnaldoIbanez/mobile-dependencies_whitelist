@@ -10,7 +10,7 @@ tracks {
 
     "/cdn"(platform: "/", isAbstract: true) {}
 
-    "/cdn/profiler"(platform: "/", type: TrackType.View) {
+    "/cdn/profiler"(platform: "/", type: TrackType.Event) {
         fileName(required: true, type: PropertyType.String, description: "Name of the file sent")
         size(required: true, type: PropertyType.Numeric, description: "Resource size downloaded")
         duration(required: true, type: PropertyType.Numeric, description: "Time used to download the resource ")

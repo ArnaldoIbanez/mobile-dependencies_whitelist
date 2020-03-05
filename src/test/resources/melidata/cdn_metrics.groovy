@@ -17,15 +17,15 @@ trackTests {
             connection = "4g"
         }
 
-        "/cdn/profiler"(platform: "/", type: TrackType.View) {
+        "/cdn/profiler"(platform: "/", type: TrackType.Event) {
             defaultTrackInformation()
         }
 
-        "/cdn/profiler"(platform: "/web", type: TrackType.View) {
+        "/cdn/profiler"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
 
-        "/cdn/profiler"(platform: "/mobile", type: TrackType.View) {
+        "/cdn/profiler"(platform: "/mobile", type: TrackType.Event) {
             defaultTrackInformation()
         }
     }
