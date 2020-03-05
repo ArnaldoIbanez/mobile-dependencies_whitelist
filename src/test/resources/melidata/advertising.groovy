@@ -384,8 +384,8 @@ trackTests {
         }
         "/advertising/pads2/manager/filters"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
-            status:"active"
-            budget:"70"
+            status = "active"
+            budget = "70"
             filters = [
                 status: "A",
                 release_date: "less_than_seven_days",
@@ -399,8 +399,8 @@ trackTests {
     test("Advertising manager Range") {
         "/advertising/pads2/manager/metrics_range"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
-            status:"active"
-            budget:"70"
+            status = "active"
+            budget = "70"
             days = 31
             to = "2020-03-20"
             from = "2020-02-19"
