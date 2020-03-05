@@ -36,8 +36,8 @@ tracks {
     // STEP 03
     "/return/conditions"(platform: "/", type: TrackType.View) { }
     "/return/conditions/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-      selection(required: false, values:['accepted', 'rejected'], type: PropertyType.String, description: 'selected option button')
-      info(required: false, values:['refund_account_money', 'credit_card', 'debit_card', 'account_money'], type: PropertyType.String, description: 'opened modal with more info about the refund')
+      selection(required: false, values:['accepted', 'rejected'], type: PropertyType.String, description: 'Selected option button')
+      refund_info(required: false, values:['refund_account_money', 'credit_card', 'debit_card', 'account_money'], type: PropertyType.String, description: 'Opened modal with more info about the refund')
     }
 
     // STEP 04
@@ -45,8 +45,9 @@ tracks {
       showed_payment_methods(required: true, type: PropertyType.String, description: 'what payment refund methods are shown to the buyer')
     }
     "/return/payments/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-      action(required: false, type: PropertyType.String, description: 'action selected in the flow')
-      payment_refund_method(required: true, type: PropertyType.String, description: 'payment refund method selected by the user')
+      selection(required: false, values:['accepted', 'rejected'], type: PropertyType.String, description: 'Selected option button')
+      payment_refund_method(required: true, type: PropertyType.String, description: 'Payment refund method selected by the user')
+      refund_info(required: false, values:['refund_account_money', 'credit_card', 'debit_card', 'account_money'], type: PropertyType.String, description: 'Opened modal with more info about the refund')
     }
 
     // STEP 05
