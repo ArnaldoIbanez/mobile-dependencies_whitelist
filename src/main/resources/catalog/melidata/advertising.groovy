@@ -251,7 +251,7 @@ tracks {
 
     //Filters
     def filters_definition = objectSchemaDefinitions {
-        status(required: false, type: PropertyType.String, values: ['A', 'P', 'H'])
+        status(required: false, type: PropertyType.String)
         release_date(required: false, type: PropertyType.String)
         category(required: false, type: PropertyType.String)
         features(required: false, type: PropertyType.String)
