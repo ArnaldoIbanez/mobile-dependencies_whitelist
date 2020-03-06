@@ -31,6 +31,8 @@ trackTests {
             date_created = "2019-08-08T09:25:01.000-04:00"
             lang = "es-ar"
             timezone = "-0300"
+            last_seen = "2020-03-06"
+            source = "uninstalls_checker_flow"
         }
     }
 
