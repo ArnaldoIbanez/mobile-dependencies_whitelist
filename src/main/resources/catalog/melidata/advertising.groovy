@@ -251,7 +251,7 @@ tracks {
 
     //Filters
     def filters_definition = objectSchemaDefinitions {
-        status(required: false, type: PropertyType.String, values: ['A', 'P', 'H'])
+        status(required: false, type: PropertyType.String)
         release_date(required: false, type: PropertyType.String)
         category(required: false, type: PropertyType.String)
         features(required: false, type: PropertyType.String)
@@ -282,6 +282,14 @@ tracks {
         days(required: true, type: PropertyType.Numeric)
         to(required: true, type: PropertyType.String)
         from(required: true, type: PropertyType.String)
+    }
+
+    // Massive Actions
+    "/advertising/pads2/manager/massive_actions"(
+        platform: "/web",
+        type: TrackType.Event) {
+        action(required: true, type: PropertyType.String)
+        total_items(required: true, type: PropertyType.Numeric)
     }
 
 }
