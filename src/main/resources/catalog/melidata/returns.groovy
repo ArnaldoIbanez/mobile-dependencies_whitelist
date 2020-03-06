@@ -23,7 +23,7 @@ tracks {
     // STEP 01
     "/return/potential_resolutions"(platform: "/", type: TrackType.View) {}
     "/return/potential_resolutions/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-      request_type(required: false, values:['RETURN', 'REPURCHASE', 'CHANGE'], description: 'request type of the operation', type: PropertyType.String)
+      request_type(required: true, values:['RETURN', 'REPURCHASE', 'CHANGE'], description: 'request type of the operation', type: PropertyType.String)
     }
 
     // STEP 02
