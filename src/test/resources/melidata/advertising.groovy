@@ -406,4 +406,14 @@ trackTests {
             from = "2020-02-19"
         }
     }
+
+    test("Advertising manager Massive Actions") {
+        "/advertising/pads2/manager/massive_actions"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "70"
+            action = "active"
+            total_items = 167
+        }
+    }
 }
