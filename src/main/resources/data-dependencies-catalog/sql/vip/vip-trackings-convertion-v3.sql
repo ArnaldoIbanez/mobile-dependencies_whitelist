@@ -17,7 +17,7 @@ ds_date,
 device_platform,
 uid,
 item,
-cart_content,
+cart_content
 FROM melilake.bt_vip
 WHERE ds_date >= '@param01' AND ds_date < '@param02'
       AND sit_site_id_group in ('MLB','MLA','MLM')
@@ -135,7 +135,4 @@ WHERE (logged_count = 0
 )
 GROUP BY vips.sit_site_id_group,
        vips.device_platform,
-       cast(vips.ds_date as date),
-       vips.shipping_mode,
-       vips.logistic_type,
-       vips.loyalty_level
+       cast(vips.ds_date as date)
