@@ -1,9 +1,7 @@
 SELECT vips.sit_site_id_group,
        vips.device_platform,
        cast(vips.ds_date as date) as ds_date,
-       --vips.shipping_mode,
-       --vips.logistic_type,
-       --vips.loyalty_level,
+
        count(*) as total_vip,
        sum(if(COALESCE(bi_amount,0)>0,1,0)) as total_buy_action,
        sum(if(COALESCE(buy_grats,0)>0,1,0)) as total_buy_grats,
@@ -14,16 +12,13 @@ FROM
 (
   (
     (
-      (--Vistas de la vip por usuario e item.
+      (
 SELECT sit_site_id_group,
 ds_date,
 device_platform,
 uid,
 item,
 cart_content,
---shipping_mode,
---if(JEST(event_data, 'logistic_type') is null,'agree_with_seller',JEST(event_data, 'logistic_type')) as logistic_type,
---if(lyl_level_number is null AND cus_nickname is null, 0, lyl_level_number) as loyalty_level
 FROM melilake.bt_vip
 WHERE ds_date >= '@param01' AND ds_date < '@param02'
       AND sit_site_id_group in ('MLB','MLA','MLM')
@@ -108,7 +103,6 @@ FROM
   and vips.uid = grats.cho_uid
   and vips.item = grats.item_id
   )
-  --a partir de aca los joins se utilizan para excluir los no calificados/bots
   INNER JOIN
   (
    SELECT uid, ds_date
