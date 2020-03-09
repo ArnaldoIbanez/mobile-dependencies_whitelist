@@ -17,6 +17,7 @@ tracks {
       category_id(required: false, type: PropertyType.String, description: 'category identifier')
       category_l1_id(required: false, type: PropertyType.String, description: 'main category of item')
       category_path(required: false, type: PropertyType.ArrayList, description: 'the path of the category')
+      request_type(required: false, values:['RETURN', 'REPURCHASE', 'CHANGE'], description: 'request type of the operation', type: PropertyType.String)
       flow_version(required: true, description: 'identify the specific flow version', type: PropertyType.String)
     }
 
