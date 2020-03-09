@@ -149,6 +149,14 @@ tracks {
         percentage(type: PropertyType.Numeric, required: false, description: "The user's current level")
     }
 
+    def shortcuts_section_definition = objectSchemaDefinitions {
+        content_type(type: PropertyType.String, required: true, values: ['partial', 'default', 'complete'])
+        ordinal(required: true, type: PropertyType.Numeric, description: "The position in the home")
+        favorite_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of favorite ids")
+        shortcut_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of shortcut ids")
+        has_view_more(required: true, type: PropertyType.Boolean, description: "If has view more shortcut")
+    }
+
     def header_definition = objectSchemaDefinitions {
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
     }
@@ -315,6 +323,7 @@ tracks {
         from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
+        shortcuts(required: false, type: PropertyType.Map(shortcuts_section_definition), description: "The shortcuts section information")
         prepaid_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The banner section information")
         secondary_actions(required: false, type: PropertyType.Map(secondary_actions_definition), description: "The secondary actions section information")
         benefits(required: false, type: PropertyType.Map(realestate_definition), description: "The benefits section information")
@@ -334,6 +343,7 @@ tracks {
         from(required: false, type: PropertyType.String, description: "The origin path when it's opened from meli")
         banking(required: false, type: PropertyType.Map(banking_definition), description: "The banking section information")
         main_actions(required: false, type: PropertyType.Map(main_actions_definition), description: "The main actions section information")
+        shortcuts(required: false, type: PropertyType.Map(shortcuts_section_definition), description: "The shortcuts section information")
         prepaid_banner(required: false, type: PropertyType.Map(realestate_definition), description: "The banner section information")
         secondary_actions(required: false, type: PropertyType.Map(secondary_actions_definition), description: "The secondary actions section information")
         benefits(required: false, type: PropertyType.Map(realestate_definition), description: "The benefits section information")
@@ -409,6 +419,19 @@ tracks {
         percentage(type: PropertyType.Numeric, required: true, description: "The user's loyalty level percentage")
     }
 
+    "/wallet_home/section/tap/shortcuts"(platform: "/mobile", type: TrackType.Event) {
+        from(type: PropertyType.String, required: true, values: ['section', 'sheet'])
+        content_id(type: PropertyType.String, required: true, description: "The identification of shown content")
+        position(required: true, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
+        enabled(type: PropertyType.Boolean, required: true, description: "If the item has tap enabled indicating that it has a link")
+        is_favorite(type: PropertyType.Boolean, required: true, description: "If the item was selected as favorite")
+        has_aware(type: PropertyType.Boolean, required: true, description: "If has an aware badge")
+        has_label(type: PropertyType.Boolean, required: true, description: "If has a label of promotion")
+
+        group_id(required: false, type: PropertyType.String, description: "The component id of the item")
+        group_position(required: false, type: PropertyType.String, description: "The group position of the item")
+    }
+
     "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event) {}
@@ -418,6 +441,13 @@ tracks {
     "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/shortcuts_sheet" (platform: "/mobile", isAbstract: true) {}
+
+    "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
+        group_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of group ids")
+        shortcut_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of shortcut ids")
+    }
 
     /************************************/
     //  TRACKS CROSS SELL EXPERIMENTS   //
