@@ -1,7 +1,6 @@
 SELECT vips.sit_site_id_group,
        vips.device_platform,
        cast(vips.ds_date as date) as ds_date,
-
        count(*) as total_vip,
        sum(if(COALESCE(bi_amount,0)>0,1,0)) as total_buy_action,
        sum(if(COALESCE(buy_grats,0)>0,1,0)) as total_buy_grats,
