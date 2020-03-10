@@ -373,14 +373,47 @@ trackTests {
             sort_by = "sales"
             sort_value= "asc"
         }
-         "/advertising/pads2/manager/sort"(platform: "/web", type: TrackType.View) {
+        "/advertising/pads2/manager/sort"(platform: "/web", type: TrackType.View) {
             campaign_id = "2222222"
             sort_by = "sales"
             sort_value= "desc"
         }
-         "/advertising/pads2/manager/filters"(platform: "/web", type: TrackType.View) {
+        "/advertising/pads2/manager/filters"(platform: "/web", type: TrackType.View) {
             campaign_id = "2222222"
             filters = [:]
+        }
+        "/advertising/pads2/manager/filters"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "70"
+            filters = [
+                status: "A",
+                release_date: "less_than_seven_days",
+                category: "x",
+                features: "x",
+                query: "x",
+            ]
+        }
+    }
+
+    test("Advertising manager Range") {
+        "/advertising/pads2/manager/metrics_range"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "70"
+            days = 31
+            to = "2020-03-20"
+            from = "2020-02-19"
+        }
+    }
+
+    test("Advertising manager Massive Actions") {
+        "/advertising/pads2/manager/massive_actions"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "70"
+            action = "active"
+            total_items = 167
         }
     }
 }
