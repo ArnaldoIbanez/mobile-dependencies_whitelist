@@ -48,9 +48,7 @@
       {
         "name": "total_cart_grats",
         "type": "INTEGER"
-      },
-      
-
+      }
     ],
     "sql": {
       "script": "vip/vip-trackings-convertion-v3.sql",
