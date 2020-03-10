@@ -24,7 +24,6 @@ case when path = '/seller_central/sales/list/action/primary' then 'CLICK'
   end,
  jest(event_data, 'id'),
   platform.fragment,
-  usr.user_id,
   jest(event_data, 'seller_profile'),
   jest(event_data, 'seller_reputation'),
   jest(event_data, 'mercado_lider'),
