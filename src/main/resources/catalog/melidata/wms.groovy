@@ -166,7 +166,6 @@ tracks {
     "/wms/receiving/volume_rejection/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/receiving/inbound_shipment_rejection"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/receiving/inbound_shipment_rejection/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/receiving/inbound_rejection"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/receiving/inbound_rejection"(platform: "/mobile/android", type: TrackType.Event) {
         inbound_id(required: true, type: PropertyType.Numeric, description: "Inbound id")
         receiving_id(required: true, type: PropertyType.String, description: "Receiving id")
