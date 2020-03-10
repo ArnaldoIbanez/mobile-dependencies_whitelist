@@ -6,7 +6,7 @@ SELECT vips.sit_site_id_group,
        sum(if(vips.cart_content in ('true','1'),1,0)) as total_vip_cart,
        sum(if(COALESCE(atc_amount,0)>0,1,0)) as total_cart_action,
        sum(if(COALESCE(cart_grats,0)>0,1,0)) as total_cart_grats,
-       cast(vips.ds_date as date) as ds,
+       cast(vips.ds_date as date) as ds
 
 FROM
 (
