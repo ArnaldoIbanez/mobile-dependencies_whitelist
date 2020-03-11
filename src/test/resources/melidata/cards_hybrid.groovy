@@ -260,5 +260,47 @@ trackTests {
             action = "virtual_only"
         }
     }
-       
+    
+    //Activities: Tracking
+    test("cards hybrid dashboard activities") {
+        "/cards/hybrid/dashboard/activities"(platform: "/", type: TrackType.View) {}
+    }
+    
+    //Account options: Tracking
+    test("cards hybrid dashboard account options") {
+        "/cards/hybrid/dashboard/account_options"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/dashboard/account_options/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
+        }
+    }
+    
+    //Carousel: Tracking
+    test("cards hybrid dashboard carousel") {
+        "/cards/hybrid/dashboard/carousel"(platform: "/", type: TrackType.View) {}
+    }
+    
+    //Linear buttons: Tracking
+    test("cards hybrid dashboard linear buttons") {
+        "/cards/hybrid/dashboard/linear_buttons"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
+            action = "help"
+        }
+    }
+    
+    //Message: Tracking
+    test("cards hybrid dashboard message") {
+        "/cards/hybrid/dashboard/message"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "change_pin"
+        }
+    }
+    
+    //Account info: Tracking
+    test("cards hybrid dashboard account info") {
+        "/cards/hybrid/dashboard/account_info"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/dashboard/account_info/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
+        }
+    }
+   
 }
