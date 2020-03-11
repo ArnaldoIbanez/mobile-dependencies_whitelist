@@ -291,7 +291,7 @@ trackTests {
     test("cards hybrid dashboard message") {
         "/cards/hybrid/dashboard/message"(platform: "/", type: TrackType.View) {}
         "/cards/hybrid/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
-            action = "change_pin"
+            type = "change_pin"
         }
     }
     
