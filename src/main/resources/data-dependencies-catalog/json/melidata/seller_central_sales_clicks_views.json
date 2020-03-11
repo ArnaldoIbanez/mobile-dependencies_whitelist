@@ -30,10 +30,6 @@
         "type": "UNICODE_STRING"
       },
       {
-      "name": "user_id",
-      "type": "UNICODE_STRING"
-      },
-      {
         "name": "seller_profile",
         "type": "UNICODE_STRING"
       },
