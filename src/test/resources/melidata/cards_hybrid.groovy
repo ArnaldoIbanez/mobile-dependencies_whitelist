@@ -250,5 +250,15 @@ trackTests {
             action = "tapped"
         }
     }
+    
+    //Flap card: Tracking
+    test("cards hybrid dashboard flap card tracking") {
+        "/cards/hybrid/dashboard/flap"(platform: "/", type: TrackType.View) {
+            status = "virtual_only"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "tapped"
+        }
+    }
        
 }
