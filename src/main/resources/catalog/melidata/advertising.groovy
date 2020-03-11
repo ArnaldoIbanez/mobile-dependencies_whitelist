@@ -292,4 +292,56 @@ tracks {
         total_items(required: true, type: PropertyType.Numeric)
     }
 
+    // SortFilters Modal
+    "/advertising/pads2/manager/sort_filters"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/manager/sort_filters/modal"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/manager/sort_filters/modal/"(
+        platform: "/web",
+        type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+    "/advertising/pads2/manager/sort_filters/modal/show"(
+        platform: "/web",
+        type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+    "/advertising/pads2/manager/sort_filters/modal/confirm"(
+        platform: "/web",
+        type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        step(required: true, type: PropertyType.Numeric , description: "Current modal step")
+    }
+    "/advertising/pads2/manager/sort_filters/modal/next_step"(
+        platform: "/web",
+        type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        step(required: true, type: PropertyType.Numeric , description: "Current modal step")
+    }
+    "/advertising/pads2/manager/sort_filters/modal/prev_step"(
+        platform: "/web",
+        type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        step(required: true, type: PropertyType.Numeric , description: "Current modal step")
+    }
+    "/advertising/pads2/manager/sort_filters/modal/show_later"(
+        platform: "/web",
+        type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        step(required: true, type: PropertyType.Numeric , description: "Current modal step")
+    }
+
 }
