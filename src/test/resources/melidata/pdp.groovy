@@ -537,7 +537,7 @@ trackTests {
 
     //Stock modal
     test("Stock modal tracking") {
-        "/pdp/question/ask/prevent_stock"(platform: "/", {})
+        "/pdp/questions/ask/prevent_stock"(platform: "/", {})
     }
 
     test("Pdp Server Side") {
