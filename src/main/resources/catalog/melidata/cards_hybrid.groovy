@@ -143,7 +143,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["virtual_only", "user_need_challenge", "tracking_init", "tracking_on_the_way", "tracking_next_to_arrive", "physical_ready_for_unlocking", "debit_active", "debit_active", "physical_inactive"],
+            values: ["tapped"],
             description: "Mini card tapped"
           )
     }
