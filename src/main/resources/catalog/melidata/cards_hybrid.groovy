@@ -129,4 +129,22 @@ tracks {
             description: "Action tapped"
           )
     }
+    
+    
+    // DASHBOARD
+    // --------
+     "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {}
+    
+    //MiniCard: Tracking
+    "/cards/hybrid/dashboard/mini_card"(platform: "/", type: TrackType.View) {
+        status (required:true, type: PropertyType.String, description: "Status of mini card", inheritable:false)
+    }
+    "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["virtual_only", "user_need_challenge", "tracking_init", "tracking_on_the_way", "tracking_next_to_arrive", "physical_ready_for_unlocking", "debit_active", "debit_active", "physical_inactive"],
+            description: "Action tapped"
+          )
+    }
 }
