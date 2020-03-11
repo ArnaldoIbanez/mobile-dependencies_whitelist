@@ -478,6 +478,8 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
     }
 
+    //Stock modal
+    "/pdp/question/ask/prevent_stock" (platform: "/", parentPropertiesInherited: false) {}
 
     //Server Side
     "/pdp/backend"(platform: "/", isAbstract : true) {}
