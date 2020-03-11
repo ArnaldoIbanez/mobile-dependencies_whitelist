@@ -247,66 +247,41 @@ trackTests {
             status = "virtual_only"
         }
         "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "virtual_only"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "user_need_challenge"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "tracking_init"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "tracking_on_the_way"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "tracking_next_to_arrive"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "physical_ready_for_unlocking"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "debit_active"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "debit_active"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "physical_inactive"
-        }
-    }
-    
-    //Flap card: Tracking
-    test("cards hybrid dashboard flap card tracking") {
-        "/cards/hybrid/dashboard/flap"(platform: "/", type: TrackType.View) {
             status = "virtual_only"
+            action = "tapped"
         }
-        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
-            action = "virtual_only"
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            status = "user_need_challenge"
+            action = "tapped"
         }
-        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
-            action = "user_need_challenge"
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            status = "tracking_init"
+            action = "tapped"
         }
-        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
-            action = "tracking_init"
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            status = "tracking_on_the_way"
+            action = "tapped"
         }
-        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
-            action = "tracking_on_the_way"
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            status = "tracking_next_to_arrive"
+            action = "tapped"
         }
-        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
-            action = "tracking_next_to_arrive"
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            status = "physical_ready_for_unlocking"
+            action = "tapped"
         }
-        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
-            action = "physical_ready_for_unlocking"
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            status = "debit_active"
+            action = "tapped"
         }
-        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
-            action = "debit_active"
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            status = "debit_active"
+            action = "tapped"
         }
-        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
-            action = "debit_active"
-        }
-        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
-            action = "physical_inactive"
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            status = "physical_inactive"
+            action = "tapped"
         }
     }
-    
+       
 }
