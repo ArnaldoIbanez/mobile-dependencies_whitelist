@@ -160,4 +160,7 @@ tracks {
             description: "Flap tapped"
           )
     }
+    
+    //Activities: Tracking
+    "/cards/hybrid/dashboard/activities"(platform: "/", type: TrackType.View) {}
 }
