@@ -43,6 +43,8 @@ tracks {
         date_created (required: true, type: PropertyType.String)
         lang (required: true, type: PropertyType.String)
         timezone (required: true, type: PropertyType.String)
+        last_seen (required: false, type: PropertyType.String)
+        source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"])
     }
 
     "/permissions"(platform: "/mobile", isAbstract: true){}
