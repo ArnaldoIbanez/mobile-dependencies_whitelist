@@ -139,7 +139,7 @@ tracks {
     "/cards/hybrid/dashboard/mini_card"(platform: "/", type: TrackType.View) {
         status (required:true, type: PropertyType.String, description: "Status of mini card", inheritable:false)
     }
-    "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -152,11 +152,11 @@ tracks {
     "/cards/hybrid/dashboard/flap"(platform: "/", type: TrackType.View) {
         status (required:true, type: PropertyType.String, description: "Status of flap card", inheritable:false)
     }
-    "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["virtual_only", "user_need_challenge", "tracking_init", "tracking_on_the_way", "tracking_next_to_arrive", "physical_ready_for_unlocking", "debit_active", "debit_active", "physical_inactive"],
+            values: ["tapped"],
             description: "Flap tapped"
           )
     }
