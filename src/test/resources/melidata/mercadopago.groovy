@@ -4122,4 +4122,8 @@ trackTests {
             path = "/settings/release-options"
         }
     }
+
+    test("About screen") {
+        "/about/rate_app"(platform:"/mobile", type:TrackType.Event) {}
+    }
 }
