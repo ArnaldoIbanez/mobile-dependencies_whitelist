@@ -6,7 +6,8 @@ import com.ml.melidata.catalog.PropertyType
 
 
 tracks {
-
+    
+    initiative = '1074'
     // View
 
     "/navigation_sections"(platform: "/mobile", isAbstract: true){}
