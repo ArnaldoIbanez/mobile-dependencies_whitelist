@@ -166,7 +166,7 @@ tracks {
     
     //Account Options: Tracking
     "/cards/hybrid/dashboard/account_options"(platform: "/", type: TrackType.View) {}
-    "/cards/hybrid/dashboard/account_options"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/dashboard/account_options/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -180,7 +180,7 @@ tracks {
     
     //Linear buttons: Tracking
     "/cards/hybrid/dashboard/linear_buttons"(platform: "/", type: TrackType.View) {}
-    "/cards/hybrid/dashboard/linear_buttons"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -193,7 +193,7 @@ tracks {
     "/cards/hybrid/dashboard/message"(platform: "/", type: TrackType.View) {
         type (required:true, type: PropertyType.String, description: "Type of message", inheritable:false)
     }
-    "/cards/hybrid/dashboard/message"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -204,7 +204,7 @@ tracks {
     
     //Account info: Tracking
     "/cards/hybrid/dashboard/account_info"(platform: "/", type: TrackType.View) {}
-    "/cards/hybrid/dashboard/account_info"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/dashboard/account_info/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
