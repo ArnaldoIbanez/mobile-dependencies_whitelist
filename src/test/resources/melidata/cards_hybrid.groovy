@@ -314,6 +314,9 @@ trackTests {
         "/cards/hybrid/dashboard/account_options/tap"(platform:"/", type: TrackType.Event) {
             action = "money_in"
         }
+        "/cards/hybrid/dashboard/account_options/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal"
+        }
     }
     
     //Carousel: Tracking
