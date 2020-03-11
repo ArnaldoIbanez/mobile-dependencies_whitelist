@@ -287,6 +287,16 @@ trackTests {
                     "city_id": "SP-BR",
                     "user_zone": "X1"
             ]
+            top_keywords = [
+                    [
+                            "key": "sarasa",
+                            "type" : "SEARCH"
+                    ],
+                    [
+                            "key": "sarasa2",
+                            "type" : "PDP"
+                    ]
+            ]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -320,16 +330,6 @@ trackTests {
                     "default_zipcode": false,
                     "city_id": "SP-BR",
                     "user_zone": "X1"
-            ]
-            top_keywords = [
-                    [
-                            "key": "sarasa",
-                            "type" : "SEARCH"
-                    ],
-                    [
-                            "key": "sarasa2",
-                            "type" : "PDP"
-                    ]
             ]
         })
 
