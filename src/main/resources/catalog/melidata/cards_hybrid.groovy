@@ -177,4 +177,15 @@ tracks {
     
     //Carousel: Tracking
     "/cards/hybrid/dashboard/carousel"(platform: "/", type: TrackType.View) {}
+    
+    //Linear buttons: Tracking
+    "/cards/hybrid/dashboard/linear_buttons"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/dashboard/linear_buttons"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["help", "call", "block"],
+            description: "Linear button tapped"
+          )
+    }
 }
