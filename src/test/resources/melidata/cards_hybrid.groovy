@@ -249,6 +249,27 @@ trackTests {
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
             action = "virtual_only"
         }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "user_need_challenge"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_init"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_on_the_way"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_next_to_arrive"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_ready_for_unlocking"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_inactive"
+        }
     }
     
     //Flap card: Tracking
@@ -258,6 +279,28 @@ trackTests {
         }
         "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
             action = "virtual_only"
+        }
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "user_need_challenge"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_init"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_on_the_way"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_next_to_arrive"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_ready_for_unlocking"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_inactive"
         }
     }
     
