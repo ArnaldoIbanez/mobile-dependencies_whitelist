@@ -321,6 +321,16 @@ trackTests {
                     "city_id": "SP-BR",
                     "user_zone": "X1"
             ]
+            top_keywords = [
+                    [
+                            "key": "sarasa",
+                            "type" : "SEARCH"
+                    ],
+                    [
+                            "key": "sarasa2",
+                            "type" : "PDP"
+                    ]
+            ]
         })
 
         "/search/color_picker"(platform: "/web") {
