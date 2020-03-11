@@ -535,6 +535,11 @@ trackTests {
         })
     }
 
+    //Stock modal
+    test("Stock modal tracking") {
+        "/pdp/question/ask/prevent_stock"(platform: "/", {})
+    }
+
     test("Pdp Server Side") {
         "/pdp/backend/questions_redirect"(platform: "/") {}
     }
