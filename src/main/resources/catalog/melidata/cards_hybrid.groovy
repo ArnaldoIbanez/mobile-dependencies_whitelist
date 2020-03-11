@@ -188,4 +188,17 @@ tracks {
             description: "Linear button tapped"
           )
     }
+    
+    //Linear buttons: Tracking
+    "/cards/hybrid/dashboard/message"(platform: "/", type: TrackType.View) {
+        type (required:true, type: PropertyType.String, description: "Type of message", inheritable:false)
+    }
+    "/cards/hybrid/dashboard/message"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["change_pin"],
+            description: "Message button tapped"
+          )
+    }
 }
