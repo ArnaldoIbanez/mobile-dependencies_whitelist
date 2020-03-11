@@ -163,4 +163,15 @@ tracks {
     
     //Activities: Tracking
     "/cards/hybrid/dashboard/activities"(platform: "/", type: TrackType.View) {}
+    
+    //Account Options: Tracking
+    "/cards/hybrid/dashboard/account_options"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/dashboard/account_options"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in", "account_info_modal"],
+            description: "Account info tapped"
+          )
+    }
 }
