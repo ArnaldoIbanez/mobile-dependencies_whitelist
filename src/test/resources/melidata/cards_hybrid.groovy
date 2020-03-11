@@ -234,4 +234,79 @@ trackTests {
             action = "exit"
         }
     }
+    
+    // DASHBOARD
+    // --------
+    test("cards hybrid dashboard") {
+        "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {}
+    }
+    
+    //Mini card: Tracking
+    test("cards hybrid dashboard mini card tracking") {
+        "/cards/hybrid/dashboard/mini_card"(platform: "/", type: TrackType.View) {
+            status = "virtual_only"
+        }
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            action = "virtual_only"
+        }
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            action = "user_need_challenge"
+        }
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            action = "tracking_init"
+        }
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            action = "tracking_on_the_way"
+        }
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            action = "tracking_next_to_arrive"
+        }
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            action = "physical_ready_for_unlocking"
+        }
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            action = "debit_active"
+        }
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            action = "debit_active"
+        }
+        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+            action = "physical_inactive"
+        }
+    }
+    
+    //Flap card: Tracking
+    test("cards hybrid dashboard flap card tracking") {
+        "/cards/hybrid/dashboard/flap"(platform: "/", type: TrackType.View) {
+            status = "virtual_only"
+        }
+        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_only"
+        }
+        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
+            action = "user_need_challenge"
+        }
+        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_init"
+        }
+        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_on_the_way"
+        }
+        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_next_to_arrive"
+        }
+        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
+            action = "physical_ready_for_unlocking"
+        }
+        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active"
+        }
+        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active"
+        }
+        "/cards/hybrid/dashboard/flap"(platform:"/", type: TrackType.Event) {
+            action = "physical_inactive"
+        }
+    }
+    
 }
