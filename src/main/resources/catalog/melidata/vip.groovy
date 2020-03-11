@@ -541,6 +541,12 @@ tracks {
         context(required: true, type: PropertyType.String, description: "Indicates if is qadb or questions", values:["/qadb","/questions"])
     }
 
+    "/vip/qadb"(parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/vip/qadb/call-to-action"(platform: "/", parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
+    }
+
     "/vip/question_intention"(platform: "/web", type: TrackType.Event) {
         unregistered_contact(required: true, type: PropertyType.Boolean,
                 description: "User is unregister type")
