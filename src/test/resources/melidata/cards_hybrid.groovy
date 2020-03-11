@@ -246,7 +246,7 @@ trackTests {
         "/cards/hybrid/dashboard/mini_card"(platform: "/", type: TrackType.View) {
             status = "virtual_only"
         }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
             action = "tapped"
         }
     }
