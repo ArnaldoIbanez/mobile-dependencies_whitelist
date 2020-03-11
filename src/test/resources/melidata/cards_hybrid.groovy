@@ -289,9 +289,11 @@ trackTests {
     
     //Message: Tracking
     test("cards hybrid dashboard message") {
-        "/cards/hybrid/dashboard/message"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/dashboard/message"(platform: "/", type: TrackType.View) {
+            type = "warning"
+        }
         "/cards/hybrid/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
-            type = "change_pin"
+            action = "change_pin"
         }
     }
     
