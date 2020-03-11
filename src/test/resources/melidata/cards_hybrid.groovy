@@ -249,30 +249,6 @@ trackTests {
         "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
             action = "tapped"
         }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "tapped"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "tapped"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "tapped"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "tapped"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "tapped"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "tapped"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "tapped"
-        }
-        "/cards/hybrid/dashboard/mini_card"(platform:"/", type: TrackType.Event) {
-            action = "tapped"
-        }
     }
        
 }
