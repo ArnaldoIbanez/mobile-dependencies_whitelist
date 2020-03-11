@@ -174,4 +174,7 @@ tracks {
             description: "Account info tapped"
           )
     }
+    
+    //Carousel: Tracking
+    "/cards/hybrid/dashboard/carousel"(platform: "/", type: TrackType.View) {}
 }
