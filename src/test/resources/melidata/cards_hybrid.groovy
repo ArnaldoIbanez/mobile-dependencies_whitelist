@@ -327,6 +327,12 @@ trackTests {
         "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
             action = "help"
         }
+        "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
+            action = "call"
+        }
+        "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
+            action = "block"
+        }
     }
     
     //Message: Tracking
