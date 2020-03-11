@@ -355,4 +355,125 @@ trackTests {
             action = "exit"
         }
     }
+    
+    // DASHBOARD ML
+    // --------
+    test("cards hybrid dashboard") {
+        "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {}
+    }
+    
+    //Mini card: Tracking
+    test("cards hybrid dashboard mini card tracking") {
+        "/cards/hybrid/dashboard/mini_card"(platform: "/", type: TrackType.View) {
+            status = "virtual_only"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_only"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "user_need_challenge"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_init"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_on_the_way"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_next_to_arrive"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_ready_for_unlocking"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_inactive"
+        }
+    }
+    
+    //Flap card: Tracking
+    test("cards hybrid dashboard flap card tracking") {
+        "/cards/hybrid/dashboard/flap"(platform: "/", type: TrackType.View) {
+            status = "virtual_only"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "virtual_only"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "user_need_challenge"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_init"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_on_the_way"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "tracking_next_to_arrive"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_ready_for_unlocking"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "debit_active"
+        }
+        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+            action = "physical_inactive"
+        }
+    }
+    
+    //Activities: Tracking
+    test("cards hybrid dashboard activities") {
+        "/cards/hybrid/dashboard/activities"(platform: "/", type: TrackType.View) {}
+    }
+    
+    //Account options: Tracking
+    test("cards hybrid dashboard account options") {
+        "/cards/hybrid/dashboard/account_options"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/dashboard/account_options/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
+        }
+        "/cards/hybrid/dashboard/account_options/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal"
+        }
+    }
+    
+    //Carousel: Tracking
+    test("cards hybrid dashboard carousel") {
+        "/cards/hybrid/dashboard/carousel"(platform: "/", type: TrackType.View) {}
+    }
+    
+    //Linear buttons: Tracking
+    test("cards hybrid dashboard linear buttons") {
+        "/cards/hybrid/dashboard/linear_buttons"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
+            action = "help"
+        }
+        "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
+            action = "call"
+        }
+        "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
+            action = "block"
+        }
+    }
+    
+    //Message: Tracking
+    test("cards hybrid dashboard message") {
+        "/cards/hybrid/dashboard/message"(platform: "/", type: TrackType.View) {
+            type = "warning"
+        }
+        "/cards/hybrid/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "change_pin"
+        }
+    }
+    
+    //Account info: Tracking
+    test("cards hybrid dashboard account info") {
+        "/cards/hybrid/dashboard/account_info"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/dashboard/account_info/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
+        }
+    }
 }
