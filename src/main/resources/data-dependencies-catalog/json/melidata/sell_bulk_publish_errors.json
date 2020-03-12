@@ -31,7 +31,7 @@
       }
     ],
     "sql": {
-      "script": "sell/sell-bulk-errors.sql",
+      "script": "sell/sell-bulk-publish-errors.sql",
       "parameters": [
         {
           "name": "param01",
