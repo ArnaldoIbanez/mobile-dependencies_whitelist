@@ -6,7 +6,7 @@ metrics {
         countsOn {
             condition {
                 path("/questions/ask/post")
-				equals("event_data.failed", false)
+                equals("event_data.failed", false)
             }
         }
     }
