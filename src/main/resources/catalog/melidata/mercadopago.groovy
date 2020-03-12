@@ -499,4 +499,8 @@ tracks {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
 
+    // About events
+    "/about"(platform: "/mobile", isAbstract: true) {}
+    "/about/rate_app"(platform:"/mobile", type:TrackType.Event, initiative: "1074") {}
+
 }
