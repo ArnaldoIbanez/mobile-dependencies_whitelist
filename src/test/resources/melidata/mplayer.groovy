@@ -195,6 +195,22 @@ trackTests {
         "/mplayer/tracing/reject_event/exit"(platform: "/mobile") {
             button = "close_button"
         }
+
+        //Request Landing
+
+        "/mplayer/request_landing"(platform: "/web") {
+            request_status = "pending"
+        }
+
+        "/mplayer/request_landing/success"(platform: "/web") {
+            transaction_amount = 100
+            has_reason = true
+        }
+
+        "/mplayer/download_app"(platform: "/web") {}
+        "/mplayer/download_app/app_store"(platform: "/web") {}
+        "/mplayer/download_app/playstore"(platform: "/web") {}
+
     }
 }
 
