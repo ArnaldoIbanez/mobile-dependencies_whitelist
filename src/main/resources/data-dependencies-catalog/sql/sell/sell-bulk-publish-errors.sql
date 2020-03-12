@@ -1,8 +1,7 @@
 SELECT
-      tracks.application.site_id AS siteId,
+      tracks.application.site_id AS site_id,
       json_extract(listingsNotPublished,'$.categoryId') AS category,
-      json_extract(errors,'$.code') AS errorCode,
-      substr(ds,1,10) AS ds,
+      json_extract(errors,'$.code') AS error_code,
       sum(cast(json_extract(errors,'$.occurrences')AS INTEGER)) AS quantity,
       substr(ds,1,10) AS ds
 FROM tracks
