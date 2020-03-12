@@ -256,7 +256,7 @@ tracks {
 
     "/mplayer/download_app"(platform: "/web", type: TrackType.View){}
 
-    "/mplayer/download_app/app_store"(platform: "/web", type: TrackType.Event){}
+    "/mplayer/download_app/appstore"(platform: "/web", type: TrackType.Event){}
 
     "/mplayer/download_app/playstore"(platform: "/web", type: TrackType.Event){}
 

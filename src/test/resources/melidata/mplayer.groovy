@@ -208,7 +208,7 @@ trackTests {
         }
 
         "/mplayer/download_app"(platform: "/web") {}
-        "/mplayer/download_app/app_store"(platform: "/web") {}
+        "/mplayer/download_app/appstore"(platform: "/web") {}
         "/mplayer/download_app/playstore"(platform: "/web") {}
 
     }
