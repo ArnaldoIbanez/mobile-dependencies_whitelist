@@ -6,6 +6,7 @@ metrics {
         countsOn {
             condition {
                 path("/questions/ask/post")
+                equals("event_data.failed", false)
             }
         }
     }
@@ -38,7 +39,10 @@ metrics {
 		countsOn {
 			condition {
 				path("/questions/ask/post")
-				equals("event_data.item_id", property("item_id"))
+				and(
+					equals("event_data.item_id", property("item_id")),
+					equals("event_data.failed", false)
+				)
 			}
 		}
 	}
