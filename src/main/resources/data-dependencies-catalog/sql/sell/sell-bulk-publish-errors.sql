@@ -1,9 +1,10 @@
 SELECT
-      tracks.application.site_id,
+      tracks.application.site_id AS siteId,
       json_extract(listingsNotPublished,'$.categoryId') AS category,
       json_extract(errors,'$.code') AS errorCode,
       substr(ds,1,10) AS ds,
-      sum(cast(json_extract(errors,'$.occurrences')AS INTEGER)) AS quantity
+      sum(cast(json_extract(errors,'$.occurrences')AS INTEGER)) AS quantity,
+      substr(ds,1,10) AS ds
 FROM tracks
 CROSS JOIN UNNEST(CAST (jet(tracks.event_data,'listings_not_published') AS ARRAY<JSON>)) AS t (listingsNotPublished)
 CROSS JOIN UNNEST(CAST (json_extract(listingsNotPublished,'$.errors') AS ARRAY<JSON>)) AS t (errors)
