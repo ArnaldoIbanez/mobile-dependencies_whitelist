@@ -537,7 +537,7 @@ trackTests {
 
     //Stock modal
     test("Stock modal tracking") {
-        "/pdp/questions/ask/prevent_stock"(platform: "/", {})
+        "/pdp/questions/ask/prevent_stock"(platform: "/", type: TrackType.Event, {})
     }
 
     test("Pdp Server Side") {

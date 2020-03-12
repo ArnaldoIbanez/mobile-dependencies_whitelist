@@ -481,7 +481,7 @@ tracks {
     //Stock modal
     "/pdp/questions/ask" (parentPropertiesInherited: false, isAbstract : true) {}
 
-    "/pdp/questions/ask/prevent_stock" (platform: "/", parentPropertiesInherited: false) {}
+    "/pdp/questions/ask/prevent_stock" (platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     //Server Side
     "/pdp/backend"(platform: "/", isAbstract : true) {}
