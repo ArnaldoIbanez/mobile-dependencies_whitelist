@@ -621,6 +621,22 @@ trackTests {
     }
   }
 
+  test("seller central modify technical_specifications completed attributes"){
+    "/seller_central/modify/technical_specifications/completed_attributes"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      domain_id = "MLM-CELLPHONES"
+      attributes_before_update = [
+        [id: "BRAND", value_id: "206", value_name: "Samsung"]
+      ]
+      attributes_after_update = [
+        [id: "BRAND", value_id: "206", value_name: "Samsung"], 
+        [id: "MODEL", value_id: "32902", value_name: "Galaxy"]
+      ]
+    }
+  }
+
   test("seller central render detail reservation_info for motors"){
     "/seller_central/modify/detail/reservation_info/show"(platform: "/", type: TrackType.Event){
       item_type = "default"
@@ -2063,4 +2079,3 @@ trackTests {
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {}
   }
 }
-
