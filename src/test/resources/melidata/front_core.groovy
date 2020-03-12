@@ -314,9 +314,20 @@ trackTests {
                             ]
                     ]
             ]
+            shortcuts = [
+                    content_type : 'complete',
+                    ordinal: 3,
+                    favorite_ids: [
+                        "scan_qr", "send_money", "recharge_sube", "money_out", "money_in"
+                    ],
+                    shortcut_ids: [
+                        "gran_dia_mcdonals"
+                    ],
+                    has_view_more: false
+            ]
             prepaid_banner = [
                     content_type : 'partial',
-                    ordinal: 3,
+                    ordinal: 4,
                     realestates: [
                             [
                                     realestate_id: "dismissible_row",
@@ -327,7 +338,7 @@ trackTests {
             ]
             secondary_actions = [
                     content_type : 'partial',
-                    ordinal: 4,
+                    ordinal: 5,
                     realestates_payers: [
                             [
                                     realestate_id: "secondary_actions_mp_pay_services",
@@ -345,7 +356,7 @@ trackTests {
             ]
             benefits= [
                     content_type : 'partial',
-                    ordinal: 5,
+                    ordinal: 6,
                     realestates: [
                             [
                                     realestate_id: "secondary_actions_mp_pay_services",
@@ -356,7 +367,7 @@ trackTests {
             ]
             cross_selling= [
                     content_type : 'partial',
-                    ordinal: 6,
+                    ordinal: 7,
                     realestates: [
                             [
                                     realestate_id: "secondary_actions_mp_pay_services",
@@ -367,30 +378,30 @@ trackTests {
             ]
             loyalty= [
                     content_type : 'partial',
-                    ordinal: 7,
+                    ordinal: 8,
                     level: 3,
                     percentage: 17
             ]
             activities= [
                     content_type : 'partial',
-                    ordinal: 8,
+                    ordinal: 9,
                     quantity: 3,
                     is_ftu: false,
                     has_footer: true
             ]
             qr_map= [
                     content_type : 'partial',
-                    ordinal: 9,
+                    ordinal: 10,
                     header_title: "¡Pagá con QR en tus locales favoritos!",
                     items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                     link: "mercadopago://discovery/map?from=home_instore_map_section"
             ]
             activities_link= [
-                    ordinal: 10,
+                    ordinal: 11,
                     content_type : 'partial'
             ]
             discount_center= [
-                    ordinal: 11,
+                    ordinal: 12,
                     content_type: 'partial',
                     items: [
                             [
@@ -414,11 +425,11 @@ trackTests {
                     ]
             ]
             survey= [
-                    ordinal: 12,
+                    ordinal: 13,
                     content_type : 'complete'
             ]
             bcra_regulation= [
-                    ordinal: 13,
+                    ordinal: 14,
                     content_type : 'complete'
             ]
         }
@@ -465,9 +476,20 @@ trackTests {
                             ]
                     ]
             ]
+            shortcuts = [
+                    content_type : 'complete',
+                    ordinal: 3,
+                    favorite_ids: [
+                        "scan_qr", "send_money", "recharge_sube", "money_out", "money_in"
+                    ],
+                    shortcut_ids: [
+                        "gran_dia_mcdonals"
+                    ],
+                    has_view_more: true
+            ]
             prepaid_banner = [
                     content_type : 'partial',
-                    ordinal: 3,
+                    ordinal: 4,
                     realestates: [
                             [
                                     realestate_id: "dismissible_row",
@@ -478,7 +500,7 @@ trackTests {
             ]
             secondary_actions = [
                     content_type : 'partial',
-                    ordinal: 4,
+                    ordinal: 5,
                     realestates_payers: [
                             [
                                     realestate_id: "secondary_actions_mp_pay_services",
@@ -496,7 +518,7 @@ trackTests {
             ]
             benefits= [
                     content_type : 'partial',
-                    ordinal: 5,
+                    ordinal: 6,
                     realestates: [
                             [
                                     realestate_id: "secondary_actions_mp_pay_services",
@@ -507,7 +529,7 @@ trackTests {
             ]
             cross_selling= [
                     content_type : 'partial',
-                    ordinal: 6,
+                    ordinal: 7,
                     realestates: [
                             [
                                     realestate_id: "secondary_actions_mp_pay_services",
@@ -518,30 +540,30 @@ trackTests {
             ]
             loyalty= [
                     content_type : 'partial',
-                    ordinal: 7,
+                    ordinal: 8,
                     level: 3,
                     percentage: 17
             ]
             activities= [
                     content_type : 'partial',
-                    ordinal: 8,
+                    ordinal: 9,
                     quantity: 3,
                     is_ftu: false,
                     has_footer: true
             ]
             qr_map= [
                     content_type : 'partial',
-                    ordinal: 9,
+                    ordinal: 10,
                     header_title: "¡Pagá con QR en tus locales favoritos!",
                     items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                     link: "mercadopago://discovery/map?from=home_instore_map_section"
             ]
             activities_link= [
-                    ordinal: 10,
+                    ordinal: 11,
                     content_type : 'partial'
             ]
             discount_center= [
-                    ordinal: 11,
+                    ordinal: 12,
                     content_type: 'partial',
                     items: [
                             [
@@ -565,11 +587,11 @@ trackTests {
                     ]
             ]
             survey= [
-                    ordinal: 12,
+                    ordinal: 13,
                     content_type : 'complete'
             ]
             bcra_regulation= [
-                    ordinal: 13,
+                    ordinal: 14,
                     content_type : 'complete'
             ]
         }
@@ -726,8 +748,34 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - shortcuts") {
+        "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="payer"
+            component_id="scan_qr"
+            from = "section"
+            content_id = "business"
+            position = 3
+            enabled = true
+            is_favorite = false
+            has_aware = false
+            has_label = true
+            group_id = "seller"
+            component_id="user_survey"
+            group_position = 6
+        }
+    }
+
     test("Mercadopago cross sell experiments") {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+
+    test("Mercadopago shortcut sheet page view") {
+        "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
+            group_ids = ["payer", "business", "seller", "favorites"]
+            shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+        }
     }
 
     test("New Digital Wallet - Ukraine Lab") {
@@ -1059,9 +1107,20 @@ trackTests {
                             ]
                     ]
             ]
+            shortcuts = [
+                    content_type : 'complete',
+                    ordinal: 3,
+                    favorite_ids: [
+                        "scan_qr", "send_money", "recharge_sube", "money_out", "money_in"
+                    ],
+                    shortcut_ids: [
+                        "gran_dia_mcdonals"
+                    ],
+                    has_view_more: true
+            ]
             prepaid_banner = [
                     content_type : 'partial',
-                    ordinal: 3,
+                    ordinal: 4,
                     realestates: [
                             [
                                     realestate_id: "dismissible_row",
@@ -1072,7 +1131,7 @@ trackTests {
             ]
             secondary_actions = [
                     content_type : 'partial',
-                    ordinal: 4,
+                    ordinal: 5,
                     realestates_payers: [
                             [
                                     realestate_id: "secondary_actions_mp_pay_services",
@@ -1090,7 +1149,7 @@ trackTests {
             ]
             benefits= [
                     content_type : 'partial',
-                    ordinal: 5,
+                    ordinal: 6,
                     realestates: [
                             [
                                     realestate_id: "secondary_actions_mp_pay_services",
@@ -1101,7 +1160,7 @@ trackTests {
             ]
             cross_selling= [
                     content_type : 'partial',
-                    ordinal: 6,
+                    ordinal: 7,
                     realestates: [
                             [
                                     realestate_id: "secondary_actions_mp_pay_services",
@@ -1112,30 +1171,30 @@ trackTests {
             ]
             loyalty= [
                     content_type : 'partial',
-                    ordinal: 7,
+                    ordinal: 8,
                     level: 3,
                     percentage: 17
             ]
             activities= [
                     content_type : 'partial',
-                    ordinal: 8,
+                    ordinal: 9,
                     quantity: 3,
                     is_ftu: false,
                     has_footer: true
             ]
             qr_map= [
                     content_type : 'partial',
-                    ordinal: 9,
+                    ordinal: 10,
                     header_title: "¡Pagá con QR en tus locales favoritos!",
                     items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                     link: "mercadopago://discovery/map?from=home_instore_map_section"
             ]
             activities_link= [
-                    ordinal: 10,
+                    ordinal: 11,
                     content_type : 'partial'
             ]
             discount_center= [
-                    ordinal: 11,
+                    ordinal: 12,
                     content_type: 'partial',
                     items: [
                             [
@@ -1159,7 +1218,7 @@ trackTests {
                     ]
             ]
             survey= [
-                    ordinal: 12,
+                    ordinal: 13,
                     content_type : 'complete'
             ]
         }
@@ -1206,9 +1265,20 @@ trackTests {
                             ]
                     ]
             ]
-            prepaid_banner = [
+            shortcuts = [
                     content_type : 'partial',
                     ordinal: 3,
+                    favorite_ids: [
+                        "scan_qr", "send_money", "recharge_sube", "money_out", "money_in"
+                    ],
+                    shortcut_ids: [
+                        "gran_dia_mcdonals"
+                    ],
+                    has_view_more: false
+            ]
+            prepaid_banner = [
+                    content_type : 'partial',
+                    ordinal: 4,
                     realestates: [
                             [
                                     realestate_id: "dismissible_row",
@@ -1219,7 +1289,7 @@ trackTests {
             ]
             secondary_actions = [
                     content_type : 'partial',
-                    ordinal: 4,
+                    ordinal: 5,
                     realestates_payers: [
                             [
                                     realestate_id: "secondary_actions_mp_pay_services",
@@ -1237,7 +1307,7 @@ trackTests {
             ]
             benefits= [
                     content_type : 'partial',
-                    ordinal: 5,
+                    ordinal: 6,
                     realestates: [
                             [
                                     realestate_id: "secondary_actions_mp_pay_services",
@@ -1248,7 +1318,7 @@ trackTests {
             ]
             cross_selling= [
                     content_type : 'partial',
-                    ordinal: 6,
+                    ordinal: 7,
                     realestates: [
                             [
                                     realestate_id: "secondary_actions_mp_pay_services",
@@ -1259,30 +1329,30 @@ trackTests {
             ]
             loyalty= [
                     content_type : 'partial',
-                    ordinal: 7,
+                    ordinal: 8,
                     level: 3,
                     percentage: 17
             ]
             activities= [
                     content_type : 'partial',
-                    ordinal: 8,
+                    ordinal: 9,
                     quantity: 3,
                     is_ftu: false,
                     has_footer: true
             ]
             qr_map= [
                     content_type : 'partial',
-                    ordinal: 9,
+                    ordinal: 10,
                     header_title: "¡Pagá con QR en tus locales favoritos!",
                     items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
                     link: "mercadopago://discovery/map?from=home_instore_map_section"
             ]
             activities_link= [
-                    ordinal: 10,
+                    ordinal: 11,
                     content_type : 'partial'
             ]
             discount_center= [
-                    ordinal: 11,
+                    ordinal: 12,
                     content_type: 'partial',
                     items: [
                             [
@@ -1306,7 +1376,7 @@ trackTests {
                     ]
             ]
             survey= [
-                    ordinal: 12,
+                    ordinal: 13,
                     content_type : 'complete'
             ]
         }
@@ -1431,6 +1501,24 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - shortcuts") {
+        "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="payer"
+            component_id="scan_qr"
+            from = "section"
+            content_id = "business"
+            position = 3
+            enabled = true
+            is_favorite = false
+            has_aware = false
+            has_label = true
+            group_id = "seller"
+            component_id="user_survey"
+            group_position = 6
+        }
+    }
+
     test("Mercadopago Home Tap v3 - Secondary Actions") {
         "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1465,6 +1553,13 @@ trackTests {
 
     test("Mercadopago cross sell experiments") {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Mercadopago shortcut sheet page view") {
+        "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
+            group_ids = ["payer", "business", "seller", "favorites"]
+            shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+        }
     }
 
     test("New Digital Wallet - Ukraine Lab") {
