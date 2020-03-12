@@ -88,18 +88,18 @@ tracks {
         app_storage(required: true, type: PropertyType.Numeric, description: "Application occupied storage in bytes")
     }
 
-    "/devices/settings"(platform:"/mobile", isAbstract:true) {}
+    "/devices_settings"(platform:"/mobile", isAbstract:true) {}
 
     //Bloqueo de notificaciones (Android > = API 19)
-    "/devices/settings/notifications"(platform:"/mobile", type:TrackType.Event) {
+    "/devices_settings/notifications"(platform:"/mobile", type:TrackType.Event) {
         enable(required:true, type:PropertyType.Boolean)
         registration_id(required:true, type:PropertyType.String)
         device_id(required:true, type:PropertyType.String)
     }
 
-    "/devices/settings"(platform: "/", isAbstract: true){}
+    "/devices_settings"(platform: "/", isAbstract: true){}
 
-    "/devices/settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
+    "/devices_settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
         device_id(required: true, description: "The real device_id, may differ from device field")
         enable(required:true, type:PropertyType.Boolean, description: "Indicates if settings are enabled")
         registration_id(required: false, description: "The registration id", type: PropertyType.String)
