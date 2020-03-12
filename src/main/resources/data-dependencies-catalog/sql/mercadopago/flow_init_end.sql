@@ -1,5 +1,5 @@
-SELECT  MP_FLOW_INIT.fecha as fecha ,MP_FLOW_INIT.user_id as usuario, SUM(FLOW_INIT) AS FLOW_INIT, SUM(FLOW_END) AS FLOW_END,  MP_FLOW_INIT.platform as platform, 
-MP_FLOW_INIT.site as site, MP_FLOW_INIT.version as version , MP_FLOW_INIT.flow_name as flow
+SELECT  MP_FLOW_INIT.user_id as usuario, SUM(FLOW_INIT) AS FLOW_INIT, SUM(FLOW_END) AS FLOW_END,  MP_FLOW_INIT.platform as platform, 
+MP_FLOW_INIT.site as site, MP_FLOW_INIT.version as version , MP_FLOW_INIT.flow_name as flow, MP_FLOW_INIT.fecha as fecha 
 FROM (
     SELECT substr(ds, 1,10) as fecha,count(distinct usr.user_id) AS FLOW_INIT,  usr.user_id AS user_id, device.platform AS platform, application.site_id AS site,
     application.version AS version, jest(event_data, 'flow_name') as flow_name

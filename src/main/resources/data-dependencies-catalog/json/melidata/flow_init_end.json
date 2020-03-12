@@ -5,14 +5,13 @@
   ],
   "process_name": "data_flow_mp",
   "cron": "00 02 * * *",
+  "partition": {
+        "name": "fecha",
+        "type": "DATE"
+  },
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "fecha",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
-      },
       {
         "name": "usuario",
         "type": "INTEGER"
