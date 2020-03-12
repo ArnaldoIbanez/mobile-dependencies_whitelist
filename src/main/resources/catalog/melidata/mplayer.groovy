@@ -242,4 +242,23 @@ tracks {
     "/send_money/bacen/open"(platform: "/mobile") {}
     "/send_money/bacen/close"(platform: "/mobile") {}
     "/send_money/confirm"(platform: "/web", type: TrackType.Event){}
+
+    // Request Landing
+
+    "/mplayer/request_landing"(platform: "/web", type: TrackType.View){
+        request_status(required: false, PropertyType.String, description: "the status of the request")
+    }
+
+    "/mplayer/request_landing/success"(platform: "/web", type: TrackType.Event){
+        transaction_amount(required: false, PropertyType.Numeric, description: "the transaction amount")
+        has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
+    }
+
+    "/mplayer/download_app"(platform: "/web", type: TrackType.View){}
+
+    "/mplayer/download_app/appstore"(platform: "/web", type: TrackType.Event){}
+
+    "/mplayer/download_app/playstore"(platform: "/web", type: TrackType.Event){}
+
+
 }
