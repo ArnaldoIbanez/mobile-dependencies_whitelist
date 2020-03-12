@@ -58,6 +58,7 @@ trackTests {
         "/mplayer/closed_request/manual_amount"(platform: "/mobile") {}
         "/mplayer/closed_request/mandatory_reason"(platform: "/mobile") {}
         "/mplayer/closed_request/congrats_request"(platform: "/mobile") {}
+        "/mplayer/closed_request/reject"(platform: "/mobile") {}
 
         "/mplayer/closed_request/status"(platform: "/mobile") {
             request_status = "pending"
@@ -79,6 +80,10 @@ trackTests {
         "/mplayer/closed_request/status/pay"(platform: "/mobile") {}
 
         "/mplayer/closed_request/status/reject"(platform: "/mobile") {}
+
+        "/mplayer/closed_request/reject/reject"(platform: "/mobile") {}
+
+        "/mplayer/closed_request/reject/back"(platform: "/mobile") {}
 
         "/mplayer/closed_request/result/success"(platform: "/mobile") {
             payment_method_id = "1"

@@ -64,6 +64,7 @@ tracks {
     "/mplayer/closed_request/manual_amount"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/closed_request/mandatory_reason"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/closed_request/congrats_request"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/closed_request/reject"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/closed_request/status"(platform: "/mobile", type: TrackType.View) {
         request_status(required: false, PropertyType.String, description: "the status of the request")
     }
@@ -81,6 +82,8 @@ tracks {
 
     "/mplayer/closed_request/status/pay"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/closed_request/status/reject"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/reject/reject"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/reject/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/closed_request/result"(platform: "/mobile", isAbstract: true) {}
 
