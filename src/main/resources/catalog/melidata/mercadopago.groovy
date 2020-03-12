@@ -190,7 +190,7 @@ tracks {
 
     // Services landings
     "/services"(platform: "/", isAbstract: true, initiative: "1159") {}
-    "/services/mkt_landing"(platform: "/web", type: TrackType.View) {
+    "/services/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
     "/services/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
@@ -207,7 +207,7 @@ tracks {
 
     // QR Payers Landings
     "/qr_payers"(platform: "/", isAbstract: true, initiative: "1159") {}
-    "/qr_payers/mkt_landing"(platform: "/web", type: TrackType.View) {
+    "/qr_payers/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
     "/qr_payers/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
@@ -498,5 +498,9 @@ tracks {
     "/single_player/open_deep_link"(platform:"/web/mobile", type: TrackType.Event) {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
+
+    // About events
+    "/about"(platform: "/mobile", isAbstract: true) {}
+    "/about/rate_app"(platform:"/mobile", type:TrackType.Event, initiative: "1074") {}
 
 }
