@@ -93,6 +93,14 @@ trackTests {
         }
     }
 
+    test("Devices Metadata") {
+        "/devices/metadata"(platform:"/mobile") {
+            total_storage = 12582912
+            free_storage = 6291456
+            app_storage = 307200
+        }
+    }
+
     test("Devices Notification Settings") {
         "/devices_settings/notifications"(platform:"/mobile") {
             enable = true
