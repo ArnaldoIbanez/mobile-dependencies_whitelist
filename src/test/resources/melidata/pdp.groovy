@@ -1,4 +1,5 @@
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
+import com.ml.melidata.TrackType
 
 trackTests {
 
@@ -533,6 +534,11 @@ trackTests {
             currency_id = "ARS"
             pdp_type = "RED"
         })
+    }
+
+    //Stock modal
+    test("Stock modal tracking") {
+        "/pdp/questions/ask/prevent_stock"(platform: "/", type: TrackType.Event, {})
     }
 
     test("Pdp Server Side") {

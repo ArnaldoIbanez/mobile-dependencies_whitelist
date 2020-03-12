@@ -1,6 +1,7 @@
 package catalog.melidata
 
 import com.ml.melidata.catalog.PropertyType
+import com.ml.melidata.TrackType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
@@ -478,6 +479,10 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
     }
 
+    //Stock modal
+    "/pdp/questions/ask" (parentPropertiesInherited: false, isAbstract : true) {}
+
+    "/pdp/questions/ask/prevent_stock" (platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     //Server Side
     "/pdp/backend"(platform: "/", isAbstract : true) {}
