@@ -479,6 +479,14 @@ trackTests {
         })
     }
 
+    //QADB call to action
+    test("Qadb call to action tracking"){
+        "/pdp/qadb/call-to-action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+        })
+    }
+
     //Sellers page FLOW
     test("Sellers page tracking") {
         "/pdp/sellers/quantity_change"(platform: "/", {
@@ -525,5 +533,9 @@ trackTests {
             currency_id = "ARS"
             pdp_type = "RED"
         })
+    }
+
+    test("Pdp Server Side") {
+        "/pdp/backend/questions_redirect"(platform: "/") {}
     }
 }
