@@ -3266,9 +3266,9 @@ trackTests {
     defaultBusiness = "mercadopago"
     test("Mobile Notifications mercadopago"){
 
-        "/devices/settings"(platform: "/", type:TrackType.Event) {}
+        "/device_settings"(platform: "/", type:TrackType.Event) {}
 
-        "/devices/settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
+        "/device_settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
             device_id = "ee6f7bd224c2d6"
             enable = false
             registration_id = "dH2soSpvhwM:APA91bFwZmJy-wXP7DRLm_458FqPF9n8zbm7uVjixKUOHOS8FQ7QN-qSbWS_DrKYDiXyLzGE2giqzVf90fwyjNy4dkgi6hR_W_fv6JvnQo6B5AQ4BOX21g8wx0cLSrcJswrof5U3f"
