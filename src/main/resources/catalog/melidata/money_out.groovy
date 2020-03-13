@@ -66,6 +66,8 @@ tracks {
         amount (required:true, description: "Selected amount")
     }
 
+    "/money_out/tecban/select_amount/show_map"(platform: "/mobile", type: TrackType.Event){}
+
     "/money_out/tecban/scanner"(platform: "/", type: TrackType.View) {}
     
     "/money_out/tecban/scanner/invalid_qr"(platform: "/", type: TrackType.Event) {
@@ -143,6 +145,7 @@ tracks {
     "/money_out/transfers/review_and_confirm/confirm_button_clicked"(platform: "/", type: TrackType.Event) {}
     
     //Transfer Hub - Congrats
+    "/money_out/transfers/result"(platform: "/", isAbstract:true) {}
     "/money_out/transfers/result/success_online"(platform: "/", type: TrackType.View) {
         transfer_id (required:false, description: "Indicate transfer_id of operation")
     }
