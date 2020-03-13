@@ -17,7 +17,7 @@ tracks {
         bu(required: true, type: PropertyType.String, description: "Numeric id of business: MP | ML | etc")
         bu_line(required: true, type: PropertyType.String, description: "Numeric id of line: Credits | wallet Point | etc")
         flow(required: true, type: PropertyType.String, description: "numeric id of app flow: Cellphone Recharge | Money transfer | Pago con QR | etc")
-        modal_type(required: true, type: PropertyType.String, description: "full | card", values: ["full", "card"])
+        modal_type(required: true, type: PropertyType.String, description: "Layout type of the modal", values: ["full", "card"])
         from(required: false, type: PropertyType.String, description: "from")
     }
 
@@ -30,7 +30,9 @@ tracks {
     "/modals_engine/swipe"(platform: "/mobile", type: TrackType.Event) {
         position(required: true, type: PropertyType.String)
     } 
-    "/modals_engine/error"(platform: "/mobile", type: TrackType.Event) {
+    "/modals_engine/error"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "modal content ID")
+        modal_type(required: true, type: PropertyType.String, description: "Layout type of the modal", values: ["full", "card"])
         type(required: true, type: PropertyType.String, description: "internal error code")
     }
 }

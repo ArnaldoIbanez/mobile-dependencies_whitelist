@@ -82,9 +82,6 @@ trackTests {
 			}
 			"/modals_engine/error"(platform: "/mobile", type: TrackType.Event) {
 				id = "modal_id"
-				bu = "bu"
-				bu_line = "bu_line"
-				flow = "flow"
 				modal_type = "full"
 				type = "no_modal_found"
 			}
