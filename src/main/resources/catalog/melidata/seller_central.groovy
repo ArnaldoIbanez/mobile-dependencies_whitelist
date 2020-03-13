@@ -85,6 +85,7 @@ tracks {
         id(type: PropertyType.String, required: true)
         value_id(type: PropertyType.String, required: false)
         value_name(type: PropertyType.String, required: true)
+        variation_id(type: PropertyType.Numeric, required: false)
     }
 
     def originalPromotionStructure = objectSchemaDefinitions {
