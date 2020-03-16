@@ -141,6 +141,7 @@ tracks {
      }
     
     //MiniCard: Tracking
+    "/cards/hybrid/dashboard/mini_card"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -151,6 +152,7 @@ tracks {
     }
     
     //Flap: Tracking
+    "/cards/hybrid/dashboard/flap"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -161,6 +163,7 @@ tracks {
     }
     
     //Account Options: Tracking
+    "/cards/hybrid/dashboard/account_options"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/account_options/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -171,6 +174,7 @@ tracks {
     }
     
     //Linear buttons: Tracking
+    "/cards/hybrid/dashboard/linear_buttons"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -181,6 +185,7 @@ tracks {
     }
     
     //Linear buttons: Tracking
+    "/cards/hybrid/dashboard/message"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -191,6 +196,7 @@ tracks {
     }
     
     //Account info: Tracking
+    "/cards/hybrid/dashboard/account_info"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/account_info/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
