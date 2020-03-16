@@ -124,7 +124,7 @@ trackTests {
     // --------
     test("cards hybrid dashboard") {
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
-            dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info"]
+            dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
             message_status = "warning"
@@ -349,7 +349,7 @@ trackTests {
     
     test("cards hybrid dashboard") {
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
-            dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info"]
+            dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
             message_status = "warning"
