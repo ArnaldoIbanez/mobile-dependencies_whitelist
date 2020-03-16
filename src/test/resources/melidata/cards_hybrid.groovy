@@ -130,7 +130,7 @@ trackTests {
             message_status = "warning"
         }
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
-            dashboard_status = "[minicard, flap, activities, account_options, carousel, linear_buttons, account_info"]
+            dashboard_status = "[minicard, flap, activities, account_options, carousel, linear_buttons, account_info]"
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
         }
@@ -355,7 +355,7 @@ trackTests {
             message_status = "warning"
         }
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
-            dashboard_status = "[minicard, flap, activities, account_options, carousel, linear_buttons, account_info"]
+            dashboard_status = "[minicard, flap, activities, account_options, carousel, linear_buttons, account_info]"
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
         }
