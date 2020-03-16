@@ -133,12 +133,14 @@ tracks {
     
     // DASHBOARD
     // --------
-     "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {}
+     "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
+         dashboard_status (required:true, type: PropertyType.String, description: "Current sections", inheritable:false)
+         minicard_status (required:false, type: PropertyType.String, description: "Mini card status", inheritable:false)
+         flap_status (required:false, type: PropertyType.String, description: "Flap status", inheritable:false)
+         message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
+     }
     
     //MiniCard: Tracking
-    "/cards/hybrid/dashboard/mini_card"(platform: "/", type: TrackType.View) {
-        status (required:true, type: PropertyType.String, description: "Status of mini card", inheritable:false)
-    }
     "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -149,9 +151,6 @@ tracks {
     }
     
     //Flap: Tracking
-    "/cards/hybrid/dashboard/flap"(platform: "/", type: TrackType.View) {
-        status (required:true, type: PropertyType.String, description: "Status of flap card", inheritable:false)
-    }
     "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -161,11 +160,7 @@ tracks {
           )
     }
     
-    //Activities: Tracking
-    "/cards/hybrid/dashboard/activities"(platform: "/", type: TrackType.View) {}
-    
     //Account Options: Tracking
-    "/cards/hybrid/dashboard/account_options"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/dashboard/account_options/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -175,11 +170,7 @@ tracks {
           )
     }
     
-    //Carousel: Tracking
-    "/cards/hybrid/dashboard/carousel"(platform: "/", type: TrackType.View) {}
-    
     //Linear buttons: Tracking
-    "/cards/hybrid/dashboard/linear_buttons"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -190,9 +181,6 @@ tracks {
     }
     
     //Linear buttons: Tracking
-    "/cards/hybrid/dashboard/message"(platform: "/", type: TrackType.View) {
-        type (required:true, type: PropertyType.String, description: "Type of message", inheritable:false)
-    }
     "/cards/hybrid/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -203,7 +191,6 @@ tracks {
     }
     
     //Account info: Tracking
-    "/cards/hybrid/dashboard/account_info"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/dashboard/account_info/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
