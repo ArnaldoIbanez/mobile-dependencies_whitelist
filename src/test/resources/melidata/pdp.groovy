@@ -110,6 +110,7 @@ trackTests {
             bo_pick_up_conditions = "free_other"
             price = 8400
             currency_id = "ARS"
+            credits_opensea = true
         })
 
         "/pdp/add_to_cart_action"(platform: "/", {
@@ -266,6 +267,7 @@ trackTests {
 
             price = 8400
             currency_id = "ARS"
+            credits_opensea = false
         })
 
         "/pdp/add_to_cart_action"(platform: "/", {
