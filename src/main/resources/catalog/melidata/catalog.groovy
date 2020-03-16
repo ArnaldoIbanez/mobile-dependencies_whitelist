@@ -87,6 +87,7 @@ catalog {
         include business, "card_form.groovy"
         include business, "merchengine.groovy"
         include business, "navigation_sections.groovy"
+        include business, "checkoutOff.groovy"
     }
 
     mercadolibre.each { business ->
@@ -163,7 +164,6 @@ catalog {
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
-        include business, "checkoutOff.groovy"
         include business, "credits_mercadopago.groovy"
         include business, "mercadopago_mails.groovy"
         include business, "mercadopago_devsite.groovy"
