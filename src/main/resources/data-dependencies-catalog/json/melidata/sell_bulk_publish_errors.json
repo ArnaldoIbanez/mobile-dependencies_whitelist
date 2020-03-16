@@ -1,7 +1,7 @@
 {
   "users": [
     "santiago.marchioni@mercadolibre.com",
-    "syi-puma@mercadolibre.com"
+    "syi-puma@mercadolibre.com.ar"
   ],
   "process_name": "sell_bulk_publish_errors",
   "cron": "00 06 * * *",
