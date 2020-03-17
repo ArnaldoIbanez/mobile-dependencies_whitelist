@@ -54,12 +54,12 @@
             "parameters": [
                 {
                     "name": "dateFROM",
-                    "value": "DATE-1",
+                    "value": "DAY-1",
                     "format": "yyyy-MM-dd"
                 },
                 {
                     "name": "dateTO",
-                    "value": "DATE-0",
+                    "value": "DAY-0",
                     "format": "yyyy-MM-dd"
                 }
             ]
