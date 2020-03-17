@@ -47,10 +47,6 @@
             {
                 "name": "RemoteIP",
                 "type": "UNICODE_STRING"
-            },
-            {
-                "name": "DS",
-                "type": "DATE"
             }
         ],
         "sql": {
