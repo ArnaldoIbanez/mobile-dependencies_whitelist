@@ -716,14 +716,6 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home Tap v3 - Cross Selling") {
-        "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="cross_selling"
-            component_id="user_cross_selling"
-        }
-    }
-
     test("Mercadopago Home Tap v3 - Prepaid Banner") {
         "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1511,14 +1503,6 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home Tap v3 - Cross Selling") {
-        "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="cross_selling"
-            component_id="user_cross_selling"
-        }
-    }
-
     test("Mercadopago Home Tap v3 - Prepaid Banner") {
         "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1566,7 +1550,7 @@ trackTests {
             section = "footer"
         }
     }
-    
+
     ["mercadolibre", "mercadopago"].each { business ->
 		defaultBusiness = business
 
@@ -1595,5 +1579,20 @@ trackTests {
                 flow = "default"
             }
         }
+        test("Mercadopago Home Tap v3 - Cross Selling") {
+            "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "cross_selling_item1"
+                section_id = "cross_selling"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
+            }
+        }
+
     }    
 }
