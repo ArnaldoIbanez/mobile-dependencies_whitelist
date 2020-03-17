@@ -447,7 +447,7 @@ tracks {
         position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
     }
 
-    "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         component_id(required: true, type: PropertyType.String, description: "Component ID")
         audience(required: true, type: PropertyType.String, description: "The audience of the user that saw the content")
         section_id(required: false, type: PropertyType.String, description: "Section ID")
@@ -459,7 +459,7 @@ tracks {
         logic(required: true, type: PropertyType.String, description: "Origin of the content - Ex: priority_messages")
         flow(required: true, type: PropertyType.String, description: "The flow related to the content - Ex: cellphone_recharge")
     }
-    "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
+    "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         component_id(required: true, type: PropertyType.String, description: "Component ID")
         audience(required: true, type: PropertyType.String, description: "The audience of the user that saw the content")
         section_id(required: false, type: PropertyType.String, description: "Section ID")
