@@ -415,7 +415,7 @@ tracks {
 
     "/mercado_shops/marketing/google/shopping/configuration"(platform: "/", type: TrackType.Event){}
 
-    "/mercado_shops/marketing/google/shopping/product-feed"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/google/shopping/product_feed"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/google/shopping/procedure"(platform: "/", type: TrackType.Event){}
 
