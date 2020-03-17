@@ -33,6 +33,7 @@ tracks {
     "/modals_engine/error"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "modal content ID")
         modal_type(required: true, type: PropertyType.String, description: "Layout type of the modal", values: ["full", "card"])
+        from(required: false, type: PropertyType.String, description: "Text to identify multiple sources to access the same content.")
         type(required: true, type: PropertyType.String, description: "internal error code")
     }
     "/modals_engine/ignored"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
