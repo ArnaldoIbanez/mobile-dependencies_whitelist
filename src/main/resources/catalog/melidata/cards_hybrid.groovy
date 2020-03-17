@@ -196,7 +196,7 @@ tracks {
     }
     
     //Account info: Tracking
-    "/cards/hybrid/dashboard/account_info"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/account_info"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/dashboard/account_info/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
