@@ -25,4 +25,5 @@ tracks {
 
     "/external/merchants/search"(platform: "/", type: TrackType.View){}
 
+    "/external/merchants/other"(platform: "/", type: TrackType.View){}
 }
