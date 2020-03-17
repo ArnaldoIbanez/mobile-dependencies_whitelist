@@ -138,7 +138,7 @@ tracks {
                 required: true,
                 type: PropertyType.String,
                 description: "Url to should loaded"
-            ),
+            )
             flow (
                 required: true,
                 type: PropertyType.String,
@@ -157,7 +157,7 @@ tracks {
                 required: true,
                 type: PropertyType.String,
                 description: "Url to navigate"
-            ),
+            )
               flow (
                 required: true,
                 type: PropertyType.String,
