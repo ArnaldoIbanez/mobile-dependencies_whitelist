@@ -71,6 +71,8 @@ tracks {
         level(type: PropertyType.Numeric, required: false, description: "loyalty level of user")
     }
 
+    "/loyalty/crossselling/carousel"(platform: "/", isAbstract: true) {}
+
     "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event) {
         item_number(required: true, description: "position of the card", type: PropertyType.Numeric)
     }
