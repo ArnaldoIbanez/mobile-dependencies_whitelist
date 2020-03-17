@@ -134,44 +134,21 @@ tracks {
     // Generic Webview
     // ------
 
-        "/cards/acquisition/webview"(platform: "/", type: TrackType.View) {
-            url (
-                required: true,
-                type: PropertyType.String,
-                description: "Url to should loaded"
-            )
-            flow (
-                required: true,
-                type: PropertyType.String,
-                description: "flow from where its started"
-            )
-        }
-        "/cards/acquisition/webview/external_url"(platform:"/", type: TrackType.Event) {
-              flow (
-                required: true,
-                type: PropertyType.String,
-                description: "flow from where its started"
-            )
-        }
-        "/cards/acquisition/webview/navigate"(platform:"/", type: TrackType.Event) {
-             url (
-                required: true,
-                type: PropertyType.String,
-                description: "Url to navigate"
-            )
-              flow (
-                required: true,
-                type: PropertyType.String,
-                description: "flow from where its started"
-            )
-        }
-        "/cards/acquisition/webview/close"(platform:"/", type: TrackType.Event) {
-              flow (
-                required: true,
-                type: PropertyType.String,
-                description: "flow from where its started"
-            )
-        }
+    "/cards/acquisition/webview"(platform: "/", type: TrackType.View) {
+        url (
+            required: false,
+            type: PropertyType.String,
+            description: "Url to should loaded"
+        )
+        flow (
+            required: true,
+            type: PropertyType.String,
+            description: "flow from where its started"
+        )
+    }
+    "/cards/acquisition/webview/external_url"(platform:"/", type: TrackType.Event) { }
+    "/cards/acquisition/webview/navigate"(platform:"/", type: TrackType.Event) { }
+    "/cards/acquisition/webview/close"(platform:"/", type: TrackType.Event) { }
 
     
     
