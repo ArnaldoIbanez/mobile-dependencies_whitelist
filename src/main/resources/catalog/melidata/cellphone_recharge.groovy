@@ -78,7 +78,7 @@ tracks {
     "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {}
 
     // Recharge Marketing Performance landing 
-    "/cellphone_recharge/mkt_landing"(platform: "/web", type: TrackType.View) {
+    "/cellphone_recharge/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
     "/cellphone_recharge/mkt_landing/sms"(platform: "/web", type: TrackType.Event) { 

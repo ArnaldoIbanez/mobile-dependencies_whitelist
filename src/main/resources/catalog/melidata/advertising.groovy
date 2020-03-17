@@ -250,7 +250,13 @@ tracks {
     }
 
     //Filters
-    def filters_definition = objectSchemaDefinitions {}
+    def filters_definition = objectSchemaDefinitions {
+        status(required: false, type: PropertyType.String)
+        release_date(required: false, type: PropertyType.String)
+        category(required: false, type: PropertyType.String)
+        features(required: false, type: PropertyType.String)
+        query(required: false, type: PropertyType.String)
+    }
 
     "/advertising/pads2/manager/filters"(
         platform: "/web",
@@ -267,6 +273,68 @@ tracks {
     "/deals/landing"(platform: "/") {
         deal_id(required: false, type: PropertyType.String)
         deal_print_id(required: false, type: PropertyType.String)
+    }
+
+    // Range
+    "/advertising/pads2/manager/metrics_range"(
+        platform: "/web",
+        type: TrackType.Event) {
+        days(required: true, type: PropertyType.Numeric)
+        to(required: true, type: PropertyType.String)
+        from(required: true, type: PropertyType.String)
+    }
+
+    // Massive Actions
+    "/advertising/pads2/manager/massive_actions"(
+        platform: "/web",
+        type: TrackType.Event) {
+        action(required: true, type: PropertyType.String)
+        total_items(required: true, type: PropertyType.Numeric)
+    }
+
+    // SortFilters Modal
+    "/advertising/pads2/manager/sort_filters"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/manager/sort_filters/modal"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/manager/sort_filters/modal/show"(
+        platform: "/web",
+        type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+    "/advertising/pads2/manager/sort_filters/modal/confirm"(
+        platform: "/web",
+        type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        step(required: true, type: PropertyType.Numeric , description: "Current modal step")
+    }
+    "/advertising/pads2/manager/sort_filters/modal/next_step"(
+        platform: "/web",
+        type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        step(required: true, type: PropertyType.Numeric , description: "Current modal step")
+    }
+    "/advertising/pads2/manager/sort_filters/modal/prev_step"(
+        platform: "/web",
+        type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        step(required: true, type: PropertyType.Numeric , description: "Current modal step")
+    }
+    "/advertising/pads2/manager/sort_filters/modal/show_later"(
+        platform: "/web",
+        type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        step(required: true, type: PropertyType.Numeric , description: "Current modal step")
     }
 
 }

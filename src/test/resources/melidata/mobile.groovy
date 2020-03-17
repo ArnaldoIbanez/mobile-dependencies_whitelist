@@ -31,6 +31,8 @@ trackTests {
             date_created = "2019-08-08T09:25:01.000-04:00"
             lang = "es-ar"
             timezone = "-0300"
+            last_seen = "2020-03-06"
+            source = "uninstalls_checker_flow"
         }
     }
 
@@ -88,6 +90,14 @@ trackTests {
     test("Native Permission location dialog denied") {
         "/permissions/location/native/deny"(platform: "/mobile") {
             context="HOME"
+        }
+    }
+
+    test("Devices Metadata") {
+        "/devices/metadata"(platform:"/mobile") {
+            total_storage = 12582912
+            free_storage = 6291456
+            app_storage = 307200
         }
     }
 

@@ -34,6 +34,8 @@ tracks {
     "/esc_manager/delete"(platform: "/mobile", type: TrackType.Event) {
         externalData
         key(required: true, type: PropertyType.String , description: "Key being deleted")
+        reason(required: false, type: PropertyType.String , description: "Reason to delete the key", values: ["invalid_esc", "invalid_fingerprint", "unexpected_tokenization_error", "rejected_payment", "esc_cap", "no_esc", "no_reason"])
+        detail(required: false, type: PropertyType.String , description: "Detail of the reason to delete the key")
     }
 
     // Delete all events

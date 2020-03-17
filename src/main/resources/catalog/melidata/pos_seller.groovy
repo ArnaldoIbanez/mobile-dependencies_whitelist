@@ -16,7 +16,7 @@ import com.ml.melidata.TrackType
         "/pos_seller"(platform: "/mobile", isAbstract: true) {
             flow_id (required: false, type: PropertyType.String, description: "Flow id.")
             flow_origin(required: false, type: PropertyType.String, description: "flow origin",values: ["shortcut", "menu"])
-            payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit_card", "debit_card"])
+            payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit_card", "debit_card", "voucher_card"])
             poi_id(required: false, type: PropertyType.String, description: "poi device id")
             poi_type(required: false, type: PropertyType.String, description: "poi device type")
             mode(required: false, type: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
@@ -184,7 +184,7 @@ import com.ml.melidata.TrackType
        propertyDefinitions {
           flow_origin(required: true, type: PropertyType.String, description: "flow origin",values: ["shortcut", "menu"])
           flow_id (required: true, type: PropertyType.String, description: "Flow id.")
-          payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit_card", "debit_card"])
+          payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit_card", "debit_card", "voucher_card"])
           mode(required: true, false: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
           payment_channel(required: true, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser"])
           amount(required: true, type: PropertyType.Numeric, description: "payment amount")

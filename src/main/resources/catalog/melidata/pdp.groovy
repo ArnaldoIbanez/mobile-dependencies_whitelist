@@ -1,6 +1,7 @@
 package catalog.melidata
 
 import com.ml.melidata.catalog.PropertyType
+import com.ml.melidata.TrackType
 
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
@@ -208,6 +209,7 @@ tracks {
         original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
         pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
+        credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
     }
 
     "/pdp/add_to_cart_action"(platform: "/", parentPropertiesInherited: false) {
@@ -386,6 +388,13 @@ tracks {
         context(required: true, type: PropertyType.String, description: "The context is qadb", values:["/qadb","/questions"])
     }
 
+    "/pdp/qadb"(parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/pdp/qadb/call-to-action"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product id")
+        item_id(required: true, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
+    }
+
 
     "/pdp/questions/show"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product id")
@@ -471,6 +480,10 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
     }
 
+    //Stock modal
+    "/pdp/questions/ask" (parentPropertiesInherited: false, isAbstract : true) {}
+
+    "/pdp/questions/ask/prevent_stock" (platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     //Server Side
     "/pdp/backend"(platform: "/", isAbstract : true) {}

@@ -4,8 +4,8 @@ import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
 
 /**************************
-* WALLET HOME TEST TRACKS *
-**************************/
+ * WALLET HOME TEST TRACKS *
+ **************************/
 
 trackTests {
 
@@ -36,11 +36,11 @@ trackTests {
         "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
             header = "name"
             items = [
-                [
-                    id: "banking",
-                    ordinal: 1,
-                    type: "BANKING"
-                ]
+                    [
+                            id: "banking",
+                            ordinal: 1,
+                            type: "BANKING"
+                    ]
             ]
         }
     }
@@ -82,44 +82,16 @@ trackTests {
         "/wallet/home/show/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
             realestates_payers = [
                     [
+                            realestate_id: "secondary_actions_mp_pay_services",
                             content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            origin: "secondary_actions"
                     ]
             ]
             realestates_sellers = [
                     [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
-                    ]
-            ]
-            realestates_friends = [
-                    [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            realestate_id: "secondary_actions_mp_charge_with_qr",
+                            content_id: "charge_with_qr",
+                            origin: "secondary_actions"
                     ]
             ]
         }
@@ -130,28 +102,14 @@ trackTests {
         "/wallet/home/show/discount_benefits" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            realestate_id : "discount_benefits_advice",
+                            content_id : "mgm_payer",
+                            origin : "user_journey"
                     ],
                     [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            realestate_id : "discount_benefits_coupon",
+                            content_id : "coupon",
+                            origin : "user_journey"
                     ]
             ]
         }
@@ -162,16 +120,9 @@ trackTests {
         "/wallet/home/show/dismissible_row" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            realestate_id : "dismissible_row",
+                            content_id : "available_acquisition",
+                            origin : "user_journey"
                     ]
             ]
         }
@@ -182,28 +133,14 @@ trackTests {
         "/wallet/home/show/cross_selling" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            realestate_id: "cross_selling_home_mp_prepaid",
+                            content_id   : "cross_selling_prepaid",
+                            origin       : "user_journey"
                     ],
                     [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            realestate_id: "cross_selling_home_mp_point",
+                            content_id   : "cross_selling_point",
+                            origin       : "user_journey"
                     ]
             ]
 
@@ -216,12 +153,12 @@ trackTests {
         "/wallet/home/show/banking" (platform: "/mobile", type: TrackType.Event) {
             collapsed = true
             balance : [
-                pendingBalance: false,
-                balanceHistogram: 6
+                    pendingBalance: false,
+                    balanceHistogram: 6
             ]
             cards : [
-                prepaid: false,
-                quantity: 9
+                    prepaid: false,
+                    quantity: 9
             ]
         }
     }
@@ -239,12 +176,12 @@ trackTests {
         "/wallet/home/banking/initial_state" (platform: "/mobile", type: TrackType.Event) {
             collapsed = true
             balance : [
-                pendingBalance: false,
-                balanceHistogram: 6
+                    pendingBalance: false,
+                    balanceHistogram: 6
             ]
             cards : [
-                prepaid: false,
-                quantity: 9
+                    prepaid: false,
+                    quantity: 9
             ]
         }
     }
@@ -266,24 +203,24 @@ trackTests {
             id= "payer"
             quantity= "6"
             is_showing_aware= true
-            actions= [ 
-                [
-                    id              :   "recharge_phone",
-                    ordinal         :   1,
-                    has_promotion   :   false
-                ],
-                [
-                    id              :   "pay_services",
-                    ordinal         :   2,
-                    has_promotion   :   false
-                ]
+            actions= [
+                    [
+                            id              :   "recharge_phone",
+                            ordinal         :   1,
+                            has_promotion   :   false
+                    ],
+                    [
+                            id              :   "pay_services",
+                            ordinal         :   2,
+                            has_promotion   :   false
+                    ]
             ]
         }
     }
 
     /*****************************
-    * WALLET HOME TEST TRACKS V2 *
-    *****************************/
+     * WALLET HOME TEST TRACKS V2 *
+     *****************************/
 
     test("Mercadopago Home") {
         "/wallet_home" (platform: "/mobile", type: TrackType.View) {}
@@ -306,17 +243,17 @@ trackTests {
             id= "payer"
             quantity= "6"
             is_showing_aware= true
-            actions= [ 
-                [
-                    id              :   "recharge_phone",
-                    ordinal         :   1,
-                    has_promotion   :   false
-                ],
-                [
-                    id              :   "pay_services",
-                    ordinal         :   2,
-                    has_promotion   :   false
-                ]
+            actions= [
+                    [
+                            id              :   "recharge_phone",
+                            ordinal         :   1,
+                            has_promotion   :   false
+                    ],
+                    [
+                            id              :   "pay_services",
+                            ordinal         :   2,
+                            has_promotion   :   false
+                    ]
             ]
         }
     }
@@ -338,151 +275,162 @@ trackTests {
     test("Mercadopago Home Show") {
         "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
             header = [
-                loyalty: [
-                    level: 5
-                ]
+                    loyalty: [
+                            level: 5
+                    ]
             ]
             content_type = 'partial'
             from = "drawer_ml"
-            banking = [  
-                content_type : 'default',
-                ordinal: 1,
-                collapsed: true,
-                balance: [
-                    pending_balance: false,
-                    balance_histogram: 6
-                ],
-                cards: [
-                    prepaid: false,
-                    quantity: 9
-                ],
-                assets: [],
-                credits: [],
-                money_in: [
-                    pending_balance: false,
-                    balance_histogram: 6
-                ]
+            banking = [
+                    content_type : 'default',
+                    ordinal: 1,
+                    collapsed: true,
+                    balance: [
+                            pending_balance: false,
+                            balance_histogram: 6
+                    ],
+                    cards: [
+                            prepaid: false,
+                            quantity: 9
+                    ],
+                    assets: [],
+                    credits: [],
+                    money_in: [
+                            pending_balance: false,
+                            balance_histogram: 6
+                    ]
 
             ]
             main_actions = [
-                content_type : 'complete',
-                ordinal: 2,
-                quantity: 3,
-                items: [
-                    [
-                    id              : "scan_qr",
-                    ordinal         : 1,
-                    has_promotion   : false,
-                    enabled         : true
+                    content_type : 'complete',
+                    ordinal: 2,
+                    quantity: 3,
+                    items: [
+                            [
+                                    id              : "scan_qr",
+                                    ordinal         : 1,
+                                    has_promotion   : false,
+                                    enabled         : true
+                            ]
                     ]
-                ]
-            ] 
+            ]
+            shortcuts = [
+                    content_type : 'complete',
+                    ordinal: 3,
+                    favorite_ids: [
+                        "scan_qr", "send_money", "recharge_sube", "money_out", "money_in"
+                    ],
+                    shortcut_ids: [
+                        "gran_dia_mcdonals"
+                    ],
+                    has_view_more: false
+            ]
             prepaid_banner = [
-                content_type : 'partial',
-                ordinal: 3,
-                realestates: [
-                    [
-                        realestate_id: "dismissible_row",
-                        content_id: "available_acquisition",
-                        origin: "customer_journey"
+                    content_type : 'partial',
+                    ordinal: 4,
+                    realestates: [
+                            [
+                                    realestate_id: "dismissible_row",
+                                    content_id: "available_acquisition",
+                                    origin: "customer_journey"
+                            ]
                     ]
-                ]
             ]
             secondary_actions = [
-                content_type : 'partial',
-                ordinal: 4,
-                realestates_payers: [
-                    [ 
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_pay_services_MARZO_20",
-                        origin: "campaigns"
+                    content_type : 'partial',
+                    ordinal: 5,
+                    realestates_payers: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_pay_services_MARZO_20",
+                                    origin: "campaigns"
+                            ]
+                    ],
+                    realestates_sellers: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_pay_services_MARZO_20",
+                                    origin: "campaigns"
+                            ]
                     ]
-                ],
-                realestates_sellers: [
-                    [
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_pay_services_MARZO_20",
-                        origin: "campaigns"
-                    ]
-                ]
             ]
             benefits= [
-                content_type : 'partial',
-                ordinal: 5,
-                realestates: [
-                    [
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_recharge_default",
-                        origin: "campaigns"
+                    content_type : 'partial',
+                    ordinal: 6,
+                    realestates: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_recharge_default",
+                                    origin: "campaigns"
+                            ]
                     ]
-                ]
             ]
             cross_selling= [
-                content_type : 'partial',
-                ordinal: 6,
-                realestates: [
-                    [
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_recharge_default",
-                        origin: "campaigns"
+                    content_type : 'partial',
+                    ordinal: 7,
+                    realestates: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_recharge_default",
+                                    origin: "campaigns"
+                            ]
                     ]
-                ]
             ]
             loyalty= [
-                content_type : 'partial',
-                ordinal: 7,
-                level: 3,
-                percentage: 17
+                    content_type : 'partial',
+                    ordinal: 8,
+                    level: 3,
+                    percentage: 17
             ]
             activities= [
-                content_type : 'partial',
-                ordinal: 8,
-                quantity: 3,
-                is_ftu: false,
-                has_footer: true
+                    content_type : 'partial',
+                    ordinal: 9,
+                    quantity: 3,
+                    is_ftu: false,
+                    has_footer: true
             ]
             qr_map= [
-                content_type : 'partial',
-                ordinal: 9,
-                header_title: "¡Pagá con QR en tus locales favoritos!",
-                items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
-                link: "mercadopago://discovery/map?from=home_instore_map_section"              
+                    content_type : 'partial',
+                    ordinal: 10,
+                    header_title: "¡Pagá con QR en tus locales favoritos!",
+                    items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
+                    link: "mercadopago://discovery/map?from=home_instore_map_section"
             ]
             activities_link= [
-                ordinal: 10,
-                content_type : 'partial'
+                    ordinal: 11,
+                    content_type : 'partial'
             ]
             discount_center= [
-                ordinal: 11,
-                content_type: 'partial',
-                items: [
-                    [   
-                        tracking_id: "1004194",
-                        blocked: false,
-                        name: "Mc Donalds",
-                        category: "Fast Food",
-                        mcc: 5611201,
-                        position: 0,
-                        level: 1,
-                        distance: 258,
-                        store_id: 30091709,
-                        availability: "full",
-                        amount_type: "percent",
-                        amount: 15,
-                        priority: 9,
-                        collector_id: 123456,
-                        has_logo: true,
-                        coupon_used: false
+                    ordinal: 12,
+                    content_type: 'partial',
+                    items: [
+                            [
+                                    tracking_id: "1004194",
+                                    blocked: false,
+                                    name: "Mc Donalds",
+                                    category: "Fast Food",
+                                    mcc: 5611201,
+                                    position: 0,
+                                    level: 1,
+                                    distance: 258,
+                                    store_id: 30091709,
+                                    availability: "full",
+                                    amount_type: "percent",
+                                    amount: 15,
+                                    priority: 9,
+                                    collector_id: 123456,
+                                    has_logo: true,
+                                    coupon_used: false
+                            ]
                     ]
-                ]
             ]
             survey= [
-                ordinal: 12,
-                content_type : 'complete'
+                    ordinal: 13,
+                    content_type : 'complete'
             ]
             bcra_regulation= [
-                ordinal: 13,
-                content_type : 'complete'
+                    ordinal: 14,
+                    content_type : 'complete'
             ]
         }
     }
@@ -490,140 +438,161 @@ trackTests {
     test("Mercadopago Home Update") {
         "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
             header = [
-                loyalty: [
-                    level: 5
-                ]
+                    loyalty: [
+                            level: 5
+                    ]
             ]
             content_type = 'partial'
             from = "drawer_ml"
-            banking = [  
-                content_type : 'default',
-                ordinal: 1,
-                collapsed: true,
-                balance: [
-                    pending_balance: false,
-                    balance_histogram: 6
-                ],
-                cards: [
-                    prepaid: false,
-                    quantity: 9
-                ],
-                assets: [],
-                credits: [],
-                money_in: [
-                    pending_balance: false,
-                    balance_histogram: 6
-                ]
+            banking = [
+                    content_type : 'default',
+                    ordinal: 1,
+                    collapsed: true,
+                    balance: [
+                            pending_balance: false,
+                            balance_histogram: 6
+                    ],
+                    cards: [
+                            prepaid: false,
+                            quantity: 9
+                    ],
+                    assets: [],
+                    credits: [],
+                    money_in: [
+                            pending_balance: false,
+                            balance_histogram: 6
+                    ]
             ]
             main_actions = [
-                content_type : 'complete',
-                ordinal: 2,
-                quantity: 3,
-                items: [
-                    [
-                    id              : "scan_qr",
-                    ordinal         : 1,
-                    has_promotion   : false,
-                    enabled         : true
+                    content_type : 'complete',
+                    ordinal: 2,
+                    quantity: 3,
+                    items: [
+                            [
+                                    id              : "scan_qr",
+                                    ordinal         : 1,
+                                    has_promotion   : false,
+                                    enabled         : true
+                            ]
                     ]
-                ]
-            ] 
+            ]
+            shortcuts = [
+                    content_type : 'complete',
+                    ordinal: 3,
+                    favorite_ids: [
+                        "scan_qr", "send_money", "recharge_sube", "money_out", "money_in"
+                    ],
+                    shortcut_ids: [
+                        "gran_dia_mcdonals"
+                    ],
+                    has_view_more: true
+            ]
             prepaid_banner = [
-                content_type : 'partial',
-                ordinal: 3,
-                realestates: [
-                    [
-                        content_id: "available_acquisition"
+                    content_type : 'partial',
+                    ordinal: 4,
+                    realestates: [
+                            [
+                                    realestate_id: "dismissible_row",
+                                    content_id: "available_acquisition",
+                                    origin: "customer_journey"
+                            ]
                     ]
-                ]
             ]
             secondary_actions = [
-                content_type : 'partial',
-                ordinal: 4,
-                realestates_payers: [
-                    [
-                        content_id: "secondary_actions_mp_pay_services_MARZO_20"
+                    content_type : 'partial',
+                    ordinal: 5,
+                    realestates_payers: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_pay_services_MARZO_20",
+                                    origin: "campaigns"
+                            ]
+                    ],
+                    realestates_sellers: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_pay_services_MARZO_20",
+                                    origin: "campaigns"
+                            ]
                     ]
-                ],
-                realestates_sellers: [
-                    [
-                        content_id: "secondary_actions_mp_pay_services_MARZO_20"
-                    ]
-                ]
             ]
             benefits= [
-                content_type : 'partial',
-                ordinal: 5,
-                realestates: [
-                    [
-                        content_id: "secondary_actions_mp_recharge_default"
+                    content_type : 'partial',
+                    ordinal: 6,
+                    realestates: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_recharge_default",
+                                    origin: "campaigns"
+                            ]
                     ]
-                ]
             ]
             cross_selling= [
-                content_type : 'partial',
-                ordinal: 6,
-                realestates: [
-                    [
-                        content_id: "secondary_actions_mp_recharge_default"
+                    content_type : 'partial',
+                    ordinal: 7,
+                    realestates: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_recharge_default",
+                                    origin: "campaigns"
+                            ]
                     ]
-                ]
             ]
             loyalty= [
-                content_type : 'partial',
-                ordinal: 7,
-                level: 3,
-                percentage: 17
+                    content_type : 'partial',
+                    ordinal: 8,
+                    level: 3,
+                    percentage: 17
             ]
             activities= [
-                content_type : 'partial',
-                ordinal: 8,
-                quantity: 3,
-                is_ftu: false,
-                has_footer: true
+                    content_type : 'partial',
+                    ordinal: 9,
+                    quantity: 3,
+                    is_ftu: false,
+                    has_footer: true
             ]
             qr_map= [
-                content_type : 'partial',
-                ordinal: 9,
-                header_title: "¡Pagá con QR en tus locales favoritos!",
-                items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
-                link: "mercadopago://discovery/map?from=home_instore_map_section"              
+                    content_type : 'partial',
+                    ordinal: 10,
+                    header_title: "¡Pagá con QR en tus locales favoritos!",
+                    items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
+                    link: "mercadopago://discovery/map?from=home_instore_map_section"
             ]
             activities_link= [
-                ordinal: 10,
-                content_type : 'partial'
+                    ordinal: 11,
+                    content_type : 'partial'
             ]
             discount_center= [
-                ordinal: 11,
-                content_type: 'partial',
-                items: [
-                    [   
-                        tracking_id: "1004194",
-                        blocked: false,
-                        name: "Mc Donalds",
-                        category: "Fast Food",
-                        mcc: 5611201,
-                        position: 0,
-                        level: 1,
-                        distance: 258,
-                        store_id: 30091709,
-                        availability: "full",
-                        amount_type: "percent",
-                        amount: 15,
-                        priority: 9,
-                        collector_id: 123456,
-                        has_logo: true,
-                        coupon_used: false
+                    ordinal: 12,
+                    content_type: 'partial',
+                    items: [
+                            [
+                                    tracking_id: "1004194",
+                                    blocked: false,
+                                    name: "Mc Donalds",
+                                    category: "Fast Food",
+                                    mcc: 5611201,
+                                    position: 0,
+                                    level: 1,
+                                    distance: 258,
+                                    store_id: 30091709,
+                                    availability: "full",
+                                    amount_type: "percent",
+                                    amount: 15,
+                                    priority: 9,
+                                    collector_id: 123456,
+                                    has_logo: true,
+                                    coupon_used: false
+                            ]
                     ]
-                ]
             ]
             survey= [
-                ordinal: 12,
-                content_type : 'complete'
+                    ordinal: 13,
+                    content_type : 'complete'
             ]
             bcra_regulation= [
-                ordinal: 13,
-                content_type : 'complete'
+                    ordinal: 14,
+                    content_type : 'complete'
             ]
         }
     }
@@ -653,7 +622,7 @@ trackTests {
             id = "modalid"
         }
     }
-    
+
     test("Modal close") {
         "/wallet_home/modal/close" (platform: "/mobile", type: TrackType.Event) {
             id = "modalid"
@@ -664,7 +633,7 @@ trackTests {
     test("Loyalty header tap") {
         "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
             loyalty = [
-                level: 9
+                    level: 9
             ]
         }
     }
@@ -752,63 +721,61 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="secondary_actions"
             component_id="user_secondary_actions"
-            action_id = "default"
-            audience = "all"
-            bu_line = "default"
-            content_id = "prepaid_mla_2019_10"
-            flow = "default"
-            logic = "campaigns"
-            position = 1.0
         }
     }
 
     test("Mercadopago Home Tap v3 - Cross Selling") {
         "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
-            section_id="secondary_actions"
-            component_id="user_secondary_actions"
-            action_id = "default"
-            audience = "all"
-            bu_line = "default"
-            content_id = "prepaid_mla_2019_10"
-            flow = "default"
-            logic = "campaigns"
-            position = 1.0
+            section_id="cross_selling"
+            component_id="user_cross_selling"
         }
     }
 
     test("Mercadopago Home Tap v3 - Prepaid Banner") {
         "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
-            section_id="secondary_actions"
-            component_id="user_secondary_actions"
-            action_id = "default"
-            audience = "all"
-            bu_line = "default"
-            content_id = "prepaid_mla_2019_10"
-            flow = "default"
-            logic = "campaigns"
-            position = 1.0
+            section_id="prepaid_banner"
+            component_id="user_prepaid_banner"
         }
     }
 
     test("Mercadopago Home Tap v3 - Benefits") {
         "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
-            section_id="secondary_actions"
-            component_id="user_secondary_actions"
-            action_id = "default"
-            audience = "all"
-            bu_line = "default"
-            content_id = "prepaid_mla_2019_10"
-            flow = "default"
-            logic = "campaigns"
-            position = 1.0
+            section_id="benefits"
+            component_id="user_benefits"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - shortcuts") {
+        "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="payer"
+            component_id="scan_qr"
+            from = "section"
+            content_id = "business"
+            position = 3
+            enabled = true
+            is_favorite = false
+            has_aware = false
+            has_label = true
+            group_id = "seller"
+            component_id="user_survey"
+            group_position = 6
         }
     }
 
     test("Mercadopago cross sell experiments") {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+
+    test("Mercadopago shortcut sheet page view") {
+        "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
+            group_ids = ["payer", "business", "seller", "favorites"]
+            shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+        }
     }
 
     test("New Digital Wallet - Ukraine Lab") {
@@ -834,7 +801,7 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
-        test("Mercadopago Home") {
+    test("Mercadopago Home") {
         "/wallet/home" (platform: "/mobile", type: TrackType.View) {}
     }
 
@@ -859,11 +826,11 @@ trackTests {
         "/wallet/home/show" (platform: "/mobile", type: TrackType.Event) {
             header = "name"
             items = [
-                [
-                    id: "banking",
-                    ordinal: 1,
-                    type: "BANKING"
-                ]
+                    [
+                            id: "banking",
+                            ordinal: 1,
+                            type: "BANKING"
+                    ]
             ]
         }
     }
@@ -905,44 +872,16 @@ trackTests {
         "/wallet/home/show/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
             realestates_payers = [
                     [
+                            realestate_id: "secondary_actions_mp_pay_services",
                             content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            origin: "secondary_actions"
                     ]
             ]
             realestates_sellers = [
                     [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
-                    ]
-            ]
-            realestates_friends = [
-                    [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            realestate_id: "secondary_actions_mp_charge_with_qr",
+                            content_id: "charge_with_qr",
+                            origin: "secondary_actions"
                     ]
             ]
         }
@@ -953,28 +892,14 @@ trackTests {
         "/wallet/home/show/discount_benefits" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            realestate_id : "discount_benefits_advice",
+                            content_id : "mgm_payer",
+                            origin : "user_journey"
                     ],
                     [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            realestate_id : "discount_benefits_coupon",
+                            content_id : "coupon",
+                            origin : "user_journey"
                     ]
             ]
         }
@@ -985,16 +910,9 @@ trackTests {
         "/wallet/home/show/dismissible_row" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            realestate_id : "dismissible_row",
+                            content_id : "available_acquisition",
+                            origin : "user_journey"
                     ]
             ]
         }
@@ -1005,28 +923,14 @@ trackTests {
         "/wallet/home/show/cross_selling" (platform: "/mobile", type: TrackType.Event) {
             realestates = [
                     [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            realestate_id: "cross_selling_home_mp_prepaid",
+                            content_id   : "cross_selling_prepaid",
+                            origin       : "user_journey"
                     ],
                     [
-                            content_id: "pay_services",
-                            link: "mercadopago://instore/scan_qr",
-                            section_id:"benefits",
-                            component_id:"user_benefits",
-                            action_id: "default",
-                            audience: "all",
-                            bu_line: "default",
-                            flow: "default",
-                            logic: "campaigns",
-                            position: 1.0
+                            realestate_id: "cross_selling_home_mp_point",
+                            content_id   : "cross_selling_point",
+                            origin       : "user_journey"
                     ]
             ]
 
@@ -1039,12 +943,12 @@ trackTests {
         "/wallet/home/show/banking" (platform: "/mobile", type: TrackType.Event) {
             collapsed = true
             balance : [
-                pendingBalance: false,
-                balanceHistogram: 6
+                    pendingBalance: false,
+                    balanceHistogram: 6
             ]
             cards : [
-                prepaid: false,
-                quantity: 9
+                    prepaid: false,
+                    quantity: 9
             ]
         }
     }
@@ -1062,12 +966,12 @@ trackTests {
         "/wallet/home/banking/initial_state" (platform: "/mobile", type: TrackType.Event) {
             collapsed = true
             balance : [
-                pendingBalance: false,
-                balanceHistogram: 6
+                    pendingBalance: false,
+                    balanceHistogram: 6
             ]
             cards : [
-                prepaid: false,
-                quantity: 9
+                    prepaid: false,
+                    quantity: 9
             ]
         }
     }
@@ -1089,24 +993,24 @@ trackTests {
             id= "payer"
             quantity= "6"
             is_showing_aware= true
-            actions= [ 
-                [
-                    id              :   "recharge_phone",
-                    ordinal         :   1,
-                    has_promotion   :   false
-                ],
-                [
-                    id              :   "pay_services",
-                    ordinal         :   2,
-                    has_promotion   :   false
-                ]
+            actions= [
+                    [
+                            id              :   "recharge_phone",
+                            ordinal         :   1,
+                            has_promotion   :   false
+                    ],
+                    [
+                            id              :   "pay_services",
+                            ordinal         :   2,
+                            has_promotion   :   false
+                    ]
             ]
         }
     }
 
     /*****************************
-    * WALLET HOME TEST TRACKS V2 *
-    *****************************/
+     * WALLET HOME TEST TRACKS V2 *
+     *****************************/
 
     test("Mercadolibre activity Detail") {
         "/activity_detail"(platform: "/mobile") {}
@@ -1133,17 +1037,17 @@ trackTests {
             id= "payer"
             quantity= "6"
             is_showing_aware= true
-            actions= [ 
-                [
-                    id              :   "recharge_phone",
-                    ordinal         :   1,
-                    has_promotion   :   false
-                ],
-                [
-                    id              :   "pay_services",
-                    ordinal         :   2,
-                    has_promotion   :   false
-                ]
+            actions= [
+                    [
+                            id              :   "recharge_phone",
+                            ordinal         :   1,
+                            has_promotion   :   false
+                    ],
+                    [
+                            id              :   "pay_services",
+                            ordinal         :   2,
+                            has_promotion   :   false
+                    ]
             ]
         }
     }
@@ -1165,146 +1069,157 @@ trackTests {
     test("Mercadopago Home Show") {
         "/wallet_home/home" (platform: "/mobile", type: TrackType.View) {
             header = [
-                loyalty: [
-                    level: 5
-                ]
+                    loyalty: [
+                            level: 5
+                    ]
             ]
             content_type = 'partial'
             from = "drawer_ml"
-            banking = [  
-                content_type : 'default',
-                ordinal: 1,
-                collapsed: true,
-                balance: [
-                    pending_balance: false,
-                    balance_histogram: 6
-                ],
-                cards: [
-                    prepaid: false,
-                    quantity: 9
-                ],
-                assets: [],
-                credits: [],
-                money_in: [
-                    pending_balance: false,
-                    balance_histogram: 6
-                ]
+            banking = [
+                    content_type : 'default',
+                    ordinal: 1,
+                    collapsed: true,
+                    balance: [
+                            pending_balance: false,
+                            balance_histogram: 6
+                    ],
+                    cards: [
+                            prepaid: false,
+                            quantity: 9
+                    ],
+                    assets: [],
+                    credits: [],
+                    money_in: [
+                            pending_balance: false,
+                            balance_histogram: 6
+                    ]
             ]
             main_actions = [
-                content_type : 'complete',
-                ordinal: 2,
-                quantity: 3,
-                items: [
-                    [
-                    id              : "scan_qr",
-                    ordinal         : 1,
-                    has_promotion   : false,
-                    enabled         : true
+                    content_type : 'complete',
+                    ordinal: 2,
+                    quantity: 3,
+                    items: [
+                            [
+                                    id              : "scan_qr",
+                                    ordinal         : 1,
+                                    has_promotion   : false,
+                                    enabled         : true
+                            ]
                     ]
-                ]
-            ] 
+            ]
+            shortcuts = [
+                    content_type : 'complete',
+                    ordinal: 3,
+                    favorite_ids: [
+                        "scan_qr", "send_money", "recharge_sube", "money_out", "money_in"
+                    ],
+                    shortcut_ids: [
+                        "gran_dia_mcdonals"
+                    ],
+                    has_view_more: true
+            ]
             prepaid_banner = [
-                content_type : 'partial',
-                ordinal: 3,
-                realestates: [
-                    [
-                        realestate_id: "dismissible_row",
-                        content_id: "available_acquisition",
-                        origin: "customer_journey"
+                    content_type : 'partial',
+                    ordinal: 4,
+                    realestates: [
+                            [
+                                    realestate_id: "dismissible_row",
+                                    content_id: "available_acquisition",
+                                    origin: "customer_journey"
+                            ]
                     ]
-                ]
             ]
             secondary_actions = [
-                content_type : 'partial',
-                ordinal: 4,
-                realestates_payers: [
-                    [ 
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_pay_services_MARZO_20",
-                        origin: "campaigns"
+                    content_type : 'partial',
+                    ordinal: 5,
+                    realestates_payers: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_pay_services_MARZO_20",
+                                    origin: "campaigns"
+                            ]
+                    ],
+                    realestates_sellers: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_pay_services_MARZO_20",
+                                    origin: "campaigns"
+                            ]
                     ]
-                ],
-                realestates_sellers: [
-                    [
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_pay_services_MARZO_20",
-                        origin: "campaigns"
-                    ]
-                ]
             ]
             benefits= [
-                content_type : 'partial',
-                ordinal: 5,
-                realestates: [
-                    [
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_recharge_default",
-                        origin: "campaigns"
+                    content_type : 'partial',
+                    ordinal: 6,
+                    realestates: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_recharge_default",
+                                    origin: "campaigns"
+                            ]
                     ]
-                ]
             ]
             cross_selling= [
-                content_type : 'partial',
-                ordinal: 6,
-                realestates: [
-                    [
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_recharge_default",
-                        origin: "campaigns"
+                    content_type : 'partial',
+                    ordinal: 7,
+                    realestates: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_recharge_default",
+                                    origin: "campaigns"
+                            ]
                     ]
-                ]
             ]
             loyalty= [
-                content_type : 'partial',
-                ordinal: 7,
-                level: 3,
-                percentage: 17
+                    content_type : 'partial',
+                    ordinal: 8,
+                    level: 3,
+                    percentage: 17
             ]
             activities= [
-                content_type : 'partial',
-                ordinal: 8,
-                quantity: 3,
-                is_ftu: false,
-                has_footer: true
+                    content_type : 'partial',
+                    ordinal: 9,
+                    quantity: 3,
+                    is_ftu: false,
+                    has_footer: true
             ]
             qr_map= [
-                content_type : 'partial',
-                ordinal: 9,
-                header_title: "¡Pagá con QR en tus locales favoritos!",
-                items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
-                link: "mercadopago://discovery/map?from=home_instore_map_section"              
+                    content_type : 'partial',
+                    ordinal: 10,
+                    header_title: "¡Pagá con QR en tus locales favoritos!",
+                    items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
+                    link: "mercadopago://discovery/map?from=home_instore_map_section"
             ]
             activities_link= [
-                ordinal: 10,
-                content_type : 'partial'
+                    ordinal: 11,
+                    content_type : 'partial'
             ]
             discount_center= [
-                ordinal: 11,
-                content_type: 'partial',
-                items: [
-                    [   
-                        tracking_id: "1004194",
-                        blocked: false,
-                        name: "Mc Donalds",
-                        category: "Fast Food",
-                        mcc: 5611201,
-                        position: 0,
-                        level: 1,
-                        distance: 258,
-                        store_id: 30091709,
-                        availability: "full",
-                        amount_type: "percent",
-                        amount: 15,
-                        priority: 9,
-                        collector_id: 123456,
-                        has_logo: true,
-                        coupon_used: false
+                    ordinal: 12,
+                    content_type: 'partial',
+                    items: [
+                            [
+                                    tracking_id: "1004194",
+                                    blocked: false,
+                                    name: "Mc Donalds",
+                                    category: "Fast Food",
+                                    mcc: 5611201,
+                                    position: 0,
+                                    level: 1,
+                                    distance: 258,
+                                    store_id: 30091709,
+                                    availability: "full",
+                                    amount_type: "percent",
+                                    amount: 15,
+                                    priority: 9,
+                                    collector_id: 123456,
+                                    has_logo: true,
+                                    coupon_used: false
+                            ]
                     ]
-                ]
             ]
             survey= [
-                ordinal: 12,
-                content_type : 'complete'
+                    ordinal: 13,
+                    content_type : 'complete'
             ]
         }
     }
@@ -1312,196 +1227,157 @@ trackTests {
     test("Mercadopago Home Update") {
         "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
             header = [
-                loyalty: [
-                    level: 5
-                ]
+                    loyalty: [
+                            level: 5
+                    ]
             ]
             content_type = 'partial'
             from = "my_account_ml"
-            banking = [  
-                content_type : 'default',
-                ordinal: 1,
-                collapsed: true,
-                balance: [
-                    pending_balance: false,
-                    balance_histogram: 6
-                ],
-                cards: [
-                    prepaid: false,
-                    quantity: 9
-                ],
-                assets: [],
-                credits: [],
-                money_in: [
-                    pending_balance: false,
-                    balance_histogram: 6
-                ]
+            banking = [
+                    content_type : 'default',
+                    ordinal: 1,
+                    collapsed: true,
+                    balance: [
+                            pending_balance: false,
+                            balance_histogram: 6
+                    ],
+                    cards: [
+                            prepaid: false,
+                            quantity: 9
+                    ],
+                    assets: [],
+                    credits: [],
+                    money_in: [
+                            pending_balance: false,
+                            balance_histogram: 6
+                    ]
             ]
             main_actions = [
-                content_type : 'complete',
-                ordinal: 2,
-                quantity: 3,
-                items: [
-                    [
-                    id              : "scan_qr",
-                    ordinal         : 1,
-                    has_promotion   : false,
-                    enabled         : true
+                    content_type : 'complete',
+                    ordinal: 2,
+                    quantity: 3,
+                    items: [
+                            [
+                                    id              : "scan_qr",
+                                    ordinal         : 1,
+                                    has_promotion   : false,
+                                    enabled         : true
+                            ]
                     ]
-                ]
-            ] 
+            ]
+            shortcuts = [
+                    content_type : 'partial',
+                    ordinal: 3,
+                    favorite_ids: [
+                        "scan_qr", "send_money", "recharge_sube", "money_out", "money_in"
+                    ],
+                    shortcut_ids: [
+                        "gran_dia_mcdonals"
+                    ],
+                    has_view_more: false
+            ]
             prepaid_banner = [
-                content_type : 'partial',
-                ordinal: 3,
-                realestates: [
-                    [
-                        realestate_id: "dismissible_row",
-                        content_id: "available_acquisition",
-                        origin: "customer_journey",
-                        link: "mercadopago://instore/scan_qr",
-                        section_id: "benefits",
-                        component_id: "user_benefits",
-                        action_id: "default",
-                        audience: "all",
-                        bu_line: "default",
-                        content_id: "prepaid_mla_2019_10",
-                        flow: "default",
-                        logic: "campaigns",
-                        position: 1.0
+                    content_type : 'partial',
+                    ordinal: 4,
+                    realestates: [
+                            [
+                                    realestate_id: "dismissible_row",
+                                    content_id: "available_acquisition",
+                                    origin: "customer_journey"
+                            ]
                     ]
-                ]
             ]
             secondary_actions = [
-                content_type : 'partial',
-                ordinal: 4,
-                realestates_payers: [
-                    [ 
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_pay_services_MARZO_20",
-                        origin: "campaigns",
-                        link: "mercadopago://instore/scan_qr",
-                        section_id: "benefits",
-                        component_id: "user_benefits",
-                        action_id: "default",
-                        audience: "all",
-                        bu_line: "default",
-                        content_id: "prepaid_mla_2019_10",
-                        flow: "default",
-                        logic: "campaigns",
-                        position: 1.0
+                    content_type : 'partial',
+                    ordinal: 5,
+                    realestates_payers: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_pay_services_MARZO_20",
+                                    origin: "campaigns"
+                            ]
+                    ],
+                    realestates_sellers: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_pay_services_MARZO_20",
+                                    origin: "campaigns"
+                            ]
                     ]
-                ],
-                realestates_sellers: [
-                    [
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_pay_services_MARZO_20",
-                        origin: "campaigns",
-                        link: "mercadopago://instore/scan_qr",
-                        section_id: "benefits",
-                        component_id: "user_benefits",
-                        action_id: "default",
-                        audience: "all",
-                        bu_line: "default",
-                        content_id: "prepaid_mla_2019_10",
-                        flow: "default",
-                        logic: "campaigns",
-                        position: 1.0
-                    ]
-                ]
             ]
             benefits= [
-                content_type : 'partial',
-                ordinal: 5,
-                realestates: [
-                    [
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_recharge_default",
-                        origin: "campaigns",
-                        link: "mercadopago://instore/scan_qr",
-                        section_id: "benefits",
-                        component_id: "user_benefits",
-                        action_id: "default",
-                        audience: "all",
-                        bu_line: "default",
-                        content_id: "prepaid_mla_2019_10",
-                        flow: "default",
-                        logic: "campaigns",
-                        position: 1.0
+                    content_type : 'partial',
+                    ordinal: 6,
+                    realestates: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_recharge_default",
+                                    origin: "campaigns"
+                            ]
                     ]
-                ]
             ]
             cross_selling= [
-                content_type : 'partial',
-                ordinal: 6,
-                realestates: [
-                    [
-                        realestate_id: "secondary_actions_mp_pay_services",
-                        content_id: "secondary_actions_mp_recharge_default",
-                        origin: "campaigns",
-                        link: "mercadopago://instore/scan_qr",
-                        section_id: "benefits",
-                        component_id: "user_benefits",
-                        action_id: "default",
-                        audience: "all",
-                        bu_line: "default",
-                        content_id: "prepaid_mla_2019_10",
-                        flow: "default",
-                        logic: "campaigns",
-                        position: 1.0
+                    content_type : 'partial',
+                    ordinal: 7,
+                    realestates: [
+                            [
+                                    realestate_id: "secondary_actions_mp_pay_services",
+                                    content_id: "secondary_actions_mp_recharge_default",
+                                    origin: "campaigns"
+                            ]
                     ]
-                ]
             ]
             loyalty= [
-                content_type : 'partial',
-                ordinal: 7,
-                level: 3,
-                percentage: 17
+                    content_type : 'partial',
+                    ordinal: 8,
+                    level: 3,
+                    percentage: 17
             ]
             activities= [
-                content_type : 'partial',
-                ordinal: 8,
-                quantity: 3,
-                is_ftu: false,
-                has_footer: true
+                    content_type : 'partial',
+                    ordinal: 9,
+                    quantity: 3,
+                    is_ftu: false,
+                    has_footer: true
             ]
             qr_map= [
-                content_type : 'partial',
-                ordinal: 9,
-                header_title: "¡Pagá con QR en tus locales favoritos!",
-                items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
-                link: "mercadopago://discovery/map?from=home_instore_map_section"              
+                    content_type : 'partial',
+                    ordinal: 10,
+                    header_title: "¡Pagá con QR en tus locales favoritos!",
+                    items: ["instore_home_sections_brand_mla_shell", "instore_home_sections_brand_mla_patagonia", "instore_home_sections_brand_mla_kfc"],
+                    link: "mercadopago://discovery/map?from=home_instore_map_section"
             ]
             activities_link= [
-                ordinal: 10,
-                content_type : 'partial'
+                    ordinal: 11,
+                    content_type : 'partial'
             ]
             discount_center= [
-                ordinal: 11,
-                content_type: 'partial',
-                items: [
-                    [   
-                        tracking_id: "1004194",
-                        blocked: false,
-                        name: "Mc Donalds",
-                        category: "Fast Food",
-                        mcc: 5611201,
-                        position: 0,
-                        level: 1,
-                        distance: 258,
-                        store_id: 30091709,
-                        availability: "full",
-                        amount_type: "fixed",
-                        amount: 15,
-                        priority: 9,
-                        collector_id: 123456,
-                        has_logo: true,
-                        coupon_used: false
+                    ordinal: 12,
+                    content_type: 'partial',
+                    items: [
+                            [
+                                    tracking_id: "1004194",
+                                    blocked: false,
+                                    name: "Mc Donalds",
+                                    category: "Fast Food",
+                                    mcc: 5611201,
+                                    position: 0,
+                                    level: 1,
+                                    distance: 258,
+                                    store_id: 30091709,
+                                    availability: "full",
+                                    amount_type: "fixed",
+                                    amount: 15,
+                                    priority: 9,
+                                    collector_id: 123456,
+                                    has_logo: true,
+                                    coupon_used: false
+                            ]
                     ]
-                ]
             ]
             survey= [
-                ordinal: 12,
-                content_type : 'complete'
+                    ordinal: 13,
+                    content_type : 'complete'
             ]
         }
     }
@@ -1531,7 +1407,7 @@ trackTests {
             id = "modalid"
         }
     }
-    
+
     test("Modal close") {
         "/wallet_home/modal/close" (platform: "/mobile", type: TrackType.Event) {
             id = "modalid"
@@ -1542,7 +1418,7 @@ trackTests {
     test("Loyalty header tap") {
         "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
             loyalty = [
-                level: 9
+                    level: 9
             ]
         }
     }
@@ -1625,18 +1501,29 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - shortcuts") {
+        "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="payer"
+            component_id="scan_qr"
+            from = "section"
+            content_id = "business"
+            position = 3
+            enabled = true
+            is_favorite = false
+            has_aware = false
+            has_label = true
+            group_id = "seller"
+            component_id="user_survey"
+            group_position = 6
+        }
+    }
+
     test("Mercadopago Home Tap v3 - Secondary Actions") {
         "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
             section_id="secondary_actions"
             component_id="user_secondary_actions"
-            action_id = "default"
-            audience = "all"
-            bu_line = "default"
-            content_id = "prepaid_mla_2019_10"
-            flow = "default"
-            logic = "campaigns"
-            position = 1.0
         }
     }
 
@@ -1645,13 +1532,6 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="cross_selling"
             component_id="user_cross_selling"
-            action_id = "default"
-            audience = "all"
-            bu_line = "default"
-            content_id = "prepaid_mla_2019_10"
-            flow = "default"
-            logic = "campaigns"
-            position = 1.0
         }
     }
 
@@ -1660,13 +1540,6 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="prepaid_banner"
             component_id="user_prepaid_banner"
-            action_id = "default"
-            audience = "all"
-            bu_line = "default"
-            content_id = "prepaid_mla_2019_10"
-            flow = "default"
-            logic = "campaigns"
-            position = 1.0
         }
     }
 
@@ -1675,18 +1548,18 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="benefits"
             component_id="user_benefits"
-            action_id = "default"
-            audience = "all"
-            bu_line = "default"
-            content_id = "prepaid_mla_2019_10"
-            flow = "default"
-            logic = "campaigns"
-            position = 1.0
         }
     }
 
     test("Mercadopago cross sell experiments") {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Mercadopago shortcut sheet page view") {
+        "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
+            group_ids = ["payer", "business", "seller", "favorites"]
+            shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+        }
     }
 
     test("New Digital Wallet - Ukraine Lab") {

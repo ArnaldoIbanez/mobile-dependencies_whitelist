@@ -43,6 +43,8 @@ tracks {
         date_created (required: true, type: PropertyType.String)
         lang (required: true, type: PropertyType.String)
         timezone (required: true, type: PropertyType.String)
+        last_seen (required: false, type: PropertyType.String)
+        source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"])
     }
 
     "/permissions"(platform: "/mobile", isAbstract: true){}
@@ -78,6 +80,15 @@ tracks {
     /**
      * DEVICES
      */
+
+    "/devices"(platform: "/", isAbstract: true){}
+    
+    // Device Metadata sent from backend (Notifications ACK) & application startup
+    "/devices/metadata"(platform: "/", type: TrackType.Event) {
+        total_storage(required: true, type: PropertyType.Numeric, description: "Total storage in the device in bytes")
+        free_storage(required: true, type: PropertyType.Numeric, description: "Free storage in the device in bytes")
+        app_storage(required: true, type: PropertyType.Numeric, description: "Application occupied storage in bytes")
+    }
 
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}
 

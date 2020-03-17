@@ -44,6 +44,15 @@ metrics {
 		}
 	}
 
+	"bids.pdp"(description: "/orders/ordercreated from feed (carrito included) from PDP", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals("event_data.is_pdp", true)
+			}
+		}
+	}
+
 	"bids.quick"(description: "/orders/ordercreated from feed (carrito included) with short attribution time (3h)", compute_order: true, ttl: 180) {
 		countsOn {
 			condition {
