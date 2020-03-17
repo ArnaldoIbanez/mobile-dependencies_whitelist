@@ -66,9 +66,9 @@ tracks {
 
     // CrossSelling Componente
     "/loyalty/crossselling"(platform: "/", isAbstract: true) {
-        origin(type: PropertyType.String, required: true)
-        title(type: PropertyType.String, required: false)
-        level(type: PropertyType.Numeric, required: false)
+        origin(type: PropertyType.String, required: true, description: "where is the component")
+        title(type: PropertyType.String, required: false, description: "partner title")
+        level(type: PropertyType.Numeric, required: false, description: "loyalty level of user")
     }
 
     "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event) {
