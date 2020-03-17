@@ -349,14 +349,14 @@ trackTests {
 
     test("cards generic webview") {
         "/cards/acquisition/webview"(platform: "/", type: TrackType.View) {
-            url = "http://url.com",
+            url = "http://url.com"
             flow = "generic"
         }
         "/cards/acquisition/webview/external_url"(platform:"/", type: TrackType.Event) {
             flow = "generic"
         }
         "/cards/acquisition/webview/navigate"(platform:"/", type: TrackType.Event) {
-            url = "http://newurl.com",
+            url = "http://newurl.com"
             flow = "generic"
         }
         "/cards/acquisition/webview/close"(platform:"/", type: TrackType.Event) {
