@@ -716,13 +716,6 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home Tap v3 - Prepaid Banner") {
-        "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="prepaid_banner"
-            component_id="user_prepaid_banner"
-        }
-    }
 
     test("Mercadopago Home Tap v3 - Benefits") {
         "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
@@ -1503,14 +1496,6 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home Tap v3 - Prepaid Banner") {
-        "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="prepaid_banner"
-            component_id="user_prepaid_banner"
-        }
-    }
-
     test("Mercadopago Home Tap v3 - Benefits") {
         "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1591,6 +1576,30 @@ trackTests {
                 position = 1
             }
             "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                section_id = "secondary_actions"
+                content_id = "recharge_sube"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
+            }
+        }
+
+        test("Mercadopago Home Tap v3 - Prepaid Banner") {
+            "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "cross_selling_item1"
+                section_id = "cross_selling"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
+            }
+            "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
                 audience = "all"
                 component_id = "secondary_actions_payers_recharge_sube_mp"
                 section_id = "secondary_actions"
