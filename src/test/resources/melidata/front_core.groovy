@@ -716,14 +716,6 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home Tap v3 - Secondary Actions") {
-        "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="secondary_actions"
-            component_id="user_secondary_actions"
-        }
-    }
-
     test("Mercadopago Home Tap v3 - Cross Selling") {
         "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1519,14 +1511,6 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home Tap v3 - Secondary Actions") {
-        "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="secondary_actions"
-            component_id="user_secondary_actions"
-        }
-    }
-
     test("Mercadopago Home Tap v3 - Cross Selling") {
         "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1582,4 +1566,34 @@ trackTests {
             section = "footer"
         }
     }
+    
+    ["mercadolibre", "mercadopago"].each { business ->
+		defaultBusiness = business
+
+        test("Home Tap v3 - Secondary Actions [${business}]") {
+            "/wallet_home/section/tap/secondary_actions"(platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                section_id = "secondary_actions"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                position = 1
+                logic = "user_journey"
+                flow = "default"
+            }
+            "/wallet_home/section/tap/secondary_actions"(platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                section_id = "secondary_actions"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+            }
+        }
+    }    
 }

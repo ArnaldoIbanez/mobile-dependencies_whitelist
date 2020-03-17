@@ -434,7 +434,18 @@ tracks {
 
     "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {}
 
-    "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event) {}
+    "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
+        section_id(required: false, type: PropertyType.String, description: "Section ID")
+        link(required: false, type: PropertyType.String, description: "deeplink to execute")
+        component_id(required: true, type: PropertyType.String, description: "Component ID")
+        action_id(required: false, type: PropertyType.String, description: "The action executed")
+        audience(required: true, type: PropertyType.String, description: "The audience of the user that saw the content")
+        bu_line(required: true, type: PropertyType.String, description: "The business unit related to the content - Ex: Point")
+        content_id(required: true, type: PropertyType.String, description: "Identifier for the unique content shown")
+        flow(required: true, type: PropertyType.String, description: "The flow related to the content - Ex: cellphone_recharge")
+        logic(required: true, type: PropertyType.String, description: "Origin of the content - Ex: priority_messages")
+        position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
+    }
 
     "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {}
 
