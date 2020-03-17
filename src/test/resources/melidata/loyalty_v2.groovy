@@ -173,10 +173,24 @@ trackTests {
             item_number = 2
         }
 
-        "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+        "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
             origin = "central-descuentos"
             title = "HBO"
             level = 3
+            button_deeplink = "deeplink"
+        }
+    }
+
+        test("Loyalty CrossSellingComponent in mercadopago") {
+        "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            origin = "deals"
+            item_number = 2
+        }
+
+        "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            origin = "central-descuentos"
+            title = "Paramount"
+            level = 1
             button_deeplink = "deeplink"
         }
     }
