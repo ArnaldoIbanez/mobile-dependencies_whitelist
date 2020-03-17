@@ -86,7 +86,7 @@ trackTests {
 				type = "no_modal_found"
 				from = "notifications_center"
 			}
-			"/modals_engine/ignored"(platform: "/mobile", type: TrackType.Event) {
+			"/modals_engine/ignore"(platform: "/mobile", type: TrackType.Event) {
 				id = "modal_id"
 				modal_type = "full"
 				from = "notifications_center"
