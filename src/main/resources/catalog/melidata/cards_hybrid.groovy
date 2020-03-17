@@ -136,9 +136,10 @@ tracks {
 
     "/cards/acquisition/webview"(platform: "/", type: TrackType.View) {
         url (
-            required: false,
+            required: true,
             type: PropertyType.String,
-            description: "Url to should loaded"
+            description: "Url to should loaded",
+            inheritable:false
         )
         flow (
             required: true,
@@ -147,7 +148,13 @@ tracks {
         )
     }
     "/cards/acquisition/webview/external_url"(platform:"/", type: TrackType.Event) { }
-    "/cards/acquisition/webview/navigate"(platform:"/", type: TrackType.Event) { }
+    "/cards/acquisition/webview/navigate"(platform:"/", type: TrackType.Event) {
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url to should loaded"
+        )
+     }
     "/cards/acquisition/webview/close"(platform:"/", type: TrackType.Event) { }
 
     
