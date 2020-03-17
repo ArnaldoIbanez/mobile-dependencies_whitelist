@@ -146,7 +146,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["virtual_only", "user_need_challenge", "tracking_init", "tracking_on_the_way", "tracking_next_to_arrive", "physical_ready_for_unlocking", "debit_active", "physical_inactive"],
+            values: ["virtual_only", "user_need_challenge", "tracking_init", "tracking_on_the_way", "tracking_next_to_arrive", "physical_ready_for_unlocking", "debit_active", "physical_inactive", "hybrid_active", "tracking_not_delivered"],
             description: "Mini card tapped"
           )
     }
@@ -157,7 +157,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["virtual_only", "user_need_challenge", "tracking_init", "tracking_on_the_way", "tracking_next_to_arrive", "physical_ready_for_unlocking", "debit_active", "physical_inactive"],
+            values: ["more_than_one_virtual_active", "virtual_active", "virtual_inactive", "never_had_virtual_card"],
             description: "Flap tapped"
           )
     }
@@ -190,7 +190,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["change_pin"],
+            values: ["blocked_pin"],
             description: "Message button tapped"
           )
     }
