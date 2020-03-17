@@ -18,7 +18,7 @@ tracks {
         bu_line(required: true, type: PropertyType.String, description: "Numeric id of line: Credits | wallet Point | etc")
         flow(required: true, type: PropertyType.String, description: "numeric id of app flow: Cellphone Recharge | Money transfer | Pago con QR | etc")
         modal_type(required: true, type: PropertyType.String, description: "Layout type of the modal", values: ["full", "card"])
-        from(required: false, type: PropertyType.String, description: "from")
+        from(required: false, type: PropertyType.String, description: "Text to identify multiple sources to access the same content.")
     }
 
     "/modals_engine/dismiss"(platform: "/mobile", type: TrackType.Event) {} 
