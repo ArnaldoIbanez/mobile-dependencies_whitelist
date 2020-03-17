@@ -63,4 +63,21 @@ tracks {
     }
 
     "/loyalty/milestone_v2/action"(platform: "/", type: TrackType.Event) {}
+
+    // CrossSelling Componente
+    "/loyalty/crossselling"(platform: "/", isAbstract: true) {
+        origin(type: PropertyType.String, required: true, description: "where is the component")
+        title(type: PropertyType.String, required: false, description: "partner title")
+        level(type: PropertyType.Numeric, required: false, description: "loyalty level of user")
+    }
+
+    "/loyalty/crossselling/carousel"(platform: "/", isAbstract: true) {}
+
+    "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event) {
+        item_number(required: true, description: "position of the card", type: PropertyType.Numeric)
+    }
+
+    "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event) {
+        button_deeplink(required: true, description: "cta action", type: PropertyType.String)
+    }
 }
