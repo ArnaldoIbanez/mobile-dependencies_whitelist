@@ -85,6 +85,11 @@ trackTests {
 				modal_type = "full"
 				type = "no_modal_found"
 			}
+			"/modals_engine/ignored"(platform: "/mobile", type: TrackType.Event) {
+				id = "modal_id"
+				modal_type = "full"
+				from = "notifications_center"
+			}
 		}
 	}
 }
