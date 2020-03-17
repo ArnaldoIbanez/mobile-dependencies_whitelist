@@ -14,6 +14,7 @@ tracks {
     //Abstract Path
     "/cards"(platform: "/", isAbstract: true) { }
     "/cards/hybrid"(platform: "/", isAbstract: true) { }
+    "/cards/acquisition"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
     // --------
@@ -129,6 +130,33 @@ tracks {
             description: "Action tapped"
           )
     }
+
+    // Generic Webview
+    // ------
+
+    "/cards/acquisition/webview"(platform: "/", type: TrackType.View) {
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url to should loaded",
+            inheritable:false
+        )
+        flow (
+            required: true,
+            type: PropertyType.String,
+            description: "flow from where its started"
+        )
+    }
+    "/cards/acquisition/webview/external_url"(platform:"/", type: TrackType.Event) { }
+    "/cards/acquisition/webview/navigate"(platform:"/", type: TrackType.Event) {
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url to should loaded"
+        )
+     }
+    "/cards/acquisition/webview/close"(platform:"/", type: TrackType.Event) { }
+
     
     
     // DASHBOARD
