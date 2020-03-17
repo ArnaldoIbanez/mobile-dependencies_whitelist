@@ -343,7 +343,6 @@ trackTests {
             action = "exit"
         }
     }
-<<<<<<< HEAD
 
     // Generic Webview
     // ------
@@ -366,7 +365,6 @@ trackTests {
     }
 
 }
-=======
     
     // DASHBOARD ML
     // --------
@@ -478,4 +476,3 @@ trackTests {
         }
     }
 }
->>>>>>> ca57c9522d49fa90823976d60ce5212345721f2c
