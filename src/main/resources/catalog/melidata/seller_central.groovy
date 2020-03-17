@@ -84,7 +84,7 @@ tracks {
     def attributeStructure = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true)
         value_id(type: PropertyType.String, required: false)
-        value_name(type: PropertyType.String, required: true)
+        value_name(type: PropertyType.String, required: false)
         variation_id(type: PropertyType.Numeric, required: false)
     }
 
