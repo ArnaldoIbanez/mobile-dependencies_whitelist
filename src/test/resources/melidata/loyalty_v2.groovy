@@ -166,4 +166,19 @@ trackTests {
             is_accomplished = false
         }
     }
+
+     test("Loyalty CrossSellingComponent") {
+        "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            origin = "home"
+            item_number = 2
+        }
+
+        "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            origin = "central-descuentos"
+            title = "HBO"
+            level = 3
+            button_deeplink = "deeplink"
+        }
+    }
+
 }
