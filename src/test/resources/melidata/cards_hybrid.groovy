@@ -173,9 +173,6 @@ trackTests {
     //Flap card: Tracking
     test("cards hybrid dashboard flap card tracking") {
         "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
-            action = "virtual_only"
-        }
-        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
             action = "more_than_one_virtual_active"
         }
         "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
@@ -395,9 +392,6 @@ trackTests {
     
     //Flap card: Tracking
     test("cards hybrid dashboard flap card tracking") {
-        "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
-            action = "virtual_only"
-        }
         "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
             action = "more_than_one_virtual_active"
         }
