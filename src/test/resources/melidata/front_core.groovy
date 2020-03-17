@@ -716,15 +716,6 @@ trackTests {
         }
     }
 
-
-    test("Mercadopago Home Tap v3 - Benefits") {
-        "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="benefits"
-            component_id="user_benefits"
-        }
-    }
-
     test("Mercadopago Home Tap v3 - shortcuts") {
         "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1496,14 +1487,6 @@ trackTests {
         }
     }
 
-    test("Mercadopago Home Tap v3 - Benefits") {
-        "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="benefits"
-            component_id="user_benefits"
-        }
-    }
-
     test("Mercadopago cross sell experiments") {
         "/wallet_home/cross_sell" (platform: "/mobile", type: TrackType.Event) {}
     }
@@ -1562,7 +1545,7 @@ trackTests {
                 flow = "default"
             }
         }
-        test("Mercadopago Home Tap v3 - Cross Selling") {
+        test("Mercadopago Home Tap v3 - Cross Selling [${business}]") {
             "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
                 audience = "all"
                 component_id = "cross_selling_item1"
@@ -1586,7 +1569,7 @@ trackTests {
             }
         }
 
-        test("Mercadopago Home Tap v3 - Prepaid Banner") {
+        test("Mercadopago Home Tap v3 - Prepaid Banner [${business}]") {
             "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
                 audience = "all"
                 component_id = "cross_selling_item1"
@@ -1600,6 +1583,29 @@ trackTests {
                 position = 1
             }
             "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                section_id = "secondary_actions"
+                content_id = "recharge_sube"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
+            }
+        }
+        test("Mercadopago Home Tap v3 - Benefits [${business}]") {
+            "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "cross_selling_item1"
+                section_id = "cross_selling"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
+            }
+            "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
                 audience = "all"
                 component_id = "secondary_actions_payers_recharge_sube_mp"
                 section_id = "secondary_actions"
