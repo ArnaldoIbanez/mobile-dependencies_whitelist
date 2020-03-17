@@ -81,6 +81,13 @@ tracks {
         value_struct(type: PropertyType.Map(valueStructure), required: true)
     }
 
+    def attributeStructure = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true)
+        value_id(type: PropertyType.String, required: false)
+        value_name(type: PropertyType.String, required: true)
+        variation_id(type: PropertyType.Numeric, required: false)
+    }
+
     def originalPromotionStructure = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true)
         seller_id(type: PropertyType.Numeric, required: true)
@@ -778,6 +785,13 @@ tracks {
     "/seller_central/modify/technical_specifications/hidden_attributes/change"(platform: "/", type: TrackType.Event) {
         attribute(required: true, type: PropertyType.String, description: "ID of the attribute")
         value(required: true, type: PropertyType.String, description: "New attribute value")
+    }
+
+    "/seller_central/modify/technical_specifications/completed_attributes"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyGroup
+        domain_id(required: true, type: PropertyType.String)
+        attributes_before_update(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributeStructure)), description: "Completed attributes defore update")
+        attributes_after_update(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributeStructure)), description: "Completed attributes after update")
     }
 
     "/seller_central/modify/detail/technical_specifications"(platform: "/", isAbstract: true) {}

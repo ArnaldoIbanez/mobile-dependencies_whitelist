@@ -426,6 +426,11 @@ tracks {
             type: PropertyType.Numeric,
             required: false,
         )
+        loan_status(
+            description: "The status of the created loan",
+            type: PropertyType.String,
+            required: false,
+        )
     }
 
     //Error

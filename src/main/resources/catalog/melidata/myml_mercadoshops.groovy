@@ -407,5 +407,19 @@ tracks {
 
     "/mercado_shops/marketing/facebook/store/pixel_activation/active"(platform: "/", type: TrackType.Event){}
 
+    "/mercado_shops/marketing/google"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google/smart-shopping"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google/smart-shopping/introduction"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google/smart-shopping/configuration"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google/smart-shopping/product-feed"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google/smart-shopping/procedure"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google/smart-shopping/resume"(platform: "/", type: TrackType.Event){}
+
     "/mercado_shops/marketing/instagram"(platform: "/", type: TrackType.View){}
 }

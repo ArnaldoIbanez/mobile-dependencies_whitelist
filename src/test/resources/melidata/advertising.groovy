@@ -416,4 +416,49 @@ trackTests {
             total_items = 167
         }
     }
+
+    test("Advertising manager SortFilters Modal -> Show") {
+        "/advertising/pads2/manager/sort_filters/modal/show"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "70"
+        }
+    }
+
+    test("Advertising manager SortFilters Modal -> Confirm") {
+        "/advertising/pads2/manager/sort_filters/modal/confirm"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "70"
+            step= 2
+        }
+    }
+    
+    test("Advertising manager SortFilters Modal -> NextStep") {
+        "/advertising/pads2/manager/sort_filters/modal/next_step"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "70"
+            step= 2
+        }
+    }
+
+    test("Advertising manager SortFilters Modal -> PrevStep") {
+        "/advertising/pads2/manager/sort_filters/modal/prev_step"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "70"
+            step= 2
+        }
+    }
+
+    test("Advertising manager SortFilters Modal -> ShowLater") {
+        "/advertising/pads2/manager/sort_filters/modal/show_later"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "70"
+            step= 2
+        }
+    }
+
 }

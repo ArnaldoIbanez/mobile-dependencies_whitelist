@@ -81,6 +81,15 @@ tracks {
      * DEVICES
      */
 
+    "/devices"(platform: "/", isAbstract: true){}
+    
+    // Device Metadata sent from backend (Notifications ACK) & application startup
+    "/devices/metadata"(platform: "/", type: TrackType.Event) {
+        total_storage(required: true, type: PropertyType.Numeric, description: "Total storage in the device in bytes")
+        free_storage(required: true, type: PropertyType.Numeric, description: "Free storage in the device in bytes")
+        app_storage(required: true, type: PropertyType.Numeric, description: "Application occupied storage in bytes")
+    }
+
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}
 
     //Bloqueo de notificaciones (Android > = API 19)

@@ -1,64 +1,66 @@
 {
   "users": [
-    "noel.podesta@mercadolibre.com",
-    "seller_central_sales@mercadolibre.com"
+    "patricio.benitez@mercadolibre.com"
   ],
-  "process_name": "sc_clicks_views",
-  "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE"
   },
+  "process_name": "analytics_over_presto",
+  "cron": "00 09 * * *",
   "extract": {
     "operation": "append",
-    "site": "QA",
     "columns": [
       {
-        "name": "cantidad",
+        "name": "id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "username",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "operation",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "user_agent",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "state",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "source",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "schema",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "table_read",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "text",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "cpu_time",
         "type": "INTEGER"
-      },
-      {
-        "name": "event",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "id_type",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "fragment",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "seller_profile",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "seller_reputation",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "mercado_lider",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "seller_segment",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "user_type",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "site_id",
-        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "seller_central/sales/seller_central_sales_clicks_and_views.sql",
+      "script": "melidata/analytics_over_presto.sql",
       "parameters": [
         {
-          "name": "param01", 
+          "name": "param01",
           "value": "DAY-1",
           "format": "yyyy-MM-dd"
         },

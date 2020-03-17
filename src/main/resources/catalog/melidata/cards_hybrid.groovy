@@ -129,4 +129,80 @@ tracks {
             description: "Action tapped"
           )
     }
+    
+    
+    // DASHBOARD
+    // --------
+     "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
+         dashboard_status (required:true, type: PropertyType.String, description: "Current sections", inheritable:false)
+         minicard_status (required:false, type: PropertyType.String, description: "Mini card status", inheritable:false)
+         flap_status (required:false, type: PropertyType.String, description: "Flap status", inheritable:false)
+         message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
+     }
+    
+    //MiniCard: Tracking
+    "/cards/hybrid/dashboard/mini_card"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["virtual_only", "user_need_challenge", "tracking_init", "tracking_on_the_way", "tracking_next_to_arrive", "physical_ready_for_unlocking", "debit_active", "physical_inactive"],
+            description: "Mini card tapped"
+          )
+    }
+    
+    //Flap: Tracking
+    "/cards/hybrid/dashboard/flap"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/flap/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["virtual_only", "user_need_challenge", "tracking_init", "tracking_on_the_way", "tracking_next_to_arrive", "physical_ready_for_unlocking", "debit_active", "physical_inactive"],
+            description: "Flap tapped"
+          )
+    }
+    
+    //Account Options: Tracking
+    "/cards/hybrid/dashboard/account_options"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/account_options/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in", "account_info_modal"],
+            description: "Account info tapped"
+          )
+    }
+    
+    //Linear buttons: Tracking
+    "/cards/hybrid/dashboard/linear_buttons"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["help", "call", "block"],
+            description: "Linear button tapped"
+          )
+    }
+    
+    //Linear buttons: Tracking
+    "/cards/hybrid/dashboard/message"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/message/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["change_pin"],
+            description: "Message button tapped"
+          )
+    }
+    
+    //Account info: Tracking
+    "/cards/hybrid/dashboard/account_info"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/account_info/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in"],
+            description: "Footer button tapped"
+          )
+    }
 }
