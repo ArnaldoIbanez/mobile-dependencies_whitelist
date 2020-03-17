@@ -1552,7 +1552,7 @@ trackTests {
     }
 
     ["mercadolibre", "mercadopago"].each { business ->
-		defaultBusiness = business
+        defaultBusiness = business
 
         test("Home Tap v3 - Secondary Actions [${business}]") {
             "/wallet_home/section/tap/secondary_actions"(platform: "/mobile", type: TrackType.Event) {
@@ -1571,10 +1571,8 @@ trackTests {
                 audience = "all"
                 component_id = "secondary_actions_payers_recharge_sube_mp"
                 section_id = "secondary_actions"
-                action_id = "default"
                 content_id = "recharge_sube"
                 bu_line = "default"
-                link = "mercadopago://entity/sube"
                 logic = "user_journey"
                 flow = "default"
             }
@@ -1591,6 +1589,15 @@ trackTests {
                 logic = "user_journey"
                 flow = "default"
                 position = 1
+            }
+            "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                section_id = "secondary_actions"
+                content_id = "recharge_sube"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
             }
         }
 
