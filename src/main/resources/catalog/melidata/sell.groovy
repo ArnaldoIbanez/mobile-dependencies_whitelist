@@ -886,16 +886,16 @@ tracks {
     "/sell/item_conditions/instant_pay_listings_free/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/instant_pay_listings_free/confirm"(platform: "/web", type: TrackType.Event) {}
 
-    "/sell/item_conditions/location/default_address"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/location/default_address"(platform: "/web", type: TrackType.View) {}
     "/sell/item_conditions/location/default_address/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_conditions/location/default_address/wrong_suggested"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/location/default_address/wrong_suggestion"(platform: "/web", type: TrackType.Event) {}
 
-    "/sell/item_data/pictures"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/pictures"(platform: "/web", type: TrackType.View) {}
     "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
 
-    "/sell/item_conditions/seller_contact/phone"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/seller_contact/phone"(platform: "/web", type: TrackType.View) {}
     "/sell/item_conditions/seller_contact/phone/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_conditions/seller_contact/whatsapp"(platform: "/web", isAbstract: true) {}
+    "/sell/item_conditions/seller_contact/whatsapp"(platform: "/web", type: TrackType.View) {}
     "/sell/item_conditions/seller_contact/whatsapp/confirm"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
