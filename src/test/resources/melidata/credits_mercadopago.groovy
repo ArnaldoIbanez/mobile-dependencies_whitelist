@@ -693,10 +693,6 @@ trackTests {
          *   Start: Personal Loans Adoption
          ******************************************/
 
-        "/credits/consumer/administrator/summary/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
-            summary_status = "on_time"
-        }
-
         "/credits/consumer/personal"(platform: "/mobile", type: TrackType.View) {
         }
 
