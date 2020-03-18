@@ -34,8 +34,8 @@ WHERE ds >= '@param01'
       or path = '/in_app_updates/inactive/accepted'
       or path = '/in_app_updates/inactive/installed'
       or path = '/in_app_updates/updatable/installed'
-      or path = "/in_app_updates/inactive/update_failed"
-      or path = "/in_app_updates/updatable/update_failed")
+      or path = '/in_app_updates/inactive/update_failed'
+      or path = '/in_app_updates/updatable/update_failed')
   AND (device.platform = '/mobile/android'
       or device.platform = '/mobile/ios')
 GROUP BY substr(ds,1,10),
