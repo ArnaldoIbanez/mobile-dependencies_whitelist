@@ -24,7 +24,7 @@
           "type": "INTEGER"
         },
         {
-          "name": "checkout_total",
+          "name": "click_total",
           "type": "INTEGER"
         }
       ],
@@ -32,12 +32,12 @@
         "script": "search_infrastructure/search_vip_pdp.sql",
         "parameters": [
           {
-            "name": "param01",
+            "name": "param1",
             "value": "DAY-1",
             "format": "yyyy-MM-dd"
           },
           {
-            "name": "param02",
+            "name": "param2",
             "value": "DAY-0",
             "format": "yyyy-MM-dd"
           }

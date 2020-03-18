@@ -66,8 +66,8 @@ LEFT JOIN
     WHERE
       path = '/checkout/congrats'
       AND type = 'view'
-      AND ds >= '@param1'
-      AND ds < '@param2'
+      AND ds >= '@param1 00'
+      AND ds < '@param2 00'
       AND ed.congrats_status = 'APPROVED'
       AND ed.congrats_seq = '1'
   ) AS search
