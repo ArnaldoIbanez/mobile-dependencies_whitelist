@@ -241,6 +241,7 @@ trackTests {
         }
         "/credits/consumer/administrator_v2/dashboard/go_mp"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'empty_state'
+            has_mp = true
         }
         "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'empty_state'

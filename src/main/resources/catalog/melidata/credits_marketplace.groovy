@@ -167,6 +167,16 @@ tracks {
                                         "overdue"
                                     ]
                         )
+        personalLoanAccessShown(
+                required: false,
+                description: "Personal loan access type",
+                type: PropertyType.String,
+                values: [
+                        "empty_state",
+                        "on_time",
+                        "overdue"
+                ]
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
@@ -205,7 +215,9 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {}
-    "/credits/consumer/administrator_v2/dashboard/go_mp"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_mp"(platform: "/mobile", type: TrackType.Event) {
+        has_mp(type: PropertyType.Boolean, required: true)
+    }
     "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
