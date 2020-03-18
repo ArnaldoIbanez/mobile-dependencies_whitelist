@@ -275,6 +275,7 @@ trackTests {
         "/in_app_updates/updatable/update_not_available"(platform: "/mobile"){
             cause = "Google not Recommended"
         }
-        "/in_app_updates/updatable/install"(platform: "/mobile"){}
+        "/in_app_updates/updatable/installed"(platform: "/mobile"){}
+        "/in_app_updates/inactive/installed"(platform: "/mobile"){}
     }
 }
