@@ -6,7 +6,9 @@ SELECT  application.business,
           WHEN path = '/in_app_updates/updatable/accepted' THEN 'accepted'
           WHEN path = '/in_app_updates/inactive/accepted' THEN 'accepted'
           WHEN path = '/in_app_updates/inactive/installed' THEN 'installed'
-          WHEN path = '/in_app_updates/updatable/installed' THEN 'installed'          
+          WHEN path = '/in_app_updates/updatable/installed' THEN 'installed'
+          WHEN path = '/in_app_updates/updatable/update_failed' THEN 'failed'
+          WHEN path = '/in_app_updates/inactive/update_failed' THEN 'failed'          
           ELSE 'rejected'
         END AS Action,
         CASE 
