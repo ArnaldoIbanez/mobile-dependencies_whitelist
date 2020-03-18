@@ -101,11 +101,36 @@ trackTests {
         version = "v2"
         type = "IMMEDIATE"
     }
+    // Installed
+    "/in_app_updates/updatable/installed"(platform: "/mobile"){
+        version = "v2"
+        type = "FLEXIBLE"
+    }
+    "/in_app_updates/updatable/installed"(platform: "/mobile"){
+        version = "v2"
+        type = "IMMEDIATE"
+    }
+    "/in_app_updates/inactive/installed"(platform: "/mobile"){
+        version = "v2"
+        type = "IMMEDIATE"
+    }
+    // Update Failed update_failed
+    "/in_app_updates/updatable/update_failed"(platform: "/mobile"){
+        version = "v2"
+        type = "FLEXIBLE"
+    }
+    "/in_app_updates/updatable/update_failed"(platform: "/mobile"){
+        version = "v2"
+        type = "IMMEDIATE"
+    }
+    "/in_app_updates/inactive/update_failed"(platform: "/mobile"){
+        version = "v2"
+        type = "IMMEDIATE"
+    }
     // Update Unavailable
     "/in_app_updates/updatable/update_not_available"(platform: "/mobile"){
         cause = "Google not Recommended"
-    }
-    "/in_app_updates/updatable/install"(platform: "/mobile"){}
+    } 
     }
 
     defaultBusiness = "mercadopago"
@@ -219,10 +244,35 @@ trackTests {
             version = "v2"
             type = "IMMEDIATE"
         }
+        // installed
+        "/in_app_updates/updatable/installed"(platform: "/mobile"){
+            version = "v2"
+            type = "FLEXIBLE"
+        }
+        "/in_app_updates/updatable/installed"(platform: "/mobile"){
+            version = "v2"
+            type = "IMMEDIATE"
+        }
+        "/in_app_updates/inactive/installed"(platform: "/mobile"){
+            version = "v2"
+            type = "IMMEDIATE"
+        }
+        // Update Failed
+        "/in_app_updates/inactive/update_failed"(platform: "/mobile"){
+            version = "v2"
+            type = "IMMEDIATE"
+        }
+        "/in_app_updates/updatable/update_failed"(platform: "/mobile"){
+            version = "v2"
+            type = "IMMEDIATE"
+        }
+        "/in_app_updates/updatable/update_failed"(platform: "/mobile"){
+            version = "v2"
+            type = "FLEXIBLE"
+        }
         // Update Unavailable
         "/in_app_updates/updatable/update_not_available"(platform: "/mobile"){
             cause = "Google not Recommended"
         }
-        "/in_app_updates/updatable/install"(platform: "/mobile"){}
     }
 }
