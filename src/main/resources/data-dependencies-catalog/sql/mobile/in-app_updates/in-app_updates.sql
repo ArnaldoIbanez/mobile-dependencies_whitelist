@@ -43,6 +43,6 @@ GROUP BY substr(ds,1,10),
          jest(event_data, 'type'),
          path,
          application.site_id,
-         platform
+         device.platform
 ORDER BY Action DESC,
          How_Many DESC
