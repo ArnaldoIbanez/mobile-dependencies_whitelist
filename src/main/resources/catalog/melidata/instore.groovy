@@ -468,32 +468,32 @@ tracks {
     }
 
     //Geofence
-    "/instore_x"(platform: "/mobile", isAbstract: true) {}
-    "/instore_x/geofence"(platform: "/mobile", isAbstract: true) {}    
+    "/instore_payer_x"(platform: "/mobile", isAbstract: true) {}
+    "/instore_payer_x/geofence"(platform: "/mobile", isAbstract: true) {}    
 
-    "/instore_x/geofence/permission_request"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore_payer_x/geofence/permission_request"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/instore_x/geofence/permission_response"(platform: "/mobile", type: TrackType.Event) {
+    "/instore_payer_x/geofence/permission_response"(platform: "/mobile", type: TrackType.Event) {
         type(required: true, PropertyType.String, description: "The type of permission that was granted (allow always, only once, only foreground, etc")
     }
 
-    "/instore_x/geofence/permission_already_granted"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore_payer_x/geofence/permission_already_granted"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/instore_x/geofence/updated"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore_payer_x/geofence/updated"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/instore_x/geofence/enter"(platform: "/mobile", type: TrackType.Event) {
+    "/instore_payer_x/geofence/enter"(platform: "/mobile", type: TrackType.Event) {
         geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
     }
 
-    "/instore_x/geofence/exit"(platform: "/mobile", type: TrackType.Event) {
+    "/instore_payer_x/geofence/exit"(platform: "/mobile", type: TrackType.Event) {
         geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
     }
 
-    "/instore_x/geofence/dwell"(platform: "/mobile", type: TrackType.Event) {
+    "/instore_payer_x/geofence/dwell"(platform: "/mobile", type: TrackType.Event) {
         geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
     }
 
-    "/instore_x/geofence/notify_dwell"(platform: "/mobile", type: TrackType.Event) {
+    "/instore_payer_x/geofence/notify_dwell"(platform: "/mobile", type: TrackType.Event) {
         geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
     }
 

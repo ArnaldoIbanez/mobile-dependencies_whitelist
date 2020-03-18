@@ -1127,29 +1127,29 @@ trackTests {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
         }
 
-          "/instore_x/geofence/permission_request"(platform: "/mobile", type: TrackType.Event) {}
+        "/instore_payer_x/geofence/permission_request"(platform: "/mobile", type: TrackType.Event) {}
 
-        "/instore_x/geofence/permission_response"(platform: "/mobile", type: TrackType.Event) {
+        "/instore_payer_x/geofence/permission_response"(platform: "/mobile", type: TrackType.Event) {
             type = "allow_always"
         }
 
-        "/instore_x/geofence/permission_already_granted"(platform: "/mobile", type: TrackType.Event) {}
+        "/instore_payer_x/geofence/permission_already_granted"(platform: "/mobile", type: TrackType.Event) {}
 
-        "/instore_x/geofence/updated"(platform: "/mobile", type: TrackType.Event) {}
+        "/instore_payer_x/geofence/updated"(platform: "/mobile", type: TrackType.Event) {}
 
-        "/instore_x/geofence/enter"(platform: "/mobile", type: TrackType.Event) {
+        "/instore_payer_x/geofence/enter"(platform: "/mobile", type: TrackType.Event) {
             geofence_id = "123456"
         }
 
-        "/instore_x/geofence/exit"(platform: "/mobile", type: TrackType.Event) {
+        "/instore_payer_x/geofence/exit"(platform: "/mobile", type: TrackType.Event) {
             geofence_id = "123456"
         }
 
-        "/instore_x/geofence/dwell"(platform: "/mobile", type: TrackType.Event) {
+        "/instore_payer_x/geofence/dwell"(platform: "/mobile", type: TrackType.Event) {
             geofence_id = "123456"
         }
 
-        "/instore_x/geofence/notify_dwell"(platform: "/mobile", type: TrackType.Event) {
+        "/instore_payer_x/geofence/notify_dwell"(platform: "/mobile", type: TrackType.Event) {
             geofence_id = "123456"
         }
 
@@ -2518,29 +2518,29 @@ trackTests {
             payment_id = "1879867544"
         }
 
-        "/instore_x/geofence/permission_request"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {}
+        "/instore_payer_x/geofence/permission_request"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {}
 
-        "/instore_x/geofence/permission_response"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+        "/instore_payer_x/geofence/permission_response"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             type = "allow_always"
         }
 
-        "/instore_x/geofence/permission_already_granted"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {}
+        "/instore_payer_x/geofence/permission_already_granted"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {}
 
-        "/instore_x/geofence/updated"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {}
+        "/instore_payer_x/geofence/updated"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {}
 
-        "/instore_x/geofence/enter"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+        "/instore_payer_x/geofence/enter"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             geofence_id = "123456"
         }
 
-        "/instore_x/geofence/exit"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+        "/instore_payer_x/geofence/exit"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             geofence_id = "123456"
         }
 
-        "/instore_x/geofence/dwell"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+        "/instore_payer_x/geofence/dwell"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             geofence_id = "123456"
         }
 
-        "/instore_x/geofence/notify_dwell"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+        "/instore_payer_x/geofence/notify_dwell"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             geofence_id = "123456"
         }
     }
