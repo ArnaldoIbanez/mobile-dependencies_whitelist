@@ -686,4 +686,93 @@ trackTests {
             milestone= 1
         }
     }
+
+    test("Personal Loans Adoption from Mercadopago") {
+
+        /******************************************
+         *   Start: Personal Loans Adoption
+         ******************************************/
+
+        "/credits/consumer/administrator/summary/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
+            summary_status = "on_time"
+        }
+
+        "/credits/consumer/personal"(platform: "/mobile", type: TrackType.View) {
+        }
+
+        "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
+            prepaid = true
+        }
+
+        "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
+            prepaid = false
+            page = 1
+        }
+
+        "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+            page = 4
+        }
+
+        "/credits/consumer/personal/adoption/onboarding/close"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = true
+        }
+
+        "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review"(platform: "/mobile", type: TrackType.View) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/general_terms"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/particular_terms"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/above_confirm"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/review/below_confirm"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = false
+        }
+
+        "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
+            status = 'no_prepaid'
+        }
+
+        "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_enabled'
+        }
+
+        "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_disabled'
+        }
+
+        "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_enabled'
+        }
+
+        "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
+            status = 'prepaid_enabled'
+        }
+
+        "/credits/consumer/personal/adoption/generic_message/go_prepaid"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_disabled'
+        }
+
+
+        /******************************************
+         *   End: Personal Loans Adoption
+         ******************************************/
+    }
 }
