@@ -5,6 +5,8 @@ SELECT  application.business,
           WHEN path = '/in_app_updates/inactive/showed' THEN 'showed'
           WHEN path = '/in_app_updates/updatable/accepted' THEN 'accepted'
           WHEN path = '/in_app_updates/inactive/accepted' THEN 'accepted'
+          WHEN path = '/in_app_updates/inactive/installed' THEN 'installed'
+          WHEN path = '/in_app_updates/updatable/installed' THEN 'installed'          
           ELSE 'rejected'
         END AS Action,
         CASE 
@@ -15,7 +17,7 @@ SELECT  application.business,
         jest(event_data, 'type') AS Flow_type,
         COUNT(1) AS How_Many,
         CASE 
-          WHEN instr(device.platform, 'android') <> 0 THEN 'android'
+          WHEN instr(device.platform, 'android') <> 0 THEN 'android' 
           WHEN instr(device.platform, 'ios') <> 0 THEN 'ios' 
           ELSE 'unexpected'
         END AS platform,
@@ -27,7 +29,11 @@ WHERE ds >= '@param01'
       or path = '/in_app_updates/updatable/postponed'
       or path = '/in_app_updates/updatable/accepted'
       or path = '/in_app_updates/inactive/showed'
-      or path = '/in_app_updates/inactive/accepted')
+      or path = '/in_app_updates/inactive/accepted'
+      or path = '/in_app_updates/inactive/installed'
+      or path = '/in_app_updates/updatable/installed'
+      or path = "/in_app_updates/inactive/update_failed"
+      or path = "/in_app_updates/updatable/update_failed")
   AND (device.platform = '/mobile/android'
       or device.platform = '/mobile/ios')
 GROUP BY substr(ds,1,10),

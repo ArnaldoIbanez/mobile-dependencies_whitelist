@@ -53,8 +53,14 @@ tracks {
         type (required: true, type: PropertyType.String, description: "type of in-app-update FLEXIBLE | IMMEDIATE | LEGACY")
     }    
     "/in_app_updates/updatable/update_not_available"(platform: "/mobile", type: TrackType.Event){
-        cause (required: true, type: PropertyType.String, description: "why wer dont show the dialog of update")
+        cause (required: true, type: PropertyType.String, description: "why we dont show the dialog of update")
     }
-    "/in_app_updates/updatable/installed"(platform: "/mobile", type: TrackType.Event){}
-    "/in_app_updates/inactive/installed"(platform: "/mobile", type: TrackType.Event){}
+    "/in_app_updates/updatable/installed"(platform: "/mobile", type: TrackType.Event){
+        version (required: true, type: PropertyType.String, description: "v1 if bump legacy, v2 if in-app-update implemented")
+        type (required: true, type: PropertyType.String, description: "type of in-app-update FLEXIBLE | IMMEDIATE | LEGACY")
+    }
+    "/in_app_updates/inactive/installed"(platform: "/mobile", type: TrackType.Event){
+        version (required: true, type: PropertyType.String, description: "v1 if bump legacy, v2 if in-app-update implemented")
+        type (required: true, type: PropertyType.String, description: "type of in-app-update FLEXIBLE | IMMEDIATE | LEGACY")
+    }
 }
