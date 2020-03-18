@@ -2002,6 +2002,7 @@ trackTests {
               type: "always_on",
       ]
       promotion_duration = 17
+      origin = "listing"
     }
 
     "/seller_central/promotions/list/update"(platform: "/web", type: TrackType.Event){
