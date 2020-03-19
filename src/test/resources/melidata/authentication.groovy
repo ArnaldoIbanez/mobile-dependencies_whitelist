@@ -1,6 +1,7 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -629,6 +630,34 @@ trackTests {
         }
     }
 
+    ["mercadolibre", "mercadopago"].each { business ->
+
+        defaultBusiness = business
+
+        test("Email validation - Authentication") {
+
+            "/authenticators/email_validation/max_attempts"(platform: "/", type: TrackType.View) {}
+
+            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+                status = "pending_validation"
+            }
+
+            "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
+                status = "success"
+            }
+
+            "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
+                status = "pending_validation"
+                social_option = "Google"
+            }
+
+            "/authenticators/email_validation/social_oauth/submit"(platform: "/", type: TrackType.Event) {
+                status = "success"
+                social_option = "Microsoft"
+                email_sign_in = false
+            }
+        }
+    }
 
     test("Biometrics / Screenlock") {
         "/screenlock/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
