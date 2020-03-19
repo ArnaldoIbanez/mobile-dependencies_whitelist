@@ -653,6 +653,13 @@ tracks {
 
     "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
+        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
+        status(description: "Status of the user prepaid", type: PropertyType.String, required: true, values: ["no_prepaid", "prepaid_enabled", "prepaid_disabled"])
+    }
+
+    "/credits/consumer/personal/adoption/generic_message/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
+
 
     /******************************************
      *   End: Personal Loans Adoption

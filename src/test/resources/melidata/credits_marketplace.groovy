@@ -628,6 +628,14 @@ trackTests {
             status = 'prepaid_enabled'
         }
 
+        "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
+            status = 'prepaid_enabled'
+        }
+
+        "/credits/consumer/personal/adoption/generic_message/go_prepaid"(platform: "/mobile", type: TrackType.Event) {
+            status = 'prepaid_disabled'
+        }
+
 
         /******************************************
          *   End: Personal Loans Adoption
