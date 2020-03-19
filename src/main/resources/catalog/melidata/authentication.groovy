@@ -458,6 +458,26 @@ tracks {
 
     "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {}
 
+    // Email Validation Authenticator
+
+    "/authenticators/email_validation"(platform: "/", isAbstract: true) {
+        status(PropertyType.String, required: false, values:["success", "failure", "pending_validation"], description: "Challenge status by response")
+    }
+
+    "/authenticators/email_validation/max_attempts"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {}
+
+    "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
+        social_option(PropertyType.String, required: true, values: ["Google", "Microsoft"], description: "Social option displayed")
+    }
+
+    "/authenticators/email_validation/social_oauth/submit"(platform: "/", type: TrackType.Event) {
+        email_sign_in(PropertyType.Boolean, required: false, description: "User decide to sign in with email")
+    }
+
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
         opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
