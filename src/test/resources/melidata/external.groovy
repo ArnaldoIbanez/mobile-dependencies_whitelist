@@ -26,8 +26,9 @@ trackTests {
             domain = "www.trocafone.com"
         }
 
-        "/external/merchants/other"(platform: "/") {
+        "/external/merchants"(platform: "/") {
             domain = "www.trocafone.com"
+            view = "asdf"
         }
     }
 
