@@ -238,6 +238,28 @@ tracks {
         step(required: true, description: "Analysis step", values: ["INITIAL", "PARENT", "CHILD"], type: PropertyType.String)
     }
 
+        // Tracks borrado por repetido
+    "/structure_data/product_merge"(platform: "/",isAbstract: true) {}
+
+    "/structure_data/product_merge/parent_analysis"(platform: "/", type:TrackType.View){
+        sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
+        is_retake(required: true, description: "Parent product ID", type: PropertyType.Boolean)
+    }
+
+    "/structure_data/product_merge/children_analysis"(platform: "/", type:TrackType.View){
+        sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
+        is_retake(required: true, description: "Parent product ID", type: PropertyType.Boolean)
+    }
+
+    "/structure_data/product_merge/congrats"(platform: "/", type:TrackType.View){
+        sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
+        is_retake(required: true, description: "Parent product ID", type: PropertyType.Boolean)
+    }
+
+    "/structure_data/product_merge/available_products"(platform: "/", type:TrackType.Event){
+        products_ids(required: true, description: "ProductsID collection", type: PropertyType.String)
+    }
+
     // Catalog search tracks
     "/structure_data/catalog_search"(platform: "/web/desktop",isAbstract: true) {}
 
