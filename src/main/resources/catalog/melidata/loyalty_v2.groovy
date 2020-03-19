@@ -75,6 +75,7 @@ tracks {
 
     "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event) {
         item_number(required: true, description: "position of the card", type: PropertyType.Numeric)
+        item_link(required: false, description: "link of the card", type: PropertyType.String)
     }
 
     "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event) {

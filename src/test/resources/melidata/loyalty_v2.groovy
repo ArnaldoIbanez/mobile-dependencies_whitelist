@@ -187,6 +187,12 @@ trackTests {
             item_number = 2
         }
 
+        "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            origin = "deals"
+            item_number = 0
+            item_link = "meli://loyalty"
+        }
+
         "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
             origin = "central-descuentos"
             title = "Paramount"
