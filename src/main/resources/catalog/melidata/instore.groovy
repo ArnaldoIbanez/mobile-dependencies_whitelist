@@ -467,6 +467,35 @@ tracks {
         session_id(required: false, PropertyType.String, description: "this flow is outside instore, does not have session_id")
     }
 
+    //Geofence
+    "/instore/geofence"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}    
+
+    "/instore/geofence/permission_request"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/geofence/permission_response"(platform: "/mobile", type: TrackType.Event) {
+        type(required: true, PropertyType.String, description: "The type of permission that was granted", values: ["always_on", "only_once", "only_foreground", "never"])
+    }
+
+    "/instore/geofence/permission_already_granted"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/geofence/updated"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/geofence/enter"(platform: "/mobile", type: TrackType.Event) {
+        geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
+    }
+
+    "/instore/geofence/exit"(platform: "/mobile", type: TrackType.Event) {
+        geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
+    }
+
+    "/instore/geofence/dwell"(platform: "/mobile", type: TrackType.Event) {
+        geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
+    }
+
+    "/instore/geofence/notify_dwell"(platform: "/mobile", type: TrackType.Event) {
+        geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
+    }
+
     //Buyer QR
 
     "/instore/buyer_qr"(platform: "/mobile", isAbstract: true) {}
