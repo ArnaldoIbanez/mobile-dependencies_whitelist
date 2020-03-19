@@ -1,7 +1,6 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
-import com.ml.melidata.catalog.PropertyType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -657,84 +656,84 @@ trackTests {
                 email_sign_in = false
             }
         }
-    }
 
-    test("Biometrics / Screenlock") {
-        "/screenlock/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
-            flow_id = "flow"
-            enrollment_status = "enabled"
-            os_status = "biometrics"
+        test("Biometrics / Screenlock") {
+            "/screenlock/validation_start"(platform: "/mobile/android", type: TrackType.Event) {
+                flow_id = "flow"
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+            }
+
+            "/screenlock/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
+                flow_id = "flow"
+                enrollment_status = "disabled"
+                os_status = "biometrics"
+            }
+
+            "/screenlock/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
+                flow_id = "flow"
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                elapsed_time = 50
+                result = "success"
+            }
+
+            "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                flow_id = "flow"
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                elapsed_time = 50
+                result = "error"
+                errors = ["user_cancelled"]
+            }
+
+            "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
+                flow_id = "flow"
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                elapsed_time = 50
+                result = "success"
+            }
         }
 
-        "/screenlock/validation_start"(platform: "/mobile/ios", type: TrackType.Event) {
-            flow_id = "flow"
-            enrollment_status = "disabled"
-            os_status = "biometrics"
-        }
+        test("Screenlock app opening lock feature") {
 
-        "/screenlock/validation_end"(platform: "/mobile/android", type: TrackType.Event) {
-            flow_id = "flow"
-            enrollment_status = "enabled"
-            os_status = "biometrics"
-            elapsed_time = 50
-            result = "success"
-        }
+            "/screenlock/opening_lock"(platform: "/mobile/android", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled"
+                ]
+            }
 
-        "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
-            flow_id = "flow"
-            enrollment_status = "enabled"
-            os_status = "basic_screenlock"
-            elapsed_time = 50
-            result = "error"
-            errors = ["user_cancelled"]
-        }
+            "/screenlock/opening_lock"(platform: "/mobile/ios", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled"
+                ]
+            }
 
-        "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
-            flow_id = "flow"
-            enrollment_status = "enabled"
-            os_status = "basic_screenlock"
-            elapsed_time = 50
-            result = "success"
-        }
-    }
+            "/screenlock/opening_lock/retry"(platform: "/mobile/android", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled"
+                ]
+            }
 
-    test("Screenlock app opening lock feature") {
-        
-        "/screenlock/opening_lock"(platform: "/mobile/android", type: TrackType.View) {
-            enrollment_status = "enabled"
-            os_status = "biometrics"
-            config = [
-                "transaction": "disabled",
-                "opening_lock": "enabled"
-            ]
-        }
+            "/screenlock/opening_lock/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled"
+                ]
+            }
 
-        "/screenlock/opening_lock"(platform: "/mobile/ios", type: TrackType.View) {
-            enrollment_status = "enabled"
-            os_status = "biometrics"
-            config = [
-                "transaction": "disabled",
-                "opening_lock": "enabled"
-            ]
         }
-
-        "/screenlock/opening_lock/retry"(platform: "/mobile/android", type: TrackType.Event) {
-            enrollment_status = "enabled"
-            os_status = "biometrics"
-            config = [
-                "transaction": "disabled",
-                "opening_lock": "enabled"
-            ]
-        }
-
-        "/screenlock/opening_lock/retry"(platform: "/mobile/ios", type: TrackType.Event) {
-            enrollment_status = "enabled"
-            os_status = "biometrics"
-            config = [
-                "transaction": "disabled",
-                "opening_lock": "enabled"
-            ]
-        }
-        
     }
 }
