@@ -28,8 +28,8 @@ FROM (
       FROM default.tracks
       LATERAL VIEW JSON_TUPLE(event_data, 'tracking_id', 'results', 'shown_as_product', 'category_path') ed AS tracking_id, results, shown_as_product, category_path
       WHERE 
-        ds >= '@param1 00'
-        AND ds < '@param2 00'
+        ds >= '@param01 00'
+        AND ds < '@param02 00'
         AND path = '/search'
         AND type = 'view'
         AND NOT is_bot(device.user_agent)
@@ -66,8 +66,8 @@ LEFT JOIN
     WHERE
       path = '/checkout/congrats'
       AND type = 'view'
-      AND ds >= '@param1'
-      AND ds < '@param2'
+      AND ds >= '@param01 00'
+      AND ds < '@param02 00'
       AND ed.congrats_status = 'APPROVED'
       AND ed.congrats_seq = '1'
   ) AS search

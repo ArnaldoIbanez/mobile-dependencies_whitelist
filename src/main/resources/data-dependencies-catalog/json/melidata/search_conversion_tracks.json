@@ -2,7 +2,7 @@
     "users": [
       "search-infrastructure-alerts@mercadolibre.com"
     ],
-    "process_name": "search_coversion_tracks",
+    "process_name": "search_conversion_tracks",
     "cron": "00 08 * * *",
     "partition": {
       "name": "ds",
