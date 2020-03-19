@@ -511,7 +511,7 @@ trackTests {
     }
 
     test("product_merge congrats view should be tracked"){
-        "/structure_data/product_merge/parent_analysis"(platform: "/web/desktop", type: TrackType.View) {
+        "/structure_data/product_merge/congrats"(platform: "/web/desktop", type: TrackType.View) {
             sheet_id = "12334.1"
             is_retake = true
         }
