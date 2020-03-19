@@ -93,6 +93,11 @@ trackTests {
             product_type = 'sales_percentage_loan'
         }
 
+        //Error
+        "/credits/merchant/documents/simulation/conditions"(platform: "/web/desktop") {
+            fixed_term()
+        }
+
         //Congrats
         "/credits/merchant/enrollment/congrats"(platform: "/mobile/android") {
             requested_amount = 10000

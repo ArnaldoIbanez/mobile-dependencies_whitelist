@@ -614,6 +614,11 @@ tracks {
         )
     }
 
+    //Conditions
+    "/credits/merchant/documents/simulation/conditions"(platform: "/", type: TrackType.View) {
+        products_group
+    }
+
     /******************************************
      *       End: Merchants Enrollment
      ******************************************/
