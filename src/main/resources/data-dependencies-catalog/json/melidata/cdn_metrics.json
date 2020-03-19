@@ -13,39 +13,39 @@
         "site": "Desarrollo-IT",
         "columns": [
             {
-                "name": "SiteId",
+                "name": "site_id",
                 "type": "UNICODE_STRING"
             },
             {
-                "name": "CDNProvider",
+                "name": "device_platform",
                 "type": "UNICODE_STRING"
             },
             {
-                "name": "ConnectionType",
+                "name": "cdn_provider",
                 "type": "UNICODE_STRING"
             },
             {
-                "name": "Filename",
+                "name": "connection_type",
                 "type": "UNICODE_STRING"
             },
             {
-                "name": "DevicePlatform",
+                "name": "file_name",
                 "type": "UNICODE_STRING"
             },
             {
-                "name": "CacheStatus",
+                "name": "cache_status",
                 "type": "UNICODE_STRING"
             },
             {
-                "name": "FileSize",
+                "name": "file_size",
                 "type": "DOUBLE"
             },
             {
-                "name": "Duration",
+                "name": "duration",
                 "type": "DOUBLE"
             },
             {
-                "name": "RemoteIP",
+                "name": "remote_ip",
                 "type": "UNICODE_STRING"
             }
         ],
