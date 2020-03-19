@@ -434,7 +434,7 @@ tracks {
 
     "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {}
 
-    "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
+    propertyDefinitions {
         section_id(required: false, type: PropertyType.String, description: "Section ID")
         link(required: false, type: PropertyType.String, description: "deeplink to execute")
         component_id(required: true, type: PropertyType.String, description: "Component ID")
@@ -446,47 +446,26 @@ tracks {
         flow(required: true, type: PropertyType.String, description: "The flow related to the content - Ex: cellphone_recharge")
         logic(required: true, type: PropertyType.String, description: "Origin of the content - Ex: priority_messages")
         position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
+    }
+    propertyGroups {
+        walletHomeMerchEngineFields(
+            section_id, link, component_id, action_id, audience, bu, bu_line, content_id, flow, logic, position
+        )
+    }
+
+    "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
+        walletHomeMerchEngineFields
     }
 
     "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
-        component_id(required: true, type: PropertyType.String, description: "Component ID")
-        audience(required: true, type: PropertyType.String, description: "The audience of the user that saw the content")
-        section_id(required: false, type: PropertyType.String, description: "Section ID")
-        action_id(required: false, type: PropertyType.String, description: "The action executed")
-        content_id(required: true, type: PropertyType.String, description: "Identifier for the unique content shown")
-        bu(required: true, type: PropertyType.String, description: "The business unit: MP or ML")
-        bu_line(required: true, type: PropertyType.String, description: "The business unit related to the content - Ex: Point")
-        link(required: false, type: PropertyType.String, description: "deeplink to execute")
-        position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
-        logic(required: true, type: PropertyType.String, description: "Origin of the content - Ex: priority_messages")
-        flow(required: true, type: PropertyType.String, description: "The flow related to the content - Ex: cellphone_recharge")
+        walletHomeMerchEngineFields
     }
     "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
-        component_id(required: true, type: PropertyType.String, description: "Component ID")
-        audience(required: true, type: PropertyType.String, description: "The audience of the user that saw the content")
-        section_id(required: false, type: PropertyType.String, description: "Section ID")
-        action_id(required: false, type: PropertyType.String, description: "The action executed")
-        content_id(required: true, type: PropertyType.String, description: "Identifier for the unique content shown")
-        bu(required: true, type: PropertyType.String, description: "The business unit: MP or ML")
-        bu_line(required: true, type: PropertyType.String, description: "The business unit related to the content - Ex: Point")
-        link(required: false, type: PropertyType.String, description: "deeplink to execute")
-        position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
-        logic(required: true, type: PropertyType.String, description: "Origin of the content - Ex: priority_messages")
-        flow(required: true, type: PropertyType.String, description: "The flow related to the content - Ex: cellphone_recharge")
+        walletHomeMerchEngineFields
     }
 
     "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
-        component_id(required: true, type: PropertyType.String, description: "Component ID")
-        audience(required: true, type: PropertyType.String, description: "The audience of the user that saw the content")
-        section_id(required: false, type: PropertyType.String, description: "Section ID")
-        action_id(required: false, type: PropertyType.String, description: "The action executed")
-        content_id(required: true, type: PropertyType.String, description: "Identifier for the unique content shown")
-        bu(required: true, type: PropertyType.String, description: "The business unit: MP or ML")
-        bu_line(required: true, type: PropertyType.String, description: "The business unit related to the content - Ex: Point")
-        link(required: false, type: PropertyType.String, description: "deeplink to execute")
-        position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
-        logic(required: true, type: PropertyType.String, description: "Origin of the content - Ex: priority_messages")
-        flow(required: true, type: PropertyType.String, description: "The flow related to the content - Ex: cellphone_recharge")
+        walletHomeMerchEngineFields
     }
 
     "/wallet_home/shortcuts_sheet" (platform: "/mobile", isAbstract: true) {}
