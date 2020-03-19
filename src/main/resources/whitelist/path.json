@@ -18,6 +18,7 @@
     "/register/failure",
     "/asset_management/error",
     "/remedy/error",
-    "/kyc/error"
+    "/kyc/error",
+    "/melidata/ab_split"
   ]
 }
