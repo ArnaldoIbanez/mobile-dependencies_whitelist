@@ -9,6 +9,13 @@ trackTests {
 
     test("Merchant Credits Enrollment Mobile") {
 
+        def fixed_term = {
+            product_type = 'fixed_term'
+            segment = 'online'
+            category = 'regular'
+            offer_type = 'early_offer'
+        }
+
         //Onboarding
         "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
             offer = [
@@ -91,6 +98,12 @@ trackTests {
             max_option = 120030
             option = 30
             product_type = 'sales_percentage_loan'
+        }
+
+        //Conditions
+        "/credits/merchant/documents/simulation/conditions"(platform: "/") {}
+        "/credits/merchant/documents/simulation/conditions"(platform: "/") {
+            fixed_term()
         }
 
         //Congrats
