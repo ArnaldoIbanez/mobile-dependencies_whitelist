@@ -244,19 +244,19 @@ tracks {
     "/structure_data/product_merge/parent_analysis"(platform: "/", type:TrackType.View){
         session_id(required: true, description: "Merge session Id", type: PropertyType.String)
         sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
-        is_retake(required: true, description: "Parent product ID", type: PropertyType.Boolean)
+        is_retake(required: true, description: "Indica si es retoma o no", type: PropertyType.Boolean)
     }
 
     "/structure_data/product_merge/children_analysis"(platform: "/", type:TrackType.View){
         session_id(required: true, description: "Merge session Id", type: PropertyType.String)
         sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
-        is_retake(required: true, description: "Parent product ID", type: PropertyType.Boolean)
+        is_retake(required: true, description: "Indica si es retoma o no", type: PropertyType.Boolean)
     }
 
     "/structure_data/product_merge/congrats"(platform: "/", type:TrackType.View){
         session_id(required: true, description: "Merge session Id", type: PropertyType.String)
         sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
-        is_retake(required: true, description: "Parent product ID", type: PropertyType.Boolean)
+        is_retake(required: true, description: "Indica si es retoma o no", type: PropertyType.Boolean)
     }
 
     "/structure_data/product_merge/available_products"(platform: "/", type:TrackType.Event){
