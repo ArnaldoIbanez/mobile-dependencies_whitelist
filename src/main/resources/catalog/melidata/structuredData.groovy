@@ -242,16 +242,19 @@ tracks {
     "/structure_data/product_merge"(platform: "/",isAbstract: true) {}
 
     "/structure_data/product_merge/parent_analysis"(platform: "/", type:TrackType.View){
+        session_id(required: true, description: "Merge session Id", type: PropertyType.String)
         sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
         is_retake(required: true, description: "Parent product ID", type: PropertyType.Boolean)
     }
 
     "/structure_data/product_merge/children_analysis"(platform: "/", type:TrackType.View){
+        session_id(required: true, description: "Merge session Id", type: PropertyType.String)
         sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
         is_retake(required: true, description: "Parent product ID", type: PropertyType.Boolean)
     }
 
     "/structure_data/product_merge/congrats"(platform: "/", type:TrackType.View){
+        session_id(required: true, description: "Merge session Id", type: PropertyType.String)
         sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
         is_retake(required: true, description: "Parent product ID", type: PropertyType.Boolean)
     }

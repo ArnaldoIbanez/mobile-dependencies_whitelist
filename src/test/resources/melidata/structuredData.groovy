@@ -498,6 +498,7 @@ trackTests {
     // Borrado de productos duplicados
     test("product_merge parent view should be tracked"){
         "/structure_data/product_merge/parent_analysis"(platform: "/web/desktop", type: TrackType.View) {
+            session_id = "12334.1-sdweurw2873423hwrhweh"
             sheet_id = "12334.1"
             is_retake = true
         }
@@ -505,6 +506,7 @@ trackTests {
 
     test("product_merge children view should be tracked"){
         "/structure_data/product_merge/children_analysis"(platform: "/web/desktop", type: TrackType.View) {
+            session_id = "12334.1-sdweurw2873423hwrhweh"
             sheet_id = "12334.1"
             is_retake = true
         }
@@ -512,6 +514,7 @@ trackTests {
 
     test("product_merge congrats view should be tracked"){
         "/structure_data/product_merge/congrats"(platform: "/web/desktop", type: TrackType.View) {
+            session_id = "12334.1-sdweurw2873423hwrhweh"
             sheet_id = "12334.1"
             is_retake = true
         }
