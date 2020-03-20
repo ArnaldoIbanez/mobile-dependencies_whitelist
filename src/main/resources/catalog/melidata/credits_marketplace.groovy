@@ -679,4 +679,48 @@ tracks {
     /******************************************
      *   End: Consumers Experiments
      ******************************************/
+
+    /******************************************
+     *    Start: Consumers Change Due Date FLow
+     ******************************************/
+    "/credits/consumer/duedate_selection"(platform: "/", type: TrackType.View) {
+        site_id(description: "Site of the user", type: PropertyType.String, required: true)
+        available_products(description: "products that user was used", type: PropertyType.ArrayList, required: true)
+        due_date (description: "Positive number for actuall due date",type: PropertyType.Numeric,required: true)
+    }
+
+    "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {   
+        site_id(description: "Site of the user", type: PropertyType.String, required: true)
+        available_products(description: "products that user was used", type: PropertyType.ArrayList, required: true)
+        due_date (description: "Positive number for actuall due date",type: PropertyType.Numeric,required: true)
+    }
+    
+    "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {
+        site_id(description: "Site of the user", type: PropertyType.String, required: true)
+        available_products(description: "products that user was used", type: PropertyType.ArrayList, required: true)
+        due_date (description: "Positive number for actuall due date",type: PropertyType.Numeric,required: true)
+    }
+    
+    "/credits/consumer/duedate_selection/cancel"(platform: "/", type: TrackType.Event) {
+        site_id(description: "Site of the user", type: PropertyType.String, required: true)
+        available_products(description: "products that user was used", type: PropertyType.ArrayList, required: true)
+        due_date (description: "Positive number for actuall due date", type: PropertyType.Numeric, required: true)
+    }
+    
+    "/credits/consumer/duedate_selection/change_day"(platform: "/", type: TrackType.Event) {
+        site_id(description: "Site of the user", type: PropertyType.String, required: true)
+        available_products(description: "products that user was used", type: PropertyType.ArrayList, required: true)
+        due_date(description: "Positive number for actuall due date", type: PropertyType.Numeric, required: true)
+        new_due_date(description: "Positive number for new due date selected by user", type: PropertyType.Numeric, required: true)
+    }
+
+    "/credits/consumer/duedate_selection/apply_change"(platform: "/", type: TrackType.Event) {
+        site_id(description: "Site of the user", type: PropertyType.String, required: true)
+        available_products(description: "products that user was used", type: PropertyType.ArrayList, required: true)
+        due_date (description: "Positive number for actuall due date",type: PropertyType.Numeric,required: true)
+        new_due_date(description: "Positive number for new due date selected by user",type: PropertyType.Numeric,required: true)
+    }
+     /******************************************
+     *    End: Consumers Change Due Date FLow
+     ******************************************/
 }
