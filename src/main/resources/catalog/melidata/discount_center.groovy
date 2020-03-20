@@ -118,4 +118,72 @@ tracks {
     "/discount_center/payers/touchpoint/px_congrats/show" (platform: "/mobile", type: TrackType.Event) {
         tracking_id(required: true, type: PropertyType.String, description: "The id campaign")
     }
+
+    // MARKETPLACE
+
+    def main_slider_item_definition = objectSchemaDefinitions {
+        tracking_id(type: PropertyType.String, required: true, description: "The id of the main slider item we are showing")
+        index(type: PropertyType.Numeric, required: true, description: "The position of the banner")
+    }
+
+    def main_actions_item_definition = objectSchemaDefinitions {
+        tracking_id(type: PropertyType.String, required: true, description: "The id of the main action we are showing")
+        index(type: PropertyType.Numeric, required: true, description: "The position of the main action")
+    }
+
+    def marketplace_main_slider_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(main_slider_item_definition)), description: "Items shown in the carousel")
+    }
+
+    def marketplace_main_action_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(main_actions_item_definition)), description: "Items shown in the carousel")
+    }
+
+    def marketplace_carousel_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the carousel")
+    }
+
+    def marketplace_row_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the carousel")
+    }
+
+    def marketplace_components_definition = objectSchemaDefinitions {
+        main_slider(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_slider_definition)), description: "Main slider components")
+        main_actions(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_action_definition)), description: "Main actions components")
+        carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_carousel_definition)), description: "Carousel components")
+        row(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_row_definition)), description: "Row components")
+    }
+
+    "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
+      session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+    }
+
+    "/discount_center/payers/marketplace/components" (platform: "/mobile", type: TrackType.View) { }
+
+    "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
+      marketplace_id(required: true, type: PropertyType.String, description: "An unique identifier to group the same marketplace")
+      components(required: true, type: PropertyType.Map(marketplace_components_definition), description: "Marketplace components")
+    }
+    
+    "/discount_center/payers/marketplace/components/show" (platform: "/mobile", type: TrackType.Event) {
+      marketplace_id(required: true, type: PropertyType.String, description: "An unique identifier to group the same marketplace")
+      components(required: true, type: PropertyType.Map(marketplace_components_definition), description: "Marketplace components")
+    }
+
+    "/discount_center/payers/marketplace/components/print" (platform: "/mobile", type: TrackType.Event) {
+      marketplace_id(required: true, type: PropertyType.String, description: "An unique identifier to group the same marketplace")
+      components(required: true, type: PropertyType.Map(marketplace_components_definition), description: "Marketplace components")
+    }
 }
