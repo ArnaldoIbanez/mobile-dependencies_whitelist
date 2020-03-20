@@ -940,8 +940,10 @@ tracks {
 
     // Catalog Optin flow for apps
     "/sell/catalog_optin"(platform: "/mobile", isAbstract: true) {
-        session_id(required: true, description: "Session id for a specific user flow", type: PropertyType.String)
+        item_id(required: true, description: "Session id for a specific user flow", type: PropertyType.String)
+        session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
     }
+    "/sell/catalog_optin/init"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/catalog_optin/on_boarding"(platform: "/mobile", type: TrackType.View) {}
     "/sell/catalog_optin/confirmation_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/catalog_optin/variation_selection"(platform: "/mobile", type: TrackType.View) {}

@@ -406,18 +406,53 @@ trackTests {
     }
 
     test("Native Sell Catalog Optin flow steps") {
-        "/sell/catalog_optin/on_boarding"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/catalog_optin/confirmation_landing"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/catalog_optin/variation_selection"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/catalog_optin/product_detail"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/catalog_optin/category_navigation"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/catalog_optin/condition"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/catalog_optin/warranty_type"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/catalog_optin/warranty_time"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/catalog_optin/invoice"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/catalog_optin/congrats"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/catalog_optin/congrats_invalid_product"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/catalog_optin/color_selection_buybox"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/catalog_optin/init"(platform: "/mobile", type: TrackType.Event) { item_id = "MLA12341" }
+        "/sell/catalog_optin/on_boarding"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA12345"
+            session_id = "214464778-list-d5e5a20b2935"
+        }
+        "/sell/catalog_optin/confirmation_landing"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA12341"
+            session_id = "214464778-list-d5e5a20b2935"
+        }
+        "/sell/catalog_optin/variation_selection"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA12341"
+            session_id = "214464778-list-d5e5a20b2935"
+        }
+        "/sell/catalog_optin/product_detail"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA12341"
+            session_id = "214464778-list-d5e5a20b2935"
+        }
+        "/sell/catalog_optin/category_navigation"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA12341"
+            session_id = "214464778-list-d5e5a20b2935" }
+        "/sell/catalog_optin/condition"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA12341"
+            session_id = "214464778-list-d5e5a20b2935"
+        }
+        "/sell/catalog_optin/warranty_type"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA12341"
+            session_id = "214464778-list-d5e5a20b2935"
+        }
+        "/sell/catalog_optin/warranty_time"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA12341"
+            session_id = "214464778-list-d5e5a20b2935" }
+        "/sell/catalog_optin/invoice"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA12341"
+            session_id = "214464778-list-d5e5a20b2935"
+        }
+        "/sell/catalog_optin/congrats"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA12341"
+            session_id = "214464778-list-d5e5a20b2935"
+        }
+        "/sell/catalog_optin/congrats_invalid_product"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA12341"
+            session_id = "214464778-list-d5e5a20b2935"
+        }
+        "/sell/catalog_optin/color_selection_buybox"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA12341"
+            session_id = "214464778-list-d5e5a20b2935"
+        }
     }
 
     test("Custom color name changed - Update"){
