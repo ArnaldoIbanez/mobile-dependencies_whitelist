@@ -233,4 +233,84 @@ tracks {
             description: "Footer button tapped"
           )
     }
+
+    // SETUP VIRTUAL
+    // --------
+
+    //Card
+    "/cards/hybrid/setup/virtual"(platform: "/", type: TrackType.View) {
+        card_id (
+            requeride: true,
+            type: PropertyType.String,
+            description: "Card id"
+        ),
+        initial_status (
+            requeride: true,
+            type: PropertyType.String,
+            values: ["deprecated", "new", "on_creation", "on_delivery", "delivered", "active", "freeze", "blocked", "inactive"],
+            description: "Card initial status"
+        ),
+        has_money (
+            requeride: true,
+            type: PropertyType.Boolean,
+            description: "Indicate whether the user has money"
+        )
+    }
+    "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["reissue", "freeze", "unfreeze", "card-unfreeze", "copy"],
+            description: "The action type tapped"
+        )
+    }
+
+    //Redirect when the user don't have a virtual card
+    "/cards/hybrid/setup/virtual/redirect"(platform:"/", type: TrackType.Event) {}
+
+    //Account options
+    "/cards/hybrid/setup/virtual/account_options/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["account_info_modal", "money_in"],
+            description: "The action type tapped"
+        )
+    }
+
+    //Account Info
+    "/cards/hybrid/setup/virtual/account_info"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/setup/virtual/account_info/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in"],
+            description: "The action type tapped"
+        )
+    }
+
+    // REISSUE VIRTUAL
+    // --------
+
+    "/cards/hybrid/block-card/virtual"(platform: "/", type: TrackType.View) {
+        card_id (
+            requeride: true,
+            type: PropertyType.String,
+            description: "Card id"
+        )
+    }
+    "/cards/hybrid/block-card/virtual/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["primary-button", "secondary-button"],
+            description: "The action type tapped"
+        ),
+        card_id (
+            requeride: true,
+            type: PropertyType.String,
+            description: "Card id"
+        )
+    }
+
 }
