@@ -460,21 +460,22 @@ tracks {
 
     // Email Validation Authenticator
 
-    "/authenticators/email_validation"(platform: "/", isAbstract: true) {
-        status(PropertyType.String, required: false, values:["success", "failure", "pending_validation"], description: "Challenge status by response")
-    }
+    "/authenticators/email_validation"(platform: "/", isAbstract: true) {}
 
     "/authenticators/email_validation/max_attempts"(platform: "/", type: TrackType.View) {}
 
     "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {}
 
-    "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {}
+    "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
+        validation_status(PropertyType.String, required: false, values:["success", "failure"], description: "Challenge status by response")
+    }
 
     "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
         social_option(PropertyType.String, required: true, values: ["Google", "Microsoft"], description: "Social option displayed")
     }
 
     "/authenticators/email_validation/social_oauth/submit"(platform: "/", type: TrackType.Event) {
+        validation_status(PropertyType.String, required: false, values:["success", "failure"], description: "Challenge status by response")
         email_sign_in(PropertyType.Boolean, required: false, description: "User decide to sign in with email")
     }
 
