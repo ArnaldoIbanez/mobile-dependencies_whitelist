@@ -51,7 +51,6 @@ trackTests {
                 type = "neutral"
                 content = ["Diária: ", "Dá direito a realizar até 10 viagens por dia em até 24h, a partir da primeira utilização."]
             }
-            
         }
 
         def point_info = {
@@ -62,6 +61,13 @@ trackTests {
             type = "Comercio"
             schedule = "07:00 A 13:00 HS"
             icon = "SUBE"
+        }
+
+        def button_card = {
+            button_card = {
+                type = "button4"
+                content = ["Ernesto Carrillo", "Código de recarga **6789", "Editar tarjeta"]
+            }
         }
 
 
@@ -228,7 +234,7 @@ trackTests {
         // One device
         "/single_player/prepaid/one_device"(platform: "/mobile", type: TrackType.View) {
             mandatory()
-            card_title = "Juan Pérez"
+            button_card()
             notification_panel()
             available_items()
         }
@@ -260,12 +266,14 @@ trackTests {
         // Multiple devices
         "/single_player/prepaid/multiple_devices"(platform: "/mobile", type: TrackType.View) {
             mandatory()
+            quantity = 3
+            available_items()
         }
 
         "/single_player/prepaid/multiple_devices/selected_device"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
-            item_id = "9"
+            item_1()
         }
         "/single_player/prepaid/multiple_devices/another_device"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -643,7 +651,7 @@ trackTests {
         // One device
         "/single_player/prepaid/one_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
-            card_title = "Juan Pérez"
+            button_card()
             notification_panel()
             available_items() 
         }
@@ -676,12 +684,14 @@ trackTests {
         // Multiple devices
         "/single_player/prepaid/multiple_devices"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
+            quantity = 3
+            available_items()
         }
 
         "/single_player/prepaid/multiple_devices/selected_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
-            item_id = "9"
+            item_2()
         }
         "/single_player/prepaid/multiple_devices/another_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
