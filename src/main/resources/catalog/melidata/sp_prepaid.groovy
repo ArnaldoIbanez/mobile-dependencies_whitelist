@@ -9,9 +9,9 @@ tracks {
     propertyDefinitions {
         flow(required:true, type: PropertyType.String, description: "Name of the current flow")
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
-        item_id(required: true, PropertyType.String, description: "Id of the selected product")
-        type(required: true, PropertyType.String, description: "Type of object")
-        content(required: true, PropertyType.ArrayList, description: "Content of the row")
+        item_id(required: true, PropertyType.String, description: "Id of the item")
+        type(required: true, PropertyType.String, description: "Type of item")
+        content(required: true, PropertyType.ArrayList, description: "Content of the item")
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
         available_items(required: true, type: PropertyType.ArrayList, description: "Available items to select")
         //item_id
@@ -35,9 +35,13 @@ tracks {
 
     def notification_panel_structure = objectSchemaDefinitions {
         type(required: true, PropertyType.String, description: "Type of notification panel")
-        content(required: true, PropertyType.ArrayList, description: "Content of the row")
+        content(required: true, PropertyType.ArrayList, description: "Content of the notification panel")
     }
 
+    def button_card_structure = objectSchemaDefinitions {
+        type(required: true, PropertyType.String, description: "Type of button card")
+        content(required: true, PropertyType.ArrayList, description: "Content of the button card")
+    }
 
     /**
     * Single Player Prepaid Tracks  
@@ -54,6 +58,7 @@ tracks {
     "/single_player/prepaid/start_flow"(platform: "/mobile", type: TrackType.Event) {
         method(required: true, PropertyType.String, description: "Specific way to start single player prepaid flow")
     }
+
 
     // FTU
     "/single_player/prepaid/first_time_use"(platform: "/mobile", type: TrackType.View) {}
@@ -178,7 +183,7 @@ tracks {
 
     // One device
     "/single_player/prepaid/one_device"(platform: "/mobile", type: TrackType.View) {
-        card_title(required: true, PropertyType.String, description: "Notification panel title")
+        button_card(required: true, PropertyType.Map(button_card_structure), description: "Information about the button card")
         notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
         available_items
     }
@@ -208,16 +213,22 @@ tracks {
 
 
     // Multiple devices
-    "/single_player/prepaid/multiple_devices"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/multiple_devices"(platform: "/mobile", type: TrackType.View) {
+        quantity(required: true, PropertyType.Numeric, description: "Quantity of items")
+        available_items
+    }
 
-    "/single_player/prepaid/multiple_devices/selected_device"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/multiple_devices/selected_device"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mandatory
         view_time
-        item_id(required: true, PropertyType.String, description: "Id of the selected device")
+        item_structure
     }
-    "/single_player/prepaid/multiple_devices/another_device"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/multiple_devices/another_device"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mandatory
         view_time
     }
-    "/single_player/prepaid/multiple_devices/back"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/multiple_devices/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mandatory
         view_time
     }
 
