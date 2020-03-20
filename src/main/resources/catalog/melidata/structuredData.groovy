@@ -260,7 +260,7 @@ tracks {
     }
 
     "/structure_data/product_merge/available_products"(platform: "/", type:TrackType.Event){
-        products_ids(required: true, description: "ProductsID collection", type: PropertyType.String)
+        products_ids(required: true, description: "ProductsID collection", type: PropertyType.Numeric)
     }
 
     // Catalog search tracks
