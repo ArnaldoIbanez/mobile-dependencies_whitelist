@@ -614,6 +614,12 @@ tracks {
         )
     }
 
+    //Documents
+    "/credits/merchant/documents"(platform: "/", isAbstract: true) {}
+
+    //Simulation
+    "/credits/merchant/documents/simulation"(platform: "/", isAbstract: true) {}
+
     //Conditions
     "/credits/merchant/documents/simulation/conditions"(platform: "/", type: TrackType.View) {
         products_group

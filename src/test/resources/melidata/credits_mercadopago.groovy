@@ -101,7 +101,6 @@ trackTests {
         }
 
         //Error
-
         "/credits/merchant/documents/simulation/conditions"(platform: "/") {}
         "/credits/merchant/documents/simulation/conditions"(platform: "/") {
             fixed_term()
