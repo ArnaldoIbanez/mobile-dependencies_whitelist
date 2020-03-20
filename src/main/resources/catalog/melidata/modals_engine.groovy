@@ -11,6 +11,16 @@ tracks {
     /**
     * Modals Engine Screen Tracks
     */
+    propertyDefinitions {
+        id(required: true, type: PropertyType.String, description: "modal content ID")
+        modal_type(required: true, type: PropertyType.String, description: "Layout type of the modal", values: ["full", "card"])
+        from(required: false, type: PropertyType.String, description: "Text to identify multiple sources to access the same content.")
+    }
+    propertyGroups {
+        modalsEngineMinimumFields(
+            id, modal_type, from
+        )
+    }
 
     "/modals_engine"(platform: "/mobile", type: TrackType.View) {
         id(required: true, type: PropertyType.String, description: "modal content ID")
@@ -31,14 +41,10 @@ tracks {
         position(required: true, type: PropertyType.String)
     } 
     "/modals_engine/error"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "modal content ID")
-        modal_type(required: true, type: PropertyType.String, description: "Layout type of the modal", values: ["full", "card"])
-        from(required: false, type: PropertyType.String, description: "Text to identify multiple sources to access the same content.")
+        modalsEngineMinimumFields
         type(required: true, type: PropertyType.String, description: "internal error code")
     }
     "/modals_engine/ignore"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "modal content ID")
-        modal_type(required: true, type: PropertyType.String, description: "Layout type of the modal", values: ["full", "card"])
-        from(required: false, type: PropertyType.String, description: "Text to identify multiple sources to access the same content.")
+        modalsEngineMinimumFields
     }
 }
