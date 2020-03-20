@@ -240,18 +240,18 @@ tracks {
     //Card
     "/cards/hybrid/setup/virtual"(platform: "/", type: TrackType.View) {
         card_id (
-            requeride: true,
+            required: true,
             type: PropertyType.String,
             description: "Card id"
-        ),
+        )
         initial_status (
-            requeride: true,
+            required: true,
             type: PropertyType.String,
             values: ["deprecated", "new", "on_creation", "on_delivery", "delivered", "active", "freeze", "blocked", "inactive"],
             description: "Card initial status"
-        ),
+        )
         has_money (
-            requeride: true,
+            required: true,
             type: PropertyType.Boolean,
             description: "Indicate whether the user has money"
         )
@@ -294,7 +294,7 @@ tracks {
 
     "/cards/hybrid/block-card/virtual"(platform: "/", type: TrackType.View) {
         card_id (
-            requeride: true,
+            required: true,
             type: PropertyType.String,
             description: "Card id"
         )
@@ -305,9 +305,9 @@ tracks {
             type: PropertyType.String,
             values: ["primary-button", "secondary-button"],
             description: "The action type tapped"
-        ),
+        )
         card_id (
-            requeride: true,
+            required: true,
             type: PropertyType.String,
             description: "Card id"
         )

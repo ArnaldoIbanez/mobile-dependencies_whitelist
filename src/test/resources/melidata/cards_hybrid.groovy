@@ -251,67 +251,67 @@ trackTests {
     //Card
     test("cards hybrid setup virtual card tracking") {
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef",
-            action = "deprecated",
+            card_id = "12345abcdef"
+            initial_status = "deprecated"
             has_money = "false"
-        },
+        }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef",
-            action = "new",
+            card_id = "12345abcdef"
+            initial_status = "new"
             has_money = "false"
-        },
+        }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef",
-            action = "on_creation",
+            card_id = "12345abcdef"
+            initial_status = "on_creation"
             has_money = "false"
-        },
+        }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef",
-            action = "on_delivery",
+            card_id = "12345abcdef"
+            initial_status = "on_delivery"
             has_money = "false"
-        },
+        }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef",
-            action = "delivered",
+            card_id = "12345abcdef"
+            initial_status = "delivered"
             has_money = "false"
-        },
+        }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef",
-            action = "active",
+            card_id = "12345abcdef"
+            initial_status = "active"
             has_money = "true"
-        },
+        }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef",
-            action = "freeze",
+            card_id = "12345abcdef"
+            initial_status = "freeze"
             has_money = "false"
-        },
+        }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef",
-            action = "blocked",
+            card_id = "12345abcdef"
+            initial_status = "blocked"
             has_money = "false"
-        },
+        }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
-            card_id = "12345abcdef",
-            action = "inactive",
+            card_id = "12345abcdef"
+            initial_status = "inactive"
             has_money = "false"
         }
     }
     test("cards hybrid setup virtual card taps tracking") {
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "reissue"
-        },
+        }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "freeze"
-        },
+        }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "unfreeze"
-        },
+        }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "card-unfreeze"
-        },
+        }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "copy"
-        },
+        }
     }
     
     //Redirect when the user don't have a virtual card
@@ -345,13 +345,13 @@ trackTests {
             card_id = "1234abcd"
         }
         "/cards/hybrid/block-card/virtual/tap"(platform:"/", type: TrackType.Event) {
-            card_id = "1234abcd",
+            card_id = "1234abcd"
             action = "primary-button"
-        },
+        }
         "/cards/hybrid/block-card/virtual/tap"(platform:"/", type: TrackType.Event) {
-            card_id = "1234abcd",
+            card_id = "1234abcd"
             action = "secondary-button"
-        },
+        }
     }
 
 }
