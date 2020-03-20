@@ -172,9 +172,8 @@ tracks {
                 description: "Personal loan access type",
                 type: PropertyType.String,
                 values: [
-                        "empty_state",
-                        "on_time",
-                        "overdue"
+                        "row",
+                        "banner"
                 ]
         )
     }
