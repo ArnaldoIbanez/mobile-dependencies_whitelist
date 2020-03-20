@@ -9,9 +9,9 @@ tracks {
     propertyDefinitions {
         flow(required:true, type: PropertyType.String, description: "Name of the current flow")
         session_id(required: true, type: PropertyType.String, description: "Session id of the user")
-        item_id(required: true, PropertyType.String, description: "Id of the selected product")
-        type(required: true, PropertyType.String, description: "Type of element")
-        content(required: true, PropertyType.ArrayList, description: "Content of the element")
+        item_id(required: true, PropertyType.String, description: "Id of the item")
+        type(required: true, PropertyType.String, description: "Type of item")
+        content(required: true, PropertyType.ArrayList, description: "Content of the item")
         view_time(required: true, PropertyType.Numeric, description: "Time that the user kept in the view until this event")
         available_items(required: true, type: PropertyType.ArrayList, description: "Available items to select")
         //item_id
@@ -35,7 +35,7 @@ tracks {
 
     def notification_panel_structure = objectSchemaDefinitions {
         type(required: true, PropertyType.String, description: "Type of notification panel")
-        content(required: true, PropertyType.ArrayList, description: "Content of the row")
+        content(required: true, PropertyType.ArrayList, description: "Content of the notification panel")
     }
 
     def button_card_structure = objectSchemaDefinitions {
