@@ -200,7 +200,7 @@ tracks {
         available_installments(required: true, type: PropertyType.ArrayList , description: "Array of available installments")
         externalData
     }
-    
+
     "/px_checkout/review/one_tap/disabled_payment_method_detail"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         externalData
     }
@@ -228,7 +228,10 @@ tracks {
     }
     "/px_checkout/result/success"(platform: "/mobile", type: TrackType.View) {}
     "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {}
-    "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {}
+    "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {
+        recoverable(required: true, type: PropertyType.Boolean, description: "Pay is recoverable")
+        remedies(required: true, type: PropertyType.ArrayList, description: "List of remedies")
+    }
     "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {}
 
     // Card association result views
@@ -596,6 +599,12 @@ tracks {
     "/px_checkout/result/error/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
+
+    "/px_checkout/result/error/remedy"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Remedy type", values: ["payment_method_suggestion" , "cvv_request", "kyc_request"])
+        extra_info(required: true, description: "Extra payment method info")
+        externalData
+      }
 
     // Approved business
     "/px_checkout/result/success/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
