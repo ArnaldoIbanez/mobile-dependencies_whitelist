@@ -892,6 +892,14 @@ tracks {
 
     "/sell/item_data/pictures"(platform: "/web", type: TrackType.View) {}
     "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/add_more_intention"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/delete"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/suggestions_modal_show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/upload_errors"(platform: "/web", type: TrackType.Event) {
+        limit_errors(required: true, description: "The quantity of pictures uploaded was exceeded", type: PropertyType.Boolean)
+        format_errors(required: true, description: "How many files didn't match the allowed format", type: PropertyType.Numeric)
+        size_errors(required: true, description: "How many files didn't match the minimum size", type: PropertyType.Numeric)
+    }
 
     "/sell/item_conditions/seller_contact/phone"(platform: "/web", type: TrackType.View) {}
     "/sell/item_conditions/seller_contact/phone/confirm"(platform: "/web", type: TrackType.Event) {}
