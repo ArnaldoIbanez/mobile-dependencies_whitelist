@@ -7,11 +7,10 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1205"
+    initiative = "1206"
 
     propertyDefinitions {
-        vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        vertical(required: true, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         item_id(required: true, type: PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
@@ -22,11 +21,11 @@ tracks {
             inheritable: false,
             description: "bank identifier",
             values: [
-                'caixa',
-                'santander',
-                'banco_do_brasil',
-                'bradesco',
-                'itau',
+                "caixa",
+                "santander",
+                "banco_do_brasil",
+                "bradesco",
+                "itau",
             ]
         )
      }
