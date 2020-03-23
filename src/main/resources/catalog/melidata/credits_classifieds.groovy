@@ -10,7 +10,8 @@ tracks {
     initiative = "1205"
 
     propertyDefinitions {
-        vertical(required: true, type: PropertyType.String, description: "Classifieds vertical")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         item_id(required: true, type: PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
