@@ -175,7 +175,7 @@ tracks {
             inheritable:false
         )
     }
-    "cards/acquisition/congrats/error" (platform: "/", type: TrackType.Event) {
+    "/cards/acquisition/congrats/error" (platform: "/", type: TrackType.Event) {
         status (
             required: true,
             type: PropertyType.String,

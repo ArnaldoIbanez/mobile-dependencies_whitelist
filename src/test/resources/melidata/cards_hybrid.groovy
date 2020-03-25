@@ -256,7 +256,7 @@ trackTests {
             type = "congrats_type"
             url = "mercadopago://home"
         }
-        "cards/acquisition/congrats/error"(platform:"/", type: TrackType.Event) {
+        "/cards/acquisition/congrats/error"(platform:"/", type: TrackType.Event) {
             type = "congrats_type"
             status = "404"
         }
@@ -408,7 +408,7 @@ trackTests {
             type = "congrats_type"
             url = "mercadopago://home"
         }
-        "cards/acquisition/congrats/error"(platform:"/", type: TrackType.Event) {
+        "/cards/acquisition/congrats/error"(platform:"/", type: TrackType.Event) {
             type = "congrats_type"
             status = "404"
         }
