@@ -117,6 +117,7 @@ tracks {
         reputation_level(required: false, type: PropertyType.String,
                 values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
                 description: "Seller's reputation level")
+        available_consumer_credit(required: false, type: PropertyType.Boolean, description: "Indicates if the item has a credit available for the item's seller")
 
         // CLASI FIELDS
         reservation_price(required: false, description: "Price of the reservation")
@@ -907,6 +908,41 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         domain_id(required: false, type: PropertyType.String, description: "Item's domain id")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+    }
+
+    //Classifieds Credits
+
+    "/vip/credits_intention"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+    "/vip/credits_intention/main_action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+
+    "/vip/credits_intention/card"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        seller_id(required: false, type: PropertyType.Numeric, description: "Seller ID")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+    }
+
+    "/vip/credits_intention/main_action/up"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+    }
+
+    "/vip/credits_intention/main_action/down"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        source(required: fasle,  type: PropertyType.String, description: "Source of the referred")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
