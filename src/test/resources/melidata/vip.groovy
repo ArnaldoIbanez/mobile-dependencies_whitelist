@@ -1169,7 +1169,7 @@ trackTests {
             item_id = "MLA792156560"
             category_id = "MLA43718"
             category_path = ["MLA1234","MLA6789"]
-            seller_id = "167086843"
+            seller_id = 167086843
             vertical = "motors"
         }
     }
@@ -1179,7 +1179,7 @@ trackTests {
             item_id = "MLA792156560"
             category_id = "MLA43718"
             category_path = ["MLA1234","MLA6789"]
-            seller_id = "167086843"
+            seller_id = 167086843
             vertical = "motors"
         }
     }
@@ -1189,7 +1189,7 @@ trackTests {
             item_id = "MLA792156560"
             category_id = "MLA43718"
             category_path = ["MLA1234","MLA6789"]
-            seller_id = "167086843"
+            seller_id = 167086843
             vertical = "motors"
         }
     }
