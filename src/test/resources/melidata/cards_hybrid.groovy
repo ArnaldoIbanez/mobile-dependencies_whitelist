@@ -258,7 +258,7 @@ trackTests {
         }
         "cards/acquisition/congrats/error"(platform:"/", type: TrackType.Event) {
             type = "congrats_type"
-            status = 404
+            status = "404"
         }
     }
 
@@ -410,7 +410,7 @@ trackTests {
         }
         "cards/acquisition/congrats/error"(platform:"/", type: TrackType.Event) {
             type = "congrats_type"
-            status = 404
+            status = "404"
         }
     }
 

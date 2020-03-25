@@ -178,7 +178,7 @@ tracks {
     "cards/acquisition/congrats/error" (plataform: "/", type: TrackType.Event) {
         status (
             required: true,
-            type: PropertyType.Numeric,
+            type: PropertyType.String,
             description: "Error Code"
             inheritable:false
         )
