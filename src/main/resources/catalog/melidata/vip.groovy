@@ -916,7 +916,7 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
-        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        seller_id(required: false, type: PropertyType.Numeric, description: "Seller ID")
         source(required: true,  type: PropertyType.String, description: "Source of the referred")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
@@ -927,7 +927,7 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
-        source(required: true,  type: PropertyType.String, description: "Source of the referred")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
@@ -937,7 +937,7 @@ tracks {
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
-        source(required: true,  type: PropertyType.String, description: "Source of the referred")
+        source(required: fasle,  type: PropertyType.String, description: "Source of the referred")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
