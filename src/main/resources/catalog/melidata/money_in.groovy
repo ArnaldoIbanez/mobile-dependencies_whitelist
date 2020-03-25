@@ -105,10 +105,12 @@ tracks {
     "/money_in/clabe/pending/continue"(platform: "/", type: TrackType.Event) {}
 
     // CLABE - Datos
-    "/money_in/clabe"(platform: "/", type: TrackType.View) {}
     "/money_in/clabe/copy"(platform: "/", type: TrackType.Event) {}
     "/money_in/clabe/share"(platform: "/", type: TrackType.Event) {}
     "/money_in/clabe/help"(platform: "/", type: TrackType.Event) {}
 
+    // CLABE - Congrats Error
+    "/money_in/clabe/error"(platform: "/", type: TrackType.View) {}
+    "/money_in/clabe/error/continue"(platform: "/", type: TrackType.Event) {}
 
 }
