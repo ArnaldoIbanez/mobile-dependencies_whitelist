@@ -164,14 +164,14 @@ tracks {
         type (
             required: true,
             type: PropertyType.String,
-            description: "Type of Congrats",
+            description: "Type of Congrats"
         )
     }
     "/cards/acquisition/congrats/tap" (plataform: "/", type: TrackType.Event) {
         url (
             required: true,
             type: PropertyType.String,
-            description: "Url button tapped"
+            description: "Url button tapped",
             inheritable:false
         )
     }
@@ -179,7 +179,7 @@ tracks {
         status (
             required: true,
             type: PropertyType.String,
-            description: "Error Code"
+            description: "Error Code",
             inheritable:false
         )
     }
