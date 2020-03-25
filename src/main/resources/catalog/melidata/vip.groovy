@@ -912,6 +912,11 @@ tracks {
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
 
+    //Classifieds Credits
+
+    "/vip/credits_intention"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+    "/vip/credits_intention/main_action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+
     "/vip/credits_intention/card"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
