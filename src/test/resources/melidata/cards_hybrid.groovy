@@ -253,47 +253,47 @@ trackTests {
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "deprecated"
-            has_money = "false"
+            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "new"
-            has_money = "false"
+            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "on_creation"
-            has_money = "false"
+            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "on_delivery"
-            has_money = "false"
+            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "delivered"
-            has_money = "false"
+            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "active"
-            has_money = "true"
+            has_money = true
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "freeze"
-            has_money = "false"
+            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "blocked"
-            has_money = "false"
+            has_money = false
         }
         "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
             card_id = "12345abcdef"
             initial_status = "inactive"
-            has_money = "false"
+            has_money = false
         }
     }
     test("cards hybrid setup virtual card taps tracking") {
@@ -325,7 +325,7 @@ trackTests {
             action = "account_info_modal"
         }
         "/cards/hybrid/setup/virtual/account_options/tap"(platform:"/", type: TrackType.Event) {
-            action = "modal_in"
+            action = "money_in"
         }
     }
 

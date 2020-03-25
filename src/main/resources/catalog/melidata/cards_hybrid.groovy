@@ -238,22 +238,26 @@ tracks {
     // --------
 
     //Card
+    "/cards/hybrid/setup"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual"(platform: "/", type: TrackType.View) {
         card_id (
             required: true,
             type: PropertyType.String,
-            description: "Card id"
+            description: "Card id",
+            inheritable:false
         )
         initial_status (
             required: true,
             type: PropertyType.String,
             values: ["deprecated", "new", "on_creation", "on_delivery", "delivered", "active", "freeze", "blocked", "inactive"],
-            description: "Card initial status"
+            description: "Card initial status",
+            inheritable:false
         )
         has_money (
             required: true,
             type: PropertyType.Boolean,
-            description: "Indicate whether the user has money"
+            description: "Indicate whether the user has money",
+            inheritable:false
         )
     }
     "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -269,6 +273,7 @@ tracks {
     "/cards/hybrid/setup/virtual/redirect"(platform:"/", type: TrackType.Event) {}
 
     //Account options
+    "/cards/hybrid/setup/virtual/account_options"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/account_options/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -292,6 +297,7 @@ tracks {
     // REISSUE VIRTUAL
     // --------
 
+    "/cards/hybrid/block-card"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/block-card/virtual"(platform: "/", type: TrackType.View) {
         card_id (
             required: true,
@@ -305,11 +311,6 @@ tracks {
             type: PropertyType.String,
             values: ["primary-button", "secondary-button"],
             description: "The action type tapped"
-        )
-        card_id (
-            required: true,
-            type: PropertyType.String,
-            description: "Card id"
         )
     }
 
