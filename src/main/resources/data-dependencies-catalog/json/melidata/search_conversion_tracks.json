@@ -20,11 +20,11 @@
           "type": "UNICODE_STRING"
         },
         {
-          "name": "search_total",
+          "name": "total_search",
           "type": "INTEGER"
         },
         {
-          "name": "checkout_total",
+          "name": "total_checkout",
           "type": "INTEGER"
         }
       ],
@@ -33,6 +33,11 @@
         "parameters": [
           {
             "name": "param01",
+            "value": "DAY-2",
+            "format": "yyyy-MM-dd"
+          },
+          {
+            "name": "param02",
             "value": "DAY-1",
             "format": "yyyy-MM-dd"
           },
