@@ -1164,33 +1164,28 @@ trackTests {
         }
     }
 
-    test("VIP go to credits simulation card event mobile") {
+    //CLassifieds Credits
+
+    test("VIP go to credits simulation card event") {
+        def properties = {
+            item_id = "MLA792156560"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            seller_id = 167086843
+            vertical = "motors"
+        }
+
         "/vip/credits_intention/card"(platform:"/web/mobile", type: TrackType.Event) {
-            item_id = "MLA792156560"
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            seller_id = 167086843
-            vertical = "motors"
+            properties()
         }
-    }
 
-    test("VIP go to credits simulation main action up event mobile") {
         "/vip/credits_intention/main_action/up"(platform:"/web/mobile", type: TrackType.Event) {
-            item_id = "MLA792156560"
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            seller_id = 167086843
-            vertical = "motors"
+            properties()
+        }
+
+        "/vip/credits_intention/main_action/down"(platform:"/web/mobile", type: TrackType.Event) {
+            properties()
         }
     }
 
-    test("VIP go to credits simulation main action down event mobile") {
-        "/vip/credits_intention/main_action/down"(platform:"/web/mobile", type: TrackType.Event) {
-            item_id = "MLA792156560"
-            category_id = "MLA43718"
-            category_path = ["MLA1234","MLA6789"]
-            seller_id = 167086843
-            vertical = "motors"
-        }
-    }
 }
