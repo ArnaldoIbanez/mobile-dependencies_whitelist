@@ -38,8 +38,8 @@ tracks {
      *       Abstract definitions
      ******************************************/
     "/classi_credits"(platform: "/", isAbstract: true) {}
-    "/classi_credits/application_form/"(platform: "/", isAbstract: true) {}
-    "/classi_credits/evaluation/"(platform: "/", isAbstract: true) {}
+    "/classi_credits/application_form"(platform: "/", isAbstract: true) {}
+    "/classi_credits/evaluation"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Classifieds Credits
