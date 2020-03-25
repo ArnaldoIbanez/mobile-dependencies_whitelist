@@ -21,8 +21,8 @@ trackTests {
             source = 'off'
         }
         "/credits/consumer/opensea/integrated_flow/credit_line_status"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
-            source = 'off'
             result = 'approved'
+            source = 'off'
         }
 
         //Events
