@@ -24,6 +24,11 @@ tracks {
         externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, experiments)
     }
 
+    def payment_method = objectSchemaDefinitions {
+      payment_method_type(type: PropertyType.String, required: true)
+      payment_method_id(type: PropertyType.String, required: true)
+    }
+
     // Views:
     "/px_checkout"(platform: "/mobile", isAbstract: true){
         externalData
@@ -602,7 +607,7 @@ tracks {
 
     "/px_checkout/result/error/remedy"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Remedy type", values: ["payment_method_suggestion" , "cvv_request", "kyc_request"])
-        extra_info(required: true, description: "Extra payment method info")
+        extra_info(required: true, PropertyType.Map(payment_method), description: "Extra payment method info")
         externalData
       }
 
