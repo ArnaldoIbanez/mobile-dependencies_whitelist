@@ -101,6 +101,7 @@ catalog {
         include business, "cellphone_recharge.groovy"
         include business, "checkout.groovy"
         include business, "credits_marketplace.groovy"
+        include business, "credits_classifieds.groovy"
         include business, "moderations.groovy"
         include business, "email.groovy"
         include business, "freeData.groovy"
