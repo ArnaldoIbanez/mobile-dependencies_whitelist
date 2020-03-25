@@ -20,8 +20,8 @@ tracks {
         latitude(required: true, PropertyType.String, description: "Latitude of the selected point")
         longitude(required: true, PropertyType.String, description: "Longitude of the selected point")
         description(required: false, PropertyType.String, description: "Description of the point")
-        address_line_1(required: false, PropertyType.String, description: "Adress line 1 of the selected pin")
-        address_line_2(required: false, PropertyType.String, description: "Adress line 2 of the selected pin")
+        address_line_1(required: false, PropertyType.String, description: "Address line 1 of the point")
+        address_line_2(required: false, PropertyType.String, description: "Address line 2 of the point")
         schedule(required: false, PropertyType.String, description: "Type of interest point")
         icon(required: false, PropertyType.String, description: "Icon of the point")
     }
