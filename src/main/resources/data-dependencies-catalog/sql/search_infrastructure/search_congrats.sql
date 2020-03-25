@@ -72,4 +72,4 @@ LEFT JOIN
   AND s.user_id = co.user_id
   AND ARRAY_CONTAINS(s.results, co.item_id)
   AND co.checkout_ts - s.search_ts BETWEEN 0 AND 3600*24
-GROUP BY FROM_UNIXTIME(s.search_ts, 'yyyy-MM-dd'), s.site_id, s.platform;
+GROUP BY FROM_UNIXTIME(s.search_ts, 'yyyy-MM-dd'), s.site_id, s.platform
