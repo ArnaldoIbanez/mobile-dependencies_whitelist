@@ -684,7 +684,6 @@ tracks {
      *    Start: Consumers Change Due Date FLow
      ******************************************/
     "/credits/consumer/duedate_selection"(platform: "/", type: TrackType.View) {
-        site_id(description: "Site of the user", type: PropertyType.String, required: true)
         available_products(description: "products that user was used", type: PropertyType.ArrayList, required: true)
         due_date (description: "Positive number for actuall due date",type: PropertyType.Numeric,required: true)
     }
