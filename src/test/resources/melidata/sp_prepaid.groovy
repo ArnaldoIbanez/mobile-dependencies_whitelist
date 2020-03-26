@@ -56,8 +56,9 @@ trackTests {
         def point_info = {
             latitude = "-28.46956"
             longitude = "-65.77934"
-            adress_line_1 = "SAN MARTIN 533 (SAN FDO DEL VALLE DE CATAMARCA)"
-            adress_line_2 = "Casa de la Cultura"
+            description = "Casa de la Cultura"
+            address_line_1 = "VIRGEN DEL VALLE AV. (N) 661"
+            address_line_2 = "SAN FDO DEL VALLE DE CATAMARCA"
             type = "Comercio"
             schedule = "07:00 A 13:00 HS"
             icon = "SUBE"
