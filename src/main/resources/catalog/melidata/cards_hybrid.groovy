@@ -314,4 +314,29 @@ tracks {
         )
     }
 
+    // SETUP FÍSICA
+    // --------
+    "/cards/hybrid/setup/physical"(platform: "/", type: TrackType.View) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable:false
+        )
+        initial_status (
+            required: true,
+            type: PropertyType.String,
+            values: ["active", "freeze", "pin_blocked"],
+            description: "Card initial status",
+            inheritable:false
+        )
+    }
+    "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["reissue", "freeze", "unfreeze", "card-change_pin", "change_limits"],
+            description: "The action type tapped"
+        )
+    }
 }

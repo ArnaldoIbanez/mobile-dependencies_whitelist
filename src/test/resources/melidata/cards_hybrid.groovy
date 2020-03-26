@@ -354,4 +354,41 @@ trackTests {
         }
     }
 
+    // SETUP FÍSICA
+    // --------
+
+    //Card
+    test("cards hybrid setup physical card tracking") {
+        "/cards/hybrid/setup/physical"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "active"
+        }
+        "/cards/hybrid/setup/physical"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "freeze"
+        }
+        "/cards/hybrid/setup/physical"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "pin_blocked"
+        }
+    }
+
+    test("cards hybrid setup physical card taps tracking") {
+        "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+        }
+        "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
+            action = "freeze"
+        }
+        "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
+            action = "unfreeze"
+        }
+        "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
+            action = "card-change_pin"
+        }
+        "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
+            action = "change_limits"
+        }
+    }
+
 }
