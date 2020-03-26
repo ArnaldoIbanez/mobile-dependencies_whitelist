@@ -21,7 +21,6 @@ FROM   (SELECT Substr(ds, 1, 10)               AS fecha,
         WHERE  ds >= '@param01'
                AND ds < '@param02'
                AND type = 'event'
-               AND application.business = 'mercadopago'
                AND path = '/flow/init'
                AND application.site_id IN ( 'MLA', 'MLB', 'MLC', 'MLM',
                                             'MCO', 'MLU', 'MPE' )
@@ -39,7 +38,6 @@ FROM   (SELECT Substr(ds, 1, 10)               AS fecha,
                   WHERE  ds >= '@param01'
                          AND ds < '@param02'
                          AND type = 'event'
-                         AND application.business = 'mercadopago'
                          AND path = '/flow/end'
                          AND application.site_id IN ( 'MLA', 'MLB', 'MLC', 'MLM',
                                                       'MCO', 'MLU', 'MPE' )
