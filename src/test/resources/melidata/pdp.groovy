@@ -236,6 +236,8 @@ trackTests {
 
             filters = ["installments": "no_interest", "price":"1000-2000"]
 
+            multiple_offer_type="BEST_PRICE"
+
             cart()
             shipping()
             pickup()
