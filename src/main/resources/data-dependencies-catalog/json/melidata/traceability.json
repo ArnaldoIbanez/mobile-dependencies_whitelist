@@ -1,7 +1,7 @@
 {
   "users": [
-    "julio.cardenas@mercadolibre.cl",
-     "bi-analytics@mercadolibre.com"
+    "lucio.carboneti@mercadolibre.com",
+     "mpmobile_core@mercadolibre.com"
   ],
   "process_name": "data_traceability",
   "cron": "00 02 * * *",
