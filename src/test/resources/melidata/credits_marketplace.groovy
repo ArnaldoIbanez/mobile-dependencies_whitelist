@@ -697,26 +697,20 @@ trackTests {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
         }
-        
+
+        "/credits/consumer/duedate_selection/success"(platform: "/", type: TrackType.View) {
+            site_id = "MLA"
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+            new_due_date = 15
+        }
+
         "/credits/consumer/duedate_selection/cancel"(platform: "/", type: TrackType.Event) {
             site_id = "MLA"
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
         }
-    
-        "/credits/consumer/duedate_selection/change_day"(platform: "/", type: TrackType.Event) {
-            site_id = "MLA"
-            due_date = 10
-            available_products = ["consumer_loan", "personal_loan"]
-            new_due_date = 15
-        }
-        
-        "/credits/consumer/duedate_selection/apply_change"(platform: "/", type: TrackType.Event) {
-            site_id = "MLA"
-            due_date = 10
-            available_products = ["consumer_loan", "personal_loan"]
-            new_due_date = 15
-        }
+
 
         /******************************************
         *    End: Consumers Change Due Date FLow
