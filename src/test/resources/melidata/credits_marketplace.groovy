@@ -680,5 +680,39 @@ trackTests {
         /******************************************
          *   End: Consumers  Opensea Integrations
          ******************************************/
+
+        /******************************************
+        *    Start: Consumers Change Due Date FLow
+        ******************************************/
+        "/credits/consumer/duedate_selection"(platform: "/", type: TrackType.View) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+        }
+        
+        "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+        }
+        
+        "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+        }
+
+        "/credits/consumer/duedate_selection/success"(platform: "/", type: TrackType.View) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+            new_due_date = 15
+        }
+
+        "/credits/consumer/duedate_selection/cancel"(platform: "/", type: TrackType.Event) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+        }
+
+
+        /******************************************
+        *    End: Consumers Change Due Date FLow
+        ******************************************/
     }
 }
