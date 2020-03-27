@@ -744,6 +744,11 @@ trackTests {
             group_ids = ["payer", "business", "seller", "favorites"]
             shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
         }
+
+        "/wallet_home/shortcuts_sheet/dismiss" (platform: "/mobile", type: TrackType.Event) {
+            from = "drag"
+            time_spent = 122
+        }
     }
 
     test("New Digital Wallet - Ukraine Lab") {
@@ -1495,6 +1500,11 @@ trackTests {
         "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
             group_ids = ["payer", "business", "seller", "favorites"]
             shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+        }
+
+        "/wallet_home/shortcuts_sheet/dismiss" (platform: "/mobile", type: TrackType.Event) {
+            from = "drag"
+            time_spent = 122
         }
     }
 

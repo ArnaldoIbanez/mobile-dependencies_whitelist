@@ -19,8 +19,9 @@ tracks {
         //content
         latitude(required: true, PropertyType.String, description: "Latitude of the selected point")
         longitude(required: true, PropertyType.String, description: "Longitude of the selected point")
-        adress_line_1(required: false, PropertyType.String, description: "Adress line 1 of the selected pin")
-        adress_line_2(required: false, PropertyType.String, description: "Adress line 2 of the selected pin")
+        description(required: false, PropertyType.String, description: "Description of the point")
+        address_line_1(required: false, PropertyType.String, description: "Address line 1 of the point")
+        address_line_2(required: false, PropertyType.String, description: "Address line 2 of the point")
         schedule(required: false, PropertyType.String, description: "Type of interest point")
         icon(required: false, PropertyType.String, description: "Icon of the point")
     }
@@ -30,7 +31,7 @@ tracks {
         item_structure(item_id, type, content)
         view_time(view_time)
         available_items(available_items)
-        point_structure(latitude, longitude, adress_line_1, adress_line_2, type, schedule, icon)
+        point_structure(latitude, longitude, description, address_line_1, address_line_2, type, schedule, icon)
     }
 
     def notification_panel_structure = objectSchemaDefinitions {
@@ -368,7 +369,7 @@ tracks {
     "/single_player/prepaid/locations/more_information"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/prepaid/locations/undestood_information"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/locations/understood_information"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
     "/single_player/prepaid/locations/selected_point"(platform: "/mobile", type: TrackType.Event) {

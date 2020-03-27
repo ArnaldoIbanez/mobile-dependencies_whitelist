@@ -1924,6 +1924,59 @@ trackTests {
             item_type = "default"
         }
     }
+    test("SYI v4 pictures intention to add more "){
+        "/sell/item_data/pictures/add_more_intention"(platform: "/web/mobile", type: TrackType.Event){
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-list-abc123"
+            seller_reputation = "green"
+            vertical = "motors"
+            item_type = "default"
+        }
+    }
+    test("SYI v4 pictures delete one picture"){
+        "/sell/item_data/pictures/delete"(platform: "/web/mobile", type: TrackType.Event){
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-list-abc123"
+            seller_reputation = "green"
+            vertical = "motors"
+            item_type = "default"
+        }
+    }
+    test("SYI v4 pictures check suggestions to take better picture"){
+        "/sell/item_data/pictures/suggestions_modal_show"(platform: "/web/mobile", type: TrackType.Event){
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-list-abc123"
+            seller_reputation = "green"
+            vertical = "motors"
+            item_type = "default"
+        }
+    }
+    test("SYI v4 pictures confirm"){
+        "/sell/item_data/pictures/upload_errors"(platform: "/web/mobile", type: TrackType.Event){
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-list-abc123"
+            seller_reputation = "green"
+            vertical = "motors"
+            item_type = "default"
+            limit_errors = true
+            format_errors = 1
+            size_errors = 0
+        }
+    }
+
+
     test("SYI v4 phone confirm"){
         "/sell/item_conditions/seller_contact/phone/confirm"(platform: "/web/mobile", type: TrackType.Event){
             category_id = "MLA390784"

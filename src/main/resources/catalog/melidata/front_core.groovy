@@ -474,6 +474,11 @@ tracks {
         shortcut_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of shortcut ids")
     }
 
+    "/wallet_home/shortcuts_sheet/dismiss" (platform: "/mobile", type: TrackType.Event) {
+        from(required: true, type: PropertyType.String, description: "How was the sheet dismiss")
+        time_spent(required: true, type: PropertyType.Numeric, description: "How many milliseconds was the sheet open")
+    }
+
     /************************************/
     //  TRACKS CROSS SELL EXPERIMENTS   //
     /************************************/
