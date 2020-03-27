@@ -369,7 +369,7 @@ tracks {
     "/single_player/prepaid/locations/more_information"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/prepaid/locations/undestood_information"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/prepaid/locations/understood_information"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
     "/single_player/prepaid/locations/selected_point"(platform: "/mobile", type: TrackType.Event) {
