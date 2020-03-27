@@ -102,6 +102,9 @@ tracks {
     //VPP FLOW
 
     "/pdp"(platform: "/") {
+        // Temp fields
+        cac_item(required: false, type: PropertyType.Boolean, 
+                 description: "Indicates whether the product is listed as 'CodoACodo'")
 
         //Product fields
         catalog_product_id(required: true, type: PropertyType.String, description: "Catalog Product ID")
