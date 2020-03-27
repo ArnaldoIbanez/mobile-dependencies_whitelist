@@ -5,6 +5,9 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
 
 tracks {
+
+      defaultBusiness = "mercadolibre"
+
     //Landings Deals - retrocompatibility
     "/deals"(platform: "/", isAbstract: true) {}
 
@@ -14,6 +17,12 @@ tracks {
     }
 
     // Pageviews
+    "/splinter"(platform: "/", isAbstract: true) {}
+    "/splinter/landing"(platform: "/", isAbstract: true) {}
+    "/splinter/landing/all"(platform: "/", isAbstract: true) {}
+    "/splinter/landing/all/vertical"(platform: "/", isAbstract: true) {}
+
+
 
     "/splinter/landing/all/deals"(platform: "/",  type: TrackType.View) {
         deal_print_id(required: false, type: PropertyType.String, description: "Unique deal id hash")
