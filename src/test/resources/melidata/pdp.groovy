@@ -87,6 +87,7 @@ trackTests {
     //PDP FLOW
     test("pdp mandatory tracking") {
         "/pdp"(platform: "/", {
+            cac_item = false
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
             domain_id = "MLA-CELLPHONES"
