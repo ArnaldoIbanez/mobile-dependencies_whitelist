@@ -191,6 +191,7 @@ tracks {
          minicard_status (required:false, type: PropertyType.String, description: "Mini card status", inheritable:false)
          flap_status (required:false, type: PropertyType.String, description: "Flap status", inheritable:false)
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
+         activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
      }
     
     //MiniCard: Tracking

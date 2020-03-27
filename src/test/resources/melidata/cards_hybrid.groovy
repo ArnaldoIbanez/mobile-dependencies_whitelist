@@ -128,11 +128,13 @@ trackTests {
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
             message_status = "warning"
+            activities_status = "activities_with_error"
         }
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = "[minicard, flap, activities, account_options, carousel, linear_buttons, account_info]"
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
+            activities_status = "activities"
         }
     }
     
