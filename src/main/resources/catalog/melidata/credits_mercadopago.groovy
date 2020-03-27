@@ -431,6 +431,11 @@ tracks {
             type: PropertyType.String,
             required: false,
         )
+        loan_created_with_retry(
+                description: "Metric to track user who accept the credit in a second attempt",
+                type: PropertyType.Boolean,
+                required: false,
+        )
     }
 
     //Error
