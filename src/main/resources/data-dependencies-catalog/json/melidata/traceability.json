@@ -47,6 +47,10 @@
       {
         "name": "flow_from",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "business",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
