@@ -1,5 +1,4 @@
-SELECT MP_FLOW_INIT.fecha     AS fecha,
-       MP_FLOW_INIT.usuario   AS usuario,
+SELECT MP_FLOW_INIT.usuario   AS usuario,
        mp_flow_init.flow_init AS FLOW_INIT,
        mp_flow_end.flow_end   AS FLOW_END,
        MP_FLOW_INIT.platform  AS platform,
@@ -7,7 +6,8 @@ SELECT MP_FLOW_INIT.fecha     AS fecha,
        MP_FLOW_INIT.version   AS version,
        MP_FLOW_INIT.flow_name AS flow,
        mp_flow_init.flow_id   AS flow_id,
-       mp_flow_init.flow_from AS flow_from
+       mp_flow_init.flow_from AS flow_from,
+       MP_FLOW_INIT.fecha     AS fecha
 FROM   (SELECT Substr(ds, 1, 10)               AS fecha,
                Count(DISTINCT context.flow_id) AS flow_init,
                context.flow_id                 AS flow_id,
