@@ -471,7 +471,7 @@ trackTests {
             mandatory()
             view_time()
         }
-        "/single_player/prepaid/locations/undestood_information"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/locations/understood_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -890,7 +890,7 @@ trackTests {
             mandatory()
             view_time()
         }
-        "/single_player/prepaid/locations/undestood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/prepaid/locations/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
