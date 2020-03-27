@@ -28,6 +28,7 @@ trackTests {
         }
 
         def optionals = {
+            cac_item = false
             quantity = 3
 
             return_available = false
