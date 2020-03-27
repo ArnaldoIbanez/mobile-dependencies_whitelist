@@ -1,0 +1,61 @@
+{
+  "users": [
+    "sp-buyer@mercadolibre.com"
+  ],
+  "process_name": "promotions_landing_filters_ctr",
+  "cron": "00 06 * * *",
+  "partition": {
+    "name": "track_date",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
+  },
+  "extract": {
+    "operation": "append",
+    "site": "Sales",
+    "columns": [
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "device_platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "filter_origin",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "filter",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "clicks",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "prints",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "ctr",
+        "type": "DOUBLE"
+      }
+    ],
+    "sql": {
+      "script": "promotions/promotions_filters_scut_ctr.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
