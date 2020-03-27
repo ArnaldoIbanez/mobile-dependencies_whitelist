@@ -81,6 +81,7 @@ catalog {
         include business, "coupon.groovy"
         include business, "dynamic_stop_landing.groovy"
         include business, "payers_growth.groovy"
+        include business, "modals_engine.groovy"
         include business, "collaborators.groovy"
         include business, "loyalty_v2.groovy"
         include business, "credits.groovy"
