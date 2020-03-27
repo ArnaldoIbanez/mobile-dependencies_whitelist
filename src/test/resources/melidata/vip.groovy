@@ -1173,6 +1173,12 @@ trackTests {
             category_id = "MLA43718"
             category_path = ["MLA1234","MLA6789"]
             seller_id = 167086843
+            buying_mode = "classified"
+            item_condition = "new"
+            item_seller_type = "AB001"
+            listing_type_id = "gold_special"
+            from_view="vip"
+            item_status = "active"
             vertical = "motors"
         }
 
