@@ -55,7 +55,7 @@ tracks {
         product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
         item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
-        vertical(required: false, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
+        vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         listing_type_id(required: false, description: "Item listing type id")
     }
 
@@ -658,7 +658,7 @@ tracks {
     "/sell/hub"(platform: "/web", type: TrackType.View) {}
     "/sell/hub/select_vertical"(platform: "/web", type: TrackType.Event) {
         sellGroup
-        vertical(required: true, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
@@ -892,6 +892,14 @@ tracks {
 
     "/sell/item_data/pictures"(platform: "/web", type: TrackType.View) {}
     "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/add_more_intention"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/delete"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/suggestions_modal_show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/upload_errors"(platform: "/web", type: TrackType.Event) {
+        limit_errors(required: true, description: "The quantity of pictures uploaded was exceeded", type: PropertyType.Boolean)
+        format_errors(required: true, description: "How many files didn't match the allowed format", type: PropertyType.Numeric)
+        size_errors(required: true, description: "How many files didn't match the minimum size", type: PropertyType.Numeric)
+    }
 
     "/sell/item_conditions/seller_contact/phone"(platform: "/web", type: TrackType.View) {}
     "/sell/item_conditions/seller_contact/phone/confirm"(platform: "/web", type: TrackType.Event) {}

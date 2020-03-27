@@ -393,6 +393,8 @@ tracks {
 
     "/seller_central/bulk/offline/download/warning"(platform: "/", type: TrackType.Event){}
 
+    "/seller_central/bulk/open_tooltip"(platform: "/", type: TrackType.View) {}
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Offline Cbt
     //------------------------------------------------------------------------------------------------------------------------------------------------------

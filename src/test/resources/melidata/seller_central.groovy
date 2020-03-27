@@ -305,6 +305,9 @@ trackTests {
     "/seller_central/bulk/offline/download/error"(platform: "/", type: TrackType.Event) {}
   }
 
+    test("seller central open tooltip view") {
+    "/seller_central/bulk/open_tooltip"(platform: "/", type: TrackType.View) {}
+  }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk Offline Cbt

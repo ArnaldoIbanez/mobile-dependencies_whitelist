@@ -47,7 +47,35 @@ trackTests {
     	"/payers_growth/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {
 			id = "ftu_recarga_discount"
 		}
-    }
+		
+		// Covid19 Marketing Performance landing
+		"/payers_growth/mkt_landing/codoacodo"(platform: "/web"){
+			campaign = 'generic'
+		}
+		"/payers_growth/mkt_landing/codoacodo/sms"(platform: "/web"){
+			campaign = 'generic'
+		} 
+		"/payers_growth/mkt_landing/codoacodo/copy-clipboard"(platform: "/web"){
+			campaign = 'generic'
+			position = "coupon"
+		} 
+		"/payers_growth/mkt_landing/codoacodo/copy-clipboard"(platform: "/web"){
+			campaign = 'generic'
+			position = "steps"
+		} 
+		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/web"){
+			campaign = 'generic'
+			position = "hero"
+		} 
+		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/web"){
+			campaign = 'generic'
+			position = "fixed"
+		} 
+		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/web"){
+			campaign = 'generic'
+			position = "footer"
+		}
+	}
 
     defaultBusiness = "mercadopago"
     
@@ -90,5 +118,33 @@ trackTests {
     	"/payers_growth/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {
 			id = "ftu_recarga_discount"
 		}
-    }
+
+		// Covid19 Marketing Performance landing
+		"/payers_growth/mkt_landing/codoacodo"(platform: "/web"){
+			campaign = 'generic'
+		}
+		"/payers_growth/mkt_landing/codoacodo/sms"(platform: "/web"){
+			campaign = 'generic'
+		} 
+		"/payers_growth/mkt_landing/codoacodo/copy-clipboard"(platform: "/web"){
+			campaign = 'generic'
+			position = "coupon"
+		} 
+		"/payers_growth/mkt_landing/codoacodo/copy-clipboard"(platform: "/web"){
+			campaign = 'generic'
+			position = "steps"
+		} 
+		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/web"){
+			campaign = 'generic'
+			position = "hero"
+		} 
+		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/web"){
+			campaign = 'generic'
+			position = "fixed"
+		} 
+		"/payers_growth/mkt_landing/codoacodo/button"(platform: "/web"){
+			campaign = 'generic'
+			position = "footer"
+		} 
+	}
 }

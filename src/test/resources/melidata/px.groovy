@@ -680,6 +680,8 @@ trackTests {
             preference_amount = 500
             currency_id = "ARS"
             has_split_payment = false
+            recoverable = true
+            remedies = [ "cvv_request" ]
         }
 
         "/px_checkout/generic_error"(platform: "/mobile", type: TrackType.View) {
@@ -1694,6 +1696,22 @@ trackTests {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
+        "/px_checkout/result/error/remedy"(platform: "/mobile", type: TrackType.Event) {
+            type = "cvv_request"
+            extra_info = {
+              payment_method_type = "credit_card"
+              payment_method_id = "master"
+            }
+            flow_detail = {
+              collector_id = 1234
+              brand_name = "YPF"
+              store_id = 1234
+              pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
         // Approved business
         "/px_checkout/result/success/primary_action"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
@@ -1804,6 +1822,22 @@ trackTests {
                 brand_name = "YPF"
                 store_id = 1234
                 pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/result/error/remedy"(platform: "/mobile", type: TrackType.Event) {
+            type = "cvv_request"
+            extra_info = {
+              payment_method_type = "credit_card"
+              payment_method_id = "master"
+            }
+            flow_detail = {
+              collector_id = 1234
+              brand_name = "YPF"
+              store_id = 1234
+              pos_id = 1234
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
@@ -2511,6 +2545,8 @@ trackTests {
             preference_amount = 500
             currency_id = "ARS"
             has_split_payment = false
+            recoverable = true
+            remedies = [ "cvv_request" ]
         }
 
         "/px_checkout/generic_error"(platform: "/mobile", type: TrackType.View) {
@@ -3554,6 +3590,22 @@ trackTests {
                 brand_name = "YPF"
                 store_id = 1234
                 pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/result/error/remedy"(platform: "/mobile", type: TrackType.Event) {
+            type = "cvv_request"
+            extra_info = {
+              payment_method_type = "credit_card"
+              payment_method_id = "master"
+            }
+            flow_detail = {
+              collector_id = 1234
+              brand_name = "YPF"
+              store_id = 1234
+              pos_id = 1234
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
