@@ -61,6 +61,9 @@ tracks {
     //VIP FLOW
 
     "/vip"(platform: "/") {
+        // TEMP FIELDS
+        cac_item(required: false, type: PropertyType.Boolean, 
+                 description: "Indicates whether the item is listed as 'CodoACodo'")
 
         // ITEM FIELDS
         item_id(required: true, type: PropertyType.String, description: "Item ID")
