@@ -84,7 +84,7 @@ tracks {
     def attributeStructure = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true)
         value_id(type: PropertyType.String, required: false)
-        value_name(type: PropertyType.String, required: true)
+        value_name(type: PropertyType.String, required: false)
         variation_id(type: PropertyType.Numeric, required: false)
     }
 
@@ -392,6 +392,8 @@ tracks {
     "/seller_central/bulk/offline/download/error"(platform: "/", type: TrackType.Event){}
 
     "/seller_central/bulk/offline/download/warning"(platform: "/", type: TrackType.Event){}
+
+    "/seller_central/bulk/open_tooltip"(platform: "/", type: TrackType.View) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central BULK Offline Cbt
@@ -1028,12 +1030,14 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM"])
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos"])
     }
 
     "/seller_central/promotions/list/update"(platform: "/web", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM"])
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos"])
     }
 
     "/seller_central/promotions/list/error"(platform: "/web", type: TrackType.Event) {
@@ -1041,6 +1045,7 @@ tracks {
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
         error(required: false, type: PropertyType.String, description: "Error saving the promotion")
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos"])
     }
 
     "/seller_central/promotions/list/actions"(platform: "/web", type: TrackType.Event) {

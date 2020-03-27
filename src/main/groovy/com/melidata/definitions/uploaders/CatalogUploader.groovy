@@ -47,7 +47,7 @@ class CatalogUploader {
         catalog.addFile(catalogFile)
         println("Catalog loaded")
         println("Making json")
-        def json = new CatalogJsonOutput().toJson(catalog)
+        String json = new CatalogJsonOutput().toJson(catalog)
         println("JSON ready")
         println("Getting last catalog version")
         Integer lastVersion = s3Controller.getLastVersion(catalogHandler.LAST_VERSION_OBJECT)
@@ -55,13 +55,10 @@ class CatalogUploader {
         println("New version: ${lastVersion}")
         println("Uploading ${lastVersion}.dsl")
         s3Controller.saveCatalogVersion(catalog,lastVersion.toString(),lastVersion)
-        println("Uploading ${lastVersion}.json")
-        s3Controller.saveCatalogVersion(json,lastVersion.toString(),lastVersion)
-
 
         println("Uploading last.dsl")
         s3Controller.saveCatalogVersion(catalog,catalogHandler.LAST_VERSION_FILE_NAME,lastVersion)
-        println("Uploading last.dsl")
+        println("Uploading last.json")
         s3Controller.saveCatalogVersion(json,catalogHandler.LAST_VERSION_FILE_NAME,lastVersion)
         println("Setting last version")
         s3Controller.setLastServersion(catalogHandler.LAST_VERSION_OBJECT, lastVersion)

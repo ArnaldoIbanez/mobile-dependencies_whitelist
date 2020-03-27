@@ -305,6 +305,9 @@ trackTests {
     "/seller_central/bulk/offline/download/error"(platform: "/", type: TrackType.Event) {}
   }
 
+    test("seller central open tooltip view") {
+    "/seller_central/bulk/open_tooltip"(platform: "/", type: TrackType.View) {}
+  }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk Offline Cbt
@@ -637,7 +640,7 @@ trackTests {
     }
   }
 
-  test("seller central modify technical_specifications completed attributes without value_id"){
+  test("seller central modify technical_specifications completed attributes without value_id and value_name"){
     "/seller_central/modify/technical_specifications/completed_attributes"(platform: "/", type: TrackType.Event){
       item_type = "default"
       item_id = "MLM749509590"
@@ -647,7 +650,7 @@ trackTests {
         [id: "BRAND", value_id: null, value_name: "Samsung"]
       ]
       attributes_after_update = [
-        [id: "BRAND", value_id: null, value_name: "Samsung"], 
+        [id: "BRAND", value_id: null, value_name: null], 
         [id: "MODEL", value_id: "32902", value_name: "Galaxy"],
         [id: "COLOR", value_id: "32902", value_name: "Galaxy", variation_id: 23437248239]
       ]
@@ -2002,6 +2005,7 @@ trackTests {
               type: "always_on",
       ]
       promotion_duration = 17
+      origin = "listing"
     }
 
     "/seller_central/promotions/list/update"(platform: "/web", type: TrackType.Event){

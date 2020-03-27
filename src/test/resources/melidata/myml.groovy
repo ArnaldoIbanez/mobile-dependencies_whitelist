@@ -312,6 +312,9 @@ trackTests {
         }
         "/myml/invoices/order/devolution"(platform: "/") {}
         "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/order/devolution/success"(platform: "/", type: TrackType.Event) {
+            devolution_type = "total"
+        }
     }
 
     test("Backoffice pages") {

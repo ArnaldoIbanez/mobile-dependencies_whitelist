@@ -14,6 +14,7 @@ tracks {
     //Abstract Path
     "/cards"(platform: "/", isAbstract: true) { }
     "/cards/hybrid"(platform: "/", isAbstract: true) { }
+    "/cards/acquisition"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
     // --------
@@ -129,6 +130,33 @@ tracks {
             description: "Action tapped"
           )
     }
+
+    // Generic Webview
+    // ------
+
+    "/cards/acquisition/webview"(platform: "/", type: TrackType.View) {
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url to should loaded",
+            inheritable:false
+        )
+        flow (
+            required: true,
+            type: PropertyType.String,
+            description: "flow from where its started"
+        )
+    }
+    "/cards/acquisition/webview/external_url"(platform:"/", type: TrackType.Event) { }
+    "/cards/acquisition/webview/navigate"(platform:"/", type: TrackType.Event) {
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url to should loaded"
+        )
+     }
+    "/cards/acquisition/webview/close"(platform:"/", type: TrackType.Event) { }
+
     
     
     // DASHBOARD
@@ -146,7 +174,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["virtual_only", "user_need_challenge", "tracking_init", "tracking_on_the_way", "tracking_next_to_arrive", "physical_ready_for_unlocking", "debit_active", "physical_inactive"],
+            values: ["virtual_only", "user_need_challenge", "tracking_init", "tracking_on_the_way", "tracking_next_to_arrive", "physical_ready_for_unlocking", "debit_active", "physical_inactive", "hybrid_active", "tracking_not_delivered"],
             description: "Mini card tapped"
           )
     }
@@ -157,7 +185,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["virtual_only", "user_need_challenge", "tracking_init", "tracking_on_the_way", "tracking_next_to_arrive", "physical_ready_for_unlocking", "debit_active", "physical_inactive"],
+            values: ["more_than_one_virtual_active", "virtual_active", "virtual_inactive", "never_had_virtual_card"],
             description: "Flap tapped"
           )
     }
@@ -190,13 +218,13 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["change_pin"],
+            values: ["blocked_pin"],
             description: "Message button tapped"
           )
     }
     
     //Account info: Tracking
-    "/cards/hybrid/dashboard/account_info"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/account_info"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/dashboard/account_info/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -204,5 +232,111 @@ tracks {
             values: ["money_in"],
             description: "Footer button tapped"
           )
+    }
+
+    // SETUP VIRTUAL
+    // --------
+
+    //Card
+    "/cards/hybrid/setup"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/setup/virtual"(platform: "/", type: TrackType.View) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable:false
+        )
+        initial_status (
+            required: true,
+            type: PropertyType.String,
+            values: ["deprecated", "new", "on_creation", "on_delivery", "delivered", "active", "freeze", "blocked", "inactive"],
+            description: "Card initial status",
+            inheritable:false
+        )
+        has_money (
+            required: true,
+            type: PropertyType.Boolean,
+            description: "Indicate whether the user has money",
+            inheritable:false
+        )
+    }
+    "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["reissue", "freeze", "unfreeze", "card-unfreeze", "copy"],
+            description: "The action type tapped"
+        )
+    }
+
+    //Redirect when the user don't have a virtual card
+    "/cards/hybrid/setup/virtual/redirect"(platform:"/", type: TrackType.Event) {}
+
+    //Account options
+    "/cards/hybrid/setup/virtual/account_options"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/setup/virtual/account_options/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["account_info_modal", "money_in"],
+            description: "The action type tapped"
+        )
+    }
+
+    //Account Info
+    "/cards/hybrid/setup/virtual/account_info"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/setup/virtual/account_info/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in"],
+            description: "The action type tapped"
+        )
+    }
+
+    // REISSUE VIRTUAL
+    // --------
+
+    "/cards/hybrid/block-card"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/block-card/virtual"(platform: "/", type: TrackType.View) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id"
+        )
+    }
+    "/cards/hybrid/block-card/virtual/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["primary-button", "secondary-button"],
+            description: "The action type tapped"
+        )
+    }
+
+    // SETUP FÍSICA
+    // --------
+    "/cards/hybrid/setup/physical"(platform: "/", type: TrackType.View) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable:false
+        )
+        initial_status (
+            required: true,
+            type: PropertyType.String,
+            values: ["active", "freeze", "pin_blocked"],
+            description: "Card initial status",
+            inheritable:false
+        )
+    }
+    "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["reissue", "freeze", "unfreeze", "card-change_pin", "change_limits"],
+            description: "The action type tapped"
+        )
     }
 }

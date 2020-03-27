@@ -238,6 +238,31 @@ tracks {
         step(required: true, description: "Analysis step", values: ["INITIAL", "PARENT", "CHILD"], type: PropertyType.String)
     }
 
+        // Tracks borrado por repetido
+    "/structure_data/product_merge"(platform: "/",isAbstract: true) {}
+
+    "/structure_data/product_merge/parent_analysis"(platform: "/", type:TrackType.View){
+        session_id(required: true, description: "Merge session Id", type: PropertyType.String)
+        sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
+        is_retake(required: true, description: "Indica si es retoma o no", type: PropertyType.Boolean)
+    }
+
+    "/structure_data/product_merge/children_analysis"(platform: "/", type:TrackType.View){
+        session_id(required: true, description: "Merge session Id", type: PropertyType.String)
+        sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
+        is_retake(required: true, description: "Indica si es retoma o no", type: PropertyType.Boolean)
+    }
+
+    "/structure_data/product_merge/congrats"(platform: "/", type:TrackType.View){
+        session_id(required: true, description: "Merge session Id", type: PropertyType.String)
+        sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
+        is_retake(required: true, description: "Indica si es retoma o no", type: PropertyType.Boolean)
+    }
+
+    "/structure_data/product_merge/available_products"(platform: "/", type:TrackType.Event){
+        products_ids(required: true, description: "ProductsID collection", type: PropertyType.ArrayList(PropertyType.Numeric))
+    }
+
     // Catalog search tracks
     "/structure_data/catalog_search"(platform: "/web/desktop",isAbstract: true) {}
 

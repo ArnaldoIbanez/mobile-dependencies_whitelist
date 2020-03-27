@@ -82,7 +82,7 @@ tracks {
       showed_payment_methods(required: false, type: PropertyType.String, description: 'origin of the payment method')
       refund_account_money(required: true, type: PropertyType.Boolean, description: 'refund money in the buyers account')
       cart_order(required: true, type: PropertyType.Boolean, description: 'order created by cart')
-      payment_refund_at(required: true, type: PropertyType.String, description: 'when will the buyer be refunded', values:['shipped', 'delivered'])
+      payment_refund_at(required: true, type: PropertyType.String, description: 'when will the buyer be refunded', values:['shipped', 'delivered', 'unknown'])
     }
 
     "/return/congrats/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {

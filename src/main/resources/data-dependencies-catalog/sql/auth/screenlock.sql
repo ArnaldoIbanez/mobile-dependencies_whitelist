@@ -1,8 +1,8 @@
 select
   device.platform as device_platform,
-  application.site_id as site_id,
+  site as site_id,
   application.version as app_version,
-  application.business as business,
+  bu as business,
   flow_id,
   os_status,
   count(distinct (
@@ -107,6 +107,8 @@ FROM ( SELECT
        usr,
        path,
        application,
+       site,
+       bu,
        cast(split(application.version, '\\.')[0] as integer) as major,
        cast(split(application.version, '\\.')[1] as integer) as minor,
        cast(split(application.version, '\\.')[2] as integer) as patch,
@@ -116,7 +118,7 @@ FROM ( SELECT
        get_json_object(event_data, '$.os_status') as os_status,
        get_json_object(event_data, '$.elapsed_time') as elapsed_time,
        get_json_object(event_data, '$.action') as toggleaction
-     from tracks
+     from melidata.tracks_mp
      where 1 = 1
        and ds >= '@param01'
        and ds < '@param02'
@@ -127,16 +129,16 @@ FROM ( SELECT
          '/screenlock/validation_end',
          '/screenlock/validation_start',
          '/security_settings/screenlock/toggle')
-       and application.business = 'mercadopago'
-       and application.site_id in ('MLA','MLM','MLB')
+       and bu = 'mercadopago'
+       and site in('MLA','MLM','MLB')
    ) t1
 where major >= '2'
 and minor >= '96'
 group by
   device.platform,
-  application.site_id,
+  site,
   application.version,
-  application.business,
+  bu,
   flow_id,
   os_status,
   substr(ds, 1, 10)

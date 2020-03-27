@@ -1,9 +1,9 @@
 {
     "users": [
-      "mobile-arquitectura@mercadolibre.com"
+      "search-infrastructure-alerts@mercadolibre.com"
     ],
-    "process_name": "in-app_updates_conversion",
-    "cron": "00 01 * * *",
+    "process_name": "search_clicks_tracks",
+    "cron": "00 08 * * *",
     "partition": {
       "name": "ds",
       "type": "DATE"
@@ -12,36 +12,24 @@
       "operation": "append",
       "columns": [
         {
-          "name": "business",
+          "name": "site_id",
           "type": "UNICODE_STRING"
-        },
-        {
-          "name": "site",
-          "type": "UNICODE_STRING"
-        },
-        {
-          "name": "Action",
-          "type": "UNICODE_STRING"
-        },
-        {
-          "name": "update_type",
-          "type": "UNICODE_STRING"
-        },
-        {
-          "name": "Flow_Type",
-          "type": "UNICODE_STRING"
-        },
-        {
-          "name": "How_Many",
-          "type": "INTEGER"
         },
         {
           "name": "platform",
           "type": "UNICODE_STRING"
+        },
+        {
+          "name": "search_total",
+          "type": "INTEGER"
+        },
+        {
+          "name": "click_total",
+          "type": "INTEGER"
         }
       ],
       "sql": {
-        "script": "mobile/in-app_updates/in-app_updates.sql",
+        "script": "search_infrastructure/search_vip_pdp.sql",
         "parameters": [
           {
             "name": "param01",

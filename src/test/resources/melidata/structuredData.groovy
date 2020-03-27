@@ -495,6 +495,37 @@ trackTests {
         }
     }
 
+    // Borrado de productos duplicados
+    test("product_merge parent view should be tracked"){
+        "/structure_data/product_merge/parent_analysis"(platform: "/web/desktop", type: TrackType.View) {
+            session_id = "12334.1-sdweurw2873423hwrhweh"
+            sheet_id = "12334.1"
+            is_retake = true
+        }
+    }
+
+    test("product_merge children view should be tracked"){
+        "/structure_data/product_merge/children_analysis"(platform: "/web/desktop", type: TrackType.View) {
+            session_id = "12334.1-sdweurw2873423hwrhweh"
+            sheet_id = "12334.1"
+            is_retake = true
+        }
+    }
+
+    test("product_merge congrats view should be tracked"){
+        "/structure_data/product_merge/congrats"(platform: "/web/desktop", type: TrackType.View) {
+            session_id = "12334.1-sdweurw2873423hwrhweh"
+            sheet_id = "12334.1"
+            is_retake = true
+        }
+    }
+
+     test("load available products event should be tracked"){
+        "/structure_data/product_merge/available_products"(platform: "/web/desktop", type: TrackType.View) {
+            products_ids = [12223, 343343]
+        }
+    }
+
     test("catalog_search query"){
         "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
             site_filter = "MLA"
@@ -523,6 +554,7 @@ trackTests {
             query_filter = "AUTOMOTIVE_TIRES"
         }
     }
+
 
     // Catalog search
     test("catalog_search wrong domain prediction"){
