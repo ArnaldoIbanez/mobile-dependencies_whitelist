@@ -1,12 +1,13 @@
 SELECT MP_FLOW_INIT.usuario   AS usuario,
-       mp_flow_init.flow_init AS FLOW_INIT,
-       mp_flow_end.flow_end   AS FLOW_END,
+       mp_flow_init.flow_init AS flow_init,
+       mp_flow_end.flow_end   AS flow_end,
        MP_FLOW_INIT.platform  AS platform,
        MP_FLOW_INIT.site      AS site,
        MP_FLOW_INIT.version   AS version,
        MP_FLOW_INIT.flow_name AS flow,
        mp_flow_init.flow_id   AS flow_id,
-       mp_flow_init.flow_from AS flow_from,
+       MP_FLOW_INIT.flow_from AS flow_from,
+       MP_FLOW_INIT.business  AS business,
        MP_FLOW_INIT.fecha     AS fecha
 FROM   (SELECT Substr(ds, 1, 10)               AS fecha,
                Count(DISTINCT context.flow_id) AS flow_init,
@@ -16,7 +17,8 @@ FROM   (SELECT Substr(ds, 1, 10)               AS fecha,
                application.version             AS version,
                Jest(event_data, 'flow_name')   AS flow_name,
                Jest (event_data, 'from')       AS flow_from,
-               usr.user_id                     AS usuario
+               usr.user_id                     AS usuario,
+               application.business            AS business
         FROM   tracks
         WHERE  ds >= '@param01'
                AND ds < '@param02'
@@ -29,6 +31,7 @@ FROM   (SELECT Substr(ds, 1, 10)               AS fecha,
                   device.platform,
                   application.site_id,
                   application.version,
+                  application.business,
                   Jest(event_data, 'flow_name'),
                   Jest (event_data, 'from'), usr.user_id) AS mp_flow_init
        LEFT JOIN (SELECT Substr(ds, 1, 10)                AS fecha,
@@ -53,7 +56,8 @@ GROUP  BY MP_FLOW_INIT.fecha,
           MP_FLOW_INIT.flow_init,
           MP_FLOW_END.flow_end,
           MP_FLOW_INIT.flow_id,
-          MP_FLOW_INIT.flow_from
+          MP_FLOW_INIT.flow_from,
+          MP_FLOW_INIT.business
 ORDER  BY fecha,
           usuario,
           platform,
