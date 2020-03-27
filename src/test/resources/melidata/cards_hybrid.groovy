@@ -245,6 +245,23 @@ trackTests {
         }
     }
 
+    // Generic Congrats 
+    // ------
+
+    test("cards generic congrats") {
+        "/cards/acquisition/congrats"(platform: "/", type: TrackType.View) {
+            type = "congrats_type"
+        }
+        "/cards/acquisition/congrats/tap"(platform:"/", type: TrackType.Event) {
+            type = "congrats_type"
+            url = "mercadopago://home"
+        }
+        "/cards/acquisition/congrats/error"(platform:"/", type: TrackType.Event) {
+            type = "congrats_type"
+            status = "404"
+        }
+    }
+
     // SETUP VIRTUAL
     // --------
 

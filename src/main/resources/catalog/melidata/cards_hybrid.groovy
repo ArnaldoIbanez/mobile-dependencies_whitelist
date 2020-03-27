@@ -157,7 +157,32 @@ tracks {
      }
     "/cards/acquisition/webview/close"(platform:"/", type: TrackType.Event) { }
 
-    
+    // Congrats
+    // ------
+
+    "/cards/acquisition/congrats" (platform: "/", type: TrackType.View) {
+        type (
+            required: true,
+            type: PropertyType.String,
+            description: "Type of Congrats"
+        )
+    }
+    "/cards/acquisition/congrats/tap" (platform: "/", type: TrackType.Event) {
+        url (
+            required: true,
+            type: PropertyType.String,
+            description: "Url button tapped",
+            inheritable:false
+        )
+    }
+    "/cards/acquisition/congrats/error" (platform: "/", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            description: "Error Code",
+            inheritable:false
+        )
+    }
     
     // DASHBOARD
     // --------
