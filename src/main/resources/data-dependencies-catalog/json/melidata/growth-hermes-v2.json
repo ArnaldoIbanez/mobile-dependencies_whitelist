@@ -35,6 +35,21 @@
       }, {
         "name": "sent",
         "type": "INTEGER"
+      }, {
+        "name": "shown",
+        "type": "INTEGER"
+      }, {
+        "name": "buyers_sent",
+        "type": "INTEGER"
+      }, {
+        "name": "buyers_shown",
+        "type": "INTEGER"
+      }, {
+        "name": "uninstalls",
+        "type": "INTEGER"
+      }, {
+        "name": "apagado_notifs",
+        "type": "INTEGER"
       }],
       "sql": {
         "script": "growth/hermes-v2.sql",
