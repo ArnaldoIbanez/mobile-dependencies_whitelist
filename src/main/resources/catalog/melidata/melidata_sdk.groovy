@@ -8,7 +8,7 @@ tracks {
 
     initiative = "1145"
 
-    "/melidata"(platform: "/mobile", isAbstract: true) {}
+    "/melidata"(platform: "/", isAbstract: true) {}
 
     "/melidata/statistics"(platform: "/mobile", type: TrackType.Event) {
         errors_counter(type: PropertyType.Map)
