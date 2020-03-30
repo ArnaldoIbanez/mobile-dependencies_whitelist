@@ -17,4 +17,6 @@ SUBSTR(ds, 1, 10) AS ds
 from tracks
 WHERE ds >= '@date'
 AND ds < '@one_day_after_date'
-AND path in ('/application/uninstall_event', '/application/not_engaged_event')
+AND path IN ('/application/uninstall_event', '/application/not_engaged_event')
+AND application.business IN ('mercadolibre', 'mercadopago')
+AND device.platform IN ('/mobile/android', '/mobile/ios')

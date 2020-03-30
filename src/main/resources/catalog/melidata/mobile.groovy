@@ -39,25 +39,25 @@ tracks {
     }
 
     "/application/uninstall_event" (platform: "/mobile", type: TrackType.Event){
-        type (required: true, type: PropertyType.String)
-        date_created (required: true, type: PropertyType.String)
-        lang (required: true, type: PropertyType.String)
-        timezone (required: true, type: PropertyType.String)
-        last_seen (required: false, type: PropertyType.String)
-        source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"])
-        current_checking_day (required: false, type: PropertyType.Numeric)
-        execution_id (required: false, type: PropertyType.String)
+        type (required: true, type: PropertyType.String, description: "Kind of device")
+        date_created (required: true, type: PropertyType.String, description: "Device registration")
+        lang (required: true, type: PropertyType.String, description: "Device language")
+        timezone (required: true, type: PropertyType.String, description: "Device timezone")
+        last_seen (required: false, type: PropertyType.String, description: "Last alive's signal")
+        source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"], description: "Source that set status")
+        current_checking_day (required: false, type: PropertyType.Numeric, description: "Day that is checking status")
+        execution_id (required: false, type: PropertyType.String, description: "The execution id")
     }
 
-    "/application/not_engaged_event" (platform: "/mobile", type: TrackType.Event){
-        type (required: true, type: PropertyType.String)
-        date_created (required: true, type: PropertyType.String)
-        lang (required: true, type: PropertyType.String)
-        timezone (required: true, type: PropertyType.String)
-        last_seen (required: false, type: PropertyType.String)
-        source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"])
-        current_checking_day (required: false, type: PropertyType.Numeric)
-        execution_id (required: false, type: PropertyType.String)
+    "/application/not_engaged" (platform: "/mobile", type: TrackType.Event){
+        type (required: true, type: PropertyType.String, description: "Kind of device")
+        date_created (required: true, type: PropertyType.String, description: "Device registration")
+        lang (required: true, type: PropertyType.String, description: "Device language")
+        timezone (required: true, type: PropertyType.String, description: "Device timezone")
+        last_seen (required: false, type: PropertyType.String, description: "Last alive's signal")
+        source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"], description: "Source that set status")
+        current_checking_day (required: false, type: PropertyType.Numeric, description: "Day that is checking status")
+        execution_id (required: false, type: PropertyType.String, description: "The execution id")
     }
 
     "/permissions"(platform: "/mobile", isAbstract: true){}
