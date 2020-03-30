@@ -1,8 +1,8 @@
 SELECT
-  t.ds              AS ds,
   r.site_id         AS site,
   t.item_position   AS top_position,
-  r.item_reputation AS reputation
+  r.item_reputation AS reputation,
+  t.ds              AS ds
 FROM (
   SELECT
     ROW_NUMBER() OVER (PARTITION BY track_id) AS item_position,
