@@ -40,6 +40,5 @@ tracks {
     "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event ) {}
     
     "/melidata/ab_split"(platform: "/", type: TrackType.Event ) {}
-
 }
 
