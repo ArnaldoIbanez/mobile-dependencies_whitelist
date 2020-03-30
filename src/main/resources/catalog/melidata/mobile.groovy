@@ -45,6 +45,19 @@ tracks {
         timezone (required: true, type: PropertyType.String)
         last_seen (required: false, type: PropertyType.String)
         source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"])
+        current_checking_day (required: false, type: PropertyType.Numeric)
+        execution_id (required: false, type: PropertyType.String)
+    }
+
+    "/application/not_engaged_event" (platform: "/mobile", type: TrackType.Event){
+        type (required: true, type: PropertyType.String)
+        date_created (required: true, type: PropertyType.String)
+        lang (required: true, type: PropertyType.String)
+        timezone (required: true, type: PropertyType.String)
+        last_seen (required: false, type: PropertyType.String)
+        source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"])
+        current_checking_day (required: false, type: PropertyType.Numeric)
+        execution_id (required: false, type: PropertyType.String)
     }
 
     "/permissions"(platform: "/mobile", isAbstract: true){}
