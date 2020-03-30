@@ -409,5 +409,20 @@ trackTests {
             action = "change_limits"
         }
     }
-
+    
+     // CHANGE-PIN
+    // --------
+    test("cards hybrid change pin") {
+        "/cards/hybrid/change-pin"(platform: "/", type: TrackType.View) {}
+    }
+    
+    test("cards hybrid change pin tap") {
+        "/cards/hybrid/change-pin/tap"(platform:"/", type: TrackType.Event) {
+            action = "change-pin"
+        }
+    }
+    
+    test("cards hybrid change pin congrats") {
+        "/cards/hybrid/change-pin/congrats"(platform: "/", type: TrackType.View) {}
+    }
 }
