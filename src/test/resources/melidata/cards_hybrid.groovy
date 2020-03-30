@@ -430,7 +430,7 @@ trackTests {
     // --------
     test("cards hybrid limits") {
         "/cards/hybrid/limits-setup"(platform: "/", type: TrackType.View) {
-            limits_status = ["number_selector_atm", "message"]
+            limits_status = "[number_selector_atm, message]"
         }
     }
     
