@@ -115,6 +115,7 @@ trackTests {
             option = 12
             product_type = 'fixed_term_loan'
             has_prepaid = true
+            loan_created_with_retry = true
         }
         "/credits/merchant/enrollment/congrats"(platform: "/mobile/android") {
             requested_amount = 10000
@@ -124,6 +125,7 @@ trackTests {
             option = 30
             product_type = 'sales_percentage_loan'
             has_prepaid = false
+            loan_created_with_retry = false
         }
     }
 
