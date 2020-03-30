@@ -43,7 +43,7 @@
       }
     ],
     "sql": {
-      "script": "promotions/promotions_filters_scut_ctr.sql",
+      "script": "promotions/promotions_landing_filters_ctr.sql",
       "parameters": [
         {
           "name": "param01",

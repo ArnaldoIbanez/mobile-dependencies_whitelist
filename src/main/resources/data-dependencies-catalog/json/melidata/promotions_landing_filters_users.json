@@ -31,7 +31,7 @@
       },
       {
         "name": "users_total",
-        "type": "UNICODE_STRING"
+        "type": "INTEGER"
       },
       {
         "name": "users_percentage",
@@ -39,7 +39,7 @@
       }
     ],
     "sql": {
-      "script": "promotions/promotions_filters_users.sql",
+      "script": "promotions/promotions_landing_filters_users.sql",
       "parameters": [
         {
           "name": "param01",
