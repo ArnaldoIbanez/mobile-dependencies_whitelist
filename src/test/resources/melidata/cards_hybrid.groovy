@@ -326,7 +326,7 @@ trackTests {
             action = "unfreeze"
         }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "card-unfreeze"
+            action = "card_unfreeze"
         }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "copy"
@@ -365,11 +365,11 @@ trackTests {
         }
         "/cards/hybrid/block-card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
-            action = "primary-button"
+            action = "primary_button"
         }
         "/cards/hybrid/block-card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
-            action = "secondary-button"
+            action = "secondary_button"
         }
     }
 
@@ -403,7 +403,7 @@ trackTests {
             action = "unfreeze"
         }
         "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
-            action = "card-change_pin"
+            action = "change_pin"
         }
         "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
             action = "change_limits"

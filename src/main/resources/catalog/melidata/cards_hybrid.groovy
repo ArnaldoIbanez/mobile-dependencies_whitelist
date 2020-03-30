@@ -290,7 +290,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["reissue", "freeze", "unfreeze", "card-unfreeze", "copy"],
+            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy"],
             description: "The action type tapped"
         )
     }
@@ -335,7 +335,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["primary-button", "secondary-button"],
+            values: ["primary_button", "secondary_button"],
             description: "The action type tapped"
         )
     }
@@ -361,7 +361,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["reissue", "freeze", "unfreeze", "card-change_pin", "change_limits"],
+            values: ["reissue", "freeze", "unfreeze", "change_pin", "change_limits"],
             description: "The action type tapped"
         )
     }
