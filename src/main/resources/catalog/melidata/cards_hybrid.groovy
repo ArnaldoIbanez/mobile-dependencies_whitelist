@@ -365,4 +365,17 @@ tracks {
             description: "The action type tapped"
         )
     }
+    
+    // CHANGE-PIN
+    // --------
+    "/cards/hybrid/change-pin"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/change-pin/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["change-pin"],
+            description: "Change pin button tapped"
+          )
+    }
+    "/cards/hybrid/change-pin/congrats"(platform: "/", type: TrackType.View) {}
 }
