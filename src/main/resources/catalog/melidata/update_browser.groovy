@@ -12,9 +12,11 @@ tracks {
 
     "/sentry/update_browser"(platform: "/", type: TrackType.View) {}
 
-    "/sentry/update_browser"(platform: "/", type: TrackType.Event) {
-        category(required: true, type: PropertyType.String, description: "Event category")
-        label(required: true, type: PropertyType.String, description: "Event label")
-        action(required: true, type: PropertyType.String, description: "Event action")
+    "/sentry/update_browser/download_intention"(platform: "/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "Label name", values: ["chrome", "edge", "firefox"])
+    }
+
+    "/sentry/update_browser/download_reject"(platform: "/", type: TrackType.Event) {
+        label(required: true, type: PropertyType.String, description: "Label name", values: ["not_now"])
     }
 }
