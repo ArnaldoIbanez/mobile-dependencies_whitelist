@@ -6,7 +6,8 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-      defaultBusiness = "mercadolibre"
+    initiative = "1202"
+    defaultBusiness = "mercadolibre"
 
     //Landings Deals - retrocompatibility
     "/deals"(platform: "/", isAbstract: true) {}
