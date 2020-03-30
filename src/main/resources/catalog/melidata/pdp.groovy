@@ -106,6 +106,10 @@ tracks {
         cac_item(required: false, type: PropertyType.Boolean, 
                  description: "Indicates whether the product is listed as 'CodoACodo'")
 
+        cac_status(required: false, type: PropertyType.String, 
+                values: ["normal", "after_dispatch", "unknown"],
+                description: "Indicates items status of Elbow to Elbow (Codo a Codo) initiative")
+
         //Product fields
         catalog_product_id(required: true, type: PropertyType.String, description: "Catalog Product ID")
         catalog_parent_id(required: false, type: PropertyType.String, description: "Parent Catalog Product ID")
