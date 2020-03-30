@@ -106,4 +106,10 @@ tracks {
     "/landing/formcomercial/send_email"(platform:"/", type: TrackType.Event) {
         email (type: PropertyType.String, required: true, description: "Email from user")
     }
+
+    //MP Webview COVID
+    "/mp_covid"(platform: "/", type: TrackType.View) {}
+    "/mp_congrats"(platform: "/", type: TrackType.View) {}
+    "/mp_donation"(platform: "/", type: TrackType.View) {}
+    "/mp_custom_amount"(platform: "/", type: TrackType.View) {}
 }

@@ -78,4 +78,20 @@ trackTests {
            ]
         }
     }
+
+    test("Mercadopago Webview COVID Home") {
+        "/mp_covid"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Webview COVID Congrats") {
+        "/mp_congrats"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Webview COVID Donation") {
+        "/mp_donation"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Webview COVID Custom amount") {
+        "/mp_custom_amount"(platform: "/", type: TrackType.View) {}
+    }
 }
