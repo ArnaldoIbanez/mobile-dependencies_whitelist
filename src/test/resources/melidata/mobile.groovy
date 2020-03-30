@@ -38,8 +38,8 @@ trackTests {
         }
     }
 
-    test("not_engaged_event"){
-        "/application/not_engaged_event" (platform: "/mobile", type: TrackType.Event){
+    test("not_engaged"){
+        "/application/not_engaged" (platform: "/mobile", type: TrackType.Event){
             type = "mobile"
             date_created = "2019-08-08T09:25:01.000-04:00"
             lang = "es-ar"
