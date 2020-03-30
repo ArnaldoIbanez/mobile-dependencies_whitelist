@@ -107,7 +107,7 @@ tracks {
                  description: "Indicates whether the product is listed as 'CodoACodo'")
 
         cac_status(required: false, type: PropertyType.String, 
-                values: ["normal", "after_dispatch", "unknown"]
+                values: ["normal", "after_dispatch", "unknown"],
                 description: "Indicates items status of Elbow to Elbow (Codo a Codo) initiative")
 
         //Product fields
