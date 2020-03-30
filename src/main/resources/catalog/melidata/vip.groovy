@@ -64,6 +64,10 @@ tracks {
         // TEMP FIELDS
         cac_item(required: false, type: PropertyType.Boolean, 
                  description: "Indicates whether the item is listed as 'CodoACodo'")
+        
+        cac_status(required: false, type: PropertyType.String, 
+                values: ["normal", "after_dispatch", "unknown"]
+                description: "Indicates items status of Elbow to Elbow (Codo a Codo) initiative")
 
         // ITEM FIELDS
         item_id(required: true, type: PropertyType.String, description: "Item ID")
