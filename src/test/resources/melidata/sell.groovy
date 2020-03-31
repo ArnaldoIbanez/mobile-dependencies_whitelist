@@ -1597,7 +1597,7 @@ trackTests {
     }
 
     test("SYI v4 confirm sip"){
-        "/sell/sip"(platform: "/web/mobile", type: TrackType.Event){
+        "/sell/sip/confirm"(platform: "/web/mobile", type: TrackType.Event){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
