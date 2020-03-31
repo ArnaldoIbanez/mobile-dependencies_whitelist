@@ -1,25 +1,25 @@
 SELECT P.site AS site,
       P.device_platform AS device_platform,
-      C.origin AS filter_origin,
+      P.prints AS device_prints,
+      P.users AS device_total_users,
+      C.origin_event_data AS origin_event_data,
       C.filter AS filter,
-      C.clicks AS clicks,
-      P.prints AS prints,
-      CAST (C.clicks AS DOUBLE)/P.prints*100 AS ctr,
+      C.clicks AS filter_clicks,
+      C.uid AS filter_uid,
       P.track_date AS track_date
 FROM
 (
   SELECT
     application.site_id AS site,
     device.platform AS device_platform,
-    count(*) AS prints,
+    COUNT(*) AS prints,
+    COUNT(DISTINCT usr.uid) AS users,
     substr(ds,1,10) AS track_date
   FROM tracks
   WHERE path = '/promotions'
     AND ds >= '@param01'
     AND ds < '@param02'
     AND application.site_id in ('MLA','MLB','MLM')
-    AND (NOT (jest(platform.fragment, 'origin') = 'reach-promotions-cat')
-      OR jest(platform.fragment, 'origin') IS NULL)
   GROUP BY application.site_id, device.platform, substr(ds,1,10)
 ) P
 JOIN
@@ -27,8 +27,9 @@ JOIN
   SELECT
     application.site_id AS site,
     device.platform AS device_platform,
+    jest(event_data, 'origin') AS origin_event_data,
     jest(jest(event_data, 'selected_filters'),jest(event_data, 'filter_applied')) AS filter,
-    jest(event_data, 'origin') AS origin,
+    usr.uid AS uid,
     count(*) AS clicks,
     substr(ds,1,10) AS track_date
   FROM tracks
@@ -36,14 +37,12 @@ JOIN
     AND ds >= '@param01'
     AND ds < '@param02'
     AND application.site_id in ('MLA','MLB','MLM')
-    AND (jest(event_data, 'origin') = 'scut' OR jest(event_data, 'origin') = 'qcat')
     AND jest(event_data, 'filter_applied') IS NOT NULL
-    AND (NOT (jest(platform.fragment, 'origin') = 'reach-promotions-cat')
-      OR jest(platform.fragment, 'origin') IS NULL)
   GROUP BY application.site_id,
     device.platform,
-    jest(jest(event_data, 'selected_filters'),jest(event_data, 'filter_applied')),
     jest(event_data, 'origin'),
+    jest(jest(event_data, 'selected_filters'),jest(event_data, 'filter_applied')),
+    usr.uid,
     substr(ds,1,10)
 ) C
 ON P.site=C.site AND P.device_platform=C.device_platform AND P.track_date=C.track_date;

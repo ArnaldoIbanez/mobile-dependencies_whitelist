@@ -2,7 +2,7 @@
   "users": [
     "sp-buyer@mercadolibre.com"
   ],
-  "process_name": "promotions_landing_filters_ctr",
+  "process_name": "promotions_landing_filters",
   "cron": "00 06 * * *",
   "partition": {
     "name": "track_date",
@@ -22,7 +22,15 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "filter_origin",
+        "name": "device_prints",
+        "type": "INTEGER"
+      },
+      {
+        "name": "device_total_users",
+        "type": "INTEGER"
+      },
+      {
+        "name": "origin_event_data",
         "type": "UNICODE_STRING"
       },
       {
@@ -30,20 +38,16 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "clicks",
-        "type": "UNICODE_STRING"
+        "name": "filter_clicks",
+        "type": "INTEGER"
       },
       {
-        "name": "prints",
+        "name": "filter_uid",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "ctr",
-        "type": "DOUBLE"
       }
     ],
     "sql": {
-      "script": "promotions/promotions_landing_filters_ctr.sql",
+      "script": "promotions/promotions_landing_filters.sql",
       "parameters": [
         {
           "name": "param01",
