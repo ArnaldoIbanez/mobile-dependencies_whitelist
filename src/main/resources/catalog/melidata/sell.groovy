@@ -940,6 +940,7 @@ tracks {
         sellGroup
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
+    "/sell/sip/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
 
