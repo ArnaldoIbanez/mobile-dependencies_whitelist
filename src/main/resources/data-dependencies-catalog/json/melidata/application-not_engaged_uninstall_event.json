@@ -20,16 +20,7 @@
       "name": "path",
       "type": "UNICODE_STRING"
     }, {
-      "name": "device_id",
-      "type": "UNICODE_STRING"
-    }, {
-      "name": "advertising_id",
-      "type": "UNICODE_STRING"
-    }, {
       "name": "has_user",
-      "type": "UNICODE_STRING"
-    }, {
-      "name": "user_id",
       "type": "UNICODE_STRING"
     }, {
       "name": "app_version",
@@ -50,7 +41,7 @@
       "name": "execution_id",
       "type": "UNICODE_STRING"
     }, {
-      "name": "valor",
+      "name": "cantidad",
       "type": "INTEGER"
     }],
     "sql": {
