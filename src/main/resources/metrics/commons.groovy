@@ -3,7 +3,7 @@ package metrics
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
-	"vip"(description: "vip count") {
+	"vip"(description: "vip count", categorization:"important") {
 		countsOn {
 			condition {
 				path("/vip", "/vip/abort", "/vip/failure")
@@ -19,7 +19,7 @@ metrics {
 		}
 	}
 
-	"questions"(description: "questions count") {
+	"questions"(description: "questions count", categorization:"important") {
 		countsOn {
 			condition {
 				path("/questions/ask/post")
@@ -27,18 +27,10 @@ metrics {
 		}
 	}
 
-	"bookmarks"(description: "bookmarsk count") {
+	"bookmarks"(description: "bookmarsk count", categorization:"important") {
 		countsOn {
 			condition {
 				path("/bookmarks/post", "/bookmarks/action/post")
-			}
-		}
-	}
-
-	"registrations"(description: "registrations count") {
-		countsOn {
-			condition {
-				path("/register/success")
 			}
 		}
 	}
@@ -55,18 +47,6 @@ metrics {
 		countsOn {
 			condition {
 				path("/checkout/login/confirm_authenticated", "/checkout/login/first_purchase_not_authenticated", "/checkout/login/confirm_not_authenticated")
-			}
-		}
-	}
-
-	"publish_congrats"(description: "Selling flow new item published - Does not track congrats view") {
-		startWith {
-      experiment(regex("sell/.*"))
-		}
-
-		countsOn {
-			condition {
-				path("/item/create")
 			}
 		}
 	}
@@ -92,18 +72,6 @@ metrics {
 		countsOn {
 			condition {
 				path("/sell/change_listing_type/upgrade_intention")
-			}
-		}
-	}
-
-	"sell_list_congrats"(description: "Arrival to congrats page - Selling flow") {
-		startWith {
-	    experiment(regex("sell/.*"))
-		}
-
-		countsOn {
-			condition {
-				path("/sell/list/congrats")
 			}
 		}
 	}
