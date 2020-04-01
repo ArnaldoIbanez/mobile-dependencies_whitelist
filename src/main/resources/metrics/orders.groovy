@@ -53,7 +53,7 @@ metrics {
 		}
 	}
 
-	"bids.quick"(description: "/orders/ordercreated from feed (carrito included) with short attribution time (3h)", compute_order: true, ttl: 180, categorization:"important") {
+	"bids.quick"(description: "/orders/ordercreated from feed (carrito included) with short attribution time (3h)", compute_order: true, ttl: 180) {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
