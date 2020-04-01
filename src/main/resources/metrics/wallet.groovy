@@ -130,7 +130,7 @@ metrics {
     }
   }
 
-  "payment.pay_preference"(description: "Counts when a user pays a Preference", categorization:"important") {
+  "payment.pay_preference"(description: "Counts when a user pays a Preference") {
     startWith {
       experiment(regex("wallet/.*"))
     }
