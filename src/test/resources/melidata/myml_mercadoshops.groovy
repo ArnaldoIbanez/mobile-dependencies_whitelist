@@ -350,6 +350,15 @@ trackTests {
         }
     }
 
+    test("Mercadoshops Unavailable view") {
+        "/mercado_shops/admin/unavailable"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MYML Mercadoshops Domains Delegation flow
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -491,21 +500,6 @@ trackTests {
             ref = ""
         }
         "/mercado_shops/marketing/google_search_console"(platform: "/", type: TrackType.View) {
-            shop_id = 158689680
-            shop_domain = "www.test-shop.mercadoshops.com.ar"
-            shop_name = "Test Shop"
-            ref = ""
-        }
-    }
-
-    test("Mercadoshops Template Selection flow views") {
-        "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View) {
-            shop_id = 158689680
-            shop_domain = "www.test-shop.mercadoshops.com.ar"
-            shop_name = "Test Shop"
-            ref = ""
-        }
-        "/mercado_shops/template-selection/preview"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
@@ -723,6 +717,25 @@ trackTests {
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Mercadoshops Templates selection flow
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Mercadoshops Template Selection flow views") {
+        "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
+        "/mercado_shops/template-selection/preview"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
+    }
+
     test("Template Selection events") {
         "/mercado_shops/template-selection/save"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
@@ -732,6 +745,32 @@ trackTests {
             success = true
         }
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Mercadoshops Themes Customize flow
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Mercadoshops Themes customize views") {
+        "/mercado_shops/themes/customize"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
+    }
+
+    test("Mercadoshops Themes customize events") {
+        "/mercado_shops/themes/customize/upload"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            success = true
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Mercadoshops Custom menu
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     test("Custom menu events") {
         "/mercado_shops/custom-categories/save"(platform: "/", type: TrackType.Event) {

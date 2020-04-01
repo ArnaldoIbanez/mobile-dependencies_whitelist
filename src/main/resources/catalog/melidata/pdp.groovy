@@ -106,6 +106,10 @@ tracks {
         cac_item(required: false, type: PropertyType.Boolean, 
                  description: "Indicates whether the product is listed as 'CodoACodo'")
 
+        cac_status(required: false, type: PropertyType.String, 
+                values: ["normal", "after_dispatch", "unknown"],
+                description: "Indicates items status of Elbow to Elbow (Codo a Codo) initiative")
+
         //Product fields
         catalog_product_id(required: true, type: PropertyType.String, description: "Catalog Product ID")
         catalog_parent_id(required: false, type: PropertyType.String, description: "Parent Catalog Product ID")
@@ -178,6 +182,9 @@ tracks {
         // Stock
         stock_type(required: false, type: PropertyType.String, inheritable: false, values: ["normal", "deferred"], description: "Indicates the type of stock for the product (normal = immediate stock, deferred = within x days)")
         stock_deferred_time(required: false, type: PropertyType.Numeric, inheritable: false, description: "Amount of days when the product will have available stock. Will only be used when stock_type = deferred")
+
+        // Multiple Offer
+        multiple_offer_type(required: false, type: PropertyType.String, inheritable: false, values: ["BEST_PRICE", "BEST_INSTALLMENTS"], description: "Indicates the type of multiple offer selected")
 
         // General
         pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
