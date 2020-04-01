@@ -1,7 +1,7 @@
 SELECT
   r.site_id         AS site,
-  t.item_position   AS top_position,
   r.item_reputation AS reputation,
+  t.item_position   AS top_position,
   t.ds              AS ds
 FROM (
   SELECT
