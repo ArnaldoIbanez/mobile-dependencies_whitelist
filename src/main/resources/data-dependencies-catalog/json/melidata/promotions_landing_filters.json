@@ -18,23 +18,27 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "device_platform",
+        "name": "device",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "device_prints",
-        "type": "INTEGER"
-      },
-      {
-        "name": "device_total_users",
-        "type": "INTEGER"
-      },
-      {
-        "name": "origin_event_data",
+        "name": "sp_origin",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "prints_device_sp_origin",
+        "type": "INTEGER"
+      },
+      {
+        "name": "users_device_sp_origin",
+        "type": "INTEGER"
       },
       {
         "name": "filter",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "filter_origin",
         "type": "UNICODE_STRING"
       },
       {
