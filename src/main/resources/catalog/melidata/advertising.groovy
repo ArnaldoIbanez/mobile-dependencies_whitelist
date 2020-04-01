@@ -267,14 +267,6 @@ tracks {
             )
     }
 
-    //Landings Deals
-    "/deals"(platform: "/", isAbstract: true) {}
-
-    "/deals/landing"(platform: "/") {
-        deal_id(required: false, type: PropertyType.String)
-        deal_print_id(required: false, type: PropertyType.String)
-    }
-
     // Range
     "/advertising/pads2/manager/metrics_range"(
         platform: "/web",
