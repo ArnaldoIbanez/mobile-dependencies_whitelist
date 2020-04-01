@@ -14,7 +14,7 @@ metrics {
     }
   }
 
-  "payment"(description: "Counts when a user pays in any flow") {
+  "payment"(description: "Counts when a user pays in any flow", categorization:"important") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -27,7 +27,7 @@ metrics {
     }
   }
 
-  "payment.instore"(description: "Counts when a user pays in In Store") {
+  "payment.instore"(description: "Counts when a user pays in In Store", categorization:"important") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -43,7 +43,7 @@ metrics {
     }
   }
 
-  "payment.cellphone_recharge"(description: "Counts when a user pays in Cellphone Recharge") {
+  "payment.cellphone_recharge"(description: "Counts when a user pays in Cellphone Recharge", categorization:"important") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -59,7 +59,7 @@ metrics {
     }
   }
 
-  "payment.transport"(description: "Counts when a user pays in Transport") {
+  "payment.transport"(description: "Counts when a user pays in Transport", categorization:"important") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -75,7 +75,7 @@ metrics {
     }
   }
 
-  "payment.moneyin"(description: "Counts when a user inserts money into his/her account") {
+  "payment.moneyin"(description: "Counts when a user inserts money into his/her account", categorization:"important") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -95,7 +95,7 @@ metrics {
     }
   }
 
-  "payment.money_transfer"(description: "Counts when a user sends Money") {
+  "payment.money_transfer"(description: "Counts when a user sends Money", categorization:"important") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -114,7 +114,7 @@ metrics {
     }
   }
 
-  "payment.services"(description: "Counts when a user pays a Service") {
+  "payment.services"(description: "Counts when a user pays a Service", categorization:"important") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -130,7 +130,7 @@ metrics {
     }
   }
 
-  "payment.pay_preference"(description: "Counts when a user pays a Preference") {
+  "payment.pay_preference"(description: "Counts when a user pays a Preference", categorization:"important") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -146,7 +146,7 @@ metrics {
     }
   }
 
-  "payment.starbucks"(description: "Counts when a user recharges Starbucks card") {
+  "payment.starbucks"(description: "Counts when a user recharges Starbucks card", categorization:"important") {
     startWith {
       experiment(regex("wallet/.*"))
     }

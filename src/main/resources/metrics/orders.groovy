@@ -36,7 +36,7 @@ metrics {
 	}
 
 
-	"bids"(description: "/orders/ordercreated from feed (carrito included)", compute_order: true) {
+	"bids"(description: "/orders/ordercreated from feed (carrito included)", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -44,7 +44,7 @@ metrics {
 		}
 	}
 
-	"bids.pdp"(description: "/orders/ordercreated from feed (carrito included) from PDP", compute_order: true) {
+	"bids.pdp"(description: "/orders/ordercreated from feed (carrito included) from PDP", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -53,7 +53,7 @@ metrics {
 		}
 	}
 
-	"bids.quick"(description: "/orders/ordercreated from feed (carrito included) with short attribution time (3h)", compute_order: true, ttl: 180) {
+	"bids.quick"(description: "/orders/ordercreated from feed (carrito included) with short attribution time (3h)", compute_order: true, ttl: 180, categorization:"important") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -61,7 +61,7 @@ metrics {
 		}
 	}
 
-	"bids.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+	"bids.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -79,7 +79,7 @@ metrics {
 		}
 	}
 	
-	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq?authuser=0#h.p_2qPD6v_1dTSd", compute_order: true) {
+	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq?authuser=0#h.p_2qPD6v_1dTSd", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
