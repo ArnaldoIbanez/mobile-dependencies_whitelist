@@ -1,7 +1,7 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
-	"vip"(description: "vip count") {
+	"vip"(description: "vip count", categorization:"important") {
 		countsOn {
 			condition {
 				path("/vip", "/vip/abort", "/vip/failure")
