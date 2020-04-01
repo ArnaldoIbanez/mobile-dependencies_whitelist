@@ -109,7 +109,7 @@ tracks {
 
     //MP Webview COVID
     "/mp_covid"(platform: "/", type: TrackType.View) {}
-    "/mp_congrats"(platform: "/", type: TrackType.View) {}
-    "/mp_donation"(platform: "/", type: TrackType.View) {}
-    "/mp_custom_amount"(platform: "/", type: TrackType.View) {}
+    "/mp_covid/congrats"(platform: "/", type: TrackType.View) {}
+    "/mp_covid/donation"(platform: "/", type: TrackType.View) {}
+    "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
 }
