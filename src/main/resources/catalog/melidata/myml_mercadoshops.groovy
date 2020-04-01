@@ -241,6 +241,8 @@ tracks {
         )
     }
 
+    "/mercado_shops/admin/unavailable"(platform: "/", type: TrackType.View){}
+
     "/mercado_shops/domains/summary"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/domains/subdomain"(platform: "/", type: TrackType.View){}
@@ -382,6 +384,14 @@ tracks {
     "/mercado_shops/template-selection/preview"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/themes"(platform: "/", type: TrackType.View, isAbstract: true){}
+
+    "/mercado_shops/themes/customize"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/themes/customize/upload"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
 
     "/mercado_shops/custom-categories"(platform: "/", type: TrackType.Event, isAbstract: true){}
 

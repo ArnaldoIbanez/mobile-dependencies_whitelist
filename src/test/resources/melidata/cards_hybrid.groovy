@@ -128,11 +128,13 @@ trackTests {
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
             message_status = "warning"
+            activities_status = "activities_with_error"
         }
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = "[minicard, flap, activities, account_options, carousel, linear_buttons, account_info]"
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
+            activities_status = "activities"
         }
     }
     
@@ -245,6 +247,23 @@ trackTests {
         }
     }
 
+    // Generic Congrats 
+    // ------
+
+    test("cards generic congrats") {
+        "/cards/acquisition/congrats"(platform: "/", type: TrackType.View) {
+            type = "congrats_type"
+        }
+        "/cards/acquisition/congrats/tap"(platform:"/", type: TrackType.Event) {
+            type = "congrats_type"
+            url = "mercadopago://home"
+        }
+        "/cards/acquisition/congrats/error"(platform:"/", type: TrackType.Event) {
+            type = "congrats_type"
+            status = "404"
+        }
+    }
+
     // SETUP VIRTUAL
     // --------
 
@@ -307,7 +326,7 @@ trackTests {
             action = "unfreeze"
         }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
-            action = "card-unfreeze"
+            action = "card_unfreeze"
         }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "copy"
@@ -346,11 +365,11 @@ trackTests {
         }
         "/cards/hybrid/block-card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
-            action = "primary-button"
+            action = "primary_button"
         }
         "/cards/hybrid/block-card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
-            action = "secondary-button"
+            action = "secondary_button"
         }
     }
 
@@ -384,11 +403,61 @@ trackTests {
             action = "unfreeze"
         }
         "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
-            action = "card-change_pin"
+            action = "change_pin"
         }
         "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
             action = "change_limits"
         }
     }
-
+    
+     // CHANGE-PIN
+    // --------
+    test("cards hybrid change pin") {
+        "/cards/hybrid/change-pin"(platform: "/", type: TrackType.View) {}
+    }
+    
+    test("cards hybrid change pin tap") {
+        "/cards/hybrid/change-pin/tap"(platform:"/", type: TrackType.Event) {
+            action = "change-pin"
+        }
+    }
+    
+    test("cards hybrid change pin congrats") {
+        "/cards/hybrid/change-pin/congrats"(platform: "/", type: TrackType.View) {}
+    }
+    
+    // LIMITS
+    // --------
+    test("cards hybrid limits") {
+        "/cards/hybrid/limits-setup"(platform: "/", type: TrackType.View) {
+            limits_status = "[number_selector_atm, message]"
+        }
+    }
+    
+    test("cards hybrid limits header action tap") {
+        "/cards/hybrid/limits-setup/tap"(platform:"/", type: TrackType.Event) {
+            action = "header-help"
+        }
+    }
+    
+    //Number selector
+    test("cards hybrid number selector tap") {
+        "/cards/hybrid/limits-setup/number-selector/tap"(platform:"/", type: TrackType.Event) {
+            action = "modal"
+        }
+    }
+    
+    //Number selector modal
+    test("cards hybrid number selector modal") {
+        "/cards/hybrid/limits-setup/number-selector-modal"(platform:"/", type: TrackType.View) {}
+    }
+    
+    test("cards hybrid number selector modal tap") {
+        "/cards/hybrid/limits-setup/number-selector-modal/tap"(platform:"/", type: TrackType.Event) {
+            action = "cancel"
+        }
+        "/cards/hybrid/limits-setup/number-selector-modal/tap"(platform:"/", type: TrackType.Event) {
+            action = "save"
+        }
+    }
 }

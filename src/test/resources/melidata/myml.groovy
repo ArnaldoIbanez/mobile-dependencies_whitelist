@@ -1297,7 +1297,7 @@ trackTests {
             selected = "MSwyLDMsNA=="
         }
 
-        "/myml/fiscal_rules/massive/upload/action/rules"(platform: "/", type: TrackType.Event) {
+        "/myml/fiscal_rules/massive/upload/action/advanced_tax_settings"(platform: "/", type: TrackType.Event) {
             callback = "www.mercadolivre.com.br"
             action = "edit"
             selected = "MSwyLDMsNA=="

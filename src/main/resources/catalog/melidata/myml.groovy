@@ -1155,7 +1155,7 @@ tracks {
 
     "/myml/fiscal_rules/massive/upload/action/edit"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/fiscal_rules/massive/upload/action/rules"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_rules/massive/upload/action/advanced_tax_settings"(platform: "/", type: TrackType.Event) {}
 
     "/myml/fiscal_rules/massive/upload/action/download"(platform: "/", type: TrackType.Event) {}
 
