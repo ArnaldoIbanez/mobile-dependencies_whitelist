@@ -203,25 +203,6 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.by.payment"(description: "all orders by payment type, payment_method and installments (eg: credit_card/visa/1 vs credit_card/visa/6 vs credit_card/master/12 vs atm/redlink vs ticket/rapidpag)", compute_order: true) {
-		startWith {
-			experiment(regex("(mlinsights/.*)"))
-		}
-
-		countsOn {
-			condition {
-				path(regex("^/checkout/congrats(/.*|\$)"))
-				equals("event_data.congrats_seq", 1)
-			}
-
-			openBy {
-				"event_data.payments.payment_type"(default: "default")
-				"event_data.payments.payment_method"(default: "default")
-				"event_data.payments.installments"(default: "default")
-			}
-		}
-	}
-
 	"checkout_congrats.garex"(description: "orders_with_garex", sum_by: ["event_data.total_amount_including_garex"]) {
 		startWith {
 			experiment("buyingflow/garex_mlm")
