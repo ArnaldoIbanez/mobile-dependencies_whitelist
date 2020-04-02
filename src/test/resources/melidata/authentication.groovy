@@ -691,6 +691,12 @@ trackTests {
                 elapsed_time = 50
                 result = "success"
             }
+
+            "/screenlock/biometrics/failure"(platform: "/mobile/android", parentPropertiesInherited:false, type: TrackType.Event) {
+                os_status = "biometrics"
+                error_msg_id = 501
+                error_msg = "ERROR_CANT_VALIDATE"
+            }
         }
 
         test("Screenlock app opening lock feature") {
