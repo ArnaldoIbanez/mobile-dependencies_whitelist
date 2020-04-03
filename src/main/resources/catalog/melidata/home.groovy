@@ -207,4 +207,6 @@ tracks {
     "/home/backend"(platform: "/", type: TrackType.Event, isAbstract : true) {}
 
     "/home/backend/take_over"(platform: "/web", type: TrackType.Event) {}
+
+    "/home/backend/top_sales_first_recommendations"(platform: "/mobile", type: TrackType.Event) {}
 }
