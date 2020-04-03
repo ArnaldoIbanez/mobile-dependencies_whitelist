@@ -1,14 +1,15 @@
-select 
-application.site_id as site_id,
-sum (CASE When get_json_object(event_data, '$.query') is not null Then 1 Else 0 End) as total_query ,
-sum (CASE When get_json_object(event_data, '$.results') = '[]' Then 1 Else 0 End ) as total_zrp,
-max (substr(ds,1,10)) AS ds
-from default.tracks
-where path = '/search' 
-and type = 'view'
-and ds >= '@param01 00'
-and ds < '@param02 00'
-and NOT is_bot(device.user_agent)
-and get_json_object(event_data, '$.query') is not null
-and get_json_object(event_data, '$.tracking_id') is not null
-group by application.site_id
+SELECT 
+  application.site_id as site_id,
+  SUM (CASE WHEN ed.query IS NOT NULL THEN 1 ELSE 0 END) AS total_query,
+  SUM (CASE WHEN ed.results = '[]' THEN 1 ELSE 0 END ) AS total_zrp,
+  MAX (substr(ds,1,10)) AS ds
+FROM default.tracks
+LATERAL VIEW JSON_TUPLE(event_data, 'query', 'results', 'tracking_id') ed AS query, results, tracking_id
+WHERE path = '/search' 
+  AND type = 'view'
+  AND ds >= '@param01 00'
+  AND ds < '@param02 00'
+  AND NOT is_bot(device.user_agent)
+  AND ed.query IS NOT NULL
+  AND ed.tracking_id IS NOT NULL
+GROUP BY application.site_id
