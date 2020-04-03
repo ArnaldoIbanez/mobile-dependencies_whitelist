@@ -228,7 +228,7 @@ trackTests {
         "/sell/list/category_navigation"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/catalog"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/catalog/decision"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/catalog/customize_marketplace_item"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/catalog/customize_marketplace_item_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/catalog/forced"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"
             catalog_listing_forced_type = "open"}
         "/sell/list/catalog/forced"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"
@@ -408,7 +408,8 @@ trackTests {
         "/sell/list/draft/warranty_time_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/warranty_type"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/warranty_type_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
-        "/sell/list/draft/catalog/customize_marketplace_item"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/catalog"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/catalog/forced"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"
             catalog_listing_forced_type = "open"}
         "/sell/list/draft/catalog/forced"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"
