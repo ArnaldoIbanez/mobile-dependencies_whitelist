@@ -6,8 +6,8 @@ max (substr(ds,1,10)) AS ds
 from default.tracks
 where path = '/search' 
 and type = 'view'
-and ds >= '@param1 00'
-and ds < '@param2 00'
+and ds >= '@param01 00'
+and ds < '@param02 00'
 and NOT is_bot(device.user_agent)
 and get_json_object(event_data, '$.query') is not null
 and get_json_object(event_data, '$.tracking_id') is not null
