@@ -510,7 +510,10 @@ tracks {
     }
 
     // Biometrics lib
-    "/screenlock/biometrics/failure"(platform: "/mobile/android", parentPropertiesInherited:false ,type: TrackType.Event) {
+    "/screenlock/biometrics"(platform: "/mobile/android", isAbstract: true, parentPropertiesInherited: false) {
+    }
+
+    "/screenlock/biometrics/failure"(platform: "/mobile/android", parentPropertiesInherited: false ,type: TrackType.Event) {
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
         error_msg_id(type: PropertyType.Numeric, required: true, description: "Error validation and fingerprintManager ID")
         error_msg(type: PropertyType.String, required: true, description: "Error validation and fingerprintManager message")
