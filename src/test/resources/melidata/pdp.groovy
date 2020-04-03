@@ -239,6 +239,7 @@ trackTests {
             filters = ["installments": "no_interest", "price":"1000-2000"]
 
             multiple_offer_type="BEST_PRICE"
+            multiple_offer_default_winner_item_id="MLB1432864987"
 
             cart()
             shipping()
