@@ -256,6 +256,8 @@ tracks {
         pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
     }
 
+    "/pdp/multiple_offer"(platform: "/", isAbstract:true) {}
+
     "/pdp/multiple_offer/select_offer"(platform: "/", parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, inheritable: false, description: "Selected Option Item ID")
         multiple_offer_type(required: true, type: PropertyType.String, inheritable: false, values: ["BEST_PRICE", "BEST_INSTALLMENTS"], description: "Indicates the type of multiple offer selected")
