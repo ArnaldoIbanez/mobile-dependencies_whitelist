@@ -487,7 +487,7 @@ tracks {
     // Biometrics / Screenlock
     "/screenlock"(platform: "/mobile", isAbstract: true) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
-        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock"])
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
     }
 
     "/screenlock/validation_start"(platform: "/mobile", type: TrackType.Event) {
@@ -509,6 +509,15 @@ tracks {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 
+    // Biometrics lib
+    "/screenlock/biometrics"(platform: "/mobile/android", isAbstract: true, parentPropertiesInherited: false) {
+    }
+
+    "/screenlock/biometrics/failure"(platform: "/mobile/android", parentPropertiesInherited: false ,type: TrackType.Event) {
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
+        error_msg_id(type: PropertyType.Numeric, required: true, description: "Error validation and fingerprintManager ID")
+        error_msg(type: PropertyType.String, required: true, description: "Error validation and fingerprintManager message")
+    }
 
     //Maybe deprecated tracks
     "/login/splitter"(platform: "/mobile", type: TrackType.View) {}
