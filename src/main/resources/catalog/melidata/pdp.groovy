@@ -258,7 +258,7 @@ tracks {
 
     "/pdp/multiple_offer/select_offer"(platform: "/", parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, inheritable: false, description: "Selected Option Item ID")
-        multiple_offer_type(required: false, type: PropertyType.String, inheritable: false, values: ["BEST_PRICE", "BEST_INSTALLMENTS"], description: "Indicates the type of multiple offer selected")
+        multiple_offer_type(required: true, type: PropertyType.String, inheritable: false, values: ["BEST_PRICE", "BEST_INSTALLMENTS"], description: "Indicates the type of multiple offer selected")
     }
 
     "/pdp/quantity_change"(platform: "/", parentPropertiesInherited: false) {
