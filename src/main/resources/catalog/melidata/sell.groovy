@@ -253,6 +253,10 @@ tracks {
     "/sell/list/draft/warranty_time_review"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type_review"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/catalog/forced"(platform: "/mobile", type: TrackType.View) {
+        catalog_listing_forced_type(required: true, description: "open or closed depending on forced type", type: PropertyType.String)
+    }
+    "/sell/list/draft/catalog/customize_marketplace_item"(platform: "/mobile", type: TrackType.View) {}
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
     "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {}
@@ -340,6 +344,10 @@ tracks {
     "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
     "/sell/list/catalog"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/catalog/forced"(platform: "/mobile", type: TrackType.View) {
+        catalog_listing_forced_type(required: true, description: "open or closed depending on forced type", type: PropertyType.String)
+    }
+    "/sell/list/catalog/customize_marketplace_item"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/classifieds_reservation_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/color_selection"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {}
