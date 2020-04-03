@@ -17,8 +17,8 @@ FROM (
       melidata.tracks_ml
       LATERAL VIEW JSON_TUPLE(event_data, 'results', 'query') event_data AS results, query
     WHERE
-      ds >= '@param1 00'
-      AND ds < '@param2 00'
+      ds >= '@param01 00'
+      AND ds < '@param02 00'
       AND bu = 'mercadolibre'
       AND path = '/search'
       AND type = 'view'
