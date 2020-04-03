@@ -253,6 +253,8 @@ tracks {
     "/sell/list/draft/warranty_time_review"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type_review"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/catalog"(platform:"/mobile", type: TrackType.View, isAbstract: true){}
+    "/sell/list/draft/catalog/decision"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/catalog/forced"(platform: "/mobile", type: TrackType.View) {
         catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
     }
