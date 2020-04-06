@@ -841,7 +841,7 @@ trackTests {
             shop_name = "Test Shop"
         }
 
-        "/mercado_shops/hub/quick-access"(platform: "/", type: TrackType.Event){
+        "/mercado_shops/hub/quick_access"(platform: "/", type: TrackType.Event){
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
