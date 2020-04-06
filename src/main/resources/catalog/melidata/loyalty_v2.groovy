@@ -64,7 +64,7 @@ tracks {
 
     "/loyalty/milestone_v2/action"(platform: "/", type: TrackType.Event) {}
 
-    // CrossSelling Componente
+    // CrossSelling Component
     "/loyalty/crossselling"(platform: "/", isAbstract: true) {
         origin(type: PropertyType.String, required: true, description: "where is the component")
         title(type: PropertyType.String, required: false, description: "partner title")
@@ -81,4 +81,28 @@ tracks {
     "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event) {
         button_deeplink(required: true, description: "cta action", type: PropertyType.String)
     }
+
+
+    // Loyalty Partners VDP
+    "/loyalty/partners"(platform: "/", isAbstract: true) {
+        partner(required: true, description: "VDP partner name (HBO, Paramount, etc.)", type: PropertyType.String)
+        content(required: true, description: "Content of the partner. Ex: Game Of Thrones", type: PropertyType.String)
+        discount(required: false, description: "User discount", type: PropertyType.Numeric)
+        suscriptionStatus(required: false, description: "Suscrition Status", type: PropertyType.String)
+    }
+
+    "/loyalty/partners/vdp"(platform: "/", type: TrackType.View) {}
+
+    "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event) {
+        type(required: true, description: "User discount", values: ["content", "primary", "secondary", "tyc"], type: PropertyType.String)
+        name(required: false, description: "Action ressed name", type: PropertyType.String)
+    }
+
+    "/loyalty/partners/vdp/content"(platform: "/", type: TrackType.View) {}
+
+
+    "/loyalty/partners/vdp/content/action"(platform: "/", type: TrackType.Event) {
+        type(required: true, description: "User discount", values: ["primary", "secondary", "tyc"], type: PropertyType.String)
+    }
+
 }

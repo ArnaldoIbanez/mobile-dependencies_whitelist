@@ -167,7 +167,7 @@ trackTests {
         }
     }
 
-     test("Loyalty CrossSellingComponent") {
+    test("Loyalty CrossSellingComponent") {
         "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
             origin = "home"
             item_number = 2
@@ -181,7 +181,7 @@ trackTests {
         }
     }
 
-        test("Loyalty CrossSellingComponent in mercadopago") {
+    test("Loyalty CrossSellingComponent in mercadopago") {
         "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
             origin = "deals"
             item_number = 2
@@ -199,6 +199,86 @@ trackTests {
             level = 1
             button_deeplink = "deeplink"
         }
+    }
+
+
+    test("Loyalty VDP Content") {
+
+         "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            discount = 30
+            suscriptionStatus = "freetrial"
+        }
+
+        "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            discount = 30
+            suscriptionStatus = "active"
+        }
+
+        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            type = "content"
+            name = "Game of thrones"
+        }
+
+        "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            discount = 30
+            suscriptionStatus = "none"
+        }
+
+        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            type = "content"
+            name = "Game of thrones"
+        }
+
+        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            type = "tyc"
+        }
+
+        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            type = "primary"
+        }
+
+        "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            discount = 30
+        }
+
+        "/loyalty/partners/vdp/content"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+        }
+
+        "/loyalty/partners/vdp/content"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+        }
+
+        "/loyalty/partners/vdp/content/action"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            type = "tyc"
+        }
+
+        "/loyalty/partners/vdp/content/action"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            type = "primary"
+        }
+
     }
 
 }
