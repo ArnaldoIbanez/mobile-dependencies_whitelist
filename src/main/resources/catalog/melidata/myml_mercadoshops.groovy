@@ -432,4 +432,18 @@ tracks {
     "/mercado_shops/marketing/google/shopping/resume"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/instagram"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/hub"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/hub/view"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/hub/onboarding"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/hub/quick-access"(platform: "/", type: TrackType.Event){
+        quick_access: PropertyType.String
+    }
+
+    "/mercado_shops/hub/boost"(platform: "/", type: TrackType.Event){
+        option: PropertyType.String
+    }
 }
