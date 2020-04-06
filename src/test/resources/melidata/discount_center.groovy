@@ -173,7 +173,6 @@ trackTests {
             flow= "/instore"
             checkout_type= "one_tap"
             security_enabled= false
-            experiments= "px nativo"
             session_id= "65c7168b-cf25-4033-ad7a-e7874868a164"
             session_time= 58
             flow_detail= [
@@ -193,7 +192,6 @@ trackTests {
             flow= "/instore"
             checkout_type= "one_tap"
             security_enabled= false
-            experiments= "px nativo"
             session_id= "65c7168b-cf25-4033-ad7a-e7874868a164"
             session_time= 58
             flow_detail= [

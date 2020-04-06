@@ -116,7 +116,6 @@ tracks {
         checkout_type(required: false, type: PropertyType.String, description: "Checkout type")
         collector_id(required: false, description: "Collector external id")
         security_enabled(required: false, type: PropertyType.Boolean, description: "If the user has biometric or passcode validation to make a payment")
-        experiments(required: false, type: PropertyType.String, description: "Active experiments")
     }
 
     def touchpoint_item_definition = objectSchemaDefinitions {
@@ -124,7 +123,7 @@ tracks {
     }
 
     propertyGroups {
-        externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, experiments)
+        externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled)
     }
 
     "/discount_center/payers/touchpoint" (platform: "/mobile", isAbstract: true) {}
