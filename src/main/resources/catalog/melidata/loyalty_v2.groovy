@@ -95,11 +95,10 @@ tracks {
 
     "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event) {
         type(required: true, description: "User discount", values: ["content", "primary", "secondary", "tyc"], type: PropertyType.String)
-        name(required: false, description: "Action ressed name", type: PropertyType.String)
+        name(required: false, description: "Action pressed name", type: PropertyType.String)
     }
 
     "/loyalty/partners/vdp/content"(platform: "/", type: TrackType.View) {}
-
 
     "/loyalty/partners/vdp/content/action"(platform: "/", type: TrackType.Event) {
         type(required: true, description: "User discount", values: ["primary", "secondary", "tyc"], type: PropertyType.String)
