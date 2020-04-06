@@ -445,7 +445,7 @@ tracks {
 
     "/mercado_shops/hub/onboarding"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/hub/quick-access"(platform: "/", type: TrackType.Event){
+    "/mercado_shops/hub/quick_access"(platform: "/", type: TrackType.Event){
         quick_access(required: true, type: PropertyType.String)
     }
 
