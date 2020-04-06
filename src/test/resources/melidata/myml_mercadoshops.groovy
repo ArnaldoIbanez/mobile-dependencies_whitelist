@@ -845,14 +845,14 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
-            quick_access: "Delegacion de dominio"
+            quick_access = "Delegacion de dominio"
         }
 
         "/mercado_shops/hub/boost"(platform: "/", type: TrackType.Event){
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
-            option: "Facebook pixel"
+            option = "Facebook pixel"
         }
     }
 }
