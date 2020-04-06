@@ -439,7 +439,7 @@ tracks {
 
     "/mercado_shops/marketing/instagram/context_help"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/hub"(platform: "/", type: TrackType.View){}
+    "/mercado_shops/hub"(platform: "/", isAbstract: true){}
 
     "/mercado_shops/hub/view"(platform: "/", type: TrackType.View){}
 
