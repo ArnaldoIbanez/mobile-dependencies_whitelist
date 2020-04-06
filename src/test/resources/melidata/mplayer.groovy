@@ -216,6 +216,36 @@ trackTests {
         "/mplayer/download_app/appstore"(platform: "/web") {}
         "/mplayer/download_app/playstore"(platform: "/web") {}
 
+        // Multiplayer/Friends Marketing Landing
+        "/mplayer/mkt_landing"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/mplayer/mkt_landing"(platform: "/web"){
+            campaign = "sube"
+        } 
+        "/mplayer/mkt_landing/sms"(platform: "/web"){
+            campaign = "sube"
+        } 
+        "/mplayer/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "sube"
+            position = "coupon"
+        } 
+        "/mplayer/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "sube"
+            position = "steps"
+        } 
+        "/mplayer/mkt_landing/button"(platform: "/web"){
+            campaign = "sube"
+            position = "hero"
+        } 
+        "/mplayer/mkt_landing/button"(platform: "/web"){
+            campaign = "sube"
+            position = "fixed"
+        } 
+        "/mplayer/mkt_landing/button"(platform: "/web"){
+            campaign = "sube"
+            position = "footer"
+        } 
     }
 }
 

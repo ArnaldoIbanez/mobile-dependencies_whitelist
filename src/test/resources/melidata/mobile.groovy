@@ -33,6 +33,21 @@ trackTests {
             timezone = "-0300"
             last_seen = "2020-03-06"
             source = "uninstalls_checker_flow"
+            current_checking_day = 23
+            execution_id = "eac9e889bb478758"
+        }
+    }
+
+    test("not_engaged"){
+        "/application/not_engaged" (platform: "/mobile", type: TrackType.Event){
+            type = "mobile"
+            date_created = "2019-08-08T09:25:01.000-04:00"
+            lang = "es-ar"
+            timezone = "-0300"
+            last_seen = "2020-03-06"
+            source = "uninstalls_checker_flow"
+            current_checking_day = 23
+            execution_id = "eac9e889bb478758"
         }
     }
 

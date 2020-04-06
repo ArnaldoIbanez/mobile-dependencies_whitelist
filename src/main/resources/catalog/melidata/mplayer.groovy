@@ -263,5 +263,20 @@ tracks {
 
     "/mplayer/download_app/playstore"(platform: "/web", type: TrackType.Event){}
 
+    // Multiplayer/Friends Marketing Performance Landing
+    "/mplayer/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/mplayer/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/mplayer/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
+    }
+    "/mplayer/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
+    }
 
 }

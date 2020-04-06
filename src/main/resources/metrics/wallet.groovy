@@ -14,7 +14,7 @@ metrics {
     }
   }
 
-  "payment"(description: "Counts when a user pays in any flow") {
+  "payment"(description: "Counts when a user pays in any flow", categorization:"important") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -27,7 +27,7 @@ metrics {
     }
   }
 
-  "payment.instore"(description: "Counts when a user pays in In Store") {
+  "payment.instore"(description: "Counts when a user pays in In Store", categorization:"important") {
     startWith {
       experiment(regex("wallet/.*"))
     }
