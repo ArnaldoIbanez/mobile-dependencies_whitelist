@@ -2,7 +2,7 @@
   "users": [
     "francisco.yackel@mercadolibre.com"
   ],
-  "process_name": "tfs_dashboard_compare_tracks",
+  "process_name": "tfs_dashboard_tabs_and_compare_tracks",
   "cron": "00 06 * * *",
   "partition": {
     "name": "ds",
@@ -17,12 +17,20 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "type",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "site_id",
         "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "mercadopago/toolsforsellers/tools_for_sellers_dashboard_compare_tracks.sql",
+      "script": "mercadopago/toolsforsellers/tools_for_sellers_dashboard_tabs_and_compare_tracks.sql",
       "parameters": [
         {
           "name": "param01",
