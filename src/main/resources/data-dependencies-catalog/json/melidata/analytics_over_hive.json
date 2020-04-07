@@ -9,7 +9,7 @@
   "process_name": "analytics_over_hive",
   "cron": "00 09 * * *",
   "extract": {
-    "operation": "destroy",
+    "operation": "append",
     "columns": [
       {
         "name": "id",
