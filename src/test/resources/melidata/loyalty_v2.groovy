@@ -219,7 +219,7 @@ trackTests {
             subscription_status = "active"
         }
 
-        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
             partner = "HBO Go"
             content = "Game of thrones"
             type = "content"
@@ -233,20 +233,20 @@ trackTests {
             subscription_status = "none"
         }
 
-        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.View, business:"mercadopago") {
+        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
             partner = "HBO Go"
             content = "Game of thrones"
             type = "content"
             name = "Game of thrones"
         }
 
-        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
             partner = "HBO Go"
             content = "Game of thrones"
             type = "tyc"
         }
 
-        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.View, business:"mercadopago") {
+        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
             partner = "HBO Go"
             content = "Game of thrones"
             type = "primary"
@@ -268,13 +268,13 @@ trackTests {
             content = "Game of thrones"
         }
 
-        "/loyalty/partners/vdp/content/action"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+        "/loyalty/partners/vdp/content/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
             partner = "HBO Go"
             content = "Game of thrones"
             type = "tyc"
         }
 
-        "/loyalty/partners/vdp/content/action"(platform: "/", type: TrackType.View, business:"mercadopago") {
+        "/loyalty/partners/vdp/content/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
             partner = "HBO Go"
             content = "Game of thrones"
             type = "primary"
