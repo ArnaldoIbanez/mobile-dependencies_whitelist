@@ -208,14 +208,14 @@ trackTests {
             partner = "HBO Go"
             content = "Game of thrones"
             discount = 30
-            suscriptionStatus = "freetrial"
+            subscription_status = "freetrial"
         }
 
         "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business:"mercadopago") {
             partner = "HBO Go"
             content = "Game of thrones"
             discount = 30
-            suscriptionStatus = "active"
+            subscription_status = "active"
         }
 
         "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.View, business:"mercadolibre") {
@@ -229,7 +229,7 @@ trackTests {
             partner = "HBO Go"
             content = "Game of thrones"
             discount = 30
-            suscriptionStatus = "none"
+            subscription_status = "none"
         }
 
         "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.View, business:"mercadopago") {
