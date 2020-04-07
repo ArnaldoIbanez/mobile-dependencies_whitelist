@@ -6,7 +6,7 @@
     "name": "ds",
     "type": "DATE"
   },
-  "process_name": "analytics_over_presto",
+  "process_name": "analytics_over_hive",
   "cron": "00 09 * * *",
   "extract": {
     "operation": "destroy",
