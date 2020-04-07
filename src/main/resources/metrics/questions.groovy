@@ -2,7 +2,7 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-    "questions"(description: "questions count") {
+    "questions"(description: "questions count", categorization:"important") {
         countsOn {
             condition {
                 path("/questions/ask/post")

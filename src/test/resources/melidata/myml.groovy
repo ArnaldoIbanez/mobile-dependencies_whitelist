@@ -643,6 +643,12 @@ trackTests {
 
         "/myml/invoices/opt_in/difal"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/opt_in/difal/button/save"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/opt_in/rule-composition"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/opt_in/rule-composition/button/save"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/opt_in/cst-devolution"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/opt_in/cst-devolution/button/save"(platform: "/", type: TrackType.Event) {}
     }
 
 
@@ -1297,7 +1303,7 @@ trackTests {
             selected = "MSwyLDMsNA=="
         }
 
-        "/myml/fiscal_rules/massive/upload/action/rules"(platform: "/", type: TrackType.Event) {
+        "/myml/fiscal_rules/massive/upload/action/advanced_tax_settings"(platform: "/", type: TrackType.Event) {
             callback = "www.mercadolivre.com.br"
             action = "edit"
             selected = "MSwyLDMsNA=="

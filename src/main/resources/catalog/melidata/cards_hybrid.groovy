@@ -290,7 +290,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["reissue", "freeze", "unfreeze", "card-unfreeze", "copy"],
+            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy"],
             description: "The action type tapped"
         )
     }
@@ -335,7 +335,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["primary-button", "secondary-button"],
+            values: ["primary_button", "secondary_button"],
             description: "The action type tapped"
         )
     }
@@ -361,8 +361,57 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["reissue", "freeze", "unfreeze", "card-change_pin", "change_limits"],
+            values: ["reissue", "freeze", "unfreeze", "change_pin", "change_limits"],
             description: "The action type tapped"
+        )
+    }
+    
+    // CHANGE-PIN
+    // --------
+    "/cards/hybrid/change-pin"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/change-pin/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["change-pin"],
+            description: "Change pin button tapped"
+          )
+    }
+    "/cards/hybrid/change-pin/congrats"(platform: "/", type: TrackType.View) {}
+    
+    // LIMITS
+    // --------
+    "/cards/hybrid/limits-setup"(platform: "/", type: TrackType.View) {
+        limits_status (required:true, type: PropertyType.String, description: "Current sections", inheritable:false)
+    }
+    "/cards/hybrid/limits-setup/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["header-help"],
+            description: "Header action tapped"
+          )
+    }
+    
+    //Number Selector
+    "/cards/hybrid/limits-setup/number-selector"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/limits-setup/number-selector/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["modal"],
+            description: "Button tapped"
+        )
+    }
+    
+    //Number selector modal
+    "/cards/hybrid/limits-setup/number-selector-modal"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/limits-setup/number-selector-modal/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["cancel", "save"],
+            description: "Button tapped"
         )
     }
 }

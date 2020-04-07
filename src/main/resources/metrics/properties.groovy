@@ -43,7 +43,7 @@ metrics {
         }
     }
 
-    "qadb/qadb-on-viewport-vip"(description: "define properties for item_id qadb viewport for vip experiment") {
+    "qadb/qadb-on-viewport-vip"(description: "define properties for item_id qadb viewport for vip experiment", categorization:"important") {
         startWith {
             set_property("item_id", "event_data.item_id")
         }
@@ -59,6 +59,14 @@ metrics {
         startWith {
             set_property("item_ids", "event_data.results")
             experiment(regex("search/.*"))
+        }
+    }
+
+    "pdp_properties"(description: "define properties for order_id") {
+        startWith {
+            set_property("catalog_product_id", "event_data.catalog_product_id")
+            set_property("item_id", "event_data.item_id")
+            experiment(regex("pdp/.*"))
         }
     }
     

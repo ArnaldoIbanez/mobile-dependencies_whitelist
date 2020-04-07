@@ -1021,6 +1021,21 @@ tracks {
     "/myml/invoices/opt_in/difal/button"(platform: "/", isAbstract: true) {}
     "/myml/invoices/opt_in/difal/button/save"(platform: "/") {}
 
+    // rule composition
+    "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/rule-composition"(platform: "/") {}
+
+    "/myml/invoices/opt_in/rule-composition/button"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/rule-composition/button/save"(platform: "/") {}
+
+    // cst nfe devolution
+    "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/cst-devolution"(platform: "/") {}
+
+    "/myml/invoices/opt_in/cst-devolution/button"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/cst-devolution/button/save"(platform: "/") {}
+
+
     //:::: SELLER - INVOICES
 
     "/myml/buy_it_again"(platform: "/mobile") {}
@@ -1155,7 +1170,7 @@ tracks {
 
     "/myml/fiscal_rules/massive/upload/action/edit"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/fiscal_rules/massive/upload/action/rules"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_rules/massive/upload/action/advanced_tax_settings"(platform: "/", type: TrackType.Event) {}
 
     "/myml/fiscal_rules/massive/upload/action/download"(platform: "/", type: TrackType.Event) {}
 

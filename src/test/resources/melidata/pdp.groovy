@@ -88,6 +88,7 @@ trackTests {
     test("pdp mandatory tracking") {
         "/pdp"(platform: "/", {
             cac_item = false
+            cac_status = "normal"
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
             domain_id = "MLA-CELLPHONES"
@@ -237,6 +238,9 @@ trackTests {
 
             filters = ["installments": "no_interest", "price":"1000-2000"]
 
+            multiple_offer_type="BEST_PRICE"
+            multiple_offer_default_winner_item_id="MLB1432864987"
+
             cart()
             shipping()
             pickup()
@@ -298,6 +302,11 @@ trackTests {
             price = 8400
             currency_id = "ARS"
         })
+
+        "/pdp/multiple_offer/select_offer"(platform: "/") {
+            item_id = "MLA12345678"
+            multiple_offer_type = "BEST_PRICE"
+        }
 
         "/pdp/quantity_change"(platform: "/", {
             catalog_product_id = "MLA1234"
