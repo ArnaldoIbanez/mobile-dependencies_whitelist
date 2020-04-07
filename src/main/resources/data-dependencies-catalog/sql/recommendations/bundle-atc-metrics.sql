@@ -13,4 +13,3 @@ AND JEST(event_data,'items') is not NULL
 AND DS >= '@param01' 
 AND DS < '@param02'
 GROUP BY application.site_id, device.platform, substr(ds,1,10), jest(event_data, 'client'), jest(event_data, 'backend_id')
-ORDER BY substr(ds,1,10)

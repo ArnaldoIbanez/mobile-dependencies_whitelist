@@ -9,7 +9,7 @@
   "process_name": "analytics_over_presto",
   "cron": "00 09 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "id",

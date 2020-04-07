@@ -11,7 +11,7 @@
   },
   "extract":
   {
-   "operation": "append",
+   "operation": "destroy",
    "site": "MeliLake",
    "columns":
     [
