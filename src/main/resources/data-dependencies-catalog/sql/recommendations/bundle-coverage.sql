@@ -36,4 +36,3 @@ jest(event_data, 'recommendations.backend_id'),
 jest(event_data, 'recommendations.track_info.combo_type'), 
 jest(event_data, 'recommendations.track_info.combo_free_shipping'), 
 device.platform
-ORDER BY substr(ds,1,10)

@@ -8,4 +8,3 @@ AND jest(event_data, 'recommendations.track_info.has_recommendations') = 'true'
 AND ds >= '@param01'
 AND ds < '@param02'
 GROUP BY application.site_id, ds
-ORDER BY ds

@@ -29,5 +29,3 @@ FROM
  ) AS t1
 GROUP BY
  t1.site_id, t1.date_sent, t1.platform, t1.path, t1.event_type
-ORDER BY
- t1.site_id, t1.date_sent, t1.platform, t1.path, t1.event_type
