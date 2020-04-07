@@ -89,6 +89,7 @@ tracks {
         content(required: true, description: "Content of the partner. Ex: Game Of Thrones", type: PropertyType.String)
         discount(required: false, description: "User discount", type: PropertyType.Numeric)
         subscription_status(required: false, description: "Subscrition Status", type: PropertyType.String)
+        origin(required: false, description: "Where was the vdp initiated from")
     }
 
     "/loyalty/partners/vdp"(platform: "/", type: TrackType.View) {}

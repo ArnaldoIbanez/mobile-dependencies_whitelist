@@ -209,6 +209,7 @@ trackTests {
             content = "Game of thrones"
             discount = 30
             subscription_status = "freetrial"
+            origin = "home"
         }
 
         "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business:"mercadopago") {
