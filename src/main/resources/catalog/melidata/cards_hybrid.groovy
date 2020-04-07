@@ -414,4 +414,8 @@ tracks {
             description: "Button tapped"
         )
     }
+    
+    // CARD IDENTIFICATION
+    // --------
+    "/cards/hybrid/card_identification"(platform: "/", type: TrackType.View) {}
 }
