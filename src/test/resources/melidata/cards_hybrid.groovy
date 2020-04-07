@@ -460,4 +460,10 @@ trackTests {
             action = "save"
         }
     }
+    
+    // CARD IDENTIFICATION
+    // --------
+    test("cards hybrid card identification") {
+        "/cards/hybrid/card_identification"(platform: "/", type: TrackType.View) {}
+    }
 }
