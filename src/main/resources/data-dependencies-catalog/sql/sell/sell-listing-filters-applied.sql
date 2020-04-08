@@ -18,5 +18,5 @@ WHERE
     application.site_id IN ('MLM', 'MLA', 'MLB')
 GROUP BY
   filters,
-  site_id,
-  ds
+  application.site_id,
+  substr(ds,1,10)
