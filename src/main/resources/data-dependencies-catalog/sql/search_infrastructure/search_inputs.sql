@@ -14,12 +14,12 @@ FROM (
       ds           AS ds,
       SPLIT(substring_index(regexp_replace(event_data.results, '\"+|\\[|\\]$', ""), ',', 5), ',') AS top_5_items
     FROM
-      melidata.tracks_ml
+      default.tracks
       LATERAL VIEW JSON_TUPLE(event_data, 'results', 'query') event_data AS results, query
     WHERE
       ds >= '@param01 00'
       AND ds < '@param02 00'
-      AND bu = 'mercadolibre'
+      AND application.business = 'mercadolibre'
       AND path = '/search'
       AND type = 'view'
       AND trim(event_data.query) != ''
