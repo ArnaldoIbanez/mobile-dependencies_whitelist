@@ -5,7 +5,7 @@ SELECT
   substr(ds,1,10) as ds
 FROM 
       default.tracks
-      lateral view explode(json_to_array(jet(event_data, 'filters'))) tf as filters
+      lateral view explode(json_to_array(jet(event_data, 'checkedFilters'))) tf as filters
 WHERE 
       ds >= '@param01'
     AND 
@@ -13,7 +13,7 @@ WHERE
     AND 
       path in ('/seller_central/listings/filters/applied')
     AND 
-      jest(event_data,'checkedFilters') != []
+      jest(event_data,'checkedFilters') != '[]'
     AND
     application.site_id IN ('MLM', 'MLA', 'MLB')
 GROUP BY
