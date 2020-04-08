@@ -44,10 +44,6 @@
         "type": "INTEGER"
       },
       {
-        "name": "tables_written",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "cpu_time",
         "type": "INTEGER"
       },
