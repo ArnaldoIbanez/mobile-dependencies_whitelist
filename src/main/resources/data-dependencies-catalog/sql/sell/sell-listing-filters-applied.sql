@@ -7,9 +7,9 @@ FROM
       default.tracks
       lateral view explode(json_to_array(jet(event_data, 'checkedFilters'))) tf as filters
 WHERE 
-      substr(ds,1,10)  >= '@param01'
+      ds >= '@param01'
     AND 
-      substr(ds,1,10)  < '@param02'
+      ds < '@param02'
     AND 
       path in ('/seller_central/listings/filters/applied')
     AND 
