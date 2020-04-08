@@ -206,6 +206,7 @@ tracks {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
 
+    "/mplayer/tracing/social_hub/"(platform: "/mobile", isAbstract: true) {}
     "/mplayer/tracing/social_hub/money_split"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/tracing/social_hub/send_money"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/tracing/social_hub/money_request"(platform: "/mobile", type: TrackType.Event) {}
