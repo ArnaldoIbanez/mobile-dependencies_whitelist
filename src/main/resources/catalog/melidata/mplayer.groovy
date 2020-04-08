@@ -206,6 +206,10 @@ tracks {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
 
+    "/mplayer/tracing/social_hub/money_split"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/tracing/social_hub/send_money"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/tracing/social_hub/money_request"(platform: "/mobile", type: TrackType.Event) {}
+
     "/money_request"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")

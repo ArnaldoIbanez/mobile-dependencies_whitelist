@@ -201,6 +201,10 @@ trackTests {
             button = "close_button"
         }
 
+        "/mplayer/tracing/social_hub/money_split"(platform: "/mobile") {}
+        "/mplayer/tracing/social_hub/send_money"(platform: "/mobile") {}
+        "/mplayer/tracing/social_hub/money_request"(platform: "/mobile") {}
+
         //Request Landing
 
         "/mplayer/request_landing"(platform: "/web") {
