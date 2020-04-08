@@ -13,10 +13,10 @@ WHERE
     AND 
       path in ('/seller_central/listings/filters/applied')
     AND 
-      event_data != '{"checkedFilters":[]}'
-    AND 
+      jest(event_data,'checkedFilters') != []
+    AND
     application.site_id IN ('MLM', 'MLA', 'MLB')
 GROUP BY
-  2,
-  3,
-  4
+  filters,
+  site_id,
+  ds
