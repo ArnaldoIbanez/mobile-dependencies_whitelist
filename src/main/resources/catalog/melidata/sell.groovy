@@ -825,7 +825,7 @@ tracks {
 
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
         sellGroup
-        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
     }
     "/sell/item_conditions/price_and_currency"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event) {}
@@ -948,7 +948,7 @@ tracks {
 
     "/sell/sip"(platform: "/web", type: TrackType.View) {
         sellGroup
-        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
     }
     "/sell/sip/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
