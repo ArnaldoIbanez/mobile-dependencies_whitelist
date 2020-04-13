@@ -119,4 +119,11 @@ tracks {
         enable(required:true, type:PropertyType.Boolean, description: "Indicates if settings are enabled")
         registration_id(required: false, description: "The registration id", type: PropertyType.String)
     }
+
+    // Track for dark mode status on devices
+    "/devices/dark_mode"(platform: "/mobile", type: TrackType.Event) {
+        status(required: true, type: PropertyType.String, values: ["enabled", "battery_enabled", "disabled", "undefined"],
+         description: "Dark Mode status")
+    }
+
 }

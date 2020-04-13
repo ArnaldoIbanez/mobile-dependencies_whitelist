@@ -131,4 +131,10 @@ trackTests {
     test("Choose Country settings") {
         "/settings/country"(platform: "/mobile", type: TrackType.View) {}
     }
+
+    test("Dark Mode") {
+        "/devices/dark_mode"(platform:"/mobile") {
+            status = "enabled"
+        }
+    }
 }
