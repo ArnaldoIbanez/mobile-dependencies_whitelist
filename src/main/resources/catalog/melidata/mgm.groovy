@@ -71,9 +71,7 @@ tracks {
     "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
         promoter (required:false, type: PropertyType.String, description: "Indicates the id of the inviter/promoter")
     }
-    "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
-        promoter (required:false, type: PropertyType.String, description: "Indicates the id of the inviter/promoter")
-    }
+    "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
 
     // MGM Seller Mobile
     "/mgm_seller" (platform: "/mobile", isAbstract: true) {}
