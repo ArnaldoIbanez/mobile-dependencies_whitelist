@@ -14,6 +14,7 @@ tracks {
     //Abstract Path
     "/cards"(platform: "/", isAbstract: true) { }
     "/cards/hybrid"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/request/virtual"(platform: "/", isAbstract: true) { }
     "/cards/acquisition"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
