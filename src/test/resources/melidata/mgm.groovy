@@ -65,6 +65,8 @@ trackTests {
             promoter = "123456"
         }
 
+        "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
+
         // MGM Seller
         "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}
         "/mgm_seller/dashboard" (platform: "/mobile", type: TrackType.View) {}
@@ -137,9 +139,7 @@ trackTests {
             promoter = "123456"
         }
 
-        "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
-            promoter = "123456"
-        }
+        "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
 
         // MGM Seller
         "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}
