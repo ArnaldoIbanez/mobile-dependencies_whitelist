@@ -12,7 +12,7 @@ tracks {
         results(required:false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
     }
 
-    def attributes_values_map = objectSchemaDefinitions {
+    Object attributes_values_map = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true, description: "Attribute id")
         value_id(type: PropertyType.String, required: false, description: "Attribute value_id")
         value_name(type: PropertyType.String, required: true, description: "Attribute value_name")
