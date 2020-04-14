@@ -190,14 +190,7 @@ tracks {
 
         original_item(required: false, type: PropertyType.Boolean , description:  "Indicates if it is an original item")
 
-
-        brand(required: false, type: PropertyType.ArrayList, description: "brand attribute to motors items, id and value_name")
-
-        model(required: false, type: PropertyType.ArrayList, description: "model attribute to motors items, id and value_name")
-
-        year(required: false, type: PropertyType.String, description: "year attribute to motors items")
-
-        map_item_attributes(required: false, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "List of attributes classi items")
+        map_item_attributes(required: false, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "Map of items attributes")
 
     }
 
