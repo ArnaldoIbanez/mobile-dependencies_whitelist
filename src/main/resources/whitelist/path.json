@@ -1,7 +1,6 @@
 {
   "path": [
     "/vip",
-    "/vip/quote_demand_intention_lower",
     "/add_to_cart",
     "/traffic/inbound/matt",
     "/traffic/inbound/organic",
@@ -20,6 +19,7 @@
     "/asset_management/error",
     "/remedy/error",
     "/kyc/error",
-    "/melidata/ab_split"
+    "/melidata/ab_split",
+    "/px_checkout/result/success"
   ]
 }
