@@ -471,7 +471,7 @@ trackTests {
     // CARD REQUEST init point
     // --------
     test("cards hybrid request init point") {
-        "/cards/hybrid/request/init-point"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/request/init_point"(platform: "/", type: TrackType.View) {}
     }
     // CARD REQUEST virtual on boarding
     // --------
