@@ -12,6 +12,12 @@ tracks {
         results(required:false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
     }
 
+    def attributes_values_map = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "Attribute id")
+        value_id(type: PropertyType.String, required: false, description: "Attribute value_id")
+        value_name(type: PropertyType.String, required: false, description: "Attribute value_name")
+    }
+
     propertyDefinitions {
         cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)")
@@ -183,6 +189,16 @@ tracks {
         item_attributes(required: false, type: PropertyType.String, description: "attributes of the item: discount, promotion, stock, cbt type")
 
         original_item(required: false, type: PropertyType.Boolean , description:  "Indicates if it is an original item")
+
+
+        brand(required: false, type: PropertyType.ArrayList, description: "brand attribute to motors items, id and value_name")
+
+        model(required: false, type: PropertyType.ArrayList, description: "model attribute to motors items, id and value_name")
+
+        year(required: false, type: PropertyType.String, description: "year attribute to motors items")
+
+        map_item_attributes(required: false, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "List of attributes classi items")
+
     }
 
     "/vip"(platform: "/web") {

@@ -56,6 +56,11 @@ trackTests {
 			city = "none"
 			neighborhood = "none"
 			state = "none"
+            map_item_attributes = [
+                    [ id:"BRAND", value_id:"60297", value_name:"Toyota"],
+                    [ id:"MODEL", value_id:"60337", value_name:"Yaris" ],
+                    [ id:"YEAR", value_name:"2012"]
+            ]
         }
 
         "/vip"(platform:"/mobile", {
