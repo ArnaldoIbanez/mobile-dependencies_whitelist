@@ -26,7 +26,7 @@ metrics {
       }
     }
 
-  "payment.mercadopago"(description: "Counts when a user pays in any flow in mercadopago business", categorization:"important") {
+  "payment.mp"(description: "Counts when a user pays in any flow in mercadopago business") {
       startWith {
         experiment(regex("wallet/.*"))
       }
@@ -39,7 +39,7 @@ metrics {
       }
     }
 
-  "payment.mercadolibre"(description: "Counts when a user pays in any flow in mercadolibre business", categorization:"important") {
+  "payment.ml"(description: "Counts when a user pays in any flow in mercadolibre business") {
       startWith {
         experiment(regex("wallet/.*"))
       }
@@ -65,7 +65,7 @@ metrics {
     }
   }
 
-  "payment.instore.mercadopago"(description: "Counts when a user pays in In Store in mercadopago business", categorization:"important") {
+  "payment.instore.mp"(description: "Counts when a user pays in In Store in mercadopago business") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -81,7 +81,7 @@ metrics {
     }
   }
 
-  "payment.instore.mercadolibre"(description: "Counts when a user pays in In Store in mercadolibre business", categorization:"important") {
+  "payment.instore.ml"(description: "Counts when a user pays in In Store in mercadolibre business") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -110,7 +110,7 @@ metrics {
     }
   }
 
-  "payment.cellphone_recharge.mercadopago"(description: "Counts when a user pays in Cellphone Recharge in mercadopago business") {
+  "payment.cellphone_recharge.mp"(description: "Counts when a user pays in Cellphone Recharge in mercadopago business") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -126,7 +126,7 @@ metrics {
     }
   }
 
-  "payment.cellphone_recharge.mercadolibre"(description: "Counts when a user pays in Cellphone Recharge in mercadolibre business") {
+  "payment.cellphone_recharge.ml"(description: "Counts when a user pays in Cellphone Recharge in mercadolibre business") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -142,7 +142,7 @@ metrics {
     }
   }
 
-  "payment.transport.mercadopago"(description: "Counts when a user pays in Transport in mercadopago business") {
+  "payment.transport"(description: "Counts when a user pays in Transport in any business") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -150,15 +150,12 @@ metrics {
     countsOn {
       condition {
         path("/px_checkout/result/success")
-        and(
-          equals("event_data.flow", "transport"),
-          equals("application.business", "mercadopago")
-        )
+        equals("event_data.flow", "transport")
       }
     }
   }
 
-  "payment.moneyin.mercadopago"(description: "Counts when a user inserts money into his/her account in mercadopago business") {
+  "payment.moneyin"(description: "Counts when a user inserts money into his/her account in any business") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -166,19 +163,16 @@ metrics {
     countsOn {
       condition {
         path("/px_checkout/result/success")
-        and(
-          or(
-            equals("event_data.flow", "account_fund"),
-            equals("event_data.flow", "/account_fund"),
-            equals("event_data.flow", "/moneyin")
-          ),
-          equals("application.business", "mercadopago")
+        or(
+          equals("event_data.flow", "account_fund"),
+          equals("event_data.flow", "/account_fund"),
+          equals("event_data.flow", "/moneyin")
         )
       }
     }
   }
 
-  "payment.money_transfer.mercadopago"(description: "Counts when a user sends Money in mercadopago business") {
+  "payment.money_transfer"(description: "Counts when a user sends Money in any business") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -186,18 +180,15 @@ metrics {
     countsOn {
       condition {
         path("/px_checkout/result/success")
-        and(
-          equals("application.business", "mercadopago"),
-          or(
-            equals("event_data.flow", "money_transfer"),
-            equals("event_data.flow", "/money_transfer")
-          )
+        or(
+          equals("event_data.flow", "money_transfer"),
+          equals("event_data.flow", "/money_transfer")
         )
       }
     }
   }
 
-  "payment.services.mercadopago"(description: "Counts when a user pays a Service in mercadopago business") {
+  "payment.services"(description: "Counts when a user pays a Service in any business") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -205,15 +196,12 @@ metrics {
     countsOn {
       condition {
         path("/px_checkout/result/success")
-        and(
-          equals("event_data.flow", "services"),
-          equals("application.business", "mercadopago")
-        )
+        equals("event_data.flow", "services")
       }
     }
   }
 
-  "payment.pay_preference.mercadopago"(description: "Counts when a user pays a Preference in mercadopago business") {
+  "payment.pay_preference"(description: "Counts when a user pays a Preference in any business") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -221,15 +209,12 @@ metrics {
     countsOn {
       condition {
         path("/px_checkout/result/success")
-        and(
-          equals("event_data.flow", "/pay_preference"),
-          equals("application.business", "mercadopago")
-        )
+        equals("event_data.flow", "/pay_preference")
       }
     }
   }
 
-  "payment.starbucks.mercadopago"(description: "Counts when a user recharges Starbucks card in mercadopago business") {
+  "payment.starbucks"(description: "Counts when a user recharges Starbucks card in any business") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -237,15 +222,12 @@ metrics {
     countsOn {
       condition {
         path("/px_checkout/result/success")
-        and(
-          equals("event_data.flow", "/miniapps/starbucks"),
-          equals("application.business", "mercadopago")
-        )
+        equals("event_data.flow", "/miniapps/starbucks")
       }
     }
   }
 
-  "wallet_active_investor.mercadopago"(description: "Counts when a user opts in for Asset Management in mercadopago business") {
+  "wallet_active_investor"(description: "Counts when a user opts in for Asset Management in any business") {
     startWith {
       experiment(regex("wallet/.*"))
     }
@@ -253,7 +235,6 @@ metrics {
     countsOn {
       condition {
         path("/asset_management/result_investing")
-        equals("application.business", "mercadopago")
       }
     }
   }
