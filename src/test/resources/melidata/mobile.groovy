@@ -113,6 +113,7 @@ trackTests {
             total_storage = 12582912
             free_storage = 6291456
             app_storage = 307200
+            status = "enabled"
         }
     }
 
@@ -130,11 +131,5 @@ trackTests {
 
     test("Choose Country settings") {
         "/settings/country"(platform: "/mobile", type: TrackType.View) {}
-    }
-
-    test("Dark Mode") {
-        "/devices/dark_mode"(platform:"/mobile") {
-            status = "enabled"
-        }
     }
 }

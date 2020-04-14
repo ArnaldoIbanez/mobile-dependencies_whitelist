@@ -101,6 +101,8 @@ tracks {
         total_storage(required: true, type: PropertyType.Numeric, description: "Total storage in the device in bytes")
         free_storage(required: true, type: PropertyType.Numeric, description: "Free storage in the device in bytes")
         app_storage(required: true, type: PropertyType.Numeric, description: "Application occupied storage in bytes")
+        dark_mode_status(required: false, type: PropertyType.String, values: ["enabled", "battery_enabled", "disabled", "undefined"],
+         description: "Dark Mode status")
     }
 
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}
@@ -119,11 +121,4 @@ tracks {
         enable(required:true, type:PropertyType.Boolean, description: "Indicates if settings are enabled")
         registration_id(required: false, description: "The registration id", type: PropertyType.String)
     }
-
-    // Track for dark mode status on devices
-    "/devices/dark_mode"(platform: "/mobile", type: TrackType.Event) {
-        status(required: true, type: PropertyType.String, values: ["enabled", "battery_enabled", "disabled", "undefined"],
-         description: "Dark Mode status")
-    }
-
 }
