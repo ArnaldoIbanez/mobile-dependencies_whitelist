@@ -113,6 +113,7 @@ trackTests {
             total_storage = 12582912
             free_storage = 6291456
             app_storage = 307200
+            dark_mode_status = "enabled"
         }
     }
 
