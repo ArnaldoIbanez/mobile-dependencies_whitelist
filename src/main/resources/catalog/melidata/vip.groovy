@@ -15,7 +15,7 @@ tracks {
     def attributes_values_map = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true, description: "Attribute id")
         value_id(type: PropertyType.String, required: false, description: "Attribute value_id")
-        value_name(type: PropertyType.String, required: false, description: "Attribute value_name")
+        value_name(type: PropertyType.String, required: true, description: "Attribute value_name")
     }
 
     propertyDefinitions {
