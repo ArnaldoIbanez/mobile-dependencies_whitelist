@@ -466,4 +466,24 @@ trackTests {
     test("cards hybrid card identification") {
         "/cards/hybrid/card_identification"(platform: "/", type: TrackType.View) {}
     }
+
+
+    // CARD REQUEST init point
+    // --------
+    test("cards hybrid request init point") {
+        "/cards/hybrid/request/init_point"(platform: "/", type: TrackType.View) {}
+    }
+    // CARD REQUEST virtual on boarding
+    // --------
+    test("cards hybrid virtual onboarding"){
+        "/cards/hybrid/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {}
+    }
+     test("cards hybrid virtual onboarding tap") {
+        "/cards/hybrid/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/hybrid/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
+            action = "continue"
+        }
+    }
 }

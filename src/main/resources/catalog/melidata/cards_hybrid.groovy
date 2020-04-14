@@ -14,6 +14,8 @@ tracks {
     //Abstract Path
     "/cards"(platform: "/", isAbstract: true) { }
     "/cards/hybrid"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/request"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/request/virtual"(platform: "/", isAbstract: true) { }
     "/cards/acquisition"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
@@ -418,4 +420,20 @@ tracks {
     // CARD IDENTIFICATION
     // --------
     "/cards/hybrid/card_identification"(platform: "/", type: TrackType.View) {}
+
+    // CARD REQUEST init point
+    // --------
+    "/cards/hybrid/request/init_point"(platform: "/", type: TrackType.View) {}
+
+    // CARD REQUEST virtual on boarding
+    // --------
+    "/cards/hybrid/request/virtual/onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "continue"],
+            description: "Button tapped"
+        )
+    }
 }
