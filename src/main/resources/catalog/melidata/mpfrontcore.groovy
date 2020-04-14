@@ -70,10 +70,16 @@ tracks {
     "/landing/sellers"(platform: "/"){}
 
     // MP Sellers Websites
-    "/landing/sellers/websites"(platform: "/web"){}
+    "/landing/sellers/websites"(platform: "/web", type: TrackType.Event){
+        id (type: PropertyType.String, required: false, description: "ID from clicked element")
+        label (type: PropertyType.String, required: false, description: "Element text")
+    }
 
     // MP Sellers Social
-    "/landing/sellers/social"(platform: "/web"){}
+    "/landing/sellers/social"(platform: "/web", type: TrackType.Event){
+        id (type: PropertyType.String, required: false, description: "ID from clicked element")
+        label (type: PropertyType.String, required: false, description: "Element text")
+    }
 
     // MP Sellers Merchant Services
     "/landing/sellers/mss"(platform: "/"){

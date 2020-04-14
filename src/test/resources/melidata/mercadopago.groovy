@@ -584,12 +584,30 @@ trackTests {
     }
 
     test("Landing mercadopago sellers websites") {
-        "/landing/sellers/websites" (platform: "/web") {}
+        "/landing/sellers/websites" (platform: "/web") {
+            id = "CTA_HERO"
+            label = "websites"
+        }
     }
 
     test("Landing mercadopago sellers social") {
-        "/landing/sellers/social" (platform: "/web") {}
+        "/landing/sellers/social" (platform: "/web") {
+            id = "CTA_HERO"
+            label "social"
+        }
     }
+      // MP Sellers Websites
+    "/landing/sellers/websites"(platform: "/web", type: TrackType.Event){
+        id (type: PropertyType.String, required: false, description: "ID from clicked element")
+        label (type: PropertyType.String, required: false, description: "Element text")
+    }
+
+    // MP Sellers Social
+    "/landing/sellers/social"(platform: "/web", type: TrackType.Event){
+        id (type: PropertyType.String, required: false, description: "ID from clicked element")
+        label (type: PropertyType.String, required: false, description: "Element text")
+    }
+
 
     test("Landing mercadopago sellers mss") {
         "/landing/sellers/mss" (platform: "/web") {
