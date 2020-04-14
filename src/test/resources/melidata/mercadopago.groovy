@@ -587,11 +587,6 @@ trackTests {
         "/landing/sellers/websites" (platform: "/web") {}
     }
 
-    test("Landing mercadopago sellers social") {
-        "/landing/sellers/social" (platform: "/web") {}
-    }
-
-
     test("Landing mercadopago sellers websites events") {
         "/landing/sellers/websites_events" (platform: "/web") {
             id = "CTA_HERO"
@@ -599,10 +594,14 @@ trackTests {
         }
     }
 
+    test("Landing mercadopago sellers social") {
+        "/landing/sellers/social" (platform: "/web") {}
+    }
+
     test("Landing mercadopago sellers social events") {
         "/landing/sellers/social_events" (platform: "/web") {
             id = "CTA_HERO"
-            label "social"
+            label = "websites"
         }
     }
 
