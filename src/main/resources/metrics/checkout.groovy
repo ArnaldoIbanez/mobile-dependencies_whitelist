@@ -115,11 +115,11 @@ metrics {
 				equals("event_data.congrats_seq", 1)
 			}
 
-			openBy {
-				"event_data.payments.payment_type"(default: "default")
-				"event_data.payments.payment_method"(default: "default")
-				"event_data.payments.installments"(default: "default")
-			}
+//			openBy {
+//				"event_data.payments.payment_type"(default: "default")
+//				"event_data.payments.payment_method"(default: "default")
+//				"event_data.payments.installments"(default: "default")
+//			}
 		}
 	}
 
@@ -135,9 +135,9 @@ metrics {
 				equals("event_data.congrats_seq", 1)
 			}
 
-			openBy {
-				"event_data.payments.payment_type"(default: "default")
-			}
+//			openBy {
+//				"event_data.payments.payment_type"(default: "default")
+//			}
 		}
 	}
 
@@ -153,10 +153,10 @@ metrics {
 				equals("event_data.congrats_seq", 1)
 			}
 
-			openBy {
-				"event_data.payments.payment_type"(default: "default")
-				"event_data.payments.payment_method"(default: "default")
-			}
+//			openBy {
+//				"event_data.payments.payment_type"(default: "default")
+//				"event_data.payments.payment_method"(default: "default")
+//			}
 		}
 	}
 
@@ -175,9 +175,9 @@ metrics {
 				)
 			}
 
-			openBy {
-				"event_data.payments.installments"(default: "default")
-			}
+//			openBy {
+//				"event_data.payments.installments"(default: "default")
+//			}
 		}
 	}
 
@@ -196,10 +196,10 @@ metrics {
 				)
 			}
 
-			openBy {
-				"event_data.payments.installments"(default: "default")
-				"event_data.payments.without_fee"(default: "default")
-			}
+//			openBy {
+//				"event_data.payments.installments"(default: "default")
+//				"event_data.payments.without_fee"(default: "default")
+//			}
 		}
 	}
 
