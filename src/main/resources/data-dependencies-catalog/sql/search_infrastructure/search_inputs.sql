@@ -27,7 +27,7 @@ FROM (
   ) tracks
     LATERAL VIEW explode(tracks.top_5_items) top_5_items as item_id
 ) t
-  LEFT JOIN (
+  INNER JOIN (
     SELECT
       CONCAT(site_id,item_id) AS item_id,
       site_id                 AS site_id,
