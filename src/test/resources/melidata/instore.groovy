@@ -1135,6 +1135,12 @@ trackTests {
 
         "/instore/geofence/permission_already_granted"(platform: "/mobile", type: TrackType.Event) {}
 
+        "/instore/geofence/gps_request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/instore/geofence/gps_response"(platform: "/mobile", type: TrackType.Event) {
+            type = "granted"
+        }
+
         "/instore/geofence/updated"(platform: "/mobile", type: TrackType.Event) {}
 
         "/instore/geofence/enter"(platform: "/mobile", type: TrackType.Event) {
