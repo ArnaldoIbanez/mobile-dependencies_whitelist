@@ -216,11 +216,11 @@ trackTests {
   // TRACKS Seller central Summary
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   test("Seller central summary view") {
-    "/seller_central/summary"(platform: "/", type: TrackType.View) {}
+    "/seller_central/summary"(platform: "/web", type: TrackType.View) {}
   }
 
   test("Seller central summary module") {
-    "/seller_central/summary/module_render"(platform: "/", type: TrackType.Event) {
+    "/seller_central/summary/module_render"(platform: "/web", type: TrackType.Event) {
       module_id = "sellerStatus"
       kind = "fallback"
       seller_experience = "ADVANCED"
