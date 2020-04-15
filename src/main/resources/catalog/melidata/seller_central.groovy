@@ -132,6 +132,11 @@ tracks {
         value_name(type: PropertyType.String, required: false, description: "Attribute custom value")
     }
 
+    def summaryModule = objectSchemaDefinitions {
+        module_id(required: true, type: PropertyType.String, description: "Id of the module")
+        kind(required: true, type: PropertyType.String, description: "Kind of the render", values: ["fallback", "normal"])
+    }
+
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
@@ -202,8 +207,7 @@ tracks {
 
     // La idea es saber como fue la ejecución de cada módulo
     "/seller_central/summary/module_render"(platform: "/web", type: TrackType.Event) {
-        module_id(required: true, type: PropertyType.String, description: "Id of the module")
-        kind(required: true, type: PropertyType.String, description: "Kind of the render", values: ["fallback", "normal"])
+        modules(required: true, type: PropertyType.ArrayList(PropertyType.Map(summaryModule)), description: "Array of modules")
         seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
     }
 
