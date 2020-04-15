@@ -204,7 +204,7 @@ tracks {
     "/seller_central/summary/module_render"(platform: "/web", type: TrackType.Event) {
         module_id(required: true, type: PropertyType.String, description: "Id of the module")
         kind(required: true, type: PropertyType.String, description: "Kind of the render", values: ["fallback", "normal"])
-        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
+        seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
     }
 
 
