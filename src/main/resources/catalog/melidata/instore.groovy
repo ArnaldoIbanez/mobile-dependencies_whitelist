@@ -678,7 +678,7 @@ tracks {
     }
 
     // Instore shortcut
-    "/instore/create_shortcut"(platform:"/mobile/android", type: TrackType.View) {}
+    "/instore/create_shortcut"(platform:"/mobile/android", type: TrackType.View, parentPropertiesInherited: false) {}
 
     "/qr_code"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
