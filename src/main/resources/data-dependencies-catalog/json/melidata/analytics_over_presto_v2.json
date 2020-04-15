@@ -54,6 +54,7 @@
     ],
     "sql": {
       "script": "melidata/analytics_over_presto_v2.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
