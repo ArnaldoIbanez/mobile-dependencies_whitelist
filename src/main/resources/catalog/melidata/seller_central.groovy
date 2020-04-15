@@ -908,12 +908,6 @@ tracks {
         id(required: true, type: PropertyType.String, description: "Error id")
     }
 
-
-    "/seller_central/sales/list/excel/generation"(platform: "/web", type: TrackType.Event) {
-        id(required: true, type: PropertyType.String, description: "Action id")
-        time(required: true, type: PropertyType.Numeric, description: "How much time does it takes to generate the excel")
-    }
-
     "/seller_central/sales/list/excel/generation"(platform: "/web", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Action id")
         time(required: true, type: PropertyType.Numeric, description: "How much time does it takes to generate the excel")
