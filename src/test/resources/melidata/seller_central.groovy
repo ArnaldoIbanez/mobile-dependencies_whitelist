@@ -220,7 +220,7 @@ trackTests {
   }
 
   test("Seller central summary module") {
-    "/seller_central/listings/quantity/info"(platform: "/", type: TrackType.Event) {
+    "/seller_central/summary/module_render"(platform: "/", type: TrackType.Event) {
       module_id = "sellerStatus"
       kind = "fallback"
       seller_experience = "ADVANCED"

@@ -198,10 +198,10 @@ tracks {
     }
 
     // Summary
-    "/seller_central/summary"(platform: "/", type: TrackType.View) {}
+    "/seller_central/summary"(platform: "/web", type: TrackType.View) {}
 
     // La idea es saber como fue la ejecución de cada módulo
-    "/seller_central/summary/module_render"(platform: "/", type: TrackType.Event) {
+    "/seller_central/summary/module_render"(platform: "/web", type: TrackType.Event) {
         module_id(required: true, type: PropertyType.String, description: "Id of the module")
         kind(required: true, type: PropertyType.String, description: "Kind of the render", values: ["fallback", "normal"])
         seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
