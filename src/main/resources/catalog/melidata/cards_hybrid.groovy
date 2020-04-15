@@ -66,6 +66,8 @@ tracks {
         )
     }
 
+    "/cards/hybrid/unlock/scanner/help"(platform: "/", type: TrackType.Event) {}
+
     // Unlock: Manual Link
     "/cards/hybrid/unlock/manual-link"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/unlock/manual-link/tap"(platform:"/", type: TrackType.Event) {
@@ -76,6 +78,8 @@ tracks {
             description: "Manual link method selected"
         )
     }
+
+    "/cards/hybrid/unlock/manual-link/invalid_code"(platform: "/", type: TrackType.Event) {}
 
     // Unlock: Confirm Link
     "/cards/hybrid/unlock/confirm-link"(platform: "/", type: TrackType.View) {}
@@ -121,6 +125,7 @@ tracks {
         )
     }
 
+    "/cards/hybrid/unlock/set-pin/invalide_pin"(platform: "/", type: TrackType.Event) {}
 
     // Unlock: Update App
     "/cards/hybrid/unlock/update-app"(platform: "/", type: TrackType.View) {}
@@ -416,7 +421,77 @@ tracks {
             description: "Button tapped"
         )
     }
-    
+
+    // Request
+
+    // Request: Onboarding
+    "/cards/hybrid/request/physical"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
+        flow (
+            required: true,
+            type: PropertyType.String,
+            values: ["no_kyc_no_challlenge", "kyc_challenge", "no_kyc_challenge", "kyc_no_challenge"],
+            description: "type of onboarding"
+        )
+    }
+    "/cards/hybrid/request/physical/onboarding/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "continue"],
+            description: "action tap by the user in the onboarding"
+        )
+    }
+
+    // Request: Challenge
+    "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "add_money"],
+            description: "action tap by the user in the challenge"
+        )
+    }
+
+    // Request: Pending Challenge
+    "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back", "add_money", "info_payment"],
+            description: "action tap by the user in the pending challenge view"
+        )
+    }
+
+    // Request: Review
+    "/cards/hybrid/request/physical/review"(platform: "/", isAbstract: true) {}
+
+    "/cards/hybrid/request/physical/review"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+             type: PropertyType.String,
+             values: ["back", "changes_address", "tyc", "card_request"],
+             description: "action tap by the user in the review"
+        )
+    }
+
+    // Request: Review TyC
+    "/cards/hybrid/request/physical/review/tyc"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/physical/review/tyc/close"(platform: "/", type: TrackType.Event) {}
+
+    // Request: Review address
+    "/cards/hybrid/request/physical/review/address_modal"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/physical/review/address_modal/tap"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "add", "select_row"],
+            description: "action tap by the user in the address modal"
+        )
+    }
     // CARD IDENTIFICATION
     // --------
     "/cards/hybrid/card_identification"(platform: "/", type: TrackType.View) {}
