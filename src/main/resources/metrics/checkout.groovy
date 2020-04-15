@@ -203,7 +203,7 @@ metrics {
 //		}
 //	}
 
-	"checkout_congrats.garex"(description: "orders_with_garex", sum_by: ["event_data.total_amount_including_garex"]) {
+	"checkout_congrats_with_garex"(description: "orders_with_garex", sum_by: ["event_data.total_amount_including_garex"]) {
 		startWith {
 			experiment("buyingflow/garex_mlm")
 		}
@@ -218,6 +218,4 @@ metrics {
 			}
 		}
 	}
-
-
 }
