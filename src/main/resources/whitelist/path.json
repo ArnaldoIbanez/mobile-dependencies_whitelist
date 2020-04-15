@@ -13,6 +13,8 @@
     "/cart/checkout/congrats",
     "/recommendations/print",
     "/questions/ask/post",
+    "/questions/qadb/show",
+    "/questions/qadb/input_focus"
     "/vip/contact_seller",
     "/register/success",
     "/register/failure",
@@ -20,8 +22,6 @@
     "/remedy/error",
     "/kyc/error",
     "/melidata/ab_split",
-    "/px_checkout/result/success",
-    "/questions/qadb/show",
-    "/questions/qadb/input_focus"
+    "/px_checkout/result/success"
   ]
 }
