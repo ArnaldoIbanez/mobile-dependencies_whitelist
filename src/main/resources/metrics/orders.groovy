@@ -103,6 +103,7 @@ metrics {
 				path("/orders/ordercreated")
 				empty("event_data.items.item.official_store_id", false)
 			}
+		}
 	}
 
 	"bids.samedeal"(description: "Checkout congrats for items in the same deal of exposition", compute_order: true) {
@@ -177,7 +178,6 @@ metrics {
 						equals("event_data.buyer_segment", "recovered_buyer")
 					)
 				)
-
 			}
 		}
 	}
@@ -448,6 +448,4 @@ metrics {
 			}
 		}
 	}
-
-
 }
