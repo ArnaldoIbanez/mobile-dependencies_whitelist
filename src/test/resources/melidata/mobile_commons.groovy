@@ -133,6 +133,27 @@ trackTests {
     } 
     }
 
+    test("Cross App Links") {
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_SUCCESS"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_INSTALLED"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_UPDATED"
+        }
+        "/cross_app_links/fetch"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "ADJUST_PROVIDER"
+        }
+    }
+
     defaultBusiness = "mercadopago"
 
     test("Generic error") {
@@ -273,6 +294,27 @@ trackTests {
         // Update Unavailable
         "/in_app_updates/updatable/update_not_available"(platform: "/mobile"){
             cause = "Google not Recommended"
+        }
+    }
+
+    test("Cross App Links") {
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_SUCCESS"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_INSTALLED"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_UPDATED"
+        }
+        "/cross_app_links/fetch"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "ADJUST_PROVIDER"
         }
     }
 }

@@ -2,8 +2,8 @@
     "users": [
       "search-infrastructure-alerts@mercadolibre.com"
     ],
-    "process_name": "search_inputs_tracks",
-    "cron": "00 09 * * *",
+    "process_name": "search_inputs_tracks_v2",
+    "cron": "00 12 * * *",
     "partition": {
       "name": "ds",
       "type": "DATE"
@@ -25,7 +25,7 @@
         }
       ],
       "sql": {
-        "script": "search_infrastructure/search_inputs.sql",
+        "script": "search_infrastructure/search_inputs_v2.sql",
         "parameters": [
           {
             "name": "param01",

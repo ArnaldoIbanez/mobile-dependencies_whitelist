@@ -1,31 +1,32 @@
 {
     "users": [
-      "search-infrastructure-alerts@mercadolibre.com"
+      "carlos.del@mercadolibre.com"
     ],
-    "process_name": "search_inputs_tracks",
-    "cron": "00 09 * * *",
+    "process_name": "sell_listing_filters_applied",
+    "cron": "00 06 * * *",
     "partition": {
       "name": "ds",
       "type": "DATE"
     },
     "extract": {
       "operation": "append",
+      "site": "QA",
       "columns": [
         {
-          "name": "site",
-          "type": "UNICODE_STRING"
-        },
-        {
-          "name": "reputation",
-          "type": "UNICODE_STRING"
-        },
-        {
-          "name": "top_position",
-          "type": "INTEGER"
-        }
+            "name": "cantidad",
+            "type": "INTEGER"
+          },
+          {
+            "name": "filters",
+            "type": "UNICODE_STRING"
+          },
+          {
+            "name": "site_id",
+            "type": "UNICODE_STRING"
+          }
       ],
       "sql": {
-        "script": "search_infrastructure/search_inputs.sql",
+        "script": "sell/sell-listing-filters-applied.sql",
         "parameters": [
           {
             "name": "param01",
