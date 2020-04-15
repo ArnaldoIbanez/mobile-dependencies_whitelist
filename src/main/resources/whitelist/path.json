@@ -15,6 +15,7 @@
     "/questions/ask/post",
     "/questions/qadb/show",
     "/questions/qadb/input_focus",
+    "/questions/qadb/search",
     "/vip/contact_seller",
     "/register/success",
     "/register/failure",
