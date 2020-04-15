@@ -1358,6 +1358,25 @@ trackTests {
 
     // MPMOBILE TEST
 
+    test("Free navigation") {
+        "/free_navigation"(platform: "/mobile", type: TrackType.Event) {
+            carrier_name = ""
+            sd_state = "WIFI"
+            sd_reason = "SD_NOT_AVAILABLE_REASON_UNKNOWN"
+            fg_wifi_session_time = 966
+            fg_cellular_session_time = 50
+            sd_data_usage = 0
+        }
+        "/free_navigation_notification"(platform: "/mobile", type: TrackType.Event) {}
+        "/free_navigation_dialog"(platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Memory warning") {
+        "/memory_warning"(platform: "/mobile", type: TrackType.Event) {
+            view_controller = "ViewController"
+        }
+    }
+    
     test("Traceability Flow") {
         "/flow/init"(platform: "/mobile", type: TrackType.Event) {
             flow_name = "Instore"
@@ -4013,14 +4032,6 @@ trackTests {
             like = "yes"
         }
     }
-
-    test("free data") {
-
-        "/free_navigation/not_available"(platform:"/mobile", type:TrackType.Event) {}
-
-        "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
-    }
-
 
     test("Bugsnag tracks to use on Canejo MP") {
         "/mobile/bugsnag"(platform:"/mobile/android", type:TrackType.Event) {
