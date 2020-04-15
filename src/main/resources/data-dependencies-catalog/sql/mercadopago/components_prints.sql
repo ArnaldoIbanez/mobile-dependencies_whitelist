@@ -1,5 +1,3 @@
-set hive.vectorized.execution.enabled=false;
-
 SELECT 
     device.platform AS platform,
     application.site_id AS site_id,application.version as version,
