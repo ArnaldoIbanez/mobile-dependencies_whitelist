@@ -231,6 +231,15 @@ trackTests {
             action = "money_in"
         }
     }
+
+    // Acquisition Error
+    // --------
+
+    test("cards acquisition error") {
+        "/cards/acquisition/error"(platform: "/", type: TrackType.Event) {
+            screen = "review"
+        }
+    }
     
 
     // Generic Webview

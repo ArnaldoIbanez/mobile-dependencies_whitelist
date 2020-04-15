@@ -190,6 +190,12 @@ tracks {
             inheritable:false
         )
     }
+
+    // Acquisition Error
+    // --------
+    "/cards/acquisition/error"(platform: "/", type: TrackType.Event) {
+        screen (required: true, type: PropertyType.String, description: "The screen that showed error")
+    }
     
     // DASHBOARD
     // --------

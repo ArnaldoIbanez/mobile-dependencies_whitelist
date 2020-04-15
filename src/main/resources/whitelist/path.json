@@ -24,6 +24,7 @@
     "/remedy/error",
     "/kyc/error",
     "/melidata/ab_split",
-    "/px_checkout/result/success"
+    "/px_checkout/result/success",
+    "/cards/acquisition/error"
   ]
 }
