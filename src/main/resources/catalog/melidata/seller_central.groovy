@@ -206,7 +206,7 @@ tracks {
     "/seller_central/summary"(platform: "/web", type: TrackType.View) {}
 
     // La idea es saber como fue la ejecución de cada módulo
-    "/seller_central/summary/module_render"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/summary/modules_render"(platform: "/web", type: TrackType.Event) {
         modules(required: true, type: PropertyType.ArrayList(PropertyType.Map(summaryModule)), description: "Array of modules")
         seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
     }

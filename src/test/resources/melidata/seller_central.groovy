@@ -220,14 +220,14 @@ trackTests {
   }
 
   test("Seller central summary module") {
-    "/seller_central/summary/module_render"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/summary/modules_render"(platform: "/web", type: TrackType.Event) {
       modules = [
               [
-                module_id = "sellerStatus",
-                kind = "fallback"
+                module_id: "sellerStatus",
+                kind: "fallback"
               ], [
-                module_id = "mercadoPago",
-                kind = "normal"
+                module_id: "mercadoPago",
+                kind: "normal"
               ]
       ]
       seller_experience = "ADVANCED"
