@@ -58,6 +58,7 @@
     ],
     "sql": {
       "script": "melidata/analytics_over_hive.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

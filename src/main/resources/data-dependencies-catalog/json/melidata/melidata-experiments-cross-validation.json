@@ -38,6 +38,7 @@
     ],
     "sql": {
       "script": "melidata/melidata-experiments-cross-validation.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
