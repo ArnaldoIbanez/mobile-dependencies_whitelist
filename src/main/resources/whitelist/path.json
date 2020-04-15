@@ -1,7 +1,6 @@
 {
   "path": [
     "/vip",
-    "/vip/quote_demand_intention_lower",
     "/add_to_cart",
     "/traffic/inbound/matt",
     "/traffic/inbound/organic",
@@ -13,13 +12,16 @@
     "/checkout/congrats",
     "/cart/checkout/congrats",
     "/recommendations/print",
-    "/question/ask/post",
+    "/questions/ask/post",
+    "/questions/qadb/show",
+    "/questions/qadb/input_focus",
     "/vip/contact_seller",
     "/register/success",
     "/register/failure",
     "/asset_management/error",
     "/remedy/error",
     "/kyc/error",
-    "/melidata/ab_split"
+    "/melidata/ab_split",
+    "/px_checkout/result/success"
   ]
 }
