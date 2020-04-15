@@ -592,25 +592,28 @@ tracks {
 
     //Buyer QR - CVV
 
-    "/instore/buyer_qr/cvv"(platform: "/mobile", isAbstract: true) {}
-
-    "/instore/buyer_qr/cvv/cvv"(platform: "/mobile", type: TrackType.View) {
+    "/instore/buyer_qr/cvv"(platform: "/mobile", type: TrackType.View ) {
         payment_method_id(required: true, PropertyType.String, description: "payment method id (visa, master, account_money, etc)")
         payment_method_disabled(required: true, PropertyType.Boolean, description: "feature flag to check if payment method is disabled")
     }
 
-    "/instore/buyer_qr/cvv/confirm"(platform: "/mobile", type: TrackType.Event) {
+    "/instore/buyer_qr/cvv/confirm"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         view_time_in_millis(required: true, PropertyType.Numeric)
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
     }
 
-    "/instore/buyer_qr/cvv/dismiss"(platform: "/mobile", type: TrackType.Event) {
+    "/instore/buyer_qr/cvv/dismiss"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         view_time_in_millis(required: true, PropertyType.Numeric)
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
     }
 
-    "/instore/buyer_qr/cvv/save_esc"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/buyer_qr/cvv/save_esc"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+    }
 
-    "/instore/buyer_qr/cvv/delete_esc"(platform: "/mobile", type: TrackType.Event) {
+    "/instore/buyer_qr/cvv/delete_esc"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         from(required: true, PropertyType.String, values: ["lease", "payment"])
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
     }
 
     "/instore/buyer_qr/request_card_token"(platform: "/mobile", type: TrackType.Event) {
@@ -618,7 +621,9 @@ tracks {
         status_code(required: true, PropertyType.Numeric)
     }
 
-    "/instore/buyer_qr/request_card_token_max_delay_reached"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/buyer_qr/request_card_token/max_delay_reached"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+    }
 
     "/instore/buyer_qr/no_payment_method_selected"(platform: "/mobile", type: TrackType.Event) {}
 

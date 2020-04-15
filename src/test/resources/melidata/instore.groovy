@@ -1291,7 +1291,7 @@ trackTests {
 
         //CVV
 
-        "/instore/buyer_qr/cvv/cvv"(platform: "/mobile", type: TrackType.View) {
+        "/instore/buyer_qr/cvv"(platform: "/mobile", type: TrackType.View) {
             payment_method_id = "account_money"
             payment_method_disabled = false
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
@@ -1322,7 +1322,7 @@ trackTests {
             status_code = 200
         }
 
-        "/instore/buyer_qr/request_card_token_max_delay_reached"(platform: "/mobile", type: TrackType.Event) {
+        "/instore/buyer_qr/request_card_token/max_delay_reached"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
@@ -2561,7 +2561,7 @@ trackTests {
 
         //CVV
 
-        "/instore/buyer_qr/cvv/cvv"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+        "/instore/buyer_qr/cvv"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             payment_method_id = "account_money"
             payment_method_disabled = false
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
@@ -2592,14 +2592,13 @@ trackTests {
             status_code = 200
         }
 
-        "/instore/buyer_qr/request_card_token_max_delay_reached"(platform: "/mobile", "business": "mercadopago", type: TrackType.Event) {
+        "/instore/buyer_qr/request_card_token/max_delay_reached"(platform: "/mobile", "business": "mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
         "/instore/buyer_qr/no_payment_method_selected"(platform: "/mobile", "business": "mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
-
 
         "/instore/geofence/permission_request"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {}
 
