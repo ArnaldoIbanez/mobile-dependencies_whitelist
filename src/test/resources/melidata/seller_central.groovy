@@ -217,6 +217,7 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   test("Seller central summary view") {
     "/seller_central/summary"(platform: "/", type: TrackType.View) {}
+  }
 
   test("Seller central summary module") {
     "/seller_central/listings/quantity/info"(platform: "/", type: TrackType.Event) {
