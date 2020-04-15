@@ -478,6 +478,12 @@ tracks {
 
     "/instore/geofence/permission_already_granted"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/geofence/gps_request"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/geofence/gps_response"(platform: "/mobile", type: TrackType.Event) {
+        type(required: true, PropertyType.String, description: "The user interaction with the GPS", values: ["already_on", "granted", "rejected"])
+    }
+
     "/instore/geofence/updated"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/geofence/enter"(platform: "/mobile", type: TrackType.Event) {
