@@ -14,7 +14,7 @@
     "/recommendations/print",
     "/questions/ask/post",
     "/questions/qadb/show",
-    "/questions/qadb/input_focus"
+    "/questions/qadb/input_focus",
     "/vip/contact_seller",
     "/register/success",
     "/register/failure",
