@@ -438,7 +438,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["close", "continue"]
+            values: ["close", "continue"],
             description: "action tap by the user in the onboarding"
         )
     }
@@ -449,7 +449,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["close", "add_money"]
+            values: ["close", "add_money"],
             description: "action tap by the user in the challenge"
         )
     }
@@ -460,7 +460,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back", "add_money", "info_payment"]
+            values: ["back", "add_money", "info_payment"],
             description: "action tap by the user in the pending challenge view"
         )
     }
@@ -488,7 +488,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["close", "add", "select_row"]
+            values: ["close", "add", "select_row"],
             description: "action tap by the user in the address modal"
         )
     }
