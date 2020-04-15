@@ -567,6 +567,12 @@ trackTests {
         }
     }
 
+    // CARD IDENTIFICATION
+    // --------
+    test("cards hybrid identification") {
+        "/cards/hybrid/card_identification"(platform: "/", type: TrackType.View) {}
+    }
+
     // CARD REQUEST init point
     // --------
     test("cards hybrid request init point") {
