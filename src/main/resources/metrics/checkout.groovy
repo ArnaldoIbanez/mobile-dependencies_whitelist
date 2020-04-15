@@ -85,125 +85,125 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.payment_count"(description: "all orders by payment count (0mp vs 1mp vs 2mp)", compute_order: true) {
-		startWith {
-			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
-		}
+//	"checkout_congrats.payment_count"(description: "all orders by payment count (0mp vs 1mp vs 2mp)", compute_order: true) {
+//		startWith {
+//			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
+//		}
+//
+//		countsOn {
+//			condition {
+//				path(regex("^/checkout/congrats(/.*|\$)"))
+//
+//				equals("event_data.congrats_seq", 1)
+//			}
+//
+//			openBy {
+//				"event_data.payments.payment_type"(default: "", function: "size")
+//			}
+//		}
+//	}
 
-		countsOn {
-			condition {
-				path(regex("^/checkout/congrats(/.*|\$)"))
+//	"checkout_congrats.by_payment"(description: "all orders by payment type, payment_method and installments (eg: credit_card/visa/1 vs credit_card/visa/6 vs credit_card/master/12 vs atm/redlink vs ticket/rapidpag)", compute_order: true) {
+//		startWith {
+//			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
+//		}
+//
+//		countsOn {
+//			condition {
+//				path(regex("^/checkout/congrats(/.*|\$)"))
+//
+//				equals("event_data.congrats_seq", 1)
+//			}
+//
+//			openBy {
+//				"event_data.payments.payment_type"(default: "default")
+//				"event_data.payments.payment_method"(default: "default")
+//				"event_data.payments.installments"(default: "default")
+//			}
+//		}
+//	}
 
-				equals("event_data.congrats_seq", 1)
-			}
+//	"checkout_congrats.by_payment_type"(description: "all orders by payment type (eg: credit_card vs atm vs ticket vs cash)", compute_order: true) {
+//		startWith {
+//			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
+//		}
+//
+//		countsOn {
+//			condition {
+//				path(regex("^/checkout/congrats(/.*|\$)"))
+//
+//				equals("event_data.congrats_seq", 1)
+//			}
+//
+//			openBy {
+//				"event_data.payments.payment_type"(default: "default")
+//			}
+//		}
+//	}
 
-			openBy {
-				"event_data.payments.payment_type"(default: "", function: "size")
-			}
-		}
-	}
+//	"checkout_congrats.by_payment_method"(description: "all orders by payment type, payment_method (eg: credit_card/visa vs cre    dit_card/master vs atm/redlink vs ticket/rapidpag)", compute_order: true) {
+//		startWith {
+//			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
+//		}
+//
+//		countsOn {
+//			condition {
+//				path(regex("^/checkout/congrats(/.*|\$)"))
+//
+//				equals("event_data.congrats_seq", 1)
+//			}
+//
+//			openBy {
+//				"event_data.payments.payment_type"(default: "default")
+//				"event_data.payments.payment_method"(default: "default")
+//			}
+//		}
+//	}
 
-	"checkout_congrats.by_payment"(description: "all orders by payment type, payment_method and installments (eg: credit_card/visa/1 vs credit_card/visa/6 vs credit_card/master/12 vs atm/redlink vs ticket/rapidpag)", compute_order: true) {
-		startWith {
-			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
-		}
+//	"checkout_congrats.by_payment_installments"(description: "all orders by payment installments (eg: /1 vs /6 vs /12)", compute_order: true) {
+//		startWith {
+//			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
+//		}
+//
+//		countsOn {
+//			condition {
+//				path(regex("^/checkout/congrats(/.*|\$)"))
+//
+//				and(
+//						equals("event_data.congrats_seq", 1),
+//						like("event_data.payments.payment_type", "credit_card")
+//				)
+//			}
+//
+//			openBy {
+//				"event_data.payments.installments"(default: "default")
+//			}
+//		}
+//	}
 
-		countsOn {
-			condition {
-				path(regex("^/checkout/congrats(/.*|\$)"))
+//	"checkout_congrats.by_payment_installments_and_without_fee"(description: "all orders by payment installments and without_fee (true or empty) (eg: /1/true vs /6 vs /12 vs /1-5/true-true)", compute_order: true) {
+//		startWith {
+//			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
+//		}
+//
+//		countsOn {
+//			condition {
+//				path(regex("^/checkout/congrats(/.*|\$)"))
+//
+//				and(
+//						equals("event_data.congrats_seq", 1),
+//						like("event_data.payments.payment_type", "credit_card")
+//				)
+//			}
+//
+//			openBy {
+//				"event_data.payments.installments"(default: "default")
+//				"event_data.payments.without_fee"(default: "default")
+//			}
+//		}
+//	}
 
-				equals("event_data.congrats_seq", 1)
-			}
-
-			openBy {
-				"event_data.payments.payment_type"(default: "default")
-				"event_data.payments.payment_method"(default: "default")
-				"event_data.payments.installments"(default: "default")
-			}
-		}
-	}
-
-	"checkout_congrats.by_payment_type"(description: "all orders by payment type (eg: credit_card vs atm vs ticket vs cash)", compute_order: true) {
-		startWith {
-			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
-		}
-
-		countsOn {
-			condition {
-				path(regex("^/checkout/congrats(/.*|\$)"))
-
-				equals("event_data.congrats_seq", 1)
-			}
-
-			openBy {
-				"event_data.payments.payment_type"(default: "default")
-			}
-		}
-	}
-
-	"checkout_congrats.by_payment_method"(description: "all orders by payment type, payment_method (eg: credit_card/visa vs cre    dit_card/master vs atm/redlink vs ticket/rapidpag)", compute_order: true) {
-		startWith {
-			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
-		}
-
-		countsOn {
-			condition {
-				path(regex("^/checkout/congrats(/.*|\$)"))
-
-				equals("event_data.congrats_seq", 1)
-			}
-
-			openBy {
-				"event_data.payments.payment_type"(default: "default")
-				"event_data.payments.payment_method"(default: "default")
-			}
-		}
-	}
-
-	"checkout_congrats.by_payment_installments"(description: "all orders by payment installments (eg: /1 vs /6 vs /12)", compute_order: true) {
-		startWith {
-			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
-		}
-
-		countsOn {
-			condition {
-				path(regex("^/checkout/congrats(/.*|\$)"))
-
-				and(
-						equals("event_data.congrats_seq", 1),
-						like("event_data.payments.payment_type", "credit_card")
-				)
-			}
-
-			openBy {
-				"event_data.payments.installments"(default: "default")
-			}
-		}
-	}
-
-	"checkout_congrats.by_payment_installments_and_without_fee"(description: "all orders by payment installments and without_fee (true or empty) (eg: /1/true vs /6 vs /12 vs /1-5/true-true)", compute_order: true) {
-		startWith {
-			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
-		}
-
-		countsOn {
-			condition {
-				path(regex("^/checkout/congrats(/.*|\$)"))
-
-				and(
-						equals("event_data.congrats_seq", 1),
-						like("event_data.payments.payment_type", "credit_card")
-				)
-			}
-
-			openBy {
-				"event_data.payments.installments"(default: "default")
-				"event_data.payments.without_fee"(default: "default")
-			}
-		}
-	}
-
-	"checkout_congrats.garex"(description: "orders_with_garex", sum_by: ["event_data.total_amount_including_garex"]) {
+	"checkout_congrats_with_garex"(description: "orders_with_garex", sum_by: ["event_data.total_amount_including_garex"]) {
 		startWith {
 			experiment("buyingflow/garex_mlm")
 		}
@@ -218,6 +218,4 @@ metrics {
 			}
 		}
 	}
-
-
 }
