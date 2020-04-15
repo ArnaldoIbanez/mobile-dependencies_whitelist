@@ -66,7 +66,7 @@ tracks {
         )
     }
 
-    "/cards/hybrid/unlock/scanner/help"(platform: "/", TrackType.Event) {}
+    "/cards/hybrid/unlock/scanner/help"(platform: "/", type: TrackType.Event) {}
 
     // Unlock: Manual Link
     "/cards/hybrid/unlock/manual-link"(platform: "/", type: TrackType.View) {}
@@ -444,7 +444,7 @@ tracks {
     }
 
     // Request: Challenge
-    "/cards/hybrid/request/physical/challenge"(platform: "/", TrackType.View) {}
+    "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
@@ -455,7 +455,7 @@ tracks {
     }
 
     // Request: Pending Challenge
-    "/cards/hybrid/request/physical/pending_challenge"(platform: "/", TrackType.View) {}
+    "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,

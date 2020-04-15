@@ -61,7 +61,7 @@ trackTests {
     }
 
     test("cards hybrid unlock scanner help") {
-        "/cards/hybrid/unlock/scanner/help"(platform: "/", TrackType.Event) {}
+        "/cards/hybrid/unlock/scanner/help"(platform: "/", type: TrackType.Event) {}
     }
 
     // Unlock: Manual Link
@@ -486,9 +486,11 @@ trackTests {
     }
     test("cards hybrid request physical onboarding tap") {
         "/cards/hybrid/request/physical/onboarding/tap"(platform: "/", type: TrackType.Event) {
+            flow = "no_kyc_no_challlenge"
             action = "close"
         }
         "/cards/hybrid/request/physical/onboarding/tap"(platform: "/", type: TrackType.Event) {
+            flow = "no_kyc_no_challlenge"
             action = "continue"
         }
     }
@@ -545,8 +547,8 @@ trackTests {
     test("cards hybrid request physical review tyc") {
         "/cards/hybrid/request/physical/review/tyc"(platform: "/", type: TrackType.View) {}
     }
-    test("cards hybrid request physical review tyc tap") {
-        "/cards/hybrid/request/physical/review/tyc/tap"(platform: "/", type: TrackType.Event) {}
+    test("cards hybrid request physical review tyc close") {
+        "/cards/hybrid/request/physical/review/tyc/close"(platform: "/", type: TrackType.Event) {}
     }
 
     // Request: Review address
