@@ -130,10 +130,11 @@ tracks {
         section (required: true, type: PropertyType.String, description: "The section when error")
         status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
     }
-
+    // release-options-frontend
     "/settings/release_options"(platform: "/", type:TrackType.View) {
         referrer (required: true, type: PropertyType.String, description: "Referrer to the page")
     }
+    // release-options-ui LIB
     "/release_options_ui"(platform: "/", isAbstract: true) {}
     "/release_options_ui/update"(platform: "/", type:TrackType.Event) {
         channel (required: true, type: PropertyType.String, description: "The channel to update. eg: point, qr, etc")
