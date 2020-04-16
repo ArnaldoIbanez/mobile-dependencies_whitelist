@@ -29,28 +29,6 @@ metrics {
 		}
 	}
 
-	"checkout_congrats.official_stores"(description: "Checkout congrats for items in any official store", compute_order: true) {
-		countsOn {
-			condition {
-				and(
-						equals("event_data.congrats_seq",1),
-						empty("event_data.items.item.official_store_id", false)
-				)
-			}
-		}
-	}
-
-	"checkout_congrats.samedeal"(description: "Checkout congrats for items in the same deal of exposition", compute_order: true) {
-		countsOn {
-			condition {
-				and(
-						equals("event_data.congrats_seq",1),
-						sameDeal("event_data.items.item.deal_ids", true)
-				)
-			}
-		}
-	}
-
 	"checkout.loading"(description: "The checkout V5 first-page after performing a buy_intention ") {
 		countsOn {
 			condition {
