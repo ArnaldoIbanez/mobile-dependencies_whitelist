@@ -42,7 +42,7 @@ tracks {
     }
     "/payers_growth/xp_landing/button"(platform: "/", type: TrackType.Event) {
         landing_id (required: true, type: PropertyType.String, description: "Indicate landing id")
-        action (required: true, type: PropertyType.String, values: ["rechager_mp", "recharge_ml"], description: "Indicates button action: recharge on mp or recharge on ml")
+        action (required: true, type: PropertyType.String, values: ["recharge_mp", "recharge_ml"], description: "Indicates button action: recharge on mp or recharge on ml")
     }
 
     "/payers_growth"(platform: "/mobile", isAbstract: true) {}

@@ -85,15 +85,15 @@ trackTests {
 		}
 		"/payers_growth/xp_landing/button"(platform: "/"){
 			landing_id = 'recharge_dismiss'
-			action = 'rechager_mp'
+			action = 'recharge_mp'
 		}
 		"/payers_growth/xp_landing/button"(platform: "/"){
 			landing_id = 'recharge_dismiss'
-			action = 'rechager_ml'
+			action = 'recharge_ml'
 		}
 		"/payers_growth/xp_landing/button"(platform: "/"){
 			landing_id = 'recharge_block'
-			action = 'rechager_mp'
+			action = 'recharge_mp'
 		}
 	}
 
@@ -176,15 +176,15 @@ trackTests {
 		}
 		"/payers_growth/xp_landing/button"(platform: "/"){
 			landing_id = 'recharge_dismiss'
-			action = 'rechager_mp'
+			action = 'recharge_mp'
 		}
 		"/payers_growth/xp_landing/button"(platform: "/"){
 			landing_id = 'recharge_dismiss'
-			action = 'rechager_ml'
+			action = 'recharge_ml'
 		}
 		"/payers_growth/xp_landing/button"(platform: "/"){
 			landing_id = 'recharge_block'
-			action = 'rechager_mp'
+			action = 'recharge_mp'
 		}
 	}
 }
