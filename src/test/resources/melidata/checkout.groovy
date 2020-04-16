@@ -1915,7 +1915,6 @@ trackTests {
             ]
             item = [
                     domainId: "MLA-TELEVISIONS",
-                    listingType: "gold_pro",
                     financingType: [
                             noInterestAllowed: true,
                             installments: 12,

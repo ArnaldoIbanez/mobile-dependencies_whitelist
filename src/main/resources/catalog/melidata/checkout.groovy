@@ -36,7 +36,6 @@ tracks {
 
     def garexItemTrackStructure = objectSchemaDefinitions {
         domainId(required: true, type: PropertyType.String, description: "Item domain. For ex: MLA-TELEVISIONS")
-        listingType(required: true, type: PropertyType.String, description: "Item Listing type. For ex: gold_pro")
         financingType(required: false, type: PropertyType.Map(garexItemFinancingTypeTrackStructure), description: "Financing data of item if it has")
         categoryL1(required: false, type: PropertyType.String, description: "CategoryL1 of item. For ex: {'MLA1051':'Celulares y Teléfonos'}")
         categoryL2(required: false, type: PropertyType.String, description: "CategoryL1 of item. For ex: {'MLA1051':'Celulares y Teléfonos', 'MLA1055':'Celulares y Smartphones'}")
