@@ -132,6 +132,11 @@ tracks {
         value_name(type: PropertyType.String, required: false, description: "Attribute custom value")
     }
 
+    def summaryModule = objectSchemaDefinitions {
+        module_id(required: true, type: PropertyType.String, description: "Id of the module")
+        kind(required: true, type: PropertyType.String, description: "Kind of the render", values: ["fallback", "normal"])
+    }
+
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
@@ -196,6 +201,16 @@ tracks {
 
         sellerCentralUserSales(seller_profile, seller_reputation, mercado_lider, seller_segment, user_type)
     }
+
+    // Summary
+    "/seller_central/summary"(platform: "/web", type: TrackType.View) {}
+
+    // La idea es saber como fue la ejecución de cada módulo
+    "/seller_central/summary/modules_render"(platform: "/web", type: TrackType.Event) {
+        modules(required: true, type: PropertyType.ArrayList(PropertyType.Map(summaryModule)), description: "Array of modules")
+        seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
+    }
+
 
     //LISTING SECTION
     "/seller_central"(platform: "/", isAbstract: true) {}
@@ -898,11 +913,11 @@ tracks {
         id(required: true, type: PropertyType.String, description: "Error id")
     }
 
-
     "/seller_central/sales/list/excel/generation"(platform: "/web", type: TrackType.Event) {
         id(required: true, type: PropertyType.String, description: "Action id")
         time(required: true, type: PropertyType.Numeric, description: "How much time does it takes to generate the excel")
     }
+
 
     "/seller_central/sales/list/excel/packs"(platform: "/web", type: TrackType.Event) {
         total_sales(required: true, type: PropertyType.Numeric, description: "Sales quantity")
