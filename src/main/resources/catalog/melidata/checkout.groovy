@@ -29,6 +29,20 @@ tracks {
         currency_id(required: true, type: PropertyType.String)
     }
 
+    def garexItemFinancingTypeTrackStructure = objectSchemaDefinitions {
+        noInterestAllowed(required: true, type: PropertyType.Boolean, description: "True when the item allows no interest payments on financing")
+        installments(required: false, type: PropertyType.Numeric, description: "Number of available installments to finance payment")
+    }
+
+    def garexItemTrackStructure = objectSchemaDefinitions {
+        domainId(required: true, type: PropertyType.String, description: "Item domain. For ex: MLA-TELEVISIONS")
+        listingType(required: true, type: PropertyType.String, description: "Item Listing type. For ex: gold_pro")
+        financingType(required: false, type: PropertyType.Map(garexItemFinancingTypeTrackStructure), description: "Financing data of item if it has")
+        categoryL1(required: false, type: PropertyType.String, description: "CategoryL1 of item. For ex: {'MLA1051':'Celulares y Teléfonos'}")
+        categoryL2(required: false, type: PropertyType.String, description: "CategoryL1 of item. For ex: {'MLA1051':'Celulares y Teléfonos', 'MLA1055':'Celulares y Smartphones'}")
+    }
+
+
     //CHECKOUT FLOW
 
     "/checkout"(platform: "/") {
@@ -1219,15 +1233,26 @@ tracks {
 
     //web
 
+    // Las rutas siguientes van a ser eliminadas luego que se trackeen en las /garex/checkout
     "/checkout/garex"(platform:"/web", type: TrackType.View) {}
     "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
     "/checkout/garex/selected_garex"(platform:"/web", type: TrackType.Event) {
-        garex(required: true, type: PropertyType.Map(garexTrackStructure) )
+        garex(required: true, type: PropertyType.Map(garexTrackStructure))
     }
     "/checkout/garex/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
     "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
         garex(required: true, type: PropertyType.Map(garexTrackStructure) )
     }
+
+    // Duplicamos el tracking para evitar perder datos
+    "/garex/checkout"(platform:"/web", type: TrackType.View) {}
+    "/garex/checkout/more_info"(platform:"/web", type: TrackType.Event) {}
+    "/garex/checkout/selected_garex"(platform:"/web", type: TrackType.Event) {
+        garex(required: true, type: PropertyType.Map(garexTrackStructure))
+        item(required: true, type: PropertyType.Map(garexItemTrackStructure))
+    }
+    "/garex/checkout/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
+
 
     //mobile
 

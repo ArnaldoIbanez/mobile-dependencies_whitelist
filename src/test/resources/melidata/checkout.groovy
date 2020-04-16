@@ -1,6 +1,7 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
@@ -1900,6 +1901,31 @@ trackTests {
                     "currency_id": "ARS"
             ]
         }
+
+        "/garex/checkout"(platform:"/web", type: TrackType.View) {}
+        "/garex/checkout/more_info"(platform:"/web", type: TrackType.Event) {}
+        "/garex/checkout/selected_garex"(platform:"/web", type: TrackType.Event) {
+            garex = [
+                    id: "MLA390289_GAR16001",
+                    period: 24,
+                    cost: 1234,
+                    revenue_share_fee: 70,
+                    revenue: 863.80,
+                    currency_id: "ARS"
+            ]
+            item = [
+                    domainId: "MLA-TELEVISIONS",
+                    listingType: "gold_pro",
+                    financingType: [
+                            noInterestAllowed: true,
+                            installments: 12,
+                    ],
+                    categoryL1: "{'MLA1051':'Celulares y Teléfonos'}",
+                    categoryL2: "{'MLA1055':'Celulares y Smartphones'}"
+            ]
+        }
+        "/garex/checkout/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
+
 
         "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
         "/checkout/garex/delete"(platform:"/mobile", type: TrackType.Event) {
