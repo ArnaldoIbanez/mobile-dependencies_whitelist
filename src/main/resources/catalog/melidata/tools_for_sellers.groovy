@@ -131,8 +131,8 @@ tracks {
         status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
     }
 
-    "/settings/release-options"(platform: "/", type:TrackType.View) {}
-    "/settings/release-options/update"(platform: "/", type:TrackType.event) {
+    "/settings/release_options"(platform: "/", type:TrackType.View) {}
+    "/settings/release_options/update"(platform: "/", type:TrackType.Event) {
         channel (required: true, type: PropertyType.String, description: "The channel to update. eg: point, qr, etc")
         payment_method_type (required: true, type: PropertyType.String, description: "The payment type. eg: credit, debit,etc")
         release_days (required: true, type: PropertyType.String, description: "The selected release time")
