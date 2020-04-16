@@ -1901,32 +1901,6 @@ trackTests {
             ]
         }
 
-        "/garex/checkout"(platform:"/web", type: TrackType.View) {}
-        "/garex/checkout/more_info"(platform:"/web", type: TrackType.Event) {}
-        "/garex/checkout/selected_garex"(platform:"/web", type: TrackType.Event) {
-            garex = [
-                    id: "MLA390289_GAR16001",
-                    period: 24,
-                    cost: 1234,
-                    revenue_share_fee: 70,
-                    revenue: 863.80,
-                    currency_id: "ARS"
-            ]
-            item = [
-                    domainId: "MLA-TELEVISIONS",
-                    financing_type: [
-                            no_interest_allowed: true,
-                            installments: 12,
-                    ],
-                    category_path: [
-                            'MLA1055',
-                            'MLA1055'
-                    ]
-            ]
-        }
-        "/garex/checkout/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
-
-
         "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
         "/checkout/garex/delete"(platform:"/mobile", type: TrackType.Event) {
             garex_id = "MLA390289_GAR16001"

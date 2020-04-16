@@ -29,18 +29,6 @@ tracks {
         currency_id(required: true, type: PropertyType.String)
     }
 
-    def garexItemFinancingTypeTrackStructure = objectSchemaDefinitions {
-        no_interest_allowed(required: true, type: PropertyType.Boolean, description: "True when the item allows no interest payments on financing")
-        installments(required: false, type: PropertyType.Numeric, description: "Number of available installments to finance payment")
-    }
-
-    def garexItemTrackStructure = objectSchemaDefinitions {
-        domain_id(required: true, type: PropertyType.String, description: "Item domain. For ex: MLA-TELEVISIONS")
-        financing_type(required: false, type: PropertyType.Map(garexItemFinancingTypeTrackStructure), description: "Financing data of item if it has")
-        category_path(required: true, type: PropertyType.ArrayList, description: "Category path of the item. For ex: ['MLA1051', 'MLA1055']")
-    }
-
-
     //CHECKOUT FLOW
 
     "/checkout"(platform: "/") {
@@ -1240,15 +1228,6 @@ tracks {
     "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
         garex(required: true, type: PropertyType.Map(garexTrackStructure) )
     }
-    
-    "/garex/checkout"(platform:"/web", type: TrackType.View) {}
-    "/garex/checkout/more_info"(platform:"/web", type: TrackType.Event) {}
-    "/garex/checkout/selected_garex"(platform:"/web", type: TrackType.Event) {
-        garex(required: true, type: PropertyType.Map(garexTrackStructure))
-        item(required: true, type: PropertyType.Map(garexItemTrackStructure))
-    }
-    "/garex/checkout/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
-
 
     //mobile
 
