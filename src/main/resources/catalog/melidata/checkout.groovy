@@ -1231,18 +1231,16 @@ tracks {
 
     //web
 
-    // Las rutas siguientes van a ser eliminadas luego que se trackeen en las /garex/checkout
     "/checkout/garex"(platform:"/web", type: TrackType.View) {}
     "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
     "/checkout/garex/selected_garex"(platform:"/web", type: TrackType.Event) {
-        garex(required: true, type: PropertyType.Map(garexTrackStructure))
+        garex(required: true, type: PropertyType.Map(garexTrackStructure) )
     }
     "/checkout/garex/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
     "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
         garex(required: true, type: PropertyType.Map(garexTrackStructure) )
     }
-
-    // Duplicamos el tracking para evitar perder datos
+    
     "/garex/checkout"(platform:"/web", type: TrackType.View) {}
     "/garex/checkout/more_info"(platform:"/web", type: TrackType.Event) {}
     "/garex/checkout/selected_garex"(platform:"/web", type: TrackType.Event) {
