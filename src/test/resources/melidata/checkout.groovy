@@ -1,7 +1,6 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
-import com.ml.melidata.catalog.PropertyType
 
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
