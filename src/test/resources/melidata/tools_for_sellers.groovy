@@ -29,4 +29,10 @@ trackTests {
       percentage = "3.09"
     }
   }
+
+  test("Release options lib get") {
+    "/release_options_ui/get"(platform: "/", type:TrackType.Event) {
+      channel = "point"
+    }
+  }
 }
