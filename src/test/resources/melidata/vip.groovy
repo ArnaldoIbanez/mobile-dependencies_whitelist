@@ -58,6 +58,32 @@ trackTests {
 			state = "none"
         }
 
+        Object items_attributes = {
+            map_item_attributes = [
+                    [ attribute_id:"BRAND", value_id:"60297", value_name:"Toyota"],
+                    [ attribute_id:"MODEL", value_id:"60337", value_name:"Yaris" ],
+                    [ attribute_id:"YEAR", value_name:"2012"]
+            ]
+        }
+
+        "/vip"(platform:"/mobile", {
+            mandatory()
+            catalog_listing = false
+            items_attributes()
+        })
+
+        "/vip"(platform: "/web/mobile", {
+            mandatory()
+            catalog_listing = false
+            items_attributes()
+        })
+
+        "/vip"(platform: "/web/desktop", {
+            mandatory()
+            catalog_listing = false
+            items_attributes()
+        })
+
         "/vip"(platform:"/mobile", {
             mandatory()
             optionals()
