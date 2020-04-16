@@ -101,6 +101,8 @@ tracks {
         total_storage(required: true, type: PropertyType.Numeric, description: "Total storage in the device in bytes")
         free_storage(required: true, type: PropertyType.Numeric, description: "Free storage in the device in bytes")
         app_storage(required: true, type: PropertyType.Numeric, description: "Application occupied storage in bytes")
+        dark_mode_status(required: false, type: PropertyType.String, values: ["enabled", "battery_enabled", "disabled", "undefined"],
+         description: "Dark Mode status")
     }
 
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}

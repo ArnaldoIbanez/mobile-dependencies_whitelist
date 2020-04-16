@@ -14,8 +14,6 @@ WHERE
       path in ('/seller_central/listings/filters/applied')
     AND 
       jest(event_data,'checkedFilters') != '[]'
-    AND
-    application.site_id IN ('MLM', 'MLA', 'MLB')
 GROUP BY
   filters,
   application.site_id,

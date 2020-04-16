@@ -1,64 +1,51 @@
 {
   "users": [
-    "patricio.benitez@mercadolibre.com"
+    "julio.cardenas@mercadolibre.cl"
   ],
+  "process_name": "cross_selling",
+  "cron": "00 02 * * *",
   "partition": {
-    "name": "ds",
-    "type": "DATE"
+        "name": "ds",
+        "type": "DATE"
   },
-  "process_name": "analytics_over_hive",
-  "cron": "00 09 * * *",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "id",
+        "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "username",
+        "name": "site_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "operation",
+        "name": "version",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "type",
+        "name": "content_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "table_read",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "error_message",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "query_duration",
+        "name": "position",
         "type": "INTEGER"
       },
       {
-        "name": "partitions_read",
-        "type": "INTEGER"
-      },
-      {
-        "name": "cpu_time",
-        "type": "INTEGER"
-      },
-      {
-        "name": "owner",
+        "name": "audience",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "application_id",
-        "type": "UNICODE_STRING"
+        "name": "Usuarios",
+        "type": "INTEGER"
+      },
+      {
+        "name": "Impressions",
+        "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "melidata/analytics_over_hive.sql",
-      "engine": "spark",
+      "script": "mercadopago/cross_selling.sql",
       "parameters": [
         {
           "name": "param01",

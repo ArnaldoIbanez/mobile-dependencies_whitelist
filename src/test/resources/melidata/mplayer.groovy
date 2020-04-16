@@ -76,6 +76,7 @@ trackTests {
         }
 
         "/mplayer/closed_request/mandatory_reason/continue"(platform: "/mobile") {}
+        "/mplayer/closed_request/mandatory_reason/emoji_selected"(platform: "/mobile") {}
 
         "/mplayer/closed_request/status/pay"(platform: "/mobile") {}
 
@@ -111,6 +112,7 @@ trackTests {
         }
 
         "/mplayer/open_request/mandatory_reason/continue"(platform: "/mobile") {}
+        "/mplayer/open_request/mandatory_reason/emoji_selected"(platform: "/mobile") {}
 
         "/mplayer/open_request/share_request/whatsapp"(platform: "/mobile") {}
 
@@ -144,6 +146,7 @@ trackTests {
 
         "/mplayer/money_split/reason"(platform: "/mobile") {}
         "/mplayer/money_split/reason/emoji_selected"(platform: "/mobile") {}
+        "/mplayer/money_split/reason/continue"(platform: "/mobile") {}
 
         "/mplayer/money_split/contact_picker"(platform: "/mobile") {}
         "/mplayer/money_split/contact_picker/select_contact"(platform: "/mobile") {
@@ -166,8 +169,13 @@ trackTests {
             button = "main_button"
         }
 
-        "/mplayer/money_split/result/success"(platform: "/mobile") {}
-        "/mplayer/money_split/result/error"(platform: "/mobile") {}
+        "/mplayer/money_split/result/success"(platform: "/mobile") {
+            payment_method_id = "1"
+            transaction_amount = 100.5
+        }
+        "/mplayer/money_split/result/error"(platform: "/mobile") {
+            error = "Algo salio mal"
+        }
         "/mplayer/money_split/result/in_process"(platform: "/mobile") {}
 
         // Tracing

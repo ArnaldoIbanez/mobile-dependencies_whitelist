@@ -468,12 +468,6 @@ tracks {
     }
     //END -- MP frontend
 
-    "/free_navigation"(platform:"/mobile", isAbstract: true,initiative: "1096" ) {}
-
-    "/free_navigation/not_available"(platform:"/mobile", type:TrackType.Event) {}
-
-    "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
-
     "/device_settings/"(platform: "/", isAbstract: true,initiative: "1096" ){}
 
     "/device_settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {

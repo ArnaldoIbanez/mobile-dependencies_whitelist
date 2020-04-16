@@ -60,12 +60,17 @@ trackTests {
         }
     }
 
+    test("cards hybrid unlock scanner help") {
+        "/cards/hybrid/unlock/scanner/help"(platform: "/", type: TrackType.Event) {}
+    }
+
     // Unlock: Manual Link
     test("cards hybrid unlock manual link") {
         "/cards/hybrid/unlock/manual-link"(platform: "/", type: TrackType.View) {}
         "/cards/hybrid/unlock/manual-link/tap"(platform:"/", type: TrackType.Event) {
             action = "link"
         }
+        "/cards/hybrid/unlock/manual-link/invalid_code"(platform: "/", type: TrackType.Event) {}
     }
 
     // Unlock: Confirm Link
@@ -107,6 +112,7 @@ trackTests {
         "/cards/hybrid/unlock/set-pin/tap"(platform:"/", type: TrackType.Event) {
             action = "confirm"
         }
+        "/cards/hybrid/unlock/set-pin/invalide_pin"(platform: "/", type: TrackType.Event) {}
     }
 
     // Unlock: Update App
@@ -223,6 +229,15 @@ trackTests {
         "/cards/hybrid/dashboard/account_info"(platform: "/", type: TrackType.View) {}
         "/cards/hybrid/dashboard/account_info/tap"(platform:"/", type: TrackType.Event) {
             action = "money_in"
+        }
+    }
+
+    // Acquisition Error
+    // --------
+
+    test("cards acquisition error") {
+        "/cards/acquisition/error"(platform: "/", type: TrackType.Event) {
+            screen = "review"
         }
     }
     
@@ -460,10 +475,129 @@ trackTests {
             action = "save"
         }
     }
-    
+
+    // Request
+
+    // Request: Onboarding
+    test("cards hybrid request physical onboarding") {
+        "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
+            flow = "no_kyc_no_challlenge"
+        }
+        "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
+            flow = "kyc_challenge"
+        }
+        "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
+            flow = "no_kyc_challenge"
+        }
+        "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
+            flow = "kyc_no_challenge"
+        }
+    }
+    test("cards hybrid request physical onboarding tap") {
+        "/cards/hybrid/request/physical/onboarding/tap"(platform: "/", type: TrackType.Event) {
+            flow = "no_kyc_no_challlenge"
+            action = "close"
+        }
+        "/cards/hybrid/request/physical/onboarding/tap"(platform: "/", type: TrackType.Event) {
+            flow = "no_kyc_no_challlenge"
+            action = "continue"
+        }
+    }
+
+    // Request: Challenge
+    test("cards hybrid request physical challenge") {
+        "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards hybrid request physical challenge tap") {
+        "/cards/hybrid/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/hybrid/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "add_money"
+        }
+    }
+
+    // Request: Pending Challenge
+    test("cards hybrid request physical pending challenge") {
+        "/cards/hybrid/request/physical/pending_challenge"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards hybrid request physical pending challenge tap") {
+        "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "add_money"
+        }
+        "/cards/hybrid/request/physical/pending_challenge/tap"(platform: "/", type: TrackType.Event) {
+            action = "info_payment"
+        }
+    }
+
+    // Request: review
+    test("cards hybrid request physical review") {
+        "/cards/hybrid/request/physical/review"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards hybrid request physical review tap") {
+        "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
+            action = "changes_address"
+        }
+        "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
+            action = "tyc"
+        }
+        "/cards/hybrid/request/physical/review/tap"(platform: "/", type: TrackType.Event) {
+            action = "card_request"
+        }
+    }
+
+    // Request: Review TyC
+    test("cards hybrid request physical review tyc") {
+        "/cards/hybrid/request/physical/review/tyc"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards hybrid request physical review tyc close") {
+        "/cards/hybrid/request/physical/review/tyc/close"(platform: "/", type: TrackType.Event) {}
+    }
+
+    // Request: Review address
+    test("cards hybrid request physical review address") {
+        "/cards/hybrid/request/physical/review/address_modal"(platform: "/", type: TrackType.View) {}
+    }
+    test("cards hybrid request physical review address tap") {
+        "/cards/hybrid/request/physical/review/address_modal/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/hybrid/request/physical/review/address_modal/tap"(platform: "/", type: TrackType.Event) {
+            action = "add"
+        }
+        "/cards/hybrid/request/physical/review/address_modal/tap"(platform: "/", type: TrackType.Event) {
+            action = "select_row"
+        }
+    }
+
     // CARD IDENTIFICATION
     // --------
-    test("cards hybrid card identification") {
+    test("cards hybrid identification") {
         "/cards/hybrid/card_identification"(platform: "/", type: TrackType.View) {}
+    }
+
+    // CARD REQUEST init point
+    // --------
+    test("cards hybrid request init point") {
+        "/cards/hybrid/request/init_point"(platform: "/", type: TrackType.View) {}
+    }
+    // CARD REQUEST virtual on boarding
+    // --------
+    test("cards hybrid virtual onboarding"){
+        "/cards/hybrid/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {}
+    }
+     test("cards hybrid virtual onboarding tap") {
+        "/cards/hybrid/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
+            action = "close"
+        }
+        "/cards/hybrid/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
+            action = "continue"
+        }
     }
 }
