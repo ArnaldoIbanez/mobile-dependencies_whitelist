@@ -30,15 +30,14 @@ tracks {
     }
 
     def garexItemFinancingTypeTrackStructure = objectSchemaDefinitions {
-        noInterestAllowed(required: true, type: PropertyType.Boolean, description: "True when the item allows no interest payments on financing")
+        no_interest_allowed(required: true, type: PropertyType.Boolean, description: "True when the item allows no interest payments on financing")
         installments(required: false, type: PropertyType.Numeric, description: "Number of available installments to finance payment")
     }
 
     def garexItemTrackStructure = objectSchemaDefinitions {
-        domainId(required: true, type: PropertyType.String, description: "Item domain. For ex: MLA-TELEVISIONS")
-        financingType(required: false, type: PropertyType.Map(garexItemFinancingTypeTrackStructure), description: "Financing data of item if it has")
-        categoryL1(required: false, type: PropertyType.String, description: "CategoryL1 of item. For ex: {'MLA1051':'Celulares y Teléfonos'}")
-        categoryL2(required: false, type: PropertyType.String, description: "CategoryL1 of item. For ex: {'MLA1051':'Celulares y Teléfonos', 'MLA1055':'Celulares y Smartphones'}")
+        domain_id(required: true, type: PropertyType.String, description: "Item domain. For ex: MLA-TELEVISIONS")
+        financing_type(required: false, type: PropertyType.Map(garexItemFinancingTypeTrackStructure), description: "Financing data of item if it has")
+        category_path(required: true, type: PropertyType.ArrayList, description: "Category path of the item. For ex: ['MLA1051', 'MLA1055']")
     }
 
 

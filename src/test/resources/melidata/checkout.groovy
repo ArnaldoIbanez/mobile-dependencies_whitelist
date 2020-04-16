@@ -1915,12 +1915,14 @@ trackTests {
             ]
             item = [
                     domainId: "MLA-TELEVISIONS",
-                    financingType: [
-                            noInterestAllowed: true,
+                    financing_type: [
+                            no_interest_allowed: true,
                             installments: 12,
                     ],
-                    categoryL1: "{'MLA1051':'Celulares y Teléfonos'}",
-                    categoryL2: "{'MLA1055':'Celulares y Smartphones'}"
+                    category_path: [
+                            'MLA1055',
+                            'MLA1055'
+                    ]
             ]
         }
         "/garex/checkout/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
