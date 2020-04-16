@@ -238,6 +238,7 @@ trackTests {
             content = "Game of thrones"
             type = "content"
             name = "Game of thrones"
+            position = 3
         }
 
         "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
@@ -278,6 +279,46 @@ trackTests {
             partner = "HBO Go"
             content = "Game of thrones"
             type = "primary"
+        }
+
+    }
+
+    test("Loyalty Subscription Congrats") {
+
+        "/loyalty/partners/checkout/congrats"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            level = 3
+            partner = "HBO"
+            status = "success"
+            status_detail = "activated"
+            discount = 40
+        }
+
+        "/loyalty/partners/checkout/congrats"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            level = 3
+            partner = "HBO"
+            status = "success"
+            status_detail = "freetrial-activated"
+            discount = 40
+        }
+
+        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            level = 1
+            partner = "Paramount"
+            status = "pending"
+            status_detail = "contingency"
+            discount = 0
+            type = "close"
+        }
+
+        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            level = 1
+            partner = "Paramount"
+            status = "pending"
+            status_detail = "manual"
+            discount = 0
+            type = "button"
+            label = "Ir a HBO"
+            deeplink = "meli://loyalty"
         }
 
     }
