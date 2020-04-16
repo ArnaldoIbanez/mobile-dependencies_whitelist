@@ -587,8 +587,22 @@ trackTests {
         "/landing/sellers/websites" (platform: "/web") {}
     }
 
+    test("Landing mercadopago sellers websites events") {
+        "/landing/sellers/websites/click" (platform: "/web") {
+            event_id = "CTA_HERO"
+            event_label = "websites"
+        }
+    }
+
     test("Landing mercadopago sellers social") {
         "/landing/sellers/social" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago sellers social events") {
+        "/landing/sellers/social/click" (platform: "/web") {
+            event_id = "CTA_HERO"
+            event_label = "websites"
+        }
     }
 
     test("Landing mercadopago sellers mss") {
