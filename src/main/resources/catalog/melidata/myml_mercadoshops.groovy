@@ -207,6 +207,7 @@ tracks {
 
     "/mercado_shops/admin/sidebar/fiscal_data"(platform: "/", type: TrackType.Event){
         fiscal_data_visible(required: true, type: PropertyType.Boolean)
+        mshopsEventGroup
     }
 
     "/mercado_shops/admin/sidebar/whatsapp"(platform: "/", type: TrackType.Event){
@@ -407,7 +408,9 @@ tracks {
 
     "/mercado_shops/marketing/facebook/store"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/marketing/facebook/store/link_with_facebook"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/marketing/facebook/store/link_with_facebook"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
 
     "/mercado_shops/marketing/facebook/store/fan_pages"(platform: "/", type: TrackType.View){}
 
