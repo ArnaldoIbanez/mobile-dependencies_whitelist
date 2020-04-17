@@ -31,7 +31,7 @@ trackTests {
   }
 
   test("Release options lib get") {
-    "/release_options_ui/get"(platform: "/", type:TrackType.Event) {
+    "/release_options_ui/render_channel"(platform: "/", type:TrackType.Event) {
       channel = "point"
     }
   }
