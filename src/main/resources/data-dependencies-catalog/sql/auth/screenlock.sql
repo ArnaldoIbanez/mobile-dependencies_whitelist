@@ -130,7 +130,7 @@ FROM ( SELECT
          '/screenlock/validation_start',
          '/security_settings/screenlock/toggle')
        and bu = 'mercadopago'
-       and site in('MLA','MLM','MLB')
+       and site in('MLA','MLM','MLB','MLU','MLC','MPE','MCO')
    ) t1
 where major >= '2'
 and minor >= '96'
