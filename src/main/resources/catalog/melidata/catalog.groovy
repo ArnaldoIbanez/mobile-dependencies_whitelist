@@ -156,6 +156,7 @@ catalog {
         include business, "cdn_metrics.groovy"
         include business, "splinter.groovy"
         include business, "update_browser.groovy"
+        include business, "insurtech.groovy"
     }
 
     mercadopago.each { business ->
