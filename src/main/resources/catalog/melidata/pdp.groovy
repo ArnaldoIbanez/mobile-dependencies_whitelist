@@ -301,7 +301,8 @@ tracks {
         listing_type_id(required: false, type: PropertyType.String,
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
                 description: "Listing type of the item")
-        product_status(required: false, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
+        product_status(required: false, type: PropertyType.String, values: ["pending", "active", "inactive",
+                "closed", "paused", "under_review", "not_yet_active", "payment_required"],
                 description: "Whenever the items is active, closed or paused")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
         context(required: true, type: PropertyType.String, values: ["other_products_new", "alternatives", "main_actions_no_winner"], description: "Indicates the context in where the event was triggered from the PDP")
