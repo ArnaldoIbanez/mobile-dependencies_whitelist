@@ -130,12 +130,19 @@ tracks {
         section (required: true, type: PropertyType.String, description: "The section when error")
         status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
     }
-
-    "/settings/release_options"(platform: "/", type:TrackType.View) {}
-    "/settings/release_options/update"(platform: "/", type:TrackType.Event) {
+    // release-options-frontend
+    "/settings/release_options"(platform: "/", type:TrackType.View) {
+        referrer (required: true, type: PropertyType.String, description: "Referrer to the page")
+    }
+    // release-options-ui LIB
+    "/release_options_ui"(platform: "/", isAbstract: true) {}
+    "/release_options_ui/update"(platform: "/", type:TrackType.Event) {
         channel (required: true, type: PropertyType.String, description: "The channel to update. eg: point, qr, etc")
         payment_method_type (required: true, type: PropertyType.String, description: "The payment type. eg: credit, debit,etc")
         release_days (required: true, type: PropertyType.String, description: "The selected release time")
         percentage (required: true, type: PropertyType.String, description: "The selected percentage")
+    }
+    "/release_options_ui/render_channel"(platform: "/", type:TrackType.Event) {
+        channel (required: true, type: PropertyType.String, description: "The channel asked to render")
     }
 }
