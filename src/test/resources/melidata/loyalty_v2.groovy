@@ -238,6 +238,7 @@ trackTests {
             content = "Game of thrones"
             type = "content"
             name = "Game of thrones"
+            position = 3
         }
 
         "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
@@ -278,6 +279,54 @@ trackTests {
             partner = "HBO Go"
             content = "Game of thrones"
             type = "primary"
+        }
+
+    }
+
+    test("Loyalty Subscription Congrats") {
+
+        "/loyalty/partners/checkout/congrats"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            level = 3
+            partner = "HBO"
+            payment_id = "42323"
+            payment_status = "success"
+            payment_status_detail = "activated"
+            is_free_trial = "true"
+            discount = 40
+        }
+
+        "/loyalty/partners/checkout/congrats"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            level = 3
+            partner = "HBO"
+            payment_id = "42323"
+            payment_status = "success"
+            payment_status_detail = "freetrial-activated"
+            is_free_trial = "true"
+            discount = 40
+        }
+
+        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            level = 1
+            partner = "Paramount"
+            payment_id = "42323"
+            payment_status = "pending"
+            payment_status_detail = "contingency"
+            is_free_trial = "false"
+            discount = 0
+            type = "close"
+        }
+
+        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            level = 1
+            partner = "Paramount"
+            payment_id = "42323"
+            payment_status = "pending"
+            payment_status_detail = "manual"
+            is_free_trial = "false"
+            discount = 0
+            type = "button"
+            label = "Ir a HBO"
+            deeplink = "meli://loyalty"
         }
 
     }

@@ -86,23 +86,41 @@ tracks {
     // Loyalty Partners VDP
     "/loyalty/partners"(platform: "/", isAbstract: true) {
         partner(required: true, description: "VDP partner name (HBO, Paramount, etc.)", type: PropertyType.String)
-        content(required: true, description: "Content of the partner. Ex: Game Of Thrones", type: PropertyType.String)
         discount(required: false, description: "User discount", type: PropertyType.Numeric)
-        subscription_status(required: false, description: "Subscrition Status", type: PropertyType.String)
         origin(required: false, description: "Where was the vdp initiated from")
     }
 
-    "/loyalty/partners/vdp"(platform: "/", type: TrackType.View) {}
+    "/loyalty/partners/vdp"(platform: "/", type: TrackType.View) {
+        content(required: true, description: "Content of the partner. Ex: Game Of Thrones", type: PropertyType.String)
+        subscription_status(required: false, description: "Subscrition Status", type: PropertyType.String)
+    }
 
     "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event) {
         type(required: true, description: "User discount", values: ["content", "primary", "secondary", "tyc"], type: PropertyType.String)
         name(required: false, description: "Action pressed name", type: PropertyType.String)
+        position(required: false, description: "Action position in carousel", type: PropertyType.Numeric)
     }
 
     "/loyalty/partners/vdp/content"(platform: "/", type: TrackType.View) {}
 
     "/loyalty/partners/vdp/content/action"(platform: "/", type: TrackType.Event) {
         type(required: true, description: "User discount", values: ["primary", "secondary", "tyc"], type: PropertyType.String)
+    }
+
+    // Loyalty Subscription Congrats
+    "/loyalty/partners/checkout"(platform: "/", isAbstract: true) {}
+
+    "/loyalty/partners/checkout/congrats"(platform: "/", type: TrackType.View) {
+        payment_status(required: true, description: "Payment status", type: PropertyType.String)
+        payment_status_detail(required: false, description: "Payment detail", type: PropertyType.String)
+        payment_id(required: true, description: "Payment id", type: PropertyType.String)
+        is_free_trial(required: false, description: "If checkout is for activate a free trial", type: PropertyType.String)
+    }
+
+    "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.Event) {
+        type(required: true, description: "Action type", values: ["close", "back", "button"], type: PropertyType.String)
+        label(required: false, description: "Action pressed label", type: PropertyType.String)
+        deeplink(required: false, description: "Action link to go", type: PropertyType.String)
     }
 
 }
