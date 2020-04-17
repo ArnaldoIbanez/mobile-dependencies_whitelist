@@ -27,6 +27,7 @@
       ],
       "sql": {
         "script": "sell/sell-listing-filters-applied.sql",
+        "engine": "spark",
         "parameters": [
           {
             "name": "param01",
