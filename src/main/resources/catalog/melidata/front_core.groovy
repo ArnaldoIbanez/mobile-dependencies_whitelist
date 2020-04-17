@@ -38,6 +38,7 @@ tracks {
     def cards_definition = objectSchemaDefinitions {
         prepaid(required: true, type: PropertyType.Boolean, description: "Unavailable balance")
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of cards")
+        debit(required: false, type: PropertyType.Boolean, description: "If the card debit is present in the cards row")
     }
 
     def assets_definition = objectSchemaDefinitions {}
