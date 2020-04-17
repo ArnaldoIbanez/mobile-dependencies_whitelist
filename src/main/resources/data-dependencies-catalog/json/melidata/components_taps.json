@@ -42,6 +42,7 @@
     ],
     "sql": {
       "script": "mercadopago/components_taps.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
