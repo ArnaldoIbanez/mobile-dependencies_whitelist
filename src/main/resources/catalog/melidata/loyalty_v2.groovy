@@ -108,17 +108,19 @@ tracks {
     }
 
     // Loyalty Subscription Congrats
-    "/loyalty/partners/checkout"(platform: "/", isAbstract: true) {
-        status(required: true, description: "Payment status", type: PropertyType.String)
-        status_detail(required: false, description: "Payment detail", type: PropertyType.String)
+    "/loyalty/partners/checkout"(platform: "/", isAbstract: true) {}
+
+    "/loyalty/partners/checkout/congrats"(platform: "/", type: TrackType.View) {
+        payment_status(required: true, description: "Payment status", type: PropertyType.String)
+        payment_status_detail(required: false, description: "Payment detail", type: PropertyType.String)
+        payment_id(required: true, description: "Payment id", type: PropertyType.String)
+        is_free_trial(required: false, description: "If checkout is for activate a free trial", type: PropertyType.String)
     }
 
-    "/loyalty/partners/checkout/congrats"(platform: "/", type: TrackType.View) {}
-
     "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.Event) {
-        type(required: true, description: "User discount", values: ["close", "back", "button"], type: PropertyType.String)
-        label(required: false, description: "Action pressed name", type: PropertyType.String)
-        deeplink(required: false, description: "Action pressed name", type: PropertyType.String)
+        type(required: true, description: "Action type", values: ["close", "back", "button"], type: PropertyType.String)
+        label(required: false, description: "Action pressed label", type: PropertyType.String)
+        deeplink(required: false, description: "Action link to go", type: PropertyType.String)
     }
 
 }

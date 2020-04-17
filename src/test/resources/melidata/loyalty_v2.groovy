@@ -288,24 +288,30 @@ trackTests {
         "/loyalty/partners/checkout/congrats"(platform: "/", type: TrackType.View, business:"mercadolibre") {
             level = 3
             partner = "HBO"
-            status = "success"
-            status_detail = "activated"
+            payment_id = "42323"
+            payment_status = "success"
+            payment_status_detail = "activated"
+            is_free_trial = "true"
             discount = 40
         }
 
         "/loyalty/partners/checkout/congrats"(platform: "/", type: TrackType.View, business:"mercadopago") {
             level = 3
             partner = "HBO"
-            status = "success"
-            status_detail = "freetrial-activated"
+            payment_id = "42323"
+            payment_status = "success"
+            payment_status_detail = "freetrial-activated"
+            is_free_trial = "true"
             discount = 40
         }
 
         "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business:"mercadolibre") {
             level = 1
             partner = "Paramount"
-            status = "pending"
-            status_detail = "contingency"
+            payment_id = "42323"
+            payment_status = "pending"
+            payment_status_detail = "contingency"
+            is_free_trial = "false"
             discount = 0
             type = "close"
         }
@@ -313,8 +319,10 @@ trackTests {
         "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business:"mercadopago") {
             level = 1
             partner = "Paramount"
-            status = "pending"
-            status_detail = "manual"
+            payment_id = "42323"
+            payment_status = "pending"
+            payment_status_detail = "manual"
+            is_free_trial = "false"
             discount = 0
             type = "button"
             label = "Ir a HBO"
