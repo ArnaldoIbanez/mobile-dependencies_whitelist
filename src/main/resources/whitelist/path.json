@@ -1,5 +1,9 @@
 {
   "path": [
+    "/free_navigation",
+    "/free_navigation_dialog",
+    "/free_navigation_notification",
+    "/memory_warning",
     "/vip",
     "/pdp",
     "/add_to_cart",
