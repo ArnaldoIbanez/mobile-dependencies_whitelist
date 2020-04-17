@@ -142,7 +142,7 @@ tracks {
         release_days (required: true, type: PropertyType.String, description: "The selected release time")
         percentage (required: true, type: PropertyType.String, description: "The selected percentage")
     }
-    "/release_options_ui/get"(platform: "/", type:TrackType.Event) {
+    "/release_options_ui/render_channel"(platform: "/", type:TrackType.Event) {
         channel (required: true, type: PropertyType.String, description: "The channel asked to render")
     }
 }
