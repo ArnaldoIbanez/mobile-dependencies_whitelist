@@ -1,4 +1,4 @@
-[//]: # (Tracks catalog PR template, delete if else!)
+[//]: # (Tracks catalog PR template, delete if else! If you need to use BI Integration PR template, update your URL to template=NEW_EXTRACT_TEMPLATE.md)
 
 
 ## Context
