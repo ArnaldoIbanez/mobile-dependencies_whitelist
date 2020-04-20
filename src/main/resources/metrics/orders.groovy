@@ -35,7 +35,6 @@ metrics {
 		}
 	}
 
-
 	"bids"(description: "/orders/ordercreated from feed (carrito included)", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
