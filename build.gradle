@@ -121,7 +121,7 @@ task testRecommendations (dependsOn: 'classes', type: JavaExec) {
 	args = ["recommendations"]
 }
 
-task testRecommendations (dependsOn: 'classes', type: JavaExec) {
+task testMonitoring (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["mlo-monitoring"]
