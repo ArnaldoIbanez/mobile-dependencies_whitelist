@@ -26,6 +26,14 @@
         {
           "name": "click_total",
           "type": "INTEGER"
+        },
+        {
+          "name": "total_query",
+          "type": "INTEGER"
+        },
+        {
+          "name": "total_zrp",
+          "type": "INTEGER"
         }
       ],
       "sql": {
