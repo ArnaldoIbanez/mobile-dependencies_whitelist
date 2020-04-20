@@ -35,7 +35,6 @@ metrics {
 		}
 	}
 
-
 	"bids"(description: "/orders/ordercreated from feed (carrito included)", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
@@ -75,6 +74,27 @@ metrics {
 						},
 						"paid"
 				)
+			}
+		}
+	}
+	
+	"bids.pdp.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and ( 
+					equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"paid"
+					),
+					equals("event_data.is_pdp", true)
+				)	
 			}
 		}
 	}
