@@ -222,8 +222,8 @@ tracks {
          review_status(required: true, description: "Reviews result", values: ["APPROVED", "REJECTED", "PENDING"], type: PropertyType.String) 
          action_tag(required: true, description: "Publications tag", values: ["ADD", "REP", "NPP"], type: PropertyType.String) 
          time(required: true, description: "Time reviewing the item", type: PropertyType.Numeric)
-         sections_comments(required: true, description: "Reviews comments", type: PropertyType.String)
-         errors_codes(required: true, description: "Reviews errors codes", type: PropertyType.String)
+         sections_comments(required: true, description: "Reviews comments", type: PropertyType.ArrayList(PropertyType.String))
+         errors_codes(required: true, description: "Reviews errors codes", type: PropertyType.ArrayList(PropertyType.String))
          user_initials(required: true, description: "Bs user initials", type: PropertyType.String)
     }
     "/structure_data/product_modificator"(platform: "/",isAbstract: true) {}
@@ -260,7 +260,7 @@ tracks {
     }
 
     "/structure_data/product_merge/available_products"(platform: "/", type:TrackType.Event){
-        products_ids(required: true, description: "ProductsID collection", type: PropertyType.String)
+        products_ids(required: true, description: "ProductsID collection", type: PropertyType.ArrayList(PropertyType.Numeric))
     }
 
     // Catalog search tracks
