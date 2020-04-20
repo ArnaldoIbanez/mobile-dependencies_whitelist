@@ -179,6 +179,12 @@ task uploadRecommendationsCatalog(type:JavaExec) {
 	args = ["recommendations"]
 }
 
+task uploadMonitoringCatalog(type:JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-monitoring"]
+}
+
 task uploadMetrics(type:JavaExec) {
 	main = 'com.melidata.definitions.uploaders.MetricsUploader'
 	classpath = sourceSets.main.runtimeClasspath
