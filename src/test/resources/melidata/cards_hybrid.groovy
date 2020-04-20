@@ -495,11 +495,9 @@ trackTests {
     }
     test("cards hybrid request physical onboarding tap") {
         "/cards/hybrid/request/physical/onboarding/tap"(platform: "/", type: TrackType.Event) {
-            flow = "no_kyc_no_challlenge"
             action = "close"
         }
         "/cards/hybrid/request/physical/onboarding/tap"(platform: "/", type: TrackType.Event) {
-            flow = "no_kyc_no_challlenge"
             action = "continue"
         }
     }
