@@ -97,10 +97,13 @@ tracks {
     //kyc/iv
 
     "/kyc/iv"(platform: "/", isAbstract: true) {
+        challenge_id(type: PropertyType.Numeric, required: false, description: "Indicates the challenge id of the actual challenge")
         transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
         initiative(required: false, type: PropertyType.String, description: "Users initiative")
         kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
+        doc_type(required: false, type: PropertyType.String, description: "Doc type")
+        model_id(required: false, type: PropertyType.String, description: "Model id of the doc model")
     }
 
     "/kyc/iv"(platform: "/mobile", isAbstract: true) {}
