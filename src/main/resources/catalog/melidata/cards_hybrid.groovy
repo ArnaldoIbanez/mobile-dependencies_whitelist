@@ -437,7 +437,8 @@ tracks {
             required: true,
             type: PropertyType.String,
             values: ["no_kyc_no_challlenge", "kyc_challenge", "no_kyc_challenge", "kyc_no_challenge"],
-            description: "type of onboarding"
+            description: "type of onboarding",
+            inheritable:false
         )
     }
     "/cards/hybrid/request/physical/onboarding/tap"(platform: "/", type: TrackType.Event) {
