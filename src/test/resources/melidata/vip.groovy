@@ -1222,4 +1222,20 @@ trackTests {
         }
     }
 
+    test("VIP denounce") {
+        "/vip/denounce"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("VIP cbt") {
+        "/vip/show_cbt_popup"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            seller_id = 167086843
+            item_condition = "new"
+            price = 100
+            original_price = 110
+            currency_id = "ARS"
+        }
+    }
 }
