@@ -433,7 +433,7 @@ tracks {
     // Request: Onboarding
     "/cards/hybrid/request/physical"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-        flow (
+        context (
             required: true,
             type: PropertyType.String,
             values: ["no_kyc_no_challlenge", "kyc_challenge", "no_kyc_challenge", "kyc_no_challenge"],

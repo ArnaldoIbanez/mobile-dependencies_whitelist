@@ -481,16 +481,16 @@ trackTests {
     // Request: Onboarding
     test("cards hybrid request physical onboarding") {
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-            flow = "no_kyc_no_challlenge"
+            context = "no_kyc_no_challlenge"
         }
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-            flow = "kyc_challenge"
+            context = "kyc_challenge"
         }
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-            flow = "no_kyc_challenge"
+            context = "no_kyc_challenge"
         }
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-            flow = "kyc_no_challenge"
+            context = "kyc_no_challenge"
         }
     }
     test("cards hybrid request physical onboarding tap") {
