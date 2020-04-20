@@ -499,10 +499,17 @@ trackTests {
         "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'on_time'
             user_status = 'on_time'
+            offer = 'none'
         }
         "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'delayed'
             user_status = 'overdue'
+            offer = 'none'
+        }
+          "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
+            status = 'on_time'
+            user_status = 'on_time'
+            offer = 'express_money'
         }
         "/credits/merchant/money_advance/congrats"(platform: "/mobile/android") {}
         "/credits/merchant/money_advance/no_options"(platform: "/web/desktop") {}

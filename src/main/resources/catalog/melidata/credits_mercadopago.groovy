@@ -659,6 +659,14 @@ tracks {
                 'overdue'
             ]
         )
+        offer(
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'none',
+                'express_money'
+            ]
+        )
     }
 
     //Congrats money advance mobile
