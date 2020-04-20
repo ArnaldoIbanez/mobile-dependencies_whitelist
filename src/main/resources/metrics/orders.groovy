@@ -79,6 +79,27 @@ metrics {
 		}
 	}
 	
+	"bids.pdp.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and ( 
+					equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"paid"
+					),
+					equals("event_data.is_pdp", true)
+				)	
+			}
+		}
+	}
+	
 	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq?authuser=0#h.p_2qPD6v_1dTSd", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
