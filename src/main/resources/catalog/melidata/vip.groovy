@@ -1005,7 +1005,7 @@ tracks {
 
     "/vip/denounce"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
 
-    "/vip/show_cbt_popup"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/vip/show_cbt_popup"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: true, type: PropertyType.ArrayList, description: "Category path of the the item")
