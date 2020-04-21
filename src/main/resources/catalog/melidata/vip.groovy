@@ -68,10 +68,10 @@ tracks {
 
     "/vip"(platform: "/") {
         // TEMP FIELDS
-        cac_item(required: false, type: PropertyType.Boolean, 
+        cac_item(required: false, type: PropertyType.Boolean,
                  description: "Indicates whether the item is listed as 'CodoACodo'")
-        
-        cac_status(required: false, type: PropertyType.String, 
+
+        cac_status(required: false, type: PropertyType.String,
                 values: ["normal", "after_dispatch", "unknown"],
                 description: "Indicates items status of Elbow to Elbow (Codo a Codo) initiative")
 
@@ -128,7 +128,7 @@ tracks {
         power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
                 description: "Seller's Mercado Lider level")
         reputation_level(required: false, type: PropertyType.String,
-                values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
+                values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "none"],
                 description: "Seller's reputation level")
         available_consumer_credit(required: false, type: PropertyType.Boolean, description: "Indicates if the item has a credit available for the item's seller")
 
@@ -211,6 +211,7 @@ tracks {
     }
 
     "/vip/profile_intention"(platform: "/", type: TrackType.Event) {
+        context(required: false, type: PropertyType.String, values: ["/vip"], description: "Indicates where the page was opened from")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         buying_mode(required: false, type: PropertyType.String, description: "Indicates if it's an auction, buy_it_now or classified")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
@@ -298,7 +299,7 @@ tracks {
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
-        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
+        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "none"], description: "Seller's reputation level")
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
         has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
@@ -312,6 +313,7 @@ tracks {
         add_cart_info
         shipping_info
         credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
+        attribute_combinations(required: false, type: PropertyType.Numeric, description: "Indicates the amount of variation pickers an item has")
     }
 
     "/vip/buy_action"(platform: "/web", parentPropertiesInherited: false) {
@@ -331,7 +333,7 @@ tracks {
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
-        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
+        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "none"], description: "Seller's reputation level")
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
         has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
@@ -342,6 +344,8 @@ tracks {
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
                 description: "Seller's Mercado Lider level")
+        attribute_combinations(required: false, type: PropertyType.Numeric, description: "Indicates the amount of variation pickers an item has")
+        credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
         add_cart_info
         shipping_info
     }
@@ -999,4 +1003,17 @@ tracks {
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
 
+    "/vip/denounce"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
+
+    "/vip/show_cbt_popup"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: true, type: PropertyType.ArrayList, description: "Category path of the the item")
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        original_price(required: true, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+    }
 }
