@@ -274,6 +274,13 @@ trackTests {
             action = "page_4"
         }
     }
+    
+    //Feedback: Tracking
+    test("cards hybrid dasboard feedback") {
+        "/cards/hybrid/dashboard/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
+    }
 
     // Acquisition Error
     // --------
@@ -413,6 +420,13 @@ trackTests {
             action = "money_in"
         }
     }
+    
+    //Feedback: Tracking
+    test("cards hybrid setup virtual feedback") {
+        "/cards/hybrid/setup_virtual/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
+    }
 
     // REISSUE VIRTUAL
     // --------
@@ -465,6 +479,12 @@ trackTests {
         }
         "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
             action = "change_limits"
+        }
+    }
+    
+    test("cards hybrid setup physical feedback") {
+        "/cards/hybrid/setup_physical/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
         }
     }
     
