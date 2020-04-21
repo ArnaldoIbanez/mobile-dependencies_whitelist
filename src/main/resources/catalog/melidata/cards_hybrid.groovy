@@ -290,6 +290,7 @@ tracks {
     }
 
     //Carousel: Tracking
+    "/cards/hybrid/dashboard/carousel"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/carousel/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -308,6 +309,7 @@ tracks {
     }
     
     //Feedback: Tracking
+    "/cards/hybrid/dashboard/feedback"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/feedback/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -378,6 +380,7 @@ tracks {
     }
 
     //Feedback: Tracking
+    "/cards/hybrid/setup_virtual/feedback"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/setup_virtual/feedback/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -434,6 +437,7 @@ tracks {
     }
     
     //Feedback: Tracking
+    "/cards/hybrid/setup_physical/feedback"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/setup_physical/feedback/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
