@@ -32,6 +32,23 @@ trackTests {
 
         }
         "/garex/checkout/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
+
+        //Mobile
+        "/garex/checkout"(platform:"/mobile", type: TrackType.View) {}
+        "/garex/checkout/more_info"(platform:"/mobile", type: TrackType.Event) {}
+        "/garex/checkout/selected_garex"(platform:"/mobile", type: TrackType.Event) {
+            "id": "MLA390289_GAR16001",
+            "period": 24,
+            "cost": 1234,
+            "revenue_share_fee": 70,
+            "revenue": 863.80,
+            "currency_id": "ARS"
+        }
+        "/garex/checkout/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
+        "/garex/checkout/delete"(platform:"/mobile", type: TrackType.Event) {
+            "id": "MLA390289_GAR16001",
+            "cost": 1234,
+            "currency_id": "ARS"
+        }
     }
 }
-
