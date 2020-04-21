@@ -211,7 +211,7 @@ tracks {
     }
 
     "/vip/profile_intention"(platform: "/", type: TrackType.Event) {
-        context(required: false)
+        context(required: false, type: PropertyType.String, values: ["/vip"], description: "Indicates where the page was opened from")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         buying_mode(required: false, type: PropertyType.String, description: "Indicates if it's an auction, buy_it_now or classified")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
@@ -1009,7 +1009,8 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: true, type: PropertyType.ArrayList, description: "Category path of the the item")
-        item_condition(required: true, type: PropertyType.String, description: "Whether the item is new, used or refurbished")
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
         original_price(required: true, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")

@@ -864,6 +864,7 @@ trackTests {
         }
 
         "/vip/profile_intention"(platform: "/", type: TrackType.Event) {
+            context = '/vip'
             seller_id = 131662738
             buying_mode = "classified"
             category_id = "MLA43718"
