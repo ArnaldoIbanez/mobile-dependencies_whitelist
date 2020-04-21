@@ -142,6 +142,12 @@ trackTests {
             flap_status = "virtual_only"
             activities_status = "activities"
         }
+        "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
+        }
+        "/cards/hybrid/dashboard/physical/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
+        }
     }
     
     //Mini card: Tracking
