@@ -383,9 +383,8 @@ tracks {
     }
 
     //Feedback: Tracking
-    "/cards/hybrid/setup_virtual"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/setup_virtual/feedback"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/setup_virtual/feedback/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/setup/virtual/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/virtual/feedback/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -441,9 +440,8 @@ tracks {
     }
     
     //Feedback: Tracking
-    "/cards/hybrid/setup_physical"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/setup_physical/feedback"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/setup_physical/feedback/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/setup/physical/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/physical/feedback/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
