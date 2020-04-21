@@ -1619,6 +1619,18 @@ trackTests {
         }
     }
 
+    test("SYI v4 listing type show free"){
+        "/sell/item_conditions/listing_types/free/show"(platform: "/web/mobile", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
     test("SYI v4 calculator showed"){
         "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
