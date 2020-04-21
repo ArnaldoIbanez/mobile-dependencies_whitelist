@@ -130,6 +130,18 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/review/shield_kyc_ifpe"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        
+        "/checkout_off/review/challenge_kyc_ifpe"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        
+        "/checkout_off/review/challenge_second_factor_auth"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/agencies"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -231,6 +243,18 @@ trackTests {
         }
 
         "/checkout_off/review"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/review/shield_kyc_ifpe"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/review/challenge_kyc_ifpe"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/review/challenge_second_factor_auth"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 
@@ -417,6 +441,18 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/review/shield_kyc_ifpe"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/review/challenge_kyc_ifpe"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/review/challenge_second_factor_auth"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/agencies"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -518,6 +554,18 @@ trackTests {
         }
 
         "/checkout_off/review"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/review/shield_kyc_ifpe"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/review/challenge_kyc_ifpe"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/review/challenge_second_factor_auth"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 
