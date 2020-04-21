@@ -206,6 +206,22 @@ tracks {
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
      }
+    "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["header_help"],
+            description: "Header help tapped"
+          )
+    }
+    "/cards/hybrid/dashboard/physical/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["header_help"],
+            description: "Header help tapped"
+          )
+    }
     
     //MiniCard: Tracking
     "/cards/hybrid/dashboard/mini_card"(platform: "/", isAbstract: true) {}
