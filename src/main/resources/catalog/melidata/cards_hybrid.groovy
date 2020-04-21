@@ -381,34 +381,34 @@ tracks {
     
     // CHANGE-PIN
     // --------
-    "/cards/hybrid/change-pin"(platform: "/", type: TrackType.View) {}
-    "/cards/hybrid/change-pin/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/change_pin"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/change_pin/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["change-pin"],
+            values: ["change_pin"],
             description: "Change pin button tapped"
           )
     }
-    "/cards/hybrid/change-pin/congrats"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/change_pin/congrats"(platform: "/", type: TrackType.View) {}
     
     // LIMITS
     // --------
-    "/cards/hybrid/limits-setup"(platform: "/", type: TrackType.View) {
+    "/cards/hybrid/limits_setup"(platform: "/", type: TrackType.View) {
         limits_status (required:true, type: PropertyType.String, description: "Current sections", inheritable:false)
     }
-    "/cards/hybrid/limits-setup/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/limits_setup/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["header-help"],
+            values: ["header_help"],
             description: "Header action tapped"
           )
     }
     
     //Number Selector
-    "/cards/hybrid/limits-setup/number-selector"(platform: "/", isAbstract: true) { }
-    "/cards/hybrid/limits-setup/number-selector/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/limits_setup/number_selector"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/limits_setup/number_selector/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -418,8 +418,8 @@ tracks {
     }
     
     //Number selector modal
-    "/cards/hybrid/limits-setup/number-selector-modal"(platform: "/", type: TrackType.View) {}
-    "/cards/hybrid/limits-setup/number-selector-modal/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/limits_setup/number_selector_modal"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/limits_setup/number_selector_modal/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
