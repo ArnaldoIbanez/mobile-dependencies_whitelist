@@ -206,6 +206,8 @@ tracks {
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
      }
+    
+    "/cards/hybrid/dashboard/virtual"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -214,6 +216,7 @@ tracks {
             description: "Header help tapped"
           )
     }
+    "/cards/hybrid/dashboard/physical"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/physical/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
