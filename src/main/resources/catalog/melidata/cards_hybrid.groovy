@@ -273,6 +273,24 @@ tracks {
           )
     }
 
+    //Carousel: Tracking
+    "/cards/hybrid/dashboard/carousel/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["page_0", "page_1", "page_2", "page_3", "page_4"],
+            description: "Carousel item tapped"
+          )
+    }
+    "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["page_0", "page_1", "page_2", "page_3", "page_4"],
+            description: "Carousel item swiped"
+          )
+    }
+    
     // SETUP VIRTUAL
     // --------
 
