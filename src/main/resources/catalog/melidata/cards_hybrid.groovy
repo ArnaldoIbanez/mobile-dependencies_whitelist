@@ -383,6 +383,7 @@ tracks {
     }
 
     //Feedback: Tracking
+    "/cards/hybrid/setup_virtual"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/setup_virtual/feedback"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/setup_virtual/feedback/tap"(platform:"/", type: TrackType.Event) {
         action (
@@ -440,6 +441,7 @@ tracks {
     }
     
     //Feedback: Tracking
+    "/cards/hybrid/setup_physical"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/setup_physical/feedback"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/setup_physical/feedback/tap"(platform:"/", type: TrackType.Event) {
         action (
