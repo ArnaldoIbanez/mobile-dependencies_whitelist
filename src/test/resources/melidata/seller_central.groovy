@@ -213,6 +213,28 @@ trackTests {
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central Summary
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  test("Seller central summary view") {
+    "/seller_central/summary"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Seller central summary module") {
+    "/seller_central/summary/modules_render"(platform: "/web", type: TrackType.Event) {
+      modules = [
+              [
+                module_id: "sellerStatus",
+                kind: "fallback"
+              ], [
+                module_id: "mercadoPago",
+                kind: "normal"
+              ]
+      ]
+      seller_experience = "ADVANCED"
+    }
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -2010,6 +2032,26 @@ trackTests {
 
     "/seller_central/promotions/list/update"(platform: "/web", type: TrackType.Event){
       action = "CONFIRM"
+      promotion = [
+              site_time_offset: 0,
+              start_date: "2019-09-18T03:00:00.000Z",
+              finish_date: "2019-10-05T02:59:00.000Z",
+              state: "started",
+              is_highlight: false,
+              price: 500,
+              prime_price: 400,
+              list_price: 1000,
+              error_price: null,
+              error_prime: null,
+              input_price: "500",
+              input_prime_price: "400",
+              type: "always_on",
+      ]
+      promotion_duration = 17
+    }
+
+    "/seller_central/promotions/list/delete"(platform: "/web", type: TrackType.Event){
+      action = "DELETE"
       promotion = [
               site_time_offset: 0,
               start_date: "2019-09-18T03:00:00.000Z",

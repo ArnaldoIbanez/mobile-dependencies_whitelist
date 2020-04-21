@@ -72,6 +72,12 @@ trackTests {
             item_id = "MLA12345"
             context = "/vip"
         }
+
+        "/questions/input_focus"(platform: "/mobile") {
+            item_id = "MLA12345"
+            catalog_product_id = "MLA15183"
+            context = "PDP"
+        }
     }
 
 }

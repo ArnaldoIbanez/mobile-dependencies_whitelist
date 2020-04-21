@@ -58,6 +58,32 @@ trackTests {
 			state = "none"
         }
 
+        Object items_attributes = {
+            map_item_attributes = [
+                    [ attribute_id:"BRAND", value_id:"60297", value_name:"Toyota"],
+                    [ attribute_id:"MODEL", value_id:"60337", value_name:"Yaris" ],
+                    [ attribute_id:"YEAR", value_name:"2012"]
+            ]
+        }
+
+        "/vip"(platform:"/mobile", {
+            mandatory()
+            catalog_listing = false
+            items_attributes()
+        })
+
+        "/vip"(platform: "/web/mobile", {
+            mandatory()
+            catalog_listing = false
+            items_attributes()
+        })
+
+        "/vip"(platform: "/web/desktop", {
+            mandatory()
+            catalog_listing = false
+            items_attributes()
+        })
+
         "/vip"(platform:"/mobile", {
             mandatory()
             optionals()
@@ -838,6 +864,7 @@ trackTests {
         }
 
         "/vip/profile_intention"(platform: "/", type: TrackType.Event) {
+            context = '/vip'
             seller_id = 131662738
             buying_mode = "classified"
             category_id = "MLA43718"
@@ -1196,4 +1223,20 @@ trackTests {
         }
     }
 
+    test("VIP denounce") {
+        "/vip/denounce"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("VIP cbt") {
+        "/vip/show_cbt_popup"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            seller_id = 167086843
+            item_condition = "new"
+            price = 100
+            original_price = 110
+            currency_id = "ARS"
+        }
+    }
 }

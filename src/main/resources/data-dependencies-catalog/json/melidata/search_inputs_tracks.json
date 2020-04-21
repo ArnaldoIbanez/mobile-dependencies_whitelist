@@ -3,7 +3,7 @@
       "search-infrastructure-alerts@mercadolibre.com"
     ],
     "process_name": "search_inputs_tracks",
-    "cron": "00 08 * * *",
+    "cron": "00 09 * * *",
     "partition": {
       "name": "ds",
       "type": "DATE"

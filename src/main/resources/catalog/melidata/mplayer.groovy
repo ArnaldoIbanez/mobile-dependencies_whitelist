@@ -79,6 +79,7 @@ tracks {
         has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
     }
     "/mplayer/closed_request/mandatory_reason/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/mandatory_reason/emoji_selected"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/closed_request/status/pay"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/closed_request/status/reject"(platform: "/mobile", type: TrackType.Event) {}
@@ -112,6 +113,7 @@ tracks {
         has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
     }
     "/mplayer/open_request/mandatory_reason/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/open_request/mandatory_reason/emoji_selected"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/open_request/share_request/whatsapp"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/open_request/share_request/native"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -146,6 +148,7 @@ tracks {
 
     "/mplayer/money_split/reason"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/money_split/reason/emoji_selected"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/money_split/reason/continue"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/money_split/contact_picker"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/money_split/contact_picker/select_contact"(platform: "/mobile", type: TrackType.Event) {
@@ -169,8 +172,15 @@ tracks {
     }
 
     "/mplayer/money_split/result"(platform: "/mobile", isAbstract: true) {}
-    "/mplayer/money_split/result/success"(platform: "/mobile", type: TrackType.View) {}
-    "/mplayer/money_split/result/error"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/result/success"(platform: "/mobile", type: TrackType.View) {
+        payment_method_id(required: true, PropertyType.String, description: "the payment method id")
+        transaction_amount(required: true, PropertyType.Numeric, description: "the transaction amount")
+        fee_info(required: false, PropertyType.String, description: "the info of the fee")
+    }
+    "/mplayer/money_split/result/error"(platform: "/mobile", type: TrackType.View) {
+        error(required: true, PropertyType.String, description: "the transaction error")
+    }
+    
     "/mplayer/money_split/result/in_process"(platform: "/mobile", type: TrackType.View) {}
 
     // Tracing
@@ -205,6 +215,11 @@ tracks {
     "/mplayer/tracing/reject_event/exit"(platform: "/mobile", type: TrackType.Event) {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
+
+    "/mplayer/tracing/social_hub/"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/tracing/social_hub/money_split"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/tracing/social_hub/send_money"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/tracing/social_hub/money_request"(platform: "/mobile", type: TrackType.Event) {}
 
     "/money_request"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")

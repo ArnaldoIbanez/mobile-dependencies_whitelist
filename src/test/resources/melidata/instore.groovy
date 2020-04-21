@@ -1135,6 +1135,12 @@ trackTests {
 
         "/instore/geofence/permission_already_granted"(platform: "/mobile", type: TrackType.Event) {}
 
+        "/instore/geofence/gps_request"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/instore/geofence/gps_response"(platform: "/mobile", type: TrackType.Event) {
+            type = "granted"
+        }
+
         "/instore/geofence/updated"(platform: "/mobile", type: TrackType.Event) {}
 
         "/instore/geofence/enter"(platform: "/mobile", type: TrackType.Event) {
@@ -1288,7 +1294,48 @@ trackTests {
             amount_paid = "300"
             payment_id = "468795132"
         }
-   
+
+        //CVV
+
+        "/instore/buyer_qr/cvv"(platform: "/mobile", type: TrackType.View) {
+            payment_method_id = "account_money"
+            payment_method_disabled = false
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        "/instore/buyer_qr/cvv/confirm"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            view_time_in_millis = 140
+        }
+
+        "/instore/buyer_qr/cvv/dismiss"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            view_time_in_millis = 140
+        }
+
+        "/instore/buyer_qr/cvv/save_esc"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        "/instore/buyer_qr/cvv/delete_esc"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            from = "lease"
+        }
+
+        "/instore/buyer_qr/request_card_token"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            event_time_in_millis = 140
+            status_code = 200
+        }
+
+        "/instore/buyer_qr/request_card_token/max_delay_reached"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        "/instore/buyer_qr/no_payment_method_selected"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
         //Instore home sections
         "/instore/home_sections/promotion/generic/show"(platform: "/mobile", type: TrackType.View) {
             header_title = "Any title"
@@ -2518,6 +2565,47 @@ trackTests {
             payment_id = "1879867544"
         }
 
+        //CVV
+
+        "/instore/buyer_qr/cvv"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            payment_method_id = "account_money"
+            payment_method_disabled = false
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        "/instore/buyer_qr/cvv/confirm"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            view_time_in_millis = 140
+        }
+
+        "/instore/buyer_qr/cvv/dismiss"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            view_time_in_millis = 140
+        }
+
+        "/instore/buyer_qr/cvv/save_esc"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        "/instore/buyer_qr/cvv/delete_esc"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            from = "lease"
+        }
+
+        "/instore/buyer_qr/request_card_token"(platform: "/mobile", "business": "mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            event_time_in_millis = 140
+            status_code = 200
+        }
+
+        "/instore/buyer_qr/request_card_token/max_delay_reached"(platform: "/mobile", "business": "mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        "/instore/buyer_qr/no_payment_method_selected"(platform: "/mobile", "business": "mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
         "/instore/geofence/permission_request"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {}
 
         "/instore/geofence/permission_response"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
@@ -2525,6 +2613,12 @@ trackTests {
         }
 
         "/instore/geofence/permission_already_granted"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {}
+
+        "/instore/geofence/gps_request"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {}
+
+        "/instore/geofence/gps_response"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            type = "granted"
+        }
 
         "/instore/geofence/updated"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {}
 
@@ -2642,13 +2736,9 @@ trackTests {
         }
 
         //Instore shortcut
-        "/instore/create_shortcut"(platform:"/mobile/android", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
+        "/instore/create_shortcut"(platform:"/mobile/android", type: TrackType.View) {}
 
-        "/instore/create_shortcut"(platform:"/mobile/android", business: "mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-        }
+        "/instore/create_shortcut"(platform:"/mobile/android", business: "mercadopago", type: TrackType.View) {}
     }
 
     test("QR") {

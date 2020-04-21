@@ -1,7 +1,6 @@
 {
   "users": [
-    "francisco.yackel@mercadolibre.com",
-    "tfs_it@mercadolibre.com"
+    "francisco.yackel@mercadolibre.com"
   ],
   "process_name": "tfs_dashboard_users_tracks",
   "cron": "00 07 * * *",

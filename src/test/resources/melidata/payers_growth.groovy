@@ -75,6 +75,26 @@ trackTests {
 			campaign = 'generic'
 			position = "footer"
 		}
+
+ 		// Experiment landing - Ukraine Lab
+		"/payers_growth/xp_landing"(platform: "/"){
+			landing_id = 'recharge_dismiss'
+		}
+		"/payers_growth/xp_landing"(platform: "/"){
+			landing_id = 'recharge_block'
+		}
+		"/payers_growth/xp_landing/button"(platform: "/"){
+			landing_id = 'recharge_dismiss'
+			action = 'recharge_mp'
+		}
+		"/payers_growth/xp_landing/button"(platform: "/"){
+			landing_id = 'recharge_dismiss'
+			action = 'recharge_ml'
+		}
+		"/payers_growth/xp_landing/button"(platform: "/"){
+			landing_id = 'recharge_block'
+			action = 'recharge_mp'
+		}
 	}
 
     defaultBusiness = "mercadopago"
@@ -146,5 +166,25 @@ trackTests {
 			campaign = 'generic'
 			position = "footer"
 		} 
+
+		// Experiment landing - Ukraine Lab
+		"/payers_growth/xp_landing"(platform: "/"){
+			landing_id = 'recharge_dismiss'
+		}
+		"/payers_growth/xp_landing"(platform: "/"){
+			landing_id = 'recharge_block'
+		}
+		"/payers_growth/xp_landing/button"(platform: "/"){
+			landing_id = 'recharge_dismiss'
+			action = 'recharge_mp'
+		}
+		"/payers_growth/xp_landing/button"(platform: "/"){
+			landing_id = 'recharge_dismiss'
+			action = 'recharge_ml'
+		}
+		"/payers_growth/xp_landing/button"(platform: "/"){
+			landing_id = 'recharge_block'
+			action = 'recharge_mp'
+		}
 	}
 }

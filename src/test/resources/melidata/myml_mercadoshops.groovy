@@ -169,6 +169,7 @@ trackTests {
             shop_name = "Test Shop"
             ref = ""
             fiscal_data_visible = true
+            success = true
         }
         "/mercado_shops/admin/sidebar/whatsapp"(platform: "/", type: TrackType.Event){
             shop_id = 158689680
@@ -720,6 +721,7 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            success = true
         }
         "/mercado_shops/marketing/facebook/store/pixel_activation/active"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680

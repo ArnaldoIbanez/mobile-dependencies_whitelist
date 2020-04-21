@@ -61,5 +61,11 @@ tracks {
         context(required:true ,description: "The page or section where the questions action is taking place" , values: ["/vip"])
     }
 
+    "/questions/input_focus"(platform: "/") {
+        catalog_product_id(required: false, type: PropertyType.String, description: "Catalog product id")
+        item_id(required: true, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
+        context(required:true ,description: "The page or section where the questions action is taking place" , values: ["PDP", "VIP"])
+    }
+
 
 }

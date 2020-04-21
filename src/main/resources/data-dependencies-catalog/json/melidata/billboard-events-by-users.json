@@ -64,6 +64,7 @@
     ],
     "sql": {
       "script": "business-assurance/billboard_events_by_users.sql",
+      "engine": "spark",
       "parameters": [
         {
            "name": "param01",

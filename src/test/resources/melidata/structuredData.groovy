@@ -476,8 +476,8 @@ trackTests {
             review_status = "REJECTED"
             action_tag = "NPP"
             time = 4000        
-            sections_comments = '{ "action_source": 1, "association": 2, "attributes": 3 }'
-            errors_codes = '{ "E-ADS": 1, "E-COM": 2, "E-FOR": 3 }'
+            sections_comments =  ["action_source:1", "association:2"]
+            errors_codes = ["E-ADS:1", "E-COM:2", "E-FOR:3"]
             user_initials = "FKE"
         }
     }

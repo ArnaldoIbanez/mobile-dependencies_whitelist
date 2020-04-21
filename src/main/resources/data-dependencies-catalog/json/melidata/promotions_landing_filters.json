@@ -30,7 +30,11 @@
         "type": "INTEGER"
       },
       {
-        "name": "filter",
+        "name": "filter_applied",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "filter_value",
         "type": "UNICODE_STRING"
       },
       {

@@ -14,7 +14,3 @@ GROUP BY ds,
          get_json_object(event_data,'$.campaign_id'),
          get_json_object(event_data,'$.event_type'),
          device.platform
-ORDER BY ds,
-         campaign_id,
-         event_type,
-         platform
