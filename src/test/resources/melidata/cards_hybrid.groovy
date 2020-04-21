@@ -231,6 +231,43 @@ trackTests {
             action = "money_in"
         }
     }
+    
+    //Carousel: Tracking
+    test("cards hybrid dashboard carousel tapped") {
+        "/cards/hybrid/dashboard/carousel/tap"(platform:"/", type: TrackType.Event) {
+            action = "page_0"
+        }
+        "/cards/hybrid/dashboard/carousel/tap"(platform:"/", type: TrackType.Event) {
+            action = "page_1"
+        }
+        "/cards/hybrid/dashboard/carousel/tap"(platform:"/", type: TrackType.Event) {
+            action = "page_2"
+        }
+        "/cards/hybrid/dashboard/carousel/tap"(platform:"/", type: TrackType.Event) {
+            action = "page_3"
+        }
+        "/cards/hybrid/dashboard/carousel/tap"(platform:"/", type: TrackType.Event) {
+            action = "page_4"
+        }
+    }
+    
+    test("cards hybrid dashboard carousel swiped") {
+        "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
+            action = "page_0"
+        }
+        "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
+            action = "page_1"
+        }
+        "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
+            action = "page_2"
+        }
+        "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
+            action = "page_3"
+        }
+        "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
+            action = "page_4"
+        }
+    }
 
     // Acquisition Error
     // --------
