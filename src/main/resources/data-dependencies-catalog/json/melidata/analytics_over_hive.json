@@ -6,46 +6,59 @@
     "name": "ds",
     "type": "DATE"
   },
-  "process_name": "experiments_validation_v2",
-  "cron": "30 15 * * *",
+  "process_name": "analytics_over_hive",
+  "cron": "00 09 * * *",
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "source",
+        "name": "id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "experiment_name",
+        "name": "username",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "metric",
+        "name": "operation",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "platform",
+        "name": "type",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "variant_id",
+        "name": "table_read",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "error_message",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "query_duration",
         "type": "INTEGER"
       },
       {
-        "name": "sessions",
+        "name": "partitions_read",
         "type": "INTEGER"
       },
       {
-        "name": "metric_sum",
+        "name": "cpu_time",
         "type": "INTEGER"
       },
       {
-        "name": "rate",
-        "type": "INTEGER"
+        "name": "owner",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "application_id",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "melidata/melidata-experiments-cross-validation_v2.sql",
+      "script": "melidata/analytics_over_hive.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

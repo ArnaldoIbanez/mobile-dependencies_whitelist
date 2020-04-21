@@ -291,7 +291,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: false
                     ],
                     assets: [],
                     credits: [],
@@ -454,7 +455,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: true
                     ],
                     assets: [],
                     credits: [],
@@ -1058,7 +1060,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: true
                     ],
                     assets: [],
                     credits: [],
@@ -1216,7 +1219,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: false
                     ],
                     assets: [],
                     credits: [],

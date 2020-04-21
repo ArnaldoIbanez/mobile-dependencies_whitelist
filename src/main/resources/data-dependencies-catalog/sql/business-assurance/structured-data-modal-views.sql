@@ -14,4 +14,3 @@ FROM tracks
 WHERE ds >= '@param01'
 AND   ds < '@param02'
 AND   path IN ('/sell/list/modal_attributes', '/sell/update/modal_attributes', '/catalogwidget/omit_attributes')
-ORDER BY source

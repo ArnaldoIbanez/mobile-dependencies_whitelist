@@ -253,6 +253,12 @@ tracks {
     "/sell/list/draft/warranty_time_review"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type_review"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/catalog"(platform:"/mobile", type: TrackType.View, isAbstract: true){}
+    "/sell/list/draft/catalog/decision"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/catalog/forced"(platform: "/mobile", type: TrackType.View) {
+        catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
+    }
+    "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
     "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {}
@@ -340,6 +346,10 @@ tracks {
     "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
     "/sell/list/catalog"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/catalog/forced"(platform: "/mobile", type: TrackType.View) {
+        catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
+    }
+    "/sell/list/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/classifieds_reservation_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/color_selection"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {}
@@ -665,7 +675,7 @@ tracks {
 
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
         sellGroup
-        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
     }
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
@@ -815,7 +825,7 @@ tracks {
 
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
         sellGroup
-        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
     }
     "/sell/item_conditions/price_and_currency"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event) {}
@@ -938,8 +948,9 @@ tracks {
 
     "/sell/sip"(platform: "/web", type: TrackType.View) {
         sellGroup
-        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
     }
+    "/sell/sip/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
 

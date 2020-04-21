@@ -44,5 +44,3 @@ GROUP BY substr(ds,1,10),
          path,
          application.site_id,
          device.platform
-ORDER BY Action DESC,
-         How_Many DESC

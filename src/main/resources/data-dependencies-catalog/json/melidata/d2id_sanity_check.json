@@ -35,6 +35,7 @@
     ],
     "sql": {
       "script": "melidata/d2id_sanity_check.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

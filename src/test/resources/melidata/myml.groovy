@@ -643,6 +643,12 @@ trackTests {
 
         "/myml/invoices/opt_in/difal"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/opt_in/difal/button/save"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/opt_in/rule-composition"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/opt_in/rule-composition/button/save"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/opt_in/cst-devolution"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/opt_in/cst-devolution/button/save"(platform: "/", type: TrackType.Event) {}
     }
 
 
@@ -664,6 +670,77 @@ trackTests {
             purchase_status = "Paid"
             PurchaseStatus = "Paid"
 
+        }
+
+        def newPurchasesDataSet = {
+            items = [
+                [
+                    business: "mercadolibre",
+                    page_vertical: "CORE",
+                    domain: "MLM-SMARTPHONES",
+                    category_l1: "MLM1234",
+                    category_l2: "MLM568",
+                    listing_type: "gold_pro",
+                    item_id: "MLA12345678",
+                    quantity: 2,
+                    variation_id: 987298347,
+                    condition: "new"
+                ],
+                [
+                    business: "mercadolibre",
+                    page_vertical: "CORE",
+                    domain: "MLM-SMARTPHONES",
+                    category_l1: "MLM1234",
+                    category_l2: "MLM568",
+                    category_l3: "MLM5444",
+                    category_l4: "MLM731",
+                    category_l5: "MLM0948",
+                    listing_type: "gold_pro",
+                    item_id: "MLA12345678",
+                    quantity: 2,
+                    condition: "new",
+                    product_id: "MLM5154108",
+                    deals: ["MLM1123", "MLM6534"]
+                ]
+            ]
+
+          seller: [
+                [
+                    id: 2,
+                    nickname: "Nombre del vendedor",
+                    messages_count: 0
+                ]
+          ]
+
+          buyer: [
+                [
+                    id: 12345,
+                    is_prime: "true"
+                ]
+          ]
+          
+          payments: [
+                [
+                    payment_method_type: "credit_card",
+                    payment_method_id: "visa",
+                    payment_status: "approved",
+                    payment_status_detail: "success"
+            ]
+          ]
+
+          shipping: [
+          ]
+          
+          purchases_flow: "v2"
+          purchase_status: "paid"
+          checkout_flow: "order"
+          vertical_case_id: "shipping"
+          vertical_sub_case_id: "shipping_delivered_delivery_address"
+          garex: "no"
+          x_mc_request_id: "aaaaa-vvvvvv-cccc-ddd"
+          purchase_id: 1234
+          pack_id: 1234
+          order_id: 1234
         }
 
         "/myml/sales/list"(platform: "/web", type: TrackType.Event) {}
@@ -775,6 +852,21 @@ trackTests {
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {
             dataSet()
         }
+
+        // ----- new purchases
+
+        "/myml/purchases/status" (platform:"/", type: TrackType.View) {
+            newPurchasesDataSet()
+        }
+
+        "/myml/purchases/items" (platform:"/", type: TrackType.View) {
+            newPurchasesDataSet()
+        }
+
+        "/myml/purchases/instructions" (platform:"/", type: TrackType.View) {
+            newPurchasesDataSet()
+        }
+
 
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
             item = {
