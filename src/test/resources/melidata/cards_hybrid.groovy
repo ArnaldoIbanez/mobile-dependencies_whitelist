@@ -423,7 +423,7 @@ trackTests {
     
     //Feedback: Tracking
     test("cards hybrid setup virtual feedback") {
-        "/cards/hybrid/setup_virtual/feedback/tap"(platform:"/", type: TrackType.Event) {
+        "/cards/hybrid/setup/virtual/feedback/tap"(platform:"/", type: TrackType.Event) {
             action = "research_form"
         }
     }
@@ -483,7 +483,7 @@ trackTests {
     }
     
     test("cards hybrid setup physical feedback") {
-        "/cards/hybrid/setup_physical/feedback/tap"(platform:"/", type: TrackType.Event) {
+        "/cards/hybrid/setup/physical/feedback/tap"(platform:"/", type: TrackType.Event) {
             action = "research_form"
         }
     }
