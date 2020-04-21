@@ -307,6 +307,16 @@ tracks {
           )
     }
     
+    //Feedback: Tracking
+    "/cards/hybrid/dashboard/feedback/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["research_form"],
+            description: "Feedback action tapped"
+          )
+    }
+    
     // SETUP VIRTUAL
     // --------
 
@@ -367,6 +377,16 @@ tracks {
         )
     }
 
+    //Feedback: Tracking
+    "/cards/hybrid/setup_virtual/feedback/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["research_form"],
+            description: "Feedback action tapped"
+          )
+    }
+    
     // REISSUE VIRTUAL
     // --------
 
@@ -411,6 +431,16 @@ tracks {
             values: ["reissue", "freeze", "unfreeze", "change_pin", "change_limits"],
             description: "The action type tapped"
         )
+    }
+    
+    //Feedback: Tracking
+    "/cards/hybrid/setup_physical/feedback/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["research_form"],
+            description: "Feedback action tapped"
+          )
     }
     
     // CHANGE-PIN
