@@ -781,6 +781,18 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/card_request_challenge"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/card_delivery_tracking"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/card_unlock_incentive"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/transaction_rejected_authorization_by_invalid_amount"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1842,6 +1854,21 @@ tracks {
         notification_id(required: true, type: PropertyType.String)
     }
 
+    //Hybrid
+    "/notification/card_request_challenge_pending"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_zero_day"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_second_day"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_fifth_day"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_tenth_day"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_fifteenth_day"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_twentyfifth_day"(platform: "/mobile") {}
+    "/notification/card_unlock_incentive_fourtyfifth_day"(platform: "/mobile") {}
+    "/notification/card_delivery_tracking_ready_to_ship"(platform: "/mobile") {}
+    "/notification/card_delivery_tracking_shipped"(platform: "/mobile") {}
+    "/notification/card_delivery_tracking_soon_deliver"(platform: "/mobile") {}
+    "/notification/card_delivery_tracking_delayed"(platform: "/mobile") {}
+    "/notification/card_delivery_tracking_branch"(platform: "/mobile") {}
+    "/notification/card_delivery_tracking_not_delivered"(platform: "/mobile") {} 
     //Prepaid
     "/notification/prepaid_card_shipped"(platform: "/mobile") {}
     "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {}
