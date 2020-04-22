@@ -118,7 +118,7 @@ tracks {
     }
 
     "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.Event) {
-        type(required: true, description: "Action type", values: ["close", "back", "button"], type: PropertyType.String)
+        type(required: true, description: "Action type", values: ["close", "back", "action", "tyc"], type: PropertyType.String)
         label(required: false, description: "Action pressed label", type: PropertyType.String)
         deeplink(required: false, description: "Action link to go", type: PropertyType.String)
     }
