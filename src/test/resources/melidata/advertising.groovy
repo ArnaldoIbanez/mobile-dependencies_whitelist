@@ -362,6 +362,15 @@ trackTests {
 
     }
 
+    test("Advertising manager Matching") {
+        "/advertising/pads2/manager/matching"(platform: "/web", type: TrackType.View) {
+            matching_status = "matching_inversion"
+        }
+        "/advertising/pads2/manager/matching"(platform: "/web", type: TrackType.View) {
+            matching_status = "maching_bonificacion"
+        }
+    }
+
     test("Advertising manager Sort Filters") {
         "/advertising/pads2/manager/sort"(platform: "/web", type: TrackType.View) {
             campaign_id = "2222222"
