@@ -218,12 +218,12 @@ tracks {
         seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
     }
 
-    //"/seller_central/summary/go_advertising"(platform: "/web", type: TrackType.Event) {
-    //    placement(required: false, description: "Place where track was dispatched")
-    //    adv_segmentation(required: false, description: "Advertisement segmentation ")
-    //    reputation_level(required: false, description: "Reputation for Pads")
-    //    seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
-    //}
+    "/seller_central/summary/go_advertising"(platform: "/web", type: TrackType.Event) {
+        placement(required: false, description: "Place where track was dispatched")
+        adv_segmentation(required: false, description: "Advertisement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
+        seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
+    }
 
 
     //LISTING SECTION
