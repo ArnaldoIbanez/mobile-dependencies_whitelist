@@ -835,6 +835,7 @@ tracks {
         has_free(required: true, type: PropertyType.Boolean)
     }
     "/sell/item_conditions/listing_types/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/listing_types/free"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/listing_types/free/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/free_shipping"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/free_shipping/show"(platform: "/web", type: TrackType.Event) {}
