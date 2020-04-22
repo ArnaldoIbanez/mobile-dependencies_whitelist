@@ -234,6 +234,16 @@ trackTests {
     }
   }
 
+  "/seller_central/summary/go_advertising"(platform: "/web"){
+    placement = "publicidad-banner"
+    adv_segmentation = "winback"
+    reputation_level="yellow"
+  }
+
+  "/myml/summary/show"(platform: "/web"){
+    placement = "publicidad-banner"
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk
   //------------------------------------------------------------------------------------------------------------------------------------------------------
