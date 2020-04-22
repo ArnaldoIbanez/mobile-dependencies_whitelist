@@ -19,6 +19,17 @@ trackTests {
             share_visible = true
         }
 
+        "/advertising/pads2/manager"(platform: "/web", type: TrackType.View) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "22.22"
+            share_value = "20"
+            chart_visible = true
+            detailsMeli_visible = true
+            share_visible = true
+            matching_status = "matching_inversion"
+        }
+
         "/advertising/pads2/manager/update_campaign_status"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "active"
@@ -360,15 +371,6 @@ trackTests {
             budget_new = "20"
         }
 
-    }
-
-    test("Advertising manager Matching") {
-        "/advertising/pads2/manager/matching"(platform: "/web", type: TrackType.View) {
-            matching_status = "matching_inversion"
-        }
-        "/advertising/pads2/manager/matching"(platform: "/web", type: TrackType.View) {
-            matching_status = "matching_bonificacion"
-        }
     }
 
     test("Advertising manager Sort Filters") {
