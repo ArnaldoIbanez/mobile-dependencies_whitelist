@@ -234,17 +234,17 @@ trackTests {
     }
   }
 
-  "/seller_central/summary/go_advertising"(platform: "/web", type: TrackType.Event){
+  "/seller_central/summary/show_advertising"(platform: "/web", type: TrackType.View) {
     placement = "publicidad-banner"
     adv_segmentation = "winback"
     reputation_level="yellow"
   }
 
-  "/seller_central/summary/show_advertising"(platform: "/web", type: TrackType.View){
-    placement = "publicidad-banner"
-    adv_segmentation = "winback"
-    reputation_level="yellow"
-  }
+  //"/seller_central/summary/go_advertising"(platform: "/web", type: TrackType.Event) {
+  //  placement = "publicidad-banner"
+  //  adv_segmentation = "winback"
+  //  reputation_level="yellow"
+  //}
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk
