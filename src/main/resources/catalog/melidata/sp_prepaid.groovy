@@ -120,6 +120,14 @@ tracks {
         mandatory
         view_time
     }
+    "/single_player/prepaid/product_list/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
+    "/single_player/prepaid/product_list/understood_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
 
 
     // Recommended products
@@ -138,6 +146,14 @@ tracks {
         item_structure
     }
     "/single_player/prepaid/recommended_products/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mandatory
+        view_time
+    }
+    "/single_player/prepaid/recommended_products/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
+    "/single_player/prepaid/recommended_products/understood_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
         view_time
     }
@@ -198,6 +214,14 @@ tracks {
         view_time
         item_structure
     }
+    "/single_player/prepaid/one_device/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
+    "/single_player/prepaid/one_device/understood_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
     "/single_player/prepaid/one_device/more_products"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
         view_time
@@ -218,7 +242,14 @@ tracks {
         quantity(required: true, PropertyType.Numeric, description: "Quantity of items")
         available_items
     }
-
+    "/single_player/prepaid/multiple_devices/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
+    "/single_player/prepaid/multiple_devices/understood_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
     "/single_player/prepaid/multiple_devices/selected_device"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mandatory
         view_time
@@ -231,6 +262,29 @@ tracks {
     "/single_player/prepaid/multiple_devices/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mandatory
         view_time
+    }
+
+
+    // Company
+    "/single_player/prepaid/companies"(platform: "/mobile", type: TrackType.View) {
+        available_items
+    }
+    "/single_player/prepaid/companies/selected_company"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mandatory
+        view_time
+        item_structure
+    }
+    "/single_player/prepaid/companies/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mandatory
+        view_time
+    }
+   "/single_player/prepaid/companies/more_information"(platform: "/mobile",  parentPropertiesInherited: false, type: TrackType.Event) {
+       mandatory        
+       view_time
+    }
+    "/single_player/prepaid/companies/understood_information"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+       mandatory 
+       view_time
     }
 
 
