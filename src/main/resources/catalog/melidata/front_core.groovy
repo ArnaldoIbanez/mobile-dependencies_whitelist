@@ -38,6 +38,7 @@ tracks {
     def cards_definition = objectSchemaDefinitions {
         prepaid(required: true, type: PropertyType.Boolean, description: "Unavailable balance")
         quantity(required: true, type: PropertyType.Numeric, description: "Quantity of cards")
+        debit(required: false, type: PropertyType.Boolean, description: "If the card debit is present in the cards row")
     }
 
     def assets_definition = objectSchemaDefinitions {}
@@ -353,6 +354,7 @@ tracks {
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
+        ifpe_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
     }
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
@@ -373,6 +375,7 @@ tracks {
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
+        ifpe_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
     }
 
     //Notification Center

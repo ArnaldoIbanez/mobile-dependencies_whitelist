@@ -142,6 +142,12 @@ trackTests {
             flap_status = "virtual_only"
             activities_status = "activities"
         }
+        "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
+        }
+        "/cards/hybrid/dashboard/physical/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
+        }
     }
     
     //Mini card: Tracking
@@ -229,6 +235,50 @@ trackTests {
         "/cards/hybrid/dashboard/account_info"(platform: "/", type: TrackType.View) {}
         "/cards/hybrid/dashboard/account_info/tap"(platform:"/", type: TrackType.Event) {
             action = "money_in"
+        }
+    }
+    
+    //Carousel: Tracking
+    test("cards hybrid dashboard carousel tapped") {
+        "/cards/hybrid/dashboard/carousel/tap"(platform:"/", type: TrackType.Event) {
+            action = "page_0"
+        }
+        "/cards/hybrid/dashboard/carousel/tap"(platform:"/", type: TrackType.Event) {
+            action = "page_1"
+        }
+        "/cards/hybrid/dashboard/carousel/tap"(platform:"/", type: TrackType.Event) {
+            action = "page_2"
+        }
+        "/cards/hybrid/dashboard/carousel/tap"(platform:"/", type: TrackType.Event) {
+            action = "page_3"
+        }
+        "/cards/hybrid/dashboard/carousel/tap"(platform:"/", type: TrackType.Event) {
+            action = "page_4"
+        }
+    }
+    
+    test("cards hybrid dashboard carousel swiped") {
+        "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
+            action = "page_0"
+        }
+        "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
+            action = "page_1"
+        }
+        "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
+            action = "page_2"
+        }
+        "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
+            action = "page_3"
+        }
+        "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
+            action = "page_4"
+        }
+    }
+    
+    //Feedback: Tracking
+    test("cards hybrid dasboard feedback") {
+        "/cards/hybrid/dashboard/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
         }
     }
 
@@ -370,6 +420,13 @@ trackTests {
             action = "money_in"
         }
     }
+    
+    //Feedback: Tracking
+    test("cards hybrid setup virtual feedback") {
+        "/cards/hybrid/setup/virtual/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
+    }
 
     // REISSUE VIRTUAL
     // --------
@@ -425,53 +482,59 @@ trackTests {
         }
     }
     
+    test("cards hybrid setup physical feedback") {
+        "/cards/hybrid/setup/physical/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
+    }
+    
      // CHANGE-PIN
     // --------
     test("cards hybrid change pin") {
-        "/cards/hybrid/change-pin"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/change_pin"(platform: "/", type: TrackType.View) {}
     }
     
     test("cards hybrid change pin tap") {
-        "/cards/hybrid/change-pin/tap"(platform:"/", type: TrackType.Event) {
-            action = "change-pin"
+        "/cards/hybrid/change_pin/tap"(platform:"/", type: TrackType.Event) {
+            action = "change_pin"
         }
     }
     
     test("cards hybrid change pin congrats") {
-        "/cards/hybrid/change-pin/congrats"(platform: "/", type: TrackType.View) {}
+        "/cards/hybrid/change_pin/congrats"(platform: "/", type: TrackType.View) {}
     }
     
     // LIMITS
     // --------
     test("cards hybrid limits") {
-        "/cards/hybrid/limits-setup"(platform: "/", type: TrackType.View) {
+        "/cards/hybrid/limits_setup"(platform: "/", type: TrackType.View) {
             limits_status = "[number_selector_atm, message]"
         }
     }
     
     test("cards hybrid limits header action tap") {
-        "/cards/hybrid/limits-setup/tap"(platform:"/", type: TrackType.Event) {
-            action = "header-help"
+        "/cards/hybrid/limits_setup/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
         }
     }
     
     //Number selector
     test("cards hybrid number selector tap") {
-        "/cards/hybrid/limits-setup/number-selector/tap"(platform:"/", type: TrackType.Event) {
+        "/cards/hybrid/limits_setup/number_selector/tap"(platform:"/", type: TrackType.Event) {
             action = "modal"
         }
     }
     
     //Number selector modal
     test("cards hybrid number selector modal") {
-        "/cards/hybrid/limits-setup/number-selector-modal"(platform:"/", type: TrackType.View) {}
+        "/cards/hybrid/limits_setup/number_selector_modal"(platform:"/", type: TrackType.View) {}
     }
     
     test("cards hybrid number selector modal tap") {
-        "/cards/hybrid/limits-setup/number-selector-modal/tap"(platform:"/", type: TrackType.Event) {
+        "/cards/hybrid/limits_setup/number_selector_modal/tap"(platform:"/", type: TrackType.Event) {
             action = "cancel"
         }
-        "/cards/hybrid/limits-setup/number-selector-modal/tap"(platform:"/", type: TrackType.Event) {
+        "/cards/hybrid/limits_setup/number_selector_modal/tap"(platform:"/", type: TrackType.Event) {
             action = "save"
         }
     }
@@ -481,25 +544,23 @@ trackTests {
     // Request: Onboarding
     test("cards hybrid request physical onboarding") {
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-            flow = "no_kyc_no_challlenge"
+            context = "no_kyc_no_challlenge"
         }
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-            flow = "kyc_challenge"
+            context = "kyc_challenge"
         }
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-            flow = "no_kyc_challenge"
+            context = "no_kyc_challenge"
         }
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-            flow = "kyc_no_challenge"
+            context = "kyc_no_challenge"
         }
     }
     test("cards hybrid request physical onboarding tap") {
         "/cards/hybrid/request/physical/onboarding/tap"(platform: "/", type: TrackType.Event) {
-            flow = "no_kyc_no_challlenge"
             action = "close"
         }
         "/cards/hybrid/request/physical/onboarding/tap"(platform: "/", type: TrackType.Event) {
-            flow = "no_kyc_no_challlenge"
             action = "continue"
         }
     }

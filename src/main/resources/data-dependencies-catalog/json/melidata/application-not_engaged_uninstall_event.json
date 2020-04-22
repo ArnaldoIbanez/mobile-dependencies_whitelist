@@ -46,6 +46,7 @@
     }],
     "sql": {
       "script": "application/application-not_engaged_uninstall_event.sql",
+      "engine": "spark",
       "parameters": [{
         "name": "date",
         "value": "DAY-1",

@@ -291,7 +291,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: false
                     ],
                     assets: [],
                     credits: [],
@@ -432,6 +433,10 @@ trackTests {
                     ordinal: 14,
                     content_type : 'complete'
             ]
+            ifpe_regulation= [
+                    ordinal: 15,
+                    content_type : 'complete'
+            ]
         }
     }
 
@@ -454,7 +459,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: true
                     ],
                     assets: [],
                     credits: [],
@@ -592,6 +598,10 @@ trackTests {
             ]
             bcra_regulation= [
                     ordinal: 14,
+                    content_type : 'complete'
+            ]
+            ifpe_regulation= [
+                    ordinal: 15,
                     content_type : 'complete'
             ]
         }
@@ -1058,7 +1068,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: true
                     ],
                     assets: [],
                     credits: [],
@@ -1216,7 +1227,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: false
                     ],
                     assets: [],
                     credits: [],

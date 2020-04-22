@@ -50,6 +50,7 @@
     ],
     "sql": {
       "script": "mercadopago/cross_selling_taps.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

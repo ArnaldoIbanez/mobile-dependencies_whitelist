@@ -207,6 +207,25 @@ tracks {
          activities_status (required:false, type: PropertyType.String, description: "Activities status", inheritable:false)
      }
     
+    "/cards/hybrid/dashboard/virtual"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/virtual/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["header_help"],
+            description: "Header help tapped"
+          )
+    }
+    "/cards/hybrid/dashboard/physical"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/physical/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["header_help"],
+            description: "Header help tapped"
+          )
+    }
+    
     //MiniCard: Tracking
     "/cards/hybrid/dashboard/mini_card"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
@@ -273,6 +292,36 @@ tracks {
           )
     }
 
+    //Carousel: Tracking
+    "/cards/hybrid/dashboard/carousel"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/carousel/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["page_0", "page_1", "page_2", "page_3", "page_4"],
+            description: "Carousel item tapped"
+          )
+    }
+    "/cards/hybrid/dashboard/carousel/swipe"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["page_0", "page_1", "page_2", "page_3", "page_4"],
+            description: "Carousel item swiped"
+          )
+    }
+    
+    //Feedback: Tracking
+    "/cards/hybrid/dashboard/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/feedback/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["research_form"],
+            description: "Feedback action tapped"
+          )
+    }
+    
     // SETUP VIRTUAL
     // --------
 
@@ -333,6 +382,17 @@ tracks {
         )
     }
 
+    //Feedback: Tracking
+    "/cards/hybrid/setup/virtual/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/virtual/feedback/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["research_form"],
+            description: "Feedback action tapped"
+          )
+    }
+    
     // REISSUE VIRTUAL
     // --------
 
@@ -379,36 +439,47 @@ tracks {
         )
     }
     
-    // CHANGE-PIN
-    // --------
-    "/cards/hybrid/change-pin"(platform: "/", type: TrackType.View) {}
-    "/cards/hybrid/change-pin/tap"(platform:"/", type: TrackType.Event) {
+    //Feedback: Tracking
+    "/cards/hybrid/setup/physical/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/physical/feedback/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["change-pin"],
+            values: ["research_form"],
+            description: "Feedback action tapped"
+          )
+    }
+    
+    // CHANGE-PIN
+    // --------
+    "/cards/hybrid/change_pin"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/change_pin/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["change_pin"],
             description: "Change pin button tapped"
           )
     }
-    "/cards/hybrid/change-pin/congrats"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/change_pin/congrats"(platform: "/", type: TrackType.View) {}
     
     // LIMITS
     // --------
-    "/cards/hybrid/limits-setup"(platform: "/", type: TrackType.View) {
+    "/cards/hybrid/limits_setup"(platform: "/", type: TrackType.View) {
         limits_status (required:true, type: PropertyType.String, description: "Current sections", inheritable:false)
     }
-    "/cards/hybrid/limits-setup/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/limits_setup/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["header-help"],
+            values: ["header_help"],
             description: "Header action tapped"
           )
     }
     
     //Number Selector
-    "/cards/hybrid/limits-setup/number-selector"(platform: "/", isAbstract: true) { }
-    "/cards/hybrid/limits-setup/number-selector/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/limits_setup/number_selector"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/limits_setup/number_selector/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -418,8 +489,8 @@ tracks {
     }
     
     //Number selector modal
-    "/cards/hybrid/limits-setup/number-selector-modal"(platform: "/", type: TrackType.View) {}
-    "/cards/hybrid/limits-setup/number-selector-modal/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/limits_setup/number_selector_modal"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/limits_setup/number_selector_modal/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
@@ -433,11 +504,12 @@ tracks {
     // Request: Onboarding
     "/cards/hybrid/request/physical"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-        flow (
+        context (
             required: true,
             type: PropertyType.String,
             values: ["no_kyc_no_challlenge", "kyc_challenge", "no_kyc_challenge", "kyc_no_challenge"],
-            description: "type of onboarding"
+            description: "type of onboarding",
+            inheritable:false
         )
     }
     "/cards/hybrid/request/physical/onboarding/tap"(platform: "/", type: TrackType.Event) {

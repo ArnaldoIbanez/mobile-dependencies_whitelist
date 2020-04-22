@@ -4,7 +4,7 @@
     "melidata_dev@mercadolibre.com"
   ],
   "process_name": "melilake_orders_vs_ordercreated",
-  "cron": "00 05 * * *",
+  "cron": "00 13 * * *",
   "partition": {
     "name": "date_created",
     "type": "DATE"
