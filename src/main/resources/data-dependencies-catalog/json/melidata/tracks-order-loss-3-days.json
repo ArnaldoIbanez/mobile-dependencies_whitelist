@@ -10,7 +10,7 @@
     "type": "DATE"
   },
   "extract": {
-    "operation": "destroy",
+    "operation": "append",
     "columns": [
       {
         "name": "path",
