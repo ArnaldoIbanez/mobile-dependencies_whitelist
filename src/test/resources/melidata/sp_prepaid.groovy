@@ -161,6 +161,7 @@ trackTests {
         // Recommended products
         "/single_player/prepaid/recommended_products"(platform: "/mobile", type: TrackType.View) {
             mandatory()
+            notification_panel()
             available_items()
         }
 
@@ -268,6 +269,7 @@ trackTests {
         "/single_player/prepaid/multiple_devices"(platform: "/mobile", type: TrackType.View) {
             mandatory()
             quantity = 3
+            notification_panel()
             available_items()
         }
 
@@ -578,6 +580,7 @@ trackTests {
         // Recommended products
         "/single_player/prepaid/recommended_products"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
+            notification_panel()
             available_items()
         }
 
@@ -686,6 +689,7 @@ trackTests {
         "/single_player/prepaid/multiple_devices"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
             quantity = 3
+            notification_panel()
             available_items()
         }
 
