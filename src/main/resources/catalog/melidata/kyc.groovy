@@ -102,7 +102,7 @@ tracks {
         initiative(required: false, type: PropertyType.String, description: "Users initiative")
         kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
-        doc_type(required: false, type: PropertyType.String, description: "Doc type")
+        doc_type(required: false, type: PropertyType.String, values: ['doc_front', 'doc_back', 'address', 'selfie', 'proof_of_life'], description: "Doc type")
         model_id(required: false, type: PropertyType.String, description: "Model id of the doc model")
     }
 
