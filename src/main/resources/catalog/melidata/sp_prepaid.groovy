@@ -133,6 +133,7 @@ tracks {
     // Recommended products
     "/single_player/prepaid/recommended_products"(platform: "/mobile", type: TrackType.View) {
         available_items
+        notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
     }
 
     "/single_player/prepaid/recommended_products/selected_product"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -240,6 +241,7 @@ tracks {
     // Multiple devices
     "/single_player/prepaid/multiple_devices"(platform: "/mobile", type: TrackType.View) {
         quantity(required: true, PropertyType.Numeric, description: "Quantity of items")
+        notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
         available_items
     }
     "/single_player/prepaid/multiple_devices/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
