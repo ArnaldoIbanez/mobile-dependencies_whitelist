@@ -367,7 +367,7 @@ trackTests {
             matching_status = "matching_inversion"
         }
         "/advertising/pads2/manager/matching"(platform: "/web", type: TrackType.View) {
-            matching_status = "maching_bonificacion"
+            matching_status = "matching_bonificacion"
         }
     }
 

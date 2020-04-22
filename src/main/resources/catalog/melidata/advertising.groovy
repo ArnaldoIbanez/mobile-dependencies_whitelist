@@ -197,7 +197,11 @@ tracks {
     //Matching bar
     "/advertising/pads2/manager/matching"(platform: "/web", type: TrackType.View) {
         campaign_id(required: false, description: "Id related to the campaign")
-        matching_status(required: true, description: "Free trial matching status")
+        matching_status(
+                required: true,
+                values: ["matching_inversion", "matching_inversion_end", "matching_bonificacion", "matching_bonificacion_end", "matching_bonificacion_extended", "matching_bonificacion_extended_end"],
+                description: "Free trial matching status"
+        )
     }
 
     //Card Upselling
