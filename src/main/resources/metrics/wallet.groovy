@@ -238,4 +238,17 @@ metrics {
       }
     }
   }
+
+  "discount_center.home_mp"(description: "Counts a user access to the discount center from home mp") {
+      startWith {
+        experiment(regex("cdd/.*"))
+      }
+
+      countsOn {
+        condition {
+          path(regex("/discount_center/payers/marketplace(/components)?"))
+          equals("platform.fragment", "/home_wallet/discount_center")
+        }
+      }
+    }
 }
