@@ -89,6 +89,12 @@ tracks {
     "/logistics/last_mile/package/scanner/manual"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/last_mile/package/scanner/view_list"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/last_mile/package/scanner/close_list"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/last_mile/sorting/bags_conciliation_disclaimer"(platform: "/mobile", type: TrackType.View) {
+        bags_amount(required: true, type: PropertyType.Numeric, description: "Specifies the amount of bags loaded", inheritable: false)
+        single_packs_amount(required: true, type: PropertyType.Numeric, description: "Specifies the amount of single packages loaded", inheritable: false)
+        container_assignment(required: true, type: PropertyType.String, description: "Specifies the loaded container assignment", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
+    }
     "/logistics/last_mile/package/scanner/qr_detected"(platform: "/mobile", type: TrackType.Event) {
         status(required: true, type: PropertyType.String,  values: ["ok", "already_registered", "invalid_format"], description: "The feedback of the scan for an specific QR.")
         qr_data(required: false , type: PropertyType.String, description: "The data of qr when it is invalid.")

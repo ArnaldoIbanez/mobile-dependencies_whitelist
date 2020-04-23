@@ -35,6 +35,11 @@ tracks {
         chart_visible(required: false, type: PropertyType.Boolean, description: "If the chart is visible")
         detailsMeli_visible(required: false, type: PropertyType.Boolean, description: "If the details are visible")
         share_visible(required: false, type: PropertyType.Boolean, description: "If the share is visible")
+        matching_status(
+                required: false,
+                values: ["matching_inversion", "matching_inversion_end", "matching_bonificacion", "matching_bonificacion_end", "matching_bonificacion_extended", "matching_bonificacion_extended_end"],
+                description: "Free trial matching status bar"
+        )
     }
 
     "/advertising/pads2/manager/update_campaign_status"(platform: "/web", type: TrackType.Event) {

@@ -433,6 +433,10 @@ trackTests {
                     ordinal: 14,
                     content_type : 'complete'
             ]
+            ifpe_regulation= [
+                    ordinal: 15,
+                    content_type : 'complete'
+            ]
         }
     }
 
@@ -594,6 +598,10 @@ trackTests {
             ]
             bcra_regulation= [
                     ordinal: 14,
+                    content_type : 'complete'
+            ]
+            ifpe_regulation= [
+                    ordinal: 15,
                     content_type : 'complete'
             ]
         }

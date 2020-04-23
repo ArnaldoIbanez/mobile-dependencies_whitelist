@@ -37,5 +37,22 @@ tracks {
         item(required: true, type: PropertyType.Map(item_track_structure))
     }
     "/garex/checkout/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
-}
 
+    //Mobile
+    "/garex/checkout"(platform:"/mobile", type: TrackType.View) {}
+    "/garex/checkout/more_info"(platform:"/mobile", type: TrackType.Event) {}
+    "/garex/checkout/selected_garex"(platform:"/mobile", type: TrackType.Event) {
+        garex_id(required: true, type: PropertyType.String, description: "Selected warranty id")
+        period(required: true, type: PropertyType.Numeric, description: "Contracted warranty period")
+        cost(required: true, type: PropertyType.Numeric, description: "Warranty cost")
+        revenue_share_fee(required: true, type: PropertyType.Numeric, description: "Percentage of revenue for mercado libre")
+        revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for mercado libre")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
+    }
+    "/garex/checkout/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {}
+    "/garex/checkout/delete"(platform:"/mobile", type: TrackType.Event) {
+        garex_id(required: true, type: PropertyType.String, description: "Warranty id removed")
+        cost(required: true, type: PropertyType.Numeric, description: "Warranty cost")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
+    }
+}

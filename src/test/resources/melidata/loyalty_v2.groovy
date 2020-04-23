@@ -313,7 +313,7 @@ trackTests {
             payment_status_detail = "contingency"
             is_free_trial = "false"
             discount = 0
-            type = "close"
+            type = "tyc"
         }
 
         "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business:"mercadopago") {
@@ -324,7 +324,7 @@ trackTests {
             payment_status_detail = "manual"
             is_free_trial = "false"
             discount = 0
-            type = "button"
+            type = "action"
             label = "Ir a HBO"
             deeplink = "meli://loyalty"
         }
