@@ -239,7 +239,7 @@ metrics {
     }
   }
 
-  "dc.home_mp"(description: "Counts a user access to the discount center") {
+  "discount_center.home_mp"(description: "Counts a user access to the discount center") {
       startWith {
         experiment(regex("cdd/.*"))
       }
