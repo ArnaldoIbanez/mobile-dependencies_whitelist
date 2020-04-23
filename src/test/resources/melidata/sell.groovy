@@ -2022,8 +2022,19 @@ trackTests {
             size_errors = 0
         }
     }
-
-
+    test("SYI v4 pictures upload"){
+        "/sell/item_data/pictures/upload"(platform: "/web/mobile", type: TrackType.Event){
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-list-abc123"
+            seller_reputation = "green"
+            vertical = "motors"
+            item_type = "default"
+            quantity = 3
+        }
+    }
     test("SYI v4 phone confirm"){
         "/sell/item_conditions/seller_contact/phone/confirm"(platform: "/web/mobile", type: TrackType.Event){
             category_id = "MLA390784"
