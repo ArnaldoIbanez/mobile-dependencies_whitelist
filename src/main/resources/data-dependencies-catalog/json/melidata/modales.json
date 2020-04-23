@@ -42,6 +42,7 @@
     ],
     "sql": {
       "script": "mercadopago/modales.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
