@@ -71,6 +71,12 @@ trackTests {
             }
         }
 
+        def item_structure = {
+            item_id = 11
+            type = "item8"
+            content = ["Movistar"]
+        }
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Mercado Pago
@@ -156,6 +162,14 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/product_list/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/product_list/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
 
 
         // Recommended products
@@ -176,6 +190,14 @@ trackTests {
             item_1()
         }
         "/single_player/prepaid/recommended_products/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/recommended_products/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/recommended_products/understood_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -263,6 +285,14 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/one_device/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/one_device/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
 
 
         // Multiple devices
@@ -284,6 +314,37 @@ trackTests {
         }
         "/single_player/prepaid/multiple_devices/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/multiple_devices/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/multiple_devices/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
+        // Company
+        "/single_player/prepaid/companies"(platform: "/mobile", type: TrackType.View) {
+            available_items
+        }
+        "/single_player/prepaid/companies/selected_company"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+            item_structure()
+        }
+        "/single_player/prepaid/companies/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/companies/more_information"(platform: "/mobile",  type: TrackType.Event) {
+            mandatory()        
+            view_time()
+        }
+        "/single_player/prepaid/companies/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory() 
             view_time()
         }
 
@@ -575,6 +636,14 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/product_list/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/product_list/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
 
 
         // Recommended products
@@ -595,6 +664,14 @@ trackTests {
             item_2()
         }
         "/single_player/prepaid/recommended_products/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/recommended_products/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/recommended_products/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -683,6 +760,14 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/one_device/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/one_device/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
 
 
         // Multiple devices
@@ -704,6 +789,37 @@ trackTests {
         }
         "/single_player/prepaid/multiple_devices/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/multiple_devices/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/multiple_devices/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
+        // Company
+        "/single_player/prepaid/companies"(platform: "/mobile", type: TrackType.View) {
+            available_items
+        }
+        "/single_player/prepaid/companies/selected_company"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+            item_structure()
+        }
+        "/single_player/prepaid/companies/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/companies/more_information"(platform: "/mobile",  type: TrackType.Event) {
+            mandatory()        
+            view_time()
+        }
+        "/single_player/prepaid/companies/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory() 
             view_time()
         }
 
