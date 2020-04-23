@@ -135,7 +135,7 @@ trackTests {
 
     test("Security Tracks") {
         "/devices/websec/deeplinks_data"(platform:"/mobile/android") {
-            from = "com.mercadolibre"
+            from = "com.mercadolibre.android"
             destination = "MainActivity"
             scheme = "meli"
             encodedUri = "mercadolibre.com"
