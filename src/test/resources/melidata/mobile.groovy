@@ -132,4 +132,15 @@ trackTests {
     test("Choose Country settings") {
         "/settings/country"(platform: "/mobile", type: TrackType.View) {}
     }
+
+    test("Security Tracks") {
+        "/devices/websec/deeplinks_data"(platform:"/mobile/android") {
+            from = "com.mercadolibre"
+            destination = "MainActivity"
+            scheme = "meli"
+            encodedUri = "mercadolibre.com"
+            segments = "webkit"
+            query = "url=https://www.mercadolibre.com.ar/"
+        }
+    }
 }

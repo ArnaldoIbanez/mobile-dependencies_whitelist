@@ -121,4 +121,13 @@ tracks {
         enable(required:true, type:PropertyType.Boolean, description: "Indicates if settings are enabled")
         registration_id(required: false, description: "The registration id", type: PropertyType.String)
     }
+
+    "/devices/websec/deeplinks_data"(platform: "/mobile/android", type:TrackType.Event){
+        from(required: false, type: PropertyType.String, description: "From where is the navigation originated")
+        destination(required: false, type: PropertyType.String, description: "Activity which will render the deeplink")
+        scheme(required: false, type: PropertyType.String, description: "The scheme")
+        encodedUri(required: false, type: PropertyType.String, description: "Full encoded deeplink uri")
+        segments(required: false, type: PropertyType.String, description: "All segments")
+        query(required: false, type: PropertyType.String, description: "Full deeplink query")
+    }
 }
