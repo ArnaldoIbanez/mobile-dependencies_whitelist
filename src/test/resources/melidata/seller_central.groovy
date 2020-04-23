@@ -1806,8 +1806,8 @@ trackTests {
     }
   }
 
-  test("seller central catalog optin Click Congrats primary action") {
-    "/seller_central/catalog/optin/button/redirect"(platform: "/web", type: TrackType.Event) {
+  test("seller central catalog optin Click on any primary action button") {
+    "/seller_central/catalog/optin/redirect"(platform: "/web", type: TrackType.Event) {
       item_id = "MLA123"
       session_id = "123-product_optin-abc123"
       category_id = "MLA390784"
@@ -1822,11 +1822,14 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      task_id = "button"
+      to = "https://www.mercadolibre.com.ar/publicaciones/MLA850809023/modificar/387581743-update-4339aff8b69c/product_detail"
+      from = "congrats_page"
     }
   }
 
-  test("seller central catalog optin Click Congrats secondary action") {
-    "/seller_central/catalog/optin/link/redirect"(platform: "/web", type: TrackType.Event) {
+  test("seller central catalog optin Click on any secondary action link") {
+    "/seller_central/catalog/optin/redirect"(platform: "/web", type: TrackType.Event) {
       item_id = "MLA123"
       session_id = "123-product_optin-abc123"
       category_id = "MLA390784"
@@ -1841,6 +1844,9 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      task_id = "link"
+      to = "https://www.mercadolibre.com.ar/publicaciones/listado?filters=BUYBOX_STATUS"
+      from = "congrats_page"
     }
   }
 

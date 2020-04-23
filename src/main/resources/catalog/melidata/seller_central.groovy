@@ -1024,12 +1024,9 @@ tracks {
         sellerCentralCatalogOptinTaskGroup
     }
 
-    "/seller_central/catalog/optin/button/redirect"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/redirect"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroup
-    }
-
-    "/seller_central/catalog/optin/link/redirect"(platform: "/web", type: TrackType.Event) {
-        sellerCentralCatalogOptinGroup
+        sellerCentralCatalogOptinTaskGroup
     }
 
     "/seller_central/promotions"(platform: "/web", type: TrackType.View) {
