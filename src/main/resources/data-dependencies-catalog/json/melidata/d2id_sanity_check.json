@@ -3,7 +3,7 @@
     "melidata_dev@mercadolibre.com"
   ],
   "process_name": "d2id_sanity_check",
-  "cron": "00 06 * * *",
+  "cron": "00 15 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE",
