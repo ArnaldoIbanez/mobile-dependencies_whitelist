@@ -27,6 +27,7 @@
     ],
     "sql": {
       "script": "melidata/melilake-orders-vs-ordercreated.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
