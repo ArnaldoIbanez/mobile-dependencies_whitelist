@@ -88,7 +88,7 @@ metrics {
     "insurtech_properties"(description: "define properties for insurtech experiments") {
         startWith {
             set_property("item_id", "event_data.item.id")
-            experiment(regex("insurtechqu/.*"))
+            experiment(regex("insurtech/.*"))
         }
     }
 }
