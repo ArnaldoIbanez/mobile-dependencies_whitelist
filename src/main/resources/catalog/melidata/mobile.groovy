@@ -122,6 +122,8 @@ tracks {
         registration_id(required: false, description: "The registration id", type: PropertyType.String)
     }
 
+    "/devices/websec"(platform:"/mobile/android", isAbstract:true) {}
+
     "/devices/websec/deeplinks_data"(platform: "/mobile/android", type:TrackType.Event){
         from(required: false, type: PropertyType.String, description: "From where is the navigation originated")
         destination(required: false, type: PropertyType.String, description: "Activity which will render the deeplink")
