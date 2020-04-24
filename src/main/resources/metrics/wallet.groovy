@@ -247,7 +247,7 @@ metrics {
       countsOn {
         condition {
           path(regex("/discount_center/payers/marketplace(/components)?"))
-          equals("platform.fragment", "/home_wallet/discount_center")
+          equals("platform.fragment.from", "/home_wallet/discount_center")
         }
       }
     }
