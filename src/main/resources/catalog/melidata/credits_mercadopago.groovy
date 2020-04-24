@@ -661,7 +661,7 @@ tracks {
         )
         offer(
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'none',
                 'express_money'
