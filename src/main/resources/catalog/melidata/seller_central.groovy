@@ -236,7 +236,7 @@ tracks {
     }
 
 
-    "/seller_central/listings/hunting"(platform: "/", isAbstract: true) {        
+    "/seller_central/listings/hunting"(platform: "/", isAbstract: true) {
         view_id(required:true, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
@@ -1020,6 +1020,11 @@ tracks {
     }
 
     "/seller_central/catalog/optin/confirm"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        sellerCentralCatalogOptinTaskGroup
+    }
+
+    "/seller_central/catalog/optin/redirect"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroup
         sellerCentralCatalogOptinTaskGroup
     }

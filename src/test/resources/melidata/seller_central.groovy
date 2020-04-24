@@ -656,7 +656,7 @@ trackTests {
         [id: "BRAND", value_id: "206", value_name: "Samsung"]
       ]
       attributes_after_update = [
-        [id: "BRAND", value_id: "206", value_name: "Samsung"], 
+        [id: "BRAND", value_id: "206", value_name: "Samsung"],
         [id: "MODEL", value_id: "32902", value_name: "Galaxy"]
       ]
     }
@@ -672,7 +672,7 @@ trackTests {
         [id: "BRAND", value_id: null, value_name: "Samsung"]
       ]
       attributes_after_update = [
-        [id: "BRAND", value_id: null, value_name: null], 
+        [id: "BRAND", value_id: null, value_name: null],
         [id: "MODEL", value_id: "32902", value_name: "Galaxy"],
         [id: "COLOR", value_id: "32902", value_name: "Galaxy", variation_id: 23437248239]
       ]
@@ -1803,6 +1803,50 @@ trackTests {
       invalid_product_cause = "INVALID_CARRIER"
       task_id = "product_picker"
       to = "MLA1074"
+    }
+  }
+
+  test("seller central catalog optin Click on any primary action button") {
+    "/seller_central/catalog/optin/redirect"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      children_catalog_products_ids = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      task_id = "button"
+      to = "https://www.mercadolibre.com.ar/publicaciones/MLA850809023/modificar/387581743-update-4339aff8b69c/product_detail"
+      from = "congrats_page"
+    }
+  }
+
+  test("seller central catalog optin Click on any secondary action link") {
+    "/seller_central/catalog/optin/redirect"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      children_catalog_products_ids = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      task_id = "link"
+      to = "https://www.mercadolibre.com.ar/publicaciones/listado?filters=BUYBOX_STATUS"
+      from = "congrats_page"
     }
   }
 
