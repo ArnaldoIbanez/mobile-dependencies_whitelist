@@ -133,7 +133,7 @@ tracks {
         pdp_highlight_enabled(required: true, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
         seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
         user_profile_type(required: true, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
-        top_keywords(required: false, description: 'lists the seo keywords', type: PropertyType.ArrayList(top_keyword_definition))
+        top_keywords(required: false, description: 'lists the seo keywords', type: PropertyType.Map(top_keyword_definition))
         review_pages(required: false, description: 'lists the seo review pages', type: PropertyType.ArrayList)
     }
 
