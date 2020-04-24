@@ -32,7 +32,7 @@ tracks {
 		error(required: false, description: "Contains the error code for the questions post api, should there be one",
 		type: PropertyType.Numeric)
 		error_cause(required: false, description: "Contains the cause of error for the questions post api, should there be one",
-		type: PropertyType.Numeric)
+		type: PropertyType.String)
     }
 
     "/questions/ask/post" (platform: "/web", type: TrackType.Event) {
