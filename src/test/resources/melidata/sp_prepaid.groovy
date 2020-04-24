@@ -803,24 +803,24 @@ trackTests {
 
 
         // Company
-        "/single_player/prepaid/companies"(platform: "/mobile", type: TrackType.View) {
+        "/single_player/prepaid/companies"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
             available_items()
         }
-        "/single_player/prepaid/companies/selected_company"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/companies/selected_company"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
             item_structure()
         }
-        "/single_player/prepaid/companies/back"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/companies/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
-        "/single_player/prepaid/companies/more_information"(platform: "/mobile",  type: TrackType.Event) {
+        "/single_player/prepaid/companies/more_information"(platform: "/mobile", business: "mercadolibre",  type: TrackType.Event) {
             mandatory()        
             view_time()
         }
-        "/single_player/prepaid/companies/understood_information"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/prepaid/companies/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory() 
             view_time()
         }
