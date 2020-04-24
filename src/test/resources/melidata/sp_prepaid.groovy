@@ -328,7 +328,8 @@ trackTests {
 
         // Company
         "/single_player/prepaid/companies"(platform: "/mobile", type: TrackType.View) {
-            available_items
+            mandatory()
+            available_items()
         }
         "/single_player/prepaid/companies/selected_company"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -803,7 +804,8 @@ trackTests {
 
         // Company
         "/single_player/prepaid/companies"(platform: "/mobile", type: TrackType.View) {
-            available_items
+            mandatory()
+            available_items()
         }
         "/single_player/prepaid/companies/selected_company"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
