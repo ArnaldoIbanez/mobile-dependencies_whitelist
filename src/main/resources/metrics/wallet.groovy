@@ -252,7 +252,7 @@ metrics {
       }
     }
 
-    "discount_center.home_mp.detail"(description: "Counts a user access to the discount detail from home mp") {
+    "discount_center.home_mp_detail"(description: "Counts a user access to the discount detail from home mp") {
       startWith {
         experiment(regex("cdd/.*"))
       }
