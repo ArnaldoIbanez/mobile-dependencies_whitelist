@@ -247,7 +247,20 @@ metrics {
       countsOn {
         condition {
           path(regex("/discount_center/payers/marketplace(/components)?"))
-          equals("platform.fragment", "/home_wallet/discount_center")
+          equals("platform.fragment.from", "/home_wallet/discount_center")
+        }
+      }
+    }
+
+    "discount_center.home_mp_detail"(description: "Counts a user access to the discount detail from home mp") {
+      startWith {
+        experiment(regex("cdd/.*"))
+      }
+
+      countsOn {
+        condition {
+          path("/discount_center/payers/detail")
+          equals("platform.fragment.from", "/home_wallet/discount_center")
         }
       }
     }
