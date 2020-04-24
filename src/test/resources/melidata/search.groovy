@@ -297,7 +297,7 @@ trackTests {
                             "type" : "PDP"
                     ]
             ]
-            review_pages = [ "ventilador", "nintendo" ]
+            review_pages = ["ventilador", "nintendo"]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
