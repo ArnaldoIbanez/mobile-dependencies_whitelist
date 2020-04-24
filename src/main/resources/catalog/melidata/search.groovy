@@ -36,7 +36,6 @@ tracks {
 
     def review_page_definition = objectSchemaDefinitions {
         key(type: PropertyType.String, required: true, description: "user friendly keyword")
-        type(values:["SEARCH","PDP"], required: false, description: "destination of the keyword")
     }
 
     def sparkle_info_object = objectSchemaDefinitions {

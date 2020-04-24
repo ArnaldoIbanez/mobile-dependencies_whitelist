@@ -299,12 +299,10 @@ trackTests {
             ]
             review_pages = [
                     [
-                            "key": "ventilador",
-                            "type" : "SEARCH"
+                            "key": "ventilador"
                     ],
                     [
-                            "key": "nintendo",
-                            "type" : "PDP"
+                            "key": "nintendo"
                     ]
             ]
         })
