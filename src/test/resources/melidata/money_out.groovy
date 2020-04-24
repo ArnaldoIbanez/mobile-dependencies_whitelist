@@ -125,6 +125,7 @@ trackTests {
       "/money_out/transfers/home/recents_tab_selected"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/favs_tab_selected"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/faq_button_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/profile_button_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/scheduled_transfers_selected"(platform: "/", type: TrackType.Event) {}
 
       //Transfer Hub - Scheduled Transfers
