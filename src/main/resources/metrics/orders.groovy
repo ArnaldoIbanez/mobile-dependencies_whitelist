@@ -144,6 +144,16 @@ metrics {
 		}
 	}
 
+	"bids.sameItem.garex"(description: "/orders/ordercreated from feed (carrito included) from GAREX (extended warranty)", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals("event_data.has_garex", true)
+				equals("event_data.items.item.id", property("item_id"))
+			}
+		}
+	}
+
 	"mediations"(description: "/orders/ordercreated that had mediations.", compute_order: true) {
 		countsOn {
 			condition {
