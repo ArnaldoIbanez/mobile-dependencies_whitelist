@@ -297,6 +297,16 @@ trackTests {
                             "type" : "PDP"
                     ]
             ]
+            review_pages = [
+                    [
+                            "key": "ventilador",
+                            "type" : "SEARCH"
+                    ],
+                    [
+                            "key": "nintendo",
+                            "type" : "PDP"
+                    ]
+            ]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
