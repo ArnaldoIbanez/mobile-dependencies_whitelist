@@ -15,8 +15,8 @@ left join melilake.lk_app_applications app
 on (app.mapp_app_id = i.mapp_app_id)
 inner join melilake.lk_indexer_operation iop on (cast(iop.iop_element_id as decimal(10,0)) = t.ite_item_id and iop.iop_site_id = t.sit_site_id)
 where  ite_pic_quality = 'poor'
-and pic_tagged_date >= '2020-01-01'
-and pic_tagged_date < '2020-04-27'
+and pic_tagged_date >= '@param01'
+and pic_tagged_date < '@param02'
 and ite_condition_passed_flag = false
 group by i.sit_site_id,i.ite_domain_id,pic_tagged_date,case when app.mapp_is_public = 0 then 'NOINTEGRADO' else 'INTEGRADO' end,
  t.ite_condition_id, app.mapp_name ,  t.ite_picture_id 
