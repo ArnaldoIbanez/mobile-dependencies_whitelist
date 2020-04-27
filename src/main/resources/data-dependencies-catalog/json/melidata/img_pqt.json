@@ -40,6 +40,10 @@
         "name": "app",
         "type": "UNICODE_STRING"
       },
+              {
+        "name": "pictureId",
+        "type": "UNICODE_STRING"
+      },
       {
         "name": "datepic",
         "type": "date",

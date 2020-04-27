@@ -6,6 +6,7 @@ i.ite_domain_id as domain,
 case when app.mapp_is_public =  0 then 'NOINTEGRADO' else 'INTEGRADO' end as integracion,
  t.ite_condition_id as proveedores,
  app.mapp_name as app,
+ t.ite_picture_id as pictureId,
  pic_tagged_date as datepic,
 FROM melilake.lk_pic_quality_tagger t
 left join melilake.lk_ite_items i
@@ -18,4 +19,4 @@ and pic_tagged_date >= '2020-01-01'
 and pic_tagged_date < '2020-04-27'
 and ite_condition_passed_flag = false
 group by i.sit_site_id,i.ite_domain_id,pic_tagged_date,case when app.mapp_is_public = 0 then 'NOINTEGRADO' else 'INTEGRADO' end,
- t.ite_condition_id, app.mapp_name 
+ t.ite_condition_id, app.mapp_name ,  t.ite_picture_id 
