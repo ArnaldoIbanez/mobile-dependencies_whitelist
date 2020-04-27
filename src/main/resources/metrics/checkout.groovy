@@ -196,4 +196,26 @@ metrics {
 			}
 		}
 	}
+
+	"checkout.selected_garex"(description: "checkout on insurtech experiments with selected garex on it") {
+		startWith {
+			experiment(regex("insurtech/.*"))
+		}
+		countsOn {
+			condition {
+				path("/garex/checkout/selected_garex")
+			}
+		}
+	}
+
+	"checkout.not_selected_garex"(description: "checkout on insurtech experiments without garex on it") {
+		startWith {
+			experiment(regex("insurtech/.*"))
+		}
+		countsOn {
+			condition {
+				path("/garex/checkout/not_selected_garex")
+			}
+		}
+	}
 }
