@@ -34,8 +34,8 @@ LEFT JOIN
     WHERE
       ds >= '@param01' 
       AND ds < '@param02'
-      AND path like '/search'
-      AND jest(others['fragment'], 'origin') like 'supermarket_navigation'
+      AND path = '/search'
+      AND jest(others['fragment'], 'origin') = 'supermarket_navigation'
       AND jest(others['fragment'], 'from') is not null
   ) as clicks
   GROUP BY clicks.ds, clicks.platform, clicks.client_id

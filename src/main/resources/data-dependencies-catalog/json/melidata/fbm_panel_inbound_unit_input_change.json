@@ -44,6 +44,7 @@
 ],
     "sql": {
       "script": "shipping/fbm_panel_inbound_unit_input_change.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
