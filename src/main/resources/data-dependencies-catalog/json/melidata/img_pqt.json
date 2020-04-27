@@ -1,61 +1,52 @@
 {
   "users": [
-    "sp-buyer@mercadolibre.com"
+    "marina.propato@mercadolibre.com"
   ],
-  "process_name": "promotions_landing_filters",
-  "cron": "00 06 * * *",
+  "process_name": "img_pqt",
+  "cron": "00 07 * * *",
   "partition": {
-    "name": "track_date",
-    "type": "DATE",
+    "name": "datepic",
+    "type": "date",
     "format": "yyyy-MM-dd"
   },
   "extract": {
     "operation": "append",
-    "site": "Sales",
     "columns": [
+      {
+        "name": "seller",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "publicaciones",
+        "type": "UNICODE_STRING"
+      },
       {
         "name": "site",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "device",
+        "name": "domain",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "prints_device",
-        "type": "INTEGER"
-      },
-      {
-        "name": "users_device",
-        "type": "INTEGER"
-      },
-      {
-        "name": "filter_applied",
+        "name": "integracion",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "filter_value",
+        "name": "proveedores",
         "type": "UNICODE_STRING"
       },
-      {
-        "name": "filter_position",
-        "type": "INTEGER"
-      },
-      {
-        "name": "filter_origin",
+        {
+        "name": "app",
         "type": "UNICODE_STRING"
       },
-      {
-        "name": "filter_clicks",
-        "type": "INTEGER"
-      },
-      {
-        "name": "filter_uid",
+              {
+        "name": "pictureId",
         "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "promotions/promotions_landing_filters.sql",
+      "script": "moderations/img_pqt.sql",
       "parameters": [
         {
           "name": "param01",

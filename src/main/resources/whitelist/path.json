@@ -29,6 +29,8 @@
     "/kyc/error",
     "/melidata/ab_split",
     "/px_checkout/result/success",
-    "/cards/acquisition/error"
+    "/cards/acquisition/error",
+    "/cards/engagement/error",
+    "/wallet/cards/listing/error"
   ]
 }

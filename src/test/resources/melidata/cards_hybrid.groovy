@@ -286,7 +286,7 @@ trackTests {
     // --------
 
     test("cards acquisition error") {
-        "/cards/acquisition/error"(platform: "/", type: TrackType.Event) {
+        "/cards/acquisition/error"(platform: "/", type: TrackType.View) {
             screen = "review"
         }
     }
@@ -326,6 +326,15 @@ trackTests {
         "/cards/acquisition/congrats/error"(platform:"/", type: TrackType.Event) {
             type = "congrats_type"
             status = "404"
+        }
+    }
+
+    // Engagement Error
+    // --------
+
+    test("cards engagement error") {
+        "/cards/engagement/error"(platform: "/", type: TrackType.View) {
+            screen = "dashboard"
         }
     }
 
