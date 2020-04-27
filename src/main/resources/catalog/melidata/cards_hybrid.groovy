@@ -1,6 +1,7 @@
-import com.ml.melidata.catalog.PropertyType
-import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
+
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 
 tracks {
@@ -194,6 +195,12 @@ tracks {
     // Acquisition Error
     // --------
     "/cards/acquisition/error"(platform: "/", type: TrackType.Event) {
+        screen (required: true, type: PropertyType.String, description: "The screen that showed error")
+    }
+
+    // Dashboard Error
+    // --------
+    "/cards/engagement/error"(platform: "/", type: TrackType.Event) {
         screen (required: true, type: PropertyType.String, description: "The screen that showed error")
     }
     

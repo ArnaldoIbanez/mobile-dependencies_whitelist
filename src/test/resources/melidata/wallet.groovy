@@ -47,4 +47,11 @@ trackTests {
 
         "/wallet/cards/add_card_header"(platform: "/mobile", {})
     }
+
+    //Card Listing Error
+    test("Card listing show error") {
+        "/wallet/cards/listing/error"(platform: "/", type: TrackType.Event) {
+            screen = "cards_listing"
+        }
+    }
 }
