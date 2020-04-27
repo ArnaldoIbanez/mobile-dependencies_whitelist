@@ -24,7 +24,7 @@ trackTests {
       "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "fees"}
       "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "manage_inventory"}
       "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "send_any_product"}
-        "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "distribution_center_billing"}
+        "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "billing_warehouse"}
         "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "cost_fulfillment"}
       "/fbm/landing/cancel_opt_in"(platform: "/", type: TrackType.Event) {}
     }
@@ -47,7 +47,7 @@ trackTests {
         "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "fees"}
         "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "manage_inventory"}
         "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "send_any_product"}
-        "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "distribution_center_billing"}
+        "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "billing_warehouse"}
         "/fbm/landing/faq_opened"(platform: "/", type: TrackType.Event) { faq = "cost_fulfillment"}
         "/fbm/landing/cancel_opt_in"(platform: "/", type: TrackType.Event) {}
     }
