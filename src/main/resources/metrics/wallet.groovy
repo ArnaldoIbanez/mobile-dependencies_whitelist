@@ -264,4 +264,17 @@ metrics {
         }
       }
     }
+
+    "discount_center.marketplace_detail"(description: "Counts a user access to the discount detail from the marketplace") {
+      startWith {
+        experiment(regex("cdd/.*"))
+      }
+
+      countsOn {
+        condition {
+          path("/discount_center/payers/detail")
+          equals("platform.fragment.from", "/discount_center_payers/list")
+        }
+      }
+    }
 }
