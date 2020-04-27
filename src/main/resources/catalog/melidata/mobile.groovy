@@ -103,6 +103,9 @@ tracks {
         app_storage(required: true, type: PropertyType.Numeric, description: "Application occupied storage in bytes")
         dark_mode_status(required: false, type: PropertyType.String, values: ["enabled", "battery_enabled", "disabled", "undefined"],
          description: "Dark Mode status")
+        battery_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled"], description: "Battery Save mode")
+        data_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled", "whitelisted", "undefined"], description: "Data Save mode")
+        do_not_disturb_mode(required: false, type: PropertyType.String, values: ["disabled", "important_interruptions", "no_interruptions", "alarms_only", "undefined"], description: "Do Not Disturb mode")
     }
 
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}
