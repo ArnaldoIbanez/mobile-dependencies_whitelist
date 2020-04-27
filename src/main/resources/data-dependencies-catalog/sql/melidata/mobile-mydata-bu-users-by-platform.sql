@@ -7,4 +7,3 @@ WHERE path = '/myml/company_profile'
   AND ds >= '@param01'
   AND ds <= '@param02'
 group by substr(ds,1,10), device.platform, application.site_id
-order by substr(ds,1,10)

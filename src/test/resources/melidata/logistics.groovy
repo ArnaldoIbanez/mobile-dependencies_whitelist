@@ -161,6 +161,12 @@ trackTests {
         "/logistics/last_mile/package/scanner/close_list"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
         }
+        "/logistics/last_mile/sorting/bags_conciliation_disclaimer"(platform: "/mobile", type: TrackType.View) {
+            bags_amount = 3
+            single_packs_amount = 17
+            container_assignment = "AAA-TEST"
+            driver_id = "1234"
+        }
         "/logistics/last_mile/list"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"

@@ -1,31 +1,28 @@
 {
-  "users":
-  [
-    "carlos.rodrigo@mercadolibre.com"
+  "users": [
+    "francisco.yackel@mercadolibre.com"
   ],
-  "process_name": "recommendations_bundle_avg_items_quantity",
-  "cron": "00 05 * * *",
-  "extract":
-  {
+  "process_name": "tfs_dashboard_users_tracks",
+  "cron": "00 07 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
+  "extract": {
     "operation": "append",
-    "columns":
-    [
+    "site": "MercadoPago",
+    "columns": [
       {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
+        "name": "user_id",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "site_id",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "avg_items_quantity",
-        "type": "DOUBLE"
       }
     ],
     "sql": {
-      "script": "recommendations/bundle-avg-items-quantity.sql",
+      "script": "mercadopago/toolsforsellers/tools_for_sellers_dashboard_users_tracks.sql",
       "parameters": [
         {
           "name": "param01",

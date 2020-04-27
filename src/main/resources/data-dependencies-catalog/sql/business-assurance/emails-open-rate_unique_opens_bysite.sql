@@ -33,4 +33,3 @@ GROUP BY Sent.sent_date,
          Sent.Template,
          Sent.Path,
          Sent.site
-ORDER BY Sent.Template

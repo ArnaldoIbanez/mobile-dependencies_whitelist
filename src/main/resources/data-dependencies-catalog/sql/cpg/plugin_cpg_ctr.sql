@@ -41,4 +41,3 @@ LEFT JOIN
   GROUP BY clicks.ds, clicks.platform, clicks.client_id
 ) as sub_clicks
 ON sub_prints.client_id = sub_clicks.client_id AND sub_prints.platform = sub_clicks.platform
-ORDER BY client_id 

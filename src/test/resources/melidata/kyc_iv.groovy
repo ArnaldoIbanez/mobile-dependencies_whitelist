@@ -88,6 +88,8 @@ trackTests {
         "/kyc/iv/proof_of_life_validation"(platform: "/mobile") {
             validation = "face_too_small"
             reset_gestures = true
+            initiative = "iv-initiative"
+            challenge_id = 123456789
         }
 
         "/kyc/iv/proof_of_life_gesture"(platform: "/mobile") {
@@ -96,6 +98,7 @@ trackTests {
                 right_eye: 0.98
             ]
             gesture = "open_eye"
+            challenge_id = 123456789
         }
 
         "/kyc/iv/activity/check_step"(platform: "/mobile/android") {
@@ -107,25 +110,28 @@ trackTests {
         "/kyc/iv/activity/phone_landing"(platform: "/mobile/android") {}
         "/kyc/iv/activity/phone_validation"(platform: "/mobile/android") {}
         "/kyc/iv/activity/image_upload"(platform: "/mobile/android") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/image_upload/landing"(platform: "/mobile/android") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/image_upload/uploading"(platform: "/mobile/android") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/image_upload/result"(platform: "/mobile/android") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/congrats"(platform: "/mobile/android") {}
         "/kyc/iv/activity/documentation_number"(platform: "/mobile/android") {}
         "/kyc/iv/activity/custom_camera"(platform: "/mobile/android") {}
-        "/kyc/iv/activity/picture_confirmation"(platform: "/mobile/android") {}
+        "/kyc/iv/activity/picture_confirmation"(platform: "/mobile/android") {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
     }
 
     test("KYC IV mobile ios") {
@@ -202,25 +208,28 @@ trackTests {
         "/kyc/iv/activity/phone_landing"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/phone_validation"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/image_upload"(platform: "/mobile/ios") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/image_upload/landing"(platform: "/mobile/ios") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/image_upload/uploading"(platform: "/mobile/ios") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/image_upload/result"(platform: "/mobile/ios") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/congrats"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/documentation_number"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/custom_camera"(platform: "/mobile/ios") {}
-        "/kyc/iv/activity/picture_confirmation"(platform: "/mobile/ios") {}
+        "/kyc/iv/activity/picture_confirmation"(platform: "/mobile/ios") {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
     }
 
     test("KYC IV web") {
@@ -492,6 +501,8 @@ trackTests {
         "/kyc/iv/proof_of_life_validation"(platform: "/mobile") {
             validation = "face_too_small"
             reset_gestures = true
+            initiative = "iv-initiative"
+            challenge_id = 123456789
         }
 
         "/kyc/iv/proof_of_life_gesture"(platform: "/mobile") {
@@ -507,25 +518,28 @@ trackTests {
         "/kyc/iv/activity/phone_landing"(platform: "/mobile/android") {}
         "/kyc/iv/activity/phone_validation"(platform: "/mobile/android") {}
         "/kyc/iv/activity/image_upload"(platform: "/mobile/android") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/image_upload/landing"(platform: "/mobile/android") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/image_upload/uploading"(platform: "/mobile/android") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/image_upload/result"(platform: "/mobile/android") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/congrats"(platform: "/mobile/android") {}
         "/kyc/iv/activity/documentation_number"(platform: "/mobile/android") {}
         "/kyc/iv/activity/custom_camera"(platform: "/mobile/android") {}
-        "/kyc/iv/activity/picture_confirmation"(platform: "/mobile/android") {}
+        "/kyc/iv/activity/picture_confirmation"(platform: "/mobile/android") {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
     }
 
     test("KYC IV mobile ios") {
@@ -602,25 +616,28 @@ trackTests {
         "/kyc/iv/activity/phone_landing"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/phone_validation"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/image_upload"(platform: "/mobile/ios") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/image_upload/landing"(platform: "/mobile/ios") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/image_upload/uploading"(platform: "/mobile/ios") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/image_upload/result"(platform: "/mobile/ios") {
-            doc_type = "front"
+            doc_type = "doc_front"
             model_id = "documentation_front"
         }
         "/kyc/iv/activity/congrats"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/documentation_number"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/custom_camera"(platform: "/mobile/ios") {}
-        "/kyc/iv/activity/picture_confirmation"(platform: "/mobile/ios") {}
+        "/kyc/iv/activity/picture_confirmation"(platform: "/mobile/ios") {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
     }
 
     test("KYC web") {

@@ -72,8 +72,20 @@ tracks {
     // MP Sellers Websites
     "/landing/sellers/websites"(platform: "/web"){}
 
+    // MP Sellers Websites Events
+    "/landing/sellers/websites/click" (platform: "/web", type: TrackType.Event){
+        event_id (type: PropertyType.String, required: true, description: "ID from clicked element")
+        event_label (type: PropertyType.String, required: true, description: "Element text")
+    }
+
     // MP Sellers Social
     "/landing/sellers/social"(platform: "/web"){}
+
+    // MP Sellers Social Events
+    "/landing/sellers/social/click" (platform: "/web", type: TrackType.Event){
+        event_id (type: PropertyType.String, required: true, description: "ID from clicked element")
+        event_label (type: PropertyType.String, required: true, description: "Element text")
+    }
 
     // MP Sellers Merchant Services
     "/landing/sellers/mss"(platform: "/"){
@@ -106,4 +118,10 @@ tracks {
     "/landing/formcomercial/send_email"(platform:"/", type: TrackType.Event) {
         email (type: PropertyType.String, required: true, description: "Email from user")
     }
+
+    //MP Webview COVID
+    "/mp_covid"(platform: "/", type: TrackType.View) {}
+    "/mp_covid/congrats"(platform: "/", type: TrackType.View) {}
+    "/mp_covid/donation"(platform: "/", type: TrackType.View) {}
+    "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
 }

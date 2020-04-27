@@ -55,7 +55,7 @@ tracks {
         product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
         item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
-        vertical(required: false, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
+        vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         listing_type_id(required: false, description: "Item listing type id")
     }
 
@@ -253,6 +253,12 @@ tracks {
     "/sell/list/draft/warranty_time_review"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type_review"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/catalog"(platform:"/mobile", type: TrackType.View, isAbstract: true){}
+    "/sell/list/draft/catalog/decision"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/catalog/forced"(platform: "/mobile", type: TrackType.View) {
+        catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
+    }
+    "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
     "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {}
@@ -340,6 +346,10 @@ tracks {
     "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
     "/sell/list/catalog"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/catalog/forced"(platform: "/mobile", type: TrackType.View) {
+        catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
+    }
+    "/sell/list/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/classifieds_reservation_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/color_selection"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {}
@@ -658,14 +668,14 @@ tracks {
     "/sell/hub"(platform: "/web", type: TrackType.View) {}
     "/sell/hub/select_vertical"(platform: "/web", type: TrackType.Event) {
         sellGroup
-        vertical(required: true, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
 
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
         sellGroup
-        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
     }
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
@@ -815,7 +825,7 @@ tracks {
 
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
         sellGroup
-        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
     }
     "/sell/item_conditions/price_and_currency"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event) {}
@@ -825,6 +835,8 @@ tracks {
         has_free(required: true, type: PropertyType.Boolean)
     }
     "/sell/item_conditions/listing_types/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/listing_types/free"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/listing_types/free/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/free_shipping"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/free_shipping/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/free_shipping/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -886,6 +898,28 @@ tracks {
     "/sell/item_conditions/instant_pay_listings_free/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/instant_pay_listings_free/confirm"(platform: "/web", type: TrackType.Event) {}
 
+    "/sell/item_conditions/location/default_address"(platform: "/web", type: TrackType.View) {}
+    "/sell/item_conditions/location/default_address/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/location/default_address/wrong_suggestion"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_data/pictures"(platform: "/web", type: TrackType.View) {}
+    "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/add_more_intention"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/delete"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/suggestions_modal_show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/upload_errors"(platform: "/web", type: TrackType.Event) {
+        limit_errors(required: true, description: "The quantity of pictures uploaded was exceeded", type: PropertyType.Boolean)
+        format_errors(required: true, description: "How many files didn't match the allowed format", type: PropertyType.Numeric)
+        size_errors(required: true, description: "How many files didn't match the minimum size", type: PropertyType.Numeric)
+    }
+    "/sell/item_data/pictures/upload"(platform: "/web", type: TrackType.Event) {
+        quantity(required: true, description: "The quantity of pictures uploaded successfully", type: PropertyType.Numeric)
+    }
+
+    "/sell/item_conditions/seller_contact/phone"(platform: "/web", type: TrackType.View) {}
+    "/sell/item_conditions/seller_contact/phone/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/seller_contact/whatsapp"(platform: "/web", type: TrackType.View) {}
+    "/sell/item_conditions/seller_contact/whatsapp/confirm"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
@@ -919,8 +953,9 @@ tracks {
 
     "/sell/sip"(platform: "/web", type: TrackType.View) {
         sellGroup
-        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
     }
+    "/sell/sip/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
 
@@ -929,8 +964,10 @@ tracks {
 
     // Catalog Optin flow for apps
     "/sell/catalog_optin"(platform: "/mobile", isAbstract: true) {
-        session_id(required: true, description: "Session id for a specific user flow", type: PropertyType.String)
+        item_id(required: true, description: "Session id for a specific user flow", type: PropertyType.String)
+        session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
     }
+    "/sell/catalog_optin/init"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/catalog_optin/on_boarding"(platform: "/mobile", type: TrackType.View) {}
     "/sell/catalog_optin/confirmation_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/catalog_optin/variation_selection"(platform: "/mobile", type: TrackType.View) {}

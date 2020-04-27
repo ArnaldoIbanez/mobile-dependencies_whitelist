@@ -26,10 +26,17 @@ trackTests {
         "/wallet/cards/add_card_header"(platform: "/mobile", {})
     }
 
+    //Card Listing Error
+    test("Card listing show error ML") {
+        "/wallet/cards/listing/error"(platform: "/mobile") {
+            screen = "cards_listing"
+        }
+    }
+
     defaultBusiness = "mercadopago"
 
     //Card Listing Flow
-    test("Cards Wallet tracking ML") {
+    test("Cards Wallet tracking MP") {
 
         "/wallet/cards/listing"(platform:"/mobile", {})
 
@@ -46,5 +53,12 @@ trackTests {
         "/wallet/cards/back"(platform:"/mobile", {})
 
         "/wallet/cards/add_card_header"(platform: "/mobile", {})
+    }
+
+    //Card Listing Error
+    test("Card listing show error MP") {
+        "/wallet/cards/listing/error"(platform: "/mobile") {
+            screen = "cards_listing"
+        }
     }
 }
