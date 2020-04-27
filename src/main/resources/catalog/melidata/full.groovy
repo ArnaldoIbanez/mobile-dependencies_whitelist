@@ -30,7 +30,7 @@ tracks {
             required: true,
             type: PropertyType.String,
             description: "Which FAQ has been opened.",
-            values: ["opt_in", "dc_location", "send_my_inventory", "send_inventory_from_supplier", "fees", "manage_inventory", "send_any_product","billing","cost_full"]
+            values: ["opt_in", "dc_location", "send_my_inventory", "send_inventory_from_supplier", "fees", "manage_inventory", "send_any_product","distribution_center_billing","cost_fulfillment"]
         )
     }
 
