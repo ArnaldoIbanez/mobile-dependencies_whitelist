@@ -672,6 +672,11 @@ trackTests {
 
         }
 
+        def purchasesEventDataSet = {
+            label = "faq_1"
+            x_mc_request_id = "98c9af-fa979tg-10hjcoi"
+        }
+
         def newPurchasesDataSet = {
             items = [
                 [
@@ -859,14 +864,37 @@ trackTests {
             newPurchasesDataSet()
         }
 
-        "/myml/purchases/items" (platform:"/", type: TrackType.View) {
+        "/myml/purchases/status/items" (platform:"/", type: TrackType.View) {
             newPurchasesDataSet()
         }
 
-        "/myml/purchases/instructions" (platform:"/", type: TrackType.View) {
+        "/myml/purchases/status/instructions" (platform:"/", type: TrackType.View) {
             newPurchasesDataSet()
         }
 
+        "/myml/purchases/status/messages" (platform:"/", type: TrackType.View) {
+            newPurchasesDataSet()
+        }
+
+        "/myml/purchases/status/return_purchase" (platform:"/", type: TrackType.View) {
+            newPurchasesDataSet()
+        }
+
+        "/myml/purchases/status/cancel_purchase" (platform:"/", type: TrackType.View) {
+            newPurchasesDataSet()
+        }
+
+        "/myml/purchases/status/show_action" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/purchases/status/show_help" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/purchases/status/show_faq" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
 
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
             item = {
