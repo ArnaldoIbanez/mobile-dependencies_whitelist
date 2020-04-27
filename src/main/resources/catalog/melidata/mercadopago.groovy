@@ -190,7 +190,7 @@ tracks {
 
     // Services landings
     "/services"(platform: "/", isAbstract: true, initiative: "1159") {}
-    "/services/mkt_landing"(platform: "/web", type: TrackType.View) {
+    "/services/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
     "/services/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
@@ -207,7 +207,7 @@ tracks {
 
     // QR Payers Landings
     "/qr_payers"(platform: "/", isAbstract: true, initiative: "1159") {}
-    "/qr_payers/mkt_landing"(platform: "/web", type: TrackType.View) {
+    "/qr_payers/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
     "/qr_payers/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
@@ -390,10 +390,14 @@ tracks {
     "/get_member/point"(platform: "/mobile", type: TrackType.View, initiative: "1159") {}
 
     "/settings"(platform: "/mobile", isAbstract: true,initiative: "1125" ) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
-    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false,initiative: "1125") {}
+    "/settings/cost_calculator"(platform: "/mobile", type: TrackType.View, isAbstract: true, parentPropertiesInherited: false,initiative: "1125") {
+        sent_again (required: false)
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
+        cost_type (required:false, type: PropertyType.String, description: "Cost type receive/charge")
+    }
     "/settings/my_profile"(platform: "/mobile") {}
     "/settings/balance"(platform: "/mobile") {}
     "/settings/my_cards"(platform: "/mobile") {}
@@ -430,6 +434,7 @@ tracks {
     "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
     "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
     "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
+    "/settings/help"(platform: "/mobile", type: TrackType.View) {}
 
     "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
         channel (required: true, type: PropertyType.String, description: "The channel that was modified")
@@ -463,12 +468,6 @@ tracks {
     }
     //END -- MP frontend
 
-    "/free_navigation"(platform:"/mobile", isAbstract: true,initiative: "1096" ) {}
-
-    "/free_navigation/not_available"(platform:"/mobile", type:TrackType.Event) {}
-
-    "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
-
     "/device_settings/"(platform: "/", isAbstract: true,initiative: "1096" ){}
 
     "/device_settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
@@ -493,5 +492,9 @@ tracks {
     "/single_player/open_deep_link"(platform:"/web/mobile", type: TrackType.Event) {
         activity (type: PropertyType.String, required: true, values: ["entertainment", "services", "sube", "transport"], description: "where open link from sms")
     }
+
+    // About events
+    "/about"(platform: "/mobile", isAbstract: true) {}
+    "/about/rate_app"(platform:"/mobile", type:TrackType.Event, initiative: "1074") {}
 
 }

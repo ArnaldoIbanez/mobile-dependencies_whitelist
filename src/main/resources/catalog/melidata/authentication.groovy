@@ -202,6 +202,7 @@ tracks {
 
     //Abuse Prevention
     "/auth"(platform: "/", isAbstract: true) {}
+
     //Security Feedback
     "/login/auth/feedback"(platform: "/", type: TrackType.Event) {
         view(type: PropertyType.String, required: true, description: "Current Feedback step name where the action is taking place")
@@ -457,6 +458,27 @@ tracks {
 
     "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {}
 
+    // Email Validation Authenticator
+
+    "/authenticators/email_validation"(platform: "/", isAbstract: true) {}
+
+    "/authenticators/email_validation/max_attempts"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
+        validation_status(PropertyType.String, required: false, values:["success", "failure"], description: "Challenge status by response")
+    }
+
+    "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
+        social_option(PropertyType.String, required: true, values: ["Google", "Microsoft"], description: "Social option displayed")
+    }
+
+    "/authenticators/email_validation/social_oauth/submit"(platform: "/", type: TrackType.Event) {
+        validation_status(PropertyType.String, required: false, values:["success", "failure"], description: "Challenge status by response")
+        email_sign_in(PropertyType.Boolean, required: false, description: "User decide to sign in with email")
+    }
+
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
         opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
@@ -465,7 +487,7 @@ tracks {
     // Biometrics / Screenlock
     "/screenlock"(platform: "/mobile", isAbstract: true) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
-        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock"])
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
     }
 
     "/screenlock/validation_start"(platform: "/mobile", type: TrackType.Event) {
@@ -487,6 +509,15 @@ tracks {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 
+    // Biometrics lib
+    "/screenlock/biometrics"(platform: "/mobile/android", isAbstract: true, parentPropertiesInherited: false) {
+    }
+
+    "/screenlock/biometrics/failure"(platform: "/mobile/android", parentPropertiesInherited: false ,type: TrackType.Event) {
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
+        error_msg_id(type: PropertyType.Numeric, required: true, description: "Error validation and fingerprintManager ID")
+        error_msg(type: PropertyType.String, required: true, description: "Error validation and fingerprintManager message")
+    }
 
     //Maybe deprecated tracks
     "/login/splitter"(platform: "/mobile", type: TrackType.View) {}

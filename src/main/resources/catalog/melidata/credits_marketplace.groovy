@@ -17,11 +17,6 @@ tracks {
         installments_group(installments_qty)
     }
 
-    defaultBusiness = "mercadolibre"
-
-    "/"(platform: "/web", isAbstract: true) {
-    }
-
     /******************************************
      *       Abstract definitions
      ******************************************/
@@ -172,6 +167,15 @@ tracks {
                                         "overdue"
                                     ]
                         )
+        personalLoanAccessShown(
+                required: false,
+                description: "Personal loan access type",
+                type: PropertyType.String,
+                values: [
+                        "row",
+                        "banner"
+                ]
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
@@ -210,7 +214,9 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {}
-    "/credits/consumer/administrator_v2/dashboard/go_mp"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_mp"(platform: "/mobile", type: TrackType.Event) {
+        has_mp(type: PropertyType.Boolean, required: true)
+    }
     "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
@@ -646,6 +652,13 @@ tracks {
 
     "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
+        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
+        status(description: "Status of the user prepaid", type: PropertyType.String, required: true, values: ["no_prepaid", "prepaid_enabled", "prepaid_disabled"])
+    }
+
+    "/credits/consumer/personal/adoption/generic_message/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
+
 
     /******************************************
      *   End: Personal Loans Adoption
@@ -664,5 +677,27 @@ tracks {
 
     /******************************************
      *   End: Consumers Experiments
+     ******************************************/
+
+    /******************************************
+     *    Start: Consumers Change Due Date FLow
+     ******************************************/
+    "/credits/consumer/duedate_selection"(platform: "/", type: TrackType.View) {
+        available_products(description: "products that user was used", type: PropertyType.ArrayList, required: true)
+        due_date (description: "Positive number for actuall due date",type: PropertyType.Numeric,required: true)
+    }
+
+    "/credits/consumer/duedate_selection/success"(platform: "/", type: TrackType.View) {
+        new_due_date(description: "Positive number for actuall due date",type: PropertyType.Numeric,required: true)
+    }
+
+    "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {}
+    
+    "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/duedate_selection/cancel"(platform: "/", type: TrackType.Event) {}
+
+     /******************************************
+     *    End: Consumers Change Due Date FLow
      ******************************************/
 }

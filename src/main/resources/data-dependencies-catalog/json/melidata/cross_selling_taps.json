@@ -1,67 +1,56 @@
 {
-  "users":
-  [
-    "carlos.rodrigo@mercadolibre.com"
+  "users": [
+    "julio.cardenas@mercadolibre.cl"
   ],
-  "process_name": "recommendations_bundle_coverage_new",
-  "cron": "00 06 * * *",
+  "process_name": "cross_selling_taps",
+  "cron": "00 01 * * *",
   "partition": {
-    "name": "ds",
-    "type": "DATE"
+        "name": "ds",
+        "type": "DATE"
   },
-  "extract":
-  {
+  "extract": {
     "operation": "append",
-    "site": "MeliLake",
-    "columns":
-    [
-      {
-        "name": "site_id",
-        "type": "UNICODE_STRING"
-      },
+    "columns": [
       {
         "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "total_prints",
-        "type": "INTEGER"
-      },
-      {
-        "name": "client",
+        "name": "site_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "backend_id",
+        "name": "version",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "combo_type",
+        "name": "path",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "combo_free_shipping",
+        "name": "content",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "prints_with_bundle",
+        "name": "position",
         "type": "INTEGER"
       },
       {
-        "name": "bundle_with_fs",
+        "name": "audience",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "taps",
         "type": "INTEGER"
       },
       {
-        "name": "bundle_with_saving",
-        "type": "INTEGER"
-      },
-      {
-        "name": "bundles_with_trigger_with_fs",
+        "name": "total",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "recommendations/bundle-coverage.sql",
+      "script": "mercadopago/cross_selling_taps.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

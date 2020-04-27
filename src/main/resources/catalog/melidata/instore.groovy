@@ -467,6 +467,41 @@ tracks {
         session_id(required: false, PropertyType.String, description: "this flow is outside instore, does not have session_id")
     }
 
+    //Geofence
+    "/instore/geofence"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}    
+
+    "/instore/geofence/permission_request"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/geofence/permission_response"(platform: "/mobile", type: TrackType.Event) {
+        type(required: true, PropertyType.String, description: "The type of permission that was granted", values: ["always_on", "only_once", "only_foreground", "never"])
+    }
+
+    "/instore/geofence/permission_already_granted"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/geofence/gps_request"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/geofence/gps_response"(platform: "/mobile", type: TrackType.Event) {
+        type(required: true, PropertyType.String, description: "The user interaction with the GPS", values: ["already_on", "granted", "rejected"])
+    }
+
+    "/instore/geofence/updated"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/geofence/enter"(platform: "/mobile", type: TrackType.Event) {
+        geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
+    }
+
+    "/instore/geofence/exit"(platform: "/mobile", type: TrackType.Event) {
+        geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
+    }
+
+    "/instore/geofence/dwell"(platform: "/mobile", type: TrackType.Event) {
+        geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
+    }
+
+    "/instore/geofence/notify_dwell"(platform: "/mobile", type: TrackType.Event) {
+        geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
+    }
+
     //Buyer QR
 
     "/instore/buyer_qr"(platform: "/mobile", isAbstract: true) {}
@@ -561,6 +596,40 @@ tracks {
         collector_name(required:false, PropertyType.String, description: "collector name")
     }
 
+    //Buyer QR - CVV
+
+    "/instore/buyer_qr/cvv"(platform: "/mobile", type: TrackType.View ) {
+        payment_method_id(required: true, PropertyType.String, description: "payment method id (visa, master, account_money, etc)")
+        payment_method_disabled(required: true, PropertyType.Boolean, description: "feature flag to check if payment method is disabled")
+    }
+
+    "/instore/buyer_qr/cvv/confirm"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        view_time_in_millis(required: true, PropertyType.Numeric)
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+    }
+
+    "/instore/buyer_qr/cvv/dismiss"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        view_time_in_millis(required: true, PropertyType.Numeric)
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+    }
+
+    "/instore/buyer_qr/save_esc"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/buyer_qr/delete_esc"(platform: "/mobile", type: TrackType.Event) {
+        from(required: true, PropertyType.String, values: ["lease", "payment"])
+    }
+
+    "/instore/buyer_qr/request_card_token"(platform: "/mobile", type: TrackType.Event) {
+        event_time_in_millis(required: true, PropertyType.Numeric)
+        status_code(required: true, PropertyType.Numeric)
+    }
+
+    "/instore/buyer_qr/request_card_token/max_delay_reached"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+    }
+
+    "/instore/buyer_qr/no_payment_method_selected"(platform: "/mobile", type: TrackType.Event) {}
+
     // Scale Features
     // QR Assignment
     
@@ -612,7 +681,7 @@ tracks {
     }
 
     // Instore shortcut
-    "/instore/create_shortcut"(platform:"/mobile/android", type: TrackType.View) {}
+    "/instore/create_shortcut"(platform:"/mobile/android", type: TrackType.View, parentPropertiesInherited: false) {}
 
     "/qr_code"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")

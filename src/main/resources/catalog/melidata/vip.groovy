@@ -12,6 +12,12 @@ tracks {
         results(required:false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
     }
 
+    Object attributes_values_map = objectSchemaDefinitions {
+        attribute_id(type: PropertyType.String, required: true, description: "Attribute id")
+        value_id(type: PropertyType.String, required: false, description: "Attribute value_id")
+        value_name(type: PropertyType.String, required: true, description: "Attribute value_name")
+    }
+
     propertyDefinitions {
         cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)")
@@ -61,6 +67,13 @@ tracks {
     //VIP FLOW
 
     "/vip"(platform: "/") {
+        // TEMP FIELDS
+        cac_item(required: false, type: PropertyType.Boolean,
+                 description: "Indicates whether the item is listed as 'CodoACodo'")
+
+        cac_status(required: false, type: PropertyType.String,
+                values: ["normal", "after_dispatch", "unknown"],
+                description: "Indicates items status of Elbow to Elbow (Codo a Codo) initiative")
 
         // ITEM FIELDS
         item_id(required: true, type: PropertyType.String, description: "Item ID")
@@ -82,6 +95,9 @@ tracks {
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
         catalog_listing(required: true, inheritable: false, type: PropertyType.Boolean, description: "Item's catalog listing")
         domain_id(required: false, type: PropertyType.String, description: "Item's domain id")
+        city(required: false, type: PropertyType.String, description: "Item location's city name, 'none' if unavailable")
+        neighborhood(required: false, type: PropertyType.String, description: "Item location's neighborhood name, 'none' if unavailable")
+        state(required: false, type: PropertyType.String, description: "Item location's state name, 'none' if unavailable")
 
         // ONLY CORE FIELDS
         quantity( required: false, type: PropertyType.Numeric, description: "Available items quantity show at this vip")
@@ -112,8 +128,9 @@ tracks {
         power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
                 description: "Seller's Mercado Lider level")
         reputation_level(required: false, type: PropertyType.String,
-                values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"],
+                values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "none"],
                 description: "Seller's reputation level")
+        available_consumer_credit(required: false, type: PropertyType.Boolean, description: "Indicates if the item has a credit available for the item's seller")
 
         // CLASI FIELDS
         reservation_price(required: false, description: "Price of the reservation")
@@ -172,6 +189,9 @@ tracks {
         item_attributes(required: false, type: PropertyType.String, description: "attributes of the item: discount, promotion, stock, cbt type")
 
         original_item(required: false, type: PropertyType.Boolean , description:  "Indicates if it is an original item")
+
+        map_item_attributes(required: false, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "Map of items attributes")
+
     }
 
     "/vip"(platform: "/web") {
@@ -191,6 +211,7 @@ tracks {
     }
 
     "/vip/profile_intention"(platform: "/", type: TrackType.Event) {
+        context(required: false, type: PropertyType.String, values: ["/vip"], description: "Indicates where the page was opened from")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         buying_mode(required: false, type: PropertyType.String, description: "Indicates if it's an auction, buy_it_now or classified")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
@@ -278,7 +299,7 @@ tracks {
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
-        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
+        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "none"], description: "Seller's reputation level")
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
         has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
@@ -292,6 +313,7 @@ tracks {
         add_cart_info
         shipping_info
         credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
+        attribute_combinations(required: false, type: PropertyType.Numeric, description: "Indicates the amount of variation pickers an item has")
     }
 
     "/vip/buy_action"(platform: "/web", parentPropertiesInherited: false) {
@@ -311,7 +333,7 @@ tracks {
         has_technical_specification(required: false, type: PropertyType.Boolean, description: "Indicates if the item has technical specifications")
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
-        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Seller's reputation level")
+        reputation_level(required: false, type: PropertyType.String, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green", "none"], description: "Seller's reputation level")
         installment_info(required: false, type: PropertyType.String, description: "Indicates the amount of installments and if they are free or not")
         has_variations(required: false, type: PropertyType.Boolean, description: "Indicates if the item has variations")
         item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
@@ -322,6 +344,8 @@ tracks {
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
                 description: "Seller's Mercado Lider level")
+        attribute_combinations(required: false, type: PropertyType.Numeric, description: "Indicates the amount of variation pickers an item has")
+        credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
         add_cart_info
         shipping_info
     }
@@ -529,6 +553,19 @@ tracks {
     "/vip/questions/show"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String)
         catalog_product_id(required: false, type: PropertyType.String)
+    }
+
+    "/vip/questions/quick_access"(platform: "/", parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        type(required: true, type: PropertyType.String,values: ["payment", "returns", "shipping", "warranty"], description: "quick access type")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+        context(required: true, type: PropertyType.String, description: "Indicates if is qadb or questions", values:["/qadb","/questions"])
+    }
+
+    "/vip/qadb"(parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/vip/qadb/call-to-action"(platform: "/", parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
     }
 
     "/vip/question_intention"(platform: "/web", type: TrackType.Event) {
@@ -895,4 +932,88 @@ tracks {
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
 
+    //Classifieds Credits
+
+    "/vip/credits_intention"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+    "/vip/credits_intention/main_action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
+
+    "/vip/credits_intention/card"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        seller_id(required: false, type: PropertyType.Numeric, description: "Seller ID")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
+                description: "Whenever the items is active, closed or paused")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+    }
+
+    "/vip/credits_intention/main_action/up"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
+                description: "Whenever the items is active, closed or paused")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+    }
+
+    "/vip/credits_intention/main_action/down"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
+                description: "Whenever the items is active, closed or paused")
+        source(required: fasle,  type: PropertyType.String, description: "Source of the referred")
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+    }
+
+    "/vip/denounce"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
+
+    "/vip/show_cbt_popup"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: true, type: PropertyType.ArrayList, description: "Category path of the the item")
+        item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        original_price(required: true, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+    }
 }

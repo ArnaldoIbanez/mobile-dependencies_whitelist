@@ -69,10 +69,12 @@ tracks {
 
     // Groups billing info collection views.
     "/checkout_off/billing"(platform: "/", isAbstract: true) {}
-
     "/checkout_off/billing/input_info"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/review"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review/shield_kyc_ifpe"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review/challenge_kyc_ifpe"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review/challenge_second_factor_auth"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/agencies"(platform: "/", type: TrackType.View) {}
 

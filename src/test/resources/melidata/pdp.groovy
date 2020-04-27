@@ -1,4 +1,5 @@
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
+import com.ml.melidata.TrackType
 
 trackTests {
 
@@ -86,6 +87,8 @@ trackTests {
     //PDP FLOW
     test("pdp mandatory tracking") {
         "/pdp"(platform: "/", {
+            cac_item = false
+            cac_status = "normal"
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
             domain_id = "MLA-CELLPHONES"
@@ -109,6 +112,7 @@ trackTests {
             bo_pick_up_conditions = "free_other"
             price = 8400
             currency_id = "ARS"
+            credits_opensea = true
         })
 
         "/pdp/add_to_cart_action"(platform: "/", {
@@ -234,6 +238,9 @@ trackTests {
 
             filters = ["installments": "no_interest", "price":"1000-2000"]
 
+            multiple_offer_type="BEST_PRICE"
+            multiple_offer_default_winner_item_id="MLB1432864987"
+
             cart()
             shipping()
             pickup()
@@ -265,6 +272,7 @@ trackTests {
 
             price = 8400
             currency_id = "ARS"
+            credits_opensea = false
         })
 
         "/pdp/add_to_cart_action"(platform: "/", {
@@ -294,6 +302,11 @@ trackTests {
             price = 8400
             currency_id = "ARS"
         })
+
+        "/pdp/multiple_offer/select_offer"(platform: "/") {
+            item_id = "MLA12345678"
+            multiple_offer_type = "BEST_PRICE"
+        }
 
         "/pdp/quantity_change"(platform: "/", {
             catalog_product_id = "MLA1234"
@@ -479,6 +492,14 @@ trackTests {
         })
     }
 
+    //QADB call to action
+    test("Qadb call to action tracking"){
+        "/pdp/qadb/call-to-action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+        })
+    }
+
     //Sellers page FLOW
     test("Sellers page tracking") {
         "/pdp/sellers/quantity_change"(platform: "/", {
@@ -525,5 +546,14 @@ trackTests {
             currency_id = "ARS"
             pdp_type = "RED"
         })
+    }
+
+    //Stock modal
+    test("Stock modal tracking") {
+        "/pdp/questions/ask/prevent_stock"(platform: "/", type: TrackType.Event, {})
+    }
+
+    test("Pdp Server Side") {
+        "/pdp/backend/questions_redirect"(platform: "/") {}
     }
 }

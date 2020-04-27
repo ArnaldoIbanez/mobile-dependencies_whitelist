@@ -44,8 +44,34 @@ tracks {
         version (required: true, type: PropertyType.String, description: "v1 if bump legacy, v2 if in-app-update implemented")
         type (required: true, type: PropertyType.String, description: "type of in-app-update FLEXIBLE | IMMEDIATE | LEGACY")
     }
-    "/in_app_updates/updatable/update_not_available"(platform: "/mobile", type: TrackType.Event){
-        cause (required: true, type: PropertyType.String, description: "why wer dont show the dialog of update")
+    "/in_app_updates/updatable/update_failed"(platform: "/mobile", type: TrackType.Event){
+        version (required: true, type: PropertyType.String, description: "v1 if bump legacy, v2 if in-app-update implemented")
+        type (required: true, type: PropertyType.String, description: "type of in-app-update FLEXIBLE | IMMEDIATE | LEGACY")
     }
-    "/in_app_updates/updatable/install"(platform: "/mobile", type: TrackType.Event){}
+    "/in_app_updates/inactive/update_failed"(platform: "/mobile", type: TrackType.Event){
+        version (required: true, type: PropertyType.String, description: "v1 if bump legacy, v2 if in-app-update implemented")
+        type (required: true, type: PropertyType.String, description: "type of in-app-update FLEXIBLE | IMMEDIATE | LEGACY")
+    }    
+    "/in_app_updates/updatable/update_not_available"(platform: "/mobile", type: TrackType.Event){
+        cause (required: true, type: PropertyType.String, description: "why we dont show the dialog of update")
+    }
+    "/in_app_updates/updatable/installed"(platform: "/mobile", type: TrackType.Event){
+        version (required: true, type: PropertyType.String, description: "v1 if bump legacy, v2 if in-app-update implemented")
+        type (required: true, type: PropertyType.String, description: "type of in-app-update FLEXIBLE | IMMEDIATE | LEGACY")
+    }
+    "/in_app_updates/inactive/installed"(platform: "/mobile", type: TrackType.Event){
+        version (required: true, type: PropertyType.String, description: "v1 if bump legacy, v2 if in-app-update implemented")
+        type (required: true, type: PropertyType.String, description: "type of in-app-update FLEXIBLE | IMMEDIATE | LEGACY")
+    }
+
+    "/cross_app_links"(platform: "/mobile", isAbstract: true){}
+    "/cross_app_links/dispatch"(platform: "/mobile", type: TrackType.Event){
+        link (required: true, type: PropertyType.String, description: "dispatched link")
+        result (required: true, type: PropertyType.String, description: "result class name")
+        reason (required: false, type: PropertyType.String, description: "result reason class in case its result is error")
+    }
+    "/cross_app_links/fetch"(platform: "/mobile", type: TrackType.Event){
+        link (required: true, type: PropertyType.String, description: "fetched link")
+        provider (required: true, type: PropertyType.String, description: "provider class name")
+    }
 }

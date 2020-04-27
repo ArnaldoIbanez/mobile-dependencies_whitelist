@@ -213,6 +213,28 @@ trackTests {
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central Summary
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  test("Seller central summary view") {
+    "/seller_central/summary"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Seller central summary module") {
+    "/seller_central/summary/modules_render"(platform: "/web", type: TrackType.Event) {
+      modules = [
+              [
+                module_id: "sellerStatus",
+                kind: "fallback"
+              ], [
+                module_id: "mercadoPago",
+                kind: "normal"
+              ]
+      ]
+      seller_experience = "ADVANCED"
+    }
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -305,6 +327,9 @@ trackTests {
     "/seller_central/bulk/offline/download/error"(platform: "/", type: TrackType.Event) {}
   }
 
+    test("seller central open tooltip view") {
+    "/seller_central/bulk/open_tooltip"(platform: "/", type: TrackType.View) {}
+  }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk Offline Cbt
@@ -618,6 +643,39 @@ trackTests {
       seller_reputation = "5_green"
       listing_type = "gold"
       vertical = "motors"
+    }
+  }
+
+  test("seller central modify technical_specifications completed attributes"){
+    "/seller_central/modify/technical_specifications/completed_attributes"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      domain_id = "MLM-CELLPHONES"
+      attributes_before_update = [
+        [id: "BRAND", value_id: "206", value_name: "Samsung"]
+      ]
+      attributes_after_update = [
+        [id: "BRAND", value_id: "206", value_name: "Samsung"],
+        [id: "MODEL", value_id: "32902", value_name: "Galaxy"]
+      ]
+    }
+  }
+
+  test("seller central modify technical_specifications completed attributes without value_id and value_name"){
+    "/seller_central/modify/technical_specifications/completed_attributes"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      item_id = "MLM749509590"
+      session_id = "123-update-abc123"
+      domain_id = "MLM-CELLPHONES"
+      attributes_before_update = [
+        [id: "BRAND", value_id: null, value_name: "Samsung"]
+      ]
+      attributes_after_update = [
+        [id: "BRAND", value_id: null, value_name: null],
+        [id: "MODEL", value_id: "32902", value_name: "Galaxy"],
+        [id: "COLOR", value_id: "32902", value_name: "Galaxy", variation_id: 23437248239]
+      ]
     }
   }
 
@@ -1748,6 +1806,50 @@ trackTests {
     }
   }
 
+  test("seller central catalog optin Click on any primary action button") {
+    "/seller_central/catalog/optin/redirect"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      children_catalog_products_ids = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      task_id = "button"
+      to = "https://www.mercadolibre.com.ar/publicaciones/MLA850809023/modificar/387581743-update-4339aff8b69c/product_detail"
+      from = "congrats_page"
+    }
+  }
+
+  test("seller central catalog optin Click on any secondary action link") {
+    "/seller_central/catalog/optin/redirect"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      children_catalog_products_ids = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      task_id = "link"
+      to = "https://www.mercadolibre.com.ar/publicaciones/listado?filters=BUYBOX_STATUS"
+      from = "congrats_page"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central - Promotions
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1969,10 +2071,31 @@ trackTests {
               type: "always_on",
       ]
       promotion_duration = 17
+      origin = "listing"
     }
 
     "/seller_central/promotions/list/update"(platform: "/web", type: TrackType.Event){
       action = "CONFIRM"
+      promotion = [
+              site_time_offset: 0,
+              start_date: "2019-09-18T03:00:00.000Z",
+              finish_date: "2019-10-05T02:59:00.000Z",
+              state: "started",
+              is_highlight: false,
+              price: 500,
+              prime_price: 400,
+              list_price: 1000,
+              error_price: null,
+              error_prime: null,
+              input_price: "500",
+              input_prime_price: "400",
+              type: "always_on",
+      ]
+      promotion_duration = 17
+    }
+
+    "/seller_central/promotions/list/delete"(platform: "/web", type: TrackType.Event){
+      action = "DELETE"
       promotion = [
               site_time_offset: 0,
               start_date: "2019-09-18T03:00:00.000Z",
@@ -2063,4 +2186,3 @@ trackTests {
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {}
   }
 }
-

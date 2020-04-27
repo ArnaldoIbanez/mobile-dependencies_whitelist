@@ -2,10 +2,14 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-    "questions"(description: "questions count") {
+    "questions"(description: "questions count", categorization:"important") {
         countsOn {
             condition {
                 path("/questions/ask/post")
+                or (
+                        equals("event_data.failed", false) ,
+                        isNull("event_data.failed")
+                )
             }
         }
     }
@@ -38,7 +42,13 @@ metrics {
 		countsOn {
 			condition {
 				path("/questions/ask/post")
-				equals("event_data.item_id", property("item_id"))
+				and(
+					equals("event_data.item_id", property("item_id")),
+					or (
+						equals("event_data.failed", false) ,
+						isNull("event_data.failed")
+					)
+				)
 			}
 		}
 	}

@@ -7,4 +7,4 @@ if [ $version -lt "8" ]; then
   exit 1
 fi
 
-gradlew validate -q -Pargs="$*"
+./gradlew validate -q -Pargs="$*"

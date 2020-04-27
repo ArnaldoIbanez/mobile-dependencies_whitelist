@@ -61,6 +61,14 @@ metrics {
             experiment(regex("search/.*"))
         }
     }
+
+    "pdp_properties"(description: "define properties for order_id") {
+        startWith {
+            set_property("catalog_product_id", "event_data.catalog_product_id")
+            set_property("item_id", "event_data.item_id")
+            experiment(regex("pdp/.*"))
+        }
+    }
     
     "qadb_properties"(description: "define properties for order_id") {
         startWith {
@@ -77,4 +85,10 @@ metrics {
         }
     }
 
+    "insurtech_properties"(description: "define properties for insurtech experiments") {
+        startWith {
+            set_property("item_id", "event_data.item.id")
+            experiment(regex("insurtech/.*"))
+        }
+    }
 }

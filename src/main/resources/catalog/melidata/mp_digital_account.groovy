@@ -7,6 +7,29 @@ tracks {
 
     initiative = '1149'
 
+    def structPrimaryActionWithdraw = objectSchemaDefinitions{
+        disable(requerid:true, type: PropertyType.Boolean, description: "Indicate if button must be turn on or not")
+        label(requerid:false, type: PropertyType.String)
+        link(requerid:false, type: PropertyType.String, description: "Indicate if must be redirect or not")
+    }
+
+    def structDataMakeWithdraw = objectSchemaDefinitions {
+        description(required:true, type: PropertyType.ArrayList, description: "Information to the user about withdrawal accreditation")
+        id(required:false, type: PropertyType.String)
+        primary_action(required:false, type: PropertyType.Map(structPrimaryActionWithdraw))
+        result_type(required:false, type: PropertyType.String)
+        title(required:true, type:PropertyType.String, description: "Resumen of withdraw")
+    }
+
+    def structDataAddAccount = objectSchemaDefinitions {
+        bank_id(required:true, type: PropertyType.String, description: "Bank identificator")
+        branch(required:true, type: PropertyType.String, description: "Agency of bank")
+        holder(required:true, type: PropertyType.String, description: "Name of account")
+        identification(required:false, type: PropertyType.String)
+        number(required:true, type:PropertyType.String, description: "Number of account")
+        type(required:true, type:PropertyType.String, description: "Type of account")
+    }
+
     /**
      * Digital Wallet Screen Tracks
      */
@@ -40,7 +63,7 @@ tracks {
 
     "/money_detail"(platform: "/", isAbstract: true) {}
     "/money_detail"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/money_detail/balance"(platform: "/mobile") {}
@@ -97,7 +120,7 @@ tracks {
     "/new-withdraw/congrats-advance"(platform: "/", type: TrackType.View) {}
 
     "/withdraw"(platform: "/", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/withdraw/take_money_out"(platform: "/") {}
@@ -133,8 +156,18 @@ tracks {
 
     "/withdraw/main"(platform: "/mobile", type: TrackType.View) {}
     "/withdraw/confirmation"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/make_withdraw"(platform: "/mobile", type: TrackType.View) {}
-    "/withdraw/add_account"(platform: "/mobile", type: TrackType.View) {}
+    "/withdraw/make_withdraw"(platform: "/mobile", type: TrackType.Event) {
+        data    (required:false, type: PropertyType.Map(structDataMakeWithdraw), description: "Contains information of windows show to user e.g title, disable or not button")
+        _label  (required:false, type: PropertyType.String, description: "Operation congrats")
+    }
+    "/withdraw/add_account"(platform: "/mobile", type: TrackType.View) {
+        data    (required:false, type: PropertyType.Map(structDataAddAccount), description: "Contains information of new account e.g holder name, bank name")
+        _label   (required:false, type: PropertyType.String, description: "Operation add")
+    }
+    "/withdraw/add_account"(platform: "/mobile", type: TrackType.Event) {
+        data    (required:false, type: PropertyType.Map(structDataAddAccount), description: "Contains information of new account e.g holder name, bank name")
+        _label   (required:false, type: PropertyType.String, description: "Operation add")
+    }
     "/withdraw/congrats"(platform: "/mobile", type: TrackType.View) {}
     "/withdraw/error"(platform: "/mobile", isAbstract: true) {}
     "/withdraw/error/generic_error"(platform: "/mobile", type : TrackType.View) {}

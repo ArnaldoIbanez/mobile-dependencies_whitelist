@@ -587,8 +587,22 @@ trackTests {
         "/landing/sellers/websites" (platform: "/web") {}
     }
 
+    test("Landing mercadopago sellers websites events") {
+        "/landing/sellers/websites/click" (platform: "/web") {
+            event_id = "CTA_HERO"
+            event_label = "websites"
+        }
+    }
+
     test("Landing mercadopago sellers social") {
         "/landing/sellers/social" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago sellers social events") {
+        "/landing/sellers/social/click" (platform: "/web") {
+            event_id = "CTA_HERO"
+            event_label = "websites"
+        }
     }
 
     test("Landing mercadopago sellers mss") {
@@ -1357,6 +1371,37 @@ trackTests {
     }
 
     // MPMOBILE TEST
+
+    test("Free navigation") {
+        "/free_navigation"(platform: "/mobile", type: TrackType.Event) {
+            carrier_name = ""
+            sd_state = "WIFI"
+            sd_reason = "SD_NOT_AVAILABLE_REASON_UNKNOWN"
+            fg_wifi_session_time = 966
+            fg_cellular_session_time = 50
+            sd_data_usage = 0
+        }
+        "/free_navigation_notification"(platform: "/mobile", type: TrackType.Event) {}
+        "/free_navigation_dialog"(platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Memory warning") {
+        "/memory_warning"(platform: "/mobile", type: TrackType.Event) {
+            view_controller = "ViewController"
+        }
+    }
+    
+    test("Traceability Flow") {
+        "/flow/init"(platform: "/mobile", type: TrackType.Event) {
+            flow_name = "Instore"
+            from = "Home"
+        }
+        "/flow/end"(platform: "/mobile", type: TrackType.Event) {
+            flow_name = "Instore"
+            from = "Home"
+        }
+    }
+
     test("account summary flow") {
         "/account_summary"(platform: "/mobile") {
             from = "/deep_link"
@@ -1890,6 +1935,27 @@ trackTests {
         "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
         "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
         "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
+
+        "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {
+            sent_again:true
+            flow:"settings"
+            cost_type:"charge"
+        }
+        "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {
+            sent_again:false
+            flow:"settings"
+            cost_type:"charge"
+        }
+        "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {
+            sent_again:true
+            flow:"settings"
+            cost_type:"charge"
+        }
+
+        "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {
+            sent_again:true
+            cost_type:"charge"
+        }
 
         "/settings/pricing"(platform: "/mobile", type: TrackType.Event) {
             flow = "settings"
@@ -2717,8 +2783,10 @@ trackTests {
             from = "/deep_link"}
         "/withdraw/confirmation"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}
-        "/withdraw/make_withdraw"(platform: "/mobile") { flow = "/withdraw"
-            from = "/deep_link"}
+        "/withdraw/make_withdraw"(platform: "/mobile") { 
+            flow = "/withdraw"
+            from = "/deep_link"
+            _label = "CONGRATS"}
         "/withdraw/add_account"(platform: "/mobile") { flow = "/withdraw"
             from = "/deep_link"}
         "/withdraw/congrats"(platform: "/mobile") { flow = "/withdraw"
@@ -2806,6 +2874,10 @@ trackTests {
         "/settings/about"(platform: "/mobile") {
             flow = "/settings"
             from = "/deep_link"
+        }
+
+        "/settings/help"(platform: "/mobile") {
+            flow = "/settings"
         }
     }
 
@@ -3419,6 +3491,18 @@ trackTests {
             elapsed_time = 50
             result = "success"
         }
+
+        "/screenlock/biometrics/failure"(platform: "/mobile/android", type: TrackType.Event) {
+            os_status = "biometrics"
+            error_msg_id = 501
+            error_msg = "ERROR_CANT_VALIDATE"
+        }
+
+        "/screenlock/biometrics/failure"(platform: "/mobile/android", type: TrackType.Event) {
+            os_status = "basic_screenlock"
+            error_msg_id = 501
+            error_msg = "ERROR_CANT_VALIDATE"
+        }
     }
 
     test("Screenlock config") {
@@ -3963,14 +4047,6 @@ trackTests {
         }
     }
 
-    test("free data") {
-
-        "/free_navigation/not_available"(platform:"/mobile", type:TrackType.Event) {}
-
-        "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
-    }
-
-
     test("Bugsnag tracks to use on Canejo MP") {
         "/mobile/bugsnag"(platform:"/mobile/android", type:TrackType.Event) {
             error_type = "signal"
@@ -4082,5 +4158,9 @@ trackTests {
             card_name = "releaseOptions"
             path = "/settings/release-options"
         }
+    }
+
+    test("About screen") {
+        "/about/rate_app"(platform:"/mobile", type:TrackType.Event) {}
     }
 }

@@ -12,9 +12,9 @@ metrics {
             condition {
                 path("/checkout_off/v1/checkout_confirmed")
                 or(
-                        equals("event_data.collector_id", "228415881"),
-                        equals("event_data.collector_id", "179504451"),
-                        equals("event_data.collector_id", "193054976")
+                    equals("event_data.collector_id", "228415881"),
+                    equals("event_data.collector_id", "179504451"),
+                    equals("event_data.collector_id", "193054976")
                 )
             }
         }

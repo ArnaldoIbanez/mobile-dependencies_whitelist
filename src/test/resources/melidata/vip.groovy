@@ -28,6 +28,8 @@ trackTests {
         }
 
         def optionals = {
+            cac_item = false
+            cac_status = "normal"
             quantity = 3
 
             return_available = false
@@ -51,7 +53,36 @@ trackTests {
             new_wording_free = false
             quantity_models = 4
             item_attributes = "promotions,cbt_ddu,discount"
+			city = "none"
+			neighborhood = "none"
+			state = "none"
         }
+
+        Object items_attributes = {
+            map_item_attributes = [
+                    [ attribute_id:"BRAND", value_id:"60297", value_name:"Toyota"],
+                    [ attribute_id:"MODEL", value_id:"60337", value_name:"Yaris" ],
+                    [ attribute_id:"YEAR", value_name:"2012"]
+            ]
+        }
+
+        "/vip"(platform:"/mobile", {
+            mandatory()
+            catalog_listing = false
+            items_attributes()
+        })
+
+        "/vip"(platform: "/web/mobile", {
+            mandatory()
+            catalog_listing = false
+            items_attributes()
+        })
+
+        "/vip"(platform: "/web/desktop", {
+            mandatory()
+            catalog_listing = false
+            items_attributes()
+        })
 
         "/vip"(platform:"/mobile", {
             mandatory()
@@ -621,6 +652,17 @@ trackTests {
             item_id = "MLA213512313"
             catalog_product_id="MLA123456"
         }
+
+        "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {
+            item_id = "MLA112341"
+            domain_id = "celulares"
+            type = "payment"
+            context = "/qadb"
+        }
+
+        "/vip/qadb/call-to-action"(platform: "/", {
+            item_id = "MLA112341"
+        })
     }
 
     test("New Shipping calculator"){
@@ -822,6 +864,7 @@ trackTests {
         }
 
         "/vip/profile_intention"(platform: "/", type: TrackType.Event) {
+            context = '/vip'
             seller_id = 131662738
             buying_mode = "classified"
             category_id = "MLA43718"
@@ -1147,6 +1190,53 @@ trackTests {
             category_path = ["MLA1234","MLA6789"]
             domain_id = "MLA7192"
             vertical = "core"
+        }
+    }
+
+    //CLassifieds Credits
+
+    test("VIP go to credits simulation card event") {
+        def properties = {
+            item_id = "MLA792156560"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            seller_id = 167086843
+            buying_mode = "classified"
+            item_condition = "new"
+            item_seller_type = "AB001"
+            listing_type_id = "gold_special"
+            from_view="vip"
+            item_status = "active"
+            vertical = "motors"
+        }
+
+        "/vip/credits_intention/card"(platform:"/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+
+        "/vip/credits_intention/main_action/up"(platform:"/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+
+        "/vip/credits_intention/main_action/down"(platform:"/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+    }
+
+    test("VIP denounce") {
+        "/vip/denounce"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("VIP cbt") {
+        "/vip/show_cbt_popup"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            category_id = "MLA43718"
+            category_path = ["MLA1234", "MLA6789"]
+            seller_id = 167086843
+            item_condition = "new"
+            price = 100
+            original_price = 110
+            currency_id = "ARS"
         }
     }
 }

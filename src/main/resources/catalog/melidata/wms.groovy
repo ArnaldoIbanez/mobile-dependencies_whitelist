@@ -166,6 +166,11 @@ tracks {
     "/wms/receiving/volume_rejection/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/receiving/inbound_shipment_rejection"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/receiving/inbound_shipment_rejection/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/receiving/inbound_rejection"(platform: "/mobile/android", type: TrackType.Event) {
+        inbound_id(required: true, type: PropertyType.Numeric, description: "Inbound id")
+        receiving_id(required: true, type: PropertyType.String, description: "Receiving id")
+        rejection_reason(required: true, type: PropertyType.String, description: "Rejection reason selected to track")
+    }
 
     "/wms/receiving/receiving_finished"(platform: "/mobile/android", type: TrackType.Event) {
         receiving_id(required: true, type: PropertyType.String, description: "Id of the receiving to track")
@@ -188,10 +193,10 @@ tracks {
     "/wms/put_away/scan_product"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/put_away/scan_product_destination"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/put_away/scan_product/cancel"(platform: "/mobile/android", type: TrackType.Event) {
-        put_away_id(required: false, type: PropertyType.Numeric, description: "Put away id")
+        putaway_id(required: false, type: PropertyType.Numeric, description: "Put away id")
     }
     "/wms/put_away/scan_product/finish"(platform: "/mobile/android", type: TrackType.Event) {
-        put_away_id(required: false, type: PropertyType.Numeric, description: "Put away id")
+        putaway_id(required: false, type: PropertyType.Numeric, description: "Put away id")
         inventory_id(required: false, type: PropertyType.String, description: "inventory id")
     }
     "/wms/receiving/device/printer/mobile/reprint"(platform: "/mobile/android", type: TrackType.Event) {
@@ -330,7 +335,10 @@ tracks {
     "/wms/withdrawals_collector/item/item_not_found"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/withdrawals_collector/item/start_unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/withdrawals_collector/congrats/finish_unload_cart"(platform: "/mobile/android", type: TrackType.Event) {}
-    "/wms/withdrawals_collector/congrats/finish_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {}
+
+    "/wms/withdrawals_collector/congrats/finish_withdrawal"(platform: "/mobile/android", type: TrackType.Event) {
+        pickup_id(required: true, type: PropertyType.String, description: "Id of the pickup for the withdrawal flow")
+    }
 
     /* Inbound Problem solver tracks */
     "/wms/problem_solver_inbound_tasks"(platform: "/mobile/android", type: TrackType.View) {}
@@ -376,16 +384,13 @@ tracks {
     }
 
     /* Problem Solver - Flan */
-    "/wms/problem_solver/menu"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/problem_solver/scan_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/problem_solver/manual_input_inbound_shipment"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/problem_solver/scan_case"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/problem_solver/manual_input_case"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/problem_solver/scan_inbound_destination"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/problem_solver/scan_finish_transactions"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/problem_solver/scan_transaction_destination"(platform: "/mobile/android", type: TrackType.View) {}
-    "/wms/problem_solver/scan_oriented_origin"(platform: "/mobile/android", type: TrackType.View) {}
     "/wms/problem_solver/scan_origin"(platform: "/mobile/android", type: TrackType.View) {}
+    "/wms/problem_solver/menu"(platform: "/mobile/android", type: TrackType.View) {}
 
     /* Stock audit*/
     "/wms/stock_audit/confirmation"(platform: "/mobile/android", type: TrackType.View) {}
@@ -405,11 +410,17 @@ tracks {
 
     "/wms/stock_audit/scan_inventory/empty_address"(platform: "/mobile/android", type: TrackType.Event) {}
 
-    "/wms/stock_audit/item"(platform: "/mobile/android", type: TrackType.View) {
+    "/wms/stock_audit/scan_address/empty_address"(platform: "/mobile/android", type: TrackType.Event) {
         address_id(required: true, type: PropertyType.String, description: "Address id")
-        inventory_id(required: true, type: PropertyType.String, description: "Inventory id")
         task_id(required: true, type: PropertyType.Numeric, description: "Task id")
         cross_counting(required: true, type: PropertyType.Boolean, description: "Whether is a cross counting")
+    }
+
+    "/wms/stock_audit/item"(platform: "/mobile/android", type: TrackType.View) {
+        address_id(required: true, type: PropertyType.String, description: "Address id")
+        inventory_id(required: false, type: PropertyType.String, description: "Inventory id")
+        task_id(required: true, type: PropertyType.Numeric, description: "Task id")
+        cross_counting(required: false, type: PropertyType.Boolean, description: "Whether is a cross counting")
     }
     "/wms/stock_audit/item/finish_address"(platform: "/mobile/android", type: TrackType.Event) {}
     "/wms/stock_audit/item/restart_task"(platform: "/mobile/android", type: TrackType.Event) {}
