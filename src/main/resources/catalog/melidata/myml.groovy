@@ -66,7 +66,7 @@ tracks {
         purchase_id(required: false, type: PropertyType.Numeric, description: "The id of the purchase selected")
         pack_id(required: false, type: PropertyType.Numeric, description: "The id of the pack selected")
         order_id(required: false, type: PropertyType.Numeric, description: "The id of the order selected")
-        label(required:true, type: PropertyType.String, description: "The action that was tracked")
+        label(required:false, type: PropertyType.String, description: "The action that was tracked")
 
     }
 
@@ -211,6 +211,8 @@ tracks {
 
     "/myml/purchases/seller"(platform:"/", type: TrackType.View) {}
     
+    // ---------------- Purchases status
+
     "/myml/purchases/status"(platform:"/", type: TrackType.View) {
         newPurchasesGroup
     }
@@ -234,6 +236,46 @@ tracks {
     }
 
     "/myml/purchases/status/show_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/click_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/click_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/click_contact_us"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/items/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/instructions/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/instructions/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/messages/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         newPurchasesEventGroup
     }
 

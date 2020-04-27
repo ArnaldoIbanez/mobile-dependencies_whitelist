@@ -896,6 +896,47 @@ trackTests {
             purchasesEventDataSet()
         }
 
+       "/myml/purchases/status/click_action" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/purchases/status/click_help" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/purchases/status/click_faq" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/purchases/status/click_view_item" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/purchases/status/click_view_messages" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/purchases/status/click_contact_us" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/purchases/status/items/click_view_item" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/purchases/status/instructions/click_view_item" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/purchases/status/instructions/click_action" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/purchases/status/messages/click_view_messages" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
             item = {
                 id = 'MLA713079054'
