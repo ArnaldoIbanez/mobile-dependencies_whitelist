@@ -27,6 +27,7 @@
     ],
     "sql": {
       "script": "melidata/vips_different_sites.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
