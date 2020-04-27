@@ -17,6 +17,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "publicaciones",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "site",
         "type": "UNICODE_STRING"
       },
@@ -25,15 +29,7 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "datepic",
-        "type": "date",
-        "format": "yyyy-MM-dd"      },
-      {
-        "name": "Integracion",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "publicaciones",
+        "name": "integracion",
         "type": "UNICODE_STRING"
       },
       {
@@ -41,8 +37,13 @@
         "type": "UNICODE_STRING"
       },
         {
-        "name": "App",
+        "name": "app",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "datepic",
+        "type": "date",
+        "format": "yyyy-MM-dd"      
       }
     ],
     "sql": {

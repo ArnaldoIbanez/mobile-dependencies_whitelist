@@ -1,5 +1,6 @@
-SELECT COUNT(*), B.seller, B.publicaciones, B.proveedores, 
-    case when B.datepic >= '2020-01-01' and B.datepic < '2020-02-01' then 'ENERO' 
+SELECT COUNT(*) as conteo, B.seller as seller, B.publicaciones as publicaciones, B.proveedores as proveedores, 
+      B.Integracion as integracion, B.site as site, B.pictureId as pictureId,
+       case when B.datepic >= '2020-01-01' and B.datepic < '2020-02-01' then 'ENERO' 
       when  B.datepic >= '2020-02-01' and B.datepic < '2020-03-01' then 'FEBRERO' 
       when  B.datepic >= '2020-03-01' and B.datepic < '2020-04-01' then 'MARZO'
       when  B.datepic >= '2020-04-01' and B.datepic < '2020-05-01' then 'ABRIL' 
@@ -11,8 +12,7 @@ SELECT COUNT(*), B.seller, B.publicaciones, B.proveedores,
       when  B.datepic >= '2020-10-01' and B.datepic < '2020-11-01' then 'OCTUBRE'
       when  B.datepic >= '2020-11-01' and B.datepic < '2020-12-01' then 'NOVIEMBRE'
       when  B.datepic >= '2020-12-01' and B.datepic < '2021-01-01' then 'DICIEMBRE'
-      end AS MES, 
-      B.Integracion, B.site, B.pictureId
+      end AS mes, 
     from
     (SELECT 
     distinct i.cus_cust_id_sel as seller,

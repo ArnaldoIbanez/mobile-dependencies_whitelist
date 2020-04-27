@@ -3,10 +3,10 @@ count(distinct i.cus_cust_id_sel) as seller,
 count(distinct i.ite_item_id) as publicaciones,
 i.sit_site_id as site,
 i.ite_domain_id as domain,
-pic_tagged_date as datepic,
-case when app.mapp_is_public =  0 then 'NOINTEGRADO' else 'INTEGRADO' end as Integracion,
+case when app.mapp_is_public =  0 then 'NOINTEGRADO' else 'INTEGRADO' end as integracion,
  t.ite_condition_id as proveedores,
- app.mapp_name as App
+ app.mapp_name as app,
+ pic_tagged_date as datepic,
 FROM melilake.lk_pic_quality_tagger t
 left join melilake.lk_ite_items i
 on (i.ite_item_id = t.ite_item_id and i.sit_site_id = t.sit_site_id)

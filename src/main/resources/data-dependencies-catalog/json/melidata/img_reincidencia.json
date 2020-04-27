@@ -24,12 +24,9 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "proveedor",
+        "name": "proveedores",
         "type": "UNICODE_STRING"
       },
-      {
-        "name": "Mes",
-        "type": "UNICODE_STRING"  },
       {
         "name": "integracion",
         "type": "UNICODE_STRING"
@@ -41,6 +38,10 @@
       {
         "name": "pictureId",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "mes",
+        "type": "UNICODE_STRING"  
       }
     ],
     "sql": {
