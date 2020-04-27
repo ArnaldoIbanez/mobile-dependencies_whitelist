@@ -18,7 +18,7 @@ tracks {
     
     "/wallet/cards/listing"(platform: "/mobile", type: TrackType.View) {}
 
-    "/wallet/cards/listing/error"(platform: "/", type: TrackType.Event) {
+    "/wallet/cards/listing/error"(platform: "/mobile", type: TrackType.View) {
         screen (required: true, type: PropertyType.String, description: "The screen that showed error")
     }
 

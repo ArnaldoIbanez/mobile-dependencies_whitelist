@@ -194,13 +194,13 @@ tracks {
 
     // Acquisition Error
     // --------
-    "/cards/acquisition/error"(platform: "/", type: TrackType.Event) {
+    "/cards/acquisition/error"(platform: "/", type: TrackType.View) {
         screen (required: true, type: PropertyType.String, description: "The screen that showed error")
     }
 
     // Dashboard Error
     // --------
-    "/cards/engagement/error"(platform: "/", type: TrackType.Event) {
+    "/cards/engagement/error"(platform: "/", type: TrackType.View) {
         screen (required: true, type: PropertyType.String, description: "The screen that showed error")
     }
     
