@@ -28,7 +28,7 @@ trackTests {
 
     //Card Listing Error
     test("Card listing show error ML") {
-        "/wallet/cards/listing/error"(platform: "/mobile", type: TrackType.View) {
+        "/wallet/cards/listing/error"(platform: "/mobile") {
             screen = "cards_listing"
         }
     }
@@ -57,7 +57,7 @@ trackTests {
 
     //Card Listing Error
     test("Card listing show error MP") {
-        "/wallet/cards/listing/error"(platform: "/mobile", type: TrackType.View) {
+        "/wallet/cards/listing/error"(platform: "/mobile") {
             screen = "cards_listing"
         }
     }
