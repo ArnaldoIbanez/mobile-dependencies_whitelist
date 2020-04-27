@@ -5,7 +5,7 @@
   "process_name": "img_reincidencia",
   "cron": "00 07 * * *",
   "partition": {
-    "name": "Mes",
+    "name": "mes",
     "type": "UNICODE_STRING"
   },
   "extract": {
