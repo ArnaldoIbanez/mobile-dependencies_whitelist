@@ -43,11 +43,6 @@
               {
         "name": "pictureId",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "datepic",
-        "type": "date",
-        "format": "yyyy-MM-dd"      
       }
     ],
     "sql": {
