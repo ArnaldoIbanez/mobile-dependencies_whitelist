@@ -124,6 +124,8 @@ tracks {
         input_price(type: PropertyType.String, required: true)
         input_prime_price(type: PropertyType.String, required: false)
         type(type: PropertyType.String, required: true)
+        involvedStock(type: PropertyType.Numeric, required: false)
+        criteria(type: PropertyType.String, required: false)
     }
 
     def attributes_values_map = objectSchemaDefinitions {
@@ -1042,8 +1044,9 @@ tracks {
     // ADD NEW PATHS FOR SELLER PROMOTIONS FORM
     // To be compatible with the actuals paths.
     "/seller_central/promotions/list"(platform: "/web", type: TrackType.View) {
-        original_promotion(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original promotion data")
-        context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT"])
+        original_promotion(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original price_discount promotion data")
+        original_lightning(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original lightning promotion data")
+        context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "CREATE_LIGHTNING"])
     }
 
     "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event) {
