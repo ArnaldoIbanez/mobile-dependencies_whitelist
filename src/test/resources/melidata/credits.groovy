@@ -6,7 +6,6 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-
     test("consumer credits ml y mp") {
         /***********************************************
          *       Start: Consumers Integrated Flow
@@ -85,7 +84,6 @@ trackTests {
          *       End: Consumers Integrated Flow
          *********************************************/
 
-
         /******************************************
          *    Start: Consumers Opensea Integrations
          ******************************************/
@@ -97,6 +95,24 @@ trackTests {
 
         /******************************************
          *   End: Consumers  Opensea Integrations
+         ******************************************/
+
+         /******************************************
+         *    Start: Consumers Opensea Flow
+         ******************************************/
+
+        "/credits/consumer/opensea/start"(platform: "/mobile", type: TrackType.View, business:"mercadolibre") {}
+        "/credits/consumer/opensea/start"(platform: "/mobile", type: TrackType.View, business:"mercadopago") {}
+
+        "/credits/consumer/opensea/congrats"(platform: "/mobile", type: TrackType.View, business:"mercadolibre") {
+            result = 'manual_review'
+        }
+        "/credits/consumer/opensea/congrats"(platform: "/mobile", type: TrackType.View, business:"mercadopago") {
+            result = 'approved'
+        }
+
+        /******************************************
+         *   End: Consumers Opensea Flow
          ******************************************/
     }
 }
