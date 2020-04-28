@@ -7,7 +7,7 @@ case when app.mapp_is_public =  0 then 'NOINTEGRADO' else 'INTEGRADO' end as int
  t.ite_condition_id as proveedores,
  app.mapp_name as app,
  t.ite_picture_id as pictureId,
- pic_tagged_date as datepic,
+ pic_tagged_date as datepic
 from melilake.lk_pic_quality_tagger t
 left join melilake.lk_ite_items i
 on (i.ite_item_id = t.ite_item_id and i.sit_site_id = t.sit_site_id)
