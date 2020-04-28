@@ -21,6 +21,7 @@
     "/questions/qadb/show",
     "/questions/qadb/input_focus",
     "/questions/qadb/search",
+    "/pdp/qadb/call-to-action",
     "/vip/contact_seller",
     "/register/success",
     "/register/failure",
