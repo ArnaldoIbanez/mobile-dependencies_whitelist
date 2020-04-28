@@ -1807,7 +1807,7 @@ trackTests {
   }
 
   test("seller central catalog optin Click on any primary action button") {
-    "/seller_central/catalog/optin/redirect"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/congrats/redirect"(platform: "/web", type: TrackType.Event) {
       item_id = "MLA123"
       session_id = "123-product_optin-abc123"
       category_id = "MLA390784"
@@ -1829,7 +1829,7 @@ trackTests {
   }
 
   test("seller central catalog optin Click on any secondary action link") {
-    "/seller_central/catalog/optin/redirect"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/congrats/redirect"(platform: "/web", type: TrackType.Event) {
       item_id = "MLA123"
       session_id = "123-product_optin-abc123"
       category_id = "MLA390784"
