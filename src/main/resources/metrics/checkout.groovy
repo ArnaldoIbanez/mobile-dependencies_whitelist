@@ -181,17 +181,17 @@ metrics {
 //		}
 //	}
 
-	"checkout_congrats_with_garex"(description: "orders_with_garex", sum_by: ["event_data.total_amount_including_garex"]) {
+	"checkout_congrats_with_garex"(description: "checkout orders with garex") {
 		startWith {
-			experiment("buyingflow/garex_mlm")
+			experiment(regex("insurtech/.*"))
 		}
-
 		countsOn {
 			condition {
+				path("/checkout/congrats")
+
 				and(
-						equals("event_data.congrats_seq",1),
-						empty("event_data.total_amount_including_garex", false),
-						equals("event_data.item_with_garex", true)
+					equals("event_data.congrats_seq",1),
+					equals("event_data.item_with_garex", true)
 				)
 			}
 		}
