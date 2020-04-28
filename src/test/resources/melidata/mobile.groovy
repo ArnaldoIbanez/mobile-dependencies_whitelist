@@ -114,6 +114,9 @@ trackTests {
             free_storage = 6291456
             app_storage = 307200
             dark_mode_status = "enabled"
+            battery_save_mode = "disabled"
+            data_save_mode = "whitelisted"
+            do_not_disturb_mode = "disabled"
         }
     }
 
