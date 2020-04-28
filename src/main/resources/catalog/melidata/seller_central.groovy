@@ -1026,7 +1026,7 @@ tracks {
         sellerCentralCatalogOptinTaskGroup
     }
 
-    "/seller_central/catalog/optin/redirect"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/congrats/redirect"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroup
         sellerCentralCatalogOptinTaskGroup
     }
