@@ -8,7 +8,8 @@ metrics {
 
     countsOn {
       condition {
-        path("/bill_payments/scan",
+        path("/instore/scan_qr",
+              "/bill_payments/scan",
               "/bill_payments/home",
               "/cellphone_recharge/recents",
               "/recharge_sube/select_recharge_card",
@@ -67,7 +68,8 @@ metrics {
     countsOn {
       condition {
         path("/discount_center/payers/list",
-              "/coupon/input")
+              "/coupon/input",
+              "/loyalty/hub")
         equals("application.business", "mercadopago")
       }
     }
@@ -101,6 +103,21 @@ metrics {
               "/settings/point",
               "/settings/pricing",
               "/settings/cost_calculator/chooser")
+        equals("application.business", "mercadopago")
+      }
+    }
+  }
+
+  "wallet_shortcut.money"(description: "Counts when a user enters a Money Shortcut") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/money_in/payment_methods",
+              "/withdraw/main",
+              "/money_out/calculator")
         equals("application.business", "mercadopago")
       }
     }
