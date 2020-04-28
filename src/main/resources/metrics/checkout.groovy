@@ -190,6 +190,7 @@ metrics {
 				path("/checkout/congrats")
 
 				and(
+					equals("event_data.congrats_seq",1),
 					equals("event_data.item_with_garex", true)
 				)
 			}
