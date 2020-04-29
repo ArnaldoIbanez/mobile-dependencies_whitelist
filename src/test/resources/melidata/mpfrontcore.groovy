@@ -139,13 +139,13 @@ trackTests {
 
         "/business_site/click"(platform: "/", type: TrackType.Event) {
           action = "know_more"
-          section = "digital",
+          section = "digital"
           item = "checkout"
         }
 
         "/business_site/click"(platform: "/", type: TrackType.Event) {
           action = "new_account"
-          section = "last",
+          section = "last"
         }
     }
 }
