@@ -44,6 +44,9 @@ tracks {
     "/garex/checkout/not_selected_garex"(platform:"/web", type: TrackType.Event) {
         item(required: true, type: PropertyType.Map(item_track_structure))
     }
+    "/garex/checkout/delete"(platform:"/web", parentPropertiesInherited: false, type: TrackType.Event) {
+        garex(required: true, type: PropertyType.Map(garex_track_structure))
+    }
 
     //Mobile
     "/garex/checkout"(platform:"/mobile", type: TrackType.View) {}

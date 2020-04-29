@@ -63,6 +63,16 @@ trackTests {
                     ]
             ]
         }
+        "/garex/checkout/delete"(platform:"/web", type: TrackType.Event) {
+            garex = [
+                    "id": "MLA390289_GAR16001",
+                    "period": 24,
+                    "cost": 1234,
+                    "revenue_share_fee": 70,
+                    "revenue": 863.80,
+                    "currency_id": "ARS"
+            ]
+        }
 
         //Mobile
         "/garex/checkout"(platform:"/mobile", type: TrackType.View) {}
