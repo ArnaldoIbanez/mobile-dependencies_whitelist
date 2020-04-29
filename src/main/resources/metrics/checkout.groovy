@@ -182,7 +182,7 @@ metrics {
 //		}
 //	}
 
-	"checkout_congrats_with_garex"(description: "checkout orders with item garexeable") {
+	"checkout_congrats.garex"(description: "checkout orders with item garexeable") {
 		startWith {
 			experiment(regex("insurtech/.*"))
 		}
@@ -198,7 +198,7 @@ metrics {
 		}
 	}
 
-	"checkout_congrats_with_garex.selected_garex"(description: "checkout orders with garex purchase") {
+	"checkout_congrats.garex.selected"(description: "checkout orders with garex purchase") {
 		startWith {
 			experiment(regex("insurtech/.*"))
 		}
