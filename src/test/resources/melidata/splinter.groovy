@@ -6,8 +6,6 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-  defaultBusiness = "mercadolibre"
-
   // old schema
   test("deals landings") {
       "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
@@ -142,6 +140,126 @@ trackTests {
         }
     }
 
+    test("splinter landings - deals") {
+        "/splinter/landing/mkt/deals" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - T1") {
+        "/splinter/landing/mkt/tier1" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - video") {
+        "/splinter/landing/mkt/video" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - discovery") {
+        "/splinter/landing/mkt/discovery" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - communicationals") {
+        "/splinter/landing/mkt/communicationals" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - sparkle") {
+        "/splinter/landing/mkt/sparkle" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - promotions") {
+        "/splinter/landing/mkt/promotions" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - vertical - moda") {
+        "/splinter/landing/mkt/vertical/moda" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - vertical - belleza") {
+        "/splinter/landing/mkt/vertical/belleza" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - vertical - beleza") {
+        "/splinter/landing/mkt/vertical/beleza" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - vertical - juguetes") {
+        "/splinter/landing/mkt/vertical/juguetes" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - vertical - brinquedos") {
+        "/splinter/landing/mkt/vertical/juguetes" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - vertical - deportes") {
+        "/splinter/landing/mkt/vertical/deportes" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - vertical - esportes") {
+        "/splinter/landing/mkt/vertical/esportes" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - vertical - electronica") {
+        "/splinter/landing/mkt/vertical/electronica" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - vertical - eletronico") {
+        "/splinter/landing/mkt/vertical/eletronico" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - vertical - hogar") {
+        "/splinter/landing/mkt/vertical/hogar" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - vertical - casa") {
+        "/splinter/landing/mkt/vertical/casa" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - vertical - servicios") {
+        "/splinter/landing/mkt/vertical/servicios" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - vertical - servicos") {
+        "/splinter/landing/mkt/vertical/servicos" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
     test("splinter landings - adv - producto") {
         "/splinter/landing/adv/producto" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
@@ -174,6 +292,12 @@ trackTests {
 
     test("splinter landings - adv - deals") {
         "/splinter/landing/adv/deals" (platform: "/",  type: TrackType.View) {
+            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
+        }
+    }
+
+    test("splinter landings - cl - portal inmobiliario") {
+        "/splinter/landing/cl/portal_inmobiliario" (platform: "/",  type: TrackType.View) {
             deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
         }
     }
@@ -339,6 +463,166 @@ trackTests {
         }
     }
 
+    test("splinter landings - deals") {
+        "/splinter/landing/mkt/deals"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - T1") {
+        "/splinter/landing/mkt/tier1"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - video") {
+        "/splinter/landing/mkt/video"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - discovery") {
+        "/splinter/landing/mkt/discovery"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - communicationals") {
+        "/splinter/landing/mkt/communicationals"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - promotions") {
+        "/splinter/landing/mkt/promotions"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - sparkle") {
+        "/splinter/landing/mkt/sparkle"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - vertical - moda") {
+        "/splinter/landing/mkt/vertical/moda"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - vertical - deportes") {
+        "/splinter/landing/mkt/vertical/deportes"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - vertical - esportes") {
+        "/splinter/landing/mkt/vertical/esportes"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - vertical - belleza") {
+        "/splinter/landing/mkt/vertical/belleza"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - vertical - beleza") {
+        "/splinter/landing/mkt/vertical/beleza"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - vertical - juguetes") {
+        "/splinter/landing/mkt/vertical/juguetes"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - vertical - brinquedos") {
+        "/splinter/landing/mkt/vertical/brinquedos"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - vertical - electronica") {
+        "/splinter/landing/mkt/vertical/electronica"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - vertical - eletronico") {
+        "/splinter/landing/mkt/vertical/eletronico"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - vertical - hogar") {
+        "/splinter/landing/mkt/vertical/hogar"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - vertical - casa") {
+        "/splinter/landing/mkt/vertical/casa"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - vertical - servicios") {
+        "/splinter/landing/mkt/vertical/servicios"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
+    test("splinter landings - vertical - servicos") {
+        "/splinter/landing/mkt/vertical/servicos"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
+
     test("splinter landings - adv - producto") {
         "/splinter/landing/adv/producto"(platform: "/",  type: TrackType.Event) {
             category = "landings"
@@ -386,5 +670,12 @@ trackTests {
             label = "button_4_ver_mas"
         }
     }
-    
+
+    test("splinter landings - cl - portal inmobiliario") {
+        "/splinter/landing/cl/portal_inmobiliario"(platform: "/",  type: TrackType.Event) {
+            category = "landings"
+            action = "test-landings"
+            label = "button_4_ver_mas"
+        }
+    }
 }

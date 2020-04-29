@@ -243,6 +243,7 @@ catalog {
         include business, "cx.groovy"
         include business, "traffic.groovy"
         include business, "vip.groovy"
+        include business, "splinter.groovy"
     }
 
 }
