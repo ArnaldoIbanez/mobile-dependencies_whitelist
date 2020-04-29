@@ -240,43 +240,43 @@ metrics {
   }
 
   "discount_center.view_marketplace_from_home_mp"(description: "Counts a user access to the discount center from home mp") {
-    startWith {
-      experiment(regex("cdd/.*"))
-    }
+      startWith {
+        experiment(regex("cdd/.*"))
+      }
 
-    countsOn {
-      condition {
-        path(regex("/discount_center/payers/marketplace(/components)?"))
-        equals("platform.fragment.from", "/home_wallet/discount_center")
+      countsOn {
+        condition {
+          path(regex("/discount_center/payers/marketplace(/components)?"))
+          equals("platform.fragment.from", "/home_wallet/discount_center")
+        }
       }
     }
-  }
 
-  "discount_center.view_detail_from_home_mp"(description: "Counts a user access to the discount detail from home mp") {
-    startWith {
-      experiment(regex("cdd/.*"))
-    }
+    "discount_center.view_detail_from_home_mp"(description: "Counts a user access to the discount detail from home mp") {
+      startWith {
+        experiment(regex("cdd/.*"))
+      }
 
-    countsOn {
-      condition {
-        path("/discount_center/payers/detail")
-        equals("platform.fragment.from", "/home_wallet/discount_center")
+      countsOn {
+        condition {
+          path("/discount_center/payers/detail")
+          equals("platform.fragment.from", "/home_wallet/discount_center")
+        }
       }
     }
-  }
 
-  "discount_center.view_detail_from_marketplace"(description: "Counts a user access to the discount detail from the marketplace") {
-    startWith {
-      experiment(regex("cdd/.*"))
-    }
+    "discount_center.view_detail_from_marketplace"(description: "Counts a user access to the discount detail from the marketplace") {
+      startWith {
+        experiment(regex("cdd/.*"))
+      }
 
-    countsOn {
-      condition {
-        path("/discount_center/payers/detail")
-        equals("platform.fragment.from", "/discount_center_payers/list")
+      countsOn {
+        condition {
+          path("/discount_center/payers/detail")
+          equals("platform.fragment.from", "/discount_center_payers/list")
+        }
       }
     }
-  }
 
   "charge"(description: "Counts when a user makes a Charge in Wallet") {
     startWith {
