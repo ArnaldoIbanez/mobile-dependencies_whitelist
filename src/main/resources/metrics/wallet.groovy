@@ -239,6 +239,19 @@ metrics {
     }
   }
 
+"discount_center.view_marketplace_from_touchpoints"(description: "Counts a user access to the discount center from any touchpoint") {
+      startWith {
+        experiment(regex("cdd/.*"))
+      }
+
+      countsOn {
+        condition {
+          path(regex("/discount_center/payers/marketplace(/components)?"))
+          equals("platform.fragment.from", regex("/home_wallet/discount_center|/home_ml/discount_center|/loyalty/discount_center|/offers_ml/discount_center|/cho_on/congrats|/px/congrats"))
+        }
+      }
+    }
+
   "discount_center.view_marketplace_from_home_mp"(description: "Counts a user access to the discount center from home mp") {
       startWith {
         experiment(regex("cdd/.*"))
@@ -248,6 +261,19 @@ metrics {
         condition {
           path(regex("/discount_center/payers/marketplace(/components)?"))
           equals("platform.fragment.from", "/home_wallet/discount_center")
+        }
+      }
+    }
+
+    "discount_center.view_detail_from_touchpoints"(description: "Counts a user access to the discount detail from any touchpoint") {
+      startWith {
+        experiment(regex("cdd/.*"))
+      }
+
+      countsOn {
+        condition {
+          path("/discount_center/payers/detail")
+          equals("platform.fragment.from", regex("/home_wallet/discount_center|/home_ml/discount_center|/loyalty/discount_center|/offers_ml/discount_center|/cho_on/congrats|/px/congrats"))
         }
       }
     }
