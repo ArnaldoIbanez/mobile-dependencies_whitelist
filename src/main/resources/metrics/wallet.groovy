@@ -239,7 +239,7 @@ metrics {
     }
   }
 
-  "discount_center.home_mp"(description: "Counts a user access to the discount center from home mp") {
+  "discount_center.view_marketplace_from_home_mp"(description: "Counts a user access to the discount center from home mp") {
       startWith {
         experiment(regex("cdd/.*"))
       }
@@ -252,7 +252,7 @@ metrics {
       }
     }
 
-    "discount_center.home_mp_detail"(description: "Counts a user access to the discount detail from home mp") {
+    "discount_center.view_detail_from_home_mp"(description: "Counts a user access to the discount detail from home mp") {
       startWith {
         experiment(regex("cdd/.*"))
       }
@@ -261,6 +261,19 @@ metrics {
         condition {
           path("/discount_center/payers/detail")
           equals("platform.fragment.from", "/home_wallet/discount_center")
+        }
+      }
+    }
+
+    "discount_center.view_detail_from_marketplace"(description: "Counts a user access to the discount detail from the marketplace") {
+      startWith {
+        experiment(regex("cdd/.*"))
+      }
+
+      countsOn {
+        condition {
+          path("/discount_center/payers/detail")
+          equals("platform.fragment.from", "/discount_center_payers/list")
         }
       }
     }

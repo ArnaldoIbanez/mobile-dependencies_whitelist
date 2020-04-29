@@ -53,6 +53,7 @@
       }],
       "sql": {
         "script": "growth/hermes-v2.sql",
+        "engine": "spark",
         "parameters": [{
           "name": "param01",
           "value": "DAY-1",

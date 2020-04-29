@@ -53,7 +53,7 @@ tracks {
                 values: [
                         'NOT_DELEGATED', 'REGISTERED', 'CHECK_FOR_TOTAL_DELEGATION', 'CHECK_FOR_PARTIAL_DELEGATION',
                         'DELEGATION_OK', 'CERTIFICATE_OK', 'CERTIFICATE_ERROR', 'NAVIGATION_OK', 'NAVIGATION_ERROR',
-                        'ERROR', 'DELEGATION_ERROR', 'ACTIVE'
+                        'ERROR', 'DELEGATION_ERROR', 'ACTIVE', 'DELEGATION_CEASED'
                 ]
         )
         success(required: false, type: PropertyType.Boolean, description: "The request was fulfilled successfully")
@@ -421,6 +421,8 @@ tracks {
     "/mercado_shops/marketing/facebook/store/pixel_activation"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/facebook/store/pixel_activation/active"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/facebook/store/context_help"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/google"(platform: "/", type: TrackType.Event){}
 

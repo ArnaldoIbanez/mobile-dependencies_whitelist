@@ -115,6 +115,10 @@ tracks {
         //             description: "Indicates the implemented scoring, order and selection algorithms")
         page(required: true, type: PropertyType.Map(pageStructure), 
                     description: "Indicates pagination information like limit, offset and total")
+        origin(required: false, type: PropertyType.String, description: "The page section where the user interact")
+        filter_applied(required: false, type: PropertyType.String, description: "The current applied filter name")
+        filter_position(required: false, type: PropertyType.Numeric, description: "The current applied filter position")
+        selected_filters(required: true, type: PropertyType.Map, description: "The data of all applied filters")
     }
     
     propertyGroups {

@@ -38,6 +38,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "filter_position",
+        "type": "INTEGER"
+      },
+      {
         "name": "filter_origin",
         "type": "UNICODE_STRING"
       },

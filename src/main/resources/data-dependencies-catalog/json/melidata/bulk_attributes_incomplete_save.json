@@ -35,6 +35,7 @@
     ],
     "sql": {
       "script": "business-assurance/bulk_attributes_incomplete_save.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

@@ -18,6 +18,10 @@ tracks {
     
     "/wallet/cards/listing"(platform: "/mobile", type: TrackType.View) {}
 
+    "/wallet/cards/listing/error"(platform: "/mobile", type: TrackType.View) {
+        screen (required: true, type: PropertyType.String, description: "The screen that showed error")
+    }
+
     // Card detail
     "/wallet/cards/detail"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {}
     

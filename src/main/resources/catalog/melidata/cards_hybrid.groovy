@@ -1,6 +1,7 @@
-import com.ml.melidata.catalog.PropertyType
-import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
+
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 
 tracks {
@@ -17,6 +18,7 @@ tracks {
     "/cards/hybrid/request"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/request/virtual"(platform: "/", isAbstract: true) { }
     "/cards/acquisition"(platform: "/", isAbstract: true) { }
+    "/cards/engagement"(platform: "/", isAbstract: true) { }
 
     // SHIPPING
     // --------
@@ -193,7 +195,13 @@ tracks {
 
     // Acquisition Error
     // --------
-    "/cards/acquisition/error"(platform: "/", type: TrackType.Event) {
+    "/cards/acquisition/error"(platform: "/", type: TrackType.View) {
+        screen (required: true, type: PropertyType.String, description: "The screen that showed error")
+    }
+
+    // Dashboard Error
+    // --------
+    "/cards/engagement/error"(platform: "/", type: TrackType.View) {
         screen (required: true, type: PropertyType.String, description: "The screen that showed error")
     }
     

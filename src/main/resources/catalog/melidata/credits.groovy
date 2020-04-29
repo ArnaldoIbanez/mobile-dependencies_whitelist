@@ -75,4 +75,17 @@ tracks {
     /******************************************
      *   End: Consumers  Opensea Integrations
      ******************************************/
+
+    /******************************************
+     *    Start: Consumers Opensea Flow
+     ******************************************/
+
+    "/credits/consumer/opensea/start"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/consumer/opensea/congrats"(platform: "/mobile", type: TrackType.View){
+        result(description: "Current status of the IV/KyC application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+    }
+
+    /******************************************
+     *   End: Consumers Opensea Flow
+     ******************************************/
 }
