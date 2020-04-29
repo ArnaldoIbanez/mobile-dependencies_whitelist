@@ -135,25 +135,6 @@ metrics {
 		}
 	}
 
-	"bids.garex"(description: "/orders/ordercreated from feed (carrito included) from GAREX (extended warranty)", compute_order: true) {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				equals("event_data.has_garex", true)
-			}
-		}
-	}
-
-	"bids.sameItem.garex"(description: "/orders/ordercreated from feed (carrito included) from GAREX (extended warranty)", compute_order: true) {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				equals("event_data.has_garex", true)
-				equals("event_data.items.item.id", property("item_id"))
-			}
-		}
-	}
-
 	"mediations"(description: "/orders/ordercreated that had mediations.", compute_order: true) {
 		countsOn {
 			condition {
@@ -483,6 +464,24 @@ metrics {
 										equals("path","/purchases/purchasecreated")
 								)
 						)
+				)
+			}
+		}
+	}
+
+	"bids.with_garex"(description: "/orders/ordercreated that has a meli_warranty in internal tags meaning that garex has been purchased.", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				like(
+					externalCondition {
+						url("internal/orders/\$0")
+						replace("event_data.order_id")
+						method("get")
+						successfulCodes(200,206)
+						jsonPath("internal_tags")
+					},
+					"meli_warranty"
 				)
 			}
 		}

@@ -63,6 +63,7 @@ metrics {
 		}
 	}
 
+
 //	"checkout_congrats.payment_count"(description: "all orders by payment count (0mp vs 1mp vs 2mp)", compute_order: true) {
 //		startWith {
 //			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
@@ -181,7 +182,7 @@ metrics {
 //		}
 //	}
 
-	"checkout_congrats_with_garex"(description: "checkout orders with garex") {
+	"checkout_congrats.garex"(description: "checkout orders with item garexeable") {
 		startWith {
 			experiment(regex("insurtech/.*"))
 		}
@@ -192,6 +193,23 @@ metrics {
 				and(
 					equals("event_data.congrats_seq",1),
 					equals("event_data.item_with_garex", true)
+				)
+			}
+		}
+	}
+
+	"checkout_congrats.garex.selected"(description: "checkout orders with garex purchase") {
+		startWith {
+			experiment(regex("insurtech/.*"))
+		}
+		countsOn {
+			condition {
+				path("/checkout/congrats")
+
+				and(
+						equals("event_data.congrats_seq",1),
+						equals("event_data.item_with_garex", true),
+						empty("event_data.garex.id", false)
 				)
 			}
 		}
