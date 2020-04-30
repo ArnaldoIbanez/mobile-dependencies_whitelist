@@ -19,6 +19,8 @@ tracks {
     "/cards/hybrid/request/virtual"(platform: "/", isAbstract: true) { }
     "/cards/acquisition"(platform: "/", isAbstract: true) { }
     "/cards/engagement"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid-detail"(platform: "/", isAbstract: true) { }
+
 
     // SHIPPING
     // --------
