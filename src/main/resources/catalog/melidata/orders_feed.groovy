@@ -119,6 +119,7 @@ tracks {
         buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
         loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
         is_pdp(serverSide: true) // -> Lo completa Melidata automaticamente
+        orders(required: true, description: "orders associated to the purchase", PropertyType.ArrayList(PropertyType.String))
     }
 
 }
