@@ -376,6 +376,7 @@ tracks {
     // Errors
     "/single_player/prepaid/error"(platform: "/mobile", isAbstract: true) {}
 
+
     // Errors - Internal error
     "/single_player/prepaid/error/internal"(platform: "/mobile", type: TrackType.View) {}
 
@@ -399,7 +400,12 @@ tracks {
 
     "/single_player/prepaid/error/connection/retry"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/error/connection/back"(platform: "/mobile", type: TrackType.Event) {}
-
+    "/single_player/prepaid/error/connection/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    
+    // Errors - Timeout error
+    "/single_player/prepaid/error/timeout"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/error/timeout/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    
 
     // Shield
     "/single_player/prepaid/shield"(platform: "/mobile", type: TrackType.View) {}
