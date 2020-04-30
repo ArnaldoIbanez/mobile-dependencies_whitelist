@@ -1,0 +1,56 @@
+{
+  "users": [
+    "apparel_it@mercadolibre.com"
+  ],
+  "process_name": "melidata_data_loss",
+  "cron": "00 09 * * *",
+  "partition": {
+    "name": "track_date",
+    "type": "DATE",
+    "format": "yyyy-MM-dd"
+  },
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "order_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "bt_orders",
+        "type": "INTEGER"
+      },
+      {
+        "name": "orders",
+        "type": "INTEGER"
+      },
+      {
+        "name": "checkouts",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "apparel/apparel_carousel_ctr.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
