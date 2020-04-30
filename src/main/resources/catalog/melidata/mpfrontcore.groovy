@@ -124,4 +124,41 @@ tracks {
     "/mp_covid/congrats"(platform: "/", type: TrackType.View) {}
     "/mp_covid/donation"(platform: "/", type: TrackType.View) {}
     "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
+
+    /*************************
+    *        MP PUBLIC       *
+    *************************/
+    
+    /**
+     * Digital Wallet Screen Tracks
+     */
+
+    "/digital_wallet"(platform: "/", type: TrackType.View) {}
+
+    /**
+     * Digital Wallet Events Tracks
+     */
+
+    "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
+        section(required: true, description: "Section from which the event comes", type: PropertyType.String)
+    }
+
+    "/digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
+        section_store(required: true, description: "Section from which the event comes and Store (Google Play or App Store)", type: PropertyType.String)
+    }
+
+    /**
+     * Bsuiness Site Screen Tracks
+     */
+
+    "/business_site"(platform: "/", type: TrackType.View) {}
+
+    /**
+     * Business Site Events Tracks
+     */
+    "/business_site/click"(platform: "/", type: TrackType.Event) {
+        action(required: true, description: "What action user's do (shortcut, know_more, new_account)", type: PropertyType.String)
+        section(required: true, description: "Section where the event comes (physical, digital)", type: PropertyType.String)
+        item(required: false, description: "Item where the event comes (checkout, qr, point)", type: PropertyType.String)
+    }
 }
