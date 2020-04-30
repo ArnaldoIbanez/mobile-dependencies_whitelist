@@ -670,4 +670,11 @@ trackTests {
             action = "continue"
         }
     }
+
+    test ("Hybrid Setup") {
+        "/hybrid/detail" (platform: "/", type: TrackType.View) {}
+        "/cards/hybrid-detail/download-app" (platform: "/", type: TrackType.Event) {}
+        "cards/hybrid-detail/send-sms" (platform: "/", type: TrackType.Event) {}
+        "/cards/hybrid-detail/click-send-message" (platform: "/", type: TrackType.Event) {}
+    }
 }
