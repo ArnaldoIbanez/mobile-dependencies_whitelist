@@ -20,7 +20,7 @@ tracks {
     "/cards/acquisition"(platform: "/", isAbstract: true) { }
     "/cards/engagement"(platform: "/", isAbstract: true) { }
     "/cards/hybrid-detail"(platform: "/", isAbstract: true) { }
-    "/hybrid/detail"(platform: "/", isAbstract: true) { }
+    "/hybrid"(platform: "/", isAbstract: true) { }
     
 
 
