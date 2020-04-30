@@ -599,14 +599,14 @@ tracks {
     }
 
     // Hybrid Detail
-    "/hybrid/detail" (platform: "/", type: TrackType.View) {}
+    "/hybrid/detail" (platform: "/web/desktop", type: TrackType.View) {}
 
     // Hybrid downloadApp Event
-    "/cards/hybrid-detail/download-app" (platform: "/", type: TrackType.Event) {}
+    "/cards/hybrid-detail/download-app" (platform:"/web/desktop", type: TrackType.Event) {}
 
     // Hybrid sendSMS Event
-    "/cards/hybrid-detail/send-sms" (platform: "/", type: TrackType.Event) {}
+    "/cards/hybrid-detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {}
 
     // Hybrid clickSendMessage Event
-    "/cards/hybrid-detail/click-send-message" (platform: "/", type: TrackType.Event) {}
+    "/cards/hybrid-detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {}
 }
