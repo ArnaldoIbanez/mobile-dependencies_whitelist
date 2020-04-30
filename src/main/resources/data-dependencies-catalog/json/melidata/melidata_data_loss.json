@@ -1,9 +1,9 @@
 {
   "users": [
-    "apparel_it@mercadolibre.com"
+    "melidata_dev@mercadolibre.com"
   ],
   "process_name": "melidata_data_loss",
-  "cron": "00 09 * * *",
+  "cron": "00 05 * * *",
   "partition": {
     "name": "track_date",
     "type": "DATE",
@@ -42,12 +42,12 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-1",
+          "value": "DAY-2",
           "format": "yyyy-MM-dd"
         },
         {
           "name": "param02",
-          "value": "DAY-0",
+          "value": "DAY-1",
           "format": "yyyy-MM-dd"
         }
       ]
