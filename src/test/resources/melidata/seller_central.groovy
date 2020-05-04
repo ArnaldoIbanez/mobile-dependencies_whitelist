@@ -236,18 +236,18 @@ trackTests {
 
   test("Seller central summary pads show") {
     "/seller_central/summary/show_advertising"(platform: "/web", type: TrackType.View) {
-      placement = "publicidad-banner"
+      placement = "publicidad_banner"
       adv_segmentation = "winback"
-      reputation_level="yellow"
+      reputation_level="1_red"
       seller_experience = "ADVANCED"
     }
   }
 
   test("Seller central summary pads advertising click") {
     "/seller_central/summary/go_advertising"(platform: "/web", type: TrackType.Event) {
-      placement = "publicidad-banner"
+      placement = "publicidad_banner"
       adv_segmentation = "winback"
-      reputation_level="yellow"
+      reputation_level="1_red"
       seller_experience = "ADVANCED"
     }
   }

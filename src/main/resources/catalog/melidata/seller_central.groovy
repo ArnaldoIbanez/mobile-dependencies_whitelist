@@ -212,16 +212,16 @@ tracks {
     }
 
     "/seller_central/summary/show_advertising"(platform: "/web", type: TrackType.View) {
-        placement(required: false, description: "Place where track was dispatched")
+        placement(required: true, values: ["publicidad_modal", "publicidad_tooltip", "publicidad_tipbox", "publicidad_card", "publicidad_banner"], description: "Place where track was dispatched")
         adv_segmentation(required: false, description: "Advertisement segmentation ")
-        reputation_level(required: false, description: "Reputation for Pads")
+        reputation_level(required: false, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Reputation for Pads")
         seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
     }
 
     "/seller_central/summary/go_advertising"(platform: "/web", type: TrackType.Event) {
-        placement(required: false, description: "Place where track was dispatched")
+        placement(required: true, values: ["publicidad_modal", "publicidad_tooltip", "publicidad_tipbox", "publicidad_card", "publicidad_banner"], description: "Place where track was dispatched")
         adv_segmentation(required: false, description: "Advertisement segmentation ")
-        reputation_level(required: false, description: "Reputation for Pads")
+        reputation_level(required: false, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Reputation for Pads")
         seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
     }
 
