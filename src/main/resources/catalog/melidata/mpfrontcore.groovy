@@ -72,8 +72,20 @@ tracks {
     // MP Sellers Websites
     "/landing/sellers/websites"(platform: "/web"){}
 
+    // MP Sellers Websites Events
+    "/landing/sellers/websites/click" (platform: "/web", type: TrackType.Event){
+        event_id (type: PropertyType.String, required: true, description: "ID from clicked element")
+        event_label (type: PropertyType.String, required: true, description: "Element text")
+    }
+
     // MP Sellers Social
     "/landing/sellers/social"(platform: "/web"){}
+
+    // MP Sellers Social Events
+    "/landing/sellers/social/click" (platform: "/web", type: TrackType.Event){
+        event_id (type: PropertyType.String, required: true, description: "ID from clicked element")
+        event_label (type: PropertyType.String, required: true, description: "Element text")
+    }
 
     // MP Sellers Merchant Services
     "/landing/sellers/mss"(platform: "/"){
@@ -105,5 +117,48 @@ tracks {
 
     "/landing/formcomercial/send_email"(platform:"/", type: TrackType.Event) {
         email (type: PropertyType.String, required: true, description: "Email from user")
+    }
+
+    //MP Webview COVID
+    "/mp_covid"(platform: "/", type: TrackType.View) {}
+    "/mp_covid/congrats"(platform: "/", type: TrackType.View) {}
+    "/mp_covid/donation"(platform: "/", type: TrackType.View) {}
+    "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
+
+    /*************************
+    *        MP PUBLIC       *
+    *************************/
+    
+    /**
+     * Digital Wallet Screen Tracks
+     */
+
+    "/digital_wallet"(platform: "/", type: TrackType.View) {}
+
+    /**
+     * Digital Wallet Events Tracks
+     */
+
+    "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
+        section(required: true, description: "Section from which the event comes", type: PropertyType.String)
+    }
+
+    "/digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
+        section_store(required: true, description: "Section from which the event comes and Store (Google Play or App Store)", type: PropertyType.String)
+    }
+
+    /**
+     * Bsuiness Site Screen Tracks
+     */
+
+    "/business_site"(platform: "/", type: TrackType.View) {}
+
+    /**
+     * Business Site Events Tracks
+     */
+    "/business_site/click"(platform: "/", type: TrackType.Event) {
+        action(required: true, description: "What action user's do (shortcut, know_more, new_account)", type: PropertyType.String)
+        section(required: true, description: "Section where the event comes (physical, digital)", type: PropertyType.String)
+        item(required: false, description: "Item where the event comes (checkout, qr, point)", type: PropertyType.String)
     }
 }

@@ -431,6 +431,11 @@ tracks {
             type: PropertyType.String,
             required: false,
         )
+        loan_created_with_retry(
+                description: "Metric to track user who accept the credit in a second attempt",
+                type: PropertyType.Boolean,
+                required: false,
+        )
     }
 
     //Error
@@ -652,6 +657,14 @@ tracks {
             values: [
                 'on_time',
                 'overdue'
+            ]
+        )
+        offer(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'none',
+                'express_money'
             ]
         )
     }
@@ -878,4 +891,155 @@ tracks {
     /******************************************
      *   End: Personal Loans Adoption
      ******************************************/
+
+     /******************************************
+     *   Start: Consumer Admin Detail
+     ******************************************/
+    
+    "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {
+        dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+    }
+    "/credits/consumer/administrator/summary"(platform: "/", type: TrackType.View) {
+        summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
+    }
+
+    //Events
+    "/credits/consumer/administrator/payment_intention"(platform: "/", type: TrackType.Event) {
+        installment_status(
+                type: PropertyType.String,
+                required: true,
+                description: "Current status of clicked pay button",
+                values: [
+                        'on_time',
+                        'to_expire_soft',
+                        'to_expire_hard',
+                        'expired_today',
+                        'no_charge_period',
+                        'fixed_charge_period_1',
+                        'fixed_charge_period_2',
+                        'daily_charge_period'
+                ]
+        )
+        payment_intention(type: PropertyType.String, required: true, values: ['cho', 'ticket'])
+    }
+   
+    "/credits/consumer/administrator/summary/payment_intention"(platform: "/", type: TrackType.Event) {
+    }
+    "/credits/consumer/administrator/summary/cx_contact"(platform: "/", type: TrackType.Event) {
+    }
+    "/credits/consumer/administrator/summary/go_shopping"(platform: "/", type: TrackType.Event) {
+    }
+    "/credits/consumer/administrator/summary/get_help"(platform: "/", type: TrackType.Event) {
+        summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: false, values: ["empty_state", "on_time", "overdue"])
+    }
+    "/credits/consumer/administrator/summary/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
+        summary_status(description: "Current status of the loan summary", type: PropertyType.String, required: false, values: ["empty_state", "on_time", "overdue"])
+    }
+    "/credits/consumer/administrator/summary/get_educative"(platform: "/", type: TrackType.Event) {
+    }
+
+    //Admin Dashboard v2
+
+    //Page Views
+    "/credits/consumer/administrator_v2"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
+        dashboard_status(
+                            required: true,
+                            description: "Current status of the Dashboard", 
+                            type: PropertyType.String, 
+                            values: [ 
+                                        "empty_state", 
+                                        "on_time", 
+                                        "overdue"
+                                    ]
+                        )
+        personalLoanAccessShown(
+                required: false,
+                description: "Personal loan access type",
+                type: PropertyType.String,
+                values: [
+                        "row",
+                        "banner"
+                ]
+        )
+    }
+    "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
+        user_status(
+                            required: true,
+                            description: "Credit line's current status", 
+                            type: PropertyType.String, 
+                            values: [ 
+                                        "manually_paused"
+                                    ]
+                    )
+    }
+    
+    //Events
+    
+    //Mobile Events 
+    "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
+        installments_group
+        installments_qty(
+                type: PropertyType.Numeric,
+                description: "Tne number of the installments to pay",
+                required: true,
+                inheritable: false
+        )
+    }
+    "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_mp"(platform: "/mobile", type: TrackType.Event) {
+        has_mp(type: PropertyType.Boolean, required: true)
+    }
+    "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
+
+
+    /******************************************
+     *       End: Consumers Administrator
+     ******************************************/
+
+
+    /****************************************************
+     *       Start: Consumers Installment Selection Page
+     ****************************************************/
+
+    //Views
+    "/credits/consumer/administrator_v2/installment_selection"(platform: "/mobile", type: TrackType.View) {
+        page_status(type: PropertyType.String, required: true, values: ["empty_state","on_time", "overdue"])
+    }
+
+    //Events
+    "/credits/consumer/administrator_v2/installment_selection/payment_intention"(platform: "/", type: TrackType.Event) {
+        total_installments(
+                type: PropertyType.Numeric,
+                required: true,
+                description: "The total number of payable installments"
+        )
+        paid_installments(
+                type: PropertyType.Numeric,
+                required: true,
+                description: "The selected number of installments to pay"
+        )
+    }
+    "/credits/consumer/administrator_v2/installment_selection/secondary_payment_intention"(platform: "/", type: TrackType.Event) {
+        total_installments(
+                type: PropertyType.Numeric,
+                required: true,
+                description: "The total number of payable installments"
+        )
+    }
+    "/credits/consumer/administrator_v2/installment_selection/back_to_dashboard"(platform: "/", type: TrackType.Event) {
+    }
+
+    /****************************************************
+     *       End: Consumers Installment Selection Page
+     ****************************************************/
+
 }

@@ -55,51 +55,6 @@ trackTests {
          ******************************************/
 
         /***********************************************
-         *       Start: Consumers Integrated Flow
-         ***********************************************/
-        //Integrated Flow - Start
-
-        //Page view
-        "/credits/consumer/opensea/integrated_flow/start"(platform: "/web/desktop", type: TrackType.View) {
-            source = 'vip'
-        }
-        "/credits/consumer/opensea/integrated_flow/credit_line_status"(platform: "/web/desktop") {}
-
-        //Events
-        "/credits/consumer/opensea/integrated_flow/start/application_start"(platform: "/web/mobile", type: TrackType.Event) {
-            source = 'cho'
-        }
-        "/credits/consumer/opensea/integrated_flow/start/application_cancel"(platform: "/web/desktop", type: TrackType.Event) {
-            source = 'off'
-        }
-
-        //Integrated Flow - Congrats
-
-        //Page view
-        "/credits/consumer/opensea/integrated_flow/congrats"(platform: "/web/mobile", type: TrackType.View) {
-            result = 'manual_review'
-            source = 'cho'
-        }
-
-        //Events
-        "/credits/consumer/opensea/integrated_flow/congrats/buy_intention"(platform: "/web/desktop", type: TrackType.Event) {
-            result = 'manual_review'
-            source = 'vip'
-        }
-        "/credits/consumer/opensea/integrated_flow/congrats/back_to_publication"(platform: "/web/desktop", type: TrackType.Event) {
-            result = 'manual_review'
-            source = 'off'
-        }
-        "/credits/consumer/opensea/integrated_flow/congrats/back_to_site"(platform: "/web/desktop", type: TrackType.Event) {
-            result = 'approved'
-            source = 'off'
-        }
-
-        /*********************************************
-         *       End: Consumers Integrated Flow
-         *********************************************/
-
-        /***********************************************
          *       Start: Consumers Intermediate Landing
          ***********************************************/
         //Intermediate Landing
@@ -680,5 +635,39 @@ trackTests {
         /******************************************
          *   End: Consumers  Opensea Integrations
          ******************************************/
+
+        /******************************************
+        *    Start: Consumers Change Due Date FLow
+        ******************************************/
+        "/credits/consumer/duedate_selection"(platform: "/", type: TrackType.View) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+        }
+        
+        "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+        }
+        
+        "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+        }
+
+        "/credits/consumer/duedate_selection/success"(platform: "/", type: TrackType.View) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+            new_due_date = 15
+        }
+
+        "/credits/consumer/duedate_selection/cancel"(platform: "/", type: TrackType.Event) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+        }
+
+
+        /******************************************
+        *    End: Consumers Change Due Date FLow
+        ******************************************/
     }
 }

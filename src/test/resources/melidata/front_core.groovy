@@ -291,7 +291,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: false
                     ],
                     assets: [],
                     credits: [],
@@ -432,6 +433,10 @@ trackTests {
                     ordinal: 14,
                     content_type : 'complete'
             ]
+            ifpe_regulation= [
+                    ordinal: 15,
+                    content_type : 'complete'
+            ]
         }
     }
 
@@ -454,7 +459,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: true
                     ],
                     assets: [],
                     credits: [],
@@ -592,6 +598,10 @@ trackTests {
             ]
             bcra_regulation= [
                     ordinal: 14,
+                    content_type : 'complete'
+            ]
+            ifpe_regulation= [
+                    ordinal: 15,
                     content_type : 'complete'
             ]
         }
@@ -743,6 +753,11 @@ trackTests {
         "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
             group_ids = ["payer", "business", "seller", "favorites"]
             shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+        }
+
+        "/wallet_home/shortcuts_sheet/dismiss" (platform: "/mobile", type: TrackType.Event) {
+            from = "drag"
+            time_spent = 122
         }
     }
 
@@ -1053,7 +1068,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: true
                     ],
                     assets: [],
                     credits: [],
@@ -1211,7 +1227,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: false
                     ],
                     assets: [],
                     credits: [],
@@ -1495,6 +1512,11 @@ trackTests {
         "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
             group_ids = ["payer", "business", "seller", "favorites"]
             shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+        }
+
+        "/wallet_home/shortcuts_sheet/dismiss" (platform: "/mobile", type: TrackType.Event) {
+            from = "drag"
+            time_spent = 122
         }
     }
 

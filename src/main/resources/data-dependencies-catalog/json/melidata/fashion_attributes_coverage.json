@@ -30,6 +30,7 @@
       ],
       "sql": {
         "script": "business-assurance/fashion_attributes_coverage.sql",
+        "engine": "spark",
         "parameters": [
           {
             "name": "date",

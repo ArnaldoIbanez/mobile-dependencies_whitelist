@@ -228,6 +228,11 @@ trackTests {
         "/sell/list/category_navigation"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/catalog"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/catalog/decision"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/catalog/customize_marketplace_item_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/catalog/forced"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"
+            catalog_listing_forced_type = "open"}
+        "/sell/list/catalog/forced"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"
+            catalog_listing_forced_type = "closed"}
         "/sell/list/classifieds_reservation_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/color_selection"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/color_selection_review"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
@@ -403,6 +408,12 @@ trackTests {
         "/sell/list/draft/warranty_time_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/warranty_type"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
         "/sell/list/draft/warranty_type_review"(platform: "/mobile", type: TrackType.View) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/catalog/decision"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"}
+        "/sell/list/draft/catalog/forced"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"
+            catalog_listing_forced_type = "open"}
+        "/sell/list/draft/catalog/forced"(platform: "/mobile" ) {session_id = "214464778-list-d5e5a20b2935"
+            catalog_listing_forced_type = "closed"}
     }
 
     test("Native Sell Catalog Optin flow steps") {
@@ -1596,6 +1607,42 @@ trackTests {
         }
     }
 
+    test("SYI v4 confirm sip"){
+        "/sell/sip/confirm"(platform: "/web/mobile", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 render listing type show free"){
+        "/sell/item_conditions/listing_types/free"(platform: "/web", type: TrackType.View){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 listing type show free"){
+        "/sell/item_conditions/listing_types/free/show"(platform: "/web/mobile", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
+
     test("SYI v4 calculator showed"){
         "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
@@ -1975,8 +2022,19 @@ trackTests {
             size_errors = 0
         }
     }
-
-
+    test("SYI v4 pictures upload"){
+        "/sell/item_data/pictures/upload"(platform: "/web/mobile", type: TrackType.Event){
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-list-abc123"
+            seller_reputation = "green"
+            vertical = "motors"
+            item_type = "default"
+            quantity = 3
+        }
+    }
     test("SYI v4 phone confirm"){
         "/sell/item_conditions/seller_contact/phone/confirm"(platform: "/web/mobile", type: TrackType.Event){
             category_id = "MLA390784"

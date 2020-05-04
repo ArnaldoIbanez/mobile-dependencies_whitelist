@@ -62,13 +62,11 @@ catalog {
         include business, "authentication.groovy"
         include business, "bugsnag.groovy"
         include business, "cx.groovy"
-        include business, "cards_hybrid.groovy"
         include business, "identity_validation.groovy"
         include business, "remedies.groovy"
         include business, "melidata_sdk.groovy"
         include business, "registrations.groovy"
         include business, "chargebacks.groovy"
-        include business, "freeData.groovy"
         include business, "wallet.groovy"
         include business, "px.groovy"
         include business, "mobile_commons.groovy"
@@ -81,6 +79,7 @@ catalog {
         include business, "coupon.groovy"
         include business, "dynamic_stop_landing.groovy"
         include business, "payers_growth.groovy"
+        include business, "modals_engine.groovy"
         include business, "collaborators.groovy"
         include business, "loyalty_v2.groovy"
         include business, "credits.groovy"
@@ -104,7 +103,6 @@ catalog {
         include business, "credits_classifieds.groovy"
         include business, "moderations.groovy"
         include business, "email.groovy"
-        include business, "freeData.groovy"
         include business, "fulfillment.groovy"
         include business, "home.groovy"
         include business, "loyalty.groovy"
@@ -156,6 +154,10 @@ catalog {
         include business, "notifications.groovy"
         include business, "post_purchase.groovy"
         include business, "cdn_metrics.groovy"
+        include business, "splinter.groovy"
+        include business, "update_browser.groovy"
+        include business, "insurtech.groovy"
+        include business, "trends.groovy"
     }
 
     mercadopago.each { business ->
@@ -171,6 +173,7 @@ catalog {
         include business, "mercadopago_devsite.groovy"
         include business, "cards_cobranded.groovy"
         include business, "cards_prepaid.groovy"
+        include business, "cards_hybrid.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "asset_management.groovy"
         include business, "single_player.groovy"
@@ -240,6 +243,7 @@ catalog {
         include business, "cx.groovy"
         include business, "traffic.groovy"
         include business, "vip.groovy"
+        include business, "splinter.groovy"
     }
 
 }

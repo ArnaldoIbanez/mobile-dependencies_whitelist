@@ -59,6 +59,7 @@
     ],
     "sql": {
       "script": "mercadoshops/usage.sql",
+      "engine": "spark",
       "parameters": [{
         "name": "param01",
         "value": "DAY-1",

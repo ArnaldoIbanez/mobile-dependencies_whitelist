@@ -51,6 +51,7 @@
         ],
         "sql": {
             "script": "melidata/cdn_metrics.sql",
+            "engine": "spark",
             "parameters": [
                 {
                     "name": "dateFROM",
