@@ -499,7 +499,18 @@ trackTests {
         "/single_player/prepaid/error/connection/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
+        "/single_player/prepaid/error/connection/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
 
+        // Timeout error
+        "/single_player/prepaid/error/timeout"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+        }
+
+        "/single_player/prepaid/error/timeout/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
 
         // Shield
         "/single_player/prepaid/shield"(platform: "/mobile", type: TrackType.View) {
@@ -976,7 +987,18 @@ trackTests {
         "/single_player/prepaid/error/connection/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
         }
+        "/single_player/prepaid/error/connection/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+        }        
 
+        // Timeout error
+        "/single_player/prepaid/error/timeout"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+        }
+
+        "/single_player/prepaid/error/timeout/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+        }
 
         // Shield
         "/single_player/prepaid/shield"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
