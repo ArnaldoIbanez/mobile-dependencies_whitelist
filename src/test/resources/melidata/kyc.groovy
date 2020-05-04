@@ -134,6 +134,14 @@ trackTests {
             initiative = "credits"
             configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
             callback = "meli://home"
+            kyc_flow_id = "SessionID560232788"
+        }
+
+        "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
+            id = "user_identification"
+            initiative = "credits"
+            configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            callback = "meli://home"
         }
 
         "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
@@ -151,6 +159,14 @@ trackTests {
         "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
             id = "user_identification"
             initiative = "credits"
+        }
+
+        "/kyc/challenge"(platform: "/mobile", business: "mercadolibre") {
+            id = "user_identification"
+            initiative = "credits"
+            configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            callback = "meli://home"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge"(platform: "/mobile", business: "mercadolibre") {
