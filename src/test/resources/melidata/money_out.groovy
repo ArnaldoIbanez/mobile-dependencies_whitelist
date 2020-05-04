@@ -196,5 +196,10 @@ trackTests {
       "/money_out/transfers/home/scheduled_warning_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/scheduled_warning_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
 
+      //Transfer Hub - TED Campaign Modal
+      "/money_out/transfers/home/ted_campaign_modal"(platform:"/", type: TrackType.View){}
+      "/money_out/transfers/home/ted_campaign_modal/ted_button_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/ted_campaign_modal/withdraw_legacy_button_clicked"(platform: "/", type: TrackType.Event) {}
+
     }
 }
