@@ -57,12 +57,17 @@ tracks {
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
         vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         listing_type_id(required: false, description: "Item listing type id")
+        free_available(required: false, type: PropertyType.Boolean, description: "Listing type free available")
+
     }
 
     propertyGroups {
         sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical)
+        sellGroupMobile(seller_reputation, seller_segment, seller_profile, session_id, vertical)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
+        categoryFlowMobile(category_id, category_path, categorization_flow_successful, title_predicted)
         listingTypeFlow(listing_type_id)
+        listingTypeFlowMobile(listing_type_id, free_available)
     }
 
     // Sell
@@ -182,6 +187,12 @@ tracks {
     }
 
     // Apps
+    "/sell/list" (platform: "/mobile", isAbstract: true){
+        sellGroupMobile
+        listingTypeFlowMobile
+        session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
+        seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
+    }
     "/sell/list/drafts"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/drafts/draft_action"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile", type: TrackType.Event) {}
@@ -460,6 +471,13 @@ tracks {
     "/sell/update" (platform: "/", isAbstract: true){
         item_id(required: true, description: "Item id", type: PropertyType.String)
     }
+    "/sell/update" (platform: "/mobile", isAbstract: true){
+        sellGroupMobile
+        listingTypeFlowMobile
+        session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
+        seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
+    }
+
     "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/picture_uploader"(platform: "/", isAbstract: true){}
     "/sell/update/picture_uploader/delete"(platform: "/mobile", type: TrackType.Event){
@@ -621,6 +639,12 @@ tracks {
     "/sell/upgrade/"(platform: "/", isAbstract: true){
         item_id (required: true, type: PropertyType.String)
         session_id (required: false, type: PropertyType.String)
+    }
+    "/sell/upgrade/"(platform: "/mobile", isAbstract: true){
+        sellGroupMobile
+        listingTypeFlowMobile
+        session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
+        seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
     }
     "/sell/upgrade/listing_types"(platform: "/mobile", type: TrackType.View){}
     "/sell/upgrade/congrats"(platform: "/mobile", type: TrackType.View){}
