@@ -1041,10 +1041,10 @@ tracks {
     }
 
     "/seller_central/catalog/optin/other_product_problem"(platform: "/web", type: TrackType.View) {
-        attribute_id(required: false, type: PropertyType.String)
-        attribute_values(required: false, type: PropertyType.ArrayList)
-        categorization_flow_successful(required: false, type: PropertyType.Boolean)
-        list_mode(required: false, type: PropertyType.String)
+        attribute_id(required: false, type: PropertyType.String, description: "Attribute id")
+        attribute_values(required: false, type: PropertyType.ArrayList, description: "List of attributes")
+        categorization_flow_successful(required: false, type: PropertyType.Boolean, description: "Determine if the categorization flow was successful")
+        list_mode(required: false, type: PropertyType.String, description: "Flow name")
         sellerCentralCatalogOptinGroup
     }
 
