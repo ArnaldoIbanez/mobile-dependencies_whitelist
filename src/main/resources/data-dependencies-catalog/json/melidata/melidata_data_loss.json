@@ -25,6 +25,10 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "is_carrito",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "bt_orders",
         "type": "INTEGER"
       },
@@ -38,7 +42,7 @@
       }
     ],
     "sql": {
-      "script": "apparel/apparel_carousel_ctr.sql",
+      "script": "melidata/melidata_data_loss.sql",
       "parameters": [
         {
           "name": "param01",
