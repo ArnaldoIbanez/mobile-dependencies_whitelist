@@ -373,6 +373,45 @@ trackTests {
 
     }
 
+    test("Advertising Matching") {
+        "/advertising/pads2/manager/winbacks_onboarding/show"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "paused"
+            budget = "400"
+            step= 1
+        }
+        "/advertising/pads2/manager/winbacks_onboarding/CTA"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "paused"
+            budget = "400"
+            step= 3
+        }
+        "/advertising/pads2/manager/winbacks_onboarding/CTA_close"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "paused"
+            budget = "400"
+            step= 3
+        }
+        "/advertising/pads2/manager/winbacks_confirm"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "paused"
+            budget = "400"
+            new_budget = "600"
+        }
+        "/advertising/pads2/manager/winbacks_confirm/CTA"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "paused"
+            budget = "400"
+            new_budget = "600"
+        }
+        "/advertising/pads2/manager/winbacks_confirm/CTA_close"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "paused"
+            budget = "400"
+            new_budget = "600"
+        }
+    }
+
     test("Advertising manager Sort Filters") {
         "/advertising/pads2/manager/sort"(platform: "/web", type: TrackType.View) {
             campaign_id = "2222222"
