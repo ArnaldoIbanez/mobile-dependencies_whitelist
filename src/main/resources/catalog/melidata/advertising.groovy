@@ -240,26 +240,17 @@ tracks {
     }
 
     //Matching
-    "/advertising/pads2/manager/winbacks_onboarding"(platform: "/", isAbstract: true) {}
-
-    "/advertising/pads2/manager/winbacks_onboarding/show"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/winbacks_onboarding"(platform: "/web", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, description: "Current budget related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         step(required: true, type: PropertyType.Numeric , description: "Current modal step")
     }
 
-    "/advertising/pads2/manager/winbacks_onboarding/CTA"(platform: "/web", type: TrackType.Event) {
-        campaign_id(required: true, description: "Id related to the campaign")
-        budget(required: true, description: "Current budget related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        step(required: true, type: PropertyType.Numeric , description: "Current modal step")
+    "/advertising/pads2/manager/winbacks_onboarding/cta"(platform: "/web", type: TrackType.Event) {
     }
 
-    "/advertising/pads2/manager/winbacks_onboarding/CTA_close"(platform: "/web", type: TrackType.Event) {campaign_id(required: true, description: "Id related to the campaign")
-        budget(required: true, description: "Current budget related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        step(required: true, type: PropertyType.Numeric , description: "Current modal step")
+    "/advertising/pads2/manager/winbacks_onboarding/cta/close"(platform: "/web", type: TrackType.Event) {
     }
 
     "/advertising/pads2/manager/winbacks_confirm"(platform: "/web", type: TrackType.Event) {
@@ -269,18 +260,10 @@ tracks {
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
     }
 
-    "/advertising/pads2/manager/winbacks_confirm/CTA"(platform: "/web", type: TrackType.Event) {
-        campaign_id(required: true, description: "Id related to the campaign")
-        budget(required: true, description: "Current budget related to the campaign")
-        new_budget(required: true, description: "New budget assigned to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+    "/advertising/pads2/manager/winbacks_confirm/cta"(platform: "/web", type: TrackType.Event) {
     }
 
-    "/advertising/pads2/manager/winbacks_confirm/CTA_close"(platform: "/web", type: TrackType.Event) {
-        campaign_id(required: true, description: "Id related to the campaign")
-        budget(required: true, description: "Current budget related to the campaign")
-        new_budget(required: true, description: "New budget assigned to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+    "/advertising/pads2/manager/winbacks_confirm/cta/close"(platform: "/web", type: TrackType.Event) {
     }
 
     //Sorting
