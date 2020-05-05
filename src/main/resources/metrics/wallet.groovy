@@ -246,8 +246,18 @@ metrics {
 
       countsOn {
         condition {
-          path(regex("/discount_center/payers/marketplace(/components)?"))
-          equals("platform.fragment.from", regex("/home_wallet/discount_center|/home_ml/discount_center|/loyalty/discount_center|/offers_ml/discount_center|/cho_on/congrats|/px/congrats"))
+          or (
+              path("/discount_center/payers/marketplace"),
+              path("/discount_center/payers/marketplace/components")
+          )
+          or (
+              equals("platform.fragment.from", "/home_wallet/discount_center"),
+              equals("platform.fragment.from", "/home_ml/discount_center"),
+              equals("platform.fragment.from", "/loyalty/discount_center"),
+              equals("platform.fragment.from", "/offers_ml/discount_center"),
+              equals("platform.fragment.from", "/cho_on/congrats"),
+              equals("platform.fragment.from", "/px/congrats")
+          )
         }
       }
     }
@@ -273,7 +283,14 @@ metrics {
       countsOn {
         condition {
           path("/discount_center/payers/detail")
-          equals("platform.fragment.from", regex("/home_wallet/discount_center|/home_ml/discount_center|/loyalty/discount_center|/offers_ml/discount_center|/cho_on/congrats|/px/congrats"))
+          or(
+              equals("platform.fragment.from", "/home_wallet/discount_center"),
+              equals("platform.fragment.from", "/home_ml/discount_center"),
+              equals("platform.fragment.from", "/loyalty/discount_center"),
+              equals("platform.fragment.from", "/offers_ml/discount_center"),
+              equals("platform.fragment.from", "/cho_on/congrats"),
+              equals("platform.fragment.from", "/px/congrats")
+          )
         }
       }
     }
