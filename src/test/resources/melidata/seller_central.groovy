@@ -1873,10 +1873,8 @@ trackTests {
 
   test("seller central catalog optin other product problem page view") {
     "/seller_central/catalog/optin/other_product_problem"(platform: "/web", type: TrackType.View) {
-      list_mode = "OPTIN"
       reputation_level = "5_green"
       moderated = "true"
-      categorization_flow_successful = false
       children_catalog_products_ids = []
       has_variations = true
       original_catalog_product_id = "MLA7979515"
@@ -1888,8 +1886,6 @@ trackTests {
       domain_id = "MLA-CELLPHONES"
       category_id = "MLA1055"
       variation_id = 49478478975
-      attribute_id = null
-      attribute_values = []
       seller_profile = "INTERMEDIATE"
       invalid_product_cause = null
     }
