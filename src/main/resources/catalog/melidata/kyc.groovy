@@ -16,7 +16,7 @@ tracks {
         initiative (required: true, type: PropertyType.String, description: "The initiative")
         configuration_token (required: false, type: PropertyType.String, description: "The configuration token")
         callback (required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
-        kyc_flow_id (required: false, type: PropertyType.String, description: "The kyc flow identifier")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
     }
 
     // challenge life cyclev v2
