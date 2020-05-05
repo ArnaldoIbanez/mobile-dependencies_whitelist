@@ -277,4 +277,67 @@ metrics {
         }
       }
     }
+
+  "charge"(description: "Counts when a user makes a Charge in Wallet") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/pos_seller/congrats")
+      }
+    }
+  }
+
+  "charge.point"(description: "Counts when a user makes a Charge with Point") {
+      startWith {
+        experiment(regex("wallet/.*"))
+      }
+
+      countsOn {
+        condition {
+          path("/pos_seller/congrats")
+          equals("event_data.payment_channel", "point")
+        }
+      }
+  }
+
+  "charge.link"(description: "Counts when a user makes a Charge with Link") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/point_payment/link_share")
+      }
+    }
+  }
+
+  "charge.qr"(description: "Counts when a user makes a Charge with QR") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/pos_seller/congrats")
+        equals("event_data.payment_channel", "qr")
+      }
+    }
+  }
+
+  "charge.cash"(description: "Counts when a user makes a Charge with Cash") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/pos_seller/congrats")
+        equals("event_data.payment_channel", "cash")
+      }
+    }
+  }
 }
