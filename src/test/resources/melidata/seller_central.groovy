@@ -1851,7 +1851,7 @@ trackTests {
   }
 
   test("seller central catalog optin product problem confirm") {
-    "seller_central/catalog/optin/product_problem"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
       reputation_level = "5_green"
       moderated = false
       children_catalog_products_ids = []
@@ -1878,7 +1878,7 @@ trackTests {
       moderated = "true"
       categorization_flow_successful = false
       children_catalog_products_ids = []
-      has_variations:true
+      has_variations = true
       original_catalog_product_id = "MLA7979515"
       selected_catalog_product_id = null
       item_id = "MLA835425554"
@@ -1896,7 +1896,7 @@ trackTests {
   }
 
   test("seller central catalog optin other product problem") {
-    "/seller_central/catalog/optin/other_product_problem"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/catalog/optin/other_product_problem/product_problem_description_task/confirm"(platform: "/web", type: TrackType.Event) {
       reputation_level = "5_green"
       moderated = true
       children_catalog_products_ids = []
