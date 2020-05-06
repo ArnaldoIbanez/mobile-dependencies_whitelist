@@ -125,6 +125,8 @@ trackTests {
         }
         "/sell/relist/congrats"(platform: "/mobile"){
             item_id = "MLA12345"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
         }
     }
 
@@ -485,6 +487,8 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            categorization_flow_successful= true
+            title_predicted = "test"
         }
         "/sell/list/catalog/decision"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1692,52 +1696,79 @@ trackTests {
     }
 
     test("Native Sell Catalog Optin flow steps") {
-        "/sell/catalog_optin/init"(platform: "/mobile", type: TrackType.Event) { item_id = "MLA12341" }
+        "/sell/catalog_optin/init"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA12341"
+            seller_segment = ""
+            seller_profile = "NEWBIE"}
         "/sell/catalog_optin/on_boarding"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA12345"
             session_id = "214464778-list-d5e5a20b2935"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
         }
         "/sell/catalog_optin/confirmation_landing"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA12341"
             session_id = "214464778-list-d5e5a20b2935"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
         }
         "/sell/catalog_optin/variation_selection"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA12341"
             session_id = "214464778-list-d5e5a20b2935"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
         }
         "/sell/catalog_optin/product_detail"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA12341"
             session_id = "214464778-list-d5e5a20b2935"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
         }
         "/sell/catalog_optin/category_navigation"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA12341"
-            session_id = "214464778-list-d5e5a20b2935" }
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_segment = ""
+            seller_profile = "NEWBIE"}
         "/sell/catalog_optin/condition"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA12341"
             session_id = "214464778-list-d5e5a20b2935"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
         }
         "/sell/catalog_optin/warranty_type"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA12341"
             session_id = "214464778-list-d5e5a20b2935"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
         }
         "/sell/catalog_optin/warranty_time"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA12341"
-            session_id = "214464778-list-d5e5a20b2935" }
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_segment = ""
+            seller_profile = "NEWBIE"}
         "/sell/catalog_optin/invoice"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA12341"
             session_id = "214464778-list-d5e5a20b2935"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
         }
         "/sell/catalog_optin/congrats"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA12341"
             session_id = "214464778-list-d5e5a20b2935"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
         }
         "/sell/catalog_optin/congrats_invalid_product"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA12341"
             session_id = "214464778-list-d5e5a20b2935"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
         }
         "/sell/catalog_optin/color_selection_buybox"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA12341"
             session_id = "214464778-list-d5e5a20b2935"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
         }
     }
 
@@ -2288,14 +2319,42 @@ trackTests {
         }
     }
 
-    test("Mobile flow - complete technical specifications"){
-        "/sell/complete_technical_specifications/technical_specifications"(platform: "/mobile"){item_id = "MLA123456"}
-        "/sell/complete_technical_specifications/landing_finish_no_complete"(platform: "/mobile"){item_id = "MLA123456"}
-        "/sell/complete_technical_specifications/landing_continue"(platform: "/mobile"){item_id = "MLA123456"}
-        "/sell/complete_technical_specifications/landing_no_items"(platform: "/mobile"){item_id = "MLA123456"}
-        "/sell/complete_technical_specifications/congrats_finish"(platform: "/mobile"){item_id = "MLA123456"}
-        "/sell/complete_technical_specifications/landing_intro"(platform: "/mobile"){item_id = "MLA123456"}
-        "/sell/complete_technical_specifications/congrats_has_more"(platform: "/mobile"){item_id = "MLA123456"}
+    test("Mobile flow - complete technical specifications") {
+        "/sell/complete_technical_specifications/technical_specifications"(platform: "/mobile") {
+            item_id = "MLA123456"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+        }
+        "/sell/complete_technical_specifications/landing_finish_no_complete"(platform: "/mobile") {
+            item_id = "MLA123456"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+        }
+        "/sell/complete_technical_specifications/landing_continue"(platform: "/mobile") {
+            item_id = "MLA123456"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+        }
+        "/sell/complete_technical_specifications/landing_no_items"(platform: "/mobile") {
+            item_id = "MLA123456"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+        }
+        "/sell/complete_technical_specifications/congrats_finish"(platform: "/mobile") {
+            item_id = "MLA123456"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+        }
+        "/sell/complete_technical_specifications/landing_intro"(platform: "/mobile") {
+            item_id = "MLA123456"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+        }
+        "/sell/complete_technical_specifications/congrats_has_more"(platform: "/mobile") {
+            item_id = "MLA123456"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
