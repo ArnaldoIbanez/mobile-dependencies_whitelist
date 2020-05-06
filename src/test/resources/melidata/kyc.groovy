@@ -105,26 +105,31 @@ trackTests {
         "/kyc/challenge/start"(platform: "/mobile") {
             id = "pep"
             initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge/send"(platform: "/mobile") {
             id = "pep"
             initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge/success"(platform: "/mobile") {
             id = "pep"
             initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge/fail"(platform: "/mobile") {
             id = "pep"
             initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge/retry"(platform: "/mobile") {
             id = "pep"
             initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/profile"(platform: "/mobile") {}
@@ -142,23 +147,27 @@ trackTests {
             initiative = "credits"
             configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
             callback = "meli://home"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
             id = "user_identification"
             initiative = "credits"
             callback = "meli://home"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
             id = "user_identification"
             initiative = "credits"
             configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge"(platform: "/mobile", business: "mercadopago") {
             id = "user_identification"
             initiative = "credits"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge"(platform: "/mobile", business: "mercadolibre") {
@@ -174,23 +183,27 @@ trackTests {
             initiative = "credits"
             configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
             callback = "meli://home"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge"(platform: "/mobile", business: "mercadolibre") {
             id = "user_identification"
             initiative = "credits"
             callback = "meli://home"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge"(platform: "/mobile", business: "mercadolibre") {
             id = "user_identification"
             initiative = "credits"
             configuration_token = "a9477c99-ab2a-4653-a288-5726fafafa9f8"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge"(platform: "/mobile", business: "mercadolibre") {
             id = "user_identification"
             initiative = "credits"
+            kyc_flow_id = "SessionID560232788"
         }
 
         // Meli tests
@@ -278,26 +291,31 @@ trackTests {
         "/kyc/challenge/start"(platform: "/mobile", business: "mercadolibre") {
             id = "pep"
             initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge/send"(platform: "/mobile", business: "mercadolibre") {
             id = "pep"
             initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge/success"(platform: "/mobile", business: "mercadolibre") {
             id = "pep"
             initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge/fail"(platform: "/mobile", business: "mercadolibre") {
             id = "pep"
             initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/challenge/retry"(platform: "/mobile", business: "mercadolibre") {
             id = "pep"
             initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
         }
 
         "/kyc/profile"(platform: "/mobile", business: "mercadolibre") {}
