@@ -85,7 +85,16 @@ trackTests {
         // Strart flow
         "/single_player/prepaid/start_flow"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
-            method = "home"
+            method = "mp_home"
+        }
+        "/single_player/prepaid/start_flow"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            method = "mp_home"
+            extra_info = {
+                installed_applications = "[com.sube.cargasube]"
+                nfc_compatible = "[nfc_mifare]"
+                sim = "322008"
+            }
         }
 
 
@@ -503,6 +512,7 @@ trackTests {
             mandatory()
         }
 
+
         // Timeout error
         "/single_player/prepaid/error/timeout"(platform: "/mobile", type: TrackType.View) {
             mandatory()
@@ -511,6 +521,10 @@ trackTests {
         "/single_player/prepaid/error/timeout/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
+        "/single_player/prepaid/error/timeout/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
 
         // Shield
         "/single_player/prepaid/shield"(platform: "/mobile", type: TrackType.View) {
@@ -573,7 +587,16 @@ trackTests {
         // Strart flow
         "/single_player/prepaid/start_flow"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
-            method = "home"
+            method = "ml_home"
+        }
+        "/single_player/prepaid/start_flow"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            method = "ml_home"
+            extra_info = {
+                installed_applications = "[com.sube.cargasube]"
+                nfc_compatible = "[nfc_mifare]"
+                sim = "322018"
+            }
         }
 
 
@@ -991,6 +1014,7 @@ trackTests {
             mandatory()
         }        
 
+
         // Timeout error
         "/single_player/prepaid/error/timeout"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
@@ -999,6 +1023,10 @@ trackTests {
         "/single_player/prepaid/error/timeout/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
         }
+        "/single_player/prepaid/error/timeout/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+        }
+
 
         // Shield
         "/single_player/prepaid/shield"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
