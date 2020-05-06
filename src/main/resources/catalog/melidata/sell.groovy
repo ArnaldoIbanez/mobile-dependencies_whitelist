@@ -950,6 +950,12 @@ tracks {
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
     }
 
+    "/sell/presip"(platform: "/web", type: TrackType.View) {
+        sellGroup
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
+    }
+    "/sell/presip/review"(platform: "/web", type: TrackType.Event) {}
+    "/sell/presip/confirm"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/sip"(platform: "/web", type: TrackType.View) {
         sellGroup
