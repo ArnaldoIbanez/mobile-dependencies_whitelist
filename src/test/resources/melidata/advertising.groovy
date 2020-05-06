@@ -374,37 +374,37 @@ trackTests {
     }
 
     test("Advertising Matching") {
-        "/advertising/pads2/manager/winbacks_onboarding"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/winbacks/onboarding"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "paused"
             budget = "400"
             step= 1
         }
-        "/advertising/pads2/manager/winbacks_onboarding/cta"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/winbacks/onboarding/cta"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "paused"
             budget = "400"
             step= 3
         }
-        "/advertising/pads2/manager/winbacks_onboarding/cta/close"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/winbacks/onboarding/cta/close"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "paused"
             budget = "400"
             step= 3
         }
-        "/advertising/pads2/manager/winbacks_confirm"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/winbacks/confirmation"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "paused"
             budget = "400"
             new_budget = "600"
         }
-        "/advertising/pads2/manager/winbacks_confirm/cta"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/winbacks/confirmation/cta"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "paused"
             budget = "400"
             new_budget = "600"
         }
-        "/advertising/pads2/manager/winbacks_confirm/cta/close"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/winbacks/confirmation/cta/close"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "paused"
             budget = "400"
