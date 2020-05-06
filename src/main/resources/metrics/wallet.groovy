@@ -246,10 +246,7 @@ metrics {
 
       countsOn {
         condition {
-          or (
-              path("/discount_center/payers/marketplace"),
-              path("/discount_center/payers/marketplace/components")
-          )
+          path("/discount_center/payers/marketplace", "/discount_center/payers/marketplace/components")
           or (
               equals("platform.fragment.from", "/home_wallet/discount_center"),
               equals("platform.fragment.from", "/home_ml/discount_center"),
