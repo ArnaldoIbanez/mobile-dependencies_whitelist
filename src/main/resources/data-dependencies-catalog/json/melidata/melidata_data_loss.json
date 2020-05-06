@@ -13,10 +13,6 @@
     "operation": "append",
     "columns": [
       {
-        "name": "order_id",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "platform",
         "type": "UNICODE_STRING"
       },
@@ -29,15 +25,19 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "bt_orders",
-        "type": "INTEGER"
+        "name": "bt_orders_presence",
+        "type": "DOUBLE"
       },
       {
-        "name": "orders",
-        "type": "INTEGER"
+        "name": "entities_presence",
+        "type": "DOUBLE"
       },
       {
-        "name": "checkouts",
+        "name": "checkouts_presence",
+        "type": "DOUBLE"
+      },
+      {
+        "name": "total_entities",
         "type": "INTEGER"
       }
     ],
