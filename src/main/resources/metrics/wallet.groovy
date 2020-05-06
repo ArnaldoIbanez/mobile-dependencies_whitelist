@@ -285,7 +285,11 @@ metrics {
 
     countsOn {
       condition {
-        path("/pos_seller/congrats")
+        path("/pos_seller/end", 
+              "/point_payment/link_share", 
+              "/point_payment/qr_congrats", 
+              "/point_payment/qr_congrats_nofee", 
+              "/point_payment/cash/congrats")
       }
     }
   }
@@ -297,8 +301,7 @@ metrics {
 
       countsOn {
         condition {
-          path("/pos_seller/congrats")
-          equals("event_data.payment_channel", "point")
+          path("/pos_seller/end")
         }
       }
   }
@@ -319,11 +322,10 @@ metrics {
     startWith {
       experiment(regex("wallet/.*"))
     }
-
+    
     countsOn {
       condition {
-        path("/pos_seller/congrats")
-        equals("event_data.payment_channel", "qr")
+        path("/point_payment/qr_congrats", "/point_payment/qr_congrats_nofee")
       }
     }
   }
@@ -335,8 +337,7 @@ metrics {
 
     countsOn {
       condition {
-        path("/pos_seller/congrats")
-        equals("event_data.payment_channel", "cash")
+        path("/point_payment/cash/congrats")
       }
     }
   }
