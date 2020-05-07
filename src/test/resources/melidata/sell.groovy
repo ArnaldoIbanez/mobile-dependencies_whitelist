@@ -2007,6 +2007,20 @@ trackTests {
             item_type = "default"
         }
     }
+
+    test("SYI v4 pictures first intention to add"){
+        "/sell/item_data/pictures/add_intention"(platform: "/web/mobile", type: TrackType.Event){
+            category_id = "MLA390784"
+            category_path = ["MLA1", "MLA2", "MLA3"]
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-list-abc123"
+            seller_reputation = "green"
+            vertical = "motors"
+            item_type = "default"
+        }
+    }
+
     test("SYI v4 pictures intention to add more "){
         "/sell/item_data/pictures/add_more_intention"(platform: "/web/mobile", type: TrackType.Event){
             category_id = "MLA390784"
