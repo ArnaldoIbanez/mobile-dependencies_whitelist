@@ -718,6 +718,14 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - Subscription") {
+        "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://loyalty"
+            section_id="subscription"
+            component_id="cta"
+        }
+    }
+
     test("Mercadopago Home Tap v3 - Survey") {
         "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1205,6 +1213,12 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            subscription= [
+                    content_type : 'partial',
+                    ordinal: 14,
+                    level: 3,
+                    partner: "HBO"
+            ]
         }
     }
 
@@ -1364,6 +1378,12 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            subscription= [
+                    content_type : 'partial',
+                    ordinal: 14,
+                    level: 3,
+                    partner: "HBO"
+            ]
         }
     }
 
@@ -1475,6 +1495,14 @@ trackTests {
             component_id="user_loyalty"
             level=4
             percentage=0.32
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Subscription") {
+        "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://loyalty"
+            section_id="subscription"
+            component_id="cta"
         }
     }
 
