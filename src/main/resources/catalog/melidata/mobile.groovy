@@ -138,6 +138,8 @@ tracks {
     }
 
     //apprater
+    "/application/apprater"(platform:"/mobile", isAbstract:true) {}
+
     "/application/apprater/add_track"(platform: "/mobile") {
         type_track(required: true, type: PropertyType.String, description:"Type of track that happen in the app (PAYMENT_APPROVE,CRASHED,WITHDRAW,etc")
     }
