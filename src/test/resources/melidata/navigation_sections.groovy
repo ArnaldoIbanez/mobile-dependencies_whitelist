@@ -9,6 +9,9 @@ trackTests {
     test("Navigation Sections - Mercadolibre") {
 
         "/navigation_sections/navigation_menu_ml" (platform: "/mobile", type: TrackType.View) {}
+        "/navigation_sections/navigation_menu_mp/tap" (platform: "/mobile", type: TrackType.Event) {
+            id = "login"
+        }
     }
 
     defaultBusiness = "mercadopago"
