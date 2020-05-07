@@ -14,6 +14,13 @@ metrics {
         }
     }
 
+    "qadb_search"(description: "qadb searches perform by user ") {
+        countsOn {
+            condition {
+                path("/questions/qadb/search")
+            }
+        }
+    }	
 
     "questions.pdp"(description: "Track PDP questions") {
       	countsOn {
