@@ -58,6 +58,7 @@ tracks {
     // Start flow
     "/single_player/prepaid/start_flow"(platform: "/mobile", type: TrackType.Event) {
         method(required: true, PropertyType.String, description: "Specific way to start single player prepaid flow")
+        extra_info(required: false, description: "Extra information about the user and device.")
     }
 
 
@@ -376,7 +377,6 @@ tracks {
     // Errors
     "/single_player/prepaid/error"(platform: "/mobile", isAbstract: true) {}
 
-
     // Errors - Internal error
     "/single_player/prepaid/error/internal"(platform: "/mobile", type: TrackType.View) {}
 
@@ -402,9 +402,11 @@ tracks {
     "/single_player/prepaid/error/connection/back"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/error/connection/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
     
+
     // Errors - Timeout error
     "/single_player/prepaid/error/timeout"(platform: "/mobile", type: TrackType.View) {}
     "/single_player/prepaid/error/timeout/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/error/timeout/back"(platform: "/mobile", type: TrackType.Event) {}
     
 
     // Shield
