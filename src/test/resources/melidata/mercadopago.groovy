@@ -4163,4 +4163,5 @@ trackTests {
     test("About screen") {
         "/about/rate_app"(platform:"/mobile", type:TrackType.Event) {}
     }
+
 }
