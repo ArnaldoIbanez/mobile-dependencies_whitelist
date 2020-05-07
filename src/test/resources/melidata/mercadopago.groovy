@@ -4163,4 +4163,16 @@ trackTests {
     test("About screen") {
         "/about/rate_app"(platform:"/mobile", type:TrackType.Event) {}
     }
+
+    test("MercadoPago wallet apprater") {
+
+        "/apprater/add_track"(platform: "/mobile") {
+            identifier_track="CRASHED"
+        }
+        "/apprater/add_track"(platform: "/mobile") {
+            identifier_track="PAYMENT_APPROVED"
+        }
+        "/apprater/error_service_rules"(platform: "/mobile") {}
+        "/apprater/showing_popup"(platform: "/mobile") {}
+    }
 }
