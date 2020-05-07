@@ -57,16 +57,26 @@ tracks {
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
         vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         listing_type_id(required: false, description: "Item listing type id")
+        listing_type_free_available(required: false, type: PropertyType.Boolean, description: "Listing type free available")
+
     }
 
     propertyGroups {
         sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical)
+        sellGroupMobile( seller_segment, seller_profile, vertical)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
+        categoryFlowMobile(category_id, category_path)
         listingTypeFlow(listing_type_id)
+        listingTypeFlowMobile(listing_type_id, listing_type_free_available)
     }
 
     // Sell
     "/sell"(platform: "/", isAbstract: true) {}
+    "/sell"(platform: "/mobile", isAbstract: true) {
+        sellGroupMobile
+        listingTypeFlowMobile
+        seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
+    }
     "/sell/list"(platform: "/", isAbstract: true){
         session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
         classi_category_prediction_available(required: false, description: "this is an experiment on prediction step", type: PropertyType.Boolean)
@@ -182,6 +192,11 @@ tracks {
     }
 
     // Apps
+    "/sell/list" (platform: "/mobile", isAbstract: true){
+        categoryFlowMobile
+        categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
+        title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
+    }
     "/sell/list/drafts"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/drafts/draft_action"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile", type: TrackType.Event) {}
