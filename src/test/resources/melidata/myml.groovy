@@ -143,6 +143,33 @@ trackTests {
     }
 
     test("Optin flow") {
+        "/myml/invoices/optin"(platform: "/") {}
+        "/myml/invoices/optin/home"(platform: "/") {}
+        "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+
         "/myml/invoices/not-found"(platform: "/") {}
         "/myml/invoices/landing"(platform: "/") {}
         "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {
