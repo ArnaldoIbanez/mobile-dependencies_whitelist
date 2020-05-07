@@ -15,6 +15,10 @@ metrics {
     }
 
     "qadb_search"(description: "qadb searches perform by user ") {
+	startWith {
+     	   experiment(regex("qadb/.*"))
+	}    
+	    
         countsOn {
             condition {
                 path("/questions/qadb/search")
