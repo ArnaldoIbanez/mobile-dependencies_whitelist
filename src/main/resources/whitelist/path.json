@@ -32,8 +32,6 @@
     "/px_checkout/result/success",
     "/cards/acquisition/error",
     "/cards/engagement/error",
-    "/wallet/cards/listing/error",
-    "/apprater"
-    
+    "/wallet/cards/listing/error"
   ]
 }

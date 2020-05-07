@@ -60,6 +60,7 @@ tracks {
         execution_id (required: false, type: PropertyType.String, description: "The execution id")
     }
 
+
     "/permissions"(platform: "/mobile", isAbstract: true){}
     "/permissions/location"(platform: "/mobile", type: TrackType.View){
         context(required: "true", description: "Where are we requesting the permissions")
@@ -134,5 +135,14 @@ tracks {
         encodedUri(required: false, type: PropertyType.String, description: "Full encoded deeplink uri")
         segments(required: false, type: PropertyType.String, description: "All segments")
         query(required: false, type: PropertyType.String, description: "Full deeplink query")
+    }
+
+    //apprater
+    "/application/apprater/add_track"(platform: "/mobile") {
+        type_track(required: true, type: PropertyType.String, description:"Type of track that happen in the app (PAYMENT_APPROVE,CRASHED,WITHDRAW,etc)"
+    }
+    "/application/apprater/error_service_rules"(platform: "/mobile") {
+    }
+    "/application/apprater/popup"(platform: "/mobile") {
     }
 }

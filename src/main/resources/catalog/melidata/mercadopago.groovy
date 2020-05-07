@@ -497,13 +497,4 @@ tracks {
     "/about"(platform: "/mobile", isAbstract: true) {}
     "/about/rate_app"(platform:"/mobile", type:TrackType.Event, initiative: "1074") {}
 
-    //apprater
-    "/apprater/add_track"(platform: "/mobile") {
-        identifier_track(required: true, type: PropertyType.String)
-    }
-     "/apprater/error_service_rules"(platform: "/mobile") {
-    }
-    "/apprater/showing_popup"(platform: "/mobile") {
-    }
-
 }
