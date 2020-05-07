@@ -919,6 +919,7 @@ tracks {
 
     "/sell/item_data/pictures"(platform: "/web", type: TrackType.View) {}
     "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/add_intention"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/pictures/add_more_intention"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/pictures/delete"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/pictures/suggestions_modal_show"(platform: "/web", type: TrackType.Event) {}
