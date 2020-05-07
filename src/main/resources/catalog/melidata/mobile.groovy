@@ -139,7 +139,7 @@ tracks {
 
     //apprater
     "/application/apprater/add_track"(platform: "/mobile") {
-        type_track(required: true, type: PropertyType.String, description:"Type of track that happen in the app (PAYMENT_APPROVE,CRASHED,WITHDRAW,etc)"
+        type_track(required: true, type: PropertyType.String, description:"Type of track that happen in the app (PAYMENT_APPROVE,CRASHED,WITHDRAW,etc")
     }
     "/application/apprater/error_service_rules"(platform: "/mobile") {
     }
