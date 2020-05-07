@@ -239,6 +239,35 @@ tracks {
 
     }
 
+    //Matching
+    "/advertising/pads2/manager/winbacks"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/manager/winbacks/onboarding"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, description: "Current budget related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        step(required: true, type: PropertyType.Numeric , description: "Current modal step")
+    }
+
+    "/advertising/pads2/manager/winbacks/onboarding/cta"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/advertising/pads2/manager/winbacks/onboarding/cta/close"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/advertising/pads2/manager/winbacks/confirmation"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, description: "Current budget related to the campaign")
+        new_budget(required: true, description: "New budget assigned to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+
+    "/advertising/pads2/manager/winbacks/confirmation/cta"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/advertising/pads2/manager/winbacks/confirmation/cta/close"(platform: "/web", type: TrackType.Event) {
+    }
+
     //Sorting
     "/advertising/pads2/manager/sort"(
         platform: "/web",
