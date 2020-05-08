@@ -709,6 +709,31 @@ tracks {
         campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
+    "/myml/invoices/optin"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+
+    // Tracking click - if seller profile needs go to previous page
+    "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+
+    // Tracking click - if seller profile needs help
+    "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+
+    // Tracking click -  if seller profile needs change yours data
+    "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+
+    // Tracking click - if seller profile accept use biller (facturador)
+    "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+
     //not found
     "/myml/invoices/not-found"(platform: "/") {}
 
