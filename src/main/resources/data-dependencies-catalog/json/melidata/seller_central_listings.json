@@ -36,6 +36,7 @@
     ],
     "sql": {
       "script": "seller_central/seller_central_listings.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
