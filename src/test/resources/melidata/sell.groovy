@@ -1770,6 +1770,12 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
         }
+        "/sell/catalog_optin/attributes_confirmation"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA12341"
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+        }
     }
 
     test("Custom color name changed - Update"){
