@@ -710,7 +710,9 @@ tracks {
     }
 
     "/myml/invoices/optin"(platform: "/", isAbstract: true) {}
-    "/myml/invoices/optin/home"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
 
     // Tracking click - if seller profile needs go to previous page
     "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {

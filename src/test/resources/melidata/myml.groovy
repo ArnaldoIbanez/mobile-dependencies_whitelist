@@ -144,7 +144,12 @@ trackTests {
 
     test("Optin flow") {
         "/myml/invoices/optin"(platform: "/") {}
-        "/myml/invoices/optin/home"(platform: "/") {}
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+            seller_type = "PJ"
+        }
         "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
             seller_type = "PF"
         }
