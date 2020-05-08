@@ -1,6 +1,6 @@
 select device.platform,
 application.site_id,
-count(distinct usr.user_id) as qty_users,
+approx_count_distinct(usr.user_id) as qty_users,
 substr(ds, 1, 10)
 from tracks
 where ds >= '@param01' and ds < '@param02'
