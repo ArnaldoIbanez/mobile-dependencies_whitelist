@@ -2,7 +2,7 @@ SELECT
     device.platform AS platform,
     application.site_id AS site_id,application.version as version,
     component,
-    count(distinct `user`.`uid`) as Usuarios,
+    approx_count_distinct(`user`.`uid`) as Usuarios,
     count(`user`.`uid`) as Impressions,
     substr(ds,1,10) as ds
 FROM default.component_prints_parquet
@@ -19,7 +19,7 @@ SELECT
     device.platform AS platform,
     application.site_id AS site_id,application.version as version,
     component,
-    count(distinct `user`.`uid`) as Usuarios,
+    approx_count_distinct(`user`.`uid`) as Usuarios,
     count(`user`.`uid`) as Impressions,
     substr(ds,1,10) as ds
 FROM default.component_prints_parquet
@@ -36,7 +36,7 @@ SELECT
     device.platform AS platform,
     application.site_id AS site_id,application.version as version,
     component,
-    count(distinct `user`.`uid`) as Usuarios,
+    approx_count_distinct(`user`.`uid`) as Usuarios,
     count(`user`.`uid`) as Impressions,
     substr(ds,1,10) as ds
 FROM default.component_prints_parquet
@@ -53,7 +53,7 @@ SELECT
     device.platform AS platform,
     application.site_id AS site_id,application.version as version,
     component,
-    count(distinct `user`.`uid`) as Usuarios,
+    approx_count_distinct(`user`.`uid`) as Usuarios,
     count(`user`.`uid`) as Impressions,
     substr(ds,1,10) as ds
 FROM default.component_prints_parquet
@@ -70,7 +70,7 @@ SELECT
     device.platform AS platform,
     application.site_id AS site_id,application.version as version,
     component,
-    count(distinct `user`.`uid`) as Usuarios,
+    approx_count_distinct(`user`.`uid`) as Usuarios,
     count(`user`.`uid`) as Impressions,
     substr(ds,1,10) as ds
 FROM default.component_prints_parquet
@@ -87,7 +87,7 @@ SELECT
     device.platform AS platform,
     application.site_id AS site_id,application.version as version,
     component,
-    count(distinct `user`.`uid`) as Usuarios,
+    approx_count_distinct(`user`.`uid`) as Usuarios,
     count(`user`.`uid`) as Impressions,
     substr(ds,1,10) as ds
 FROM default.component_prints_parquet
@@ -104,7 +104,7 @@ SELECT
     device.platform AS platform,
     application.site_id AS site_id,application.version as version,
     component,
-    count(distinct `user`.`uid`) as Usuarios,
+    approx_count_distinct(`user`.`uid`) as Usuarios,
     count(`user`.`uid`) as Impressions,
     substr(ds,1,10) as ds
 FROM default.component_prints_parquet
@@ -121,7 +121,7 @@ SELECT
     device.platform AS platform,
     application.site_id AS site_id,application.version as version,
     component,
-    count(distinct `user`.`uid`) as Usuarios,
+    approx_count_distinct(`user`.`uid`) as Usuarios,
     count(`user`.`uid`) as Impressions,
     substr(ds,1,10) as ds
 FROM default.component_prints_parquet
@@ -138,7 +138,7 @@ SELECT
     device.platform AS platform,
     application.site_id AS site_id,application.version as version,
     component,
-    count(distinct `user`.`uid`) as Usuarios,
+    approx_count_distinct(`user`.`uid`) as Usuarios,
     count(`user`.`uid`) as Impressions,
     substr(ds,1,10) as ds
 FROM default.component_prints_parquet
