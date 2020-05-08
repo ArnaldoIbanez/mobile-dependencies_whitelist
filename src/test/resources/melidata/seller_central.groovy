@@ -1737,6 +1737,14 @@ trackTests {
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
   }
 
+  test("upload invoices view secondary actions") {
+    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", type: TrackType.Event) {}
+  }
+
+  test("upload invoices view") {
+    "/seller_central/sales/fiscal_document"(platform: "/web", type: TrackType.View) {}
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Catalog Optin
   //------------------------------------------------------------------------------------------------------------------------------------------------------
