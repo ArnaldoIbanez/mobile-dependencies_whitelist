@@ -57,16 +57,26 @@ tracks {
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
         vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         listing_type_id(required: false, description: "Item listing type id")
+        listing_type_free_available(required: false, type: PropertyType.Boolean, description: "Listing type free available")
+
     }
 
     propertyGroups {
         sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical)
+        sellGroupMobile( seller_segment, seller_profile, vertical)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
+        categoryFlowMobile(category_id, category_path)
         listingTypeFlow(listing_type_id)
+        listingTypeFlowMobile(listing_type_id, listing_type_free_available)
     }
 
     // Sell
     "/sell"(platform: "/", isAbstract: true) {}
+    "/sell"(platform: "/mobile", isAbstract: true) {
+        sellGroupMobile
+        listingTypeFlowMobile
+        seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
+    }
     "/sell/list"(platform: "/", isAbstract: true){
         session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
         classi_category_prediction_available(required: false, description: "this is an experiment on prediction step", type: PropertyType.Boolean)
@@ -182,6 +192,11 @@ tracks {
     }
 
     // Apps
+    "/sell/list" (platform: "/mobile", isAbstract: true){
+        categoryFlowMobile
+        categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
+        title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
+    }
     "/sell/list/drafts"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/drafts/draft_action"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile", type: TrackType.Event) {}
@@ -835,6 +850,8 @@ tracks {
         has_free(required: true, type: PropertyType.Boolean)
     }
     "/sell/item_conditions/listing_types/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/listing_types/free"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/listing_types/free/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/free_shipping"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/free_shipping/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/free_shipping/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -902,6 +919,7 @@ tracks {
 
     "/sell/item_data/pictures"(platform: "/web", type: TrackType.View) {}
     "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/add_intention"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/pictures/add_more_intention"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/pictures/delete"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/pictures/suggestions_modal_show"(platform: "/web", type: TrackType.Event) {}
@@ -909,6 +927,9 @@ tracks {
         limit_errors(required: true, description: "The quantity of pictures uploaded was exceeded", type: PropertyType.Boolean)
         format_errors(required: true, description: "How many files didn't match the allowed format", type: PropertyType.Numeric)
         size_errors(required: true, description: "How many files didn't match the minimum size", type: PropertyType.Numeric)
+    }
+    "/sell/item_data/pictures/upload"(platform: "/web", type: TrackType.Event) {
+        quantity(required: true, description: "The quantity of pictures uploaded successfully", type: PropertyType.Numeric)
     }
 
     "/sell/item_conditions/seller_contact/phone"(platform: "/web", type: TrackType.View) {}
@@ -945,6 +966,12 @@ tracks {
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
     }
 
+    "/sell/presip"(platform: "/web", type: TrackType.View) {
+        sellGroup
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
+    }
+    "/sell/presip/review"(platform: "/web", type: TrackType.Event) {}
+    "/sell/presip/confirm"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/sip"(platform: "/web", type: TrackType.View) {
         sellGroup
@@ -975,6 +1002,7 @@ tracks {
     "/sell/catalog_optin/congrats"(platform: "/mobile", type: TrackType.View) {}
     "/sell/catalog_optin/congrats_invalid_product"(platform: "/mobile", type: TrackType.View) {}
     "/sell/catalog_optin/color_selection_buybox"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/attributes_confirmation"(platform: "/mobile", type: TrackType.View) {}
 
     "/sell/variation_selection"(platform: "/web", isAbstract: true) {
         sellGroup

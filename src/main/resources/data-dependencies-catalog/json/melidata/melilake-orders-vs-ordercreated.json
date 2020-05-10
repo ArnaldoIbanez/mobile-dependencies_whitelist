@@ -4,7 +4,7 @@
     "melidata_dev@mercadolibre.com"
   ],
   "process_name": "melilake_orders_vs_ordercreated",
-  "cron": "00 13 * * *",
+  "cron": "00 18 * * *",
   "partition": {
     "name": "date_created",
     "type": "DATE"
@@ -27,6 +27,7 @@
     ],
     "sql": {
       "script": "melidata/melilake-orders-vs-ordercreated.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

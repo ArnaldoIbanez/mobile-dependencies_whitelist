@@ -30,6 +30,15 @@ trackTests {
             failed = false
         }
 
+        "/questions/ask/post"(platform: "/mobile") {
+            item_id = "MLA12345"
+            context = "/vip"
+            question_id = "12346"
+            failed = true
+			error = 403
+			error_cause = "Question quota exceeded for the day"
+        }
+
         "/questions/answer/post"(platform: "/mobile") {
             context = "/questions"
             item_id = "MLA12345"

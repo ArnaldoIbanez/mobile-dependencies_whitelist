@@ -66,12 +66,14 @@ tracks {
         purchase_id(required: false, type: PropertyType.Numeric, description: "The id of the purchase selected")
         pack_id(required: false, type: PropertyType.Numeric, description: "The id of the pack selected")
         order_id(required: false, type: PropertyType.Numeric, description: "The id of the order selected")
+        label(required:false, type: PropertyType.String, description: "The action that was tracked")
 
     }
 
     propertyGroups {
         mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer, render_buy_it_again)
         newPurchasesGroup(items, payments, shipping, seller, buyer, checkout_flow, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id)
+        newPurchasesEventGroup(label, x_mc_request_id)
     }
 
     // ---------------- Sales
@@ -209,16 +211,72 @@ tracks {
 
     "/myml/purchases/seller"(platform:"/", type: TrackType.View) {}
     
+    // ---------------- Purchases status
+
     "/myml/purchases/status"(platform:"/", type: TrackType.View) {
         newPurchasesGroup
     }
 
-    "/myml/purchases/items"(platform:"/", type: TrackType.View) {
-        newPurchasesGroup
+    "/myml/purchases/status/items"(platform:"/", type: TrackType.View) {}
+
+    "/myml/purchases/status/instructions"(platform:"/", type: TrackType.View) {}
+
+    "/myml/purchases/status/messages"(platform:"/", type: TrackType.View) {}
+
+    "/myml/purchases/status/cancel_purchase"(platform:"/", type: TrackType.View) {}
+
+    "/myml/purchases/status/return_purchase"(platform:"/", type: TrackType.View) {}
+
+    "/myml/purchases/status/show_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
     }
 
-    "/myml/purchases/instructions"(platform:"/", type: TrackType.View) {
-        newPurchasesGroup
+    "/myml/purchases/status/show_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/show_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/click_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/click_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/click_contact_us"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/items/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/instructions/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/instructions/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/purchases/status/messages/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
     }
 
     "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
@@ -649,6 +707,31 @@ tracks {
         url(required: false, type:  PropertyType.String, description: "Url to redirect after response")
         campaign(required: false, type: PropertyType.String, description: "Campaign description")
         campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
+    }
+
+    "/myml/invoices/optin"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+
+    // Tracking click - if seller profile needs go to previous page
+    "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+
+    // Tracking click - if seller profile needs help
+    "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+
+    // Tracking click -  if seller profile needs change yours data
+    "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+
+    // Tracking click - if seller profile accept use biller (facturador)
+    "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
     }
 
     //not found

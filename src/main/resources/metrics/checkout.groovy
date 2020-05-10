@@ -63,6 +63,7 @@ metrics {
 		}
 	}
 
+
 //	"checkout_congrats.payment_count"(description: "all orders by payment count (0mp vs 1mp vs 2mp)", compute_order: true) {
 //		startWith {
 //			experiment(regex("(mlinsights/.*|buyingflow/.*)"))
@@ -181,18 +182,57 @@ metrics {
 //		}
 //	}
 
-	"checkout_congrats_with_garex"(description: "orders_with_garex", sum_by: ["event_data.total_amount_including_garex"]) {
+	"checkout_congrats.garex"(description: "checkout orders with item garexeable") {
 		startWith {
-			experiment("buyingflow/garex_mlm")
+			experiment(regex("insurtech/.*"))
 		}
-
 		countsOn {
 			condition {
+				path("/checkout/congrats")
+
+				and(
+					equals("event_data.congrats_seq",1),
+					equals("event_data.item_with_garex", true)
+				)
+			}
+		}
+	}
+
+	"checkout_congrats.garex.selected"(description: "checkout orders with garex purchase") {
+		startWith {
+			experiment(regex("insurtech/.*"))
+		}
+		countsOn {
+			condition {
+				path("/checkout/congrats")
+
 				and(
 						equals("event_data.congrats_seq",1),
-						empty("event_data.total_amount_including_garex", false),
-						equals("event_data.item_with_garex", true)
+						equals("event_data.item_with_garex", true),
+						empty("event_data.garex.id", false)
 				)
+			}
+		}
+	}
+
+	"checkout.selected_garex"(description: "checkout on insurtech experiments with selected garex on it") {
+		startWith {
+			experiment(regex("insurtech/.*"))
+		}
+		countsOn {
+			condition {
+				path("/garex/checkout/selected_garex")
+			}
+		}
+	}
+
+	"checkout.not_selected_garex"(description: "checkout on insurtech experiments without garex on it") {
+		startWith {
+			experiment(regex("insurtech/.*"))
+		}
+		countsOn {
+			condition {
+				path("/garex/checkout/not_selected_garex")
 			}
 		}
 	}

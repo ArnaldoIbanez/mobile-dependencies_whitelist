@@ -114,6 +114,9 @@ trackTests {
             free_storage = 6291456
             app_storage = 307200
             dark_mode_status = "enabled"
+            battery_save_mode = "disabled"
+            data_save_mode = "whitelisted"
+            do_not_disturb_mode = "disabled"
         }
     }
 
@@ -131,5 +134,31 @@ trackTests {
 
     test("Choose Country settings") {
         "/settings/country"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Security Tracks") {
+        "/devices/websec/deeplinks_data"(platform:"/mobile/android") {
+            from = "com.mercadolibre.android"
+            destination = "MainActivity"
+            scheme = "meli"
+            encodedUri = "mercadolibre.com"
+            segments = "webkit"
+            query = "url=https://www.mercadolibre.com.ar/"
+        }
+    }
+
+    test("MercadoPago wallet apprater") {
+
+        "/application/apprater/add_track"(platform: "/mobile") {
+            type_track="CRASHED"
+        }
+        "/application/apprater/add_track"(platform: "/mobile") {
+            type_track="PAYMENT_APPROVED"
+        }
+        "/application/apprater/add_track"(platform: "/mobile") {
+            type_track="WITHDRAW"
+        }
+        "/application/apprater/error_service_rules"(platform: "/mobile") {}
+        "/application/apprater/popup"(platform: "/mobile") {}
     }
 }

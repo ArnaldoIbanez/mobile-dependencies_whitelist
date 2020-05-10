@@ -234,6 +234,24 @@ trackTests {
     }
   }
 
+  test("Seller central summary pads show") {
+    "/seller_central/summary/show_advertising"(platform: "/web", type: TrackType.View) {
+      placement = "publicidad_banner"
+      adv_segmentation = "winback"
+      reputation_level="1_red"
+      seller_experience = "ADVANCED"
+    }
+  }
+
+  test("Seller central summary pads advertising click") {
+    "/seller_central/summary/go_advertising"(platform: "/web", type: TrackType.Event) {
+      placement = "publicidad_banner"
+      adv_segmentation = "winback"
+      reputation_level="1_red"
+      seller_experience = "ADVANCED"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -656,7 +674,7 @@ trackTests {
         [id: "BRAND", value_id: "206", value_name: "Samsung"]
       ]
       attributes_after_update = [
-        [id: "BRAND", value_id: "206", value_name: "Samsung"], 
+        [id: "BRAND", value_id: "206", value_name: "Samsung"],
         [id: "MODEL", value_id: "32902", value_name: "Galaxy"]
       ]
     }
@@ -672,7 +690,7 @@ trackTests {
         [id: "BRAND", value_id: null, value_name: "Samsung"]
       ]
       attributes_after_update = [
-        [id: "BRAND", value_id: null, value_name: null], 
+        [id: "BRAND", value_id: null, value_name: null],
         [id: "MODEL", value_id: "32902", value_name: "Galaxy"],
         [id: "COLOR", value_id: "32902", value_name: "Galaxy", variation_id: 23437248239]
       ]
@@ -1719,6 +1737,14 @@ trackTests {
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
   }
 
+  test("upload invoices view secondary actions") {
+    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", type: TrackType.Event) {}
+  }
+
+  test("upload invoices view") {
+    "/seller_central/sales/fiscal_document"(platform: "/web", type: TrackType.View) {}
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Catalog Optin
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1803,6 +1829,112 @@ trackTests {
       invalid_product_cause = "INVALID_CARRIER"
       task_id = "product_picker"
       to = "MLA1074"
+    }
+  }
+
+  test("seller central catalog optin Click on any primary action button") {
+    "/seller_central/catalog/optin/congrats/redirect"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      children_catalog_products_ids = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      task_id = "button"
+      to = "https://www.mercadolibre.com.ar/publicaciones/MLA850809023/modificar/387581743-update-4339aff8b69c/product_detail"
+      from = "congrats_page"
+    }
+  }
+
+  test("seller central catalog optin Click on any secondary action link") {
+    "/seller_central/catalog/optin/congrats/redirect"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      children_catalog_products_ids = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      task_id = "link"
+      to = "https://www.mercadolibre.com.ar/publicaciones/listado?filters=BUYBOX_STATUS"
+      from = "congrats_page"
+    }
+  }
+
+  test("seller central catalog optin product problem confirm") {
+    "/seller_central/catalog/optin/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      children_catalog_products_ids = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
+    }
+  }
+
+  test("seller central catalog optin other product problem page view") {
+    "/seller_central/catalog/optin/other_product_problem"(platform: "/web", type: TrackType.View) {
+      reputation_level = "5_green"
+      moderated = "true"
+      children_catalog_products_ids = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-39de2f6b6b49"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin other product problem") {
+    "/seller_central/catalog/optin/other_product_problem/product_problem_description_task/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = true
+      children_catalog_products_ids = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = false
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      product_problem_reason = "text"
     }
   }
 

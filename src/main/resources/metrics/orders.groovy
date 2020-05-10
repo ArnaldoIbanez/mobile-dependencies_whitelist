@@ -353,6 +353,28 @@ metrics {
 			}
 		}
 	}
+	
+	"bids.sameProduct.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation and in the same product of experiement", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and ( 
+					equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"paid"
+					),
+				equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
+				)	
+			}
+		}
+	}
+
 
 	"bids.sameProductQuick"(description: "/orders/ordercreated from feed", compute_order: true, ttl: 30) {
 		countsOn {
@@ -464,6 +486,24 @@ metrics {
 										equals("path","/purchases/purchasecreated")
 								)
 						)
+				)
+			}
+		}
+	}
+
+	"bids.with_garex"(description: "/orders/ordercreated that has a meli_warranty in internal tags meaning that garex has been purchased.", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				like(
+					externalCondition {
+						url("internal/orders/\$0")
+						replace("event_data.order_id")
+						method("get")
+						successfulCodes(200,206)
+						jsonPath("internal_tags")
+					},
+					"meli_warranty"
 				)
 			}
 		}

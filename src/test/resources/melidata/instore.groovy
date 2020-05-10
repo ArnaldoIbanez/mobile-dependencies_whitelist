@@ -1313,11 +1313,11 @@ trackTests {
             view_time_in_millis = 140
         }
 
-        "/instore/buyer_qr/cvv/save_esc"(platform: "/mobile", type: TrackType.Event) {
+        "/instore/buyer_qr/save_esc"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
-        "/instore/buyer_qr/cvv/delete_esc"(platform: "/mobile", type: TrackType.Event) {
+        "/instore/buyer_qr/delete_esc"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             from = "lease"
         }
@@ -2583,11 +2583,11 @@ trackTests {
             view_time_in_millis = 140
         }
 
-        "/instore/buyer_qr/cvv/save_esc"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+        "/instore/buyer_qr/save_esc"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
-        "/instore/buyer_qr/cvv/delete_esc"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+        "/instore/buyer_qr/delete_esc"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             from = "lease"
         }

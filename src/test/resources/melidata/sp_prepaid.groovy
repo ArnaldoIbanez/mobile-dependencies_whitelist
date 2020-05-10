@@ -71,6 +71,12 @@ trackTests {
             }
         }
 
+        def item_structure = {
+            item_id = 11
+            type = "item8"
+            content = ["Movistar"]
+        }
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Mercado Pago
@@ -79,7 +85,16 @@ trackTests {
         // Strart flow
         "/single_player/prepaid/start_flow"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
-            method = "home"
+            method = "mp_home"
+        }
+        "/single_player/prepaid/start_flow"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            method = "mp_home"
+            extra_info = {
+                installed_applications = "[com.sube.cargasube]"
+                nfc_compatible = "[nfc_mifare]"
+                sim = "322008"
+            }
         }
 
 
@@ -156,11 +171,20 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/product_list/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/product_list/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
 
 
         // Recommended products
         "/single_player/prepaid/recommended_products"(platform: "/mobile", type: TrackType.View) {
             mandatory()
+            notification_panel()
             available_items()
         }
 
@@ -175,6 +199,14 @@ trackTests {
             item_1()
         }
         "/single_player/prepaid/recommended_products/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/recommended_products/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/recommended_products/understood_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -262,12 +294,21 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/one_device/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/one_device/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
 
 
         // Multiple devices
         "/single_player/prepaid/multiple_devices"(platform: "/mobile", type: TrackType.View) {
             mandatory()
             quantity = 3
+            notification_panel()
             available_items()
         }
 
@@ -282,6 +323,38 @@ trackTests {
         }
         "/single_player/prepaid/multiple_devices/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/multiple_devices/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/multiple_devices/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
+        // Company
+        "/single_player/prepaid/companies"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+            available_items()
+        }
+        "/single_player/prepaid/companies/selected_company"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+            item_structure()
+        }
+        "/single_player/prepaid/companies/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/companies/more_information"(platform: "/mobile",  type: TrackType.Event) {
+            mandatory()        
+            view_time()
+        }
+        "/single_player/prepaid/companies/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory() 
             view_time()
         }
 
@@ -435,6 +508,22 @@ trackTests {
         "/single_player/prepaid/error/connection/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
+        "/single_player/prepaid/error/connection/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+
+        // Timeout error
+        "/single_player/prepaid/error/timeout"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+        }
+
+        "/single_player/prepaid/error/timeout/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+        "/single_player/prepaid/error/timeout/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
 
 
         // Shield
@@ -498,7 +587,16 @@ trackTests {
         // Strart flow
         "/single_player/prepaid/start_flow"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
-            method = "home"
+            method = "ml_home"
+        }
+        "/single_player/prepaid/start_flow"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            method = "ml_home"
+            extra_info = {
+                installed_applications = "[com.sube.cargasube]"
+                nfc_compatible = "[nfc_mifare]"
+                sim = "322018"
+            }
         }
 
 
@@ -573,11 +671,20 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/product_list/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/product_list/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
 
 
         // Recommended products
         "/single_player/prepaid/recommended_products"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
+            notification_panel()
             available_items()
         }
 
@@ -592,6 +699,14 @@ trackTests {
             item_2()
         }
         "/single_player/prepaid/recommended_products/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/recommended_products/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/recommended_products/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -680,12 +795,21 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/one_device/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/one_device/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
 
 
         // Multiple devices
         "/single_player/prepaid/multiple_devices"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
             quantity = 3
+            notification_panel()
             available_items()
         }
 
@@ -700,6 +824,38 @@ trackTests {
         }
         "/single_player/prepaid/multiple_devices/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/multiple_devices/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/multiple_devices/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+
+        // Company
+        "/single_player/prepaid/companies"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+            available_items()
+        }
+        "/single_player/prepaid/companies/selected_company"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+            item_structure()
+        }
+        "/single_player/prepaid/companies/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/companies/more_information"(platform: "/mobile", business: "mercadolibre",  type: TrackType.Event) {
+            mandatory()        
+            view_time()
+        }
+        "/single_player/prepaid/companies/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory() 
             view_time()
         }
 
@@ -852,6 +1008,22 @@ trackTests {
             mandatory()
         }
         "/single_player/prepaid/error/connection/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+        }
+        "/single_player/prepaid/error/connection/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+        }        
+
+
+        // Timeout error
+        "/single_player/prepaid/error/timeout"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+        }
+
+        "/single_player/prepaid/error/timeout/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+        }
+        "/single_player/prepaid/error/timeout/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
         }
 

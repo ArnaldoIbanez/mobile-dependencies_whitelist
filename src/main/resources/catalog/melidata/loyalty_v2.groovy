@@ -118,9 +118,37 @@ tracks {
     }
 
     "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.Event) {
-        type(required: true, description: "Action type", values: ["close", "back", "button"], type: PropertyType.String)
+        type(required: true, description: "Action type", values: ["close", "back", "action", "tyc"], type: PropertyType.String)
         label(required: false, description: "Action pressed label", type: PropertyType.String)
         deeplink(required: false, description: "Action link to go", type: PropertyType.String)
+    }
+
+
+    // Loyalty Subscription Login
+    "/loyalty/partners/login"(platform: "/", type: TrackType.View) {
+        partner(required: false, description: "Partner name", type: PropertyType.String)
+    }
+
+    "/loyalty/partners/login/action"(platform: "/", type: TrackType.Event) {}
+
+
+    "/loyalty/partners/login/verify"(platform: "/", type: TrackType.View) {}
+
+    "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event) {
+        type(required: true, description: "Action type", values: ["notification", "email", "another"], type: PropertyType.String)
+    }
+
+
+    "/loyalty/partners/login/code"(platform: "/", type: TrackType.View) {
+        viewType(required: false, description: "View type", values: ["email", "notification"], type: PropertyType.String)
+    }
+
+    "/loyalty/partners/login/code/action"(platform: "/", type: TrackType.Event) {
+        type(required: true, description: "Action type", values: ["verify", "resend", "another"], type: PropertyType.String)
+    }
+
+    "/loyalty/partners/login/verified"(platform: "/", type: TrackType.Event) {
+        url(required: false, description: "Url to go", type: PropertyType.String)
     }
 
 }

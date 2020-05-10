@@ -45,6 +45,7 @@
     ],
     "sql": {
       "script": "cpg/attribution_cpg_2.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

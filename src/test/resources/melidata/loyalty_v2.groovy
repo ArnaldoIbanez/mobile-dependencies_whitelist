@@ -313,7 +313,7 @@ trackTests {
             payment_status_detail = "contingency"
             is_free_trial = "false"
             discount = 0
-            type = "close"
+            type = "tyc"
         }
 
         "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business:"mercadopago") {
@@ -324,10 +324,62 @@ trackTests {
             payment_status_detail = "manual"
             is_free_trial = "false"
             discount = 0
-            type = "button"
+            type = "action"
             label = "Ir a HBO"
             deeplink = "meli://loyalty"
         }
+
+    }
+
+    test("Loyalty Subscription Login") {
+
+        "/loyalty/partners/login"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            partner = "HBO"
+        }
+
+        "/loyalty/partners/login"(platform: "/", type: TrackType.View, business:"mercadopago") {}
+
+
+		"/loyalty/partners/login/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+		"/loyalty/partners/login/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+
+
+	    "/loyalty/partners/login/verify"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            partner = "HBO"
+        }
+
+	    "/loyalty/partners/login/verify"(platform: "/", type: TrackType.View, business:"mercadopago") {}
+
+	    "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+	        type = "notification"
+	    }
+
+	    "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+	        type = "email"
+	    }
+
+
+	    "/loyalty/partners/login/code"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+	        viewType = "email"
+	    }
+
+	    "/loyalty/partners/login/code"(platform: "/", type: TrackType.View, business:"mercadopago") {
+	        viewType = "notification"
+	    }
+
+	    "/loyalty/partners/login/code/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+	        type = "verify"
+	    }
+
+	    "/loyalty/partners/login/code/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+	        type = "resend"
+	    }
+
+	    "/loyalty/partners/login/verified"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+	        url = "meli://loyalty"
+	    }
+
+	    "/loyalty/partners/login/verified"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
 
     }
 

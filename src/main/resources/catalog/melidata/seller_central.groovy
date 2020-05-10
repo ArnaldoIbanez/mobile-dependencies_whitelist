@@ -124,6 +124,8 @@ tracks {
         input_price(type: PropertyType.String, required: true)
         input_prime_price(type: PropertyType.String, required: false)
         type(type: PropertyType.String, required: true)
+        involvedStock(type: PropertyType.Numeric, required: false)
+        criteria(type: PropertyType.String, required: false)
     }
 
     def attributes_values_map = objectSchemaDefinitions {
@@ -150,6 +152,8 @@ tracks {
         attribute(required: true, type: PropertyType.String, description: "Id of the attribute")
         reputation_level(required: false, type: PropertyType.String, description: "user reputation level")
         item_type(required: true, type: PropertyType.String, description: "product: A PDP item, default: A normal item, associated_products: A item which has at least 1 variation that is associated  with a product", values: ["product", "default", "associated_products"])
+        domain_id(required: false, type: PropertyType.String, description: "Category domain id")
+        moderated(required: false, type: PropertyType.Boolean, description: "Determine if the item is moderated")
 
         comparison_table(required: false, type: PropertyType.Map(comparisonTable), description: "Information about the winner and the original item")
         competition_status(required: false, type: PropertyType.String, description: "The actual buy box status of the item")
@@ -194,7 +198,7 @@ tracks {
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
         hintsGroup(type, attribute)
 
-        sellerCentralCatalogOptinGroup(item_id, session_id, category_id, category_path, category_domain, original_catalog_product_id, variation_id, has_variations_already_opt_in, children_catalog_products_ids, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause)
+        sellerCentralCatalogOptinGroup(item_id, session_id, category_id, category_path, category_domain, domain_id, moderated, original_catalog_product_id, variation_id, has_variations_already_opt_in, children_catalog_products_ids, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause)
         sellerCentralCatalogOptinTaskGroup(task_id, to, from)
 
         sellerCentralCatalogBoostGroup(item_attributes, catalog_product_attributes, item_title, catalog_product_title)
@@ -208,6 +212,20 @@ tracks {
     // La idea es saber como fue la ejecución de cada módulo
     "/seller_central/summary/modules_render"(platform: "/web", type: TrackType.Event) {
         modules(required: true, type: PropertyType.ArrayList(PropertyType.Map(summaryModule)), description: "Array of modules")
+        seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
+    }
+
+    "/seller_central/summary/show_advertising"(platform: "/web", type: TrackType.View) {
+        placement(required: true, values: ["publicidad_modal", "publicidad_tooltip", "publicidad_tipbox", "publicidad_card", "publicidad_banner"], description: "Place where track was dispatched")
+        adv_segmentation(required: false, description: "Advertisement segmentation ")
+        reputation_level(required: false, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Reputation for Pads")
+        seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
+    }
+
+    "/seller_central/summary/go_advertising"(platform: "/web", type: TrackType.Event) {
+        placement(required: true, values: ["publicidad_modal", "publicidad_tooltip", "publicidad_tipbox", "publicidad_card", "publicidad_banner"], description: "Place where track was dispatched")
+        adv_segmentation(required: false, description: "Advertisement segmentation ")
+        reputation_level(required: false, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Reputation for Pads")
         seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
     }
 
@@ -236,7 +254,7 @@ tracks {
     }
 
 
-    "/seller_central/listings/hunting"(platform: "/", isAbstract: true) {        
+    "/seller_central/listings/hunting"(platform: "/", isAbstract: true) {
         view_id(required:true, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
@@ -1003,6 +1021,10 @@ tracks {
     "/seller_central/sales/detail/cancellation/reason_selection"(platform: "/mobile", type: TrackType.View) {}
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
 
+    "/seller_central/sales/fiscal_document/action"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
+    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
+    "/seller_central/sales/fiscal_document"(platform: "/web", isAbstract: true, type: TrackType.View) {}
+
     // CATALOG OPTIN SECTION
 
     "/seller_central/catalog"(platform: "/web", isAbstract: true) {}
@@ -1024,6 +1046,29 @@ tracks {
         sellerCentralCatalogOptinTaskGroup
     }
 
+    "/seller_central/catalog/optin/congrats/redirect"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        sellerCentralCatalogOptinTaskGroup
+    }
+
+    "/seller_central/catalog/optin/product_problem"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/optin/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+        reason(required: true, type: PropertyType.String, description: "Reason of problem with the product", values: ["PRODUCT_ERRORS", "KIT", "OTHER"])
+        sellerCentralCatalogOptinGroup
+    }
+
+    "/seller_central/catalog/optin/other_product_problem"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroup
+    }
+
+    "/seller_central/catalog/optin/other_product_problem/product_problem_description_task"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/optin/other_product_problem/product_problem_description_task/confirm"(platform: "/web", type: TrackType.Event) {
+        product_problem_reason(required: true, type: PropertyType.String, description: "Reason of other problem with the product")
+        sellerCentralCatalogOptinGroup
+    }
+
     "/seller_central/promotions"(platform: "/web", type: TrackType.View) {
         original_promotion(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original promotion data")
     }
@@ -1037,8 +1082,9 @@ tracks {
     // ADD NEW PATHS FOR SELLER PROMOTIONS FORM
     // To be compatible with the actuals paths.
     "/seller_central/promotions/list"(platform: "/web", type: TrackType.View) {
-        original_promotion(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original promotion data")
-        context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT"])
+        original_promotion(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original price_discount promotion data")
+        original_lightning(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original lightning promotion data")
+        context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "CREATE_LIGHTNING"])
     }
 
     "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event) {
