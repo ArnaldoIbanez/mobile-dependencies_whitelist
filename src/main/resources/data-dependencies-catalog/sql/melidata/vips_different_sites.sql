@@ -8,5 +8,5 @@ and bu = 'mercadolibre'
 and site <> substr(jest(event_data,'item_id'),1,3)
 and path = '/vip'
 group by device.platform,
-application.site_id,
+site,
 substr(ds, 1, 10)
