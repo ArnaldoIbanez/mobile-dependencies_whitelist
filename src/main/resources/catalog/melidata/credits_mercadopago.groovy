@@ -585,20 +585,6 @@ tracks {
         )
     }
 
-    //Summary event
-    "/credits/merchant/enrollment/summary/accept_loan_action"(platform: "/mobile", type: TrackType.Event) {
-        action(
-                description: "Event action that we need to track",
-                type: PropertyType.String,
-                required: true,
-        )
-        label(
-                description: "Tag that identify the button",
-                type: PropertyType.String,
-                required: true,
-        )
-    }
-
     //Summary
     "/credits/merchant/enrollment/summary"(platform: "/", type: TrackType.View) {
         product_type(
@@ -630,6 +616,20 @@ tracks {
             description: "Credit line maximum allowed option",
             type: PropertyType.Numeric,
             required: true,
+        )
+    }
+
+    //Summary event
+    "/credits/merchant/enrollment/summary/accept_loan_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        action(
+                description: "Event action that we need to track",
+                type: PropertyType.String,
+                required: true,
+        )
+        label(
+                description: "Tag that identify the button",
+                type: PropertyType.String,
+                required: true,
         )
     }
 
