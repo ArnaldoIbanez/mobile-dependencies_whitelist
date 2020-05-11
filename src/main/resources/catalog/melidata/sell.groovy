@@ -528,6 +528,8 @@ tracks {
     "/sell/update/shipping/flex"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/shipping/flex/free_shipping_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping/flex/optin"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping/flex/optin/date_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping/flex/optin/comunication"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping/flex_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_mandatory_landing"(platform: "/mobile", type: TrackType.View) {}
