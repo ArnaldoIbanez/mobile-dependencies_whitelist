@@ -212,8 +212,8 @@ trackTests {
     "/seller_central/listings/quantity/info"(platform: "/", type: TrackType.Event) {}
   }
 
-  test("Seller central banner go and hide") {
-    "/seller_central/listings/go"(platform: "/", type: TrackType.View) {
+  test("Seller central banner go, hide, show") {
+    "/seller_central/listings/go"(platform: "/", type: TrackType.Event) {
       placement = "publicidad_banner"
     }
     "/seller_central/listings/hide"(platform: "/", type: TrackType.Event) {

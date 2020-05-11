@@ -352,7 +352,7 @@ tracks {
         view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
     }
 
-    "/seller_central/listings/hide"(platform: "/", type: TrackType.View) {
+    "/seller_central/listings/hide"(platform: "/", type: TrackType.Event) {
         placement(required: true, description: "Place where track was dispatched")
         adv_segmentation(required: false, description: "Advertasement segmentation ")
         reputation_level(required: false, description: "Reputation for Pads")
