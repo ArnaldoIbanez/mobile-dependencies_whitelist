@@ -619,7 +619,7 @@ tracks {
         )
     }
 
-    "/credits/merchant/enrollment/summary/accept_loan_action"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/enrollment/summary/accept_loan_action"(platform: "/mobile", type: TrackType.Event) {
         action(
                 description: "Event action that we need to track",
                 type: PropertyType.String,
