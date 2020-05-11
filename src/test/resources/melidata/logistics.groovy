@@ -365,17 +365,72 @@ trackTests {
     }
 
     test("Testing Logistics First Mile") {
+        "/logistics/first_mile/list"(platform: "/mobile", type: TrackType.View) {
+            route_id = "123"
+            first_mile_logistic_type = "FF"
+            pickups_status = [
+                [
+                    id: "1",
+                    status: "pending"
+                ],
+                [
+                    id: "2",
+                    status: "finished"
+                ]
+            ]
+        }
+        "/logistics/first_mile/scanner"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            first_mile_logistic_type = "FF"
+            route_id = "125"
+            driver_id = "123"
+        }
+        "/logistics/first_mile/scanner/modal_invalid_packages"(platform: "/mobile", type: TrackType.View) {
+            first_mile_logistic_type = "FF"
+            route_id = "125"
+            driver_id = "123"
+            packages = ["1", "2", "3"]
+        }
         "/logistics/first_mile/scanner/modal_back"(platform: "/mobile", type: TrackType.View) {
+            first_mile_logistic_type = "FF"
             packs_amount = 1
         }
         "/logistics/first_mile/scanner/modal_back/back"(platform: "/mobile", type: TrackType.Event) {
-            packs_amount = 2
+            first_mile_logistic_type = "FF"
         }
         "/logistics/first_mile/scanner/modal_back/cancel"(platform: "/mobile", type: TrackType.Event) {
-            packs_amount = 3
+            first_mile_logistic_type = "FF"
         }
-        "/logistics/last_mile/profile"(platform: "/mobile", type: TrackType.View){
+        "/logistics/first_mile/scanner/modal_keyboard_input/open"(platform: "/mobile", type: TrackType.Event) {
+            first_mile_logistic_type = "FF"
+            route_id = "125"
+            driver_id = "123"
+        }
+        "/logistics/first_mile/scanner/modal_invalid_package_quantity"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            first_mile_logistic_type = "FF"
+            route_id = "125"
+            driver_id = "123"
+            pickup_point_id = "123"
+            picked_count = 10
+            estimated_count = 12
+        }
+        "/logistics/first_mile/pickup/seller_document_form"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            first_mile_logistic_type = "FF"
+            route_id = "125"
+            driver_id = "123"
+            packages = ["1", "2", "3"]
+        }
+        "/logistics/first_mile/pickup/signature"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            first_mile_logistic_type = "FF"
+            route_id = "125"
+            driver_id = "123"
+            packages = ["1", "2", "3"]
+        }
+        "/logistics/first_mile/profile"(platform: "/mobile", type: TrackType.View) {
+            first_mile_logistic_type = "FF"
         }
     }
 

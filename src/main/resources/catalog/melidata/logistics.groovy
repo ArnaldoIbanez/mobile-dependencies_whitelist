@@ -14,6 +14,11 @@ tracks {
         longitude(required:false, type: PropertyType.String, description:"The longitude of driver at that point")
     }
 
+    def pickup_status = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "The id of the pickup")
+        status(required: true, type: PropertyType.String, description: "The status of the pickup", values: ["pending", "cancelled", "finished"])
+    }
+
     propertyGroups {
         location(latitude, longitude)
     }
@@ -243,11 +248,62 @@ tracks {
     }
 
     // First Mile
+    "/logistics/first_mile/list"(platform: "/mobile", type: TrackType.View) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        pickups_status(required: true, type: PropertyType.ArrayList(PropertyType.Map(pickup_status)), description: "Specifies the diferent status in all the pickups")
+    }
+    "/logistics/first_mile/scanner"(platform: "/mobile", type: TrackType.View) {
+        location
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+    }
+    "/logistics/first_mile/scanner/modal_invalid_packages"(platform: "/mobile", type: TrackType.View) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id")
+        packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the invalid ids received")
+    }
     "/logistics/first_mile/scanner/modal_back"(platform: "/mobile", type: TrackType.View) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
         packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages that " +
                 "were scanned at the moment that the view was shown")
     }
-    "/logistics/first_mile/scanner/modal_back/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/logistics/first_mile/scanner/modal_back/cancel"(platform: "/mobile", type: TrackType.Event) {}
-    "/logistics/first_mile/profile"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/first_mile/scanner/modal_back/back"(platform: "/mobile", type: TrackType.Event) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+    }
+    "/logistics/first_mile/scanner/modal_back/cancel"(platform: "/mobile", type: TrackType.Event) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+    }
+    "/logistics/first_mile/scanner/modal_keyboard_input/open"(platform: "/mobile", type: TrackType.Event) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id")
+    }
+    "/logistics/first_mile/scanner/modal_invalid_package_quantity"(platform: "/mobile", type: TrackType.View) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id")
+        pickup_point_id(required: true, type: PropertyType.String, description: "Specifies the current pickup point id")
+        picked_count(required: true, type: PropertyType.Numeric, description: "Specifies the package amount that was picked up")
+        estimated_count(required: true, type: PropertyType.Numeric, description: "Specifies the package amount that was expected to pick up")
+    }
+    "/logistics/first_mile/pickup/seller_document_form"(platform: "/mobile", type: TrackType.View) {
+        location
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the packages being picked up")
+    }
+    "/logistics/first_mile/pickup/signature"(platform: "/mobile", type: TrackType.View) {
+        location
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the packages being picked up")
+    }
+    "/logistics/first_mile/profile"(platform: "/mobile", type: TrackType.View) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+    }
 }
