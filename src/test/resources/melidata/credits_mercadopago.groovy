@@ -100,6 +100,12 @@ trackTests {
             product_type = 'sales_percentage_loan'
         }
 
+        //Summary event
+        "/credits/merchant/enrollment/summary/accept_loan_action"(platform: "/", type: TrackType.Event) {
+            action = 'summary_confirm_action'
+            label = 'confirm_button'
+        }
+
         //Conditions
         "/credits/merchant/documents/simulation/conditions"(platform: "/") {}
         "/credits/merchant/documents/simulation/conditions"(platform: "/") {
