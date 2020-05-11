@@ -457,4 +457,10 @@ tracks {
     "/mercado_shops/hub/boost"(platform: "/", type: TrackType.Event){
         option(required: true, type: PropertyType.String)
     }
+
+    "/mercado_shops/hub/activate_google_shopping"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/hub/deactivate_google_shopping"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/hub/reactivate_google_shopping"(platform: "/", type: TrackType.Event){}
 }
