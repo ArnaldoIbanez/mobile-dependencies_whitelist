@@ -4,6 +4,11 @@ import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
+/**************************************************************
+ * CONTACT: In case of changes over this file, please send us
+ *  a message to our e-mail: front_native_devs@mercadolibre.com
+ **************************************************************/
+
 /*************************
  *   WALLET HOME TRACKS   *
  *************************/
