@@ -222,6 +222,23 @@ tracks {
         )
     }
 
+    "/credits/merchant/administrator/late_debt"(platform: "/", type: TrackType.Event) {
+        offers(
+                type: PropertyType.ArrayList(
+                        PropertyType.Map(offer_definition)
+                ),
+                required: false,
+                inheritable: false
+        )
+        products(
+                type: PropertyType.ArrayList(
+                        PropertyType.Map(with_status)
+                ),
+                required: false,
+                inheritable: false
+        )
+    }
+
     //Detail
     "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {
         products_with_status
