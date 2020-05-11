@@ -388,6 +388,16 @@ trackTests {
             fixed_term_loan_on_time()
         }
 
+        "/credits/merchant/administrator/late_debt"(platform: "/") {
+            offers = [
+                express_money_map()
+            ]
+            products = [
+                fixed_term_map(),
+                sales_percentage_map()
+            ]
+        }
+
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             fixed_term_on_time()
