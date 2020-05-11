@@ -213,11 +213,13 @@ trackTests {
   }
 
   test("Seller central banner go and hide") {
-    "/seller_central/listings/go"(platform: "/web", type: TrackType.View) {
+    "/seller_central/listings/go"(platform: "/", type: TrackType.View) {
       placement = "publicidad_banner"
     }
-
-    "/seller_central/listings/hide"(platform: "/web", type: TrackType.Event) {
+    "/seller_central/listings/hide"(platform: "/", type: TrackType.Event) {
+      placement = "publicidad_banner"
+    }
+    "/seller_central/listings/show"(platform: "/", type: TrackType.View) {
       placement = "publicidad_banner"
     }
   }
