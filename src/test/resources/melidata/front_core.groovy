@@ -1,7 +1,11 @@
 package src.test.resources.melidata
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType
-import com.ml.melidata.catalog.PropertyType
+
+/**************************************************************
+ * CONTACT: In case of changes over this file, please send us
+ *  a message to our e-mail: front_native_devs@mercadolibre.com
+ **************************************************************/
 
 /**************************
  * WALLET HOME TEST TRACKS *
