@@ -585,6 +585,20 @@ tracks {
         )
     }
 
+    //Summary event
+    "/credits/merchant/enrollment/summary/accept_loan_action"(platform: "/mobile", type: TrackType.Event) {
+        action(
+                description: "Event action that we need to track",
+                type: PropertyType.String,
+                required: true,
+        )
+        label(
+                description: "Tag that identify the button",
+                type: PropertyType.String,
+                required: true,
+        )
+    }
+
     //Summary
     "/credits/merchant/enrollment/summary"(platform: "/", type: TrackType.View) {
         product_type(
@@ -618,20 +632,6 @@ tracks {
             required: true,
         )
     }
-
-    "/credits/merchant/enrollment/summary_step_events/accept_loan_action"(platform: "/mobile", type: TrackType.Event) {
-        action(
-                description: "Event action that we need to track",
-                type: PropertyType.String,
-                required: true,
-        )
-        label(
-                description: "Tag that identify the button",
-                type: PropertyType.String,
-                required: true,
-        )
-    }
-
 
     //Documents
     "/credits/merchant/documents"(platform: "/", isAbstract: true) {}

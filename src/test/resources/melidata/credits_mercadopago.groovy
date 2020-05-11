@@ -101,7 +101,7 @@ trackTests {
         }
 
         //Summary event
-        "/credits/merchant/enrollment/summary_step_events/accept_loan_action"(platform: "/mobile/android", type: TrackType.Event) {
+        "/credits/merchant/enrollment/summary/accept_loan_action"(platform: "/mobile/android", type: TrackType.Event) {
             action = 'summary_confirm_action'
             label = 'confirm_button'
         }
