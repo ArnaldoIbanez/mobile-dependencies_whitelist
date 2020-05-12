@@ -458,9 +458,13 @@ tracks {
         option(required: true, type: PropertyType.String)
     }
 
-    "/mercado_shops/hub/activate_google_shopping"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/hub/google"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/hub/deactivate_google_shopping"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/hub/google/shopping"(platform: "/", type: TrackType.View){}
 
-    "/mercado_shops/hub/reactivate_google_shopping"(platform: "/", type: TrackType.Event){}
+    "/mercado_shops/hub/google/shopping/activate"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/hub/google/shopping/deactivate"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/hub/google/shopping/reactivate"(platform: "/", type: TrackType.Event){}
 }
