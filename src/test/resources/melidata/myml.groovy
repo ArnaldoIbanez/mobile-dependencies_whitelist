@@ -892,79 +892,79 @@ trackTests {
 
         // ----- new purchases
 
-        "/myml/purchases/status" (platform:"/", type: TrackType.View) {
+        "/myml/my_purchases/status" (platform:"/", type: TrackType.View) {
             newPurchasesDataSet()
         }
 
-        "/myml/purchases/status/items" (platform:"/", type: TrackType.View) {
+        "/myml/my_purchases/status/items" (platform:"/", type: TrackType.View) {
             newPurchasesDataSet()
         }
 
-        "/myml/purchases/status/instructions" (platform:"/", type: TrackType.View) {
+        "/myml/my_purchases/status/instructions" (platform:"/", type: TrackType.View) {
             newPurchasesDataSet()
         }
 
-        "/myml/purchases/status/messages" (platform:"/", type: TrackType.View) {
+        "/myml/my_purchases/status/messages" (platform:"/", type: TrackType.View) {
             newPurchasesDataSet()
         }
 
-        "/myml/purchases/status/return_purchase" (platform:"/", type: TrackType.View) {
+        "/myml/my_purchases/status/return_purchase" (platform:"/", type: TrackType.View) {
             newPurchasesDataSet()
         }
 
-        "/myml/purchases/status/cancel_purchase" (platform:"/", type: TrackType.View) {
+        "/myml/my_purchases/status/cancel_purchase" (platform:"/", type: TrackType.View) {
             newPurchasesDataSet()
         }
 
-        "/myml/purchases/status/show_action" (platform:"/", type: TrackType.Event) {
+        "/myml/my_purchases/status/show_action" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
 
-        "/myml/purchases/status/show_help" (platform:"/", type: TrackType.Event) {
+        "/myml/my_purchases/status/show_help" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
 
-        "/myml/purchases/status/show_faq" (platform:"/", type: TrackType.Event) {
+        "/myml/my_purchases/status/show_faq" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
 
-       "/myml/purchases/status/click_action" (platform:"/", type: TrackType.Event) {
+       "/myml/my_purchases/status/click_action" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
 
-        "/myml/purchases/status/click_help" (platform:"/", type: TrackType.Event) {
+        "/myml/my_purchases/status/click_help" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
 
-        "/myml/purchases/status/click_faq" (platform:"/", type: TrackType.Event) {
+        "/myml/my_purchases/status/click_faq" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
 
-        "/myml/purchases/status/click_view_item" (platform:"/", type: TrackType.Event) {
+        "/myml/my_purchases/status/click_view_item" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
 
-        "/myml/purchases/status/click_view_messages" (platform:"/", type: TrackType.Event) {
+        "/myml/my_purchases/status/click_view_messages" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
 
-        "/myml/purchases/status/click_contact_us" (platform:"/", type: TrackType.Event) {
+        "/myml/my_purchases/status/click_contact_us" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
 
-        "/myml/purchases/status/items/click_view_item" (platform:"/", type: TrackType.Event) {
+        "/myml/my_purchases/status/items/click_view_item" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
 
-        "/myml/purchases/status/instructions/click_view_item" (platform:"/", type: TrackType.Event) {
+        "/myml/my_purchases/status/instructions/click_view_item" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
 
-        "/myml/purchases/status/instructions/click_action" (platform:"/", type: TrackType.Event) {
+        "/myml/my_purchases/status/instructions/click_action" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
 
-        "/myml/purchases/status/messages/click_view_messages" (platform:"/", type: TrackType.Event) {
+        "/myml/my_purchases/status/messages/click_view_messages" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
 
