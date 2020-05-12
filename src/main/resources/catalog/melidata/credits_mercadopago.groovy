@@ -636,6 +636,20 @@ tracks {
         )
     }
 
+    //Summary event
+    "/credits/merchant/enrollment/summary/accept_loan_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        action(
+                description: "Event action that we need to track",
+                type: PropertyType.String,
+                required: true,
+        )
+        label(
+                description: "Tag that identify the button",
+                type: PropertyType.String,
+                required: true,
+        )
+    }
+
     //Documents
     "/credits/merchant/documents"(platform: "/", isAbstract: true) {}
 
