@@ -130,11 +130,11 @@ trackTests {
             defaultProperties()
         }
 
-        "/checkout_off/review/shield_kyc_ifpe"(platform: "/web/mobile") {
+        "/checkout_off/review/shield_kyc"(platform: "/web/mobile") {
             defaultProperties()
         }
         
-        "/checkout_off/review/challenge_kyc_ifpe"(platform: "/web/mobile") {
+        "/checkout_off/review/challenge_kyc"(platform: "/web/mobile") {
             defaultProperties()
         }
         
@@ -246,11 +246,11 @@ trackTests {
             onlyRequiredProperties()
         }
 
-        "/checkout_off/review/shield_kyc_ifpe"(platform: "/web/mobile") {
+        "/checkout_off/review/shield_kyc"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 
-        "/checkout_off/review/challenge_kyc_ifpe"(platform: "/web/mobile") {
+        "/checkout_off/review/challenge_kyc"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 
@@ -441,11 +441,11 @@ trackTests {
             defaultProperties()
         }
 
-        "/checkout_off/review/shield_kyc_ifpe"(platform: "/web/mobile") {
+        "/checkout_off/review/shield_kyc"(platform: "/web/mobile") {
             defaultProperties()
         }
 
-        "/checkout_off/review/challenge_kyc_ifpe"(platform: "/web/mobile") {
+        "/checkout_off/review/challenge_kyc"(platform: "/web/mobile") {
             defaultProperties()
         }
 
@@ -557,11 +557,11 @@ trackTests {
             onlyRequiredProperties()
         }
 
-        "/checkout_off/review/shield_kyc_ifpe"(platform: "/web/mobile") {
+        "/checkout_off/review/shield_kyc"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 
-        "/checkout_off/review/challenge_kyc_ifpe"(platform: "/web/mobile") {
+        "/checkout_off/review/challenge_kyc"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 

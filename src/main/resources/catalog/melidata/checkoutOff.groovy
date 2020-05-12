@@ -72,8 +72,8 @@ tracks {
     "/checkout_off/billing/input_info"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/review"(platform: "/", type: TrackType.View) {}
-    "/checkout_off/review/shield_kyc_ifpe"(platform: "/", type: TrackType.View) {}
-    "/checkout_off/review/challenge_kyc_ifpe"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review/shield_kyc"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review/challenge_kyc"(platform: "/", type: TrackType.View) {}
     "/checkout_off/review/challenge_second_factor_auth"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/agencies"(platform: "/", type: TrackType.View) {}
