@@ -35,7 +35,7 @@ tracks {
         longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         route_status(required: true, type: PropertyType.String,
-                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station"],
+                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station", "active", "close"],
                 description: "Specifies the status of the route", inheritable: false)
         packs_info(type: PropertyType.ArrayList(PropertyType.Map(pack_info_definition)), required: true, inheritable: false)
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
