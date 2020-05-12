@@ -3157,7 +3157,7 @@ trackTests {
             news_id = "123"
             event_type = "auto_dismiss"
         }
-        //******cards
+
         "/notification/prepaid_card_shipped"(platform: "/mobile") {
             news_id = "123"
             event_type = "auto_dismiss"
@@ -3438,7 +3438,7 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        //******cards
+
         "/notification/point_pos_closed"(platform: "/mobile") {
             news_id = "point_pos_closed-186785675"
             event_type = "open"
