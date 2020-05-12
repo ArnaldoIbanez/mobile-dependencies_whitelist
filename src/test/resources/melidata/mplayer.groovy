@@ -70,6 +70,8 @@ trackTests {
             is_recent = false
         }
 
+        "/mplayer/closed_request/contact_picker/invalid_nickname"(platform: "/mobile") {}
+
         "/mplayer/closed_request/contact_picker/continue"(platform: "/mobile") {
             quantity = 5
         }
@@ -157,6 +159,8 @@ trackTests {
             input_type = "manual"
             is_recent = false
         }
+        "/mplayer/money_split/contact_picker/invalid_nickname"(platform: "/mobile") {}
+
         "/mplayer/money_split/contact_picker/continue"(platform: "/mobile") {
             quantity = 5
         }

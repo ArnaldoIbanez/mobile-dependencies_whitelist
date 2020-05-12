@@ -79,6 +79,8 @@ tracks {
         quantity(required: true, PropertyType.Numeric, description: "the number of selected contacts")
     }
 
+    "/mplayer/closed_request/contact_picker/invalid_nickname"(platform: "/mobile", type: TrackType.Event) {}
+
     "/mplayer/closed_request/manual_amount/continue"(platform: "/mobile", type: TrackType.Event) {
         transaction_amount(required: true, PropertyType.Numeric, description: "the transaction amount")
         has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
@@ -164,6 +166,8 @@ tracks {
         quantity(required: true, PropertyType.Numeric, description: "the number of selected contacts")
     }
 
+    "/mplayer/money_split/contact_picker/invalid_nickname"(platform: "/mobile", type: TrackType.Event) {}
+    
     "/mplayer/money_split/review_and_confirm"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/money_split/review_and_confirm/continue"(platform: "/mobile", type: TrackType.Event) {
         has_open_detail(required: true, PropertyType.Boolean, description: "the detail was opened or not")
