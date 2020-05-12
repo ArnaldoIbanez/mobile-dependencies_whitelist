@@ -337,49 +337,67 @@ trackTests {
             subscription_partner = "HBO"
         }
 
-        "/loyalty/partners/login"(platform: "/", type: TrackType.View, business: "mercadopago") {}
+        "/loyalty/partners/login"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            subscription_partner = "HBO"
+        }
 
 
-        "/loyalty/partners/login/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {}
-        "/loyalty/partners/login/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {}
+        "/loyalty/partners/login/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            subscription_partner = "HBO"
+        }
+
+        "/loyalty/partners/login/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            subscription_partner = "HBO"
+        }
 
 
         "/loyalty/partners/login/verify"(platform: "/", type: TrackType.View, business: "mercadolibre") {
             subscription_partner = "HBO"
         }
 
-        "/loyalty/partners/login/verify"(platform: "/", type: TrackType.View, business: "mercadopago") {}
+        "/loyalty/partners/login/verify"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            subscription_partner = "HBO"
+        }
 
         "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            subscription_partner = "HBO"
             type = "notification"
         }
 
         "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            subscription_partner = "HBO"
             type = "email"
         }
 
 
         "/loyalty/partners/login/code"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            subscription_partner = "HBO"
             viewType = "email"
         }
 
         "/loyalty/partners/login/code"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            subscription_partner = "HBO"
             viewType = "notification"
         }
 
         "/loyalty/partners/login/code/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            subscription_partner = "HBO"
             type = "verify"
         }
 
         "/loyalty/partners/login/code/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            subscription_partner = "HBO"
             type = "resend"
         }
 
         "/loyalty/partners/login/verified"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            subscription_partner = "HBO"
             url = "meli://loyalty"
         }
 
-        "/loyalty/partners/login/verified"(platform: "/", type: TrackType.Event, business: "mercadopago") {}
+        "/loyalty/partners/login/verified"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            subscription_partner = "HBO"
+        }
 
     }
 
