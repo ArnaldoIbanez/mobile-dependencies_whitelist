@@ -25,7 +25,7 @@ tracks {
     def pack_info_definition = objectSchemaDefinitions {
         sender_id(required: true, type: PropertyType.String, description: "Specifies the shipment's sender id", inheritable: false)
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
-        shipment_substatus(required: true, type: PropertyType.String, description: "Specifies the shipment substatus", inheritable: false)
+        shipment_substatus(required: false, type: PropertyType.String, description: "Specifies the shipment substatus", inheritable: false)
         order(required: false, type: PropertyType.Numeric, description: "Specifies the shipment delivery order", inheritable: false)
         receiver_info(required: true, type: PropertyType.Map(receiver_definition), description: "Specifies the receiver info", inheritable: false)
     }
