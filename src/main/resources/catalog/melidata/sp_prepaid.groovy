@@ -71,6 +71,9 @@ tracks {
     "/single_player/prepaid/first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+    "/single_player/prepaid/first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
 
     // Add device number
@@ -392,7 +395,9 @@ tracks {
     "/single_player/prepaid/error/server/back_to_home"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/prepaid/error/server/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/error/server/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
 
     // Errors - Connection error
@@ -447,4 +452,8 @@ tracks {
     "/single_player/prepaid/locations/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+
+
+    // Payment rejected
+    "/single_player/prepaid/payment_rejected"(platform: "/mobile", type: TrackType.View) {}
 }

@@ -111,6 +111,10 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/prepaid/first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
 
 
         // Add device number
@@ -494,6 +498,7 @@ trackTests {
         }
         "/single_player/prepaid/error/server/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
 
 
@@ -580,6 +585,11 @@ trackTests {
         }
 
 
+        // Payment rejected
+        "/single_player/prepaid/payment_rejected"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+        }
+
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Meli
         //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -609,6 +619,10 @@ trackTests {
             view_time()
         }
         "/single_player/prepaid/first_time_use/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/first_time_use/abort"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -996,6 +1010,7 @@ trackTests {
         }
         "/single_player/prepaid/error/server/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            view_time()
         }
 
 
@@ -1079,6 +1094,12 @@ trackTests {
         "/single_player/prepaid/locations/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
+        }
+
+
+        // Payment rejected
+        "/single_player/prepaid/payment_rejected"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
         }
     }
 }
