@@ -1,6 +1,6 @@
 SELECT  
-count(distinct i.cus_cust_id_sel) as seller,
-count(distinct i.ite_item_id) as publicaciones,
+i.cus_cust_id_sel as seller,
+i.ite_item_id as publicaciones,
 i.sit_site_id as site,
 i.ite_domain_id as domain,
 case when app.mapp_is_public =  0 then 'NOINTEGRADO' else 'INTEGRADO' end as integracion,
@@ -18,5 +18,3 @@ where  ite_pic_quality = 'poor'
 and pic_tagged_date >= '@param01'
 and pic_tagged_date < '@param02'
 and ite_condition_passed_flag = false
-group by i.sit_site_id,i.ite_domain_id,pic_tagged_date,case when app.mapp_is_public = 0 then 'NOINTEGRADO' else 'INTEGRADO' end,
- t.ite_condition_id, app.mapp_name ,  t.ite_picture_id 
