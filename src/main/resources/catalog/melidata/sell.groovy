@@ -68,6 +68,7 @@ tracks {
         categoryFlowMobile(category_id, category_path)
         listingTypeFlow(listing_type_id)
         listingTypeFlowMobile(listing_type_id, listing_type_free_available)
+        catalogFlowMobile(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id)
     }
 
     // Sell
@@ -171,6 +172,10 @@ tracks {
         reputation_level(required: false, description: "Reputation for Pads")
     }
 
+    "/sell/list/congrats"(platform: "/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+
     // List Similar/Equals modifications
     "/sell/list_similar"(platform: "/web/desktop", isAbstract: true){}
     "/sell/list_similar/result"(platform: "/web/desktop", type: TrackType.Event){
@@ -209,16 +214,32 @@ tracks {
         fail_pictures(required: false, description: "Failed pictures", type: PropertyType.Numeric)
         pictures_errors(required: false, description: "Array of pictures error", type: PropertyType.ArrayList)
     }
-    "/sell/list/draft/attribute"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/attribute"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
     "/sell/list/draft/attribute/kilometers"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/category_navigation"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/category_suggestion"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/color_selection"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/color_selection_fallback"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/condition"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/category_navigation"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/category_suggestion"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/color_selection"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/color_selection_fallback"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/condition"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
     "/sell/list/draft/condition_review"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/condition_fallback"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/congrats"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/condition_fallback"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/congrats"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
     "/sell/list/draft/congrats/payment_pending"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/description"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/description_fallback"(platform:"/mobile", type: TrackType.View) {}
@@ -237,8 +258,12 @@ tracks {
     "/sell/list/draft/pictures/album_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures/pictures_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures/editor"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/pictures_fallback"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/pictures_landing_fallback"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/pictures_fallback"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/pictures_landing_fallback"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
     "/sell/list/draft/pictures_fallback/album_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_fallback/pictures_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_fallback/editor"(platform:"/mobile", type: TrackType.View){}
@@ -249,7 +274,9 @@ tracks {
     "/sell/list/draft/price"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/product_detail"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/draft/product_detail"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/draft/product_identifier"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/registration_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/seller_registration"(platform:"/mobile", type: TrackType.View){}
@@ -264,19 +291,26 @@ tracks {
     "/sell/list/draft/title"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/title_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/technical_specifications_review"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/draft/technical_specifications_catalog"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/draft/warranty_time"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_time_review"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type_review"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/catalog"(platform:"/mobile", type: TrackType.View, isAbstract: true){}
-    "/sell/list/draft/catalog/decision"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/catalog/decision"(platform: "/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
     "/sell/list/draft/catalog/forced"(platform: "/mobile", type: TrackType.View) {
         catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
     }
     "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
-    "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/attribute/kilometers"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {}
@@ -358,17 +392,31 @@ tracks {
     "/sell/list/catalog_trim_selection"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog_vehicle_year_selection"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/category_suggestion"(platform: "/", type: TrackType.View) {}
+    "/sell/list/category_suggestion"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
+    "/sell/list/category_navigation"(platform: "mobile/", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/catalog"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/catalog/forced"(platform: "/mobile", type: TrackType.View) {
         catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
     }
     "/sell/list/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/classifieds_reservation_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/color_selection"(platform: "/", type: TrackType.View) {}
+    "/sell/list/color_selection"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection_fallback"(platform: "/", type: TrackType.View) {}
+    "/sell/list/color_selection_fallback"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
         session_id(required: true, description: "Session Id of the list flow, that dies when the flow ends", type: PropertyType.String)
         category_domain(required: false, description: "Category Domain", type: PropertyType.String)
@@ -377,12 +425,23 @@ tracks {
         category_id(required: false, description: "Category Id", type: PropertyType.String)
     }
     "/sell/list/technical_specifications_review"(platform: "/", type: TrackType.View) {}
-    "/sell/list/product_detail"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/technical_specifications_catalog"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
+    "/sell/list/product_detail"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/product_identifier"(platform: "/", type: TrackType.View) {}
     "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
     "/sell/list/condition"(platform: "/", type: TrackType.View) {}
+    "/sell/list/condition"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/condition_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/condition_fallback"(platform: "/", type: TrackType.View) {}
+    "/sell/list/condition_fallback"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/condition_confirmation_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description"(platform: "/", type: TrackType.View) {}
     "/sell/list/description_review"(platform: "/", type: TrackType.View) {}
@@ -414,9 +473,12 @@ tracks {
         album_name(required: false, description: "Album name", type: PropertyType.String)
     }
     "/sell/list/pictures_fallback"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_fallback"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/pictures_fallback/album_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures_fallback/pictures_selector"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/pictures_fallback/editor"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_fallback/editor"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures_fallback/crop"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures_review/album_selector"(platform: "/mobile", type: TrackType.View) {}
