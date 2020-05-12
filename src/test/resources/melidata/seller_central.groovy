@@ -1738,11 +1738,11 @@ trackTests {
   }
 
   test("upload invoices view secondary actions") {
-    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/sales/fiscal-document/action/secondary"(platform: "/web", type: TrackType.Event) {}
   }
 
   test("upload invoices view") {
-    "/seller_central/sales/fiscal_document"(platform: "/web", type: TrackType.View) {}
+    "/seller_central/sales/fiscal-document"(platform: "/web", type: TrackType.View) {}
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
