@@ -170,8 +170,24 @@ trackTests {
         "/logistics/last_mile/list"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
-            packs_info= "packs info"
             route_status = "pending"
+            driver_id = "1234"
+            facility_id = "az_ds"
+            packs_info = [
+                [
+                    sender_id: "12345",
+                    shipment_id: "1234456",
+                    shipment_substatus: "test",
+                    order: 1,
+                    receiver_info: [
+                        id: "123",
+                        geolocation_type: "ROOFTOP",
+                        delivery_preference: "residential",
+                        latitude: "-36.34443",
+                        longitude: "-35.34332"
+                    ]
+                ]
+            ]
         }
 
         "/logistics/last_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
