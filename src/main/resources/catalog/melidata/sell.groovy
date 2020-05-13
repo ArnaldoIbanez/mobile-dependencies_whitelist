@@ -304,6 +304,7 @@ tracks {
     }
     "/sell/list/draft/catalog/forced"(platform: "/mobile", type: TrackType.View) {
         catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
+        catalogFlowMobile
     }
     "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
 
@@ -405,6 +406,7 @@ tracks {
     }
     "/sell/list/catalog/forced"(platform: "/mobile", type: TrackType.View) {
         catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
+        catalogFlowMobile
     }
     "/sell/list/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/classifieds_reservation_landing"(platform: "/mobile", type: TrackType.View) {}

@@ -552,6 +552,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             catalog_listing_forced_type = "open"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/catalog/forced"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -560,6 +561,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             catalog_listing_forced_type = "closed"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/classifieds_reservation_landing"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1807,6 +1809,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             catalog_listing_forced_type = "open"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/catalog/forced"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1815,6 +1818,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             catalog_listing_forced_type = "closed"
+            defaultCatalogFlowMobile()
         }
     }
 
