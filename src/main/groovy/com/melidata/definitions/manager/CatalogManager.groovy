@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
  */
 class CatalogManager implements Runnable {
 
-    private Map<String, CatalogHandler> catalogHandlers
+	Map<String, CatalogHandler> catalogHandlers
 
 	CatalogManager() {
 		this.catalogHandlers = [:]
@@ -39,11 +39,6 @@ class CatalogManager implements Runnable {
 		InitiativeAPI.getInstance().init()
 		catalogHandlers.each{ _, catalogHandler -> catalogHandler.reload()}
 		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(this, 0, 5, TimeUnit.MINUTES)
-	}
-
-	void initLambdaCatalog() {
-		InitiativeAPI.getInstance().init()
-		catalogHandlers.each {_, catalogHandler -> catalogHandler.downloadLambdaCatalog()}
 	}
 
 	@Override
