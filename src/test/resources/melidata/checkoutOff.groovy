@@ -150,6 +150,18 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/paypal_ftu"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/review_express"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
             defaultProperties()
@@ -263,6 +275,18 @@ trackTests {
         }
 
         "/checkout_off/error"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/paypal_ftu"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 
@@ -461,6 +485,18 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/paypal_ftu"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/review_express"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
             defaultProperties()
@@ -574,6 +610,18 @@ trackTests {
         }
 
         "/checkout_off/error"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/paypal_ftu"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 

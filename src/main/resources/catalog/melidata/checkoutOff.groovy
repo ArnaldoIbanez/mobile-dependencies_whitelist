@@ -54,6 +54,12 @@ tracks {
 
     "/checkout_off/payment/card_express"(platform: "/", type: TrackType.View) {}
 
+    // Paypal tracks
+    "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/payment/review_express"(platform: "/", type: TrackType.View) {}
+
     // Split payments paths
     "/checkout_off/payment/card"(platform: "/", isAbstract: true) {}
     "/checkout_off/payment/card/split_first"(platform: "/", type: TrackType.View) {}
