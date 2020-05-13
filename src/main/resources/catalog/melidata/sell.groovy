@@ -392,12 +392,10 @@ tracks {
     "/sell/list/location_street"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/catalog_trim_selection"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog_vehicle_year_selection"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/category_suggestion"(platform: "/", type: TrackType.View) {}
     "/sell/list/category_suggestion"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
-    "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
-    "/sell/list/category_navigation"(platform: "mobile/", type: TrackType.View) {
+    "/sell/list/category_navigation"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
     "/sell/list/catalog"(platform: "/mobile", type: TrackType.View) {}
@@ -410,12 +408,10 @@ tracks {
     }
     "/sell/list/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/classifieds_reservation_landing"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/color_selection"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
     "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {}
-    "/sell/list/color_selection_fallback"(platform: "/", type: TrackType.View) {}
     "/sell/list/color_selection_fallback"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
@@ -435,12 +431,10 @@ tracks {
     }
     "/sell/list/product_identifier"(platform: "/", type: TrackType.View) {}
     "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
-    "/sell/list/condition"(platform: "/", type: TrackType.View) {}
     "/sell/list/condition"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
     "/sell/list/condition_review"(platform: "/", type: TrackType.View) {}
-    "/sell/list/condition_fallback"(platform: "/", type: TrackType.View) {}
     "/sell/list/condition_fallback"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
@@ -474,7 +468,6 @@ tracks {
     "/sell/list/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
         album_name(required: false, description: "Album name", type: PropertyType.String)
     }
-    "/sell/list/pictures_fallback"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures_fallback"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
