@@ -41,6 +41,11 @@ class CatalogManager implements Runnable {
 		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(this, 0, 5, TimeUnit.MINUTES)
 	}
 
+	void initLambdaCatalog() {
+		InitiativeAPI.getInstance().init()
+		catalogHandlers.each {_, catalogHandler -> catalogHandler.downloadLambdaCatalog()}
+	}
+
 	@Override
 	void run() {
 		try {

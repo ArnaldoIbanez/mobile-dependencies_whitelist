@@ -28,6 +28,8 @@ class CatalogHandler {
 	Catalog catalog
 	int version
 	String catalogName;
+	boolean isLambdaCatalog
+	Set<String> filesNameToDownloadForLambdaCatalog
 
 	CatalogHandler(String catalogName) {
 
@@ -37,6 +39,8 @@ class CatalogHandler {
 		S3_CONTAINER = catalogName + "-fury" + "/" + LAST_VERSION_FILE_NAME + ".dsl/"
 		CSV_FILE_NAME = catalogName + "_last.csv/" + catalogName + "_catalog.csv"
 		this.catalogName = catalogName
+		this.isLambdaCatalog = false
+		this.filesNameToDownloadForLambdaCatalog = new HashSet<>()
 
 		cli = new S3Controller(S3_BUCKET, AWS_ACCESS_KEY, AWS_SECRET_KEY)
 	}
@@ -65,6 +69,39 @@ class CatalogHandler {
 			}
 		}
 
+		return false
+	}
+
+	boolean downloadLambdaCatalog() {
+		this.isLambdaCatalog = true
+
+		List<S3ObjectSummary> toDownload = new ArrayList<>()
+		S3ObjectSummary catalogObjectSummary = new S3ObjectSummary()
+		catalogObjectSummary.setKey(S3_CONTAINER+"catalog.groovy")
+		toDownload.add(catalogObjectSummary)
+
+		// download catalog.groovy file and get the names of the other files to download from s3
+		S3Object object = downloadCatalog(toDownload)
+
+		if ( object != null ) {
+
+			toDownload.clear() //remove catalog.groovy from teh list. It is already downloaded
+			for (String fileName : filesNameToDownloadForLambdaCatalog) {
+				S3ObjectSummary objectSummary = new S3ObjectSummary()
+				objectSummary.setKey(S3_CONTAINER+fileName)
+				toDownload.add(objectSummary)
+			}
+			// download other files that are necessary for the catalog to be parsed
+			downloadCatalog(toDownload)
+
+			try {
+				// Empty list as there is no need to update the etag for each file downloaded
+				reloadCatalog(object, Collections.emptyList())
+			} finally {
+				object.close()
+			}
+			return true
+		}
 		return false
 	}
 
@@ -101,6 +138,7 @@ class CatalogHandler {
 	private S3Object downloadCatalog(List<S3ObjectSummary> objectSummaries, String folder = LOCAL_FOLDER, String keyPrefixReplacement = "") throws IOException {
 		S3Object object = null
 		for ( S3ObjectSummary obj : objectSummaries ) {
+			boolean isMainFile = isMainFile(obj.getKey())
 			S3Object s3Object = cli.getObject(obj.getKey())
 			S3ObjectInputStream objectContent = s3Object.getObjectContent()
 
@@ -113,6 +151,7 @@ class CatalogHandler {
 				reader = new BufferedReader(new InputStreamReader(objectContent))
 				String line
 				while ((line = reader.readLine()) != null) {
+					if (isLambdaCatalog && isMainFile) checkAndAddFileToDownload(line)
 					writer.write(line + "\n")
 				}
 			} finally {
@@ -122,7 +161,7 @@ class CatalogHandler {
 					writer.close()
 			}
 
-			if ( isMainFile(obj.getKey()) ) object =  s3Object
+			if ( isMainFile ) object =  s3Object
 		}
 
 		return object
@@ -152,6 +191,13 @@ class CatalogHandler {
 		}
 
 		return areEquals
+	}
+
+	private void  checkAndAddFileToDownload(String catalogLine) {
+		if (catalogLine.contains("include") && catalogLine.contains("business")) {
+			String fileName = catalogLine.split("\"")[1]
+			this.filesNameToDownloadForLambdaCatalog.add(fileName)
+		}
 	}
 
 }
