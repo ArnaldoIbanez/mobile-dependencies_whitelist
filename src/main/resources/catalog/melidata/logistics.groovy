@@ -9,9 +9,37 @@ tracks {
 
     initiative = "1179"
 
+    def receiver_definition = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "Specifies the shipment's receiver id", inheritable: false)
+        geolocation_type(required: true, type: PropertyType.String,
+            valued: ["ROOFTOP", "RANGE_INTERPOLATED", "APPROXIMATE", "GEOMETRIC_CENTER"],
+            description: "Specifies the precision of the receiver location",
+            inheritable: false)
+        delivery_preference(required: false, type: PropertyType.String,
+            valued: ["residential", "business"],
+            description: "Specifies the current preference for the delivery", inheritable: false)
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+    }
+
+    def pack_info_definition = objectSchemaDefinitions {
+        sender_id(required: false, type: PropertyType.String, description: "Specifies the shipment's sender id", inheritable: false)
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        shipment_substatus(required: false, type: PropertyType.String, description: "Specifies the shipment substatus", inheritable: false)
+        order(required: false, type: PropertyType.Numeric, description: "Specifies the shipment delivery order", inheritable: false)
+        receiver_info(required: true, type: PropertyType.Map(receiver_definition), description: "Specifies the receiver info", inheritable: false)
+    }
+
     propertyDefinitions {
-        latitude(required:false, type: PropertyType.String, description:"The latitude of driver at that point")
-        longitude(required:false, type: PropertyType.String, description:"The longitude of driver at that point")
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        route_status(required: true, type: PropertyType.String,
+                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station", "active", "close"],
+                description: "Specifies the status of the route", inheritable: false)
+        packs_info(type: PropertyType.ArrayList(PropertyType.Map(pack_info_definition)), required: true, inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        facility_id(required: false, type: PropertyType.String, description: "Specifies the current facility id", inheritable: false)
     }
 
     def pickup_status = objectSchemaDefinitions {
@@ -21,6 +49,7 @@ tracks {
 
     propertyGroups {
         location(latitude, longitude)
+        route_info(route_id, route_status, packs_info, driver_id, facility_id, latitude, longitude)
     }
 
     "/logistics"(platform: "/", isAbstract: true) {
@@ -49,7 +78,7 @@ tracks {
     "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle/scanner/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
-        vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.String, description: "The id of the vehicle", inheritable: false)
         status(required: true, type: PropertyType.String, values: ["ok", "error"], description: "Specifies if the detected vehicle qr has the correct format or not", inheritable: false)
     }
     "/logistics/login/document"(platform: "/mobile", type: TrackType.View) {}
@@ -108,11 +137,7 @@ tracks {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the packages in the route", inheritable: false)
     }
     "/logistics/last_mile/list"(platform: "/mobile", type: TrackType.View) {
-        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
-        route_status(required: true, type: PropertyType.String,
-                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station"],
-                description: "Specifies the status of the route", inheritable: false)
-        packs_info(required: true, type: PropertyType.String, description: "Specifies the packages in the route", inheritable: false)
+        route_info
     }
     "/logistics/last_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/last_mile/list/suggest_trip"(platform: "/mobile", type: TrackType.View) {
@@ -265,6 +290,8 @@ tracks {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id")
         packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the invalid ids received")
     }
+
+    // First Mile ----
     "/logistics/first_mile/scanner/modal_back"(platform: "/mobile", type: TrackType.View) {
         first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
         packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages that " +
