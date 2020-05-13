@@ -39,6 +39,7 @@
     ],
     "sql": {
       "script": "business-assurance/search_alerts_events.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
