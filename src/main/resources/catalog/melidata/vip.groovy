@@ -808,6 +808,16 @@ tracks {
 
     }
 
+    "/vip/show_fulfillment_tooltip"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buyer_id(required: false, type: PropertyType.String, description: "Buyer ID")
+    }
+
+    "/vip/close_fulfillment_tooltip"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buyer_id(required: false, type: PropertyType.String, description: "Buyer ID")
+    }
+
     "/vip/shipping_calculator"(platform: "/", type: TrackType.View, parentPropertiesInherited: false){
         location(required: true, description: "User Location")
         //Location

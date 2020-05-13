@@ -510,4 +510,40 @@ tracks {
 
     "/pdp/backend/questions_redirect"(platform: "/", parentPropertiesInherited: false) {
     }
+
+    "/pdp/fulfillment_modal/show"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        seller_id(required: true, type: PropertyType.Numeric)
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        original_price(required: true, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+
+    }
+
+    "/pdp/cbt_modal/show"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        seller_id(required: true, type: PropertyType.Numeric)
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        original_price(required: true, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+
+    }
+
+    "/pdp/fulfillment_tooltip/show"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buyer_id(required: false, type: PropertyType.String, description: "Buyer ID")
+    }
+
+    "/pdp/fulfillment_tooltip/close"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buyer_id(required: false, type: PropertyType.String, description: "Buyer ID")
+    }
 }
