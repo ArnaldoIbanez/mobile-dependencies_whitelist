@@ -421,6 +421,25 @@ tracks {
         )
     }
 
+    // REISSUE PHYSICAL
+    // --------
+
+    "/cards/hybrid/block-card/physical"(platform: "/", type: TrackType.View) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id"
+        )
+    }
+    "/cards/hybrid/block-card/physical/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["primary_button", "secondary_button"],
+            description: "The action type tapped"
+        )
+    }
+
     // SETUP FÍSICA
     // --------
     "/cards/hybrid/setup/physical"(platform: "/", type: TrackType.View) {

@@ -463,6 +463,23 @@ trackTests {
         }
     }
 
+    // REISSUE PHYSICAL
+    // --------
+
+    test("cards hybrid reissue physical card ") {
+        "/cards/hybrid/block-card/physical"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+        }
+        "/cards/hybrid/block-card/physical/tap"(platform:"/", type: TrackType.Event) {
+            card_id = "1234abcd"
+            action = "primary_button"
+        }
+        "/cards/hybrid/block-card/physical/tap"(platform:"/", type: TrackType.Event) {
+            card_id = "1234abcd"
+            action = "secondary_button"
+        }
+    }
+
     // SETUP FÍSICA
     // --------
 
