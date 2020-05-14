@@ -273,16 +273,23 @@ tracks {
 
     "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
         placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        adv_segmentation(required: false, description: "Advertasement segmentation ")
         reputation_level(required: false, description: "Reputation for Pads")
-        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
         placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: false, description: "Adevrtasement segmentation ")
+        adv_segmentation(required: false, description: "Advertasement segmentation ")
         reputation_level(required: false, description: "Reputation for Pads")
-        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
+        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
+    }
+
+    "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
+        placement(required: true, description: "Place where track was dispatched")
+        adv_segmentation(required: false, description: "Advertasement segmentation ")
+        reputation_level(required: false, description: "Reputation for Pads")
+        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {}
