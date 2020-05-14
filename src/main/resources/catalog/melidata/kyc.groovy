@@ -353,7 +353,16 @@ tracks {
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
     }
 
-    
+    "/kyc/iv/documentation/uploader_change"(platform: "/web", type: TrackType.Event) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
+    }
+
+    "/kyc/iv/documentation/select_option"(platform: "/web/desktop", type: TrackType.Event) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
+        option(type: PropertyType.String, required: true, description: "Indicates if the user chose to continue from desktop or from phone")
+    }
 
     "/kyc/iv/trust_vote_recommender"(platform: "/web", type: TrackType.View) {
     }
@@ -363,4 +372,4 @@ tracks {
 
     "/kyc/iv/error_page"(platform: "/web", type: TrackType.View) {
     }
-}
+

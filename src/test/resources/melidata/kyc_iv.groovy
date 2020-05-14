@@ -397,6 +397,19 @@ trackTests {
             transaction_user_id = 109479273
         }
 
+        "/kyc/iv/documentation/uploader_change"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = false
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/documentation/select_option"(platform: "/web/desktop") {
+            flow = "flow_doc"
+            custom_cam_offered = false
+            option = "continue_from_desktop"
+            transaction_user_id = 109479273
+        }
+
         "/kyc/iv/camera/unavailable"(platform: "/web") {
             flow = "flow_doc"
             custom_cam_offered = true
@@ -805,6 +818,19 @@ trackTests {
         "/kyc/iv/camera/exit_camera"(platform: "/web") {
             flow = "flow_doc"
             custom_cam_offered = true
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/documentation/uploader_change"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = false
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/documentation/select_option"(platform: "/web/desktop") {
+            flow = "flow_doc"
+            custom_cam_offered = false
+            option = "continue_from_desktop"
             transaction_user_id = 109479273
         }
 
