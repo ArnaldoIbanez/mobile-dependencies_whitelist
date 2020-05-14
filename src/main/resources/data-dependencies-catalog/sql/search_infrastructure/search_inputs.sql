@@ -1,5 +1,5 @@
 SELECT
-  count(1)          AS total,
+  COUNT(1)          AS total,
   r.site_id         AS site,
   r.item_reputation AS reputation,
   t.ds              AS ds
@@ -11,7 +11,7 @@ FROM (
     SELECT
       DISTINCT(id) AS track_id,
       ds           AS ds,
-      SPLIT(substring_index(regexp_replace(event_data.results, '\"+|\\[|\\]$', ""), ',', 5), ',') AS top_5_items
+      SPLIT(SUBSTRING_INDEX(REGEXP_REPLACE(event_data.results, '\"+|\\[|\\]$', ""), ',', 5), ',') AS top_5_items
     FROM
       default.tracks
     LATERAL VIEW JSON_TUPLE(event_data, 'results', 'query', 'offset') event_data AS results, query, off
@@ -21,13 +21,14 @@ FROM (
       AND application.business = 'mercadolibre'
       AND path = '/search'
       AND type = 'view'
-      AND trim(event_data.query) != ''
+      AND TRIM(event_data.query) != ''
       AND off = 0
-      AND NOT is_bot(device.user_agent)
+      AND NOT IS_BOT(device.user_agent)
   ) tracks
-  LATERAL VIEW explode(tracks.top_5_items) top_5_items as item_id
+  LATERAL VIEW EXPLODE(tracks.top_5_items) top_5_items as item_id
   WHERE
-    size(top_5_items) > 0
+    item_id IS NOT NULL 
+    AND LENGTH(item_id) > 0
 ) t
   JOIN (
     SELECT
@@ -38,8 +39,8 @@ FROM (
       external_data ed
       LATERAL VIEW JSON_TUPLE(ed.data, 'item_id', 'site_id', 'reputation') ext_data AS item_id, site_id, item_reputation
     WHERE
-      usr='searchdatainfra'
-      AND tb='items_reputation'
+      usr = 'searchdatainfra'
+      AND tb = 'items_reputation'
   ) r ON (
   r.item_id = t.item_id
 )
