@@ -43,4 +43,5 @@ FROM (
   ) r ON (
   r.item_id = t.item_id
 )
-group by r.site_id, r.item_reputation, t.ds
+GROUP BY 
+  r.site_id, r.item_reputation, t.ds
