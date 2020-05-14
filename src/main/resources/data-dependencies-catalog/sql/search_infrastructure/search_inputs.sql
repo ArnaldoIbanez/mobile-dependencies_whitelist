@@ -1,7 +1,8 @@
 SELECT
+  count(1)          AS total,
   r.site_id         AS site,
   r.item_reputation AS reputation,
-  t.item_position   AS top_position,
+  --t.item_position   AS top_position,
   t.ds              AS ds
 FROM (
   SELECT
@@ -15,7 +16,7 @@ FROM (
       SPLIT(substring_index(regexp_replace(event_data.results, '\"+|\\[|\\]$', ""), ',', 5), ',') AS top_5_items
     FROM
       default.tracks
-      LATERAL VIEW JSON_TUPLE(event_data, 'results', 'query') event_data AS results, query
+    LATERAL VIEW JSON_TUPLE(event_data, 'results', 'query', 'offset') event_data AS results, query, off
     WHERE
       ds >= '@param01 00'
       AND ds < '@param02 00'
@@ -23,11 +24,12 @@ FROM (
       AND path = '/search'
       AND type = 'view'
       AND trim(event_data.query) != ''
+      AND off = 0
       AND NOT is_bot(device.user_agent)
   ) tracks
     LATERAL VIEW explode(tracks.top_5_items) top_5_items as item_id
 ) t
-  LEFT JOIN (
+  JOIN (
     SELECT
       CONCAT(site_id,item_id) AS item_id,
       site_id                 AS site_id,
@@ -39,5 +41,6 @@ FROM (
       usr='searchdatainfra'
       AND tb='items_reputation'
   ) r ON (
-    r.item_id = t.item_id
-  )
+  r.item_id = t.item_id
+)
+group by r.site_id, r.item_reputation, /*t.item_position,*/ t.ds
