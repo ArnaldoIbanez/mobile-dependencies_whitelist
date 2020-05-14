@@ -450,14 +450,31 @@ trackTests {
     // --------
 
     test("cards hybrid reissue virtual card ") {
-        "/cards/hybrid/block-card/virtual"(platform:"/", type: TrackType.View) {
+        "/cards/hybrid/block_card/virtual"(platform:"/", type: TrackType.View) {
             card_id = "1234abcd"
         }
-        "/cards/hybrid/block-card/virtual/tap"(platform:"/", type: TrackType.Event) {
+        "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
             action = "primary_button"
         }
-        "/cards/hybrid/block-card/virtual/tap"(platform:"/", type: TrackType.Event) {
+        "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
+            card_id = "1234abcd"
+            action = "secondary_button"
+        }
+    }
+
+    // REISSUE PHYSICAL
+    // --------
+
+    test("cards hybrid reissue physical card ") {
+        "/cards/hybrid/block_card/physical"(platform:"/", type: TrackType.View) {
+            card_id = "1234abcd"
+        }
+        "/cards/hybrid/block_card/physical/tap"(platform:"/", type: TrackType.Event) {
+            card_id = "1234abcd"
+            action = "primary_button"
+        }
+        "/cards/hybrid/block_card/physical/tap"(platform:"/", type: TrackType.Event) {
             card_id = "1234abcd"
             action = "secondary_button"
         }

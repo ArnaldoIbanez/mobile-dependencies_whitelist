@@ -404,15 +404,34 @@ tracks {
     // REISSUE VIRTUAL
     // --------
 
-    "/cards/hybrid/block-card"(platform: "/", isAbstract: true) { }
-    "/cards/hybrid/block-card/virtual"(platform: "/", type: TrackType.View) {
+    "/cards/hybrid/block_card"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/block_card/virtual"(platform: "/", type: TrackType.View) {
         card_id (
             required: true,
             type: PropertyType.String,
             description: "Card id"
         )
     }
-    "/cards/hybrid/block-card/virtual/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["primary_button", "secondary_button"],
+            description: "The action type tapped"
+        )
+    }
+
+    // REISSUE PHYSICAL
+    // --------
+
+    "/cards/hybrid/block_card/physical"(platform: "/", type: TrackType.View) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id"
+        )
+    }
+    "/cards/hybrid/block_card/physical/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
