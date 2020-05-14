@@ -2,7 +2,6 @@ SELECT
   count(1)          AS total,
   r.site_id         AS site,
   r.item_reputation AS reputation,
-  --t.item_position   AS top_position,
   t.ds              AS ds
 FROM (
   SELECT
@@ -43,4 +42,4 @@ FROM (
   ) r ON (
   r.item_id = t.item_id
 )
-group by r.site_id, r.item_reputation, /*t.item_position,*/ t.ds
+group by r.site_id, r.item_reputation, t.ds
