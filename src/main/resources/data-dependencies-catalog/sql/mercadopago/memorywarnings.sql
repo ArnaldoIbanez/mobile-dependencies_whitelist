@@ -1,10 +1,10 @@
-SELECT  count(Jest(event_data, 'view_controller')) AS incidents,
+SELECT  device.platform                     AS platform,
+        application.site_id                 AS site,
+        application.version                 AS version,
+        application.business                AS business,
+        count(1)                            AS incidents,
         Jest(event_data, 'view_controller') AS warnings,
-        application.site_id AS site,
-        device.platform AS platform,
-        application.version AS version,
-        application.business AS business,
-        Substr(ds, 1, 10)  AS fecha
+        Substr(ds, 1, 10)                   AS fecha
 FROM tracks
 WHERE ds >= '@param01'
 AND ds < '@param02'
@@ -16,10 +16,9 @@ AND (application.site_id = 'MLA'
   OR application.site_id = 'MLC'
   OR application.site_id = 'MPE'
   OR application.site_id = 'MLM' )
-GROUP BY  Jest(event_data, 'view_controller'),
+GROUP BY  application.version,
+          application.business,
           application.site_id,
           device.platform,
-          application.version,
-          application.business,
+          Jest(event_data, 'view_controller'),
           ds
-ORDER BY 1 DESC
