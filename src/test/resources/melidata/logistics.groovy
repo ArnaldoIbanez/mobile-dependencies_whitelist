@@ -190,6 +190,17 @@ trackTests {
             ]
         }
 
+        "/logistics/last_mile/notification/view_near_pack_destination"(platform: "/mobile", type: TrackType.Event) {
+            shipment_id = "1234"
+            geo_position = [
+                geolocation_type: "ROOFTOP",
+                accuracy: "30.1",
+                distance: "1000",
+                latitude: "-36.34443",
+                longitude: "-35.34332"
+            ]
+        }
+
         "/logistics/last_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
         
         "/logistics/last_mile/list/old_route"(platform: "/mobile", type: TrackType.View) {
