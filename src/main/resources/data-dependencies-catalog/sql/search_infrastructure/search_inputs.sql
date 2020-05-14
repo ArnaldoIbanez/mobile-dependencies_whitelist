@@ -5,9 +5,8 @@ SELECT
   t.ds              AS ds
 FROM (
   SELECT
-    ROW_NUMBER() OVER (PARTITION BY track_id) AS item_position,
-    item_id                                   AS item_id,
-    ds                                        AS ds
+    item_id AS item_id,
+    ds      AS ds
   FROM (
     SELECT
       DISTINCT(id) AS track_id,
@@ -26,7 +25,9 @@ FROM (
       AND off = 0
       AND NOT is_bot(device.user_agent)
   ) tracks
-    LATERAL VIEW explode(tracks.top_5_items) top_5_items as item_id
+  LATERAL VIEW explode(tracks.top_5_items) top_5_items as item_id
+  WHERE
+    size(top_5_items) > 0
 ) t
   JOIN (
     SELECT
