@@ -963,6 +963,22 @@ trackTests {
         }
     }
 
+    test("VIP fulfillment tooltip show") {
+
+        "/vip/show_fulfillment_tooltip"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        }
+    }
+
+    test("VIP fulfillment tooltip close") {
+
+        "/vip/close_fulfillment_tooltip"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        }
+    }
+
     test("VIP Shipping Calculator"){
 
         def model = {
