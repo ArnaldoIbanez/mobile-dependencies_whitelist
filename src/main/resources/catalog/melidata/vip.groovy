@@ -947,7 +947,17 @@ tracks {
         item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
     }
 
-    //Classifieds Credits
+    //BEGIN -  Classifieds Credits
+
+
+   "/vip/classi_credits_onboard"(platform: "/web", type: TrackType.View) {
+    }
+
+    "/vip/classi_credits_onboard/ok"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/vip/classi_credits_onboard/close"(platform: "/web", type: TrackType.Event) {
+    }
 
     "/vip/credits_intention"(platform: "/", type: TrackType.Event, isAbstract: true) {}
     "/vip/credits_intention/main_action"(platform: "/", type: TrackType.Event, isAbstract: true) {}
@@ -1017,6 +1027,9 @@ tracks {
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
+
+
+    //END -  Classifieds Credits
 
     "/vip/denounce"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {}
 

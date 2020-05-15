@@ -1193,7 +1193,7 @@ trackTests {
         }
     }
 
-    //CLassifieds Credits
+    // BEGIN - Classifieds Credits
 
     test("VIP go to credits simulation card event") {
         def properties = {
@@ -1222,6 +1222,19 @@ trackTests {
             properties()
         }
     }
+
+    test("VIP onboarding classifieds credits") {
+        "/vip/classi_credits_onboard"(platform: "/web", type: TrackType.View) {
+        }
+
+        "/vip/classi_credits_onboard/ok"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/vip/classi_credits_onboard/close"(platform: "/web", type: TrackType.Event) {
+        }
+    }
+
+   //END - Classifieds Credits
 
     test("VIP denounce") {
         "/vip/denounce"(platform: "/", type: TrackType.Event) {}
