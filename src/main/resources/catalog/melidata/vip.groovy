@@ -950,13 +950,64 @@ tracks {
     //BEGIN -  Classifieds Credits
 
 
-   "/vip/classi_credits_onboard"(platform: "/web", type: TrackType.View) {
+    "/vip/classi_credits_onboard"(platform: "/web", type: TrackType.View) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        seller_id(required: false, type: PropertyType.Numeric, description: "Seller ID")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
+                description: "Whenever the items is active, closed or paused")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
 
     "/vip/classi_credits_onboard/ok"(platform: "/web", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        seller_id(required: false, type: PropertyType.Numeric, description: "Seller ID")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
+                description: "Whenever the items is active, closed or paused")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
 
     "/vip/classi_credits_onboard/close"(platform: "/web", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buying_mode(required: true, type: PropertyType.String, values: ["buy_it_now", "auction","classified"],
+                description: "Indicates if it's an auction, buy_it_now or classified")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        seller_id(required: false, type: PropertyType.Numeric, description: "Seller ID")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        listing_type_id(required: true, type: PropertyType.String,
+                values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
+                description: "Listing type of the item")
+        item_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
+                description: "Whenever the items is active, closed or paused")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
     }
 
     "/vip/credits_intention"(platform: "/", type: TrackType.Event, isAbstract: true) {}
