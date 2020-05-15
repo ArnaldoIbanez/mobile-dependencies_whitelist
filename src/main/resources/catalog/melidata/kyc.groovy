@@ -353,6 +353,8 @@ tracks {
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
     }
 
+    "/kyc/iv/documentation"(platform: "/web", isAbstract: true) {}
+
     "/kyc/iv/documentation/uploader_change"(platform: "/web", type: TrackType.Event) {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
