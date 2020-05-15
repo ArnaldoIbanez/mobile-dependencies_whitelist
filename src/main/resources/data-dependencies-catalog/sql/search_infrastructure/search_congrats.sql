@@ -63,7 +63,7 @@ LEFT JOIN
         ELSE ed.order_id
         END AS checkout_id
     FROM default.tracks
-    LATERAL VIEW JSON_TUPLE(event_data, 'items', 'checkout_flow', 'order_id', 'purchase_id', 'congrats_status', 'congrats_seq') ed AS items, checkout_flow, order_id, purchase_id, congrats_status, congrats_seq
+    LATERAL VIEW JSON_TUPLE(event_data, 'items', 'checkout_flow', 'order_id', 'purchase_id', 'congrats_seq') ed AS items, checkout_flow, order_id, purchase_id, congrats_seq
     WHERE
       path = '/checkout/congrats'
       AND type = 'view'
