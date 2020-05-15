@@ -92,9 +92,10 @@ metrics {
         }
     }
 
-    "buyingflow/new_congrats"(description: "define properties for order_id in new_congrats experiments") {
+    "new_congrats_properties"(description: "define properties for order_id in new_congrats experiments") {
         startWith {
             set_property("order_id", "event_data.order_id")
+            experiment(regex("buyingflow/new_congrats.*"))
         }
     }
 
