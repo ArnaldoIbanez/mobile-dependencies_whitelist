@@ -410,6 +410,12 @@ trackTests {
             transaction_user_id = 109479273
         }
 
+        "/kyc/iv/documentation/uploader_click"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = false
+            transaction_user_id = 109479273
+        }
+
         "/kyc/iv/camera/unavailable"(platform: "/web") {
             flow = "flow_doc"
             custom_cam_offered = true
@@ -831,6 +837,12 @@ trackTests {
             flow = "flow_doc"
             custom_cam_offered = false
             option = "continue_from_desktop"
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/documentation/uploader_click"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = false
             transaction_user_id = 109479273
         }
 
