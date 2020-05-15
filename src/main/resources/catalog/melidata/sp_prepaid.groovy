@@ -24,6 +24,7 @@ tracks {
         address_line_2(required: false, PropertyType.String, description: "Address line 2 of the point")
         schedule(required: false, PropertyType.String, description: "Type of interest point")
         icon(required: false, PropertyType.String, description: "Icon of the point")
+        validation_result(required: true, PropertyType.String, description: "Result of apply site's validations")
     }
 
     propertyGroups { 
@@ -32,6 +33,7 @@ tracks {
         view_time(view_time)
         available_items(available_items)
         point_structure(latitude, longitude, description, address_line_1, address_line_2, type, schedule, icon)
+        validation_result(validation_result)
     }
 
     def notification_panel_structure = objectSchemaDefinitions {
@@ -456,4 +458,30 @@ tracks {
 
     // Payment rejected
     "/single_player/prepaid/payment_rejected"(platform: "/mobile", type: TrackType.View) {}
+
+
+    // Contacts
+    "/single_player/prepaid/contacts"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/contacts/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/contacts/selected_contact"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+        validation_result
+    }
+
+
+    // Receipt
+    "/single_player/prepaid/receipt"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/receipt/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/receipt/share"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/receipt/download"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 }
