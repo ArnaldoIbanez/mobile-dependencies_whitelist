@@ -1164,6 +1164,8 @@ trackTests {
             status = "filter_range_time"
         }
 
+        "/instore/geofence/clear"(platform: "/mobile", type: TrackType.Event) { }
+
         // Buyer QR
 
         "/instore/buyer_qr/buyer_qr"(platform: "/mobile", type: TrackType.View) {
@@ -2647,6 +2649,8 @@ trackTests {
         "/instore/geofence/push_sent"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             status = "filter_range_time"
         }
+
+        "/instore/geofence/clear"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) { }
     }
 
     test("Instore - QR Assignment") {

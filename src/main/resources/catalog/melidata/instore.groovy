@@ -507,6 +507,8 @@ tracks {
         status(required: true, PropertyType.String, description: "The status of the push", values: ["sent", "filter_audience", "filter_already_sent", "filter_range_time", "filter_no_campaign"])
     }
 
+    "/instore/geofence/clear"(platform: "/mobile", type: TrackType.Event) { }
+
     //Buyer QR
 
     "/instore/buyer_qr"(platform: "/mobile", isAbstract: true) {}
