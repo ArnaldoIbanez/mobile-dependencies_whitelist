@@ -456,4 +456,6 @@ tracks {
 
     // Payment rejected
     "/single_player/prepaid/payment_rejected"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/payment_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 }
