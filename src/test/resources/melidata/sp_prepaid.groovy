@@ -77,7 +77,6 @@ trackTests {
             content = ["Movistar"]
         }
 
-
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Mercado Pago
         //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -590,6 +589,39 @@ trackTests {
             mandatory()
         }
 
+        // Contacts
+        "/single_player/prepaid/contacts"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+        }
+
+        "/single_player/prepaid/contacts/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/contacts/selected_contact"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+            validation_result = "failed"
+        }
+
+        // Receipt
+        "/single_player/prepaid/receipt"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+        }
+
+        "/single_player/prepaid/receipt/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/receipt/download"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/receipt/share"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Meli
         //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1100,6 +1132,39 @@ trackTests {
         // Payment rejected
         "/single_player/prepaid/payment_rejected"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
+        }
+
+        // Contacts
+        "/single_player/prepaid/contacts"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+        }
+
+        "/single_player/prepaid/contacts/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/contacts/selected_contact"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+            validation_result = "failed"
+        }
+
+        // Receipt
+        "/single_player/prepaid/receipt"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+        }
+
+        "/single_player/prepaid/receipt/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/receipt/download"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/receipt/share"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
         }
     }
 }

@@ -456,4 +456,30 @@ tracks {
 
     // Payment rejected
     "/single_player/prepaid/payment_rejected"(platform: "/mobile", type: TrackType.View) {}
+
+
+    // Contacts
+    "/single_player/prepaid/contacts"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/contacts/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/contacts/selected_contact"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+        validation_result(required: true, PropertyType.String, description: "Result of apply site's validations")
+    }
+
+
+    // Receipt
+    "/single_player/prepaid/receipt"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/receipt/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/receipt/share"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/receipt/download"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 }
