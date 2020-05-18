@@ -2639,7 +2639,7 @@ trackTests {
             geofence_id = "123456"
         }
 
-                "/instore/geofence/notify_push"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+        "/instore/geofence/notify_push"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             geofence_id = "123456"
             type = "enter"
         }
