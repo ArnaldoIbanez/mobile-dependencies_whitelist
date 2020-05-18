@@ -125,6 +125,11 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/sidebar/discovery_advanced"(platform: "/", type: TrackType.Event){
+        theme(required: true, type: PropertyType.String, description: "Id of the selected theme for the discovery")
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/sidebar/flash_info"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
