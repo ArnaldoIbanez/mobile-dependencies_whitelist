@@ -911,6 +911,8 @@ tracks {
 
     "/vip/reservation_intention"(platform: "/", type: TrackType.Event, isAbstract: true){
         item_id(required: true, type: PropertyType.String, description: "Item ID")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, card dealer etc")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
     }
 
     "/vip/contact_seller/preload"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
