@@ -1155,8 +1155,13 @@ trackTests {
             geofence_id = "123456"
         }
 
-        "/instore/geofence/notify_dwell"(platform: "/mobile", type: TrackType.Event) {
+        "/instore/geofence/notify_push"(platform: "/mobile", type: TrackType.Event) {
             geofence_id = "123456"
+            type = "enter"
+        }
+
+        "/instore/geofence/push_sent"(platform: "/mobile", type: TrackType.Event) {
+            status = "filter_range_time"
         }
 
         // Buyer QR
@@ -2634,8 +2639,13 @@ trackTests {
             geofence_id = "123456"
         }
 
-        "/instore/geofence/notify_dwell"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+                "/instore/geofence/notify_push"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             geofence_id = "123456"
+            type = "enter"
+        }
+
+        "/instore/geofence/push_sent"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            status = "filter_range_time"
         }
     }
 
