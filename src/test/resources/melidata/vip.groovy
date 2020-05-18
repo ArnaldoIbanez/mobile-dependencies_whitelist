@@ -1193,7 +1193,7 @@ trackTests {
         }
     }
 
-    //CLassifieds Credits
+    // BEGIN - Classifieds Credits
 
     test("VIP go to credits simulation card event") {
         def properties = {
@@ -1222,6 +1222,37 @@ trackTests {
             properties()
         }
     }
+
+    test("VIP onboarding classifieds credits") {
+
+        def defaultTrackInformation = {
+            item_id = "MLA213512313"
+            category_id = "MLA123"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "motors"
+            listing_type_id = "gold_premium"
+            item_condition = "new"
+            item_seller_type = "car_dealer"
+            item_status = "active"
+            buying_mode = "classified"
+            deal_ids = []
+            seller_id = 123456789
+        }
+
+        "/vip/classi_credits_onboard"(platform: "/web", type: TrackType.View) {
+            defaultTrackInformation()
+        }
+
+        "/vip/classi_credits_onboard/ok"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+
+        "/vip/classi_credits_onboard/close"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+   //END - Classifieds Credits
 
     test("VIP denounce") {
         "/vip/denounce"(platform: "/", type: TrackType.Event) {}
