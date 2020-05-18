@@ -188,6 +188,7 @@ catalog {
         include business, "mplayer.groovy"
         include business, "money_in.groovy"
         include business, "money_out.groovy"
+        include business, "disbursements.groovy"
         include business, "pos_seller.groovy"
         include business, "preference.groovy"
         include business, "discount_sellers.groovy"
