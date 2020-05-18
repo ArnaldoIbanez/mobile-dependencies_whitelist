@@ -504,7 +504,7 @@ tracks {
     }
 
     "/instore/geofence/push_sent"(platform: "/mobile", type: TrackType.Event) {
-        status(required: true, PropertyType.String, description: "The status of the push", values: ["sent", "filter_audience", "filter_already_sent", "filter_range_time", "filter_no_campaign"])
+        status(required: true, PropertyType.String, description: "The status of the push", values: ["sent", "filter_audience", "filter_already_sent", "filter_range_time", "filter_no_campaign", "unavailable"])
     }
 
     "/instore/geofence/clear"(platform: "/mobile", type: TrackType.Event) { }
