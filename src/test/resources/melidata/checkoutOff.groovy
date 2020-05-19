@@ -168,6 +168,11 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         "/checkout_off/congrats/call_for_auth/later"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -292,6 +297,11 @@ trackTests {
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
@@ -503,6 +513,11 @@ trackTests {
             finishDefaultProperties()
         }
 
+        "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
         "/checkout_off/congrats/call_for_auth/later"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
@@ -627,6 +642,11 @@ trackTests {
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
