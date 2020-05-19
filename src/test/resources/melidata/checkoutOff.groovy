@@ -158,6 +158,10 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -288,6 +292,10 @@ trackTests {
         }
 
         "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 
@@ -503,6 +511,10 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -633,6 +645,10 @@ trackTests {
         }
 
         "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
 
