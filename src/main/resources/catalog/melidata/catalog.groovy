@@ -158,6 +158,7 @@ catalog {
         include business, "update_browser.groovy"
         include business, "insurtech.groovy"
         include business, "trends.groovy"
+        include business, "data_privacy.groovy"
     }
 
     mercadopago.each { business ->
@@ -205,6 +206,7 @@ catalog {
         include business, "digital_goods.groovy"
         include business, "sp_bill_payments.groovy"
         include business, "notifications.groovy"
+        include business, "data_privacy.groovy"
     }
 
     mercadoshops.each { business ->
