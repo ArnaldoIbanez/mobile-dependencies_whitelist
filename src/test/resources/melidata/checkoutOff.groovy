@@ -133,11 +133,11 @@ trackTests {
         "/checkout_off/review/shield_kyc"(platform: "/web/mobile") {
             defaultProperties()
         }
-        
+
         "/checkout_off/review/challenge_kyc"(platform: "/web/mobile") {
             defaultProperties()
         }
-        
+
         "/checkout_off/review/challenge_second_factor_auth"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -159,6 +159,34 @@ trackTests {
         }
 
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/review"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/input_zip_code"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/input_address"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_user_type"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_option"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_address"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/zipcode_finder"(platform: "/web/mobile") {
             defaultProperties()
         }
 
@@ -244,7 +272,7 @@ trackTests {
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
-        
+
         // Tokenizer product final screen.
         "/checkout_off/payment/processing"(platform: "/web/mobile") {
             onlyRequiredProperties()
@@ -290,6 +318,35 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/review"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/input_zip_code"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/input_address"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_user_type"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_option"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_address"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/zipcode_finder"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
             onlyRequiredProperties()
@@ -322,19 +379,19 @@ trackTests {
         }
 
         // MP personalFrontend
-        "/tools/list"(platform: "/web"){
+        "/tools/list"(platform: "/web") {
         }
 
-        "/tools/list/button_create"(platform: "/web"){
+        "/tools/list/button_create"(platform: "/web") {
         }
 
-        "/tools/create"(platform: "/web"){
+        "/tools/create"(platform: "/web") {
         }
 
-        "/tools/confirm_create_edit"(platform: "/web"){
+        "/tools/confirm_create_edit"(platform: "/web") {
         }
 
-        "/balance/reports"(platform: "/web"){
+        "/balance/reports"(platform: "/web") {
         }
         // END -- MP personalFrontend
     }
@@ -497,6 +554,34 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/review"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/input_zip_code"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/input_address"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_user_type"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_option"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_address"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/zipcode_finder"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
             defaultProperties()
@@ -579,7 +664,7 @@ trackTests {
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
-        
+
         // Tokenizer product final screen.
         "/checkout_off/payment/processing"(platform: "/web/mobile") {
             onlyRequiredProperties()
@@ -624,6 +709,35 @@ trackTests {
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
+        
+        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/review"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/input_zip_code"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/input_address"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_user_type"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_option"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_address"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/zipcode_finder"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
@@ -657,20 +771,22 @@ trackTests {
         }
 
         // MP personalFrontend
-        "/tools/list"(platform: "/web"){
+        "/tools/list"(platform: "/web") {
         }
 
-        "/tools/list/button_create"(platform: "/web"){
+        "/tools/list/button_create"(platform: "/web") {
         }
 
-        "/tools/create"(platform: "/web"){
+        "/tools/create"(platform: "/web") {
         }
 
-        "/tools/confirm_create_edit"(platform: "/web"){
+        "/tools/confirm_create_edit"(platform: "/web") {
         }
 
-        "/balance/reports"(platform: "/web"){
+        "/balance/reports"(platform: "/web") {
         }
+
+
         // END -- MP personalFrontend
     }
 }
