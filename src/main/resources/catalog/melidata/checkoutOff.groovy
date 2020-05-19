@@ -134,6 +134,7 @@ tracks {
     "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
 
     // Shipping tracks
+    "/checkout_off/shipping"(platform: "/", isAbstract: true) {}
     "/checkout_off/shipping/select_method"(platform: "/", type: TrackType.View) {}
     "/checkout_off/shipping/review"(platform: "/", type: TrackType.View) {}
     "/checkout_off/shipping/input_zip_code"(platform: "/", type: TrackType.View) {}
