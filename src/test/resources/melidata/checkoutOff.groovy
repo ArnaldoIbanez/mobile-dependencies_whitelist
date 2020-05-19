@@ -346,7 +346,6 @@ trackTests {
             onlyRequiredProperties()
         }
 
-
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
             onlyRequiredProperties()
@@ -379,19 +378,19 @@ trackTests {
         }
 
         // MP personalFrontend
-        "/tools/list"(platform: "/web") {
+        "/tools/list"(platform: "/web"){
         }
 
-        "/tools/list/button_create"(platform: "/web") {
+        "/tools/list/button_create"(platform: "/web"){
         }
 
-        "/tools/create"(platform: "/web") {
+        "/tools/create"(platform: "/web"){
         }
 
-        "/tools/confirm_create_edit"(platform: "/web") {
+        "/tools/confirm_create_edit"(platform: "/web"){
         }
 
-        "/balance/reports"(platform: "/web") {
+        "/balance/reports"(platform: "/web"){
         }
         // END -- MP personalFrontend
     }
@@ -709,7 +708,7 @@ trackTests {
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
-        
+
         "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -737,7 +736,6 @@ trackTests {
         "/checkout_off/shipping/zipcode_finder"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
-
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
@@ -771,22 +769,20 @@ trackTests {
         }
 
         // MP personalFrontend
-        "/tools/list"(platform: "/web") {
+        "/tools/list"(platform: "/web"){
         }
 
-        "/tools/list/button_create"(platform: "/web") {
+        "/tools/list/button_create"(platform: "/web"){
         }
 
-        "/tools/create"(platform: "/web") {
+        "/tools/create"(platform: "/web"){
         }
 
-        "/tools/confirm_create_edit"(platform: "/web") {
+        "/tools/confirm_create_edit"(platform: "/web"){
         }
 
-        "/balance/reports"(platform: "/web") {
+        "/balance/reports"(platform: "/web"){
         }
-
-
         // END -- MP personalFrontend
     }
 }
