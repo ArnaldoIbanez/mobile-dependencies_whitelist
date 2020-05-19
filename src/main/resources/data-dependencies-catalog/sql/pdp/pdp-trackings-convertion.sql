@@ -17,7 +17,6 @@ count(distinct if(path_actions_orders in (
 count(distinct if(path_actions_orders = '/orders/ordercreated' and is_carrito = 'false', concat(uid_pds,product_id_pds), null)) as total_orders,
 count(distinct if(path_actions_orders = '/orders/ordercreated' and is_carrito = 'true', concat(uid_pds,product_id_pds), null)) as total_orders_cart,
 cast(total.ds_pds as date) as ds
-
 from
 (
 select
@@ -47,8 +46,6 @@ from
         AND usr.uid IS NOT NULL
         AND application.site_id in ('MLB','MLA','MLM')
         and  path = '/pdp'
-        --AND bu = 'mercadolibre'
-        --AND site in ('MLB','MLA','MLM')
         AND jest(event_data,'catalog_product_id') IS NOT NULL
   group by usr.uid , jest(event_data,'catalog_product_id'), application.site_id, substr(ds,1,10), device.platform, jest(event_data,'cart_content'), path
 ) pdps
