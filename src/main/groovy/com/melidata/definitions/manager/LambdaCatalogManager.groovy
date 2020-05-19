@@ -1,6 +1,5 @@
 package com.melidata.definitions.manager
 
-import com.ml.melidata.catalog.initiatives.InitiativeAPI
 
 class LambdaCatalogManager extends CatalogManager {
 
@@ -18,7 +17,6 @@ class LambdaCatalogManager extends CatalogManager {
 
     @Override
     void init() {
-        InitiativeAPI.getInstance().init()
         catalogHandlers.each {_, catalogHandler -> catalogHandler.reload()}
     }
 }
