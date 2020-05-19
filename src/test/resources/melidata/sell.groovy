@@ -215,12 +215,50 @@ trackTests {
     }
 
     test("Native Sell List flow steps"){
+        def defaultCatalogFlowMobile =
+                {
+                    category_id = "MLA123"
+                    category_path = ["MLA12345", "MLA61216"]
+                    parent_product_id = "MLA1234"
+                    product_id = "MLA12345";
+                    categorization_flow_successful = false
+                    attribute_id = "TEST"
+                    domain_id = "MLA_TEST"
+                    chosen_categorization_model = "ZORDON"
+                    title_predicted = "test"
+                    category_prediction_selected_index = 0
+                    attribute_values = [
+                            [
+                                    "name": "test",
+                                    "id": "TEST",
+                                    "value_id": "123",
+                                    "value_name": "TEST"
+                            ]
+                    ]
+                    predictions = [
+                            attributes: [
+                                    [
+                                            "id": "TEST",
+                                            "value_id": "123"
+                                    ]
+                            ],
+                            categories: [
+                                    [
+                                            path: ["MLA123", "MLA1234"],
+                                            score: 0.99
+                                    ]
+                            ]
+                    ]
+                }
+
+
         "/sell/list/congrats"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/hub"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -473,6 +511,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/category_navigation"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -480,6 +519,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/catalog"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -496,6 +536,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/catalog/customize_marketplace_item_landing"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -511,6 +552,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             catalog_listing_forced_type = "open"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/catalog/forced"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -519,6 +561,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             catalog_listing_forced_type = "closed"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/classifieds_reservation_landing"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -533,6 +576,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/color_selection_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -547,6 +591,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/condition"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -554,6 +599,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/condition_review"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -568,6 +614,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/description"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -757,6 +804,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/pictures_fallback/album_selector"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -764,6 +812,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/pictures_fallback/pictures_selector"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -771,6 +820,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/pictures_fallback/editor"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -778,6 +828,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/pictures_fallback/crop"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -785,6 +836,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/picture_uploader/delete"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -974,6 +1026,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
 
         "/sell/list/technical_specifications_review"(platform: "/mobile") {
@@ -983,12 +1036,21 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
         }
+        "/sell/list/technical_specifications_catalog"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "core"
+            defaultCatalogFlowMobile()
+        }
         "/sell/list/product_detail"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/product_identifier"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1003,6 +1065,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/attribute/kilometers"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1010,6 +1073,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/category/selection/l1"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1222,6 +1286,42 @@ trackTests {
     }
 
     test("Native Sell List draft flow steps") {
+        def defaultCatalogFlowMobile =
+                {
+                    category_id = "MLA123"
+                    category_path = ["MLA12345", "MLA61216"]
+                    parent_product_id = "MLA1234"
+                    product_id = "MLA12345";
+                    categorization_flow_successful = false
+                    attribute_id = "TEST"
+                    domain_id = "MLA_TEST"
+                    chosen_categorization_model = "ZORDON"
+                    title_predicted = "test"
+                    category_prediction_selected_index = 0
+                    attribute_values = [
+                            [
+                                    "name": "test",
+                                    "id": "TEST",
+                                    "value_id": "123",
+                                    "value_name": "TEST"
+                            ]
+                    ]
+                    predictions = [
+                            attributes: [
+                                    [
+                                            "id": "TEST",
+                                            "value_id": "123"
+                                    ]
+                            ],
+                            categories: [
+                                    [
+                                            path: ["MLA123", "MLA1234"],
+                                            score: 0.99
+                                    ]
+                            ]
+                    ]
+                }
+
         "/sell/list/drafts"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
@@ -1249,6 +1349,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/attribute/kilometers"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1256,6 +1357,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/category_navigation"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1263,6 +1365,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/category_suggestion"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1270,6 +1373,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/color_selection"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1277,6 +1381,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/color_selection_fallback"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1284,6 +1389,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/condition"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1291,6 +1397,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/condition_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1305,6 +1412,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/congrats"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1312,6 +1420,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/congrats/payment_pending"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1319,6 +1428,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/description"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1445,6 +1555,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/pictures_landing_fallback"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1452,6 +1563,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/pictures_fallback/album_selector"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1459,6 +1571,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/pictures_fallback/pictures_selector"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1466,6 +1579,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/pictures_fallback/editor"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1473,6 +1587,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/pictures_review"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1529,6 +1644,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/product_identifier"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1621,6 +1737,14 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
         }
+        "/sell/list/draft/technical_specifications_catalog"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "core"
+            defaultCatalogFlowMobile()
+        }
         "/sell/list/draft/title"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
@@ -1669,6 +1793,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1684,6 +1809,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             catalog_listing_forced_type = "open"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/draft/catalog/forced"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
@@ -1692,6 +1818,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
             catalog_listing_forced_type = "closed"
+            defaultCatalogFlowMobile()
         }
     }
 
