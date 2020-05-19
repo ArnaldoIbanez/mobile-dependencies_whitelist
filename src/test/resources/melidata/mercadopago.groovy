@@ -4164,4 +4164,35 @@ trackTests {
         "/about/rate_app"(platform:"/mobile", type:TrackType.Event) {}
     }
 
+    test("Register Point Plus") {
+        // Register device
+        "/point/register/start"(platform: "/", type: TrackType.View) {}
+        "/point/register/start/insert_code"(platform: "/", type: TrackType.Event) {}
+
+        // Store crate
+        "/point/register/store_create"(platform: "/", type: TrackType.View) {}
+        "/point/register/store_create/done"(platform: "/", type: TrackType.Event) {}
+
+        // Point of sale create
+        "/point/register/pos_create"(platform: "/", type: TrackType.View) {}
+        "/point/register/pos_create/done"(platform: "/", type: TrackType.Event) {}
+        "/point/register/pos_create/cancel"(platform: "/", type: TrackType.Event) {}
+
+        // Point of sale select
+        "/point/register/pos_select"(platform: "/", type: TrackType.View) {}
+        "/point/register/pos_create"(platform: "/", type: TrackType.Event) {}
+        "/point/register/pos_select/done"(platform: "/", type: TrackType.Event) {}
+
+        // Store select
+        "/point/register/store_select"(platform: "/", type: TrackType.View) {}
+        "/point/register/store_create"(platform: "/", type: TrackType.Event) {}
+        "/point/register/store_select/done"(platform: "/", type: TrackType.Event) {}
+
+        // Congrats
+        "/point/register/end"(platform: "/", type: TrackType.View) {}
+
+        // Access denied
+        "/point/register/access_denied"(platform: "/", type: TrackType.View) {}
+    }
+
 }
