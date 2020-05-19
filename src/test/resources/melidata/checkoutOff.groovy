@@ -165,9 +165,6 @@ trackTests {
         "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
             defaultProperties()
         }
-        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
-            defaultProperties()
-        }
         "/checkout_off/shipping/review"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -318,9 +315,6 @@ trackTests {
             onlyRequiredProperties()
         }
 
-        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
-            onlyRequiredProperties()
-        }
         "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -556,9 +550,6 @@ trackTests {
         "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
             defaultProperties()
         }
-        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
-            defaultProperties()
-        }
         "/checkout_off/shipping/review"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -709,9 +700,6 @@ trackTests {
             onlyRequiredProperties()
         }
 
-        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
-            onlyRequiredProperties()
-        }
         "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }

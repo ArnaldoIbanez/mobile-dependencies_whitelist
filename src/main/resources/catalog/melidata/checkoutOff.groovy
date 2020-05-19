@@ -135,7 +135,6 @@ tracks {
 
     // Shipping tracks
     "/checkout_off/shipping/select_method"(platform: "/", type: TrackType.View) {}
-    "/checkout_off/shipping/select_method"(platform: "/", type: TrackType.View) {}
     "/checkout_off/shipping/review"(platform: "/", type: TrackType.View) {}
     "/checkout_off/shipping/input_zip_code"(platform: "/", type: TrackType.View) {}
     "/checkout_off/shipping/input_address"(platform: "/", type: TrackType.View) {}
