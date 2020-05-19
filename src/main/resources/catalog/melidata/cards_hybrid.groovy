@@ -13,7 +13,9 @@ tracks {
     //-----------------
 
     //Abstract Path
-    "/cards"(platform: "/", isAbstract: true) { }
+    "/cards"(platform: "/", isAbstract: true) {
+        from (required: false, type: PropertyType.String, description: "Context from where its started")
+     }
     "/cards/hybrid"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/request"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/request/virtual"(platform: "/", isAbstract: true) { }
