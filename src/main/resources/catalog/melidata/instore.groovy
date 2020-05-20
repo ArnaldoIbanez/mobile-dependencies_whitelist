@@ -498,9 +498,16 @@ tracks {
         geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
     }
 
-    "/instore/geofence/notify_dwell"(platform: "/mobile", type: TrackType.Event) {
+    "/instore/geofence/notify_push"(platform: "/mobile", type: TrackType.Event) {
         geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
+        type(required: true, PropertyType.String, description: "The type of tevent", values: ["enter", "dwell"])
     }
+
+    "/instore/geofence/push_sent"(platform: "/mobile", type: TrackType.Event) {
+        status(required: true, PropertyType.String, description: "The status of the push", values: ["sent", "filter_audience", "filter_already_sent", "filter_range_time", "filter_no_campaign", "unavailable"])
+    }
+
+    "/instore/geofence/clear"(platform: "/mobile", type: TrackType.Event) { }
 
     //Buyer QR
 
