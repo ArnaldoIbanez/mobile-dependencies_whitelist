@@ -30,4 +30,4 @@
   WHERE category_id_l1 IS NOT NULL
   GROUP BY site_id, fecha, category_id_l1, category_name_l1, category_id_l2, category_name_l2, category_id_l3, category_name_l3
               ,device, order_deal, seller_nickname, order_logistic, item, order_title, stock
-  ;
+  HAVING ordenes>0;
