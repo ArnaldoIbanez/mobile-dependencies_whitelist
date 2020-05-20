@@ -557,9 +557,10 @@ trackTests {
         "/pdp/backend/questions_redirect"(platform: "/") {}
     }
 
-    test("PDP fulfillment modal") {
+    test("PDP onboardings") {
 
-        "/pdp/fulfillment_modal/show"(platform: "/", type: TrackType.Event) {
+        "/pdp/fulfillment_modal/show"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
             category_id = "MLA43718"
             category_path = ["MLA1234","MLA6789"]
@@ -568,12 +569,10 @@ trackTests {
             price = 15.3
             currency_id = "ARS"
             original_price = 18.0
-        }
-    }
-
-    test("PDP fulfillment modal") {
-
-        "/pdp/cbt_modal/show"(platform: "/", type: TrackType.Event) {
+        })
+        
+        "/pdp/cbt_modal/show"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
             category_id = "MLA43718"
             category_path = ["MLA1234","MLA6789"]
@@ -582,22 +581,18 @@ trackTests {
             price = 15.3
             currency_id = "ARS"
             original_price = 18.0
-        }
-    }
+        })
 
-    test("PDP fulfillment tooltip show") {
-
-        "/pdp/fulfillment_tooltip/show"(platform: "/", type: TrackType.Event) {
+        "/pdp/fulfillment_tooltip/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
             buyer_id = "12343718"
-        }
-    }
+        })
 
-    test("PDP fulfillment tooltip close") {
-
-        "/pdp/fulfillment_tooltip/close"(platform: "/", type: TrackType.Event) {
+        "/pdp/fulfillment_tooltip/close"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
             buyer_id = "12343718"
-        }
+        })
     }
 }

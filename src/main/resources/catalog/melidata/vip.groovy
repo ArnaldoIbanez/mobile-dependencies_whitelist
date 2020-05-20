@@ -808,7 +808,7 @@ tracks {
 
     }
 
-    "/vip/show_fulfillment_tooltip"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+    "/vip/show_fulfillment_tooltip"(platform: "/", parentPropertiesInherited: false){
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         buyer_id(required: false, type: PropertyType.String, description: "Buyer ID")
     }
