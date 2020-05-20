@@ -29,14 +29,15 @@ tracks {
 
     //Shipping: Tracking
     "/cards/hybrid/shipping/tracking"(platform: "/", type: TrackType.View) {
-        banner_is_present (required:true, type: PropertyType.Boolean, description: "Banner is present in Screen", inheritable:false)
+        unlock_banner_is_present (required:true, type: PropertyType.Boolean, description: "Unlock Banner is present in Screen", inheritable:false)
+        setup_virtual_banner_is_present (required:true, type: PropertyType.Boolean, description: "Setup Virtual Banner is present in Screen", inheritable:false)
         contact_is_present (required:true, type: PropertyType.Boolean, description: "Contact is present in Screen", inheritable:false)
     }
     "/cards/hybrid/shipping/tracking/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["back", "contact", "help", "banner_unlock"],
+            values: ["back", "contact", "help", "banner_unlock", "banner_setup_virtual"],
             description: "Action tapped"
         )
     }
