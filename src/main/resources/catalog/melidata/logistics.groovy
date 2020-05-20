@@ -12,11 +12,11 @@ tracks {
     def receiver_definition = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "Specifies the shipment's receiver id", inheritable: false)
         geolocation_type(required: true, type: PropertyType.String,
-            valued: ["ROOFTOP", "RANGE_INTERPOLATED", "APPROXIMATE", "GEOMETRIC_CENTER"],
+            values: ["ROOFTOP", "RANGE_INTERPOLATED", "APPROXIMATE", "GEOMETRIC_CENTER"],
             description: "Specifies the precision of the receiver location",
             inheritable: false)
         delivery_preference(required: false, type: PropertyType.String,
-            valued: ["residential", "business"],
+            values: ["residential", "business"],
             description: "Specifies the current preference for the delivery", inheritable: false)
         latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
         longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
@@ -51,7 +51,7 @@ tracks {
         latitude(required:true, type: PropertyType.String, description: "The latitude of the geo position")
         longitude(required:true, type: PropertyType.String, description: "The longitude of the geo position")
         geolocation_type(required: true, type: PropertyType.String,
-            valued: ["ROOFTOP", "RANGE_INTERPOLATED", "APPROXIMATE", "GEOMETRIC_CENTER"],
+            values: ["ROOFTOP", "RANGE_INTERPOLATED", "APPROXIMATE", "GEOMETRIC_CENTER"],
             description: "Specifies the precision of the geo position location",
             inheritable: false)
         distance(required:false, type: PropertyType.String, description: "The driver's distance in meters to the destination")
