@@ -2205,6 +2205,21 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
         }
+        "/notification/shipping_wrong_address_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            shipment_id = 123
+        }
+        "/notification/shipping_buyer_absent_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            shipment_id = 123
+        }
+        "/notification/shipping_scoring_keyword_created"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            shipment_id = 123
+        }
 
         "/notification/collections_approved"(platform: "/mobile") {
             news_id = "12332323"
