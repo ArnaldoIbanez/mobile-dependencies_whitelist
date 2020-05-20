@@ -12,11 +12,11 @@ tracks {
     def receiver_definition = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "Specifies the shipment's receiver id", inheritable: false)
         geolocation_type(required: true, type: PropertyType.String,
-            valued: ["ROOFTOP", "RANGE_INTERPOLATED", "APPROXIMATE", "GEOMETRIC_CENTER"],
+            values: ["ROOFTOP", "RANGE_INTERPOLATED", "APPROXIMATE", "GEOMETRIC_CENTER"],
             description: "Specifies the precision of the receiver location",
             inheritable: false)
         delivery_preference(required: false, type: PropertyType.String,
-            valued: ["residential", "business"],
+            values: ["residential", "business"],
             description: "Specifies the current preference for the delivery", inheritable: false)
         latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
         longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
@@ -45,6 +45,17 @@ tracks {
     def pickup_status = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "The id of the pickup")
         status(required: true, type: PropertyType.String, description: "The status of the pickup", values: ["pending", "cancelled", "finished"])
+    }
+
+    def geo_position_definition = objectSchemaDefinitions {
+        latitude(required:true, type: PropertyType.String, description: "The latitude of the geo position")
+        longitude(required:true, type: PropertyType.String, description: "The longitude of the geo position")
+        geolocation_type(required: true, type: PropertyType.String,
+            values: ["ROOFTOP", "RANGE_INTERPOLATED", "APPROXIMATE", "GEOMETRIC_CENTER"],
+            description: "Specifies the precision of the geo position location",
+            inheritable: false)
+        distance(required:false, type: PropertyType.String, description: "The driver's distance in meters to the destination")
+        accuracy(required:false, type: PropertyType.String, description: "The accuracy radius in meters for this geo point")
     }
 
     propertyGroups {
@@ -272,6 +283,11 @@ tracks {
         error_type(required: true, type: PropertyType.String, description: "Specifies the current error type", inheritable: false, values: ["document_form", "regex"])
     }
 
+    "/logistics/last_mile/notification/view_near_pack_destination"(platform: "/mobile", type: TrackType.Event) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        geo_position(required: true, type: PropertyType.Map(geo_position_definition), description: "Specifies the information about the destination geo point", inheritable: false)
+    }
+
     // First Mile
     "/logistics/first_mile/list"(platform: "/mobile", type: TrackType.View) {
         first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
@@ -291,7 +307,6 @@ tracks {
         packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the invalid ids received")
     }
 
-    // First Mile ----
     "/logistics/first_mile/scanner/modal_back"(platform: "/mobile", type: TrackType.View) {
         first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
         packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages that " +
