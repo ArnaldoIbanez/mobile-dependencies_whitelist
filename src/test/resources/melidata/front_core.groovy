@@ -441,6 +441,9 @@ trackTests {
                     ordinal: 15,
                     content_type : 'complete'
             ]
+            metadata = [
+                accessibility_voice: false
+            ]
         }
     }
 
@@ -607,6 +610,9 @@ trackTests {
             ifpe_regulation= [
                     ordinal: 15,
                     content_type : 'complete'
+            ]
+            metadata = [
+                accessibility_voice: true
             ]
         }
     }
@@ -1223,6 +1229,9 @@ trackTests {
                     level: 3,
                     partner: "HBO"
             ]
+            metadata = [
+                accessibility_voice: false
+            ]
         }
     }
 
@@ -1387,6 +1396,9 @@ trackTests {
                     ordinal: 14,
                     level: 3,
                     partner: "HBO"
+            ]
+            metadata = [
+                accessibility_voice: true
             ]
         }
     }
