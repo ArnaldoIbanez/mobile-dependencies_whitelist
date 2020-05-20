@@ -7130,7 +7130,21 @@ trackTests {
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
             event_type = "sent"
         }
-
+        "/notification/shipping_wrong_address_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            shipment_id = 123
+        }
+        "/notification/shipping_buyer_absent_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            shipment_id = 123
+        }
+        "/notification/shipping_scoring_keyword_created"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            shipment_id = 123
+        }
     }
 
     defaultBusiness = "mercadolibre"
