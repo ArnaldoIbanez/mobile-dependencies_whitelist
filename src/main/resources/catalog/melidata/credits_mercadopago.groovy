@@ -389,10 +389,19 @@ tracks {
             ),
             required: false,
         )
+        is_operator_user(
+            type: PropertyType.Boolean,
+            required: false,
+        )
     }
 
     //Without Proposal
-    "/credits/merchant/enrollment/without_proposal"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/without_proposal"(platform: "/", type: TrackType.View) {
+        is_operator_user(
+            type: PropertyType.Boolean,
+            required: false,
+        )
+    }
 
     //Confirmation modal
     "/credits/merchant/enrollment/confirmation"(platform: "/", type: TrackType.View) {
