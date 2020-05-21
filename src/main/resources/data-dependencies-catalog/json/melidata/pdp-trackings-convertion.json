@@ -47,7 +47,7 @@
       }
     ],
     "sql": {
-      "script": "vip/vip-trackings-convertion-v3.sql",
+      "script": "pdp/pdp-trackings-convertion.sql",
       "parameters": [
         {
           "name": "param01",
