@@ -10,9 +10,10 @@ FROM
     default.tracks
 WHERE
     (
-        (path = '/mercado_shops/admin/welcome' and platform.http.http_referer like '%/mercadoshops')
-        or (path = '/mercado_shops/optin' and platform.http.http_url like '%/mercadoshops')
+        path = '/mercado_shops/optin/step'
         or path = '/mercado_shops/admin/confirm_migration'
-        or path = '/mercado_shops/optin/step'
+        or path = '/mercado_shops/optin'
+        or (path = '/mercado_shops/admin/welcome'  and platform.http.http_referer like '%/mercadoshops/optin')
+        or (path = '/mercado_shops/hub/onboarding' and platform.http.http_referer like '%/mercadoshops/optin')
     )
     and ds >= '@param01' and ds < '@param02'
