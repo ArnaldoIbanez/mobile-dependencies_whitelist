@@ -589,6 +589,11 @@ trackTests {
             mandatory()
         }
 
+        "/single_player/prepaid/payment_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+
         // Contacts
         "/single_player/prepaid/contacts"(platform: "/mobile", type: TrackType.View) {
             mandatory()
@@ -621,6 +626,7 @@ trackTests {
             mandatory()
             view_time()
         }
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Meli
@@ -1134,6 +1140,11 @@ trackTests {
             mandatory()
         }
 
+        "/single_player/prepaid/payment_rejected/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+        }
+
+        
         // Contacts
         "/single_player/prepaid/contacts"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()

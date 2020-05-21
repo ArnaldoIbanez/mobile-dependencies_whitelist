@@ -1937,7 +1937,16 @@ tracks {
     "/notification/shipping_moderation_cross_docking_release_below"(platform: "/") {}
     "/notification/shipping_moderation_cross_docking_recovery"(platform: "/") {}
     "/notification/shipping_moderation_cross_docking_downgrade"(platform: "/") {}
-
+    //Shipping-Scoring
+    "/notification/shipping_wrong_address_driver_action"(platform: "/mobile") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
+    }
+    "/notification/shipping_buyer_absent_driver_action"(platform: "/mobile") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
+    }
+    "/notification/shipping_scoring_keyword_created"(platform: "/mobile") {
+        shipment_id(required: true, type: PropertyType.Numeric, description: "Corresponds to Id of shipment.")
+    }
     //Wallet
     "/notification/wallet_integrator_insufficient_amount"(platform: "/mobile") {}
 

@@ -1,51 +1,53 @@
 {
   "users": [
-    "agustin.blanco@mercadolibre.com",
-    "rodrigo.loguzzo@mercadolibre.com",
-    "hernan.herrera@mercadolibre.com",
+    "manuel.kenar@mercadolibre.com",
     "vip_it@mercadolibre.com"
   ],
-  "process_name": "vip_trackings_convertion_v2",
-  "cron": "00 02 * * *",
+  "process_name": "pdp_trackings_convertion",
+  "cron": "00 07 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE"
   },
+  
   "extract": {
-    "operation": "destroy",
+    "operation": "append",
     "columns": [
       {
-        "name": "site",
+        "name": "site_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "device",
+        "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "total_vips",
+        "name": "total_pdp",
         "type": "INTEGER"
       },
       {
-        "name": "amount_buy",
+        "name": "total_pdp_cart",
         "type": "INTEGER"
       },
       {
-        "name": "amount_cart",
+        "name": "total_a2c_actions",
         "type": "INTEGER"
       },
       {
-        "name": "amount_buy_real",
+        "name": "total_buy_actions",
         "type": "INTEGER"
       },
       {
-        "name": "amount_cart_real",
+        "name": "total_orders",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total_orders_cart",
         "type": "INTEGER"
       }
-
     ],
     "sql": {
-      "script": "vip/vip-trackings-convertion-v2.sql",
+      "script": "vip/vip-trackings-convertion-v3.sql",
       "parameters": [
         {
           "name": "param01",

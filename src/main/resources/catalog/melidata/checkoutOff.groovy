@@ -132,7 +132,22 @@ tracks {
     "/tools/create"(platform: "/web", type: TrackType.View) {}
     "/tools/confirm_create_edit"(platform: "/web") {}
 
-    "/balance"(platform: "/web", isAbstract: true) {}
-    "/balance/reports"(platform: "/web", type: TrackType.View) {}
+    "/balance"(platform: "/web", isAbstract: true){}
+    "/balance/reports"(platform: "/web", type: TrackType.View){}
+
+    "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
+
+    // Shipping tracks
+    "/checkout_off/shipping"(platform: "/", isAbstract: true) {}
+    "/checkout_off/shipping/select_method"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/review"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/input_zip_code"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/input_address"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/select_user_type"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/select_option"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/select_address"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/zipcode_finder"(platform: "/", type: TrackType.View) {}
+
     //END -- MP personalFrontend
 }

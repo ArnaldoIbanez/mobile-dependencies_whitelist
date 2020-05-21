@@ -435,6 +435,7 @@ tracks {
         vertical(required: false, description: "Vertical name over show phone event is displayed")
         listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        catalog_listing(required: false, type: PropertyType.Boolean, description: "Item's catalog listing. it will be true when comes from VPP")
     }
 
     "/vip/coordinate_availability"(platform: "/mobile", type: TrackType.Event) {
@@ -494,7 +495,7 @@ tracks {
         )
     }
 
-    "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {}
+    "/vip/similar_vehicles"(platform: "/", type: TrackType.Event) {}
 
     "/vip/map/"(platform: "/mobile") {}
 
@@ -580,6 +581,7 @@ tracks {
         item_seller_type(required: false, type: PropertyType.String,
                 description: "Seller type: normal, real_estate_user, etc"
         )
+        catalog_listing(required: false, type: PropertyType.Boolean, description: "Item's catalog listing. it will be true when comes from VPP")
     }
 
     "/vip/captcha_showed"(platform: "/web", type: TrackType.Event) {
@@ -909,6 +911,8 @@ tracks {
 
     "/vip/reservation_intention"(platform: "/", type: TrackType.Event, isAbstract: true){
         item_id(required: true, type: PropertyType.String, description: "Item ID")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, card dealer etc")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
     }
 
     "/vip/contact_seller/preload"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){

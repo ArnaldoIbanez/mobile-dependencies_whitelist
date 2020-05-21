@@ -508,4 +508,24 @@ metrics {
 			}
 		}
 	}
+
+	"bids.sameOrder"(description: "/orders/ordercreated from feed in the same order with Orders-API confirmation of experiement", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and(
+						equals("event_data.order_id", property("order_id")),
+						equals(
+								externalCondition {
+									url("internal/orders/\$0")
+									replace("event_data.order_id")
+									method("get")
+									successfulCodes(200, 206)
+									jsonPath("status")
+								},
+								"paid"
+						))
+			}
+		}
+	}
 }

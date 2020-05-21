@@ -17,8 +17,9 @@ trackTests {
     //Shipping: Tracking
     test("cards hybrid shipping tracking") {
         "/cards/hybrid/shipping/tracking"(platform: "/", type: TrackType.View) {
-            banner_is_present = false
+            unlock_banner_is_present = false
             contact_is_present = true
+            setup_virtual_banner_is_present = true
         }
         "/cards/hybrid/shipping/tracking/tap"(platform:"/", type: TrackType.Event) {
             action = "contact"

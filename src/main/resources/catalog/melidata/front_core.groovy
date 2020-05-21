@@ -193,6 +193,10 @@ tracks {
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
     }
 
+    def metadata_definition = objectSchemaDefinitions {
+        accessibility_voice(required: false, type: PropertyType.Boolean, description: "If the accessibility voice assistant is activated or not")
+    }
+
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}
     "/home_wallet/drawer" (platform: "/mobile", isAbstract: true) {}
     "/wallet/home/secondary_actions" (platform: "/mobile", isAbstract: true) {}
@@ -369,6 +373,7 @@ tracks {
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         ifpe_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
+        metadata(required: false, type: PropertyType.Map(metadata_definition), description: "this tracking section will contain multiple information about the user metadata(location, accessibility, info, etc)")
     }
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
@@ -391,6 +396,7 @@ tracks {
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         ifpe_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
+        metadata(required: false, type: PropertyType.Map(metadata_definition), description: "this tracking section will contain multiple information about the user metadata(location, accessibility, info, etc)")
     }
 
     //Notification Center
