@@ -288,6 +288,15 @@ trackTests {
             label = "date_validation_invalid"
         }
 
+        "/kyc/challenge/validation_fail"(platform: "/mobile", business: "mercadolibre") {
+            id = "user_birthdate"
+            initiative = "cvu"
+            kyc_flow_id = "SessionID560232788"
+            input = "birthdate"
+            value = "20/__/____"
+            reason = "Por favor ingrese una fecha válida"
+        }
+
         "/kyc/challenge/start"(platform: "/mobile", business: "mercadolibre") {
             id = "pep"
             initiative = "cvu"
