@@ -78,4 +78,8 @@ trackTests {
            ]
         }
     }
+
+    test("Mercadopago Banking Balance Web and Webview") {
+        "/mp_banking_balance" (platform: "/", type: TrackType.View) {}
+    }
 }

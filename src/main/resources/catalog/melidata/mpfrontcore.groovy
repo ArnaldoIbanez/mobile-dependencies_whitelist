@@ -106,4 +106,7 @@ tracks {
     "/landing/formcomercial/send_email"(platform:"/", type: TrackType.Event) {
         email (type: PropertyType.String, required: true, description: "Email from user")
     }
+
+    // MP Banking Balance Web and Webview
+    "/mp_banking_balance"(platform: "/", type: TrackType.View) {}
 }
