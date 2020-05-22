@@ -11,7 +11,7 @@ tracks {
 
     def receiver_definition = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "Specifies the shipment's receiver id", inheritable: false)
-        geolocation_type(required: true, type: PropertyType.String,
+        geolocation_type(required: false, type: PropertyType.String,
             values: ["ROOFTOP", "RANGE_INTERPOLATED", "APPROXIMATE", "GEOMETRIC_CENTER"],
             description: "Specifies the precision of the receiver location",
             inheritable: false)
@@ -193,6 +193,7 @@ tracks {
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the ID of the shipment that was delivered")
         receiver_latitude(required: true, type: PropertyType.String, description: "Specifies the latitude of the receiver when the delivery was made")
         receiver_longitude(required: true, type: PropertyType.String, description: "Specifies the longitude of the receiver when the delivery was made")
+        receiver_relationship(required: false, type: PropertyType.String, description: "Specifies the receiver relationship")
     }
     "/logistics/last_mile/congrats/fail"(platform: "/mobile", type: TrackType.View) {
         context(required: true, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't")
@@ -277,6 +278,10 @@ tracks {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
     }
+    "/logistics/last_mile/deliver/buyer_document_form/save"(platform: "/mobile", type: TrackType.Event) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        receiver_relationship(required: true, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
+    }
     "logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
@@ -286,6 +291,21 @@ tracks {
     "/logistics/last_mile/notification/view_near_pack_destination"(platform: "/mobile", type: TrackType.Event) {
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
         geo_position(required: true, type: PropertyType.Map(geo_position_definition), description: "Specifies the information about the destination geo point", inheritable: false)
+    }
+
+    // Scoring LM
+    "/logistics/last_mile/package/security_keyword/invalid"(platform: "/mobile", type: TrackType.View) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        receiver_relationship(required: true, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
+    }
+    "/logistics/last_mile/package/security_keyword"(platform: "/mobile", type: TrackType.View) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+    }
+    "/logistics/last_mile/package/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+    }
+    "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
     }
 
     // First Mile
