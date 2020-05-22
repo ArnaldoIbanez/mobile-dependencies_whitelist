@@ -975,6 +975,8 @@ tracks {
           device_status(required: false, values: ["active", "not_engaged"], description: "Device status at the moment")
 
           context(required: false, type: PropertyType.String)
+
+          send_health_check(required: false, type: PropertyType.Boolean, description: "Indicates if notification has associated a health check's sent")
       }
 
       //Anses
