@@ -949,7 +949,7 @@ trackTests {
          "/vip/input_zip_code/dont_know_my_zip_code"(platform: "/", type: TrackType.Event) {}
     }
 
-    test("VIP fulfillment modal") {
+    test("VIP fulfillment onboardings") {
 
         "/vip/show_fulfillment_popup"(platform: "/", type: TrackType.Event) {
             item_id = "MLA533657947"
@@ -960,6 +960,16 @@ trackTests {
             price = 15.3
             currency_id = "ARS"
             original_price = 18.0
+        }
+
+        "/vip/show_fulfillment_tooltip"(platform: "/") {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        }
+
+        "/vip/close_fulfillment_tooltip"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
         }
     }
 
