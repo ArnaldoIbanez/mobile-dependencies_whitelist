@@ -19,6 +19,14 @@ tracks {
         kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
     }
 
+    // challenge life cyclev v2
+    "/kyc/challenge/start"(platform: "/", type: TrackType.Event) {}
+    "/kyc/challenge/send"(platform: "/", type: TrackType.Event) {}
+    "/kyc/challenge/success"(platform: "/", type: TrackType.Event) {}
+    "/kyc/challenge/fail"(platform: "/", type: TrackType.Event) {}
+    "/kyc/challenge/retry"(platform: "/", type: TrackType.Event) {}
+
+    // challenge validation error
     "/kyc/challenge/validation_fail"(platform: "/", type: TrackType.View) {
         id (required: true, type: PropertyType.String, description: "The challenge name")
         initiative (required: true, type: PropertyType.String, description: "The initiative")
@@ -29,13 +37,6 @@ tracks {
         value (required: true, type: PropertyType.String, description: "The value entered by the user")
         reason (required: true, type: PropertyType.String, description: "The error description")
     }
-
-    // challenge life cyclev v2
-    "/kyc/challenge/start"(platform: "/", type: TrackType.Event) {}
-    "/kyc/challenge/send"(platform: "/", type: TrackType.Event) {}
-    "/kyc/challenge/success"(platform: "/", type: TrackType.Event) {}
-    "/kyc/challenge/fail"(platform: "/", type: TrackType.Event) {}
-    "/kyc/challenge/retry"(platform: "/", type: TrackType.Event) {}
 
     // Challenges
     "/kyc/challenge_pep"(platform: "/", type: TrackType.View) {}
