@@ -378,19 +378,19 @@ trackTests {
             campaign_id = "2222222"
             status = "paused"
             budget = "400"
-            step= 1
+            step= "1"
         }
         "/advertising/pads2/manager/winbacks/onboarding/cta"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "paused"
             budget = "400"
-            step= 3
+            step= "3"
         }
         "/advertising/pads2/manager/winbacks/onboarding/cta/close"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "paused"
             budget = "400"
-            step= 3
+            step= "3"
         }
         "/advertising/pads2/manager/winbacks/confirmation"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
