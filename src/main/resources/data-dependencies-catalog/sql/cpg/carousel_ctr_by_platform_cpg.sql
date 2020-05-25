@@ -34,7 +34,7 @@ LEFT JOIN
       (path = '/search' or path = '/vip') 
      AND ds >= '@param01' 
       AND ds < '@param02'
-      AND jest(others['fragment'], 'origin') RLIKE 'supermarket_carousel.*'
+      AND jest(COALESCE(platform.fragment, others['fragment']), 'origin') RLIKE 'supermarket_carousel.*'
     GROUP BY
       device.platform,
       substr(ds, 1, 10)
