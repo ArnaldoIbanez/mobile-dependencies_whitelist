@@ -54,6 +54,12 @@ tracks {
 
     "/checkout_off/payment/card_express"(platform: "/", type: TrackType.View) {}
 
+    // Paypal tracks
+    "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/payment/review_express"(platform: "/", type: TrackType.View) {}
+
     // Split payments paths
     "/checkout_off/payment/card"(platform: "/", isAbstract: true) {}
     "/checkout_off/payment/card/split_first"(platform: "/", type: TrackType.View) {}
@@ -69,10 +75,12 @@ tracks {
 
     // Groups billing info collection views.
     "/checkout_off/billing"(platform: "/", isAbstract: true) {}
-
     "/checkout_off/billing/input_info"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/review"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review/shield_kyc"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review/challenge_kyc"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/review/challenge_second_factor_auth"(platform: "/", type: TrackType.View) {}
 
     "/checkout_off/agencies"(platform: "/", type: TrackType.View) {}
 
@@ -121,5 +129,20 @@ tracks {
 
     "/balance"(platform: "/web", isAbstract: true){}
     "/balance/reports"(platform: "/web", type: TrackType.View){}
+
+    "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
+
+    // Shipping tracks
+    "/checkout_off/shipping"(platform: "/", isAbstract: true) {}
+    "/checkout_off/shipping/select_method"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/review"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/input_zip_code"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/input_address"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/select_user_type"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/select_option"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/select_address"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/zipcode_finder"(platform: "/", type: TrackType.View) {}
+
     //END -- MP personalFrontend
 }

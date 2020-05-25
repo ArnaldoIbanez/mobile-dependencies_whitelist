@@ -90,6 +90,7 @@
     }],
     "sql": {
       "script": "bi/ctr_tab1_item.sql",
+      "engine": "spark",
       "parameters": [
       ]
     }

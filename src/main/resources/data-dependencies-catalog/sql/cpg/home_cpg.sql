@@ -1,7 +1,7 @@
 SELECT source, placement, platform, device_type, device_vendor, count(*) as total, track_date
 FROM (
  SELECT CASE WHEN COALESCE(platform.fragment, others['fragment']) RLIKE 'EI:[0-9]+' THEN 'search'
-         WHEN jest(COALESCE(platform.fragment, others['fragment'])], 'c_id') RLIKE '.*/home/.*' THEN 'home'
+         WHEN jest(COALESCE(platform.fragment, others['fragment']), 'c_id') RLIKE '.*/home/.*' THEN 'home'
          WHEN jest(COALESCE(platform.fragment, others['fragment']), 'menu') RLIKE 'categories|notifications' THEN 'menu'
          WHEN jest(COALESCE(platform.fragment, others['fragment']), 'origin') RLIKE 'page_x' THEN 'page_x'
          WHEN jest(COALESCE(platform.fragment, others['fragment']), 'origin') RLIKE 'vip' THEN 'vip'

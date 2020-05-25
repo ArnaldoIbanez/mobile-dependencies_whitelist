@@ -200,7 +200,7 @@ tracks {
         available_installments(required: true, type: PropertyType.ArrayList , description: "Array of available installments")
         externalData
     }
-    
+
     "/px_checkout/review/one_tap/disabled_payment_method_detail"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         externalData
     }
@@ -228,7 +228,10 @@ tracks {
     }
     "/px_checkout/result/success"(platform: "/mobile", type: TrackType.View) {}
     "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {}
-    "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {}
+    "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {
+        recoverable(required: true, type: PropertyType.Boolean, description: "Pay is recoverable")
+        remedies(required: true, type: PropertyType.ArrayList, description: "List of remedies")
+    }
     "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {}
 
     // Card association result views
@@ -255,6 +258,9 @@ tracks {
 
     // One Tap Off Methods event
     "/px_checkout/review/one_tap/offline_methods/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/px_checkout/review/one_tap/offline_methods/start_kyc_flow"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
 
@@ -529,6 +535,9 @@ tracks {
     "/px_checkout/result/success/tap_cross_selling"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
+    "/px_checkout/result/success/tap_view_receipt"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
 
     // Unknown result
     "/px_checkout/result/unknown/continue"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -563,6 +572,9 @@ tracks {
     "/px_checkout/result/unknown/secondary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
+    "/px_checkout/result/unknown/tap_view_receipt"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
 
     // In process payment
     "/px_checkout/result/further_action_needed/continue"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -588,6 +600,9 @@ tracks {
     "/px_checkout/result/further_action_needed/tap_cross_selling"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
+    "/px_checkout/result/further_action_needed/tap_view_receipt"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
 
     // Rejected payment
     "/px_checkout/result/error/change_payment_method"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -596,6 +611,12 @@ tracks {
     "/px_checkout/result/error/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
+
+    "/px_checkout/result/error/remedy"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Remedy type", values: ["payment_method_suggestion" , "cvv_request", "kyc_request"])
+        extra_info(required: false, description: "Extra payment method info")
+        externalData
+      }
 
     // Approved business
     "/px_checkout/result/success/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -619,5 +640,24 @@ tracks {
     }
     "/px_checkout/result/error/secondary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
+    }
+
+    // Generic dialogs
+    "/px_checkout/dialog"(platform: "/mobile", isAbstract: true){
+        description(required: true, type: PropertyType.String, description: "Description about dialog being shown")
+        actions(required: true, type: PropertyType.Numeric, description: "Actions quantity")
+    }
+    "/px_checkout/dialog/open"(platform: "/mobile", type: TrackType.Event){}
+    "/px_checkout/dialog/dismiss"(platform: "/mobile", type: TrackType.Event){}
+    "/px_checkout/dialog/action"(platform: "/mobile", type: TrackType.Event){
+        type(required: true, type: PropertyType.String, description: "Action type", values: ["main_action" , "secondary_action"])
+        deepLink(required: false, type: PropertyType.String, description: "Deeplink being launched, if any")
+    }
+
+    // One tap behaviours
+    "/px_checkout/review/one_tap/target_behaviour"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+        behaviour(required: true, type: PropertyType.String, description: "Behaviour which stimulate event", values: ["start_checkout" , "switch_split", "tap_card", "tap_pay"])
+        deepLink(required: true, type: PropertyType.String, description: "Deeplink being launched")
     }
 }

@@ -2,7 +2,7 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-    "questions"(description: "questions count") {
+    "questions"(description: "questions count", categorization:"important") {
         countsOn {
             condition {
                 path("/questions/ask/post")
@@ -14,6 +14,17 @@ metrics {
         }
     }
 
+    "qadb_search"(description: "qadb searches perform by user ") {
+	startWith {
+     	   experiment(regex("qadb/.*"))
+	}    
+	    
+        countsOn {
+            condition {
+                path("/questions/qadb/search")
+            }
+        }
+    }	
 
     "questions.pdp"(description: "Track PDP questions") {
       	countsOn {

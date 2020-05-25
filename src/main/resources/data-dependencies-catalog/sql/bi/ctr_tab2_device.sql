@@ -3,11 +3,11 @@ SELECT
   ,device
   ,SUM(gmv) AS gmv
   ,SUM(si) AS si
-  ,COUNT(DISTINCT user_impresiones) AS impresiones_unicas
+  ,approx_count_distinct(user_impresiones) AS impresiones_unicas
   ,SUM(impresiones_totales) AS impresiones_totales
-  ,COUNT(DISTINCT user_vip) AS user_vip
+  ,approx_count_distinct( user_vip) AS user_vip
   ,SUM(vips_totales) AS vips_totales
-  ,COUNT(DISTINCT user_order) AS user_order
+  ,approx_count_distinct(user_order) AS user_order
   ,SUM(ordenes) AS ordenes
   ,SUM(sale_fee) AS sale_fee
   ,fecha

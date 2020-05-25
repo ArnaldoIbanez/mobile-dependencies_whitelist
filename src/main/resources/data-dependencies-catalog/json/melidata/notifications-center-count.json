@@ -41,6 +41,7 @@
     }],
     "sql": {
       "script": "notifications/notifications-center-count.sql",
+      "engine": "spark",
       "parameters": [{
         "name": "param01",
         "value": "DAY-1",

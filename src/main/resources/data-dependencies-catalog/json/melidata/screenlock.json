@@ -84,6 +84,7 @@
     ],
     "sql": {
       "script": "auth/screenlock.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
