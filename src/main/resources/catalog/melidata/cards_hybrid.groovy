@@ -46,12 +46,11 @@ tracks {
     }
 
     //Shipping: Delayed
-    "/cards/hybrid/shipping/delayed"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/shipping/delayed"(platform: "/", type: TrackType.View) {
         context (
             required: true,
             type: PropertyType.String,
-            values: ["delayed", "stolen", "timeout", "not_delivery"],
+            values: ["delayed", "stolen", "not_delivered_not_withdrawn_by_user", "not_delivery"],
             description: "Action tapped",
             inheritable:false
         )
