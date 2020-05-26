@@ -45,6 +45,25 @@ tracks {
         component_id (required:true, type: PropertyType.String, description: "Component shown")
     }
 
+    //Shipping: Delayed
+    "/cards/hybrid/shipping/delayed"(platform: "/", type: TrackType.View) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["delayed", "stolen", "not_delivered_not_withdrawn_by_user", "not_delivery"],
+            description: "Action tapped",
+            inheritable:false
+        )
+    }
+    "/cards/hybrid/shipping/delayed/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["exit", "reissue"],
+            description: "Action tapped"
+        )
+    }
+
     // UNLOCK
     // --------
     "/cards/hybrid/unlock"(platform: "/", isAbstract: true) { }

@@ -30,6 +30,16 @@ trackTests {
 
     }
 
+    //Shipping: Delayed
+    test("cards hybrid shipping delayed") {
+        "/cards/hybrid/shipping/delayed"(platform: "/", type: TrackType.View) {
+            context = "stolen"
+        }
+        "/cards/hybrid/shipping/delayed/tap"(platform:"/", type: TrackType.Event) {
+            action = "reissue"
+        }
+    }
+
     // UNLOCK
     // ------
 
