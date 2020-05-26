@@ -519,6 +519,15 @@ tracks {
         error_msg(type: PropertyType.String, required: true, description: "Error validation and fingerprintManager message")
     }
 
+    // Security Blocker
+
+    "/screenlock/security_blocker"(plataform: "/mobile", isAbstract: true, parentPropertiesInherited: false, type: TrackType.Event) {
+        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+        scenario(type: PropertyType.String, required: true, values: ["no_security", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled", "opening_lock", "none"])
+    }
+
     //Maybe deprecated tracks
     "/login/splitter"(platform: "/mobile", type: TrackType.View) {}
     "/login/sign_in"(platform: "/mobile", type: TrackType.View) {}
