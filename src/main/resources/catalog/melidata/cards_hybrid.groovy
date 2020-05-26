@@ -143,6 +143,9 @@ tracks {
           )
     }
 
+    // Unlock: Success
+    "/cards/hybrid/unlock/success"(platform: "/", type: TrackType.Event) {}
+
     // Generic Webview
     // ------
 
@@ -600,6 +603,9 @@ tracks {
             description: "action tap by the user in the address modal"
         )
     }
+    // Request: Success Physical
+    "/cards/hybrid/request/physical/success"(platform: "/", type: TrackType.Event) {}
+    
     // CARD IDENTIFICATION
     // --------
     "/cards/hybrid/card_identification"(platform: "/", type: TrackType.View) {}
@@ -619,4 +625,6 @@ tracks {
             description: "Button tapped"
         )
     }
+    // Request: Success Virtual
+    "/cards/hybrid/request/virtual/success"(platform: "/", type: TrackType.Event) {}
 }
