@@ -44,6 +44,23 @@ tracks {
     "/cards/hybrid/shipping/tracking/show"(platform:"/", type: TrackType.Event) {
         component_id (required:true, type: PropertyType.String, description: "Component shown")
     }
+    //Shipping: Tracking
+    "/cards/hybrid/shipping/delayed"(platform: "/", type: TrackType.View) {
+        context (
+            required: true,
+            type: PropertyType.String,
+            values: ["delayed", "stolen", "timeout", "not_delivery"],
+            description: "Action tapped"
+        )
+    }
+    "/cards/hybrid/shipping/delayed/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["exit", "reissue"],
+            description: "Action tapped"
+        )
+    }
 
     // UNLOCK
     // --------
