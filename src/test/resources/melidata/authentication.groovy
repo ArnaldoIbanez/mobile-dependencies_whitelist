@@ -703,6 +703,36 @@ trackTests {
                 error_msg_id = 501
                 error_msg = "ERROR_CANT_VALIDATE"
             }
+
+            "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled"
+                ]
+                scenario = "single_enrolled"
+            }
+
+            "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "enabled"
+                ]
+                scenario = "both_enrolled"
+            }
+
+            "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "disabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "disabled"
+                ]
+                scenario = "never_auto_enrolled"
+            }
         }
 
         test("Screenlock app opening lock feature") {
