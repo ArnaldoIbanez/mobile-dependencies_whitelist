@@ -6,14 +6,14 @@ import com.ml.melidata.catalog.PropertyType
 tracks {
 
     initiative = "1034"
-    
+
     "/sms"(platform: "/", isAbstract: true) {
         sent_date(required: false)
-        text_message(required: false)
-        communication_id(required: false, type: PropertyType.String, description: "Sms campaign id")
-        communication_version(required: false, type: PropertyType.String, description: "Sms campaign version")
-        segment_id(required: false, type: PropertyType.String, description: "Identifies a user segment within a communication (e.g. communication_id=remarketing, communication_version=1.0.0, segment_id=loyals")
-        experiment_id(required: false, type: PropertyType.String, description: "Identifies an experiment within a communication (e.g. communication_id=remarketing, communication_version=1.0.0, segment_id=loyals, experiment_id=layout1")
+        communication_id(required: false, type: PropertyType.String, description: "sms communication id")
+        segment_name(required: false, type: PropertyType.String, description: "Identifies a user segment within a communication (e.g. communication_id=remarketing, communication_version=1.0.0, segment_name=loyals")
+        experiment_name(required: false, type: PropertyType.String, description: "Identifies an experiment within a communication (e.g. communication_id=remarketing, communication_version=1.0.0, segment_name=loyals, experiment_name=layout1")
+        communication_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
+        
     }
 
     "/sms/generic"(platform: "/"){}

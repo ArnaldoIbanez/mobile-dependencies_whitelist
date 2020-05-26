@@ -10,10 +10,10 @@ trackTests {
 
         def defaultTrackInformation = {
             sent_date = new Date().toString()
-            text_message = "Test"
             communication_id='comm1'
-            segment_id="default"
-            experiment_id="exp1"
+            segment_name="default"
+            experiment_name="exp1"
+            communication_data = "Test"
         }
 
         "/sms/generic"(platform: "/") {
