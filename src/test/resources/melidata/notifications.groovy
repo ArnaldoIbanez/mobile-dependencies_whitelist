@@ -1364,6 +1364,19 @@ trackTests {
             batch_id = "MLB_PACK_20180508_2"
         }
 
+        "/notification/campaigns_generic"(platform: "/") {
+            news_id = "12332323"
+            event_type = "received"
+            deeplink ="meli://search?q=sony"
+            campaign_id = "mkt_campaign_co"
+            campaign_type="xp_cupones"
+            campaign_data = "MLB1234"
+            test_notification = false
+            sent_date = "20180508"
+            batch_id = "MLB_PACK_20180508_2"
+            send_health_check = true
+        }
+
         "/notification/campaigns_cart_recovery"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "received"
