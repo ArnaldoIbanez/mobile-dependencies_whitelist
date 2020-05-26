@@ -404,6 +404,18 @@ trackTests {
         "/instore/error/cant_pay_buyer_qr/abort"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/error/unsupported_payment_method"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method/abort"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method/retry"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
 
         // Amount
         "/instore/amount/price_list"(platform: "/mobile", type: TrackType.View) {
@@ -1793,6 +1805,18 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/cant_pay_buyer_qr/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method/retry"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
