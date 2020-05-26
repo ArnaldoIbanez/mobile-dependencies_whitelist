@@ -127,6 +127,11 @@ trackTests {
         }
     }
 
+    // Unlock: Success
+    test("cards hybrid unlock success event"){
+        "/cards/hybrid/unlock/success"(platform:"/", type: TrackType.Event) {}
+    }
+
     // DASHBOARD
     // --------
     test("cards hybrid dashboard") {
@@ -673,6 +678,11 @@ trackTests {
         }
     }
 
+    // Request: Success Physical
+    test("cards hybrid physical success event"){
+        "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {}
+    }
+
     // CARD IDENTIFICATION
     // --------
     test("cards hybrid identification") {
@@ -698,5 +708,10 @@ trackTests {
         "/cards/hybrid/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
             action = "continue"
         }
+    }
+
+    // Request: Success Virtual
+    test("cards hybrid virtual success event"){
+        "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {}
     }
 }
