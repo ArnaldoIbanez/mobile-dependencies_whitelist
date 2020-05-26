@@ -384,10 +384,27 @@ trackTests {
             driver_id = "123"
             shipment_id = "222"
         }
+        "/logistics/last_mile/deliver/buyer_document_form/save"(platform: "/mobile", type: TrackType.Event) {
+            shipment_id = "222"
+            receiver_relationship = "HOLDER"
+        }
         "logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
             driver_id = "123"
             shipment_id = "222"
             error_type = "document_form"
+        }
+        "/logistics/last_mile/package/security_keyword/invalid"(platform: "/mobile", type: TrackType.View) {
+            shipment_id = "222"
+            receiver_relationship = "HOLDER"
+        }
+        "/logistics/last_mile/package/security_keyword"(platform: "/mobile", type: TrackType.View) {
+            shipment_id = "222"
+        }
+        "/logistics/last_mile/package/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
+            shipment_id = "222"
+        }
+        "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
+            shipment_id = "222"
         }
     }
 
