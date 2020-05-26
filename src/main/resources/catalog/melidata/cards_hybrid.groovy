@@ -52,7 +52,8 @@ tracks {
             required: true,
             type: PropertyType.String,
             values: ["delayed", "stolen", "timeout", "not_delivery"],
-            description: "Action tapped"
+            description: "Action tapped",
+            inheritable:false
         )
     }
     "/cards/hybrid/shipping/delayed/tap"(platform:"/", type: TrackType.Event) {
