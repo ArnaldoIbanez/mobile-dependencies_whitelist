@@ -319,10 +319,6 @@ tracks {
     "/sell/list/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_uploader/delete"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/list/pictures/crop"(platform: "/mobile", isAbstract: true) {}
-    "/sell/list/pictures/crop"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/pictures/crop/crop_accepted"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/manufacturing_time"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/manufacturing_time_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View){}
@@ -460,11 +456,15 @@ tracks {
     "/sell/list/warranty_type_condition_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/warranty_time_condition_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/whatsapp_review"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/pictures"(platform: "/", type: TrackType.View) {}
-    "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/pictures/album_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures/pictures_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures/editor"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures/crop"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/pictures/crop/crop_accepted"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
         album_name(required: false, description: "Album name", type: PropertyType.String)
     }
@@ -511,8 +511,10 @@ tracks {
     "/sell/list/title"(platform: "/", type: TrackType.View) {}
     "/sell/list/title_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/shipping_options_me"(platform: "/", type: TrackType.View) {}
-    "/sell/list/pictures_landing"(platform: "/", type: TrackType.View) {}
-    "/sell/list/pictures_landing_fallback"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/pictures_landing_fallback"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/registration_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/shipping_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/shipping_mandatory_landing"(platform: "/", type: TrackType.View) {}
