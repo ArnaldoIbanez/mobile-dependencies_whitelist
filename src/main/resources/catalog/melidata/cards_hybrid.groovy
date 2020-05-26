@@ -44,7 +44,9 @@ tracks {
     "/cards/hybrid/shipping/tracking/show"(platform:"/", type: TrackType.Event) {
         component_id (required:true, type: PropertyType.String, description: "Component shown")
     }
-    //Shipping: Tracking
+
+    //Shipping: Delayed
+    "/cards/hybrid/shipping/delayed"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/shipping/delayed"(platform: "/", type: TrackType.View) {
         context (
             required: true,
