@@ -246,7 +246,7 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, description: "Current budget related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        step(required: true, type: PropertyType.Numeric , description: "Current modal step")
+        step(required: true, description: "Current modal step")
     }
 
     "/advertising/pads2/manager/winbacks/onboarding/cta"(platform: "/web", type: TrackType.Event) {
