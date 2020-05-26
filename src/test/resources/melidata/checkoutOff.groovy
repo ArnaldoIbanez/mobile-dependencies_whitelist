@@ -158,6 +158,10 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -189,6 +193,11 @@ trackTests {
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -311,6 +320,10 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -342,6 +355,11 @@ trackTests {
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
@@ -543,6 +561,10 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -574,6 +596,11 @@ trackTests {
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -696,6 +723,10 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -727,6 +758,11 @@ trackTests {
 
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
