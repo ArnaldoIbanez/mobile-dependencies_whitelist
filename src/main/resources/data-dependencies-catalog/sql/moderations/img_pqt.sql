@@ -1,16 +1,6 @@
-select count(distinct a.seller) as seller,
-a.publicaciones as publicaciones,
-a.site as site, 
-a.domain as domain, 
-a.integracion as integracion, 
-a.proveedores as proveedores,
-a.app as app, 
-a.pictureId as pictureId, 
-a.datepic as datepic
-from (
 SELECT  
-count(distinct i.ite_item_id) as publicaciones,
 i.cus_cust_id_sel as seller,
+sum(distinct i.ite_item_id) as publicaciones,
 i.sit_site_id as site,
 i.ite_domain_id as domain,
 case when app.mapp_is_public =  0 then 'NOINTEGRADO' else 'INTEGRADO' end as integracion,
@@ -28,20 +18,5 @@ where  ite_pic_quality = 'poor'
 and pic_tagged_date >= '@param01'
 and pic_tagged_date < '@param02'
 and ite_condition_passed_flag = false
-group by i.cus_cust_id_sel,
-i.sit_site_id,
-i.ite_domain_id,
-case when app.mapp_is_public =  0 then 'NOINTEGRADO' else 'INTEGRADO' end,
- t.ite_condition_id,
- app.mapp_name,
- t.ite_picture_id,
- pic_tagged_date
-) a
-group by a.publicaciones,
-a.site, 
-a.domain, 
-a.integracion, 
-a.proveedores,
-a.app, 
-a.pictureId, 
-a.datepic
+group by i.cus_cust_id_sel, i.sit_site_id, i.ite_domain_id,
+case when app.mapp_is_public =  0 then 'NOINTEGRADO' else 'INTEGRADO' end, t.ite_condition_id, app.mapp_name, t.ite_picture_id ,pic_tagged_date
