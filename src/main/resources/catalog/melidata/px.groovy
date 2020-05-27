@@ -493,6 +493,9 @@ tracks {
     }
 
     // One Tap:
+    "/px_checkout/review/one_tap/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
     "/px_checkout/review/one_tap/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
