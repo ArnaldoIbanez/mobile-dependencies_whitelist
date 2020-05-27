@@ -67,6 +67,10 @@ tracks {
         card_name(required: true, description: "the name of the card that triggered the event", type: PropertyType.String)
         path(required: true, description: "path of the next page", type: PropertyType.String)
     }
+    "/your_business/ahora12"(platform: "/", type: TrackType.View) {}
+    "/your_business/ahora12/action"(platform:"/", type: TrackType.Event) {
+        action(required: true, values: ["activate", "deactivate"], description: "value to describe wheter the user activated or deactivated ahora12 feature", type: PropertyType.String)
+    }
 
 
     // Traks for dashboard section
