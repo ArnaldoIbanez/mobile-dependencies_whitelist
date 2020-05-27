@@ -159,6 +159,7 @@ catalog {
         include business, "insurtech.groovy"
         include business, "trends.groovy"
         include business, "data_privacy.groovy"
+        include business, "sms.groovy"
     }
 
     mercadopago.each { business ->
