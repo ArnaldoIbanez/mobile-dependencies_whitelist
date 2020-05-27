@@ -95,8 +95,6 @@ trackTests {
         "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
     }
 
-
-
     /*************************
     *        MP PUBLIC       *
     *************************/
@@ -148,4 +146,15 @@ trackTests {
           section = "last"
         }
     }
+
+    
+    test("Splinter MP Landings") {
+      // Splinter MP Landings Track View
+      "/landing/marketing"(platform: "/", type: TrackType.View) {
+        key = 'landing-de-prueba'
+        startTime = "2020-05-17T00:00:00Z"
+        endTime = "2020-06-30T00:00:00Z"
+      }
+    }
+    
 }
