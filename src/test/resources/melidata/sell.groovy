@@ -2332,6 +2332,12 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
         }
+        "/sell/update/shipping/optin_lazy_landing"(platform: "/mobile") {
+            item_id = "MLA123456"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+        }
         "/sell/update/shipping/flex/optin/comunication"(platform: "/mobile") {
             item_id = "MLA123456"
             seller_reputation = "NO_REPUTATION"
