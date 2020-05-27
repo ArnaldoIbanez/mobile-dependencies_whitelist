@@ -4158,6 +4158,10 @@ trackTests {
             card_name = "releaseOptions"
             path = "/settings/release-options"
         }
+        "/your_business/ahora12"(platform: "/web", type: TrackType.View) {}
+        "/your_business/ahora12/action"(platform:"/web", type: TrackType.Event) {
+            action = "activate"
+        }
     }
 
     test("About screen") {
