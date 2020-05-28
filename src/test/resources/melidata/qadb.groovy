@@ -93,6 +93,12 @@ trackTests {
             qadbBaseInfo()
             context = "PDP"
         }
+
+        "/qadb/smart-vs-modal/got-it"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA14141085"
+            catalog_parent_id = "MLA1234"
+            item_id = "MLA8092342"
+            context = "PDP"
+        }
     }
-    
 }
