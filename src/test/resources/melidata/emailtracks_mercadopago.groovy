@@ -46,20 +46,20 @@ trackTests {
             event_type = "unsubscribe"
         }
 
-        "/email/form-optout"(platform: "/web"){
+        "/email/form_optout"(platform: "/web"){
             defaultTrackInformation()
         }
 
-        "/email/form-optout"(platform: "/web/mobile"){
+        "/email/form_optout"(platform: "/web/mobile"){
             defaultTrackInformation()
         }
 
-        "/email/form-optout/unsubscribe"(platform: "/web"){
+        "/email/form_optout/unsubscribe"(platform: "/web"){
             defaultTrackInformation()
             selected_option = 1
         }
 
-        "/email/form-optout/unsubscribe"(platform: "/web/mobile"){
+        "/email/form_optout/unsubscribe"(platform: "/web/mobile"){
             defaultTrackInformation()
             selected_option = 1
         }

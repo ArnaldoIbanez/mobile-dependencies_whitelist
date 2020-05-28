@@ -41,7 +41,7 @@ tracks {
     "/email/new/optout"(platform: "/email"){
     }
 
-    "/email/form-optout"(platform: "/"){
+    "/email/form_optout"(platform: "/"){
         email_template(required: true, type: PropertyType.String, description: "emails-api template")
         event_type(required: true, values: ["send", "open", "click", "unsubscribe"], description: "Type of email event")
         communication_id(required: false, type: PropertyType.String, description: "Email campaign id")
@@ -55,7 +55,7 @@ tracks {
                 "and also by the emails-api")
     }
 
-    "/email/form-optout/unsubscribe"(platform: "/", type: TrackType.Event){
+    "/email/form_optout/unsubscribe"(platform: "/", type: TrackType.Event){
         selected_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
     }
 }
