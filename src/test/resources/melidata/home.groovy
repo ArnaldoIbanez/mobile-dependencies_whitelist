@@ -180,4 +180,8 @@ trackTests {
         "/home/supermarket"(platform: "/") {}
     }
 
+    test("Home.com tracking") {
+        "/home-com"(platform: "/", type: TrackType.View) {}
+    }
+
 }
