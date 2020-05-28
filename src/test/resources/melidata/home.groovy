@@ -181,7 +181,11 @@ trackTests {
     }
 
     test("Home.com tracking") {
-        "/home-com"(platform: "/", type: TrackType.View) {}
+        "/home_com"(platform: "/", type: TrackType.View) {}
+        
+        "/home_com"(platform: "/") {
+            site_click = 'AR'
+        }
     }
 
 }

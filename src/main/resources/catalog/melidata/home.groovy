@@ -209,5 +209,9 @@ tracks {
     "/home/backend/take_over"(platform: "/web", type: TrackType.Event) {}
 
 
-    "/home-com"(platform: "/", type: TrackType.View) {}
+    "/home_com"(platform: "/", type: TrackType.View) {}
+
+    "/home_com"(platform: "/", type: TrackType.Event) {
+        site_click(required: true, type: PropertyType.String)
+    }
 }
