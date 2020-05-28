@@ -211,7 +211,7 @@ tracks {
 
     "/home_com"(platform: "/", type: TrackType.View) {}
 
-    "/home_com"(platform: "/", type: TrackType.Event) {
+    "/home_com/site_click"(platform: "/", type: TrackType.Event) {
         site_click(required: true, type: PropertyType.String)
     }
 }
