@@ -27,12 +27,7 @@ tracks {
     "/kyc/challenge/retry"(platform: "/", type: TrackType.Event) {}
 
     // challenge validation error
-    "/kyc/challenge/validation_fail"(platform: "/", type: TrackType.View) {
-        id (required: true, type: PropertyType.String, description: "The challenge name")
-        initiative (required: true, type: PropertyType.String, description: "The initiative")
-        configuration_token (required: false, type: PropertyType.String, description: "The configuration token")
-        callback (required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
-        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
+    "/kyc/challenge/validation_fail"(platform: "/", type: TrackType.Event) {
         input (required: true, type: PropertyType.String, description: "The input which validation failed")
         value (required: true, type: PropertyType.String, description: "The value entered by the user")
         reason (required: true, type: PropertyType.String, description: "The error description")
