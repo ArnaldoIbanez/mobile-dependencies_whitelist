@@ -95,6 +95,9 @@ tracks {
     "/single_player/prepaid/add_device_number/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+    "/single_player/prepaid/add_device_number/show_contacts"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
 
     // Invalid input
