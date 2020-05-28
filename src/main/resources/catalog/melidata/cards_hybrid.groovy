@@ -446,6 +446,8 @@ tracks {
         )
     }
 
+    "/cards/hybrid/block_card/virtual/success"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+
     // REISSUE PHYSICAL
     // --------
 
@@ -464,6 +466,8 @@ tracks {
             description: "The action type tapped"
         )
     }
+
+    "/cards/hybrid/block_card/physical/success"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     // SETUP FÍSICA
     // --------
