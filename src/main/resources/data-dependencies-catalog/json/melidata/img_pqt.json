@@ -47,6 +47,7 @@
     ],
     "sql": {
       "script": "moderations/img_pqt.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
