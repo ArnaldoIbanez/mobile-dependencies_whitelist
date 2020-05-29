@@ -405,7 +405,7 @@ metrics {
 
 	"bids.with_garex"(description: "/orders/ordercreated that has a meli_warranty in internal tags meaning that garex has been purchased.", compute_order: true) {
 		startWith {
-			experiment(regex("(checkout|buyingflow)/.*"))
+			experiment(regex("(checkout|buyingflow|insurtech)/.*"))
 		}
 		countsOn {
 			condition {
