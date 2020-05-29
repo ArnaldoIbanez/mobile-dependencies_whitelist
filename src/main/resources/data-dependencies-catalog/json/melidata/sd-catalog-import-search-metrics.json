@@ -76,6 +76,7 @@
     ],
     "sql": {
       "script": "structure_data/catalog_import-search-metrics.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
