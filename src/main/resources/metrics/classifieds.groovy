@@ -1,7 +1,6 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
-def classiExperiments = "(.*/classi.*|vip/newDesignMotors|vip/newDesktopDesignMotors|buyingflow/reservationMLAv5|sell/congrats_upgrade_listing_type|vip/servicesNewDesignMobileMLA|vip/servicesNewDesignDesktopMLA|search.*|vip/realEstate.*)"
-def searchVipClassifiedExperiments = "(search/|vip/|classifieds/).*"
+def searchVipClassifiedExperiments = "(search|vip|classifieds)/.*"
 
 metrics {
 
