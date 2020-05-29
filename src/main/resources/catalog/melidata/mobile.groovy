@@ -78,7 +78,7 @@ tracks {
 
     "/landing"(platform: "/mobile", isAbstract: true) {}
 
-    "/landing/generic"(platform: "/mobile") {
+    "/landing/generic"(platform: "/mobile", isAbstract:true) {
         version(required:false, descripcion: "Version of generic landing")
         url(required:true, descripcion:"The url to be loaded by the generic landing")
         is_main_url(required:false, type: PropertyType.Boolean,
