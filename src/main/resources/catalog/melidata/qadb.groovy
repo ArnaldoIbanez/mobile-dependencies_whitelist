@@ -101,7 +101,7 @@ tracks {
         context(required: true, type: PropertyType.String, description: "If the context is pdp or vip", values:["PDP", "VIP"])
     }
 
-    "/qadb/smart-vs-modal/got-it"(platform: "/", parentPropertiesInherited: false) {
+    "/questions/smart_vs_modal/got_it"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String)
         catalog_parent_id(required: false, type: PropertyType.String)
         item_id(required: true, type: PropertyType.String)
