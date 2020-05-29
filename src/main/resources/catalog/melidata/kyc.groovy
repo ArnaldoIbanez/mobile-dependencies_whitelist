@@ -26,6 +26,13 @@ tracks {
     "/kyc/challenge/fail"(platform: "/", type: TrackType.Event) {}
     "/kyc/challenge/retry"(platform: "/", type: TrackType.Event) {}
 
+    // challenge validation error
+    "/kyc/challenge/validation_fail"(platform: "/", type: TrackType.Event) {
+        input (required: true, type: PropertyType.String, description: "The input which validation failed")
+        value (required: true, type: PropertyType.String, description: "The value entered by the user")
+        reason (required: true, type: PropertyType.String, description: "The error description")
+    }
+
     // Challenges
     "/kyc/challenge_pep"(platform: "/", type: TrackType.View) {}
     "/kyc/challenge_fatca"(platform: "/", type: TrackType.View) {}
