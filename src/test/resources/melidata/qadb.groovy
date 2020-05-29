@@ -94,7 +94,7 @@ trackTests {
             context = "PDP"
         }
 
-        "/questions/smart_vs_modal/got_it"(platform: "/", type: TrackType.Event) {
+        "/questions/qadb/smart_vs_modal"(platform: "/", type: TrackType.Event) {
             catalog_product_id = "MLA14141085"
             catalog_parent_id = "MLA1234"
             item_id = "MLA8092342"
