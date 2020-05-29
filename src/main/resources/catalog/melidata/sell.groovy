@@ -314,7 +314,9 @@ tracks {
     }
     "/sell/list/attribute/kilometers"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View){}
-    "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {}
+    "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {
+        catalogFlowMobile
+    }
     "/sell/list/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event) {}
@@ -495,7 +497,9 @@ tracks {
     "/sell/list/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category"(platform: "/mobile", isAbstract:true){}
-    "/sell/list/category/selection"(platform: "/mobile", isAbstract:true){}
+    "/sell/list/category/selection"(platform: "/mobile", isAbstract: true) {
+        catalogFlowMobile
+    }
     "/sell/list/category/selection/confirm_suggested"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category/selection/wrong_suggested"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category/selection/l1"(platform: "/mobile", type: TrackType.Event) {}
