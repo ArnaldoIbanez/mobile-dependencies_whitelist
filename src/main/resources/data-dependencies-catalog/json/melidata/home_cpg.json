@@ -42,6 +42,7 @@
     ],
     "sql": {
       "script": "cpg/home_cpg.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
