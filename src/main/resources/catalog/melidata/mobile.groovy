@@ -78,14 +78,14 @@ tracks {
 
     "/landing"(platform: "/mobile", isAbstract: true) {}
 
-    "/landing/generic"(platform: "/mobile", isAbstract:true) {
+    "/landing/generic"(platform: "/mobile") {
         version(required:false, descripcion: "Version of generic landing")
         url(required:true, descripcion:"The url to be loaded by the generic landing")
         is_main_url(required:false, type: PropertyType.Boolean,
                 descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
     }
 
-    "/landing/deeplinks"(platform: "/mobile") {
+    "/landing/deeplinks"(platform: "/mobile", isAbstract:true) {
         desiredLink(required:false, type: PropertyType.String, descripcion: "Original Link where we want to search for a Target Link")
         targetLink(required:false, type: PropertyType.String, descripcion:"The Target Link that was retrieved by the Original Link")
         message(required:false, type: PropertyType.String, descripcion: "Extra message for Error Description")
