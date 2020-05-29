@@ -7,7 +7,7 @@ metrics {
 	"reservation"(description: "orders that belong to a are a reservation", compute_order: true) {
 
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex("(search/.*|vip/.*|classifieds/.*)"))
 		}
 
 		countsOn {
@@ -21,6 +21,9 @@ metrics {
 	}
 
 	"vip/reservation_intention"(description: "track vip reservations init process for classifieds") {
+		startWith {
+			experiment(regex("(search/.*|vip/.*|classifieds/.*)"))
+		}
 		countsOn {
 			condition {
 				path("/vip/reservation_intention")
@@ -30,7 +33,7 @@ metrics {
 
 	"seller_contacted"(description: "track vip contact seller as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex("(search/.*|vip/.*|classifieds/.*)"))
 		}
 		countsOn {
 			condition {
@@ -42,7 +45,7 @@ metrics {
 
 	"classifieds_user_contact"(description: "track vip user interaction as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex("(classifieds/.*)"))
 		}
 
 		countsOn {
@@ -54,7 +57,7 @@ metrics {
 
 	"classifieds_user_contact_mobile"(description: "track vip user interaction as success for classifieds mobile") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex("(classifieds/.*)"))
 		}
 
 		countsOn {
@@ -78,7 +81,7 @@ metrics {
 
 	"show_phone"(description: "track vip show phone as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex("(search/.*|vip/.*|classifieds/.*)"))
 		}
 
 		countsOn {
@@ -90,7 +93,7 @@ metrics {
 
 	"contact_seller"(description: "track vip contact seller as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex("(search/.*|vip/.*)"))
 		}
 
 		countsOn {
@@ -101,6 +104,9 @@ metrics {
 	}
 
 	"quotations"(description: "track quotation as success for classifieds") {
+		startWith {
+			experiment(regex("(search/.*|vip/.*|classifieds/.*)"))
+		}
 		countsOn {
 			condition {
 				path("/quotation/congrats","/quotation/congrats/unregistered")
