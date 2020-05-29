@@ -803,7 +803,7 @@ tracks {
         item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
                 description: "Whether the item is new, used or refurbished")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
-        original_price(required: true, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
 
     }
@@ -1105,7 +1105,7 @@ tracks {
         item_condition(required: false, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
                 description: "Whether the item is new, used or refurbished")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
-        original_price(required: true, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
     }
