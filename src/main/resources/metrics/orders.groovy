@@ -91,7 +91,7 @@ metrics {
 
 	"bids.official_stores"(description: "Checkout congrats for items in any official store", compute_order: true) {
 		startWith {
-			experiment(regex("(search/.*|vip/.*)"))
+			experiment(regex("(search|vip)/.*"))
 		}
 
 		countsOn {
