@@ -723,16 +723,8 @@ trackTests {
         }
     }
 
-<<<<<<< HEAD
-    test ("Hybrid Setup") {
-        "/hybrid/detail" (platform: "/", type: TrackType.View) {}
-        "/cards/hybrid-detail/download-app" (platform: "/", type: TrackType.Event) {}
-        "/cards/hybrid-detail/send-sms" (platform: "/", type: TrackType.Event) {}
-        "/cards/hybrid-detail/click-send-message" (platform: "/", type: TrackType.Event) {}
-=======
     // Request: Success Virtual
     test("cards hybrid virtual success event"){
         "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {}
->>>>>>> 0f098311f425962c147fccfd68cbc142b38d2023
     }
 }
