@@ -724,10 +724,10 @@ trackTests {
     }
 
     test ("Hybrid Setup") {
-        "/cards/mp-card/detail" (platform: "/web/desktop", type: TrackType.View) {}
-        "/cards/mp-card/detail/download-app" (platform: "/web/desktop", type: TrackType.Event) {}
-        "/cards/mp-card/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {}
-        "/cards/mp-card/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {}
+        "/cards/mp-card/hybrid/detail" (platform: "/web/desktop", type: TrackType.View) {}
+        "/cards/mp-card/hybrid/detail/download-app" (platform: "/web/desktop", type: TrackType.Event) {}
+        "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {}
+        "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {}
     }
     
     // Request: Success Virtual

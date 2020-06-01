@@ -653,13 +653,13 @@ tracks {
     }
 
     // Hybrid Detail
-    "/cards/mp-card/detail" (platform: "/web/desktop", type: TrackType.View) {} 
+    "/cards/mp-card/hybrid/detail" (platform: "/web/desktop", type: TrackType.View) {} 
     // Hybrid downloadApp Event
-    "/cards/mp-card/detail/download-app" (platform:"/web/desktop", type: TrackType.Event) {} 
+    "/cards/mp-card/hybrid/detail/download-app" (platform:"/web/desktop", type: TrackType.Event) {} 
     // Hybrid sendSMS Event
-    "/cards/mp-card/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {} 
+    "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {} 
     // Hybrid clickSendMessage Event
-    "/cards/mp-card/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {} 
+    "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {} 
 
     // Request: Success Virtual
     "/cards/hybrid/request/virtual/success"(platform: "/", type: TrackType.Event) {}
