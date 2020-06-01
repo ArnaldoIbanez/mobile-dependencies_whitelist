@@ -413,13 +413,7 @@ tracks {
 
     "/mercado_shops/discounts/set"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
-        percentage(
-            type: PropertyType.Numeric,
-            description: "Discount Percentage"
-        )
-        status(
-            type: PropertyType.String,
-            description: "Discount State (ACTIVE or INACTIVE)"
-        )
+        percentage(required: true, type: PropertyType.Numeric, description: "Discount Percentage")
+        status(required: true, type: PropertyType.String, description: "Discount State", values: ['ACTIVE', 'INACTIVE'])
     }
 }
