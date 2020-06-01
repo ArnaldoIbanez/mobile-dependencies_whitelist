@@ -1,7 +1,11 @@
 package src.test.resources.melidata
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType
-import com.ml.melidata.catalog.PropertyType
+
+/**************************************************************
+ * CONTACT: In case of changes over this file, please send us
+ *  a message to our e-mail: front_native_devs@mercadolibre.com
+ **************************************************************/
 
 /**************************
  * WALLET HOME TEST TRACKS *
@@ -437,6 +441,9 @@ trackTests {
                     ordinal: 15,
                     content_type : 'complete'
             ]
+            metadata = [
+                accessibility_voice: false
+            ]
         }
     }
 
@@ -604,6 +611,9 @@ trackTests {
                     ordinal: 15,
                     content_type : 'complete'
             ]
+            metadata = [
+                accessibility_voice: true
+            ]
         }
     }
 
@@ -715,6 +725,14 @@ trackTests {
             component_id="user_loyalty"
             level=4
             percentage=0.32
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Subscription") {
+        "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://loyalty"
+            section_id="subscription"
+            component_id="cta"
         }
     }
 
@@ -1205,6 +1223,15 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            subscription= [
+                    content_type : 'partial',
+                    ordinal: 14,
+                    level: 3,
+                    partner: "HBO"
+            ]
+            metadata = [
+                accessibility_voice: false
+            ]
         }
     }
 
@@ -1364,6 +1391,15 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            subscription= [
+                    content_type : 'partial',
+                    ordinal: 14,
+                    level: 3,
+                    partner: "HBO"
+            ]
+            metadata = [
+                accessibility_voice: true
+            ]
         }
     }
 
@@ -1475,6 +1511,14 @@ trackTests {
             component_id="user_loyalty"
             level=4
             percentage=0.32
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Subscription") {
+        "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://loyalty"
+            section_id="subscription"
+            component_id="cta"
         }
     }
 

@@ -70,6 +70,12 @@ trackTests {
             is_recent = false
         }
 
+        "/mplayer/closed_request/contact_picker/invalid_nickname"(platform: "/mobile") {}
+
+        "/mplayer/closed_request/contact_picker/continue"(platform: "/mobile") {
+            quantity = 5
+        }
+
         "/mplayer/closed_request/manual_amount/continue"(platform: "/mobile") {
             transaction_amount = 100
             has_reason = true
@@ -153,6 +159,8 @@ trackTests {
             input_type = "manual"
             is_recent = false
         }
+        "/mplayer/money_split/contact_picker/invalid_nickname"(platform: "/mobile") {}
+
         "/mplayer/money_split/contact_picker/continue"(platform: "/mobile") {
             quantity = 5
         }
@@ -161,6 +169,8 @@ trackTests {
         "/mplayer/money_split/review_and_confirm/continue"(platform: "/mobile") {
             has_open_detail = false
         }
+
+        "/mplayer/money_split/review_and_confirm/back"(platform: "/mobile") {}
 
         "/mplayer/money_split/split_detail"(platform: "/mobile") {}
 

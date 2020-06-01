@@ -50,6 +50,10 @@
       {
         "name": "cpu_time",
         "type": "INTEGER"
+      },
+      {
+        "name": "text",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {

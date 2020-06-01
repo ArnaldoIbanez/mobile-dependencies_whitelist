@@ -180,4 +180,12 @@ trackTests {
         "/home/supermarket"(platform: "/") {}
     }
 
+    test("Home.com tracking") {
+        "/home_com"(platform: "/", type: TrackType.View) {}
+        
+        "/home_com/site_click"(platform: "/") {
+            site_click = 'AR'
+        }
+    }
+
 }

@@ -41,6 +41,13 @@ tracks {
         url(type: PropertyType.String, required: true)
     }
 
+    def best_seller_object = objectSchemaDefinitions {
+        candidates(type: PropertyType.Numeric, required: true)
+        selected(type: PropertyType.ArrayList(PropertyType.String), required: true)
+        selected_qty(type: PropertyType.Numeric, required: true)
+        selected_positions(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+    }
+
     def category_definition = objectSchemaDefinitions {
         carousel_id(type: PropertyType.String, required: true)
         selected(type: PropertyType.Map(selected_definition), required: false)
@@ -85,6 +92,7 @@ tracks {
         show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
         sparkle_info(required: false, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
+        best_seller_info(required: false, description: 'best seller tracking info', type: PropertyType.Map(best_seller_object))
 
 
         //Tracks from Search Backend:

@@ -21,7 +21,7 @@ FROM
 WHERE
   ds >= '@param01'
   AND ds < '@param02'
-  AND path like '/home/supermarket'
+  AND path = '/home/supermarket'
 group by 
   substr(ds,1,10),
   usr.user_id,

@@ -125,6 +125,11 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/admin/sidebar/discovery_advanced"(platform: "/", type: TrackType.Event){
+        theme(required: true, type: PropertyType.String, description: "Id of the selected theme for the discovery")
+        mshopsEventGroup
+    }
+
     "/mercado_shops/admin/sidebar/flash_info"(platform: "/", type: TrackType.Event){
         mshopsEventGroup
     }
@@ -457,4 +462,14 @@ tracks {
     "/mercado_shops/hub/boost"(platform: "/", type: TrackType.Event){
         option(required: true, type: PropertyType.String)
     }
+
+    "/mercado_shops/hub/google"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/hub/google/shopping"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/hub/google/shopping/activate"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/hub/google/shopping/deactivate"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/hub/google/shopping/reactivate"(platform: "/", type: TrackType.Event){}
 }

@@ -4,7 +4,7 @@ SELECT
     get_json_object(event_data, '$.content_id') as content,
     get_json_object(event_data, '$.position') as position,
     get_json_object(event_data, '$.audience') as audience,
-    count(distinct usr.user_id) as taps, 
+    approx_count_distinct( usr.user_id) as taps,
     count(usr.user_id) as total,
     substr(ds,1,10) as ds
 FROM default.tracks

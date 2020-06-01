@@ -100,6 +100,12 @@ trackTests {
             product_type = 'sales_percentage_loan'
         }
 
+        //Summary event
+        "/credits/merchant/enrollment/summary/accept_loan_action"(platform: "/mobile/android", type: TrackType.Event) {
+            action = 'summary_confirm_action'
+            label = 'confirm_button'
+        }
+
         //Conditions
         "/credits/merchant/documents/simulation/conditions"(platform: "/") {}
         "/credits/merchant/documents/simulation/conditions"(platform: "/") {
@@ -386,6 +392,16 @@ trackTests {
         }
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
             fixed_term_loan_on_time()
+        }
+
+        "/credits/merchant/administrator/late_debt"(platform: "/") {
+            offers = [
+                express_money_map()
+            ]
+            products = [
+                fixed_term_map(),
+                sales_percentage_map()
+            ]
         }
 
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}

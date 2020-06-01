@@ -624,6 +624,10 @@ trackTests {
         "/vip/similar_vehicles"(platform: "/mobile", type: TrackType.Event) {
             defaultTrackInformation()
         }
+
+        "/vip/similar_vehicles"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
         
         "/vip/free_shipping_cart_available"(platform: "/web", type:TrackType.Event){
         }
@@ -945,7 +949,7 @@ trackTests {
          "/vip/input_zip_code/dont_know_my_zip_code"(platform: "/", type: TrackType.Event) {}
     }
 
-    test("VIP fulfillment modal") {
+    test("VIP fulfillment onboardings") {
 
         "/vip/show_fulfillment_popup"(platform: "/", type: TrackType.Event) {
             item_id = "MLA533657947"
@@ -956,6 +960,16 @@ trackTests {
             price = 15.3
             currency_id = "ARS"
             original_price = 18.0
+        }
+
+        "/vip/show_fulfillment_tooltip"(platform: "/") {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        }
+
+        "/vip/close_fulfillment_tooltip"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
         }
     }
 
@@ -1193,7 +1207,7 @@ trackTests {
         }
     }
 
-    //CLassifieds Credits
+    // BEGIN - Classifieds Credits
 
     test("VIP go to credits simulation card event") {
         def properties = {
@@ -1223,6 +1237,37 @@ trackTests {
         }
     }
 
+    test("VIP onboarding classifieds credits") {
+
+        def defaultTrackInformation = {
+            item_id = "MLA213512313"
+            category_id = "MLA123"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "motors"
+            listing_type_id = "gold_premium"
+            item_condition = "new"
+            item_seller_type = "car_dealer"
+            item_status = "active"
+            buying_mode = "classified"
+            deal_ids = []
+            seller_id = 123456789
+        }
+
+        "/vip/classi_credits_onboard"(platform: "/web", type: TrackType.View) {
+            defaultTrackInformation()
+        }
+
+        "/vip/classi_credits_onboard/ok"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+
+        "/vip/classi_credits_onboard/close"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+   //END - Classifieds Credits
+
     test("VIP denounce") {
         "/vip/denounce"(platform: "/", type: TrackType.Event) {}
     }
@@ -1237,6 +1282,27 @@ trackTests {
             price = 100
             original_price = 110
             currency_id = "ARS"
+        }
+    }
+
+    test("Free Listing Advertising event") {
+        "/vip/free_list_adv"(platform:"/web/desktop", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "motors"
+            listing_type_id = "gold_premium"
+            item_seller_type = "car_dealer"
+            item_condition = "new"
+        }
+        "/vip/free_list_adv"(platform:"/web/mobile", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "motors"
+            listing_type_id = "gold_premium"
+            item_seller_type = "car_dealer"
+            item_condition = "new"
         }
     }
 }
