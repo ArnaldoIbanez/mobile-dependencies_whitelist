@@ -794,6 +794,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            defaultCatalogFlowMobile()
         }
         "/sell/list/pictures_fallback/album_selector"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
