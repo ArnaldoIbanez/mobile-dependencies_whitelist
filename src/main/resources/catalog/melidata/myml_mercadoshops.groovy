@@ -408,4 +408,18 @@ tracks {
     "/mercado_shops/marketing/facebook/store/pixel_activation/active"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/instagram"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/discounts/"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/discounts/set"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+        percentage(
+            type: PropertyType.Numeric,
+            description: "Discount Percentage"
+        )
+        status(
+            type: PropertyType.String,
+            description: "Discount State (ACTIVE or INACTIVE)"
+        )
+    }
 }
