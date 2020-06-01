@@ -1743,7 +1743,6 @@ tracks {
     //Hybrid
     "/notification/cards-send_card"(platform: "/mobile") {}
 
-
     //Point
     "/notification/point_shipping_ready_to_ship"(platform: "/mobile") {}
     "/notification/point_shipping_shipped"(platform: "/mobile") {}
