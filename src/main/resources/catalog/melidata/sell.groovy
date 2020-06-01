@@ -68,7 +68,7 @@ tracks {
         categoryFlowMobile(category_id, category_path)
         listingTypeFlow(listing_type_id)
         listingTypeFlowMobile(listing_type_id, listing_type_free_available)
-        catalogFlowMobile(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id)
+        catalogFlowMobile(domain_id, attribute_id, category_prediction_selected_index, attribute_values, predictions, parent_product_id, product_id)
     }
 
     // Sell
@@ -200,6 +200,7 @@ tracks {
     "/sell/list" (platform: "/mobile", isAbstract: true){
         categoryFlowMobile
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
+        chosen_categorization_model(required: false, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
         title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
     }
     "/sell/list/drafts"(platform: "/mobile", type: TrackType.View) {}
@@ -314,9 +315,7 @@ tracks {
     }
     "/sell/list/attribute/kilometers"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View){}
-    "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {
-        catalogFlowMobile
-    }
+    "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event) {}
@@ -497,9 +496,7 @@ tracks {
     "/sell/list/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category"(platform: "/mobile", isAbstract:true){}
-    "/sell/list/category/selection"(platform: "/mobile", isAbstract: true) {
-        catalogFlowMobile
-    }
+    "/sell/list/category/selection"(platform: "/mobile", isAbstract: true){}
     "/sell/list/category/selection/confirm_suggested"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category/selection/wrong_suggested"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category/selection/l1"(platform: "/mobile", type: TrackType.Event) {}
