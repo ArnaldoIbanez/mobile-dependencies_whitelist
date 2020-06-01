@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
  */
 class CatalogManager implements Runnable {
 
-    private Map<String, CatalogHandler> catalogHandlers
+	Map<String, CatalogHandler> catalogHandlers
 
 	CatalogManager() {
 		this.catalogHandlers = [:]

@@ -16,6 +16,7 @@ tracks {
         initiative (required: true, type: PropertyType.String, description: "The initiative")
         configuration_token (required: false, type: PropertyType.String, description: "The configuration token")
         callback (required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
     }
 
     // challenge life cyclev v2
@@ -24,6 +25,13 @@ tracks {
     "/kyc/challenge/success"(platform: "/", type: TrackType.Event) {}
     "/kyc/challenge/fail"(platform: "/", type: TrackType.Event) {}
     "/kyc/challenge/retry"(platform: "/", type: TrackType.Event) {}
+
+    // challenge validation error
+    "/kyc/challenge/validation_fail"(platform: "/", type: TrackType.Event) {
+        input (required: true, type: PropertyType.String, description: "The input which validation failed")
+        value (required: true, type: PropertyType.String, description: "The value entered by the user")
+        reason (required: true, type: PropertyType.String, description: "The error description")
+    }
 
     // Challenges
     "/kyc/challenge_pep"(platform: "/", type: TrackType.View) {}
@@ -352,6 +360,24 @@ tracks {
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
     }
 
+    "/kyc/iv/documentation"(platform: "/web", isAbstract: true) {}
+
+    "/kyc/iv/documentation/uploader_change"(platform: "/web", type: TrackType.Event) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
+    }
+
+    "/kyc/iv/documentation/select_option"(platform: "/web/desktop", type: TrackType.Event) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
+        option(type: PropertyType.String, required: true, description: "Indicates if the user chose to continue from desktop or from phone")
+    }
+
+    "/kyc/iv/documentation/uploader_click"(platform: "/web", type: TrackType.Event) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
+    }
+
     "/kyc/iv/trust_vote_recommender"(platform: "/web", type: TrackType.View) {
     }
 
@@ -360,4 +386,5 @@ tracks {
 
     "/kyc/iv/error_page"(platform: "/web", type: TrackType.View) {
     }
+
 }

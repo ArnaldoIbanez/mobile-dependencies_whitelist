@@ -222,6 +222,23 @@ tracks {
         )
     }
 
+    "/credits/merchant/administrator/late_debt"(platform: "/", type: TrackType.Event) {
+        offers(
+                type: PropertyType.ArrayList(
+                        PropertyType.Map(offer_definition)
+                ),
+                required: false,
+                inheritable: false
+        )
+        products(
+                type: PropertyType.ArrayList(
+                        PropertyType.Map(with_status)
+                ),
+                required: false,
+                inheritable: false
+        )
+    }
+
     //Detail
     "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {
         products_with_status
@@ -447,7 +464,7 @@ tracks {
                 'loan_creation',
                 'feedback_creation',
                 'files_upload',
-                'rejected_loan_by_regulation',
+                'rejected_by_regulation',
                 'unknown-error',
                 'admin-is-restricted',
                 'default'
@@ -616,6 +633,20 @@ tracks {
             description: "Credit line maximum allowed option",
             type: PropertyType.Numeric,
             required: true,
+        )
+    }
+
+    //Summary event
+    "/credits/merchant/enrollment/summary/accept_loan_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        action(
+                description: "Event action that we need to track",
+                type: PropertyType.String,
+                required: true,
+        )
+        label(
+                description: "Tag that identify the button",
+                type: PropertyType.String,
+                required: true,
         )
     }
 

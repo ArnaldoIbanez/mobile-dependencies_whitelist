@@ -58,6 +58,7 @@ tracks {
     // Start flow
     "/single_player/prepaid/start_flow"(platform: "/mobile", type: TrackType.Event) {
         method(required: true, PropertyType.String, description: "Specific way to start single player prepaid flow")
+        extra_info(required: false, description: "Extra information about the user and device.")
     }
 
 
@@ -68,6 +69,9 @@ tracks {
         view_time
     }
     "/single_player/prepaid/first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
@@ -89,6 +93,9 @@ tracks {
         view_time
     }
     "/single_player/prepaid/add_device_number/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/add_device_number/show_contacts"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
@@ -391,7 +398,9 @@ tracks {
     "/single_player/prepaid/error/server/back_to_home"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/prepaid/error/server/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/error/server/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
 
     // Errors - Connection error
@@ -399,7 +408,14 @@ tracks {
 
     "/single_player/prepaid/error/connection/retry"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/error/connection/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/error/connection/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    
 
+    // Errors - Timeout error
+    "/single_player/prepaid/error/timeout"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/error/timeout/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/error/timeout/back"(platform: "/mobile", type: TrackType.Event) {}
+    
 
     // Shield
     "/single_player/prepaid/shield"(platform: "/mobile", type: TrackType.View) {}
@@ -437,6 +453,38 @@ tracks {
         point_structure
     }
     "/single_player/prepaid/locations/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+
+    // Payment rejected
+    "/single_player/prepaid/payment_rejected"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/payment_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+
+    // Contacts
+    "/single_player/prepaid/contacts"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/contacts/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/contacts/selected_contact"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+        validation_result(required: true, PropertyType.String, description: "Result of apply site's validations")
+    }
+
+
+    // Receipt
+    "/single_player/prepaid/receipt"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/receipt/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/receipt/share"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/receipt/download"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 }

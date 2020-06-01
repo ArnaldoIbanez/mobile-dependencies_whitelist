@@ -12,7 +12,7 @@
     "type": "DATE"
   },
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
 
       {
@@ -38,6 +38,7 @@
     ],
     "sql": {
       "script": "vip/vip-trackings-convertion.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
