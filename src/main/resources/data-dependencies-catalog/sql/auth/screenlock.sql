@@ -5,6 +5,7 @@ select
   bu as business,
   flow_id,
   os_status,
+  patot.risk_level as risk_level,
   approx_count_distinct (
     case
       when path = '/screenlock/validation_start'
@@ -131,7 +132,16 @@ FROM ( SELECT
          '/screenlock/validation_end',
          '/screenlock/validation_start',
          '/security_settings/screenlock/toggle')
-   ) t1
+   ) t1 left outer join (
+        select
+          user_id,
+          site_id,
+          max(risk_level) as risk_level,
+          max(timestamp) as timestamp
+        from auth-reporting.patot_users
+          where ds >= '@param03'
+          and ds < '@param02'
+      ) patot on t1.usr.user_id = patot.user_id
 where major >= '2'
 and minor >= '96'
 group by
@@ -141,4 +151,5 @@ group by
   bu,
   flow_id,
   os_status,
+  patot.risk_level,
   substr(ds, 1, 10)
