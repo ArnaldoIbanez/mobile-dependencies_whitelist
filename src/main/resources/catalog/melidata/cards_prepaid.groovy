@@ -320,6 +320,5 @@ tracks {
     "/prepaid/acquisition/pj_onboarding"(platform: "/", type: TrackType.View) {}
     "/prepaid/acquisition/pj_onboarding/tap"(platform: "/", type: TrackType.Event) {}
     "/prepaid/acquisition/pj_onboarding/error"(platform: "/", type: TrackType.Event) {}
-"
 
 }
