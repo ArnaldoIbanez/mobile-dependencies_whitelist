@@ -152,6 +152,28 @@ trackTests {
             link = "meli://test"
             provider = "ADJUST_PROVIDER"
         }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_SUCCESS"
+            from = "drawer"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_INSTALLED"
+            from = "drawer"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_UPDATED"
+            from = "drawer"
+        }
+        "/cross_app_links/fetch"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "ADJUST_PROVIDER"
+            from = "drawer"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -315,6 +337,28 @@ trackTests {
         "/cross_app_links/fetch"(platform: "/mobile"){
             link = "meli://test"
             provider = "ADJUST_PROVIDER"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_SUCCESS"
+            from = "drawer"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_INSTALLED"
+            from = "drawer"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_UPDATED"
+            from = "drawer"
+        }
+        "/cross_app_links/fetch"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "ADJUST_PROVIDER"
+            from = "drawer"
         }
     }
 }

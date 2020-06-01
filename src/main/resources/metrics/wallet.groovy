@@ -239,7 +239,27 @@ metrics {
     }
   }
 
-  "discount_center.view_marketplace_from_home_mp"(description: "Counts a user access to the discount center from home mp") {
+"discount_center.marketplace.from_touchpoints"(description: "Counts a user access to the discount center from any touchpoint") {
+      startWith {
+        experiment(regex("cdd/.*"))
+      }
+
+      countsOn {
+        condition {
+          path("/discount_center/payers/marketplace", "/discount_center/payers/marketplace/components")
+          or (
+              equals("platform.fragment.from", "/home_wallet/discount_center"),
+              equals("platform.fragment.from", "/home_ml/discount_center"),
+              equals("platform.fragment.from", "/loyalty/discount_center"),
+              equals("platform.fragment.from", "/offers_ml/discount_center"),
+              equals("platform.fragment.from", "/cho_on/congrats"),
+              equals("platform.fragment.from", "/px/congrats")
+          )
+        }
+      }
+    }
+
+  "discount_center.marketplace.from_home_mp"(description: "Counts a user access to the discount center from home mp") {
       startWith {
         experiment(regex("cdd/.*"))
       }
@@ -252,7 +272,27 @@ metrics {
       }
     }
 
-    "discount_center.view_detail_from_home_mp"(description: "Counts a user access to the discount detail from home mp") {
+    "discount_center.detail.from_touchpoints"(description: "Counts a user access to the discount detail from any touchpoint") {
+      startWith {
+        experiment(regex("cdd/.*"))
+      }
+
+      countsOn {
+        condition {
+          path("/discount_center/payers/detail")
+          or(
+              equals("platform.fragment.from", "/home_wallet/discount_center"),
+              equals("platform.fragment.from", "/home_ml/discount_center"),
+              equals("platform.fragment.from", "/loyalty/discount_center"),
+              equals("platform.fragment.from", "/offers_ml/discount_center"),
+              equals("platform.fragment.from", "/cho_on/congrats"),
+              equals("platform.fragment.from", "/px/congrats")
+          )
+        }
+      }
+    }
+
+    "discount_center.detail.from_home_mp"(description: "Counts a user access to the discount detail from home mp") {
       startWith {
         experiment(regex("cdd/.*"))
       }
@@ -265,7 +305,7 @@ metrics {
       }
     }
 
-    "discount_center.view_detail_from_marketplace"(description: "Counts a user access to the discount detail from the marketplace") {
+    "discount_center.detail.from_marketplace"(description: "Counts a user access to the discount detail from the marketplace") {
       startWith {
         experiment(regex("cdd/.*"))
       }
@@ -277,4 +317,68 @@ metrics {
         }
       }
     }
+
+  "charge"(description: "Counts when a user makes a Charge in Wallet") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/pos_seller/end", 
+              "/point_payment/link_share", 
+              "/point_payment/qr_congrats", 
+              "/point_payment/qr_congrats_nofee", 
+              "/point_payment/cash/congrats")
+      }
+    }
+  }
+
+  "charge.point"(description: "Counts when a user makes a Charge with Point") {
+      startWith {
+        experiment(regex("wallet/.*"))
+      }
+
+      countsOn {
+        condition {
+          path("/pos_seller/end")
+        }
+      }
+  }
+
+  "charge.link"(description: "Counts when a user makes a Charge with Link") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/point_payment/link_share")
+      }
+    }
+  }
+
+  "charge.qr"(description: "Counts when a user makes a Charge with QR") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+    
+    countsOn {
+      condition {
+        path("/point_payment/qr_congrats", "/point_payment/qr_congrats_nofee")
+      }
+    }
+  }
+
+  "charge.cash"(description: "Counts when a user makes a Charge with Cash") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/point_payment/cash/congrats")
+      }
+    }
+  }
 }

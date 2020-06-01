@@ -174,7 +174,7 @@ tracks {
 
     "/support/cases/detail"(platform: "/", type: TrackType.View) {
         case_status(required: true, type: PropertyType.String,
-            values: ["pending", "waiting_for_info", "waiting_for_external", "waiting_for_fix", "fixed", "final_answer", "finished_no_answer", "duplicated", "finished", "final_greetings"],
+            values: ["pending", "waiting_for_info", "waiting_for_external", "waiting_for_fix", "fixed", "final_answer", "finished_no_answer", "duplicated", "finished", "final_greetings", "final_closed"],
             description: "Case status")
         case_id(required: true, type: PropertyType.Numeric,
             description: "CX case id")

@@ -178,7 +178,15 @@ trackTests {
             ref = ""
             success = true
         }
-        "/mercado_shops/admin/sidebar/discovery"(platform: "/", type: TrackType.Event) {
+        "/mercado_shops/admin/sidebar/discovery_advanced"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            theme = "DEFAULT"
+            success = true
+        }
+         "/mercado_shops/admin/sidebar/discovery"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
@@ -860,6 +868,36 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             option = "Facebook pixel"
+        }
+
+        "/mercado_shops/hub/google"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+
+        "/mercado_shops/hub/google/shopping"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+
+        "/mercado_shops/hub/google/shopping/activate"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+
+        "/mercado_shops/hub/google/shopping/deactivate"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+
+        "/mercado_shops/hub/google/shopping/reactivate"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
         }
     }
 }
