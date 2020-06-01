@@ -22,7 +22,8 @@ tracks {
     "/cards/acquisition"(platform: "/", isAbstract: true) { }
     "/cards/engagement"(platform: "/", isAbstract: true) { }
     "/cards/mp-card"(platform: "/", isAbstract: true) { }
-    
+    "/cards/mp-card/hybrid"(platform: "/", isAbstract: true) { }
+
 
 
     // SHIPPING
