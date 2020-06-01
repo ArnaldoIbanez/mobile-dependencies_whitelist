@@ -475,6 +475,19 @@ trackTests {
             view_time()
         }
 
+        // Carousel
+        "/single_player/prepaid/carousel"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+        }
+        "/single_player/prepaid/carousel/confirm"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/carousel/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
 
         // Internal error
         "/single_player/prepaid/error/internal"(platform: "/mobile", type: TrackType.View) {
@@ -1026,6 +1039,19 @@ trackTests {
             application_name = "sube"
         }
         "/single_player/prepaid/accreditation_information/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+
+        // Carousel
+        "/single_player/prepaid/carousel"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
+            mandatory()
+        }
+        "/single_player/prepaid/carousel/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/prepaid/carousel/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
