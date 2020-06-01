@@ -10,7 +10,7 @@
     "format": "yyyy-MM-dd"
   },
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "site": "QA",
     "columns": [
       {
