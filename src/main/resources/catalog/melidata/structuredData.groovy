@@ -222,8 +222,8 @@ tracks {
          review_status(required: true, description: "Reviews result", values: ["APPROVED", "REJECTED", "PENDING"], type: PropertyType.String) 
          action_tag(required: true, description: "Publications tag", values: ["ADD", "REP", "NPP"], type: PropertyType.String) 
          time(required: true, description: "Time reviewing the item", type: PropertyType.Numeric)
-         sections_comments(required: true, description: "Reviews comments", type: PropertyType.String)
-         errors_codes(required: true, description: "Reviews errors codes", type: PropertyType.String)
+         sections_comments(required: true, description: "Reviews comments", type: PropertyType.ArrayList(PropertyType.String))
+         errors_codes(required: true, description: "Reviews errors codes", type: PropertyType.ArrayList(PropertyType.String))
          user_initials(required: true, description: "Bs user initials", type: PropertyType.String)
     }
     "/structure_data/product_modificator"(platform: "/",isAbstract: true) {}
@@ -236,6 +236,31 @@ tracks {
         errors_quantity(required: true, description: "Errors quantity", type: PropertyType.Numeric)
         warning_quantity(required: true, description: "Warning quantity", type: PropertyType.Numeric)
         step(required: true, description: "Analysis step", values: ["INITIAL", "PARENT", "CHILD"], type: PropertyType.String)
+    }
+
+        // Tracks borrado por repetido
+    "/structure_data/product_merge"(platform: "/",isAbstract: true) {}
+
+    "/structure_data/product_merge/parent_analysis"(platform: "/", type:TrackType.View){
+        session_id(required: true, description: "Merge session Id", type: PropertyType.String)
+        sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
+        is_retake(required: true, description: "Indica si es retoma o no", type: PropertyType.Boolean)
+    }
+
+    "/structure_data/product_merge/children_analysis"(platform: "/", type:TrackType.View){
+        session_id(required: true, description: "Merge session Id", type: PropertyType.String)
+        sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
+        is_retake(required: true, description: "Indica si es retoma o no", type: PropertyType.Boolean)
+    }
+
+    "/structure_data/product_merge/congrats"(platform: "/", type:TrackType.View){
+        session_id(required: true, description: "Merge session Id", type: PropertyType.String)
+        sheet_id(required: true, description: "Sheet ID", type: PropertyType.String)
+        is_retake(required: true, description: "Indica si es retoma o no", type: PropertyType.Boolean)
+    }
+
+    "/structure_data/product_merge/available_products"(platform: "/", type:TrackType.Event){
+        products_ids(required: true, description: "ProductsID collection", type: PropertyType.ArrayList(PropertyType.Numeric))
     }
 
     // Catalog search tracks

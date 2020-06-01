@@ -35,8 +35,7 @@ metrics {
 		}
 	}
 
-
-	"bids"(description: "/orders/ordercreated from feed (carrito included)", compute_order: true) {
+	"bids"(description: "/orders/ordercreated from feed (carrito included)", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -44,7 +43,7 @@ metrics {
 		}
 	}
 
-	"bids.pdp"(description: "/orders/ordercreated from feed (carrito included) from PDP", compute_order: true) {
+	"bids.pdp"(description: "/orders/ordercreated from feed (carrito included) from PDP", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -61,7 +60,7 @@ metrics {
 		}
 	}
 
-	"bids.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+	"bids.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -79,7 +78,28 @@ metrics {
 		}
 	}
 	
-	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq?authuser=0#h.p_2qPD6v_1dTSd", compute_order: true) {
+	"bids.pdp.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and ( 
+					equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"paid"
+					),
+					equals("event_data.is_pdp", true)
+				)	
+			}
+		}
+	}
+	
+	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq?authuser=0#h.p_2qPD6v_1dTSd", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -93,6 +113,24 @@ metrics {
 						},
 						"cancelled"
 				)
+			}
+		}
+	}
+
+	"bids.official_stores"(description: "Checkout congrats for items in any official store", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				empty("event_data.items.item.official_store_id", false)
+			}
+		}
+	}
+
+	"bids.samedeal"(description: "Checkout congrats for items in the same deal of exposition", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				sameDeal("event_data.items.item.deal_ids", true)
 			}
 		}
 	}
@@ -139,6 +177,44 @@ metrics {
 		}
 	}
 
+	"bids|new_buyers"(description: "New buyers from feed", compute_order: true) {
+		countsOn {
+			condition {
+				and (
+					equals("path", "/orders/ordercreated"),
+					equals("event_data.buyer_segment", "new_buyer")
+				)
+			}
+		}
+	}
+
+	"bids|inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
+		countsOn {
+			condition {
+				and (
+					equals("path", "/orders/ordercreated"),
+					or(
+						equals("event_data.buyer_segment", "new_buyer"),
+						equals("event_data.buyer_segment", "recovered_buyer")
+					)
+				)
+			}
+		}
+	}
+
+	"bids|active_buyers"(description: "Active buyers from feed", compute_order: true) {
+		countsOn {
+			condition {
+				and (
+					equals("path", "/orders/ordercreated"),
+					equals("event_data.buyer_segment", "active_buyer")
+				)
+			}
+		}
+	}
+
+
+	// TODO REMOVE
 	"orders|new_buyers"(description: "New buyers from feed", compute_order: true) {
 		countsOn {
 			condition {
@@ -157,6 +233,7 @@ metrics {
 		}
 	}
 
+	// TODO REMOVE
 	"orders|inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
 		countsOn {
 			condition {
@@ -181,6 +258,7 @@ metrics {
 		}
 	}
 
+	// TODO REMOVE
 	"orders|active_buyers"(description: "Active buyers from feed", compute_order: true) {
 		countsOn {
 			condition {
@@ -199,7 +277,6 @@ metrics {
 		}
 	}
 
-
 	"orders.sameItem"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
 		countsOn {
 			condition {
@@ -211,7 +288,8 @@ metrics {
 			}
 		}
 	}
-	
+
+	// TODO Remove
 	"orders.sameItemQuick"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true, ttl: 30) {
 		countsOn {
 			condition {
@@ -229,6 +307,16 @@ metrics {
 			condition {
 				path("/orders/ordercreated")
 				equals("event_data.items.item.id", property("item_id"))
+			}
+		}
+	}
+
+	"bids.sameItemQuick"(description: "Quick attribution of bids", compute_order: true, ttl: 30) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals("event_data.items.item.id", property("item_id"))
+
 			}
 		}
 	}
@@ -264,7 +352,38 @@ metrics {
 				equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
 			}
 		}
-	}			       
+	}
+	
+	"bids.sameProduct.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation and in the same product of experiement", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and ( 
+					equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"paid"
+					),
+				equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
+				)	
+			}
+		}
+	}
+
+
+	"bids.sameProductQuick"(description: "/orders/ordercreated from feed", compute_order: true, ttl: 30) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
+			}
+		}
+	}
 
 	"orders.sameParent"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
 		countsOn {
@@ -327,7 +446,6 @@ metrics {
 		}
 	}
 
-
 	"buys.qadb_domains"(description: "Track buys only in qadb-enabled domains") {
 		startWith {
 			experiment(regex("qadb/(qadb-on-vip|qadb-on-viewport-vip)"))
@@ -373,5 +491,41 @@ metrics {
 		}
 	}
 
+	"bids.with_garex"(description: "/orders/ordercreated that has a meli_warranty in internal tags meaning that garex has been purchased.", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				like(
+					externalCondition {
+						url("internal/orders/\$0")
+						replace("event_data.order_id")
+						method("get")
+						successfulCodes(200,206)
+						jsonPath("internal_tags")
+					},
+					"meli_warranty"
+				)
+			}
+		}
+	}
 
+	"bids.sameOrder"(description: "/orders/ordercreated from feed in the same order with Orders-API confirmation of experiement", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and(
+						equals("event_data.order_id", property("order_id")),
+						equals(
+								externalCondition {
+									url("internal/orders/\$0")
+									replace("event_data.order_id")
+									method("get")
+									successfulCodes(200, 206)
+									jsonPath("status")
+								},
+								"paid"
+						))
+			}
+		}
+	}
 }

@@ -1,24 +1,24 @@
 select
   device.platform as device_platform,
-  application.site_id as site_id,
+  site as site_id,
   application.version as app_version,
-  application.business as business,
+  bu as business,
   flow_id,
   os_status,
-  count(distinct (
+  approx_count_distinct (
     case
       when path = '/screenlock/validation_start'
           then usr.user_id
           else null
-    end)) as cant_validaciones_tot,
-  count(distinct (
+    end) as cant_validaciones_tot,
+  approx_count_distinct (
     case
       when path = '/screenlock/validation_start'
         and enrollment_status = 'enabled'
           then usr.user_id
           else null
-    end)) as cant_enabled,
-  count(distinct (
+    end) as cant_enabled,
+  approx_count_distinct (
     case
       when path = '/screenlock/validation_end'
         and enrollment_status = 'enabled'
@@ -26,8 +26,8 @@ select
         and flow_id != 'security-settings'
           then usr.user_id
           else null
-    end)) as cant_enabled_success,
-  count(distinct (
+    end) as cant_enabled_success,
+  approx_count_distinct (
     case
       when flow_id = 'security-settings'
         and path = '/screenlock/validation_end'
@@ -38,8 +38,8 @@ select
         and minor < '99'
           then usr.user_id
           else null
-    end)) as cant_enrollments_legacy_android,
-  count(distinct (
+    end) as cant_enrollments_legacy_android,
+  approx_count_distinct (
     case
       when flow_id in ('security-settings', 'security_settings', 'auto_enrollment')
         and path = '/screenlock/validation_end'
@@ -47,8 +47,8 @@ select
         and enrollment_status = 'enabled'
           then usr.user_id
           else null
-    end)) as cant_enrollments,
-  count(distinct (
+    end) as cant_enrollments,
+  approx_count_distinct (
     case
       when flow_id in ('security-settings', 'security_settings')
         and path = '/screenlock/validation_end'
@@ -59,8 +59,8 @@ select
         and minor < '99'
           then usr.user_id
           else null
-    end)) as cant_unenrollments_legacy_android,
-  count(distinct (
+    end) as cant_unenrollments_legacy_android,
+  approx_count_distinct (
     case
       when path = '/security_settings/screenlock/toggle'
         and toggleaction = 'disable'
@@ -69,16 +69,16 @@ select
         and minor >= '99'
           then usr.user_id
           else null
-    end)) as cant_unenrollments,
-  count(distinct (
+    end) as cant_unenrollments,
+  approx_count_distinct (
     case
       when flow_id is null
         and enrollment_status = 'enabled'
         and device.platform = '/mobile/ios'
           then usr.user_id
           else null
-    end)) as cant_enrollments_legacy_ios,
-  count(distinct (
+    end) as cant_enrollments_legacy_ios,
+  approx_count_distinct (
     case
       when flow_id is null
         and enrollment_status = 'disabled'
@@ -87,19 +87,19 @@ select
         and elapsed_time >= '1'
           then usr.user_id
           else null
-    end)) as cant_unenrollments_legacy_ios,
-  count(distinct (
+    end) as cant_unenrollments_legacy_ios,
+  approx_count_distinct (
     case
       when path = '/security_settings'
           then usr.user_id
           else null
-    end)) as cant_ss_views,
-  count(distinct (
+    end) as cant_ss_views,
+  approx_count_distinct (
     case
       when path = '/security_settings/screenlock'
           then usr.user_id
           else null
-    end)) as cant_ss_biometrics_views,
+    end) as cant_ss_biometrics_views,
   substr(ds, 1, 10) as ds
 FROM ( SELECT
        ds,
@@ -107,6 +107,8 @@ FROM ( SELECT
        usr,
        path,
        application,
+       site,
+       bu,
        cast(split(application.version, '\\.')[0] as integer) as major,
        cast(split(application.version, '\\.')[1] as integer) as minor,
        cast(split(application.version, '\\.')[2] as integer) as patch,
@@ -116,27 +118,27 @@ FROM ( SELECT
        get_json_object(event_data, '$.os_status') as os_status,
        get_json_object(event_data, '$.elapsed_time') as elapsed_time,
        get_json_object(event_data, '$.action') as toggleaction
-     from tracks
+     from melidata.tracks_mp
      where 1 = 1
        and ds >= '@param01'
        and ds < '@param02'
        and device.platform in ('/mobile/android','/mobile/ios')
+       and bu = 'mercadopago'
+       and site in('MLA','MLM','MLB','MLU','MLC','MPE','MCO')
        and path in (
          '/security_settings/screenlock',
          '/security_settings',
          '/screenlock/validation_end',
          '/screenlock/validation_start',
          '/security_settings/screenlock/toggle')
-       and application.business = 'mercadopago'
-       and application.site_id in ('MLA','MLM','MLB')
    ) t1
 where major >= '2'
 and minor >= '96'
 group by
   device.platform,
-  application.site_id,
+  site,
   application.version,
-  application.business,
+  bu,
   flow_id,
   os_status,
   substr(ds, 1, 10)

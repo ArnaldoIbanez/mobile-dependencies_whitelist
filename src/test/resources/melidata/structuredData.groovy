@@ -476,8 +476,8 @@ trackTests {
             review_status = "REJECTED"
             action_tag = "NPP"
             time = 4000        
-            sections_comments = '{ "action_source": 1, "association": 2, "attributes": 3 }'
-            errors_codes = '{ "E-ADS": 1, "E-COM": 2, "E-FOR": 3 }'
+            sections_comments =  ["action_source:1", "association:2"]
+            errors_codes = ["E-ADS:1", "E-COM:2", "E-FOR:3"]
             user_initials = "FKE"
         }
     }
@@ -492,6 +492,37 @@ trackTests {
             errors_quantity = 1
             warning_quantity = 2
             step = "PARENT"
+        }
+    }
+
+    // Borrado de productos duplicados
+    test("product_merge parent view should be tracked"){
+        "/structure_data/product_merge/parent_analysis"(platform: "/web/desktop", type: TrackType.View) {
+            session_id = "12334.1-sdweurw2873423hwrhweh"
+            sheet_id = "12334.1"
+            is_retake = true
+        }
+    }
+
+    test("product_merge children view should be tracked"){
+        "/structure_data/product_merge/children_analysis"(platform: "/web/desktop", type: TrackType.View) {
+            session_id = "12334.1-sdweurw2873423hwrhweh"
+            sheet_id = "12334.1"
+            is_retake = true
+        }
+    }
+
+    test("product_merge congrats view should be tracked"){
+        "/structure_data/product_merge/congrats"(platform: "/web/desktop", type: TrackType.View) {
+            session_id = "12334.1-sdweurw2873423hwrhweh"
+            sheet_id = "12334.1"
+            is_retake = true
+        }
+    }
+
+     test("load available products event should be tracked"){
+        "/structure_data/product_merge/available_products"(platform: "/web/desktop", type: TrackType.View) {
+            products_ids = [12223, 343343]
         }
     }
 
@@ -523,6 +554,7 @@ trackTests {
             query_filter = "AUTOMOTIVE_TIRES"
         }
     }
+
 
     // Catalog search
     test("catalog_search wrong domain prediction"){

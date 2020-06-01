@@ -8,6 +8,7 @@ sum(if(path='/vip',1,0)) as vips,
 FROM tracks
 WHERE ds >= '@param01'
 AND ds < '@param02'
+and path in ('/vip', '/vip/buy_action', '/vip/add_cart_action')
 and application.site_id in ('MLA', 'MLB', 'MLC', 'MLM', 'MCO', 'MLV', 'MPE', 'MLU')
 and jest(event_data, 'vertical') = 'core'
 and ((application.version rlike '(9\.2[8-9][0-9]*\.)|(9\.[3-9][0-9]\.)|(9\.[0-9]{3,}\.)|([1-9][0-9]{1,}\.[0-9]+\.)'

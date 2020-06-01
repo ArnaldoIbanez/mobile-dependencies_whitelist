@@ -62,7 +62,7 @@ metrics {
         }
     }
 
-    "publish_congrats"(description: "Selling flow new item published - Does not track congrats view") {
+    "publish_congrats"(description: "Selling flow new item published - Does not track congrats view", categorization:"important") {
         startWith {
             experiment(regex("sell/.*"))
         }
@@ -86,9 +86,9 @@ metrics {
         }
     }
 
-    "sell_list_congrats"(description: "Arrival to congrats page - Selling flow") {
+    "sell_list_congrats"(description: "Arrival to congrats page - Selling flow", categorization:"important") {
         startWith {
-            experiment(regex("sell/.*"))
+            experiment(regex("sell/.*|classifieds/.*"))
         }
 
         countsOn {

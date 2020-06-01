@@ -63,6 +63,7 @@
     ],
     "sql": {
       "script": "business-assurance/credits_merchant.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

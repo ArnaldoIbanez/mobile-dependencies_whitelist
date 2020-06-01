@@ -103,6 +103,50 @@ trackTests {
         "/money_in/ted/account/share"(platform: "/", type: TrackType.Event) {}
 
         "/money_in/ted/account/need_help"(platform: "/", type: TrackType.Event) {}
+
+        // CLABE
+        "/money_in/clabe"(platform:"/", type: TrackType.View){}
+
+        // CLABE - Onboarding
+        "/money_in/clabe/onboarding"(platform: "/", type: TrackType.View) {}
+        "/money_in/clabe/onboarding/continue"(platform: "/", type: TrackType.Event) {}
+
+        // CLABE - KYC
+        "/money_in/clabe/need_validation"(platform: "/", type: TrackType.View) {}
+        "/money_in/clabe/need_validation/continue"(platform: "/", type: TrackType.Event) {}
+
+        // CLABE - Pending
+        "/money_in/clabe/pending"(platform: "/", type: TrackType.View) {}
+        "/money_in/clabe/pending/continue"(platform: "/", type: TrackType.Event) {}
+
+        // CLABE - Datos
+        "/money_in/clabe/copy"(platform: "/", type: TrackType.Event) {}
+        "/money_in/clabe/share"(platform: "/", type: TrackType.Event) {}
+        "/money_in/clabe/help"(platform: "/", type: TrackType.Event) {}
+
+        // CLABE - Congrats Error
+        "/money_in/clabe/error"(platform: "/", type: TrackType.View) {}
+        "/money_in/clabe/error/continue"(platform: "/", type: TrackType.Event) {}
+
+        // Caixa - Onboarding
+        "/money_in/caixa/onboarding"(platform: "/", type: TrackType.View) {}
+        "/money_in/caixa/onboarding/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+        // Caixa - Amount
+        "/money_in/caixa/amount"(platform: "/", type: TrackType.View) {}
+        "/money_in/caixa/amount/continue_button_clicked"(platform: "/", type: TrackType.Event) {
+            amount = "30.0"
+        }
+
+        // Caixa - Congrats
+        "/money_in/caixa/success"(platform: "/", type: TrackType.View) {}
+        "/money_in/caixa/success/go_home_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+        // Caixa - Disclaimer 
+        "/money_in/caixa/disclaimer"(platform: "/", type: TrackType.View) {}
+        "/money_in/caixa/disclaimer/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+        "/money_in/caixa/disclaimer/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
     }
 
 }

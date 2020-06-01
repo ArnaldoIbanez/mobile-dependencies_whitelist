@@ -10,7 +10,7 @@ FROM
       substr(ds, 1, 10) AS track_date,
       count(*) AS prints
   FROM tracks
-  WHERE path LIKE '/search'
+  WHERE path = '/search'
       AND ds >= '@param01' 
       AND ds < '@param02'
       AND jest(event_data, 'show_supermarket_carousel') = 'true'
@@ -34,7 +34,7 @@ LEFT JOIN
       (path = '/search' or path = '/vip') 
      AND ds >= '@param01' 
       AND ds < '@param02'
-      AND jest(others['fragment'], 'origin') RLIKE 'supermarket_carousel.*'
+      AND jest(COALESCE(platform.fragment, others['fragment']), 'origin') RLIKE 'supermarket_carousel.*'
     GROUP BY
       device.platform,
       substr(ds, 1, 10)

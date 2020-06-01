@@ -51,13 +51,25 @@ trackTests {
         }
     }
 
-    test("Google search traffic") {
+    test("Google search traffic without destination") {
         "/traffic/inbound/organic"(platform: "/") {
             referrer = "www.google.com"
         }
 
         "/traffic/inbound/organic"(platform: "/", business: "mercadopago") {
             referrer = "www.google.com"
+        }
+    }
+
+    test("Google search traffic with destination") {
+        "/traffic/inbound/organic"(platform: "/") {
+            referrer = "www.google.com.uy"
+            destination = "www.mercadolibre.com.uy"
+        }
+
+        "/traffic/inbound/organic"(platform: "/", business: "mercadopago") {
+            referrer = "www.google.com.uy"
+            destination = "www.mercadopago.com.uy"
         }
     }
 

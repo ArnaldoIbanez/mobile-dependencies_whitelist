@@ -15,7 +15,7 @@ metrics {
         }
     }
 
-    "checkout_off_congrats.success"(description: "Arrival to congrats success page from Checkout Off") {
+    "checkout_off_congrats_success"(description: "Arrival to congrats success page from Checkout Off") {
         startWith {
             experiment(regex("checkout_off/.*"))
         }
