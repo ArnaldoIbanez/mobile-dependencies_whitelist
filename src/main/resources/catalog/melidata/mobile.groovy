@@ -86,8 +86,8 @@ tracks {
     }
 
     "/landing/deeplinks"(platform: "/mobile") {
-        desiredLink(required:true, type: PropertyType.String, descripcion: "Original Link where we want to search for a Target Link")
-        targetLink(required:false, type: PropertyType.String, descripcion:"The Target Link that was retrieved by the Original Link")
+        desired_link(required:true, type: PropertyType.String, descripcion: "Original Link where we want to search for a Target Link")
+        target_link(required:false, type: PropertyType.String, descripcion:"The Target Link that was retrieved by the Original Link")
         message(required:false, type: PropertyType.String, descripcion: "Extra message for Error Description")
     }
 

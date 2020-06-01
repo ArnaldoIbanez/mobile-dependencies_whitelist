@@ -164,8 +164,8 @@ trackTests {
 
     test("Landing Deeplinks in Mobile") {
         "/landing/deeplinks"(platform:"/mobile") {
-            desiredLink = "https://www.mercadolibre.com.ar/mercado-puntos"
-            targetLink = "meli://loyalty"
+            desired_link = "https://www.mercadolibre.com.ar/mercado-puntos"
+            target_link = "meli://loyalty"
             message = "Could not parse Target Link"
         }
     }
