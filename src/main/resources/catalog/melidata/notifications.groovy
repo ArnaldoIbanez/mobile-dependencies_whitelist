@@ -628,6 +628,7 @@ tracks {
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+        campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
         sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
     }
     "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/", type: TrackType.Event) {
@@ -1551,6 +1552,7 @@ tracks {
         batch_id(required: true, type: PropertyType.String, description: "Id of batch.")
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
+        campaign_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
         sent_date(required: false, type: PropertyType.String, description: "Campaign sent date.")
     }
     "/notification/mpcampaigns_control_group"(platform: "/mobile") {

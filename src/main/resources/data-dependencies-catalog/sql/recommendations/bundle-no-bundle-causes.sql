@@ -44,4 +44,3 @@ jest(event_data, 'recommendations.client'),
 jest(event_data, 'recommendations.backend_id'), 
 jest(event_data, 'recommendations.track_info.empty_result_cause'),
 device.platform
-ORDER BY substr(ds,1,10)

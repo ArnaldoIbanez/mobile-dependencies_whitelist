@@ -50,6 +50,7 @@
     ],
     "sql": {
       "script": "business-assurance/bugsnag_raw_tracks.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

@@ -15,7 +15,7 @@ FROM
       substr(ds, 1, 10) AS track_date,
       count(*) AS prints
   FROM tracks
-  WHERE path LIKE '/search'
+  WHERE path = '/search'
       AND ds >= '@param01'
       AND ds < '@param02'
       AND trim(jest(event_data, 'query')) IS NOT NULL
@@ -49,7 +49,7 @@ LEFT JOIN
       count(*) AS clicks
     FROM tracks
     WHERE 
-      path LIKE '/search'
+      path = '/search'
       AND ds >= '@param01'
       AND ds < '@param02'
       AND trim(jest(event_data, 'query')) IS NOT NULL
@@ -74,7 +74,7 @@ LEFT JOIN
       count(*) AS clicks
     FROM tracks
     WHERE 
-      path LIKE '/vip'
+      path = '/vip'
       AND ds >= '@param01'
       AND ds < '@param02'
       AND jest(platform.http.cookies, 'LAST_SEARCH') IS NOT NULL

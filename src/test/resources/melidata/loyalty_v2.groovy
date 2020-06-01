@@ -166,4 +166,221 @@ trackTests {
             is_accomplished = false
         }
     }
+
+    test("Loyalty CrossSellingComponent") {
+        "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            origin = "home"
+            item_number = 2
+        }
+
+        "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            origin = "central-descuentos"
+            title = "HBO"
+            level = 3
+            button_deeplink = "deeplink"
+        }
+    }
+
+    test("Loyalty CrossSellingComponent in mercadopago") {
+        "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            origin = "deals"
+            item_number = 2
+        }
+
+        "/loyalty/crossselling/carousel/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            origin = "deals"
+            item_number = 0
+            item_link = "meli://loyalty"
+        }
+
+        "/loyalty/crossselling/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            origin = "central-descuentos"
+            title = "Paramount"
+            level = 1
+            button_deeplink = "deeplink"
+        }
+    }
+
+
+    test("Loyalty VDP Content") {
+
+         "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            discount = 30
+            subscription_status = "freetrial"
+            origin = "home"
+        }
+
+        "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            discount = 30
+            subscription_status = "active"
+        }
+
+        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            type = "content"
+            name = "Game of thrones"
+        }
+
+        "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            discount = 30
+            subscription_status = "none"
+        }
+
+        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            type = "content"
+            name = "Game of thrones"
+            position = 3
+        }
+
+        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            type = "tyc"
+        }
+
+        "/loyalty/partners/vdp/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            type = "primary"
+        }
+
+        "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            discount = 30
+        }
+
+        "/loyalty/partners/vdp/content"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+        }
+
+        "/loyalty/partners/vdp/content"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+        }
+
+        "/loyalty/partners/vdp/content/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            type = "tyc"
+        }
+
+        "/loyalty/partners/vdp/content/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+            partner = "HBO Go"
+            content = "Game of thrones"
+            type = "primary"
+        }
+
+    }
+
+    test("Loyalty Subscription Congrats") {
+
+        "/loyalty/partners/checkout/congrats"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            level = 3
+            partner = "HBO"
+            payment_id = "42323"
+            payment_status = "success"
+            payment_status_detail = "activated"
+            is_free_trial = "true"
+            discount = 40
+        }
+
+        "/loyalty/partners/checkout/congrats"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            level = 3
+            partner = "HBO"
+            payment_id = "42323"
+            payment_status = "success"
+            payment_status_detail = "freetrial-activated"
+            is_free_trial = "true"
+            discount = 40
+        }
+
+        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            level = 1
+            partner = "Paramount"
+            payment_id = "42323"
+            payment_status = "pending"
+            payment_status_detail = "contingency"
+            is_free_trial = "false"
+            discount = 0
+            type = "tyc"
+        }
+
+        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business:"mercadopago") {
+            level = 1
+            partner = "Paramount"
+            payment_id = "42323"
+            payment_status = "pending"
+            payment_status_detail = "manual"
+            is_free_trial = "false"
+            discount = 0
+            type = "action"
+            label = "Ir a HBO"
+            deeplink = "meli://loyalty"
+        }
+
+    }
+
+    test("Loyalty Subscription Login") {
+
+        "/loyalty/partners/login"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            partner = "HBO"
+        }
+
+        "/loyalty/partners/login"(platform: "/", type: TrackType.View, business:"mercadopago") {}
+
+
+		"/loyalty/partners/login/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+		"/loyalty/partners/login/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+
+
+	    "/loyalty/partners/login/verify"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+            partner = "HBO"
+        }
+
+	    "/loyalty/partners/login/verify"(platform: "/", type: TrackType.View, business:"mercadopago") {}
+
+	    "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+	        type = "notification"
+	    }
+
+	    "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+	        type = "email"
+	    }
+
+
+	    "/loyalty/partners/login/code"(platform: "/", type: TrackType.View, business:"mercadolibre") {
+	        viewType = "email"
+	    }
+
+	    "/loyalty/partners/login/code"(platform: "/", type: TrackType.View, business:"mercadopago") {
+	        viewType = "notification"
+	    }
+
+	    "/loyalty/partners/login/code/action"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+	        type = "verify"
+	    }
+
+	    "/loyalty/partners/login/code/action"(platform: "/", type: TrackType.Event, business:"mercadopago") {
+	        type = "resend"
+	    }
+
+	    "/loyalty/partners/login/verified"(platform: "/", type: TrackType.Event, business:"mercadolibre") {
+	        url = "meli://loyalty"
+	    }
+
+	    "/loyalty/partners/login/verified"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+
+    }
+
 }
