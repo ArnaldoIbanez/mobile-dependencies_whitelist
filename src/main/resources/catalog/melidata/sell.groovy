@@ -457,9 +457,7 @@ tracks {
     "/sell/list/warranty_type_condition_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/warranty_time_condition_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/whatsapp_review"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/pictures"(platform: "/mobile", type: TrackType.View) {
-        catalogFlowMobile
-    }
+    "/sell/list/pictures"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures/album_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures/pictures_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures/editor"(platform: "/", type: TrackType.View) {}
@@ -496,7 +494,7 @@ tracks {
     "/sell/list/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category"(platform: "/mobile", isAbstract:true){}
-    "/sell/list/category/selection"(platform: "/mobile", isAbstract: true){}
+    "/sell/list/category/selection"(platform: "/mobile", isAbstract:true){}
     "/sell/list/category/selection/confirm_suggested"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category/selection/wrong_suggested"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category/selection/l1"(platform: "/mobile", type: TrackType.Event) {}
