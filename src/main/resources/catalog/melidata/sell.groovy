@@ -457,7 +457,9 @@ tracks {
     "/sell/list/warranty_type_condition_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/warranty_time_condition_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/whatsapp_review"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/pictures"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/pictures"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/pictures/album_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures/pictures_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures/editor"(platform: "/", type: TrackType.View) {}
