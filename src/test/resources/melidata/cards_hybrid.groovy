@@ -672,9 +672,9 @@ trackTests {
     }
 
     test ("Hybrid Setup") {
-        "/hybrid/detail" (platform: "/web/desktop", type: TrackType.View) {}
-        "/cards/hybrid-detail/download-app" (platform: "/web/desktop", type: TrackType.Event) {}
-        "/cards/hybrid-detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {}
-        "/cards/hybrid-detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {}
+        "/cards/mp-card/detail" (platform: "/web/desktop", type: TrackType.View) {}
+        "/cards/mp-card/detail/download-app" (platform: "/web/desktop", type: TrackType.Event) {}
+        "/cards/mp-card/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {}
+        "/cards/mp-card/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {}
     }
 }
