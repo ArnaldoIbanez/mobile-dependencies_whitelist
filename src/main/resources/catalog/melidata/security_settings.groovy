@@ -18,6 +18,15 @@ tracks {
         status(type: PropertyType.String, required: true, values: ["opted_in", "opted_out"], description: "The user interacted with the two-factor authentication switch")
     }
 
+    // Granularity
+
+    "/security_settings/screenlock/granularity"(plataform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+        config_name(type: PropertyType.String, required: true, values: ["transaction", "opening"])
+    }
+
     // Devices Admin
     "/security_settings/devices"(platform: "/", type: TrackType.View) {}
 
