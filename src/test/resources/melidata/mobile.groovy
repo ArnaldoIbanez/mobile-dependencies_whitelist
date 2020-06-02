@@ -161,4 +161,12 @@ trackTests {
         "/application/apprater/error_service_rules"(platform: "/mobile") {}
         "/application/apprater/popup"(platform: "/mobile") {}
     }
+
+    test("Landing Deeplinks in Mobile") {
+        "/landing/deeplinks"(platform:"/mobile") {
+            desired_link = "https://www.mercadolibre.com.ar/mercado-puntos"
+            target_link = "meli://loyalty"
+            message = "Could not parse Target Link"
+        }
+    }
 }

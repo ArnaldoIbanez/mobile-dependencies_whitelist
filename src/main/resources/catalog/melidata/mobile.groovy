@@ -85,6 +85,12 @@ tracks {
                 descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
     }
 
+    "/landing/deeplinks"(platform: "/mobile") {
+        desired_link(required:true, type: PropertyType.String, descripcion: "Original Link where we want to search for a Target Link")
+        target_link(required:false, type: PropertyType.String, descripcion:"The Target Link that was retrieved by the Original Link")
+        message(required:false, type: PropertyType.String, descripcion: "Extra message for Error Description")
+    }
+
     "/sso" (platform: "/mobile", isAbstract: true){}
     "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
     "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
