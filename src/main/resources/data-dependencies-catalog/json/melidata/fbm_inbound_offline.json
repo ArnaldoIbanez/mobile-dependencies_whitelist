@@ -11,7 +11,7 @@
     "type": "DATE"
   },
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
     {
         "name": "seller",
