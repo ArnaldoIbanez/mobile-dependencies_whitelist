@@ -1461,6 +1461,18 @@ trackTests {
     }
   }
 
+  test("seller central settings license form generated event") {
+    "/seller_central/settings/license/generated"(platform: "/web", type: TrackType.Event) {
+      file_number = 2
+      mail = "test@gmail.com"
+      serial_number = 18284829238
+      contact_number = "4888-9999"
+      destination_address = "Direccion falsa 1234"
+      origin_address = "Calle falsa 1234"
+      file_url = "https://fury.file.com"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Sales
   //------------------------------------------------------------------------------------------------------------------------------------------------------

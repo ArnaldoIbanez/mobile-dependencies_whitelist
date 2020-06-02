@@ -886,6 +886,17 @@ tracks {
         row_id(required: true, type: PropertyType.String, description: "Row Id")
     }
 
+    "/seller_central/settings/license"(platform: "/web", isAbstract: true) {}
+    "/seller_central/settings/license/generated"(platform: "/web", type: TrackType.Event) {
+        file_number(required:true, type: PropertyType.Numeric, description: "Quantity of files generated")
+        mail(required:true, type: PropertyType.String, description: "User mail where he receive the result")
+        serial_number(required:true, type: PropertyType.Numeric, description: "Form ID")
+        contact_number(required:true, type: PropertyType.String, description: "Seller contact number filled in form")
+        destination_address(required:true, type: PropertyType.String, description: "Shipping destination address")
+        origin_address(required:true, type: PropertyType.String, description: "Shipping origin address")
+        file_url(required:true, type: PropertyType.String, description: "URL to download the PDF generated")
+    }
+
     // SALES SECTION
 
     "/seller_central/sales"(platform: "/", isAbstract: true) {}
