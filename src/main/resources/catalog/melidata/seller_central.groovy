@@ -886,6 +886,25 @@ tracks {
         row_id(required: true, type: PropertyType.String, description: "Row Id")
     }
 
+    "/seller_central/settings/license_form"(platform: "/", type: TrackType.View) {
+        seller_reputation(required: true, type: PropertyType.String, description: "Reputation of the seller" )
+        user_type(required: true, type: PropertyType.String, description: "The user type")
+        seller_profile(required: true, type: PropertyType.String, description: "Describe the level of interaction of the seller with the platform")
+    }
+
+    "/seller_central/settings/license_form/generate_pdf"(platform: "/", type: TrackType.Event) {
+        seller_reputation(required: true, type: PropertyType.String, description: "Reputation of the seller" )
+        user_type(required: true, type: PropertyType.String, description: "The user type")
+        seller_profile(required: true, type: PropertyType.String, description: "Describe the level of interaction of the seller with the platform")
+    }
+
+    "/seller_central/settings/license_form/snackbar"(platform: "/", type: TrackType.Event) {
+        seller_reputation(required: true, type: PropertyType.String, description: "Reputation of the seller" )
+        user_type(required: true, type: PropertyType.String, description: "The user type")
+        seller_profile(required: true, type: PropertyType.String, description: "Describe the level of interaction of the seller with the platform")
+        result(required: true, type: PropertyType.String, description: "Value of the action when a seller try to generate a pdf")
+    }
+
     "/seller_central/settings/license"(platform: "/web", isAbstract: true) {}
     "/seller_central/settings/license/generated"(platform: "/web", type: TrackType.Event) {
         file_number(required:true, type: PropertyType.Numeric, description: "Quantity of files generated")

@@ -1461,6 +1461,31 @@ trackTests {
     }
   }
 
+  test("seller central settings license form view"){
+    "/seller_central/settings/license_form"(platform: "/", type: TrackType.View){
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_GREEN"
+      user_type = "normal"
+    }
+  }
+
+  test("seller central settings license form click action on generate pdf"){
+    "/seller_central/settings/license_form/generate_pdf"(platform: "/", type: TrackType.Event){
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_GREEN"
+      user_type = "normal"
+    }
+  }
+
+  test("seller central settings license form snackbar result"){
+    "/seller_central/settings/license_form/snackbar"(platform: "/", type: TrackType.Event){
+      seller_profile = "NEWBIE"
+      seller_reputation = "5_GREEN"
+      user_type = "normal"
+      result = "pdf_generated"
+    }
+  }
+
   test("seller central settings license form generated event") {
     "/seller_central/settings/license/generated"(platform: "/web", type: TrackType.Event) {
       file_number = 2
