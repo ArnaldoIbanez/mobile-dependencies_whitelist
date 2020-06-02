@@ -224,5 +224,45 @@ trackTests {
                 "opening_lock": "disabled"
             ]
         }
+
+        "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "disabled"
+            os_status = "none"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "disabled"
+            ]
+            config_name = "transaction"
+        }
+
+        "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled"
+            ]
+            config_name = "opening"
+        }
+
+        "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "disabled"
+            ]
+            config_name = "transaction"
+        }
+
+        "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled"
+            ]
+            config_name = "opening"
+        }
     }
 }
