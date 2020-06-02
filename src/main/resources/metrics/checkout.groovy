@@ -5,9 +5,7 @@ def checkoutExperiments = "(checkout|buyingflow)/.*"
 metrics {
 
 	"checkout_congrats"( description: "all congrats, including carrito and checkout congrats", compute_order:true){
-		startWith {
-			experiment(regex(checkoutExperiments))
-		}
+
 		countsOn {
 			condition{
 				equals("event_data.congrats_seq",1)
