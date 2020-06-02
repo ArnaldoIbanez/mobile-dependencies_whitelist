@@ -60,7 +60,6 @@ tracks {
     "/security_settings/screenlock/toggle/modal/confirmation"(platform: "/mobile", type: TrackType.Event) {}
 
     // Granularity
-
     "/security_settings/screenlock/granularity"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])

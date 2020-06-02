@@ -225,7 +225,7 @@ trackTests {
             ]
         }
 
-        "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
+        "/security_settings/screenlock/granularity"(platform: "/mobile/android", type: TrackType.View) {
             enrollment_status = "disabled"
             os_status = "none"
             config = [
@@ -235,7 +235,7 @@ trackTests {
             config_name = "transaction"
         }
 
-        "/security_settings/screenlock"(platform: "/mobile/android", type: TrackType.View) {
+        "/security_settings/screenlock/granularity"(platform: "/mobile/android", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
             config = [
@@ -245,7 +245,7 @@ trackTests {
             config_name = "opening"
         }
 
-        "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
+        "/security_settings/screenlock/granularity"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "disabled"
             os_status = "biometrics"
             config = [
@@ -255,7 +255,7 @@ trackTests {
             config_name = "transaction"
         }
 
-        "/security_settings/screenlock"(platform: "/mobile/ios", type: TrackType.View) {
+        "/security_settings/screenlock/granularity"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
