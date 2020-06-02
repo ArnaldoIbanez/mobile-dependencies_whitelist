@@ -141,6 +141,9 @@ FROM ( SELECT
         from auth-reporting.patot_users
           where ds >= '@param03'
           and ds < '@param02'
+        group by
+          user_id,
+          site_id
       ) patot on t1.usr.user_id = patot.user_id
 where major >= '2'
 and minor >= '96'
