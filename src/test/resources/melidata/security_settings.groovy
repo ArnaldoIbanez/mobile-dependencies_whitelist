@@ -278,7 +278,7 @@ trackTests {
                     "transaction_custom": "0",
                     "opening_custom": "0"
             ]
-            config_name = "opening"
+            config_name = "opening_lock"
         }
 
         "/security_settings/screenlock/granularity"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -302,7 +302,7 @@ trackTests {
                     "transaction_custom": "0",
                     "opening_custom": "0"
             ]
-            config_name = "opening"
+            config_name = "opening_lock"
         }
 
         "/security_settings/screenlock/granularity_transaction"(platform: "/mobile/ios", type: TrackType.View) {
