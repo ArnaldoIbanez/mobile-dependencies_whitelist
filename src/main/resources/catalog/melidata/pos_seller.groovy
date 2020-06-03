@@ -20,7 +20,7 @@ import com.ml.melidata.TrackType
             poi_id(required: false, type: PropertyType.String, description: "poi device id")
             poi_type(required: false, type: PropertyType.String, description: "poi device type")
             mode(required: false, type: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
-            payment_channel(required: false, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser"])
+            payment_channel(required: false, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser","caixa"])
             amount(required: false, type: PropertyType.Numeric, description: "payment amount")
             currency(required: false, type: PropertyType.String, description: "payment currency")
             installments(required: false, type: PropertyType.Numeric, description: "payment amount")
