@@ -482,8 +482,8 @@ tracks {
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
         opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
-        transaction_custom(required: false, type: PropertyType.String, description: "Amount on which screenLock will be triggered")
-        opening_custom(required: false, type: PropertyType.String, description: "Elapsed time to ask for screenLock")
+        transaction_custom(required: true, type: PropertyType.String, description: "Amount on which screenLock will be triggered")
+        opening_custom(required: true, type: PropertyType.String, description: "Elapsed time to ask for screenLock")
     }
 
     // Biometrics / Screenlock
