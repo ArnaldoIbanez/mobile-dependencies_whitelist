@@ -66,7 +66,7 @@ tracks {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
-        config_name(type: PropertyType.String, required: true, values: ["transaction", "opening"], description: "Which granularity was selected")
+        config_name(type: PropertyType.String, required: true, values: ["transaction", "opening_lock"], description: "Which granularity was selected")
     }
 
     "/security_settings/screenlock/granularity_transaction"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
