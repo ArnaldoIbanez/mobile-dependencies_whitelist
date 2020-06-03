@@ -59,6 +59,9 @@ trackTests {
         "/mplayer/closed_request/mandatory_reason"(platform: "/mobile") {}
         "/mplayer/closed_request/congrats_request"(platform: "/mobile") {}
         "/mplayer/closed_request/reject"(platform: "/mobile") {}
+        "/mplayer/closed_request/congrats_request/exit"(platform: "/mobile") {
+            button = "main_button"
+        }
 
         "/mplayer/closed_request/status"(platform: "/mobile") {
             request_status = "pending"
