@@ -719,9 +719,7 @@ trackTests {
                 os_status = "biometrics"
                 config = [
                         "transaction": "enabled",
-                        "opening_lock": "enabled",
-                        "transaction_custom": "0",
-                        "opening_custom": "0"
+                        "opening_lock": "enabled"
                 ]
                 scenario = "both_enrolled"
             }
@@ -731,9 +729,7 @@ trackTests {
                 os_status = "basic_screenlock"
                 config = [
                         "transaction": "enabled",
-                        "opening_lock": "disabled",
-                        "transaction_custom": "100",
-                        "opening_custom": "300"
+                        "opening_lock": "disabled"
                 ]
                 scenario = "never_auto_enrolled"
             }

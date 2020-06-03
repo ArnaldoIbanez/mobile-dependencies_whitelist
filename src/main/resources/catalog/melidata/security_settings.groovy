@@ -41,6 +41,8 @@ tracks {
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
         opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        transaction_custom(required: true, type: PropertyType.String, description: "Amount on which screenLock will be triggered")
+        opening_custom(required: true, type: PropertyType.String, description: "Elapsed time to ask for screenLock")
     }
 
     // Biometrics
@@ -65,5 +67,17 @@ tracks {
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
         config_name(type: PropertyType.String, required: true, values: ["transaction", "opening"], description: "Which granularity was selected")
+    }
+
+    "/security_settings/screenlock/granularity_transaction"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"], description: "Screenlock Operating System status upon view")
+        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+    }
+
+    "/security_settings/screenlock/granularity_opening"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"], description: "Screenlock Operating System status upon view")
+        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"], description: "Enrollment status")
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 }
