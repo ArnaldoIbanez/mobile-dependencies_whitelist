@@ -461,11 +461,11 @@ trackTests {
             status = "active"
             budget = "70"
             filters = [
-                    status: "A",
-                    release_date: "less_than_seven_days",
-                    category: "x",
-                    features: "x",
-                    query: "x",
+                status: "A",
+                release_date: "less_than_seven_days",
+                category: "x",
+                features: "x",
+                query: "x",
             ]
         }
     }
@@ -507,7 +507,7 @@ trackTests {
             step= 2
         }
     }
-
+    
     test("Advertising manager SortFilters Modal -> NextStep") {
         "/advertising/pads2/manager/sort_filters/modal/next_step"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
