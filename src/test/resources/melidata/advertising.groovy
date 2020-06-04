@@ -393,7 +393,7 @@ trackTests {
         "/advertising/pads2/manager/buybox-winners/landing/breadcrumb"(platform: "/web", type: TrackType.Event){
             winners_suggested = "20"
             campaign_id = "2222222"
-        }∫
+        }
     }
 
     test("Advertising Matching") {
