@@ -163,7 +163,6 @@ tracks {
         id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, description: "indicates the position of the main slide")
     }
-
     //Lift
     "/advertising/pads2/manager/lift"(platform: "/web", isAbstract: true) {}
 
@@ -228,7 +227,7 @@ tracks {
         sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
     }
 
-    "/advertising/pads2/manager/ssl/landing/actiactivatedvated"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/ssl/landing/actiactivated"(platform: "/web", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         sll_total_activated(required: false, type: PropertyType.String, description: "Indicates the number total of sll activated")
     }
@@ -295,17 +294,17 @@ tracks {
 
     //Sorting
     "/advertising/pads2/manager/sort"(
-            platform: "/web",
-            type: TrackType.Event) {
+        platform: "/web",
+        type: TrackType.Event) {
         sort_by(
                 required: true,
                 description: "Sort column id"
-        )
+            )
         sort_value(
                 required: true,
                 values: ["asc", "desc"],
                 description: "Sort direction"
-        )
+            )
     }
 
     //Filters
