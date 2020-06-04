@@ -145,6 +145,9 @@ tracks {
         final_sale_value (type: PropertyType.String, required: false, description: "Final sale value (with fees)")
     }
 
+    // MP Online Payments
+    "/landing/onlinepayments"(platform: "/web"){}
+
     // MP Buyers
     "/landing/buyers"(platform: "/web"){}
 
