@@ -257,7 +257,7 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
     }
 
-    "/advertising/pads2/manager/buybox-winners/landing/breadcrumb"(platform: "/web", type: TrackType.Event){
+    "/advertising/pads2/manager/card/buybox-winners/landing/breadcrumb"(platform: "/web", type: TrackType.Event){
         winners_suggested(required: true, description: "Paused buybox winner ads viewed in landing")
         campaign_id(required: true, description: "Id related to the campaign")
     }
