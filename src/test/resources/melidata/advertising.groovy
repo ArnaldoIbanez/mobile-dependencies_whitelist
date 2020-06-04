@@ -507,7 +507,7 @@ trackTests {
             step= 2
         }
     }
-    
+
     test("Advertising manager SortFilters Modal -> NextStep") {
         "/advertising/pads2/manager/sort_filters/modal/next_step"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
