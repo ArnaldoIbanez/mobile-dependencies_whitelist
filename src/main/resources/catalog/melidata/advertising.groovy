@@ -240,10 +240,10 @@ tracks {
     }
 
     //Buybox
-    "/advertising/pads2/manager/buybox-winners"(platform: "/", isAbstract: true){}
-    "/advertising/pads2/manager/buybox-winners/landing"(platform: "/", isAbstract: true){}
-    "/advertising/pads2/manager/catalog"(platform: "/", isAbstract: true){}
-    "/advertising/pads2/manager/catalog/edit"(platform: "/", isAbstract: true){}
+    "/advertising/pads2/manager/buybox-winners"(platform: "/", isAbstract: true) {}
+    "/advertising/pads2/manager/buybox-winners/landing"(platform: "/", isAbstract: true) {}
+    "/advertising/pads2/manager/catalog"(platform: "/", isAbstract: true) {}
+    "/advertising/pads2/manager/catalog/edit"(platform: "/", isAbstract: true) {}
 
     "/advertising/pads2/manager/card/buy-box-winner"(platform: "/web", type: TrackType.View) {
         winners_suggested(required: true, description: "Paused buybox winner ads suggested to activate")
