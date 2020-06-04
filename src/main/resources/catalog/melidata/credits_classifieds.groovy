@@ -32,7 +32,7 @@ tracks {
      }
 
     propertyGroups {
-        creditGroup(vertical, seller_id, item_id, category_id, buyer_id, bank)
+        creditGroup(vertical, seller_id, item_id, category_id, buyer_id, bank, congrats_status)
     }
 
     /******************************************
