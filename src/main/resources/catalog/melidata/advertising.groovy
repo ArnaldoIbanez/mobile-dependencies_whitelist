@@ -240,6 +240,10 @@ tracks {
     }
 
     //Buybox
+    "/advertising/pads2/manager/buybox-winners"(platform: "/", isAbstract: true){}
+    "/advertising/pads2/manager/buybox-winners/landing"(platform: "/", isAbstract: true){}
+    "/advertising/pads2/manager/catalog"(platform: "/", isAbstract: true){}
+    "/advertising/pads2/manager/catalog/edit"(platform: "/", isAbstract: true){}
 
     "/advertising/pads2/manager/card/buy-box-winner"(platform: "/web", type: TrackType.View) {
         winners_suggested(required: true, description: "Paused buybox winner ads suggested to activate")
@@ -257,12 +261,12 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
     }
 
-    "/advertising/pads2/manager/card/buybox-winners/landing/breadcrumb"(platform: "/web", type: TrackType.Event){
+    "/advertising/pads2/manager/buybox-winners/landing/breadcrumb"(platform: "/web", type: TrackType.Event){
         winners_suggested(required: true, description: "Paused buybox winner ads viewed in landing")
         campaign_id(required: true, description: "Id related to the campaign")
     }
 
-    "/advertising/pads2/manager/catalog/edit/publication"(platform: "/web", isAbstract: true) {}
+    "/advertising/pads2/manager/catalog/edit/publication"(platform: "/web", TrackType.Event) {}
 
     //Matching
     "/advertising/pads2/manager/winbacks"(platform: "/", isAbstract: true) {}

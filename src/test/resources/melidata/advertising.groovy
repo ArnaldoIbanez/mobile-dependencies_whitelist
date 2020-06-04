@@ -394,6 +394,9 @@ trackTests {
             winners_suggested = "20"
             campaign_id = "2222222"
         }
+        "/advertising/pads2/manager/catalog/edit/publication"(platform: "/web", type: TrackType.Event){
+            campaign_id = "2222222"
+        }
     }
 
     test("Advertising Matching") {
