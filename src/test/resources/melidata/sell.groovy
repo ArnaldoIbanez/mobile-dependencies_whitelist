@@ -2361,6 +2361,7 @@ trackTests {
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
+            value_type = "single_value"
         }
         "/sell/update/variations"(platform: "/mobile") {
             item_id = "MLA123456"
@@ -2373,6 +2374,7 @@ trackTests {
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
+            value_type = "single_value"
         }
         "/sell/update/statistics"(platform: "/mobile") {
             item_id = "MLA123456"
