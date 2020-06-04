@@ -583,7 +583,9 @@ tracks {
     "/sell/update/picture_preview_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/quantity"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/update/product_identifier"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/product_identifier"(platform: "/mobile", type: TrackType.View) {
+        value_type(required:true, description: "Indicates the type of PI value that the input has", type: PropertyType.String, values:["none", "single_value", "multi_value"])
+    }
     "/sell/update/shipping"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/shipping/flex"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/shipping/flex/free_shipping_landing"(platform: "/mobile", type: TrackType.View) {}
@@ -626,7 +628,9 @@ tracks {
     "/sell/update/pictures/pictures_selector"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/editor"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/crop"(platform: "/", type: TrackType.View) {}
-    "/sell/update/variations_pi"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/variations_pi"(platform: "/mobile", type: TrackType.View) {
+        value_type(required:true, description: "Indicates the type of PI value that the input has", type: PropertyType.String, values:["none", "single_value", "multi_value"])
+    }
     "/sell/update/pictures/crop/crop_accepted"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
