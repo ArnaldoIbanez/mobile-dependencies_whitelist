@@ -163,7 +163,7 @@ tracks {
         id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, description: "indicates the position of the main slide")
     }
-  
+
     //Lift
     "/advertising/pads2/manager/lift"(platform: "/web", isAbstract: true) {}
 
@@ -228,7 +228,7 @@ tracks {
         sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
     }
 
-    "/advertising/pads2/manager/ssl/landing/activated"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/ssl/landing/actiactivatedvated"(platform: "/web", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         sll_total_activated(required: false, type: PropertyType.String, description: "Indicates the number total of sll activated")
     }
@@ -238,6 +238,31 @@ tracks {
         sll_total(required: true, type: PropertyType.String, description: "Indicates the number total of sll")
 
     }
+
+    //Buybox
+
+    "/advertising/pads2/manager/card/buy-box-winner"(platform: "/web", type: TrackType.View) {
+        winners_suggested(required: true, description: "Paused buybox winner ads suggested to activate")
+        campaign_id(required: false, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/manager/card/buybox-landing"(platform: "/web",type: TrackType.View) {
+        winners_suggested(required: true, description: "Paused buybox winner ads viewed in landing")
+        campaign_id(required: true, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/manager/card/buybox-landing/activated"(platform: "/web", type: TrackType.Event) {
+        winners_suggested(required: true, description: "Paused buybox winner ads viewed in landing")
+        winners_activated(required: false, type: PropertyType.String, description: "Activated buybox winner ads through landing")
+        campaign_id(required: true, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/manager/buybox-winners/landing/breadcrumb"(platform: "/web", type: TrackType.Event){
+        winners_suggested(required: true, description: "Paused buybox winner ads viewed in landing")
+        campaign_id(required: true, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/manager/catalog/edit/publication"(platform: "/web", type: TrackType.Event) {}
 
     //Matching
     "/advertising/pads2/manager/winbacks"(platform: "/", isAbstract: true) {}
@@ -270,17 +295,17 @@ tracks {
 
     //Sorting
     "/advertising/pads2/manager/sort"(
-        platform: "/web",
-        type: TrackType.Event) {
+            platform: "/web",
+            type: TrackType.Event) {
         sort_by(
                 required: true,
                 description: "Sort column id"
-            )
+        )
         sort_value(
                 required: true,
                 values: ["asc", "desc"],
                 description: "Sort direction"
-            )
+        )
     }
 
     //Filters
@@ -293,18 +318,18 @@ tracks {
     }
 
     "/advertising/pads2/manager/filters"(
-        platform: "/web",
-        type: TrackType.Event) {
+            platform: "/web",
+            type: TrackType.Event) {
         filters(
                 required: true,
                 type: PropertyType.Map(filters_definition)
-            )
+        )
     }
 
     // Range
     "/advertising/pads2/manager/metrics_range"(
-        platform: "/web",
-        type: TrackType.Event) {
+            platform: "/web",
+            type: TrackType.Event) {
         days(required: true, type: PropertyType.Numeric)
         to(required: true, type: PropertyType.String)
         from(required: true, type: PropertyType.String)
@@ -312,8 +337,8 @@ tracks {
 
     // Massive Actions
     "/advertising/pads2/manager/massive_actions"(
-        platform: "/web",
-        type: TrackType.Event) {
+            platform: "/web",
+            type: TrackType.Event) {
         action(required: true, type: PropertyType.String)
         total_items(required: true, type: PropertyType.Numeric)
     }
@@ -324,39 +349,39 @@ tracks {
     "/advertising/pads2/manager/sort_filters/modal"(platform: "/", isAbstract: true) {}
 
     "/advertising/pads2/manager/sort_filters/modal/show"(
-        platform: "/web",
-        type: TrackType.Event) {
+            platform: "/web",
+            type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
     }
     "/advertising/pads2/manager/sort_filters/modal/confirm"(
-        platform: "/web",
-        type: TrackType.Event) {
+            platform: "/web",
+            type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         step(required: true, type: PropertyType.Numeric , description: "Current modal step")
     }
     "/advertising/pads2/manager/sort_filters/modal/next_step"(
-        platform: "/web",
-        type: TrackType.Event) {
+            platform: "/web",
+            type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         step(required: true, type: PropertyType.Numeric , description: "Current modal step")
     }
     "/advertising/pads2/manager/sort_filters/modal/prev_step"(
-        platform: "/web",
-        type: TrackType.Event) {
+            platform: "/web",
+            type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         step(required: true, type: PropertyType.Numeric , description: "Current modal step")
     }
     "/advertising/pads2/manager/sort_filters/modal/show_later"(
-        platform: "/web",
-        type: TrackType.Event) {
+            platform: "/web",
+            type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, type: PropertyType.String, description: "Current budget related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])

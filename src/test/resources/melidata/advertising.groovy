@@ -373,6 +373,30 @@ trackTests {
 
     }
 
+    test("Advertising buybox opportunity") {
+        "/advertising/pads2/manager/card/buy-box-winner"(platform: "/web", type: TrackType.View) {
+            winners_suggested = "20"
+            campaign_id = "2222222"
+        }
+
+        "/advertising/pads2/manager/card/buybox-landing"(platform: "/web", type: TrackType.View){
+            winners_suggested = "20"
+            campaign_id = "2222222"
+        }
+
+        "/advertising/pads2/manager/card/buybox-landing/activated"(platform: "/web", type: TrackType.Event) {
+            winners_suggested = "20"
+            winners_activated = "10"
+            campaign_id = "2222222"
+        }
+
+        "/advertising/pads2/manager/buybox-winners/landing/breadcrumb"(platform: "/web", type: TrackType.Event){
+            winners_suggested = "20"
+            campaign_id = "2222222"
+        }
+
+    }
+
     test("Advertising Matching") {
         "/advertising/pads2/manager/winbacks/onboarding"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
@@ -437,11 +461,11 @@ trackTests {
             status = "active"
             budget = "70"
             filters = [
-                status: "A",
-                release_date: "less_than_seven_days",
-                category: "x",
-                features: "x",
-                query: "x",
+                    status: "A",
+                    release_date: "less_than_seven_days",
+                    category: "x",
+                    features: "x",
+                    query: "x",
             ]
         }
     }
@@ -483,7 +507,7 @@ trackTests {
             step= 2
         }
     }
-    
+
     test("Advertising manager SortFilters Modal -> NextStep") {
         "/advertising/pads2/manager/sort_filters/modal/next_step"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
