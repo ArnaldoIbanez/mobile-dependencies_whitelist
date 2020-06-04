@@ -28,6 +28,7 @@ tracks {
                 "itau",
             ]
         )
+        congrats_status(required: false, type: PropertyType.String, values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
      }
 
     propertyGroups {
