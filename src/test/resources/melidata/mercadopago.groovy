@@ -617,6 +617,10 @@ trackTests {
         }
     }
 
+    test("Landing mercadopago online payments") {
+        "/landing/onlinepayments" (platform: "/web") {}
+    }
+
     test("Landing mercadopago buyers") {
         "/landing/buyers" (platform: "/web") {}
     }
