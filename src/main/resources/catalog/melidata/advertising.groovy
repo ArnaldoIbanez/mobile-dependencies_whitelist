@@ -163,7 +163,7 @@ tracks {
         id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, description: "indicates the position of the main slide")
     }
-    
+
     //Lift
     "/advertising/pads2/manager/lift"(platform: "/web", isAbstract: true) {}
 
