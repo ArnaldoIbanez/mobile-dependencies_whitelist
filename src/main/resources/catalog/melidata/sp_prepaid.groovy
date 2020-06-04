@@ -379,6 +379,16 @@ tracks {
         view_time
     }
 
+    // Carousel
+    "/single_player/prepaid/carousel"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/carousel/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/carousel/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
 
     // Errors
     "/single_player/prepaid/error"(platform: "/mobile", isAbstract: true) {}
