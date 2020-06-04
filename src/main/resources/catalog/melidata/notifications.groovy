@@ -1896,6 +1896,7 @@ tracks {
     "/notification/prepaid_card_transaction_rejected_red_link_bug"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_authorization_by_invalid_amount"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_international_authorization_by_invalid_amount"(platform: "/mobile") {}
+    "/notification/prepaid_card_transaction_rejected_international_authorization_by_fraud_prevention"(platform: "/mobile") {}
     "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount"(platform: "/mobile") {}
     "/notification/prepaid_card_soon_deliver"(platform: "/mobile") {}
 
