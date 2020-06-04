@@ -4700,6 +4700,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_transaction_rejected_international_authorization_by_fraud_prevention"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_international_authorization_by_fraud_prevention-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
         "/notification_center/single_player_utility_success_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_utility_success_mp"
             latest_news_id= "single_player_utility_success_mp-143816022-MLB1013046714"
