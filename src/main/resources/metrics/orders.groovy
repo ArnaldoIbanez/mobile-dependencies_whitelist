@@ -103,6 +103,10 @@ metrics {
 	}
 
 	"bids.samedeal"(description: "Checkout congrats for items in the same deal of exposition", compute_order: true) {
+		startWith {
+			experiment("/search/test")
+		}
+		
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -259,6 +263,10 @@ metrics {
 
 				       
 	"bids.sameSearch"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
+		startWith {
+			experiment(regex("search/.*"))
+		}
+		
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -268,6 +276,10 @@ metrics {
 	}			       
 	
 	"bids.sameSearch.paid"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
+		startWith {
+			experiment(regex("search/.*"))
+		}
+		
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -372,7 +384,11 @@ metrics {
 		}
 	}
 
-	"bids.sameOrder"(description: "/orders/ordercreated from feed in the same order with Orders-API confirmation of experiement", compute_order: true) {
+	"bids.sameOrder.paid"(description: "/orders/ordercreated from feed in the same order with Orders-API confirmation of experiement", compute_order: true) {
+		startWith {
+			experiment(regex("(checkout|buyingflow)/.*"))
+		}
+		
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
