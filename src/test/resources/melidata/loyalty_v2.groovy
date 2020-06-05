@@ -403,6 +403,10 @@ trackTests {
             subscription_partner = "HBO"
         }
 
+        "/loyalty/partners/login/invalid"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            subscription_partner = "Paramount"
+        }
+
     }
 
 }
