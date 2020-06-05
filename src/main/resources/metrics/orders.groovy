@@ -203,6 +203,9 @@ metrics {
 	}
 
 	"bids.sameItemQuick"(description: "Quick attribution of bids", compute_order: true, ttl: 30) {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -244,6 +247,9 @@ metrics {
 
 
 	"bids.sameProductQuick"(description: "/orders/ordercreated from feed", compute_order: true, ttl: 30) {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -253,6 +259,9 @@ metrics {
 	}
 
 	"bids.sameParent"(description: "/orders/ordercreated from feed in the same parent product of experiement", compute_order: true) {
+		startWith {
+			experiment(regex("(vip|pdp|qadb)/.*"))
+		}
 		countsOn {
 			condition {
 				path("/orders/ordercreated")

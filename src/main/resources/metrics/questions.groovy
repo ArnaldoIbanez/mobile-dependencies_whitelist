@@ -50,6 +50,9 @@ metrics {
     }
 
 	"questions.sameItem"(description: "questions count over same item") {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
 		countsOn {
 			condition {
 				path("/questions/ask/post")
