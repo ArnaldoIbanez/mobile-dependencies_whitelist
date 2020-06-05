@@ -361,7 +361,7 @@ trackTests {
 
         "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             subscription_partner = "HBO"
-            type = "notification"
+            type = "push"
         }
 
         "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
@@ -396,6 +396,10 @@ trackTests {
         }
 
         "/loyalty/partners/login/verified"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            subscription_partner = "HBO"
+        }
+
+        "/loyalty/partners/login/invalid"(platform: "/", type: TrackType.Event, business: "mercadopago") {
             subscription_partner = "HBO"
         }
 
