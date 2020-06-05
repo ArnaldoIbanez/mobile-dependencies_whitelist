@@ -17,7 +17,7 @@ metrics {
     "qadb_search"(description: "qadb searches perform by user ") {
 	startWith {
      	   experiment(regex("qadb/.*"))
-	}    
+	}
 	    
         countsOn {
             condition {
@@ -27,7 +27,10 @@ metrics {
     }	
 
     "questions.pdp"(description: "Track PDP questions") {
-      	countsOn {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
+		countsOn {
 		condition {
 			path("/questions/ask/post")
 			and(
