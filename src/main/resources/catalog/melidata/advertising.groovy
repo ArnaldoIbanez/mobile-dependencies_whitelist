@@ -240,28 +240,28 @@ tracks {
     }
 
     //Buybox
-    "/advertising/pads2/manager/buybox-winners"(platform: "/", isAbstract: true) {}
-    "/advertising/pads2/manager/buybox-winners/landing"(platform: "/", isAbstract: true) {}
+    "/advertising/pads2/manager/buybox_winners"(platform: "/", isAbstract: true) {}
+    "/advertising/pads2/manager/buybox_winners/landing"(platform: "/", isAbstract: true) {}
     "/advertising/pads2/manager/catalog"(platform: "/", isAbstract: true) {}
     "/advertising/pads2/manager/catalog/edit"(platform: "/", isAbstract: true) {}
 
-    "/advertising/pads2/manager/card/buy-box-winner"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/manager/card/buy_box_winner"(platform: "/web", type: TrackType.View) {
         winners_suggested(required: true, description: "Paused buybox winner ads suggested to activate")
         campaign_id(required: false, description: "Id related to the campaign")
     }
 
-    "/advertising/pads2/manager/card/buybox-landing"(platform: "/web",type: TrackType.View) {
+    "/advertising/pads2/manager/card/buybox_landing"(platform: "/web",type: TrackType.View) {
         winners_suggested(required: true, description: "Paused buybox winner ads viewed in landing")
         campaign_id(required: true, description: "Id related to the campaign")
     }
 
-    "/advertising/pads2/manager/card/buybox-landing/activated"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/card/buybox_landing/activated"(platform: "/web", type: TrackType.Event) {
         winners_suggested(required: true, description: "Paused buybox winner ads viewed in landing")
         winners_activated(required: false, type: PropertyType.String, description: "Activated buybox winner ads through landing")
         campaign_id(required: true, description: "Id related to the campaign")
     }
 
-    "/advertising/pads2/manager/buybox-winners/landing/breadcrumb"(platform: "/web", type: TrackType.Event){
+    "/advertising/pads2/manager/buybox_winners/landing/breadcrumb"(platform: "/web", type: TrackType.Event){
         winners_suggested(required: true, description: "Paused buybox winner ads viewed in landing")
         campaign_id(required: true, description: "Id related to the campaign")
     }

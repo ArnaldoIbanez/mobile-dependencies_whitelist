@@ -374,23 +374,23 @@ trackTests {
     }
 
     test("Advertising buybox opportunity") {
-        "/advertising/pads2/manager/card/buy-box-winner"(platform: "/web", type: TrackType.View) {
+        "/advertising/pads2/manager/card/buy_box_winner"(platform: "/web", type: TrackType.View) {
             winners_suggested = "20"
             campaign_id = "2222222"
         }
 
-        "/advertising/pads2/manager/card/buybox-landing"(platform: "/web", type: TrackType.View){
+        "/advertising/pads2/manager/card/buybox_landing"(platform: "/web", type: TrackType.View){
             winners_suggested = "20"
             campaign_id = "2222222"
         }
 
-        "/advertising/pads2/manager/card/buybox-landing/activated"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/card/buybox_landing/activated"(platform: "/web", type: TrackType.Event) {
             winners_suggested = "20"
             winners_activated = "10"
             campaign_id = "2222222"
         }
 
-        "/advertising/pads2/manager/buybox-winners/landing/breadcrumb"(platform: "/web", type: TrackType.Event){
+        "/advertising/pads2/manager/buybox_winners/landing/breadcrumb"(platform: "/web", type: TrackType.Event){
             winners_suggested = "20"
             campaign_id = "2222222"
         }
