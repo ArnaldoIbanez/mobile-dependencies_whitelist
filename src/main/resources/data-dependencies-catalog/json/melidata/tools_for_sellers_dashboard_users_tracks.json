@@ -23,6 +23,7 @@
     ],
     "sql": {
       "script": "mercadopago/toolsforsellers/tools_for_sellers_dashboard_users_tracks.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
