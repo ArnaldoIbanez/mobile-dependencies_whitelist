@@ -18,16 +18,16 @@ INNER JOIN (
 select substr(ds,1,10),
 application.site_id as Site,
 device.platform AS Plataforma,
-jest(COALESCE(platform.fragment, others['fragment']), 'size') AS size,
-jest(COALESCE(platform.fragment, others['fragment']), 'banner_name') AS banner_name,
-jest(COALESCE(platform.fragment, others['fragment']), 'sellerid') AS SellerID,
+get_json_object(COALESCE(platform.fragment, others['fragment']), '$.size') AS size,
+get_json_object(COALESCE(platform.fragment, others['fragment']), '$.banner_name') AS banner_name,
+get_json_object(COALESCE(platform.fragment, others['fragment']), '$.sellerid') AS SellerID,
 usr.uid as uid
 from tracks
 where ds >= '@param01' 
 and ds < '@param02' 
 and COALESCE(platform.fragment, others['fragment']) like '%banner_name%'
-group by substr(ds,1,10), application.site_id, device.platform, jest(COALESCE(platform.fragment, others['fragment']), 'banner_name'), 
-jest(COALESCE(platform.fragment, others['fragment']), 'size'), jest(COALESCE(platform.fragment, others['fragment']), 'sellerid'), 
+group by substr(ds,1,10), application.site_id, device.platform, get_json_object(COALESCE(platform.fragment, others['fragment']), '$.banner_name'),
+get_json_object(COALESCE(platform.fragment, others['fragment']), '$.size'), get_json_object(COALESCE(platform.fragment, others['fragment']), '$.sellerid'),
 usr.uid
 ) banner ON (jest(event_data, 'seller[0].id') = banner.sellerid and usr.uid = banner.uid)
 where ds >= '@param01' 

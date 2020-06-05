@@ -42,6 +42,7 @@
     ],
     "sql": {
       "script": "business-assurance/cantidaddeclicks.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
