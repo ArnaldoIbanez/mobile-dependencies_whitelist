@@ -50,6 +50,9 @@ metrics {
 	}
 
 	"checkout.login"(description: "path: /checkout/login/confirm_authenticated or /checkout/login/first_purchase_not_authenticated or /checkout/login/confirm_not_authenticated") {
+		startWith {
+			experiment(regex("(search|vip)/.*"))
+		}
 		countsOn {
 			condition {
 				path("/checkout/login/confirm_authenticated", "/checkout/login/first_purchase_not_authenticated", "/checkout/login/confirm_not_authenticated")
