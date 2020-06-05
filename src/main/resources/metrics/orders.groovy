@@ -266,6 +266,27 @@ metrics {
 			}
 		}
 	}			       
+	
+	"bids.sameSearch.paid"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and ( 
+					equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"paid"
+					),
+				equals("event_data.items.item.id", property("item_ids"))
+				)	
+			}
+		}
+	}	
 
 	"buys.pdp"(description: "Track PDP buys", compute_order: true) {
 		countsOn {
