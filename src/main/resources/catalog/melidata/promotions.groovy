@@ -98,7 +98,7 @@ tracks {
       private_label(required: false, type: PropertyType.Numeric,
               description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")    
       promotion_type(required: true, type: PropertyType.String,
-              values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "others"], description: "Type of promotion")
+              values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "LIGHTNING_DEAL", "others"], description: "Type of promotion")
       prime_discount(required: false, type: PropertyType.Boolean, 
               description: "Indicates whether the item has discounts by mercado puntos")
       deal_print_id(required: false, type: PropertyType.String, description: "Unique id per render")
@@ -123,7 +123,7 @@ tracks {
     }
     
     propertyGroups {
-        general_promotions_info(deal_print_id, items, page)
+        general_promotions_info(deal_print_id, items, page, origin, filter_applied, filter_position, selected_filters)
     }
 
     //Promotions Landing
