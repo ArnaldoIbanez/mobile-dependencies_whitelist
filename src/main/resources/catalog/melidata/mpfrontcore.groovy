@@ -25,7 +25,10 @@ tracks {
     }
 
     // MP Home
-    "/mp_home"(platform: "/web", type: TrackType.View) {}
+    "/mp_home"(platform: "/", type: TrackType.View) {}
+
+    // MP Home
+    "/profile"(platform: "/", type: TrackType.View) {}
 
     // MP Activities
     "/listing"(platform: "/", isAbstract: true) {}
@@ -47,9 +50,9 @@ tracks {
     "/activities/export"(platform: "/web", type: TrackType.View) {}
 
     // MP Shields
-    "/shield"(platform: "/web", type: TrackType.View) {}
+    "/shield"(platform: "/", type: TrackType.View) {}
 
-    //MP Panel Layout 
+    // MP Panel Layout
     "/panel_layout"(platform: "/") {
         navigationSections(
             description:"The sections that the user is receiving from the api.",
@@ -60,21 +63,18 @@ tracks {
     "/charts"(platform: "/web", isAbstract: true){}
     "/charts/show"(platform: "/web", type: TrackType.View){}
 
-
     /*************************
     *        MP PUBLIC       *
     *************************/
-    
+
     /**
      * Digital Wallet Screen Tracks
      */
-
     "/digital_wallet"(platform: "/", type: TrackType.View) {}
 
     /**
      * Digital Wallet Events Tracks
      */
-
     "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
         section(required: true, description: "Section from which the event comes", type: PropertyType.String)
     }
@@ -86,7 +86,6 @@ tracks {
     /**
      * Bsuiness Site Screen Tracks
      */
-
     "/business_site"(platform: "/", type: TrackType.View) {}
 
     /**
