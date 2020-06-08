@@ -35,6 +35,7 @@
     ],
     "sql": {
       "script": "business-assurance/emails-open-rate_unique_opens_bysite.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
