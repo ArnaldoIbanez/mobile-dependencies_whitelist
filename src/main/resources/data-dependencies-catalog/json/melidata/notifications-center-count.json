@@ -9,7 +9,7 @@
     "type": "DATE"
   },
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [{
       "name": "total",
       "type": "INTEGER",
@@ -41,6 +41,7 @@
     }],
     "sql": {
       "script": "notifications/notifications-center-count.sql",
+      "engine": "spark",
       "parameters": [{
         "name": "param01",
         "value": "DAY-1",

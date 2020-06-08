@@ -1,51 +1,51 @@
 {
-  "users":
-  [
-    "carlos.rodrigo@mercadolibre.com"
+  "users": [
+    "julio.cardenas@mercadolibre.cl"
   ],
-  "process_name": "recommendations_bundle_atc_metrics",
+  "process_name": "cross_selling",
   "cron": "00 02 * * *",
   "partition": {
-    "name": "ds",
-    "type": "DATE"
+        "name": "ds",
+        "type": "DATE"
   },
-  "extract":
-  {
-   "operation": "append",
-   "site": "MeliLake",
-   "columns":
-    [
-     {
-        "name": "site_id",
-        "type": "UNICODE_STRING"
-      },
+  "extract": {
+    "operation": "append",
+    "columns": [
       {
         "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "client",
+        "name": "site_id",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "backend_id",
+        "name": "version",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "unlogged_users_add_to_cart",
+        "name": "content_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "position",
         "type": "INTEGER"
       },
       {
-        "name": "all_add_to_cart",
+        "name": "audience",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "Usuarios",
         "type": "INTEGER"
       },
       {
-        "name": "avg_items_added_to_cart",
-        "type": "DOUBLE"
+        "name": "Impressions",
+        "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "recommendations/bundle-atc-metrics.sql",
+      "script": "mercadopago/cross_selling.sql",
       "parameters": [
         {
           "name": "param01",

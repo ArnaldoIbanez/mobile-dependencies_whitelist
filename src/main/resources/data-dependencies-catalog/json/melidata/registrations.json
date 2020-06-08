@@ -39,6 +39,7 @@
     ],
     "sql": {
       "script": "business-assurance/registrations.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

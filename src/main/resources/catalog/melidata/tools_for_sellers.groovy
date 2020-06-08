@@ -67,6 +67,10 @@ tracks {
         card_name(required: true, description: "the name of the card that triggered the event", type: PropertyType.String)
         path(required: true, description: "path of the next page", type: PropertyType.String)
     }
+    "/your_business/ahora12"(platform: "/", type: TrackType.View) {}
+    "/your_business/ahora12/action"(platform:"/", type: TrackType.Event) {
+        action(required: true, values: ["activate", "deactivate"], description: "value to describe wheter the user activated or deactivated ahora12 feature", type: PropertyType.String)
+    }
 
 
     // Traks for dashboard section
@@ -129,5 +133,20 @@ tracks {
         chart_id (required: true, type: PropertyType.String, description: "The chart ID when error")
         section (required: true, type: PropertyType.String, description: "The section when error")
         status_code (required: false, type: PropertyType.Numeric, description: "Error status code")
+    }
+    // release-options-frontend
+    "/settings/release_options"(platform: "/", type:TrackType.View) {
+        referrer (required: true, type: PropertyType.String, description: "Referrer to the page")
+    }
+    // release-options-ui LIB
+    "/release_options_ui"(platform: "/", isAbstract: true) {}
+    "/release_options_ui/update"(platform: "/", type:TrackType.Event) {
+        channel (required: true, type: PropertyType.String, description: "The channel to update. eg: point, qr, etc")
+        payment_method_type (required: true, type: PropertyType.String, description: "The payment type. eg: credit, debit,etc")
+        release_days (required: true, type: PropertyType.String, description: "The selected release time")
+        percentage (required: true, type: PropertyType.String, description: "The selected percentage")
+    }
+    "/release_options_ui/render_channel"(platform: "/", type:TrackType.Event) {
+        channel (required: true, type: PropertyType.String, description: "The channel asked to render")
     }
 }

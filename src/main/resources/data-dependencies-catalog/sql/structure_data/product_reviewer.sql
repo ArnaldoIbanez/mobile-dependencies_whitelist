@@ -27,9 +27,9 @@ FROM (
     jest(event_data,'action_tag') as action_tag,
     errors_codes,
     sections_comments,
-    regexp_extract(errors_codes,'"(.*?)"',1) as error_desc,
+    regexp_extract(regexp_extract(errors_codes,'"(.*?)"',1),'(^[a-z,A-Z]+-*[a-z,A-Z]+)',1) as error_desc,
     regexp_extract(errors_codes,'([0-9]+)',1) as error_value,
-    regexp_extract(sections_comments,'"(.*?)"',1) as comments_desc,
+    regexp_extract(regexp_extract(sections_comments,'"(.*?)"',1),'(^[a-z,A-Z]+-*[a-z,A-Z]+)',1) as comments_desc,
     regexp_extract(sections_comments,'([0-9]+)',1) as comments_value
   FROM default.tracks
   LATERAL VIEW explode( split(jest(event_data,'errors_codes'),',')) tf as errors_codes

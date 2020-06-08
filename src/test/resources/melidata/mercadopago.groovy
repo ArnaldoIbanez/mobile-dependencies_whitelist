@@ -587,8 +587,22 @@ trackTests {
         "/landing/sellers/websites" (platform: "/web") {}
     }
 
+    test("Landing mercadopago sellers websites events") {
+        "/landing/sellers/websites/click" (platform: "/web") {
+            event_id = "CTA_HERO"
+            event_label = "websites"
+        }
+    }
+
     test("Landing mercadopago sellers social") {
         "/landing/sellers/social" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago sellers social events") {
+        "/landing/sellers/social/click" (platform: "/web") {
+            event_id = "CTA_HERO"
+            event_label = "websites"
+        }
     }
 
     test("Landing mercadopago sellers mss") {
@@ -601,6 +615,10 @@ trackTests {
         "/landing/sellers/mss/click" (platform: "/web") {
             page_name = "dzero"
         }
+    }
+
+    test("Landing mercadopago online payments") {
+        "/landing/onlinepayments" (platform: "/web") {}
     }
 
     test("Landing mercadopago buyers") {
@@ -1358,6 +1376,25 @@ trackTests {
 
     // MPMOBILE TEST
 
+    test("Free navigation") {
+        "/free_navigation"(platform: "/mobile", type: TrackType.Event) {
+            carrier_name = ""
+            sd_state = "WIFI"
+            sd_reason = "SD_NOT_AVAILABLE_REASON_UNKNOWN"
+            fg_wifi_session_time = 966
+            fg_cellular_session_time = 50
+            sd_data_usage = 0
+        }
+        "/free_navigation_notification"(platform: "/mobile", type: TrackType.Event) {}
+        "/free_navigation_dialog"(platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Memory warning") {
+        "/memory_warning"(platform: "/mobile", type: TrackType.Event) {
+            view_controller = "ViewController"
+        }
+    }
+    
     test("Traceability Flow") {
         "/flow/init"(platform: "/mobile", type: TrackType.Event) {
             flow_name = "Instore"
@@ -3458,6 +3495,48 @@ trackTests {
             elapsed_time = 50
             result = "success"
         }
+
+        "/screenlock/biometrics/failure"(platform: "/mobile/android", type: TrackType.Event) {
+            os_status = "biometrics"
+            error_msg_id = 501
+            error_msg = "ERROR_CANT_VALIDATE"
+        }
+
+        "/screenlock/biometrics/failure"(platform: "/mobile/android", type: TrackType.Event) {
+            os_status = "basic_screenlock"
+            error_msg_id = 501
+            error_msg = "ERROR_CANT_VALIDATE"
+        }
+
+        "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "enabled"
+            ]
+            scenario = "single_enrolled"
+        }
+
+        "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled"
+            ]
+            scenario = "both_enrolled"
+        }
+
+        "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "basic_screenlock"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled"
+            ]
+            scenario = "never_auto_enrolled"
+        }
     }
 
     test("Screenlock config") {
@@ -3466,7 +3545,9 @@ trackTests {
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3475,7 +3556,9 @@ trackTests {
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3484,7 +3567,9 @@ trackTests {
             enrollment_status = "disabled"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3495,7 +3580,9 @@ trackTests {
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3506,7 +3593,9 @@ trackTests {
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3517,7 +3606,9 @@ trackTests {
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3528,7 +3619,9 @@ trackTests {
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3539,7 +3632,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3550,7 +3645,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "enabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3561,7 +3658,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "enabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3572,7 +3671,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "enabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3583,7 +3684,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3594,7 +3697,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "enabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3605,7 +3710,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "enabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3616,9 +3723,107 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "enabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
+    }
+
+    test("Screenlock granularity") {
+
+        "/security_settings/screenlock/granularity"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "none"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            config_name = "transaction"
+        }
+
+        "/security_settings/screenlock/granularity"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            config_name = "opening_lock"
+        }
+
+        "/security_settings/screenlock/granularity"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            config_name = "transaction"
+        }
+
+        "/security_settings/screenlock/granularity"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            config_name = "opening_lock"
+        }
+
+        "/security_settings/screenlock/granularity_transaction"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_transaction"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_opening"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_opening"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5"
+            ]
+        }
+
     }
 
     test("Screenlock app opening lock feature") {
@@ -4002,14 +4207,6 @@ trackTests {
         }
     }
 
-    test("free data") {
-
-        "/free_navigation/not_available"(platform:"/mobile", type:TrackType.Event) {}
-
-        "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
-    }
-
-
     test("Bugsnag tracks to use on Canejo MP") {
         "/mobile/bugsnag"(platform:"/mobile/android", type:TrackType.Event) {
             error_type = "signal"
@@ -4121,9 +4318,45 @@ trackTests {
             card_name = "releaseOptions"
             path = "/settings/release-options"
         }
+        "/your_business/ahora12"(platform: "/web", type: TrackType.View) {}
+        "/your_business/ahora12/action"(platform:"/web", type: TrackType.Event) {
+            action = "activate"
+        }
     }
 
     test("About screen") {
         "/about/rate_app"(platform:"/mobile", type:TrackType.Event) {}
     }
+
+    test("Register Point Plus") {
+        // Register device
+        "/point/register/start"(platform: "/", type: TrackType.View) {}
+        "/point/register/start/insert_code"(platform: "/", type: TrackType.Event) {}
+
+        // Store crate
+        "/point/register/store_create"(platform: "/", type: TrackType.View) {}
+        "/point/register/store_create/done"(platform: "/", type: TrackType.Event) {}
+
+        // Point of sale create
+        "/point/register/pos_create"(platform: "/", type: TrackType.View) {}
+        "/point/register/pos_create/done"(platform: "/", type: TrackType.Event) {}
+        "/point/register/pos_create/cancel"(platform: "/", type: TrackType.Event) {}
+
+        // Point of sale select
+        "/point/register/pos_select"(platform: "/", type: TrackType.View) {}
+        "/point/register/pos_create"(platform: "/", type: TrackType.Event) {}
+        "/point/register/pos_select/done"(platform: "/", type: TrackType.Event) {}
+
+        // Store select
+        "/point/register/store_select"(platform: "/", type: TrackType.View) {}
+        "/point/register/store_create"(platform: "/", type: TrackType.Event) {}
+        "/point/register/store_select/done"(platform: "/", type: TrackType.Event) {}
+
+        // Congrats
+        "/point/register/end"(platform: "/", type: TrackType.View) {}
+
+        // Access denied
+        "/point/register/access_denied"(platform: "/", type: TrackType.View) {}
+    }
+
 }
