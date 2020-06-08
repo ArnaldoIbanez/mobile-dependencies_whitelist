@@ -105,6 +105,7 @@ tracks {
       installments(required: false, type: PropertyType.Map(installmentsDefinition), description: "Installments info for the item")
       lightning_deal_configuration(required: false, type: PropertyType.Map(lightningDealConfigurationDefinition), description: "Configuration for the item if is lighting deal")
       deal_of_the_day_configuration(required: false, type: PropertyType.Map(dealOfTheDayConfigurationDefinition), description: "Configuration for the item if is deal of the day")
+      dispatching_normally(required: false, type: PropertyType.Boolean, description: "Indicate whether the item support dispatching normally")
     }
 
     propertyDefinitions {
