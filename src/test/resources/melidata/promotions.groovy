@@ -88,7 +88,6 @@ trackTests {
                         logistic_type: "xd_drop_off",
                         sold_quantity: 15,
                         available_quantity: 62,
-                        health: 0.75,
                         tags: [
                           "brand_verified",
                           "good_quality_picture",
@@ -97,7 +96,6 @@ trackTests {
                           "immediate_payment",
                           "cart_eligible"
                         ],
-                        warranty: "",
                         accepts_mercadopago: true,
                         alpha: 0.7,
                         beta: 0.5,

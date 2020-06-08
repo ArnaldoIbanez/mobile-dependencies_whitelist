@@ -59,9 +59,9 @@ tracks {
       sold_quantity(required: true, type: PropertyType.Numeric)
       available_quantity(required: true, type: PropertyType.Numeric)
       tags(required: true, type: PropertyType.ArrayList(PropertyType.String))
-      warranty(required: true, type: PropertyType.String)
+      warranty(required: false, type: PropertyType.String)
       accepts_mercadopago(required: true, type: PropertyType.Boolean)
-      health(required: true, type: PropertyType.Numeric, 
+      health(required: false, type: PropertyType.Numeric, 
               description: "Variable used to calculate item score in promotions backend")
       score(required: true, type: PropertyType.Numeric, 
               description: "Item's score calculated by promotions backend based on several variables")
