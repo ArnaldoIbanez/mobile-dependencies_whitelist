@@ -46,21 +46,22 @@ tracks {
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
-        chosen_categorization_model(required: true, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
+        chosen_categorization_model(required: false, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
         category_prediction_selected_index(required: false, description: "Index selected in Multiples Suggestions", PropertyType.Numeric)
         attribute_values(required: false, description: "Array of attributes in categorization", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
-        title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
+        title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
         predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
         parent_product_id(required: false, type: PropertyType.String, description: "Catalog product parent id for item")
         product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
         item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
-        vertical(required: false, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
+        vertical(required: false, description: "item vertical", values:["core", "motors", "realEstate", "services"], type: PropertyType.String)
         listing_type_id(required: false, description: "Item listing type id")
+        user_type(required: false, type: PropertyType.String, description: "The user type")
     }
 
     propertyGroups {
-        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical)
+        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical, user_type)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
         listingTypeFlow(listing_type_id)
     }
@@ -924,8 +925,12 @@ tracks {
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
 
-    "/sell/sip/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
-    "/sell/sip/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/sip/sidebar_listing_type"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/sip/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {
+        listingTypeFlow
+    }
 
     // Catalog Optin flow for apps
     "/sell/catalog_optin"(platform: "/mobile", isAbstract: true) {
@@ -957,4 +962,20 @@ tracks {
     "/sell/variation_selection/source_variations/confirm_variation"(platform: "/web", type: TrackType.Event) {
         variation_id(required: false, description: "variation id picked", type: PropertyType.Numeric)
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS SYI v4 - RealEstate
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/sell/item_data/location"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/location/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/location/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_data/pictures"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/pictures/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_data/title_and_description"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/title_and_description/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/title_and_description/confirm"(platform: "/web", type: TrackType.Event) {}
 }

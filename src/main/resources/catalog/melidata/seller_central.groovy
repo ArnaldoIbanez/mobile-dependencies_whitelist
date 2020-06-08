@@ -181,7 +181,7 @@ tracks {
 
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
-        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical)
+        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical, user_type)
         sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
@@ -1087,4 +1087,19 @@ tracks {
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS SYI V4 - RealEstate
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/modify/detail/title_and_description"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/title_and_description/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/title_and_description/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/instant_pay_listings_info"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/instant_pay_listings_info/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/instant_pay_listings_info/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/listing_highlight_package_info"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/listing_highlight_package_info/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/listing_highlight_package_info/confirm"(platform: "/", type: TrackType.Event) {}
 }
