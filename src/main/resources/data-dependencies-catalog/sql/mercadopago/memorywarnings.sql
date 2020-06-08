@@ -3,7 +3,7 @@ SELECT  device.platform                     AS platform,
         application.version                 AS version,
         application.business                AS business,
         count(1)                            AS incidents,
-        Jest(event_data, 'view_controller') AS warnings,
+        get_json_object(event_data, '$.view_controller') AS warnings,
         Substr(ds, 1, 10)                   AS fecha
 FROM tracks
 WHERE ds >= '@param01'
@@ -20,5 +20,5 @@ GROUP BY  application.version,
           application.business,
           application.site_id,
           device.platform,
-          Jest(event_data, 'view_controller'),
+          get_json_object(event_data, '$.view_controller'),
           ds

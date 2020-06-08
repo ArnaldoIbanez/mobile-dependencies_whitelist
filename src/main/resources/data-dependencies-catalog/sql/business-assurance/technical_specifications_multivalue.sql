@@ -1,9 +1,9 @@
 SELECT
-  jest(event_data, 'item_id') itemId,
-  cast(jest(event_data, 'quantity') as int) newValuesQty,
-  cast(jest(event_data, 'previous_quantity') as int) oldValuesQty,
-  jest(event_data, 'hierarchy') hierarchy,
-  substr(jest(event_data, 'category_domain'), 5) domain,
+  get_json_object(event_data, '$.item_id') itemId,
+  cast(get_json_object(event_data, '$.quantity') as int) newValuesQty,
+  cast(get_json_object(event_data, '$.previous_quantity') as int) oldValuesQty,
+  get_json_object(event_data, '$.hierarchy') hierarchy,
+  substr(get_json_object(event_data, '$.category_domain'), 5) domain,
   application.site_id site,
   substr(ds,1,10) AS ds
 FROM tracks
