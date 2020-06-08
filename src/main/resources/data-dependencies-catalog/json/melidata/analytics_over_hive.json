@@ -1,13 +1,13 @@
 {
   "users": [
-    "patricio.benitez@mercadolibre.com"
+    "melidata_dev@mercadolibre.com"
   ],
   "partition": {
     "name": "ds",
     "type": "DATE"
   },
   "process_name": "analytics_over_hive",
-  "cron": "00 09 * * *",
+  "cron": "00 04 * * *",
   "extract": {
     "operation": "append",
     "columns": [
