@@ -321,4 +321,9 @@ tracks {
     "/prepaid/acquisition/pj_onboarding/tap"(platform: "/", type: TrackType.Event) {}
     "/prepaid/acquisition/pj_onboarding/error"(platform: "/", type: TrackType.Event) {}
 
+    // Onboarding Adapt KYC
+    "/prepaid/acquisition/onboarding_adapt_kyc"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding_adapt_kyc/tap"(platform: "/", type: TrackType.Event) {}
+    "/prepaid/acquisition/onboarding_adapt_kyc/error"(platform: "/", type: TrackType.Event) {}
+
 }
