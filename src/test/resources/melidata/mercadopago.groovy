@@ -4355,4 +4355,11 @@ trackTests {
         "/point/register/access_denied"(platform: "/", type: TrackType.View) {}
     }
 
+
+    test("Browser device tracking in mobile") {
+        "/browser/tracking" (platform: "/mobile") {
+            browser_id = "9e588da2-f853-4266-a933-0f62f960345c"
+        }
+    }
+
 }
