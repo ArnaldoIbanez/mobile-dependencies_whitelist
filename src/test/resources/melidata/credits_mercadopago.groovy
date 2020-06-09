@@ -456,6 +456,22 @@ trackTests {
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
             express_money()
         }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            account_money = 'sufficient'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            account_money = 'insufficient'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            account_money = 'sufficient'
+            express_money()
+        }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            account_money = 'insufficient'
+            express_money()
+        }
 
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
@@ -499,6 +515,37 @@ trackTests {
         }
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'default'
+            fixed_term()
+        }
+
+        "/credits/merchant/early_repayment"(platform: "/web/desktop") {}
+        "/credits/merchant/early_repayment"(platform: "/web/desktop") {
+            fixed_term()
+        }
+        "/credits/merchant/early_repayment"(platform: "/web/desktop") {
+            account_money = 'sufficient'
+            fixed_term()
+        }
+        "/credits/merchant/early_repayment"(platform: "/web/desktop") {
+            account_money = 'insufficient'
+            fixed_term()
+        }
+
+        "/credits/merchant/early_repayment/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/early_repayment/congrats"(platform: "/web/desktop") {
+            fixed_term()
+        }
+
+        "/credits/merchant/early_repayment/active_early_repayment"(platform: "/web/desktop") {}
+        "/credits/merchant/early_repayment/active_early_repayment"(platform: "/web/desktop") {
+            fixed_term()
+        }
+
+        "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
+            reason = 'bad_request'
+        }
+        "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
+            reason = 'bad_request'
             fixed_term()
         }
     }
