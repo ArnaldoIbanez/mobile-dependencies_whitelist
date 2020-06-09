@@ -7,7 +7,7 @@ SELECT
     get_json_object(event_data, '$.sidebar_name') as opened_sidebar,
     platform.http.http_referer,
     platform.http.http_url,
-    get_json_object(event_data, 'ref') as ref_source,
+    get_json_object(event_data, '$.ref') as ref_source,
     get_json_object(others['utm'], '$.utm_source') as utm_source,
     get_json_object(others['utm'], '$.utm_medium') as utm_medium,
     get_json_object(others['utm'], '$.utm_campaign') as utm_campaign,
