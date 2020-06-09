@@ -271,22 +271,18 @@ tracks {
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-        action(required: true, description: "Track action")
-        id(required: true, description: "Track id")
-        type(required: true, description: "Track type")
-    }
-
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-        action(required: true, description: "Track action")
-        id(required: true, description: "Track id")
-        type(required: true, description: "Track type")
+        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
+        id(required: false, type: PropertyType.String, description: "Id of the communication ")
+        action(required:false, type: PropertyType.String, description: "The action used in the communication if applies")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
-        action(required: true, description: "Track action")
-        id(required: true, description: "Track id")
-        type(required: true, description: "Track type")
+        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
+        id(required: false, type: PropertyType.String, description: "Id of the communication ")
+        action(required:false, type: PropertyType.String, description: "The action used in the communication if applies")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {}
