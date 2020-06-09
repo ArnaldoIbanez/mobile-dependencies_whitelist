@@ -272,24 +272,21 @@ tracks {
     }
 
     "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-        placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: false, description: "Advertasement segmentation ")
-        reputation_level(required: false, description: "Reputation for Pads")
-        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
+        action(required: true, description: "Track action")
+        id(required: true, description: "Track id")
+        type(required: true, description: "Track type")
     }
 
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-        placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: false, description: "Advertasement segmentation ")
-        reputation_level(required: false, description: "Reputation for Pads")
-        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
+        action(required: true, description: "Track action")
+        id(required: true, description: "Track id")
+        type(required: true, description: "Track type")
     }
 
     "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
-        placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: false, description: "Advertasement segmentation ")
-        reputation_level(required: false, description: "Reputation for Pads")
-        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
+        action(required: true, description: "Track action")
+        id(required: true, description: "Track id")
+        type(required: true, description: "Track type")
     }
 
     "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {}
