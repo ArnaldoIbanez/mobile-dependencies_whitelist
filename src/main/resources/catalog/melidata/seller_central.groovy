@@ -271,25 +271,18 @@ tracks {
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-        placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: false, description: "Advertasement segmentation ")
-        reputation_level(required: false, description: "Reputation for Pads")
-        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
-    }
-
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-        placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: false, description: "Advertasement segmentation ")
-        reputation_level(required: false, description: "Reputation for Pads")
-        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
+        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
+        id(required: false, type: PropertyType.String, description: "Id of the communication ")
+        action(required:false, type: PropertyType.String, description: "The action used in the communication if applies")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
-        placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: false, description: "Advertasement segmentation ")
-        reputation_level(required: false, description: "Reputation for Pads")
-        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
+        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
+        id(required: false, type: PropertyType.String, description: "Id of the communication ")
+        action(required:false, type: PropertyType.String, description: "The action used in the communication if applies")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {}
