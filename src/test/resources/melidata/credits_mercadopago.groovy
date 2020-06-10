@@ -518,10 +518,6 @@ trackTests {
             fixed_term()
         }
 
-        "/credits/merchant/early_repayment"(platform: "/web/desktop") {}
-        "/credits/merchant/early_repayment"(platform: "/web/desktop") {
-            fixed_term()
-        }
         "/credits/merchant/early_repayment"(platform: "/web/desktop") {
             account_money = 'sufficient'
             fixed_term()
