@@ -292,9 +292,6 @@ tracks {
         products_group
     }
     "/credits/merchant/early_repayment"(platform: "/", type: TrackType.View) {
-        products_group
-    }
-    "/credits/merchant/early_repayment"(platform: "/", type: TrackType.View) {
         account_money(
             type: PropertyType.String,
             required: true,
