@@ -46,6 +46,7 @@ tracks {
         time_ellapsed(required: false)
         review_id(required: false)
         reviews_shown(required: false, type: PropertyType.ArrayList)
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 }
 

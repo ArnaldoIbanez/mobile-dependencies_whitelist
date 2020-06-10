@@ -372,6 +372,7 @@ tracks {
 
     "/vip/item_gallery"(platform: "/mobile", parentPropertiesInherited: false) {
         context(required: false)
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
     "/vip/sizechart"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
