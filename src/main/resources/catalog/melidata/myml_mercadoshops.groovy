@@ -472,4 +472,12 @@ tracks {
     "/mercado_shops/hub/google/shopping/deactivate"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/hub/google/shopping/reactivate"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/discounts/"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/discounts/set"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+        percentage(required: true, type: PropertyType.Numeric, description: "Discount Percentage")
+        status(required: true, type: PropertyType.String, description: "Discount State", values: ['ACTIVE', 'INACTIVE'])
+    }
 }

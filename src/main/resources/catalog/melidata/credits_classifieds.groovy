@@ -28,10 +28,11 @@ tracks {
                 "itau",
             ]
         )
+        congrats_status(required: false, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
      }
 
     propertyGroups {
-        creditGroup(vertical, seller_id, item_id, category_id, buyer_id, bank)
+        creditGroup(vertical, seller_id, item_id, category_id, buyer_id, bank, congrats_status)
     }
 
     /******************************************

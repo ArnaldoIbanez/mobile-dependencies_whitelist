@@ -68,7 +68,7 @@ tracks {
         categoryFlowMobile(category_id, category_path)
         listingTypeFlow(listing_type_id)
         listingTypeFlowMobile(listing_type_id, listing_type_free_available)
-        catalogFlowMobile(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id)
+        catalogFlowMobile(domain_id, attribute_id, category_prediction_selected_index, attribute_values, predictions, parent_product_id, product_id)
     }
 
     // Sell
@@ -200,6 +200,7 @@ tracks {
     "/sell/list" (platform: "/mobile", isAbstract: true){
         categoryFlowMobile
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
+        chosen_categorization_model(required: false, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
         title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
     }
     "/sell/list/drafts"(platform: "/mobile", type: TrackType.View) {}
@@ -582,7 +583,9 @@ tracks {
     "/sell/update/picture_preview_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/quantity"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/update/product_identifier"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/product_identifier"(platform: "/mobile", type: TrackType.View) {
+        value_type(required:true, description: "Indicates the type of PI value that the input has", type: PropertyType.String, values:["none", "single_value", "multi_value"])
+    }
     "/sell/update/shipping"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/shipping/flex"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/shipping/flex/free_shipping_landing"(platform: "/mobile", type: TrackType.View) {}
@@ -625,7 +628,9 @@ tracks {
     "/sell/update/pictures/pictures_selector"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/editor"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/crop"(platform: "/", type: TrackType.View) {}
-    "/sell/update/variations_pi"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/variations_pi"(platform: "/mobile", type: TrackType.View) {
+        value_type(required:true, description: "Indicates the type of PI value that the input has", type: PropertyType.String, values:["none", "single_value", "multi_value"])
+    }
     "/sell/update/pictures/crop/crop_accepted"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {

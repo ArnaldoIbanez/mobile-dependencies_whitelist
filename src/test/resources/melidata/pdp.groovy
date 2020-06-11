@@ -500,6 +500,14 @@ trackTests {
         })
     }
 
+    //QADB search all action
+    test("Qadb search all action tracking"){
+        "/pdp/qadb/search-all-action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+        })
+    }
+
     //Sellers page FLOW
     test("Sellers page tracking") {
         "/pdp/sellers/quantity_change"(platform: "/", {

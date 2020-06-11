@@ -834,6 +834,13 @@ trackTests {
             vertical = "core"
             defaultCatalogFlowMobile()
         }
+        "/sell/list/picture_uploader/mode/camera"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "core"
+        }
         "/sell/list/picture_uploader/delete"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
@@ -1178,13 +1185,6 @@ trackTests {
             vertical = "core"
         }
         "/sell/list/picture_editor/function/delete"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/picture_uploader/mode/camera"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
@@ -2361,6 +2361,7 @@ trackTests {
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
+            value_type = "single_value"
         }
         "/sell/update/variations"(platform: "/mobile") {
             item_id = "MLA123456"
@@ -2373,6 +2374,7 @@ trackTests {
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
+            value_type = "single_value"
         }
         "/sell/update/statistics"(platform: "/mobile") {
             item_id = "MLA123456"

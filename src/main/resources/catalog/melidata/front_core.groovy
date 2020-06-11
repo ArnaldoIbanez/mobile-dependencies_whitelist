@@ -474,6 +474,12 @@ tracks {
 
         group_id(required: false, type: PropertyType.String, description: "The component id of the item")
         group_position(required: false, type: PropertyType.String, description: "The group position of the item")
+
+        audience(type: PropertyType.String, required: false, description: "The audience used for showing the shortcut")
+        bu(type: PropertyType.String, required: false, description: "The business unit of the shortcut")
+        bu_line(type: PropertyType.String, required: false, description: "The business unit's line of the shortcut")
+        flow(type: PropertyType.String, required: false, description: "The business unit line's flow of the shortcut")
+        logic(type: PropertyType.String, required: false, description: "The logic applied for showing the shortcut")
     }
 
     "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {}

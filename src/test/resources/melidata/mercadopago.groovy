@@ -587,23 +587,11 @@ trackTests {
         "/landing/sellers/websites" (platform: "/web") {}
     }
 
-    test("Landing mercadopago sellers websites events") {
-        "/landing/sellers/websites/click" (platform: "/web") {
-            event_id = "CTA_HERO"
-            event_label = "websites"
-        }
-    }
 
     test("Landing mercadopago sellers social") {
         "/landing/sellers/social" (platform: "/web") {}
     }
 
-    test("Landing mercadopago sellers social events") {
-        "/landing/sellers/social/click" (platform: "/web") {
-            event_id = "CTA_HERO"
-            event_label = "websites"
-        }
-    }
 
     test("Landing mercadopago sellers mss") {
         "/landing/sellers/mss" (platform: "/web") {
@@ -615,6 +603,18 @@ trackTests {
         "/landing/sellers/mss/click" (platform: "/web") {
             page_name = "dzero"
         }
+    }
+
+     test("Landing mercadopago online payments websites") {
+        "/landing/onlinepayments/websites" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago online payments social") {
+        "/landing/onlinepayments/social" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago online payments") {
+        "/landing/onlinepayments" (platform: "/web") {}
     }
 
     test("Landing mercadopago buyers") {
@@ -3503,6 +3503,36 @@ trackTests {
             error_msg_id = 501
             error_msg = "ERROR_CANT_VALIDATE"
         }
+
+        "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "enabled"
+            ]
+            scenario = "single_enrolled"
+        }
+
+        "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled"
+            ]
+            scenario = "both_enrolled"
+        }
+
+        "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "basic_screenlock"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled"
+            ]
+            scenario = "never_auto_enrolled"
+        }
     }
 
     test("Screenlock config") {
@@ -3511,7 +3541,9 @@ trackTests {
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3520,7 +3552,9 @@ trackTests {
             enrollment_status = "enabled"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3529,7 +3563,9 @@ trackTests {
             enrollment_status = "disabled"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3540,7 +3576,9 @@ trackTests {
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3551,7 +3589,9 @@ trackTests {
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3562,7 +3602,9 @@ trackTests {
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3573,7 +3615,9 @@ trackTests {
             action = "enable"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3584,7 +3628,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3595,7 +3641,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "enabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3606,7 +3654,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "enabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3617,7 +3667,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "enabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3628,7 +3680,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3639,7 +3693,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "enabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3650,7 +3706,9 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "enabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3661,9 +3719,107 @@ trackTests {
             action = "disable"
             config = [
                 "transaction": "enabled",
-                "opening_lock": "disabled"
+                "opening_lock": "disabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
+    }
+
+    test("Screenlock granularity") {
+
+        "/security_settings/screenlock/granularity"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "none"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            config_name = "transaction"
+        }
+
+        "/security_settings/screenlock/granularity"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "basic_screenlock"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            config_name = "opening_lock"
+        }
+
+        "/security_settings/screenlock/granularity"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "disabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "disabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            config_name = "transaction"
+        }
+
+        "/security_settings/screenlock/granularity"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+            config_name = "opening_lock"
+        }
+
+        "/security_settings/screenlock/granularity_transaction"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_transaction"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_opening"(platform: "/mobile/ios", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
+            ]
+        }
+
+        "/security_settings/screenlock/granularity_opening"(platform: "/mobile/android", type: TrackType.View) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                    "transaction": "enabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "100",
+                    "opening_custom": "5"
+            ]
+        }
+
     }
 
     test("Screenlock app opening lock feature") {
@@ -4197,6 +4353,13 @@ trackTests {
 
         // Access denied
         "/point/register/access_denied"(platform: "/", type: TrackType.View) {}
+    }
+
+
+    test("Browser device tracking in mobile") {
+        "/browser/tracking" (platform: "/mobile") {
+            browser_id = "9e588da2-f853-4266-a933-0f62f960345c"
+        }
     }
 
 }

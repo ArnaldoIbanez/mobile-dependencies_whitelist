@@ -148,63 +148,13 @@ trackTests {
     }
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
       type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-      reputation_level="yellow"
-    }
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-      type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-      reputation_level="yellow"
+      id = "1"
+      action = "click"
     }
     "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
       type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-      reputation_level="yellow"
-    }
-    "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-      type = "news"
-      placement = "publicidad-banner"
-      reputation_level="yellow"
-    }
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-      type = "news"
-      placement = "publicidad-banner"
-      reputation_level="yellow"
-    }
-    "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
-      type = "news"
-      placement = "publicidad-banner"
-      reputation_level="yellow"
-    }
-    "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-      type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-    }
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-      type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-    }
-    "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
-      type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-    }
-    "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-      type = "news"
-      placement = "publicidad-banner"
-    }
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-      type = "news"
-      placement = "publicidad-banner"
-    }
-    "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
-      type = "news"
-      placement = "publicidad-banner"
+      id = "1"
+      action = "click"
     }
   }
 

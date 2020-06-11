@@ -1,13 +1,13 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
-def classiExperiments = "(.*/classi.*|vip/newDesignMotors|vip/newDesktopDesignMotors|buyingflow/reservationMLAv5|sell/congrats_upgrade_listing_type|vip/servicesNewDesignMobileMLA|vip/servicesNewDesignDesktopMLA|search.*|vip/realEstate.*)"
+def searchVipClassifiedExperiments = "(search|vip|classifieds)/.*"
 
 metrics {
 
 	"reservation"(description: "orders that belong to a are a reservation", compute_order: true) {
 
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 
 		countsOn {
@@ -21,6 +21,9 @@ metrics {
 	}
 
 	"vip/reservation_intention"(description: "track vip reservations init process for classifieds") {
+		startWith {
+			experiment(regex(searchVipClassifiedExperiments))
+		}
 		countsOn {
 			condition {
 				path("/vip/reservation_intention")
@@ -30,7 +33,7 @@ metrics {
 
 	"seller_contacted"(description: "track vip contact seller as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 		countsOn {
 			condition {
@@ -42,7 +45,7 @@ metrics {
 
 	"classifieds_user_contact"(description: "track vip user interaction as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex("classifieds/.*"))
 		}
 
 		countsOn {
@@ -54,7 +57,7 @@ metrics {
 
 	"classifieds_user_contact_mobile"(description: "track vip user interaction as success for classifieds mobile") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex("classifieds/.*"))
 		}
 
 		countsOn {
@@ -66,7 +69,7 @@ metrics {
 
 	"call_seller"(description: "track vip call seller as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 
 		countsOn {
@@ -78,7 +81,7 @@ metrics {
 
 	"show_phone"(description: "track vip show phone as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 
 		countsOn {
@@ -90,7 +93,7 @@ metrics {
 
 	"contact_seller"(description: "track vip contact seller as success for classifieds") {
 		startWith {
-			experiment(regex(classiExperiments))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 
 		countsOn {
@@ -101,6 +104,9 @@ metrics {
 	}
 
 	"quotations"(description: "track quotation as success for classifieds") {
+		startWith {
+			experiment(regex(searchVipClassifiedExperiments))
+		}
 		countsOn {
 			condition {
 				path("/quotation/congrats","/quotation/congrats/unregistered")
