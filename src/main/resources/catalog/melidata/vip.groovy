@@ -508,6 +508,14 @@ tracks {
     "/vip/payment_method"(platform: "/mobile", parentPropertiesInherited: false) {}
 
     "/vip/payment_method/back"(platform: "/mobile", parentPropertiesInherited: false) {}
+    
+    "/payment_methods"(platform: "/", type: TrackType.View, isAbstract: true) {}
+
+    "/payment_methods/show"(platform: "/", type: TrackType.View) {
+        item_id(required: true, type: PropertyType.String,
+                description: "Item ID")
+        context(required: true, type: PropertyType.String, values: ["pdp", "vip"], description: "Context in where the payments modal is used")
+    }
 
     "/vip/variations"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String,

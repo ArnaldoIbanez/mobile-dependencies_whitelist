@@ -460,6 +460,13 @@ trackTests {
         }
     }
 
+    test("Vip show payment methods") {
+        "/payment_methods/show"(platform: "/mobile", type: TrackType.View) {
+            context = "vip"
+            item_id = "MLB533657947"
+        }
+    }
+
     test("Vip web desktop without reviews") {
         "/vip"(platform:"/web/desktop") {
             category_id = "MLA1234"
