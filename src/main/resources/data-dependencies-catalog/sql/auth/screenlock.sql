@@ -108,8 +108,8 @@ FROM ( SELECT
        usr,
        path,
        application,
-       site,
-       bu,
+       application.site_id as site,
+       application.business as bu,
        cast(split(application.version, '\\.')[0] as integer) as major,
        cast(split(application.version, '\\.')[1] as integer) as minor,
        cast(split(application.version, '\\.')[2] as integer) as patch,
@@ -119,13 +119,13 @@ FROM ( SELECT
        get_json_object(event_data, '$.os_status') as os_status,
        get_json_object(event_data, '$.elapsed_time') as elapsed_time,
        get_json_object(event_data, '$.action') as toggleaction
-     from melidata.tracks_mp
+     from tracks
      where 1 = 1
        and ds >= '@param01'
        and ds < '@param02'
        and device.platform in ('/mobile/android','/mobile/ios')
-       and bu = 'mercadopago'
-       and site in('MLA','MLM','MLB','MLU','MLC','MPE','MCO')
+       and application.business in ('mercadopago', 'mercadolibre')
+       and application.site_id in('MLA','MLM','MLB','MLU','MLC','MPE','MCO')
        and path in (
          '/security_settings/screenlock',
          '/security_settings',
@@ -137,8 +137,8 @@ FROM ( SELECT
           user_id,
           site_id,
           max(risk_level) as risk_level,
-          max(timestamp) as timestamp
-        from auth-reporting.patot_users
+          max(ds) as ts
+        from accountsecurity.mods_patot_users
           where ds >= '@param03'
           and ds < '@param02'
         group by
