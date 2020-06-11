@@ -85,13 +85,6 @@ metrics {
         }
     }
 
-    "insurtech_properties"(description: "define properties for insurtech experiments") {
-        startWith {
-            set_property("item_id", "event_data.item.id")
-            experiment(regex("insurtech/.*"))
-        }
-    }
-
     "new_congrats_properties"(description: "define properties for order_id in new_congrats experiments") {
         startWith {
             set_property("order_id", "event_data.order_id")
