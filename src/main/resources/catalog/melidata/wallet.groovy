@@ -56,6 +56,9 @@ tracks {
         title (required:false, type: PropertyType.String, description: "Banner title")
         description (required:false, type: PropertyType.String, description: "Banner description or subtitle")
         image (required:false, type: PropertyType.String, description: "Banner image key")
+        secondary_image (required:false, type: PropertyType.String, description: "Secondary image")
+        background (required:false, type: PropertyType.String, description: "Background")
+        chevron_color (required:false, type: PropertyType.String, description: "Chevron color")
         action (required:false, type: PropertyType.Map(action_definition), description: "Banner action")
     }
     "/wallet/cards/banner_tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -64,6 +67,9 @@ tracks {
         title (required:false, type: PropertyType.String, description: "Banner title")
         description (required:false, type: PropertyType.String, description: "Banner description or subtitle")
         image (required:false, type: PropertyType.String, description: "Banner image key")
+        secondary_image (required:false, type: PropertyType.String, description: "Secondary image")
+        background (required:false, type: PropertyType.String, description: "Background")
+        chevron_color (required:false, type: PropertyType.String, description: "Chevron color")
         action (required:false, type: PropertyType.Map(action_definition), description: "Banner action")
     }
     
