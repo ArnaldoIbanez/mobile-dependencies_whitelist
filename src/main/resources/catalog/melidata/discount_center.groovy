@@ -199,6 +199,14 @@ tracks {
         main_actions(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_action_definition)), description: "Main actions components")
         carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_carousel_definition)), description: "Carousel components")
         row(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_row_definition)), description: "Row components")
+        last_viewed(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_last_viewed_definition)), description: "Last Viewed components")
+    }
+
+    def marketplace_last_viewed_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the last viewed section")
     }
 
     "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
@@ -227,9 +235,9 @@ tracks {
     "/discount_center/payers/detail/whatsapp" (platform: "/mobile", type: TrackType.View) {
         store_id(type: PropertyType.Numeric, required: false, description: "The store id of the store")
         collector_id(type: PropertyType.String, required: false, description: "The collector id of the item")
-        session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
+        session_id(required: true, type: PropertyType.String, description: "Unique code that identifies a user's session")
         category(type: PropertyType.String, required: false, description: "The category of the item")
         title(required: false, type: PropertyType.String, description: "The store name")
-        tracking_id(required: false, type: PropertyType.String, description: "Tracking id of the presented whatsapp detail")
+        tracking_id(required: true, type: PropertyType.String, description: "Tracking id of the presented whatsapp detail")
     }
 }
