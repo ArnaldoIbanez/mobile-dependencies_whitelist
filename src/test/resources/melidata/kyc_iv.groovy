@@ -148,6 +148,10 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/custom_camera/uploading"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
         "/kyc/iv/activity/custom_camera/result"(platform: "/mobile/android")  {
             doc_type = "doc_front"
             model_id = "documentation"
@@ -267,6 +271,10 @@ trackTests {
             model_id = "documentation"
         }
         "/kyc/iv/activity/custom_camera/preview"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/uploading"(platform: "/mobile/ios")  {
             doc_type = "doc_front"
             model_id = "documentation"
         }
@@ -624,6 +632,10 @@ trackTests {
             doc_type = "doc_front"
             model_id = "documentation"
         }
+        "/kyc/iv/activity/custom_camera/uploading"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
         "/kyc/iv/activity/custom_camera/result"(platform: "/mobile/android")  {
             doc_type = "doc_front"
             model_id = "documentation"
@@ -743,6 +755,10 @@ trackTests {
             model_id = "documentation"
         }
         "/kyc/iv/activity/custom_camera/preview"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/uploading"(platform: "/mobile/ios")  {
             doc_type = "doc_front"
             model_id = "documentation"
         }

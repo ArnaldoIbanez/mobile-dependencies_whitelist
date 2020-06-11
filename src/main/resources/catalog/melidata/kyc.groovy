@@ -244,6 +244,8 @@ tracks {
 
     "/kyc/iv/activity/custom_camera/preview"(platform: "/mobile", type: TrackType.View) {}
 
+    "/kyc/iv/activity/custom_camera/uploading"(platform: "/mobile", type: TrackType.View) {}
+
     "/kyc/iv/activity/custom_camera/result"(platform: "/mobile", type: TrackType.View) {}
 
     "/kyc/iv/activity/picture_confirmation"(platform: "/mobile", type: TrackType.View) {}
