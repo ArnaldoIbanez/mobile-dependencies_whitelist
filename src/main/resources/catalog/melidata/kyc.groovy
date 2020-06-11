@@ -234,6 +234,18 @@ tracks {
 
     "/kyc/iv/activity/custom_camera"(platform: "/mobile", type: TrackType.View) {}
 
+    "/kyc/iv/activity/custom_camera/permission"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/error"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/landing"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/camera"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/preview"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/result"(platform: "/mobile", type: TrackType.View) {}
+
     "/kyc/iv/activity/picture_confirmation"(platform: "/mobile", type: TrackType.View) {}
 
     // Mobile tracks
