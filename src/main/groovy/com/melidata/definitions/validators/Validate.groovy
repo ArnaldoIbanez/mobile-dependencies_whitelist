@@ -47,14 +47,9 @@ class Validate {
         if (options.to_file) {
             def filepath = options.to_file
             def writer = new BufferedWriter(new FileWriter(filepath))
-            writer.writeLine("[")
-            result.eachWithIndex { item, index ->
-                writer.writeLine(JsonOutput.toJson(item))
-                if (index + 1 < result.size) {
-                  writer.writeLine(",")
-                }
+            result.each {
+                writer.writeLine(JsonOutput.toJson(it))
             }
-            writer.writeLine("]")
             writer.close()
             println "File $filepath generated"
         } else {
