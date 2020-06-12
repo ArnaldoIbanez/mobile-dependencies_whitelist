@@ -59,9 +59,9 @@ tracks {
       sold_quantity(required: true, type: PropertyType.Numeric)
       available_quantity(required: true, type: PropertyType.Numeric)
       tags(required: true, type: PropertyType.ArrayList(PropertyType.String))
-      warranty(required: true, type: PropertyType.String)
+      warranty(required: false, type: PropertyType.String)
       accepts_mercadopago(required: true, type: PropertyType.Boolean)
-      health(required: true, type: PropertyType.Numeric, 
+      health(required: false, type: PropertyType.Numeric, 
               description: "Variable used to calculate item score in promotions backend")
       score(required: true, type: PropertyType.Numeric, 
               description: "Item's score calculated by promotions backend based on several variables")
@@ -98,13 +98,14 @@ tracks {
       private_label(required: false, type: PropertyType.Numeric,
               description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")    
       promotion_type(required: true, type: PropertyType.String,
-              values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "others"], description: "Type of promotion")
+              values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "LIGHTNING_DEAL", "others"], description: "Type of promotion")
       prime_discount(required: false, type: PropertyType.Boolean, 
               description: "Indicates whether the item has discounts by mercado puntos")
       deal_print_id(required: false, type: PropertyType.String, description: "Unique id per render")
       installments(required: false, type: PropertyType.Map(installmentsDefinition), description: "Installments info for the item")
       lightning_deal_configuration(required: false, type: PropertyType.Map(lightningDealConfigurationDefinition), description: "Configuration for the item if is lighting deal")
       deal_of_the_day_configuration(required: false, type: PropertyType.Map(dealOfTheDayConfigurationDefinition), description: "Configuration for the item if is deal of the day")
+      dispatching_normally(required: false, type: PropertyType.Boolean, description: "Indicate whether the item support dispatching normally")
     }
 
     propertyDefinitions {
@@ -122,7 +123,7 @@ tracks {
     }
     
     propertyGroups {
-        general_promotions_info(deal_print_id, items, page)
+        general_promotions_info(deal_print_id, items, page, origin, filter_applied, filter_position, selected_filters)
     }
 
     //Promotions Landing
