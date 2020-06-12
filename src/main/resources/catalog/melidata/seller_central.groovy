@@ -186,12 +186,13 @@ tracks {
         vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
         mercado_lider(required: false, type: PropertyType.Boolean, description: "Seller is mercadolider")
         user_type(required: false, type: PropertyType.String, description: "The user type")
-
+        business(required: false,  values:["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
+        platform(required: false, values:["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
     }
 
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
-        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical)
+        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical, user_type, business, platform )
         sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
@@ -1192,4 +1193,19 @@ tracks {
         origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS SYI V4 - RealEstate
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/modify/detail/title_and_description"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/title_and_description/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/title_and_description/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/instant_pay_listings_info"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/instant_pay_listings_info/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/instant_pay_listings_info/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/listing_highlight_package_info"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/listing_highlight_package_info/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/listing_highlight_package_info/confirm"(platform: "/", type: TrackType.Event) {}
 }

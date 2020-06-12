@@ -3999,4 +3999,400 @@ trackTests {
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS SYI v4 Publicar - RealEstate
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("SYI v4 publicar - title and description card ") {
+        "/sell/item_data/title_and_description/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            category_id = "MLC183186"
+            item_type = "default"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-7afd00a54af7"
+            vertical = "realEstate"
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+    test("SYI v4 publicar - title and  description card confirmed") {
+        "/sell/item_data/title_and_description/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            category_id = "MLC183186"
+            item_type = "default"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-7afd00a54af7"
+            vertical = "realEstate"
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - realEstate location info card showed") {
+        "/sell/item_data/location/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            category_id = "MLC183186"
+            item_type = "default"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-7afd00a54af7"
+            vertical = "realEstate"
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - realEstate location info card confirmed") {
+        "/sell/item_data/location/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            category_id = "MLC183186"
+            item_type = "default"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-7afd00a54af7"
+            vertical = "realEstate"
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - picture card showed") {
+        "/sell/item_data/pictures/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            category_id = "MLC183186"
+            item_type = "default"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-7afd00a54af7"
+            vertical = "realEstate"
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - picture card confirmed") {
+        "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            category_id = "MLC183186"
+            item_type = "default"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-7afd00a54af7"
+            vertical = "realEstate"
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - sidebar listing type showed") {
+        "/sell/sip/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-4793d18a6b24"
+            vertical = "realEstate"
+            listing_type_id = "gold_premium"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - sip showed") {
+        "/sell/sip"(platform: "/web", type: TrackType.View) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-4793d18a6b24"
+            vertical = "realEstate"
+            listing_type_id = "gold_premium"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - category card showed") {
+        "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            categorization_flow_successful = false
+            seller_segment = ""
+            category_id = "MLC1459"
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+    test("SYI v4 publicar - category card confirmed") {
+        "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            categorization_flow_successful = false
+            seller_segment = ""
+            category_id = "MLC1459"
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - instant pay listings card showed") {
+        "/sell/item_conditions/instant_pay_listings/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - item data showed") {
+        "/sell/item_data"(platform: "/web", type: TrackType.View) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - technical_specifications card showed") {
+        "/sell/item_data/technical_specifications/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - technical_specifications card confirmed") {
+        "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+
+    test("SYI v4 publicar - price_and_currency card showed") {
+        "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - price_and_currency card confirmed") {
+        "/sell/item_conditions/price_and_currency/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - seller_contact card showed") {
+        "/sell/item_conditions/seller_contact/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - seller_contact card confirmed") {
+        "/sell/item_conditions/seller_contact/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - video card showed") {
+        "/sell/item_conditions/video/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+
+    }
+
+    test("SYI v4 publicar - video card confirmed") {
+        "/sell/item_conditions/video/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+
+    test("SYI v4 publicar - sidebar_listing_type card showed") {
+        "/sell/item_conditions/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - sidebar_listing_type card hide") {
+        "/sell/item_conditions/sidebar_listing_type/hide"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - instant_pay_listings card confirmed") {
+        "/sell/item_conditions/instant_pay_listings/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - congrats view") {
+        "/sell/congrats"(platform: "/web", type: TrackType.View) {
+            seller_reputation = "NO_REPUTATION"
+            categorization_flow_successful = true
+            category_id = "MLC183186"
+            item_id = "MLC531828782"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+            listing_type_id = "silver"
+        }
+    }
+
 }
