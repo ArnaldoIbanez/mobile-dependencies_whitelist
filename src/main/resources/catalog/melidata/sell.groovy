@@ -59,10 +59,12 @@ tracks {
         listing_type_id(required: false, description: "Item listing type id")
         listing_type_free_available(required: false, type: PropertyType.Boolean, description: "Listing type free available")
         user_type(required: false, type: PropertyType.String, description: "The user type")
+        business(required: false,  values:["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
+        platform(required: false, values:["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
     }
 
     propertyGroups {
-        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical, user_type)
+        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical, user_type, business, platform)
         sellGroupMobile( seller_segment, seller_profile, vertical)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
         categoryFlowMobile(category_id, category_path)
@@ -959,6 +961,7 @@ tracks {
 
     "/sell/item_conditions/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/sidebar_listing_type/hide"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/item_conditions/reservation_info"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/reservation_info/show"(platform: "/web", type: TrackType.Event) {}
@@ -1042,6 +1045,7 @@ tracks {
 
     "/sell/sip"(platform: "/web", type: TrackType.View) {
         sellGroup
+        listingTypeFlow
         item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
     }
     "/sell/sip/confirm"(platform: "/web", type: TrackType.Event) {}
