@@ -434,6 +434,14 @@ tracks {
 
     "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/vip/call_seller_intention"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
+    "/vip/contact_whatsapp_intention"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
     "/vip/show_phone"(platform: "/", type: TrackType.Event) {
         category_id(required: false, type: PropertyType.String, description: "Item's category ID")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
