@@ -52,7 +52,7 @@ tracks {
     // Banner card Events
     "/wallet/cards/banner_print"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         id (required:true, type: PropertyType.String, description: "Banner id")
-        type (required:true, type: PropertyType.String, values: ["primary", "empty"], description: "Banner type")
+        type (required:true, type: PropertyType.String, values: ["primary", "empty", "card"], description: "Banner type")
         title (required:false, type: PropertyType.String, description: "Banner title")
         description (required:false, type: PropertyType.String, description: "Banner description or subtitle")
         image (required:false, type: PropertyType.String, description: "Banner image key")
@@ -63,7 +63,7 @@ tracks {
     }
     "/wallet/cards/banner_tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         id (required:true, type: PropertyType.String, description: "Banner id")
-        type (required:true, type: PropertyType.String, values: ["primary", "empty"], description: "Banner type")
+        type (required:true, type: PropertyType.String, values: ["primary", "empty", "card"], description: "Banner type")
         title (required:false, type: PropertyType.String, description: "Banner title")
         description (required:false, type: PropertyType.String, description: "Banner description or subtitle")
         image (required:false, type: PropertyType.String, description: "Banner image key")
