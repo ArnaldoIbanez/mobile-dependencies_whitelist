@@ -47,6 +47,8 @@ trackTests {
       "/money_out/kyc"(platform: "/", type: TrackType.View) {}
       "/money_out/kyc/onboarding"(platform: "/", type: TrackType.View) {}
 
+      "/money_out/cashout/map"(platform: "/", type: TrackType.View) {}
+
       // New Cashout Onobaording
       "/money_out/cashout/onboarding"(platform: "/", type: TrackType.View) {}
       // Cashout onboarding

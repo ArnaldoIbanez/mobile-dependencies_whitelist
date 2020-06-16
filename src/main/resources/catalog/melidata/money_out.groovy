@@ -36,6 +36,8 @@ tracks {
         amount (required:true, description: "Continue amount entered")
     }
 
+    "/money_out/cashout/map"(platform: "/", type: TrackType.View) {}
+
     // Cashout onboarding
     "/money_out/kyc"(platform: "/", isAbstract: true) {}
     "/money_out/kyc/onboarding"(platform: "/", type: TrackType.View) {}
