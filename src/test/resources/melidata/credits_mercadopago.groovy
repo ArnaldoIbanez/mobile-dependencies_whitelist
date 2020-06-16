@@ -538,10 +538,10 @@ trackTests {
         }
 
         "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
-            reason = 'bad_request'
+            reason = 'early_repayment_error'
         }
         "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
-            reason = 'bad_request'
+            reason = 'early_repayment_error'
             fixed_term()
         }
     }

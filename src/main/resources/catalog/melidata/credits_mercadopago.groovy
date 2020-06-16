@@ -313,6 +313,9 @@ tracks {
         reason(
             type: PropertyType.String,
             required: false,
+            values: [
+                'early_repayment_error'
+            ],
             inheritable: false
         )
         products_group
