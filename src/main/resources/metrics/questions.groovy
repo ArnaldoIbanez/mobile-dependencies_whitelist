@@ -14,7 +14,7 @@ metrics {
         }
     }
 
-    "qadb_search"(description: "qadb searches perform by user ") {
+    "qadb_search"(description: "qadb zqps generated ") {
 	startWith {
      	   experiment(regex("qadb/.*"))
 	}
@@ -25,6 +25,19 @@ metrics {
             }
         }
     }	
+	
+   "qadb_zqp"(description: "qadb searches perform by user ") {
+	startWith {
+     	   experiment(regex("qadb/.*"))
+	}
+	    
+        countsOn {
+            condition {
+                path("/questions/qadb/search")
+       	        empty("event_data.results", true)
+            }
+        }
+    }		
 
     "questions.pdp"(description: "Track PDP questions") {
 		startWith {
