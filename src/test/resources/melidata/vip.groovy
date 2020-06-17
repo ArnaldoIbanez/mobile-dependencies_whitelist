@@ -1121,7 +1121,6 @@ trackTests {
             vertical = "motors"
             listing_type_id = "gold_premium"
             item_seller_type = "normal"
-            source = "desktop-navigation-non-free"
             vip_version = "new"
         }
 

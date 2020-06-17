@@ -944,7 +944,8 @@ tracks {
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
                 description: "Listing type of the item")
         item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
-        source(required: true, description: "specify the platform and the freemium text type")
+        source(required: false, description: "specify the platform and the freemium text type - We are deprecating this attribute " +
+                "for the new vip so we will get rid of it as soon as the old vip is turned off")
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
