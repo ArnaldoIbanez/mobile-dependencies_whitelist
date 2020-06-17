@@ -176,7 +176,7 @@ trackTests {
             from = "drawer"
             id = "cross_link1"
             store_replacement_link = "meli://modal/full?id=test"
-            store_replacement_link_scheme_is_valid = "true"
+            store_replacement_link_scheme_is_valid = true
         }
         "/cross_app_links/fetch"(platform: "/mobile"){
             link = "meli://test"
@@ -377,7 +377,7 @@ trackTests {
             from = "drawer"
             id = "cross_link1"
             store_replacement_link = "meli://modal/full?id=test"
-            store_replacement_link_scheme_is_valid = "true"
+            store_replacement_link_scheme_is_valid = true
         }
         "/cross_app_links/fetch"(platform: "/mobile"){
             link = "meli://test"
