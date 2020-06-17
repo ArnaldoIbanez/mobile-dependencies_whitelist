@@ -523,7 +523,7 @@ tracks {
 
     // Security Blocker
 
-    "/screenlock/security_blocker"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/screenlock/security_blocker"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
