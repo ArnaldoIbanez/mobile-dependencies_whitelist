@@ -30,6 +30,43 @@ trackTests {
         "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View) {}
     }
 
+    test("Test new param in colaboradores" ) {
+        "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
+            segmentation = 'first_stage'
+            is_v2 = true
+        }
+
+        "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
+            segmentation = 'first_stage'
+            is_v2 = false
+        }
+
+        "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
+            segmentation = 'first_stage'
+        }
+
+
+        "/collaborators_admin/roles/create"(platform:"/mobile", type: TrackType.View) {
+            segmentation = 'first_stage'
+            is_v2 = true
+        }
+
+        "/collaborators_admin/roles/create"(platform:"/mobile", type: TrackType.View) {
+            segmentation = 'first_stage'
+            is_v2 = false
+        }
+
+        "/collaborators_admin/roles/create"(platform:"/mobile/android", type: TrackType.View) {
+            segmentation = 'first_stage'
+            is_v2 = false
+        }
+
+        "/collaborators_admin/roles/create"(platform:"/mobile/ios", type: TrackType.View) {
+            segmentation = 'first_stage'
+            is_v2 = false
+        }
+    }
+
     test("Finish of creation of the new operator" ) {
         "/collaborators_admin/congrats"(platform:"/web", type: TrackType.View) {
             type = 'success'

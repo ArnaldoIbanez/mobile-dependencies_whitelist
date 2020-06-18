@@ -116,10 +116,10 @@ tracks {
     "/email/checkout/refunded"(platform: "/email"){}
 
     // mails for: showing unsubscribe view
-    "/email/form-optout"(platform: "/"){}
+    "/email/form_optout"(platform: "/"){}
 
     // mails for: unsubscribe from emails reception
-    "/email/form-optout/unsubscribe"(platform: "/", type: TrackType.Event){
+    "/email/form_optout/unsubscribe"(platform: "/", type: TrackType.Event){
         selected_option(required: true, description: "Selected option in unsubscribe view as cause of unsubscription")
     }
 

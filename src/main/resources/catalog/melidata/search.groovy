@@ -29,11 +29,23 @@ tracks {
         user_zone(required: false, description: "the user zone registered", type: PropertyType.String)
     }
 
+    def top_keyword_definition = objectSchemaDefinitions {
+        key(type: PropertyType.String, required: true, description: "user friendly keyword")
+        type(values:["SEARCH","PDP"], required: false, description: "destination of the keyword")
+    }
+
     def sparkle_info_object = objectSchemaDefinitions {
         intervention_id(type: PropertyType.String, required: true)
         intervention_type(type: PropertyType.String, required: true, values: ["REDIRECT", "INLINE"])
         config_value(type: PropertyType.String, required: true)
         url(type: PropertyType.String, required: true)
+    }
+
+    def best_seller_object = objectSchemaDefinitions {
+        candidates(type: PropertyType.Numeric, required: true)
+        selected(type: PropertyType.ArrayList(PropertyType.String), required: true)
+        selected_qty(type: PropertyType.Numeric, required: true)
+        selected_positions(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
     }
 
     def category_definition = objectSchemaDefinitions {
@@ -80,6 +92,7 @@ tracks {
         show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
         sparkle_info(required: false, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
+        best_seller_info(required: false, description: 'best seller tracking info', type: PropertyType.Map(best_seller_object))
 
 
         //Tracks from Search Backend:
@@ -128,6 +141,8 @@ tracks {
         pdp_highlight_enabled(required: true, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
         seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
         user_profile_type(required: true, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
+        top_keywords(required: false, description: 'lists the seo keywords', type: PropertyType.ArrayList(PropertyType.Map(top_keyword_definition)))
+        review_pages(required: false, description: 'lists the seo review pages', type: PropertyType.ArrayList(PropertyType.String))
     }
 
     "/search"(platform: "/mobile") {

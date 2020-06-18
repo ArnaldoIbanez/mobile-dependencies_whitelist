@@ -1,0 +1,76 @@
+{
+  "users": [
+    "melidata_dev@mercadolibre.com"
+  ],
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
+  "process_name": "analytics_over_presto_v2",
+  "cron": "00 04 * * *",
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "username",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "operation",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "user_agent",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "state",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "source",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "schema",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "table_read",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "cpu_time",
+        "type": "INTEGER"
+      },
+      {
+        "name": "text",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "melidata/analytics_over_presto_v2.sql",
+      "engine": "spark",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

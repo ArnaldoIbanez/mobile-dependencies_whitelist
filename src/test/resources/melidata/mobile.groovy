@@ -31,6 +31,23 @@ trackTests {
             date_created = "2019-08-08T09:25:01.000-04:00"
             lang = "es-ar"
             timezone = "-0300"
+            last_seen = "2020-03-06"
+            source = "uninstalls_checker_flow"
+            current_checking_day = 23
+            execution_id = "eac9e889bb478758"
+        }
+    }
+
+    test("not_engaged"){
+        "/application/not_engaged" (platform: "/mobile", type: TrackType.Event){
+            type = "mobile"
+            date_created = "2019-08-08T09:25:01.000-04:00"
+            lang = "es-ar"
+            timezone = "-0300"
+            last_seen = "2020-03-06"
+            source = "uninstalls_checker_flow"
+            current_checking_day = 23
+            execution_id = "eac9e889bb478758"
         }
     }
 
@@ -91,6 +108,18 @@ trackTests {
         }
     }
 
+    test("Devices Metadata") {
+        "/devices/metadata"(platform:"/mobile") {
+            total_storage = 12582912
+            free_storage = 6291456
+            app_storage = 307200
+            dark_mode_status = "enabled"
+            battery_save_mode = "disabled"
+            data_save_mode = "whitelisted"
+            do_not_disturb_mode = "disabled"
+        }
+    }
+
     test("Devices Notification Settings") {
         "/devices_settings/notifications"(platform:"/mobile") {
             enable = true
@@ -105,5 +134,39 @@ trackTests {
 
     test("Choose Country settings") {
         "/settings/country"(platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Security Tracks") {
+        "/devices/websec/deeplinks_data"(platform:"/mobile/android") {
+            from = "com.mercadolibre.android"
+            destination = "MainActivity"
+            scheme = "meli"
+            encodedUri = "mercadolibre.com"
+            segments = "webkit"
+            query = "url=https://www.mercadolibre.com.ar/"
+        }
+    }
+
+    test("MercadoPago wallet apprater") {
+
+        "/application/apprater/add_track"(platform: "/mobile") {
+            type_track="CRASHED"
+        }
+        "/application/apprater/add_track"(platform: "/mobile") {
+            type_track="PAYMENT_APPROVED"
+        }
+        "/application/apprater/add_track"(platform: "/mobile") {
+            type_track="WITHDRAW"
+        }
+        "/application/apprater/error_service_rules"(platform: "/mobile") {}
+        "/application/apprater/popup"(platform: "/mobile") {}
+    }
+
+    test("Landing Deeplinks in Mobile") {
+        "/landing/deeplinks"(platform:"/mobile") {
+            desired_link = "https://www.mercadolibre.com.ar/mercado-puntos"
+            target_link = "meli://loyalty"
+            message = "Could not parse Target Link"
+        }
     }
 }

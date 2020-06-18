@@ -157,5 +157,4 @@ FROM
                ) AS pXc
          ) AS TpXc1
      GROUP BY fecha, site, platform, component, position, campaign
-     ORDER BY fecha, site, platform, component, position, campaign
     ) AS FinalData

@@ -1,0 +1,68 @@
+{
+  "users": [
+    "julio.cardenas@mercadolibre.cl"
+  ],
+  "process_name": "cross_selling_taps",
+  "cron": "00 01 * * *",
+  "partition": {
+        "name": "ds",
+        "type": "DATE"
+  },
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "version",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "content",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "position",
+        "type": "INTEGER"
+      },
+      {
+        "name": "audience",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "taps",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "mercadopago/cross_selling_taps.sql",
+      "engine": "spark",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

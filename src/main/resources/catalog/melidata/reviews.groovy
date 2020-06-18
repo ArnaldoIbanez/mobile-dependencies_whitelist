@@ -46,6 +46,12 @@ tracks {
         time_ellapsed(required: false)
         review_id(required: false)
         reviews_shown(required: false, type: PropertyType.ArrayList)
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
+    }
+
+    "/reviews/see_more"(platform: "/") {
+        item_id(required: true, type: PropertyType.String)
+        catalog_product_id(required: false, type: PropertyType.String)
     }
 }
 

@@ -39,6 +39,7 @@ tracks {
 
     "/collaborators_admin/roles/create"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
         segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
+        is_v2(required: false, type: PropertyType.Boolean, description: 'Indicates version of app.')
     }
 
     "/collaborators_admin/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {

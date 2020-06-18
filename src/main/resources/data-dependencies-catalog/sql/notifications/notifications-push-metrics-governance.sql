@@ -19,9 +19,9 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
        application.business AS business,
        path,
        application.site_id as site_id,
-       jest(event_data, 'news_id') as news_id,
+       get_json_object(event_data, '$.news_id') as news_id,
        device.device_id as device_id,
-       UPPER(COALESCE(jest(event_data, 'device_status'), 'ACTIVE')) as device_status,
+       UPPER(COALESCE(get_json_object(event_data, '$.device_status'), 'ACTIVE')) as device_status,
        (CASE WHEN usr.user_id is not null OR TRIM(usr.user_id) <> '' THEN 'SI' ELSE 'NO' END) as has_user,
        CONCAT(regexp_extract(application.version, '(^[0-9]+\.[0-9]+)'), '|', device.platform) as app_version,
        1 AS sent,
@@ -36,38 +36,38 @@ FROM( SELECT DISTINCT SUBSTR(ds, 1, 10) AS fecha,
        (CASE WHEN app_event.auto_dismiss != 0 THEN 1 ELSE 0 END) as auto_dismiss
   FROM tracks
     LEFT JOIN (
-        SELECT CONCAT(jest(event_data, 'device_id'), '-', jest(event_data, 'news_id')) AS event_id,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('arrived') THEN 1 ELSE 0 END ) as arrived,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('discarded') AND device.platform in ('/mobile/android') AND (jest(event_data, 'discard_reason') IS NULL OR TRIM(jest(event_data, 'discard_reason')) = '')  THEN 1 ELSE 0 END ) as no_reason_discarded,
+        SELECT CONCAT(get_json_object(event_data, '$.device_id'), '-', get_json_object(event_data, '$.news_id')) AS event_id,
+        SUM ( CASE WHEN get_json_object(event_data, '$.event_type') IN ('arrived') THEN 1 ELSE 0 END ) as arrived,
+        SUM ( CASE WHEN get_json_object(event_data, '$.event_type') IN ('discarded') AND device.platform in ('/mobile/android') AND (get_json_object(event_data, '$.discard_reason') IS NULL OR TRIM(get_json_object(event_data, '$.discard_reason')) = '')  THEN 1 ELSE 0 END ) as no_reason_discarded,
         SUM ( CASE WHEN
-                    jest(event_data, 'event_type') IN ('shown', 'auto_dismiss', 'open', 'action_open', 'swipe', 'dismiss')
+                    get_json_object(event_data, '$.event_type') IN ('shown', 'auto_dismiss', 'open', 'action_open', 'swipe', 'dismiss')
                     OR (
-                      jest(event_data, 'event_type') IN ('discarded') AND ( device.platform in ('/mobile/ios') OR
-                      (jest(event_data, 'discard_reason') IS NOT NULL OR TRIM(jest(event_data, 'discard_reason')) <> ''))
+                      get_json_object(event_data, '$.event_type') IN ('discarded') AND ( device.platform in ('/mobile/ios') OR
+                      (get_json_object(event_data, '$.discard_reason') IS NOT NULL OR TRIM(get_json_object(event_data, '$.discard_reason')) <> ''))
         ) THEN 1 ELSE 0 END ) as usr_interaction,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('shown') THEN 1 ELSE 0 END ) as shown,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('discarded') AND ( device.platform in ('/mobile/ios') OR (jest(event_data, 'discard_reason') IS NOT NULL AND TRIM(jest(event_data, 'discard_reason')) <> '')) THEN 1 ELSE 0 END ) as discarded,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('open') AND (jest(event_data, 'action_type') IS NULL OR TRIM(jest(event_data, 'action_type')) = '') THEN 1 ELSE 0 END ) as open,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('action_open') OR (jest(event_data, 'event_type') IN ('open') AND jest(event_data, 'action_type') IS NOT NULL AND TRIM(jest(event_data, 'action_type')) <> '') THEN 1 ELSE 0 END ) as action_open,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('dismiss') THEN 1 ELSE 0 END ) as dismiss,
-        SUM ( CASE WHEN jest(event_data, 'event_type') IN ('auto_dismiss') THEN 1 ELSE 0 END ) as auto_dismiss
+        SUM ( CASE WHEN get_json_object(event_data, '$.event_type') IN ('shown') THEN 1 ELSE 0 END ) as shown,
+        SUM ( CASE WHEN get_json_object(event_data, '$.event_type') IN ('discarded') AND ( device.platform in ('/mobile/ios') OR (get_json_object(event_data, '$.discard_reason') IS NOT NULL AND TRIM(get_json_object(event_data, '$.discard_reason')) <> '')) THEN 1 ELSE 0 END ) as discarded,
+        SUM ( CASE WHEN get_json_object(event_data, '$.event_type') IN ('open') AND (get_json_object(event_data, '$.action_type') IS NULL OR TRIM(get_json_object(event_data, '$.action_type')) = '') THEN 1 ELSE 0 END ) as open,
+        SUM ( CASE WHEN get_json_object(event_data, '$.event_type') IN ('action_open') OR (get_json_object(event_data, '$.event_type') IN ('open') AND get_json_object(event_data, '$.action_type') IS NOT NULL AND TRIM(get_json_object(event_data, '$.action_type')) <> '') THEN 1 ELSE 0 END ) as action_open,
+        SUM ( CASE WHEN get_json_object(event_data, '$.event_type') IN ('dismiss') THEN 1 ELSE 0 END ) as dismiss,
+        SUM ( CASE WHEN get_json_object(event_data, '$.event_type') IN ('auto_dismiss') THEN 1 ELSE 0 END ) as auto_dismiss
         FROM tracks
         WHERE ds >= '@send_date'
         AND ds < '@three_days_after_send_date'
         AND path LIKE '/notification/%'
-        AND jest(event_data, 'news_id') IS NOT null
-        AND jest(event_data, 'device_id') IS NOT null
+        AND get_json_object(event_data, '$.news_id') IS NOT null
+        AND get_json_object(event_data, '$.device_id') IS NOT null
         AND device.platform in ('/mobile/android', '/mobile/ios')
         AND application.business in ('mercadolibre', 'mercadopago', 'mercadoenvios')
-        AND jest(event_data, 'event_type') NOT IN ('sent')
-        GROUP BY jest(event_data, 'device_id'), jest(event_data, 'news_id')
-  ) app_event ON app_event.event_id = CONCAT(device.device_id, '-', jest(event_data, 'news_id'))
+        AND get_json_object(event_data, '$.event_type') NOT IN ('sent')
+        GROUP BY get_json_object(event_data, '$.device_id'), get_json_object(event_data, '$.news_id')
+  ) app_event ON app_event.event_id = CONCAT(device.device_id, '-', get_json_object(event_data, '$.news_id'))
   WHERE ds >= '@send_date'
   AND ds < '@one_day_after_send_date'
   AND path LIKE '/notification/%'
-  AND jest(event_data, 'news_id') IS NOT null
+  AND get_json_object(event_data, '$.news_id') IS NOT null
   AND device.platform in ('/mobile/android', '/mobile/ios')
   AND application.business in ('mercadolibre', 'mercadopago', 'mercadoenvios')
-  AND jest(event_data, 'event_type') IN ('sent')
+  AND get_json_object(event_data, '$.event_type') IN ('sent')
 ) summary
 GROUP BY summary.business, summary.fecha, summary.site_id, summary.path, summary.device_status, summary.has_user, summary.app_version

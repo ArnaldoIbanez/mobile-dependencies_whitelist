@@ -17,6 +17,7 @@ tracks {
       category_id(required: false, type: PropertyType.String, description: 'category identifier')
       category_l1_id(required: false, type: PropertyType.String, description: 'main category of item')
       category_path(required: false, type: PropertyType.ArrayList, description: 'the path of the category')
+      request_type(required: false, values:['RETURN', 'REPURCHASE', 'CHANGE'], description: 'request type of the operation', type: PropertyType.String)
       flow_version(required: true, description: 'identify the specific flow version', type: PropertyType.String)
     }
 
@@ -81,7 +82,7 @@ tracks {
       showed_payment_methods(required: false, type: PropertyType.String, description: 'origin of the payment method')
       refund_account_money(required: true, type: PropertyType.Boolean, description: 'refund money in the buyers account')
       cart_order(required: true, type: PropertyType.Boolean, description: 'order created by cart')
-      payment_refund_at(required: true, type: PropertyType.String, description: 'when will the buyer be refunded', values:['shipped', 'delivered'])
+      payment_refund_at(required: true, type: PropertyType.String, description: 'when will the buyer be refunded', values:['shipped', 'delivered', 'unknown'])
     }
 
     "/return/congrats/selection"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -130,3 +131,4 @@ tracks {
         selection(required: true, type: PropertyType.String, description: 'button selected by the user', values: ['accepted', 'rejected'])
     }
 }
+

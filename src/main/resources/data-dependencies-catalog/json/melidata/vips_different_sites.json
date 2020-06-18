@@ -3,7 +3,7 @@
     "melidata_dev@mercadolibre.com"
   ],
   "process_name": "vips_different_sites",
-  "cron": "00 06 * * *",
+  "cron": "00 19 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE",
@@ -27,6 +27,7 @@
     ],
     "sql": {
       "script": "melidata/vips_different_sites.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

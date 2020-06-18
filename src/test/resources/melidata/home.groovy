@@ -111,6 +111,7 @@ trackTests {
             from="breadcrumb"
             category_id='MLA1051'
             category_path=['MLA1051']
+            last_modified='2020-06-12T13:12:16.534Z'
         }
     }
 
@@ -178,6 +179,14 @@ trackTests {
 
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
+    }
+
+    test("Home.com tracking") {
+        "/home_com"(platform: "/", type: TrackType.View) {}
+        
+        "/home_com/site_click"(platform: "/") {
+            site_click = 'AR'
+        }
     }
 
 }

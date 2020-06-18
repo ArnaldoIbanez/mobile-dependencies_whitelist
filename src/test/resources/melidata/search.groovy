@@ -20,6 +20,13 @@ trackTests {
             url              : "http://example.com"
     ]
 
+    def bestSellerInfo = [
+            candidates   : 10,
+            selected     : [ "MLA1234" ],
+            selected_qty : 1,
+            selected_positions : [ 1, 3, 5 ]
+    ]
+
     def promiseInfo = [
             sameday: ["MLA123411"],
             nextday: ["MLA12345645"]
@@ -154,6 +161,7 @@ trackTests {
             promoted_items = ["MLA1", "MLA2"]
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
+            best_seller_info = bestSellerInfo
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -281,12 +289,24 @@ trackTests {
             promoted_items = ["MLA1", "MLA2"]
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
+            best_seller_info = bestSellerInfo
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
                     "city_id": "SP-BR",
                     "user_zone": "X1"
             ]
+            top_keywords = [
+                    [
+                            "key": "sarasa",
+                            "type" : "SEARCH"
+                    ],
+                    [
+                            "key": "sarasa2",
+                            "type" : "PDP"
+                    ]
+            ]
+            review_pages = ["ventilador", "nintendo"]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)

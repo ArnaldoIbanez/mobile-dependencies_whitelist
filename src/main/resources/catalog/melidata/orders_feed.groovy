@@ -64,6 +64,10 @@ tracks {
         buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
         loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
         is_pdp(serverSide: true) // -> Lo completa Melidata automaticamente
+        has_garex(serverSide: true) // -> Lo completa Melidata automaticamente
+        auto_purchase(serverSide: true) // -> Lo completa Melidata automaticamente
+        tags(serverSide: true) // -> Lo completa Melidata automaticamente
+        internal_tags(serverSide: true) // -> Lo completa Melidata automaticamente
     }
 
     "/purchases"(platform: "/", isAbstract: true) {}
@@ -116,6 +120,7 @@ tracks {
         buyer_segment(serverSide: true) // -> Lo completa Melidata automaticamente
         loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
         is_pdp(serverSide: true) // -> Lo completa Melidata automaticamente
+        orders(required: true, description: "orders associated to the purchase", PropertyType.ArrayList(PropertyType.String))
     }
 
 }
