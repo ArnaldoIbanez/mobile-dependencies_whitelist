@@ -765,6 +765,46 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/subscription_expiring_notice"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        payment_option(required: false, type: PropertyType.String, description: "Payment option specified in the notification.")
+    }
+    "/notification_center/subscription_payment_congrats"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Type of congrats.")
+    }
+    "/notification_center/subscription_payment_error"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        error_type(required: false, type: PropertyType.String, description: "Payment error type.")
+    }
+    "/notification_center/subscription_payment_instructions"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        payment_option(required: false, type: PropertyType.String, description: "Payment option specified in the notification.")
+    }
+    "/notification_center/subscription_payment_pending"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Payment pending type.")
+    }
     "/notification_center/prepaid_card_delivery"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
@@ -1722,6 +1762,36 @@ tracks {
         communication_id(required: false, type: PropertyType.String, description: "Hermes communication id")
         campaign_type(required: false, type: PropertyType.String, description: "Campaign Type.")
     }
+    "/notification/subscription_expiring_notice"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        payment_option(required: false, type: PropertyType.String, description: "Payment option specified in the notification.")
+    }
+    "/notification/subscription_payment_congrats"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Type of congrats.")
+    }
+    "/notification/subscription_payment_error"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        error_type(required: false, type: PropertyType.String, description: "Payment error type.")
+    }
+    "/notification/subscription_payment_instructions"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        payment_option(required: false, type: PropertyType.String, description: "Payment option specified in the notification.")
+    }
+    "/notification/subscription_payment_pending"(platform: "/mobile") {
+        provider(required: true, type: PropertyType.String, description: "Provider of the subscription.")
+        provider_name(required: true, type: PropertyType.String, description: "Provider name of the subscription.")
+        date(required: false, type: PropertyType.String, description: "Date of the notification sent.")
+        type(required: false, type: PropertyType.String, description: "Payment pending type.")
+    }
 
     "/notification/mp_sponsor_campaign_start_campaign"(platform: "/mobile") {}
     "/notification/mp_sponsor_campaign_budget_trigger"(platform: "/mobile") {}
@@ -1870,7 +1940,7 @@ tracks {
     "/notification/card_delivery_tracking_soon_deliver"(platform: "/mobile") {}
     "/notification/card_delivery_tracking_delayed"(platform: "/mobile") {}
     "/notification/card_delivery_tracking_branch"(platform: "/mobile") {}
-    "/notification/card_delivery_tracking_not_delivered"(platform: "/mobile") {} 
+    "/notification/card_delivery_tracking_not_delivered"(platform: "/mobile") {}
     //Prepaid
     "/notification/prepaid_card_shipped"(platform: "/mobile") {}
     "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {}
