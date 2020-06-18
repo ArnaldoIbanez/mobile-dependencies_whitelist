@@ -31,7 +31,7 @@ trackTests {
             cac_item = false
             cac_status = "normal"
             quantity = 3
-
+            best_seller_position = 5
             return_available = false
             cart_content = false
             add_to_cart_availability = "no_high_ratio"

@@ -68,6 +68,8 @@ tracks {
 
     "/vip"(platform: "/") {
         // TEMP FIELDS
+        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Item")
+
         cac_item(required: false, type: PropertyType.Boolean,
                  description: "Indicates whether the item is listed as 'CodoACodo'")
 
