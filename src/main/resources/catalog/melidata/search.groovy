@@ -20,6 +20,7 @@ tracks {
         gmv_value(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
         vip_clicks(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
         is_on_seo_whitelist_experiment(type: PropertyType.Boolean, required: true)
+        is_on_seo_h1_experiment(type: PropertyType.Boolean, required: false)
     }
 
     def location_info_definition = objectSchemaDefinitions {
