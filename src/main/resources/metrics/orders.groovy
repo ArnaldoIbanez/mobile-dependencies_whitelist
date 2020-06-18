@@ -246,6 +246,10 @@ metrics {
 	}
 
 	"bids.sameProduct.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq?authuser=0#h.p_2qPD6v_1dTSd", compute_order: true, categorization:"important") {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
+		
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
