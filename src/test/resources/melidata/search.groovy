@@ -27,6 +27,15 @@ trackTests {
             selected_positions : [ 1, 3, 5 ]
     ]
 
+    def tagTrackingInfo = [
+        best_seller : [
+                [item_id: "MLC510446223", position: 2],
+                [item_id: "MLC510446224", position: 3, product_id:"MLC510446224"],
+        ],
+        shipping_guaranteed : [],
+        deal_of_the_day : []
+    ]
+
     def promiseInfo = [
             sameday: ["MLA123411"],
             nextday: ["MLA12345645"]
@@ -163,6 +172,7 @@ trackTests {
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
             best_seller_info = bestSellerInfo
+            tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -292,6 +302,7 @@ trackTests {
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
             best_seller_info = bestSellerInfo
+            tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
