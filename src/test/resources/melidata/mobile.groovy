@@ -35,6 +35,9 @@ trackTests {
             source = "uninstalls_checker_flow"
             current_checking_day = 23
             execution_id = "eac9e889bb478758"
+            app_storage = 61779968
+            free_storage = 58936602624
+            total_storage = 114778902528
         }
     }
 
@@ -48,6 +51,9 @@ trackTests {
             source = "uninstalls_checker_flow"
             current_checking_day = 23
             execution_id = "eac9e889bb478758"
+            app_storage = 61779968
+            free_storage = 58936602624
+            total_storage = 114778902528
         }
     }
 
