@@ -31,6 +31,13 @@ tracks {
         is_last_challenge(required: true, type: PropertyType.Boolean, description: "Flag indicating whether challenge is last challenge in wizard")
     }
     
+    "/unified_onboarding/challenge/validation" (platform: "/mobile", type: TrackType.Event) {
+        validations(required: true, type: PropertyType.String, description: "Challenge's validations")
+    }
+
+    "/unified_onboarding/challenge/validation/to_action" (platform: "/mobile", type: TrackType.Event) {
+    }
+    
     "/unified_onboarding/challenge/component" (platform: "/mobile", isAbstract: true) {
         value(required: true, type: PropertyType.String, description: "Component's value")
         component_id(required: true, type: PropertyType.String, description: "Component's id")
