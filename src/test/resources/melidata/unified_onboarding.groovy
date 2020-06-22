@@ -63,4 +63,43 @@ trackTests {
             validations: "validations array"
         }
   }
+  
+  test("Unified Onboarding Brand Name Component Focus") {
+        "/unified_onboarding/challenge/component/focus" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "brand_name"
+            challenge_type = "single_input"
+            from = "some initiative"
+            value = "Some text in the input"
+            component_id: "brand_name_input"
+            component_type: "input"
+        }
+  }
+
+  test("Unified Onboarding Brand Name Component Unfocus") {
+        "/unified_onboarding/challenge/component/unfocus" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "brand_name"
+            challenge_type = "single_input"
+            from = "some initiative"
+            value = "Some text in the input"
+            component_id: "brand_name_input"
+            component_type: "input"
+        }
+  }
+
+  test("Unified Onboarding Brand Name Component Tap") {
+        "/unified_onboarding/challenge/component/tap" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "brand_name"
+            challenge_type = "single_input"
+            from = "some initiative"
+            value = "Continuar"
+            component_id: "main_action"
+            component_type: "action"
+        }
+  }
 }
