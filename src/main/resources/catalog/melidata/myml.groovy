@@ -73,7 +73,7 @@ tracks {
     propertyGroups {
         mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer, render_buy_it_again)
         newPurchasesGroup(items, payments, shipping, seller, buyer, checkout_flow, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id, purchase_status, purchases_flow)
-        newPurchasesEventGroup(label, x_mc_request_id)
+        newPurchasesEventGroup(label, x_mc_request_id, vertical_case_id, vertical_sub_case_id)
     }
 
     // ---------------- Sales
@@ -237,6 +237,10 @@ tracks {
 
     "/myml/my_purchases/status/return_purchase"(platform:"/", type: TrackType.View) {}
 
+    "/myml/my_purchases/status/return_purchase/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
     "/myml/my_purchases/status/show_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         newPurchasesEventGroup
     }
@@ -266,6 +270,10 @@ tracks {
     }
 
     "/myml/my_purchases/status/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/click_driver_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         newPurchasesEventGroup
     }
 
