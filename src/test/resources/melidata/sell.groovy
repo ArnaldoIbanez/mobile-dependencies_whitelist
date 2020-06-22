@@ -474,7 +474,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
         }
-        "/sell/list/domain_discovery_suggestion"(platform: "/mobile") {
+        "/sell/list/domain_suggestion"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
@@ -1278,7 +1278,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
         }
-        "/sell/list/draft/domain_discovery_suggestion"(platform: "/mobile", type: TrackType.View) {
+        "/sell/list/draft/domain_suggestion"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
