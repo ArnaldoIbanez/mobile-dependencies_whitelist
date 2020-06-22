@@ -774,5 +774,9 @@ trackTests {
             }
 
         }
+
+        test("IFPE auth restrictions") {
+            "/auth/restrictions"(platform: "/", type: TrackType.View) {}
+        }
     }
 }

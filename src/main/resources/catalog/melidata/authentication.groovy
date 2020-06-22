@@ -528,6 +528,9 @@ tracks {
         scenario(type: PropertyType.String, required: true, values: ["no_security", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled"])
     }
 
+    // IFPE Auth restrictions
+    "/auth/restrictions"(platform: "/", type: TrackType.View) {}
+
     //Maybe deprecated tracks
     "/login/splitter"(platform: "/mobile", type: TrackType.View) {}
     "/login/sign_in"(platform: "/mobile", type: TrackType.View) {}
