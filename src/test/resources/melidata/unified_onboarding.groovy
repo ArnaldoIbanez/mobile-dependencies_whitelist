@@ -49,4 +49,18 @@ trackTests {
             is_last_challenge = true
         }
   }
+  
+  test("Unified Onboarding Brand Name Component Validation") {
+        "/unified_onboarding/challenge/component/validation" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "brand_name"
+            challenge_type = "single_input"
+            from = "some initiative"
+            value = "Some text in the input"
+            component_id: "brand_name_input"
+            component_type: "input"
+            validations: "validations array"
+        }
+  }
 }
