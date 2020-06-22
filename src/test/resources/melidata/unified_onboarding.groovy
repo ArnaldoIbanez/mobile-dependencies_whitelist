@@ -58,9 +58,9 @@ trackTests {
             challenge_type = "single_input"
             from = "some initiative"
             value = "Some text in the input"
-            component_id: "brand_name_input"
-            component_type: "input"
-            validations: "validations array"
+            component_id = "brand_name_input"
+            component_type = "input"
+            validations = "validations array"
         }
   }
   
@@ -72,8 +72,8 @@ trackTests {
             challenge_type = "single_input"
             from = "some initiative"
             value = "Some text in the input"
-            component_id: "brand_name_input"
-            component_type: "input"
+            component_id = "brand_name_input"
+            component_type = "input"
         }
   }
 
@@ -85,8 +85,8 @@ trackTests {
             challenge_type = "single_input"
             from = "some initiative"
             value = "Some text in the input"
-            component_id: "brand_name_input"
-            component_type: "input"
+            component_id = "brand_name_input"
+            component_type = "input"
         }
   }
 
@@ -98,8 +98,8 @@ trackTests {
             challenge_type = "single_input"
             from = "some initiative"
             value = "Continuar"
-            component_id: "main_action"
-            component_type: "action"
+            component_id = "main_action"
+            component_type = "action"
         }
   }
 }
