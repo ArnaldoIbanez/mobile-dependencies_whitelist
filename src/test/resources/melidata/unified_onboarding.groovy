@@ -25,7 +25,7 @@ trackTests {
             challenge_id = "brand_name"
             challenge_type = "single_input"
             from = "some initiative"
-            progress = "{"current": 1, "total": 7}"
+            progress = "{\"current\": 1, \"total\": 7}"
         }
   }
 }
