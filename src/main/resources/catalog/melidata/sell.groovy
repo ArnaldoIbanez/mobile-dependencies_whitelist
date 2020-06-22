@@ -359,7 +359,11 @@ tracks {
     "/sell/list/catalog_trim_selection"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog_vehicle_year_selection"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/category_suggestion"(platform: "/", type: TrackType.View) {}
+<<<<<<< HEAD
     "/sell/list/domain_suggestion"(platform: "/", type: TrackType.View) {}
+=======
+    "/sell/list/domain_discovery_suggestion"(platform: "/mobile", type: TrackType.View) {}
+>>>>>>> 9949ce509b107f94c4987f31a14a74b529201a62
     "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
     "/sell/list/catalog"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {}
