@@ -40,4 +40,13 @@ tracks {
     "unified_onboarding/challenge/component/validation" (platform: "/mobile", type: TrackType.Event) {
         validations(required: true, type: PropertyType.String, description: "Component's validations")
     }
+    
+    "unified_onboarding/challenge/component/focus" (platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "unified_onboarding/challenge/component/unfocus" (platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "unified_onboarding/challenge/component/tap" (platform: "/mobile", type: TrackType.Event) {
+    }
 }
