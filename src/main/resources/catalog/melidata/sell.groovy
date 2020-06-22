@@ -398,7 +398,7 @@ tracks {
     "/sell/list/category_navigation"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
-    "/sell/list/domain_suggestion"(platform: "/", type: TrackType.View) {}
+    "/sell/list/domain_suggestion"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
