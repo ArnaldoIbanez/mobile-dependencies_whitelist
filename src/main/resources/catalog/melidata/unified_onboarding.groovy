@@ -18,7 +18,7 @@ tracks {
     }
 
     "/unified_onboarding/challenge" (platform: "/mobile", type: TrackType.View) {
-        progress(required: false, type: , description: "Wizard Step Number")
+        progress(required: false, type: PropertyType.String, description: "Wizard Step Number")
     }
 
     "/unified_onboarding/challenge/open" (platform: "/mobile", type: TrackType.Event) {
