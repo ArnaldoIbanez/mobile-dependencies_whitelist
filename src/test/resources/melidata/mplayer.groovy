@@ -59,6 +59,9 @@ trackTests {
         "/mplayer/closed_request/mandatory_reason"(platform: "/mobile") {}
         "/mplayer/closed_request/congrats_request"(platform: "/mobile") {}
         "/mplayer/closed_request/reject"(platform: "/mobile") {}
+        "/mplayer/closed_request/congrats_request/exit"(platform: "/mobile") {
+            button = "main_button"
+        }
 
         "/mplayer/closed_request/status"(platform: "/mobile") {
             request_status = "pending"
@@ -68,6 +71,12 @@ trackTests {
             input_type = "manual"
             source = "phone"
             is_recent = false
+        }
+
+        "/mplayer/closed_request/contact_picker/invalid_nickname"(platform: "/mobile") {}
+
+        "/mplayer/closed_request/contact_picker/continue"(platform: "/mobile") {
+            quantity = 5
         }
 
         "/mplayer/closed_request/manual_amount/continue"(platform: "/mobile") {
@@ -153,6 +162,8 @@ trackTests {
             input_type = "manual"
             is_recent = false
         }
+        "/mplayer/money_split/contact_picker/invalid_nickname"(platform: "/mobile") {}
+
         "/mplayer/money_split/contact_picker/continue"(platform: "/mobile") {
             quantity = 5
         }
@@ -161,6 +172,8 @@ trackTests {
         "/mplayer/money_split/review_and_confirm/continue"(platform: "/mobile") {
             has_open_detail = false
         }
+
+        "/mplayer/money_split/review_and_confirm/back"(platform: "/mobile") {}
 
         "/mplayer/money_split/split_detail"(platform: "/mobile") {}
 

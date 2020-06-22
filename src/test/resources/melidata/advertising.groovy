@@ -373,24 +373,50 @@ trackTests {
 
     }
 
+    test("Advertising buybox opportunity") {
+        "/advertising/pads2/manager/card/buy_box_winner"(platform: "/web", type: TrackType.View) {
+            winners_suggested = "20"
+            campaign_id = "2222222"
+        }
+
+        "/advertising/pads2/manager/card/buybox_landing"(platform: "/web", type: TrackType.View){
+            winners_suggested = "20"
+            campaign_id = "2222222"
+        }
+
+        "/advertising/pads2/manager/card/buybox_landing/activated"(platform: "/web", type: TrackType.Event) {
+            winners_suggested = "20"
+            winners_activated = "10"
+            campaign_id = "2222222"
+        }
+
+        "/advertising/pads2/manager/buybox_winners/landing/breadcrumb"(platform: "/web", type: TrackType.Event){
+            winners_suggested = "20"
+            campaign_id = "2222222"
+        }
+        "/advertising/pads2/manager/catalog/edit/publication"(platform: "/web", type: TrackType.Event){
+            campaign_id = "2222222"
+        }
+    }
+
     test("Advertising Matching") {
         "/advertising/pads2/manager/winbacks/onboarding"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "paused"
             budget = "400"
-            step= 1
+            step= "1"
         }
         "/advertising/pads2/manager/winbacks/onboarding/cta"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "paused"
             budget = "400"
-            step= 3
+            step= "3"
         }
         "/advertising/pads2/manager/winbacks/onboarding/cta/close"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "paused"
             budget = "400"
-            step= 3
+            step= "3"
         }
         "/advertising/pads2/manager/winbacks/confirmation"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
@@ -483,7 +509,7 @@ trackTests {
             step= 2
         }
     }
-    
+
     test("Advertising manager SortFilters Modal -> NextStep") {
         "/advertising/pads2/manager/sort_filters/modal/next_step"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"

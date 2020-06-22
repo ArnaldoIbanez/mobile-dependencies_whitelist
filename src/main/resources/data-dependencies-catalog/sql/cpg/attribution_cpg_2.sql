@@ -17,7 +17,7 @@ from melilake.bt_bids a11
          WHERE
            ds >= '@param01'
            AND ds < '@param02'
-           AND ( (path = '/home/supermarket') OR  (path = '/search' AND jest(event_data, 'filters.deal') = 'MLM525') )
+           AND ( (path = '/home/supermarket') OR  (path = '/search' AND get_json_object(event_data, '$.filters.deal') = 'MLM525') )
          group by 
            substr(ds,1,10),
            usr.user_id,

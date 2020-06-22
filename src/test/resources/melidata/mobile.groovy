@@ -35,6 +35,9 @@ trackTests {
             source = "uninstalls_checker_flow"
             current_checking_day = 23
             execution_id = "eac9e889bb478758"
+            app_storage = 61779968
+            free_storage = 58936602624
+            total_storage = 114778902528
         }
     }
 
@@ -48,6 +51,9 @@ trackTests {
             source = "uninstalls_checker_flow"
             current_checking_day = 23
             execution_id = "eac9e889bb478758"
+            app_storage = 61779968
+            free_storage = 58936602624
+            total_storage = 114778902528
         }
     }
 
@@ -160,5 +166,13 @@ trackTests {
         }
         "/application/apprater/error_service_rules"(platform: "/mobile") {}
         "/application/apprater/popup"(platform: "/mobile") {}
+    }
+
+    test("Landing Deeplinks in Mobile") {
+        "/landing/deeplinks"(platform:"/mobile") {
+            desired_link = "https://www.mercadolibre.com.ar/mercado-puntos"
+            target_link = "meli://loyalty"
+            message = "Could not parse Target Link"
+        }
     }
 }

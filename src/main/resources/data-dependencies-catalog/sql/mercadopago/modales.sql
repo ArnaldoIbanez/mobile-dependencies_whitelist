@@ -2,7 +2,7 @@ SELECT
     device.platform AS platform,
     application.site_id AS site_id,application.version as version ,path,
     get_json_object(event_data, '$.content_id') as content,
-    count(distinct usr.user_id) as Usuarios,
+    approx_count_distinct(usr.user_id) as Usuarios,
     count(usr.user_id) as total,
     substr(ds,1,10) as ds
 FROM default.tracks

@@ -128,6 +128,34 @@ trackTests {
         "/kyc/iv/activity/congrats"(platform: "/mobile/android") {}
         "/kyc/iv/activity/documentation_number"(platform: "/mobile/android") {}
         "/kyc/iv/activity/custom_camera"(platform: "/mobile/android") {}
+        "/kyc/iv/activity/custom_camera/permission"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/error"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/landing"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/camera"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/preview"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/uploading"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/result"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
         "/kyc/iv/activity/picture_confirmation"(platform: "/mobile/android") {
             doc_type = "doc_front"
             model_id = "documentation"
@@ -226,6 +254,34 @@ trackTests {
         "/kyc/iv/activity/congrats"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/documentation_number"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/custom_camera"(platform: "/mobile/ios") {}
+        "/kyc/iv/activity/custom_camera/permission"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/error"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/landing"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/camera"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/preview"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/uploading"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/result"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
         "/kyc/iv/activity/picture_confirmation"(platform: "/mobile/ios") {
             doc_type = "doc_front"
             model_id = "documentation"
@@ -397,6 +453,25 @@ trackTests {
             transaction_user_id = 109479273
         }
 
+        "/kyc/iv/documentation/uploader_change"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = false
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/documentation/select_option"(platform: "/web/desktop") {
+            flow = "flow_doc"
+            custom_cam_offered = false
+            option = "continue_from_desktop"
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/documentation/uploader_click"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = false
+            transaction_user_id = 109479273
+        }
+
         "/kyc/iv/camera/unavailable"(platform: "/web") {
             flow = "flow_doc"
             custom_cam_offered = true
@@ -536,6 +611,35 @@ trackTests {
         "/kyc/iv/activity/congrats"(platform: "/mobile/android") {}
         "/kyc/iv/activity/documentation_number"(platform: "/mobile/android") {}
         "/kyc/iv/activity/custom_camera"(platform: "/mobile/android") {}
+
+        "/kyc/iv/activity/custom_camera/permission"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/error"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/landing"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/camera"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/preview"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/uploading"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/result"(platform: "/mobile/android")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
         "/kyc/iv/activity/picture_confirmation"(platform: "/mobile/android") {
             doc_type = "doc_front"
             model_id = "documentation"
@@ -634,6 +738,34 @@ trackTests {
         "/kyc/iv/activity/congrats"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/documentation_number"(platform: "/mobile/ios") {}
         "/kyc/iv/activity/custom_camera"(platform: "/mobile/ios") {}
+        "/kyc/iv/activity/custom_camera/permission"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/error"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/landing"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/camera"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/preview"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/uploading"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
+        "/kyc/iv/activity/custom_camera/result"(platform: "/mobile/ios")  {
+            doc_type = "doc_front"
+            model_id = "documentation"
+        }
         "/kyc/iv/activity/picture_confirmation"(platform: "/mobile/ios") {
             doc_type = "doc_front"
             model_id = "documentation"
@@ -805,6 +937,25 @@ trackTests {
         "/kyc/iv/camera/exit_camera"(platform: "/web") {
             flow = "flow_doc"
             custom_cam_offered = true
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/documentation/uploader_change"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = false
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/documentation/select_option"(platform: "/web/desktop") {
+            flow = "flow_doc"
+            custom_cam_offered = false
+            option = "continue_from_desktop"
+            transaction_user_id = 109479273
+        }
+
+        "/kyc/iv/documentation/uploader_click"(platform: "/web") {
+            flow = "flow_doc"
+            custom_cam_offered = false
             transaction_user_id = 109479273
         }
 

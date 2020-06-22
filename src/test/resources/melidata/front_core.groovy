@@ -1,7 +1,11 @@
 package src.test.resources.melidata
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType
-import com.ml.melidata.catalog.PropertyType
+
+/**************************************************************
+ * CONTACT: In case of changes over this file, please send us
+ *  a message to our e-mail: front_native_devs@mercadolibre.com
+ **************************************************************/
 
 /**************************
  * WALLET HOME TEST TRACKS *
@@ -437,6 +441,9 @@ trackTests {
                     ordinal: 15,
                     content_type : 'complete'
             ]
+            metadata = [
+                accessibility_voice: false
+            ]
         }
     }
 
@@ -604,6 +611,9 @@ trackTests {
                     ordinal: 15,
                     content_type : 'complete'
             ]
+            metadata = [
+                accessibility_voice: true
+            ]
         }
     }
 
@@ -747,8 +757,27 @@ trackTests {
             has_aware = false
             has_label = true
             group_id = "seller"
-            component_id="user_survey"
             group_position = 6
+            audience="all"
+            bu="1"
+            bu_line="10"
+            flow="1"
+            logic="default"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - shortcuts (without optionals)") {
+        "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="payer"
+            component_id="scan_qr"
+            from = "sheet"
+            content_id = "business"
+            position = 3
+            enabled = true
+            is_favorite = false
+            has_aware = false
+            has_label = true
         }
     }
 
@@ -1219,6 +1248,9 @@ trackTests {
                     level: 3,
                     partner: "HBO"
             ]
+            metadata = [
+                accessibility_voice: false
+            ]
         }
     }
 
@@ -1383,6 +1415,9 @@ trackTests {
                     ordinal: 14,
                     level: 3,
                     partner: "HBO"
+            ]
+            metadata = [
+                accessibility_voice: true
             ]
         }
     }

@@ -1,33 +1,36 @@
 SELECT
+  COUNT(1)          AS total,
   r.site_id         AS site,
   r.item_reputation AS reputation,
-  t.item_position   AS top_position,
   t.ds              AS ds
 FROM (
   SELECT
-    ROW_NUMBER() OVER (PARTITION BY track_id) AS item_position,
-    item_id                                   AS item_id,
-    ds                                        AS ds
+    item_id AS item_id,
+    ds      AS ds
   FROM (
     SELECT
       DISTINCT(id) AS track_id,
       ds           AS ds,
-      SPLIT(substring_index(regexp_replace(event_data.results, '\"+|\\[|\\]$', ""), ',', 5), ',') AS top_5_items
+      SPLIT(SUBSTRING_INDEX(REGEXP_REPLACE(event_data.results, '\"+|\\[|\\]$', ""), ',', 5), ',') AS top_5_items
     FROM
       default.tracks
-      LATERAL VIEW JSON_TUPLE(event_data, 'results', 'query') event_data AS results, query
+    LATERAL VIEW JSON_TUPLE(event_data, 'results', 'query', 'offset') event_data AS results, query, off
     WHERE
       ds >= '@param01 00'
       AND ds < '@param02 00'
       AND application.business = 'mercadolibre'
       AND path = '/search'
       AND type = 'view'
-      AND trim(event_data.query) != ''
-      AND NOT is_bot(device.user_agent)
+      AND TRIM(event_data.query) != ''
+      AND off = 0
+      AND NOT IS_BOT(device.user_agent)
   ) tracks
-    LATERAL VIEW explode(tracks.top_5_items) top_5_items as item_id
+  LATERAL VIEW EXPLODE(tracks.top_5_items) top_5_items as item_id
+  WHERE
+    item_id IS NOT NULL 
+    AND LENGTH(item_id) > 0
 ) t
-  LEFT JOIN (
+  JOIN (
     SELECT
       CONCAT(site_id,item_id) AS item_id,
       site_id                 AS site_id,
@@ -36,8 +39,10 @@ FROM (
       external_data ed
       LATERAL VIEW JSON_TUPLE(ed.data, 'item_id', 'site_id', 'reputation') ext_data AS item_id, site_id, item_reputation
     WHERE
-      usr='searchdatainfra'
-      AND tb='items_reputation'
+      usr = 'searchdatainfra'
+      AND tb = 'items_reputation'
   ) r ON (
-    r.item_id = t.item_id
-  )
+  r.item_id = t.item_id
+)
+GROUP BY 
+  r.site_id, r.item_reputation, t.ds

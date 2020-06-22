@@ -232,4 +232,10 @@ tracks {
     "/merchant_acquisition/widget"(platform:"/", type: TrackType.View) {
         type (type: PropertyType.String, required: true, values: ["reverse-label", "reset-chip"], description: "Widget name, could be reverse-label, bobinas, shipping & more")
     }
+
+
+    "/browser" (platform: "/mobile", isAbstract: true){}
+    "/browser/tracking" (platform: "/mobile", type: TrackType.Event){
+        browser_id (type: PropertyType.String, required: true, description: "Specifies the browser id")
+    }
 }

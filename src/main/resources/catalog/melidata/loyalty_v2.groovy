@@ -85,9 +85,10 @@ tracks {
 
     // Loyalty Partners VDP
     "/loyalty/partners"(platform: "/", isAbstract: true) {
-        partner(required: true, description: "VDP partner name (HBO, Paramount, etc.)", type: PropertyType.String)
-        discount(required: false, description: "User discount", type: PropertyType.Numeric)
+        subscription_partner(required: true, description: "VDP partner name (HBO, Paramount, etc.)", type: PropertyType.String)
+        discount_percent(required: false, description: "User discount", type: PropertyType.Numeric)
         origin(required: false, description: "Where was the vdp initiated from")
+        loyalty_level(type: PropertyType.Numeric, required: false)
     }
 
     "/loyalty/partners/vdp"(platform: "/", type: TrackType.View) {
@@ -135,7 +136,7 @@ tracks {
     "/loyalty/partners/login/verify"(platform: "/", type: TrackType.View) {}
 
     "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event) {
-        type(required: true, description: "Action type", values: ["notification", "email", "another"], type: PropertyType.String)
+        type(required: true, description: "Action type", values: ["push", "email", "another"], type: PropertyType.String)
     }
 
 
@@ -150,5 +151,7 @@ tracks {
     "/loyalty/partners/login/verified"(platform: "/", type: TrackType.Event) {
         url(required: false, description: "Url to go", type: PropertyType.String)
     }
+
+    "/loyalty/partners/login/invalid"(platform: "/", type: TrackType.Event) {}
 
 }

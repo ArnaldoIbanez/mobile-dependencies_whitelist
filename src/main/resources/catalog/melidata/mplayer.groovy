@@ -69,11 +69,22 @@ tracks {
         request_status(required: false, PropertyType.String, description: "the status of the request")
     }
 
+    "/mplayer/closed_request/congrats_request/exit"(platform: "/mobile", type: TrackType.Event) {
+        button(required: true, PropertyType.String, description: "the button selected to exit")
+    }
+
     "/mplayer/closed_request/contact_picker/select_contact"(platform: "/mobile", type: TrackType.Event) {
         input_type(required: true, PropertyType.String, description: "the input type of contact selected, select from list or manually typed")
-        source(required: true, PropertyType.String, description: "the source of the contact")
+        source(required: false, PropertyType.String, description: "the source of the contact")
         is_recent(required: true, PropertyType.Boolean, description: "if the seleted contact is a recent contact")
     }
+
+    "/mplayer/closed_request/contact_picker/continue"(platform: "/mobile", type: TrackType.Event) {
+        quantity(required: true, PropertyType.Numeric, description: "the number of selected contacts")
+    }
+
+    "/mplayer/closed_request/contact_picker/invalid_nickname"(platform: "/mobile", type: TrackType.Event) {}
+
     "/mplayer/closed_request/manual_amount/continue"(platform: "/mobile", type: TrackType.Event) {
         transaction_amount(required: true, PropertyType.Numeric, description: "the transaction amount")
         has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
@@ -95,7 +106,7 @@ tracks {
     }
 
     "/mplayer/closed_request/result/error"(platform: "/mobile", type: TrackType.View) {
-        error(required: true, PropertyType.String, description: "the transaction error")
+        error(required: false, PropertyType.String, description: "the transaction error")
     }
 
     "/mplayer/closed_request/result/in_process"(platform: "/mobile", type: TrackType.View) {}
@@ -126,7 +137,7 @@ tracks {
     }
 
     "/mplayer/open_request/result/error"(platform: "/mobile", type: TrackType.View) {
-        error(required: true, PropertyType.String, description: "the transaction error")
+        error(required: false, PropertyType.String, description: "the transaction error")
     }
 
     "/mplayer/open_request/result/in_process"(platform: "/mobile", type: TrackType.View) {}
@@ -159,10 +170,14 @@ tracks {
         quantity(required: true, PropertyType.Numeric, description: "the number of selected contacts")
     }
 
+    "/mplayer/money_split/contact_picker/invalid_nickname"(platform: "/mobile", type: TrackType.Event) {}
+    
     "/mplayer/money_split/review_and_confirm"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/money_split/review_and_confirm/continue"(platform: "/mobile", type: TrackType.Event) {
         has_open_detail(required: true, PropertyType.Boolean, description: "the detail was opened or not")
     }
+
+    "/mplayer/money_split/review_and_confirm/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/money_split/split_detail"(platform: "/mobile", type: TrackType.View) {}
 
@@ -178,7 +193,7 @@ tracks {
         fee_info(required: false, PropertyType.String, description: "the info of the fee")
     }
     "/mplayer/money_split/result/error"(platform: "/mobile", type: TrackType.View) {
-        error(required: true, PropertyType.String, description: "the transaction error")
+        error(required: false, PropertyType.String, description: "the transaction error")
     }
     
     "/mplayer/money_split/result/in_process"(platform: "/mobile", type: TrackType.View) {}

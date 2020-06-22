@@ -47,6 +47,9 @@ tracks {
         source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"], description: "Source that set status")
         current_checking_day (required: false, type: PropertyType.Numeric, description: "Day that is checking status")
         execution_id (required: false, type: PropertyType.String, description: "The execution id")
+        app_storage (required: false, type: PropertyType.Numeric, description: "App storage on device")
+        free_storage (required: false, type: PropertyType.Numeric, description: "Free storage on device")
+        total_storage (required: false, type: PropertyType.Numeric, description: "Total storage on device")
     }
 
     "/application/not_engaged" (platform: "/mobile", type: TrackType.Event){
@@ -58,6 +61,9 @@ tracks {
         source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"], description: "Source that set status")
         current_checking_day (required: false, type: PropertyType.Numeric, description: "Day that is checking status")
         execution_id (required: false, type: PropertyType.String, description: "The execution id")
+        app_storage (required: false, type: PropertyType.Numeric, description: "App storage on device")
+        free_storage (required: false, type: PropertyType.Numeric, description: "Free storage on device")
+        total_storage (required: false, type: PropertyType.Numeric, description: "Total storage on device")
     }
 
 
@@ -83,6 +89,12 @@ tracks {
         url(required:true, descripcion:"The url to be loaded by the generic landing")
         is_main_url(required:false, type: PropertyType.Boolean,
                 descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
+    }
+
+    "/landing/deeplinks"(platform: "/mobile") {
+        desired_link(required:true, type: PropertyType.String, descripcion: "Original Link where we want to search for a Target Link")
+        target_link(required:false, type: PropertyType.String, descripcion:"The Target Link that was retrieved by the Original Link")
+        message(required:false, type: PropertyType.String, descripcion: "Extra message for Error Description")
     }
 
     "/sso" (platform: "/mobile", isAbstract: true){}
