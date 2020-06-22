@@ -28,28 +28,6 @@ trackTests {
             from = "some initiative"
         }
     }
-
-    test("Unified Onboarding Brand Name Challenge Validation") {
-        "/unified_onboarding/challenge/validation" (platform: "/mobile", type: TrackType.Event) {
-            session_id = "12345"
-            session_id_from = "1234"
-            challenge_id = "brand_name"
-            challenge_type = "single_input"
-            from = "some initiative"
-            validations = "validations array"
-        }
-    }
-
-    test("Unified Onboarding Brand Name Challenge Validation To Action") {
-        "/unified_onboarding/challenge/validation/to_action" (platform: "/mobile", type: TrackType.Event) {
-            session_id = "12345"
-            session_id_from = "1234"
-            challenge_id = "brand_name"
-            challenge_type = "single_input"
-            from = "some initiative"
-            validations = "validations array"
-        }
-    }
   
     test("Unified Onboarding Brand Name Challenge Back") {
         "/unified_onboarding/challenge/back" (platform: "/mobile", type: TrackType.Event) {
@@ -69,46 +47,6 @@ trackTests {
             challenge_type = "single_input"
             from = "some initiative"
             is_last_challenge = true
-        }
-    }
-  
-    test("Unified Onboarding Brand Name Component Validation") {
-        "/unified_onboarding/challenge/component/validation" (platform: "/mobile", type: TrackType.Event) {
-            session_id = "12345"
-            session_id_from = "1234"
-            challenge_id = "brand_name"
-            challenge_type = "single_input"
-            from = "some initiative"
-            value = "Some text in the input"
-            component_id = "brand_name_input"
-            component_type = "input"
-            validations = "validations array"
-        }
-    }
-  
-    test("Unified Onboarding Brand Name Component Focus") {
-        "/unified_onboarding/challenge/component/focus" (platform: "/mobile", type: TrackType.Event) {
-            session_id = "12345"
-            session_id_from = "1234"
-            challenge_id = "brand_name"
-            challenge_type = "single_input"
-            from = "some initiative"
-            value = "Some text in the input"
-            component_id = "brand_name_input"
-            component_type = "input"
-        }
-    }
-
-    test("Unified Onboarding Brand Name Component Unfocus") {
-        "/unified_onboarding/challenge/component/unfocus" (platform: "/mobile", type: TrackType.Event) {
-            session_id = "12345"
-            session_id_from = "1234"
-            challenge_id = "brand_name"
-            challenge_type = "single_input"
-            from = "some initiative"
-            value = "Some text in the input"
-            component_id = "brand_name_input"
-            component_type = "input"
         }
     }
 
