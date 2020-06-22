@@ -24,13 +24,6 @@ tracks {
     "/unified_onboarding/challenge/open" (platform: "/mobile", type: TrackType.Event) {
     }
 
-    "/unified_onboarding/challenge/validation" (platform: "/mobile", type: TrackType.Event) {
-        validations(required: true, type: PropertyType.String, description: "Challenge's validations")
-    }
-
-    "/unified_onboarding/challenge/validation/to_action" (platform: "/mobile", type: TrackType.Event) {
-    }
-
     "/unified_onboarding/challenge/back" (platform: "/mobile", type: TrackType.Event) {
     }
 
@@ -39,21 +32,11 @@ tracks {
     }
     
     "/unified_onboarding/challenge/component" (platform: "/mobile", isAbstract: true) {
-        value(required: true, type: PropertyType.String, description: "Component's value")
         component_id(required: true, type: PropertyType.String, description: "Component's id")
         component_type(required: true, type: PropertyType.String, description: "Component's type")
     }
 
-    "/unified_onboarding/challenge/component/validation" (platform: "/mobile", type: TrackType.Event) {
-        validations(required: true, type: PropertyType.String, description: "Component's validations")
-    }
-    
-    "/unified_onboarding/challenge/component/focus" (platform: "/mobile", type: TrackType.Event) {
-    }
-
-    "/unified_onboarding/challenge/component/unfocus" (platform: "/mobile", type: TrackType.Event) {
-    }
-
     "/unified_onboarding/challenge/component/tap" (platform: "/mobile", type: TrackType.Event) {
+        value(required: true, type: PropertyType.String, description: "Component's value")
     }
 }
