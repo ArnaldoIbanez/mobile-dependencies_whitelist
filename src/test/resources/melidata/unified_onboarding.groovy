@@ -9,7 +9,7 @@ trackTests {
   defaultBusiness = "mercadopago"
   
   test("Unified Onboarding Brand Name Challenge open") {
-        "/unified_onboarding/challenge/open" (platform: "/", type: TrackType.Event) {
+        "/unified_onboarding/challenge/open" (platform: "/mobile", type: TrackType.Event) {
             session_id = "12345"
             session_id_from = "1234"
             challenge_id = "brand_name"
@@ -19,7 +19,7 @@ trackTests {
   }
   
   test("Unified Onboarding Brand Name Challenge view") {
-        "/unified_onboarding/challenge" (platform: "/", type: TrackType.View) {
+        "/unified_onboarding/challenge" (platform: "/mobile", type: TrackType.View) {
             session_id = "12345"
             session_id_from = "1234"
             challenge_id = "brand_name"
