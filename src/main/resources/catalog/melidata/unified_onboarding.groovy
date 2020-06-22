@@ -9,6 +9,10 @@ tracks {
 
     initiative="1218"
     
+    "/unified_onboarding" (platform: "/mobile", isAbstract: true)
+
+    "/unified_onboarding/challenge" (platform: "/mobile", isAbstract: true)
+
     "/unified_onboarding/challenge/open" (platform: "/mobile", type: TrackType.Event) {
         
     }
