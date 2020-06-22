@@ -161,8 +161,7 @@ trackTests {
                     is_whitelisted                : true,
                     check_mode                    : "GMV",
                     gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true,
+                    seller_contacts               : 0,
                     is_on_seo_h1_experiment: true
             ]
             pdp_highlight_enabled = true
@@ -291,8 +290,7 @@ trackTests {
                     is_whitelisted                : true,
                     check_mode                    : "GMV",
                     gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true,
+                    seller_contacts               : 0,
                     is_on_seo_h1_experiment: true
             ]
             pdp_highlight_enabled = true
@@ -572,8 +570,7 @@ trackTests {
                     is_whitelisted                : true,
                     check_mode                    : "GMV",
                     gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true,
+                    seller_contacts               : 0,
                     is_on_seo_h1_experiment: true
             ]
             pdp_highlight_enabled = true

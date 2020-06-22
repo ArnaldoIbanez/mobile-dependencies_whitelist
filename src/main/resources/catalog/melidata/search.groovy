@@ -17,9 +17,10 @@ tracks {
     def seo_item_definition = objectSchemaDefinitions {
         is_whitelisted(type: PropertyType.Boolean, required: true)
         check_mode(type: PropertyType.ArrayList(PropertyType.String), required: true)
-        gmv_value(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
-        vip_clicks(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
-        is_on_seo_whitelist_experiment(type: PropertyType.Boolean, required: true)
+        gmv_value(type: PropertyType.Numeric, required: true)
+        seller_contacts(type: PropertyType.Numeric, required: false)
+        vip_clicks(type: PropertyType.ArrayList(PropertyType.Numeric), required: false)
+        is_on_seo_whitelist_experiment(type: PropertyType.Boolean, required: false)
         is_on_seo_h1_experiment(type: PropertyType.Boolean, required: false)
     }
 
