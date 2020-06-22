@@ -28,4 +28,25 @@ trackTests {
             progress = "{\"current\": 1, \"total\": 7}"
         }
   }
+  
+  test("Unified Onboarding Brand Name Challenge Back") {
+        "/unified_onboarding/challenge/back" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "brand_name"
+            challenge_type = "single_input"
+            from = "some initiative"
+        }
+  }
+
+  test("Unified Onboarding Brand Name Challenge Confirm") {
+        "/unified_onboarding/challenge/confirm" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "brand_name"
+            challenge_type = "single_input"
+            from = "some initiative"
+            is_last_challenge = true
+        }
+  }
 }
