@@ -31,22 +31,22 @@ tracks {
         is_last_challenge(required: true, type: PropertyType.Boolean, description: "Flag indicating whether challenge is last challenge in wizard")
     }
     
-    "unified_onboarding/challenge/component" (platform: "/mobile", isAbstract: true) {
+    "/unified_onboarding/challenge/component" (platform: "/mobile", isAbstract: true) {
         value(required: true, type: PropertyType.String, description: "Component's value")
         component_id(required: true, type: PropertyType.String, description: "Component's id")
         component_type(required: true, type: PropertyType.String, description: "Component's type")
     }
 
-    "unified_onboarding/challenge/component/validation" (platform: "/mobile", type: TrackType.Event) {
+    "/unified_onboarding/challenge/component/validation" (platform: "/mobile", type: TrackType.Event) {
         validations(required: true, type: PropertyType.String, description: "Component's validations")
     }
     
-    "unified_onboarding/challenge/component/focus" (platform: "/mobile", type: TrackType.Event) {
+    "/unified_onboarding/challenge/component/focus" (platform: "/mobile", type: TrackType.Event) {
     }
 
-    "unified_onboarding/challenge/component/unfocus" (platform: "/mobile", type: TrackType.Event) {
+    "/unified_onboarding/challenge/component/unfocus" (platform: "/mobile", type: TrackType.Event) {
     }
 
-    "unified_onboarding/challenge/component/tap" (platform: "/mobile", type: TrackType.Event) {
+    "/unified_onboarding/challenge/component/tap" (platform: "/mobile", type: TrackType.Event) {
     }
 }
