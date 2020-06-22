@@ -7,11 +7,11 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
     
-    initiative="1218"
+    initiative="1216"
     
     "/unified_onboarding" (platform: "/mobile", isAbstract: true) {
         session_id(required: true, type: PropertyType.String, description: "Session identifier")
-        session_id_from(required: true, type: PropertyType.String, description: "Origin Session identifier")
+        session_id_from(required: false, type: PropertyType.String, description: "Origin Session identifier")
         challenge_id(required: true, type: PropertyType.String, description: "Functional Challenge identifier")
         challenge_type(required: true, type: PropertyType.String, description: "Technical Challenge identifier")
         from(required: true, type: PropertyType.String, description: "Initiative")
@@ -24,18 +24,18 @@ tracks {
     "/unified_onboarding/challenge/open" (platform: "/mobile", type: TrackType.Event) {
     }
 
-    "/unified_onboarding/challenge/back" (platform: "/mobile", type: TrackType.Event) {
-    }
-
-    "/unified_onboarding/challenge/confirm" (platform: "/mobile", type: TrackType.Event) {
-        is_last_challenge(required: true, type: PropertyType.Boolean, description: "Flag indicating whether challenge is last challenge in wizard")
-    }
-    
     "/unified_onboarding/challenge/validation" (platform: "/mobile", type: TrackType.Event) {
         validations(required: true, type: PropertyType.String, description: "Challenge's validations")
     }
 
     "/unified_onboarding/challenge/validation/to_action" (platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "/unified_onboarding/challenge/back" (platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "/unified_onboarding/challenge/confirm" (platform: "/mobile", type: TrackType.Event) {
+        is_last_challenge(required: true, type: PropertyType.Boolean, description: "Flag indicating whether challenge is last challenge in wizard")
     }
     
     "/unified_onboarding/challenge/component" (platform: "/mobile", isAbstract: true) {
