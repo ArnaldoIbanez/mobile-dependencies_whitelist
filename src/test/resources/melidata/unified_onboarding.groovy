@@ -115,7 +115,7 @@ trackTests {
     }
 
     test("Unified Onboarding Brand Name Challenge Validation To Action") {
-        "/unified_onboarding/challenge/challenge/validation/to_action" (platform: "/mobile", type: TrackType.Event) {
+        "/unified_onboarding/challenge/validation/to_action" (platform: "/mobile", type: TrackType.Event) {
             session_id = "12345"
             session_id_from = "1234"
             challenge_id = "brand_name"
