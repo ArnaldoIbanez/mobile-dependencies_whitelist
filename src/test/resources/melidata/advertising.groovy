@@ -443,23 +443,36 @@ trackTests {
             campaign_id = "2222222"
             sort_by = "price"
             sort_value= "asc"
+            multi = true
+            budget = "4000"
+            status = "active"
         }
         "/advertising/pads2/manager/sort"(platform: "/web", type: TrackType.View) {
             campaign_id = "2222222"
             sort_by = "sales"
             sort_value= "asc"
+            multi = true
+            budget = "4000"
+            status = "active"
         }
         "/advertising/pads2/manager/sort"(platform: "/web", type: TrackType.View) {
             campaign_id = "2222222"
             sort_by = "sales"
             sort_value= "desc"
+            multi = true
+            budget = "4000"
+            status = "active"
         }
         "/advertising/pads2/manager/filters"(platform: "/web", type: TrackType.View) {
             campaign_id = "2222222"
             filters = [:]
+            multi = true
+            status = "active"
+            budget = "70"
         }
         "/advertising/pads2/manager/filters"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
+            multi = true
             status = "active"
             budget = "70"
             filters = [
@@ -474,6 +487,7 @@ trackTests {
 
     test("Advertising manager Range") {
         "/advertising/pads2/manager/metrics_range"(platform: "/web", type: TrackType.Event) {
+            multi = true
             campaign_id = "2222222"
             status = "active"
             budget = "70"
@@ -485,6 +499,7 @@ trackTests {
 
     test("Advertising manager Massive Actions") {
         "/advertising/pads2/manager/massive_actions"(platform: "/web", type: TrackType.Event) {
+            multi = false
             campaign_id = "2222222"
             status = "active"
             budget = "70"
@@ -537,4 +552,425 @@ trackTests {
         }
     }
 
+    test("Advertising multicampaña") {
+        "/advertising/pads2/hub"(platform: "/web", type: TrackType.View) {
+            tab = "ads"
+            campaigs = [
+                    campaign_id: "222222",
+                    budget: "333",
+                    status: "active"
+                ]
+        }
+
+        "/advertising/pads2/hub/createcampaign"(platform: "/web", type: TrackType.Event) {
+            tab = "ads"
+        }
+
+        "/advertising/pads2/hub/campaign"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/hub/campaign/update"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/hub/campaign/update/name"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/hub/campaign/update/name/pencil"(platform: "/web", type: TrackType.Event) {
+        campaign_id = "2222222"
+        campaign_name = "celulares"
+        status = "active"
+        }
+
+        "/advertising/pads2/hub/campaign/update/name/go"(platform: "/web", type: TrackType.Event) {
+        campaign_id = "2222222"
+        campaign_name = "Celulares"
+        name_new = "Celular"
+        status = "active"
+        }
+
+        "/advertising/pads2/hub/campaign/update/name/close"(platform: "/web", type: TrackType.Event) {
+        campaign_id = "2222222"
+        campaign_name = "celulares"
+        name_new = "celuar"
+        status = "active"
+        }
+
+        "/advertising/pads2/hub/campaign/update/budget"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/hub/campaign/update/budget/pencil"(platform: "/web", type: TrackType.Event) {
+        campaign_id = "2222222"
+        budget = "4000"
+        status = "active"
+        }
+
+        "/advertising/pads2/hub/campaign/update/budget/go"(platform: "/web", type: TrackType.Event) {
+        campaign_id = "2222222"
+        budget = "4000"
+        budget_new = "5600"
+        status = "active"
+        }
+
+        "/advertising/pads2/hub/campaign/update/budget/close"(platform: "/web", type: TrackType.Event) {
+        campaign_id = "2222222"
+        budget = "4000"
+        budget_new = "5600"
+        status = "active"
+        }
+
+        "/advertising/pads2/hub/metrics_range"(platform: "/web", type: TrackType.Event) {
+        days = 31
+        tab = "ads"
+        from = "2020-02-19"
+        to = "to"
+        }
+
+        "/advertising/pads2/hub/massive_actions"(platform: "/web", type: TrackType.Event) {
+        action = "active"
+        total_items = 167
+        }
+
+        "/advertising/pads2/hub/filters"(platform: "/web", type: TrackType.Event) {
+        filters = [
+                    query: "x",
+                ]
+        }
+
+        "/advertising/pads2/hub/moveads"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/hub/moveads/go"(
+        platform: "/web",
+        type: TrackType.Event) {
+            campaign_id_from = "2222222"
+            status_from = "active"
+            campaign_id_to = "1111111"
+            status_to = "active"
+            check = "avtive"
+            q_Ads = "ads_q"
+        }
+
+        "/advertising/pads2/hub/moveads/cancel"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/hub/moveads/filters"(platform: "/web", type: TrackType.Event) {
+        filters = [
+                    query: "x",
+                ]
+        }
+
+        "/advertising/pads2/createcampaign"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/createcampaign/step1"(platform: "/web", type: TrackType.View) {
+        campaign_name = "celulares"
+        budget = "4000"
+        }
+
+        "/advertising/pads2/createcampaign/step1/next"(platform: "/web", type: TrackType.Event) {
+        campaign_name = "celulares"
+        budget = "4000"
+        }
+
+        "/advertising/pads2/createcampaign/step1/breadcrumb"(platform: "/web", type: TrackType.Event) {
+        campaign_name = "celulares"
+        budget = "4000"
+        }
+
+        "/advertising/pads2/createcampaign/step1/helperbudget"(platform: "/web", type: TrackType.Event) {
+        campaign_name = "celulares"
+        budget = "4000"
+        }
+
+        "/advertising/pads2/createcampaign/step2"(platform: "/web", type: TrackType.Event) {
+        campaign_name = "celulares"
+        budget = "4000"
+        }
+
+        "/advertising/pads2/createcampaign/step2/createcampaign"(platform: "/web", type: TrackType.Event) {
+        campaign_name = "celulares"
+        budget = "4000"
+        ads = "ads_1"
+        check_active = "true"
+        }
+
+        "/advertising/pads2/createcampaign/step2/breadcrumb"(platform: "/web", type: TrackType.Event) {
+        campaign_name = "celulares"
+        budget = "4000"
+        ads = "ads_1"
+        check_active = "true"
+        }
+
+        "/advertising/pads2/createcampaign/step2/helperbudget"(platform: "/web", type: TrackType.Event) {
+        campaign_name = "celulares"
+        budget = "4000"
+        ads = "ads_1"
+        check_active = "true"
+        }
+
+        "/advertising/pads2/createcampaign/step2/update"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/createcampaign/step2/update/name"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/createcampaign/step2/update/name/pencil"(platform: "/web", type: TrackType.Event) {
+        campaign_name = "celulares"
+        }
+
+        "/advertising/pads2/createcampaign/step2/update/name/go"(platform: "/web", type: TrackType.Event) {
+        name_previous = "celulares"
+        name_new = "Televisores"
+        }
+
+        "/advertising/pads2/createcampaign/step2/update/name/close"(platform: "/web", type: TrackType.Event) {
+        campaign_name = "celulares"
+        }
+
+        "/advertising/pads2/createcampaign/step2/update/budget"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/createcampaign/step2/update/budget/pencil"(platform: "/web", type: TrackType.Event) {
+        budget = "4000"
+        }
+
+        "/advertising/pads2/createcampaign/step2/update/budget/go"(platform: "/web", type: TrackType.Event) {
+        budget_previous = "4000"
+        budget_new = "5600"
+        }
+
+        "/advertising/pads2/createcampaign/step2/update/budget/close"(platform: "/web", type: TrackType.Event) {
+        budget = "4000"
+        }
+
+        "/advertising/pads2/createcampaign/step2/addads"(platform: "/web", type: TrackType.Event) {
+        total_ads = 35
+        }
+
+        "/advertising/pads2/createcampaign/step2/filters"(platform: "/web", type: TrackType.Event) {
+            filters = [
+                    query: "x",
+                ]
+        }
+
+        "/advertising/pads2/createcampaign/step2/editads"(platform: "/web", type: TrackType.Event) {
+            campaign_name = "celulares"
+            budget = "4000"
+        }
+
+        "/advertising/pads2/createcampaign/step2/editads/deleteall"(platform: "/web", type: TrackType.Event) {
+            total_ads_deleted = 10
+        }
+
+        "/advertising/pads2/createcampaign/step2/editads/filters"(platform: "/web", type: TrackType.Event) {
+           filters = [
+                    query: "x",
+                ]
+        }
+
+        "/advertising/pads2/createcampaign/step2/editads/delete"(platform: "/web", type: TrackType.Event) {
+            ad_id = "333333"
+            filters = [
+                    query: "x",
+                ]
+        }
+
+        "/advertising/pads2/createcampaign/step2/editads/cancel"(platform: "/web", type: TrackType.Event) {
+            total_ads = 35
+            total_ads_deleted = 10
+        }
+
+        "/advertising/pads2/createcampaign/step2/editads/confirm"(platform: "/web", type: TrackType.Event) {
+            total_ads = 35
+            total_ads_deleted = 10
+        }
+
+        "/advertising/pads2/createcampaign/step2/editads/undo"(platform: "/web", type: TrackType.Event) {
+            ad_id = "333333"
+            filters = [
+                    query: "x",
+                ]
+        }
+
+        "/advertising/pads2/createcampaign/step2/activeads"(platform: "/web", type: TrackType.Event) {
+            status_check = "true"
+        }
+
+        "/advertising/pads2/createcampaign/confirm"(platform: "/web", type: TrackType.Event) {
+            status_check = "true"
+            campaign_name = "celulares"
+            budget = "4000"
+            ads = 1
+        }
+
+        "/advertising/pads2/createcampaign/seecampaign"(platform: "/web", type: TrackType.Event) {
+            campaign_name = "celulares"
+            budget = "4000"
+            ads = 1
+        }
+
+        "/advertising/pads2/createcampaign/gocampaign"(platform: "/web", type: TrackType.Event) {
+            campaign_name = "celulares"
+            budget = "4000"
+            ads = 1
+        }
+
+        "/advertising/pads2/manager/addads"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "4000"
+        }
+
+        "/advertising/pads2/manager/addads/breadcrumb"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "4000"
+        }
+
+        "/advertising/pads2/manager/addads/filters"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "4000"
+            filters = [
+                    query: "x",
+                ]
+        }
+
+        "/advertising/pads2/manager/addads/add"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "4000"
+            total_ads = 2
+        }
+
+        "/advertising/pads2/manager/addads/confirm"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "4000"
+            ads = "ads_1"
+            new_ads= "2"
+        }
+
+        "/advertising/pads2/manager/addads/editads"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "4000"
+            ads = "ads_1"
+            new_ads= "new_ads_1"
+        }
+
+        "/advertising/pads2/manager/addads/editads/deleteall"(platform: "/web", type: TrackType.Event) {
+            total_ads_deleted = 10
+        }
+
+        "/advertising/pads2/manager/addads/editads/filters"(platform: "/web", type: TrackType.Event) {
+            filters = [
+                    query: "x",
+                ]
+        }
+
+        "/advertising/pads2/manager/addads/editads/delete"(platform: "/web", type: TrackType.Event) {
+            ad_id = "333333"
+            filters = [
+                    query: "x",
+                ]
+        }
+
+        "/advertising/pads2/manager/addads/editads/cancel"(platform: "/web", type: TrackType.Event) {
+                total_ads = 35
+                total_ads_deleted = 10
+        }
+
+        "/advertising/pads2/manager/addads/editads/confirm"(platform: "/web", type: TrackType.Event) {
+            total_ads = 35
+            total_ads_deleted = 10
+        }
+
+        "/advertising/pads2/manager/addads/editads/undo"(platform: "/web", type: TrackType.Event) {
+            ad_id = "333333"
+            filters = [
+                    query: "x",
+                ]
+        }
+
+        "/advertising/pads2/manager/update"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/manager/update/name"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/manager/update/name/pencil"(platform: "/web", type: TrackType.Event) {
+            multi = true
+            campaign_id = "2222222"
+            campaign_name = "celulares"
+        }
+
+        "/advertising/pads2/manager/update/name/go"(platform: "/web", type: TrackType.Event) {
+            multi = true
+            campaign_id = "2222222"
+            name_previous = "celulares"
+            name_new = "Televisores"
+        }
+
+        "/advertising/pads2/manager/update/name/close"(platform: "/web", type: TrackType.Event) {
+            multi = true
+            campaign_id = "2222222"
+            campaign_name = "celulares"
+        }
+
+        "/advertising/pads2/manager/update/budget"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/manager/update/budget/pencil"(platform: "/web", type: TrackType.Event) {
+            multi = true
+            campaign_id = "2222222"
+            budget = "4000"
+        }
+
+        "/advertising/pads2/manager/update/budget/go"(platform: "/web", type: TrackType.Event) {
+            multi = true
+            campaign_id = "2222222"
+            budget_previous = 4000
+            budget_new = 5600
+        }
+
+        "/advertising/pads2/manager/update/budget/close"(platform: "/web", type: TrackType.Event) {
+            multi = true
+            campaign_id = "2222222"
+            budget = "4000"
+        }
+
+        "/advertising/pads2/manager/massive_actions"(platform: "/web", type: TrackType.Event) {
+            multi = true
+            action = "active"
+            total_items = 167
+            campaign_id = "2222222"
+            budget = "4000"
+            status = "active"
+        }
+
+        "/advertising/pads2/manager"(platform: "/web", type: TrackType.View) {
+            multi = true
+            campaign_id = "2222222"
+            budget = "4000"
+            status = "active"
+        }
+
+        "/advertising/pads2/manager/filters"(platform: "/web", type: TrackType.Event) {
+            multi = true
+            filters = [
+                    multi: "x",
+                    query: "x",
+                ]
+            campaign_id = "2222222"
+            budget = "4000"
+            status = "active"
+        }
+
+        "/advertising/pads2/manager/metrics_range"(platform: "/web", type: TrackType.Event) {
+            multi = true
+            days = 31
+            from = "2020-02-19"
+            to = "to_1"
+            campaign_id = "2222222"
+            budget = "4000"
+            status = "active"
+        }
+
+        "/advertising/pads2/manager/sort"(platform: "/web", type: TrackType.Event) {
+            sort_by = "price"
+            sort_value= "asc"
+            campaign_id = "2222222"
+            multi = true
+            budget = "4000"
+            status = "active"
+        }
+    }
 }
