@@ -31,14 +31,17 @@ tracks {
         attributes_submitted(required: false, description:"Number of attributes submitted", type: PropertyType.Numeric)
 
         // Catalog search properties
-        site_filter(required: false, description: "Site filter selected by the user", type: PropertyType.String)
+        site_filter(required: false, description: "Site selected by the user", type: PropertyType.String)
         query_filter(required: false, description: "Search query input by the user", type: PropertyType.String)
-        domain_filter(required: false, description: "Domain filter input by the user", type: PropertyType.String)
-        product_id(required: true, description: "Product ID", type: PropertyType.String)
-        product_source(required: true, description: "Product external source", type: PropertyType.String)
-        product_external_id(required: true, description: "Product external ID or Marketplace attribute primary key", type: PropertyType.String)
-        external_domain(required: true, description: "Product external domain", type: PropertyType.String)
-        predicted_domain(required: true, description: "Product predicted domain", type: PropertyType.String)
+        domain_filter(required: false, description: "Domain selected by the user", type: PropertyType.String)
+        is_gtin(required: false, description: "Indicates if the search is for GTIN (true) or products (false)", type: PropertyType.Boolean)
+        has_results(required: false, description: "Indicates if the search has any results or not", type: PropertyType.Boolean)
+        displayed_sources(required: false, description: "List of sources that initially appeared in the result list", type: PropertyType.ArrayList(PropertyType.String))
+        product_id(required: false, description: "Product ID", type: PropertyType.String)
+        product_source(required: false, description: "Product external source", type: PropertyType.String)
+        product_external_id(required: false, description: "Product external ID or Marketplace attribute primary key", type: PropertyType.String)
+        external_domain(required: false, description: "Product external domain", type: PropertyType.String)
+        predicted_domain(required: false, description: "Product predicted domain", type: PropertyType.String)
         selected_domain(required: false, description: "Product domain based on user selection", type: PropertyType.String)
         external_attribute_key(required: true, description: "Product external attribute key", type: PropertyType.String)
         external_attribute_value(required: true, description: "Product external attribute value", type: PropertyType.String)
@@ -49,7 +52,7 @@ tracks {
         catalogWidgetCompletenessGroup(completeness_level, attributes_submitted, items_left, missing_attributes, inferred_attributes)
 
         // Catalog search property groups
-        catalogSearchQuery(site_filter, query_filter, domain_filter)
+        catalogSearchQuery(site_filter, query_filter, domain_filter, is_gtin, has_results, displayed_sources)
         catalogSearchWrongDomainPrediction(product_id, product_source, product_external_id, external_domain, predicted_domain, selected_domain)
         catalogSearchWrongExternalDomain(product_id, product_source, product_external_id, external_domain)
         catalogSearchWrongExternalAttribute(product_id, product_source, product_external_id, external_domain, external_attribute_key, external_attribute_value)
@@ -283,6 +286,7 @@ tracks {
     }
 
     "/structure_data/catalog_search/copied_external_attribute"(platform: "/web/desktop", type:TrackType.Event) {
+        catalogSearchQuery
         catalogSearchCopiedExternalAttribute
     }
 }
