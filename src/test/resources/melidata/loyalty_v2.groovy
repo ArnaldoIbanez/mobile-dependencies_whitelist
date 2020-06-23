@@ -421,14 +421,14 @@ trackTests {
             level = 4
         }
 
-        "/loyalty/partners/admin/action"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+        "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             subscription_partner = "HBO"
             subscription_status = "active"
             level = 4
             type = "detail-action"
         }
 
-        "/loyalty/partners/admin/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
+        "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
             subscription_partner = "HBO"
             subscription_status = "ended"
             level = 4
