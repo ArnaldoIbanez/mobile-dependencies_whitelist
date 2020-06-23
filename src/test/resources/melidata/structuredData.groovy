@@ -539,6 +539,7 @@ trackTests {
                 "meli",
                 "bi_competence"
         ]
+        unknown_info_sources = []
     }
 
     def searchGtinQuery = {
@@ -553,8 +554,8 @@ trackTests {
                 "marca",
                 "to",
                 "gepir",
-                "upc_item_db",
         ]
+        unknown_info_sources = ["upc_item_db"]
     }
 
     test("catalog_search product query should be tracked"){

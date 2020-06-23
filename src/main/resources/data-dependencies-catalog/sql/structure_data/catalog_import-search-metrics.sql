@@ -9,6 +9,7 @@ SELECT
     get_json_object(event_data, '$.is_gtin') as is_gtin,
     get_json_object(event_data, '$.has_results') as has_results,
     get_json_object(event_data, '$.displayed_sources') as displayed_sources,
+    get_json_object(event_data, '$.unknown_info_sources') as unknown_info_sources,
     get_json_object(event_data, '$.product_id') as product_id,
     get_json_object(event_data, '$.product_source') as product_source,
     get_json_object(event_data, '$.product_external_id') as product_external_id,

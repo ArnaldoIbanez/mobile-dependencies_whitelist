@@ -37,6 +37,7 @@ tracks {
         is_gtin(required: false, description: "Indicates if the search is for GTIN (true) or products (false)", type: PropertyType.Boolean)
         has_results(required: false, description: "Indicates if the search has any results or not", type: PropertyType.Boolean)
         displayed_sources(required: false, description: "List of sources that initially appeared in the result list", type: PropertyType.ArrayList(PropertyType.String))
+        unknown_info_sources(required: false, description: "List of sources that could not be reached when presenting the results", type: PropertyType.ArrayList(PropertyType.String))
         product_id(required: false, description: "Product ID", type: PropertyType.String)
         product_source(required: false, description: "Product external source", type: PropertyType.String)
         product_external_id(required: false, description: "Product external ID or Marketplace attribute primary key", type: PropertyType.String)
@@ -52,7 +53,7 @@ tracks {
         catalogWidgetCompletenessGroup(completeness_level, attributes_submitted, items_left, missing_attributes, inferred_attributes)
 
         // Catalog search property groups
-        catalogSearchQuery(site_filter, query_filter, domain_filter, is_gtin, has_results, displayed_sources)
+        catalogSearchQuery(site_filter, query_filter, domain_filter, is_gtin, has_results, displayed_sources, unknown_info_sources)
         catalogSearchWrongDomainPrediction(product_id, product_source, product_external_id, external_domain, predicted_domain, selected_domain)
         catalogSearchWrongExternalDomain(product_id, product_source, product_external_id, external_domain)
         catalogSearchWrongExternalAttribute(product_id, product_source, product_external_id, external_domain, external_attribute_key, external_attribute_value)
