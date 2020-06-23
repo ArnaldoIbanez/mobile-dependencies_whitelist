@@ -10,6 +10,7 @@ trackTests {
 
     test('Insurtech - test garex tacking on checkout') {
 
+        // Web
         "/garex/checkout"(platform:"/web", type: TrackType.View) {
             item = [
                     "id": "MLA824281356",
@@ -20,6 +21,19 @@ trackTests {
                             "installments": 12
                     ]
             ]
+            options_has_discount = false
+        }
+        "/garex/checkout"(platform:"/web", type: TrackType.View) {
+            item = [
+                    "id": "MLA824281356",
+                    "domain_id": "MLA-TELEVISIONS",
+                    "category_path": [ 'MLA1055', 'MLA1055'],
+                    "financing_type": [
+                            "no_interest_allowed" : true,
+                            "installments": 12
+                    ]
+            ]
+            options_has_discount = true
         }
         "/garex/checkout/more_info"(platform:"/web", type: TrackType.Event) {
             item = [
@@ -31,6 +45,19 @@ trackTests {
                             "installments": 12
                     ]
             ]
+            options_has_discount = false
+        }
+        "/garex/checkout/more_info"(platform:"/web", type: TrackType.Event) {
+            item = [
+                    "id": "MLA824281356",
+                    "domain_id": "MLA-TELEVISIONS",
+                    "category_path": [ 'MLA1055', 'MLA1055'],
+                    "financing_type": [
+                            "no_interest_allowed" : true,
+                            "installments": 12
+                    ]
+            ]
+            options_has_discount = true
         }
         "/garex/checkout/selected_garex"(platform:"/web", type: TrackType.Event) {
             garex = [
@@ -50,7 +77,49 @@ trackTests {
                     "installments": 12
                 ]
             ]
-
+            options_has_discount = false
+        }
+        "/garex/checkout/selected_garex"(platform:"/web", type: TrackType.Event) {
+            garex = [
+                "id": "MLA390289_GAR16001",
+                "period": 24,
+                "cost": 1234,
+                "revenue_share_fee": 70,
+                "revenue": 863.80,
+                "currency_id": "ARS",
+                "discount_rate": 30
+            ]
+            item = [
+                "id": "MLA824281356",
+                "domain_id": "MLA-TELEVISIONS",
+                "category_path": [ 'MLA1055', 'MLA1055'],
+                "financing_type": [
+                    "no_interest_allowed" : true,
+                    "installments": 12
+                ]
+            ]
+            options_has_discount = true
+        }
+        "/garex/checkout/selected_garex"(platform:"/web", type: TrackType.Event) {
+            garex = [
+                "id": "MLA390289_GAR16001",
+                "period": 24,
+                "cost": 1234,
+                "revenue_share_fee": 70,
+                "revenue": 863.80,
+                "currency_id": "ARS",
+                "discount_rate": null
+            ]
+            item = [
+                "id": "MLA824281356",
+                "domain_id": "MLA-TELEVISIONS",
+                "category_path": [ 'MLA1055', 'MLA1055'],
+                "financing_type": [
+                    "no_interest_allowed" : true,
+                    "installments": 12
+                ]
+            ]
+            options_has_discount = false
         }
         "/garex/checkout/not_selected_garex"(platform:"/web", type: TrackType.Event) {
             item = [
@@ -62,6 +131,19 @@ trackTests {
                             "installments": 12
                     ]
             ]
+            options_has_discount = true
+        }
+        "/garex/checkout/not_selected_garex"(platform:"/web", type: TrackType.Event) {
+            item = [
+                    "id": "MLA824281356",
+                    "domain_id": "MLA-TELEVISIONS",
+                    "category_path": [ 'MLA1055', 'MLA1055'],
+                    "financing_type": [
+                            "no_interest_allowed" : true,
+                            "installments": 12
+                    ]
+            ]
+            options_has_discount = false
         }
         "/garex/checkout/delete"(platform:"/web", type: TrackType.Event) {
             garex = [
