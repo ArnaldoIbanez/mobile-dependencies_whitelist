@@ -209,6 +209,7 @@ catalog {
         include business, "notifications.groovy"
         include business, "data_privacy.groovy"
         include business, "wallet.groovy"
+        include business, "fees_installment.groovy"
     }
 
     mercadoshops.each { business ->
