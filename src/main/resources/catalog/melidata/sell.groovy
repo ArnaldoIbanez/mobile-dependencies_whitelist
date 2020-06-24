@@ -236,6 +236,7 @@ tracks {
     "/sell/list/draft/condition"(platform:"/mobile", type: TrackType.View){
         catalogFlowMobile
     }
+    "/sell/list/draft/domain_suggestion"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/condition_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/condition_fallback"(platform:"/mobile", type: TrackType.View){
         catalogFlowMobile
@@ -397,6 +398,7 @@ tracks {
     "/sell/list/category_navigation"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
+    "/sell/list/domain_suggestion"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
