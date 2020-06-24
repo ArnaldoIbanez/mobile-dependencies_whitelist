@@ -174,4 +174,115 @@ trackTests {
             currency_id = "ARS"
         }
     }
+
+    defaultBusiness = "mercadopago"
+
+    test('Insurtech - test roda tacking') {
+
+        "/insurtech/roda/qpage"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            options = [
+                [
+                    category: "total",
+                    price: 123.33,
+                    deductible: 30.44
+                ],
+                [
+                    category: "screen",
+                    price: 100.33,
+                    deductible: 20.44
+                ]
+            ]
+            financing_type = null
+        }
+
+        "/insurtech/roda/qpage"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            options = [
+                [
+                    category: "total",
+                    price: 123.33,
+                    deductible: 30.44
+                ],
+            ]
+            financing_type = [
+                no_interest_allowed : true,
+                installments: 12
+            ]
+        }
+
+        "/insurtech/roda/qpage/deductible"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }
+
+        "/insurtech/roda/qpage/faq"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            faq = "protection-cancel"
+        }
+
+        "/insurtech/roda/qpage/buy"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            option = [
+                id: "123123-asdad",
+                category: "total",
+                price: 123.44,
+                monthly_price: 15.44,
+                fee_price: 10.44,
+                currency_id: "BRL",
+                deductible: 10.25,
+                deductible_amount: 20.00,
+                check: "total"
+            ]            
+            financing_type = [
+                no_interest_allowed : true,
+                installments: 12
+            ]
+        }
+               
+        "/insurtech/roda/qpage/buy"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            option = [
+                id: "123123-asdad",
+                category: "total",
+                price: 123.44,
+                monthly_price: 15.44,
+                fee_price: 10.44,
+                currency_id: "BRL",
+                deductible: 10.25,
+                deductible_amount: 20.00,
+                check: "total"
+            ]            
+            financing_type = null
+        }
+    }
 }
