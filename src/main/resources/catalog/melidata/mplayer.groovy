@@ -309,4 +309,10 @@ tracks {
         position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }
 
+    // Contacts
+    "/mplayer/contacts/massive_upload/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/contacts/massive_upload/successful_end"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/contacts/search/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/contacts/search/end"(platform: "/mobile", type: TrackType.Event) {}
+
 }
