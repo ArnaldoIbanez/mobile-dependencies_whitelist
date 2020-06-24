@@ -29,6 +29,7 @@
       ],
       "sql": {
         "script": "cpg/carousel_ctr_by_platform_cpg.sql",
+        "engine": "spark",
         "parameters": [
           {
             "name": "param01",
