@@ -1,0 +1,65 @@
+{
+  "users": [
+    "marina.propato@mercadolibre.com"
+  ],
+  "process_name": "img_pqt",
+  "cron": "00 07 * * *",
+  "partition": {
+    "name": "datepic",
+    "type": "date",
+    "format": "yyyy-MM-dd"
+  },
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "seller",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "publicaciones",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "domain",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "integracion",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "proveedores",
+        "type": "UNICODE_STRING"
+      },
+        {
+        "name": "app",
+        "type": "UNICODE_STRING"
+      },
+              {
+        "name": "pictureId",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "moderations/img_pqt.sql",
+      "engine": "spark",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

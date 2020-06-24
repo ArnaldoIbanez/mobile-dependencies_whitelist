@@ -79,7 +79,100 @@ trackTests {
         }
     }
 
-    test("Mercadopago Banking Balance Web and Webview") {
+    test("Mercadopago Webview COVID Home") {
+        "/mp_covid"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Webview COVID Congrats") {
+        "/mp_covid/congrats"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Webview COVID Donation") {
+        "/mp_covid/donation"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Webview COVID Custom amount") {
+        "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
+    }
+
+    /*************************
+    *        MP PUBLIC       *
+    *************************/
+
+    test("Digital Wallet") {
+        /**
+         * Digital Wallet Screen Tracks
+         */
+
+        "/digital_wallet"(platform: "/", type: TrackType.View) {}
+
+        /**
+         * Digital Wallet Events Tracks
+         */
+
+        "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
+            section = "facilities_recharge"
+        }
+
+        "/digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
+            section_store = "hero_playstore"
+        }
+    }
+
+    test("Business Site") {
+        /**
+         * Business Site Screen Tracks
+         */
+
+        "/business_site"(platform: "/", type: TrackType.View) {}
+
+        /**
+         * Business Site Events Tracks
+         */
+        
+        "/business_site/click"(platform: "/", type: TrackType.Event) {
+          action = "shortcut"
+          section = "digital"
+        }
+
+        "/business_site/click"(platform: "/", type: TrackType.Event) {
+          action = "know_more"
+          section = "digital"
+          item = "checkout"
+        }
+
+        "/business_site/click"(platform: "/", type: TrackType.Event) {
+          action = "new_account"
+          section = "last"
+        }
+    }
+    
+    test("Splinter MP Landings") {
+      // Splinter MP Landings Track View
+      "/landing/marketing"(platform: "/", type: TrackType.View) {
+        key = 'landing-de-prueba'
+        startTime = "2020-05-17T00:00:00Z"
+        endTime = "2020-06-30T00:00:00Z"
+      }
+    }
+
+    /*************************
+    *        MP BANKING       *
+    *************************/
+
+    test("Banking Balance MP") {
         "/mp_banking_balance" (platform: "/", type: TrackType.View) {}
+    }
+
+    test("Banking Calendar MP") {
+        "/mp_banking_balance/calendar"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Banking Balance Webview MP") {
+        "/mp_banking_balance/webview"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Banking Calendar Webview MP") {
+        "/mp_banking_balance/calendar/webview"(platform: "/", type: TrackType.View) {}
     }
 }

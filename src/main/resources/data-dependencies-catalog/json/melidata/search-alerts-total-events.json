@@ -5,7 +5,7 @@
   "process_name": "search-alerts-total-events",
   "cron": "00 13 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "ds",
@@ -39,6 +39,7 @@
     ],
     "sql": {
       "script": "business-assurance/search_alerts_total_events.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

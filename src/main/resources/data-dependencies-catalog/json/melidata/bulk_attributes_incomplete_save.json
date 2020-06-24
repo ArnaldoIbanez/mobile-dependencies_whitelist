@@ -5,7 +5,7 @@
   "process_name": "bulk_attributes_incomplete_save",
   "cron": "00 07 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "fecha",
@@ -35,6 +35,7 @@
     ],
     "sql": {
       "script": "business-assurance/bulk_attributes_incomplete_save.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

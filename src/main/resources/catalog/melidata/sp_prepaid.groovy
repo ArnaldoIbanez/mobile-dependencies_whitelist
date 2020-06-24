@@ -58,6 +58,7 @@ tracks {
     // Start flow
     "/single_player/prepaid/start_flow"(platform: "/mobile", type: TrackType.Event) {
         method(required: true, PropertyType.String, description: "Specific way to start single player prepaid flow")
+        extra_info(required: false, description: "Extra information about the user and device.")
     }
 
 
@@ -68,6 +69,9 @@ tracks {
         view_time
     }
     "/single_player/prepaid/first_time_use/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/first_time_use/abort"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
@@ -89,6 +93,9 @@ tracks {
         view_time
     }
     "/single_player/prepaid/add_device_number/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/add_device_number/show_contacts"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
@@ -120,11 +127,20 @@ tracks {
         mandatory
         view_time
     }
+    "/single_player/prepaid/product_list/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
+    "/single_player/prepaid/product_list/understood_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
 
 
     // Recommended products
     "/single_player/prepaid/recommended_products"(platform: "/mobile", type: TrackType.View) {
         available_items
+        notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
     }
 
     "/single_player/prepaid/recommended_products/selected_product"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -138,6 +154,14 @@ tracks {
         item_structure
     }
     "/single_player/prepaid/recommended_products/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mandatory
+        view_time
+    }
+    "/single_player/prepaid/recommended_products/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
+    "/single_player/prepaid/recommended_products/understood_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
         view_time
     }
@@ -198,6 +222,14 @@ tracks {
         view_time
         item_structure
     }
+    "/single_player/prepaid/one_device/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
+    "/single_player/prepaid/one_device/understood_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
     "/single_player/prepaid/one_device/more_products"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
         mandatory
         view_time
@@ -216,9 +248,17 @@ tracks {
     // Multiple devices
     "/single_player/prepaid/multiple_devices"(platform: "/mobile", type: TrackType.View) {
         quantity(required: true, PropertyType.Numeric, description: "Quantity of items")
+        notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
         available_items
     }
-
+    "/single_player/prepaid/multiple_devices/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
+    "/single_player/prepaid/multiple_devices/understood_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        view_time
+    }
     "/single_player/prepaid/multiple_devices/selected_device"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mandatory
         view_time
@@ -231,6 +271,29 @@ tracks {
     "/single_player/prepaid/multiple_devices/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mandatory
         view_time
+    }
+
+
+    // Company
+    "/single_player/prepaid/companies"(platform: "/mobile", type: TrackType.View) {
+        available_items
+    }
+    "/single_player/prepaid/companies/selected_company"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mandatory
+        view_time
+        item_structure
+    }
+    "/single_player/prepaid/companies/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mandatory
+        view_time
+    }
+   "/single_player/prepaid/companies/more_information"(platform: "/mobile",  parentPropertiesInherited: false, type: TrackType.Event) {
+       mandatory        
+       view_time
+    }
+    "/single_player/prepaid/companies/understood_information"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+       mandatory 
+       view_time
     }
 
 
@@ -316,6 +379,16 @@ tracks {
         view_time
     }
 
+    // Carousel
+    "/single_player/prepaid/carousel"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/carousel/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/carousel/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
 
     // Errors
     "/single_player/prepaid/error"(platform: "/mobile", isAbstract: true) {}
@@ -335,7 +408,9 @@ tracks {
     "/single_player/prepaid/error/server/back_to_home"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/prepaid/error/server/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/error/server/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
 
 
     // Errors - Connection error
@@ -343,7 +418,14 @@ tracks {
 
     "/single_player/prepaid/error/connection/retry"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/error/connection/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/error/connection/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    
 
+    // Errors - Timeout error
+    "/single_player/prepaid/error/timeout"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/error/timeout/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/prepaid/error/timeout/back"(platform: "/mobile", type: TrackType.Event) {}
+    
 
     // Shield
     "/single_player/prepaid/shield"(platform: "/mobile", type: TrackType.View) {}
@@ -381,6 +463,38 @@ tracks {
         point_structure
     }
     "/single_player/prepaid/locations/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+
+    // Payment rejected
+    "/single_player/prepaid/payment_rejected"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/payment_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+
+    // Contacts
+    "/single_player/prepaid/contacts"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/contacts/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/contacts/selected_contact"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+        validation_result(required: true, PropertyType.String, description: "Result of apply site's validations")
+    }
+
+
+    // Receipt
+    "/single_player/prepaid/receipt"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/prepaid/receipt/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/receipt/share"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/prepaid/receipt/download"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 }

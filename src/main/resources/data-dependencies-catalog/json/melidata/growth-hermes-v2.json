@@ -1,7 +1,7 @@
 {
     "users": ["engagement-it@mercadolibre.com"],
     "process_name": "growth-hermes-v2",
-    "cron": "00 07 * * *",
+    "cron": "00 11 * * *",
     "partition": {
       "name": "event_date",
       "type": "DATE",
@@ -53,6 +53,7 @@
       }],
       "sql": {
         "script": "growth/hermes-v2.sql",
+        "engine": "spark",
         "parameters": [{
           "name": "param01",
           "value": "DAY-1",

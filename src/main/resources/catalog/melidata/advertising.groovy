@@ -35,6 +35,11 @@ tracks {
         chart_visible(required: false, type: PropertyType.Boolean, description: "If the chart is visible")
         detailsMeli_visible(required: false, type: PropertyType.Boolean, description: "If the details are visible")
         share_visible(required: false, type: PropertyType.Boolean, description: "If the share is visible")
+        matching_status(
+                required: false,
+                values: ["matching_inversion", "matching_inversion_end", "matching_bonificacion", "matching_bonificacion_end", "matching_bonificacion_extended", "matching_bonificacion_extended_end"],
+                description: "Free trial matching status bar"
+        )
     }
 
     "/advertising/pads2/manager/update_campaign_status"(platform: "/web", type: TrackType.Event) {
@@ -234,6 +239,35 @@ tracks {
 
     }
 
+    //Matching
+    "/advertising/pads2/manager/winbacks"(platform: "/", isAbstract: true) {}
+
+    "/advertising/pads2/manager/winbacks/onboarding"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, description: "Current budget related to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        step(required: true, description: "Current modal step")
+    }
+
+    "/advertising/pads2/manager/winbacks/onboarding/cta"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/advertising/pads2/manager/winbacks/onboarding/cta/close"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/advertising/pads2/manager/winbacks/confirmation"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, description: "Current budget related to the campaign")
+        new_budget(required: true, description: "New budget assigned to the campaign")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+
+    "/advertising/pads2/manager/winbacks/confirmation/cta"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/advertising/pads2/manager/winbacks/confirmation/cta/close"(platform: "/web", type: TrackType.Event) {
+    }
+
     //Sorting
     "/advertising/pads2/manager/sort"(
         platform: "/web",
@@ -265,14 +299,6 @@ tracks {
                 required: true,
                 type: PropertyType.Map(filters_definition)
             )
-    }
-
-    //Landings Deals
-    "/deals"(platform: "/", isAbstract: true) {}
-
-    "/deals/landing"(platform: "/") {
-        deal_id(required: false, type: PropertyType.String)
-        deal_print_id(required: false, type: PropertyType.String)
     }
 
     // Range

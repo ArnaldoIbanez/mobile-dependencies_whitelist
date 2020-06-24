@@ -239,6 +239,7 @@ trackTests {
             filters = ["installments": "no_interest", "price":"1000-2000"]
 
             multiple_offer_type="BEST_PRICE"
+            multiple_offer_default_winner_item_id="MLB1432864987"
 
             cart()
             shipping()
@@ -301,6 +302,11 @@ trackTests {
             price = 8400
             currency_id = "ARS"
         })
+
+        "/pdp/multiple_offer/select_offer"(platform: "/") {
+            item_id = "MLA12345678"
+            multiple_offer_type = "BEST_PRICE"
+        }
 
         "/pdp/quantity_change"(platform: "/", {
             catalog_product_id = "MLA1234"
@@ -494,6 +500,14 @@ trackTests {
         })
     }
 
+    //QADB search all action
+    test("Qadb search all action tracking"){
+        "/pdp/qadb/search-all-action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+        })
+    }
+
     //Sellers page FLOW
     test("Sellers page tracking") {
         "/pdp/sellers/quantity_change"(platform: "/", {
@@ -549,5 +563,44 @@ trackTests {
 
     test("Pdp Server Side") {
         "/pdp/backend/questions_redirect"(platform: "/") {}
+    }
+
+    test("PDP onboardings") {
+
+        "/pdp/fulfillment_modal/show"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            item_condition = "new"
+            seller_id = 131662738
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+        })
+        
+        "/pdp/cbt_modal/show"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            item_condition = "new"
+            seller_id = 131662738
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+        })
+
+        "/pdp/fulfillment_tooltip/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
+
+        "/pdp/fulfillment_tooltip/close"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
     }
 }

@@ -9,7 +9,7 @@
     "type": "DATE"
   },
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "site": "Shipping",
     "columns": [
       {
@@ -35,6 +35,7 @@
     ],
     "sql": {
       "script": "shipping/fbm_wms_errors_count.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

@@ -128,6 +128,25 @@ trackTests {
         "/money_in/clabe/error"(platform: "/", type: TrackType.View) {}
         "/money_in/clabe/error/continue"(platform: "/", type: TrackType.Event) {}
 
+        // Caixa - Onboarding
+        "/money_in/caixa/onboarding"(platform: "/", type: TrackType.View) {}
+        "/money_in/caixa/onboarding/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+        // Caixa - Amount
+        "/money_in/caixa/amount"(platform: "/", type: TrackType.View) {}
+        "/money_in/caixa/amount/continue_button_clicked"(platform: "/", type: TrackType.Event) {
+            amount = "30.0"
+        }
+
+        // Caixa - Congrats
+        "/money_in/caixa/success"(platform: "/", type: TrackType.View) {}
+        "/money_in/caixa/success/go_home_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+        // Caixa - Disclaimer 
+        "/money_in/caixa/disclaimer"(platform: "/", type: TrackType.View) {}
+        "/money_in/caixa/disclaimer/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+        "/money_in/caixa/disclaimer/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
     }
 
 }

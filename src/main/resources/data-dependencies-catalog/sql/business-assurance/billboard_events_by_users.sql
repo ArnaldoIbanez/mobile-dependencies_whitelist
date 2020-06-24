@@ -18,12 +18,12 @@ SELECT
     substr(ds,1,10) as ds
   FROM TRACKS
   WHERE
-    jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE', 'MOTOR', 'MOTORCYCLE', 'motors', 'SERVICE', 'services')
-    AND platform.fragment LIKE '%BB:%'
+    ds >= '@param01' and ds < '@param02'
+    AND application.site_id IN ('MCO', 'MLA', 'MLB', 'MLC', 'MLM', 'MLU', 'MLV')
     AND path IN ('/vip/show_phone', '/vip/call_seller', '/vip/contact_seller', '/quotation/congrats', '/quotation/show_price', '/checkout/congrats')
     AND device.platform LIKE '/web%'
-    AND application.site_id IN ('MCO', 'MLA', 'MLB', 'MLC', 'MLM', 'MLU', 'MLV')
-    AND ds >= '@param01' and ds < '@param02'
+    AND platform.fragment LIKE '%BB:%'
+    AND jest(event_data, 'vertical') IN ('REAL_ESTATE', 'real_estate', 'realEstate', 'RE', 'MOTOR', 'MOTORCYCLE', 'motors', 'SERVICE', 'services')
   GROUP BY substr(ds,1,10),
     application.site_id,
     application.business,

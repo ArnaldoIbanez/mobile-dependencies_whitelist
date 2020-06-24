@@ -67,7 +67,6 @@ catalog {
         include business, "melidata_sdk.groovy"
         include business, "registrations.groovy"
         include business, "chargebacks.groovy"
-        include business, "freeData.groovy"
         include business, "wallet.groovy"
         include business, "px.groovy"
         include business, "mobile_commons.groovy"
@@ -104,7 +103,6 @@ catalog {
         include business, "credits_classifieds.groovy"
         include business, "moderations.groovy"
         include business, "email.groovy"
-        include business, "freeData.groovy"
         include business, "fulfillment.groovy"
         include business, "home.groovy"
         include business, "loyalty.groovy"
@@ -156,7 +154,12 @@ catalog {
         include business, "notifications.groovy"
         include business, "post_purchase.groovy"
         include business, "cdn_metrics.groovy"
+        include business, "splinter.groovy"
         include business, "update_browser.groovy"
+        include business, "insurtech.groovy"
+        include business, "trends.groovy"
+        include business, "data_privacy.groovy"
+        include business, "sms.groovy"
     }
 
     mercadopago.each { business ->
@@ -187,6 +190,7 @@ catalog {
         include business, "mplayer.groovy"
         include business, "money_in.groovy"
         include business, "money_out.groovy"
+        include business, "disbursements.groovy"
         include business, "pos_seller.groovy"
         include business, "preference.groovy"
         include business, "discount_sellers.groovy"
@@ -203,6 +207,7 @@ catalog {
         include business, "digital_goods.groovy"
         include business, "sp_bill_payments.groovy"
         include business, "notifications.groovy"
+        include business, "data_privacy.groovy"
     }
 
     mercadoshops.each { business ->
@@ -242,6 +247,7 @@ catalog {
         include business, "cx.groovy"
         include business, "traffic.groovy"
         include business, "vip.groovy"
+        include business, "splinter.groovy"
     }
 
 }

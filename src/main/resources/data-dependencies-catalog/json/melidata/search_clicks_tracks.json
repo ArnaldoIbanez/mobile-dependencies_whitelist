@@ -3,20 +3,16 @@
       "search-infrastructure-alerts@mercadolibre.com"
     ],
     "process_name": "search_clicks_tracks",
-    "cron": "00 08 * * *",
+    "cron": "00 05 * * *",
     "partition": {
       "name": "ds",
       "type": "DATE"
     },
     "extract": {
-      "operation": "append",
+      "operation": "destroy",
       "columns": [
         {
           "name": "site_id",
-          "type": "UNICODE_STRING"
-        },
-        {
-          "name": "platform",
           "type": "UNICODE_STRING"
         },
         {
@@ -25,6 +21,10 @@
         },
         {
           "name": "click_total",
+          "type": "INTEGER"
+        },
+        {
+          "name": "zrp_total",
           "type": "INTEGER"
         }
       ],

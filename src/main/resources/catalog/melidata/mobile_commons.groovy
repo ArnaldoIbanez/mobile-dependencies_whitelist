@@ -63,4 +63,17 @@ tracks {
         version (required: true, type: PropertyType.String, description: "v1 if bump legacy, v2 if in-app-update implemented")
         type (required: true, type: PropertyType.String, description: "type of in-app-update FLEXIBLE | IMMEDIATE | LEGACY")
     }
+
+    "/cross_app_links"(platform: "/mobile", isAbstract: true){}
+    "/cross_app_links/dispatch"(platform: "/mobile", type: TrackType.Event){
+        link (required: true, type: PropertyType.String, description: "dispatched link")
+        result (required: true, type: PropertyType.String, description: "result class name")
+        reason (required: false, type: PropertyType.String, description: "result reason class in case its result is error")
+        from (required: false, type: PropertyType.String, description: "a descriptor that will allow to differentiate sources for the same dispatched deeplink")
+    }
+    "/cross_app_links/fetch"(platform: "/mobile", type: TrackType.Event){
+        link (required: true, type: PropertyType.String, description: "fetched link")
+        provider (required: true, type: PropertyType.String, description: "provider class name")
+        from (required: false, type: PropertyType.String, description: "a descriptor that will allow to differentiate sources for the same dispatched deeplink")
+    }
 }

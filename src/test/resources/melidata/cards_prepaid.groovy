@@ -296,4 +296,11 @@ trackTests {
         "/prepaid/faq/detail/rejected_international_authorization/money_in" (platform: "/", type: TrackType.Event) {}
         "/prepaid/faq/detail/rejected_international_authorization/reissue" (platform: "/", type: TrackType.Event) {}
     }
+
+    test ("Cards acquisition pj onboarding") {
+        "/prepaid/acquisition/pj_onboarding"(platform: "/", type: TrackType.View) {}
+        "/prepaid/acquisition/pj_onboarding/tap"(platform: "/", type: TrackType.Event) {} 
+        "/prepaid/acquisition/pj_onboarding/error"(platform: "/", type: TrackType.Event) {} 
+    }
+
 }

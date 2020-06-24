@@ -316,4 +316,9 @@ tracks {
     "/prepaid_recharge/add_recipient"(platform: "/mobile") {}
     "/prepaid_recharge/recipient"(platform: "/mobile") {}
 
+    // PJ Onboarding
+    "/prepaid/acquisition/pj_onboarding"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/pj_onboarding/tap"(platform: "/", type: TrackType.Event) {}
+    "/prepaid/acquisition/pj_onboarding/error"(platform: "/", type: TrackType.Event) {}
+
 }

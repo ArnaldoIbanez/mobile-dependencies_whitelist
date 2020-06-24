@@ -76,6 +76,7 @@
     ],
     "sql": {
       "script": "seller_central/sales/seller_central_sales_excel_generation.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

@@ -50,10 +50,15 @@
       {
         "name": "cpu_time",
         "type": "INTEGER"
+      },
+      {
+        "name": "text",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
       "script": "melidata/analytics_over_presto_v2.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

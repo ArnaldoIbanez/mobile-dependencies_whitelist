@@ -710,6 +710,17 @@ trackTests {
 
     test("PX - Events") {
 
+      "/px_checkout/review/one_tap/back"(platform: "/mobile", type: TrackType.Event) {
+          flow_detail = {
+              collector_id = 1234
+              brand_name = "YPF"
+              store_id = 1234
+              pos_id = 1234
+          }
+          flow = "/instore"
+          session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+      }
+
         "/px_checkout/review/one_tap/abort"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
                 collector_id = 1234
@@ -1843,6 +1854,55 @@ trackTests {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
+        "/px_checkout/result/success/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/result/further_action_needed/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/result/unknown/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/dialog/open"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            description = "suspended_account_money"
+            actions = 2
+        }
+
+        "/px_checkout/dialog/dismiss"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            description = "suspended_account_money"
+            actions = 2
+        }
+
+        "/px_checkout/dialog/action"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            description = "suspended_account_money"
+            actions = 2
+            type = "main_action"
+            deepLink = "mercadopago://kyc/"
+        }
+
+        "/px_checkout/review/one_tap/offline_methods/start_kyc_flow"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/review/one_tap/target_behaviour"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            behaviour = "tap_pay"
+            deepLink = "mercadopago://kyc/"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -2687,6 +2747,17 @@ trackTests {
     }
 
     test("PX - Events") {
+
+      "/px_checkout/review/one_tap/back"(platform: "/mobile", type: TrackType.Event) {
+          flow_detail = {
+              collector_id = 1234
+              brand_name = "YPF"
+              store_id = 1234
+              pos_id = 1234
+          }
+          flow = "/instore"
+          session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+      }
 
         "/px_checkout/review/one_tap/abort"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
@@ -3678,6 +3749,56 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/result/success/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/result/further_action_needed/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/result/unknown/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/dialog/open"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            description = "suspended_account_money"
+            actions = 2
+        }
+
+        "/px_checkout/dialog/dismiss"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            description = "suspended_account_money"
+            actions = 2
+        }
+
+        "/px_checkout/dialog/action"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            description = "suspended_account_money"
+            actions = 2
+            type = "main_action"
+            deepLink = "mercadopago://kyc/"
+        }
+
+        "/px_checkout/review/one_tap/offline_methods/start_kyc_flow"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/review/one_tap/target_behaviour"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            behaviour = "tap_pay"
+            deepLink = "mercadopago://kyc/"
         }
     }
 }

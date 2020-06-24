@@ -1,7 +1,11 @@
 package src.test.resources.melidata
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType
-import com.ml.melidata.catalog.PropertyType
+
+/**************************************************************
+ * CONTACT: In case of changes over this file, please send us
+ *  a message to our e-mail: front_native_devs@mercadolibre.com
+ **************************************************************/
 
 /**************************
  * WALLET HOME TEST TRACKS *
@@ -291,7 +295,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: false
                     ],
                     assets: [],
                     credits: [],
@@ -432,6 +437,13 @@ trackTests {
                     ordinal: 14,
                     content_type : 'complete'
             ]
+            ifpe_regulation= [
+                    ordinal: 15,
+                    content_type : 'complete'
+            ]
+            metadata = [
+                accessibility_voice: false
+            ]
         }
     }
 
@@ -454,7 +466,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: true
                     ],
                     assets: [],
                     credits: [],
@@ -594,6 +607,13 @@ trackTests {
                     ordinal: 14,
                     content_type : 'complete'
             ]
+            ifpe_regulation= [
+                    ordinal: 15,
+                    content_type : 'complete'
+            ]
+            metadata = [
+                accessibility_voice: true
+            ]
         }
     }
 
@@ -705,6 +725,14 @@ trackTests {
             component_id="user_loyalty"
             level=4
             percentage=0.32
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Subscription") {
+        "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://loyalty"
+            section_id="subscription"
+            component_id="cta"
         }
     }
 
@@ -1058,7 +1086,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: true
                     ],
                     assets: [],
                     credits: [],
@@ -1194,6 +1223,15 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            subscription= [
+                    content_type : 'partial',
+                    ordinal: 14,
+                    level: 3,
+                    partner: "HBO"
+            ]
+            metadata = [
+                accessibility_voice: false
+            ]
         }
     }
 
@@ -1216,7 +1254,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: false
                     ],
                     assets: [],
                     credits: [],
@@ -1352,6 +1391,15 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            subscription= [
+                    content_type : 'partial',
+                    ordinal: 14,
+                    level: 3,
+                    partner: "HBO"
+            ]
+            metadata = [
+                accessibility_voice: true
+            ]
         }
     }
 
@@ -1463,6 +1511,14 @@ trackTests {
             component_id="user_loyalty"
             level=4
             percentage=0.32
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Subscription") {
+        "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://loyalty"
+            section_id="subscription"
+            component_id="cta"
         }
     }
 

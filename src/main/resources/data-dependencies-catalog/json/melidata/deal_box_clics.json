@@ -47,6 +47,7 @@
     ],
     "sql": {
       "script": "business-assurance/deal_box_clics.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

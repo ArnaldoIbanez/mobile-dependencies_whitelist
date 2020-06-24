@@ -1,20 +1,18 @@
 {
-  "users":
-  [
-    "carlos.rodrigo@mercadolibre.com"
+  "users": [
+    "manuel.kenar@mercadolibre.com",
+    "vip_it@mercadolibre.com"
   ],
-  "process_name": "recommendations_bundle_coverage_new",
-  "cron": "00 06 * * *",
+  "process_name": "pdp_trackings_convertion",
+  "cron": "00 07 * * *",
   "partition": {
     "name": "ds",
     "type": "DATE"
   },
-  "extract":
-  {
+  
+  "extract": {
     "operation": "append",
-    "site": "MeliLake",
-    "columns":
-    [
+    "columns": [
       {
         "name": "site_id",
         "type": "UNICODE_STRING"
@@ -24,44 +22,32 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "total_prints",
+        "name": "total_pdp",
         "type": "INTEGER"
       },
       {
-        "name": "client",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "backend_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "combo_type",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "combo_free_shipping",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "prints_with_bundle",
+        "name": "total_pdp_cart",
         "type": "INTEGER"
       },
       {
-        "name": "bundle_with_fs",
+        "name": "total_a2c_actions",
         "type": "INTEGER"
       },
       {
-        "name": "bundle_with_saving",
+        "name": "total_buy_actions",
         "type": "INTEGER"
       },
       {
-        "name": "bundles_with_trigger_with_fs",
+        "name": "total_orders",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total_orders_cart",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "recommendations/bundle-coverage.sql",
+      "script": "pdp/pdp-trackings-convertion.sql",
       "parameters": [
         {
           "name": "param01",
