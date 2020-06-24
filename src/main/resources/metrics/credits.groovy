@@ -82,8 +82,8 @@ metrics {
             condition {
                 path("/email/generic")
                 and(
-                        equals("event_data.event_type", "send"),
-                        equals("event_data.email_template", "CM_AUTOCOLLECT")
+                    equals("event_data.event_type", "send"),
+                    equals("event_data.email_template", "CM_AUTOCOLLECT")
                 )
             }
         }
@@ -100,7 +100,7 @@ metrics {
             condition {
                 path("/credits/merchant/enrollment/congrats")
                 or (
-                        path("/credits/merchant/enrollment/documentation/congrats")
+                    path("/credits/merchant/enrollment/documentation/congrats")
                 )
             }
         }
@@ -115,7 +115,7 @@ metrics {
             condition {
                 path("/credits/merchant/enrollment/congrats")
                 or (
-                        path("/credits/merchant/enrollment/documentation/congrats")
+                    path("/credits/merchant/enrollment/documentation/congrats")
                 )
             }
         }
@@ -131,8 +131,8 @@ metrics {
             condition {
                 path("/email/generic")
                 and(
-                        equals("event_data.event_type", "send"),
-                        equals("event_data.email_template", "CM_AUTOCOLLECT")
+                    equals("event_data.event_type", "send"),
+                    equals("event_data.email_template", "CM_AUTOCOLLECT")
                 )
             }
         }

@@ -99,6 +99,7 @@
     ],
     "sql": {
       "script": "mercadopago/wallet_conversion_point.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

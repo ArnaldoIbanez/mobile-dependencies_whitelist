@@ -136,4 +136,4 @@ from (
   CAST(jest(event_data, 'total_amount_usd') as DOUBLE)
 )todo
 group by todo.fecha, todo.site, todo.platform
-order by todo.fecha
+

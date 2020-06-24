@@ -101,11 +101,94 @@ trackTests {
         version = "v2"
         type = "IMMEDIATE"
     }
+    // Installed
+    "/in_app_updates/updatable/installed"(platform: "/mobile"){
+        version = "v2"
+        type = "FLEXIBLE"
+    }
+    "/in_app_updates/updatable/installed"(platform: "/mobile"){
+        version = "v2"
+        type = "IMMEDIATE"
+    }
+    "/in_app_updates/inactive/installed"(platform: "/mobile"){
+        version = "v2"
+        type = "IMMEDIATE"
+    }
+    // Update Failed update_failed
+    "/in_app_updates/updatable/update_failed"(platform: "/mobile"){
+        version = "v2"
+        type = "FLEXIBLE"
+    }
+    "/in_app_updates/updatable/update_failed"(platform: "/mobile"){
+        version = "v2"
+        type = "IMMEDIATE"
+    }
+    "/in_app_updates/inactive/update_failed"(platform: "/mobile"){
+        version = "v2"
+        type = "IMMEDIATE"
+    }
     // Update Unavailable
     "/in_app_updates/updatable/update_not_available"(platform: "/mobile"){
         cause = "Google not Recommended"
+    } 
     }
-    "/in_app_updates/updatable/install"(platform: "/mobile"){}
+
+    test("Cross App Links") {
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_SUCCESS"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_INSTALLED"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_UPDATED"
+        }
+        "/cross_app_links/fetch"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "ADJUST_PROVIDER"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_SUCCESS"
+            from = "drawer"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_INSTALLED"
+            from = "drawer"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_UPDATED"
+            from = "drawer"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_INSTALLED"
+            from = "drawer"
+            id = "cross_link1"
+            store_replacement_link = "meli://modal/full?id=test"
+            store_replacement_link_scheme_is_valid = true
+        }
+        "/cross_app_links/fetch"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "ADJUST_PROVIDER"
+            from = "drawer"
+        }
+        "/cross_app_links/fetch"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "KEYCHAIN"
+            from = "drawer"
+            id = "cross_link1"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -219,10 +302,93 @@ trackTests {
             version = "v2"
             type = "IMMEDIATE"
         }
+        // installed
+        "/in_app_updates/updatable/installed"(platform: "/mobile"){
+            version = "v2"
+            type = "FLEXIBLE"
+        }
+        "/in_app_updates/updatable/installed"(platform: "/mobile"){
+            version = "v2"
+            type = "IMMEDIATE"
+        }
+        "/in_app_updates/inactive/installed"(platform: "/mobile"){
+            version = "v2"
+            type = "IMMEDIATE"
+        }
+        // Update Failed
+        "/in_app_updates/inactive/update_failed"(platform: "/mobile"){
+            version = "v2"
+            type = "IMMEDIATE"
+        }
+        "/in_app_updates/updatable/update_failed"(platform: "/mobile"){
+            version = "v2"
+            type = "IMMEDIATE"
+        }
+        "/in_app_updates/updatable/update_failed"(platform: "/mobile"){
+            version = "v2"
+            type = "FLEXIBLE"
+        }
         // Update Unavailable
         "/in_app_updates/updatable/update_not_available"(platform: "/mobile"){
             cause = "Google not Recommended"
         }
-        "/in_app_updates/updatable/install"(platform: "/mobile"){}
+    }
+
+    test("Cross App Links") {
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_SUCCESS"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_INSTALLED"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_UPDATED"
+        }
+        "/cross_app_links/fetch"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "ADJUST_PROVIDER"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_SUCCESS"
+            from = "drawer"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_INSTALLED"
+            from = "drawer"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_UPDATED"
+            from = "drawer"
+        }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_INSTALLED"
+            from = "drawer"
+            id = "cross_link1"
+            store_replacement_link = "meli://modal/full?id=test"
+            store_replacement_link_scheme_is_valid = true
+        }
+        "/cross_app_links/fetch"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "ADJUST_PROVIDER"
+            from = "drawer"
+        }
+        "/cross_app_links/fetch"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "KEYCHAIN"
+            from = "drawer"
+            id = "cross_link1"
+        }
     }
 }

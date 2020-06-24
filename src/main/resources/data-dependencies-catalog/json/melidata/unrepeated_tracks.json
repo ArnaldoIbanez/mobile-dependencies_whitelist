@@ -1,6 +1,6 @@
 {
   "users": [
-    "patricio.benitez@mercadolibre.com"
+    "melidata_dev@mercadolibre.com"
   ],
   "partition": {
     "name": "ds",
@@ -30,6 +30,7 @@
     ],
     "sql": {
       "script": "melidata/unrepeated-tracks.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

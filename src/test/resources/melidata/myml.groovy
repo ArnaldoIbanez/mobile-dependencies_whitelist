@@ -143,6 +143,38 @@ trackTests {
     }
 
     test("Optin flow") {
+        "/myml/invoices/optin"(platform: "/") {}
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+
         "/myml/invoices/not-found"(platform: "/") {}
         "/myml/invoices/landing"(platform: "/") {}
         "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {
@@ -312,6 +344,9 @@ trackTests {
         }
         "/myml/invoices/order/devolution"(platform: "/") {}
         "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/order/devolution/success"(platform: "/", type: TrackType.Event) {
+            devolution_type = "total"
+        }
     }
 
     test("Backoffice pages") {
@@ -640,6 +675,12 @@ trackTests {
 
         "/myml/invoices/opt_in/difal"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/opt_in/difal/button/save"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/opt_in/rule-composition"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/opt_in/rule-composition/button/save"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/opt_in/cst-devolution"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/opt_in/cst-devolution/button/save"(platform: "/", type: TrackType.Event) {}
     }
 
 
@@ -661,6 +702,89 @@ trackTests {
             purchase_status = "Paid"
             PurchaseStatus = "Paid"
 
+        }
+
+        def purchasesEventDataSet = {
+            label = "faq_1"
+            x_mc_request_id = "98c9af-fa979tg-10hjcoi"
+        }
+
+        def purchasesEventWithVerticalDataSet = {
+            label = "faq_2"
+            x_mc_request_id = "qwrqwr2-fa979tg-10hjcoi"
+            vertical_case_id = "shipping"
+            vertical_sub_case_id = "ready_to_ship_on_time"
+        }
+
+        def newPurchasesDataSet = {
+            items = [
+                [
+                    business: "mercadolibre",
+                    page_vertical: "CORE",
+                    domain: "MLM-SMARTPHONES",
+                    category_l1: "MLM1234",
+                    category_l2: "MLM568",
+                    listing_type: "gold_pro",
+                    item_id: "MLA12345678",
+                    quantity: 2,
+                    variation_id: 987298347,
+                    condition: "new"
+                ],
+                [
+                    business: "mercadolibre",
+                    page_vertical: "CORE",
+                    domain: "MLM-SMARTPHONES",
+                    category_l1: "MLM1234",
+                    category_l2: "MLM568",
+                    category_l3: "MLM5444",
+                    category_l4: "MLM731",
+                    category_l5: "MLM0948",
+                    listing_type: "gold_pro",
+                    item_id: "MLA12345678",
+                    quantity: 2,
+                    condition: "new",
+                    product_id: "MLM5154108",
+                    deals: ["MLM1123", "MLM6534"]
+                ]
+            ]
+
+          seller: [
+                [
+                    id: 2,
+                    nickname: "Nombre del vendedor",
+                    messages_count: 0
+                ]
+          ]
+
+          buyer: [
+                [
+                    id: 12345,
+                    is_prime: "true"
+                ]
+          ]
+          
+          payments: [
+                [
+                    payment_method_type: "credit_card",
+                    payment_method_id: "visa",
+                    payment_status: "approved",
+                    payment_status_detail: "success"
+            ]
+          ]
+
+          shipping: [
+          ]
+          
+          purchases_flow: "v2"
+          purchase_status: "paid"
+          checkout_flow: "order"
+          vertical_case_id: "shipping"
+          vertical_sub_case_id: "shipping_delivered_delivery_address"
+          garex: "no"
+          x_mc_request_id: "aaaaa-vvvvvv-cccc-ddd"
+          purchase_id: 1234
+          pack_id: 1234
+          order_id: 1234
         }
 
         "/myml/sales/list"(platform: "/web", type: TrackType.Event) {}
@@ -772,6 +896,98 @@ trackTests {
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {
             dataSet()
         }
+
+        // ----- new purchases
+
+        "/myml/my_purchases/status" (platform:"/", type: TrackType.View) {
+            newPurchasesDataSet()
+        }
+
+        "/myml/my_purchases/status/items" (platform:"/", type: TrackType.View) {
+            newPurchasesDataSet()
+        }
+
+        "/myml/my_purchases/status/instructions" (platform:"/", type: TrackType.View) {
+            newPurchasesDataSet()
+        }
+
+        "/myml/my_purchases/status/messages" (platform:"/", type: TrackType.View) {
+            newPurchasesDataSet()
+        }
+
+        "/myml/my_purchases/status/return_purchase" (platform:"/", type: TrackType.View) {
+            newPurchasesDataSet()
+        }
+
+        "/myml/my_purchases/status/return_purchase/click_action" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/cancel_purchase" (platform:"/", type: TrackType.View) {
+            newPurchasesDataSet()
+        }
+
+        "/myml/my_purchases/status/show_action" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/show_help" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/show_faq" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+       "/myml/my_purchases/status/click_action" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/click_help" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/click_faq" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/click_view_item" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/click_view_messages" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/click_driver_messages" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/click_contact_us" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/items/click_view_item" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/instructions/click_view_item" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/instructions/click_action" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/messages/click_view_messages" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/myml/my_purchases/status/messages/click_view_messages" (platform:"/", type: TrackType.Event) {
+            purchasesEventWithVerticalDataSet()
+        }
+
+        // -------
 
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
             item = {
@@ -1294,7 +1510,7 @@ trackTests {
             selected = "MSwyLDMsNA=="
         }
 
-        "/myml/fiscal_rules/massive/upload/action/rules"(platform: "/", type: TrackType.Event) {
+        "/myml/fiscal_rules/massive/upload/action/advanced_tax_settings"(platform: "/", type: TrackType.Event) {
             callback = "www.mercadolivre.com.br"
             action = "edit"
             selected = "MSwyLDMsNA=="

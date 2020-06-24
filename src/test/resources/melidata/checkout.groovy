@@ -1877,29 +1877,6 @@ trackTests {
     Garex tracks tests
     * */
     test('checkout garex') {
-        "/checkout/garex"(platform:"/web", type: TrackType.View) {}
-        "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
-        "/checkout/garex/selected_garex"(platform:"/web", type: TrackType.Event) {
-            garex = [
-                    "id": "MLA390289_GAR16001",
-                    "period": 24,
-                    "cost": 1234,
-                    "revenue_share_fee": 70,
-                    "revenue": 863.80,
-                    "currency_id": "ARS"
-            ]
-        }
-        "/checkout/garex/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
-        "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
-            garex = [
-                    "id": "MLA390289_GAR16001",
-                    "period": 24,
-                    "cost": 1234,
-                    "revenue_share_fee": 70,
-                    "revenue": 863.80,
-                    "currency_id": "ARS"
-            ]
-        }
 
         "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
         "/checkout/garex/delete"(platform:"/mobile", type: TrackType.Event) {

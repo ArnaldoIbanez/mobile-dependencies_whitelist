@@ -48,6 +48,7 @@
     }],
     "sql": {
       "script": "bi/ctr_tab4_utm.sql",
+      "engine": "spark",
       "parameters": []
     }
   }

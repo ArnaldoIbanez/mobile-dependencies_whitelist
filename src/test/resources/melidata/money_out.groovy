@@ -44,6 +44,13 @@ trackTests {
          amount = "500"
       }
 
+      "/money_out/kyc"(platform: "/", type: TrackType.View) {}
+      "/money_out/kyc/onboarding"(platform: "/", type: TrackType.View) {}
+
+      "/money_out/cashout/map"(platform: "/", type: TrackType.View) {}
+
+      // New Cashout Onobaording
+      "/money_out/cashout/onboarding"(platform: "/", type: TrackType.View) {}
       // Cashout onboarding
 
       "/money_out/cashout/onboarding/withdraw_limit"(platform: "/", type: TrackType.View) {}
@@ -62,6 +69,7 @@ trackTests {
 
       // Tecban
       "/money_detail/tecban"(platform: "/", type: TrackType.Event) {}
+      "/money_out/tecban/network_error"(platform: "/", type: TrackType.View) {}
       "/money_out/tecban/onboarding"(platform: "/", type: TrackType.View) {}
       "/money_out/tecban"(platform: "/", type: TrackType.View) {}
       "/money_out/tecban/onboarding/continue"(platform: "/", type: TrackType.Event) {}
@@ -125,6 +133,7 @@ trackTests {
       "/money_out/transfers/home/recents_tab_selected"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/favs_tab_selected"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/faq_button_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/profile_button_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/scheduled_transfers_selected"(platform: "/", type: TrackType.Event) {}
 
       //Transfer Hub - Scheduled Transfers
@@ -195,6 +204,11 @@ trackTests {
       "/money_out/transfers/home/scheduled_warning_modal"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/home/scheduled_warning_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/scheduled_warning_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+      //Transfer Hub - TED Campaign Modal
+      "/money_out/transfers/home/ted_campaign_modal"(platform:"/", type: TrackType.View){}
+      "/money_out/transfers/home/ted_campaign_modal/ted_button_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/ted_campaign_modal/withdraw_legacy_button_clicked"(platform: "/", type: TrackType.Event) {}
 
     }
 }

@@ -26,7 +26,10 @@ tracks {
     "/credits/consumer/opensea/integrated_flow/start"(platform: "/", type: TrackType.View) {
         source(description: "Integrated flow source", type: PropertyType.String, required: true)
     }
-    "/credits/consumer/opensea/integrated_flow/credit_line_status"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/opensea/integrated_flow/credit_line_status"(platform: "/", type: TrackType.View) {
+        result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected", "error"])
+        source(description: "Integrated flow source", type: PropertyType.String, required: true)
+    }
 
     //Events
     "/credits/consumer/opensea/integrated_flow/start/application_start"(platform: "/", type: TrackType.Event) {
@@ -71,5 +74,18 @@ tracks {
 
     /******************************************
      *   End: Consumers  Opensea Integrations
+     ******************************************/
+
+    /******************************************
+     *    Start: Consumers Opensea Flow
+     ******************************************/
+
+    "/credits/consumer/opensea/start"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/consumer/opensea/congrats"(platform: "/mobile", type: TrackType.View){
+        result(description: "Current status of the IV/KyC application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
+    }
+
+    /******************************************
+     *   End: Consumers Opensea Flow
      ******************************************/
 }

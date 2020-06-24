@@ -1,51 +1,56 @@
 {
   "users": [
-    "patricio.benitez@mercadolibre.com"
+    "julio.cardenas@mercadolibre.cl"
   ],
+  "process_name": "cross_selling_taps",
+  "cron": "00 01 * * *",
   "partition": {
-    "name": "ds",
-    "type": "DATE"
+        "name": "ds",
+        "type": "DATE"
   },
-  "process_name": "experiments_validation_v2",
-  "cron": "30 15 * * *",
   "extract": {
     "operation": "append",
     "columns": [
-      {
-        "name": "source",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "experiment_name",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "metric",
-        "type": "UNICODE_STRING"
-      },
       {
         "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
-        "name": "variant_id",
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "version",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "content",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "position",
         "type": "INTEGER"
       },
       {
-        "name": "sessions",
+        "name": "audience",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "taps",
         "type": "INTEGER"
       },
       {
-        "name": "metric_sum",
-        "type": "INTEGER"
-      },
-      {
-        "name": "rate",
+        "name": "total",
         "type": "INTEGER"
       }
     ],
     "sql": {
-      "script": "melidata/melidata-experiments-cross-validation_v2.sql",
+      "script": "mercadopago/cross_selling_taps.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
