@@ -310,6 +310,9 @@ tracks {
     }
 
     // Contacts
+    "/mplayer/contacts"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/contacts/massive_upload"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/contacts/search"(platform: "/mobile", isAbstract: true) {}
     "/mplayer/contacts/massive_upload/start"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/contacts/massive_upload/successful_end"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/contacts/search/start"(platform: "/mobile", type: TrackType.Event) {}
