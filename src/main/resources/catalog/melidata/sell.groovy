@@ -821,7 +821,9 @@ tracks {
     "/sell/item_data/specifications"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/specifications/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/technical_specifications"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/technical_specifications"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_data/technical_specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/multivalue"(platform: "/web", type: TrackType.Event) {
@@ -1111,18 +1113,24 @@ tracks {
     // TRACKS SYI v4 - RealEstate
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    "/sell/item_data/location"(platform: "/web", isAbstract: true) {}
-    "/sell/item_data/location/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/location"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/location/show"(platform: "/web", type: TrackType.Event) { }
     "/sell/item_data/location/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/location/intent"(platform: "/web", type: TrackType.Event) {
         locationIntentsGroup
     }
 
-    "/sell/item_data/pictures"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/pictures"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_data/pictures/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
 
-    "/sell/item_data/title_and_description"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/title_and_description"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_data/title_and_description/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title_and_description/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/technical_specifications/intent"(platform: "/web", type: TrackType.Event) {

@@ -4030,6 +4030,7 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            listing_type_id = "silver"
         }
     }
     test("SYI v4 publicar - title and  description card confirmed") {
@@ -4061,6 +4062,7 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            listing_type_id = "silver"
         }
     }
 
@@ -4129,6 +4131,7 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            listing_type_id = "silver"
         }
     }
 
@@ -4244,6 +4247,7 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            listing_type_id = "silver"
         }
     }
 
@@ -4278,7 +4282,7 @@ trackTests {
             business = "classified"
             platform = "pi"
             valid_intent = false
-            field_intent_ids = ["CONTACT_SCHEDULE","OPERATION_SUBTYPE","TOTAL_AREA"]
+            field_intent_ids = ["CONTACT_SCHEDULE", "OPERATION_SUBTYPE", "TOTAL_AREA"]
         }
     }
 
@@ -4449,15 +4453,16 @@ trackTests {
     }
     test("SYI v4 publicar - wrong category") {
         "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {
-            seller_profile = "ADVANCED"
-            seller_segment = "professional_sellers"
-            session_id = "123-update-abc123"
-            vertical = "core"
+            seller_reputation = "NO_REPUTATION"
+            business = "classified"
             item_type = "default"
-            seller_reputation = "green"
-            chosen_categorization_model = "ZORDON"
-            title_predicted = "test"
-            list_mode = "LIST"
+            session_id = "583247067-listres-08604897e645"
+            vertical = "realEstate"
+            platform = "pi"
+            category_id = "MLC183186"
+            seller_segment = ""
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            seller_profile = "NEWBIE"
         }
     }
 
@@ -4505,8 +4510,5 @@ trackTests {
             shield_type = "user_has_debt"
         }
     }
-
-
-
-
+    
 }
