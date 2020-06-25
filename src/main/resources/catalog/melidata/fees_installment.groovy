@@ -15,7 +15,7 @@ tracks {
             required: true, 
             type: PropertyType.String, 
             description: "El plazo del release option."
-            )
+        )
         fee(
             required: true, 
             PropertyType.String, 
@@ -52,13 +52,13 @@ tracks {
         )
         release_option_values(
             required: true, 
-            type: PropertyType.ArrayList(PropertyType.Map(release_option_value)), 
+            type: PropertyType.ArrayList(release_option_value), 
             description: "El conjunto de valores de tasa y plazo que muestra un release option."
         )
     }
 
     // Contiene un conjunto de métodos de pagos para un canal dado.
-    def payment = objectSchemaDefinitions {
+    def payment_row = objectSchemaDefinitions {
         channel_id(
             required: true, 
             type: PropertyType.String, 
@@ -71,7 +71,7 @@ tracks {
         )
         payment_methods(
             required: true, 
-            type: PropertyType.ArrayList(PropertyType.Map(payment_method)), 
+            type: PropertyType.ArrayList(payment_method), 
             description: "El conjunto de los datos asociados de un payment method."
         )
     }
@@ -92,14 +92,29 @@ tracks {
             type: PropertyType.String, 
             description: "La url del deeplink."
         )
+        payment(
+            required: true, 
+            type: PropertyType.Map(payment_row), 
+            description: "El payment que se está por modificar o se modificó."
+        )
     }
 
     propertyGroups {
-        urlGroup(url)
-        urlErrorGroup(url, message)
-        erroGroup(message)
-        deeplinkGroup(deeplink)
+        url_group(url)
+        url_error_group(url, message)
+        error_group(message)
+        deeplink_group(deeplink)
+        payment_group(payment)
     }
+
+    /* ----------------------------------------------------------------------------- */
+    /* Abstract paths.                                                               */
+    /* ----------------------------------------------------------------------------- */
+
+    "/fees_installment" (platform: "/", isAbstract: true) {}
+    "/fees_installment/payment_method" (platform: "/", isAbstract: true) {}
+    "/fees_installment/release_option" (platform: "/", isAbstract: true) {}
+    "/fees_installment/faq" (platform: "/", isAbstract: true) {}
 
     /* ----------------------------------------------------------------------------- */
     /* Componente de tasas y plazos.                                                 */
@@ -109,22 +124,18 @@ tracks {
     "/fees_installment/payment_method/success"(platform: "/", type: TrackType.Event) {
         payments(
             required: true, 
-            type: PropertyType.ArrayList(PropertyType.Map(payment)), 
+            type: PropertyType.ArrayList(payment_row), 
             description: "El conjunto de payments."
         )
     }
     "/fees_installment/payment_method/selection_action"(platform: "/", type: TrackType.Event) {
-        payment(
-            required: true, 
-            type: PropertyType.Map(payment), 
-            description: "El payment que se está por modificar."
-        )
+        payment_group
     }
     "/fees_installment/payment_method/error"(platform: "/", type: TrackType.Event) {
-        erroGroup
+        error_group
     }
     "/fees_installment/payment_method/footer_action"(platform: "/", type: TrackType.Event) {
-        urlGroup
+        url_group
     }
 
     /* ----------------------------------------------------------------------------- */
@@ -133,17 +144,13 @@ tracks {
 
     "/fees_installment/release_option/view"(platform: "/", type: TrackType.View) {}
     "/fees_installment/release_option/footer_action"(platform: "/", type: TrackType.Event) {
-        urlGroup
+        url_group
     }
     "/fees_installment/release_option/update"(platform: "/", type: TrackType.Event) {
-        payment(
-            required: true, 
-            type: PropertyType.Map(payment), 
-            description: "El payment que se está por modificar."
-        )
+        paymentGroup
     }
     "/fees_installment/release_option/error"(platform: "/", type: TrackType.Event) {
-        erroGroup
+        error_group
     }
     "/fees_installment/release_option/back"(platform: "/", type: TrackType.Event) {}
 
@@ -152,13 +159,13 @@ tracks {
     /* ----------------------------------------------------------------------------- */
 
     "/fees_installment/faq/view"(platform: "/", type: TrackType.View) {
-        urlGroup
+        url_group
     }
     "/fees_installment/faq/error"(platform: "/", type: TrackType.Event) {
-        urlErrorGroup
+        url_error_group
     }
     "/fees_installment/faq/success"(platform: "/", type: TrackType.Event) {
-        urlGroup
+        url_group
     }
     "/fees_installment/faq/back"(platform: "/", type: TrackType.Event) {}
 
@@ -168,6 +175,6 @@ tracks {
     /* ----------------------------------------------------------------------------- */
 
     "/fees_installment/deeplink_usage"(platform: "/", type: TrackType.View) {
-        deeplinkGroup
+        deeplink_group
     }
 }
