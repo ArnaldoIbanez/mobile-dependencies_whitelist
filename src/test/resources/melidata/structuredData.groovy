@@ -529,25 +529,22 @@ trackTests {
     // Catalog search
 
     def searchProductQuery = {
-        is_gtin = false
         site_filter = "MLA"
         query_filter = "philips"
         domain_filter = "tv"
-        has_results = true
+        is_gtin = false
         displayed_sources = [
                 "ice-cat",
                 "meli",
                 "bi_competence"
         ]
-        unknown_info_sources = []
     }
 
     def searchGtinQuery = {
-        is_gtin = true
         site_filter = null
         query_filter = "01234567890123"
         domain_filter = null
-        has_results = true
+        is_gtin = true
         displayed_sources = [
                 "meli",
                 "ice-cat",
@@ -555,18 +552,35 @@ trackTests {
                 "to",
                 "gepir",
         ]
-        unknown_info_sources = ["upc_item_db"]
     }
 
     test("catalog_search product query should be tracked"){
         "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
             searchProductQuery()
+            has_results = true
+        }
+    }
+
+    test("catalog_search product query without results should be tracked"){
+        "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
+            searchProductQuery()
+            has_results = false
         }
     }
 
     test("catalog_search gtin query should be tracked"){
         "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
             searchGtinQuery()
+            has_results = true
+            unknown_info_sources = ["upc_item_db"]
+        }
+    }
+
+    test("catalog_search gtin query without results not unknown sources should be tracked"){
+        "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
+            searchGtinQuery()
+            has_results = false
+            unknown_info_sources = []
         }
     }
 
@@ -575,6 +589,8 @@ trackTests {
         "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
             query_filter = "philips"
             domain_filter = "tv"
+            is_gtin = false
+            has_results = true
         }
     }
 
@@ -582,6 +598,8 @@ trackTests {
         "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
             site_filter = "MLB"
             query_filter = "philips"
+            is_gtin = false
+            has_results = true
         }
     }
 
@@ -589,6 +607,8 @@ trackTests {
         "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
             site_filter = "MLB"
             query_filter = "AUTOMOTIVE_TIRES"
+            is_gtin = false
+            has_results = true
         }
     }
 
@@ -635,6 +655,10 @@ trackTests {
 
     test("catalog_search copied external attribute"){
         "/structure_data/catalog_search/copied_external_attribute"(platform: "/web/desktop", type: TrackType.Event) {
+            is_gtin = false
+            displayed_sources = [
+                    "meli",
+            ]
             product_id = "b7c088e9-502f-4ed2-9446-0c865e024d7a"
             product_source = "ice-cat"
             product_external_id = "554178"
@@ -646,6 +670,10 @@ trackTests {
 
     test("catalog_search copied metadata attribute should be tracked"){
         "/structure_data/catalog_search/copied_external_attribute"(platform: "/web/desktop", type: TrackType.Event) {
+            is_gtin = false
+            displayed_sources = [
+                    "upc_item_db",
+            ]
             searchProductQuery()
             product_source = "gepir"
             external_attribute_key = "GTIN"

@@ -36,11 +36,11 @@ tracks {
         site_filter(required: false, description: "Site selected by the user", type: PropertyType.String)
         query_filter(required: false, description: "Search query input by the user", type: PropertyType.String)
         domain_filter(required: false, description: "Domain selected by the user", type: PropertyType.String)
-        is_gtin(required: true, description: "Indicates if the search is for GTIN (true) or products (false)", type: PropertyType.Boolean)
+        is_gtin(required: false, description: "Indicates if the search is for GTIN (true) or products (false)", type: PropertyType.Boolean)
         displayed_sources(required: false, description: "List of sources that initially appeared in the result list", type: PropertyType.ArrayList(PropertyType.String))
 
         // Metadata
-        has_results(required: true, description: "Indicates if the search has any results or not", type: PropertyType.Boolean)
+        has_results(required: false, description: "Indicates if the search has any results or not", type: PropertyType.Boolean)
         unknown_info_sources(required: false, description: "List of sources that could not be reached when presenting the results", type: PropertyType.ArrayList(PropertyType.String))
 
         // Product
