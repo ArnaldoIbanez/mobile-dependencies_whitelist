@@ -4080,6 +4080,22 @@ trackTests {
         }
     }
 
+    test("SYI v4 publicar - realEstate location info card confirmed") {
+        "/sell/item_data/location/intent"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            category_id = "MLC183186"
+            item_type = "default"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-7afd00a54af7"
+            vertical = "realEstate"
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
     test("SYI v4 publicar - picture card showed") {
         "/sell/item_data/pictures/show"(platform: "/web", type: TrackType.Event) {
             seller_reputation = "NO_REPUTATION"
@@ -4229,6 +4245,23 @@ trackTests {
 
     test("SYI v4 publicar - technical_specifications card confirmed") {
         "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            category_id = "MLC183186"
+            seller_segment = ""
+            item_type = "default"
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-718003de5fdc"
+            vertical = "realEstate"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+        }
+    }
+
+
+    test("SYI v4 publicar - technical_specifications card intents") {
+        "/sell/item_data/technical_specifications/intent"(platform: "/web", type: TrackType.Event) {
             seller_reputation = "NO_REPUTATION"
             category_id = "MLC183186"
             seller_segment = ""
@@ -4408,5 +4441,66 @@ trackTests {
             listing_type_id = "silver"
         }
     }
+    test("SYI v4 publicar - wrong category") {
+        "/sell/item_data/category/wrong_category"(platform: "/web", type: TrackType.Event) {
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            list_mode = "LIST"
+        }
+    }
+
+    test("SYI v4 publicar - congrats free showed") {
+        "/sell/congrats/instant_pay_listings/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            categorization_flow_successful = true
+            business = "classified"
+            item_id = "MLC533953132"
+            item_type = "default"
+            title_predicted = ""
+            session_id = "583247067-listres-0a5ad0c976ff"
+            vertical = "realEstate"
+            platform = "pi"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            listing_type_id = "free"
+        }
+    }
+
+    test("SYI v4 publicar - shield debts") {
+        "/sell/shield/validations/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            business = "classified"
+            item_type = "default"
+            session_id = "583247067-listres-0a5ad0c976ff"
+            vertical = "realEstate"
+            platform = "pi"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            shield_type = "user_has_debt"
+        }
+    }
+
+    test("SYI v4 publicar - shield debts") {
+        "/sell/shield/validations/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            business = "classified"
+            item_type = "default"
+            session_id = "583247067-listres-0a5ad0c976ff"
+            vertical = "realEstate"
+            platform = "pi"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            shield_type = "user_has_debt"
+        }
+    }
+
+
+
 
 }
