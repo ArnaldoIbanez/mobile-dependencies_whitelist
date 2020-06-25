@@ -2576,6 +2576,19 @@ trackTests {
             list_mode = "LIST"
         }
     }
+    test("SYI v4 redirect from title to install the app"){
+        "/sell/item_data/title/redirect_store"(platform: "/web/mobile", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = ""
+            category_id = "MLA1743"
+            session_id = "123-update-abc123"
+            vertical = "motors"
+            item_type = "default"
+            seller_reputation = "NO_REPUTATION"
+            list_mode = "LIST"
+            session_id = "1234-wm-08f2d"
+        }
+    }
     test("SYI v4 category suggested card showed"){
         "/sell/item_data/category_suggested/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
