@@ -161,18 +161,18 @@ trackTests {
     *************************/
 
     test("Banking Balance MP") {
-        "/mp_banking_balance" (platform: "/", type: TrackType.View) {}
+        "/banking" (platform: "/", type: TrackType.View) {}
     }
 
     test("Banking Calendar MP") {
-        "/mp_banking_balance/calendar"(platform: "/", type: TrackType.View) {}
+        "/banking/calendar"(platform: "/", type: TrackType.View) {}
     }
 
     test("Banking Balance Webview MP") {
-        "/mp_banking_balance/webview"(platform: "/", type: TrackType.View) {}
+        "/banking/webview"(platform: "/", type: TrackType.View) {}
     }
 
     test("Banking Calendar Webview MP") {
-        "/mp_banking_balance/calendar/webview"(platform: "/", type: TrackType.View) {}
+        "/banking/calendar/webview"(platform: "/", type: TrackType.View) {}
     }
 }
