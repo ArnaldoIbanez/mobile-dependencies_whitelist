@@ -1,8 +1,5 @@
 {
-  "users": [
-    "catalog-import@mercadolibre.com",
-    "nahuel.sotelo@mercadolibre.com"
-  ],
+  "users": ["catalog-import@mercadolibre.com"],
   "process_name": "sd-catalog-import-search-metrics",
   "cron": "0 6 * * *",
   "partition": {
@@ -38,7 +35,23 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "limit_filter",
+        "name": "site_filter",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "is_gtin",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "has_results",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "displayed_sources",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "unknown_info_sources",
         "type": "UNICODE_STRING"
       },
       {
