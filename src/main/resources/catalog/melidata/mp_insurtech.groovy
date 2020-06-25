@@ -39,22 +39,22 @@ tracks {
         deductible(required: true, type: PropertyType.Numeric, description: "Deductible percentage of the option.")
     }
 
-    "/insurtech/roda/qpage"(platform:"/mobile", type: TrackType.View) {
+    "/insurtech/roda/qpage"(platform:"/", type: TrackType.View) {
         device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         options(required: false, type: PropertyType.ArrayList(PropertyType.Map(roda_option_short)), description: "Options presented in the qpage for quotation")
         financing_type(required: false, type: PropertyType.Map(financing_type_track_structure), description: "Financing data of item if it has")
     }
 
-    "/insurtech/roda/qpage/deductible"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/roda/qpage/deductible"(platform:"/", type: TrackType.Event) {
         device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
     }
 
-    "/insurtech/roda/qpage/faq"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/roda/qpage/faq"(platform:"/", type: TrackType.Event) {
         device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         faq(required: true, type: PropertyType.String, description: "Name of the FAQ viewed. For ex: protection-cancel, deductible-fee")
     }
 
-    "/insurtech/roda/qpage/buy"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/roda/qpage/buy"(platform:"/", type: TrackType.Event) {
         device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         option(required: true, type: PropertyType.Map(roda_option), description: "Option plan selected on purchase.")
         financing_type(required: false, type: PropertyType.Map(financing_type_track_structure), description: "Financing data of item if it has")
