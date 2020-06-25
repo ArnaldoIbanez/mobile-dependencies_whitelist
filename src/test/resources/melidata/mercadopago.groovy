@@ -1933,6 +1933,14 @@ trackTests {
         }
 
         "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
+
+        "/settings/cost_calculator/detail/action_button" (platform: "/mobile", type: TrackType.Event) {
+            amount = 10.51
+            method = "point"
+            payment_financing = "credit"
+            installments = 12
+        }          
+        
         "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
         "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
 
