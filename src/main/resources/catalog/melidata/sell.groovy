@@ -45,7 +45,7 @@ tracks {
         seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
-        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
+        categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
         chosen_categorization_model(required: false, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
         category_prediction_selected_index(required: false, description: "Index selected in Multiples Suggestions", PropertyType.Numeric)
         attribute_values(required: false, description: "Array of attributes in categorization", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
@@ -61,6 +61,11 @@ tracks {
         user_type(required: false, type: PropertyType.String, description: "The user type")
         business(required: false,  values:["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
         platform(required: false, values:["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
+        has_drag(required: false, type: PropertyType.Boolean, description: "this property describes if map has been dragged by user")
+        valid_street_number(required: false, type: PropertyType.Boolean, description: "this property describes whether the map address contains a street number")
+        accept_new_location(required: false, type: PropertyType.Boolean, description: "this property describes whether the user interact with map component")
+        valid_intent(required: false, type: PropertyType.Boolean, description: "this property describes if user click confirm button before filling address")
+        field_intent_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the field ids for the intent")
     }
 
     propertyGroups {
@@ -71,6 +76,8 @@ tracks {
         listingTypeFlow(listing_type_id)
         listingTypeFlowMobile(listing_type_id, listing_type_free_available)
         catalogFlowMobile(domain_id, attribute_id, category_prediction_selected_index, attribute_values, predictions, parent_product_id, product_id)
+        locationIntentsGroup(has_drag, valid_street_number, accept_new_location, valid_intent)
+        technicalSpecsIntentsGroup(valid_intent, field_intent_ids)
     }
 
     // Sell
@@ -814,7 +821,9 @@ tracks {
     "/sell/item_data/specifications"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/specifications/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/technical_specifications"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/technical_specifications"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_data/technical_specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/multivalue"(platform: "/web", type: TrackType.Event) {
@@ -1061,6 +1070,11 @@ tracks {
         listingTypeFlow
     }
 
+    "/sell/congrats/instant_pay_listings"(platform: "/web", isAbstract: true) {}
+    "/sell/congrats/instant_pay_listings/show"(platform: "/web", type: TrackType.Event) {
+        listingTypeFlow
+    }
+
     // Catalog Optin flow for apps
     "/sell/catalog_optin"(platform: "/mobile", isAbstract: true) {
         item_id(required: true, description: "Session id for a specific user flow", type: PropertyType.String)
@@ -1099,15 +1113,36 @@ tracks {
     // TRACKS SYI v4 - RealEstate
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    "/sell/item_data/location"(platform: "/web", isAbstract: true) {}
-    "/sell/item_data/location/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/location"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/location/show"(platform: "/web", type: TrackType.Event) { }
     "/sell/item_data/location/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/location/intent"(platform: "/web", type: TrackType.Event) {
+        locationIntentsGroup
+    }
 
-    "/sell/item_data/pictures"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/pictures"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_data/pictures/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
 
-    "/sell/item_data/title_and_description"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/title_and_description"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_data/title_and_description/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title_and_description/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/technical_specifications/intent"(platform: "/web", type: TrackType.Event) {
+        technicalSpecsIntentsGroup
+    }
+
+    "/sell/shield"(platform: "/web", isAbstract: true) {
+        sellGroup
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
+        shield_type(required: false, description: "shield type", values:["user_has_debt", "user_package_empty", "user_package_error", "user_missing_data", "none", "onboarding"], type: PropertyType.String)
+    }
+    "/sell/shield/validations"(platform: "/web", isAbstract: true) {}
+    "/sell/shield/validations/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/shield/validations/confirm"(platform: "/web", type: TrackType.Event) {}
 }
