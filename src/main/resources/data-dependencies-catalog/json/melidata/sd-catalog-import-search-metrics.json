@@ -1,6 +1,6 @@
 {
   "users": ["catalog-import@mercadolibre.com"],
-  "process_name": "sd-catalog-import-search-metrics",
+  "process_name": "sd-catuniv-metrics",
   "cron": "0 6 * * *",
   "partition": {
     "name": "ds",
