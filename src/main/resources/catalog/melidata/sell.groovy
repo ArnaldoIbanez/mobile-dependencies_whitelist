@@ -1132,10 +1132,9 @@ tracks {
     "/sell/shield"(platform: "/web", isAbstract: true) {
         sellGroup
         item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
-        shield_type(required: false, description: "shield type", values:["user_has_debt", "user_package_empty", "user_package_error","user_missing_data","none"], type: PropertyType.String)
+        shield_type(required: false, description: "shield type", values:["user_has_debt", "user_package_empty", "user_package_error", "user_missing_data", "none", "onboarding"], type: PropertyType.String)
     }
     "/sell/shield/validations"(platform: "/web", isAbstract: true) {}
     "/sell/shield/validations/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/shield/validations/confirm"(platform: "/web", type: TrackType.Event) {}
-
 }
