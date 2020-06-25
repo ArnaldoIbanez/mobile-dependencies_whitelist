@@ -211,6 +211,7 @@ catalog {
         include business, "data_privacy.groovy"
         include business, "wallet.groovy"
         include business, "mp_insurtech.groovy"
+        include business, "mobile.groovy"
     }
 
     mercadoshops.each { business ->
