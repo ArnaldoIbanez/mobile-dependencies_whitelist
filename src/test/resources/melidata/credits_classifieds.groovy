@@ -16,6 +16,7 @@ trackTests {
             category_id = "MLA43718"
             buyer_id = 177056843
             bank = "santander"
+            congrats_status = "APPROVED"
         }
 
         "/classi_credits/pre_analysis"(platform: "/web/mobile", type: TrackType.View) {

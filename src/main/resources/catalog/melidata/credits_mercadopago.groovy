@@ -262,6 +262,18 @@ tracks {
     "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
         products_group
     }
+    "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
+        account_money(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'sufficient',
+                'insufficient'
+            ],
+            inheritable: false
+        )
+        products_group
+    }
     "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {
         products_group
     }
@@ -275,6 +287,32 @@ tracks {
                 'installment_paid',
                 'default'
             ],
+            inheritable: false
+        )
+        products_group
+    }
+    "/credits/merchant/early_repayment"(platform: "/", type: TrackType.View) {
+        account_money(
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'sufficient',
+                'insufficient'
+            ],
+            inheritable: false
+        )
+        products_group
+    }
+    "/credits/merchant/early_repayment/congrats"(platform: "/", type: TrackType.View) {
+        products_group
+    }
+    "/credits/merchant/early_repayment/active_early_repayment"(platform: "/", type: TrackType.View) {
+        products_group
+    }
+    "/credits/merchant/early_repayment/error"(platform: "/", type: TrackType.View) {
+        reason(
+            type: PropertyType.String,
+            required: false,
             inheritable: false
         )
         products_group
@@ -389,10 +427,19 @@ tracks {
             ),
             required: false,
         )
+        is_operator_user(
+            type: PropertyType.Boolean,
+            required: false,
+        )
     }
 
     //Without Proposal
-    "/credits/merchant/enrollment/without_proposal"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/without_proposal"(platform: "/", type: TrackType.View) {
+        is_operator_user(
+            type: PropertyType.Boolean,
+            required: false,
+        )
+    }
 
     //Confirmation modal
     "/credits/merchant/enrollment/confirmation"(platform: "/", type: TrackType.View) {
@@ -1072,5 +1119,25 @@ tracks {
     /****************************************************
      *       End: Consumers Installment Selection Page
      ****************************************************/
+    /******************************************
+     *    Start: Consumers Change Due Date FLow
+     ******************************************/
+    "/credits/consumer/duedate_selection"(platform: "/", type: TrackType.View) {
+        available_products(description: "products that user was used", type: PropertyType.ArrayList, required: true)
+        due_date (description: "Positive number for actuall due date",type: PropertyType.Numeric,required: true)
+    }
 
+    "/credits/consumer/duedate_selection/success"(platform: "/", type: TrackType.View) {
+        new_due_date(description: "Positive number for actuall due date",type: PropertyType.Numeric,required: true)
+    }
+
+    "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {}
+    
+    "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/duedate_selection/cancel"(platform: "/", type: TrackType.Event) {}
+
+     /******************************************
+     *    End: Consumers Change Due Date FLow
+     ******************************************/
 }

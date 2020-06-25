@@ -33,6 +33,7 @@ tracks {
 		type: PropertyType.Numeric)
 		error_cause(required: false, description: "Contains the cause of error for the questions post api, should there be one",
 		type: PropertyType.String)
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
     "/questions/ask/post" (platform: "/web", type: TrackType.Event) {

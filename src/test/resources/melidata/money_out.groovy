@@ -44,6 +44,13 @@ trackTests {
          amount = "500"
       }
 
+      "/money_out/kyc"(platform: "/", type: TrackType.View) {}
+      "/money_out/kyc/onboarding"(platform: "/", type: TrackType.View) {}
+
+      "/money_out/cashout/map"(platform: "/", type: TrackType.View) {}
+
+      // New Cashout Onobaording
+      "/money_out/cashout/onboarding"(platform: "/", type: TrackType.View) {}
       // Cashout onboarding
 
       "/money_out/cashout/onboarding/withdraw_limit"(platform: "/", type: TrackType.View) {}
@@ -62,6 +69,7 @@ trackTests {
 
       // Tecban
       "/money_detail/tecban"(platform: "/", type: TrackType.Event) {}
+      "/money_out/tecban/network_error"(platform: "/", type: TrackType.View) {}
       "/money_out/tecban/onboarding"(platform: "/", type: TrackType.View) {}
       "/money_out/tecban"(platform: "/", type: TrackType.View) {}
       "/money_out/tecban/onboarding/continue"(platform: "/", type: TrackType.Event) {}

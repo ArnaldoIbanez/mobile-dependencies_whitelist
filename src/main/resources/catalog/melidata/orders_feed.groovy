@@ -65,6 +65,7 @@ tracks {
         loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
         is_pdp(serverSide: true) // -> Lo completa Melidata automaticamente
         has_garex(serverSide: true) // -> Lo completa Melidata automaticamente
+        auto_purchase(serverSide: true) // -> Lo completa Melidata automaticamente
         tags(serverSide: true) // -> Lo completa Melidata automaticamente
         internal_tags(serverSide: true) // -> Lo completa Melidata automaticamente
     }

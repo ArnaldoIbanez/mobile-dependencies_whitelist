@@ -45,30 +45,39 @@ tracks {
         seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
-        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
-        chosen_categorization_model(required: true, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
+        categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
+        chosen_categorization_model(required: false, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
         category_prediction_selected_index(required: false, description: "Index selected in Multiples Suggestions", PropertyType.Numeric)
         attribute_values(required: false, description: "Array of attributes in categorization", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
-        title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
+        title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
         predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
         parent_product_id(required: false, type: PropertyType.String, description: "Catalog product parent id for item")
         product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
         item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
-        vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+        vertical(required: false, description: "item vertical", values:["core", "motors", "realEstate", "services"], type: PropertyType.String)
         listing_type_id(required: false, description: "Item listing type id")
         listing_type_free_available(required: false, type: PropertyType.Boolean, description: "Listing type free available")
-
+        user_type(required: false, type: PropertyType.String, description: "The user type")
+        business(required: false,  values:["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
+        platform(required: false, values:["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
+        has_drag(required: false, type: PropertyType.Boolean, description: "this property describes if map has been dragged by user")
+        valid_street_number(required: false, type: PropertyType.Boolean, description: "this property describes whether the map address contains a street number")
+        accept_new_location(required: false, type: PropertyType.Boolean, description: "this property describes whether the user interact with map component")
+        valid_intent(required: false, type: PropertyType.Boolean, description: "this property describes if user click confirm button before filling address")
+        field_intent_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the field ids for the intent")
     }
 
     propertyGroups {
-        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical)
+        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical, user_type, business, platform)
         sellGroupMobile( seller_segment, seller_profile, vertical)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
         categoryFlowMobile(category_id, category_path)
         listingTypeFlow(listing_type_id)
         listingTypeFlowMobile(listing_type_id, listing_type_free_available)
         catalogFlowMobile(domain_id, attribute_id, category_prediction_selected_index, attribute_values, predictions, parent_product_id, product_id)
+        locationIntentsGroup(has_drag, valid_street_number, accept_new_location, valid_intent)
+        technicalSpecsIntentsGroup(valid_intent, field_intent_ids)
     }
 
     // Sell
@@ -234,6 +243,7 @@ tracks {
     "/sell/list/draft/condition"(platform:"/mobile", type: TrackType.View){
         catalogFlowMobile
     }
+    "/sell/list/draft/domain_suggestion"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/condition_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/condition_fallback"(platform:"/mobile", type: TrackType.View){
         catalogFlowMobile
@@ -395,6 +405,7 @@ tracks {
     "/sell/list/category_navigation"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
     }
+    "/sell/list/domain_suggestion"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {
         catalogFlowMobile
@@ -583,7 +594,9 @@ tracks {
     "/sell/update/picture_preview_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/quantity"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/update/product_identifier"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/product_identifier"(platform: "/mobile", type: TrackType.View) {
+        value_type(required:true, description: "Indicates the type of PI value that the input has", type: PropertyType.String, values:["none", "single_value", "multi_value"])
+    }
     "/sell/update/shipping"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/shipping/flex"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/shipping/flex/free_shipping_landing"(platform: "/mobile", type: TrackType.View) {}
@@ -626,7 +639,9 @@ tracks {
     "/sell/update/pictures/pictures_selector"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/editor"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/crop"(platform: "/", type: TrackType.View) {}
-    "/sell/update/variations_pi"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/variations_pi"(platform: "/mobile", type: TrackType.View) {
+        value_type(required:true, description: "Indicates the type of PI value that the input has", type: PropertyType.String, values:["none", "single_value", "multi_value"])
+    }
     "/sell/update/pictures/crop/crop_accepted"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
@@ -806,7 +821,9 @@ tracks {
     "/sell/item_data/specifications"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/specifications/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/technical_specifications"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/technical_specifications"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_data/technical_specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/multivalue"(platform: "/web", type: TrackType.Event) {
@@ -955,6 +972,7 @@ tracks {
 
     "/sell/item_conditions/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/sidebar_listing_type/hide"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/item_conditions/reservation_info"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/reservation_info/show"(platform: "/web", type: TrackType.Event) {}
@@ -1038,14 +1056,24 @@ tracks {
 
     "/sell/sip"(platform: "/web", type: TrackType.View) {
         sellGroup
+        listingTypeFlow
         item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
     }
     "/sell/sip/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
 
-    "/sell/sip/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
-    "/sell/sip/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/sip/sidebar_listing_type"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/sip/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {
+        listingTypeFlow
+    }
+
+    "/sell/congrats/instant_pay_listings"(platform: "/web", isAbstract: true) {}
+    "/sell/congrats/instant_pay_listings/show"(platform: "/web", type: TrackType.Event) {
+        listingTypeFlow
+    }
 
     // Catalog Optin flow for apps
     "/sell/catalog_optin"(platform: "/mobile", isAbstract: true) {
@@ -1080,4 +1108,41 @@ tracks {
     "/sell/variation_selection/source_variations/confirm_variation"(platform: "/web", type: TrackType.Event) {
         variation_id(required: false, description: "variation id picked", type: PropertyType.Numeric)
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS SYI v4 - RealEstate
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/sell/item_data/location"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/location/show"(platform: "/web", type: TrackType.Event) { }
+    "/sell/item_data/location/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/location/intent"(platform: "/web", type: TrackType.Event) {
+        locationIntentsGroup
+    }
+
+    "/sell/item_data/pictures"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/pictures/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_data/title_and_description"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/title_and_description/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/title_and_description/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/technical_specifications/intent"(platform: "/web", type: TrackType.Event) {
+        technicalSpecsIntentsGroup
+    }
+
+    "/sell/shield"(platform: "/web", isAbstract: true) {
+        sellGroup
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
+        shield_type(required: false, description: "shield type", values:["user_has_debt", "user_package_empty", "user_package_error", "user_missing_data", "none", "onboarding"], type: PropertyType.String)
+    }
+    "/sell/shield/validations"(platform: "/web", isAbstract: true) {}
+    "/sell/shield/validations/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/shield/validations/confirm"(platform: "/web", type: TrackType.Event) {}
 }

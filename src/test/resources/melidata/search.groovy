@@ -27,6 +27,15 @@ trackTests {
             selected_positions : [ 1, 3, 5 ]
     ]
 
+    def tagTrackingInfo = [
+        best_seller : [
+                [item_id: "MLC510446223", position: 2],
+                [item_id: "MLC510446224", position: 3, product_id:"MLC510446224"],
+        ],
+        shipping_guaranteed : [],
+        deal_of_the_day : []
+    ]
+
     def promiseInfo = [
             sameday: ["MLA123411"],
             nextday: ["MLA12345645"]
@@ -152,8 +161,8 @@ trackTests {
                     is_whitelisted                : true,
                     check_mode                    : "GMV",
                     gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true
+                    seller_contacts               : 0,
+                    is_on_seo_h1_experiment: true
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
@@ -162,6 +171,7 @@ trackTests {
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
             best_seller_info = bestSellerInfo
+            tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -280,8 +290,8 @@ trackTests {
                     is_whitelisted                : true,
                     check_mode                    : "GMV",
                     gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true
+                    seller_contacts               : 0,
+                    is_on_seo_h1_experiment: true
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
@@ -290,6 +300,7 @@ trackTests {
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
             best_seller_info = bestSellerInfo
+            tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -559,8 +570,8 @@ trackTests {
                     is_whitelisted                : true,
                     check_mode                    : "GMV",
                     gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true
+                    seller_contacts               : 0,
+                    is_on_seo_h1_experiment: true
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true

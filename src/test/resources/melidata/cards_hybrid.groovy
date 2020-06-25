@@ -307,6 +307,18 @@ trackTests {
         }
     }
 
+    //Coachmark Banner
+    test("cards hybrid dashboard coachmark banner"){
+        "/cards/hybrid/dashboard/coachmark_banner"(platform: "/", type: TrackType.Event) {
+            action = "close"
+            id = "dashboard_virtual"
+        }
+        "/cards/hybrid/dashboard/coachmark_banner"(platform: "/", type: TrackType.Event) {
+            action = "tap"
+            id = "dashboard_virtual"
+        }
+    }
+
     // Acquisition Error
     // --------
 
@@ -726,5 +738,44 @@ trackTests {
     // Request: Success Virtual
     test("cards hybrid virtual success event"){
         "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {}
+    }
+
+    test ("Hybrid Setup") {
+        "/cards/mp-card/hybrid/detail" (platform: "/web/desktop", type: TrackType.View) {}
+        "/cards/mp-card/hybrid/detail/download-app" (platform: "/web/desktop", type: TrackType.Event) {}
+        "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
+            status = "OK"
+        }
+        "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
+            status = "ERROR"
+        }
+        "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {
+             deviceType = "desktop"
+        }
+    }
+    
+    // Request: Success Virtual
+    test("cards hybrid virtual success event"){
+        "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {}
+    }
+
+    //COACHMARK
+    // --------
+    test("cards hybrid coachmark tap"){
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+            step = 1
+            id = "dashboard_virtual"
+        }
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "next"
+            step = 2
+            id = "dashboard_virtual"
+        }
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "previous"
+            step = 2
+            id = "dashboard_physical"
+        }
     }
 }

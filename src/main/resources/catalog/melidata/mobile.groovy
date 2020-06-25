@@ -47,6 +47,9 @@ tracks {
         source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"], description: "Source that set status")
         current_checking_day (required: false, type: PropertyType.Numeric, description: "Day that is checking status")
         execution_id (required: false, type: PropertyType.String, description: "The execution id")
+        app_storage (required: false, type: PropertyType.Numeric, description: "App storage on device")
+        free_storage (required: false, type: PropertyType.Numeric, description: "Free storage on device")
+        total_storage (required: false, type: PropertyType.Numeric, description: "Total storage on device")
     }
 
     "/application/not_engaged" (platform: "/mobile", type: TrackType.Event){
@@ -58,6 +61,9 @@ tracks {
         source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"], description: "Source that set status")
         current_checking_day (required: false, type: PropertyType.Numeric, description: "Day that is checking status")
         execution_id (required: false, type: PropertyType.String, description: "The execution id")
+        app_storage (required: false, type: PropertyType.Numeric, description: "App storage on device")
+        free_storage (required: false, type: PropertyType.Numeric, description: "Free storage on device")
+        total_storage (required: false, type: PropertyType.Numeric, description: "Total storage on device")
     }
 
 
