@@ -4093,6 +4093,10 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            has_drag = false
+            valid_street_number = false
+            valid_intent = false
+
         }
     }
 
@@ -4273,6 +4277,8 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            valid_intent = false
+            field_intent_ids = ["CONTACT_SCHEDULE","OPERATION_SUBTYPE","TOTAL_AREA"]
         }
     }
 

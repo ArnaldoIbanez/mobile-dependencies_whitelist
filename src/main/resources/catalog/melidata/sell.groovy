@@ -65,7 +65,6 @@ tracks {
         valid_street_number(required: false, type: PropertyType.Boolean, description: "this property describes whether the map address contains a street number")
         accept_new_location(required: false, type: PropertyType.Boolean, description: "this property describes whether the user interact with map component")
         valid_intent(required: false, type: PropertyType.Boolean, description: "this property describes if user click confirm button before filling address")
-        valid_intent(required: false, type: PropertyType.Boolean, description: "this property describes if user has made a valid intent with the field")
         field_intent_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the field ids for the intent")
     }
 
