@@ -435,8 +435,8 @@ tracks {
 
     "/settings/cost_calculator/detail/action_button"(platform: "/mobile", type: TrackType.Event) {
         amount(required: true, type: PropertyType.Numeric, description: "Amount calculated by cost_calculator")
-        method(required: true, type: PropertyType.String, description: "Method simulated by seller")
-        payment_financing(required: true, type: PropertyType.String, description: "Payment financing selected by seller")
+        method(required: true, type: PropertyType.String, values: ["point", "qr", "share_social"], description: "Method simulated by seller")
+        payment_financing(required: true, type: PropertyType.String, values: ["credit", "debit", "account_money"], description: "Payment financing selected by seller")
         installments(required: true, type: PropertyType.Numeric, description: "Installments simulated by seller")
     }
 
