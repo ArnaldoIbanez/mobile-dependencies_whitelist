@@ -30,7 +30,7 @@ FROM tracks
 WHERE ds >= '@param01'
   AND ds < '@param02'
   AND (path = '/cross_app_links/dispatch'
-      OR (path = '/cross_app_links/fetch' AND jest(event_data, 'provider') LIKE 'LOCAL_PROVIDER'))
+      OR (path = '/cross_app_links/fetch' AND jest(event_data, 'provider') = 'LOCAL_PROVIDER'))
   AND (jest(event_data, 'link') LIKE 'meli:%' OR jest(event_data, 'link') LIKE 'mercadopago:%')
 GROUP BY substr(ds,1,10),
          application.business,
