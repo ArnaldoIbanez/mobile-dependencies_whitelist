@@ -165,11 +165,11 @@ trackTests {
     *************************/
 
     test("Banking Balance MP") {
-        "/banking/balance" (platform: "/", type: TrackType.View) {}
+        "/banking" (platform: "/", type: TrackType.View) {}
     }
 
     test("Banking Balance Webview MP") {
-        "/banking/balance/webview"(platform: "/", type: TrackType.View) {}
+        "/banking/webview"(platform: "/", type: TrackType.View) {}
     }
 
     test("Banking Calendar MP") {
