@@ -72,8 +72,8 @@ tracks {
 
     propertyGroups {
         mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer, render_buy_it_again)
-        newPurchasesGroup(items, payments, shipping, seller, buyer, checkout_flow, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id)
-        newPurchasesEventGroup(label, x_mc_request_id)
+        newPurchasesGroup(items, payments, shipping, seller, buyer, checkout_flow, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id, purchase_status, purchases_flow)
+        newPurchasesEventGroup(label, x_mc_request_id, vertical_case_id, vertical_sub_case_id)
     }
 
     // ---------------- Sales
@@ -210,79 +210,91 @@ tracks {
     "/myml/purchases/item"(platform:"/", type: TrackType.View) {}
 
     "/myml/purchases/seller"(platform:"/", type: TrackType.View) {}
-    
-    // ---------------- Purchases status
 
-    "/myml/purchases/status"(platform:"/", type: TrackType.View) {
-        newPurchasesGroup
-    }
-
-    "/myml/purchases/status/items"(platform:"/", type: TrackType.View) {}
-
-    "/myml/purchases/status/instructions"(platform:"/", type: TrackType.View) {}
-
-    "/myml/purchases/status/messages"(platform:"/", type: TrackType.View) {}
-
-    "/myml/purchases/status/cancel_purchase"(platform:"/", type: TrackType.View) {}
-
-    "/myml/purchases/status/return_purchase"(platform:"/", type: TrackType.View) {}
-
-    "/myml/purchases/status/show_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/purchases/status/show_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/purchases/status/show_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/purchases/status/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/purchases/status/click_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/purchases/status/click_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/purchases/status/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/purchases/status/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/purchases/status/click_contact_us"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/purchases/status/items/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/purchases/status/instructions/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/purchases/status/instructions/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/purchases/status/messages/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
+    "/myml/purchases/status"(platform:"/", type: TrackType.View) {}
 
     "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
         item_id(required: true,type: PropertyType.String, description: "Item id")
         buy_it_again_experiment(required: true,type: PropertyType.String, description: "Is the user in the experiment")
         buy_it_again_lead_checkout(required: true,type: PropertyType.String, description: "Is the button going to redirect to checkout")
+    }
+    
+    // ---------------- New Purchases
+
+    "/myml/my_purchases"(platform:"/", isAbstract: true) {}
+
+    "/myml/my_purchases/status"(platform:"/", type: TrackType.View) {
+        newPurchasesGroup
+    }
+
+    "/myml/my_purchases/status/items"(platform:"/", type: TrackType.View) {}
+
+    "/myml/my_purchases/status/instructions"(platform:"/", type: TrackType.View) {}
+
+    "/myml/my_purchases/status/messages"(platform:"/", type: TrackType.View) {}
+
+    "/myml/my_purchases/status/cancel_purchase"(platform:"/", type: TrackType.View) {}
+
+    "/myml/my_purchases/status/return_purchase"(platform:"/", type: TrackType.View) {}
+
+    "/myml/my_purchases/status/return_purchase/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/show_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/show_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/show_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/click_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/click_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/click_driver_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/click_contact_us"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/items/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/instructions/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/instructions/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/myml/my_purchases/status/messages/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
     }
 
 

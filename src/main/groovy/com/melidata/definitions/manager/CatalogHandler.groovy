@@ -85,7 +85,7 @@ class CatalogHandler {
 		version
 	}
 
-	private reloadCatalog(S3Object object, List<S3ObjectSummary> objectSummaries) {
+	protected reloadCatalog(S3Object object, List<S3ObjectSummary> objectSummaries) {
 		Integer newVersion = Integer.parseInt(object.getObjectMetadata().getUserMetaDataOf("catalog-version"))
 		if (catalog == null || !newVersion.equals(version)) {
 			DslUtils.setBaseDir(LOCAL_FOLDER)
@@ -98,7 +98,7 @@ class CatalogHandler {
 		}
 	}
 
-	private S3Object downloadCatalog(List<S3ObjectSummary> objectSummaries, String folder = LOCAL_FOLDER, String keyPrefixReplacement = "") throws IOException {
+	protected S3Object downloadCatalog(List<S3ObjectSummary> objectSummaries, String folder = LOCAL_FOLDER, String keyPrefixReplacement = "") throws IOException {
 		S3Object object = null
 		for ( S3ObjectSummary obj : objectSummaries ) {
 			S3Object s3Object = cli.getObject(obj.getKey())
@@ -129,7 +129,7 @@ class CatalogHandler {
 
 	}
 
-	private boolean isMainFile(String key) {
+	protected boolean isMainFile(String key) {
 		return key.endsWith(S3_CATALOG_FILE)
 	}
 

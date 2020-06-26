@@ -9,13 +9,58 @@ tracks {
 
     initiative = "1179"
 
+    def receiver_definition = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "Specifies the shipment's receiver id", inheritable: false)
+        geolocation_type(required: false, type: PropertyType.String,
+            values: ["ROOFTOP", "RANGE_INTERPOLATED", "APPROXIMATE", "GEOMETRIC_CENTER"],
+            description: "Specifies the precision of the receiver location",
+            inheritable: false)
+        delivery_preference(required: false, type: PropertyType.String,
+            values: ["residential", "business"],
+            description: "Specifies the current preference for the delivery", inheritable: false)
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+    }
+
+    def pack_info_definition = objectSchemaDefinitions {
+        sender_id(required: false, type: PropertyType.String, description: "Specifies the shipment's sender id", inheritable: false)
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        shipment_substatus(required: false, type: PropertyType.String, description: "Specifies the shipment substatus", inheritable: false)
+        order(required: false, type: PropertyType.Numeric, description: "Specifies the shipment delivery order", inheritable: false)
+        receiver_info(required: true, type: PropertyType.Map(receiver_definition), description: "Specifies the receiver info", inheritable: false)
+    }
+
     propertyDefinitions {
-        latitude(required:false, type: PropertyType.String, description:"The latitude of driver at that point")
-        longitude(required:false, type: PropertyType.String, description:"The longitude of driver at that point")
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        route_status(required: true, type: PropertyType.String,
+                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station", "active", "close"],
+                description: "Specifies the status of the route", inheritable: false)
+        packs_info(type: PropertyType.ArrayList(PropertyType.Map(pack_info_definition)), required: true, inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        facility_id(required: false, type: PropertyType.String, description: "Specifies the current facility id", inheritable: false)
+    }
+
+    def pickup_status = objectSchemaDefinitions {
+        id(required: true, type: PropertyType.String, description: "The id of the pickup")
+        status(required: true, type: PropertyType.String, description: "The status of the pickup", values: ["pending", "cancelled", "finished"])
+    }
+
+    def geo_position_definition = objectSchemaDefinitions {
+        latitude(required:true, type: PropertyType.String, description: "The latitude of the geo position")
+        longitude(required:true, type: PropertyType.String, description: "The longitude of the geo position")
+        geolocation_type(required: true, type: PropertyType.String,
+            values: ["ROOFTOP", "RANGE_INTERPOLATED", "APPROXIMATE", "GEOMETRIC_CENTER"],
+            description: "Specifies the precision of the geo position location",
+            inheritable: false)
+        distance(required:false, type: PropertyType.String, description: "The driver's distance in meters to the destination")
+        accuracy(required:false, type: PropertyType.String, description: "The accuracy radius in meters for this geo point")
     }
 
     propertyGroups {
         location(latitude, longitude)
+        route_info(route_id, route_status, packs_info, driver_id, facility_id, latitude, longitude)
     }
 
     "/logistics"(platform: "/", isAbstract: true) {
@@ -44,7 +89,7 @@ tracks {
     "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle/scanner/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
-        vehicle_id(required: true, type: PropertyType.String, description:"The id of the vehicle", inheritable: false)
+        vehicle_id(required: true, type: PropertyType.String, description: "The id of the vehicle", inheritable: false)
         status(required: true, type: PropertyType.String, values: ["ok", "error"], description: "Specifies if the detected vehicle qr has the correct format or not", inheritable: false)
     }
     "/logistics/login/document"(platform: "/mobile", type: TrackType.View) {}
@@ -103,11 +148,7 @@ tracks {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the packages in the route", inheritable: false)
     }
     "/logistics/last_mile/list"(platform: "/mobile", type: TrackType.View) {
-        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
-        route_status(required: true, type: PropertyType.String,
-                values: ["old", "pending", "finished", "ready_to_end", "empty", "return_to_station"],
-                description: "Specifies the status of the route", inheritable: false)
-        packs_info(required: true, type: PropertyType.String, description: "Specifies the packages in the route", inheritable: false)
+        route_info
     }
     "/logistics/last_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/last_mile/list/suggest_trip"(platform: "/mobile", type: TrackType.View) {
@@ -152,6 +193,7 @@ tracks {
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the ID of the shipment that was delivered")
         receiver_latitude(required: true, type: PropertyType.String, description: "Specifies the latitude of the receiver when the delivery was made")
         receiver_longitude(required: true, type: PropertyType.String, description: "Specifies the longitude of the receiver when the delivery was made")
+        receiver_relationship(required: false, type: PropertyType.String, description: "Specifies the receiver relationship")
     }
     "/logistics/last_mile/congrats/fail"(platform: "/mobile", type: TrackType.View) {
         context(required: true, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't")
@@ -236,18 +278,94 @@ tracks {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
     }
+    "/logistics/last_mile/deliver/buyer_document_form/save"(platform: "/mobile", type: TrackType.Event) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        receiver_relationship(required: true, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
+    }
     "logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
         error_type(required: true, type: PropertyType.String, description: "Specifies the current error type", inheritable: false, values: ["document_form", "regex"])
     }
 
+    "/logistics/last_mile/notification/view_near_pack_destination"(platform: "/mobile", type: TrackType.Event) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        geo_position(required: true, type: PropertyType.Map(geo_position_definition), description: "Specifies the information about the destination geo point", inheritable: false)
+    }
+
+    // Scoring LM
+    "/logistics/last_mile/package/security_keyword/invalid"(platform: "/mobile", type: TrackType.View) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+        receiver_relationship(required: true, type: PropertyType.String, description: "Specifies the receiver relationship", inheritable: false)
+    }
+    "/logistics/last_mile/package/security_keyword"(platform: "/mobile", type: TrackType.View) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+    }
+    "/logistics/last_mile/package/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+    }
+    "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+    }
+
     // First Mile
+    "/logistics/first_mile/list"(platform: "/mobile", type: TrackType.View) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        pickups_status(required: true, type: PropertyType.ArrayList(PropertyType.Map(pickup_status)), description: "Specifies the diferent status in all the pickups")
+    }
+    "/logistics/first_mile/scanner"(platform: "/mobile", type: TrackType.View) {
+        location
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+    }
+    "/logistics/first_mile/scanner/modal_invalid_packages"(platform: "/mobile", type: TrackType.View) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id")
+        packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the invalid ids received")
+    }
+
     "/logistics/first_mile/scanner/modal_back"(platform: "/mobile", type: TrackType.View) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
         packs_amount(required: false, type: PropertyType.Numeric, description: "Specifies the amount of packages that " +
                 "were scanned at the moment that the view was shown")
     }
-    "/logistics/first_mile/scanner/modal_back/back"(platform: "/mobile", type: TrackType.Event) {}
-    "/logistics/first_mile/scanner/modal_back/cancel"(platform: "/mobile", type: TrackType.Event) {}
-    "/logistics/first_mile/profile"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/first_mile/scanner/modal_back/back"(platform: "/mobile", type: TrackType.Event) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+    }
+    "/logistics/first_mile/scanner/modal_back/cancel"(platform: "/mobile", type: TrackType.Event) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+    }
+    "/logistics/first_mile/scanner/modal_keyboard_input/open"(platform: "/mobile", type: TrackType.Event) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id")
+    }
+    "/logistics/first_mile/scanner/modal_invalid_package_quantity"(platform: "/mobile", type: TrackType.View) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id")
+        pickup_point_id(required: true, type: PropertyType.String, description: "Specifies the current pickup point id")
+        picked_count(required: true, type: PropertyType.Numeric, description: "Specifies the package amount that was picked up")
+        estimated_count(required: true, type: PropertyType.Numeric, description: "Specifies the package amount that was expected to pick up")
+    }
+    "/logistics/first_mile/pickup/seller_document_form"(platform: "/mobile", type: TrackType.View) {
+        location
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the packages being picked up")
+    }
+    "/logistics/first_mile/pickup/signature"(platform: "/mobile", type: TrackType.View) {
+        location
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the packages being picked up")
+    }
+    "/logistics/first_mile/profile"(platform: "/mobile", type: TrackType.View) {
+        first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
+    }
 }

@@ -23,21 +23,28 @@ tracks {
     // Cashout calculator tracks
 
     "/money_out/calculator"(platform: "/", type: TrackType.View) {
-        money_out_method (required:true, description: "Money out method on calculator", values: ["cashout"])
+        money_out_method (required:true, description: "Money out method on calculator")
     }
 
     "/money_out/calculator/preset_selected"(platform: "/", type: TrackType.Event) {
-        money_out_method (required:true, description: "Money out method on calculator", values: ["cashout"])
-        preset (required:true, description: "Preset amount selected", values: ["500", "1000", "3000", "5000"])
+        money_out_method (required:true, description: "Money out method on calculator")
+        preset (required:true, description: "Preset amount selected")
     }
 
     "/money_out/calculator/continue"(platform: "/", type: TrackType.Event) {
-        money_out_method (required:true, description: "Continue Money out method selected", values: ["cashout"])
+        money_out_method (required:true, description: "Continue Money out method selected")
         amount (required:true, description: "Continue amount entered")
     }
 
-    // Cashout onboarding
+    "/money_out/cashout/map"(platform: "/", type: TrackType.View) {}
 
+    // Cashout onboarding
+    "/money_out/kyc"(platform: "/", isAbstract: true) {}
+    "/money_out/kyc/onboarding"(platform: "/", type: TrackType.View) {}
+
+    // New Cashout Onobaording
+    "/money_out/cashout/onboarding"(platform: "/", type: TrackType.View) {}
+    //Legacy onboarding
     "/money_out/cashout/onboarding/withdraw_limit"(platform: "/", type: TrackType.View) {}
     "/money_out/cashout/onboarding/withdraw_agencies"(platform: "/", type: TrackType.View) {}
     "/money_out/cashout/onboarding/withdraw_less"(platform: "/", type: TrackType.View) {}
@@ -54,6 +61,7 @@ tracks {
 
     // Tecban
     "/money_out/tecban"(platform: "/", isAbstract: true) {}
+    "/money_out/tecban/network_error"(platform: "/", type: TrackType.View) {}
     "/money_out/tecban/onboarding"(platform: "/", type: TrackType.View) {}
     "/money_out/tecban/onboarding/continue"(platform: "/", type: TrackType.Event) {}
     "/money_out/tecban/insufficient_amount"(platform: "/", type: TrackType.View) {}

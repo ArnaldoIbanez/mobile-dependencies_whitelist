@@ -65,6 +65,7 @@ tracks {
         loyalty_buyer(serverSide: true) // -> Lo completa Melidata automaticamente
         is_pdp(serverSide: true) // -> Lo completa Melidata automaticamente
         has_garex(serverSide: true) // -> Lo completa Melidata automaticamente
+        auto_purchase(serverSide: true) // -> Lo completa Melidata automaticamente
         tags(serverSide: true) // -> Lo completa Melidata automaticamente
         internal_tags(serverSide: true) // -> Lo completa Melidata automaticamente
     }
@@ -73,6 +74,9 @@ tracks {
 
     "/purchases/purchasecreated"(platform: "/") {
         purchase_id(required: true, description: "purchase identifier")
+        orders( required: true, type:PropertyType.ArrayList, description: "Array of orders_ids associated to this purchase" )
+        packs ( required: true, type:PropertyType.ArrayList, description: "Array of packs_ids associated to this purchase" )
+        
         status(required: true, description: "status of this order at creation")
         status_detail(required: false, description: "status description")
         total_amount(required: true, description: "order amount, does not include shipping or interests")

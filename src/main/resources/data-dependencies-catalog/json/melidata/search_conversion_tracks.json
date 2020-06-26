@@ -9,14 +9,10 @@
       "type": "DATE"
     },
     "extract": {
-      "operation": "append",
+      "operation": "destroy",
       "columns": [
         {
           "name": "site_id",
-          "type": "UNICODE_STRING"
-        },
-        {
-          "name": "platform",
           "type": "UNICODE_STRING"
         },
         {

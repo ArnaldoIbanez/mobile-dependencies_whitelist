@@ -4,6 +4,11 @@ import com.ml.melidata.TrackType
 import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
+/**************************************************************
+ * CONTACT: In case of changes over this file, please send us
+ *  a message to our e-mail: front_native_devs@mercadolibre.com
+ **************************************************************/
+
 /*************************
  *   WALLET HOME TRACKS   *
  *************************/
@@ -130,7 +135,7 @@ tracks {
     def discount_center_definition = objectSchemaDefinitions {
         content_type( type: PropertyType.String, required: false, values: ['partial','default','complete'] )
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
-        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(discount_center_item_definition)), description: "The discount center items information")
+        items(required: false, type: PropertyType.ArrayList(PropertyType.Map(discount_center_item_definition)), description: "The discount center items information")
     }
 
     def paragraph_definition = objectSchemaDefinitions {
@@ -186,6 +191,10 @@ tracks {
 
     def header_definition = objectSchemaDefinitions {
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
+    }
+
+    def metadata_definition = objectSchemaDefinitions {
+        accessibility_voice(required: false, type: PropertyType.Boolean, description: "If the accessibility voice assistant is activated or not")
     }
 
     "/wallet/home" (platform: "/mobile", isAbstract: true) {}
@@ -364,6 +373,7 @@ tracks {
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         ifpe_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
+        metadata(required: false, type: PropertyType.Map(metadata_definition), description: "this tracking section will contain multiple information about the user metadata(location, accessibility, info, etc)")
     }
 
     "/wallet_home/update" (platform: "/mobile", type: TrackType.View) {
@@ -386,6 +396,7 @@ tracks {
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         ifpe_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
+        metadata(required: false, type: PropertyType.Map(metadata_definition), description: "this tracking section will contain multiple information about the user metadata(location, accessibility, info, etc)")
     }
 
     //Notification Center
@@ -463,6 +474,12 @@ tracks {
 
         group_id(required: false, type: PropertyType.String, description: "The component id of the item")
         group_position(required: false, type: PropertyType.String, description: "The group position of the item")
+
+        audience(type: PropertyType.String, required: false, description: "The audience used for showing the shortcut")
+        bu(type: PropertyType.String, required: false, description: "The business unit of the shortcut")
+        bu_line(type: PropertyType.String, required: false, description: "The business unit's line of the shortcut")
+        flow(type: PropertyType.String, required: false, description: "The business unit line's flow of the shortcut")
+        logic(type: PropertyType.String, required: false, description: "The logic applied for showing the shortcut")
     }
 
     "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {}
