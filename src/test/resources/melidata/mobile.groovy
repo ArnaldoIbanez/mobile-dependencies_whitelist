@@ -183,7 +183,7 @@ trackTests {
             do_not_disturb_mode = "disabled"
             carrier_code = "722341"
             carrier_name = "Personal"
-            nfc_compatible = "[nfc_mifare]"
+            nfc_compatible = ["nfc_mifare"]
         }
 
         "/devices/metadata"(platform:"/mobile", business: "mercadopago") {
@@ -196,7 +196,7 @@ trackTests {
             do_not_disturb_mode = "disabled"
             carrier_code = "722341"
             carrier_name = "Personal"
-            nfc_compatible = "[nfc_mifare]"
+            nfc_compatible = ["nfc_mifare"]
         }
     }
 
