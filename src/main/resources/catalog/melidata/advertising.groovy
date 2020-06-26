@@ -43,9 +43,11 @@ tracks {
         multi(required: false, type: PropertyType.String, description: "Indicates if it is a multicampaign dashboard")
     }
 
-    "/advertising/pads2/manager/box"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {}
+    "/advertising/pads2/manager/box"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
 
-    "/advertising/pads2/manager/box/upselling"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/box/upselling"(platform: "/web", type: TrackType.Event) {
+        version(required: false, description: "Version")
+    }
 
     "/advertising/pads2/manager/update_campaign_status"(platform: "/web", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
@@ -149,7 +151,12 @@ tracks {
 
     "/advertising/pads2/manager/upselling/banner/close"(platform: "/web", type: TrackType.Event) {}
 
-    "/advertising/pads2/manager/upselling/mark"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {}
+    "/advertising/pads2/manager/upselling/mark"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget(required: false, description: "Current budget related to the campaign")
+        version(required: false, description: "Version")
+    }
 
     //Generic landing free trial
     "/advertising/pads2/landing_freetrial"(platform: "/web", type: TrackType.View) {
@@ -330,6 +337,7 @@ tracks {
         features(required: false, type: PropertyType.String)
         multi(required: false, type: PropertyType.String)
         query(required: false, type: PropertyType.String)
+        catalog(required: false, type: PropertyType.String)
     }
 
     //Campaigns
@@ -339,7 +347,6 @@ tracks {
         status(required: true, type: PropertyType.String, values: ['active', 'paused'])
     }
     
-
     "/advertising/pads2/manager/filters"(
         platform: "/web",
         type: TrackType.Event) {

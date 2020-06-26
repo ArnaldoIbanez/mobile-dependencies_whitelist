@@ -30,9 +30,12 @@ trackTests {
             matching_status = "matching_inversion"
         }
 
-        "/advertising/pads2/manager/box"(platform: "/web", type: TrackType.Event) {}
-
-        "/advertising/pads2/manager/box/upselling"(platform: "/web", type: TrackType.Event) {}
+        "/advertising/pads2/manager/box/upselling"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "283973028"
+            status = "active"
+            budget = "65"
+            version = "view1"
+        }
 
         "/advertising/pads2/manager/update_campaign_status"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
@@ -179,7 +182,12 @@ trackTests {
             budget_new = "1000"
         }
 
-        "/advertising/pads2/manager/upselling/mark"(platform: "/web", type: TrackType.Event) {}
+        "/advertising/pads2/manager/upselling/mark"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "283973028"
+            status = "active"
+            budget = "65"
+            version = "view1"
+        }
   
     }
 
@@ -488,6 +496,7 @@ trackTests {
                 category: "x",
                 features: "x",
                 query: "x",
+                catalog: "buy_box_winner"
             ]
         }
     }
