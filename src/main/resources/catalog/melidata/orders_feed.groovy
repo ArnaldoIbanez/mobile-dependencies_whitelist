@@ -52,6 +52,8 @@ tracks {
         // status
         // status_detail
 
+        pack_id(required: false, description: "If this order is associated with a carrito/pack, the corresponding pack_id") 
+        
         buyer(required: true, description: "buyer information") // id, nickname
         seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data") // id, nickname
         is_carrito(required: true, description: "Whetever this order was created by a carrito or not ")
