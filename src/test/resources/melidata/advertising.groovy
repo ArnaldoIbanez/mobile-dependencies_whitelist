@@ -30,6 +30,10 @@ trackTests {
             matching_status = "matching_inversion"
         }
 
+        "/advertising/pads2/manager/box"(platform: "/web", type: TrackType.Event) {}
+
+        "/advertising/pads2/manager/box/upselling"(platform: "/web", type: TrackType.Event) {}
+
         "/advertising/pads2/manager/update_campaign_status"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "active"
@@ -174,6 +178,9 @@ trackTests {
             budget = "500"
             budget_new = "1000"
         }
+
+        "/advertising/pads2/manager/upselling/mark"(platform: "/web", type: TrackType.Event) {}
+  
     }
 
     test("Landing congrats") {

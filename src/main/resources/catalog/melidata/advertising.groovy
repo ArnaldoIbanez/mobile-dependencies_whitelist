@@ -40,7 +40,12 @@ tracks {
                 values: ["matching_inversion", "matching_inversion_end", "matching_bonificacion", "matching_bonificacion_end", "matching_bonificacion_extended", "matching_bonificacion_extended_end"],
                 description: "Free trial matching status bar"
         )
+        multi(required: false, type: PropertyType.String, description: "Indicates if it is a multicampaign dashboard")
     }
+
+    "/advertising/pads2/manager/box"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {}
+
+    "/advertising/pads2/manager/box/upselling"(platform: "/web", type: TrackType.Event) {}
 
     "/advertising/pads2/manager/update_campaign_status"(platform: "/web", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
@@ -143,6 +148,8 @@ tracks {
     "/advertising/pads2/manager/upselling/banner/go"(platform: "/web", type: TrackType.Event) {}
 
     "/advertising/pads2/manager/upselling/banner/close"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/upselling/mark"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {}
 
     //Generic landing free trial
     "/advertising/pads2/landing_freetrial"(platform: "/web", type: TrackType.View) {
@@ -734,47 +741,6 @@ tracks {
         multi(required: true, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
-        }
-
-    "/advertising/pads2/manager/massive_actions"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
-        multi(required: true, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
-        budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
     }
 
-    "/advertising/pads2/manager"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
-        multi(required: false, type: PropertyType.String, description: "Indicates if it is a multicampaign dashboard")
-        campaign_id(required: true, description: "Id related to the campaign")
-        budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        action(required: false, type: PropertyType.String)
-        total_items(required: false, type: PropertyType.Numeric, description: "Indicates total of items")
-    }
-
-    "/advertising/pads2/manager/filters"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
-        multi(required: true, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
-        filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
-        campaign_id(required: true, description: "Id related to the campaign")
-        budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-    }
-
-    "/advertising/pads2/manager/metrics_range"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
-        multi(required: true, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
-        days(required: true, type: PropertyType.Numeric)
-        from(required: true, type: PropertyType.String)
-        to(required: true, description: "to related to the campaign")
-        campaign_id(required: true, description: "Id related to the campaign")
-        budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-    }
-
-    "/advertising/pads2/manager/sort"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
-        sort_by(required: true, description: "Sort column id")
-        sort_value( required: true, values: ["asc", "desc"], description: "Sort direction")
-        multi(required: true, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
-        campaign_id(required: true, description: "Id related to the campaign")
-        budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-    }
 }
