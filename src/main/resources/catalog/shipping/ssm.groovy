@@ -12,7 +12,7 @@ tracks {
     }
 
     def location_definition = objectSchemaDefinitions {
-        addressLine(type: PropertyType.String, required: false)
+        address_line(type: PropertyType.String, required: false)
         agency_acronym(type: PropertyType.String, required: false)
         agency_id(type: PropertyType.String, required: false)
         agency_name(type: PropertyType.String, required: false)
@@ -78,26 +78,15 @@ tracks {
     def shipment_snapshot_definition = objectSchemaDefinitions {
         id(type: PropertyType.Numeric, required: true)
         status(type: PropertyType.String, required: true)
-        substatus(type: PropertyType.String, required: true)
+        substatus(type: PropertyType.String, required: false)
         logistic_type(type: PropertyType.String, required: true)
         site_id(type: PropertyType.String, required: true)
         date_first_printed(type: PropertyType.String, required: true)
     }
 
-    def status_definition = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true)
-        name(type: PropertyType.String, required: true)
-    }
-
-    def substatus_definition = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true)
-        name(type: PropertyType.String, required: true)
-        parent(type: PropertyType.Map(status_definition), required: true)
-    }
-
     def substatus_history_definition = objectSchemaDefinitions {
         status(type: PropertyType.String, required: true)
-        substatus(type: PropertyType.String, required: true)
+        substatus(type: PropertyType.String, required: false)
         date(type: PropertyType.String, required: true)
     }
 
@@ -113,34 +102,15 @@ tracks {
     }
 
     def shipment_transition_definition = objectSchemaDefinitions {
-        status(type: PropertyType.Map(status_definition), required: true)
-        substatus(type: PropertyType.Map(substatus_definition), required: true)
+        status(type: PropertyType.String, required: true)
+        substatus(type: PropertyType.String, required: false)
         status_history(type: PropertyType.Map(status_history_definition), required: true)
         date_first_printed(type: PropertyType.String, required: false)
-        substatus_history(type: PropertyType.ArrayList(PropertyType.Map(substatus_history_definition)), required: true)
+        substatus_history(type: PropertyType.ArrayList(PropertyType.Map(substatus_history_definition)), required: false)
         need_status_update(type: PropertyType.Boolean, required: true)
         need_update_status_history(type: PropertyType.Boolean, required: true)
         need_update_substatus_history(type: PropertyType.Boolean, required: true)
         need_update_date_first_printed(type: PropertyType.Boolean, required: true)
-    }
-
-    def notification_received_definition = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true)
-        notification(type: PropertyType.Map(notification_definition), required: true)
-        shipment_snapshot(type: PropertyType.Map(shipment_snapshot_definition), required: true)
-    }
-
-    def notification_processed_definition = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true)
-        notification(type: PropertyType.Map(notification), required: true)
-        shipment_transition(type: PropertyType.Map(shipment_transition_definition), required: true)
-    }
-
-    def notification_rejected_definition = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true)
-        code(type: PropertyType.String, required: true)
-        reason(type: PropertyType.String, required: true)
-        shipment_snapshot(type: PropertyType.Map(shipment_snapshot_definition), required: true)
     }
 
     def tracking_difference_definition = objectSchemaDefinitions {
@@ -152,17 +122,11 @@ tracks {
     def tracking_news_definition = objectSchemaDefinitions {
         shipment_id(type: PropertyType.Numeric, required: true)
         status(type: PropertyType.String, required: true)
-        substatus(type: PropertyType.String, required: true)
-        differences(type: PropertyType.ArrayList(PropertyType.Map(tracking_difference_definition)), required: true)
-        delay(type: PropertyType.ArrayList(PropertyType.String), required: true)
-        origin(type: PropertyType.String, required: true)
+        substatus(type: PropertyType.String, required: false)
+        differences(type: PropertyType.ArrayList(PropertyType.Map(tracking_difference_definition)), required: false)
+        delay(type: PropertyType.ArrayList(PropertyType.String), required: false)
+        origin(type: PropertyType.String, required: false)
     }
-
-    def melidata_object_definition = objectSchemaDefinitions {
-        notification_id(type: PropertyType.String, required: true)
-        data(type: PropertyType.Map(tracking_news_definition), required: true)
-    }
-
 
     "/"(platform: "/api") {}
 
@@ -173,18 +137,26 @@ tracks {
     "/shipping/ssm/notifications"(platform: "/api") {}
 
     "/shipping/ssm/notifications/received"(platform: "/api") {
-        notification_received(type: PropertyType.Map(notification_received_definition, required: true, description: "Notification received including shipment snapshot"))
+        id(type: PropertyType.String, required: true, description: "Notification ID")
+        notification(type: PropertyType.Map(notification_definition), required: true, description: "Received notification")
+        shipment_snapshot(type: PropertyType.Map(shipment_snapshot_definition), required: true, description: "Shipment snapshot from when notification was received")
     }
 
     "/shipping/ssm/notifications/processed"(platform: "/api") {
-        notification_processed(type: PropertyType.Map(notification_processed_definition, required: true, description: "Notification processed including shipment transition"))
+        id(type: PropertyType.String, required: true, description: "Notification ID")
+        notification(type: PropertyType.Map(notification_definition), required: true, description: "Processed notification")
+        shipment_transition(type: PropertyType.Map(shipment_transition_definition), required: true, description: "Shipment transition description")
     }
 
     "/shipping/ssm/notifications/rejected"(platform: "/api") {
-        notification_rejected(type: PropertyType.Map(notification_rejected_definition, required: true, description: "Notification rejected including shipment snapshot and reason"))
+        id(type: PropertyType.String, required: true, description: "Notification ID")
+        code(type: PropertyType.String, required: true, description: "Notification code")
+        reason(type: PropertyType.String, required: true, description: "Rejection reason")
+        shipment_snapshot(type: PropertyType.Map(shipment_snapshot_definition), required: true, description: "Shipment snapshot from when notification was rejected")
     }
 
     "/shipping/ssm/notifications/feed"(platform: "/api") {
-        melidata_object(type: PropertyType.Map(melidata_object_definition, required: true, description: "Notification ID and tracking news"))
+        notification_id(type: PropertyType.String, required: true, description: "Notification ID")
+        data(type: PropertyType.Map(tracking_news_definition), required: true, description: "Tracking news about the affected shipment")
     }
 }
