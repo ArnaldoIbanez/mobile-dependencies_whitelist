@@ -124,7 +124,7 @@ tracks {
     "/fees_installment/payment_method/success"(platform: "/", type: TrackType.Event) {
         payments(
             required: true, 
-            type: PropertyType.ArrayList(payment_row), 
+            type: PropertyType.ArrayList(PropertyType.Map(payment_row)), 
             description: "El conjunto de payments."
         )
     }
