@@ -186,7 +186,7 @@ trackTests {
     }
 
     test("Mercadopago fees and installment in faq view url loaded successfully") {
-        "/fees_installment/release_option/back" (platform: "/", type: TrackType.Event) {
+        "/fees_installment/faq/success" (platform: "/", type: TrackType.Event) {
             url = "https://www.mercadopago.com.br/ajuda/custo-receber-pagamentos_453"
         }
     }

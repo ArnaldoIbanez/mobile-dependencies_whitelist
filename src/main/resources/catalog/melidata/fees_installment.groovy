@@ -20,10 +20,15 @@ tracks {
             type: PropertyType.String, 
             description: "La url del deeplink."
         )
-        payment(
+        payment_method(
             required: true, 
-            type: PropertyType.Map(payment_row), 
+            type: PropertyType.Map(payment_method_type), 
             description: "El payment que se está por modificar o se modificó."
+        )
+        payments(
+            required: true, 
+            type: PropertyType.ArrayList(PropertyType.Map(payment_row_type)), 
+            description: "El conjunto de payments."
         )
     }
 
@@ -32,11 +37,12 @@ tracks {
         url_error_group(url, message)
         error_group(message)
         deeplink_group(deeplink)
-        payment_group(payment)
+        payment_method_group(payment_method)
+        payments_group(payments)
     }
 
     // cada conjunto de valores de tasa y plazo que muestra un release option.
-    def release_option_value = objectSchemaDefinitions {
+    def release_option_value_type = objectSchemaDefinitions {
         order(
             required: true, 
             type: PropertyType.Numeric,
@@ -55,7 +61,7 @@ tracks {
     }
 
     // los datos asociados de un payment method.
-    def payment_method = objectSchemaDefinitions {
+    def payment_method_type = objectSchemaDefinitions {
         channel_id(
             required: true, 
             type: PropertyType.String, 
@@ -83,13 +89,13 @@ tracks {
         )
         release_option_values(
             required: true, 
-            type: PropertyType.ArrayList(PropertyType.Map(release_option_value)), 
+            type: PropertyType.ArrayList(PropertyType.Map(release_option_value_type)), 
             description: "El conjunto de valores de tasa y plazo que muestra un release option."
         )
     }
 
     // Contiene un conjunto de métodos de pagos para un canal dado.
-    def payment_row = objectSchemaDefinitions {
+    def payment_row_type = objectSchemaDefinitions {
         channel_id(
             required: true, 
             type: PropertyType.String, 
@@ -102,7 +108,7 @@ tracks {
         )
         payment_methods(
             required: true, 
-            type: PropertyType.ArrayList(PropertyType.Map(payment_method)), 
+            type: PropertyType.ArrayList(PropertyType.Map(payment_method_type)), 
             description: "El conjunto de los datos asociados de un payment method."
         )
     }
@@ -122,14 +128,10 @@ tracks {
 
     "/fees_installment/payment_method/view"(platform: "/", type: TrackType.View) {}
     "/fees_installment/payment_method/success"(platform: "/", type: TrackType.Event) {
-        payments(
-            required: true, 
-            type: PropertyType.ArrayList(PropertyType.Map(payment_row)), 
-            description: "El conjunto de payments."
-        )
+        payments_group
     }
     "/fees_installment/payment_method/selection_action"(platform: "/", type: TrackType.Event) {
-        payment_group
+        payment_method_group
     }
     "/fees_installment/payment_method/error"(platform: "/", type: TrackType.Event) {
         error_group
@@ -147,7 +149,7 @@ tracks {
         url_group
     }
     "/fees_installment/release_option/update"(platform: "/", type: TrackType.Event) {
-        paymentGroup
+        payment_method_group
     }
     "/fees_installment/release_option/error"(platform: "/", type: TrackType.Event) {
         error_group
