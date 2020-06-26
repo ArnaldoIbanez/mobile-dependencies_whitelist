@@ -171,8 +171,8 @@ tracks {
     *************************/
 
     // MP Banking Balance Web and Webview
-    "/banking"(platform: "/", type: TrackType.View) {}
-    "/banking/webview"(platform: "/", type: TrackType.View) {}
+    "/banking"(platform: "/", isAbstract: true) {}
+    // Web and web-mobile
+    "/banking/balance"(platform: "/", type: TrackType.View) {}
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
-    "/banking/calendar/webview"(platform: "/", type: TrackType.View) {}
 }
