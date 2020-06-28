@@ -55,7 +55,7 @@ tracks {
         product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
         item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
-        vertical(required: false, description: "item vertical", values:["core", "motors", "realEstate", "services"], type: PropertyType.String)
+        vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         listing_type_id(required: false, description: "Item listing type id")
         listing_type_free_available(required: false, type: PropertyType.Boolean, description: "Listing type free available")
         user_type(required: false, type: PropertyType.String, description: "The user type")
