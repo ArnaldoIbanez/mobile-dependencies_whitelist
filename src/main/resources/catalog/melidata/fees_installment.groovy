@@ -20,48 +20,11 @@ tracks {
             type: PropertyType.String, 
             description: "La url del deeplink."
         )
-        payment_method(
-            required: true, 
-            type: PropertyType.Map(payment_method_type), 
-            description: "El payment que se está por modificar o se modificó."
-        )
         payments(
             required: true, 
             type: PropertyType.ArrayList(PropertyType.Map(payment_row_type)), 
             description: "El conjunto de payments."
         )
-    }
-
-    propertyGroups {
-        url_group(url)
-        url_error_group(url, message)
-        error_group(message)
-        deeplink_group(deeplink)
-        payment_method_group(payment_method)
-        payments_group(payments)
-    }
-
-    // cada conjunto de valores de tasa y plazo que muestra un release option.
-    def release_option_value_type = objectSchemaDefinitions {
-        order(
-            required: true, 
-            type: PropertyType.Numeric,
-            description: "Orden en que se muestran los valores de la tasas y plazos de un release option."
-        )
-        installment(
-            required: true, 
-            type: PropertyType.String, 
-            description: "El plazo del release option."
-        )
-        fee(
-            required: true, 
-            PropertyType.String, 
-            description: "La tasas del release option"
-        )
-    }
-
-    // los datos asociados de un payment method.
-    def payment_method_type = objectSchemaDefinitions {
         channel_id(
             required: true, 
             type: PropertyType.String, 
@@ -92,25 +55,47 @@ tracks {
             type: PropertyType.ArrayList(PropertyType.Map(release_option_value_type)), 
             description: "El conjunto de valores de tasa y plazo que muestra un release option."
         )
-    }
-
-    // Contiene un conjunto de métodos de pagos para un canal dado.
-    def payment_row_type = objectSchemaDefinitions {
-        channel_id(
+        installment(
             required: true, 
             type: PropertyType.String, 
-            description: "El id del canal al cual pertenece el payment method."
+            description: "El plazo del release option."
         )
-        order(
+        fee(
             required: true, 
-            type: PropertyType.Numeric, 
-            description: "Orden en que se muestran los valores de la tasas y plazos de un release option."
+            PropertyType.String, 
+            description: "La tasas del release option"
         )
         payment_methods(
             required: true, 
             type: PropertyType.ArrayList(PropertyType.Map(payment_method_type)), 
             description: "El conjunto de los datos asociados de un payment method."
         )
+    }
+
+    propertyGroups {
+        url_group(url)
+        url_error_group(url, message)
+        error_group(message)
+        deeplink_group(deeplink)
+        payment_method_group(channel_id,payment_method_id,release_option_id,order,editable,release_option_values)
+        relese_option_value_group(order,installment,fee)
+        payment_row_group(channel_id,order,payment_methods)
+        payments_group(payments)
+    }
+
+    // cada conjunto de valores de tasa y plazo que muestra un release option.
+    def release_option_value_type = objectSchemaDefinitions {
+        relese_option_value_group
+    }
+
+    // los datos asociados de un payment method.
+    def payment_method_type = objectSchemaDefinitions {
+        payment_method_group
+    }
+
+    // Contiene un conjunto de métodos de pagos para un canal dado.
+    def payment_row_type = objectSchemaDefinitions {
+        payment_row_group
     }
 
     /* ----------------------------------------------------------------------------- */
