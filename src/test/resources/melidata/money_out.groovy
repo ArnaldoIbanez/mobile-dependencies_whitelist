@@ -115,6 +115,8 @@ trackTests {
 
       //Transfer Hub - Dashboard
       "/money_out/transfers"(platform: "/", type: TrackType.View) {}
+      "/money_out/transfers/home/transfer_mp"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/transfer_bank"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/home/send_money"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
