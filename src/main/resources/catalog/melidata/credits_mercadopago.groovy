@@ -156,14 +156,7 @@ tracks {
     /******************************************
      *       Start: Merchants Public Landings
      ******************************************/
-    //Public landing
-    "/credits/merchant/public_landing"(platform: "/", type: TrackType.View) {
-        user_profile(
-            type: PropertyType.String,
-            required: true
-        )
-    }
-
+     
     "/credits/merchant/declarative_form"(platform:"/", type: TrackType.View) {}
     "/credits/merchant/declarative_form/congrats"(platform:"/", type: TrackType.View) {}
 
