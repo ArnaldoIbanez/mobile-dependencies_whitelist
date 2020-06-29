@@ -161,7 +161,9 @@ trackTests {
     }
 
     test("Mercadopago fees and installment in release option selection view failed to update fees") {
-        "/fees_installment/release_option/back" (platform: "/", type: TrackType.Event) {}
+        "/fees_installment/release_option/error" (platform: "/", type: TrackType.Event) {
+            message = "Algo salió mal."
+        }
     }
 
     /* -----------------------------------------------------------------------------*/
