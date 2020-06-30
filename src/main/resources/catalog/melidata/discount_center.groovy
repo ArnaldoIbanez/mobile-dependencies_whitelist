@@ -168,6 +168,7 @@ tracks {
 
     def image_banner_item_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the image banner we are showing")
+        index(type: PropertyType.Numeric, required: true, description: "The position of the image banner")
     }
 
     def marketplace_main_slider_definition = objectSchemaDefinitions {

@@ -399,7 +399,10 @@ trackTests {
                                 segment_id: "sellers_banner",
                                 marketplace_index: 4,
                                 items: [
-                                        [  tracking_id: "image_banner_1234"  ]
+                                        [  
+                                            tracking_id: "image_banner_1234",
+                                            index: 0
+                                        ]
                                 ]
                         ]
                 ],
@@ -525,7 +528,10 @@ trackTests {
                                 segment_id: "sellers_banner",
                                 marketplace_index: 4,
                                 items: [
-                                        [  tracking_id: "image_banner_1234"  ]
+                                        [  
+                                            tracking_id: "image_banner_1234",
+                                            index: 0
+                                        ]
                                 ]
                         ]
                 ],
