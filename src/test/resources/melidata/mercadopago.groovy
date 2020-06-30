@@ -1933,6 +1933,14 @@ trackTests {
         }
 
         "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
+
+        "/settings/cost_calculator/detail/action_button" (platform: "/mobile", type: TrackType.Event) {
+            amount = 10.51
+            method = "point"
+            payment_financing = "credit"
+            installments = 12
+        }          
+        
         "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
         "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
 
@@ -2494,136 +2502,205 @@ trackTests {
 
     test("Bill payments") {
 
-        "/bill_payments/fixed_amount"(platform: "/mobile") {
-            flow = "/bill_payments"
+         def mandatory = {
             from = "/deep_link"
+        }
+
+        // Home
+         "/bill_payments/home"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/home/info_hour"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/home/type_barcode"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/home/scan_barcode"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+        "/bill_payments/home/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+        }
+
+        // FTU
+        "/bill_payments/ftu"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/ftu/close"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+        "/bill_payments/ftu/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Opt in
+        "/bill_payments/opt_in"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/opt_in"(platform: "/mobile", type: TrackType.View) {
+            mandatory()
+        }
+        "/bill_payments/opt_in/close"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+        "/bill_payments/opt_in/activate"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+        "/bill_payments/opt_in/terms"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Opt out
+        "/bill_payments/opt_out"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/opt_out/close"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/opt_out/click"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Barcode manual input
+        "/bill_payments/barcode_manual_input"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/barcode_manual_input/info_hour"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+        "/bill_payments/barcode_manual_input/open_scanner"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+        "/bill_payments/barcode_manual_input/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+        }
+
+        // Payment receipt
+        "/bill_payments/receipt"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/receipt/share"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Scanner
+
+         "/bill_payments/scan"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/read"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+        }
+
+        "/bill_payments/fixed_amount"(platform: "/mobile") {
+            mandatory()
         }
 
         "/bill_payments/ticket_data"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
 
         "/bill_payments/help"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/associated_entities"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/no_money"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/permissions_rationale"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
-        }
-        "/bill_payments/scan"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/manual_code"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/confirmation"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/add_info"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
             type = "literal"
         }
         "/bill_payments/second_password"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/result"(platform: "/mobile") {
-            flow = "/fund_account"
             from = "/deep_link"
             result_status = "rejected"
             status_detail = "call_for_auth"
         }
         "/bill_payments/px_payment_method_search"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/px_discount_summary"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/px_card_vault"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/px_card_number"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/px_card_holder_name"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/px_card_expiry_date"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/px_card_security_code"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/px_identification_number"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/px_card_issuers"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/px_card_installments"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/px_review_and_confirm"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/px_result"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
             result_status = "rejected"
         }
         "/bill_payments/fee"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/generic_paybills_screen"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/categories"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/barcode_scanner"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/products"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
             type = "option"
         }
         "/bill_payments/shopping"(platform: "/mobile") {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
         "/bill_payments/input_validation_error"(platform: "/mobile", type: TrackType.Event) {
-            flow = "/bill_payments"
-            from = "/deep_link"
+            mandatory()
         }
     }
 

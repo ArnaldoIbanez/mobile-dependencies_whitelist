@@ -14,6 +14,7 @@ tracks {
      ******************************************/
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
+    "/credits/merchant"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea/integrated_flow"(platform: "/", isAbstract: true) {}
 
@@ -87,5 +88,20 @@ tracks {
 
     /******************************************
      *   End: Consumers Opensea Flow
+     ******************************************/
+
+     /******************************************
+     *       Start: Merchants Public Landings
+     ******************************************/
+    //Public landing
+    "/credits/merchant/public_landing"(platform: "/", type: TrackType.View) {
+        user_profile(
+            type: PropertyType.String,
+            required: true
+        )
+    }
+
+    /******************************************
+     *       End: Merchants Public Landings
      ******************************************/
 }

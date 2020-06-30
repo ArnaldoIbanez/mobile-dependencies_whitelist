@@ -13,10 +13,12 @@ from melilake.bt_bids a11
            device.platform as platform,
            substr(ds,1,10) AS track_date
          FROM
-           tracks 
+           melidata.tracks_ml
          WHERE
            ds >= '@param01'
            AND ds < '@param02'
+           AND bu = 'mercadolibre'
+           AND site = 'MLM'
            AND ( (path = '/home/supermarket') OR  (path = '/search' AND get_json_object(event_data, '$.filters.deal') = 'MLM525') )
          group by 
            substr(ds,1,10),

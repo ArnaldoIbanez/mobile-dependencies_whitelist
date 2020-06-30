@@ -709,6 +709,13 @@ trackTests {
             x_mc_request_id = "98c9af-fa979tg-10hjcoi"
         }
 
+        def purchasesEventWithVerticalDataSet = {
+            label = "faq_2"
+            x_mc_request_id = "qwrqwr2-fa979tg-10hjcoi"
+            vertical_case_id = "shipping"
+            vertical_sub_case_id = "ready_to_ship_on_time"
+        }
+
         def newPurchasesDataSet = {
             items = [
                 [
@@ -912,6 +919,10 @@ trackTests {
             newPurchasesDataSet()
         }
 
+        "/myml/my_purchases/status/return_purchase/click_action" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
         "/myml/my_purchases/status/cancel_purchase" (platform:"/", type: TrackType.View) {
             newPurchasesDataSet()
         }
@@ -948,6 +959,10 @@ trackTests {
             purchasesEventDataSet()
         }
 
+        "/myml/my_purchases/status/click_driver_messages" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
         "/myml/my_purchases/status/click_contact_us" (platform:"/", type: TrackType.Event) {
             purchasesEventDataSet()
         }
@@ -968,6 +983,11 @@ trackTests {
             purchasesEventDataSet()
         }
 
+        "/myml/my_purchases/status/messages/click_view_messages" (platform:"/", type: TrackType.Event) {
+            purchasesEventWithVerticalDataSet()
+        }
+
+        // -------
 
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
             item = {

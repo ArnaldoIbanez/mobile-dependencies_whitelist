@@ -150,7 +150,6 @@ trackTests {
           section = "last"
         }
     }
-
     
     test("Splinter MP Landings") {
       // Splinter MP Landings Track View
@@ -160,5 +159,16 @@ trackTests {
         endTime = "2020-06-30T00:00:00Z"
       }
     }
-    
+
+    /*************************
+    *        MP BANKING       *
+    *************************/
+
+    test("Banking Balannce MP") {
+        "/banking/balance"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Banking Calendar MP") {
+        "/banking/calendar"(platform: "/", type: TrackType.View) {}
+    }
 }

@@ -48,6 +48,7 @@
     ],
     "sql": {
       "script": "vip/vip-trackings-convertion-v3.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

@@ -113,6 +113,8 @@ tracks {
                 description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
     }
 
+    "/portal/validate_user"(platform: "/", type: TrackType.View) {}
+
     // Support Widget
 
     "/support"(platform: "/", isAbstract:  true) {}

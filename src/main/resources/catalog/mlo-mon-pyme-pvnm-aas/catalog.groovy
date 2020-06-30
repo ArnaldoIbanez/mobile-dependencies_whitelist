@@ -1,5 +1,3 @@
-package catalog.shipping
-
 import static com.ml.melidata.catalog.parsers.dsl.CatalogDsl.catalog
 
 /**
@@ -17,11 +15,9 @@ catalog {
             "/backend"
     ]
 
-    def shipping = ["shipping"]
+    def marketplace = ["mercadolibre"]
 
-    shipping.each { business ->
+    marketplace.each { business ->
         include business, "tracking.groovy"
-        include business, "labels.groovy"
-        include business, "ssm.groovy"
     }
 }
