@@ -274,6 +274,7 @@ tracks {
         catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
     }
     "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/draft/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
     "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {}
@@ -292,6 +293,7 @@ tracks {
     "/sell/list/manufacturing_time_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
 
 
     "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
