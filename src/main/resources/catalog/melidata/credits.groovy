@@ -17,6 +17,7 @@ tracks {
     "/credits/merchant"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea/integrated_flow"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/opensea/remedy"(platform: "/", isAbstract: true) {}
 
     /***********************************************
      *       Start: Consumers Integrated Flow (mercadolibre - mercadopago)
@@ -85,6 +86,15 @@ tracks {
     "/credits/consumer/opensea/congrats"(platform: "/mobile", type: TrackType.View){
         result(description: "Current status of the IV/KyC application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
     }
+
+    /* Remedy MLM */
+    "/credits/consumer/opensea/remedy/authorization"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/opensea/remedy/authorization/open_detail"(platform: "/web", type: TrackType.View) {}
+    "/credits/consumer/opensea/remedy/authorization/give_consent"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/opensea/remedy/authorization/deny_consent"(platform: "/web", type: TrackType.View) {}
+    "/credits/consumer/opensea/remedy/authorization/modal"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/consumer/opensea/remedy/authorization/recovery"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/opensea/remedy/authorization/quit_recovery"(platform: "/", type: TrackType.View) {}
 
     /******************************************
      *   End: Consumers Opensea Flow
