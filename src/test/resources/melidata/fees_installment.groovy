@@ -18,80 +18,79 @@ trackTests {
     test("Mercadopago fees and installment data loaded successfully") {
         "/fees_installment/payment_method/success" (platform: "/", type: TrackType.Event) {
             payments = [
-                {
-                    order = 0
-                    channel_id = "point"
-                    payment_methods = [
+                [
+                    order: 0,
+                    channel_id: "point",
+                    payment_methods: []
+                ],
+                [
+                    order: 1,
+                    channel_id: "qr",
+                    payment_methods: [
+                        [
+                            channel_id: "qr",
+                            editable: true,
+                            payment_method_id: "qr_online-group_pricing_option_id",
+                            release_option_id: "MLB_qr_digital-currency_value_1000",
+                            order: 0,
+                            release_option_values: [
+                                [
+                                    order: 0,
+                                    fee: "0,99%",
+                                    installment: "Na hora"
+                                ]
+                            ]
+                        ],
+                        [
+                            channel_id: "qr",
+                            editable: true,
+                            payment_method_id: "qr_credit_pricing_option_id",
+                            release_option_id: "MLB_qr_credit_value_1000",
+                            order: 1,
+                            release_option_values: [
+                                [
+                                    order: 0,
+                                    fee: "1,99%",
+                                    installment: "Na hora"
+                                ]
+                            ]
+                        ]
                     ]
-                },
-                {
-                    order = 1
-                    channel_id = "qr"
-                    payment_methods = [
-                        {
-                            channel_id = "qr"
-                            editable = true
-                            payment_method_id = "qr_online-group_pricing_option_id"
-                            release_option_id = "MLB_qr_digital-currency_value_1000"
-                            order = 0
-                            release_option_values = [
-                                {
-                                    order = 0
-                                    fee = "0,99%"
-                                    installment = "Na hora"
-                                }
+                ],
+                [
+                    order: 2,
+                    channel_id: "merchant-services",
+                    payment_methods: [
+                        [
+                            channel_id: "merchant-services",
+                            editable: true,
+                            payment_method_id: "merchant-svcs_online-group_pricing_option_id",
+                            release_option_id: "MLB_merchant-svcs_credit_value_3000",
+                            order: 0,
+                            release_option_values: [
+                                [
+                                    order: 0,
+                                    fee: "3,99%",
+                                    installment: "Em 30 dias"
+                                ]
                             ]
-                        },
-                        {
-                            channel_id = "qr"
-                            editable = true
-                            payment_method_id = "qr_credit_pricing_option_id"
-                            release_option_id = "MLB_qr_credit_value_1000"
-                            order = 1
-                            release_option_values = [
-                                {
-                                    order = 0
-                                    fee = "1,99%"
-                                    installment = "Na hora"
-                                }
+                        ],
+                        [
+                            channel_id: "merchant-services",
+                            editable: true,
+                            payment_method_id: "merchant-svcs_ticket_pricing_option_id",
+                            release_option_id: "MLB_merchant-svcs_ticket_value_1000",
+                            order: 1,
+                            release_option_values: [
+                                [
+                                    order: 0,
+                                    fee: "R\$ 3,49",
+                                    installment: "Em até 3 dias"
+                                ]
                             ]
-                        }
+                        ]
                     ]
-                },
-                {
-                    order = 2
-                    channel_id = "merchant-services"
-                    payment_methods = [
-                        {
-                            channel_id = "merchant-services"
-                            editable = true
-                            payment_method_id = "merchant-svcs_online-group_pricing_option_id"
-                            release_option_id = "MLB_merchant-svcs_credit_value_3000"
-                            order = 0
-                            release_option_values = [
-                            {
-                                order = 0
-                                fee = "3,99%"
-                                installment = "Em 30 dias"
-                            }
-                            ]
-                        },
-                        {
-                            channel_id = "merchant-services"
-                            editable = true
-                            payment_method_id = "merchant-svcs_ticket_pricing_option_id"
-                            release_option_id = "MLB_merchant-svcs_ticket_value_1000"
-                            order = 1
-                            release_option_values = [
-                                {
-                                    order = 0
-                                    fee = "R\$ 3,49"
-                                    installment = "Em até 3 dias"
-                                }
-                            ]
-                        }
-                    ]
-                }
+                ]
             ]
         }
     }
@@ -104,11 +103,11 @@ trackTests {
             order = 1
             editable = true
             release_option_values = [
-                {
-                    order = 0
-                    fee = "1,99%"
-                    installment = "Na hora"
-                }
+                [
+                    order: 0,
+                    fee: "1,99%",
+                    installment: "Na hora"
+                ]
             ]
         }
     }
@@ -147,11 +146,11 @@ trackTests {
             order = -1
             editable = true
             release_option_values = [
-                {
-                    order = 0
-                    fee = "1,99%"
-                    installment = "Na hora"
-                }
+                [
+                    order: 0,
+                    fee: "1,99%",
+                    installment: "Na hora"
+                ]
             ]
         }
     }

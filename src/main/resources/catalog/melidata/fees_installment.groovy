@@ -23,11 +23,36 @@ tracks {
             type: PropertyType.String, 
             description: "La url del deeplink."
         )
-        payments(
+    }
+
+    propertyGroups {
+        url_group(url)
+        url_error_group(url, message)
+        error_group(message)
+        deeplink_group(deeplink)
+    }
+
+    // cada conjunto de valores de tasa y plazo que muestra un release option.
+    def release_option_value_type = objectSchemaDefinitions {
+        order(
             required: true, 
-            type: PropertyType.ArrayList(PropertyType.Map(payment_row_type)), 
-            description: "El conjunto de payments."
+            type: PropertyType.Numeric, 
+            description: "Orden en que se muestran los valores de la tasas y plazos de un payment method."
+        )        
+        fee(
+            required: true, 
+            PropertyType.String, 
+            description: "La tasas del release option"
         )
+        installment(
+            required: true, 
+            type: PropertyType.String, 
+            description: "El plazo del release option."
+        )
+    }
+
+    // los datos asociados de un payment method.
+    def payment_method_type = objectSchemaDefinitions {
         channel_id(
             required: true, 
             type: PropertyType.String, 
@@ -47,7 +72,7 @@ tracks {
             required: true, 
             type: PropertyType.Numeric, 
             description: "Orden en que se muestran los valores de la tasas y plazos de un payment method."
-        )
+        )      
         editable(
             required: true, 
             type: PropertyType.Boolean, 
@@ -58,47 +83,25 @@ tracks {
             type: PropertyType.ArrayList(PropertyType.Map(release_option_value_type)), 
             description: "El conjunto de valores de tasa y plazo que muestra un release option."
         )
-        installment(
+    }
+
+    // Contiene un conjunto de métodos de pagos para un canal dado.
+    def payment_row_type = objectSchemaDefinitions {
+        channel_id(
             required: true, 
             type: PropertyType.String, 
-            description: "El plazo del release option."
+            description: "El id del canal al cual pertenece el payment method."
         )
-        fee(
+        order(
             required: true, 
-            PropertyType.String, 
-            description: "La tasas del release option"
+            type: PropertyType.Numeric, 
+            description: "Orden en que se muestran los valores de la tasas y plazos de un payment method."
         )
         payment_methods(
             required: true, 
             type: PropertyType.ArrayList(PropertyType.Map(payment_method_type)), 
             description: "El conjunto de los datos asociados de un payment method."
         )
-    }
-
-    propertyGroups {
-        url_group(url)
-        url_error_group(url, message)
-        error_group(message)
-        deeplink_group(deeplink)
-        payment_method_group(channel_id,payment_method_id,release_option_id,order,editable,release_option_values)
-        relese_option_value_group(order,installment,fee)
-        payment_row_group(channel_id,order,payment_methods)
-        payments_group(payments)
-    }
-
-    // cada conjunto de valores de tasa y plazo que muestra un release option.
-    def release_option_value_type = objectSchemaDefinitions {
-        relese_option_value_group
-    }
-
-    // los datos asociados de un payment method.
-    def payment_method_type = objectSchemaDefinitions {
-        payment_method_group
-    }
-
-    // Contiene un conjunto de métodos de pagos para un canal dado.
-    def payment_row_type = objectSchemaDefinitions {
-        payment_row_group
     }
 
     /* ----------------------------------------------------------------------------- */
@@ -116,10 +119,43 @@ tracks {
 
     "/fees_installment/payment_method/view"(platform: "/", type: TrackType.View) {}
     "/fees_installment/payment_method/success"(platform: "/", type: TrackType.Event) {
-        payments_group
+        payments(
+            required: true, 
+            type: PropertyType.ArrayList(PropertyType.Map(payment_row_type)), 
+            description: "El conjunto de payments."
+        )
     }
     "/fees_installment/payment_method/selection_action"(platform: "/", type: TrackType.Event) {
-        payment_method_group
+        channel_id(
+            required: true, 
+            type: PropertyType.String, 
+            description: "El id del canal al cual pertenece el payment method."
+        )
+        payment_method_id(
+            required: true, 
+            type: PropertyType.String, 
+            description: "El id del payment method."
+        )
+        release_option_id(
+            required: true, 
+            type: PropertyType.String, 
+            description: "El id del release option que actualmente tiene seleccionado el usuario para el payment method."
+        )
+        order(
+            required: true, 
+            type: PropertyType.Numeric, 
+            description: "Orden en que se muestran los valores de la tasas y plazos de un payment method."
+        )      
+        editable(
+            required: true, 
+            type: PropertyType.Boolean, 
+            description: "Indica si los valores de las tasas pueden ser cambiados."
+        )
+        release_option_values(
+            required: true, 
+            type: PropertyType.ArrayList(PropertyType.Map(release_option_value_type)), 
+            description: "El conjunto de valores de tasa y plazo que muestra un release option."
+        )
     }
     "/fees_installment/payment_method/error"(platform: "/", type: TrackType.Event) {
         error_group
@@ -137,7 +173,36 @@ tracks {
         url_group
     }
     "/fees_installment/release_option/update"(platform: "/", type: TrackType.Event) {
-        payment_method_group
+        channel_id(
+            required: true, 
+            type: PropertyType.String, 
+            description: "El id del canal al cual pertenece el payment method."
+        )
+        payment_method_id(
+            required: true, 
+            type: PropertyType.String, 
+            description: "El id del payment method."
+        )
+        release_option_id(
+            required: true, 
+            type: PropertyType.String, 
+            description: "El id del release option que actualmente tiene seleccionado el usuario para el payment method."
+        )
+        order(
+            required: true, 
+            type: PropertyType.Numeric, 
+            description: "Orden en que se muestran los valores de la tasas y plazos de un payment method."
+        )      
+        editable(
+            required: true, 
+            type: PropertyType.Boolean, 
+            description: "Indica si los valores de las tasas pueden ser cambiados."
+        )
+        release_option_values(
+            required: true, 
+            type: PropertyType.ArrayList(PropertyType.Map(release_option_value_type)), 
+            description: "El conjunto de valores de tasa y plazo que muestra un release option."
+        )
     }
     "/fees_installment/release_option/error"(platform: "/", type: TrackType.Event) {
         error_group
