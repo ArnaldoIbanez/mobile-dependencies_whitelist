@@ -65,7 +65,7 @@ tracks {
     // Terms and conditions view
     "/asset_management/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
 
-    // Not elegible view
+    // Not eligible view
     "/asset_management/not-eligible"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/not-eligible"(platform: "/web", type: TrackType.View) {}
 

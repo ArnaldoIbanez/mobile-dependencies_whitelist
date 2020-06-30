@@ -58,7 +58,7 @@ trackTests {
         // Terms and conditions View
         "/asset_management/terms_and_conditions"(platform: "/mobile") {}
 
-        // Not elegible view
+        // Not eligible view
         "/asset_management/not-eligible"(platform: "/mobile") {}
         "/asset_management/not-eligible"(platform: "/web") {}
 
@@ -248,7 +248,7 @@ trackTests {
         // Terms and conditions View
         "/asset_management/terms_and_conditions"(platform: "/mobile", business: "mercadolibre") {}
 
-        // Not elegible view
+        // Not eligible view
         "/asset_management/not-eligible"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/not-eligible"(platform: "/web", business: "mercadolibre") {}
 
