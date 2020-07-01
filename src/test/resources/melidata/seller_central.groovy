@@ -1,6 +1,7 @@
 package src.test.resources.melidata
 
 import com.ml.melidata.TrackType
+
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
@@ -148,43 +149,13 @@ trackTests {
     }
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
       type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-      reputation_level="yellow"
+      id = "1"
+      action = "click"
     }
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
+    "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
       type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-      reputation_level="yellow"
-    }
-    "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-      type = "news"
-      placement = "publicidad-banner"
-      reputation_level="yellow"
-    }
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-      type = "news"
-      placement = "publicidad-banner"
-      reputation_level="yellow"
-    }
-    "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-      type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-    }
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-      type = "news"
-      placement = "publicidad-banner"
-      adv_segmentation = "winback"
-    }
-    "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-      type = "news"
-      placement = "publicidad-banner"
-    }
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-      type = "news"
-      placement = "publicidad-banner"
+      id = "1"
+      action = "click"
     }
   }
 
@@ -210,6 +181,18 @@ trackTests {
 
   test("seller central listing quantity +info") {
     "/seller_central/listings/quantity/info"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("Seller central banner go, hide, show") {
+    "/seller_central/listings/go"(platform: "/", type: TrackType.Event) {
+      placement = "publicidad_banner"
+    }
+    "/seller_central/listings/hide"(platform: "/", type: TrackType.Event) {
+      placement = "publicidad_banner"
+    }
+    "/seller_central/listings/show"(platform: "/", type: TrackType.View) {
+      placement = "publicidad_banner"
+    }
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1737,6 +1720,22 @@ trackTests {
     "/seller_central/sales/detail/cancellation/reason_input"(platform: "/mobile", type: TrackType.View) {}
   }
 
+  test("upload invoices view secondary actions") {
+    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", type: TrackType.Event) {}
+  }
+
+  test("upload invoices view actions") {
+    "/seller_central/sales/fiscal_document/action"(platform: "/web", type: TrackType.Event) {}
+  }
+
+  test("upload invoices view actions") {
+    "/seller_central/sales/fiscal_document"(platform: "/web", type: TrackType.Event) {}
+  }
+
+  test("upload invoices view") {
+    "/seller_central/sales/fiscal-document"(platform: "/web", type: TrackType.View) {}
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Catalog Optin
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1865,6 +1864,68 @@ trackTests {
       task_id = "link"
       to = "https://www.mercadolibre.com.ar/publicaciones/listado?filters=BUYBOX_STATUS"
       from = "congrats_page"
+    }
+  }
+
+  test("seller central catalog optin product problem confirm") {
+    "/seller_central/catalog/optin/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = false
+      children_catalog_products_ids = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      reason = "OTHER"
+    }
+  }
+
+  test("seller central catalog optin other product problem page view") {
+    "/seller_central/catalog/optin/other_product_problem"(platform: "/web", type: TrackType.View) {
+      reputation_level = "5_green"
+      moderated = "true"
+      children_catalog_products_ids = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = null
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-39de2f6b6b49"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+    }
+  }
+
+  test("seller central catalog optin other product problem") {
+    "/seller_central/catalog/optin/other_product_problem/product_problem_description_task/confirm"(platform: "/web", type: TrackType.Event) {
+      reputation_level = "5_green"
+      moderated = true
+      children_catalog_products_ids = []
+      has_variations = true
+      original_catalog_product_id = "MLA7979515"
+      selected_catalog_product_id = false
+      item_id = "MLA835425554"
+      session_id = "474103756-product_optin-104b09b1a800"
+      has_variations_already_opt_in = false
+      opt_in_item_id = null
+      domain_id = "MLA-CELLPHONES"
+      category_id = "MLA1055"
+      variation_id = 49478478975
+      seller_profile = "INTERMEDIATE"
+      invalid_product_cause = null
+      product_problem_reason = "text"
     }
   }
 
@@ -2202,5 +2263,352 @@ trackTests {
     }
 
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {}
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS SYI v4 - RealEstate - Modificar
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("SYI V4 RE Modificar - seller central render description card") {
+    "/seller_central/modify/detail/title_and_description/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm  description card") {
+    "/seller_central/modify/detail/title_and_description/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render detail technical_specifications card") {
+    "/seller_central/modify/detail/technical_specifications/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm detail technical_specifications card") {
+    "/seller_central/modify/detail/technical_specifications/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render seller_contact card") {
+    "/seller_central/modify/detail/seller_contact/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central-  render  change_category card") {
+    "/seller_central/modify/detail/change_category/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render detail instant_pay_listings card") {
+    "/seller_central/modify/detail/instant_pay_listings_info/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm instant_pay_listings_info card") {
+    "/seller_central/modify/detail/instant_pay_listings_info/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render listing_highlight_package_info card ") {
+    "/seller_central/modify/detail/listing_highlight_package_info/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm listing_highlight_package_info card") {
+    "/seller_central/modify/detail/listing_highlight_package_info/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm quick_edit_standard card ") {
+    "/seller_central/modify/detail/quick_edit_standard/confirm"(platform: "/", type: TrackType.Event) {
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render  video") {
+    "/seller_central/modify/detail/video/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "real_estate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm video") {
+    "/seller_central/modify/detail/video/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render location card") {
+    "/seller_central/modify/detail/location/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm  location card") {
+    "/seller_central/modify/detail/location/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - render detail") {
+    "/seller_central/modify/detail"(platform: "/", type: TrackType.View) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm  seller_contact card") {
+    "/seller_central/modify/detail/seller_contact/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central- render instant_pay_listings card ") {
+    "/seller_central/modify/detail/instant_pay_listings/show"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - confirm instant_pay_listings card") {
+    "  /seller_central/modify/detail/instant_pay_listings/confirm"(platform: "/", type: TrackType.Event) {
+      seller_reputation = "NO_REPUTATION"
+      category_id = "MLC183186"
+      category_domain = "MLC-APARTMENTS_FOR_RENT"
+      item_id = "MLC529811446"
+      item_type = "default"
+      seller_profile = "NEWBIE"
+      listing_type = "gold"
+      session_id = "571359341-updateres-7c63145ea255"
+      vertical = "realEstate"
+      category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+      user_type = "real_estate_agency"
+      business = "classified"
+      platform = "pi"
+    }
   }
 }

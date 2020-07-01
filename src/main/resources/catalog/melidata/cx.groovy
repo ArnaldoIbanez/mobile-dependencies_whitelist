@@ -113,6 +113,8 @@ tracks {
                 description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
     }
 
+    "/portal/validate_user"(platform: "/", type: TrackType.View) {}
+
     // Support Widget
 
     "/support"(platform: "/", isAbstract:  true) {}
@@ -174,7 +176,7 @@ tracks {
 
     "/support/cases/detail"(platform: "/", type: TrackType.View) {
         case_status(required: true, type: PropertyType.String,
-            values: ["pending", "waiting_for_info", "waiting_for_external", "waiting_for_fix", "fixed", "final_answer", "finished_no_answer", "duplicated", "finished", "final_greetings"],
+            values: ["pending", "waiting_for_info", "waiting_for_external", "waiting_for_fix", "fixed", "final_answer", "finished_no_answer", "duplicated", "finished", "final_greetings", "final_closed"],
             description: "Case status")
         case_id(required: true, type: PropertyType.Numeric,
             description: "CX case id")

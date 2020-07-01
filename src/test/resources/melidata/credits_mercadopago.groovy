@@ -100,6 +100,12 @@ trackTests {
             product_type = 'sales_percentage_loan'
         }
 
+        //Summary event
+        "/credits/merchant/enrollment/summary/accept_loan_action"(platform: "/mobile/android", type: TrackType.Event) {
+            action = 'summary_confirm_action'
+            label = 'confirm_button'
+        }
+
         //Conditions
         "/credits/merchant/documents/simulation/conditions"(platform: "/") {}
         "/credits/merchant/documents/simulation/conditions"(platform: "/") {
@@ -388,6 +394,16 @@ trackTests {
             fixed_term_loan_on_time()
         }
 
+        "/credits/merchant/administrator/late_debt"(platform: "/") {
+            offers = [
+                express_money_map()
+            ]
+            products = [
+                fixed_term_map(),
+                sales_percentage_map()
+            ]
+        }
+
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {
             fixed_term_on_time()
@@ -440,6 +456,22 @@ trackTests {
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
             express_money()
         }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            account_money = 'sufficient'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            account_money = 'insufficient'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            account_money = 'sufficient'
+            express_money()
+        }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            account_money = 'insufficient'
+            express_money()
+        }
 
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
@@ -483,6 +515,33 @@ trackTests {
         }
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'default'
+            fixed_term()
+        }
+
+        "/credits/merchant/early_repayment"(platform: "/web/desktop") {
+            account_money = 'sufficient'
+            fixed_term()
+        }
+        "/credits/merchant/early_repayment"(platform: "/web/desktop") {
+            account_money = 'insufficient'
+            fixed_term()
+        }
+
+        "/credits/merchant/early_repayment/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/early_repayment/congrats"(platform: "/web/desktop") {
+            fixed_term()
+        }
+
+        "/credits/merchant/early_repayment/active_early_repayment"(platform: "/web/desktop") {}
+        "/credits/merchant/early_repayment/active_early_repayment"(platform: "/web/desktop") {
+            fixed_term()
+        }
+
+        "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
+            reason = 'early_repayment_error'
+        }
+        "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
+            reason = 'early_repayment_error'
             fixed_term()
         }
     }
@@ -651,13 +710,6 @@ trackTests {
     }
 
     test("Merchant Public Landing") {
-        "/credits/merchant/public_landing"(platform: "/web/desktop") {
-            user_profile = 'offer'
-        }
-        "/credits/merchant/public_landing"(platform: "/web/desktop") {
-            user_profile = 'no_offer'
-        }
-
         "/credits/merchant/declarative_form"(platform:"/web/desktop", type: TrackType.View) {}
 
         "/credits/merchant/declarative_form/congrats"(platform:"/web/desktop", type: TrackType.View) {}
@@ -909,5 +961,40 @@ trackTests {
         "/credits/consumer/administrator_v2/installment_selection/back_to_dashboard"(platform: "/mobile", type: TrackType.Event) {
             page_status = 'overdue'
         }
+    }
+    test("Due date selection from Mercadopago"){
+      /******************************************
+        *    Start: Consumers Change Due Date FLow
+        ******************************************/
+        "/credits/consumer/duedate_selection"(platform: "/", type: TrackType.View) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+        }
+        
+        "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+        }
+        
+        "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+        }
+
+        "/credits/consumer/duedate_selection/success"(platform: "/", type: TrackType.View) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+            new_due_date = 15
+        }
+
+        "/credits/consumer/duedate_selection/cancel"(platform: "/", type: TrackType.Event) {
+            available_products = ["consumer_loan", "personal_loan"]
+            due_date = 10
+        }
+
+
+        /******************************************
+        *    End: Consumers Change Due Date FLow
+        ******************************************/
     }
 }

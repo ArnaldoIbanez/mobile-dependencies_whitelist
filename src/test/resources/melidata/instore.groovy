@@ -404,6 +404,18 @@ trackTests {
         "/instore/error/cant_pay_buyer_qr/abort"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/error/unsupported_payment_method"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method/abort"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method/retry"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
 
         // Amount
         "/instore/amount/price_list"(platform: "/mobile", type: TrackType.View) {
@@ -1155,9 +1167,16 @@ trackTests {
             geofence_id = "123456"
         }
 
-        "/instore/geofence/notify_dwell"(platform: "/mobile", type: TrackType.Event) {
+        "/instore/geofence/notify_push"(platform: "/mobile", type: TrackType.Event) {
             geofence_id = "123456"
+            type = "enter"
         }
+
+        "/instore/geofence/push_sent"(platform: "/mobile", type: TrackType.Event) {
+            status = "filter_range_time"
+        }
+
+        "/instore/geofence/clear"(platform: "/mobile", type: TrackType.Event) { }
 
         // Buyer QR
 
@@ -1188,6 +1207,14 @@ trackTests {
         "/instore/buyer_qr/landing/brief"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+		"/instore/buyer_qr/landing/biometric_security"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+		}
+		"/instore/buyer_qr/security"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+			view_time_in_millis = 140
+			result = true
+		}
         "/instore/buyer_qr/landing/no_seed"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -1786,6 +1813,18 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/cant_pay_buyer_qr/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/unsupported_payment_method/retry"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
@@ -2498,6 +2537,14 @@ trackTests {
 
         //Buyer QR - FTU/Landings
 
+		"/instore/buyer_qr/landing/biometric_security"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+		}
+		"/instore/buyer_qr/security"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+			view_time_in_millis = 140
+			result = true
+		}
         "/instore/buyer_qr/landing/brief"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -2634,9 +2681,16 @@ trackTests {
             geofence_id = "123456"
         }
 
-        "/instore/geofence/notify_dwell"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+        "/instore/geofence/notify_push"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
             geofence_id = "123456"
+            type = "enter"
         }
+
+        "/instore/geofence/push_sent"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            status = "filter_range_time"
+        }
+
+        "/instore/geofence/clear"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) { }
     }
 
     test("Instore - QR Assignment") {

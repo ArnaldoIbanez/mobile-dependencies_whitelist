@@ -14,9 +14,36 @@ metrics {
         }
     }
 
+    "qadb_search"(description: "qadb zqps generated ") {
+	startWith {
+     	   experiment(regex("qadb/.*"))
+	}
+	    
+        countsOn {
+            condition {
+                path("/questions/qadb/search")
+            }
+        }
+    }	
+	
+   "qadb_zqp"(description: "qadb searches perform by user ") {
+	startWith {
+     	   experiment(regex("qadb/.*"))
+	}
+	    
+        countsOn {
+            condition {
+                path("/questions/qadb/search")
+       	        empty("event_data.results", true)
+            }
+        }
+    }		
 
     "questions.pdp"(description: "Track PDP questions") {
-      	countsOn {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
+		countsOn {
 		condition {
 			path("/questions/ask/post")
 			and(
@@ -39,6 +66,9 @@ metrics {
     }
 
 	"questions.sameItem"(description: "questions count over same item") {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
 		countsOn {
 			condition {
 				path("/questions/ask/post")

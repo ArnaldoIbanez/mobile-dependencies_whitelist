@@ -1,7 +1,7 @@
 {
   "users": [
     "pablo.carle@mercadolibre.com",
-    "sessions_security@mercadolibre.com"
+    "mobile_devices_security@mercadolibre.com"
   ],
   "process_name": "screenlock",
   "cron": "00 09 * * *",
@@ -35,6 +35,10 @@
       },
       {
         "name": "os_status",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "risk_level",
         "type": "UNICODE_STRING"
       },
       {
@@ -84,6 +88,7 @@
     ],
     "sql": {
       "script": "auth/screenlock.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
@@ -93,6 +98,11 @@
         {
           "name": "param02",
           "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param03",
+          "value": "DAY-3",
           "format": "yyyy-MM-dd"
         }
       ]
