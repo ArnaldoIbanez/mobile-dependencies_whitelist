@@ -72,7 +72,7 @@ tracks {
         sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical, user_type, business, platform)
         sellGroupMobile( seller_segment, seller_profile, vertical)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
-        categoryFlowMobile(category_id, category_path)
+        categoryFlowMobile(categorization_flow_successful, category_id, category_path, chosen_categorization_model, title_predicted)
         listingTypeFlow(listing_type_id)
         listingTypeFlowMobile(listing_type_id, listing_type_free_available)
         catalogFlowMobile(domain_id, attribute_id, category_prediction_selected_index, attribute_values, predictions, parent_product_id, product_id)
@@ -208,9 +208,6 @@ tracks {
     // Apps
     "/sell/list" (platform: "/mobile", isAbstract: true){
         categoryFlowMobile
-        categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
-        chosen_categorization_model(required: false, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
-        title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
     }
     "/sell/list/drafts"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/drafts/draft_action"(platform: "/mobile", isAbstract: true) {}
@@ -325,7 +322,9 @@ tracks {
     }
     "/sell/list/attribute/kilometers"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View){}
-    "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {}
+    "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {
+        catalogFlowMobile
+    }
     "/sell/list/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event) {}
@@ -506,7 +505,9 @@ tracks {
     "/sell/list/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/list/category"(platform: "/mobile", isAbstract:true){}
+    "/sell/list/category"(platform: "/mobile", isAbstract: true) {
+        catalogFlowMobile
+    }
     "/sell/list/category/selection"(platform: "/mobile", isAbstract:true){}
     "/sell/list/category/selection/confirm_suggested"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category/selection/wrong_suggested"(platform: "/mobile", type: TrackType.Event) {}
@@ -542,7 +543,7 @@ tracks {
     }
     "/sell/list/sale_condition"(platform: "/", type: TrackType.View){}
 
-//update flow
+    //update flow
     "/sell/update" (platform: "/", isAbstract: true){
         item_id(required: true, description: "Item id", type: PropertyType.String)
     }
