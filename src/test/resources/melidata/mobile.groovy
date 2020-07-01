@@ -149,16 +149,16 @@ trackTests {
 
     test("MercadoPago wallet apprater") {
 
-        "/application/apprater/add_track"(platform: "/mobile") {
+        "/apprater/add_track"(platform: "/mobile") {
             type_track="CRASHED"
         }
-        "/application/apprater/add_track"(platform: "/mobile") {
+        "/apprater/add_track"(platform: "/mobile") {
             type_track="PAYMENT_APPROVED"
         }
-        "/application/apprater/add_track"(platform: "/mobile") {
+        "/apprater/add_track"(platform: "/mobile") {
             type_track="WITHDRAW"
         }
-        "/application/apprater/error_service_rules"(platform: "/mobile") {}
-        "/application/apprater/popup"(platform: "/mobile") {}
+        "/apprater/error_service_rules"(platform: "/mobile") {}
+        "/apprater/popup"(platform: "/mobile") {}
     }
 }

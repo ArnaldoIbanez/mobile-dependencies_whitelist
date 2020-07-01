@@ -138,13 +138,13 @@ tracks {
     }
 
     //apprater
-    "/application/apprater"(platform:"/mobile", isAbstract:true) {}
+    "/apprater"(platform:"/mobile", isAbstract:true) {}
 
-    "/application/apprater/add_track"(platform: "/mobile") {
+    "/apprater/add_track"(platform: "/mobile") {
         type_track(required: true, type: PropertyType.String, description:"Type of track that happen in the app (PAYMENT_APPROVE,CRASHED,WITHDRAW,etc")
     }
-    "/application/apprater/error_service_rules"(platform: "/mobile") {
+    "/apprater/error_service_rules"(platform: "/mobile") {
     }
-    "/application/apprater/popup"(platform: "/mobile") {
+    "/apprater/popup"(platform: "/mobile") {
     }
 }
