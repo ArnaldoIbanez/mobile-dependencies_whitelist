@@ -25,7 +25,14 @@ tracks {
     }
 
     // MP Home
-    "/mp_home"(platform: "/", type: TrackType.View) {}
+    "/mp_home"(platform: "/", type: TrackType.View) {
+        userProfile (
+            type: PropertyType.String,
+            required: true,
+            description: "User profile type",
+            values: ['newbie', 'collector', 'payer'],
+        )
+    }
 
     // MP Home
     "/profile"(platform: "/", type: TrackType.View) {}
