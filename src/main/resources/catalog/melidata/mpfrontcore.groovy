@@ -25,8 +25,7 @@ tracks {
     }
 
     // MP Home
-    "/mp_home"(platform: "/", type: TrackType.View) {}
-    "/mp_home"(platform: "/", type: TrackType.Event) {
+    "/mp_home"(platform: "/", type: TrackType.View) {
         userProfile (
             type: PropertyType.String,
             required: true,
