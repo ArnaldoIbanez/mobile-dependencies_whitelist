@@ -86,7 +86,16 @@ metrics {
 							},
 							"cancelled"
 					),
-					equals( "event_data.hidden_for_seller", false )
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("hidden_for_seller")
+							},
+							false
+					),
 				)
 			}
 		}
@@ -268,7 +277,16 @@ metrics {
 							"cancelled"
 					),
 					equals("event_data.items.item.catalog_product_id", property("catalog_product_id") ),
-					equals( "event_data.hidden_for_seller", false )	
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("hidden_for_seller")
+							},
+							false
+					),
 				)
 			}
 		}
