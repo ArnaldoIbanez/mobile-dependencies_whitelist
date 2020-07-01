@@ -244,28 +244,28 @@ trackTests {
 
     test("MercadoPago wallet apprater") {
 
-        "/application/apprater/add_track"(platform: "/mobile") {
+        "/apprater/add_track"(platform: "/mobile") {
             type_track="CRASHED"
         }
-        "/application/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
+        "/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
             type_track="CRASHED"
         }
-        "/application/apprater/add_track"(platform: "/mobile") {
+        "/apprater/add_track"(platform: "/mobile") {
             type_track="PAYMENT_APPROVED"
         }
-        "/application/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
+        "/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
             type_track="PAYMENT_APPROVED"
         }
-        "/application/apprater/add_track"(platform: "/mobile") {
+        "/apprater/add_track"(platform: "/mobile") {
             type_track="WITHDRAW"
         }
-        "/application/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
+        "/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
             type_track="WITHDRAW"
         }
-        "/application/apprater/error_service_rules"(platform: "/mobile") {}
-        "/application/apprater/error_service_rules"(platform: "/mobile", business: "mercadopago") {}
-        "/application/apprater/popup"(platform: "/mobile") {}
-        "/application/apprater/popup"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/error_service_rules"(platform: "/mobile") {}
+        "/apprater/error_service_rules"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/popup"(platform: "/mobile") {}
+        "/apprater/popup"(platform: "/mobile", business: "mercadopago") {}
     }
 
     test("Landing Deeplinks in Mobile") {
@@ -281,18 +281,4 @@ trackTests {
         }
     }
 
-    test("MercadoPago wallet apprater") {
-
-        "/apprater/add_track"(platform: "/mobile") {
-            type_track="CRASHED"
-        }
-        "/apprater/add_track"(platform: "/mobile") {
-            type_track="PAYMENT_APPROVED"
-        }
-        "/apprater/add_track"(platform: "/mobile") {
-            type_track="WITHDRAW"
-        }
-        "/apprater/error_service_rules"(platform: "/mobile") {}
-        "/apprater/popup"(platform: "/mobile") {}
-    }
 }
