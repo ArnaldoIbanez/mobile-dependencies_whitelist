@@ -29,7 +29,7 @@ tracks {
     "/mp_home"(platform: "/", type: TrackType.Event) {
         userProfile (
             type: PropertyType.String,
-            required: false,
+            required: true,
             description: "User profile type",
             values: ['newbie', 'collector', 'payer'],
         )
