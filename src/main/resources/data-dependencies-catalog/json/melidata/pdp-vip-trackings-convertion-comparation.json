@@ -34,6 +34,14 @@
         "type": "UNICODE_STRING"
       },
       {
+        "name": "reputation_level",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "loyalty_level",
+        "type": "UNICODE_STRING"
+      },
+      {
         "name": "total_users",
         "type": "INTEGER"
       },
