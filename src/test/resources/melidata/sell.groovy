@@ -1706,7 +1706,6 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
-            catalog_listing_forced_type = "closed"
         }
     }
 
