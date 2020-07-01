@@ -89,12 +89,12 @@ tracks {
 
     /* Remedy MLM */
     "/credits/consumer/opensea/remedy/authorization"(platform: "/", type: TrackType.View) {}
-    "/credits/consumer/opensea/remedy/authorization/open_detail"(platform: "/web", type: TrackType.View) {}
-    "/credits/consumer/opensea/remedy/authorization/give_consent"(platform: "/", type: TrackType.View) {}
-    "/credits/consumer/opensea/remedy/authorization/deny_consent"(platform: "/web", type: TrackType.View) {}
+    "/credits/consumer/opensea/remedy/authorization/open_detail"(platform: "/web", type: TrackType.Event) {}
+    "/credits/consumer/opensea/remedy/authorization/give_consent"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/opensea/remedy/authorization/deny_consent"(platform: "/web", type: TrackType.Event) {}
     "/credits/consumer/opensea/remedy/authorization/modal"(platform: "/mobile", type: TrackType.View) {}
     "/credits/consumer/opensea/remedy/authorization/recovery"(platform: "/", type: TrackType.View) {}
-    "/credits/consumer/opensea/remedy/authorization/quit_recovery"(platform: "/", type: TrackType.View) {}
+    "/credits/consumer/opensea/remedy/authorization/quit_remedy"(platform: "/", type: TrackType.Event) {}
 
     /******************************************
      *   End: Consumers Opensea Flow
