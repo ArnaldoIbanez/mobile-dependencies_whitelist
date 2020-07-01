@@ -3,7 +3,7 @@
     "manuel.kenar@mercadolibre.com",
     "vip_it@mercadolibre.com"
   ],
-  "process_name": "pdp_vip_trackings_convertion-comparation",
+  "process_name": "pdp_vip_trackings_convertion-comparation-v2",
   "cron": "00 04 * * *",
   "partition": {
     "name": "ds",
@@ -40,10 +40,19 @@
       {
         "name": "orders",
         "type": "INTEGER"
+      },
+      {
+        "name": "total_users_carrito",
+        "type": "INTEGER"
+      },
+      {
+        "name": "orders_carrito",
+        "type": "INTEGER"
       }
     ],
     "sql": {
       "script": "pdp/pdp-vip-trackings-convertion-comparation.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
