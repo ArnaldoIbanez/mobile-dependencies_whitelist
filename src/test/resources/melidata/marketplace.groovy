@@ -192,6 +192,11 @@ trackTests {
             is_main_url = true
             version = "2"
         }
+        "/landing/generic"(platform: "/mobile", business: "mercadopago"){
+            url = "https://www.mercadolibre.com"
+            is_main_url = true
+            version = "2"
+        }
 
         "/webkit/deeplink_open/error"(platform: "/mobile") {
             url = "https://www.mercadolibre.com"
@@ -694,9 +699,13 @@ trackTests {
 
     test("sso"){
         "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/login_successful" (platform: "/mobile", type: TrackType.Event, business: "mercadopago"){}
         "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event, business: "mercadopago"){}
         "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event, business: "mercadopago"){}
         "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event, business: "mercadopago"){}
     }
 
 }

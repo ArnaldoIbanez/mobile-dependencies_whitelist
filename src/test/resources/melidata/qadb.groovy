@@ -61,6 +61,14 @@ trackTests {
                     transactional_type = "SHIPPING"
                 }
             ]
+            intentions = [
+                    {
+                        transactional_type = "SHIPPING"
+                    },
+                    {
+                        transactional_type = "STOCK"
+                    }
+            ]
         }
 
         "/questions/qadb/feedback"(platform: "/", type: TrackType.Event) {

@@ -115,4 +115,22 @@ trackTests {
          *   End: Consumers Opensea Flow
          ******************************************/
     }
+
+    test('Merchant Public Landing') {
+        // MercadoPago Business
+        "/credits/merchant/public_landing"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
+            user_profile = 'offer'
+        }
+        "/credits/merchant/public_landing"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
+            user_profile = 'no_offer'
+        }
+
+        // MercadoLibre business
+        "/credits/merchant/public_landing"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
+            user_profile = 'offer'
+        }
+        "/credits/merchant/public_landing"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
+            user_profile = 'no_offer'
+        }
+    }
 }

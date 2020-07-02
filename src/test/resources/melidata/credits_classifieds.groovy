@@ -27,6 +27,10 @@ trackTests {
             properties()
         }
 
+         "/classi_credits/simulation_details"(platform: "/web/mobile", type: TrackType.View) {
+            properties()
+        }
+
         "/classi_credits/application_form/step_1"(platform: "/web/mobile", type: TrackType.View) {
             properties()
         }

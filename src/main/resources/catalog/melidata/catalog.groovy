@@ -194,6 +194,7 @@ catalog {
         include business, "pos_seller.groovy"
         include business, "preference.groovy"
         include business, "discount_sellers.groovy"
+        include business, "unified_onboarding.groovy"
         include business, "profile_engine.groovy"
         include business, "pos_management.groovy"
         include business, "discount_center.groovy"
@@ -209,6 +210,9 @@ catalog {
         include business, "notifications.groovy"
         include business, "data_privacy.groovy"
         include business, "wallet.groovy"
+        include business, "mp_insurtech.groovy"
+        include business, "mobile.groovy"
+        include business, "fees_installment.groovy"
     }
 
     mercadoshops.each { business ->

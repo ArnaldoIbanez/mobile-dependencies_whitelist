@@ -156,14 +156,7 @@ tracks {
     /******************************************
      *       Start: Merchants Public Landings
      ******************************************/
-    //Public landing
-    "/credits/merchant/public_landing"(platform: "/", type: TrackType.View) {
-        user_profile(
-            type: PropertyType.String,
-            required: true
-        )
-    }
-
+     
     "/credits/merchant/declarative_form"(platform:"/", type: TrackType.View) {}
     "/credits/merchant/declarative_form/congrats"(platform:"/", type: TrackType.View) {}
 
@@ -262,6 +255,18 @@ tracks {
     "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
         products_group
     }
+    "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
+        account_money(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'sufficient',
+                'insufficient'
+            ],
+            inheritable: false
+        )
+        products_group
+    }
     "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {
         products_group
     }
@@ -275,6 +280,32 @@ tracks {
                 'installment_paid',
                 'default'
             ],
+            inheritable: false
+        )
+        products_group
+    }
+    "/credits/merchant/early_repayment"(platform: "/", type: TrackType.View) {
+        account_money(
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'sufficient',
+                'insufficient'
+            ],
+            inheritable: false
+        )
+        products_group
+    }
+    "/credits/merchant/early_repayment/congrats"(platform: "/", type: TrackType.View) {
+        products_group
+    }
+    "/credits/merchant/early_repayment/active_early_repayment"(platform: "/", type: TrackType.View) {
+        products_group
+    }
+    "/credits/merchant/early_repayment/error"(platform: "/", type: TrackType.View) {
+        reason(
+            type: PropertyType.String,
+            required: false,
             inheritable: false
         )
         products_group

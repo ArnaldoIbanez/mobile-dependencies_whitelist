@@ -119,6 +119,9 @@ tracks {
         battery_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled"], description: "Battery Save mode")
         data_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled", "whitelisted", "undefined"], description: "Data Save mode")
         do_not_disturb_mode(required: false, type: PropertyType.String, values: ["disabled", "important_interruptions", "no_interruptions", "alarms_only", "undefined"], description: "Do Not Disturb mode")
+        carrier_code(required: false, type: PropertyType.String, description: "Carrier code of the network provider (MCC+MNC)")
+        carrier_name(required: false, type: PropertyType.String, description: "Name of the carrier network provider")
+        nfc_compatible(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Nfc compatible with the device")
     }
 
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}

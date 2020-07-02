@@ -50,8 +50,9 @@ tracks {
     }
 
     "/reviews/see_more"(platform: "/") {
-        item_id(required: true, type: PropertyType.String)
+        item_id(required: false, type: PropertyType.String)
         catalog_product_id(required: false, type: PropertyType.String)
+        context(required: true, type: PropertyType.String, description: "If the context is pdp or vip", values:["PDP", "VIP"])
     }
 }
 

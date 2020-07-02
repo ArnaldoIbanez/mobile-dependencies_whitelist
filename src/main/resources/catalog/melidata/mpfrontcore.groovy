@@ -25,7 +25,14 @@ tracks {
     }
 
     // MP Home
-    "/mp_home"(platform: "/", type: TrackType.View) {}
+    "/mp_home"(platform: "/", type: TrackType.View) {
+        userProfile (
+            type: PropertyType.String,
+            required: true,
+            description: "User profile type",
+            values: ['newbie', 'collector', 'payer'],
+        )
+    }
 
     // MP Home
     "/profile"(platform: "/", type: TrackType.View) {}
@@ -153,7 +160,6 @@ tracks {
         email (type: PropertyType.String, required: true, description: "Email from user")
     }
 
-
     // Splinter MP Landings
     "/landing/marketing"(platform: "/", type: TrackType.View) {
       key (type: PropertyType.String, required: true, description: "ID from a landing")
@@ -166,4 +172,14 @@ tracks {
     "/mp_covid/congrats"(platform: "/", type: TrackType.View) {}
     "/mp_covid/donation"(platform: "/", type: TrackType.View) {}
     "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
+
+    /*************************
+    *        MP BANKING       *
+    *************************/
+
+    // MP Banking Balance Web and Webview
+    "/banking"(platform: "/", isAbstract: true) {}
+    // Web and web-mobile
+    "/banking/balance"(platform: "/", type: TrackType.View) {}
+    "/banking/calendar"(platform: "/", type: TrackType.View) {}
 }

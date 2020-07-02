@@ -22,6 +22,7 @@ trackTests {
         def seeMoreTrack = {
             item_id="MLA834078638"
             catalog_product_id="MLA15243603"
+            context="PDP"
         }
 
         def dataSetCongrats = {

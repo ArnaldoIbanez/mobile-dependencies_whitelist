@@ -1001,7 +1001,7 @@ tracks {
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
-    "/vip/free_list_adv"(platform: "/web",  type: TrackType.Event, parentPropertiesInherited: false) {
+    "/vip/free_list_adv"(platform: "/",  type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
