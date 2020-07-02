@@ -19,7 +19,7 @@ tracks {
 
     "/unified_onboarding/challenge" (platform: "/mobile", type: TrackType.View) {
         progress(required: false, type: PropertyType.String, description: "Wizard Step Number")
-        value(required: true, type: PropertyType.String, description: "TODO")
+        value(required: false, type: PropertyType.String, description: "TODO")
     }
 
     "/unified_onboarding/challenge/open" (platform: "/mobile", type: TrackType.Event) {
@@ -41,5 +41,6 @@ tracks {
     }
 
     "/unified_onboarding/challenge/component/tap" (platform: "/mobile", type: TrackType.Event) {
+        value(required: true, type: PropertyType.String, description: "Component's value")
     }
 }
