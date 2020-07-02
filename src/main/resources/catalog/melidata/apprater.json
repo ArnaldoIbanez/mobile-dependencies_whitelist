@@ -13,6 +13,10 @@
     "operation": "append",
     "columns": [
       {
+         "name": "type_track",
+         "type": "UNICODE_STRING"
+       },
+       {
         "name": "site",
         "type": "UNICODE_STRING"
       },
@@ -23,11 +27,7 @@
       {
         "name": "version",
         "type": "UNICODE_STRING"
-      },
-      {
-         "name": "type_track",
-         "type": "UNICODE_STRING"
-       }
+      }
     ],
     "sql": {
       "script": "mercadopago/apprater.sql",
