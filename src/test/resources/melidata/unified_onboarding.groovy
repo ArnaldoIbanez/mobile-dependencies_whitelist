@@ -19,6 +19,17 @@ trackTests {
         }
     }
 
+    test("Tasas y Plazos Challenge view") {
+        "/unified_onboarding/challenge" (platform: "/mobile", type: TrackType.View) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "ou_fees"
+            challenge_type = "typ_list"
+            from = "tools_for_sellers"
+            value = "{ some object }"
+        }
+    }
+
     test("Unified Onboarding Brand Name Challenge open") {
         "/unified_onboarding/challenge/open" (platform: "/mobile", type: TrackType.Event) {
             session_id = "12345"
@@ -26,6 +37,18 @@ trackTests {
             challenge_id = "brand_name"
             challenge_type = "single_input"
             from = "some initiative"
+        }
+    }
+
+    test("Tasas y Plazos Challenge open") {
+        "/unified_onboarding/challenge/open" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "ou_fees"
+            challenge_type = "typ_list"
+            from = "tools_for_sellers"
+            value = "{ some object }"
+            progress = "{\"current\": 1, \"total\": 7}"
         }
     }
   
@@ -36,6 +59,17 @@ trackTests {
             challenge_id = "brand_name"
             challenge_type = "single_input"
             from = "some initiative"
+        }
+    }
+
+    test("Tasas y plazos Challenge Back") {
+        "/unified_onboarding/challenge/error" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "12345"
+            session_id_from = "1234"
+            challenge_id = "brand_name"
+            challenge_type = "single_input"
+            from = "some initiative"
+            value = "The operation couldn’t be completed. (com.mercadolibre.networking error 500."
         }
     }
 
