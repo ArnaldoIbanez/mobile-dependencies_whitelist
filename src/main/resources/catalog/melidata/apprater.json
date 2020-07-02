@@ -30,7 +30,7 @@
        }
     ],
     "sql": {
-      "script": "mercadopago/memorywarnings.sql",
+      "script": "mercadopago/apprater.sql",
       "parameters": [
         {
           "name": "param01",
