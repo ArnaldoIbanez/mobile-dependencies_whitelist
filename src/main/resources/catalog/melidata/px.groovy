@@ -669,7 +669,7 @@ tracks {
 
     "/px_checkout/congrats/success"(platform: "/mobile", isAbstract: true){}
 
-    // Deep link launched from the congrats screen
+    // Deep link launched from the congrats success screen
     "/px_checkout/congrats/success/deep_link"(platform: "/mobile", type: TrackType.Event) {
         type(required: false, type: PropertyType.String, description: "type deep link launched")
         deep_link(required: false, type: PropertyType.String, description: "deep link launched")

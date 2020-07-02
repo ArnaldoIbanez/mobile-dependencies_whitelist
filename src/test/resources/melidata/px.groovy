@@ -1905,6 +1905,19 @@ trackTests {
             behaviour = "tap_pay"
             deepLink = "mercadopago://kyc/"
         }
+
+        "/px_checkout/congrats/success/deep_link"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+              collector_id = 1234
+              brand_name = "YPF"
+              store_id = 1234
+              pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            type = "money_split"
+            deep_link = "mercadopago://mplayer/"
+        }
     }
 
     defaultBusiness = "mercadopago"
