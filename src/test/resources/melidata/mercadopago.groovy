@@ -1388,6 +1388,7 @@ trackTests {
     test("Memory warning") {
         "/memory_warning"(platform: "/mobile", type: TrackType.Event) {
             view_controller = "ViewController"
+            application_state = "Active"
         }
     }
     
