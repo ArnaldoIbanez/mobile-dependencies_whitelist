@@ -91,7 +91,7 @@ trackTests {
             challenge_id = "brand_name"
             challenge_type = "single_input"
             from = "some initiative"
-            value = "Continuar"
+            //value = "Continuar"
             component_id = "main_action"
             component_type = "action"
         }
