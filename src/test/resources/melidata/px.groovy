@@ -1906,7 +1906,7 @@ trackTests {
             deepLink = "mercadopago://kyc/"
         }
 
-        "/px_checkout/congrats/success/deep_link"(platform: "/mobile", type: TrackType.Event) {
+        "/px_checkout/result/success/deep_link"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
               collector_id = 1234
               brand_name = "YPF"
@@ -3818,7 +3818,7 @@ trackTests {
             deepLink = "mercadopago://kyc/"
         }
 
-        "/px_checkout/congrats/success/deep_link"(platform: "/mobile", type: TrackType.Event) {
+        "/px_checkout/result/success/deep_link"(platform: "/mobile", type: TrackType.Event) {
             flow_detail = {
               collector_id = 1234
               brand_name = "YPF"

@@ -664,13 +664,9 @@ tracks {
         deepLink(required: true, type: PropertyType.String, description: "Deeplink being launched")
     }
 
-    // Congrats screen
-    "/px_checkout/congrats"(platform: "/mobile", isAbstract: true){}
-
-    "/px_checkout/congrats/success"(platform: "/mobile", isAbstract: true){}
-
     // Deep link launched from the congrats success screen
-    "/px_checkout/congrats/success/deep_link"(platform: "/mobile", type: TrackType.Event) {
+    "/px_checkout/result/success/deep_link"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
         type(required: false, type: PropertyType.String, description: "type deep link launched")
         deep_link(required: false, type: PropertyType.String, description: "deep link launched")
     }
