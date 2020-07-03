@@ -110,6 +110,7 @@ catalog {
         include business, "mobile.groovy"
         include business, "myml.groovy"
         include business, "myml_mercadoshops.groovy"
+        include business, "my_purchases.groovy"
         include business, "seller_central.groovy"
         include business, "vendor_central.groovy"
         include business, "onboarding.groovy"
