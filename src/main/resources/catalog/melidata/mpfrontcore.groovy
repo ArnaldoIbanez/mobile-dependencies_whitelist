@@ -28,7 +28,7 @@ tracks {
     "/mp_home"(platform: "/", type: TrackType.View) {
         userProfile (
             type: PropertyType.String,
-            required: true,
+            required: false,
             description: "User profile type",
             values: ['newbie', 'collector', 'payer'],
         )

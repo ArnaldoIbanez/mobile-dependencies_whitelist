@@ -10,9 +10,7 @@ trackTests {
     *************************/
 
     test("Mercadopago Home") {
-        "/mp_home" (platform: "/", type: TrackType.View) {
-           userProfile = "newbie"
-        }
+        "/mp_home" (platform: "/", type: TrackType.View) {}
     }
 
     test("Mercadopago Profile") {
