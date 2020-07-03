@@ -778,5 +778,15 @@ trackTests {
         test("IFPE auth restrictions") {
             "/auth/restrictions"(platform: "/", type: TrackType.View) {}
         }
+
+        test("Reauth error page") {
+            "/auth/restrictions/error"(platform: "/", type: TrackType.View) {
+                retry_url = true
+            }
+        }
+
+        test("Reauth error retry") {
+            "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {}
+        }
     }
 }
