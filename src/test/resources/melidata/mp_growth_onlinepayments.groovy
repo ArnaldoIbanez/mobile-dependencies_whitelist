@@ -6,12 +6,24 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
-     test("Landing mercadopago online payments websites") {
+    test("Landing mercadopago online payments websites") {
         "/landing/onlinepayments/websites" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago online payments websites with browser_id") {
+        "/landing/onlinepayments/websites" (platform: "/web") {
+            browser_id = "111111-22222-333333-444444"
+        }
     }
 
     test("Landing mercadopago online payments social") {
         "/landing/onlinepayments/social" (platform: "/web") {}
+    }
+
+    test("Landing mercadopago online payments social with browser_id") {
+        "/landing/onlinepayments/social" (platform: "/web") {
+            browser_id = "111111-22222-333333-444444"
+        }
     }
 
     test("Landing mercadopago online payments") {

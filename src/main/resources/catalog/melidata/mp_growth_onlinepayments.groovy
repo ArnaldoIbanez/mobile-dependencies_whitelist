@@ -13,9 +13,13 @@ tracks {
     }
 
     // MP Landing Online Payments Websites
-    "/landing/onlinepayments/websites"(platform: "/web"){}
+    "/landing/onlinepayments/websites"(platform: "/web"){
+        browser_id (type: PropertyType.String, required: false, description: "Specifies the browser id")
+    }
 
     // MP Landing Online Payments Social
-    "/landing/onlinepayments/social"(platform: "/web"){}
+    "/landing/onlinepayments/social"(platform: "/web"){
+        browser_id (type: PropertyType.String, required: false, description: "Specifies the browser id")
+    }
 
 }
