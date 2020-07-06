@@ -33,50 +33,50 @@ trackTests {
          *       Start: Credit Card Payment
          ***********************************************/
         //Hub
-        "/credits/credit-card/payment/hub"(platform: "/", type: TrackType.View) {
+        "/credits/credit_card/payment/hub"(platform: "/", type: TrackType.View) {
             offer = offer_data_scoring_a
             statement_status = "closed"
         }
 
-        "/credits/credit-card/payment/total_payment_action"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/payment/total_payment_action"(platform: "/", type: TrackType.Event) {
             amount = 100.5
         }
 
         //Payment plan
-        "/credits/credit-card/payment/payment_plan_selection"(platform: "/", type: TrackType.View) {
+        "/credits/credit_card/payment/payment_plan_selection"(platform: "/", type: TrackType.View) {
             offer = offer_data_scoring_b
             statement_status = "open"
         }
 
         //Amount input
-        "/credits/credit-card/payment/amount_input"(platform: "/", type: TrackType.View) {
+        "/credits/credit_card/payment/amount_input"(platform: "/", type: TrackType.View) {
             offer = offer_data_scoring_a
             statement_status = "overdue"
         }
 
         //Summary
-        "/credits/credit-card/payment/summary"(platform: "/", type: TrackType.View) {
+        "/credits/credit_card/payment/summary"(platform: "/", type: TrackType.View) {
             offer = offer_data_scoring_a
             statement_status = "closed"
             payment_option = "total"
             amount_input = amount_input_data
         }
 
-        "/credits/credit-card/payment/summary"(platform: "/", type: TrackType.View) {
+        "/credits/credit_card/payment/summary"(platform: "/", type: TrackType.View) {
             offer = offer_data_scoring_b
             statement_status = "closed"
             payment_option = "payment_plan"
             payment_plan = payment_plan_data
         }
 
-        "/credits/credit-card/payment/payment_action"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/payment/payment_action"(platform: "/", type: TrackType.Event) {
             offer = offer_data_scoring_a
             statement_status = "closed"
             payment_option = "total"
             amount_input = amount_input_data
         }
 
-        "/credits/credit-card/payment/payment_action"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/payment/payment_action"(platform: "/", type: TrackType.Event) {
             offer = offer_data_scoring_b
             statement_status = "closed"
             payment_option = "payment_plan"

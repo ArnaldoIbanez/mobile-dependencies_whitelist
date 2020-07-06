@@ -103,18 +103,18 @@ tracks {
      *       Abstract definitions
      ******************************************/
     "/credits"(platform: "/", isAbstract: true) {}
-    "/credits/credit-card"(platform: "/", isAbstract: true) {}
-    "/credits/credit-card/payment"(platform: "/", isAbstract: true) {}
+    "/credits/credit_card"(platform: "/", isAbstract: true) {}
+    "/credits/credit_card/payment"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Credit Card Payment
      ******************************************/
     //Hub
-    "/credits/credit-card/payment/hub"(platform: "/", type: TrackType.View) {
+    "/credits/credit_card/payment/hub"(platform: "/", type: TrackType.View) {
         payment_group
     }
 
-    "/credits/credit-card/payment/total_payment_action"(platform: "/", type: TrackType.Event) {
+    "/credits/credit_card/payment/total_payment_action"(platform: "/", type: TrackType.Event) {
         amount(
             description: "Statement amount",
             type: PropertyType.Numeric,
@@ -123,21 +123,21 @@ tracks {
     }
 
     //Payment plan
-    "/credits/credit-card/payment/payment_plan_selection"(platform: "/", type: TrackType.View) {
+    "/credits/credit_card/payment/payment_plan_selection"(platform: "/", type: TrackType.View) {
         payment_group
     }
 
     //Amount input
-    "/credits/credit-card/payment/amount_input"(platform: "/", type: TrackType.View) {
+    "/credits/credit_card/payment/amount_input"(platform: "/", type: TrackType.View) {
         payment_group
     }
 
     //Summary
-    "/credits/credit-card/payment/summary"(platform: "/", type: TrackType.View) {
+    "/credits/credit_card/payment/summary"(platform: "/", type: TrackType.View) {
         full_payment_group
     }
 
-    "/credits/credit-card/payment/payment_action"(platform: "/", type: TrackType.Event) {
+    "/credits/credit_card/payment/payment_action"(platform: "/", type: TrackType.Event) {
         full_payment_group
     }
     /******************************************
