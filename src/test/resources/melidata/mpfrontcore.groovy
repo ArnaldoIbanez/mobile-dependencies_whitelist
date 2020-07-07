@@ -171,4 +171,8 @@ trackTests {
     test("Banking Calendar MP") {
         "/banking/calendar"(platform: "/", type: TrackType.View) {}
     }
+
+    test("Banking PNF") {
+        "/banking/pnf"(platform: "/", type: TrackType.View) {}
+    }
 }
