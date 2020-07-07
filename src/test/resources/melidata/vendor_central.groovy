@@ -14,6 +14,14 @@ trackTests {
     "/vendor_central/summary/hub"(platform: "/web", type: TrackType.View) {}
   }
 
+  test("Vendor Central summary discount view") {
+    "/vendor_central/summary/discount"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central summary discount congrats view") {
+    "/vendor_central/summary/discount_congrats"(platform: "/web", type: TrackType.View) {}
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Vendor central BULK Offering offline editor
   //------------------------------------------------------------------------------------------------------------------------------------------------------
