@@ -717,11 +717,11 @@ trackTests {
         }
         
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
-            reason = "financial_files"
+            reason = "financial_files_uploaded"
         }
         
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
-            reason = "financial_scraping"
+            reason = "financial_scraping_done"
         }
 
         "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
