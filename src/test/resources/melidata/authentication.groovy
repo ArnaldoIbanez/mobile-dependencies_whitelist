@@ -781,13 +781,13 @@ trackTests {
 
         test("Reauth error page") {
             "/auth/restrictions/error"(platform: "/", type: TrackType.View) {
-                retry_url = true
+                retry_url_present = true
             }
         }
 
         test("Reauth error retry") {
             "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {
-                retry_url = false
+                retry_url_present = false
             }
         }
     }
