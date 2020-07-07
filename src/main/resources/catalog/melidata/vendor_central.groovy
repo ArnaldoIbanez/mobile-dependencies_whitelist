@@ -15,6 +15,10 @@ tracks {
     "/vendor_central/summary"(platform: "/", isAbstract: true) {}
 
     "/vendor_central/summary/hub"(platform: "/web", type: TrackType.View) {}
+    
+    "/vendor_central/summary/discount"(platform: "/web", type: TrackType.View) {}
+    
+    "/vendor_central/summary/discount_congrats"(platform: "/web", type: TrackType.View) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Vendor central BULK Offering offline editor
