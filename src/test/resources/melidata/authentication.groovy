@@ -786,7 +786,9 @@ trackTests {
         }
 
         test("Reauth error retry") {
-            "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {}
+            "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {
+                retry_url = false
+            }
         }
     }
 }

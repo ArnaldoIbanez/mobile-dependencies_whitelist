@@ -533,7 +533,7 @@ tracks {
     "/auth/restrictions/error"(platform: "/", type: TrackType.View) {
         retry_url(type: PropertyType.Boolean, required: true, description: "Whether the page was loaded with a URL to retry reauth or not")
     }
-    "/auth/restrictions/error/retry"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}
+    "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {}
 
     //Maybe deprecated tracks
     "/login/splitter"(platform: "/mobile", type: TrackType.View) {}
