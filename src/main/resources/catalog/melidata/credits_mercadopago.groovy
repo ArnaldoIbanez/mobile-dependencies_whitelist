@@ -327,6 +327,18 @@ tracks {
      *******************************************/
 
     "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
+    
+    "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "Statements upload error",
+            values: [
+                'wrong_extension',
+                'generic',
+            ]
+        )
+    }
 
     "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {}
 
@@ -350,7 +362,29 @@ tracks {
 
     "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {}
 
-    "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was congrats accessed",
+            values: [
+                'financial_files',
+                'financial_scraping',
+            ]
+        )
+    }
+    
+    "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was stop page accessed",
+            values: [
+                'financial_files',
+                'financial_scraping',
+            ]
+        )
+    }
 
     "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
         bank(
