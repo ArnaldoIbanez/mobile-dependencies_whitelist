@@ -229,7 +229,6 @@ tracks {
     "/px_checkout/result/success"(platform: "/mobile", type: TrackType.View) {}
     "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {}
     "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {
-        recoverable(required: true, type: PropertyType.Boolean, description: "Pay is recoverable")
         remedies(required: true, type: PropertyType.ArrayList, description: "List of remedies")
     }
     "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {}
@@ -616,9 +615,12 @@ tracks {
     }
 
     "/px_checkout/result/error/remedy"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
         type(required: true, type: PropertyType.String, description: "Remedy type", values: ["payment_method_suggestion" , "cvv_request", "kyc_request"])
         extra_info(required: false, description: "Extra payment method info")
-        externalData
+        index(required: true, type: PropertyType.Numeric , description: "Selected remedy index")
+        payment_status(required: true, type: PropertyType.String, description: "Payment status")
+        payment_status_detail(required: true, type: PropertyType.String, description: "Payment status")
       }
 
     // Approved business
