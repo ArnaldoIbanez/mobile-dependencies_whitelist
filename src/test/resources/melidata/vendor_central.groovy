@@ -47,7 +47,7 @@ trackTests {
 
   test("Vendor Central offline bulk upload congrats") {
     "/vendor_central/bulk/offline/upload/congrats"(platform: "/", type: TrackType.View) {
-      type = "failed"
+      type = "SUCCESS"
     }
   }
 
