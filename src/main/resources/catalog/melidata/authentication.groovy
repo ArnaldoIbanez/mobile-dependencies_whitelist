@@ -531,9 +531,9 @@ tracks {
     // IFPE Auth restrictions & Reauth errors
     "/auth/restrictions"(platform: "/", type: TrackType.View) {}
     "/auth/restrictions/error"(platform: "/", type: TrackType.View) {
-        retry_url(type: PropertyType.Boolean, required: true, description: "Whether the page was loaded with a URL to retry reauth or not")
+        retry_url_present(type: PropertyType.Boolean, required: true, description: "Whether the page was loaded with a URL to retry reauth or not")
     }
-    "/auth/restrictions/error/retry"(platform: "/", parentPropertiesInherited: false, type: TrackType.Event) {}
+    "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {}
 
     //Maybe deprecated tracks
     "/login/splitter"(platform: "/mobile", type: TrackType.View) {}
