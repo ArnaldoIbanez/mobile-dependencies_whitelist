@@ -335,6 +335,8 @@ tracks {
         multi(required: false, type: PropertyType.String)
         query(required: false, type: PropertyType.String)
         catalog(required: false, type: PropertyType.String)
+        sll(required: false, type: PropertyType.String)
+        date_created(required: false, type: PropertyType.String)
     }
 
     //Campaigns
