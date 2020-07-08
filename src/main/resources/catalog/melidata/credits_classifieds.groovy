@@ -29,6 +29,7 @@ tracks {
             ]
         )
         congrats_status(required: false, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
+        category_path(serverSide: true) // -> Lo completa Melidata automaticamente
      }
 
     propertyGroups {
