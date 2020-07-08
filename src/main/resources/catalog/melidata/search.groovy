@@ -16,7 +16,7 @@ tracks {
 
     def seo_item_definition = objectSchemaDefinitions {
         is_whitelisted(type: PropertyType.Boolean, required: true)
-        check_mode(type: PropertyType.ArrayList(PropertyType.String), required: true)
+        check_mode(type: PropertyType.String, required: true)
         gmv_value(type: PropertyType.Numeric, required: false)
         seller_contacts(type: PropertyType.Numeric, required: false)
         value(type: PropertyType.Numeric, required: false)
