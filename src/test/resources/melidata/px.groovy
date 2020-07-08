@@ -682,7 +682,6 @@ trackTests {
             preference_amount = 500
             currency_id = "ARS"
             has_split_payment = false
-            recoverable = true
             remedies = [ "cvv_request" ]
         }
 
@@ -1710,11 +1709,6 @@ trackTests {
         }
 
         "/px_checkout/result/error/remedy"(platform: "/mobile", type: TrackType.Event) {
-            type = "cvv_request"
-            extra_info = {
-              payment_method_type = "credit_card"
-              payment_method_id = "master"
-            }
             flow_detail = {
               collector_id = 1234
               brand_name = "YPF"
@@ -1723,6 +1717,14 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            type = "cvv_request"
+            extra_info = {
+              payment_method_type = "credit_card"
+              payment_method_id = "master"
+            }
+            index = 1
+            payment_status = "rejected"
+            payment_status_detail = "cc_rejected_other_reason"
         }
 
         // Approved business
@@ -1841,11 +1843,6 @@ trackTests {
         }
 
         "/px_checkout/result/error/remedy"(platform: "/mobile", type: TrackType.Event) {
-            type = "cvv_request"
-            extra_info = {
-              payment_method_type = "credit_card"
-              payment_method_id = "master"
-            }
             flow_detail = {
               collector_id = 1234
               brand_name = "YPF"
@@ -1854,6 +1851,14 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            type = "cvv_request"
+            extra_info = {
+              payment_method_type = "credit_card"
+              payment_method_id = "master"
+            }
+            index = 1
+            payment_status = "rejected"
+            payment_status_detail = "cc_rejected_other_reason"
         }
 
         "/px_checkout/result/success/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
@@ -2622,7 +2627,6 @@ trackTests {
             preference_amount = 500
             currency_id = "ARS"
             has_split_payment = false
-            recoverable = true
             remedies = [ "cvv_request" ]
         }
 
@@ -3684,11 +3688,6 @@ trackTests {
         }
 
         "/px_checkout/result/error/remedy"(platform: "/mobile", type: TrackType.Event) {
-            type = "cvv_request"
-            extra_info = {
-              payment_method_type = "credit_card"
-              payment_method_id = "master"
-            }
             flow_detail = {
               collector_id = 1234
               brand_name = "YPF"
@@ -3697,6 +3696,14 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            type = "cvv_request"
+            extra_info = {
+              payment_method_type = "credit_card"
+              payment_method_id = "master"
+            }
+            index = 1
+            payment_status = "rejected"
+            payment_status_detail = "cc_rejected_other_reason"
         }
 
         // Approved business
