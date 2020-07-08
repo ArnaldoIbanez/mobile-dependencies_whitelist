@@ -482,6 +482,8 @@ tracks {
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
         opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        transaction_custom(required: true, type: PropertyType.String, description: "Amount on which screenLock will be triggered")
+        opening_custom(required: true, type: PropertyType.String, description: "Elapsed time to ask for screenLock")
     }
 
     // Biometrics / Screenlock
@@ -521,7 +523,7 @@ tracks {
 
     // Security Blocker
 
-    "/screenlock/security_blocker"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/screenlock/security_blocker"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
