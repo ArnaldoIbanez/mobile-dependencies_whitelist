@@ -158,10 +158,10 @@ trackTests {
             ]
             carousel_filters = []
             seo = [
-                    is_whitelisted                : true,
-                    check_mode                    : "GMV",
-                    gmv_value                     : 15,
-                    seller_contacts               : 0,
+                    is_whitelisted         : true,
+                    check_mode             : "GMV",
+                    value                  : 15,
+                    is_default             : false,
                     is_on_seo_h1_experiment: true
             ]
             pdp_highlight_enabled = true
@@ -287,10 +287,10 @@ trackTests {
             ]
             carousel_filters = ["BRAND", "official_store", "STYLE"]
             seo = [
-                    is_whitelisted                : true,
-                    check_mode                    : "GMV",
-                    gmv_value                     : 15,
-                    seller_contacts               : 0,
+                    is_whitelisted         : true,
+                    check_mode             : "GMV",
+                    value                  : 15,
+                    is_default             : false,
                     is_on_seo_h1_experiment: true
             ]
             pdp_highlight_enabled = true
@@ -567,10 +567,10 @@ trackTests {
             pdp_rows = []
             carousel_filters = []
             seo = [
-                    is_whitelisted                : true,
-                    check_mode                    : "GMV",
-                    gmv_value                     : 15,
-                    seller_contacts               : 0,
+                    is_whitelisted         : true,
+                    check_mode             : "GMV",
+                    value                  : 15,
+                    is_default             : false,
                     is_on_seo_h1_experiment: true
             ]
             pdp_highlight_enabled = true
