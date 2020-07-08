@@ -989,4 +989,36 @@ trackTests {
             status = "active"
         }
     }
+
+    test("Advertising Admin Mobile") {
+
+        "/advertising/pads2/manager/faqs"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            budget = "4000"
+            status = "active"
+            has_problem = "error"
+            problem_type = "test"
+        }
+
+        "/advertising/pads2/manager/budget"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            budget = "4000"
+            status = "active"
+            suggested_budget = "7000"
+        }
+
+        "/advertising/pads2/manager/budget/suggested"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            budget = "4000"
+            status = "active"
+            suggested_budget = "7000"
+        }
+
+        "/advertising/pads2/manager/budget/suggested"(platform: "/web", type: TrackType.View) {
+            campaign_id = "2222222"
+            budget = "4000"
+            status = "active"
+            suggested_budget = "7000"
+        }
+    }
 }

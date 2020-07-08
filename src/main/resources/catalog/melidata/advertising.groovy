@@ -750,4 +750,25 @@ tracks {
         budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
     }
 
+    //Admin Mobile
+
+    "/advertising/pads2/manager/faqs"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+        has_problem(required: true, description: "Problem related to the campaign")
+        problem_type(required: true, description: "Type problem related to the campaign")
+    }
+
+    "/advertising/pads2/manager/budget"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+        suggested_budget(required: true, description: "Suggested budget related to the campaign")
+    }
+
+    "/advertising/pads2/manager/budget/suggested"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/budget/suggested"(platform: "/web", type: TrackType.View) {}
+
 }
