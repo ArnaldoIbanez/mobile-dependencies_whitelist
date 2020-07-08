@@ -756,7 +756,7 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
         status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
-        has_problem(required: true, description: "Problem related to the campaign")
+        has_problem(required: true, description: "Problem related to the campaign", values: ['true', 'false'])
         problem_type(required: true, description: "Type problem related to the campaign")
     }
 
@@ -768,7 +768,4 @@ tracks {
     }
 
     "/advertising/pads2/manager/budget/suggested"(platform: "/web", type: TrackType.Event) {}
-
-    "/advertising/pads2/manager/budget/suggested"(platform: "/web", type: TrackType.View) {}
-
 }
