@@ -17,6 +17,7 @@ trackTests {
             buyer_id = 177056843
             bank = "santander"
             congrats_status = "APPROVED"
+            category_path = ["MLB1743", "MLB1744"]
         }
 
         "/classi_credits/pre_analysis"(platform: "/web/mobile", type: TrackType.View) {
