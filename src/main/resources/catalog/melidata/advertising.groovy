@@ -760,7 +760,7 @@ tracks {
         problem_type(required: true, description: "Type problem related to the campaign")
     }
 
-    "/advertising/pads2/manager/budget"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/advertising/pads2/manager/budget"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
         status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])

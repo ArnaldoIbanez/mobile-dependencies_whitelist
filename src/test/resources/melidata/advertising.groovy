@@ -1000,7 +1000,7 @@ trackTests {
             problem_type = "test"
         }
 
-        "/advertising/pads2/manager/budget"(platform: "/", type: TrackType.Event) {
+        "/advertising/pads2/manager/budget"(platform: "/", type: TrackType.View) {
             campaign_id = "2222222"
             budget = "4000"
             status = "active"
