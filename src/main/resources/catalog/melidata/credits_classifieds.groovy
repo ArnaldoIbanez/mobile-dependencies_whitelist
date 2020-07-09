@@ -56,6 +56,10 @@ tracks {
         creditGroup
     }
 
+    "/classi_credits/simulation_details"(platform: "/", type: TrackType.View) {
+        creditGroup
+    }
+
     "/classi_credits/application_form/step_1"(platform: "/", type: TrackType.View) {
         creditGroup
     }

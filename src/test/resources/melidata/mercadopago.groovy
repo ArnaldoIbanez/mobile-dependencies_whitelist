@@ -605,18 +605,6 @@ trackTests {
         }
     }
 
-     test("Landing mercadopago online payments websites") {
-        "/landing/onlinepayments/websites" (platform: "/web") {}
-    }
-
-    test("Landing mercadopago online payments social") {
-        "/landing/onlinepayments/social" (platform: "/web") {}
-    }
-
-    test("Landing mercadopago online payments") {
-        "/landing/onlinepayments" (platform: "/web") {}
-    }
-
     test("Landing mercadopago buyers") {
         "/landing/buyers" (platform: "/web") {}
     }
@@ -1388,6 +1376,7 @@ trackTests {
     test("Memory warning") {
         "/memory_warning"(platform: "/mobile", type: TrackType.Event) {
             view_controller = "ViewController"
+            application_state = "Active"
         }
     }
     
@@ -1933,6 +1922,14 @@ trackTests {
         }
 
         "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
+
+        "/settings/cost_calculator/detail/action_button" (platform: "/mobile", type: TrackType.Event) {
+            amount = 10.51
+            method = "point"
+            payment_financing = "credit"
+            installments = 12
+        }          
+        
         "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
         "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
 
@@ -3573,32 +3570,38 @@ trackTests {
             error_msg = "ERROR_CANT_VALIDATE"
         }
 
-        "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.Event) {
+        "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "basic_screenlock"
             config = [
                     "transaction": "disabled",
-                    "opening_lock": "enabled"
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
             ]
             scenario = "single_enrolled"
         }
 
-        "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.Event) {
+        "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
                     "transaction": "enabled",
-                    "opening_lock": "enabled"
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
             ]
             scenario = "both_enrolled"
         }
 
-        "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.Event) {
+        "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
             enrollment_status = "disabled"
             os_status = "basic_screenlock"
             config = [
                     "transaction": "enabled",
-                    "opening_lock": "disabled"
+                    "opening_lock": "disabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
             ]
             scenario = "never_auto_enrolled"
         }
@@ -3892,13 +3895,15 @@ trackTests {
     }
 
     test("Screenlock app opening lock feature") {
-        
+
         "/screenlock/opening_lock"(platform: "/mobile/android", type: TrackType.View) {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
-                "transaction": "disabled",
-                "opening_lock": "enabled"
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
             ]
         }
 
@@ -3906,8 +3911,10 @@ trackTests {
             enrollment_status = "enabled"
             os_status = "biometrics"
             config = [
-                "transaction": "disabled",
-                "opening_lock": "enabled"
+                    "transaction": "disabled",
+                    "opening_lock": "enabled",
+                    "transaction_custom": "0",
+                    "opening_custom": "0"
             ]
         }
 
@@ -3916,7 +3923,9 @@ trackTests {
             os_status = "biometrics"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 
@@ -3925,7 +3934,9 @@ trackTests {
             os_status = "biometrics"
             config = [
                 "transaction": "disabled",
-                "opening_lock": "enabled"
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
             ]
         }
 

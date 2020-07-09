@@ -356,9 +356,10 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
-        "/kyc/iv/address"(platform: "/web") {
+        "/kyc/iv/image_upload"(platform: "/web") {
             flow = "credits_address"
             transaction_user_id = 109479273
+            doc_type = "address"
         }
         "/kyc/iv/center/card"(platform: "/web") {
             status = "landing"
@@ -830,9 +831,10 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
-        "/kyc/iv/address"(platform: "/web") {
-            flow = "credits_address"
+        "/kyc/iv/image_upload"(platform: "/web") {
+            flow = "address_company"
             transaction_user_id = 109479273
+            doc_type = "address_company"
         }
         "/kyc/iv/trust_vote_recommender"(platform: "/web") {
             flow = "poc_trust_vote_tc"

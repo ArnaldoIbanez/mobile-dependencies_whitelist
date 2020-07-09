@@ -38,6 +38,7 @@ trackTests {
         }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
         "/portal/search"(platform: "/", type: TrackType.View) {}
+        "/portal/validate_user"(platform: "/", type: TrackType.View) {}
 
     }
 
@@ -181,6 +182,7 @@ trackTests {
             portal_problem_id = 456
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
         }
+        "/portal/validate_user"(platform: "/", type: TrackType.View) {}
     }
 
 

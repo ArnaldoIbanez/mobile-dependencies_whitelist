@@ -9,7 +9,7 @@ get_json_object(event_data, '$.size') as file_size,
 get_json_object(event_data, '$.duration') as duration,
 remote_ip as remote_ip,
 substr(ds, 1, 10) as ds
-FROM tracks
+FROM melidata.tracks_ml
 WHERE path = '/cdn/profiler'
 AND type = 'event'
 AND ds >= '@dateFROM' and ds < '@dateTO'

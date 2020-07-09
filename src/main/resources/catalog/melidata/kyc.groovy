@@ -110,7 +110,7 @@ tracks {
         initiative(required: false, type: PropertyType.String, description: "Users initiative")
         kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
-        doc_type(required: false, type: PropertyType.String, values: ['doc_front', 'doc_back', 'address', 'selfie', 'proof_of_life'], description: "Doc type")
+        doc_type(required: false, type: PropertyType.String, values: ['doc_front', 'doc_back', 'address', 'selfie', 'proof_of_life', 'address_company', 'income'], description: "Doc type")
         model_id(required: false, type: PropertyType.String, description: "Model id of the doc model")
     }
 
@@ -312,7 +312,7 @@ tracks {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
 
-    "/kyc/iv/address"(platform: "/web", type: TrackType.View) {
+    "/kyc/iv/image_upload"(platform: "/web", type: TrackType.View) {
     }
 
     "/kyc/iv/center/card"(platform: "/web", type: TrackType.View) {

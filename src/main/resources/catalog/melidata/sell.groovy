@@ -45,7 +45,7 @@ tracks {
         seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
-        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
+        categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
         chosen_categorization_model(required: false, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
         category_prediction_selected_index(required: false, description: "Index selected in Multiples Suggestions", PropertyType.Numeric)
         attribute_values(required: false, description: "Array of attributes in categorization", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
@@ -55,22 +55,29 @@ tracks {
         product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
         item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
-        vertical(required: false, description: "item vertical", values:["core", "motors", "realEstate", "services"], type: PropertyType.String)
+        vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         listing_type_id(required: false, description: "Item listing type id")
         listing_type_free_available(required: false, type: PropertyType.Boolean, description: "Listing type free available")
         user_type(required: false, type: PropertyType.String, description: "The user type")
         business(required: false,  values:["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
         platform(required: false, values:["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
+        has_drag(required: false, type: PropertyType.Boolean, description: "this property describes if map has been dragged by user")
+        valid_street_number(required: false, type: PropertyType.Boolean, description: "this property describes whether the map address contains a street number")
+        accept_new_location(required: false, type: PropertyType.Boolean, description: "this property describes whether the user interact with map component")
+        valid_intent(required: false, type: PropertyType.Boolean, description: "this property describes if user click confirm button before filling address")
+        field_intent_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the field ids for the intent")
     }
 
     propertyGroups {
         sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical, user_type, business, platform)
         sellGroupMobile( seller_segment, seller_profile, vertical)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
-        categoryFlowMobile(category_id, category_path)
+        categoryFlowMobile(categorization_flow_successful, category_id, category_path, chosen_categorization_model, title_predicted)
         listingTypeFlow(listing_type_id)
         listingTypeFlowMobile(listing_type_id, listing_type_free_available)
         catalogFlowMobile(domain_id, attribute_id, category_prediction_selected_index, attribute_values, predictions, parent_product_id, product_id)
+        locationIntentsGroup(has_drag, valid_street_number, accept_new_location, valid_intent)
+        technicalSpecsIntentsGroup(valid_intent, field_intent_ids)
     }
 
     // Sell
@@ -201,9 +208,6 @@ tracks {
     // Apps
     "/sell/list" (platform: "/mobile", isAbstract: true){
         categoryFlowMobile
-        categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
-        chosen_categorization_model(required: false, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
-        title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
     }
     "/sell/list/drafts"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/drafts/draft_action"(platform: "/mobile", isAbstract: true) {}
@@ -311,6 +315,7 @@ tracks {
         catalogFlowMobile
     }
     "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/draft/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
     "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {
@@ -318,7 +323,9 @@ tracks {
     }
     "/sell/list/attribute/kilometers"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View){}
-    "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {}
+    "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {
+        catalogFlowMobile
+    }
     "/sell/list/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event) {}
@@ -327,6 +334,7 @@ tracks {
     "/sell/list/manufacturing_time_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
 
 
     "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
@@ -499,7 +507,9 @@ tracks {
     "/sell/list/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/list/category"(platform: "/mobile", isAbstract:true){}
+    "/sell/list/category"(platform: "/mobile", isAbstract: true) {
+        catalogFlowMobile
+    }
     "/sell/list/category/selection"(platform: "/mobile", isAbstract:true){}
     "/sell/list/category/selection/confirm_suggested"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category/selection/wrong_suggested"(platform: "/mobile", type: TrackType.Event) {}
@@ -535,7 +545,7 @@ tracks {
     }
     "/sell/list/sale_condition"(platform: "/", type: TrackType.View){}
 
-//update flow
+    //update flow
     "/sell/update" (platform: "/", isAbstract: true){
         item_id(required: true, description: "Item id", type: PropertyType.String)
     }
@@ -766,6 +776,7 @@ tracks {
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/title/redirect_store"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {
         categoryFlow
     }
@@ -814,7 +825,9 @@ tracks {
     "/sell/item_data/specifications"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/specifications/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/technical_specifications"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/technical_specifications"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_data/technical_specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/multivalue"(platform: "/web", type: TrackType.Event) {
@@ -1061,6 +1074,11 @@ tracks {
         listingTypeFlow
     }
 
+    "/sell/congrats/instant_pay_listings"(platform: "/web", isAbstract: true) {}
+    "/sell/congrats/instant_pay_listings/show"(platform: "/web", type: TrackType.Event) {
+        listingTypeFlow
+    }
+
     // Catalog Optin flow for apps
     "/sell/catalog_optin"(platform: "/mobile", isAbstract: true) {
         item_id(required: true, description: "Session id for a specific user flow", type: PropertyType.String)
@@ -1099,15 +1117,36 @@ tracks {
     // TRACKS SYI v4 - RealEstate
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    "/sell/item_data/location"(platform: "/web", isAbstract: true) {}
-    "/sell/item_data/location/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/location"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/location/show"(platform: "/web", type: TrackType.Event) { }
     "/sell/item_data/location/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/location/intent"(platform: "/web", type: TrackType.Event) {
+        locationIntentsGroup
+    }
 
-    "/sell/item_data/pictures"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/pictures"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_data/pictures/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
 
-    "/sell/item_data/title_and_description"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/title_and_description"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_data/title_and_description/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title_and_description/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/technical_specifications/intent"(platform: "/web", type: TrackType.Event) {
+        technicalSpecsIntentsGroup
+    }
+
+    "/sell/shield"(platform: "/web", isAbstract: true) {
+        sellGroup
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
+        shield_type(required: false, description: "shield type", values:["user_has_debt", "user_package_empty", "user_package_error", "user_missing_data", "none", "onboarding"], type: PropertyType.String)
+    }
+    "/sell/shield/validations"(platform: "/web", isAbstract: true) {}
+    "/sell/shield/validations/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/shield/validations/confirm"(platform: "/web", type: TrackType.Event) {}
 }

@@ -25,7 +25,14 @@ tracks {
     }
 
     // MP Home
-    "/mp_home"(platform: "/", type: TrackType.View) {}
+    "/mp_home"(platform: "/", type: TrackType.View) {
+        userProfile (
+            type: PropertyType.String,
+            required: false,
+            description: "User profile type",
+            values: ['newbie', 'collector', 'payer'],
+        )
+    }
 
     // MP Home
     "/profile"(platform: "/", type: TrackType.View) {}
@@ -132,15 +139,6 @@ tracks {
         final_sale_value (type: PropertyType.String, required: false, description: "Final sale value (with fees)")
     }
 
-    // MP Online Payments
-    "/landing/onlinepayments"(platform: "/web"){}
-
-    // MP Landing Online Payments Websites
-    "/landing/onlinepayments/websites"(platform: "/web"){}
-
-    // MP Landing Online Payments Social
-    "/landing/onlinepayments/social"(platform: "/web"){}
-
     // MP Buyers
     "/landing/buyers"(platform: "/web"){}
 
@@ -152,7 +150,6 @@ tracks {
     "/landing/formcomercial/send_email"(platform:"/", type: TrackType.Event) {
         email (type: PropertyType.String, required: true, description: "Email from user")
     }
-
 
     // Splinter MP Landings
     "/landing/marketing"(platform: "/", type: TrackType.View) {
@@ -166,4 +163,18 @@ tracks {
     "/mp_covid/congrats"(platform: "/", type: TrackType.View) {}
     "/mp_covid/donation"(platform: "/", type: TrackType.View) {}
     "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
+
+    /*************************
+    *        MP BANKING       *
+    *************************/
+
+    // MP Banking abstract track
+    "/banking"(platform: "/", isAbstract: true) {}
+
+    // MP Banking Balance (web, webmobile and webview)
+    "/banking/balance"(platform: "/", type: TrackType.View) {}
+    "/banking/calendar"(platform: "/", type: TrackType.View) {}
+
+    // MP Banking PNF (web, webmobile and webview)
+    "/banking/pnf"(platform: "/", type: TrackType.View) {}
 }

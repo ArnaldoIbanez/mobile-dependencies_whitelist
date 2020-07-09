@@ -68,6 +68,7 @@ tracks {
     "/garex/checkout/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {}
     "/garex/checkout/delete"(platform:"/mobile", type: TrackType.Event) {
         garex_id(required: true, type: PropertyType.String, description: "Warranty id removed")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         cost(required: true, type: PropertyType.Numeric, description: "Warranty cost")
         currency_id(required: true, type: PropertyType.String, description: "Currency id")
     }
