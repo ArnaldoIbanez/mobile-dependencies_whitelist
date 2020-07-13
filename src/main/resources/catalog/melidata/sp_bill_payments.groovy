@@ -8,6 +8,7 @@ tracks {
 
     propertyDefinitions {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        session_id (required:true, type: PropertyType.String, description: "Session Id of flow")
     }
     
     /**
