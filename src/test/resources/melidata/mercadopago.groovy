@@ -2493,6 +2493,7 @@ trackTests {
 
          def mandatory = {
             from = "/deep_link"
+            session_id = "92f420da-a095-4acf-980e-45b7ab64e65c"
         }
 
         // Home
@@ -2631,6 +2632,7 @@ trackTests {
             from = "/deep_link"
             result_status = "rejected"
             status_detail = "call_for_auth"
+            session_id = "92f420da-a095-4acf-980e-45b7ab64e65c"
         }
         "/bill_payments/px_payment_method_search"(platform: "/mobile") {
             mandatory()

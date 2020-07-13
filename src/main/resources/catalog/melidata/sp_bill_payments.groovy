@@ -10,6 +10,10 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
         session_id (required:true, type: PropertyType.String, description: "Session Id of flow")
     }
+
+    propertyGroups { 
+        mandatory(session_id)
+    }
     
     /**
     * Bill Payments V2 Tracks  
@@ -17,6 +21,7 @@ tracks {
 
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        mandatory
     }
 
     // Home
