@@ -30,4 +30,5 @@ tracks {
     "/disbursements/xoom/rejected/share"(platform: "/", type: TrackType.Event) {}
     "/disbursements/xoom/rejected/change_my_data"(platform: "/", type: TrackType.Event) {}
     "/disbursements/xoom/rejected/go_home"(platform: "/", type: TrackType.Event) {}
+    "/disbursements/xoom/information"(platform: "/", type: TrackType.View) {}
 }

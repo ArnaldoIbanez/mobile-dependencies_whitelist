@@ -103,6 +103,8 @@ tracks {
 
     "/pdp"(platform: "/") {
         // Temp fields
+        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
+
         cac_item(required: false, type: PropertyType.Boolean, 
                  description: "Indicates whether the product is listed as 'CodoACodo'")
 

@@ -506,6 +506,8 @@ tracks {
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
         opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        transaction_custom(required: true, type: PropertyType.String, description: "Amount on which screenLock will be triggered")
+        opening_custom(required: true, type: PropertyType.String, description: "Elapsed time to ask for screenLock")
     }
 
     // Biometrics / Screenlock
@@ -545,12 +547,19 @@ tracks {
 
     // Security Blocker
 
-    "/screenlock/security_blocker"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/screenlock/security_blocker"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
         scenario(type: PropertyType.String, required: true, values: ["no_security", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled"])
     }
+
+    // IFPE Auth restrictions & Reauth errors
+    "/auth/restrictions"(platform: "/", type: TrackType.View) {}
+    "/auth/restrictions/error"(platform: "/", type: TrackType.View) {
+        retry_url_present(type: PropertyType.Boolean, required: true, description: "Whether the page was loaded with a URL to retry reauth or not")
+    }
+    "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {}
 
     //Maybe deprecated tracks
     "/login/splitter"(platform: "/mobile", type: TrackType.View) {}

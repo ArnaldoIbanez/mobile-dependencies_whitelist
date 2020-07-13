@@ -409,4 +409,30 @@ trackTests {
 
     }
 
+    test("Loyalty Subscription Admin") {
+
+        "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            subscription_partner = "HBO"
+            level = 4
+        }
+
+        "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            subscription_partner = "Paramount"
+            level = 4
+        }
+
+        "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            subscription_partner = "HBO"
+            subscription_status = "active"
+            level = 4
+            type = "detail-action"
+        }
+
+        "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            subscription_partner = "HBO"
+            subscription_status = "ended"
+            level = 4
+            type = "modify-action"
+        }
+    }
 }

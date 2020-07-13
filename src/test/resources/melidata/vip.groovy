@@ -1350,5 +1350,14 @@ trackTests {
             item_seller_type = "car_dealer"
             item_condition = "new"
         }
+        "/vip/free_list_adv"(platform:"/mobile", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "motors"
+            listing_type_id = "gold_premium"
+            item_seller_type = "car_dealer"
+            item_condition = "new"
+        }
     }
 }

@@ -778,32 +778,38 @@ trackTests {
                 error_msg = "ERROR_CANT_VALIDATE"
             }
 
-            "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
                 enrollment_status = "enabled"
                 os_status = "basic_screenlock"
                 config = [
                         "transaction": "disabled",
-                        "opening_lock": "enabled"
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
                 ]
                 scenario = "single_enrolled"
             }
 
-            "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.Event) {
+            "/screenlock/security_blocker"(platform: "/mobile/android", type: TrackType.View) {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
                         "transaction": "enabled",
-                        "opening_lock": "enabled"
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
                 ]
                 scenario = "both_enrolled"
             }
 
-            "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.Event) {
+            "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
                 enrollment_status = "disabled"
                 os_status = "basic_screenlock"
                 config = [
                         "transaction": "enabled",
-                        "opening_lock": "disabled"
+                        "opening_lock": "disabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
                 ]
                 scenario = "never_auto_enrolled"
             }
@@ -816,7 +822,9 @@ trackTests {
                 os_status = "biometrics"
                 config = [
                         "transaction": "disabled",
-                        "opening_lock": "enabled"
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
                 ]
             }
 
@@ -825,7 +833,9 @@ trackTests {
                 os_status = "biometrics"
                 config = [
                         "transaction": "disabled",
-                        "opening_lock": "enabled"
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
                 ]
             }
 
@@ -834,7 +844,9 @@ trackTests {
                 os_status = "biometrics"
                 config = [
                         "transaction": "disabled",
-                        "opening_lock": "enabled"
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
                 ]
             }
 
@@ -843,10 +855,28 @@ trackTests {
                 os_status = "biometrics"
                 config = [
                         "transaction": "disabled",
-                        "opening_lock": "enabled"
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
                 ]
             }
 
+        }
+
+        test("IFPE auth restrictions") {
+            "/auth/restrictions"(platform: "/", type: TrackType.View) {}
+        }
+
+        test("Reauth error page") {
+            "/auth/restrictions/error"(platform: "/", type: TrackType.View) {
+                retry_url_present = true
+            }
+        }
+
+        test("Reauth error retry") {
+            "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {
+                retry_url_present = false
+            }
         }
     }
 }
