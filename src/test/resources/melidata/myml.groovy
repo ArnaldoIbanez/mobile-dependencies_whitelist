@@ -346,6 +346,12 @@ trackTests {
         "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/order/devolution/success"(platform: "/", type: TrackType.Event) {
             devolution_type = "total"
+            order_id = '2468239444'
+        }
+        "/myml/invoices/order/devolution/modal"(platform: "/", type: TrackType.Event) {
+            action = "close_modal"
+            order_id = '2468239444'
+            invoice_id = '549401'
         }
     }
 
