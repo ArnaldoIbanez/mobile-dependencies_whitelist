@@ -2851,6 +2851,17 @@ trackTests {
             list_mode = "LIST"
         }
     }
+    test("SYI v4 redirect to syi-core confirmed"){
+        "/sell/item_data/redirect_syi_core/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
     test("SYI v4 redirect from title to install the app"){
         "/sell/item_data/title/redirect_store"(platform: "/web/mobile", type: TrackType.Event){
             seller_profile = "ADVANCED"
