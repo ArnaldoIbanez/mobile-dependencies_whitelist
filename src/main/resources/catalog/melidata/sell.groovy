@@ -66,7 +66,6 @@ tracks {
         accept_new_location(required: false, type: PropertyType.Boolean, description: "this property describes whether the user interact with map component")
         valid_intent(required: false, type: PropertyType.Boolean, description: "this property describes if user click confirm button before filling address")
         field_intent_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the field ids for the intent")
-        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
     propertyGroups {
