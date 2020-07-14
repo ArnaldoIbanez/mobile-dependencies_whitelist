@@ -4771,32 +4771,86 @@ trackTests {
         }
     }
 
-    test("SYI v4 publicar - shield debts") {
-        "/sell/shield/validations/show"(platform: "/web", type: TrackType.Event) {
-            seller_reputation = "NO_REPUTATION"
+    test("SYI v4 publicar - splash screen - show ") {
+        "/sell/onboarding/splash/show"(platform: "/web", type: TrackType.Event) {
             business = "classified"
-            item_type = "default"
-            session_id = "583247067-listres-0a5ad0c976ff"
+            category_id: "MLC1459"
             vertical = "real_estate"
             platform = "pi"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            shield_type = "user_has_debt"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
         }
     }
 
-    test("SYI v4 publicar - shield debts") {
-        "/sell/shield/validations/confirm"(platform: "/web", type: TrackType.Event) {
+    test("SYI v4 publicar - splash screen - confirm") {
+        "/sell/onboarding/splash/confirm"(platform: "/web", type: TrackType.Event) {
+            business = "classified"
+            category_id: "MLC1459"
+            vertical = "real_estate"
+            platform = "pi"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+        }
+    }
+
+    test("SYI v4 publicar - publication package required - show ") {
+        "/sell/error_step/package_error/show"(platform: "/web", type: TrackType.Event) {
+            session_id = "473569667-listres-29d4faa1bc5a"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - publication package required - confirm") {
+        "/sell/error_step/package_error/confirm"(platform: "/web", type: TrackType.Event) {
             seller_reputation = "NO_REPUTATION"
             business = "classified"
             item_type = "default"
-            session_id = "583247067-listres-0a5ad0c976ff"
+            session_id = "473569667-listres-29d4faa1bc5a"
             vertical = "real_estate"
             platform = "pi"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            shield_type = "user_has_debt"
         }
     }
-    
+
+    test("SYI v4 publicar -  user with debt - confirm") {
+        "/sell/error_step/user_has_debt_error/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            business = "classified"
+            item_type = "default"
+            session_id = "473569667-listres-29d4faa1bc5a"
+            vertical = "real_estate"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar -  user with debt - show") {
+        "/sell/error_step/user_has_debt_error/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            business = "classified"
+            item_type = "default"
+            session_id = "473569667-listres-29d4faa1bc5a"
+            vertical = "real_estate"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar -  package limit exceeded  - show") {
+        "/sell/error_step/package_empty/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            business = "classified"
+            item_type = "default"
+            session_id = "473569667-listres-29d4faa1bc5a"
+            vertical = "real_estate"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar -  package limit exceeded - confirm") {
+        "/sell/error_step/package_empty/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            business = "classified"
+            item_type = "default"
+            session_id = "473569667-listres-29d4faa1bc5a"
+            vertical = "real_estate"
+            platform = "pi"
+        }
+    }
+
 }
