@@ -1155,10 +1155,10 @@ tracks {
     }
 
     "/sell/onboarding"(platform: "/web", isAbstract: true) {
-        business(required: false,  values:["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
-        vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
-        platform(required: false, values:["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
-        category_path(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Item's category tree")
+        business(required: true,  values:["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+        platform(required: true, values:["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
+        category_path(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Item's category tree")
 
     }
     "/sell/onboarding/splash"(platform: "/web", isAbstract: true) {}
