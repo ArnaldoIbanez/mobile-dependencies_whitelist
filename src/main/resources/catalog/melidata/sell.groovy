@@ -35,6 +35,13 @@ tracks {
         category_id(required: true, PropertyType.String, description: "Original item's category id")
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
     }
+    def picture_info_map = objectSchemaDefinitions {
+        width(required: true, type: PropertyType.Numeric, description: "this property describes width of the image")
+        height(required: true, type: PropertyType.Numeric, description: "this property describes height of the image")
+        size(required: false, type: PropertyType.String, description: "this property describes size of the image in bytes")
+        format(required: false, type: PropertyType.String, description: "this property describes format of the image")
+        valid(required: true, type: PropertyType.Boolean, description: "this property describes if this picture is valid")
+    }
 
     propertyDefinitions {
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
@@ -61,11 +68,10 @@ tracks {
         user_type(required: false, type: PropertyType.String, description: "The user type")
         business(required: false,  values:["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
         platform(required: false, values:["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
-        has_drag(required: false, type: PropertyType.Boolean, description: "this property describes if map has been dragged by user")
-        valid_street_number(required: false, type: PropertyType.Boolean, description: "this property describes whether the map address contains a street number")
-        accept_new_location(required: false, type: PropertyType.Boolean, description: "this property describes whether the user interact with map component")
-        valid_intent(required: false, type: PropertyType.Boolean, description: "this property describes if user click confirm button before filling address")
+        intent_type(required: true, type: PropertyType.String, description: "this property describes the intent type to be perform", values:["drag", "valid_street_number", "invalid_street_number", "new_location_accepted", "new_location_rejected", "new_location_auto_accepted", "valid_intent", "invalid_intent", "pictures_upload"])
+        intent_value(required: false, type: PropertyType.String, description: "this property describes the intent value if exists")
         field_intent_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the field ids for the intent")
+        pictures_info(required: true, type: PropertyType.ArrayList(PropertyType.Map(picture_info_map)), description: "this property describes array of pictures information")
     }
 
     propertyGroups {
@@ -76,8 +82,9 @@ tracks {
         listingTypeFlow(listing_type_id)
         listingTypeFlowMobile(listing_type_id, listing_type_free_available)
         catalogFlowMobile(domain_id, attribute_id, category_prediction_selected_index, attribute_values, predictions, parent_product_id, product_id)
-        locationIntentsGroup(has_drag, valid_street_number, accept_new_location, valid_intent)
-        technicalSpecsIntentsGroup(valid_intent, field_intent_ids)
+        intentGroup(intent_type, intent_value)
+        technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
+        pictureIntentGroup(intent_type, pictures_info)
     }
 
     // Sell
@@ -1123,7 +1130,7 @@ tracks {
     "/sell/item_data/location/show"(platform: "/web", type: TrackType.Event) { }
     "/sell/item_data/location/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/location/intent"(platform: "/web", type: TrackType.Event) {
-        locationIntentsGroup
+        intentGroup
     }
 
     "/sell/item_data/pictures"(platform: "/web", isAbstract: true) {
@@ -1131,6 +1138,10 @@ tracks {
     }
     "/sell/item_data/pictures/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/intent"(platform: "/web", type: TrackType.Event) {
+        pictureIntentGroup
+    }
+
 
     "/sell/item_data/title_and_description"(platform: "/web", isAbstract: true) {
         listingTypeFlow
