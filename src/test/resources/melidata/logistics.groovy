@@ -477,13 +477,13 @@ trackTests {
             first_mile_logistic_type = "FF"
         }
         "/logistics/last_mile/scanner/driver_affinity_modal/continue"(platform: "/mobile", type: TrackType.Event){
-            driver_id = "123"
+            driver_id = 400
         }
         "/logistics/last_mile/scanner/driver_affinity_modal/cancel"(platform: "/mobile", type: TrackType.Event){
-            driver_id = "123"
+            driver_id = 400
         }
         "/logistics/last_mile/scanner/driver_affinity_modal"(platform: "/mobile", type: TrackType.View){
-            driver_id = "123"
+            driver_id = 400
         }
     }
 
