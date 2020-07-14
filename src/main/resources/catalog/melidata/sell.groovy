@@ -776,6 +776,7 @@ tracks {
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/redirect_syi_core"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/redirect_syi_core/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title/redirect_store"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {
