@@ -4356,34 +4356,34 @@ trackTests {
         "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
         "/stores/standalone_pos"(platform: "/web", type: TrackType.View) {}
         "/stores/move_pos"(platform: "/web", type: TrackType.View) {}
-        "/stores/details-pos"(platform: "/web", type: TrackType.View) {}
-        "/stores/details-devices"(platform: "/web", type: TrackType.View) {}
-        "/stores/details-collaborators"(platform: "/web", type: TrackType.View) {}
-        "/stores/device/device-issues"(platform: "/web", type: TrackType.Event) {}
-        "/stores/device/out-of-paper"(platform: "/web", type: TrackType.Event) {}
+        "/stores/details_pos"(platform: "/web", type: TrackType.View) {}
+        "/stores/details_devices"(platform: "/web", type: TrackType.View) {}
+        "/stores/details_collaborators"(platform: "/web", type: TrackType.View) {}
+        "/stores/device/device_issues"(platform: "/web", type: TrackType.Event) {}
+        "/stores/device/out_of_paper"(platform: "/web", type: TrackType.Event) {}
         "/stores/device/associate/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details-pos"
+        tab_context = "/stores/details_pos"
         }
         "/stores/device/associate/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details-devices"
+        tab_context = "/stores/details_devices"
         }
         "/stores/device/associate/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details-pos"
+        tab_context = "/stores/details_pos"
         }
         "/stores/device/associate/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details-devices"
+        tab_context = "/stores/details_devices"
         }
         "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details-pos"
+        tab_context = "/stores/details_pos"
         }
          "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details-devices"
+        tab_context = "/stores/details_devices"
         }
         "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details-pos"
+        tab_context = "/stores/details_pos"
         }
          "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
-        tab_context = "/stores/details-devices"
+        tab_context = "/stores/details_devices"
         }
 
         "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
@@ -4395,22 +4395,22 @@ trackTests {
         "/stores/pos/update"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/standalone_pos"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/move_pos"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/details-pos"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/details-devices"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/details-collaborators"(platform: "/web/mobile", type: TrackType.View) {}
-        "/stores/device/device-issues"(platform: "/web/mobile", type: TrackType.Event) {}
-        "/stores/device/out-of-paper"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/stores/details_pos"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/details_devices"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/details_collaborators"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/device/device_issues"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/stores/device/out_of_paper"(platform: "/web/mobile", type: TrackType.Event) {}
         "/stores/device/associate/start"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details-pos"
+        tab_context = "/stores/details_pos"
         }
         "/stores/device/associate/start"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details-devices"
+        tab_context = "/stores/details_devices"
         }
         "/stores/device/associate/end"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details-pos"
+        tab_context = "/stores/details_pos"
         }
         "/stores/device/associate/end"(platform: "/web/mobile", type: TrackType.Event) {
-        tab_context = "/stores/details-devices"
+        tab_context = "/stores/details_devices"
         }
     }
 
