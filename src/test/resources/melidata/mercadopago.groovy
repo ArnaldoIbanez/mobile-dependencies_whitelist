@@ -3498,9 +3498,36 @@ trackTests {
     }
 
     test("Phone Validation - Authentication") {
+        "/authenticators/phone_validation/input_phone"(platform: "/", type: TrackType.View) {}
+
+        "/authenticators/phone_validation/input_phone"(platform: "/", type: TrackType.View) {
+            enrollment = true
+            flow_type = "enrollment"
+            flow_sub_type = "new_phone"
+        }
+
+        "/authenticators/phone_validation/input_phone/submit"(platform: "/", type: TrackType.Event) {
+            phone_source = "manual"
+        }
+
+        "/authenticators/phone_validation/input_phone/submit"(platform: "/", type: TrackType.Event) {
+            enrollment = true
+            flow_type = "enrollment"
+            flow_sub_type = "new_phone"
+            phone_source = "manual"
+        }
+
         "/authenticators/phone_validation/channel_selector"(platform: "/", type: TrackType.View) {
             status = "pending_validation"
             available_channels = ["push", "sms", "call"]
+        }
+
+        "/authenticators/phone_validation/channel_selector"(platform: "/", type: TrackType.View) {
+            status = "pending_validation"
+            available_channels = ["push", "sms", "call"]
+            enrollment = true
+            flow_type = "enrollment"
+            flow_sub_type = "new_phone"
         }
 
         "/authenticators/phone_validation/channel_selector/submit"(platform: "/", type: TrackType.Event) {
@@ -3509,16 +3536,63 @@ trackTests {
             selected_channel = "push"
         }
 
+        "/authenticators/phone_validation/channel_selector/submit"(platform: "/", type: TrackType.Event) {
+            status = "pending_validation"
+            available_channels = ["push", "sms", "call"]
+            selected_channel = "push"
+            enrollment = true
+            flow_type = "enrollment"
+            flow_sub_type = "new_phone"
+        }
+
         "/authenticators/phone_validation/enter_code"(platform: "/", type: TrackType.View) {
             status = "pending_validation"
             available_channels = ["sms", "call"]
             selected_channel = "sms"
         }
 
+        "/authenticators/phone_validation/enter_code"(platform: "/", type: TrackType.View) {
+            status = "pending_validation"
+            available_channels = ["sms", "call"]
+            selected_channel = "sms"
+            enrollment = true
+            flow_type = "enrollment"
+            flow_sub_type = "new_phone"
+        }
+
         "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
             status = "success"
             available_channels = ["sms", "call"]
             selected_channel = "call"
+        }
+
+        "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
+            status = "success"
+            available_channels = ["sms", "call"]
+            selected_channel = "call"
+            phone_source = "manual"
+            enrollment = true
+            flow_type = "enrollment"
+            flow_sub_type = "new_phone"
+        }
+
+        "/authenticators/phone_validation/phone_confirmation"(platform: "/", type: TrackType.View) {}
+
+        "/authenticators/phone_validation/phone_confirmation"(platform: "/", type: TrackType.View) {
+            enrollment = true
+            flow_type = "enrollment"
+            flow_sub_type = "new_phone"
+        }
+
+        "/authenticators/phone_validation/phone_confirmation/submit"(platform: "/", type: TrackType.Event) {
+            action = "confirm"
+        }
+
+        "/authenticators/phone_validation/phone_confirmation/submit"(platform: "/", type: TrackType.Event) {
+            action = "confirm"
+            enrollment = true
+            flow_type = "enrollment"
+            flow_sub_type = "new_phone"
         }
     }
 
@@ -4358,6 +4432,35 @@ trackTests {
         "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
         "/stores/standalone_pos"(platform: "/web", type: TrackType.View) {}
         "/stores/move_pos"(platform: "/web", type: TrackType.View) {}
+        "/stores/details_pos"(platform: "/web", type: TrackType.View) {}
+        "/stores/details_devices"(platform: "/web", type: TrackType.View) {}
+        "/stores/details_collaborators"(platform: "/web", type: TrackType.View) {}
+        "/stores/device/device_issues"(platform: "/web", type: TrackType.Event) {}
+        "/stores/device/out_of_paper"(platform: "/web", type: TrackType.Event) {}
+        "/stores/device/associate/start"(platform: "/web", type: TrackType.Event) {
+        tab_context = "/stores/details_pos"
+        }
+        "/stores/device/associate/start"(platform: "/web", type: TrackType.Event) {
+        tab_context = "/stores/details_devices"
+        }
+        "/stores/device/associate/end"(platform: "/web", type: TrackType.Event) {
+        tab_context = "/stores/details_pos"
+        }
+        "/stores/device/associate/end"(platform: "/web", type: TrackType.Event) {
+        tab_context = "/stores/details_devices"
+        }
+        "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
+        tab_context = "/stores/details_pos"
+        }
+         "/stores/device/link/start"(platform: "/web", type: TrackType.Event) {
+        tab_context = "/stores/details_devices"
+        }
+        "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
+        tab_context = "/stores/details_pos"
+        }
+         "/stores/device/link/end"(platform: "/web", type: TrackType.Event) {
+        tab_context = "/stores/details_devices"
+        }
 
         "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/link_operators"(platform: "/web/mobile", type: TrackType.View) {}
@@ -4368,6 +4471,23 @@ trackTests {
         "/stores/pos/update"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/standalone_pos"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/move_pos"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/details_pos"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/details_devices"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/details_collaborators"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/device/device_issues"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/stores/device/out_of_paper"(platform: "/web/mobile", type: TrackType.Event) {}
+        "/stores/device/associate/start"(platform: "/web/mobile", type: TrackType.Event) {
+        tab_context = "/stores/details_pos"
+        }
+        "/stores/device/associate/start"(platform: "/web/mobile", type: TrackType.Event) {
+        tab_context = "/stores/details_devices"
+        }
+        "/stores/device/associate/end"(platform: "/web/mobile", type: TrackType.Event) {
+        tab_context = "/stores/details_pos"
+        }
+        "/stores/device/associate/end"(platform: "/web/mobile", type: TrackType.Event) {
+        tab_context = "/stores/details_devices"
+        }
     }
 
     test("Account mydata") {

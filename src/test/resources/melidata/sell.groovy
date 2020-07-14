@@ -4383,10 +4383,22 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
-            has_drag = false
-            valid_street_number = false
-            valid_intent = false
+            intent_type = "drag"
+        }
 
+        "/sell/item_data/location/intent"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            category_id = "MLC183186"
+            item_type = "default"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-7afd00a54af7"
+            vertical = "real_estate"
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+            intent_type = "valid_street_number"
         }
     }
 
@@ -4420,6 +4432,45 @@ trackTests {
             business = "classified"
             platform = "pi"
             listing_type_id = "silver"
+        }
+    }
+
+    test("SYI v4 publicar - picture card intents") {
+        "/sell/item_data/pictures/intent"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            category_id = "MLC183186"
+            item_type = "default"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-7afd00a54af7"
+            vertical = "real_estate"
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+            listing_type_id = "silver"
+            intent_type = "pictures_upload"
+            pictures_info = [
+                    [
+                            "width": 100,
+                            "height": 500,
+                            "size": 2048,
+                            "format": "image/jpeg",
+                            "valid": true
+                    ],
+                    [
+                            "width": 800,
+                            "height": 600,
+                            "size": 1024,
+                            "format": "image/png",
+                            "valid": false
+                    ],
+                    [
+                            "width": 800,
+                            "height": 600,
+                            "valid": false
+                    ],
+            ]
         }
     }
 
@@ -4569,7 +4620,7 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
-            valid_intent = false
+            intent_type = "invalid_intent"
             field_intent_ids = ["CONTACT_SCHEDULE", "OPERATION_SUBTYPE", "TOTAL_AREA"]
         }
     }

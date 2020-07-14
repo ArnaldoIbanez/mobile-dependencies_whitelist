@@ -37,7 +37,7 @@ metrics {
 		}
 		countsOn {
 			condition {
-				path("/vip/call_seller", "/vip/contact_seller")
+				path("/vip/call_seller", "/vip/contact_seller", "/vip/contact_whatsapp")
 			}
 		}
 	}
@@ -45,24 +45,24 @@ metrics {
 
 	"classifieds_user_contact"(description: "track vip user interaction as success for classifieds") {
 		startWith {
-			experiment(regex("classifieds/.*"))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 
 		countsOn {
 			condition {
-				path("/vip/call_seller", "/vip/show_phone", "/vip/contact_seller")
+				path("/vip/call_seller", "/vip/show_phone", "/vip/contact_seller", "/vip/contact_whatsapp")
 			}
 		}
 	}
 
 	"classifieds_user_contact_mobile"(description: "track vip user interaction as success for classifieds mobile") {
 		startWith {
-			experiment(regex("classifieds/.*"))
+			experiment(regex(searchVipClassifiedExperiments))
 		}
 
 		countsOn {
 			condition {
-				path("/vip/call_seller", "/questions/ask/post")
+				path("/vip/call_seller", "/questions/ask/post", "/vip/contact_whatsapp")
 			}
 		}
 	}
@@ -102,6 +102,19 @@ metrics {
 			}
 		}
 	}
+
+	"contact_whatsapp"(description: "track vip contact whatsapp as success for classifieds") {
+		startWith {
+			experiment(regex(searchVipClassifiedExperiments))
+		}
+
+		countsOn {
+			condition {
+				path("/vip/contact_whatsapp")
+			}
+		}
+	}
+
 
 	"quotations"(description: "track quotation as success for classifieds") {
 		startWith {
