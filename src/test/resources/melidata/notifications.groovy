@@ -3740,6 +3740,12 @@ trackTests {
             event_type = "shown"
         }
 
+        "/notification/cards_send_card"(platform: "/mobile") {
+            news_id = "cards_send_card-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
     }
 
     defaultBusiness = "mercadopago"
@@ -7345,6 +7351,13 @@ trackTests {
             advertising_id= "4066c329-d684-4196-8db4-3633148fc1a5"
             event_type = "sent"
         }
+
+        "/notification/cards_send_card"(platform: "/mobile") {
+            news_id = "cards_send_card-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/shipping_wrong_address_driver_action"(platform: "/mobile"){
             news_id = "12332323"
             event_type = "arrived"
