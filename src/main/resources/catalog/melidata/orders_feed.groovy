@@ -52,7 +52,9 @@ tracks {
         // status
         // status_detail
 
-        pack_id(required: false, description: "If this order is associated with a carrito/pack, the corresponding pack_id") 
+        pack_id(required: false, description: "If this order is associated with a carrito/pack, the corresponding pack_id")
+        order_date_created(required: false, description: "If this orders is associated with a pack, this will have the original timestamp")
+
         
         buyer(required: true, description: "buyer information") // id, nickname
         seller(required: true, type:PropertyType.ArrayList, description: "Array of sellers with their data") // id, nickname
