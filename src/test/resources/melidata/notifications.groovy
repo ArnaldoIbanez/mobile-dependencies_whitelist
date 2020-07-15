@@ -7154,8 +7154,8 @@ trackTests {
             event_type = "auto_dismiss"
         }
 
-        "/notification/prepaid_card-transaction_rejected_for_not_transaction"(platform: "/mobile") {
-            news_id = "prepaid_card-transaction_rejected_for_not_transaction-186785675"
+        "/notification/prepaid_card_transaction_rejected_for_not_transaction"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_for_not_transaction-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -7508,6 +7508,12 @@ trackTests {
             seller_id="1234567"
             items_count=5
             event_type = "open"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_for_not_transaction"(platform: "/mobile") {
+            news_id = "prepaid_card_transaction_rejected_for_not_transaction-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
         }
     }
 
