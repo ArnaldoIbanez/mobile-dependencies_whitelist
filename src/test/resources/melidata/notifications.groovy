@@ -7150,8 +7150,8 @@ trackTests {
             event_type = "sent"
         }
 
-        "/notification/cards-send_card"(platform: "/mobile") {
-            news_id = "cards-send_card-186785675"
+        "/notification/cards_send_card"(platform: "/mobile") {
+            news_id = "cards_send_card-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }

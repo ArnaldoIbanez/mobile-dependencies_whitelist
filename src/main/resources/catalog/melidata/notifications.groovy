@@ -1871,7 +1871,7 @@ tracks {
     "/notification/card_delivery_tracking_delayed"(platform: "/mobile") {}
     "/notification/card_delivery_tracking_branch"(platform: "/mobile") {}
     "/notification/card_delivery_tracking_not_delivered"(platform: "/mobile") {} 
-    "/notification/cards-send_card"(platform: "/mobile") {}
+    "/notification/cards_send_card"(platform: "/mobile") {}
     
     //Prepaid
     "/notification/prepaid_card_shipped"(platform: "/mobile") {}
