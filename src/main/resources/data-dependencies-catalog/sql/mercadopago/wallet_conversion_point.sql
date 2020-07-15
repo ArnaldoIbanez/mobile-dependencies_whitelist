@@ -104,9 +104,9 @@ from (
 					    application.business       as bu,
 					    application.version as app_version,
 					    if( device.platform = '/mobile/android', 'android', if(device.platform = '/mobile/ios','ios','others')) as platform,
-					    jest(event_data,'flow_origin') as referred,
-					    jest(event_data,'payment_channel') as payment_channel,
-					    jest(event_data,'flow_id') as transaction_id,
+					    get_json_object(event_data,'$.flow_origin') as referred,
+					    get_json_object(event_data,'$.payment_channel') as payment_channel,
+					    get_json_object(event_data,'$.flow_id') as transaction_id,
 					    usr.uid as uid,
 					    user_timestamp,
 					    cast(jest(event_data,'amount') as decimal(10,3)) as amount_lc
@@ -115,7 +115,7 @@ from (
 						and device.platform like '/mobile/%'
 						and application.business  in ('mercadolibre','mercadopago')
 						and path = '/pos_seller/start'
-						and jest(event_data,'payment_channel') = 'point'
+						and get_json_object(event_data,'$.payment_channel') = 'point'
 				) a1 
 				group by fecha, site, bu, app_version, platform, payment_channel, referred, transaction_id, uid 
 			) init
@@ -136,7 +136,7 @@ from (
 				    application.business       as bu,
 				    application.version as app_version,
 				    if( device.platform = '/mobile/android', 'android', if(device.platform = '/mobile/ios','ios','others')) as platform,
-				    jest(event_data,'flow_id') as transaction_id,
+				    get_json_object(event_data,'$.flow_id') as transaction_id,
 				    usr.uid as uid,
 				    user_timestamp
 				from tracks
@@ -144,7 +144,7 @@ from (
 					and device.platform like '/mobile/%'
 					and application.business  in ('mercadolibre','mercadopago')
 					and path = '/pos_seller/point/waiting_for_card'
-					and jest(event_data,'payment_channel') = 'point'
+					and get_json_object(event_data,'$.payment_channel') = 'point'
 				)a2
 				group by fecha, site, bu, app_version, platform, transaction_id, uid 
 			) cr on init.fecha = cr.fecha and init.site = cr.site and init.bu = cr.bu and init.app_version = init.app_version 
@@ -166,7 +166,7 @@ from (
 					    application.business       as bu,
 					    application.version as app_version,
 					    if( device.platform = '/mobile/android', 'android', if(device.platform = '/mobile/ios','ios','others')) as platform,
-					    jest(event_data,'flow_id') as transaction_id,
+					    get_json_object(event_data,'$.flow_id') as transaction_id,
 					    usr.uid as uid,
 					    user_timestamp
 					from tracks
@@ -174,7 +174,7 @@ from (
 						and device.platform like '/mobile/%'
 						and application.business  in ('mercadolibre','mercadopago')
 						and path = '/pos_seller/end'
-						and jest(event_data,'payment_channel') = 'point'
+						and get_json_object(event_data,'$.payment_channel') = 'point'
 				)a3
 				group by fecha, site, bu, app_version, platform, transaction_id, uid 
 			) con on init.fecha = con.fecha and init.site = con.site and init.bu = con.bu and init.app_version = init.app_version 

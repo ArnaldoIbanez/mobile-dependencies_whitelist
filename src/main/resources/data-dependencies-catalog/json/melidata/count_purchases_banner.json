@@ -69,6 +69,7 @@
     ],
     "sql": {
       "script": "business-assurance/cantidadcomprasporclick.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

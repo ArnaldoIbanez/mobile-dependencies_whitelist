@@ -1207,6 +1207,14 @@ trackTests {
         "/instore/buyer_qr/landing/brief"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+		"/instore/buyer_qr/landing/biometric_security"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+		}
+		"/instore/buyer_qr/security"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+			view_time_in_millis = 140
+			result = true
+		}
         "/instore/buyer_qr/landing/no_seed"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -2529,6 +2537,14 @@ trackTests {
 
         //Buyer QR - FTU/Landings
 
+		"/instore/buyer_qr/landing/biometric_security"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+		}
+		"/instore/buyer_qr/security"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+			view_time_in_millis = 140
+			result = true
+		}
         "/instore/buyer_qr/landing/brief"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
