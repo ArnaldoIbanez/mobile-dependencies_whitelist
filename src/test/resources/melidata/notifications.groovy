@@ -7503,6 +7503,24 @@ trackTests {
             items_count=5
             event_type = "open"
         }
+
+        "/notification/card_nip_first_try"(platform: "/mobile") {
+            news_id = "card_nip_first_try-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_second_try"(platform: "/mobile") {
+            news_id = "card_nip_second_try-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_nip_block"(platform: "/mobile") {
+            news_id = "card_nip_nip_block-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -7739,6 +7757,24 @@ trackTests {
             provider_name = "HBO GO"
             date = "20181211"
             type = "activate_before"
+        }
+
+        "/notification/card_nip_first_try"(platform: "/mobile") {
+            news_id = "card_nip_first_try-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_second_try"(platform: "/mobile") {
+            news_id = "card_nip_second_try-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_nip_block"(platform: "/mobile") {
+            news_id = "card_nip_nip_block-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
         }
     }
 
