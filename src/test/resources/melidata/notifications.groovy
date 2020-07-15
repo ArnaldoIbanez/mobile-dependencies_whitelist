@@ -3739,13 +3739,6 @@ trackTests {
             news_id = "discount_central-missing_data-12332323"
             event_type = "shown"
         }
-
-        "/notification/cards-send_card"(platform: "/mobile") {
-            news_id = "cards-send_card-186785675"
-            event_type = "open"
-            notification_type= "deep_linking"
-        }
-
     }
 
     defaultBusiness = "mercadopago"
