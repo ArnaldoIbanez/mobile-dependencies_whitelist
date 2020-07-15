@@ -7154,6 +7154,12 @@ trackTests {
             event_type = "auto_dismiss"
         }
 
+        "/notification/prepaid_card-transaction_rejected_for_not_transaction"(platform: "/mobile") {
+            news_id = "prepaid_card-transaction_rejected_for_not_transaction-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
         "/notification/card_request_challenge_pending"(platform: "/mobile") {
             news_id = "card_request_challenge_pending-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
