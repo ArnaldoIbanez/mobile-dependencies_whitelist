@@ -82,6 +82,8 @@ tracks {
         listingTypeFlow(listing_type_id)
         listingTypeFlowMobile(listing_type_id, listing_type_free_available)
         catalogFlowMobile(domain_id, attribute_id, category_prediction_selected_index, attribute_values, predictions, parent_product_id, product_id)
+        locationIntentsGroup(has_drag, valid_street_number, accept_new_location, valid_intent)
+        shieldGroup(business,session_id,vertical,platform)
         intentGroup(intent_type, intent_value)
         technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
         pictureIntentGroup(intent_type, pictures_info)
@@ -1152,12 +1154,32 @@ tracks {
         technicalSpecsIntentsGroup
     }
 
-    "/sell/shield"(platform: "/web", isAbstract: true) {
-        sellGroup
-        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
-        shield_type(required: false, description: "shield type", values:["user_has_debt", "user_package_empty", "user_package_error", "user_missing_data", "none", "onboarding"], type: PropertyType.String)
+    "/sell/onboarding"(platform: "/web", isAbstract: true) {
+        business(required: true,  values:["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+        platform(required: true, values:["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
+        category_path(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Item's category tree")
+
     }
-    "/sell/shield/validations"(platform: "/web", isAbstract: true) {}
-    "/sell/shield/validations/show"(platform: "/web", type: TrackType.Event) {}
-    "/sell/shield/validations/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/onboarding/splash"(platform: "/web", isAbstract: true) {}
+    "/sell/onboarding/splash/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/onboarding/splash/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/error_step"(platform: "/web", isAbstract: true) {
+        shieldGroup
+        seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
+        item_type(required: false, description: "item type", values:["default", "product"], type: PropertyType.String)
+    }
+    "/sell/error_step/package_error"(platform: "/web", isAbstract: true) {}
+    "/sell/error_step/package_error/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/error_step/package_error/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/error_step/package_empty"(platform: "/web", isAbstract: true) {}
+    "/sell/error_step/package_empty/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/error_step/package_empty/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/error_step/user_has_debt_error"(platform: "/web", isAbstract: true) {}
+    "/sell/error_step/user_has_debt_error/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/error_step/user_has_debt_error/confirm"(platform: "/web", type: TrackType.Event) {}
+
 }
