@@ -272,6 +272,19 @@ metrics {
       }
     }
 
+  "discount_center.marketplace.from_marketplace"(description: "Counts a user access to the marketplace from the same marketplace") {
+      startWith {
+        experiment(regex("cdd/.*"))
+      }
+
+      countsOn {
+        condition {
+          path(regex("/discount_center/payers/marketplace(/components)?"))
+          equals("platform.fragment.from", "/discount_center_payers/list")
+        }
+      }
+    }
+
     "discount_center.detail.from_touchpoints"(description: "Counts a user access to the discount detail from any touchpoint") {
       startWith {
         experiment(regex("cdd/.*"))
@@ -314,6 +327,19 @@ metrics {
         condition {
           path("/discount_center/payers/detail")
           equals("platform.fragment.from", "/discount_center_payers/list")
+        }
+      }
+    }
+
+    "discount_center.detail.from_detail"(description: "Counts a user access to the discount detail from another detail") {
+      startWith {
+        experiment(regex("cdd/.*"))
+      }
+
+      countsOn {
+        condition {
+          path("/discount_center/payers/detail")
+          equals("platform.fragment.from", "/discount_center_payers/detail")
         }
       }
     }
