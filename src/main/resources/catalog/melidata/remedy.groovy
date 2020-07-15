@@ -15,6 +15,7 @@ tracks {
         id (required: true, type: PropertyType.String, description: "The challenge name")
         process_id (required: true, type: PropertyType.String, description: "The initiative")
         callback (required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
+        kyc_flow_id(required: false, type: PropertyType.String, description: "The kyc flow identifier")
     }
 
     "/remedy/challenge/start"(platform: "/", type: TrackType.Event) {}
