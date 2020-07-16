@@ -1942,7 +1942,9 @@ tracks {
     "/notification/card_delivery_tracking_branch"(platform: "/mobile") {}
     "/notification/card_delivery_tracking_not_delivered"(platform: "/mobile") {} 
     "/notification/cards_send_card"(platform: "/mobile") {}
-    
+    "/notification/card_nip_first_try"(platform: "/mobile") {}
+    "/notification/card_nip_second_try"(platform: "/mobile") {}
+    "/notification/card_nip_nip_block"(platform: "/mobile") {}
     //Prepaid
     "/notification/prepaid_card_shipped"(platform: "/mobile") {}
     "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {}
