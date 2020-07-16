@@ -136,6 +136,7 @@ tracks {
     "/money_in/caixa/disclaimer/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
 
     // Cash Tickets - Locations 
+    "/money_in/cash"(platform:"/", isAbstract:true){}
     "/money_in/cash/location_list"(platform: "/", type: TrackType.View) {}
     "/money_in/cash/location/location_selected"(platform: "/", type: TrackType.Event) {
         id (required:true, description: "Selected location")
@@ -170,7 +171,8 @@ tracks {
     }
 
     // Oxxo Tickets - Disuassive Modal 
-    "/money_in/cash/location/warningl_ticket_modal"(platform: "/", type: TrackType.View) {}
+    "/money_in/cash/location"(platform:"/", isAbstract:true){}
+    "/money_in/cash/location/warning_ticket_modal"(platform: "/", type: TrackType.View) {}
     "/money_in/cash/location/warning_ticket_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_in/cash/location/warning_ticket_modal/back_button_clicked"(platform: "/", type: TrackType.Event) {}
 

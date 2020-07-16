@@ -182,7 +182,7 @@ trackTests {
         }
 
         // Oxxo Tickets - Disuassive Modal 
-        "/money_in/cash/location/warningl_ticket_modal"(platform: "/", type: TrackType.View) {}
+        "/money_in/cash/location/warning_ticket_modal"(platform: "/", type: TrackType.View) {}
         "/money_in/cash/location/warning_ticket_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
         "/money_in/cash/location/warning_ticket_modal/back_button_clicked"(platform: "/", type: TrackType.Event) {}
 
