@@ -130,4 +130,9 @@ tracks {
     "/money_in/caixa/success"(platform: "/", type: TrackType.View) {}
     "/money_in/caixa/success/go_home_button_clicked"(platform: "/", type: TrackType.Event) {}
 
+    // Caixa - Disclaimer 
+    "/money_in/caixa/disclaimer"(platform: "/", type: TrackType.View) {}
+    "/money_in/caixa/disclaimer/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_in/caixa/disclaimer/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
 }

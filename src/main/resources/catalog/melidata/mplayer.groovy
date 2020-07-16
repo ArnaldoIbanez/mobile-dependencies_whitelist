@@ -69,6 +69,10 @@ tracks {
         request_status(required: false, PropertyType.String, description: "the status of the request")
     }
 
+    "/mplayer/closed_request/congrats_request/exit"(platform: "/mobile", type: TrackType.Event) {
+        button(required: true, PropertyType.String, description: "the button selected to exit")
+    }
+
     "/mplayer/closed_request/contact_picker/select_contact"(platform: "/mobile", type: TrackType.Event) {
         input_type(required: true, PropertyType.String, description: "the input type of contact selected, select from list or manually typed")
         source(required: false, PropertyType.String, description: "the source of the contact")
@@ -304,5 +308,14 @@ tracks {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
         position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }
+
+    // Contacts
+    "/mplayer/contacts"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/contacts/massive_upload"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/contacts/search"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/contacts/massive_upload/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/contacts/massive_upload/successful_end"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/contacts/search/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/contacts/search/end"(platform: "/mobile", type: TrackType.Event) {}
 
 }

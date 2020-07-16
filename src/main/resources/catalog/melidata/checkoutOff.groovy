@@ -1,8 +1,9 @@
 package catalog.melidata
 
-import com.ml.melidata.catalog.PropertyType
-import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 import com.ml.melidata.TrackType
+import com.ml.melidata.catalog.PropertyType
+
+import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
@@ -25,7 +26,7 @@ tracks {
         payment_amount_local(required: true, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
         flow_context(required: false, description: "Information about current flow's status, e.g: 'init'", type: PropertyType.String)
         flow_type(required: false, description: "Current flow type, e.g: 'card_express'", type: PropertyType.String)
-    } 
+    }
 
     // EVENTS
     "/checkout_off/init"(platform: "/", type: TrackType.Event) {}
@@ -54,6 +55,13 @@ tracks {
 
     "/checkout_off/payment/card_express"(platform: "/", type: TrackType.View) {}
 
+    // Paypal tracks
+    "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/paypal_login/no_display"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/payment/review_express"(platform: "/", type: TrackType.View) {}
+
     // Split payments paths
     "/checkout_off/payment/card"(platform: "/", isAbstract: true) {}
     "/checkout_off/payment/card/split_first"(platform: "/", type: TrackType.View) {}
@@ -62,7 +70,7 @@ tracks {
     // Groups consumer credits data collection views
     "/checkout_off/payment/input_credits"(platform: "/", isAbstract: true) {}
     "/checkout_off/payment/input_credits/select_installment"(platform: "/", type: TrackType.View) {}
-    "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/", type: TrackType.View) {}    
+    "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/", type: TrackType.View) {}
 
     // Tokenizer product final screen.
     "/checkout_off/payment/processing"(platform: "/", type: TrackType.View) {}
@@ -106,6 +114,9 @@ tracks {
         payment_id(required: false, description: "Payment's identification in case that the payment was successful", type: PropertyType.String)
     }
 
+    "/checkout_off/congrats/no_display"(platform: "/", type: TrackType.View) {
+    }
+
     "/checkout_off/congrats/call_for_auth"(platform: "/", isAbstract: true) {}
 
     "/checkout_off/congrats/call_for_auth/later"(platform: "/", type: TrackType.View) {}
@@ -113,15 +124,30 @@ tracks {
     "/checkout_off/congrats/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
 
     //MP personalFrontend
-    "/tools"(platform: "/web", isAbstract: true){}
+    "/tools"(platform: "/web", isAbstract: true) {}
 
-    "/tools/list"(platform: "/web", type: TrackType.View){}
-    "/tools/list/button_create"(platform: "/web"){}
+    "/tools/list"(platform: "/web", type: TrackType.View) {}
+    "/tools/list/button_create"(platform: "/web") {}
 
-    "/tools/create"(platform: "/web", type: TrackType.View){}
-    "/tools/confirm_create_edit"(platform: "/web"){}
+    "/tools/create"(platform: "/web", type: TrackType.View) {}
+    "/tools/confirm_create_edit"(platform: "/web") {}
 
     "/balance"(platform: "/web", isAbstract: true){}
     "/balance/reports"(platform: "/web", type: TrackType.View){}
+
+    "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
+
+    // Shipping tracks
+    "/checkout_off/shipping"(platform: "/", isAbstract: true) {}
+    "/checkout_off/shipping/select_method"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/review"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/input_zip_code"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/input_address"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/select_user_type"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/select_option"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/select_address"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/shipping/zipcode_finder"(platform: "/", type: TrackType.View) {}
+
     //END -- MP personalFrontend
 }

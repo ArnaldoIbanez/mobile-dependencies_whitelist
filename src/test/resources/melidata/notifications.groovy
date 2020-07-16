@@ -960,6 +960,56 @@ trackTests {
             campaign_type = "adhoc"
             campaign_data = "MLB1234"
         }
+        "/notification_center/subscription_expiring_notice"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_expiring_notice"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            payment_option = "Citibanamex"
+        }
+        "/notification_center/subscription_payment_congrats"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_payment_congrats"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            type = "link_account"
+        }
+        "/notification_center/subscription_payment_error"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_payment_error"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            error_type = "card_code"
+        }
+        "/notification_center/subscription_payment_instructions"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_payment_instructions"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            payment_option = "Citibanamex"
+        }
+        "/notification_center/subscription_payment_pending"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_payment_pending"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            type = "activate_before"
+        }
         "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns_mpcampaignsinfo-186785675-76283123"
             latest_news_id= "mpcampaigns_mpcampaignsinfo-186785675-76283123"
@@ -1362,6 +1412,19 @@ trackTests {
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
+        }
+
+        "/notification/campaigns_generic"(platform: "/") {
+            news_id = "12332323"
+            event_type = "received"
+            deeplink ="meli://search?q=sony"
+            campaign_id = "mkt_campaign_co"
+            campaign_type="xp_cupones"
+            campaign_data = "MLB1234"
+            test_notification = false
+            sent_date = "20180508"
+            batch_id = "MLB_PACK_20180508_2"
+            send_health_check = true
         }
 
         "/notification/campaigns_cart_recovery"(platform: "/mobile") {
@@ -2205,6 +2268,21 @@ trackTests {
             news_id = "12332323"
             event_type = "arrived"
         }
+        "/notification/shipping_wrong_address_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            shipment_id = 123
+        }
+        "/notification/shipping_buyer_absent_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            shipment_id = 123
+        }
+        "/notification/shipping_scoring_keyword_created"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            shipment_id = 123
+        }
 
         "/notification/collections_approved"(platform: "/mobile") {
             news_id = "12332323"
@@ -2900,6 +2978,51 @@ trackTests {
             sent_date = "20181211"
         }
 
+        "/notification/subscription_expiring_notice"(platform: "/mobile") {
+            news_id = "subscription-expiring_notice-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            payment_option = "Citibanamex"
+        }
+
+        "/notification/subscription_payment_congrats"(platform: "/mobile") {
+            news_id = "subscription-payment_congrats-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            type = "link_account"
+        }
+
+        "/notification/subscription_payment_error"(platform: "/mobile") {
+            news_id = "subscription-payment_error-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            error_type = "card_code"
+        }
+
+        "/notification/subscription_payment_instructions"(platform: "/mobile") {
+            news_id = "subscription-payment_instructions-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            payment_option = "Citibanamex"
+        }
+
+        "/notification/subscription_payment_pending"(platform: "/mobile") {
+            news_id = "subscription-payment_pending-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            type = "activate_before"
+        }
+
         "/notification/mpcampaigns_control_group"(platform: "/mobile") {
             news_id = "123"
             event_type = "discarded"
@@ -3314,6 +3437,12 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_transaction_rejected_international_authorization_by_fraud_prevention"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_international_authorization_by_fraud_prevention-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_withdraw_by_invalid_amount_with_avaible_balance-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -3402,7 +3531,7 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        
+
         "/notification/card_delivery_tracking_ready_to_ship"(platform: "/mobile") {
             news_id = "card_delivery_tracking_ready_to_ship-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -3609,6 +3738,12 @@ trackTests {
         "/notification/discount_central_missing_data"(platform: "/mobile") {
             news_id = "discount_central-missing_data-12332323"
             event_type = "shown"
+        }
+
+        "/notification/cards_send_card"(platform: "/mobile") {
+            news_id = "cards_send_card-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
         }
 
     }
@@ -4496,6 +4631,56 @@ trackTests {
             campaign_data = "MLB1234"
             sent_date = "20181211"
         }
+        "/notification_center/subscription_expiring_notice"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_expiring_notice"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            payment_option = "Citibanamex"
+        }
+        "/notification_center/subscription_payment_congrats"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_payment_congrats"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            type = "link_account"
+        }
+        "/notification_center/subscription_payment_error"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_payment_error"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            error_type = "card_code"
+        }
+        "/notification_center/subscription_payment_instructions"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_payment_instructions"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            payment_option = "Citibanamex"
+        }
+        "/notification_center/subscription_payment_pending"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_payment_pending"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            type = "activate_before"
+        }
         "/notification_center/mpcampaigns_mpcampaignsinfo"(platform: "/mobile"){
             newsgroup_id= "mpcampaigns-mpcampaignsinfo-186785675-76283123"
             latest_news_id= "mpcampaigns-mpcampaignsinfo-186785675-76283123"
@@ -4662,6 +4847,12 @@ trackTests {
         }
         "/notification/prepaid_card_transaction_rejected_international_authorization_by_invalid_amount"(platform: "/mobile"){
             news_id = "prepaid_card_transaction_rejected_international_authorization_by_invalid_amount-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_international_authorization_by_fraud_prevention"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_international_authorization_by_fraud_prevention-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "arrived"
             notification_type= "deep_linking"
         }
@@ -6509,6 +6700,51 @@ trackTests {
             campaign_data = "MLB1234"
         }
 
+        "/notification/subscription_expiring_notice"(platform: "/mobile") {
+            news_id = "subscription-expiring_notice-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            payment_option = "Citibanamex"
+        }
+
+        "/notification/subscription_payment_congrats"(platform: "/mobile") {
+            news_id = "subscription-payment_congrats-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            type = "link_account"
+        }
+
+        "/notification/subscription_payment_error"(platform: "/mobile") {
+            news_id = "subscription-payment_error-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            error_type = "card_code"
+        }
+
+        "/notification/subscription_payment_instructions"(platform: "/mobile") {
+            news_id = "subscription-payment_instructions-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            payment_option = "Citibanamex"
+        }
+
+        "/notification/subscription_payment_pending"(platform: "/mobile") {
+            news_id = "subscription-payment_pending-186785675-hbo-20181211"
+            event_type = "open"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            type = "activate_before"
+        }
+
         "/notification/mpcampaigns_mpcampaignsinfo"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -6923,7 +7159,7 @@ trackTests {
             news_id = "prepaid_card_soon_deliver-186785675"
             event_type = "auto_dismiss"
         }
-        
+
         "/notification/card_request_challenge_pending"(platform: "/mobile") {
             news_id = "card_request_challenge_pending-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -6971,7 +7207,7 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        
+
         "/notification/card_delivery_tracking_ready_to_ship"(platform: "/mobile") {
             news_id = "card_delivery_tracking_ready_to_ship-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
@@ -7116,6 +7352,27 @@ trackTests {
             event_type = "sent"
         }
 
+        "/notification/cards_send_card"(platform: "/mobile") {
+            news_id = "cards_send_card-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/shipping_wrong_address_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            shipment_id = 123
+        }
+        "/notification/shipping_buyer_absent_driver_action"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            shipment_id = 123
+        }
+        "/notification/shipping_scoring_keyword_created"(platform: "/mobile"){
+            news_id = "12332323"
+            event_type = "arrived"
+            shipment_id = 123
+        }
     }
 
     defaultBusiness = "mercadolibre"
@@ -7258,6 +7515,24 @@ trackTests {
             seller_id="1234567"
             items_count=5
             event_type = "open"
+        }
+
+        "/notification/card_nip_first_try"(platform: "/mobile") {
+            news_id = "card_nip_first_try-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_second_try"(platform: "/mobile") {
+            news_id = "card_nip_second_try-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_nip_block"(platform: "/mobile") {
+            news_id = "card_nip_nip_block-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
         }
     }
 
@@ -7445,6 +7720,74 @@ trackTests {
             seller_id="1234567"
             items_count=5
             event_type = "open"
+        }
+        "/notification_center/subscription_expiring_notice"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_expiring_notice"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            payment_option = "Citibanamex"
+        }
+        "/notification_center/subscription_payment_congrats"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_payment_congrats"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            type = "link_account"
+        }
+        "/notification_center/subscription_payment_error"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_payment_error"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            error_type = "card_code"
+        }
+        "/notification_center/subscription_payment_instructions"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_payment_instructions"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            payment_option = "Citibanamex"
+        }
+        "/notification_center/subscription_payment_pending"(platform: "/mobile") {
+            newsgroup_id = "subscription-hbo-186785675"
+            latest_news_id= "subscription-hbo-186785675"
+            latest_news_type= "subscription_payment_pending"
+            status= "read"
+            provider = "hbo"
+            provider_name = "HBO GO"
+            date = "20181211"
+            type = "activate_before"
+        }
+
+        "/notification/card_nip_first_try"(platform: "/mobile") {
+            news_id = "card_nip_first_try-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_second_try"(platform: "/mobile") {
+            news_id = "card_nip_second_try-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_nip_block"(platform: "/mobile") {
+            news_id = "card_nip_nip_block-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
         }
     }
 

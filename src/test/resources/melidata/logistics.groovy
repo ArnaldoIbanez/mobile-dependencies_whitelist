@@ -190,6 +190,17 @@ trackTests {
             ]
         }
 
+        "/logistics/last_mile/notification/view_near_pack_destination"(platform: "/mobile", type: TrackType.Event) {
+            shipment_id = "1234"
+            geo_position = [
+                geolocation_type: "ROOFTOP",
+                accuracy: "30.1",
+                distance: "1000",
+                latitude: "-36.34443",
+                longitude: "-35.34332"
+            ]
+        }
+
         "/logistics/last_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
         
         "/logistics/last_mile/list/old_route"(platform: "/mobile", type: TrackType.View) {
@@ -373,10 +384,27 @@ trackTests {
             driver_id = "123"
             shipment_id = "222"
         }
+        "/logistics/last_mile/deliver/buyer_document_form/save"(platform: "/mobile", type: TrackType.Event) {
+            shipment_id = "222"
+            receiver_relationship = "HOLDER"
+        }
         "logistics/last_mile/document_input/error"(platform: "/mobile", type: TrackType.Event) {
             driver_id = "123"
             shipment_id = "222"
             error_type = "document_form"
+        }
+        "/logistics/last_mile/package/security_keyword/invalid"(platform: "/mobile", type: TrackType.View) {
+            shipment_id = "222"
+            receiver_relationship = "HOLDER"
+        }
+        "/logistics/last_mile/package/security_keyword"(platform: "/mobile", type: TrackType.View) {
+            shipment_id = "222"
+        }
+        "/logistics/last_mile/package/security_keyword/save"(platform: "/mobile", type: TrackType.Event) {
+            shipment_id = "222"
+        }
+        "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
+            shipment_id = "222"
         }
     }
 
@@ -447,6 +475,15 @@ trackTests {
         }
         "/logistics/first_mile/profile"(platform: "/mobile", type: TrackType.View) {
             first_mile_logistic_type = "FF"
+        }
+        "/logistics/last_mile/scanner/driver_affinity_modal/continue"(platform: "/mobile", type: TrackType.Event){
+            driver_id = 400
+        }
+        "/logistics/last_mile/scanner/driver_affinity_modal/cancel"(platform: "/mobile", type: TrackType.Event){
+            driver_id = 400
+        }
+        "/logistics/last_mile/scanner/driver_affinity_modal"(platform: "/mobile", type: TrackType.View){
+            driver_id = 400
         }
     }
 

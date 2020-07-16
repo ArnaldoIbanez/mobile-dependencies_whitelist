@@ -169,10 +169,25 @@ trackTests {
             reason = "APP_TARGET_NOT_UPDATED"
             from = "drawer"
         }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_INSTALLED"
+            from = "drawer"
+            id = "cross_link1"
+            store_replacement_link = "meli://modal/full?id=test"
+            store_replacement_link_scheme_is_valid = true
+        }
         "/cross_app_links/fetch"(platform: "/mobile"){
             link = "meli://test"
             provider = "ADJUST_PROVIDER"
             from = "drawer"
+        }
+        "/cross_app_links/fetch"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "KEYCHAIN"
+            from = "drawer"
+            id = "cross_link1"
         }
     }
 
@@ -355,10 +370,25 @@ trackTests {
             reason = "APP_TARGET_NOT_UPDATED"
             from = "drawer"
         }
+        "/cross_app_links/dispatch"(platform: "/mobile"){
+            link = "meli://test"
+            result = "LINK_FAILURE"
+            reason = "APP_TARGET_NOT_INSTALLED"
+            from = "drawer"
+            id = "cross_link1"
+            store_replacement_link = "meli://modal/full?id=test"
+            store_replacement_link_scheme_is_valid = true
+        }
         "/cross_app_links/fetch"(platform: "/mobile"){
             link = "meli://test"
             provider = "ADJUST_PROVIDER"
             from = "drawer"
+        }
+        "/cross_app_links/fetch"(platform: "/mobile"){
+            link = "meli://test"
+            provider = "KEYCHAIN"
+            from = "drawer"
+            id = "cross_link1"
         }
     }
 }

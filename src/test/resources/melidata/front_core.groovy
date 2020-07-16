@@ -281,6 +281,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -441,6 +444,9 @@ trackTests {
                     ordinal: 15,
                     content_type : 'complete'
             ]
+            metadata = [
+                accessibility_voice: false
+            ]
         }
     }
 
@@ -449,6 +455,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -608,6 +617,9 @@ trackTests {
                     ordinal: 15,
                     content_type : 'complete'
             ]
+            metadata = [
+                accessibility_voice: true
+            ]
         }
     }
 
@@ -751,8 +763,27 @@ trackTests {
             has_aware = false
             has_label = true
             group_id = "seller"
-            component_id="user_survey"
             group_position = 6
+            audience="all"
+            bu="1"
+            bu_line="10"
+            flow="1"
+            logic="default"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - shortcuts (without optionals)") {
+        "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="payer"
+            component_id="scan_qr"
+            from = "sheet"
+            content_id = "business"
+            position = 3
+            enabled = true
+            is_favorite = false
+            has_aware = false
+            has_label = true
         }
     }
 
@@ -1066,6 +1097,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -1223,6 +1257,9 @@ trackTests {
                     level: 3,
                     partner: "HBO"
             ]
+            metadata = [
+                accessibility_voice: false
+            ]
         }
     }
 
@@ -1231,6 +1268,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -1387,6 +1427,9 @@ trackTests {
                     ordinal: 14,
                     level: 3,
                     partner: "HBO"
+            ]
+            metadata = [
+                accessibility_voice: true
             ]
         }
     }

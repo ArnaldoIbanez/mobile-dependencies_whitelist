@@ -12,7 +12,7 @@
         "format": "yyyy-MM-dd"
   },
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "site": "Sales",
     "columns": [
       {
@@ -42,6 +42,7 @@
     ],
     "sql": {
       "script": "cpg/home_cpg.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

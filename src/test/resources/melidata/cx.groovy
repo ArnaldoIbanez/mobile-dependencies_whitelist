@@ -37,7 +37,9 @@ trackTests {
             portal_source_id = 124
         }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
+        "/portal/home"(platform: "/", type: TrackType.View) {}
         "/portal/search"(platform: "/", type: TrackType.View) {}
+        "/portal/validate_user"(platform: "/", type: TrackType.View) {}
 
     }
 
@@ -47,6 +49,9 @@ trackTests {
             portal_source_id = 999
         }
         "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
+            portal_source_id = 999
+        }
+        "/support/widget/home"(platform: "/", type: TrackType.View) {
             portal_source_id = 999
         }
         "/support/widget/faq"(platform: "/", type: TrackType.View) {
@@ -174,6 +179,7 @@ trackTests {
             portal_source_id = 124
         }
         "/portal/folder_rules"(platform: "/", type: TrackType.View) {}
+        "/portal/home"(platform: "/", type: TrackType.View) {}
         "/portal/search"(platform: "/", type: TrackType.View) {}
         "/portal/problem"(platform: "/", type: TrackType.View) {
             portal_content_id = 987
@@ -181,6 +187,7 @@ trackTests {
             portal_problem_id = 456
             portal_contact = [form: true, c2c: "api_timeout", chat: "api_timeout"]
         }
+        "/portal/validate_user"(platform: "/", type: TrackType.View) {}
     }
 
 
@@ -190,6 +197,9 @@ trackTests {
             portal_source_id = 999
         }
         "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
+            portal_source_id = 999
+        }
+        "/support/widget/home"(platform: "/", type: TrackType.View) {
             portal_source_id = 999
         }
         "/support/widget/faq"(platform: "/", type: TrackType.View) {

@@ -17,6 +17,7 @@ tracks {
         revenue_share_fee(required: true, type: PropertyType.Numeric, description: "Revenue share fee of selected warranty.")
         revenue(required: true, type: PropertyType.Numeric, description: "Revenue of selected warranty.")
         currency_id(required: true, type: PropertyType.String, description: "Currency of selected warranty. For ex: ARS")
+        discount_rate(required: false, type: PropertyType.Numeric, description: "Rate of the discount on the original cost.")
     }
 
     def financing_type_track_structure = objectSchemaDefinitions {
@@ -31,18 +32,23 @@ tracks {
         category_path(required: true, type: PropertyType.ArrayList, description: "Category path of the item. For ex: ['MLA1051', 'MLA1055']")
     }
 
+    // Web
     "/garex/checkout"(platform:"/web", type: TrackType.View) {
         item(required: true, type: PropertyType.Map(item_track_structure))
+        options_has_discount(required: true, type: PropertyType.Boolean, description: "When pricing-elasticity experiment is on, this will determine if items has discounts to offer")
     }
     "/garex/checkout/more_info"(platform:"/web", type: TrackType.Event) {
         item(required: true, type: PropertyType.Map(item_track_structure))
+        options_has_discount(required: true, type: PropertyType.Boolean, description: "When pricing-elasticity experiment is on, this will determine if items has discounts to offer")
     }
     "/garex/checkout/selected_garex"(platform:"/web", type: TrackType.Event) {
         garex(required: true, type: PropertyType.Map(garex_track_structure))
         item(required: true, type: PropertyType.Map(item_track_structure))
+        options_has_discount(required: true, type: PropertyType.Boolean, description: "When pricing-elasticity experiment is on, this will determine if items has discounts to offer")
     }
     "/garex/checkout/not_selected_garex"(platform:"/web", type: TrackType.Event) {
         item(required: true, type: PropertyType.Map(item_track_structure))
+        options_has_discount(required: true, type: PropertyType.Boolean, description: "When pricing-elasticity experiment is on, this will determine if items has discounts to offer")
     }
     "/garex/checkout/delete"(platform:"/web", parentPropertiesInherited: false, type: TrackType.Event) {
         garex(required: true, type: PropertyType.Map(garex_track_structure))
@@ -62,6 +68,7 @@ tracks {
     "/garex/checkout/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {}
     "/garex/checkout/delete"(platform:"/mobile", type: TrackType.Event) {
         garex_id(required: true, type: PropertyType.String, description: "Warranty id removed")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         cost(required: true, type: PropertyType.Numeric, description: "Warranty cost")
         currency_id(required: true, type: PropertyType.String, description: "Currency id")
     }
