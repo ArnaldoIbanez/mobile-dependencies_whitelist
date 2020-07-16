@@ -205,7 +205,6 @@ trackTests {
         "/my_purchases/status/cancel_purchase" (platform:"/", type: TrackType.View) {
             newPurchasesDataSet()
         }
-	}
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------
     // TEST TRACKS MY PURCHASES STATUS PLACES
