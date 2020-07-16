@@ -368,4 +368,13 @@ tracks {
     "/logistics/first_mile/profile"(platform: "/mobile", type: TrackType.View) {
         first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
     }
+    "/logistics/last_mile/scanner/driver_affinity_modal/continue"(platform: "/mobile", type: TrackType.Event){
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+    }
+    "/logistics/last_mile/scanner/driver_affinity_modal/cancel"(platform: "/mobile", type: TrackType.Event){
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+    }
+    "/logistics/last_mile/scanner/driver_affinity_modal"(platform: "/mobile", type: TrackType.View){
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
+    }
 }

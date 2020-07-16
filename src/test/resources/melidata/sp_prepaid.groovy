@@ -22,6 +22,7 @@ trackTests {
             vertical_id = "antenna"
             provider_id = "antenna_mla_directv_prepago"
             flavor = "sube_nfc"
+            last_recharge = "1459"
         }
 
         def view_time = {
@@ -180,6 +181,7 @@ trackTests {
             mandatory()
             step_information()
             available_items()
+            notification_panel()
         }
 
         "/single_player/prepaid/product_list/selected_product"(platform: "/mobile", type: TrackType.Event) {
@@ -778,6 +780,7 @@ trackTests {
             mandatory()
             step_information()
             available_items()
+            notification_panel()
         }
 
         "/single_player/prepaid/product_list/selected_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {

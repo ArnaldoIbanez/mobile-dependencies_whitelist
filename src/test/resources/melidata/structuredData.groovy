@@ -526,38 +526,93 @@ trackTests {
         }
     }
 
-    test("catalog_search query"){
+    // Catalog search
+
+    def searchProductQuery = {
+        site_filter = "MLA"
+        query_filter = "philips"
+        domain_filter = "tv"
+        is_gtin = false
+        displayed_sources = [
+                "ice-cat",
+                "meli",
+                "bi_competence"
+        ]
+    }
+
+    def searchGtinQuery = {
+        site_filter = null
+        query_filter = "01234567890123"
+        domain_filter = null
+        is_gtin = true
+        displayed_sources = [
+                "meli",
+                "ice-cat",
+                "marca",
+                "to",
+                "gepir",
+        ]
+    }
+
+    test("catalog_search product query should be tracked"){
         "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
-            site_filter = "MLA"
-            query_filter = "philips"
-            domain_filter = "tv"
+            searchProductQuery()
+            has_results = true
         }
     }
 
-    test("catalog_search query with no site"){
+    test("catalog_search product query without results should be tracked"){
         "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
-            query_filter = "philips"
-            domain_filter = "tv"
+            searchProductQuery()
+            has_results = false
         }
     }
 
-    test("catalog_search query with no domain"){
+    test("catalog_search gtin query should be tracked"){
+        "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
+            searchGtinQuery()
+            has_results = true
+            unknown_info_sources = ["upc_item_db"]
+        }
+    }
+
+    test("catalog_search gtin query without results not unknown sources should be tracked"){
+        "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
+            searchGtinQuery()
+            has_results = false
+            unknown_info_sources = []
+        }
+    }
+
+
+    test("catalog_search query with no site should be tracked"){
+        "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
+            query_filter = "philips"
+            domain_filter = "tv"
+            is_gtin = false
+            has_results = true
+        }
+    }
+
+    test("catalog_search query with no domain should be tracked"){
         "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
             site_filter = "MLB"
             query_filter = "philips"
+            is_gtin = false
+            has_results = true
         }
     }
 
-    test("catalog_search query with no query"){
+    test("catalog_search query with no query should be tracked"){
         "/structure_data/catalog_search/query"(platform: "/web/desktop", type: TrackType.Event) {
             site_filter = "MLB"
             query_filter = "AUTOMOTIVE_TIRES"
+            is_gtin = false
+            has_results = true
         }
     }
 
-
-    // Catalog search
-    test("catalog_search wrong domain prediction"){
+    test("catalog_search wrong domain prediction should be tracked"){
         "/structure_data/catalog_search/wrong_domain_prediction"(platform: "/web/desktop", type: TrackType.Event) {
             product_id = "b7c088e9-502f-4ed2-9446-0c865e024d7a"
             product_source = "ice-cat"
@@ -568,7 +623,17 @@ trackTests {
         }
     }
 
-    test("catalog_search wrong external domain"){
+    test("catalog_search wrong domain prediction without selected domain should be tracked"){
+        "/structure_data/catalog_search/wrong_domain_prediction"(platform: "/web/desktop", type: TrackType.Event) {
+            product_id = "b7c088e9-502f-4ed2-9446-0c865e024d7a"
+            product_source = "ice-cat"
+            product_external_id = "554178"
+            external_domain = "Ordenadores móviles industriales"
+            predicted_domain = "Tablets"
+        }
+    }
+
+    test("catalog_search wrong external domain should be tracked"){
         "/structure_data/catalog_search/wrong_external_domain"(platform: "/web/desktop", type: TrackType.Event) {
             product_id = "b7c088e9-502f-4ed2-9446-0c865e024d7a"
             product_source = "ice-cat"
@@ -577,7 +642,7 @@ trackTests {
         }
     }
 
-    test("catalog_search wrong external attribute"){
+    test("catalog_search wrong external attribute should be tracked"){
         "/structure_data/catalog_search/wrong_external_attribute"(platform: "/web/desktop", type: TrackType.Event) {
             product_id = "b7c088e9-502f-4ed2-9446-0c865e024d7a"
             product_source = "ice-cat"
@@ -590,12 +655,29 @@ trackTests {
 
     test("catalog_search copied external attribute"){
         "/structure_data/catalog_search/copied_external_attribute"(platform: "/web/desktop", type: TrackType.Event) {
+            is_gtin = false
+            displayed_sources = [
+                    "meli",
+            ]
             product_id = "b7c088e9-502f-4ed2-9446-0c865e024d7a"
             product_source = "ice-cat"
             product_external_id = "554178"
             external_domain = "Ordenadores móviles industriales"
             external_attribute_key = "GTIN"
             external_attribute_value = "0882780449312,0882780449459"
+        }
+    }
+
+    test("catalog_search copied metadata attribute should be tracked"){
+        "/structure_data/catalog_search/copied_external_attribute"(platform: "/web/desktop", type: TrackType.Event) {
+            is_gtin = false
+            displayed_sources = [
+                    "upc_item_db",
+            ]
+            searchProductQuery()
+            product_source = "gepir"
+            external_attribute_key = "GTIN"
+            external_attribute_value = "0882780449312"
         }
     }
 }

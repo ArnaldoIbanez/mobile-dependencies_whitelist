@@ -166,6 +166,11 @@ tracks {
         index(type: PropertyType.Numeric, required: true, description: "The position of the main action")
     }
 
+    def image_banner_item_definition = objectSchemaDefinitions {
+        tracking_id(type: PropertyType.String, required: true, description: "The id of the image banner we are showing")
+        index(type: PropertyType.Numeric, required: true, description: "The position of the image banner")
+    }
+
     def marketplace_main_slider_definition = objectSchemaDefinitions {
         segment_id(type: PropertyType.String, required: true, description: "The section segment")
         marketplace_type(type: PropertyType.String, required: true, description: "The section type")
@@ -194,11 +199,19 @@ tracks {
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the carousel")
     }
 
+    def marketplace_image_banner_definition = objectSchemaDefinitions {
+        segment_id(type: PropertyType.String, required: true, description: "The section segment")
+        marketplace_type(type: PropertyType.String, required: true, description: "The section type")
+        marketplace_index(type: PropertyType.Numeric, required: true, description: "The position of the segment in the list")
+        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(image_banner_item_definition)), description: "Items shown in the banner")
+    }
+
     def marketplace_components_definition = objectSchemaDefinitions {
         main_slider(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_slider_definition)), description: "Main slider components")
         main_actions(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_main_action_definition)), description: "Main actions components")
         carousel(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_carousel_definition)), description: "Carousel components")
         row(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_row_definition)), description: "Row components")
+        image_banner(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_image_banner_definition)), description: "Image banner components")
         last_viewed(required: false, type: PropertyType.ArrayList(PropertyType.Map(marketplace_last_viewed_definition)), description: "Last Viewed components")
     }
 

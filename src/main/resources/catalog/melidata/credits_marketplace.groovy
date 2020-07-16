@@ -431,13 +431,14 @@ tracks {
         status(required: true, type: PropertyType.String, values: ["no_charge_period", "fixed_charge_period_1", "fixed_charge_period_2", "daily_charge_period"],
                 description: "Indicates user status")
         milestone(type: PropertyType.Numeric, required: true)
-        context(required: false, values: ["search", "vip", "home"],
+        context(required: false, values: ["search", "vip", "pdp", "home"],
                 description: "The page or section where the nav action is taking place")
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
     propertyGroups {
         pursue_nav_properties(status, milestone, context)
-        pursue_modal_properties(milestone, context)
+        pursue_modal_properties(milestone, context, vip_version)
     }
 
     //Page Views

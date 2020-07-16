@@ -47,6 +47,9 @@ tracks {
         source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"], description: "Source that set status")
         current_checking_day (required: false, type: PropertyType.Numeric, description: "Day that is checking status")
         execution_id (required: false, type: PropertyType.String, description: "The execution id")
+        app_storage (required: false, type: PropertyType.Numeric, description: "App storage on device")
+        free_storage (required: false, type: PropertyType.Numeric, description: "Free storage on device")
+        total_storage (required: false, type: PropertyType.Numeric, description: "Total storage on device")
     }
 
     "/application/not_engaged" (platform: "/mobile", type: TrackType.Event){
@@ -58,6 +61,9 @@ tracks {
         source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"], description: "Source that set status")
         current_checking_day (required: false, type: PropertyType.Numeric, description: "Day that is checking status")
         execution_id (required: false, type: PropertyType.String, description: "The execution id")
+        app_storage (required: false, type: PropertyType.Numeric, description: "App storage on device")
+        free_storage (required: false, type: PropertyType.Numeric, description: "Free storage on device")
+        total_storage (required: false, type: PropertyType.Numeric, description: "Total storage on device")
     }
 
 
@@ -113,6 +119,9 @@ tracks {
         battery_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled"], description: "Battery Save mode")
         data_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled", "whitelisted", "undefined"], description: "Data Save mode")
         do_not_disturb_mode(required: false, type: PropertyType.String, values: ["disabled", "important_interruptions", "no_interruptions", "alarms_only", "undefined"], description: "Do Not Disturb mode")
+        carrier_code(required: false, type: PropertyType.String, description: "Carrier code of the network provider (MCC+MNC)")
+        carrier_name(required: false, type: PropertyType.String, description: "Name of the carrier network provider")
+        nfc_compatible(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Nfc compatible with the device")
     }
 
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}
@@ -144,13 +153,13 @@ tracks {
     }
 
     //apprater
-    "/application/apprater"(platform:"/mobile", isAbstract:true) {}
+    "/apprater"(platform:"/mobile", isAbstract:true) {}
 
-    "/application/apprater/add_track"(platform: "/mobile") {
+    "/apprater/add_track"(platform: "/mobile") {
         type_track(required: true, type: PropertyType.String, description:"Type of track that happen in the app (PAYMENT_APPROVE,CRASHED,WITHDRAW,etc")
     }
-    "/application/apprater/error_service_rules"(platform: "/mobile") {
+    "/apprater/error_service_rules"(platform: "/mobile") {
     }
-    "/application/apprater/popup"(platform: "/mobile") {
+    "/apprater/popup"(platform: "/mobile") {
     }
 }

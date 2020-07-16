@@ -26,7 +26,9 @@ tracks {
     }
 
     // Card detail
-    "/wallet/cards/detail"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {}
+    "/wallet/cards/detail"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        version (required:false, type: PropertyType.String, description: "Card listing version")
+    }
     
     // Add card Events
     "/wallet/cards/add_card"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {

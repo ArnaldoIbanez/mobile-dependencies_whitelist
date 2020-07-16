@@ -78,7 +78,7 @@ tracks {
     "/cellphone_recharge/not-found"(platform: "/web", type: TrackType.View) {}
 
     // Recharge Marketing Performance landing 
-    "/cellphone_recharge/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
+    "/cellphone_recharge/mkt_landing"(platform: "/", type: TrackType.View, initiative: "1176") {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
     "/cellphone_recharge/mkt_landing/sms"(platform: "/web", type: TrackType.Event) { 
@@ -88,7 +88,7 @@ tracks {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
         position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
     }
-    "/cellphone_recharge/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+    "/cellphone_recharge/mkt_landing/button"(platform: "/", type: TrackType.Event) {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
         position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }

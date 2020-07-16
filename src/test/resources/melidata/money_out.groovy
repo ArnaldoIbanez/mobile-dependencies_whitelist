@@ -115,6 +115,8 @@ trackTests {
 
       //Transfer Hub - Dashboard
       "/money_out/transfers"(platform: "/", type: TrackType.View) {}
+      "/money_out/transfers/home/transfer_mp"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/transfer_bank"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/home/send_money"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
@@ -148,7 +150,9 @@ trackTests {
 
       //Transfer Hub - Add Bank Account Form
       "/money_out/transfers/new_account_form"(platform: "/", type: TrackType.View) {}
+      "/money_out/transfers/new_account_form/recipient_account"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/new_account_form/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/new_account_form/recipient_account/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
 
       //Transfer Hub - Transfer Amount
       "/money_out/transfers/amount"(platform: "/", type: TrackType.View) {}
@@ -181,6 +185,7 @@ trackTests {
       }
       "/money_out/transfers/result/view_receipt_button_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/result/go_to_home_button_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/result/complete_bacen_information_button_clicked"(platform: "/", type: TrackType.Event) {}
       
       //Transfer Hub - Receipt
       "/money_out/transfers/receipt"(platform: "/", type: TrackType.View) {
@@ -209,6 +214,10 @@ trackTests {
       "/money_out/transfers/home/ted_campaign_modal"(platform:"/", type: TrackType.View){}
       "/money_out/transfers/home/ted_campaign_modal/ted_button_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/ted_campaign_modal/withdraw_legacy_button_clicked"(platform: "/", type: TrackType.Event) {}
+      
+      //Transfer Hub - Coelsa Error
+      "/money_out/transfers/home/coelsa_error"(platform: "/", type: TrackType.View) {}
+      "/money_out/transfers/home/coelsa_error/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
 
     }
 }

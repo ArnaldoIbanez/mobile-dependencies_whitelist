@@ -38,7 +38,8 @@ SELECT
 	jest(event_data, 'detailed_errors.item_listing_type_free') as item_listing_type_free,
 	jest(event_data, 'detailed_errors.failure') as failure,
 	substr(ds,1,10) AS ds
-FROM default.tracks 
+FROM melidata.tracks_ml
 WHERE ds >= '@param01'
 AND   ds < '@param02'
 AND path = '/fbm/panel/inbound/offline/product_selection'
+AND bu = 'mercadolibre'

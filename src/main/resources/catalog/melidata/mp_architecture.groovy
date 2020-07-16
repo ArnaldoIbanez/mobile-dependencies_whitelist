@@ -30,6 +30,7 @@ tracks {
 
     "/memory_warning"(platform: "/mobile", type: TrackType.Event) {
         view_controller(required:true, type: PropertyType.String, description: "Nombre de la View que recibió una alerta de memoria")
+        application_state(required:true, type: PropertyType.String, description: "Estado de la app al momento de la alerta", values: ["Active", "Inactive", "Background", "Undefined"])
     }
 
     "/associate_phone"(platform: "/mobile", isAbstract: true) {

@@ -71,19 +71,31 @@ metrics {
 		}
 	}
 	
-	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq?authuser=0#h.p_2qPD6v_1dTSd", compute_order: true, categorization:"important") {
+	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd  && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals(
-						externalCondition {
-							url("internal/orders/\$0")
-							replace("event_data.order_id")
-							method("get")
-							successfulCodes(200,206)
-							jsonPath("status")
-						},
-						"cancelled"
+				and (
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("status")
+							},
+							"cancelled"
+					),
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("hidden_for_seller")
+							},
+							false
+					),
 				)
 			}
 		}
@@ -245,6 +257,40 @@ metrics {
 		}
 	}
 
+	"bids.sameProduct.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, categorization:"important") {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
+		
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and (
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("status")
+							},
+							"cancelled"
+					),
+					equals("event_data.items.item.catalog_product_id", property("catalog_product_id") ),
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("hidden_for_seller")
+							},
+							false
+					),
+				)
+			}
+		}
+	}
 
 	"bids.sameProductQuick"(description: "/orders/ordercreated from feed", compute_order: true, ttl: 30) {
 		startWith {

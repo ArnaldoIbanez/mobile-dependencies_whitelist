@@ -58,6 +58,10 @@ trackTests {
         // Terms and conditions View
         "/asset_management/terms_and_conditions"(platform: "/mobile") {}
 
+        // Not eligible view
+        "/asset_management/not_eligible"(platform: "/mobile") {}
+        "/asset_management/not_eligible"(platform: "/web") {}
+
         // Opt-out
         "/asset_management/opt_out"(platform: "/mobile") {}
         "/asset_management/result_stop_investing"(platform: "/mobile") {}
@@ -243,6 +247,10 @@ trackTests {
 
         // Terms and conditions View
         "/asset_management/terms_and_conditions"(platform: "/mobile", business: "mercadolibre") {}
+
+        // Not eligible view
+        "/asset_management/not_eligible"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/not_eligible"(platform: "/web", business: "mercadolibre") {}
 
         // Opt-out
         "/asset_management/opt_out"(platform: "/mobile", business: "mercadolibre") {}
