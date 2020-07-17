@@ -31,11 +31,12 @@ tracks {
         vertical_id(required: false, type: PropertyType.String, description: "Vertical of the flow")
         provider_id(required: false, type: PropertyType.String, description: "Provider of the operation")
         flavor(required:false, type: PropertyType.String, description: "Name of the current flavor")
+        last_recharge(required:false, type: PropertyType.String, description: "Device id of the last recharge")
     }
 
     propertyGroups { 
         mandatory(flow, session_id)
-        step_information(device_id, device_number, product_id, vertical_id, provider_id, flavor)
+        step_information(device_id, device_number, product_id, vertical_id, provider_id, flavor, last_recharge)
         item_structure(item_id, type, content)
         view_time(view_time)
         available_items(available_items)
@@ -127,6 +128,7 @@ tracks {
     // Products
     "/single_player/prepaid/product_list"(platform: "/mobile", type: TrackType.View) {
         available_items
+        notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
     }
 
     "/single_player/prepaid/product_list/selected_product"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {

@@ -25,7 +25,17 @@ tracks {
     }
 
     // MP Home
-    "/mp_home"(platform: "/web", type: TrackType.View) {}
+    "/mp_home"(platform: "/", type: TrackType.View) {
+        userProfile (
+            type: PropertyType.String,
+            required: false,
+            description: "User profile type",
+            values: ['newbie', 'collector', 'payer'],
+        )
+    }
+
+    // MP Home
+    "/profile"(platform: "/", type: TrackType.View) {}
 
     // MP Activities
     "/listing"(platform: "/", isAbstract: true) {}
@@ -47,9 +57,9 @@ tracks {
     "/activities/export"(platform: "/web", type: TrackType.View) {}
 
     // MP Shields
-    "/shield"(platform: "/web", type: TrackType.View) {}
+    "/shield"(platform: "/", type: TrackType.View) {}
 
-    //MP Panel Layout 
+    // MP Panel Layout
     "/panel_layout"(platform: "/") {
         navigationSections(
             description:"The sections that the user is receiving from the api.",
@@ -60,21 +70,18 @@ tracks {
     "/charts"(platform: "/web", isAbstract: true){}
     "/charts/show"(platform: "/web", type: TrackType.View){}
 
-
     /*************************
     *        MP PUBLIC       *
     *************************/
-    
+
     /**
      * Digital Wallet Screen Tracks
      */
-
     "/digital_wallet"(platform: "/", type: TrackType.View) {}
 
     /**
      * Digital Wallet Events Tracks
      */
-
     "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
         section(required: true, description: "Section from which the event comes", type: PropertyType.String)
     }
@@ -86,7 +93,6 @@ tracks {
     /**
      * Bsuiness Site Screen Tracks
      */
-
     "/business_site"(platform: "/", type: TrackType.View) {}
 
     /**
@@ -110,20 +116,8 @@ tracks {
     // MP Sellers Websites
     "/landing/sellers/websites"(platform: "/web"){}
 
-    // MP Sellers Websites Events
-    "/landing/sellers/websites/click" (platform: "/web", type: TrackType.Event){
-        event_id (type: PropertyType.String, required: true, description: "ID from clicked element")
-        event_label (type: PropertyType.String, required: true, description: "Element text")
-    }
-
     // MP Sellers Social
     "/landing/sellers/social"(platform: "/web"){}
-
-    // MP Sellers Social Events
-    "/landing/sellers/social/click" (platform: "/web", type: TrackType.Event){
-        event_id (type: PropertyType.String, required: true, description: "ID from clicked element")
-        event_label (type: PropertyType.String, required: true, description: "Element text")
-    }
 
     // MP Sellers Merchant Services
     "/landing/sellers/mss"(platform: "/"){
@@ -145,9 +139,6 @@ tracks {
         final_sale_value (type: PropertyType.String, required: false, description: "Final sale value (with fees)")
     }
 
-    // MP Online Payments
-    "/landing/onlinepayments"(platform: "/web"){}
-
     // MP Buyers
     "/landing/buyers"(platform: "/web"){}
 
@@ -159,7 +150,6 @@ tracks {
     "/landing/formcomercial/send_email"(platform:"/", type: TrackType.Event) {
         email (type: PropertyType.String, required: true, description: "Email from user")
     }
-
 
     // Splinter MP Landings
     "/landing/marketing"(platform: "/", type: TrackType.View) {
@@ -173,4 +163,18 @@ tracks {
     "/mp_covid/congrats"(platform: "/", type: TrackType.View) {}
     "/mp_covid/donation"(platform: "/", type: TrackType.View) {}
     "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
+
+    /*************************
+    *        MP BANKING       *
+    *************************/
+
+    // MP Banking abstract track
+    "/banking"(platform: "/", isAbstract: true) {}
+
+    // MP Banking Balance (web, webmobile and webview)
+    "/banking/balance"(platform: "/", type: TrackType.View) {}
+    "/banking/calendar"(platform: "/", type: TrackType.View) {}
+
+    // MP Banking PNF (web, webmobile and webview)
+    "/banking/pnf"(platform: "/", type: TrackType.View) {}
 }

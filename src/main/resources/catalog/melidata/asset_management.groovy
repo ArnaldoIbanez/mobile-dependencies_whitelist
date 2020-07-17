@@ -65,6 +65,10 @@ tracks {
     // Terms and conditions view
     "/asset_management/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
 
+    // Not eligible view
+    "/asset_management/not_eligible"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/not_eligible"(platform: "/web", type: TrackType.View) {}
+
     // Opt-out
     "/asset_management/opt_out"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_stop_investing"(platform: "/mobile", type: TrackType.View) {}

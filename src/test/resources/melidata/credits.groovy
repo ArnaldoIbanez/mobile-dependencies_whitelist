@@ -111,8 +111,42 @@ trackTests {
             result = 'approved'
         }
 
+        /* Remedy MLM */
+        "/credits/consumer/opensea/remedy/authorization"(platform: "/", type: TrackType.View, business:"mercadolibre") {}
+        "/credits/consumer/opensea/remedy/authorization"(platform: "/", type: TrackType.View, business:"mercadopago") {}
+        "/credits/consumer/opensea/remedy/authorization/open_detail"(platform: "/web", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/opensea/remedy/authorization/open_detail"(platform: "/web", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/consumer/opensea/remedy/authorization/give_consent"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/opensea/remedy/authorization/give_consent"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/consumer/opensea/remedy/authorization/deny_consent"(platform: "/web", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/opensea/remedy/authorization/deny_consent"(platform: "/web", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/consumer/opensea/remedy/authorization/modal"(platform: "/mobile", type: TrackType.View, business:"mercadolibre") {}
+        "/credits/consumer/opensea/remedy/authorization/modal"(platform: "/mobile", type: TrackType.View, business:"mercadopago") {}
+        "/credits/consumer/opensea/remedy/authorization/recovery"(platform: "/", type: TrackType.View, business:"mercadolibre") {}
+        "/credits/consumer/opensea/remedy/authorization/recovery"(platform: "/", type: TrackType.View, business:"mercadopago") {}
+        "/credits/consumer/opensea/remedy/authorization/quit_remedy"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/opensea/remedy/authorization/quit_remedy"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
+
         /******************************************
          *   End: Consumers Opensea Flow
          ******************************************/
+    }
+
+    test('Merchant Public Landing') {
+        // MercadoPago Business
+        "/credits/merchant/public_landing"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
+            user_profile = 'offer'
+        }
+        "/credits/merchant/public_landing"(platform: "/web/desktop", type: TrackType.View, business:"mercadopago") {
+            user_profile = 'no_offer'
+        }
+
+        // MercadoLibre business
+        "/credits/merchant/public_landing"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
+            user_profile = 'offer'
+        }
+        "/credits/merchant/public_landing"(platform: "/web/desktop", type: TrackType.View, business:"mercadolibre") {
+            user_profile = 'no_offer'
+        }
     }
 }

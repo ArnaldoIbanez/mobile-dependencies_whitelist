@@ -9,7 +9,7 @@
     "process_name": "fashion_attributes",
     "cron": "00 03 * * *",
     "extract": {
-      "operation": "append",
+      "operation": "destroy",
       "columns": [
         {
             "name": "site_id",

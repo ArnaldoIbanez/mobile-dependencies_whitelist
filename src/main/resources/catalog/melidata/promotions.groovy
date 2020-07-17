@@ -108,6 +108,12 @@ tracks {
       dispatching_normally(required: false, type: PropertyType.Boolean, description: "Indicate whether the item support dispatching normally")
     }
 
+    def shortcutsStructure = objectSchemaDefinitions {
+      filter(required: true, type: PropertyType.Map, description: "filter described")
+      is_recommended_domain(required: true, type: PropertyType.Boolean, description: "whether the filter is recommended or not")
+      position(required: true, type: PropertyType.Numeric, description: "position in array")
+    }
+
     propertyDefinitions {
         deal_print_id(required: true, type: PropertyType.String, description: "Unique id per render")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(itemStructure)), 
@@ -120,10 +126,11 @@ tracks {
         filter_applied(required: false, type: PropertyType.String, description: "The current applied filter name")
         filter_position(required: false, type: PropertyType.Numeric, description: "The current applied filter position")
         selected_filters(required: true, type: PropertyType.Map, description: "The data of all applied filters")
+        displayed_shortcuts(required: true, type: PropertyType.ArrayList(PropertyType.Map(shortcutsStructure)), description: "The filters shortcuts shown to the user in each request")
     }
     
     propertyGroups {
-        general_promotions_info(deal_print_id, items, page, origin, filter_applied, filter_position, selected_filters)
+        general_promotions_info(deal_print_id, items, page, origin, filter_applied, filter_position, selected_filters, displayed_shortcuts)
     }
 
     //Promotions Landing

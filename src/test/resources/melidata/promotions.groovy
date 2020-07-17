@@ -157,10 +157,26 @@ trackTests {
                     ]
             // algorithms = [scoring: "threshold", selection: "bci_v1", sorting: "max_10pct_l2"]
             page = [limit: 52, total: "200", offset: 0]
-            selected_filters = [price: "0.0-2000.0"]
+            selected_filters = [price: "0.0-2000.0"] 
             origin = "scut"
             filter_applied = "price"
             filter_position = "3"
+            displayed_shortcuts =[
+              [
+                filter: [
+                  price: "0.0-2000.0"
+                ],
+                is_recommended_domain: false,
+                position: 1
+              ],
+              [
+                filter: [
+                  domain_id: "MLA-SNEAKERS"
+                ],
+                is_recommended_domain: true,
+                position: 2
+              ]
+            ]
         }
  
         "/promotions"(platform:"/web/desktop", type: TrackType.Event, {

@@ -7,7 +7,7 @@
   "process_name": "search_banner_views",
   "cron": "00 07 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "site": "Sales",
     "columns": [
       {

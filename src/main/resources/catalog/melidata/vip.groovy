@@ -68,6 +68,8 @@ tracks {
 
     "/vip"(platform: "/") {
         // TEMP FIELDS
+        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Item")
+
         cac_item(required: false, type: PropertyType.Boolean,
                  description: "Indicates whether the item is listed as 'CodoACodo'")
 
@@ -372,6 +374,7 @@ tracks {
 
     "/vip/item_gallery"(platform: "/mobile", parentPropertiesInherited: false) {
         context(required: false)
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
     "/vip/sizechart"(platform: "/", parentPropertiesInherited: false, type: TrackType.View) {
@@ -432,6 +435,14 @@ tracks {
     }
 
     "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/vip/call_seller_intention"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
+    "/vip/contact_whatsapp_intention"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
 
     "/vip/show_phone"(platform: "/", type: TrackType.Event) {
         category_id(required: false, type: PropertyType.String, description: "Item's category ID")
@@ -507,6 +518,14 @@ tracks {
     "/vip/payment_method"(platform: "/mobile", parentPropertiesInherited: false) {}
 
     "/vip/payment_method/back"(platform: "/mobile", parentPropertiesInherited: false) {}
+    
+    "/payment_methods"(platform: "/", type: TrackType.View, isAbstract: true) {}
+
+    "/payment_methods/show"(platform: "/", type: TrackType.View) {
+        item_id(required: true, type: PropertyType.String,
+                description: "Item ID")
+        context(required: true, type: PropertyType.String, values: ["pdp", "vip"], description: "Context in where the payments modal is used")
+    }
 
     "/vip/variations"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String,
@@ -927,7 +946,8 @@ tracks {
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
                 description: "Listing type of the item")
         item_seller_type(required: true, description: "Seller type: normal, real_estate_user, etc")
-        source(required: true, description: "specify the platform and the freemium text type")
+        source(required: false, description: "specify the platform and the freemium text type - We are deprecating this attribute " +
+                "for the new vip so we will get rid of it as soon as the old vip is turned off")
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
@@ -981,7 +1001,7 @@ tracks {
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
-    "/vip/free_list_adv"(platform: "/web",  type: TrackType.Event, parentPropertiesInherited: false) {
+    "/vip/free_list_adv"(platform: "/",  type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")

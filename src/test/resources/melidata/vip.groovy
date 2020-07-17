@@ -31,7 +31,7 @@ trackTests {
             cac_item = false
             cac_status = "normal"
             quantity = 3
-
+            best_seller_position = 5
             return_available = false
             cart_content = false
             add_to_cart_availability = "no_high_ratio"
@@ -196,6 +196,14 @@ trackTests {
 
         "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event, {
             mandatory()
+        })
+
+        "/vip/call_seller_intention"(platform: "/mobile", type: TrackType.Event, {
+            item_id = "MLA533657947"
+        })
+
+        "/vip/contact_whatsapp_intention"(platform: "/mobile", type: TrackType.Event, {
+            item_id = "MLA533657947"
         })
 
         "/vip/contact_whatsapp"(platform: "/web", type: TrackType.Event, {
@@ -457,6 +465,13 @@ trackTests {
             deal_ids = ["MLA100"]
             contract_available = false
             catalog_listing = false
+        }
+    }
+
+    test("Vip show payment methods") {
+        "/payment_methods/show"(platform: "/mobile", type: TrackType.View) {
+            context = "vip"
+            item_id = "MLB533657947"
         }
     }
 
@@ -1106,7 +1121,6 @@ trackTests {
             vertical = "motors"
             listing_type_id = "gold_premium"
             item_seller_type = "normal"
-            source = "desktop-navigation-non-free"
             vip_version = "new"
         }
 
@@ -1328,6 +1342,15 @@ trackTests {
             item_condition = "new"
         }
         "/vip/free_list_adv"(platform:"/web/mobile", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            vertical = "motors"
+            listing_type_id = "gold_premium"
+            item_seller_type = "car_dealer"
+            item_condition = "new"
+        }
+        "/vip/free_list_adv"(platform:"/mobile", type: TrackType.Event) {
             item_id = "MLA792156560"
             category_id = "MLA43718"
             category_path = ["MLA1234","MLA6789"]

@@ -166,6 +166,10 @@ tracks {
         level(type: PropertyType.Numeric, required: true, description: "The user's loyalty level")
     }
 
+    def metadata_user_definition = objectSchemaDefinitions {
+        type(type: PropertyType.String, required: true, values: ['payer', 'seller', 'undefined'], description: "The user's type seller or payer")
+    }
+
     def loyalty_section_definition = objectSchemaDefinitions {
         content_type(type: PropertyType.String, required: false, values: ['partial','default','complete'])
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
@@ -191,6 +195,7 @@ tracks {
 
     def header_definition = objectSchemaDefinitions {
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user's type seller or payer")
     }
 
     def metadata_definition = objectSchemaDefinitions {

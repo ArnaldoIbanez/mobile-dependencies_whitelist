@@ -281,6 +281,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -452,6 +455,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -1091,6 +1097,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -1259,6 +1268,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'

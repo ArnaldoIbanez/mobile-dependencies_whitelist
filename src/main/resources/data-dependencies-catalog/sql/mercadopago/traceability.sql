@@ -15,8 +15,8 @@ FROM   (SELECT Substr(ds, 1, 10)               AS fecha,
                device.platform                 AS platform,
                application.site_id             AS site,
                application.version             AS version,
-               Jest(event_data, 'flow_name')   AS flow_name,
-               Jest (event_data, 'from')       AS flow_from,
+               get_json_object(event_data, '$.flow_name')   AS flow_name,
+               get_json_object(event_data, '$.from')       AS flow_from,
                usr.user_id                     AS usuario,
                application.business            AS business
         FROM   tracks
@@ -32,8 +32,8 @@ FROM   (SELECT Substr(ds, 1, 10)               AS fecha,
                   application.site_id,
                   application.version,
                   application.business,
-                  Jest(event_data, 'flow_name'),
-                  Jest (event_data, 'from'), usr.user_id) AS mp_flow_init
+                  get_json_object(event_data, '$.flow_name'),
+                  get_json_object(event_data, '$.from'), usr.user_id) AS mp_flow_init
        LEFT JOIN (SELECT Substr(ds, 1, 10)                AS fecha,
                          Count(DISTINCT context.flow_id)  AS flow_end,
                          context.flow_id                  AS flow_id

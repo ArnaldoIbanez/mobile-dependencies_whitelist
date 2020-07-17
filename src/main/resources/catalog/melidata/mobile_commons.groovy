@@ -70,10 +70,14 @@ tracks {
         result (required: true, type: PropertyType.String, description: "result class name")
         reason (required: false, type: PropertyType.String, description: "result reason class in case its result is error")
         from (required: false, type: PropertyType.String, description: "a descriptor that will allow to differentiate sources for the same dispatched deeplink")
+        id (required: false, type: PropertyType.String, description: "a string to allow a unique identification of the links")
+        store_replacement_link (required: false, type: PropertyType.String, description: "the deeplink that was provided to replace the app store link")
+        store_replacement_link_scheme_is_valid (required: false, type: PropertyType.Boolean, description: "validation status of the store replacement link")
     }
     "/cross_app_links/fetch"(platform: "/mobile", type: TrackType.Event){
         link (required: true, type: PropertyType.String, description: "fetched link")
         provider (required: true, type: PropertyType.String, description: "provider class name")
         from (required: false, type: PropertyType.String, description: "a descriptor that will allow to differentiate sources for the same dispatched deeplink")
+        id (required: false, type: PropertyType.String, description: "a string to allow a unique identification of the links")
     }
 }

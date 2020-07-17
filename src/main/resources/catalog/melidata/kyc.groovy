@@ -93,6 +93,7 @@ tracks {
     "/kyc/error"(platform: "/", type: TrackType.Event) {
         label (required: false, type: PropertyType.String, description: "The label attached to the current event")
         verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
+        kyc_flow_id(required: false, type: PropertyType.String, description: "The kyc flow identifier")
     }
 
     "/kyc/odr_error"(platform: "/", type: TrackType.Event) {
@@ -110,7 +111,7 @@ tracks {
         initiative(required: false, type: PropertyType.String, description: "Users initiative")
         kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
-        doc_type(required: false, type: PropertyType.String, values: ['doc_front', 'doc_back', 'address', 'selfie', 'proof_of_life'], description: "Doc type")
+        doc_type(required: false, type: PropertyType.String, values: ['doc_front', 'doc_back', 'address', 'selfie', 'proof_of_life', 'address_company', 'income'], description: "Doc type")
         model_id(required: false, type: PropertyType.String, description: "Model id of the doc model")
     }
 
@@ -234,6 +235,20 @@ tracks {
 
     "/kyc/iv/activity/custom_camera"(platform: "/mobile", type: TrackType.View) {}
 
+    "/kyc/iv/activity/custom_camera/permission"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/error"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/landing"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/camera"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/preview"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/uploading"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/result"(platform: "/mobile", type: TrackType.View) {}
+
     "/kyc/iv/activity/picture_confirmation"(platform: "/mobile", type: TrackType.View) {}
 
     // Mobile tracks
@@ -298,7 +313,7 @@ tracks {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
 
-    "/kyc/iv/address"(platform: "/web", type: TrackType.View) {
+    "/kyc/iv/image_upload"(platform: "/web", type: TrackType.View) {
     }
 
     "/kyc/iv/center/card"(platform: "/web", type: TrackType.View) {

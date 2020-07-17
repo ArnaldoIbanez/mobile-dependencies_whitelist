@@ -13,7 +13,9 @@ trackTests {
             version = "2.0"
         })
 
-        "/wallet/cards/detail"(platform:"/mobile", {})
+        "/wallet/cards/detail"(platform:"/mobile", {
+            version = "2.0"
+        })
 
         "/wallet/cards/add_card"(platform:"/mobile", {
             id_banner = "cards_list_prepaid_banner_acquisition"
@@ -36,6 +38,9 @@ trackTests {
             title = "Pedí tu tarjeta"
             description = "Podés usarla donde quieras"
             image = "cards_list_prepaid_banner"
+            secondary_image = "cards_list_prepaid_banner_2"
+            background = "#FFFFFF"
+            chevron_color = "#000000" 
             action = [link: "mercadopago://meli-cards/prepaid/acquisition/init-point"]
         })
         "/wallet/cards/banner_tap"(platform: "/mobile", {
@@ -44,6 +49,9 @@ trackTests {
             title = "Pedí tu tarjeta"
             description = "Podés usarla donde quieras"
             image = "cards_list_prepaid_banner"
+            secondary_image = "cards_list_prepaid_banner_2"
+            background = "#FFFFFF"
+            chevron_color = "#000000"            
             action = [link: "mercadopago://meli-cards/prepaid/acquisition/init-point"]
         })
     }

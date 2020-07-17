@@ -10,7 +10,11 @@ trackTests {
     *************************/
 
     test("Mercadopago Home") {
-        "/mp_home" (platform: "/web", type: TrackType.View) {}
+        "/mp_home" (platform: "/", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Profile") {
+        "/profile" (platform: "/", type: TrackType.View) {}
     }
 
     test("Mercadopago Activities List") {
@@ -50,7 +54,7 @@ trackTests {
     }
 
     test("Panel Layout") {
-        "/panel_layout" (platform: "/web", type: TrackType.View) {
+        "/panel_layout" (platform: "/", type: TrackType.View) {
            navigationSections = [[
                 section_id: "section1",
                 items: [
@@ -146,7 +150,6 @@ trackTests {
           section = "last"
         }
     }
-
     
     test("Splinter MP Landings") {
       // Splinter MP Landings Track View
@@ -156,5 +159,20 @@ trackTests {
         endTime = "2020-06-30T00:00:00Z"
       }
     }
-    
+
+    /*************************
+    *        MP BANKING       *
+    *************************/
+
+    test("Banking Balannce MP") {
+        "/banking/balance"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Banking Calendar MP") {
+        "/banking/calendar"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Banking PNF") {
+        "/banking/pnf"(platform: "/", type: TrackType.View) {}
+    }
 }
