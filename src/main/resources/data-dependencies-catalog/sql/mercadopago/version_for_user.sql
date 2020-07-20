@@ -32,6 +32,3 @@ FROM   (SELECT Count(DISTINCT( usr.user_id ))    AS cant_user,
 GROUP  BY version,
           fecha,
           platform
-ORDER  BY platform,
-          fecha,
-          version

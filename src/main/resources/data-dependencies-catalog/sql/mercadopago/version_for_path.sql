@@ -76,7 +76,3 @@ GROUP  BY version,
           path,
           fecha,
           platform
-ORDER  BY platform,
-          fecha,
-          version,
-          path
