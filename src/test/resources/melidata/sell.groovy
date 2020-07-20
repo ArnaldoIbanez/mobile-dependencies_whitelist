@@ -1211,7 +1211,13 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
         }
-
+        "/sell/list/free_shipping_review"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "core"
+        }
         "/sell/list/sip/publish/pictures_fail"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
@@ -2425,6 +2431,12 @@ trackTests {
             seller_profile = "NEWBIE"
         }
         "/sell/update/pictures/crop"(platform: "/mobile") {
+            item_id = "MLA123456"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+        }
+        "/sell/update/picture_uploader/mode/camera"(platform: "/mobile") {
             item_id = "MLA123456"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""

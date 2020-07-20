@@ -342,7 +342,8 @@ tracks {
     "/sell/list/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/manufacturing_time"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/manufacturing_time_review"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View) {}
+    "/sell/list/free_shipping_review"(platform:"/mobile", type: TrackType.View) {}
     "/sell/list/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
 
@@ -556,6 +557,8 @@ tracks {
     }
     "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/picture_uploader"(platform: "/mobile", isAbstract: true) {}
+    "/sell/update/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}
+    "/sell/update/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/picture_uploader/crop"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/picture_uploader/delete"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event) {}
