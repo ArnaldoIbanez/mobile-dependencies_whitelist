@@ -131,7 +131,7 @@ tracks {
     }
     
     propertyGroups {
-        general_promotions_info(deal_print_id, items, page, origin, filter_applied, filter_position, selected_filters, displayed_shortcuts)
+        general_promotions_info(deal_print_id, items, page, origin, filter_applied, filter_position, selected_filters, displayed_shortcuts, is_recommended_domain)
     }
 
     //Promotions Landing
