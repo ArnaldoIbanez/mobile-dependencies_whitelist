@@ -4857,6 +4857,18 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_transaction_rejected_by_kyc"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_by_kyc-51AO96HEQ"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_compliant_kyc"(platform: "/mobile"){
+            news_id = "prepaid_card_compliant_kyc-51AO96HEQ"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
         "/notification_center/single_player_utility_success_mp"(platform: "/", type: TrackType.Event) {
             latest_news_type= "single_player_utility_success_mp"
             latest_news_id= "single_player_utility_success_mp-143816022-MLB1013046714"
