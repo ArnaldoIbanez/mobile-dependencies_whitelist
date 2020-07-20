@@ -3449,6 +3449,18 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_transaction_rejected_by_kyc"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_by_kyc-51AO96HEQ"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_compliant_kyc"(platform: "/mobile"){
+            news_id = "prepaid_card_compliant_kyc-51AO96HEQ"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {
             news_id = "prepaid_card-challenge_bolbradesco_reminder-186785675"
             event_type = "auto_dismiss"
