@@ -1,0 +1,48 @@
+{
+  "users": [
+    "lucio.carboneti@mercadolibre.com",
+    "mpmobile_core@mercadolibre.com"
+  ],
+  "process_name": "version_for_path",
+  "cron": "00 04 * * *",
+  "partition": {
+    "name": "fecha",
+    "type": "DATE"
+  },
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "version",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "visited_count",
+        "type": "INTEGER"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      }
+    ],
+    "sql": {
+      "script": "mercadopago/version_for_path.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}
