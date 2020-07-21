@@ -3449,6 +3449,18 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_transaction_rejected_by_kyc"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_by_kyc-51AO96HEQ"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_compliant_kyc"(platform: "/mobile"){
+            news_id = "prepaid_card_compliant_kyc-51AO96HEQ"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {
             news_id = "prepaid_card-challenge_bolbradesco_reminder-186785675"
             event_type = "auto_dismiss"
@@ -4853,6 +4865,18 @@ trackTests {
 
         "/notification/prepaid_card_transaction_rejected_international_authorization_by_fraud_prevention"(platform: "/mobile"){
             news_id = "prepaid_card_transaction_rejected_international_authorization_by_fraud_prevention-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_by_kyc"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_by_kyc-51AO96HEQ"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_compliant_kyc"(platform: "/mobile"){
+            news_id = "prepaid_card_compliant_kyc-51AO96HEQ"
             event_type = "arrived"
             notification_type= "deep_linking"
         }
