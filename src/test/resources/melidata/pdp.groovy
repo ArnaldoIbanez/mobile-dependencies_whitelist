@@ -87,6 +87,7 @@ trackTests {
     //PDP FLOW
     test("pdp mandatory tracking") {
         "/pdp"(platform: "/", {
+            best_seller_position = 3
             cac_item = false
             cac_status = "normal"
             catalog_product_id = "MLA1234"

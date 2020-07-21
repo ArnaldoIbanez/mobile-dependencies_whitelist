@@ -570,11 +570,19 @@ tracks {
         payment_method_disabled(required: true, PropertyType.Boolean, description: "feature flag to check if payment method is disabled")
     }
 
-    //Buyer QR - FTU/Landings
+    
+	//Buyer QR - FTU/Landings
 
     "/instore/buyer_qr/landing"(platform: "/mobile", isAbstract: true) {}
 
-    "/instore/buyer_qr/landing/brief"(platform: "/mobile", type: TrackType.View) {}
+	"/instore/buyer_qr/landing/biometric_security"(platform: "/mobile", type: TrackType.View) {}
+	
+	"/instore/buyer_qr/security"(platform: "/mobile", type: TrackType.Event) {
+		view_time_in_millis(required: true, PropertyType.Numeric, description: "time that the user kept in the security validation screen")
+		result(required: true, PropertyType.Boolean, description: "security validation has succeeded or failed")
+	}
+    
+	"/instore/buyer_qr/landing/brief"(platform: "/mobile", type: TrackType.View) {}
 
     "/instore/buyer_qr/landing/no_seed"(platform: "/mobile", type: TrackType.View) {}
 

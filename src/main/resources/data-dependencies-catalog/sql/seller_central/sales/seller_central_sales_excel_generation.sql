@@ -15,8 +15,9 @@ SELECT
   usr.user_id user_id,
   application.site_id as site_id,
   substr(ds,1,10) as ds
-FROM default.tracks
+FROM melidata.tracks_ml
 WHERE ds >= '@param01'
 AND ds < '@param02'
+AND bu = 'mercadolibre'
 AND path in ('/seller_central/sales/list/excel/generation', '/seller_central/sales/list/excel/snackbar',
   '/seller_central/sales/list/excel/packs')

@@ -271,7 +271,13 @@ trackTests {
         "/mplayer/mkt_landing/button"(platform: "/web"){
             campaign = "sube"
             position = "footer"
-        } 
+        }
+
+        // Contacts
+        "/mplayer/contacts/massive_upload/start"(platform: "/mobile") {}
+        "/mplayer/contacts/massive_upload/successful_end"(platform: "/mobile") {}
+        "/mplayer/contacts/search/start"(platform: "/mobile") {}
+        "/mplayer/contacts/search/end"(platform: "/mobile") {}
     }
 }
 

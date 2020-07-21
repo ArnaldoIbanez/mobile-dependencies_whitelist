@@ -456,6 +456,22 @@ trackTests {
         "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
             express_money()
         }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            account_money = 'sufficient'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            account_money = 'insufficient'
+            fixed_term()
+        }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            account_money = 'sufficient'
+            express_money()
+        }
+        "/credits/merchant/proactive_payment"(platform: "/web/desktop") {
+            account_money = 'insufficient'
+            express_money()
+        }
 
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/proactive_payment/congrats"(platform: "/web/desktop") {
@@ -499,6 +515,33 @@ trackTests {
         }
         "/credits/merchant/proactive_payment/error"(platform: "/web/desktop") {
             reason = 'default'
+            fixed_term()
+        }
+
+        "/credits/merchant/early_repayment"(platform: "/web/desktop") {
+            account_money = 'sufficient'
+            fixed_term()
+        }
+        "/credits/merchant/early_repayment"(platform: "/web/desktop") {
+            account_money = 'insufficient'
+            fixed_term()
+        }
+
+        "/credits/merchant/early_repayment/congrats"(platform: "/web/desktop") {}
+        "/credits/merchant/early_repayment/congrats"(platform: "/web/desktop") {
+            fixed_term()
+        }
+
+        "/credits/merchant/early_repayment/active_early_repayment"(platform: "/web/desktop") {}
+        "/credits/merchant/early_repayment/active_early_repayment"(platform: "/web/desktop") {
+            fixed_term()
+        }
+
+        "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
+            reason = 'early_repayment_error'
+        }
+        "/credits/merchant/early_repayment/error"(platform: "/web/desktop") {
+            reason = 'early_repayment_error'
             fixed_term()
         }
     }
@@ -647,6 +690,16 @@ trackTests {
     test("Merchant Open Market") {
         "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
 
+        "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
+            reason = "wrong_extension"
+        }
+        
+        "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
+            reason = "generic"
+        }
+
+        "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {}
+
         "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {}
 
         "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {}
@@ -657,7 +710,21 @@ trackTests {
 
         "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {}
 
-        "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {}
+        "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
+            reason = "financial_files"
+        }
+        
+        "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
+            reason = "financial_scraping"
+        }
+        
+        "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
+            reason = "financial_files_uploaded"
+        }
+        
+        "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
+            reason = "financial_scraping_done"
+        }
 
         "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
             bank = "caixa"
@@ -667,13 +734,6 @@ trackTests {
     }
 
     test("Merchant Public Landing") {
-        "/credits/merchant/public_landing"(platform: "/web/desktop") {
-            user_profile = 'offer'
-        }
-        "/credits/merchant/public_landing"(platform: "/web/desktop") {
-            user_profile = 'no_offer'
-        }
-
         "/credits/merchant/declarative_form"(platform:"/web/desktop", type: TrackType.View) {}
 
         "/credits/merchant/declarative_form/congrats"(platform:"/web/desktop", type: TrackType.View) {}

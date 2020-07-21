@@ -7,7 +7,8 @@ SELECT
 	get_json_object(event_data,'$.inventory_id') as inventory_id,
 	get_json_object(event_data,'$.input_value') as input_value,
 	substr(ds,1,10) AS ds
-FROM default.tracks 
+FROM melidata.tracks_ml
 WHERE ds >= '@param01'
 AND   ds < '@param02'
 AND path = '/fbm/panel/inbound/units/input_change'
+AND bu = 'mercadolibre'

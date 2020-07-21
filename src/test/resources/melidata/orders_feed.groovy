@@ -79,6 +79,9 @@ trackTests {
 
         def defaultPurchaseinformation = {
             purchase_id= 1000000015087185
+            orders = [ "2523973546", "2523973553"]
+            packs = ["2000000610762786", "2000000610762785"]
+            
             status = "payment_required"
             status_detail = null
             total_amount = 101.36

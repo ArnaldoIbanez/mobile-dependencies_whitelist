@@ -307,6 +307,18 @@ trackTests {
         }
     }
 
+    //Coachmark Banner
+    test("cards hybrid dashboard coachmark banner"){
+        "/cards/hybrid/dashboard/coachmark_banner"(platform: "/", type: TrackType.Event) {
+            action = "close"
+            id = "dashboard_virtual"
+        }
+        "/cards/hybrid/dashboard/coachmark_banner"(platform: "/", type: TrackType.Event) {
+            action = "tap"
+            id = "dashboard_virtual"
+        }
+    }
+
     // Acquisition Error
     // --------
 
@@ -316,6 +328,12 @@ trackTests {
         }
     }
     
+    //Map Info: Tracking
+    test("cards hybrid dasboard map info") {
+        "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {
+            action = "map_info"
+        }
+    }
 
     // Generic Webview
     // ------
@@ -430,6 +448,18 @@ trackTests {
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "copy"
         }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "card_name_copy"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "card_number_copy"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "card_sec_code_copy"
+        }
     }
     
     //Redirect when the user don't have a virtual card
@@ -459,6 +489,13 @@ trackTests {
     test("cards hybrid setup virtual feedback") {
         "/cards/hybrid/setup/virtual/feedback/tap"(platform:"/", type: TrackType.Event) {
             action = "research_form"
+        }
+    }
+
+    //Static Banner: Tracking
+    test("cards hybrid setup virtual static banner") {
+        "/cards/hybrid/setup/virtual/static_banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
         }
     }
 
@@ -534,6 +571,9 @@ trackTests {
         "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
             action = "change_limits"
         }
+        "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
+        }
     }
     
     test("cards hybrid setup physical feedback") {
@@ -590,6 +630,13 @@ trackTests {
         }
         "/cards/hybrid/limits_setup/number_selector_modal/tap"(platform:"/", type: TrackType.Event) {
             action = "save"
+        }
+    }
+
+    //Map Info: Tracking
+    test("cards hybrid limits map info") {
+        "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {
+            action = "map_info"
         }
     }
 
@@ -745,5 +792,25 @@ trackTests {
     // Request: Success Virtual
     test("cards hybrid virtual success event"){
         "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {}
+    }
+
+    //COACHMARK
+    // --------
+    test("cards hybrid coachmark tap"){
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+            step = 1
+            id = "dashboard_virtual"
+        }
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "next"
+            step = 2
+            id = "dashboard_virtual"
+        }
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "previous"
+            step = 2
+            id = "dashboard_physical"
+        }
     }
 }

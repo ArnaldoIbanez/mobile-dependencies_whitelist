@@ -29,10 +29,11 @@ tracks {
             ]
         )
         congrats_status(required: false, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
+        category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree", serverSide: true) // -> Lo completa Melidata automaticamente
      }
 
     propertyGroups {
-        creditGroup(vertical, seller_id, item_id, category_id, buyer_id, bank, congrats_status)
+        creditGroup(vertical, seller_id, item_id, category_id, buyer_id, bank, congrats_status, category_path)
     }
 
     /******************************************
@@ -52,6 +53,10 @@ tracks {
     }
 
     "/classi_credits/simulator"(platform: "/", type: TrackType.View) {
+        creditGroup
+    }
+
+    "/classi_credits/simulation_details"(platform: "/", type: TrackType.View) {
         creditGroup
     }
 

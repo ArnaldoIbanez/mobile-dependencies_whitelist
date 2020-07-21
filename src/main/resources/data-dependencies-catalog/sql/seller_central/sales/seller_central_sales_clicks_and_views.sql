@@ -12,9 +12,10 @@ SELECT count(1) as cantidad,
     get_json_object(event_data, '$.user_type') as user_type,
     application.site_id as site_id,
     substr(ds,1,10) as ds
-FROM tracks
+FROM melidata.tracks_ml
 WHERE ds >= '@param01'
 AND ds < '@param02'
+AND  bu = 'mercadolibre'
 AND path in ('/seller_central/sales/list/action/primary', '/seller_central/sales/list', '/seller_central/sales/detail')
 GROUP BY
 case when path = '/seller_central/sales/list/action/primary' then 'CLICK'
