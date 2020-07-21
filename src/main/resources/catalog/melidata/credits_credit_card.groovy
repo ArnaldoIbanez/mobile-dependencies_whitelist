@@ -178,6 +178,7 @@ tracks {
     // Onboarding
     "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
         upgrade_info
+        page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
     }
 
     // Payment due date selection
@@ -206,7 +207,7 @@ tracks {
         )
     }
 
-    "/credits/credit_card/upgrade/summary/payment_due_date_selection_click"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/credits/credit_card/upgrade/summary/payment_due_date_selection_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         bucket_group
     }
 
@@ -225,9 +226,9 @@ tracks {
         )
     }
 
-    "/credits/credit_card/upgrade/congrats/promotion_click"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/credits/credit_card/upgrade/congrats/promotion_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
-    "/credits/credit_card/upgrade/congrats/go_dashboard_click"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/credits/credit_card/upgrade/congrats/go_dashboard_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     // Error
     "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {
@@ -246,13 +247,13 @@ tracks {
         statement_status_group
     }
 
-    "/credits/credit_card/statement/payment_click"(platform: "/", type: TrackType.Event) {}
+    "/credits/credit_card/statement/payment_action"(platform: "/", type: TrackType.Event) {}
 
-    "/credits/credit_card/statement/download_pdf_click"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/credits/credit_card/statement/download_pdf_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         statement_period
     }
 
-    "/credits/credit_card/statement/statement_click"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/credits/credit_card/statement/statement_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         statement_period
         month_diff(
             description: "The difference in months between the selected & the actual statement",

@@ -100,6 +100,7 @@ trackTests {
         "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
             offer = offer_data_scoring_b
             is_card_active = true
+            page = 1
         }
 
         // Payment due date selection
@@ -118,7 +119,7 @@ trackTests {
             annuity_cost = 150
         }
 
-        "/credits/credit_card/upgrade/summary/payment_due_date_selection_click"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/upgrade/summary/payment_due_date_selection_action"(platform: "/", type: TrackType.Event) {
             bucket = 15
         }
 
@@ -141,9 +142,9 @@ trackTests {
             status = congrats_rejected_status
         }
 
-        "/credits/credit_card/upgrade/congrats/promotion_click"(platform: "/", type: TrackType.Event) {}
+        "/credits/credit_card/upgrade/congrats/promotion_action"(platform: "/", type: TrackType.Event) {}
 
-        "/credits/credit_card/upgrade/congrats/go_dashboard_click"(platform: "/", type: TrackType.Event) {}
+        "/credits/credit_card/upgrade/congrats/go_dashboard_action"(platform: "/", type: TrackType.Event) {}
 
         // Error
         "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {
@@ -182,18 +183,18 @@ trackTests {
             statement_status = statement_paid_status
         }
 
-        "/credits/credit_card/statement/download_pdf_click"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/statement/download_pdf_action"(platform: "/", type: TrackType.Event) {
             month = 10
             year = 2020
         }
 
-        "/credits/credit_card/statement/statement_click"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/statement/statement_action"(platform: "/", type: TrackType.Event) {
             month = 9
             year = 2020
             month_diff = -1
         }
 
-        "/credits/credit_card/statement/payment_click"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/statement/payment_action"(platform: "/", type: TrackType.Event) {
             statement_status = statement_overdue_status
         }
 
