@@ -124,7 +124,10 @@ tracks {
     "/logistics/last_mile/login/recover_trip"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
     }
-    "/logistics/last_mile/profile"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/last_mile/profile"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: false, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        route_id(required: false, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+    }
     "/logistics/last_mile/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
         pack_id(required: true, type: PropertyType.String, description: "Specifies the pack id that had an error", inheritable: false)
     }
@@ -306,6 +309,17 @@ tracks {
     }
     "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
         shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
+    }
+
+    //Control Tower LM
+    "logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+    }
+    "logistics/last_mile/control_tower/incident_selection"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        case_type_id(required: true, type: PropertyType.String, description: "Specifies the current incident case type id", inheritable: false)
     }
 
     // First Mile

@@ -134,6 +134,8 @@ trackTests {
         }
         "/logistics/last_mile/profile"(platform: "/mobile", type: TrackType.View){
             defaultLocation()
+            driver_id = "123"
+            route_id = "123"
         }
         "/logistics/last_mile/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
             pack_id = "124"
@@ -405,6 +407,17 @@ trackTests {
         }
         "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
             shipment_id = "222"
+        }
+        "logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+        }
+        "logistics/last_mile/control_tower/incident_selection"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+            case_type_id = "6"
         }
     }
 
