@@ -253,7 +253,7 @@ tracks {
         statement_period
     }
 
-    "/credits/credit_card/statement/statement_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/credits/credit_card/statement/month_selected_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         statement_period
         month_diff(
             description: "The difference in months between the selected & the actual statement",

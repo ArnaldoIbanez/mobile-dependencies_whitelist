@@ -188,7 +188,7 @@ trackTests {
             year = 2020
         }
 
-        "/credits/credit_card/statement/statement_action"(platform: "/", type: TrackType.Event) {
+        "/credits/credit_card/statement/month_selected_action"(platform: "/", type: TrackType.Event) {
             month = 9
             year = 2020
             month_diff = -1
