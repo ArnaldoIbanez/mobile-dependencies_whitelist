@@ -2496,6 +2496,12 @@ trackTests {
             session_id = "92f420da-a095-4acf-980e-45b7ab64e65c"
         }
 
+        def categoryProperties = {
+            uuid = "80c0b95c-a3b5-4d32-b814-602323381639"
+            category = "Telefonía"
+            label = "SADM"
+        }
+
         // Home
          "/bill_payments/home"(platform: "/mobile") {
             mandatory()
@@ -2582,6 +2588,62 @@ trackTests {
         }
         "/bill_payments/receipt/share"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+        }
+
+        // Entities and categories
+        "/bill_payments/main_category"(platform: "/mobile") {
+            mandatory()
+            categoryProperties()
+        }
+        "/bill_payments/category_details"(platform: "/mobile") {
+            mandatory()
+            categoryProperties()
+        }
+        "/bill_payments/main_category/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
+        "/bill_payments/category_details/item"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            entity = "Monterrey"
+        }
+        "/bill_payments/main_category/result_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+        "/bill_payments/category_details/result_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+        "/bill_payments/main_category/empty_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+        "/bill_payments/category_details/empty_search"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+            search = "12345"
+        }
+        "/bill_payments/main_category/close"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+        "/bill_payments/main_category/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+        "/bill_payments/category_details/close"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
+        }
+        "/bill_payments/category_details/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            categoryProperties()
         }
 
         // Scanner
@@ -2679,12 +2741,14 @@ trackTests {
         }
         "/bill_payments/categories"(platform: "/mobile") {
             mandatory()
+            categoryProperties()
         }
         "/bill_payments/barcode_scanner"(platform: "/mobile") {
             mandatory()
         }
         "/bill_payments/products"(platform: "/mobile") {
             mandatory()
+            categoryProperties()
             type = "option"
         }
         "/bill_payments/shopping"(platform: "/mobile") {
