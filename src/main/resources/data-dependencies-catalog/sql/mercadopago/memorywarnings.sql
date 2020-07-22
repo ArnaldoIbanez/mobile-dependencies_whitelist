@@ -1,26 +1,28 @@
-SELECT DISTINCT(warnings),
+SELECT warnings,
       state,
       sum(incidents) as incidents,
       platform,
       version,
       business,
       fecha
-FROM (SELECT  DISTINCT(Jest(event_data, 'view_controller')) AS warnings,
-              Jest(event_data, 'application_state') AS state
-              count(Jest(event_data, 'view_controller')) AS incidents,
-              device.platform AS platform,
-              concat(split_part(application.version, '.',1),'.', split_part(application.version, '.',2)) AS version,
+FROM (SELECT  Get_json_object(event_data, '$.view_controller') AS warnings,
+              Get_json_object(event_data, '$.application_state') AS state,
+              count(Get_json_object(event_data, '$.view_controller')) AS incidents,
+              Substring(device.platform, 9, 16) AS platform,
+              substring_index(application.version, '.',2) AS version,
               application.business AS business,
               Substr(ds, 1, 10)  AS fecha
         FROM tracks
         WHERE ds >= '@param01'
         AND ds < '@param02'
         AND path = '/memory_warning'
-        GROUP BY  Jest(event_data, 'view_controller'),
-                  Jest(event_data, 'application_state'),
+        AND ( device.platform = '/mobile/ios'
+          OR device.platform = '/mobile/android' )
+        GROUP BY  Get_json_object(event_data, '$.view_controller'),
+                  Get_json_object(event_data, '$.application_state'),
                   device.platform,
                   application.version,
                   application.business,
-                  ds)
+                  ds) t1
 GROUP BY warnings, state, platform,version,business,fecha
 ORDER BY version, state, warnings
