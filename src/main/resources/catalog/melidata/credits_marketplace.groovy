@@ -431,13 +431,14 @@ tracks {
         status(required: true, type: PropertyType.String, values: ["no_charge_period", "fixed_charge_period_1", "fixed_charge_period_2", "daily_charge_period"],
                 description: "Indicates user status")
         milestone(type: PropertyType.Numeric, required: true)
-        context(required: false, values: ["search", "vip", "home"],
+        context(required: false, values: ["search", "vip", "pdp", "home"],
                 description: "The page or section where the nav action is taking place")
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
     propertyGroups {
         pursue_nav_properties(status, milestone, context)
-        pursue_modal_properties(milestone, context)
+        pursue_modal_properties(milestone, context, vip_version)
     }
 
     //Page Views
@@ -677,5 +678,27 @@ tracks {
 
     /******************************************
      *   End: Consumers Experiments
+     ******************************************/
+
+    /******************************************
+     *    Start: Consumers Change Due Date FLow
+     ******************************************/
+    "/credits/consumer/duedate_selection"(platform: "/", type: TrackType.View) {
+        available_products(description: "products that user was used", type: PropertyType.ArrayList, required: true)
+        due_date (description: "Positive number for actuall due date",type: PropertyType.Numeric,required: true)
+    }
+
+    "/credits/consumer/duedate_selection/success"(platform: "/", type: TrackType.View) {
+        new_due_date(description: "Positive number for actuall due date",type: PropertyType.Numeric,required: true)
+    }
+
+    "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {}
+    
+    "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/duedate_selection/cancel"(platform: "/", type: TrackType.Event) {}
+
+     /******************************************
+     *    End: Consumers Change Due Date FLow
      ******************************************/
 }

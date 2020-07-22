@@ -13,21 +13,21 @@ SELECT
 FROM
 
 (SELECT from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') - 14400, 'yyyy-MM-dd HH') AS `dsx`,
-     jest(event_data, 'c_id') AS `component`,
+     get_json_object(event_data, '$.c_id') AS `component`,
      device.platform AS `platform`,
      application.site_id AS  `site_id`,
-     jest(event_data, 'c_element_order') AS `element_order`,
-     jest(event_data, 'c_campaign') AS `campaign`,
-     COALESCE(jest(event_data, 'c_brand_name'), jest(event_data, 'brand_name')) AS `brand_name`,
-     COALESCE(jest(event_data, 'c_category_id'), jest(event_data, 'category_id')) AS `category_id`,
-     COUNT(jest(event_data, 'c_id')) AS `prints_count`
+     get_json_object(event_data, '$.c_element_order') AS `element_order`,
+     get_json_object(event_data, '$.c_campaign') AS `campaign`,
+     COALESCE(get_json_object(event_data, '$.c_brand_name'), get_json_object(event_data, '$.brand_name')) AS `brand_name`,
+     COALESCE(get_json_object(event_data, '$.c_category_id'), get_json_object(event_data, '$.category_id')) AS `category_id`,
+     COUNT(get_json_object(event_data, '$.c_id')) AS `prints_count`
  FROM component_prints_parquet
  WHERE ds >= '@param01 04' AND ds < '@param02 04'
-     AND jest(event_data, 'c_id') IS NOT NULL
+     AND get_json_object(event_data, '$.c_id') IS NOT NULL
      AND path = '/component'
-     AND (jest(event_data, 'c_id') != '/home/exhibitors-carousel/element' OR ((jest(event_data, 'c_element_order') IS NOT NULL) AND (jest(event_data, 'c_campaign') IS NOT NULL)))
-     AND (jest(event_data, 'c_id') RLIKE '.*(?<=\/element)$' OR jest(event_data, 'c_id') RLIKE '.*(?<=\/item)$')
- GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') - 14400, 'yyyy-MM-dd HH'), jest(event_data, 'c_id'), device.platform, application.site_id, jest(event_data, 'c_element_order'), jest(event_data, 'c_campaign'), COALESCE(jest(event_data, 'c_brand_name'), jest(event_data, 'brand_name')), COALESCE(jest(event_data, 'c_category_id'), jest(event_data, 'category_id'))) AS prints
+     AND (get_json_object(event_data, '$.c_id') != '/home/exhibitors-carousel/element' OR ((get_json_object(event_data, '$.c_element_order') IS NOT NULL) AND (get_json_object(event_data, '$.c_campaign') IS NOT NULL)))
+     AND (get_json_object(event_data, '$.c_id') RLIKE '.*(?<=\/element)$' OR get_json_object(event_data, '$.c_id') RLIKE '.*(?<=\/item)$')
+ GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') - 14400, 'yyyy-MM-dd HH'), get_json_object(event_data, '$.c_id'), device.platform, application.site_id, get_json_object(event_data, '$.c_element_order'), get_json_object(event_data, '$.c_campaign'), COALESCE(get_json_object(event_data, '$.c_brand_name'), get_json_object(event_data, '$.brand_name')), COALESCE(get_json_object(event_data, '$.c_category_id'), get_json_object(event_data, '$.category_id'))) AS prints
 
 LEFT JOIN
 

@@ -16,10 +16,12 @@ tracks {
 
     def seo_item_definition = objectSchemaDefinitions {
         is_whitelisted(type: PropertyType.Boolean, required: true)
-        check_mode(type: PropertyType.ArrayList(PropertyType.String), required: true)
-        gmv_value(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
-        vip_clicks(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
-        is_on_seo_whitelist_experiment(type: PropertyType.Boolean, required: true)
+        check_mode(type: PropertyType.String, required: true)
+        gmv_value(type: PropertyType.Numeric, required: false)
+        seller_contacts(type: PropertyType.Numeric, required: false)
+        value(type: PropertyType.Numeric, required: false)
+        is_default(type: PropertyType.Boolean, required: false)
+        is_on_seo_h1_experiment(type: PropertyType.Boolean, required: true)
     }
 
     def location_info_definition = objectSchemaDefinitions {
@@ -39,6 +41,25 @@ tracks {
         intervention_type(type: PropertyType.String, required: true, values: ["REDIRECT", "INLINE"])
         config_value(type: PropertyType.String, required: true)
         url(type: PropertyType.String, required: true)
+    }
+
+    def best_seller_object = objectSchemaDefinitions {
+        candidates(type: PropertyType.Numeric, required: true)
+        selected(type: PropertyType.ArrayList(PropertyType.String), required: true)
+        selected_qty(type: PropertyType.Numeric, required: true)
+        selected_positions(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+    }
+
+    def tag_tracking_datum_object = objectSchemaDefinitions {
+        item_id(type: PropertyType.String, required: true)
+        position(type: PropertyType.Numeric, required: true)
+        product_id(type: PropertyType.String, required: false)
+    }
+
+    def tag_tracking_map_object = objectSchemaDefinitions {
+        best_seller(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        shipping_guaranteed(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        deal_of_the_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {
@@ -85,6 +106,8 @@ tracks {
         show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
         sparkle_info(required: false, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
+        best_seller_info(required: false, description: 'best seller tracking info', type: PropertyType.Map(best_seller_object))
+        tag_tracking_info(required: false, description: 'tag tracking info', type: PropertyType.Map(tag_tracking_map_object))
 
 
         //Tracks from Search Backend:
@@ -133,7 +156,8 @@ tracks {
         pdp_highlight_enabled(required: true, description: 'tracks if we are highlighting PDP rows to the user', PropertyType.Boolean)
         seo(required: true, description: 'seo tracking info', type: PropertyType.Map(seo_item_definition))
         user_profile_type(required: true, values: ['SELLER', 'BUYER', 'UNDEFINED'], description: 'profile type for the current user', type: PropertyType.String)
-        top_keywords(required: false, description: 'lists the seo keywords', type: PropertyType.ArrayList(top_keywords_definition))
+        top_keywords(required: false, description: 'lists the seo keywords', type: PropertyType.ArrayList(PropertyType.Map(top_keyword_definition)))
+        review_pages(required: false, description: 'lists the seo review pages', type: PropertyType.ArrayList(PropertyType.String))
     }
 
     "/search"(platform: "/mobile") {

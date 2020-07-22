@@ -5,7 +5,7 @@
   "process_name": "bugsnag_raw_tracks",
   "cron": "00 08 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "date_utc_4",
@@ -50,6 +50,7 @@
     ],
     "sql": {
       "script": "business-assurance/bugsnag_raw_tracks.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

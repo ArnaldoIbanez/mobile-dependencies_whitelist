@@ -1,0 +1,65 @@
+{
+  "users": [
+    "manuel.kenar@mercadolibre.com",
+    "vip_it@mercadolibre.com"
+  ],
+  "process_name": "pdp_trackings_convertion",
+  "cron": "00 07 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
+  
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "total_pdp",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total_pdp_cart",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total_a2c_actions",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total_buy_actions",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total_orders",
+        "type": "INTEGER"
+      },
+      {
+        "name": "total_orders_cart",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "pdp/pdp-trackings-convertion.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

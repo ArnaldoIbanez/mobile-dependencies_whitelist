@@ -10,19 +10,21 @@ SELECT
   p.ds AS ds
 FROM (
   SELECT 
-    jest(data,'device.platform') as platform, jest(data, 'event_data.recommendations.backend_id') as backend_id, jest(data, 'application.site_id') as site_id, 
-    SUM(CASE WHEN jest(data, 'event_data.recommendations.track_info.has_recommendations') = 'true' THEN 1 ELSE 0 END) as vips_with_recos,
-    SUM(CASE WHEN jest(data, 'event_data.recommendations.track_info.has_recommendations') ='false' THEN 1 ELSE 0 END) as t_without_recos,
+    jest(event_data,'device.platform') as platform,
+    jest(event_data, 'event_data.recommendations.backend_id') as backend_id,  
+    application.site_id as site_id,
+    SUM(CASE WHEN jest(event_data, 'event_data.recommendations.track_info.has_recommendations') = 'true' THEN 1 ELSE 0 END) as vips_with_recos,
+    SUM(CASE WHEN jest(event_data, 'event_data.recommendations.track_info.has_recommendations') ='false' THEN 1 ELSE 0 END) as t_without_recos,
     substr(ds,1,10) as ds
   FROM 
-    recommendations
+    recommendations_parquet
   WHERE ds < '@param01'
     and ds >= '@param02'
-    and jest(data, 'path') = '/recommendations/print'
-    and jest(data, 'application.site_id') IN ('MLA','MLB','MLM', 'MLC', 'MLU', 'MCO')
-    and jest(data, 'event_data.recommendations.client') ='vip'
-    and jest(data, 'event_data.recommendations.backend_id') = 'tagging-searchsimilar_fashion'
-    group by jest(data,'device.platform'), jest(data, 'application.site_id'), jest(data, 'event_data.recommendations.backend_id'), substr(ds,1,10)
+    and path = '/recommendations/print'
+    and application.site_id IN ('MLA','MLB','MLM', 'MLC', 'MLU', 'MCO')
+    and jest(event_data, 'event_data.recommendations.client')  ='vip'
+    and jest(event_data, 'event_data.recommendations.backend_id')= 'tagging-searchsimilar_fashion'
+    group by jest(event_data,'device.platform'), application.site_id, jest(event_data, 'event_data.recommendations.backend_id'), substr(ds,1,10)
 ) p LEFT JOIN (
   SELECT
     device.platform as platform, 

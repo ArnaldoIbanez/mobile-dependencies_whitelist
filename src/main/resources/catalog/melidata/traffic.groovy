@@ -19,7 +19,8 @@ tracks {
     }
 
     "/traffic/inbound/organic"(platform: "/") {
-        referrer(required: true, type: PropertyType.String, description: "Browser used before getting to us.")
+        referrer(required: true, type: PropertyType.String, description: "URL where the traffic came from.")
+        destination(required: false, type: PropertyType.String, description: "URL where the traffic is going to.")
     }
 
     "/traffic/inbound/notification"(platform: "/") {

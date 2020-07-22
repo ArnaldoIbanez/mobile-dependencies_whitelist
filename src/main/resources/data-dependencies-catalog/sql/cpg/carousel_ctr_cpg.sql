@@ -33,7 +33,7 @@ LEFT JOIN
     SELECT
       trim(jest(event_data, 'query')) AS query,
       device.platform AS platform,
-      (CASE jest(others['fragment'], 'origin')  WHEN 'supermarket_carousel_main_box' THEN 'search_filter' 
+      (CASE jest(COALESCE(platform.fragment, others['fragment']), 'origin')  WHEN 'supermarket_carousel_main_box' THEN 'search_filter' 
                                     WHEN 'supermarket_carousel_link_box' THEN 'search_all'
                                     WHEN 'RE' THEN 'REAL ESTATE'
                                     ELSE 'other' END ) as place,
@@ -46,11 +46,11 @@ LEFT JOIN
       AND ds < '@param02'
       AND trim(jest(event_data, 'query')) IS NOT NULL
       AND trim(jest(event_data, 'query')) != ''
-      AND jest(others['fragment'], 'origin') RLIKE 'supermarket_carousel.*'
+      AND jest(COALESCE(platform.fragment, others['fragment']), 'origin') RLIKE 'supermarket_carousel.*'
     GROUP BY
       trim(jest(event_data, 'query')),
       device.platform,
-      (CASE jest(others['fragment'], 'origin')  WHEN 'supermarket_carousel_main_box' THEN 'search_filter' 
+      (CASE jest(COALESCE(platform.fragment, others['fragment']), 'origin')  WHEN 'supermarket_carousel_main_box' THEN 'search_filter' 
                                     WHEN 'supermarket_carousel_link_box' THEN 'search_all'
                                     WHEN 'RE' THEN 'REAL ESTATE'
                                     ELSE 'other' END ),
@@ -69,7 +69,7 @@ LEFT JOIN
       AND ds < '@param02'
       AND jest(platform.http.cookies, 'LAST_SEARCH') IS NOT NULL
       AND jest(platform.http.cookies, 'LAST_SEARCH') != ''
-      AND jest(others['fragment'], 'origin') RLIKE 'supermarket_carousel.*'
+      AND jest(COALESCE(platform.fragment, others['fragment']), 'origin') RLIKE 'supermarket_carousel.*'
     GROUP BY
       trim(regexp_replace(jest(platform.http.cookies, 'LAST_SEARCH'), '-', ' ')),
       device.platform,

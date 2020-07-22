@@ -60,10 +60,11 @@ trackTests {
         "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
             promoter = "123456"
         }
-
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
             promoter = "123456"
         }
+        "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {}
+        "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
 
         // MGM Seller
         "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}
@@ -136,10 +137,8 @@ trackTests {
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
             promoter = "123456"
         }
-
-        "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {
-            promoter = "123456"
-        }
+        "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {}
+        "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
 
         // MGM Seller
         "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}

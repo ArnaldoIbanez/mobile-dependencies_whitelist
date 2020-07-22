@@ -15,6 +15,10 @@ tracks {
     "/vendor_central/summary"(platform: "/", isAbstract: true) {}
 
     "/vendor_central/summary/hub"(platform: "/web", type: TrackType.View) {}
+    
+    "/vendor_central/summary/discount"(platform: "/web", type: TrackType.View) {}
+    
+    "/vendor_central/summary/discount_congrats"(platform: "/web", type: TrackType.View) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Vendor central BULK Offering offline editor
@@ -39,7 +43,7 @@ tracks {
     }
 
     "/vendor_central/bulk/offline/upload/congrats"(platform: "/", type: TrackType.View) {
-        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values:["success","failed", "partial", "no changes", "mail"])
+        type(required: true, type: PropertyType.String, description: "Which congrats is the user redirected", values:["SUCCESS","WARNING"])
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------

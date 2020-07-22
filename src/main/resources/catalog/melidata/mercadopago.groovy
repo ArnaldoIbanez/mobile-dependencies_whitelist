@@ -432,6 +432,14 @@ tracks {
         progress (required: true, type: PropertyType.Numeric, description: "Update progress at cancel")
     }
     "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
+
+    "/settings/cost_calculator/detail/action_button"(platform: "/mobile", type: TrackType.Event) {
+        amount(required: true, type: PropertyType.Numeric, description: "Amount calculated by cost_calculator")
+        method(required: true, type: PropertyType.String, values: ["point", "qr", "share_social"], description: "Method simulated by seller")
+        payment_financing(required: true, type: PropertyType.String, values: ["credit", "debit", "account_money"], description: "Payment financing selected by seller")
+        installments(required: true, type: PropertyType.Numeric, description: "Installments simulated by seller")
+    }
+
     "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
     "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
     "/settings/help"(platform: "/mobile", type: TrackType.View) {}
@@ -468,12 +476,6 @@ tracks {
     }
     //END -- MP frontend
 
-    "/free_navigation"(platform:"/mobile", isAbstract: true,initiative: "1096" ) {}
-
-    "/free_navigation/not_available"(platform:"/mobile", type:TrackType.Event) {}
-
-    "/free_navigation/wifi"(platform:"/mobile", type:TrackType.Event) {}
-
     "/device_settings/"(platform: "/", isAbstract: true,initiative: "1096" ){}
 
     "/device_settings/notifications"(platform: "/mobile/android", type:TrackType.Event) {
@@ -502,5 +504,39 @@ tracks {
     // About events
     "/about"(platform: "/mobile", isAbstract: true) {}
     "/about/rate_app"(platform:"/mobile", type:TrackType.Event, initiative: "1074") {}
+
+    /**
+    * PDV Onboarding IIBB - Register Point Plus
+    */
+    "/point/register"(platform: "/", isAbstract: true, initiative : "1046") {}
+
+    // Register device
+    "/point/register/start"(platform: "/", type: TrackType.View) {}
+    "/point/register/start/insert_code"(platform: "/", type: TrackType.Event) {}
+
+    // Store crate
+    "/point/register/store_create"(platform: "/", type: TrackType.View) {}
+    "/point/register/store_create/done"(platform: "/", type: TrackType.Event) {}
+
+    // Point of sale create
+    "/point/register/pos_create"(platform: "/", type: TrackType.View) {}
+    "/point/register/pos_create/done"(platform: "/", type: TrackType.Event) {}
+    "/point/register/pos_create/cancel"(platform: "/", type: TrackType.Event) {}
+
+    // Point of sale select
+    "/point/register/pos_select"(platform: "/", type: TrackType.View) {}
+    "/point/register/pos_create"(platform: "/", type: TrackType.Event) {}
+    "/point/register/pos_select/done"(platform: "/", type: TrackType.Event) {}
+
+    // Store select
+    "/point/register/store_select"(platform: "/", type: TrackType.View) {}
+    "/point/register/store_create"(platform: "/", type: TrackType.Event) {}
+    "/point/register/store_select/done"(platform: "/", type: TrackType.Event) {}
+
+    // Congrats
+    "/point/register/end"(platform: "/", type: TrackType.View) {}
+
+    // Access denied
+    "/point/register/access_denied"(platform: "/", type: TrackType.View) {}
 
 }

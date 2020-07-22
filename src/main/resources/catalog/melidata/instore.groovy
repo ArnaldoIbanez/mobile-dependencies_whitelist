@@ -161,6 +161,11 @@ tracks {
     "/instore/error/cant_pay_buyer_qr/back"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/cant_pay_buyer_qr/abort"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/error/unsupported_payment_method"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/unsupported_payment_method/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/unsupported_payment_method/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/unsupported_payment_method/retry"(platform: "/mobile", type: TrackType.Event) {}
+
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
@@ -478,6 +483,12 @@ tracks {
 
     "/instore/geofence/permission_already_granted"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/geofence/gps_request"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/geofence/gps_response"(platform: "/mobile", type: TrackType.Event) {
+        type(required: true, PropertyType.String, description: "The user interaction with the GPS", values: ["already_on", "granted", "rejected"])
+    }
+
     "/instore/geofence/updated"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/geofence/enter"(platform: "/mobile", type: TrackType.Event) {
@@ -492,9 +503,16 @@ tracks {
         geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
     }
 
-    "/instore/geofence/notify_dwell"(platform: "/mobile", type: TrackType.Event) {
+    "/instore/geofence/notify_push"(platform: "/mobile", type: TrackType.Event) {
         geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
+        type(required: true, PropertyType.String, description: "The type of tevent", values: ["enter", "dwell"])
     }
+
+    "/instore/geofence/push_sent"(platform: "/mobile", type: TrackType.Event) {
+        status(required: true, PropertyType.String, description: "The status of the push", values: ["sent", "filter_audience", "filter_already_sent", "filter_range_time", "filter_no_campaign", "unavailable"])
+    }
+
+    "/instore/geofence/clear"(platform: "/mobile", type: TrackType.Event) { }
 
     //Buyer QR
 
@@ -520,11 +538,19 @@ tracks {
         payment_method_disabled(required: true, PropertyType.Boolean, description: "feature flag to check if payment method is disabled")
     }
 
-    //Buyer QR - FTU/Landings
+    
+	//Buyer QR - FTU/Landings
 
     "/instore/buyer_qr/landing"(platform: "/mobile", isAbstract: true) {}
 
-    "/instore/buyer_qr/landing/brief"(platform: "/mobile", type: TrackType.View) {}
+	"/instore/buyer_qr/landing/biometric_security"(platform: "/mobile", type: TrackType.View) {}
+	
+	"/instore/buyer_qr/security"(platform: "/mobile", type: TrackType.Event) {
+		view_time_in_millis(required: true, PropertyType.Numeric, description: "time that the user kept in the security validation screen")
+		result(required: true, PropertyType.Boolean, description: "security validation has succeeded or failed")
+	}
+    
+	"/instore/buyer_qr/landing/brief"(platform: "/mobile", type: TrackType.View) {}
 
     "/instore/buyer_qr/landing/no_seed"(platform: "/mobile", type: TrackType.View) {}
 
@@ -590,6 +616,40 @@ tracks {
         collector_name(required:false, PropertyType.String, description: "collector name")
     }
 
+    //Buyer QR - CVV
+
+    "/instore/buyer_qr/cvv"(platform: "/mobile", type: TrackType.View ) {
+        payment_method_id(required: true, PropertyType.String, description: "payment method id (visa, master, account_money, etc)")
+        payment_method_disabled(required: true, PropertyType.Boolean, description: "feature flag to check if payment method is disabled")
+    }
+
+    "/instore/buyer_qr/cvv/confirm"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        view_time_in_millis(required: true, PropertyType.Numeric)
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+    }
+
+    "/instore/buyer_qr/cvv/dismiss"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        view_time_in_millis(required: true, PropertyType.Numeric)
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+    }
+
+    "/instore/buyer_qr/save_esc"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/buyer_qr/delete_esc"(platform: "/mobile", type: TrackType.Event) {
+        from(required: true, PropertyType.String, values: ["lease", "payment"])
+    }
+
+    "/instore/buyer_qr/request_card_token"(platform: "/mobile", type: TrackType.Event) {
+        event_time_in_millis(required: true, PropertyType.Numeric)
+        status_code(required: true, PropertyType.Numeric)
+    }
+
+    "/instore/buyer_qr/request_card_token/max_delay_reached"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+    }
+
+    "/instore/buyer_qr/no_payment_method_selected"(platform: "/mobile", type: TrackType.Event) {}
+
     // Scale Features
     // QR Assignment
     
@@ -641,7 +701,7 @@ tracks {
     }
 
     // Instore shortcut
-    "/instore/create_shortcut"(platform:"/mobile/android", type: TrackType.View) {}
+    "/instore/create_shortcut"(platform:"/mobile/android", type: TrackType.View, parentPropertiesInherited: false) {}
 
     "/qr_code"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")

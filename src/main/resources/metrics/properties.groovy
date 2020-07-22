@@ -61,6 +61,14 @@ metrics {
             experiment(regex("search/.*"))
         }
     }
+
+    "pdp_properties"(description: "define properties for order_id") {
+        startWith {
+            set_property("catalog_product_id", "event_data.catalog_product_id")
+            set_property("item_id", "event_data.item_id")
+            experiment(regex("pdp/.*"))
+        }
+    }
     
     "qadb_properties"(description: "define properties for order_id") {
         startWith {
@@ -74,6 +82,13 @@ metrics {
         startWith {
             set_property("catalog_product_id", "event_data.catalog_product_id")
             set_property("item_id", "event_data.item_id")
+        }
+    }
+
+    "new_congrats_properties"(description: "define properties for order_id in new_congrats experiments") {
+        startWith {
+            set_property("order_id", "event_data.order_id")
+            experiment(regex("buyingflow/new_congrats.*"))
         }
     }
 

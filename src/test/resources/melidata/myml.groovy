@@ -143,6 +143,53 @@ trackTests {
     }
 
     test("Optin flow") {
+        "/myml/invoices/optin"(platform: "/") {}
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+
+        "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
+
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "ADDRESS_NOT_REGISTERED"
+        }
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NOT_OWNER"
+        }
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NO_DOCUMENT_REGISTERED"
+        }
+
         "/myml/invoices/not-found"(platform: "/") {}
         "/myml/invoices/landing"(platform: "/") {}
         "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {
@@ -312,6 +359,15 @@ trackTests {
         }
         "/myml/invoices/order/devolution"(platform: "/") {}
         "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/order/devolution/success"(platform: "/", type: TrackType.Event) {
+            devolution_type = "total"
+            order_id = '2468239444'
+        }
+        "/myml/invoices/order/devolution/modal"(platform: "/", type: TrackType.Event) {
+            action = "close_modal"
+            order_id = '2468239444'
+            invoice_id = '549401'
+        }
     }
 
     test("Backoffice pages") {
@@ -640,6 +696,12 @@ trackTests {
 
         "/myml/invoices/opt_in/difal"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/opt_in/difal/button/save"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/opt_in/rule-composition"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/opt_in/rule-composition/button/save"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/invoices/opt_in/cst-devolution"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/opt_in/cst-devolution/button/save"(platform: "/", type: TrackType.Event) {}
     }
 
 
@@ -772,6 +834,8 @@ trackTests {
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {
             dataSet()
         }
+
+        // -------
 
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
             item = {
@@ -1294,7 +1358,7 @@ trackTests {
             selected = "MSwyLDMsNA=="
         }
 
-        "/myml/fiscal_rules/massive/upload/action/rules"(platform: "/", type: TrackType.Event) {
+        "/myml/fiscal_rules/massive/upload/action/advanced_tax_settings"(platform: "/", type: TrackType.Event) {
             callback = "www.mercadolivre.com.br"
             action = "edit"
             selected = "MSwyLDMsNA=="

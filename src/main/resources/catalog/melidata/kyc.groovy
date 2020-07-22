@@ -16,6 +16,7 @@ tracks {
         initiative (required: true, type: PropertyType.String, description: "The initiative")
         configuration_token (required: false, type: PropertyType.String, description: "The configuration token")
         callback (required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
     }
 
     // challenge life cyclev v2
@@ -24,6 +25,13 @@ tracks {
     "/kyc/challenge/success"(platform: "/", type: TrackType.Event) {}
     "/kyc/challenge/fail"(platform: "/", type: TrackType.Event) {}
     "/kyc/challenge/retry"(platform: "/", type: TrackType.Event) {}
+
+    // challenge validation error
+    "/kyc/challenge/validation_fail"(platform: "/", type: TrackType.Event) {
+        input (required: true, type: PropertyType.String, description: "The input which validation failed")
+        value (required: true, type: PropertyType.String, description: "The value entered by the user")
+        reason (required: true, type: PropertyType.String, description: "The error description")
+    }
 
     // Challenges
     "/kyc/challenge_pep"(platform: "/", type: TrackType.View) {}
@@ -85,6 +93,7 @@ tracks {
     "/kyc/error"(platform: "/", type: TrackType.Event) {
         label (required: false, type: PropertyType.String, description: "The label attached to the current event")
         verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
+        kyc_flow_id(required: false, type: PropertyType.String, description: "The kyc flow identifier")
     }
 
     "/kyc/odr_error"(platform: "/", type: TrackType.Event) {
@@ -97,10 +106,13 @@ tracks {
     //kyc/iv
 
     "/kyc/iv"(platform: "/", isAbstract: true) {
+        challenge_id(type: PropertyType.Numeric, required: false, description: "Indicates the challenge id of the actual challenge")
         transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
         initiative(required: false, type: PropertyType.String, description: "Users initiative")
         kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
+        doc_type(required: false, type: PropertyType.String, values: ['doc_front', 'doc_back', 'address', 'selfie', 'proof_of_life', 'address_company', 'income'], description: "Doc type")
+        model_id(required: false, type: PropertyType.String, description: "Model id of the doc model")
     }
 
     "/kyc/iv"(platform: "/mobile", isAbstract: true) {}
@@ -223,6 +235,20 @@ tracks {
 
     "/kyc/iv/activity/custom_camera"(platform: "/mobile", type: TrackType.View) {}
 
+    "/kyc/iv/activity/custom_camera/permission"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/error"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/landing"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/camera"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/preview"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/uploading"(platform: "/mobile", type: TrackType.View) {}
+
+    "/kyc/iv/activity/custom_camera/result"(platform: "/mobile", type: TrackType.View) {}
+
     "/kyc/iv/activity/picture_confirmation"(platform: "/mobile", type: TrackType.View) {}
 
     // Mobile tracks
@@ -287,7 +313,7 @@ tracks {
         flow(type: PropertyType.String, required: true, description: "Name of the current flow")
     }
 
-    "/kyc/iv/address"(platform: "/web", type: TrackType.View) {
+    "/kyc/iv/image_upload"(platform: "/web", type: TrackType.View) {
     }
 
     "/kyc/iv/center/card"(platform: "/web", type: TrackType.View) {
@@ -349,6 +375,24 @@ tracks {
         custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
     }
 
+    "/kyc/iv/documentation"(platform: "/web", isAbstract: true) {}
+
+    "/kyc/iv/documentation/uploader_change"(platform: "/web", type: TrackType.Event) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
+    }
+
+    "/kyc/iv/documentation/select_option"(platform: "/web/desktop", type: TrackType.Event) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
+        option(type: PropertyType.String, required: true, description: "Indicates if the user chose to continue from desktop or from phone")
+    }
+
+    "/kyc/iv/documentation/uploader_click"(platform: "/web", type: TrackType.Event) {
+        flow(type: PropertyType.String, required: true, description: "Name of the current flow")
+        custom_cam_offered(type: PropertyType.Boolean, required: true, description: "Indicates if custom cam is offered")
+    }
+
     "/kyc/iv/trust_vote_recommender"(platform: "/web", type: TrackType.View) {
     }
 
@@ -357,4 +401,5 @@ tracks {
 
     "/kyc/iv/error_page"(platform: "/web", type: TrackType.View) {
     }
+
 }

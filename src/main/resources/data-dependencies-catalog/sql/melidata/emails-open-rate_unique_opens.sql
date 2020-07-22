@@ -31,4 +31,3 @@ ON Sent.sent_date = Open.sent_date AND Sent.email_id=Open.email_id
 GROUP BY Sent.sent_date,
          Sent.Template,
          Sent.Path
-ORDER BY Sent.Template

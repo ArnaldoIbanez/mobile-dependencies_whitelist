@@ -28,7 +28,7 @@ WHERE ds_date >= '@param01' AND ds_date < '@param02'
       AND vertical = 'core'
       AND shipping_mode is not null
       AND (((app_version rlike '(9\.29[0-9]*\.)|(9\.[3-9][0-9]\.)|(9\.[0-9]{3,}\.)|([1-9][0-9]{1,}\.[0-9]+\.)') and device_platform = '/mobile/android') or ((app_version rlike '(10\.4[3-9]\.)|(10\.[4-9][3-9]\.)|(10\.[5-9][0-9]\.)|(10\.[0-9]{3,}\.)|([0-9]{3,}\.[0-9]+\.)|([1-9][1-9]\.[0-9]{1,}\.)') and device_platform = '/mobile/ios') or (device_platform LIKE '/web/mobile') or device_platform LIKE '/web/desktop')
-GROUP BY sit_site_id_group, ds_date, device_platform, uid, item, cart_content, shipping_mode, if(JEST(event_data, 'logistic_type') is null,'agree_with_seller',JEST(event_data, 'logistic_type')), if(lyl_level_number is null AND cus_nickname is null, 0, lyl_level_number)
+GROUP BY sit_site_id_group, ds_date, device_platform, uid, item, cart_content, shipping_mode, if(get_json_object(event_data, '$.logistic_type') is null,'agree_with_seller',get_json_object(event_data, '$.logistic_type')), if(lyl_level_number is null AND cus_nickname is null, 0, lyl_level_number)
 
       ) as vips
       
@@ -78,7 +78,7 @@ FROM
         FROM melilake.bt_cho_congrats bcc
         WHERE bcc.ds_date >= '@param01' and bcc.ds_date < '@param02'
                AND device_platform in ('/web/desktop','/web/mobile','/mobile/android','/mobile/ios')
-               AND JEST(event_data, 'recover') IS NULL
+               AND get_json_object(event_data, '$.recover') IS NULL
                AND uid IS NOT NULL
                AND path in ('/cart/checkout/congrats', '/checkout/congrats')
                AND bcc.sit_site_id_group in ('MLB','MLA','MLM')
@@ -123,7 +123,7 @@ WHERE (logged_count = 0
                         AND application.site_id in ('MLB','MLA','MLM')
                         AND device.platform in ('/web/desktop','/web/mobile','/mobile/android','/mobile/ios')
                         AND (
-                        (PATH like '/vip'and platform.fragment is not NULL)
+                        (PATH like '/vip' and platform.fragment is not NULL)
                         OR path like '/search%'
                         OR path like '/home%'
                         OR path like '/bookmark%'

@@ -9,7 +9,7 @@
   "process_name": "experiments_validation",
   "cron": "30 15 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "source",
@@ -38,6 +38,7 @@
     ],
     "sql": {
       "script": "melidata/melidata-experiments-cross-validation.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

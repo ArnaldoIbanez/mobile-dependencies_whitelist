@@ -6,7 +6,7 @@
   "process_name": "orders_insight",
   "cron": "40 17 * * *",
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "date_created",

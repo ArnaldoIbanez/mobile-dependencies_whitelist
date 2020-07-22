@@ -55,6 +55,19 @@ trackTests {
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MYML Mercadoshops Access Denied
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Mercadoshops Access Denied") {
+        "/mercado_shops/access_denied"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            operator_id = 158689681
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MYML Mercadoshops Admin
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -169,14 +182,24 @@ trackTests {
             shop_name = "Test Shop"
             ref = ""
             fiscal_data_visible = true
+            success = true
         }
         "/mercado_shops/admin/sidebar/whatsapp"(platform: "/", type: TrackType.Event){
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
             ref = ""
+            success = true
         }
-        "/mercado_shops/admin/sidebar/discovery"(platform: "/", type: TrackType.Event) {
+        "/mercado_shops/admin/sidebar/discovery_advanced"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+            theme = "DEFAULT"
+            success = true
+        }
+         "/mercado_shops/admin/sidebar/discovery"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
@@ -350,6 +373,15 @@ trackTests {
         }
     }
 
+    test("Mercadoshops Unavailable view") {
+        "/mercado_shops/admin/unavailable"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MYML Mercadoshops Domains Delegation flow
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -496,21 +528,6 @@ trackTests {
             shop_name = "Test Shop"
             ref = ""
         }
-    }
-
-    test("Mercadoshops Template Selection flow views") {
-        "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View) {
-            shop_id = 158689680
-            shop_domain = "www.test-shop.mercadoshops.com.ar"
-            shop_name = "Test Shop"
-            ref = ""
-        }
-        "/mercado_shops/template-selection/preview"(platform: "/", type: TrackType.View) {
-            shop_id = 158689680
-            shop_domain = "www.test-shop.mercadoshops.com.ar"
-            shop_name = "Test Shop"
-            ref = ""
-        }
         "/mercado_shops/marketing/facebook"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
@@ -541,6 +558,11 @@ trackTests {
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
         }
+        "/mercado_shops/marketing/facebook/store/context_help"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
         "/mercado_shops/marketing/google"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
@@ -552,6 +574,11 @@ trackTests {
             shop_name = "Test Shop"
         }
         "/mercado_shops/marketing/google/shopping/introduction"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+        "/mercado_shops/marketing/google/shopping/introduction/context_help"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
@@ -577,6 +604,11 @@ trackTests {
             shop_name = "Test Shop"
         }
         "/mercado_shops/marketing/instagram"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+        "/mercado_shops/marketing/instagram/context_help"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
@@ -715,11 +747,31 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+            success = true
         }
         "/mercado_shops/marketing/facebook/store/pixel_activation/active"(platform: "/", type: TrackType.Event) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Mercadoshops Templates selection flow
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Mercadoshops Template Selection flow views") {
+        "/mercado_shops/template-selection/summary"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
+        "/mercado_shops/template-selection/preview"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
         }
     }
 
@@ -732,6 +784,32 @@ trackTests {
             success = true
         }
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Mercadoshops Themes Customize flow
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Mercadoshops Themes customize views") {
+        "/mercado_shops/themes/customize"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            ref = ""
+        }
+    }
+
+    test("Mercadoshops Themes customize events") {
+        "/mercado_shops/themes/customize/upload"(platform: "/", type: TrackType.Event) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            success = true
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Mercadoshops Custom menu
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
 
     test("Custom menu events") {
         "/mercado_shops/custom-categories/save"(platform: "/", type: TrackType.Event) {
@@ -765,6 +843,94 @@ trackTests {
             shop_name = "Test Shop"
             index = 9124
             step = "fourth-step"
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // HUB Mercadoshop
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Mercadoshops Hub") {
+        "/mercado_shops/hub"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+
+        "/mercado_shops/hub/view"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+
+        "/mercado_shops/hub/onboarding"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+
+        "/mercado_shops/hub/quick_access"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            quick_access = "Delegacion de dominio"
+        }
+
+        "/mercado_shops/hub/boost"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            option = "Facebook pixel"
+        }
+
+        "/mercado_shops/hub/google"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+
+        "/mercado_shops/hub/google/shopping"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+
+        "/mercado_shops/hub/google/shopping/activate"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+
+        "/mercado_shops/hub/google/shopping/deactivate"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+
+        "/mercado_shops/hub/google/shopping/reactivate"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MYML Mercadoshops discounts
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Mercadoshops Migration discounts") {
+        "/mercado_shops/discounts"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+        "/mercado_shops/discounts/set"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            success = true
+            status = 'ACTIVE'
+            percentage = 5
         }
     }
 }

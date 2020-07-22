@@ -33,6 +33,10 @@
                 "type": "UNICODE_STRING"
             },
             {
+                "name": "file_type",
+                "type": "UNICODE_STRING"
+            },
+            {
                 "name": "cache_status",
                 "type": "UNICODE_STRING"
             },
@@ -51,6 +55,7 @@
         ],
         "sql": {
             "script": "melidata/cdn_metrics.sql",
+            "engine": "spark",
             "parameters": [
                 {
                     "name": "dateFROM",

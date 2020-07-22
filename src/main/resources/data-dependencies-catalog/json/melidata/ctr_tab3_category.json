@@ -48,6 +48,7 @@
     }],
     "sql": {
       "script": "bi/ctr_tab3_category.sql",
+      "engine": "spark",
       "parameters": []
     }
   }

@@ -9,10 +9,11 @@ FROM
       device.platform AS platform,
       substr(ds, 1, 10) AS track_date,
       count(*) AS prints
-  FROM tracks
-  WHERE path LIKE '/search'
+  FROM melidata.tracks_ml
+  WHERE path = '/search'
       AND ds >= '@param01' 
       AND ds < '@param02'
+      AND bu = 'mercadolibre'
       AND jest(event_data, 'show_supermarket_carousel') = 'true'
   GROUP BY
       device.platform,
@@ -29,12 +30,13 @@ LEFT JOIN
       device.platform AS platform,
       substr(ds, 1, 10) AS track_date,
       count(*) AS clicks
-    FROM tracks
+    FROM melidata.tracks_ml
     WHERE 
       (path = '/search' or path = '/vip') 
      AND ds >= '@param01' 
       AND ds < '@param02'
-      AND jest(others['fragment'], 'origin') RLIKE 'supermarket_carousel.*'
+      AND bu = 'mercadolibre'
+      AND jest(COALESCE(platform.fragment, others['fragment']), 'origin') RLIKE 'supermarket_carousel.*'
     GROUP BY
       device.platform,
       substr(ds, 1, 10)

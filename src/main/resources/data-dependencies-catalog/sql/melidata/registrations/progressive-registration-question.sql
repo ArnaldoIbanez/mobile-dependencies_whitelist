@@ -25,4 +25,3 @@ AND experiments['traffic/progressiveRegistrationQuestionV1'] is not null
 AND application.site_id like 'MLA'
 AND path = '/register/form'
 group by 1, 2
-ORDER by 1 ASC, 2 DESC;

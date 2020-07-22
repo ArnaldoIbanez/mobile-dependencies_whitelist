@@ -1,7 +1,8 @@
 {
   "users": [
-    "cx-channels@mercadolibre.com", 
-    "juan.laura@mercadolibre.com"
+    "bi_dev@mercadolibre.com",
+    "agustin.sajoux@mercadolibre.com",
+    "georgina.zerbini@mercadolibre.com"
   ],
   "process_name": "channels-joint-availability-new-profiles",
   "cron": "00 05 * * *",

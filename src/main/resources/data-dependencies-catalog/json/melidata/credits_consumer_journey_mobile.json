@@ -36,6 +36,7 @@
     ],
     "sql": {
       "script": "business-assurance/credits_consumer_journey_mobile.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

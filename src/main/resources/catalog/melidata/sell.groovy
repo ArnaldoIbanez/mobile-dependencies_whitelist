@@ -35,6 +35,13 @@ tracks {
         category_id(required: true, PropertyType.String, description: "Original item's category id")
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
     }
+    def picture_info_map = objectSchemaDefinitions {
+        width(required: true, type: PropertyType.Numeric, description: "this property describes width of the image")
+        height(required: true, type: PropertyType.Numeric, description: "this property describes height of the image")
+        size(required: false, type: PropertyType.String, description: "this property describes size of the image in bytes")
+        format(required: false, type: PropertyType.String, description: "this property describes format of the image")
+        valid(required: true, type: PropertyType.Boolean, description: "this property describes if this picture is valid")
+    }
 
     propertyDefinitions {
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
@@ -45,28 +52,50 @@ tracks {
         seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
-        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
-        chosen_categorization_model(required: true, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
+        categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
+        chosen_categorization_model(required: false, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
         category_prediction_selected_index(required: false, description: "Index selected in Multiples Suggestions", PropertyType.Numeric)
         attribute_values(required: false, description: "Array of attributes in categorization", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
-        title_predicted(required: true, description: "Title used to predict category", type: PropertyType.String)
+        title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
         predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
         parent_product_id(required: false, type: PropertyType.String, description: "Catalog product parent id for item")
         product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
         item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
         list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
-        vertical(required: false, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
+        vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         listing_type_id(required: false, description: "Item listing type id")
+        listing_type_free_available(required: false, type: PropertyType.Boolean, description: "Listing type free available")
+        user_type(required: false, type: PropertyType.String, description: "The user type")
+        business(required: false,  values:["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
+        platform(required: false, values:["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
+        intent_type(required: true, type: PropertyType.String, description: "this property describes the intent type to be perform", values:["drag", "valid_street_number", "invalid_street_number", "new_location_accepted", "new_location_rejected", "new_location_auto_accepted", "valid_intent", "invalid_intent", "pictures_upload"])
+        intent_value(required: false, type: PropertyType.String, description: "this property describes the intent value if exists")
+        field_intent_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the field ids for the intent")
+        pictures_info(required: true, type: PropertyType.ArrayList(PropertyType.Map(picture_info_map)), description: "this property describes array of pictures information")
     }
 
     propertyGroups {
-        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical)
+        sellGroup(category_id, category_path, seller_profile, seller_segment, session_id, seller_reputation, list_mode, vertical, user_type, business, platform)
+        sellGroupMobile( seller_segment, seller_profile, vertical)
         categoryFlow(domain_id, attribute_id, categorization_flow_successful, chosen_categorization_model, category_prediction_selected_index, attribute_values, title_predicted, predictions, parent_product_id, product_id, item_from)
+        categoryFlowMobile(categorization_flow_successful, category_id, category_path, chosen_categorization_model, title_predicted)
         listingTypeFlow(listing_type_id)
+        listingTypeFlowMobile(listing_type_id, listing_type_free_available)
+        catalogFlowMobile(domain_id, attribute_id, category_prediction_selected_index, attribute_values, predictions, parent_product_id, product_id)
+        locationIntentsGroup(has_drag, valid_street_number, accept_new_location, valid_intent)
+        shieldGroup(business,session_id,vertical,platform)
+        intentGroup(intent_type, intent_value)
+        technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
+        pictureIntentGroup(intent_type, pictures_info)
     }
 
     // Sell
     "/sell"(platform: "/", isAbstract: true) {}
+    "/sell"(platform: "/mobile", isAbstract: true) {
+        sellGroupMobile
+        listingTypeFlowMobile
+        seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
+    }
     "/sell/list"(platform: "/", isAbstract: true){
         session_id(required: false, description: "Session id for a specific user flow", type: PropertyType.String)
         classi_category_prediction_available(required: false, description: "this is an experiment on prediction step", type: PropertyType.Boolean)
@@ -161,6 +190,10 @@ tracks {
         reputation_level(required: false, description: "Reputation for Pads")
     }
 
+    "/sell/list/congrats"(platform: "/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+
     // List Similar/Equals modifications
     "/sell/list_similar"(platform: "/web/desktop", isAbstract: true){}
     "/sell/list_similar/result"(platform: "/web/desktop", type: TrackType.Event){
@@ -182,6 +215,9 @@ tracks {
     }
 
     // Apps
+    "/sell/list" (platform: "/mobile", isAbstract: true){
+        categoryFlowMobile
+    }
     "/sell/list/drafts"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/drafts/draft_action"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/drafts/draft_action/draft_deleted"(platform: "/mobile", type: TrackType.Event) {}
@@ -194,16 +230,33 @@ tracks {
         fail_pictures(required: false, description: "Failed pictures", type: PropertyType.Numeric)
         pictures_errors(required: false, description: "Array of pictures error", type: PropertyType.ArrayList)
     }
-    "/sell/list/draft/attribute"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/attribute"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
     "/sell/list/draft/attribute/kilometers"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/category_navigation"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/category_suggestion"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/color_selection"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/color_selection_fallback"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/condition"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/category_navigation"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/category_suggestion"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/color_selection"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/color_selection_fallback"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/condition"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/domain_suggestion"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/condition_review"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/condition_fallback"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/congrats"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/condition_fallback"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/congrats"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
     "/sell/list/draft/congrats/payment_pending"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/description"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/description_fallback"(platform:"/mobile", type: TrackType.View) {}
@@ -222,8 +275,12 @@ tracks {
     "/sell/list/draft/pictures/album_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures/pictures_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures/editor"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/pictures_fallback"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/pictures_landing_fallback"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/pictures_fallback"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/pictures_landing_fallback"(platform:"/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
     "/sell/list/draft/pictures_fallback/album_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_fallback/pictures_selector"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/pictures_fallback/editor"(platform:"/mobile", type: TrackType.View){}
@@ -234,7 +291,9 @@ tracks {
     "/sell/list/draft/price"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/price_modality"(platform:"/mobile", type: TrackType.View){}
-    "/sell/list/draft/product_detail"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/draft/product_detail"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/draft/product_identifier"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/registration_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/seller_registration"(platform:"/mobile", type: TrackType.View){}
@@ -249,28 +308,42 @@ tracks {
     "/sell/list/draft/title"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/title_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/technical_specifications_review"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/draft/technical_specifications_catalog"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/draft/warranty_time"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_time_review"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/draft/warranty_type_review"(platform: "/mobile", type: TrackType.View){}
+    "/sell/list/draft/catalog"(platform:"/mobile", type: TrackType.View, isAbstract: true){}
+    "/sell/list/draft/catalog/decision"(platform: "/mobile", type: TrackType.View){
+        catalogFlowMobile
+    }
+    "/sell/list/draft/catalog/forced"(platform: "/mobile", type: TrackType.View) {
+        catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
+        catalogFlowMobile
+    }
+    "/sell/list/draft/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/draft/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
 
     "/sell/list/hub"(platform: "/", type: TrackType.View) {}
-    "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/attribute"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/attribute/kilometers"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/picture_preview_landing"(platform: "/mobile", type: TrackType.View){}
-    "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {}
+    "/sell/list/picture_uploader"(platform: "/mobile", isAbstract: true) {
+        catalogFlowMobile
+    }
     "/sell/list/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_uploader/delete"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/list/pictures/crop"(platform: "/mobile", isAbstract: true) {}
-    "/sell/list/pictures/crop"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/pictures/crop/crop_accepted"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/manufacturing_time"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/manufacturing_time_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
 
 
     "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
@@ -336,14 +409,30 @@ tracks {
     "/sell/list/location_street"(platform: "/mobile", type: TrackType.View){}
     "/sell/list/catalog_trim_selection"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog_vehicle_year_selection"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/category_suggestion"(platform: "/", type: TrackType.View) {}
-    "/sell/list/category_navigation"(platform: "/", type: TrackType.View) {}
+    "/sell/list/category_suggestion"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
+    "/sell/list/category_navigation"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
+    "/sell/list/domain_suggestion"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/catalog"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/catalog/decision"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
+    "/sell/list/catalog/forced"(platform: "/mobile", type: TrackType.View) {
+        catalog_listing_forced_type(required: true, description: "Forced type", values: ["open", "closed"], type: PropertyType.String)
+        catalogFlowMobile
+    }
+    "/sell/list/catalog/customize_marketplace_item_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/classifieds_reservation_landing"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/color_selection"(platform: "/", type: TrackType.View) {}
+    "/sell/list/color_selection"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/color_selection_review"(platform: "/", type: TrackType.View) {}
-    "/sell/list/color_selection_fallback"(platform: "/", type: TrackType.View) {}
+    "/sell/list/color_selection_fallback"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/color_selection/custom_color"(platform: "/web", type: TrackType.Event) {
         session_id(required: true, description: "Session Id of the list flow, that dies when the flow ends", type: PropertyType.String)
         category_domain(required: false, description: "Category Domain", type: PropertyType.String)
@@ -352,12 +441,21 @@ tracks {
         category_id(required: false, description: "Category Id", type: PropertyType.String)
     }
     "/sell/list/technical_specifications_review"(platform: "/", type: TrackType.View) {}
-    "/sell/list/product_detail"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/technical_specifications_catalog"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
+    "/sell/list/product_detail"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/product_identifier"(platform: "/", type: TrackType.View) {}
     "/sell/list/phone_suggestion"(platform:"/mobile", type:TrackType.View){}
-    "/sell/list/condition"(platform: "/", type: TrackType.View) {}
+    "/sell/list/condition"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/condition_review"(platform: "/", type: TrackType.View) {}
-    "/sell/list/condition_fallback"(platform: "/", type: TrackType.View) {}
+    "/sell/list/condition_fallback"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/condition_confirmation_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description"(platform: "/", type: TrackType.View) {}
     "/sell/list/description_review"(platform: "/", type: TrackType.View) {}
@@ -380,18 +478,24 @@ tracks {
     "/sell/list/warranty_type_condition_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/warranty_time_condition_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/whatsapp_review"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/pictures"(platform: "/", type: TrackType.View) {}
-    "/sell/list/pictures/gallery"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/pictures/album_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures/pictures_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures/editor"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures/crop"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/pictures/crop/crop_accepted"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
         album_name(required: false, description: "Album name", type: PropertyType.String)
     }
-    "/sell/list/pictures_fallback"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_fallback"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/pictures_fallback/album_selector"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures_fallback/pictures_selector"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/pictures_fallback/editor"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_fallback/editor"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures_fallback/crop"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/pictures_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/pictures_review/album_selector"(platform: "/mobile", type: TrackType.View) {}
@@ -412,7 +516,9 @@ tracks {
     "/sell/list/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/list/category"(platform: "/mobile", isAbstract:true){}
+    "/sell/list/category"(platform: "/mobile", isAbstract: true) {
+        catalogFlowMobile
+    }
     "/sell/list/category/selection"(platform: "/mobile", isAbstract:true){}
     "/sell/list/category/selection/confirm_suggested"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category/selection/wrong_suggested"(platform: "/mobile", type: TrackType.Event) {}
@@ -429,8 +535,10 @@ tracks {
     "/sell/list/title"(platform: "/", type: TrackType.View) {}
     "/sell/list/title_review"(platform: "/", type: TrackType.View) {}
     "/sell/list/shipping_options_me"(platform: "/", type: TrackType.View) {}
-    "/sell/list/pictures_landing"(platform: "/", type: TrackType.View) {}
-    "/sell/list/pictures_landing_fallback"(platform: "/", type: TrackType.View) {}
+    "/sell/list/pictures_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/list/pictures_landing_fallback"(platform: "/mobile", type: TrackType.View) {
+        catalogFlowMobile
+    }
     "/sell/list/registration_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/shipping_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/shipping_mandatory_landing"(platform: "/", type: TrackType.View) {}
@@ -446,7 +554,7 @@ tracks {
     }
     "/sell/list/sale_condition"(platform: "/", type: TrackType.View){}
 
-//update flow
+    //update flow
     "/sell/update" (platform: "/", isAbstract: true){
         item_id(required: true, description: "Item id", type: PropertyType.String)
     }
@@ -498,11 +606,16 @@ tracks {
     "/sell/update/picture_preview_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/quantity"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/technical_specifications"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/update/product_identifier"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/product_identifier"(platform: "/mobile", type: TrackType.View) {
+        value_type(required:true, description: "Indicates the type of PI value that the input has", type: PropertyType.String, values:["none", "single_value", "multi_value"])
+    }
     "/sell/update/shipping"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/shipping/flex"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/shipping/flex/free_shipping_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping/flex/optin"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping/flex/optin/date_selection"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping/optin_lazy_landing"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/shipping/flex/optin/comunication"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping/flex_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/shipping_mandatory_landing"(platform: "/mobile", type: TrackType.View) {}
@@ -538,7 +651,9 @@ tracks {
     "/sell/update/pictures/pictures_selector"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/editor"(platform: "/", type: TrackType.View) {}
     "/sell/update/pictures/crop"(platform: "/", type: TrackType.View) {}
-    "/sell/update/variations_pi"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/variations_pi"(platform: "/mobile", type: TrackType.View) {
+        value_type(required:true, description: "Indicates the type of PI value that the input has", type: PropertyType.String, values:["none", "single_value", "multi_value"])
+    }
     "/sell/update/pictures/crop/crop_accepted"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
     "/sell/update/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
@@ -658,18 +773,21 @@ tracks {
     "/sell/hub"(platform: "/web", type: TrackType.View) {}
     "/sell/hub/select_vertical"(platform: "/web", type: TrackType.Event) {
         sellGroup
-        vertical(required: true, description: "item vertical", values:["core", "motors", "real_state", "services"], type: PropertyType.String)
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
 
 
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
         sellGroup
-        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
     }
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/title/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/redirect_syi_core"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/redirect_syi_core/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/title/redirect_store"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {
         categoryFlow
     }
@@ -718,7 +836,9 @@ tracks {
     "/sell/item_data/specifications"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/specifications/confirm"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/technical_specifications"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/technical_specifications"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
     "/sell/item_data/technical_specifications/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/technical_specifications/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/multivalue"(platform: "/web", type: TrackType.Event) {
@@ -815,7 +935,7 @@ tracks {
 
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
         sellGroup
-        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
     }
     "/sell/item_conditions/price_and_currency"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/price_and_currency/show"(platform: "/web", type: TrackType.Event) {}
@@ -825,6 +945,8 @@ tracks {
         has_free(required: true, type: PropertyType.Boolean)
     }
     "/sell/item_conditions/listing_types/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/listing_types/free"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/listing_types/free/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/free_shipping"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/free_shipping/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_conditions/free_shipping/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -865,6 +987,7 @@ tracks {
 
     "/sell/item_conditions/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_conditions/sidebar_listing_type/hide"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/item_conditions/reservation_info"(platform: "/web", isAbstract: true) {}
     "/sell/item_conditions/reservation_info/show"(platform: "/web", type: TrackType.Event) {}
@@ -892,6 +1015,18 @@ tracks {
 
     "/sell/item_data/pictures"(platform: "/web", type: TrackType.View) {}
     "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/add_intention"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/add_more_intention"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/delete"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/suggestions_modal_show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/upload_errors"(platform: "/web", type: TrackType.Event) {
+        limit_errors(required: true, description: "The quantity of pictures uploaded was exceeded", type: PropertyType.Boolean)
+        format_errors(required: true, description: "How many files didn't match the allowed format", type: PropertyType.Numeric)
+        size_errors(required: true, description: "How many files didn't match the minimum size", type: PropertyType.Numeric)
+    }
+    "/sell/item_data/pictures/upload"(platform: "/web", type: TrackType.Event) {
+        quantity(required: true, description: "The quantity of pictures uploaded successfully", type: PropertyType.Numeric)
+    }
 
     "/sell/item_conditions/seller_contact/phone"(platform: "/web", type: TrackType.View) {}
     "/sell/item_conditions/seller_contact/phone/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -927,16 +1062,33 @@ tracks {
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
     }
 
+    "/sell/presip"(platform: "/web", type: TrackType.View) {
+        sellGroup
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
+    }
+    "/sell/presip/review"(platform: "/web", type: TrackType.Event) {}
+    "/sell/presip/confirm"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/sip"(platform: "/web", type: TrackType.View) {
         sellGroup
-        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        listingTypeFlow
+        item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
     }
+    "/sell/sip/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/sip/calculator"(platform: "/web", isAbstract: true) {}
     "/sell/sip/calculator/show"(platform: "/web", type: TrackType.Event) {}
 
-    "/sell/sip/sidebar_listing_type"(platform: "/web", isAbstract: true) {}
-    "/sell/sip/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/sip/sidebar_listing_type"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/sip/sidebar_listing_type/show"(platform: "/web", type: TrackType.Event) {
+        listingTypeFlow
+    }
+
+    "/sell/congrats/instant_pay_listings"(platform: "/web", isAbstract: true) {}
+    "/sell/congrats/instant_pay_listings/show"(platform: "/web", type: TrackType.Event) {
+        listingTypeFlow
+    }
 
     // Catalog Optin flow for apps
     "/sell/catalog_optin"(platform: "/mobile", isAbstract: true) {
@@ -956,6 +1108,7 @@ tracks {
     "/sell/catalog_optin/congrats"(platform: "/mobile", type: TrackType.View) {}
     "/sell/catalog_optin/congrats_invalid_product"(platform: "/mobile", type: TrackType.View) {}
     "/sell/catalog_optin/color_selection_buybox"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/catalog_optin/attributes_confirmation"(platform: "/mobile", type: TrackType.View) {}
 
     "/sell/variation_selection"(platform: "/web", isAbstract: true) {
         sellGroup
@@ -970,4 +1123,65 @@ tracks {
     "/sell/variation_selection/source_variations/confirm_variation"(platform: "/web", type: TrackType.Event) {
         variation_id(required: false, description: "variation id picked", type: PropertyType.Numeric)
     }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS SYI v4 - RealEstate
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/sell/item_data/location"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/location/show"(platform: "/web", type: TrackType.Event) { }
+    "/sell/item_data/location/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/location/intent"(platform: "/web", type: TrackType.Event) {
+        intentGroup
+    }
+
+    "/sell/item_data/pictures"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/pictures/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/pictures/intent"(platform: "/web", type: TrackType.Event) {
+        pictureIntentGroup
+    }
+
+
+    "/sell/item_data/title_and_description"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/title_and_description/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/title_and_description/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/technical_specifications/intent"(platform: "/web", type: TrackType.Event) {
+        technicalSpecsIntentsGroup
+    }
+
+    "/sell/onboarding"(platform: "/web", isAbstract: true) {
+        business(required: true,  values:["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
+        vertical(required: true, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+        platform(required: true, values:["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
+        category_path(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Item's category tree")
+
+    }
+    "/sell/onboarding/splash"(platform: "/web", isAbstract: true) {}
+    "/sell/onboarding/splash/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/onboarding/splash/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/error_step"(platform: "/web", isAbstract: true) {
+        shieldGroup
+        seller_reputation(required: false, type: PropertyType.String, description: "Seller's reputation")
+        item_type(required: false, description: "item type", values:["default", "product"], type: PropertyType.String)
+    }
+    "/sell/error_step/package_error"(platform: "/web", isAbstract: true) {}
+    "/sell/error_step/package_error/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/error_step/package_error/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/error_step/package_empty"(platform: "/web", isAbstract: true) {}
+    "/sell/error_step/package_empty/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/error_step/package_empty/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/error_step/user_has_debt_error"(platform: "/web", isAbstract: true) {}
+    "/sell/error_step/user_has_debt_error/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/error_step/user_has_debt_error/confirm"(platform: "/web", type: TrackType.Event) {}
+
 }

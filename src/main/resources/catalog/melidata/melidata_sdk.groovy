@@ -8,7 +8,7 @@ tracks {
 
     initiative = "1145"
 
-    "/melidata"(platform: "/mobile", isAbstract: true) {}
+    "/melidata"(platform: "/", isAbstract: true) {}
 
     "/melidata/statistics"(platform: "/mobile", type: TrackType.Event) {
         errors_counter(type: PropertyType.Map)
@@ -39,7 +39,6 @@ tracks {
     "/melidata/shrink_database"(platform: "/mobile/android", type: TrackType.Control ) {}
     "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event ) {}
     
-    "/melidata/ab_split"(platform: "/mobile", type: TrackType.Event ) {}
-
+    "/melidata/ab_split"(platform: "/", type: TrackType.Event ) {}
 }
 

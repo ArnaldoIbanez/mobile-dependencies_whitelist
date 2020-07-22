@@ -16,6 +16,22 @@ tracks {
     }
     "/flow/end"(platform: "/mobile", type: TrackType.Event) { }
     "/flow/init"(platform: "/mobile", type: TrackType.Event) { }
+        
+    "/free_navigation"(platform: "/mobile", type: TrackType.Event) {
+        carrier_name(required:false, type: PropertyType.String, description: "Nombre del operador de chip")
+        sd_state(required:true, type: PropertyType.String, description: "Describe el tipo de conexión")
+        sd_reason(required:true, type: PropertyType.String, description: "Describe el motivo del error de patrocinio")
+        fg_wifi_session_time(required:true, type: PropertyType.Numeric, description: "Tiempo de sesión wifi")
+        fg_cellular_session_time(required:true, type: PropertyType.Numeric, description: "tiempo de sesión 3g/4g")
+        sd_data_usage(required:true, type: PropertyType.Numeric, description: "cantidad de datos utilizados")
+    }
+    "/free_navigation_notification"(platform: "/mobile", type: TrackType.Event) {}
+    "/free_navigation_dialog"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/memory_warning"(platform: "/mobile", type: TrackType.Event) {
+        view_controller(required:true, type: PropertyType.String, description: "Nombre de la View que recibió una alerta de memoria")
+        application_state(required:true, type: PropertyType.String, description: "Estado de la app al momento de la alerta", values: ["Active", "Inactive", "Background", "Undefined"])
+    }
 
     "/associate_phone"(platform: "/mobile", isAbstract: true) {
         flow(required: true, type: PropertyType.String, description: "Use case that has been executed")

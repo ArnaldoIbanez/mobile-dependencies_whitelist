@@ -9,18 +9,18 @@ SELECT
 FROM
 
 (SELECT from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') - 14400, 'yyyy-MM-dd HH') AS `dsx`,
-        jest(event_data, 'c_id') as component,
+        get_json_object(event_data, '$.c_id') as component,
         device.platform as platform,
         application.site_id as site_id,
-        COUNT(jest(event_data, 'c_id')) AS prints_count
+        COUNT(get_json_object(event_data, '$.c_id')) AS prints_count
 
 FROM component_prints_parquet
 WHERE ds >= '@param01' AND ds < '@param02'
-    AND jest(event_data, 'c_id') IS NOT NULL
+    AND get_json_object(event_data, '$.c_id') IS NOT NULL
     AND path = '/component'
-    AND jest(event_data, 'c_id') RLIKE '.*(?<!\/element)$'
-    AND jest(event_data, 'c_id') RLIKE '.*(?<!\/item)$'
-GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') - 14400, 'yyyy-MM-dd HH'), device.platform, application.site_id, jest(event_data, 'c_id')) AS prints
+    AND get_json_object(event_data, '$.c_id') RLIKE '.*(?<!\/element)$'
+    AND get_json_object(event_data, '$.c_id') RLIKE '.*(?<!\/item)$'
+GROUP BY from_unixtime(unix_timestamp(ds, 'yyyy-MM-dd HH') - 14400, 'yyyy-MM-dd HH'), device.platform, application.site_id, get_json_object(event_data, '$.c_id')) AS prints
 
 LEFT JOIN
 

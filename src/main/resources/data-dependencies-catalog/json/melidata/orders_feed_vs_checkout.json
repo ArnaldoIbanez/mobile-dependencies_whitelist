@@ -32,6 +32,7 @@
     "sql": {
 
       "script": "melidata/orders_feed_vs_checkout.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
