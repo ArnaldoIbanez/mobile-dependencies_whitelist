@@ -1,20 +1,20 @@
 {
   "users": [
     "lucio.carboneti@mercadolibre.com",
-     "mpmobile_core@mercadolibre.com"
+    "mpmobile_core@mercadolibre.com"
   ],
   "process_name": "data_traceability",
   "cron": "00 04 * * *",
   "partition": {
-        "name": "fecha",
-        "type": "DATE"
+    "name": "fecha",
+    "type": "DATE"
   },
   "extract": {
     "operation": "append",
     "columns": [
       {
-        "name": "usuario",
-        "type": "INTEGER"
+        "name": "flow",
+        "type": "UNICODE_STRING"
       },
       {
         "name": "flow_init",
@@ -25,7 +25,7 @@
         "type": "INTEGER"
       },
       {
-        "name": "platform",
+        "name": "flow_from",
         "type": "UNICODE_STRING"
       },
       {
@@ -33,23 +33,11 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "version",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "flow",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "flow_id",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "flow_from",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "business",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "platform",
         "type": "UNICODE_STRING"
       }
     ],
