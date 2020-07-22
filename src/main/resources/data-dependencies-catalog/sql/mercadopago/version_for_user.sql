@@ -1,10 +1,10 @@
-SELECT DISTINCT(version),
+SELECT version,
        Sum(cant_user) AS cant_user,
        platform,
        fecha
 FROM   (SELECT Count(DISTINCT( usr.user_id ))    AS cant_user,
                Substring(device.platform, 9, 16) AS platform,
-               Concat(Split_part(application.version, '.', 1), '.', Split_part(application.version, '.', 2))     AS version,
+               substring_index(application.version, '.',2) AS version,
                Substr(ds, 1, 10)                 AS fecha
         FROM   melidata.tracks_mp
         WHERE  ds >= '@param01'
@@ -28,7 +28,7 @@ FROM   (SELECT Count(DISTINCT( usr.user_id ))    AS cant_user,
                       OR path = '/pos_seller/new_payment' )
         GROUP  BY application.version,
                   device.platform,
-                  ds)
+                  ds) t1
 GROUP  BY version,
           fecha,
           platform
