@@ -25,4 +25,3 @@ FROM (SELECT  Get_json_object(event_data, '$.view_controller') AS warnings,
                   application.business,
                   ds) t1
 GROUP BY warnings, state, platform,version,business,fecha
-ORDER BY version, state, warnings
