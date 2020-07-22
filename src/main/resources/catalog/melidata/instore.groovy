@@ -312,6 +312,10 @@ tracks {
     "/instore/waiting/retail_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/retail_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/waiting/vending_dispatching"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/vending_dispatching/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/vending_dispatching/back"(platform: "/mobile", type: TrackType.Event) {}
+
     "/instore/waiting/add_card"(platform: "/mobile", isAbstract: true) {}
     "/instore/waiting/add_card/cielo"(platform: "/mobile", type: TrackType.View) {}
     "/instore/waiting/add_card/cielo/add"(platform: "/mobile", type: TrackType.Event) {}
