@@ -61,6 +61,7 @@ tracks {
     }
 
     // MP Home - Merch Engine Events
+    "/mp_home/sections"(platform: "/", , isAbstract: true) {}
     "/mp_home/sections/crossselling/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/crossselling/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/crossselling/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
