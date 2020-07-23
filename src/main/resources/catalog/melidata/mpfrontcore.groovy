@@ -61,24 +61,18 @@ tracks {
     }
 
     // MP Home - Merch Engine Events
-    "/mp_home/sections"(platform: "/", , isAbstract: true) {}
-    "/mp_home/sections/crossselling"(platform: "/", , isAbstract: true) {}
     "/mp_home/sections/crossselling/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/crossselling/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/crossselling/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
-    "/mp_home/sections/discountbenefits"(platform: "/", , isAbstract: true) {}
     "/mp_home/sections/discountbenefits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/discountbenefits/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/discountbenefits/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
-    "/mp_home/sections/prioritymessages"(platform: "/", , isAbstract: true) {}
     "/mp_home/sections/prioritymessages/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/prioritymessages/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/prioritymessages/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
-    "/mp_home/sections/promobanner"(platform: "/", , isAbstract: true) {}
     "/mp_home/sections/promobanner/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/promobanner/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/promobanner/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
-    "/mp_home/sections/oneshotmodal"(platform: "/", , isAbstract: true) {}
     "/mp_home/sections/oneshotmodal/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/oneshotmodal/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/mp_home/sections/oneshotmodal/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
