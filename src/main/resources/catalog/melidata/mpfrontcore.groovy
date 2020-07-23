@@ -61,21 +61,21 @@ tracks {
     }
 
     // MP Home - Merch Engine Events
-    "/mp_home/sections/crossselling/print"(platform: "/web", type: TrackType.Event) { eventDataTrack }
-    "/mp_home/sections/crossselling/view"(platform: "/web", type: TrackType.Event) { eventDataTrack }
-    "/mp_home/sections/crossselling/tap"(platform: "/web", type: TrackType.Event) { actionEventDataTrack }
-    "/mp_home/sections/discountbenefits/print"(platform: "/web", type: TrackType.Event) { eventDataTrack }
-    "/mp_home/sections/discountbenefits/view"(platform: "/web", type: TrackType.Event) { eventDataTrack }
-    "/mp_home/sections/discountbenefits/tap"(platform: "/web", type: TrackType.Event) { actionEventDataTrack }
-    "/mp_home/sections/prioritymessages/print"(platform: "/web", type: TrackType.Event) { eventDataTrack }
-    "/mp_home/sections/prioritymessages/view"(platform: "/web", type: TrackType.Event) { eventDataTrack }
-    "/mp_home/sections/prioritymessages/tap"(platform: "/web", type: TrackType.Event) { actionEventDataTrack }
-    "/mp_home/sections/promobanner/print"(platform: "/web", type: TrackType.Event) { eventDataTrack }
-    "/mp_home/sections/promobanner/view"(platform: "/web", type: TrackType.Event) { eventDataTrack }
-    "/mp_home/sections/promobanner/tap"(platform: "/web", type: TrackType.Event) { actionEventDataTrack }
-    "/mp_home/sections/oneshotmodal/print"(platform: "/web", type: TrackType.Event) { eventDataTrack }
-    "/mp_home/sections/oneshotmodal/view"(platform: "/web", type: TrackType.Event) { eventDataTrack }
-    "/mp_home/sections/oneshotmodal/tap"(platform: "/web", type: TrackType.Event) { actionEventDataTrack }
+    "/mp_home/sections/crossselling/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mp_home/sections/crossselling/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mp_home/sections/crossselling/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
+    "/mp_home/sections/discountbenefits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mp_home/sections/discountbenefits/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mp_home/sections/discountbenefits/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
+    "/mp_home/sections/prioritymessages/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mp_home/sections/prioritymessages/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mp_home/sections/prioritymessages/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
+    "/mp_home/sections/promobanner/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mp_home/sections/promobanner/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mp_home/sections/promobanner/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
+    "/mp_home/sections/oneshotmodal/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mp_home/sections/oneshotmodal/view"(platform: "/", type: TrackType.Event) { eventDataTrack }
+    "/mp_home/sections/oneshotmodal/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
 
     // MP Profile
     "/profile"(platform: "/", type: TrackType.View) {}

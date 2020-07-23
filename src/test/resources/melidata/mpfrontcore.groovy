@@ -5,12 +5,70 @@ import com.ml.melidata.TrackType;
 trackTests {
     defaultBusiness = "mercadopago"
 
-    /*************************
-    *     ACTIVITY WEB    *
-    *************************/
+    /******************************************
+    *              MP FRONT CORE              *
+    ******************************************/
+
+    /**
+     * Definitions
+     */
+    
+    def defaultEventData = {
+        section_id = "realestate_id_test_mp"
+        component_id = "realestate_id_modal_test_mp"
+        content_id = "realestate_id_product_test_mp"
+        audience = "all"
+        position = 0
+        logic = "campaigns"
+        bu = "mp"
+        bu_line = "10"
+        flow = "10"
+    }
+
+    /**
+     * Tracks Tests - Loggued Context
+     */
 
     test("Mercadopago Home") {
         "/mp_home" (platform: "/", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Home Merch Engine Events") {
+        "/mp_home/sections/crossselling/print" (platform: "/", type: TrackType.Event) { defaultEventData() }
+        "/mp_home/sections/crossselling/view" (platform: "/", type: TrackType.Event) { defaultEventData() }
+        "/mp_home/sections/crossselling/tap" (platform: "/", type: TrackType.Event) {
+            defaultEventData()
+            action_id = "realestate_id_modal_button_test_mp"
+            link = "https://url-test/"
+        }
+        "/mp_home/sections/discountbenefits/print" (platform: "/", type: TrackType.Event) { defaultEventData() }
+        "/mp_home/sections/discountbenefits/view" (platform: "/", type: TrackType.Event) { defaultEventData() }
+        "/mp_home/sections/discountbenefits/tap" (platform: "/", type: TrackType.Event) {
+            defaultEventData()
+            action_id = "realestate_id_modal_button_test_mp"
+            link = "https://url-test/"
+        }
+        "/mp_home/sections/prioritymessages/print" (platform: "/", type: TrackType.Event) { defaultEventData() }
+        "/mp_home/sections/prioritymessages/view" (platform: "/", type: TrackType.Event) { defaultEventData() }
+        "/mp_home/sections/prioritymessages/tap" (platform: "/", type: TrackType.Event) {
+            defaultEventData()
+            action_id = "realestate_id_modal_button_test_mp"
+            link = "https://url-test/"
+        }
+        "/mp_home/sections/promobanner/print" (platform: "/", type: TrackType.Event) { defaultEventData() }
+        "/mp_home/sections/promobanner/view" (platform: "/", type: TrackType.Event) { defaultEventData() }
+        "/mp_home/sections/promobanner/tap" (platform: "/", type: TrackType.Event) {
+            defaultEventData()
+            action_id = "realestate_id_modal_button_test_mp"
+            link = "https://url-test/"
+        }
+        "/mp_home/sections/oneshotmodal/print" (platform: "/", type: TrackType.Event) { defaultEventData() }
+        "/mp_home/sections/oneshotmodal/view" (platform: "/", type: TrackType.Event) { defaultEventData() }
+        "/mp_home/sections/oneshotmodal/tap" (platform: "/", type: TrackType.Event) {
+            defaultEventData()
+            action_id = "realestate_id_modal_button_test_mp"
+            link = "https://url-test/"
+        }
     }
 
     test("Mercadopago Profile") {
@@ -99,71 +157,6 @@ trackTests {
         "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
     }
 
-    /*************************
-    *        MP PUBLIC       *
-    *************************/
-
-    test("Digital Wallet") {
-        /**
-         * Digital Wallet Screen Tracks
-         */
-
-        "/digital_wallet"(platform: "/", type: TrackType.View) {}
-
-        /**
-         * Digital Wallet Events Tracks
-         */
-
-        "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
-            section = "facilities_recharge"
-        }
-
-        "/digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
-            section_store = "hero_playstore"
-        }
-    }
-
-    test("Business Site") {
-        /**
-         * Business Site Screen Tracks
-         */
-
-        "/business_site"(platform: "/", type: TrackType.View) {}
-
-        /**
-         * Business Site Events Tracks
-         */
-        
-        "/business_site/click"(platform: "/", type: TrackType.Event) {
-          action = "shortcut"
-          section = "digital"
-        }
-
-        "/business_site/click"(platform: "/", type: TrackType.Event) {
-          action = "know_more"
-          section = "digital"
-          item = "checkout"
-        }
-
-        "/business_site/click"(platform: "/", type: TrackType.Event) {
-          action = "new_account"
-          section = "last"
-        }
-    }
-    
-    test("Splinter MP Landings") {
-      // Splinter MP Landings Track View
-      "/landing/marketing"(platform: "/", type: TrackType.View) {
-        key = 'landing-de-prueba'
-        startTime = "2020-05-17T00:00:00Z"
-        endTime = "2020-06-30T00:00:00Z"
-      }
-    }
-
-    /*************************
-    *        MP BANKING       *
-    *************************/
-
     test("Banking Balannce MP") {
         "/banking/balance"(platform: "/", type: TrackType.View) {}
     }
@@ -174,5 +167,45 @@ trackTests {
 
     test("Banking PNF") {
         "/banking/pnf"(platform: "/", type: TrackType.View) {}
+    }
+
+
+    /**
+     * Tracks Tests - Public Context
+     */
+
+    test("Digital Wallet") {
+        "/digital_wallet"(platform: "/", type: TrackType.View) {}
+        "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
+            section = "facilities_recharge"
+        }
+        "/digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
+            section_store = "hero_playstore"
+        }
+    }
+
+    test("Business Site") {
+        "/business_site"(platform: "/", type: TrackType.View) {}
+        "/business_site/click"(platform: "/", type: TrackType.Event) {
+          action = "shortcut"
+          section = "digital"
+        }
+        "/business_site/click"(platform: "/", type: TrackType.Event) {
+          action = "know_more"
+          section = "digital"
+          item = "checkout"
+        }
+        "/business_site/click"(platform: "/", type: TrackType.Event) {
+          action = "new_account"
+          section = "last"
+        }
+    }
+    
+    test("Splinter MP Landings") {
+      "/landing/marketing"(platform: "/", type: TrackType.View) {
+        key = 'landing-de-prueba'
+        startTime = "2020-05-17T00:00:00Z"
+        endTime = "2020-06-30T00:00:00Z"
+      }
     }
 }
