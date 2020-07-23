@@ -85,7 +85,7 @@ tracks {
     "/listing/activities"(platform: "/web", type: TrackType.View) {}
     "/listing/gateway"(platform: "/web", type: TrackType.View) {}
 
-    // MP Activities - Details/shipping
+    // MP Activities - Details/Shipping
     "/activity"(platform: "/web", isAbstract: true) {}
     "/activity/detail"(platform: "/web", type: TrackType.View) {}
     "/activity/detail/shipping"(platform: "/web", type: TrackType.View) {}
