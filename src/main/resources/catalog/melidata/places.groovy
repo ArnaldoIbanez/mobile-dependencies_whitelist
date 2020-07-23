@@ -17,7 +17,7 @@ tracks {
         display(required: true, type: PropertyType.String, values: ["browser", "standalone", "none"],
                 description: "Specifies the display mode app is running as.")
         validation_error(required: true, type: PropertyType.String,
-                values: ["duplicated", "invalid_shipment", "not_found", "internal_error", "no_connection"],
+                values: ["duplicated", "invalid_shipment", "not_found", "internal_error", "no_connection", "invalid_data"],
                 description: "Specifies what kind of validation error happened.")
         camera_error(required: true, type: PropertyType.String,
                 values: ["not_allowed", "blocked"],
