@@ -4868,4 +4868,20 @@ trackTests {
         }
     }
 
+    test("SYI V4 Publicar - Paso Uno - Card de pictures  y Ver Planes") {
+        def dataSet = {
+            seller_reputation = "NO_REPUTATION"
+            business = "classified"
+            item_type = "default"
+            session_id = "600095330-listres-5a85212250cd"
+            vertical = "real_estate"
+            platform = "pi"
+            seller_segment = ""
+            category_id = "MLC183186"
+            seller_profile = "NEWBIE"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+        }
+        "/sell/item_data/plans/confirm"(platform: "/web", type: TrackType.Event, dataSet)
+        "/sell/item_data/pictures_modal/show"(platform: "/web", type: TrackType.Event, dataSet)
+    }
 }
