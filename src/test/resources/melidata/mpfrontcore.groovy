@@ -17,6 +17,24 @@ trackTests {
         "/mp_home" (platform: "/", type: TrackType.View) {}
     }
 
+    test("Mercadopago Home Merch Engine Events") {
+        "/mp_home/sections/crossselling/print" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/crossselling/view" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/crossselling/tap" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/discountbenefits/print" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/discountbenefits/view" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/discountbenefits/tap" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/prioritymessages/print" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/prioritymessages/view" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/prioritymessages/tap" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/promobanner/print" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/promobanner/view" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/promobanner/tap" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/oneshotmodal/print" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/oneshotmodal/view" (platform: "/", type: TrackType.Event) {}
+        "/mp_home/sections/oneshotmodal/tap" (platform: "/", type: TrackType.Event) {}
+    }
+
     test("Mercadopago Profile") {
         "/profile" (platform: "/", type: TrackType.View) {}
     }
