@@ -29,7 +29,7 @@ tracks {
                 description: "Specifies the raw input of the external scanner")
         scanner_output(required: true, type: PropertyType.String,
                 description: "Specifies the processed output of the external scanner")
-        scanner_end_char(required: true, type: PropertyType.Number,
+        scanner_end_char(required: true, type: PropertyType.Numeric,
                 values: [13, 16],
                 description: "Specifies which character uses the external scanner as ending")
     }
