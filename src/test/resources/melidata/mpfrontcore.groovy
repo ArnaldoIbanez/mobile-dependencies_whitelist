@@ -18,8 +18,28 @@ trackTests {
     }
 
     test("Mercadopago Home Merch Engine Events") {
-        "/mp_home/sections/crossselling/print" (platform: "/", type: TrackType.Event) { defaultEventData() }
-        "/mp_home/sections/crossselling/view" (platform: "/", type: TrackType.Event) { defaultEventData() }
+        "/mp_home/sections/crossselling/print" (platform: "/", type: TrackType.Event) {
+            section_id = "realestate_id_test_mp"
+            component_id = "realestate_id_modal_test_mp"
+            content_id = "realestate_id_product_test_mp"
+            audience = "all"
+            position = 0
+            logic = "campaigns"
+            bu = "mp"
+            bu_line = "10"
+            flow = "10"
+         }
+        "/mp_home/sections/crossselling/view" (platform: "/", type: TrackType.Event) {
+            section_id = "realestate_id_test_mp"
+            component_id = "realestate_id_modal_test_mp"
+            content_id = "realestate_id_product_test_mp"
+            audience = "all"
+            position = 0
+            logic = "campaigns"
+            bu = "mp"
+            bu_line = "10"
+            flow = "10"
+        }
         "/mp_home/sections/crossselling/tap" (platform: "/", type: TrackType.Event) {
             section_id = "realestate_id_test_mp"
             component_id = "realestate_id_modal_test_mp"
