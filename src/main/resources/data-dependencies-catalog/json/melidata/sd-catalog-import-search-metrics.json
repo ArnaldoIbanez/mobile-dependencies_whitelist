@@ -40,11 +40,11 @@
       },
       {
         "name": "is_gtin",
-        "type": "BOOLEAN"
+        "type": "UNICODE_STRING"
       },
       {
         "name": "has_results",
-        "type": "BOOLEAN"
+        "type": "UNICODE_STRING"
       },
       {
         "name": "displayed_sources",
