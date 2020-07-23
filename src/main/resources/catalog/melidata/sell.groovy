@@ -1133,6 +1133,15 @@ tracks {
         pictureIntentGroup
     }
 
+    "/sell/item_data/plans"(platform: "/web", isAbstract: true) {
+        sellGroup
+    }
+    "/sell/item_data/plans/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_data/pictures_modal"(platform: "/web", isAbstract: true) {
+        sellGroup
+    }
+    "/sell/item_data/pictures_modal/show"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/item_data/title_and_description"(platform: "/web", isAbstract: true) {
         listingTypeFlow
