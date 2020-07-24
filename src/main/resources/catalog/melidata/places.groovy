@@ -23,7 +23,7 @@ tracks {
                 values: ["not_allowed", "blocked"],
                 description: "Specifies what kind of camera error happened.")
         code_type(required: true, type: PropertyType.String,
-                values: ["QRCode", "Datamatrix", "Barcode"],
+                values: ["QRCode", "Datamatrix", "Barcode", "Unknown"],
                 description: "Specifies what kind of 1D/2D code were scanned")
         scanner_input(required: true, type: PropertyType.String,
                 description: "Specifies the raw input of the external scanner")
