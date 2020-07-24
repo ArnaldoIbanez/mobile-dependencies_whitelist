@@ -13,20 +13,21 @@
     "operation": "append",
     "columns": [
       {
-        "name": "version",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "cant_user",
         "type": "INTEGER"
       },
       {
         "name": "platform",
         "type": "UNICODE_STRING"
+      },
+      {
+        "name": "version",
+        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
       "script": "mercadopago/version_for_user.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
