@@ -1,54 +1,55 @@
 {
-  "users":[
+  "users": [
     "lucio.carboneti@mercadolibre.com",
     "mpmobile_core@mercadolibre.com"
   ],
-  "process_name":"data_memorywarnings",
-  "cron":"00 03 * * *",
-  "partition":{
-    "name":"fecha",
-    "type":"DATE"
+  "process_name": "data_memorywarnings",
+  "cron": "00 03 * * *",
+  "partition": {
+    "name": "fecha",
+    "type": "DATE"
   },
-  "extract":{
-    "operation":"append",
-    "columns":[
+  "extract": {
+    "operation": "append",
+    "columns": [
       {
-        "name":"platform",
-        "type":"UNICODE_STRING"
+        "name": "warnings",
+        "type": "UNICODE_STRING"
       },
       {
-        "name":"site",
-        "type":"UNICODE_STRING"
+        "name": "state",
+        "type": "UNICODE_STRING"
       },
       {
-        "name":"version",
-        "type":"UNICODE_STRING"
+        "name": "incidents",
+        "type": "INTEGER"
       },
       {
-        "name":"business",
-        "type":"UNICODE_STRING"
+        "name": "platform",
+        "type": "UNICODE_STRING"
       },
       {
-        "name":"incidents",
-        "type":"INTEGER"
+        "name": "version",
+        "type": "UNICODE_STRING"
       },
       {
-        "name":"warnings",
-        "type":"UNICODE_STRING"
+        "name": "business",
+        "type": "UNICODE_STRING"
       }
     ],
-    "sql":{
-      "script":"mercadopago/memorywarnings.sql",
-      "parameters":[
+    "sql": {
+      "script": "mercadopago/memorywarnings.sql",
+      "engine": "spark",
+      "parameters": [
         {
-          "name":"param01",
-          "value":"DAY-1",
-          "format":"yyyy-MM-dd"
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
         },
         {
-          "name":"param02",
-          "value":"DAY-0",
-          "format":"yyyy-MM-dd"
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
         }
       ]
     }
