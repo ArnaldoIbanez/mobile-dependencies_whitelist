@@ -13,10 +13,6 @@
     "operation": "append",
     "columns": [
       {
-        "name": "flow",
-        "type": "UNICODE_STRING"
-      },
-      {
         "name": "flow_init",
         "type": "INTEGER"
       },
@@ -25,7 +21,7 @@
         "type": "INTEGER"
       },
       {
-        "name": "flow_from",
+        "name": "platform",
         "type": "UNICODE_STRING"
       },
       {
@@ -37,7 +33,11 @@
         "type": "UNICODE_STRING"
       },
       {
-        "name": "platform",
+        "name": "flow",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "flow_from",
         "type": "UNICODE_STRING"
       }
     ],
