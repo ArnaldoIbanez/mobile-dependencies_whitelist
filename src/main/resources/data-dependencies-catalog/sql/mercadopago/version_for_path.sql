@@ -38,7 +38,7 @@ SELECT  substring_index(application.version, '.',2) AS version,
         Count(path) AS visited_count,
         substring(device.platform, 9, 16) AS platform,
         Substr(ds, 1, 10) AS fecha
-FROM   default.tracks
+FROM   melidata.tracks_mp
 WHERE  ds >= '@param01'
        AND ds < '@param02'
        AND application.business = 'mercadopago'

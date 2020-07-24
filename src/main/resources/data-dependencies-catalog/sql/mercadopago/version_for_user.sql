@@ -2,7 +2,7 @@ SELECT Count(DISTINCT( usr.user_id ))    AS cant_user,
        Substring(device.platform, 9, 16) AS platform,
        substring_index(application.version, '.',2) AS version,
        Substr(ds, 1, 10)                 AS fecha
-FROM   default.tracks
+FROM   melidata.tracks_mp
 WHERE  ds >= '@param01'
        AND ds < '@param02'
        AND application.business = 'mercadopago'
