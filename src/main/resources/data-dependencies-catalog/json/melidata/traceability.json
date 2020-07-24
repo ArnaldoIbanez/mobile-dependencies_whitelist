@@ -43,6 +43,7 @@
     ],
     "sql": {
       "script": "mercadopago/traceability.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
