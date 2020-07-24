@@ -39,6 +39,7 @@
     ],
     "sql": {
       "script": "mercadopago/memorywarnings.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
