@@ -3,8 +3,8 @@
     "lucio.carboneti@mercadolibre.com",
     "mpmobile_core@mercadolibre.com"
   ],
-  "process_name": "data_memorywarnings",
-  "cron": "00 03 * * *",
+  "process_name": "version_for_user",
+  "cron": "00 04 * * *",
   "partition": {
     "name": "fecha",
     "type": "DATE"
@@ -13,15 +13,7 @@
     "operation": "append",
     "columns": [
       {
-        "name": "warnings",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "state",
-        "type": "UNICODE_STRING"
-      },
-      {
-        "name": "incidents",
+        "name": "cant_user",
         "type": "INTEGER"
       },
       {
@@ -31,14 +23,10 @@
       {
         "name": "version",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "business",
-        "type": "UNICODE_STRING"
       }
     ],
     "sql": {
-      "script": "mercadopago/memorywarnings.sql",
+      "script": "mercadopago/version_for_user.sql",
       "engine": "spark",
       "parameters": [
         {

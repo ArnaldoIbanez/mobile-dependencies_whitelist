@@ -72,6 +72,13 @@ tracks {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
     }
     "/credits/consumer/public_landing/click_application_start"(platform: "/", type: TrackType.Event) {}
+
+    //Remedy
+    "/credits/consumer/opensea/add_receipt"(platform: "/web", type: TrackType.Event){}
+    "/credits/consumer/opensea/summary"(platform: "/web", type: TrackType.View) {
+        process(description: "Name of the finished process", type: PropertyType.String, required: true, values: ["receipt"])
+    }
+
     /******************************************
      *       End: Consumers Public Landings
      ******************************************/

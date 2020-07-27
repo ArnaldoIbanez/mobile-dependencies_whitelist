@@ -3449,6 +3449,18 @@ trackTests {
             notification_type= "deep_linking"
         }
 
+        "/notification/prepaid_card_transaction_rejected_by_kyc"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_by_kyc-51AO96HEQ"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_compliant_kyc"(platform: "/mobile"){
+            news_id = "prepaid_card_compliant_kyc-51AO96HEQ"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
         "/notification/prepaid_card_challenge_bolbradesco_reminder"(platform: "/mobile") {
             news_id = "prepaid_card-challenge_bolbradesco_reminder-186785675"
             event_type = "auto_dismiss"
@@ -4853,6 +4865,18 @@ trackTests {
 
         "/notification/prepaid_card_transaction_rejected_international_authorization_by_fraud_prevention"(platform: "/mobile"){
             news_id = "prepaid_card_transaction_rejected_international_authorization_by_fraud_prevention-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_transaction_rejected_by_kyc"(platform: "/mobile"){
+            news_id = "prepaid_card_transaction_rejected_by_kyc-51AO96HEQ"
+            event_type = "arrived"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/prepaid_card_compliant_kyc"(platform: "/mobile"){
+            news_id = "prepaid_card_compliant_kyc-51AO96HEQ"
             event_type = "arrived"
             notification_type= "deep_linking"
         }
@@ -7525,6 +7549,21 @@ trackTests {
 
         "/notification/prepaid_card_transaction_rejected_for_not_transaction"(platform: "/mobile") {
             news_id = "prepaid_card_transaction_rejected_for_not_transaction-186785675"
+
+          "/notification/card_nip_first_try"(platform: "/mobile") {
+            news_id = "card_nip_first_try-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_second_try"(platform: "/mobile") {
+            news_id = "card_nip_second_try-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_nip_block"(platform: "/mobile") {
+            news_id = "card_nip_nip_block-186785675"
             event_type = "open"
             notification_type= "deep_linking"
         }
@@ -7764,6 +7803,24 @@ trackTests {
             provider_name = "HBO GO"
             date = "20181211"
             type = "activate_before"
+        }
+
+        "/notification/card_nip_first_try"(platform: "/mobile") {
+            news_id = "card_nip_first_try-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_second_try"(platform: "/mobile") {
+            news_id = "card_nip_second_try-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
+
+        "/notification/card_nip_nip_block"(platform: "/mobile") {
+            news_id = "card_nip_nip_block-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
         }
     }
 

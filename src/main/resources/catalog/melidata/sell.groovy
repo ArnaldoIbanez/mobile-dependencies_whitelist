@@ -337,11 +337,13 @@ tracks {
     }
     "/sell/list/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/list/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/picture_uploader/crop"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/picture_uploader/delete"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/list/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/manufacturing_time"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/manufacturing_time_review"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/free_shipping"(platform:"/mobile", type: TrackType.View) {}
+    "/sell/list/free_shipping_review"(platform:"/mobile", type: TrackType.View) {}
     "/sell/list/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/kyc_landing"(platform: "/mobile", type: TrackType.View) {}
 
@@ -511,11 +513,6 @@ tracks {
     "/sell/list/zip_code/zip_code/search_zip_code"(platform: "/", type: TrackType.Event) {}
     "/sell/list/manufacturing_time"(platform: "/", type: TrackType.View) {}
     "/sell/list/phone"(platform: "/", type: TrackType.View) {}
-    "/sell/list/picture_editor"(platform: "/mobile",isAbstract:true){}
-    "/sell/list/picture_editor/function"(platform: "/mobile",isAbstract:true){}
-    "/sell/list/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/list/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/list/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/list/category"(platform: "/mobile", isAbstract: true) {
         catalogFlowMobile
     }
@@ -559,13 +556,12 @@ tracks {
         item_id(required: true, description: "Item id", type: PropertyType.String)
     }
     "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/update/picture_uploader"(platform: "/", isAbstract: true){}
-    "/sell/update/picture_uploader/delete"(platform: "/mobile", type: TrackType.Event){
-        item_id(required: true, description: "Item id", type: PropertyType.String)
-    }
-    "/sell/update/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event){
-        item_id(required: true, description: "Item id", type: PropertyType.String)
-    }
+    "/sell/update/picture_uploader"(platform: "/mobile", isAbstract: true) {}
+    "/sell/update/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}
+    "/sell/update/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/picture_uploader/crop"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/picture_uploader/delete"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/picture_uploader/rotate"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/goals"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/description_included"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/description_not_included"(platform: "/mobile", type: TrackType.View) {}
@@ -659,15 +655,6 @@ tracks {
     "/sell/update/pictures/album_selected"(platform: "/mobile", type: TrackType.Event) {
         album_name(required: true, description: "Album name", type: PropertyType.String)
     }
-    "/sell/update/picture_editor"(platform: "/mobile", isAbstract: true) {}
-    "/sell/update/picture_editor/function"(platform: "/mobile", isAbstract: true) {}
-    "/sell/update/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/picture_uploader"(platform: "/", isAbstract: true) {}
-    "/sell/update/picture_uploader/crop"(platform: "/", isAbstract: true) {}
-    "/sell/update/picture_uploader/crop/crop_canceled"(platform: "/", type: TrackType.Event) {}
-    "/sell/update/picture_uploader/crop/crop_acepted"(platform: "/", type: TrackType.Event) {}
     "/sell/update/price"(platform: "/", type: TrackType.View) {}
     "/sell/update/title"(platform: "/", type: TrackType.View) {}
     "/sell/update/shipping_options_me"(platform: "/", type: TrackType.View) {}
@@ -1146,6 +1133,15 @@ tracks {
         pictureIntentGroup
     }
 
+    "/sell/item_data/plans"(platform: "/web", isAbstract: true) {
+        sellGroup
+    }
+    "/sell/item_data/plans/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_data/pictures_modal"(platform: "/web", isAbstract: true) {
+        sellGroup
+    }
+    "/sell/item_data/pictures_modal/show"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/item_data/title_and_description"(platform: "/web", isAbstract: true) {
         listingTypeFlow

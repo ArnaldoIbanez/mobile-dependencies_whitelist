@@ -645,7 +645,7 @@ trackTests {
     // Request: Onboarding
     test("cards hybrid request physical onboarding") {
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-            context = "no_kyc_no_challlenge"
+            context = "no_kyc_no_challenge"
         }
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
             context = "kyc_challenge"

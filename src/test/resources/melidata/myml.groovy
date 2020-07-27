@@ -144,6 +144,7 @@ trackTests {
 
     test("Optin flow") {
         "/myml/invoices/optin"(platform: "/") {}
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {}
         "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
             seller_type = "PF"
         }
@@ -173,6 +174,20 @@ trackTests {
         }
         "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
             seller_type = "PJ"
+        }
+
+        "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
+
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "ADDRESS_NOT_REGISTERED"
+        }
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NOT_OWNER"
+        }
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NO_DOCUMENT_REGISTERED"
         }
 
         "/myml/invoices/not-found"(platform: "/") {}

@@ -616,7 +616,9 @@ tracks {
         context (
             required: true,
             type: PropertyType.String,
-            values: ["no_kyc_no_challlenge", "kyc_challenge", "no_kyc_challenge", "kyc_no_challenge", "prepaid_reparking_challenge", "prepaid_reparking_no_challenge", "seller_kyc", "seller_no_kyc"],
+            values: ["no_kyc_no_challenge", "kyc_challenge", "no_kyc_challenge", "kyc_no_challenge", 
+                    "prepaid_reparking_challenge", "prepaid_reparking_no_challenge",
+                    "seller_kyc_challenge", "seller_kyc_no_challenge", "seller_no_kyc_challenge", "seller_no_kyc_no_challenge"],
             description: "type of onboarding",
             inheritable:false
         )

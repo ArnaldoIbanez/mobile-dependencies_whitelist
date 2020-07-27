@@ -175,4 +175,18 @@ tracks {
     }
 
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MY PURCHASES STATUS PLACES
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/my_purchases/status/places"(platform:"/", type: TrackType.View) {}
+
+    "/my_purchases/status/places/show_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
+    "/my_purchases/status/places/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
+
 }

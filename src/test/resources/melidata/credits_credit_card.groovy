@@ -28,7 +28,7 @@ trackTests {
         max_payment_plan: 12,
     ]
 
-    test("credits credit card tests") {
+    test("Credits Credit Card - Payment tests") {
         /***********************************************
          *       Start: Credit Card Payment
          ***********************************************/
@@ -84,6 +84,122 @@ trackTests {
         }
         /*********************************************
          *       End: Credit Card Payment
+         *********************************************/
+    }
+
+    test("Credits Credit Card - Upgrade tests") {
+        /***********************************************
+         *       Start: Credit Card Upgrade
+         ***********************************************/
+
+        def congrats_approved_status = "approved"
+        def congrats_pending_status = "pending"
+        def congrats_rejected_status = "rejected"
+
+        // Onboarding
+        "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
+            offer = offer_data_scoring_b
+            is_card_active = true
+            page = 1
+        }
+
+        // Payment due date selection
+        "/credits/credit_card/upgrade/payment_due_date_selection"(platform: "/", type: TrackType.View) {
+            offer = offer_data_scoring_b
+            is_card_active = true
+            buckets = [1, 15, 25]
+        }
+
+        // Summary
+        "/credits/credit_card/upgrade/summary"(platform: "/", type: TrackType.View) {
+            offer = offer_data_scoring_b
+            is_card_active = true
+            bucket = 15
+            limit = 2000
+            annuity_cost = 150
+        }
+
+        "/credits/credit_card/upgrade/summary/payment_due_date_selection_action"(platform: "/", type: TrackType.Event) {
+            bucket = 15
+        }
+
+        // Congrats
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            offer = offer_data_scoring_b
+            is_card_active = true
+            status = congrats_approved_status
+        }
+
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            offer = offer_data_scoring_a
+            is_card_active = true
+            status = congrats_pending_status
+        }
+
+        "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
+            offer = offer_data_scoring_b
+            is_card_active = true
+            status = congrats_rejected_status
+        }
+
+        "/credits/credit_card/upgrade/congrats/promotion_action"(platform: "/", type: TrackType.Event) {}
+
+        "/credits/credit_card/upgrade/congrats/go_dashboard_action"(platform: "/", type: TrackType.Event) {}
+
+        // Error
+        "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {
+            reason = "Network error"
+        }
+
+        /*********************************************
+         *       End: Credit Card Upgrade
+         *********************************************/
+    }
+
+    test("Credits Credit Card - Statement tests") {
+        /***********************************************
+         *       Start: Credit Card Statement
+         ***********************************************/
+
+        def statement_open_status = "open"
+        def statement_closed_status = "closed"
+        def statement_overdue_status = "overdue"
+        def statement_paid_status = "paid"
+
+        // Statement
+        "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
+            statement_status = statement_open_status
+        }
+
+        "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
+            statement_status = statement_closed_status
+        }
+
+        "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
+            statement_status = statement_overdue_status
+        }
+
+        "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
+            statement_status = statement_paid_status
+        }
+
+        "/credits/credit_card/statement/download_pdf_action"(platform: "/", type: TrackType.Event) {
+            month = 10
+            year = 2020
+        }
+
+        "/credits/credit_card/statement/month_selected_action"(platform: "/", type: TrackType.Event) {
+            month = 9
+            year = 2020
+            month_diff = -1
+        }
+
+        "/credits/credit_card/statement/payment_action"(platform: "/", type: TrackType.Event) {
+            statement_status = statement_overdue_status
+        }
+
+        /*********************************************
+         *       End: Credit Card Statement
          *********************************************/
     }
 }

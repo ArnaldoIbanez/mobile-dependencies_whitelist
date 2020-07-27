@@ -698,6 +698,8 @@ trackTests {
             reason = "generic"
         }
 
+        "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {}
+
         "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {}
 
         "/credits/merchant/open-market/how-to-download_click"(platform: "/", type: TrackType.Event) {}

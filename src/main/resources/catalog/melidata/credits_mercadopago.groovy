@@ -321,6 +321,8 @@ tracks {
 
     "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
     
+    "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {}
+    
     "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
         reason(
             type: PropertyType.String,

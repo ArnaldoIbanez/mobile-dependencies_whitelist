@@ -205,5 +205,21 @@ trackTests {
         "/my_purchases/status/cancel_purchase" (platform:"/", type: TrackType.View) {
             newPurchasesDataSet()
         }
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TEST TRACKS MY PURCHASES STATUS PLACES
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        "/my_purchases/status/places" (platform:"/", type: TrackType.View) {
+            newPurchasesDataSet()
+        }
+
+        "/my_purchases/status/places/show_action" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
+
+        "/my_purchases/status/places/click_action" (platform:"/", type: TrackType.Event) {
+            purchasesEventDataSet()
+        }
 	}
 }

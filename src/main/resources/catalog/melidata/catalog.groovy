@@ -146,6 +146,7 @@ catalog {
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
         include business, "kyc.groovy"
+        include business, "user_blocker.groovy"
         include business, "pdp.groovy"
         include business, "qadb.groovy"
         include business, "promotions.groovy"

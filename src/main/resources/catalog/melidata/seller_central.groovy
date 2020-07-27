@@ -139,6 +139,14 @@ tracks {
         kind(required: true, type: PropertyType.String, description: "Kind of the render", values: ["fallback", "normal"])
     }
 
+    def picture_info_map = objectSchemaDefinitions {
+        width(required: true, type: PropertyType.Numeric, description: "this property describes width of the image")
+        height(required: true, type: PropertyType.Numeric, description: "this property describes height of the image")
+        size(required: false, type: PropertyType.String, description: "this property describes size of the image in bytes")
+        format(required: false, type: PropertyType.String, description: "this property describes format of the image")
+        valid(required: true, type: PropertyType.Boolean, description: "this property describes if this picture is valid")
+    }
+
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
@@ -188,6 +196,12 @@ tracks {
         user_type(required: false, type: PropertyType.String, description: "The user type")
         business(required: false,  values:["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
         platform(required: false, values:["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
+
+        // RE V4 Intents
+        intent_type(required: true, type: PropertyType.String, description: "this property describes the intent type to be perform", values:["drag", "valid_street_number", "invalid_street_number", "new_location_accepted", "new_location_rejected", "new_location_auto_accepted", "valid_intent", "invalid_intent", "pictures_upload"])
+        intent_value(required: false, type: PropertyType.String, description: "this property describes the intent value if exists")
+        field_intent_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the field ids for the intent")
+        pictures_info(required: true, type: PropertyType.ArrayList(PropertyType.Map(picture_info_map)), description: "this property describes array of pictures information")
     }
 
     propertyGroups {
@@ -205,6 +219,10 @@ tracks {
         sellerCentralCatalogBoostGroup(item_attributes, catalog_product_attributes, item_title, catalog_product_title)
 
         sellerCentralUserSales(seller_profile, seller_reputation, mercado_lider, seller_segment, user_type)
+
+        intentGroup(intent_type, intent_value)
+        technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
+        pictureIntentGroup(intent_type, pictures_info)
     }
 
     // Summary
@@ -730,6 +748,9 @@ tracks {
     "/seller_central/modify/detail/quick_edit_standard"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/quick_edit_standard/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/modify/detail/quick_edit_standard/confirm"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/quick_edit_standard/intent"(platform: "/", type: TrackType.Event) {
+        pictureIntentGroup
+    }
 
 
     "/seller_central/modify/detail/seller_contact"(platform: "/", isAbstract: true) {}
@@ -742,6 +763,9 @@ tracks {
     "/seller_central/modify/detail/location"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/location/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/modify/detail/location/confirm"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event) {
+        intentGroup
+    }
 
     "/seller_central/modify/detail/instant_pay_listings"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/instant_pay_listings/show"(platform: "/", type: TrackType.Event) {}
@@ -855,6 +879,9 @@ tracks {
     "/seller_central/modify/detail/technical_specifications"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/technical_specifications/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/modify/detail/technical_specifications/confirm"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/technical_specifications/intent"(platform: "/", type: TrackType.Event) {
+        technicalSpecsIntentsGroup
+    }
 
 
     // SETTINGS SECTION
