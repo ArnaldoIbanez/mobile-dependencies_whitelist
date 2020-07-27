@@ -1101,6 +1101,7 @@ tracks {
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
     }
 
     "/vip/credits_intention/main_action/up"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -1122,6 +1123,7 @@ tracks {
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
     }
 
     "/vip/credits_intention/main_action/down"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -1146,6 +1148,7 @@ tracks {
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
     }
 
 

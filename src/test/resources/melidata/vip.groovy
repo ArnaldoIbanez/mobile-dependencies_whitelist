@@ -1267,6 +1267,7 @@ trackTests {
             from_view="vip"
             item_status = "active"
             vertical = "motors"
+            deal_ids = []
         }
 
         "/vip/credits_intention/card"(platform:"/web/mobile", type: TrackType.Event) {
