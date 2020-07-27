@@ -7548,8 +7548,8 @@ trackTests {
         }
 
         "/notification/prepaid_card_transaction_rejected_for_not_transaction"(platform: "/mobile") {
-            news_id = "prepaid_card_transaction_rejected_for_not_transaction-186785675",
-            event_type = "open",
+            news_id = "prepaid_card_transaction_rejected_for_not_transaction-186785675"
+            event_type = "open"
              notification_type= "deep_linking"
         }
         
