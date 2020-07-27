@@ -593,7 +593,8 @@ tracks {
     "/instore/buyer_qr/landing/codes_expired"(platform: "/mobile", type: TrackType.View) {}
 
     "/instore/buyer_qr/button_pressed"(platform: "/mobile", type: TrackType.Event) {
-        button_type(required: true, PropertyType.String, description: "'show_codes' | 'understood' | 'retry' | 'add_money' | 'add_card' | 'maybe_later'")
+        button_type(required: false, PropertyType.String, description: "an array of strings used to know what actions the button has triggered if exists")
+        deeplink(required: false, PropertyType.String, description: "the deeplink triggered by the button if exists")
     }
 
     "/instore/buyer_qr/landing/funding_mandatory"(platform: "/mobile", type: TrackType.View) {}

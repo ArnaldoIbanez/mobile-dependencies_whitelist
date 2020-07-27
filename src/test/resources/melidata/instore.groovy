@@ -1411,7 +1411,7 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/buyer_qr/button_pressed"(platform: "/mobile", type: TrackType.Event) {
-            button_type = "show_codes"
+            deeplink = "meli:addcard"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/buyer_qr/landing/funding_mandatory"(platform: "/mobile", type: TrackType.View) {
@@ -2933,7 +2933,7 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/buyer_qr/button_pressed"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            button_type = "show_codes"
+            button_type = "show_codes,understood"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/buyer_qr/landing/funding_mandatory"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
