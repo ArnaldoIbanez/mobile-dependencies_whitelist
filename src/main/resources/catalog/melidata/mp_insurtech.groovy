@@ -59,4 +59,80 @@ tracks {
         option(required: true, type: PropertyType.Map(roda_option), description: "Option plan selected on purchase.")
         financing_type(required: false, type: PropertyType.Map(financing_type_track_structure), description: "Financing data of item if it has")
     }
+
+     // INSURTECH RODA Hardware Check 
+
+    "/insurtech/hardware_check"(platform: "/", isAbstract: true) {}
+
+    "/insurtech/hardware_check/onboarding"(platform:"/mobile", type: TrackType.View) {
+        quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
+    }
+
+    "/insurtech/hardware_check/onboarding/exit"(platform:"/mobile", type: TrackType.Event) {}
+
+    "/insurtech/hardware_check/onboarding/start_tests"(platform:"/mobile", type: TrackType.Event) {}
+
+    "/insurtech/hardware_check/onboarding/permission_allow"(platform:"/mobile", type: TrackType.Event) {}
+
+    "/insurtech/hardware_check/onboarding/permission_deny"(platform:"/mobile", type: TrackType.Event) {}
+
+    "/insurtech/hardware_check/onboarding/permission_dont_ask_again"(platform:"/mobile", type: TrackType.Event) {}
+
+    "/insurtech/hardware_check/onboarding/permission_application_information"(platform:"/mobile", type: TrackType.Event) {}
+
+    "/insurtech/hardware_check/permission_denied"(platform:"/mobile", type: TrackType.View) {
+        quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
+    }
+
+    "/insurtech/hardware_check/permission_denied/exit"(platform:"/mobile", type: TrackType.Event) {}
+
+    "/insurtech/hardware_check/permission_denied/accept"(platform:"/mobile", type: TrackType.Event) {}
+
+    "/insurtech/hardware_check/checkups"(platform:"/mobile", type: TrackType.View) {
+        quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
+    }
+
+    "/insurtech/hardware_check/checkups/exit"(platform:"/mobile", type: TrackType.Event) {
+        check_id(required: true, type: PropertyType.String, description: "check ID.")
+        cycle(required: true, type: PropertyType.Numeric, description: "Cycle within the check to which the event corresponds.")
+        time_assigned(required: true, type: PropertyType.Numeric, description: "Allotted time for checking.")
+    }
+
+    "/insurtech/hardware_check/checkups/exit_cancel"(platform:"/mobile", type: TrackType.Event) {
+        check_id(required: true, type: PropertyType.String, description: "check ID.")
+        cycle(required: true, type: PropertyType.Numeric, description: "Cycle within the check to which the event corresponds.")
+        time_assigned(required: true, type: PropertyType.Numeric, description: "Allotted time for checking.")
+    }
+
+    "/insurtech/hardware_check/checkups/time_ended"(platform:"/mobile", type: TrackType.Event) {
+        check_id(required: true, type: PropertyType.String, description: "check ID.")
+        cycle(required: true, type: PropertyType.Numeric, description: "Cycle within the check to which the event corresponds.")
+        time_assigned(required: true, type: PropertyType.Numeric, description: "Allotted time for checking.")
+    }
+
+    "/insurtech/hardware_check/checkups/try_again"(platform:"/mobile", type: TrackType.Event) {
+        check_id(required: true, type: PropertyType.String, description: "check ID.")
+        cycle(required: true, type: PropertyType.Numeric, description: "Cycle within the check to which the event corresponds.")
+    }
+
+    "/insurtech/hardware_check/checkups/skip_check"(platform:"/mobile", type: TrackType.Event) {
+        check_id(required: true, type: PropertyType.String, description: "check ID.")
+    }
+
+    "/insurtech/hardware_check/checkups/ready"(platform:"/mobile", type: TrackType.Event) {
+        check_id(required: true, type: PropertyType.String, description: "check ID.")
+        cycle(required: true, type: PropertyType.Numeric, description: "Cycle within the check to which the event corresponds.")
+        time_success(required: true, type: PropertyType.Numeric, description: "Time it took to perform the checkup.")
+    }
+
+    "/insurtech/hardware_check/congrats"(platform:"/mobile", type: TrackType.View) {
+        quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
+        congrats_status(required: true, type: PropertyType.String, description: "Status of the congrats.")
+    }
+
+    "/insurtech/hardware_check/congrats/exit"(platform:"/mobile", type: TrackType.Event) {}
+
+    "/insurtech/hardware_check/congrats/main_action"(platform:"/mobile", type: TrackType.Event) {
+        action_description(required: true, type: PropertyType.String, description: "Description of the main action shown in the congrats.")
+    } 
 }
