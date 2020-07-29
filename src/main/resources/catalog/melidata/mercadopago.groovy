@@ -27,10 +27,11 @@ tracks {
         price (type: PropertyType.Numeric, required: true, description: "Price of device")
         is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
         user_id (type: PropertyType.Numeric, required: true, description: "User ID")
+        e2e_test (type: PropertyType.Boolean, required: true, description: "e2e Test")
     }
 
     propertyGroups {
-        groupCheckoutProperties(flow_id, product, currency, price, is_guest, user_id)
+        groupCheckoutProperties(flow_id, product, currency, price, is_guest, user_id, e2e_test)
     }
 
     "/"(platform: "/", isAbstract: true) {
