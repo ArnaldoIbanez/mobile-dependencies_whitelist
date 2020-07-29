@@ -156,6 +156,7 @@ tracks {
         device_id (required: true, type: PropertyType.String, description: "ID of Point device")
         amount (required: true, type: PropertyType.Numeric, description: "Ticket amount")
         is_guest (required: true, type: PropertyType.Boolean, description: "Guest user flag")
+        e2e_test (required: true, type: PropertyType.Boolean, description: "e2e Test")
     }
 
     "/point/flows/congrats/instructions"(platform:"/", type: TrackType.View) {}
