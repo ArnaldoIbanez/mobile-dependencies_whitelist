@@ -86,6 +86,7 @@ trackTests {
         //Profile
         "/logistics/login/profile"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            driver_id = "987"
         }
 
         //Camera permission
@@ -259,6 +260,8 @@ trackTests {
 
         "/logistics/last_mile/congrats/final"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            route_id = "1234"
+            driver_id = "1234"
         }
 
         "/logistics/last_mile/congrats/ok"(platform: "/mobile", type: TrackType.View) {
@@ -345,11 +348,23 @@ trackTests {
         }
         "/logistics/last_mile/return_to_station/packages_to_return"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            route_id = "1234"
+            driver_id = "1234"
         }
         "/logistics/last_mile/return_to_station/open_route"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
             packages_to_return = "package1, package2"
+        }
+        "/logistics/last_mile/return_to_station/remaining_packages_disclaimer"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "1234"
+            driver_id = "1234"
+        }
+        "/logistics/last_mile/return_to_station/access_facility_qr"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "1234"
+            driver_id = "1234"   
         }
         "/logistics/last_mile/list/transloaded_shipments_modal"(platform: "/mobile", type: TrackType.View) {
             route_id = "123"
@@ -418,6 +433,16 @@ trackTests {
             route_id = "123"
             driver_id = "123"
             case_type_id = "6"
+        }
+        "/logistics/end_route/authentication_qr"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+        }
+        "/logistics/profile/authentication_qr"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
         }
     }
 
