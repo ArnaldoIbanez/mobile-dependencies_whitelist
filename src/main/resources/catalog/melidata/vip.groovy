@@ -511,7 +511,9 @@ tracks {
         )
     }
 
-    "/vip/similar_vehicles"(platform: "/", type: TrackType.Event) {}
+    "/vip/similar_vehicles"(platform: "/", type: TrackType.Event) {
+        item_seller_type(required: false, description: "Seller type: normal, car_dealer, etc")
+    }
 
     "/vip/map/"(platform: "/mobile") {}
 
