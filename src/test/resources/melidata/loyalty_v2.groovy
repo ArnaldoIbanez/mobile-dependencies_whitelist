@@ -405,6 +405,7 @@ trackTests {
 
         "/loyalty/partners/login/invalid"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             subscription_partner = "Paramount"
+            server_error = false
         }
 
     }
