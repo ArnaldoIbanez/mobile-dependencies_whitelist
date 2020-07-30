@@ -778,6 +778,8 @@ trackTests {
                 error_msg = "ERROR_CANT_VALIDATE"
             }
 
+            "/screenlock/biometrics/fallback"(platform: "/mobile/android", type: TrackType.Event) {}
+
             "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
                 enrollment_status = "enabled"
                 os_status = "basic_screenlock"

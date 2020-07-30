@@ -545,6 +545,8 @@ tracks {
         error_msg(type: PropertyType.String, required: true, description: "Error validation and fingerprintManager message")
     }
 
+    "/screenlock/biometrics/fallback"(platform: "/mobile/android", parentPropertiesInherited: false ,type: TrackType.Event) {}
+
     // Security Blocker
 
     "/screenlock/security_blocker"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
