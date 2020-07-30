@@ -685,6 +685,19 @@ trackTests {
             ]
         }
 
+        "/vip/denounce_intention"(platform: "/web", type: TrackType.Event){
+            item_id = "MLA213512313"
+            vertical = "motors"
+            category_id = "MLA401803"
+            item_status = "active"
+            category_path = [
+                    "MLA1459",
+                    "MLA1493",
+                    "MLA1495",
+                    "MLA401803"
+            ]
+        }
+
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
             vip_version = "new"
@@ -1224,6 +1237,31 @@ trackTests {
         }
 
         "/vip/technical_specs/see_more"(platform: "/mobile", type: TrackType.Event){
+            properties()
+        }
+    }
+
+    test("VIP link from denounce"){
+        def properties = {
+
+            vertical = "motors"
+            seller_id =  430012134
+            item_seller_type = "car_dealer"
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                    "MLA1459",
+                    "MLA1493",
+                    "MLA1495",
+                    "MLA401803"
+            ]
+            buying_mode = "classified"
+        }
+
+        "/vip/denounce_intention"(platform: "/mobile", type: TrackType.Event){
             properties()
         }
     }
