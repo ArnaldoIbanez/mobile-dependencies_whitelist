@@ -3,8 +3,7 @@ SELECT  Jest(event_data, 'type_track') AS type_track,
         device.platform AS platform,
         application.version AS version,
         Substr(ds, 1, 10)  AS fecha
-FROM tracks
+FROM tracks_mp
 WHERE ds >= '@param01'
 AND ds < '@param02'
 AND path LIKE '%/apprater%'
-AND application.business='mercadopago'
