@@ -118,6 +118,11 @@ tracks {
                 description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
     }
 
+    "/portal/zrp"(platform: "/", type: TrackType.View) {
+        portal_source_id(required: false, type: PropertyType.Numeric,
+                description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+    }
+
     "/portal/validate_user"(platform: "/", type: TrackType.View) {}
 
     // Support Widget
@@ -136,7 +141,11 @@ tracks {
     }
 
     "/support/widget/home"(platform: "/", type: TrackType.View) {
-        portal_source_id
+        portal_source_id(required: false, type: PropertyType.Numeric, description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+    }
+
+    "/support/widget/zrp"(platform: "/", type: TrackType.View) {
+        portal_source_id(required: false, type: PropertyType.Numeric, description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
     }
 
     "/support/widget/faq"(platform: "/", type: TrackType.View) {
