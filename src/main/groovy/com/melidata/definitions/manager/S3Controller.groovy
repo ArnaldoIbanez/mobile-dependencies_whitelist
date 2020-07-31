@@ -40,10 +40,14 @@ class S3Controller {
     }
 
     Integer getLastVersion(String lastVersionObject) {
-        println "getLastVersion ${bucket} - ${lastVersionObject}"
-        S3Object obj = s3.getObject(bucket, lastVersionObject);
-        def content = IOUtils.toString(obj.objectContent);
-        return Integer.parseInt(content.trim());
+        try {
+            println "getLastVersion ${bucket} - ${lastVersionObject}"
+            S3Object obj = s3.getObject(bucket, lastVersionObject)
+            def content = IOUtils.toString(obj.objectContent)
+            return Integer.parseInt(content.trim())
+        } catch(Exception e) {
+            return 0
+        }
     }
 
 
