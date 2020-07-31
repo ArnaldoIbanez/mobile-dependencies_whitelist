@@ -649,6 +649,7 @@ trackTests {
           has_coupon = true
           coupon_code = "GHZM"
           user_id = 5010815
+          e2e_test = false
         }
 
         "/point/buyingflow/shipping_options"(platform: "/", type: TrackType.View) {
@@ -658,6 +659,7 @@ trackTests {
           price = 299
           is_guest = true
           user_id = 5010815
+          e2e_test = false
         }
 
         "/point/buyingflow/new_address"(platform: "/", type: TrackType.View) {
@@ -667,6 +669,7 @@ trackTests {
           price = 299
           is_guest = true
           user_id = 5010815
+          e2e_test = false
         }
 
         "/point/buyingflow/payment_methods"(platform: "/", type: TrackType.View) {
@@ -676,6 +679,7 @@ trackTests {
           price = 299
           is_guest = true
           user_id = 5010815
+          e2e_test = false
         }
         
         "/point/buyingflow/payment_ticket_info"(platform: "/", type: TrackType.View) {
@@ -685,6 +689,7 @@ trackTests {
           price = 299
           is_guest = true
           user_id = 5010815
+          e2e_test = false
         }
 
         "/point/buyingflow/payment_installments"(platform: "/", type: TrackType.View) {
@@ -694,6 +699,7 @@ trackTests {
           price = 299
           is_guest = true
           user_id = 5010815
+          e2e_test = false
         }
 
         "/point/buyingflow/payment_installments/installments"(platform: "/", type: TrackType.Event) {
@@ -703,6 +709,7 @@ trackTests {
           price = 299
           is_guest = true
           user_id = 5010815
+          e2e_test = false
         }
 
         "/point/buyingflow/payment_new_card"(platform: "/", type: TrackType.View) {
@@ -712,6 +719,7 @@ trackTests {
           price = 299
           is_guest = true
           user_id = 5010815
+          e2e_test = false
         }
 
         "/point/buyingflow/payment_card_security_code"(platform: "/", type: TrackType.View) {
@@ -721,6 +729,7 @@ trackTests {
           price = 299
           is_guest = true
           user_id = 5010815
+          e2e_test = false
         }
 
         "/point/buyingflow/payment_bank_selector"(platform: "/", type: TrackType.View) {
@@ -730,6 +739,7 @@ trackTests {
           price = 299
           is_guest = true
           user_id = 5010815
+          e2e_test = false
         }
 
         "/point/buyingflow/payment_review"(platform: "/", type: TrackType.View) {
@@ -742,6 +752,7 @@ trackTests {
           selected_payment_method_type = "credit_card"
           installments = 6
           user_id = 5010815
+          e2e_test = false
         }
 
         "/point/buyingflow/payment_rejected"(platform: "/", type: TrackType.View) {
@@ -754,6 +765,7 @@ trackTests {
           selected_payment_method_type = "credit_card"
           installments = 6
           user_id = 5010815
+          e2e_test = false
         }
         
         "/point/buyingflow/error"(platform: "/", type: TrackType.View) {
@@ -764,6 +776,7 @@ trackTests {
           is_guest = true
           error_code = 6
           user_id = 5010815
+          e2e_test = false
         }
 
         "/point/buyingflow/payment_review/confirm_purchase"(platform: "/", type: TrackType.Event) {
@@ -773,6 +786,7 @@ trackTests {
           price = 299
           is_guest = true
           user_id = 5010815
+          e2e_test = false
         }
     }
 
@@ -988,6 +1002,7 @@ trackTests {
           device_id = "9"
           amount = 118.11
           is_guest = false
+          e2e_test = false
         }
     }
 
@@ -998,6 +1013,7 @@ trackTests {
           device_id = "9"
           amount = 118.11
           is_guest = false
+          e2e_test = false
         }
     }
 
@@ -1009,6 +1025,7 @@ trackTests {
           device_id = "9"
           amount = 118.11
           is_guest = false
+          e2e_test = false
         }
         "/point/flows/congrats/instructions/copy"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
@@ -1016,6 +1033,7 @@ trackTests {
           device_id = "9"
           amount = 118.11
           is_guest = false
+          e2e_test = false
         }
         "/point/flows/congrats/instructions/map"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
@@ -1023,6 +1041,7 @@ trackTests {
           device_id = "9"
           amount = 118.11
           is_guest = false
+          e2e_test = false
         }
         "/point/flows/congrats/instructions/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1030,6 +1049,7 @@ trackTests {
             device_id = "9"
             amount = 118.11
             is_guest = false
+            e2e_test = false
         }
         "/point/flows/congrats/instructions/prepaid_offer_register"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1037,6 +1057,7 @@ trackTests {
             device_id = "9"
             amount = 118.11
             is_guest = false
+            e2e_test = false
         }
         "/point/flows/congrats/instructions/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1044,6 +1065,7 @@ trackTests {
             device_id = "9"
             amount = 118.11
             is_guest = false
+            e2e_test = false
         }
         "/point/flows/congrats/instructions/continue"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1051,6 +1073,7 @@ trackTests {
             device_id = "9"
             amount = 118.11
             is_guest = false
+            e2e_test = false
         }
         "/point/flows/congrats/instructions/unlockprepaid"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1058,6 +1081,7 @@ trackTests {
             device_id = "9"
             amount = 118.11
             is_guest = false
+            e2e_test = false
         }
         "/point/flows/congrats/instructions/followprepaid"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1065,6 +1089,7 @@ trackTests {
             device_id = "9"
             amount = 118.11
             is_guest = false
+            e2e_test = false
         }
     }
 
@@ -1076,6 +1101,7 @@ trackTests {
           device_id = "9"
           amount = 118.11
           is_guest = false
+          e2e_test = false
         }
         "/point/flows/congrats/copy"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
@@ -1083,6 +1109,7 @@ trackTests {
           device_id = "9"
           amount = 118.11
           is_guest = false
+          e2e_test = false
         }
         "/point/flows/congrats/map"(platform:"/", type: TrackType.Event) {
           payment_id = 4334902696
@@ -1090,6 +1117,7 @@ trackTests {
           device_id = "9"
           amount = 118.11
           is_guest = false
+          e2e_test = false
         }
         "/point/flows/congrats/prepaid_offer_refuse"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1097,6 +1125,7 @@ trackTests {
             device_id = "9"
             amount = 118.11
             is_guest = false
+            e2e_test = false
         }
         "/point/flows/congrats/prepaid_offer_register"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1104,6 +1133,7 @@ trackTests {
             device_id = "9"
             amount = 118.11
             is_guest = false
+            e2e_test = false
         }
         "/point/flows/congrats/prepaid_offer_accept"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1111,6 +1141,7 @@ trackTests {
             device_id = "9"
             amount = 118.11
             is_guest = false
+            e2e_test = false
         }
         "/point/flows/congrats/continue"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1118,6 +1149,7 @@ trackTests {
             device_id = "9"
             amount = 118.11
             is_guest = false
+            e2e_test = false
         }
         "/point/flows/congrats/unlockprepaid"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1125,6 +1157,7 @@ trackTests {
             device_id = "9"
             amount = 118.11
             is_guest = false
+            e2e_test = false
         }
         "/point/flows/congrats/followprepaid"(platform:"/", type: TrackType.Event) {
             payment_id = 4334902696
@@ -1132,6 +1165,7 @@ trackTests {
             device_id = "9"
             amount = 118.11
             is_guest = false
+            e2e_test = false
         }
     }
     
