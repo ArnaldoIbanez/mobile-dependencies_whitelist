@@ -42,6 +42,7 @@ tracks {
     "/classi_credits"(platform: "/", isAbstract: true) {}
     "/classi_credits/application_form"(platform: "/", isAbstract: true) {}
     "/classi_credits/evaluation"(platform: "/", isAbstract: true) {}
+    "/classi_credits/modal_fullscreen"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Classifieds Credits
@@ -81,6 +82,46 @@ tracks {
     }
 
     "/classi_credits/evaluation/reject"(platform: "/", type: TrackType.View) {
+        creditGroup
+    }
+
+    "/classi_credits/modal_fullscreen/birth_city"(platform: "/", type: TrackType.View) {
+        creditGroup
+    }
+
+    "/classi_credits/modal_fullscreen/birth_nationality"(platform: "/", type: TrackType.View) {
+        creditGroup
+    }
+
+    "/classi_credits/modal_fullscreen/issuer_entity"(platform: "/", type: TrackType.View) {
+        creditGroup
+    }
+
+    "/classi_credits/modal_fullscreen/issuer_state"(platform: "/", type: TrackType.View) {
+        creditGroup
+    }
+
+    "/classi_credits/modal_fullscreen/birth_state"(platform: "/", type: TrackType.View) {
+        creditGroup
+    }
+
+    "/classi_credits/modal_fullscreen/address_city"(platform: "/", type: TrackType.View) {
+        creditGroup
+    }
+
+    "/classi_credits/modal_fullscreen/address_state"(platform: "/", type: TrackType.View) {
+        creditGroup
+    }
+
+    "/classi_credits/modal_fullscreen/address_country"(platform: "/", type: TrackType.View) {
+        creditGroup
+    }
+
+    "/classi_credits/modal_fullscreen/occupation"(platform: "/", type: TrackType.View) {
+        creditGroup
+    }
+
+    "/classi_credits/container_congrats"(platform: "/", type: TrackType.View) {
         creditGroup
     }
 
