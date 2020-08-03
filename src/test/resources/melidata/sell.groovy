@@ -4879,9 +4879,12 @@ trackTests {
             seller_segment = ""
             category_id = "MLC183186"
             seller_profile = "NEWBIE"
+            listing_type_id = "silver"
             category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
         }
         "/sell/item_data/plans/confirm"(platform: "/web", type: TrackType.Event, dataSet)
         "/sell/item_data/pictures_modal/show"(platform: "/web", type: TrackType.Event, dataSet)
+        "/sell/item_data/video/show"(platform: "/web", type: TrackType.Event, dataSet)
+        "/sell/item_data/video/confirm"(platform: "/web", type: TrackType.Event, dataSet)
     }
 }
