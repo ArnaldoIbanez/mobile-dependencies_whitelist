@@ -21,40 +21,30 @@ tracks {
 
     initiative = "1148"
 
-    "/collaborators_admin"(platform:"/", type: TrackType.View) {
+    "/collaborators"(platform:"/", isAbstract: true) {
+        type(required: true, type: PropertyType.String, description: 'Indicates the source of the tracking, i.e. form')
+    }
+
+    "/collaborators/home"(platform:"/", type: TrackType.View) {
         from(required: true, values: ['unknown', 'mail', 'banner'], description: 'Indicates from which CTA was redirected. Unknown means that it did not come from any CTA.')
         source(required: true, type: PropertyType.String, description: 'Indicates the type of origin')
         have_operators(required: true, type: PropertyType.Boolean, description: 'Indicates if you have operators in the new version')
-        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
-    "/collaborators_admin/invite"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
-        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
+    "/collaborators/invite"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
         email_already_exists(required: true, type: PropertyType.Boolean, description: 'Email already exists.')
     }
 
-    "/collaborators_admin/link_stores"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {}
+    "/collaborators/link_stores"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {}
 
-    "/collaborators_admin/roles/"(platform:"/", isAbstract: true, parentPropertiesInherited: false) {}
+    "/collaborators/scopes"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {}
 
-    "/collaborators_admin/roles/create"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
-        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
-        is_v2(required: false, type: PropertyType.Boolean, description: 'Indicates version of app.')
-    }
-
-    "/collaborators_admin/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+    "/collaborators/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
         type(required: true, type: PropertyType.String, description: 'Indicates the result of the creation of the operator.')
-        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
-    "/collaborators_admin/detail"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+    "/collaborators/detail"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
         type(required: true, values: ['role', 'operator', 'invitation'], type: PropertyType.String, description: 'Indicates the type of detail that is selected.')
-        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
-    }
-
-    "/collaborators"(platform:"/", isAbstract: true) {
-        type(required: true, type: PropertyType.String, description: 'Indicates the source of the tracking, i.e. form')
-        segmentation(required: true, type: PropertyType.String, description: 'Indicates to which migration stage it belongs.')
     }
 
     "/collaborators/select_role"(platform:"/", type: TrackType.View) {}
@@ -69,17 +59,23 @@ tracks {
 
     "/collaborators/scopes"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {}
 
-    "/collaborators/scopes/detail"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+    "/collaborators/scopes/detail"(platform:"/mobile", type: TrackType.View, parentPropertiesInherited: false) {
         scope(required: true, type: PropertyType.String, description: 'Indicates the scope that this view must show.')
     }
 
-    "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/collaborators/scopes/continue"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    "/collaborators/scopes/save"(platform:"/mobile", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     "/collaborators/role"(platform:"/", isAbstract: true, parentPropertiesInherited: false) {}
 
-    "/collaborators/role/name"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {}
+    "/collaborators/role/name"(platform:"/mobile", type: TrackType.View, parentPropertiesInherited: false) {}
 
-    "/collaborators/role/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
+    "/collaborators/role/congrats"(platform:"/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+    	type(required: true, type: PropertyType.String, description: 'Indicates the result of the congrats.')
+    }
+
+    "/collaborators/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
     	type(required: true, type: PropertyType.String, description: 'Indicates the result of the congrats.')
     }
 }

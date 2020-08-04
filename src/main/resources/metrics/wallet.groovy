@@ -239,6 +239,30 @@ metrics {
     }
   }
 
+"discount_center"(description: "Counts a user access to the any instance of the marketplace") {
+    startWith {
+      experiment(regex("cdd/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/discount_center/payers/marketplace", "/discount_center/payers/marketplace/components", "/discount_center/payers/detail")
+      }
+    }
+  }
+
+  "discount_center.detail"(description: "Counts a user access to the detail") {
+    startWith {
+      experiment(regex("cdd/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/discount_center/payers/detail")
+      }
+    }
+  }
+
 "discount_center.marketplace.from_touchpoints"(description: "Counts a user access to the discount center from any touchpoint") {
       startWith {
         experiment(regex("cdd/.*"))

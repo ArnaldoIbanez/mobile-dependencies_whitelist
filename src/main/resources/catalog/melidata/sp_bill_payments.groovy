@@ -8,6 +8,15 @@ tracks {
 
     propertyDefinitions {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        session_id (required:true, type: PropertyType.String, description: "Session Id of flow")
+        uuid (required:false, type: PropertyType.String, description: "device uuid")
+        category (required:false, type: PropertyType.String, description: "Chosen category")
+        label (required:false, type: PropertyType.String, description: "Chosen label")
+    }
+
+    propertyGroups { 
+        mandatory(session_id)
+        categoryProperties(uuid, category, label)
     }
     
     /**
@@ -16,6 +25,8 @@ tracks {
 
     "/bill_payments"(platform: "/mobile", isAbstract: true) {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        mandatory
+        categoryProperties
     }
 
     // Home
@@ -61,6 +72,39 @@ tracks {
         barcode(required: true, type: PropertyType.String, description: "the barcode used to pay")
     }
 
+    // Entities and categories
+    "/bill_payments/main_category"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/category_details"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/main_category/item"(platform: "/mobile", type: TrackType.Event) {
+        entity (required:true, type: PropertyType.String, description: "The chosen entitie label")
+    }
+
+    "/bill_payments/category_details/item"(platform: "/mobile", type: TrackType.Event) {
+        entity (required:true, type: PropertyType.String, description: "The chosen entitie label")
+    }
+
+    "/bill_payments/main_category/result_search"(platform: "/mobile", type: TrackType.Event) {
+        search (required:true, type: PropertyType.String, description: "The searched string")
+    }
+
+     "/bill_payments/category_details/result_search"(platform: "/mobile", type: TrackType.Event) {
+        search (required:true, type: PropertyType.String, description: "The searched string")
+    }
+
+     "/bill_payments/main_category/empty_search"(platform: "/mobile", type: TrackType.Event) {
+        search (required:true, type: PropertyType.String, description: "The searched string")
+    }
+
+    "/bill_payments/category_details/empty_search"(platform: "/mobile", type: TrackType.Event) {
+        search (required:true, type: PropertyType.String, description: "The searched string")
+    }
+
+    "/bill_payments/main_category/close"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/main_category/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/category_details/close"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/category_details/back"(platform: "/mobile", type: TrackType.Event) {}
+    
+
     "/bill_payments/help"(platform: "/mobile") {}
     "/bill_payments/associated_entities"(platform: "/mobile") {}
     "/bill_payments/no_money"(platform: "/mobile") {}
@@ -97,10 +141,13 @@ tracks {
     "/bill_payments/ticket_data"(platform: "/mobile") {}
     "/bill_payments/fee"(platform: "/mobile"){}
     "/bill_payments/generic_paybills_screen"(platform: "/mobile") {}
-    "/bill_payments/categories"(platform: "/mobile") {}
+    "/bill_payments/categories"(platform: "/mobile") {
+        categoryProperties
+    }
     "/bill_payments/barcode_scanner"(platform: "/mobile") {}
     "/bill_payments/products"(platform: "/mobile") {
         type (required:true, type: PropertyType.String, description: "Type of product")
+        categoryProperties
     }
     "/bill_payments/shopping"(platform: "/mobile") {}
     "/bill_payments/input_validation_error"(platform: "/mobile", type: TrackType.Event) {}

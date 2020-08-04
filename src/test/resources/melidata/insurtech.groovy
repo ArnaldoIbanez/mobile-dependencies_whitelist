@@ -170,6 +170,7 @@ trackTests {
         "/garex/checkout/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {}
         "/garex/checkout/delete"(platform:"/mobile", type: TrackType.Event) {
             garex_id = "MLA390289_GAR16001"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
             cost = 1234
             currency_id = "ARS"
         }
@@ -283,6 +284,107 @@ trackTests {
                 check: "total"
             ]            
             financing_type = null
+        }
+
+        //Mobile
+
+        "/insurtech/hardware_check/onboarding"(platform:"/mobile", type: TrackType.View) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/onboarding/exit"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/onboarding/start_tests"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/onboarding/permission_allow"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/onboarding/permission_deny"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/onboarding/permission_dont_ask_again"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/onboarding/permission_application_information"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/permission_denied"(platform:"/mobile", type: TrackType.View) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/permission_denied/exit"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/permission_denied/accept"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/checkups"(platform:"/mobile", type: TrackType.View) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/checkups/exit"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            check_id = "HEADPHONES"
+            cycle = 2
+            time_assigned = 60
+        }
+
+        "/insurtech/hardware_check/checkups/exit_cancel"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            check_id = "BACK_BUTTON"
+            cycle = 1
+            time_assigned = 60
+        }
+
+        "/insurtech/hardware_check/checkups/time_ended"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            check_id = "VOLUME_UP"
+            cycle = 1
+            time_assigned = 30
+        }
+
+        "/insurtech/hardware_check/checkups/try_again"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            check_id = "BACK_BUTTON"
+            cycle = 2
+        }
+
+        "/insurtech/hardware_check/checkups/skip_check"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            check_id = "SCREEN"
+        }
+
+        "/insurtech/hardware_check/checkups/ready"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            check_id = "VOLUME_UP"
+            cycle = 1
+            time_success = 12
+        }
+
+        "/insurtech/hardware_check/congrats"(platform:"/mobile", type: TrackType.View) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            congrats_status = "SUCCESS"
+        }
+
+        "/insurtech/hardware_check/congrats/exit"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            congrats_status = "SUCCESS"
+        }
+
+        "/insurtech/hardware_check/congrats/main_action"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            congrats_status = "SUCCESS"
+            action_description = "Continuar para o pagamento"
         }
     }
 }

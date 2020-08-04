@@ -442,6 +442,18 @@ tracks {
 
     // Phone Validation Authenticator
     "/authenticators/phone_validation"(platform: "/", isAbstract: true) {
+        enrollment(type: PropertyType.Boolean, required: false, description: "enrollment flow or not")
+        flow_type(type: PropertyType.String, required: false, description: "Current enrollment flow type")
+        flow_sub_type(type: PropertyType.String, required: false, description: "Name that represents previous flow")
+    }
+
+    "/authenticators/phone_validation/input_phone"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/phone_validation/input_phone/submit"(platform: "/", type: TrackType.Event) {
+        phone_source(type: PropertyType.String, required: true, description: "Source of phone number, could be manual or the name of the suggestion used")
+    }
+
+    "/authenticators/phone_validation/channel_selector"(platform: "/", isAbstract: true) {
         status(PropertyType.String, required: true, values: ["success", "failure", "pending_validation" ], description: "challenge status by response")
         available_channels(PropertyType.ArrayList, required: true, description: "channels available to select")
     }
@@ -452,11 +464,23 @@ tracks {
         selected_channel(PropertyType.String, required: true, values: ["push", "sms", "call", "whatsapp" ], description: "channel selected by user")
     }
 
-    "/authenticators/phone_validation/enter_code"(platform: "/", type: TrackType.View) {
+    "/authenticators/phone_validation/enter_code"(platform: "/", isAbstract: true) {
+        status(PropertyType.String, required: true, values: ["success", "failure", "pending_validation" ], description: "challenge status by response")
+        available_channels(PropertyType.ArrayList, required: true, description: "channels available to select")
         selected_channel(PropertyType.String, required: true, values: ["push", "sms", "call", "whatsapp" ], description: "channel selected by user")
     }
 
-    "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {}
+    "/authenticators/phone_validation/enter_code"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
+        phone_source(type: PropertyType.String, required: false, description: "Source of phone number, could be manual or the name of the suggestion used")
+    }
+
+    "/authenticators/phone_validation/phone_confirmation"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/phone_validation/phone_confirmation/submit"(platform: "/", type: TrackType.Event) {
+        action(type: PropertyType.String, required: true,values: ["confirm", "change_number"], description: "Option selected about current phone")
+    }
 
     // Email Validation Authenticator
 
@@ -482,6 +506,8 @@ tracks {
     def screenlockConfigStructure = objectSchemaDefinitions {
         transaction(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
         opening_lock(required: true, type: PropertyType.String, values: ["enabled", "disabled"])
+        transaction_custom(required: true, type: PropertyType.String, description: "Amount on which screenLock will be triggered")
+        opening_custom(required: true, type: PropertyType.String, description: "Elapsed time to ask for screenLock")
     }
 
     // Biometrics / Screenlock
@@ -519,17 +545,23 @@ tracks {
         error_msg(type: PropertyType.String, required: true, description: "Error validation and fingerprintManager message")
     }
 
+    "/screenlock/biometrics/fallback"(platform: "/mobile/android", parentPropertiesInherited: false ,type: TrackType.Event) {}
+
     // Security Blocker
 
-    "/screenlock/security_blocker"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/screenlock/security_blocker"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
         scenario(type: PropertyType.String, required: true, values: ["no_security", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled"])
     }
 
-    // IFPE Auth restrictions
+    // IFPE Auth restrictions & Reauth errors
     "/auth/restrictions"(platform: "/", type: TrackType.View) {}
+    "/auth/restrictions/error"(platform: "/", type: TrackType.View) {
+        retry_url_present(type: PropertyType.Boolean, required: true, description: "Whether the page was loaded with a URL to retry reauth or not")
+    }
+    "/auth/restrictions/error/retry"(platform: "/", type: TrackType.Event) {}
 
     //Maybe deprecated tracks
     "/login/splitter"(platform: "/mobile", type: TrackType.View) {}

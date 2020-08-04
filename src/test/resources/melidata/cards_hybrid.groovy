@@ -328,6 +328,12 @@ trackTests {
         }
     }
     
+    //Map Info: Tracking
+    test("cards hybrid dasboard map info") {
+        "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {
+            action = "map_info"
+        }
+    }
 
     // Generic Webview
     // ------
@@ -442,6 +448,18 @@ trackTests {
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "copy"
         }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "card_name_copy"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "card_number_copy"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "card_sec_code_copy"
+        }
     }
     
     //Redirect when the user don't have a virtual card
@@ -471,6 +489,13 @@ trackTests {
     test("cards hybrid setup virtual feedback") {
         "/cards/hybrid/setup/virtual/feedback/tap"(platform:"/", type: TrackType.Event) {
             action = "research_form"
+        }
+    }
+
+    //Static Banner: Tracking
+    test("cards hybrid setup virtual static banner") {
+        "/cards/hybrid/setup/virtual/static_banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
         }
     }
 
@@ -546,6 +571,9 @@ trackTests {
         "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
             action = "change_limits"
         }
+        "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
+        }
     }
     
     test("cards hybrid setup physical feedback") {
@@ -605,12 +633,19 @@ trackTests {
         }
     }
 
+    //Map Info: Tracking
+    test("cards hybrid limits map info") {
+        "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {
+            action = "map_info"
+        }
+    }
+
     // Request
 
     // Request: Onboarding
     test("cards hybrid request physical onboarding") {
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-            context = "no_kyc_no_challlenge"
+            context = "no_kyc_no_challenge"
         }
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
             context = "kyc_challenge"

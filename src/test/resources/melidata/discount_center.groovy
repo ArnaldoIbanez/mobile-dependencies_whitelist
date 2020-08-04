@@ -393,11 +393,24 @@ trackTests {
                         ]
                     ]
                 ],
+                image_banner: [
+                        [
+                                marketplace_type: "image_banner",
+                                segment_id: "sellers_banner",
+                                marketplace_index: 4,
+                                items: [
+                                        [  
+                                            tracking_id: "image_banner_1234",
+                                            index: 0
+                                        ]
+                                ]
+                        ]
+                ],
                 last_viewed: [
                         [
                                 marketplace_type: "last_viewed",
                                 segment_id: "neighborhood",
-                                marketplace_index: 4,
+                                marketplace_index: 5,
                                 items: [
                                         [   tracking_id: "1004194",
                                             blocked: false,
@@ -509,11 +522,24 @@ trackTests {
                         ]
                     ]
                 ],
+                image_banner: [
+                        [
+                                marketplace_type: "image_banner",
+                                segment_id: "sellers_banner",
+                                marketplace_index: 4,
+                                items: [
+                                        [  
+                                            tracking_id: "image_banner_1234",
+                                            index: 0
+                                        ]
+                                ]
+                        ]
+                ],
                 last_viewed: [
                         [
                                 marketplace_type: "last_viewed",
                                 segment_id: "neighborhood",
-                                marketplace_index: 4,
+                                marketplace_index: 5,
                                 items: [
                                         [   tracking_id: "1004194",
                                             blocked: false,

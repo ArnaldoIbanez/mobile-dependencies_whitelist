@@ -617,6 +617,25 @@ trackTests {
     }
   }
 
+  test("SYI V4 RE Modificar - seller central detail try technical_specifications intent"){
+    "/seller_central/modify/detail/technical_specifications/intent"(platform: "/", type: TrackType.Event){
+      business = 'classified'
+      category_domain = "MLC-HOUSES_FOR_RENT"
+      category_id = "MLM27420"
+      category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
+      item_id = "MLC534088624"
+      item_type = "default"
+      listing_type = "silver"
+      platform = "pi"
+      seller_profile = "NEWBIE"
+      seller_reputation = "NO_REPUTATION"
+      session_id = "516954617-updateres-b5e3bdf5d0d7"
+      vertical = "real_estate"
+      intent_type = "valid_intent"
+      field_intent_ids = ["TOTAL_AREA", "SURFACE_AREA", "BEDROOMS"]
+    }
+  }
+
   test("seller central render detail seller_contact for motors"){
     "/seller_central/modify/detail/seller_contact/show"(platform: "/", type: TrackType.Event){
       item_type = "default"
@@ -722,6 +741,58 @@ trackTests {
       seller_reputation = "5_green"
       listing_type = "gold"
       vertical = "motors"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central detail try location intent"){
+    "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event){
+      business = 'classified'
+      category_domain = "MLC-HOUSES_FOR_RENT"
+      category_id = "MLM27420"
+      category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
+      item_id = "MLC534088624"
+      item_type = "default"
+      listing_type = "silver"
+      platform = "pi"
+      seller_profile = "NEWBIE"
+      seller_reputation = "NO_REPUTATION"
+      session_id = "516954617-updateres-b5e3bdf5d0d7"
+      vertical = "real_estate"
+      intent_type = "valid_street_number"
+      intent_value= "Las Condes 4488, Santiago, Chile"
+    }
+
+    "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event){
+      business = 'classified'
+      category_domain = "MLC-HOUSES_FOR_RENT"
+      category_id = "MLM27420"
+      category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
+      item_id = "MLC534088624"
+      item_type = "default"
+      listing_type = "silver"
+      platform = "pi"
+      seller_profile = "NEWBIE"
+      seller_reputation = "NO_REPUTATION"
+      session_id = "516954617-updateres-b5e3bdf5d0d7"
+      vertical = "real_estate"
+      intent_type = "invalid_street_number"
+      intent_value= "Las Condes, Santiago, Chile"
+    }
+
+    "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event){
+      business = 'classified'
+      category_domain = "MLC-HOUSES_FOR_RENT"
+      category_id = "MLM27420"
+      category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
+      item_id = "MLC534088624"
+      item_type = "default"
+      listing_type = "silver"
+      platform = "pi"
+      seller_profile = "NEWBIE"
+      seller_reputation = "NO_REPUTATION"
+      session_id = "516954617-updateres-b5e3bdf5d0d7"
+      vertical = "real_estate"
+      intent_type = "drag"
     }
   }
 
@@ -2280,7 +2351,7 @@ trackTests {
       seller_profile = "NEWBIE"
       listing_type = "gold"
       session_id = "571359341-updateres-7c63145ea255"
-      vertical = "realEstate"
+      vertical = "real_estate"
       user_type = "real_estate_agency"
       business = "classified"
       platform = "pi"
@@ -2298,7 +2369,7 @@ trackTests {
       seller_profile = "NEWBIE"
       listing_type = "gold"
       session_id = "571359341-updateres-7c63145ea255"
-      vertical = "realEstate"
+      vertical = "real_estate"
       user_type = "real_estate_agency"
       business = "classified"
       platform = "pi"
@@ -2316,7 +2387,7 @@ trackTests {
       seller_profile = "NEWBIE"
       listing_type = "gold"
       session_id = "571359341-updateres-7c63145ea255"
-      vertical = "realEstate"
+      vertical = "real_estate"
       user_type = "real_estate_agency"
       business = "classified"
       platform = "pi"
@@ -2334,7 +2405,7 @@ trackTests {
       seller_profile = "NEWBIE"
       listing_type = "gold"
       session_id = "571359341-updateres-7c63145ea255"
-      vertical = "realEstate"
+      vertical = "real_estate"
       user_type = "real_estate_agency"
       business = "classified"
       platform = "pi"
@@ -2352,7 +2423,7 @@ trackTests {
       seller_profile = "NEWBIE"
       listing_type = "gold"
       session_id = "571359341-updateres-7c63145ea255"
-      vertical = "realEstate"
+      vertical = "real_estate"
       user_type = "real_estate_agency"
       business = "classified"
       platform = "pi"
@@ -2370,7 +2441,7 @@ trackTests {
       seller_profile = "NEWBIE"
       listing_type = "gold"
       session_id = "571359341-updateres-7c63145ea255"
-      vertical = "realEstate"
+      vertical = "real_estate"
       user_type = "real_estate_agency"
       business = "classified"
       platform = "pi"
@@ -2388,7 +2459,7 @@ trackTests {
       seller_profile = "NEWBIE"
       listing_type = "gold"
       session_id = "571359341-updateres-7c63145ea255"
-      vertical = "realEstate"
+      vertical = "real_estate"
       user_type = "real_estate_agency"
       business = "classified"
       platform = "pi"
@@ -2406,7 +2477,7 @@ trackTests {
       seller_profile = "NEWBIE"
       listing_type = "gold"
       session_id = "571359341-updateres-7c63145ea255"
-      vertical = "realEstate"
+      vertical = "real_estate"
       user_type = "real_estate_agency"
       business = "classified"
       platform = "pi"
@@ -2424,7 +2495,7 @@ trackTests {
       seller_profile = "NEWBIE"
       listing_type = "gold"
       session_id = "571359341-updateres-7c63145ea255"
-      vertical = "realEstate"
+      vertical = "real_estate"
       user_type = "real_estate_agency"
       business = "classified"
       platform = "pi"
@@ -2442,7 +2513,7 @@ trackTests {
       seller_profile = "NEWBIE"
       listing_type = "gold"
       session_id = "571359341-updateres-7c63145ea255"
-      vertical = "realEstate"
+      vertical = "real_estate"
       user_type = "real_estate_agency"
       business = "classified"
       platform = "pi"
@@ -2460,10 +2531,49 @@ trackTests {
       seller_profile = "NEWBIE"
       listing_type = "gold"
       session_id = "571359341-updateres-7c63145ea255"
-      vertical = "realEstate"
+      vertical = "real_estate"
       user_type = "real_estate_agency"
       business = "classified"
       platform = "pi"
+    }
+  }
+
+  test("SYI V4 RE Modificar - seller central - try quick_edit_standard photos intent") {
+    "/seller_central/modify/detail/quick_edit_standard/intent"(platform: "/", type: TrackType.Event) {
+      business = 'classified'
+      category_domain = "MLC-HOUSES_FOR_RENT"
+      category_id = "MLM27420"
+      category_path = ["MLC1459", "MLC1466", "MLC6406", "MLC183184"]
+      item_id = "MLC534088624"
+      item_type = "default"
+      listing_type = "silver"
+      platform = "pi"
+      seller_profile = "NEWBIE"
+      seller_reputation = "NO_REPUTATION"
+      session_id = "516954617-updateres-b5e3bdf5d0d7"
+      vertical = "real_estate"
+      intent_type = "pictures_upload"
+      pictures_info = [
+        [
+          "width": 100,
+          "height": 500,
+          "size": 2048,
+          "format": "image/jpeg",
+          "valid": true
+        ],
+        [
+          "width": 800,
+          "height": 600,
+          "size": 1024,
+          "format": "image/png",
+          "valid": false
+        ],
+        [
+          "width": 800,
+          "height": 600,
+          "valid": false
+        ],
+      ]
     }
   }
 
@@ -2477,7 +2587,7 @@ trackTests {
       seller_profile = "NEWBIE"
       listing_type = "gold"
       session_id = "571359341-updateres-7c63145ea255"
-      vertical = "realEstate"
+      vertical = "real_estate"
       category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
       user_type = "real_estate_agency"
       business = "classified"

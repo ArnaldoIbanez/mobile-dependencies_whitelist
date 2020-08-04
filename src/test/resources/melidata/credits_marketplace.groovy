@@ -66,6 +66,12 @@ trackTests {
         "/credits/consumer/opensea/intermediate_landing/more_info"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/opensea/intermediate_landing/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
 
+        //Remedy
+        "/credits/consumer/opensea/add_receipt"(platform: "/web", type: TrackType.Event) {}
+        "/credits/consumer/opensea/summary"(platform: "/web", type: TrackType.View) {
+            process = 'receipt'
+        }
+
         /*********************************************
          *       End: Consumers Intermediate Landing
          *********************************************/

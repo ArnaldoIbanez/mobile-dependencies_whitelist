@@ -177,26 +177,30 @@ trackTests {
             total_storage = 12582912
             free_storage = 6291456
             app_storage = 307200
+            app_cache = 76800
+            app_data = 230400
             dark_mode_status = "enabled"
             battery_save_mode = "disabled"
             data_save_mode = "whitelisted"
             do_not_disturb_mode = "disabled"
             carrier_code = "722341"
             carrier_name = "Personal"
-            nfc_compatible = "[nfc_mifare]"
+            nfc_compatible = ["nfc_mifare"]
         }
 
         "/devices/metadata"(platform:"/mobile", business: "mercadopago") {
             total_storage = 12582912
             free_storage = 6291456
             app_storage = 307200
+            app_cache = 76800
+            app_data = 230400
             dark_mode_status = "enabled"
             battery_save_mode = "disabled"
             data_save_mode = "whitelisted"
             do_not_disturb_mode = "disabled"
             carrier_code = "722341"
             carrier_name = "Personal"
-            nfc_compatible = "[nfc_mifare]"
+            nfc_compatible = ["nfc_mifare"]
         }
     }
 
@@ -244,28 +248,28 @@ trackTests {
 
     test("MercadoPago wallet apprater") {
 
-        "/application/apprater/add_track"(platform: "/mobile") {
+        "/apprater/add_track"(platform: "/mobile") {
             type_track="CRASHED"
         }
-        "/application/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
+        "/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
             type_track="CRASHED"
         }
-        "/application/apprater/add_track"(platform: "/mobile") {
+        "/apprater/add_track"(platform: "/mobile") {
             type_track="PAYMENT_APPROVED"
         }
-        "/application/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
+        "/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
             type_track="PAYMENT_APPROVED"
         }
-        "/application/apprater/add_track"(platform: "/mobile") {
+        "/apprater/add_track"(platform: "/mobile") {
             type_track="WITHDRAW"
         }
-        "/application/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
+        "/apprater/add_track"(platform: "/mobile", business: "mercadopago") {
             type_track="WITHDRAW"
         }
-        "/application/apprater/error_service_rules"(platform: "/mobile") {}
-        "/application/apprater/error_service_rules"(platform: "/mobile", business: "mercadopago") {}
-        "/application/apprater/popup"(platform: "/mobile") {}
-        "/application/apprater/popup"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/error_service_rules"(platform: "/mobile") {}
+        "/apprater/error_service_rules"(platform: "/mobile", business: "mercadopago") {}
+        "/apprater/popup"(platform: "/mobile") {}
+        "/apprater/popup"(platform: "/mobile", business: "mercadopago") {}
     }
 
     test("Landing Deeplinks in Mobile") {
@@ -280,4 +284,5 @@ trackTests {
             message = "Could not parse Target Link"
         }
     }
+
 }

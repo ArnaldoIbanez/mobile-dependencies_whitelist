@@ -166,6 +166,10 @@ tracks {
         level(type: PropertyType.Numeric, required: true, description: "The user's loyalty level")
     }
 
+    def metadata_user_definition = objectSchemaDefinitions {
+        type(type: PropertyType.String, required: true, values: ['payer', 'seller', 'undefined'], description: "The user's type seller or payer")
+    }
+
     def loyalty_section_definition = objectSchemaDefinitions {
         content_type(type: PropertyType.String, required: false, values: ['partial','default','complete'])
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
@@ -187,10 +191,12 @@ tracks {
         favorite_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of favorite ids")
         shortcut_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of shortcut ids")
         has_view_more(required: true, type: PropertyType.Boolean, description: "If has view more shortcut")
+        has_view_more_ripple(required: false, type: PropertyType.Boolean, description: "If has view more ripple animation")
     }
 
     def header_definition = objectSchemaDefinitions {
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user's type seller or payer")
     }
 
     def metadata_definition = objectSchemaDefinitions {
@@ -470,6 +476,7 @@ tracks {
         enabled(type: PropertyType.Boolean, required: true, description: "If the item has tap enabled indicating that it has a link")
         is_favorite(type: PropertyType.Boolean, required: true, description: "If the item was selected as favorite")
         has_aware(type: PropertyType.Boolean, required: true, description: "If has an aware badge")
+        has_ripple(type: PropertyType.Boolean, required: false, description: "If has ripple animation")
         has_label(type: PropertyType.Boolean, required: true, description: "If has a label of promotion")
 
         group_id(required: false, type: PropertyType.String, description: "The component id of the item")
@@ -504,11 +511,27 @@ tracks {
     "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
         group_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of group ids")
         shortcut_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of shortcut ids")
+        favorite_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The list of favorite ids to save")
+        has_ftu(required: false, type: PropertyType.Boolean, description: "If FTU is visible")
     }
 
     "/wallet_home/shortcuts_sheet/dismiss" (platform: "/mobile", type: TrackType.Event) {
         from(required: true, type: PropertyType.String, description: "How was the sheet dismiss")
-        time_spent(required: true, type: PropertyType.Numeric, description: "How many milliseconds was the sheet open")
+        time_spent(required: false, type: PropertyType.Numeric, description: "How many milliseconds was the sheet open")
+    }
+
+    "/wallet_home/shortcuts_sheet/edit" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/shortcuts_sheet/edit/drop" (platform: "/mobile", type: TrackType.Event) {
+        initial_position(required: true, type: PropertyType.Numeric, description: "Where does the shortcut come from in a drag event")
+        end_position(required: true, type: PropertyType.Numeric, description: "Where does the shortcut end in a drag event")
+        shortcut_id(required: true, type: PropertyType.String, description: "What shortcut was move")
+    }
+
+    "/wallet_home/shortcuts_sheet/cancel" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/shortcuts_sheet/save" (platform: "/mobile", type: TrackType.Event) {
+        favorite_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of favorite ids to save")
     }
 
     /************************************/

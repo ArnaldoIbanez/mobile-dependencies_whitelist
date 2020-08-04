@@ -110,6 +110,7 @@ catalog {
         include business, "mobile.groovy"
         include business, "myml.groovy"
         include business, "myml_mercadoshops.groovy"
+        include business, "my_purchases.groovy"
         include business, "seller_central.groovy"
         include business, "vendor_central.groovy"
         include business, "onboarding.groovy"
@@ -145,6 +146,7 @@ catalog {
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
         include business, "kyc.groovy"
+        include business, "user_blocker.groovy"
         include business, "pdp.groovy"
         include business, "qadb.groovy"
         include business, "promotions.groovy"
@@ -170,6 +172,7 @@ catalog {
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
+        include business, "credits_credit_card.groovy"
         include business, "credits_mercadopago.groovy"
         include business, "mercadopago_mails.groovy"
         include business, "mercadopago_devsite.groovy"
@@ -212,6 +215,8 @@ catalog {
         include business, "wallet.groovy"
         include business, "mp_insurtech.groovy"
         include business, "mobile.groovy"
+        include business, "fees_installment.groovy"
+        include business, "mp_growth_onlinepayments.groovy"
     }
 
     mercadoshops.each { business ->

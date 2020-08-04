@@ -374,6 +374,17 @@ tracks {
             description: "coachmark identificator"
         )
      }
+
+    //Map Info: Tracking
+    "/cards/hybrid/dashboard/map_info"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["map_info"],
+            description: "Map info tapped"
+          )
+    }
     
     // SETUP VIRTUAL
     // --------
@@ -405,7 +416,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy"],
+            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy", "header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy"],
             description: "The action type tapped"
         )
     }
@@ -443,6 +454,17 @@ tracks {
             type: PropertyType.String,
             values: ["research_form"],
             description: "Feedback action tapped"
+          )
+    }
+
+    //Static Banner: Tracking
+    "/cards/hybrid/setup/virtual/static_banner"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/virtual/static_banner/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in"],
+            description: "Static banner tapped"
           )
     }
     
@@ -510,7 +532,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["reissue", "freeze", "unfreeze", "change_pin", "change_limits"],
+            values: ["reissue", "freeze", "unfreeze", "change_pin", "change_limits", "header_help"],
             description: "The action type tapped"
         )
     }
@@ -575,6 +597,17 @@ tracks {
         )
     }
 
+    //Map Info: Tracking
+    "/cards/hybrid/limits_setup/map_info"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["map_info"],
+            description: "Map info tapped"
+          )
+    }
+
     // Request
 
     // Request: Onboarding
@@ -583,7 +616,9 @@ tracks {
         context (
             required: true,
             type: PropertyType.String,
-            values: ["no_kyc_no_challlenge", "kyc_challenge", "no_kyc_challenge", "kyc_no_challenge"],
+            values: ["no_kyc_no_challenge", "kyc_challenge", "no_kyc_challenge", "kyc_no_challenge", 
+                    "prepaid_reparking_challenge", "prepaid_reparking_no_challenge",
+                    "seller_kyc_challenge", "seller_kyc_no_challenge", "seller_no_kyc_challenge", "seller_no_kyc_no_challenge"],
             description: "type of onboarding",
             inheritable:false
         )
