@@ -78,8 +78,8 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     "/vendor_central/inbound"(platform: "/", isAbstract: true) {}
 
-    "/vendor_central/inbound/listing/"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound/listing"(platform: "/web", type: TrackType.View) {}
 
-    "/vendor_central/inbound/detail/"(platform: "/web", type: TrackType.View) {}
+    "/vendor_central/inbound/detail"(platform: "/web", type: TrackType.View) {}
 
 }
