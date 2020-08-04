@@ -431,6 +431,18 @@ trackTests {
             initial_status = "inactive"
             has_money = false
         }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            has_money = false
+            experimental_version = "experimental_a"
+        }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            has_money = false
+            experimental_version = "experimental_b"
+        }
     }
     test("cards hybrid setup virtual card taps tracking") {
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -459,6 +471,31 @@ trackTests {
         }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "card_sec_code_copy"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "additional_message"
+        }
+    }
+    
+    //Account options
+    test("cards hybrid setup virtual card message") {
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in_experimental_a"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in_experimental_b"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal_experimental_a"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal_experimental_b"
         }
     }
     
