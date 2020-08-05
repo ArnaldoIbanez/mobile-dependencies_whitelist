@@ -92,5 +92,15 @@ trackTests {
     }
   }
 
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Vendor Central Purchase order listing
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  test("Vendor Central purchase order listing view") {
+    "/vendor_central/inbound/listing"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central purchase order detail view") {
+    "/vendor_central/inbound/detail"(platform: "/web", type: TrackType.View) {}
+  }
 }
 
