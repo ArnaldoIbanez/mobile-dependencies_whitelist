@@ -1135,11 +1135,13 @@ tracks {
 
     "/sell/item_data/plans"(platform: "/web", isAbstract: true) {
         sellGroup
+        listingTypeFlow
     }
     "/sell/item_data/plans/confirm"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/item_data/pictures_modal"(platform: "/web", isAbstract: true) {
         sellGroup
+        listingTypeFlow
     }
     "/sell/item_data/pictures_modal/show"(platform: "/web", type: TrackType.Event) {}
 
@@ -1179,5 +1181,11 @@ tracks {
     "/sell/error_step/user_has_debt_error"(platform: "/web", isAbstract: true) {}
     "/sell/error_step/user_has_debt_error/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/error_step/user_has_debt_error/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_data/video"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/video/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/video/confirm"(platform: "/web", type: TrackType.Event) {}
 
 }
