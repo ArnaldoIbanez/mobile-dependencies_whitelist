@@ -770,6 +770,36 @@ trackTests {
             list_mode = "LIST"
         }
     }
+    test("SYI v4 product identifier card showed"){
+        "/sell/item_data/product_identifier/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA1055"
+            session_id = "123-update-abc123"
+            item_type = "default"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+        }
+    }
+    test("SYI v4 product identifier card confirmed"){
+        "/sell/item_data/product_identifier/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA1055"
+            session_id = "123-update-abc123"
+            item_type = "default"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+        }
+    }
+    test("SYI v4 product identifier card required"){
+        "/sell/item_data/product_identifier/required"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA1055"
+            session_id = "123-update-abc123"
+            item_type = "default"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+        }
+    }
     test("SYI v4 flow decision card showed"){
         "/sell/item_data/flow_decision/show"(platform: "/web", type: TrackType.Event){
             category_id = "MLA390784"
