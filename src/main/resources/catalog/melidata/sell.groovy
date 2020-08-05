@@ -796,6 +796,10 @@ tracks {
         categoryFlow
         product_title(required: true, description: "title of catalog product", type: PropertyType.String)
     }
+    "/sell/item_data/product_identifier"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/product_identifier/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/product_identifier/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/product_identifier/required"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/flow_decision"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/flow_decision/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/flow_decision/confirm"(platform: "/web", type: TrackType.Event) {
