@@ -12,7 +12,8 @@ trackTests {
         }
     }
     test("Event from reviewpages") {
-        "/products-review-page/link/product"(platform: "/") {
+        "/products-review-page/link"(platform: "/") {
+            search_query = "nikon"
             product_url = "https://www.mercadolivre.com.br/nikon-coolpix-p1000-compacta-avancada-cor-preto/p/MLB12715439"
         }
     }

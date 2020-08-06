@@ -12,7 +12,8 @@ tracks {
         search_query(type: PropertyType.String, required: true, description: "Referrer's query for reviewpages")
     }
 
-    "/products-review-page/link/product"(platform: "/", type: TrackType.Event) {
+    "/products-review-page/link"(platform: "/", type: TrackType.Event) {
+        search_query(type: PropertyType.String, required: true, description: "Referrer's query for reviewpages")
         product_url(type: PropertyType.String, required: true, description: "Referrer's url of the product/item")
     }
 }
