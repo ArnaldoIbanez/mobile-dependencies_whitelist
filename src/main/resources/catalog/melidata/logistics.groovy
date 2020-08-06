@@ -89,8 +89,9 @@ tracks {
     "/logistics/login/vehicle/start"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle/scanner"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/vehicle/scanner/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
-        vehicle_id(required: true, type: PropertyType.String, description: "The id of the vehicle", inheritable: false)
-        status(required: true, type: PropertyType.String, values: ["ok", "error"], description: "Specifies if the detected vehicle qr has the correct format or not", inheritable: false)
+        vehicle_id(required: false, type: PropertyType.String, description: "The id of the vehicle", inheritable: false)
+        status(required: true, type: PropertyType.String, values: ["ok", "invalid_format"], description: "Specifies if the detected vehicle qr has the correct format or not", inheritable: false)
+        json_data(required: false, type: PropertyType.String, description: "The data of qr vehicle", inheritable: false)
     }
     "/logistics/login/document"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
@@ -406,6 +407,8 @@ tracks {
     "/logistics/first_mile/profile"(platform: "/mobile", type: TrackType.View) {
         first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
     }
+    "/logistics/first_mile/scanner/view_list"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/first_mile/scanner/close_list"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/last_mile/scanner/driver_affinity_modal/continue"(platform: "/mobile", type: TrackType.Event){
         driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: false)
     }
