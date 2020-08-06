@@ -414,19 +414,19 @@ trackTests {
 
         "/insurtech/hardware_check/generic_error"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
-            step = "Onboarding"
+            step = "ONBOARDING"
             context = "Unable to resolve host : No address associated with hostname"
         } 
 
         "/insurtech/hardware_check/generic_error/back"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
-            step = "Onboarding"
+            step = "ONBOARDING"
             context = "Unable to resolve host : No address associated with hostname"
         }
 
         "/insurtech/hardware_check/generic_error/try_again"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
-            step = "Onboarding"
+            step = "ONBOARDING"
             context = "Unable to resolve host : No address associated with hostname"
         }
     }

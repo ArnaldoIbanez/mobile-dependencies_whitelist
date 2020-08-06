@@ -159,7 +159,7 @@ tracks {
 
     "/insurtech/hardware_check/generic_error"(platform:"/mobile", type: TrackType.View) {
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
-        step(required: true, type: PropertyType.String, description: "Indicates which step of the flow occurred.")
+        step(required: true, type: PropertyType.String, description: "Indicates which step of the flow occurred.", values: ["ONBOARDING", "CONGRATS"])   
         context(required: true, type: PropertyType.String, description: "Information on what was the problem causing the error.")
     } 
 
