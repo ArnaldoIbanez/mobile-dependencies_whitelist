@@ -371,20 +371,63 @@ trackTests {
             time_success = 12
         }
 
-        "/insurtech/hardware_check/congrats"(platform:"/mobile", type: TrackType.View) {
+        "/insurtech/hardware_check/checkups/failed"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
-            congrats_status = "SUCCESS"
+            check_id = "VOLUME_DOWN"
         }
 
-        "/insurtech/hardware_check/congrats/exit"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/hardware_check/congrats_success"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
-            congrats_status = "SUCCESS"
         }
 
-        "/insurtech/hardware_check/congrats/main_action"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/hardware_check/congrats_success/exit"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
-            congrats_status = "SUCCESS"
+        }
+
+        "/insurtech/hardware_check/congrats_success/main_action"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             action_description = "Continuar para o pagamento"
+        }
+
+        "/insurtech/hardware_check/congrats_success/secondary_action"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            action_description = "Continuar para o pagamento"
+        } 
+
+        "/insurtech/hardware_check/congrats_failed"(platform:"/mobile", type: TrackType.View) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/congrats_failed/exit"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+        }
+
+        "/insurtech/hardware_check/congrats_failed/main_action"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            action_description = "Tentar novamente"
+        } 
+
+        "/insurtech/hardware_check/congrats_failed/secondary_action"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            action_description = "Tentar novamente"
+        } 
+
+        "/insurtech/hardware_check/generic_error"(platform:"/mobile", type: TrackType.View) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            step = "ONBOARDING"
+            context = "Unable to resolve host : No address associated with hostname"
+        } 
+
+        "/insurtech/hardware_check/generic_error/back"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            step = "ONBOARDING"
+            context = "Unable to resolve host : No address associated with hostname"
+        }
+
+        "/insurtech/hardware_check/generic_error/try_again"(platform:"/mobile", type: TrackType.Event) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            step = "ONBOARDING"
+            context = "Unable to resolve host : No address associated with hostname"
         }
     }
 }

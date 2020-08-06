@@ -60,7 +60,7 @@ tracks {
         financing_type(required: false, type: PropertyType.Map(financing_type_track_structure), description: "Financing data of item if it has")
     }
 
-     // INSURTECH RODA Hardware Check 
+    // INSURTECH RODA Hardware Check 
 
     "/insurtech/hardware_check"(platform: "/", isAbstract: true) {}
 
@@ -125,14 +125,45 @@ tracks {
         time_success(required: true, type: PropertyType.Numeric, description: "Time it took to perform the checkup.")
     }
 
-    "/insurtech/hardware_check/congrats"(platform:"/mobile", type: TrackType.View) {
-        quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
-        congrats_status(required: true, type: PropertyType.String, description: "Status of the congrats.")
+    "/insurtech/hardware_check/checkups/failed"(platform:"/mobile", type: TrackType.Event) {
+        check_id(required: true, type: PropertyType.String, description: "check ID.")
     }
 
-    "/insurtech/hardware_check/congrats/exit"(platform:"/mobile", type: TrackType.Event) {}
+    "/insurtech/hardware_check/congrats_success"(platform:"/mobile", type: TrackType.View) {
+        quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
+    }
 
-    "/insurtech/hardware_check/congrats/main_action"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/hardware_check/congrats_success/exit"(platform:"/mobile", type: TrackType.Event) {}
+
+    "/insurtech/hardware_check/congrats_success/main_action"(platform:"/mobile", type: TrackType.Event) {
+        action_description(required: true, type: PropertyType.String, description: "Description of the main action shown in the congrats.")
+    }
+
+    "/insurtech/hardware_check/congrats_success/secondary_action"(platform:"/mobile", type: TrackType.Event) {
         action_description(required: true, type: PropertyType.String, description: "Description of the main action shown in the congrats.")
     } 
+
+    "/insurtech/hardware_check/congrats_failed"(platform:"/mobile", type: TrackType.View) {
+        quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
+    }
+
+    "/insurtech/hardware_check/congrats_failed/exit"(platform:"/mobile", type: TrackType.Event) {}
+
+    "/insurtech/hardware_check/congrats_failed/main_action"(platform:"/mobile", type: TrackType.Event) {
+        action_description(required: true, type: PropertyType.String, description: "Description of the main action shown in the congrats.")
+    } 
+
+    "/insurtech/hardware_check/congrats_failed/secondary_action"(platform:"/mobile", type: TrackType.Event) {
+        action_description(required: true, type: PropertyType.String, description: "Description of the main action shown in the congrats.")
+    } 
+
+    "/insurtech/hardware_check/generic_error"(platform:"/mobile", type: TrackType.View) {
+        quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
+        step(required: true, type: PropertyType.String, description: "Indicates which step of the flow occurred.", values: ["ONBOARDING", "CONGRATS"])   
+        context(required: true, type: PropertyType.String, description: "Information on what was the problem causing the error.")
+    } 
+
+    "/insurtech/hardware_check/generic_error/back"(platform:"/mobile", type: TrackType.Event) {}
+
+    "/insurtech/hardware_check/generic_error/try_again"(platform:"/mobile", type: TrackType.Event) {}
 }
