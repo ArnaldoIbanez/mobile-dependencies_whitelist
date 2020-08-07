@@ -8,11 +8,11 @@ tracks {
 
     initiative = "1034"
 
-    "/products-review-page"(platform: "/", type: TrackType.View) {
+    "/products_review_page"(platform: "/", type: TrackType.View) {
         search_query(type: PropertyType.String, required: true, description: "Referrer's query for reviewpages")
     }
 
-    "/products-review-page/link"(platform: "/", type: TrackType.Event) {
+    "/products_review_page/link"(platform: "/", type: TrackType.Event) {
         search_query(type: PropertyType.String, required: true, description: "Referrer's query for reviewpages")
         product_url(type: PropertyType.String, required: true, description: "Referrer's url of the product/item")
     }
