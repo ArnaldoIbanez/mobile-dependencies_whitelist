@@ -687,6 +687,42 @@ trackTests {
         "/credits/express_money/onboarding"(platform: "/mobile/android") {}
     }
 
+    test("Credits Hub") {
+        "/credits/mp-hub"(platform: "/", type: TrackType.View) {}
+        
+        "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
+            flow = "open_sea_mp"
+        }
+
+        "/credits/mp-hub/no-credit-line"(platform: "/", type: TrackType.View) {}
+        
+        "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+            flow = "consumer"
+        }
+        
+        "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+            flow = "merchant"
+        }
+        
+        "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+            flow = "merchant"
+        }
+        
+        "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+            flow = "generic"
+        }
+        
+        "/credits/mp-hub/error"(platform: "/", type: TrackType.View) {}
+        
+        "/credits/mp-hub/error/access_click"(platform: "/", type: TrackType.Event) {
+            flow = "merchant"
+        }
+        
+        "/credits/mp-hub/error/access_click"(platform: "/", type: TrackType.Event) {
+            flow = "consumer"
+        }
+    }
+
     test("Merchant Open Market") {
         "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
 

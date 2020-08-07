@@ -152,6 +152,7 @@ tracks {
     "/credits/express_money"(platform: "/", isAbstract: true) {}
     "/credits/merchant"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
+    "/credits/mp-hub"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Merchants Public Landings
@@ -313,6 +314,76 @@ tracks {
 
     /******************************************
      *       End: Merchants Administrator
+     ******************************************/
+
+    /******************************************
+     *       Start: Credits Hub
+     *******************************************/
+
+    "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "Flow which the user is being redirected",
+            values: [
+                'merchant_administrator',
+                'expres_money_enrollment',
+                'personal_loan_adoption_ml',
+                'personal_loan_adoption_mp',
+                'personal_loan_collection',
+                'merchant_enrollment',
+                'consumer_loan_adoption',
+                'consumer_loan_collection',
+                'consumer_native_admin_mp',
+                'open_sea_mp',
+                'app_store_mp',
+                'app_store_ml',
+            ]
+        )
+    }
+    
+    "/credits/mp-hub/no-credit-line"(platform: "/", type: TrackType.View) {}
+        
+    "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "Flow which user is being redirected",
+            values: [
+                'consumer',
+                'merchant',
+            ]
+        )
+    }
+    
+    "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "Stop flow",
+            values: [
+                'generic',
+                'merchant',
+            ]
+        )
+    }
+    
+    "/credits/mp-hub/error"(platform: "/", type: TrackType.View) {}
+    
+    "/credits/mp-hub/error/access_click"(platform: "/", type: TrackType.Event) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "Flow which user is being redirected",
+            values: [
+                'consumer',
+                'merchant',
+            ]
+        )
+    }
+    
+    /******************************************
+     *       End: Credits Hub
      ******************************************/
 
     /******************************************
