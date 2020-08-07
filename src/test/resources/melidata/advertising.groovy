@@ -34,7 +34,6 @@ trackTests {
             campaign_id = "283973028"
             status = "active"
             budget = "65"
-            version = "view1"
         }
 
         "/advertising/pads2/manager/update_campaign_status"(platform: "/", type: TrackType.Event) {
@@ -186,7 +185,6 @@ trackTests {
             campaign_id = "283973028"
             status = "active"
             budget = "65"
-            version = "view1"
         }
   
     }
