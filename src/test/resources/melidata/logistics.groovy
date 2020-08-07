@@ -53,6 +53,7 @@ trackTests {
             defaultLocation()
             status = "ok"
             vehicle_id = "123"
+            json_data = "{ }"
         }
 
         //Login document input
@@ -513,6 +514,12 @@ trackTests {
         }
         "/logistics/first_mile/profile"(platform: "/mobile", type: TrackType.View) {
             first_mile_logistic_type = "FF"
+        }
+        "/logistics/first_mile/scanner/view_list"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+        "/logistics/first_mile/scanner/close_list"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
         }
         "/logistics/last_mile/scanner/driver_affinity_modal/continue"(platform: "/mobile", type: TrackType.Event){
             driver_id = 400
