@@ -45,9 +45,7 @@ tracks {
 
     "/advertising/pads2/manager/box"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
 
-    "/advertising/pads2/manager/box/upselling"(platform: "/web", type: TrackType.Event) {
-        version(required: false, description: "Version")
-    }
+    "/advertising/pads2/manager/box/upselling"(platform: "/web", type: TrackType.Event) {}
 
     "/advertising/pads2/manager/update_campaign_status"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
@@ -155,7 +153,6 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
         status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: false, description: "Current budget related to the campaign")
-        version(required: false, description: "Version")
     }
 
     //Generic landing free trial
