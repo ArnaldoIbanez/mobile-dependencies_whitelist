@@ -161,6 +161,7 @@ catalog {
         include business, "trends.groovy"
         include business, "data_privacy.groovy"
         include business, "sms.groovy"
+        include business, "reviewPages.groovy"
         include business, "wallet_ml.groovy"
     }
 
