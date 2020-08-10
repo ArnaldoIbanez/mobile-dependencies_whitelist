@@ -278,6 +278,10 @@ trackTests {
         "/mplayer/contacts/massive_upload/successful_end"(platform: "/mobile") {}
         "/mplayer/contacts/search/start"(platform: "/mobile") {}
         "/mplayer/contacts/search/end"(platform: "/mobile") {}
+
+        //Interaction Screen
+        // "/mplayer/interaction_screen/view"(platform: "/mobile") {}
+        // "/mplayer/interaction_screen/event"(platform: "/mobile") {}
     }
 }
 
