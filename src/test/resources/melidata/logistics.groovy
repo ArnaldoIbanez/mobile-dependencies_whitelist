@@ -61,6 +61,13 @@ trackTests {
             defaultLocation()
         }
 
+        //Login documento after vehicle detected
+        "/logistics/login/document/vehicle_detected"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            status = "ok"
+            vehicle_id = "123"
+        }
+
         //Login account disabled error
         "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
@@ -91,12 +98,12 @@ trackTests {
         }
 
         //Camera permission
-        "/logistics/flow_decision/start/ask_geolocation"(platform: "/mobile", type: TrackType.View) {
+        "/logistics/package/start/ask_geolocation"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
 
         //Geolocation permission
-        "/logistics/flow_decision/start/ask_camera"(platform: "/mobile", type: TrackType.View) {
+        "/logistics/package/start/ask_camera"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
 
@@ -112,7 +119,7 @@ trackTests {
 
         //Flow decision scanner error
         "/logistics/flow_decision/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
-            pack_id = "124"
+            pack_id = ["1"]
             defaultLocation()
         }
 
@@ -504,6 +511,9 @@ trackTests {
             route_id = "125"
             driver_id = "123"
             packages = ["1", "2", "3"]
+        }
+        "/logistics/first_mile/pickup/seller_document_form"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
         }
         "/logistics/first_mile/pickup/signature"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
