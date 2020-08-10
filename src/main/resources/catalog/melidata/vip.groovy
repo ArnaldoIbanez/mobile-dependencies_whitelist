@@ -1209,4 +1209,11 @@ tracks {
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
+
+    "/vip/copy_seller_info"(platform: "/web/desktop", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        copied(required: true, type: PropertyType.Boolean,
+                description: "Indicates if the user copy the seller info to the clipboard")
+        seller_id(required: false, type: PropertyType.Numeric, description: "Seller ID")
+    }
 }

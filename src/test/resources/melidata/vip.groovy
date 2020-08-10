@@ -1437,4 +1437,13 @@ trackTests {
             item_condition = "new"
         }
     }
+
+
+     test("VIP Copy Seller info") {
+        "/vip/show_cbt_popup"(platform: "/web/desktop", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            copied = true
+            seller_id = 167086843
+        }
+    }
 }
