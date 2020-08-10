@@ -31,5 +31,5 @@ trackTests {
     "/cashout/extracash/onboarding"(platform: "/", type: TrackType.View) {}
     "/cashout/extracash/onboarding/continue"(platform: "/", type: TrackType.Event) {}
     "/cashout/extracash/onboarding/close"(platform: "/", type: TrackType.Event) {}
-    
+    }
 }
