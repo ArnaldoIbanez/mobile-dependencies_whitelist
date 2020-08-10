@@ -10,6 +10,14 @@ tracks {
 
     def third_party_data_definition = objectSchemaDefinitions {
         id(type: PropertyType.String, required: false)
+        ad_id(type: PropertyType.String, required: false)
+        ad_name(type: PropertyType.String, required: false)
+        adset_id(type: PropertyType.String, required: false)
+        adset_name(type: PropertyType.String, required: false)
+        campaign_id(type: PropertyType.String, required: false)
+        campaign_name(type: PropertyType.String, required: false)
+        placement(type: PropertyType.String, required: false)
+        site_source_name(type: PropertyType.String, required: false)
     }
 
     def third_party_definition = objectSchemaDefinitions {

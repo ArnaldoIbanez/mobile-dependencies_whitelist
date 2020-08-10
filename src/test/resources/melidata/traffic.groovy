@@ -32,6 +32,38 @@ trackTests {
         }
     }
 
+    test("Traffic with facebook data") {
+        "/traffic/inbound/matt"(platform: "/") {
+            tool = 123456
+            word = "campaignName"
+            go = "http://ofertas.mercadolibre.com.mx/hot-sale"
+            third_party = {
+                source = "facebook"
+                data = {
+                    ad_id = "23842577883810537"
+                    ad_name = "MLC+%7C+MOBILE+%7C+Ad"
+                    adset_id = "23842577873970537"
+                    adset_name = "MLC+%7C+BUYER%28365%29+%7C+VIP%287%29%28Living+y+Comedor%29+%7C+DSK-MOB"
+                    campaign_id = "23842577866150537"
+                    campaign_name = "DPA+%7C+MLC+%7C+VIP+%287+days%29+%26+Buyers+%28365+days%29+%7C+Hogar+e+Industria"
+                    placement = "Facebook_Desktop_Feed"
+                }
+            }
+        }
+    }
+
+    test("Traffic with facebook data") {
+        "/traffic/inbound/matt"(platform: "/") {
+            tool = 123456
+            word = "campaignName"
+            go = "http://ofertas.mercadolibre.com.mx/hot-sale"
+            third_party = {
+                source = "facebook"
+                data = {}
+            }
+        }
+    }
+
     test("Traffic") {
         "/traffic/inbound/matt"(platform: "/") {
             tool = 123456
