@@ -523,7 +523,6 @@ trackTests {
             defaultLocation()
             first_mile_logistic_type = "FF"
             route_id = "125"
-            driver_id = "123"
             packages = ["1", "2", "3"]
         }
         "/logistics/first_mile/pickup/signature"(platform: "/mobile", type: TrackType.View) {
