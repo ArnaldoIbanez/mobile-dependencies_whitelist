@@ -1439,7 +1439,7 @@ trackTests {
     }
 
     test("VIP Copy Seller info") {
-        "/vip/show_cbt_popup"(platform: "/web/desktop", type: TrackType.Event) {
+        "/vip/copy_seller_info"(platform: "/web/desktop", type: TrackType.Event) {
             item_id = "MLA792156560"
             seller_id = 167086843
             price = 100
