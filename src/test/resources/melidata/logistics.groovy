@@ -97,12 +97,12 @@ trackTests {
             driver_id = "987"
         }
 
-        //Camera permission
+        //Geolocation permission
         "/logistics/package/start/ask_geolocation"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
 
-        //Geolocation permission
+        // Camera permission
         "/logistics/package/start/ask_camera"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
@@ -127,6 +127,13 @@ trackTests {
         "/logistics/flow_decision/add_container/invalid"(platform: "/mobile", type: TrackType.View) {
             container_id = "AD_123"
             defaultLocation()
+        }
+
+        //Flow decision qr detected
+        "/logistics/flow_decision/scanner/qr_detected"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            status = "ok"
+            qr_data = "qr_json"
         }
 
         //Conciliation sorting fail
@@ -157,7 +164,7 @@ trackTests {
         "/logistics/last_mile/package/scanner/manual"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
         }
-        "/logistics/last_mile/package/scanner/qr_detected"(platform: "/mobile", type: TrackType.View) {
+        "/logistics/last_mile/package/scanner/qr_detected"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             status = "ok"
             qr_data = "qr_json"
@@ -512,9 +519,7 @@ trackTests {
             driver_id = "123"
             packages = ["1", "2", "3"]
         }
-        "/logistics/first_mile/pickup/seller_document_form"(platform: "/mobile", type: TrackType.Event) {
-            defaultLocation()
-        }
+        "/logistics/first_mile/pickup/seller_document_form/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
         "/logistics/first_mile/pickup/signature"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             first_mile_logistic_type = "FF"

@@ -405,8 +405,7 @@ tracks {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the packages being picked up")
     }
-    "/logistics/first_mile/pickup/seller_document_form/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {
-    }
+    "/logistics/first_mile/pickup/seller_document_form/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/first_mile/pickup/signature"(platform: "/mobile", type: TrackType.View) {
         location
         first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
