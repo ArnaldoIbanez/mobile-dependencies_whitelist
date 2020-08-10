@@ -153,11 +153,11 @@ tracks {
         selected_filters(required: false, type: PropertyType.Map, description: "The data of all applied filters")
         displayed_shortcuts(required: false, type: PropertyType.ArrayList(PropertyType.Map(shortcutsStructure)), description: "The filters shortcuts shown to the user in each request")
         is_recommended_domain(required: false, type: PropertyType.Boolean, description: "Indicate whether filters domains are recommended")
-        itemsExtraStructure(required: false, type: PropertyType.Map(itemsExtraStructure), description: "Items extra to display")
+        items_extra(required: false, type: PropertyType.Map(itemsExtraStructure), description: "Items extra to display")
     }
     
     propertyGroups {
-        general_promotions_info(deal_print_id, items, page, origin, filter_applied, filter_position, selected_filters, displayed_shortcuts, is_recommended_domain, itemsExtraStructure)
+        general_promotions_info(deal_print_id, items, page, origin, filter_applied, filter_position, selected_filters, displayed_shortcuts, is_recommended_domain, items_extra)
     }
 
     //Promotions Landing
