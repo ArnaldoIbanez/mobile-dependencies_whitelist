@@ -519,7 +519,13 @@ trackTests {
             driver_id = "123"
             packages = ["1", "2", "3"]
         }
-        "/logistics/first_mile/pickup/seller_document_form/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
+        "/logistics/first_mile/pickup/seller_document_form/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            first_mile_logistic_type = "FF"
+            route_id = "125"
+            driver_id = "123"
+            packages = ["1", "2", "3"]
+        }
         "/logistics/first_mile/pickup/signature"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             first_mile_logistic_type = "FF"
