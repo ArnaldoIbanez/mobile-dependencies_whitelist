@@ -1438,12 +1438,17 @@ trackTests {
         }
     }
 
-
-     test("VIP Copy Seller info") {
+    test("VIP Copy Seller info") {
         "/vip/show_cbt_popup"(platform: "/web/desktop", type: TrackType.Event) {
             item_id = "MLA792156560"
-            copied = true
             seller_id = 167086843
+            price = 100
+            buyer_id = "12343718"
+            loyalty_level = 2
+            shipping_cost = 30
+            shipping_method="standard"
+            free_shipping = true
+            shipping_preference = "Normal a Domicilio"
         }
     }
 }

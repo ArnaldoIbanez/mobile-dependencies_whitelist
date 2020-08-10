@@ -1212,8 +1212,15 @@ tracks {
 
     "/vip/copy_seller_info"(platform: "/web/desktop", type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
-        copied(required: true, type: PropertyType.Boolean,
-                description: "Indicates if the user copy the seller info to the clipboard")
-        seller_id(required: false, type: PropertyType.Numeric, description: "Seller ID")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        buyer_id(required: false, type: PropertyType.String, description: "Buyer ID")
+        loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+        shipping_cost(required: false, type: PropertyType.Numeric, description: "Indicates shipping cost")
+        shipping_method(required: false, type: PropertyType.String, description: "Shipping Method")
+        shipping_preference(required: false, type: PropertyType.String,
+                description: "Shipping method's name shown when the user has zipcode/location preloaded")
+         free_shipping(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the items has free shipping")
     }
 }
