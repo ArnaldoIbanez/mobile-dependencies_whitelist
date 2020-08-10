@@ -59,6 +59,9 @@ trackTests {
         "/mplayer/closed_request/mandatory_reason"(platform: "/mobile") {}
         "/mplayer/closed_request/congrats_request"(platform: "/mobile") {}
         "/mplayer/closed_request/reject"(platform: "/mobile") {}
+        "/mplayer/closed_request/congrats_request/exit"(platform: "/mobile") {
+            button = "main_button"
+        }
 
         "/mplayer/closed_request/status"(platform: "/mobile") {
             request_status = "pending"
@@ -268,7 +271,13 @@ trackTests {
         "/mplayer/mkt_landing/button"(platform: "/web"){
             campaign = "sube"
             position = "footer"
-        } 
+        }
+
+        // Contacts
+        "/mplayer/contacts/massive_upload/start"(platform: "/mobile") {}
+        "/mplayer/contacts/massive_upload/successful_end"(platform: "/mobile") {}
+        "/mplayer/contacts/search/start"(platform: "/mobile") {}
+        "/mplayer/contacts/search/end"(platform: "/mobile") {}
     }
 }
 

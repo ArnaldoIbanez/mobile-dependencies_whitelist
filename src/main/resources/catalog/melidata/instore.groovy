@@ -280,6 +280,42 @@ tracks {
     "/instore/waiting/generic_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/generic_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/waiting/supermarket_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/supermarket_cashier/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/supermarket_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/supermarket_ticket"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/supermarket_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/supermarket_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/pharmacy_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/pharmacy_cashier/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/pharmacy_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/pharmacy_ticket"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/pharmacy_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/pharmacy_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/clothing_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/clothing_cashier/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/clothing_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/clothing_ticket"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/clothing_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/clothing_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/retail_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/retail_cashier/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/retail_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/retail_ticket"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/retail_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/retail_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/vending_dispatching"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/vending_dispatching/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/vending_dispatching/back"(platform: "/mobile", type: TrackType.Event) {}
+
     "/instore/waiting/add_card"(platform: "/mobile", isAbstract: true) {}
     "/instore/waiting/add_card/cielo"(platform: "/mobile", type: TrackType.View) {}
     "/instore/waiting/add_card/cielo/add"(platform: "/mobile", type: TrackType.Event) {}
@@ -538,18 +574,27 @@ tracks {
         payment_method_disabled(required: true, PropertyType.Boolean, description: "feature flag to check if payment method is disabled")
     }
 
-    //Buyer QR - FTU/Landings
+    
+	//Buyer QR - FTU/Landings
 
     "/instore/buyer_qr/landing"(platform: "/mobile", isAbstract: true) {}
 
-    "/instore/buyer_qr/landing/brief"(platform: "/mobile", type: TrackType.View) {}
+	"/instore/buyer_qr/landing/biometric_security"(platform: "/mobile", type: TrackType.View) {}
+	
+	"/instore/buyer_qr/security"(platform: "/mobile", type: TrackType.Event) {
+		view_time_in_millis(required: true, PropertyType.Numeric, description: "time that the user kept in the security validation screen")
+		result(required: true, PropertyType.Boolean, description: "security validation has succeeded or failed")
+	}
+    
+	"/instore/buyer_qr/landing/brief"(platform: "/mobile", type: TrackType.View) {}
 
     "/instore/buyer_qr/landing/no_seed"(platform: "/mobile", type: TrackType.View) {}
 
     "/instore/buyer_qr/landing/codes_expired"(platform: "/mobile", type: TrackType.View) {}
 
     "/instore/buyer_qr/button_pressed"(platform: "/mobile", type: TrackType.Event) {
-        button_type(required: true, PropertyType.String, description: "'show_codes' | 'understood' | 'retry' | 'add_money' | 'add_card' | 'maybe_later'")
+        button_type(required: false, PropertyType.String, description: "an array of strings used to know what actions the button has triggered if exists")
+        deeplink(required: false, PropertyType.String, description: "the deeplink triggered by the button if exists")
     }
 
     "/instore/buyer_qr/landing/funding_mandatory"(platform: "/mobile", type: TrackType.View) {}

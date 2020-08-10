@@ -53,6 +53,7 @@ trackTests {
             defaultLocation()
             status = "ok"
             vehicle_id = "123"
+            json_data = "{ }"
         }
 
         //Login document input
@@ -86,6 +87,7 @@ trackTests {
         //Profile
         "/logistics/login/profile"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            driver_id = "987"
         }
 
         //Camera permission
@@ -134,6 +136,8 @@ trackTests {
         }
         "/logistics/last_mile/profile"(platform: "/mobile", type: TrackType.View){
             defaultLocation()
+            driver_id = "123"
+            route_id = "123"
         }
         "/logistics/last_mile/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
             pack_id = "124"
@@ -257,6 +261,8 @@ trackTests {
 
         "/logistics/last_mile/congrats/final"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            route_id = "1234"
+            driver_id = "1234"
         }
 
         "/logistics/last_mile/congrats/ok"(platform: "/mobile", type: TrackType.View) {
@@ -343,11 +349,23 @@ trackTests {
         }
         "/logistics/last_mile/return_to_station/packages_to_return"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            route_id = "1234"
+            driver_id = "1234"
         }
         "/logistics/last_mile/return_to_station/open_route"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
             packages_to_return = "package1, package2"
+        }
+        "/logistics/last_mile/return_to_station/remaining_packages_disclaimer"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "1234"
+            driver_id = "1234"
+        }
+        "/logistics/last_mile/return_to_station/access_facility_qr"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "1234"
+            driver_id = "1234"   
         }
         "/logistics/last_mile/list/transloaded_shipments_modal"(platform: "/mobile", type: TrackType.View) {
             route_id = "123"
@@ -405,6 +423,27 @@ trackTests {
         }
         "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
             shipment_id = "222"
+        }
+        "logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+        }
+        "logistics/last_mile/control_tower/incident_selection"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+            case_type_id = "6"
+        }
+        "/logistics/end_route/authentication_qr"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
+        }
+        "/logistics/profile/authentication_qr"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            route_id = "123"
+            driver_id = "123"
         }
     }
 
@@ -475,6 +514,21 @@ trackTests {
         }
         "/logistics/first_mile/profile"(platform: "/mobile", type: TrackType.View) {
             first_mile_logistic_type = "FF"
+        }
+        "/logistics/first_mile/scanner/view_list"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+        "/logistics/first_mile/scanner/close_list"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+        }
+        "/logistics/last_mile/scanner/driver_affinity_modal/continue"(platform: "/mobile", type: TrackType.Event){
+            driver_id = 400
+        }
+        "/logistics/last_mile/scanner/driver_affinity_modal/cancel"(platform: "/mobile", type: TrackType.Event){
+            driver_id = 400
+        }
+        "/logistics/last_mile/scanner/driver_affinity_modal"(platform: "/mobile", type: TrackType.View){
+            driver_id = 400
         }
     }
 

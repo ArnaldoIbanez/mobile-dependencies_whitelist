@@ -55,6 +55,19 @@ trackTests {
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MYML Mercadoshops Access Denied
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Mercadoshops Access Denied") {
+        "/mercado_shops/access_denied"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            operator_id = 158689681
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MYML Mercadoshops Admin
     //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -898,6 +911,26 @@ trackTests {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"
             shop_name = "Test Shop"
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS MYML Mercadoshops discounts
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    test("Mercadoshops Migration discounts") {
+        "/mercado_shops/discounts"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+        "/mercado_shops/discounts/set"(platform: "/", type: TrackType.Event){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            success = true
+            status = 'ACTIVE'
+            percentage = 5
         }
     }
 }

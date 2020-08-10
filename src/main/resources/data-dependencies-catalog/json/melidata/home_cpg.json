@@ -12,7 +12,7 @@
         "format": "yyyy-MM-dd"
   },
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "site": "Sales",
     "columns": [
       {

@@ -361,7 +361,7 @@ trackTests {
 
         "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             subscription_partner = "HBO"
-            type = "notification"
+            type = "push"
         }
 
         "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
@@ -399,6 +399,42 @@ trackTests {
             subscription_partner = "HBO"
         }
 
+        "/loyalty/partners/login/invalid"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            subscription_partner = "HBO"
+        }
+
+        "/loyalty/partners/login/invalid"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            subscription_partner = "Paramount"
+            server_error = false
+        }
+
     }
 
+    test("Loyalty Subscription Admin") {
+
+        "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            subscription_partner = "HBO"
+            level = 4
+            subscription_status = "active"
+        }
+
+        "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            subscription_partner = "Paramount"
+            level = 4
+        }
+
+        "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            subscription_partner = "HBO"
+            subscription_status = "active"
+            level = 4
+            type = "detail-action"
+        }
+
+        "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            subscription_partner = "HBO"
+            subscription_status = "ended"
+            level = 4
+            type = "modify-action"
+        }
+    }
 }

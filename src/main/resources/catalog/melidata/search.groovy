@@ -16,10 +16,10 @@ tracks {
 
     def seo_item_definition = objectSchemaDefinitions {
         is_whitelisted(type: PropertyType.Boolean, required: true)
-        check_mode(type: PropertyType.ArrayList(PropertyType.String), required: true)
-        gmv_value(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
-        vip_clicks(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
-        is_on_seo_whitelist_experiment(type: PropertyType.Boolean, required: true)
+        check_mode(type: PropertyType.String, values: ["GMV", "SC", "DEFAULT:GMV", "DEFAULT:SC"], required: true)
+        value(type: PropertyType.Numeric, required: true)
+        is_default(type: PropertyType.Boolean, required: true)
+        is_on_seo_h1_experiment(type: PropertyType.Boolean, required: true)
     }
 
     def location_info_definition = objectSchemaDefinitions {
@@ -46,6 +46,18 @@ tracks {
         selected(type: PropertyType.ArrayList(PropertyType.String), required: true)
         selected_qty(type: PropertyType.Numeric, required: true)
         selected_positions(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+    }
+
+    def tag_tracking_datum_object = objectSchemaDefinitions {
+        item_id(type: PropertyType.String, required: true)
+        position(type: PropertyType.Numeric, required: true)
+        product_id(type: PropertyType.String, required: false)
+    }
+
+    def tag_tracking_map_object = objectSchemaDefinitions {
+        best_seller(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        shipping_guaranteed(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        deal_of_the_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {
@@ -93,6 +105,7 @@ tracks {
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
         sparkle_info(required: false, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
         best_seller_info(required: false, description: 'best seller tracking info', type: PropertyType.Map(best_seller_object))
+        tag_tracking_info(required: false, description: 'tag tracking info', type: PropertyType.Map(tag_tracking_map_object))
 
 
         //Tracks from Search Backend:

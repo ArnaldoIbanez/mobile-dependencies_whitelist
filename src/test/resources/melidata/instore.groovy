@@ -699,6 +699,195 @@ trackTests {
             pos_id = "65763"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/waiting/supermarket_cashier"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/supermarket_cashier/next"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/supermarket_cashier/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/supermarket_ticket"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/supermarket_ticket/next"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/supermarket_ticket/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/pharmacy_cashier"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/pharmacy_cashier/next"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/pharmacy_cashier/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/pharmacy_ticket"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/pharmacy_ticket/next"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/pharmacy_ticket/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/clothing_cashier"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/clothing_cashier/next"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/clothing_cashier/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/clothing_ticket"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/clothing_ticket/next"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/clothing_ticket/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/retail_cashier"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/retail_cashier/next"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/retail_cashier/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/retail_ticket"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/retail_ticket/next"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/retail_ticket/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/vending_dispatching"(platform: "/mobile", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/vending_dispatching/next"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/vending_dispatching/back"(platform: "/mobile", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/waiting/add_card/cielo"(platform: "/mobile", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "Cielo"
@@ -1207,6 +1396,14 @@ trackTests {
         "/instore/buyer_qr/landing/brief"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+		"/instore/buyer_qr/landing/biometric_security"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+		}
+		"/instore/buyer_qr/security"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+			view_time_in_millis = 140
+			result = true
+		}
         "/instore/buyer_qr/landing/no_seed"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -1214,7 +1411,7 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/buyer_qr/button_pressed"(platform: "/mobile", type: TrackType.Event) {
-            button_type = "show_codes"
+            deeplink = "meli:addcard"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/buyer_qr/landing/funding_mandatory"(platform: "/mobile", type: TrackType.View) {
@@ -2297,6 +2494,195 @@ trackTests {
             pos_id = "65763"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/waiting/supermarket_cashier"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/supermarket_cashier/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/supermarket_cashier/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/supermarket_ticket"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/supermarket_ticket/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/supermarket_ticket/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/pharmacy_cashier"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/pharmacy_cashier/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/pharmacy_cashier/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/pharmacy_ticket"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/pharmacy_ticket/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/pharmacy_ticket/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/clothing_cashier"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/clothing_cashier/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/clothing_cashier/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/clothing_ticket"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/clothing_ticket/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/clothing_ticket/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/retail_cashier"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/retail_cashier/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/retail_cashier/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/retail_ticket"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/retail_ticket/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/retail_ticket/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/vending_dispatching"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/vending_dispatching/next"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/waiting/vending_dispatching/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            collector_id = "12356"
+            brand_name = "YPF"
+            store_id = "76840"
+            pos_id = "65763"
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
         "/instore/waiting/add_card/cielo"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
             collector_id = "12356"
             brand_name = "Cielo"
@@ -2529,6 +2915,14 @@ trackTests {
 
         //Buyer QR - FTU/Landings
 
+		"/instore/buyer_qr/landing/biometric_security"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+		}
+		"/instore/buyer_qr/security"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+			view_time_in_millis = 140
+			result = true
+		}
         "/instore/buyer_qr/landing/brief"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
@@ -2539,7 +2933,7 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/buyer_qr/button_pressed"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
-            button_type = "show_codes"
+            button_type = "show_codes,understood"
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/buyer_qr/landing/funding_mandatory"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {

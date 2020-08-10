@@ -12,6 +12,7 @@ tracks {
         shop_id(required: true, type: PropertyType.Numeric)
         shop_domain(required: true, type: PropertyType.String)
         shop_name(required: true, type: PropertyType.String)
+        operator_id(required: false, type: PropertyType.Numeric)
         delegation_status(
             required: true,
             type: PropertyType.String,
@@ -32,7 +33,7 @@ tracks {
     }
 
     propertyGroups {
-        mshopsGroup(shop_id, shop_domain, shop_name, ref)
+        mshopsGroup(shop_id, shop_domain, shop_name, operator_id, ref)
         mshopsDomainsGroup(delegation_status)
         mshopsEventGroup(success, error_code)
     }
@@ -64,6 +65,8 @@ tracks {
         is_confirmation_banner(required: true, type: PropertyType.Boolean, description: "Banner Confirmation is being shown")
         is_show_dday_banner(required: true, type: PropertyType.Boolean, description: "Banner DDay is being shown")
     }
+
+    "/mercado_shops/access_denied"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/admin"(platform: "/", type: TrackType.View){}
 
@@ -472,4 +475,12 @@ tracks {
     "/mercado_shops/hub/google/shopping/deactivate"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/hub/google/shopping/reactivate"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/discounts/"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/discounts/set"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+        percentage(required: true, type: PropertyType.Numeric, description: "Discount Percentage")
+        status(required: true, type: PropertyType.String, description: "Discount State", values: ['ACTIVE', 'INACTIVE'])
+    }
 }

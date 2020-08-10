@@ -30,50 +30,10 @@ tracks {
 
         render_buy_it_again(required: false, type: PropertyType.String, description: "Has render the buy_it_again button")
 
-        // new purchases
-        items(required: false, type: PropertyType.ArrayList, description: "Items in this purchase")
-            // business
-            // page_vertical
-            // domain
-            // category_l1
-            // category_l2
-            // category_l3 (optional)
-            // category_l4 (optional)
-            // category_l5 (optional)
-            // listing_type
-            // item_id
-            // quantity
-            // variation_id (optional)
-            // condition
-            // product_id (optional)
-            // deals (optional)
-
-        payments(required: false, type: PropertyType.ArrayList, description: "Payments in this purchase")
-            // payment_method_type
-            // payment_method_id
-            // payment_status
-            // payment_status_detail
-
-        shipping(required: false, type: PropertyType.ArrayList, description: "Shipments in this purchase")
-
-        checkout_flow(required: false, type: PropertyType.String, values: ["pack", "order"], description: "cart (pack) or direct (order) purchase")
-        garex(required: false, type: PropertyType.String, values: ["yes", "no"], description: "the type of extended warranty of this purchase")
-
-        purchases_flow(required: false, type: PropertyType.String, description: "Flow identification to know if it is the new or old flow")
-        vertical_case_id(required: false, type: PropertyType.String, description: "Case identified for the purchase status")
-        vertical_sub_case_id(required: false, type: PropertyType.String, description: "Sub case identified for the purchase status")
-        x_mc_request_id(required: false, type: PropertyType.String, description: "Session id for this purchase")
-        purchase_id(required: false, type: PropertyType.Numeric, description: "The id of the purchase selected")
-        pack_id(required: false, type: PropertyType.Numeric, description: "The id of the pack selected")
-        order_id(required: false, type: PropertyType.Numeric, description: "The id of the order selected")
-        label(required:false, type: PropertyType.String, description: "The action that was tracked")
-
     }
 
     propertyGroups {
         mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer, render_buy_it_again)
-        newPurchasesGroup(items, payments, shipping, seller, buyer, checkout_flow, garex, vertical_case_id, vertical_sub_case_id, x_mc_request_id, purchase_id, pack_id, order_id)
-        newPurchasesEventGroup(label, x_mc_request_id)
     }
 
     // ---------------- Sales
@@ -218,77 +178,6 @@ tracks {
         buy_it_again_experiment(required: true,type: PropertyType.String, description: "Is the user in the experiment")
         buy_it_again_lead_checkout(required: true,type: PropertyType.String, description: "Is the button going to redirect to checkout")
     }
-    
-    // ---------------- New Purchases
-
-    "/myml/my_purchases"(platform:"/", isAbstract: true) {}
-
-    "/myml/my_purchases/status"(platform:"/", type: TrackType.View) {
-        newPurchasesGroup
-    }
-
-    "/myml/my_purchases/status/items"(platform:"/", type: TrackType.View) {}
-
-    "/myml/my_purchases/status/instructions"(platform:"/", type: TrackType.View) {}
-
-    "/myml/my_purchases/status/messages"(platform:"/", type: TrackType.View) {}
-
-    "/myml/my_purchases/status/cancel_purchase"(platform:"/", type: TrackType.View) {}
-
-    "/myml/my_purchases/status/return_purchase"(platform:"/", type: TrackType.View) {}
-
-    "/myml/my_purchases/status/show_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/my_purchases/status/show_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/my_purchases/status/show_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/my_purchases/status/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/my_purchases/status/click_help"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/my_purchases/status/click_faq"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/my_purchases/status/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/my_purchases/status/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/my_purchases/status/click_contact_us"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/my_purchases/status/items/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/my_purchases/status/instructions/click_view_item"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/my_purchases/status/instructions/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
-    "/myml/my_purchases/status/messages/click_view_messages"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
-        newPurchasesEventGroup
-    }
-
 
     // ---------------- Listings
 
@@ -715,28 +604,43 @@ tracks {
 
     "/myml/invoices/optin"(platform: "/", isAbstract: true) {}
     "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
-        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+        seller_type(required: false,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
     }
-
-    // Tracking click - if seller profile needs go to previous page
+    
+    // MLC - Tracking click - if seller profile needs go to previous page
     "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
         seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
     }
 
-    // Tracking click - if seller profile needs help
+    // MLC - Tracking click - if seller profile needs help
     "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
         seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
     }
 
-    // Tracking click -  if seller profile needs change yours data
+    // MLC - Tracking click -  if seller profile needs change yours data
     "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
         seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
     }
 
-    // Tracking click - if seller profile accept use biller (facturador)
+    // MLC - Tracking click - if seller profile accept use biller (facturador)
     "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
         seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
     }
+
+    // MLB - Certificate
+    "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
+    
+    // MLB - Invoice Data (NFe)
+    "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
+    
+    // MLB - Basic tax settings
+    "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
+    
+    // MLB - Blocked Access Page
+    "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+        reason(required: true,  values: ["ADDRESS_NOT_REGISTERED", "NOT_OWNER", "NO_DOCUMENT_REGISTERED"], description: "Seller access blocked for this reason")
+    }
+
 
     //not found
     "/myml/invoices/not-found"(platform: "/") {}
@@ -915,6 +819,13 @@ tracks {
     "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
     "/myml/invoices/order/devolution/success"(platform: "/", type: TrackType.Event) {
         devolution_type(require: true, type: PropertyType.String, description: "Successfully issues a devolution NF-e.")
+        order_id(require: true, type: PropertyType.String, description: "Successfully issues a devolution NF-e. and send order_id")
+
+    }
+    "/myml/invoices/order/devolution/modal"(platform: "/", type: TrackType.Event) {
+        action(require: true, type: PropertyType.String, description: "Action performed by the user")
+        order_id(require: true, type: PropertyType.String, description: "MLB orderId")
+        invoice_id(require: true, type: PropertyType.String, description: "MLB invoiceId")
     }
 
     //buyer

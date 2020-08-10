@@ -17,10 +17,15 @@ tracks {
         from (required: false, type: PropertyType.String, description: "Context from where its started")
      }
     "/cards/hybrid"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/coachmark"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/request"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/request/virtual"(platform: "/", isAbstract: true) { }
     "/cards/acquisition"(platform: "/", isAbstract: true) { }
     "/cards/engagement"(platform: "/", isAbstract: true) { }
+    "/cards/mp-card"(platform: "/", isAbstract: true) { }
+    "/cards/mp-card/hybrid"(platform: "/", isAbstract: true) { }
+
+
 
     // SHIPPING
     // --------
@@ -354,6 +359,32 @@ tracks {
             description: "Feedback action tapped"
           )
     }
+
+    //Coachmark banner
+    "/cards/hybrid/dashboard/coachmark_banner"(platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "tap"],
+            description: "Kind of tap on the banner"
+        )
+        id (
+            required: true,
+            type: PropertyType.String,
+            description: "coachmark identificator"
+        )
+     }
+
+    //Map Info: Tracking
+    "/cards/hybrid/dashboard/map_info"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["map_info"],
+            description: "Map info tapped"
+          )
+    }
     
     // SETUP VIRTUAL
     // --------
@@ -380,16 +411,34 @@ tracks {
             description: "Indicate whether the user has money",
             inheritable:false
         )
+        experimental_version (
+            required: false,
+            type: PropertyType.String,
+            values: ["experimental_a", "experimental_b"],
+            description: "Indicates experimental version",
+            inheritable:false
+        )
     }
     "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy"],
+            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy", "header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message"],
             description: "The action type tapped"
         )
     }
 
+    //Message
+    "/cards/hybrid/setup/virtual/message"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in", "money_in_experimental_a", "money_in_experimental_b", "account_info_modal", "account_info_modal_experimental_a", "account_info_modal_experimental_b"],
+            description: "The action type tapped"
+        )
+    }
+    
     //Redirect when the user don't have a virtual card
     "/cards/hybrid/setup/virtual/redirect"(platform:"/", type: TrackType.Event) {}
 
@@ -423,6 +472,17 @@ tracks {
             type: PropertyType.String,
             values: ["research_form"],
             description: "Feedback action tapped"
+          )
+    }
+
+    //Static Banner: Tracking
+    "/cards/hybrid/setup/virtual/static_banner"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/virtual/static_banner/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in"],
+            description: "Static banner tapped"
           )
     }
     
@@ -490,7 +550,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["reissue", "freeze", "unfreeze", "change_pin", "change_limits"],
+            values: ["reissue", "freeze", "unfreeze", "change_pin", "change_limits", "header_help"],
             description: "The action type tapped"
         )
     }
@@ -555,6 +615,17 @@ tracks {
         )
     }
 
+    //Map Info: Tracking
+    "/cards/hybrid/limits_setup/map_info"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["map_info"],
+            description: "Map info tapped"
+          )
+    }
+
     // Request
 
     // Request: Onboarding
@@ -563,7 +634,9 @@ tracks {
         context (
             required: true,
             type: PropertyType.String,
-            values: ["no_kyc_no_challlenge", "kyc_challenge", "no_kyc_challenge", "kyc_no_challenge"],
+            values: ["no_kyc_no_challenge", "kyc_challenge", "no_kyc_challenge", "kyc_no_challenge", 
+                    "prepaid_reparking_challenge", "prepaid_reparking_no_challenge",
+                    "seller_kyc_challenge", "seller_kyc_no_challenge", "seller_no_kyc_challenge", "seller_no_kyc_no_challenge"],
             description: "type of onboarding",
             inheritable:false
         )
@@ -648,6 +721,52 @@ tracks {
             description: "Button tapped"
         )
     }
+
+    // Hybrid Detail
+    "/cards/mp-card/hybrid/detail" (platform: "/web/desktop", type: TrackType.View) {} 
+    // Hybrid downloadApp Event
+    "/cards/mp-card/hybrid/detail/download-app" (platform:"/web/desktop", type: TrackType.Event) {} 
+    // Hybrid sendSMS Event
+    "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
+        status (
+            required: true,
+            type: PropertyType.String,
+            values: ["OK", "ERROR"],
+            description: "Status send sms"
+        )
+    } 
+    // Hybrid clickSendMessage Event
+    "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {
+        deviceType (
+            required: true,
+            type: PropertyType.String,
+            values: ["desktop"],
+            description: "Device type click send message"
+        )
+    } 
+
     // Request: Success Virtual
     "/cards/hybrid/request/virtual/success"(platform: "/", type: TrackType.Event) {}
+
+    //COACHMARK
+    // --------
+    "/cards/hybrid/coachmark/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "next", "previous"],
+            description: "Button tapped"
+        )
+        step (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "The coachmark is a guide. This may have multiple steps. It states the number of it"
+        )
+        id (
+            required: true,
+            type: PropertyType.String,
+            description: "Coachmark identificator"
+        )
+    }
+
 }

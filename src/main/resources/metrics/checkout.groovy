@@ -1,8 +1,11 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
+def checkoutExperiments = "(checkout|buyingflow)/.*"
+
 metrics {
 
 	"checkout_congrats"( description: "all congrats, including carrito and checkout congrats", compute_order:true){
+
 		countsOn {
 			condition{
 				equals("event_data.congrats_seq",1)
@@ -11,6 +14,9 @@ metrics {
 	}
 
 	"checkout_congrats.single"(description: "/checkout/congrats* unique for each order_id (congrats_seq = 1)", compute_order: true) {
+		startWith {
+			experiment(regex(checkoutExperiments))
+		}
 		countsOn {
 			condition {
 				path(regex("^/checkout/congrats(/.*|\$)"))
@@ -21,6 +27,9 @@ metrics {
 
 
 	"checkout_congrats.cart"(description: "/cart/checkout/congrats unique for each purchase_id (congrats_seq = 1)", compute_order: true) {
+		startWith {
+			experiment(regex(checkoutExperiments))
+		}
 		countsOn {
 			condition {
 				path("/cart/checkout/congrats")
@@ -30,6 +39,9 @@ metrics {
 	}
 
 	"checkout.loading"(description: "The checkout V5 first-page after performing a buy_intention ") {
+		startWith {
+			experiment(regex(checkoutExperiments))
+		}
 		countsOn {
 			condition {
 				path("/checkout/loading")
@@ -38,6 +50,9 @@ metrics {
 	}
 
 	"checkout.login"(description: "path: /checkout/login/confirm_authenticated or /checkout/login/first_purchase_not_authenticated or /checkout/login/confirm_not_authenticated") {
+		startWith {
+			experiment(regex("(search|vip)/.*"))
+		}
 		countsOn {
 			condition {
 				path("/checkout/login/confirm_authenticated", "/checkout/login/first_purchase_not_authenticated", "/checkout/login/confirm_not_authenticated")
@@ -182,58 +197,4 @@ metrics {
 //		}
 //	}
 
-	"checkout_congrats.garex"(description: "checkout orders with item garexeable") {
-		startWith {
-			experiment(regex("insurtech/.*"))
-		}
-		countsOn {
-			condition {
-				path("/checkout/congrats")
-
-				and(
-					equals("event_data.congrats_seq",1),
-					equals("event_data.item_with_garex", true)
-				)
-			}
-		}
-	}
-
-	"checkout_congrats.garex.selected"(description: "checkout orders with garex purchase") {
-		startWith {
-			experiment(regex("insurtech/.*"))
-		}
-		countsOn {
-			condition {
-				path("/checkout/congrats")
-
-				and(
-						equals("event_data.congrats_seq",1),
-						equals("event_data.item_with_garex", true),
-						empty("event_data.garex.id", false)
-				)
-			}
-		}
-	}
-
-	"checkout.selected_garex"(description: "checkout on insurtech experiments with selected garex on it") {
-		startWith {
-			experiment(regex("insurtech/.*"))
-		}
-		countsOn {
-			condition {
-				path("/garex/checkout/selected_garex")
-			}
-		}
-	}
-
-	"checkout.not_selected_garex"(description: "checkout on insurtech experiments without garex on it") {
-		startWith {
-			experiment(regex("insurtech/.*"))
-		}
-		countsOn {
-			condition {
-				path("/garex/checkout/not_selected_garex")
-			}
-		}
-	}
 }

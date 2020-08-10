@@ -307,6 +307,18 @@ trackTests {
         }
     }
 
+    //Coachmark Banner
+    test("cards hybrid dashboard coachmark banner"){
+        "/cards/hybrid/dashboard/coachmark_banner"(platform: "/", type: TrackType.Event) {
+            action = "close"
+            id = "dashboard_virtual"
+        }
+        "/cards/hybrid/dashboard/coachmark_banner"(platform: "/", type: TrackType.Event) {
+            action = "tap"
+            id = "dashboard_virtual"
+        }
+    }
+
     // Acquisition Error
     // --------
 
@@ -316,6 +328,12 @@ trackTests {
         }
     }
     
+    //Map Info: Tracking
+    test("cards hybrid dasboard map info") {
+        "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {
+            action = "map_info"
+        }
+    }
 
     // Generic Webview
     // ------
@@ -413,6 +431,18 @@ trackTests {
             initial_status = "inactive"
             has_money = false
         }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            has_money = false
+            experimental_version = "experimental_a"
+        }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            has_money = false
+            experimental_version = "experimental_b"
+        }
     }
     test("cards hybrid setup virtual card taps tracking") {
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -429,6 +459,43 @@ trackTests {
         }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "copy"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "card_name_copy"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "card_number_copy"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "card_sec_code_copy"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "additional_message"
+        }
+    }
+    
+    //Account options
+    test("cards hybrid setup virtual card message") {
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in_experimental_a"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in_experimental_b"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal_experimental_a"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal_experimental_b"
         }
     }
     
@@ -459,6 +526,13 @@ trackTests {
     test("cards hybrid setup virtual feedback") {
         "/cards/hybrid/setup/virtual/feedback/tap"(platform:"/", type: TrackType.Event) {
             action = "research_form"
+        }
+    }
+
+    //Static Banner: Tracking
+    test("cards hybrid setup virtual static banner") {
+        "/cards/hybrid/setup/virtual/static_banner/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
         }
     }
 
@@ -534,6 +608,9 @@ trackTests {
         "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
             action = "change_limits"
         }
+        "/cards/hybrid/setup/physical/tap"(platform:"/", type: TrackType.Event) {
+            action = "header_help"
+        }
     }
     
     test("cards hybrid setup physical feedback") {
@@ -593,12 +670,19 @@ trackTests {
         }
     }
 
+    //Map Info: Tracking
+    test("cards hybrid limits map info") {
+        "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {
+            action = "map_info"
+        }
+    }
+
     // Request
 
     // Request: Onboarding
     test("cards hybrid request physical onboarding") {
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-            context = "no_kyc_no_challlenge"
+            context = "no_kyc_no_challenge"
         }
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
             context = "kyc_challenge"
@@ -726,5 +810,44 @@ trackTests {
     // Request: Success Virtual
     test("cards hybrid virtual success event"){
         "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {}
+    }
+
+    test ("Hybrid Setup") {
+        "/cards/mp-card/hybrid/detail" (platform: "/web/desktop", type: TrackType.View) {}
+        "/cards/mp-card/hybrid/detail/download-app" (platform: "/web/desktop", type: TrackType.Event) {}
+        "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
+            status = "OK"
+        }
+        "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
+            status = "ERROR"
+        }
+        "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {
+             deviceType = "desktop"
+        }
+    }
+    
+    // Request: Success Virtual
+    test("cards hybrid virtual success event"){
+        "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {}
+    }
+
+    //COACHMARK
+    // --------
+    test("cards hybrid coachmark tap"){
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "close"
+            step = 1
+            id = "dashboard_virtual"
+        }
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "next"
+            step = 2
+            id = "dashboard_virtual"
+        }
+        "/cards/hybrid/coachmark/tap"(platform: "/", type: TrackType.Event) {
+            action = "previous"
+            step = 2
+            id = "dashboard_physical"
+        }
     }
 }

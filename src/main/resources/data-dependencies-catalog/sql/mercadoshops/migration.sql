@@ -3,8 +3,8 @@ SELECT
     path,
     usr.uid as uid,
     usr.user_id as user_id,
-    jest(event_data, 'index') as optin_card,
-    jest(event_data, 'shop_domain') as shop_domain,
+    get_json_object(event_data, '$.index') as optin_card,
+    get_json_object(event_data, '$.shop_domain') as shop_domain,
     substr(ds,1,10) AS ds
 FROM
     default.tracks

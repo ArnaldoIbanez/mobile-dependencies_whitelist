@@ -139,6 +139,14 @@ tracks {
         kind(required: true, type: PropertyType.String, description: "Kind of the render", values: ["fallback", "normal"])
     }
 
+    def picture_info_map = objectSchemaDefinitions {
+        width(required: true, type: PropertyType.Numeric, description: "this property describes width of the image")
+        height(required: true, type: PropertyType.Numeric, description: "this property describes height of the image")
+        size(required: false, type: PropertyType.String, description: "this property describes size of the image in bytes")
+        format(required: false, type: PropertyType.String, description: "this property describes format of the image")
+        valid(required: true, type: PropertyType.Boolean, description: "this property describes if this picture is valid")
+    }
+
     propertyDefinitions {
         category_id(required: true, type: PropertyType.String, description: "Id for category item")
         item_id(required: true, type: PropertyType.String, description: "Id of item used to")
@@ -183,15 +191,22 @@ tracks {
         catalog_product_attributes(required: true, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "List of attributes from the product associated to an item")
         item_title(required: true, type: PropertyType.String, description: "Item title")
         catalog_product_title(required: true, type: PropertyType.String, description: "Product title associated with an item")
-        vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        vertical(required: false, type: PropertyType.String, values: ["core", "motors", "realEstate", "real_estate", "services"], description: "Vertical of the item")
         mercado_lider(required: false, type: PropertyType.Boolean, description: "Seller is mercadolider")
         user_type(required: false, type: PropertyType.String, description: "The user type")
+        business(required: false,  values:["classified", "none", "marketplace"], type: PropertyType.String, description: "this is the user site business")
+        platform(required: false, values:["pi", "ml", "mp"], type: PropertyType.String, description: "this is the user site platform")
 
+        // RE V4 Intents
+        intent_type(required: true, type: PropertyType.String, description: "this property describes the intent type to be perform", values:["drag", "valid_street_number", "invalid_street_number", "new_location_accepted", "new_location_rejected", "new_location_auto_accepted", "valid_intent", "invalid_intent", "pictures_upload"])
+        intent_value(required: false, type: PropertyType.String, description: "this property describes the intent value if exists")
+        field_intent_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the field ids for the intent")
+        pictures_info(required: true, type: PropertyType.ArrayList(PropertyType.Map(picture_info_map)), description: "this property describes array of pictures information")
     }
 
     propertyGroups {
         sellerCentralModifyGroup(item_id, session_id, item_type)
-        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical)
+        sellerCentralModifyCardsGroup(category_id, seller_profile, category_domain, category_path, catalog_product_id, listing_type, shipping_local_pickup, seller_reputation, vertical, user_type, business, platform )
         sellerCentralModifyGroupTableForPdp(comparison_table, competition_status, new_competition_status, winner_item_id, price_to_win)
         sellerCentralModifyCardsGroupValue(to, from)
         sellerCentralSettingsGroup(seller_profile, reputation_level)
@@ -204,6 +219,10 @@ tracks {
         sellerCentralCatalogBoostGroup(item_attributes, catalog_product_attributes, item_title, catalog_product_title)
 
         sellerCentralUserSales(seller_profile, seller_reputation, mercado_lider, seller_segment, user_type)
+
+        intentGroup(intent_type, intent_value)
+        technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
+        pictureIntentGroup(intent_type, pictures_info)
     }
 
     // Summary
@@ -271,25 +290,18 @@ tracks {
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
-    "/seller_central/listings/communication/show"(platform: "/", type: TrackType.View) {
-        placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: false, description: "Advertasement segmentation ")
-        reputation_level(required: false, description: "Reputation for Pads")
-        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
-    }
-
     "/seller_central/listings/communication/go"(platform: "/", type: TrackType.Event) {
-        placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: false, description: "Advertasement segmentation ")
-        reputation_level(required: false, description: "Reputation for Pads")
-        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
+        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
+        id(required: false, type: PropertyType.String, description: "Id of the communication ")
+        action(required:false, type: PropertyType.String, description: "The action used in the communication if applies")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/hide"(platform: "/", type: TrackType.Event) {
-        placement(required: true, description: "Place where track was dispatched")
-        adv_segmentation(required: false, description: "Advertasement segmentation ")
-        reputation_level(required: false, description: "Reputation for Pads")
-        view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
+        type(required: true, type: PropertyType.String, description: "Type of the communication", values: ["news", "task"])
+        id(required: false, type: PropertyType.String, description: "Id of the communication ")
+        action(required:false, type: PropertyType.String, description: "The action used in the communication if applies")
+        view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
 
     "/seller_central/listings/communication/more_info"(platform: "/mobile", type: TrackType.Event) {}
@@ -736,6 +748,9 @@ tracks {
     "/seller_central/modify/detail/quick_edit_standard"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/quick_edit_standard/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/modify/detail/quick_edit_standard/confirm"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/quick_edit_standard/intent"(platform: "/", type: TrackType.Event) {
+        pictureIntentGroup
+    }
 
 
     "/seller_central/modify/detail/seller_contact"(platform: "/", isAbstract: true) {}
@@ -748,6 +763,9 @@ tracks {
     "/seller_central/modify/detail/location"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/location/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/modify/detail/location/confirm"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/location/intent"(platform: "/", type: TrackType.Event) {
+        intentGroup
+    }
 
     "/seller_central/modify/detail/instant_pay_listings"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/instant_pay_listings/show"(platform: "/", type: TrackType.Event) {}
@@ -861,6 +879,9 @@ tracks {
     "/seller_central/modify/detail/technical_specifications"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/technical_specifications/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/modify/detail/technical_specifications/confirm"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/technical_specifications/intent"(platform: "/", type: TrackType.Event) {
+        technicalSpecsIntentsGroup
+    }
 
 
     // SETTINGS SECTION
@@ -1151,21 +1172,21 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM", "CONFIRM_LIGHTNING"])
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
     }
 
     "/seller_central/promotions/list/update"(platform: "/web", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM", "CONFIRM_LIGHTNING"])
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
     }
 
     "/seller_central/promotions/list/delete"(platform: "/web", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["DELETE", "DELETE_LIGHTNING"])
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
     }
 
     "/seller_central/promotions/list/error"(platform: "/web", type: TrackType.Event) {
@@ -1173,7 +1194,7 @@ tracks {
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
         error(required: false, type: PropertyType.String, description: "Error saving the promotion")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
     }
 
     "/seller_central/promotions/list/actions"(platform: "/web", type: TrackType.Event) {
@@ -1192,7 +1213,7 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
     }
 
     "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
@@ -1202,7 +1223,7 @@ tracks {
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
         inventory_id(required:false, type: PropertyType.String, description: "Inventory id to which the action is executed")
         operator_id(required:false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
     }
 
     "/seller_central/promotions/action/confirm"(platform: "/", type: TrackType.Event) {
@@ -1213,7 +1234,7 @@ tracks {
         id_row_selected(required:false, type: PropertyType.String, description: "Row id to which the action is executed")
         has_variations(required: false, type: PropertyType.Boolean, description: "If the item to which the action is executed has variations")
         operator_id(required:false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
     }
 
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {
@@ -1226,7 +1247,22 @@ tracks {
     "/seller_central/promotions/list/secondary_actions"(platform: "/", type: TrackType.Event) {
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS SYI V4 - RealEstate
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/modify/detail/title_and_description"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/title_and_description/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/title_and_description/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/instant_pay_listings_info"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/instant_pay_listings_info/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/instant_pay_listings_info/confirm"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/modify/detail/listing_highlight_package_info"(platform: "/", isAbstract: true) {}
+    "/seller_central/modify/detail/listing_highlight_package_info/show"(platform: "/", type: TrackType.Event) {}
+    "/seller_central/modify/detail/listing_highlight_package_info/confirm"(platform: "/", type: TrackType.Event) {}
 }

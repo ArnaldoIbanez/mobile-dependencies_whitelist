@@ -103,6 +103,8 @@ tracks {
 
     "/pdp"(platform: "/") {
         // Temp fields
+        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
+
         cac_item(required: false, type: PropertyType.Boolean, 
                  description: "Indicates whether the product is listed as 'CodoACodo'")
 
@@ -415,6 +417,10 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
     }
 
+    "/pdp/qadb/search-all-action"(platform: "/", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product id")
+        item_id(required: true, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
+    }
 
     "/pdp/questions/show"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product id")

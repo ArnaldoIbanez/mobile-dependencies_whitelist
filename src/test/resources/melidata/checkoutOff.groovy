@@ -24,6 +24,11 @@ trackTests {
             payment_amount_local = 100.00
             flow_context = "init"
             flow_type = "card_express"
+            is_free_trial = false
+            subscription_partner = "hbogo"
+            loyalty_level = 1
+            discount_type = "cosmetic"
+            discount_percent = 10
         }
 
         def finishDefaultProperties = {
@@ -427,6 +432,11 @@ trackTests {
             payment_amount_local = 100.00
             flow_context = "init"
             flow_type = "card_express"
+            is_free_trial = false
+            subscription_partner = "hbogo"
+            loyalty_level = 1
+            discount_type = "cosmetic"
+            discount_percent = 10
         }
 
         def finishDefaultProperties = {

@@ -87,6 +87,7 @@ trackTests {
     //PDP FLOW
     test("pdp mandatory tracking") {
         "/pdp"(platform: "/", {
+            best_seller_position = 3
             cac_item = false
             cac_status = "normal"
             catalog_product_id = "MLA1234"
@@ -495,6 +496,14 @@ trackTests {
     //QADB call to action
     test("Qadb call to action tracking"){
         "/pdp/qadb/call-to-action"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA112341"
+        })
+    }
+
+    //QADB search all action
+    test("Qadb search all action tracking"){
+        "/pdp/qadb/search-all-action"(platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA112341"
         })

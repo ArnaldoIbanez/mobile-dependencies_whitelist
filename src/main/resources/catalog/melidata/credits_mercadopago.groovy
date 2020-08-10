@@ -152,18 +152,12 @@ tracks {
     "/credits/express_money"(platform: "/", isAbstract: true) {}
     "/credits/merchant"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
+    "/credits/mp-hub"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Merchants Public Landings
      ******************************************/
-    //Public landing
-    "/credits/merchant/public_landing"(platform: "/", type: TrackType.View) {
-        user_profile(
-            type: PropertyType.String,
-            required: true
-        )
-    }
-
+     
     "/credits/merchant/declarative_form"(platform:"/", type: TrackType.View) {}
     "/credits/merchant/declarative_form/congrats"(platform:"/", type: TrackType.View) {}
 
@@ -262,6 +256,18 @@ tracks {
     "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
         products_group
     }
+    "/credits/merchant/proactive_payment"(platform: "/", type: TrackType.View) {
+        account_money(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'sufficient',
+                'insufficient'
+            ],
+            inheritable: false
+        )
+        products_group
+    }
     "/credits/merchant/proactive_payment/congrats"(platform: "/", type: TrackType.View) {
         products_group
     }
@@ -279,9 +285,105 @@ tracks {
         )
         products_group
     }
+    "/credits/merchant/early_repayment"(platform: "/", type: TrackType.View) {
+        account_money(
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'sufficient',
+                'insufficient'
+            ],
+            inheritable: false
+        )
+        products_group
+    }
+    "/credits/merchant/early_repayment/congrats"(platform: "/", type: TrackType.View) {
+        products_group
+    }
+    "/credits/merchant/early_repayment/active_early_repayment"(platform: "/", type: TrackType.View) {
+        products_group
+    }
+    "/credits/merchant/early_repayment/error"(platform: "/", type: TrackType.View) {
+        reason(
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        products_group
+    }
 
     /******************************************
      *       End: Merchants Administrator
+     ******************************************/
+
+    /******************************************
+     *       Start: Credits Hub
+     *******************************************/
+
+    "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "Flow which the user is being redirected",
+            values: [
+                'merchant_administrator',
+                'expres_money_enrollment',
+                'personal_loan_adoption_ml',
+                'personal_loan_adoption_mp',
+                'personal_loan_collection',
+                'merchant_enrollment',
+                'consumer_loan_adoption',
+                'consumer_loan_collection',
+                'consumer_native_admin_mp',
+                'open_sea_mp',
+                'app_store_mp',
+                'app_store_ml',
+            ]
+        )
+    }
+    
+    "/credits/mp-hub/no-credit-line"(platform: "/", type: TrackType.View) {}
+        
+    "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "Flow which user is being redirected",
+            values: [
+                'consumer',
+                'merchant',
+            ]
+        )
+    }
+    
+    "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "Stop flow",
+            values: [
+                'generic',
+                'merchant',
+            ]
+        )
+    }
+    
+    "/credits/mp-hub/error"(platform: "/", type: TrackType.View) {}
+    
+    "/credits/mp-hub/error/access_click"(platform: "/", type: TrackType.Event) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "Flow which user is being redirected",
+            values: [
+                'consumer',
+                'merchant',
+            ]
+        )
+    }
+    
+    /******************************************
+     *       End: Credits Hub
      ******************************************/
 
     /******************************************
@@ -289,6 +391,20 @@ tracks {
      *******************************************/
 
     "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
+    
+    "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {}
+    
+    "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "Statements upload error",
+            values: [
+                'wrong_extension',
+                'generic',
+            ]
+        )
+    }
 
     "/credits/merchant/open-market/no-upsell_click"(platform: "/", type: TrackType.Event) {}
 
@@ -312,7 +428,29 @@ tracks {
 
     "/credits/merchant/open-market"(platform: "/", type: TrackType.View) {}
 
-    "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was congrats accessed",
+            values: [
+                'financial_files',
+                'financial_scraping',
+            ]
+        )
+    }
+    
+    "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "From which flow was stop page accessed",
+            values: [
+                'financial_files_uploaded',
+                'financial_scraping_done',
+            ]
+        )
+    }
 
     "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
         bank(
@@ -389,10 +527,19 @@ tracks {
             ),
             required: false,
         )
+        is_operator_user(
+            type: PropertyType.Boolean,
+            required: false,
+        )
     }
 
     //Without Proposal
-    "/credits/merchant/enrollment/without_proposal"(platform: "/", type: TrackType.View) {}
+    "/credits/merchant/enrollment/without_proposal"(platform: "/", type: TrackType.View) {
+        is_operator_user(
+            type: PropertyType.Boolean,
+            required: false,
+        )
+    }
 
     //Confirmation modal
     "/credits/merchant/enrollment/confirmation"(platform: "/", type: TrackType.View) {
@@ -1072,5 +1219,25 @@ tracks {
     /****************************************************
      *       End: Consumers Installment Selection Page
      ****************************************************/
+    /******************************************
+     *    Start: Consumers Change Due Date FLow
+     ******************************************/
+    "/credits/consumer/duedate_selection"(platform: "/", type: TrackType.View) {
+        available_products(description: "products that user was used", type: PropertyType.ArrayList, required: true)
+        due_date (description: "Positive number for actuall due date",type: PropertyType.Numeric,required: true)
+    }
 
+    "/credits/consumer/duedate_selection/success"(platform: "/", type: TrackType.View) {
+        new_due_date(description: "Positive number for actuall due date",type: PropertyType.Numeric,required: true)
+    }
+
+    "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {}
+    
+    "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {}
+
+    "/credits/consumer/duedate_selection/cancel"(platform: "/", type: TrackType.Event) {}
+
+     /******************************************
+     *    End: Consumers Change Due Date FLow
+     ******************************************/
 }
