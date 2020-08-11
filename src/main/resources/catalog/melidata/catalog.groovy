@@ -218,6 +218,7 @@ catalog {
         include business, "mobile.groovy"
         include business, "fees_installment.groovy"
         include business, "mp_growth_onlinepayments.groovy"
+        include business, "cashout.groovy"
     }
 
     mercadoshops.each { business ->
