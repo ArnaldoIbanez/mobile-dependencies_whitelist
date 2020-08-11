@@ -124,7 +124,7 @@ tracks {
     }
 
     def itemExtraStructure = objectSchemaDefinitions {
-      id(required: true, type: PropertyType.String, description: "Item's id")
+      id(required: false, type: PropertyType.String, description: "Item's id")
       title(required: true, type: PropertyType.String, description: "Item's title")
       image_id(required: true, type: PropertyType.String, description: "Item's image id")
       image_src(required: true, type: PropertyType.String, description: "Item's image src")
