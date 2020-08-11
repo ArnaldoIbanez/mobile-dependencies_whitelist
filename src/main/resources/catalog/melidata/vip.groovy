@@ -1210,7 +1210,7 @@ tracks {
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
-    "/vip/copy_seller_info"(platform: "/web/desktop", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/vip/copy_seller_info"(platform: "/web/", parentPropertiesInherited: false, type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
@@ -1218,9 +1218,15 @@ tracks {
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
         shipping_cost(required: false, type: PropertyType.Numeric, description: "Indicates shipping cost")
         shipping_method(required: false, type: PropertyType.String, description: "Shipping Method")
-        shipping_preference(required: false, type: PropertyType.String,
-                description: "Shipping method's name shown when the user has zipcode/location preloaded")
         free_shipping(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the items has free shipping")
+        free_shipping_benefit(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user has free shipping or free by loyalty")
+        shipping_promise(required: false, description: "Array of shippping promise in the order with following data")
+        free_shipping_benefit_lyl(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user has free shipping benefit by loyalty")
+        discount_shipping_benefit_lyl(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user has discount benefit by loyalty")
+        shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],          
     }
 }
