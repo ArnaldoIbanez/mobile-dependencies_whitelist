@@ -321,16 +321,16 @@ tracks {
     // Interaction Screen
     "/mplayer/interaction_screen"(platform: "/mobile", isAbstract: true) {}
     "/mplayer/interaction_screen/view"(platform: "/mobile", type: TrackType.View) {
-        type(required: false, PropertyType.String, description: "Could be modal or full_screen")
+        type(required: false, PropertyType.String, values: ["modal", "full_screen"], description: "Describe the appearance")
         cause(required: false, PropertyType.String, description: "Interaction screen reason")
         message_id(required: false, PropertyType.String, description: "Interaction screen id")
     }
     "/mplayer/interaction_screen/event"(platform: "/mobile", type: TrackType.Event) {
-        type(required: false, PropertyType.String, description: "Could be modal or full_screen")
+        type(required: false, PropertyType.String, values: ["modal", "full_screen"], description: "Describe the appearance")
         cause(required: false, PropertyType.String, description: "Interaction screen reason")
         message_id(required: false, PropertyType.String, description: "Interaction screen id")
-        action(required: false, PropertyType.String, description: "Button action")
-        help_link(required: false, PropertyType.String, description: "The action of the help link, could be help_webview or help_modal")
-        check_panel(required: false, PropertyType.String, description: "The action of the check panel, could be help_webview or help_modal")
+        action(required: false, PropertyType.String, description: "Component action")
+        help_link(required: false, PropertyType.String, values:["help_webview", "help_modal"], description: "The action of the help link")
+        check_panel(required: false, PropertyType.String, values:["help_webview", "help_modal"], description: "The action of the check panel")
     }
 }
