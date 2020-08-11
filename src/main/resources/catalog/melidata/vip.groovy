@@ -1210,7 +1210,7 @@ tracks {
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
-    "/vip/copy_seller_info"(platform: "/web/desktop", type: TrackType.Event) {
+    "/vip/copy_seller_info"(platform: "/web/desktop", parentPropertiesInherited: false, type: TrackType.Event) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
