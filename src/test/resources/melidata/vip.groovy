@@ -264,6 +264,8 @@ trackTests {
         }
 
         "/vip/item_gallery/back"(platform:"/mobile") {}
+        
+        "/vip/video_focus"(platform:"/", type: TrackType.Event) {}
 
         "/vip/map"(platform:"/mobile", mandatory)
 

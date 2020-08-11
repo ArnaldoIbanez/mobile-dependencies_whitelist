@@ -388,6 +388,12 @@ tracks {
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
+    "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+            videoType(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO", "NONE"],
+                description: "Video type of the item"
+            )
+    }
+
     "/vip/contact_seller"(platform: "/", type: TrackType.Event) {
         category_id(required: false, type: PropertyType.String,
                 description: "Item's category ID"
