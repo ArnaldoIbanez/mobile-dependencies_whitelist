@@ -1447,7 +1447,7 @@ trackTests {
             loyalty_level = 2
             shipping_cost = 30
             shipping_method="standard"
-            shipping_mode = "m2"
+            shipping_mode = "me2"
             free_shipping = true
             free_shipping_benefit = false
             free_shipping_benefit_lyl = false
