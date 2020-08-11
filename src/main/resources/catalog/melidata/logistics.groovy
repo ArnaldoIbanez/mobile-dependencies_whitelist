@@ -370,7 +370,7 @@ tracks {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
     }
-    "/logistics/first_mile/scanner"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/first_mile/scanner/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/first_mile/scanner/modal_invalid_packages"(platform: "/mobile", type: TrackType.View) {
         first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")

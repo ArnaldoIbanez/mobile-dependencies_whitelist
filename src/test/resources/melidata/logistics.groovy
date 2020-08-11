@@ -489,7 +489,7 @@ trackTests {
             route_id = "125"
             driver_id = "123"
         }
-        "/logistics/first_mile/scanner"(platform: "/mobile", type: TrackType.Event) {}
+        "/logistics/first_mile/scanner/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
         "/logistics/first_mile/scanner/modal_invalid_packages"(platform: "/mobile", type: TrackType.View) {
             first_mile_logistic_type = "FF"
             route_id = "125"
@@ -533,7 +533,12 @@ trackTests {
             route_id = "125"
             packages = ["1", "2", "3"]
         }
-        "/logistics/first_mile/pickup/seller_document_form/view_list"(platform: "/mobile", type: TrackType.Event) {}
+        "/logistics/first_mile/pickup/seller_document_form/view_list"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            first_mile_logistic_type = "FF"
+            route_id = "125"
+            packages = ["1", "2", "3"]
+        }
         "/logistics/first_mile/pickup/signature"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             first_mile_logistic_type = "FF"
