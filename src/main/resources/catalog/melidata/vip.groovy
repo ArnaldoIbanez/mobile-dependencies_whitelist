@@ -1227,6 +1227,7 @@ tracks {
                 description: "Indicates if the user has free shipping benefit by loyalty")
         discount_shipping_benefit_lyl(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the user has discount benefit by loyalty")
-        shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],          
+        shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
+                description: "Mercado Envios mode")
     }
 }
