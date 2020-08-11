@@ -1220,7 +1220,7 @@ tracks {
         shipping_method(required: false, type: PropertyType.String, description: "Shipping Method")
         shipping_preference(required: false, type: PropertyType.String,
                 description: "Shipping method's name shown when the user has zipcode/location preloaded")
-         free_shipping(required: false, type: PropertyType.Boolean,
+        free_shipping(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the items has free shipping")
     }
 }
