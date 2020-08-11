@@ -20,10 +20,10 @@ tracks {
     "/cashout/hub/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
     "/cashout/hub/kyc/onboarding/close"(platform: "/", type: TrackType.Event) {}
 
-    "/cashout/hub/congrat"(platform: "/", isAbstract: true) {}
-    "/cashout/hub/congrat/success"(platform: "/", type: TrackType.View) {}
-    "/cashout/hub/congrat/success/continue"(platform: "/", type: TrackType.Event) {}
-    "/cashout/hub/congrat/success/close"(platform: "/", type: TrackType.Event) {}
+    "/cashout/hub/congrats"(platform: "/", isAbstract: true) {}
+    "/cashout/hub/congrats/success"(platform: "/", type: TrackType.View) {}
+    "/cashout/hub/congrats/success/continue"(platform: "/", type: TrackType.Event) {}
+    "/cashout/hub/congrats/success/close"(platform: "/", type: TrackType.Event) {}
 
     "/cashout/extracash"(platform: "/", isAbstract: true) {}
     "/cashout/extracash/onboarding"(platform: "/", type: TrackType.View) {}
