@@ -280,8 +280,16 @@ trackTests {
         "/mplayer/contacts/search/end"(platform: "/mobile") {}
 
         //Interaction Screen
-        "/mplayer/interaction_screen/view"(platform: "/mobile") {}
-        "/mplayer/interaction_screen/event"(platform: "/mobile") {}
+        "/mplayer/interaction_screen"(platform: "/mobile") {
+            type = "modal"
+            cause = "warning"
+            message_id = "error-01"
+        }
+        "/mplayer/interaction_screen/event"(platform: "/mobile") {
+            type = "modal"
+            cause = "warning"
+            message_id = "error-01"
+        }
     }
 }
 

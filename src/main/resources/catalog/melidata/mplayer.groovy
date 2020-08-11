@@ -319,16 +319,15 @@ tracks {
     "/mplayer/contacts/search/end"(platform: "/mobile", type: TrackType.Event) {}
 
     // Interaction Screen
-    "/mplayer/interaction_screen"(platform: "/mobile", isAbstract: true) {}
-    "/mplayer/interaction_screen/view"(platform: "/mobile", type: TrackType.View) {
-        type(required: false, PropertyType.String, values: ["modal", "full_screen"], description: "Describe the appearance")
-        cause(required: false, PropertyType.String, description: "Interaction screen reason")
-        message_id(required: false, PropertyType.String, description: "Interaction screen id")
+    "/mplayer/interaction_screen"(platform: "/mobile", type: TrackType.View) {
+        type(required: true, PropertyType.String, values: ["modal", "full_screen"], description: "Describe the appearance")
+        cause(required: true, PropertyType.String, description: "Interaction screen reason")
+        message_id(required: true, PropertyType.String, description: "Interaction screen id")
     }
     "/mplayer/interaction_screen/event"(platform: "/mobile", type: TrackType.Event) {
-        type(required: false, PropertyType.String, values: ["modal", "full_screen"], description: "Describe the appearance")
-        cause(required: false, PropertyType.String, description: "Interaction screen reason")
-        message_id(required: false, PropertyType.String, description: "Interaction screen id")
+        type(required: true, PropertyType.String, values: ["modal", "full_screen"], description: "Describe the appearance")
+        cause(required: true, PropertyType.String, description: "Interaction screen reason")
+        message_id(required: true, PropertyType.String, description: "Interaction screen id")
         action(required: false, PropertyType.String, description: "Component action")
         help_link(required: false, PropertyType.String, values:["help_webview", "help_modal"], description: "The action of the help link")
         check_panel(required: false, PropertyType.String, values:["help_webview", "help_modal"], description: "The action of the check panel")
