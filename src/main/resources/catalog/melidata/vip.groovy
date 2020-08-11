@@ -1216,6 +1216,8 @@ tracks {
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
         buyer_id(required: false, type: PropertyType.String, description: "Buyer ID")
         loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+        shipping_preference(required: false, type: PropertyType.String,
+                description: "Shipping method's name shown when the user has zipcode/location preloaded")
         shipping_cost(required: false, type: PropertyType.Numeric, description: "Indicates shipping cost")
         shipping_method(required: false, type: PropertyType.String, description: "Shipping Method")
         free_shipping(required: false, type: PropertyType.Boolean,
