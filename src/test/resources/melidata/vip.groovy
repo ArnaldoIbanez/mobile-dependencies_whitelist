@@ -1466,4 +1466,42 @@ trackTests {
             }
         }
     }
+
+
+    // Price Comparator - RealEstate
+
+    test("VIP Price Comparator section for used properties RE"){
+        def properties = {
+            vertical = "realEstate"
+            seller_id =  430012134
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                    "MLA1459",
+                    "MLA1493",
+                    "MLA1495",
+                    "MLA401803"
+            ]
+            buying_mode = "classified"
+            deal_ids = []
+            price_comparison_available = true
+        }
+
+        "/vip/comparator_price/similar_properties"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/comparator_price/info_tooltip"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/comparator_price/similar_properties"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/comparator_price/info_tooltip"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+
+    }
 }
