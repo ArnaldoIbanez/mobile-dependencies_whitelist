@@ -94,12 +94,13 @@ tracks {
         json_data(required: false, type: PropertyType.String, description: "The data of qr vehicle", inheritable: false)
     }
     "/logistics/login/document"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/login/document/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/login/document/vehicle_detected"(platform: "/mobile", type: TrackType.Event) {
         vehicle_id(required: false, type: PropertyType.String, description: "The id of the vehicle", inheritable: false)
         status(required: true, type: PropertyType.String, values: ["ok", "invalid_format"], description: "Specifies if the detected vehicle qr has the correct format or not", inheritable: false)
     }
     "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
-        error_type(required: true, type: PropertyType.String, values: ["vehicle", "driver", "vehicle_driver"],
+        error_type(required: true, type: PropertyType.String, values: ["generic" , "driver_on_route", "vehicle_on_route", "vehicle_driver_inactive", "driver_inactive" , "vehicle_inactive"],
                 description: "Specifies what kind of error happened.", inheritable: false)
     }
     "/logistics/login/error"(platform: "/mobile", type: TrackType.View) {}
@@ -121,6 +122,7 @@ tracks {
         status(required: true, type: PropertyType.String,  values: ["ok", "already_registered", "invalid_format"], description: "The feedback of the scan for an specific QR.")
         qr_data(required: false , type: PropertyType.String, description: "The data of qr when it is invalid.")
     }
+    "/logistics/flow_decision/scanner/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/flow_decision/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
         pack_id(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the pack id that had an error", inheritable: false)
     }
@@ -328,6 +330,7 @@ tracks {
         route_id(required: false, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
     }
+    "/logistics/profile/authentication_qr/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
 
     // Scoring LM
     "/logistics/last_mile/package/security_keyword/invalid"(platform: "/mobile", type: TrackType.View) {
@@ -367,6 +370,7 @@ tracks {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
     }
+    "/logistics/first_mile/scanner/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/first_mile/scanner/modal_invalid_packages"(platform: "/mobile", type: TrackType.View) {
         first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id")
@@ -406,6 +410,7 @@ tracks {
         packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the packages being picked up")
     }
     "/logistics/first_mile/pickup/seller_document_form/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/first_mile/pickup/seller_document_form/view_list"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/first_mile/pickup/signature"(platform: "/mobile", type: TrackType.View) {
         location
         first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")

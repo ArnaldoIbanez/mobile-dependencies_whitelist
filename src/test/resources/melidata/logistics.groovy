@@ -61,6 +61,9 @@ trackTests {
             defaultLocation()
         }
 
+        //Login document input pull to refresh
+        "/logistics/login/document/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
+
         //Login documento after vehicle detected
         "/logistics/login/document/vehicle_detected"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
@@ -71,7 +74,7 @@ trackTests {
         //Login account disabled error
         "/logistics/login/account_disabled"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
-            error_type = "vehicle"
+            error_type = "generic"
         }
 
         //Login error generic
@@ -135,6 +138,8 @@ trackTests {
             status = "ok"
             qr_data = "qr_json"
         }
+
+        "/logistics/flow_decision/scanner/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
 
         //Conciliation sorting fail
         "/logistics/conciliation/fail"(platform: "/mobile") {}
@@ -459,6 +464,8 @@ trackTests {
             route_id = "123"
             driver_id = "123"
         }
+        "/logistics/profile/authentication_qr/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
+
     }
 
     test("Testing Logistics First Mile") {
@@ -482,6 +489,7 @@ trackTests {
             route_id = "125"
             driver_id = "123"
         }
+        "/logistics/first_mile/scanner/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
         "/logistics/first_mile/scanner/modal_invalid_packages"(platform: "/mobile", type: TrackType.View) {
             first_mile_logistic_type = "FF"
             route_id = "125"
@@ -520,6 +528,12 @@ trackTests {
             packages = ["1", "2", "3"]
         }
         "/logistics/first_mile/pickup/seller_document_form/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {
+            defaultLocation()
+            first_mile_logistic_type = "FF"
+            route_id = "125"
+            packages = ["1", "2", "3"]
+        }
+        "/logistics/first_mile/pickup/seller_document_form/view_list"(platform: "/mobile", type: TrackType.Event) {
             defaultLocation()
             first_mile_logistic_type = "FF"
             route_id = "125"
