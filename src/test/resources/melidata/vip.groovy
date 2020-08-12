@@ -1437,4 +1437,33 @@ trackTests {
             item_condition = "new"
         }
     }
+
+    test("VIP Copy Seller info") {
+        "/vip/copy_seller_info"(platform: "/web/", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            seller_id = 167086843
+            price = 100
+            buyer_id = "12343718"
+            loyalty_level = 2
+            shipping_cost = 30
+            shipping_method="standard"
+            shipping_mode = "me2"
+            free_shipping = true
+            free_shipping_benefit = false
+            free_shipping_benefit_lyl = false
+            discount_shipping_benefit_lyl = false
+            shipping_preference = "Normal a Domicilio"
+            shipping_promise = {
+                afterDispatch = true
+                min_days = 2
+                max_days = 12
+                price = {
+                    amount = 10000
+                    currency_id = "ARS"
+                    is_loyalty_discount = false
+                }
+                destination = "1429"
+            }
+        }
+    }
 }
