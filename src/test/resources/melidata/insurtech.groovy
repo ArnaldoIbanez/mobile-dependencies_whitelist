@@ -189,12 +189,12 @@ trackTests {
             ]
             options = [
                 [
-                    category: "total",
+                    coverage: "theft_break",
                     price: 123.33,
                     deductible: 30.44
                 ],
                 [
-                    category: "screen",
+                    coverage: "theft_break",
                     price: 100.33,
                     deductible: 20.44
                 ]
@@ -211,7 +211,7 @@ trackTests {
             ]
             options = [
                 [
-                    category: "total",
+                    coverage: "total",
                     price: 123.33,
                     deductible: 30.44
                 ],
@@ -250,7 +250,7 @@ trackTests {
             ]
             option = [
                 id: "123123-asdad",
-                category: "total",
+                coverage: "theft_break",
                 price: 123.44,
                 monthly_price: 15.44,
                 fee_price: 10.44,
@@ -258,13 +258,13 @@ trackTests {
                 deductible: 10.25,
                 deductible_amount: 20.00,
                 check: "total"
-            ]            
+            ]
             financing_type = [
                 no_interest_allowed : true,
                 installments: 12
             ]
         }
-               
+
         "/insurtech/roda/qpage/buy"(platform:"/mobile", type: TrackType.View) {
             device = [
                 brand: "Samsung",
@@ -274,7 +274,7 @@ trackTests {
             ]
             option = [
                 id: "123123-asdad",
-                category: "total",
+                coverage: "theft_break",
                 price: 123.44,
                 monthly_price: 15.44,
                 fee_price: 10.44,
@@ -282,13 +282,13 @@ trackTests {
                 deductible: 10.25,
                 deductible_amount: 20.00,
                 check: "total"
-            ]            
+            ]
             financing_type = null
         }
 
         //Mobile
 
-        // INSURTECH RODA Hardware Check 
+        // INSURTECH RODA Hardware Check
 
         "/insurtech/hardware_check/onboarding"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
@@ -394,7 +394,7 @@ trackTests {
         "/insurtech/hardware_check/congrats_success/secondary_action"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             action_description = "Continuar para o pagamento"
-        } 
+        }
 
         "/insurtech/hardware_check/congrats_failed"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
@@ -407,18 +407,18 @@ trackTests {
         "/insurtech/hardware_check/congrats_failed/main_action"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             action_description = "Tentar novamente"
-        } 
+        }
 
         "/insurtech/hardware_check/congrats_failed/secondary_action"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             action_description = "Tentar novamente"
-        } 
+        }
 
         "/insurtech/hardware_check/generic_error"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             step = "ONBOARDING"
             context = "Unable to resolve host : No address associated with hostname"
-        } 
+        }
 
         "/insurtech/hardware_check/generic_error/back"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"

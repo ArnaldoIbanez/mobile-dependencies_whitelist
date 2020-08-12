@@ -23,7 +23,7 @@ tracks {
 
     def roda_option = objectSchemaDefinitions {
         id(required: true, type: PropertyType.String, description: "ID of RODA option plan to purchase.")
-        category(required: true, type: PropertyType.String, description: "Category of the option. For ex: total, screen, accident.")
+        coverage(required: true, type: PropertyType.String, description: "Coverage of the option. For ex: theft_break, theft, break, accident.")
         price(required: true, type: PropertyType.Numeric, description: "Price of the option.")
         monthly_price(required: true, type: PropertyType.Numeric, description: "Monthly price of the option.")
         fee_price(required: true, type: PropertyType.Numeric, description: "Fee price for meli of the option.")
@@ -34,7 +34,7 @@ tracks {
     }
 
     def roda_option_short = objectSchemaDefinitions {
-        category(required: true, type: PropertyType.String, description: "Category of the option. For ex: total, screen, accident.")
+        coverage(required: true, type: PropertyType.String, description: "Coverage of the option. For ex: theft_break, theft, break, accident.")
         price(required: true, type: PropertyType.Numeric, description: "Price of the option.")
         deductible(required: true, type: PropertyType.Numeric, description: "Deductible percentage of the option.")
     }
@@ -60,7 +60,7 @@ tracks {
         financing_type(required: false, type: PropertyType.Map(financing_type_track_structure), description: "Financing data of item if it has")
     }
 
-    // INSURTECH RODA Hardware Check 
+    // INSURTECH RODA Hardware Check
 
     "/insurtech/hardware_check"(platform: "/", isAbstract: true) {}
 
@@ -141,7 +141,7 @@ tracks {
 
     "/insurtech/hardware_check/congrats_success/secondary_action"(platform:"/mobile", type: TrackType.Event) {
         action_description(required: true, type: PropertyType.String, description: "Description of the main action shown in the congrats.")
-    } 
+    }
 
     "/insurtech/hardware_check/congrats_failed"(platform:"/mobile", type: TrackType.View) {
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
@@ -151,17 +151,17 @@ tracks {
 
     "/insurtech/hardware_check/congrats_failed/main_action"(platform:"/mobile", type: TrackType.Event) {
         action_description(required: true, type: PropertyType.String, description: "Description of the main action shown in the congrats.")
-    } 
+    }
 
     "/insurtech/hardware_check/congrats_failed/secondary_action"(platform:"/mobile", type: TrackType.Event) {
         action_description(required: true, type: PropertyType.String, description: "Description of the main action shown in the congrats.")
-    } 
+    }
 
     "/insurtech/hardware_check/generic_error"(platform:"/mobile", type: TrackType.View) {
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
-        step(required: true, type: PropertyType.String, description: "Indicates which step of the flow occurred.", values: ["ONBOARDING", "CONGRATS"])   
+        step(required: true, type: PropertyType.String, description: "Indicates which step of the flow occurred.", values: ["ONBOARDING", "CONGRATS"])
         context(required: true, type: PropertyType.String, description: "Information on what was the problem causing the error.")
-    } 
+    }
 
     "/insurtech/hardware_check/generic_error/back"(platform:"/mobile", type: TrackType.Event) {}
 
