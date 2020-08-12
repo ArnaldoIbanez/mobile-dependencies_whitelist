@@ -564,6 +564,20 @@ tracks {
         show(required: false, inheritable: false, type: PropertyType.String)
     }
 
+
+    "/vip/comparator_price"(platform: "/web", type: TrackType.View, isAbstract: true) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        price_comparison_available(required: true, type: PropertyType.Boolean,
+                description: "Indicates if the item has price comparison available")
+    }
+
+    "/vip/comparator_price/similar_properties"(platform: "/web", type: TrackType.Event) {}
+
+    "/vip/comparator_price/info_tooltip"(platform: "/web", type: TrackType.Event) {}
+
     //  QUESTION
 
     "/vip/question"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
