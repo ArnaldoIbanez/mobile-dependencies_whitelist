@@ -149,4 +149,37 @@ trackTests {
             user_profile = 'no_offer'
         }
     }
+
+    // Credits Marketing Performance landing
+    test("Credits Marketing landings") {
+        "/credits/mkt_landing"(platform: "/web"){
+            campaign = "generic"
+        }
+        "/credits/mkt_landing"(platform: "/web"){
+            campaign = "proof-landing"
+        }
+        "/credits/mkt_landing/sms"(platform: "/web"){
+            campaign = "generic"
+        } 
+        "/credits/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/credits/mkt_landing/copy-clipboard"(platform: "/web"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/credits/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/credits/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+        "/credits/mkt_landing/button"(platform: "/web"){
+            campaign = "generic"
+            position = "footer"
+        } 
+    }
 }
