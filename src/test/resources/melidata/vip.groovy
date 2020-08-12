@@ -267,6 +267,17 @@ trackTests {
         
         "/vip/video_focus"(platform:"/", type: TrackType.Event) {
             mandatory()
+            videoType = "TOUR360"
+        }
+
+        "/vip/video_focus"(platform:"/", type: TrackType.Event) {
+            mandatory()
+            videoType = "VIDEO"
+        }
+
+        "/vip/video_focus"(platform:"/", type: TrackType.Event) {
+            mandatory()
+            videoType = "NONE"
         }
 
         "/vip/map"(platform:"/mobile", mandatory)
