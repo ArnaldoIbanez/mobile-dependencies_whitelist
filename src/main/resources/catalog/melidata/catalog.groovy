@@ -180,6 +180,7 @@ catalog {
         include business, "cards_cobranded.groovy"
         include business, "cards_prepaid.groovy"
         include business, "cards_hybrid.groovy"
+        include business, "cards_mpcard.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "asset_management.groovy"
         include business, "single_player.groovy"
