@@ -17,6 +17,10 @@
          "type": "UNICODE_STRING"
        },
        {
+         "name": "count_track",
+         "type": "INTEGER"
+       },
+       {
         "name": "site",
         "type": "UNICODE_STRING"
       },
