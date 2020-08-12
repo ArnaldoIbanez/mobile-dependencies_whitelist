@@ -20,19 +20,19 @@ metrics {
     //  Deprecated Properties
     // =======================================================================
 
-    "buyingflow/accountmoney_not_bep"(description: "define properties for order_id", deprecation_date:"2020/01/01") {
+    "buyingflow/accountmoney_not_bep"(description: "define properties for order_id", deprecation_date:"2020/08/12") {
         startWith {
             set_property("order_id", "event_data.order_id")
         }
     }
 
-    "sell/full_relist_single_item"(description: "define properties for item_id at full_relist experiment", deprecation_date:"2020/01/01") {
+    "sell/full_relist_single_item"(description: "define properties for item_id at full_relist experiment", deprecation_date:"2020/08/12") {
         startWith {
             set_property("item_id", "event_data.item_id")
         }
     }
 
-    "vip/plainText"(description: "define properties for item_id for vip description (html vs plain) experiment", deprecation_date:"2020/01/01") {
+    "vip/plainText"(description: "define properties for item_id for vip description (html vs plain) experiment", deprecation_date:"2020/08/12") {
         startWith {
             set_property("item_id", "event_data.item_id")
         }
