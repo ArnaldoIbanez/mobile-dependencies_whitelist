@@ -18,7 +18,11 @@ from (
   where cast(o.ord_created_dt as string) = '@param01'
   AND pck_pack_id IS NULL)
   UNION ALL
-  (select distinct get_json_object(event_data, '$.purchase_id') as entity_id, substr(ds,1,10) as date_created, application.site_id as site, tc.path, device.platform, 'true' as is_carrito
+  (select distinct get_json_object(event_data, '$.purchase_id') as entity_id, substr(ds,1,10) as date_created, application.site_id as site, tc.path, CASE device.platform
+               WHEN '/mobile/android' THEN 'android'
+               WHEN '/mobile/ios' THEN 'ios'
+               ELSE 'web'
+           END as platform, 'true' as is_carrito
       from melidata.tracks_ml oc
   left join (
     select distinct jest(event_data, 'purchase_id') as entity_id, path
@@ -26,7 +30,7 @@ from (
         and ds < '@param02'
         and path = '/cart/checkout/congrats'
         and bu = 'mercadolibre'
-  ) tc on (get_json_object(oc.event_data, '$.order_id') = tc.entity_id)
+  ) tc on (get_json_object(oc.event_data, '$.purchase_id') = tc.entity_id)
   where ds >= '@param01'
   and ds < '@param02'
   and oc.path='/purchases/purchasecreated'
