@@ -10,12 +10,12 @@ from (
   from melilake.bt_odr_purchase_orders o
   left join (
     select distinct get_json_object(event_data, '$.order_id') as entity_id, path
-      from melidata.tracks_ml where ds >= '2020-07-11'
-        and ds < '2020-07-12'
+      from melidata.tracks_ml where ds >= '@param01'
+        and ds < '@param02'
         and (path='/orders/ordercreated' or path = '/checkout/congrats')
         and bu = 'mercadolibre'
   ) t on (cast(o.ord_order_id as string) = t.entity_id )
-  where cast(o.ord_created_dt as string) = '2020-07-11'
+  where cast(o.ord_created_dt as string) = '@param01'
   AND pck_pack_id IS NULL)
   UNION ALL
   (select distinct get_json_object(event_data, '$.purchase_id') as entity_id, substr(ds,1,10) as date_created, application.site_id as site, tc.path, CASE device.platform
@@ -26,13 +26,13 @@ from (
       from melidata.tracks_ml oc
   left join (
     select distinct jest(event_data, 'purchase_id') as entity_id, path
-      from melidata.tracks_ml where ds >= '2020-07-11'
-        and ds < '2020-07-12'
+      from melidata.tracks_ml where ds >= '@param01'
+        and ds < '@param02'
         and path = '/cart/checkout/congrats'
         and bu = 'mercadolibre'
   ) tc on (get_json_object(oc.event_data, '$.order_id') = tc.entity_id)
-  where ds >= '2020-07-11'
-  and ds < '2020-07-12'
+  where ds >= '@param01'
+  and ds < '@param02'
   and oc.path='/purchases/purchasecreated'
   and bu = 'mercadolibre')
 ) a
