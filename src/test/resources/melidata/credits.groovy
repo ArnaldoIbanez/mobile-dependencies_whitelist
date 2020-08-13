@@ -176,7 +176,7 @@ trackTests {
         "/credits/mkt_landing"(platform: "/web", type: TrackType.View, business:"mercadolibre"){
             campaign = "proof-landing"
         }
-        "/credits/mkt_landing/sms"(platform: "/web", type: TrackType.Event, business:"mecadolibre"){
+        "/credits/mkt_landing/sms"(platform: "/web", type: TrackType.Event, business:"mercadolibre"){
             campaign = "generic"
         } 
         "/credits/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event, business:"mercadolibre"){
