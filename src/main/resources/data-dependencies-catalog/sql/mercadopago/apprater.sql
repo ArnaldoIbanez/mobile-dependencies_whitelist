@@ -5,8 +5,8 @@ SELECT  Get_json_object(event_data, '$.type_track') AS type_track,
         substring_index(application.version, '.',2) AS version,
         Substr(ds, 1, 10)  AS fecha
 FROM default.tracks
-WHERE ds >= '2020-07-30'
-AND ds < '2020-07-31'
+WHERE ds >= 'param01'
+AND ds < 'param02'
 AND path LIKE '%/apprater%'
 AND application.business = 'mercadopago'
 AND (device.platform = '/mobile/ios'
