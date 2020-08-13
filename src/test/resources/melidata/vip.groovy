@@ -264,6 +264,21 @@ trackTests {
         }
 
         "/vip/item_gallery/back"(platform:"/mobile") {}
+        
+        "/vip/video_focus"(platform:"/", type: TrackType.Event) {
+            mandatory()
+            video_type = "TOUR360"
+        }
+
+        "/vip/video_focus"(platform:"/", type: TrackType.Event) {
+            mandatory()
+            video_type = "VIDEO"
+        }
+
+        "/vip/video_focus"(platform:"/", type: TrackType.Event) {
+            mandatory()
+            video_type = "NONE"
+        }
 
         "/vip/map"(platform:"/mobile", mandatory)
 
