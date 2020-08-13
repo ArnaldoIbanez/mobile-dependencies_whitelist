@@ -389,7 +389,7 @@ tracks {
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
     "/vip/video_focus"(platform: "/", type: TrackType.Event) {
-            videoType(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO", "NONE"],
+            video_type(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO", "NONE"],
                 description: "Video type of the item"
             )
     }
