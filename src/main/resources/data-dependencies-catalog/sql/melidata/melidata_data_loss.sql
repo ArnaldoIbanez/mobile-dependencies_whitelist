@@ -30,7 +30,7 @@ from (
         and ds < '@param02'
         and path = '/cart/checkout/congrats'
         and bu = 'mercadolibre'
-  ) tc on (get_json_object(oc.event_data, '$.order_id') = tc.entity_id)
+  ) tc on (get_json_object(oc.event_data, '$.purchase_id') = tc.entity_id)
   where ds >= '@param01'
   and ds < '@param02'
   and oc.path='/purchases/purchasecreated'
