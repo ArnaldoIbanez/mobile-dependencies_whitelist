@@ -117,6 +117,7 @@ tracks {
     "/logistics/flow_decision/start"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/package/start/ask_camera"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/package/start/ask_geolocation"(platform: "/mobile", type: TrackType.View) {}
+    "/logistics/package/start/ask_phone"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/flow_decision/scanner"(platform: "/mobile", type: TrackType.View) {}
     "/logistics/flow_decision/scanner/qr_detected"(platform: "/mobile", type: TrackType.Event) {
         status(required: true, type: PropertyType.String,  values: ["ok", "already_registered", "invalid_format"], description: "The feedback of the scan for an specific QR.")

@@ -110,6 +110,11 @@ trackTests {
             defaultLocation()
         }
 
+        // Phone permission
+        "/logistics/package/start/ask_phone"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+        }
+
         //Flow decision scanner disclaimer
         "/logistics/flow_decision/start"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
