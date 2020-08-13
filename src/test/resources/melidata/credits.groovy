@@ -152,34 +152,41 @@ trackTests {
 
     // Credits Marketing Performance landing
     test("Credits Marketing landings") {
-        "/credits/mkt_landing"(platform: "/web"){
+        // MercadoPago Business
+        "/credits/mkt_landing"(platform: "/web", type: TrackType.View, business:"mercadopago"){
             campaign = "generic"
         }
-        "/credits/mkt_landing"(platform: "/web"){
-            campaign = "proof-landing"
-        }
-        "/credits/mkt_landing/sms"(platform: "/web"){
+        "/credits/mkt_landing/sms"(platform: "/web", type: TrackType.Event, business:"mercadopago"){
             campaign = "generic"
         } 
-        "/credits/mkt_landing/copy-clipboard"(platform: "/web"){
+        "/credits/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event, business:"mercadopago"){
             campaign = "generic"
             position = "coupon"
         } 
-        "/credits/mkt_landing/copy-clipboard"(platform: "/web"){
-            campaign = "generic"
-            position = "steps"
-        } 
-        "/credits/mkt_landing/button"(platform: "/web"){
+        "/credits/mkt_landing/button"(platform: "/web", type: TrackType.Event, business:"mercadopago"){
             campaign = "generic"
             position = "hero"
         } 
-        "/credits/mkt_landing/button"(platform: "/web"){
+        "/credits/mkt_landing/button"(platform: "/web", type: TrackType.Event, business:"mercadopago"){
             campaign = "generic"
             position = "fixed"
         } 
-        "/credits/mkt_landing/button"(platform: "/web"){
+
+        // MercadoLibre business
+        "/credits/mkt_landing"(platform: "/web", type: TrackType.View, business:"mercadolibre"){
+            campaign = "proof-landing"
+        }
+        "/credits/mkt_landing/sms"(platform: "/web", type: TrackType.Event, business:"mecadolibre"){
+            campaign = "generic"
+        } 
+        "/credits/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event, business:"mercadolibre"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/credits/mkt_landing/button"(platform: "/web", type: TrackType.Event, business:"mercadolibre"){
             campaign = "generic"
             position = "footer"
         } 
+
     }
 }
