@@ -30,12 +30,6 @@ trackTests {
             matching_status = "matching_inversion"
         }
 
-        "/advertising/pads2/manager/box/upselling"(platform: "/web", type: TrackType.Event) {
-            campaign_id = "283973028"
-            status = "active"
-            budget = "65"
-        }
-
         "/advertising/pads2/manager/update_campaign_status"(platform: "/", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "active"
