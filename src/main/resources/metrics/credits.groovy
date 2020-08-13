@@ -62,7 +62,7 @@ metrics {
         }
     }
 
-    "credits-open-sea.remedies_conversion"(description: "credits conversion under remedies experiment") {
+    "credits-open-sea.remedies_conversion"(description: "credits conversion under remedies experiment", deprecation_date:"2020/08/12") {
         startWith {
             experiment("credits/openSeaRemedy")
         }
@@ -73,7 +73,7 @@ metrics {
         }
     }
 
-    "installment_merchant_debit_payment_fifteen"(description: "Send email from automatic debit installment for fifteen overdue credits merchant") {
+    "installment_merchant_debit_payment_fifteen"(description: "Send email from automatic debit installment for fifteen overdue credits merchant", deprecation_date:"2020/08/12") {
         startWith {
             experiment("credits/merchant_whatsapp_fifteen_overdue")
         }
@@ -91,7 +91,7 @@ metrics {
 
 
 
-    "credits_merchant_enrollment_standard_simulator_redesign"(description: "Credits Merchant enrollment new design A/B testing for standard users") {
+    "credits_merchant_enrollment_standard_simulator_redesign"(description: "Credits Merchant enrollment new design A/B testing for standard users", deprecation_date:"2020/08/12") {
         startWith {
             experiment("credits/simulator")
         }
@@ -106,7 +106,7 @@ metrics {
         }
     }
 
-    "credits_merchant_enrollment_point_simulator_redesign"(description: "Credits Merchant enrollment new design A/B testing for point users") {
+    "credits_merchant_enrollment_point_simulator_redesign"(description: "Credits Merchant enrollment new design A/B testing for point users", deprecation_date:"2020/08/12") {
         startWith {
             experiment("credits/simulator_point")
         }
@@ -122,7 +122,7 @@ metrics {
     }
 
 
-    "installment_merchant_debit_payment_five"(description: "Send email from automatic debit installment for five overdue credits merchant") {
+    "installment_merchant_debit_payment_five"(description: "Send email from automatic debit installment for five overdue credits merchant", deprecation_date:"2020/08/12") {
         startWith {
             experiment("credits/merchant_whatsapp_five_overdue")
         }
