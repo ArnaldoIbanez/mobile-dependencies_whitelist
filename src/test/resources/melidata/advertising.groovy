@@ -139,25 +139,30 @@ trackTests {
     }
 
     test("Advertising upselling") {
-        "/advertising/pads2/manager/upselling/modal/show"(platform: "/web", type: TrackType.View) {
+        "/advertising/pads2/manager/upselling/modal/show"(platform: "/", type: TrackType.View) {
             campaign_id = "2222222"
+            multi = false
             status = "active"
             budget = "500"
-            budget_new = "1000"
+            budget_suggested = "1000"
         }
 
-        "/advertising/pads2/manager/upselling/modal/go"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/upselling/modal/go"(platform: "/", type: TrackType.Event) {
             campaign_id = "2222222"
+            multi = false
             status = "active"
             budget = "500"
-            budget_new = "1000"
+            budget_suggested = "1000"
+            budget_selected = "800"
         }
 
         "/advertising/pads2/manager/upselling/modal/close"(platform: "/web", type: TrackType.Event) {
             campaign_id = "2222222"
+            multi = false
             status = "active"
             budget = "500"
-            budget_new = "1000"
+            budget_suggested = "1000"
+            budget_selected = "800"
         }
 
         "/advertising/pads2/manager/upselling/banner/show"(platform: "/web", type: TrackType.View) {
@@ -182,9 +187,50 @@ trackTests {
         }
 
         "/advertising/pads2/manager/upselling/mark"(platform: "/web", type: TrackType.Event) {
-            campaign_id = "283973028"
+            campaign_id = "2222222"
+            multi = false
             status = "active"
-            budget = "65"
+            budget = "500"
+        }
+
+        "/advertising/pads2/manager/upselling/tooltip/go"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            multi = false
+            status = "active"
+            budget = "500"
+        }
+
+        "/advertising/pads2/manager/upselling/tooltip/close"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            multi = false
+            status = "active"
+            budget = "500"
+        }
+
+        "/advertising/pads2/manager/box/upselling/go"(platform: "/", type: TrackType.Event) {
+            campaign_id = "2222222"
+            multi = false
+            status = "active"
+            budget = "500"
+        }
+
+        "/advertising/pads2/manager/box"(platform: "/", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
+        }
+
+        "/advertising/pads2/manager/box/upselling"(platform: "/", type: TrackType.View) {
+            campaign_id = "2222222"
+            multi = false
+            status = "active"
+            budget = "500"
+        }
+
+        "/advertising/pads2/manager/upselling/tooltip"(platform: "/web", type: TrackType.Event) {
+            campaign_id = "2222222"
+            status = "active"
+            budget = "500"
         }
   
     }
