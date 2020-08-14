@@ -3,7 +3,7 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-    "credits-open-sea_vip.vip_conversion"(description: "vip total conversion under credits open sea experiment") {
+    "credits-open-sea_vip.vip_conversion"(description: "vip total conversion under credits open sea experiment", deprecation_date:"2020/08/12") {
         startWith {
             experiment("credits/openSeaVIPIntegration")
         }
@@ -23,7 +23,7 @@ metrics {
         }
     }
 
-    "credits-open-sea_vip.credits_conversion"(description: "credits open sea conversion from experiment in vip") {
+    "credits-open-sea_vip.credits_conversion"(description: "credits open sea conversion from experiment in vip", deprecation_date:"2020/08/12") {
         startWith {
             experiment("credits/openSeaVIPIntegration")
         }
@@ -37,7 +37,7 @@ metrics {
         }
     }
 
-    "credits-open-sea_vip.checkout_conversion"(description: "checkout conversion under credits opensea experiment in vip") {
+    "credits-open-sea_vip.checkout_conversion"(description: "checkout conversion under credits opensea experiment in vip", deprecation_date:"2020/08/12") {
         startWith {
             experiment("credits/openSeaVIPIntegration")
         }
@@ -48,7 +48,7 @@ metrics {
         }
     }
 
-    "credits-open-sea_vip.checkout_conversion_with_credits"(description: "checkout conversion, using credits as payment method, under credits opensea experiment in vip") {
+    "credits-open-sea_vip.checkout_conversion_with_credits"(description: "checkout conversion, using credits as payment method, under credits opensea experiment in vip", deprecation_date:"2020/08/12") {
         startWith {
             experiment("credits/openSeaVIPIntegration")
         }
