@@ -557,4 +557,9 @@ tracks {
     "/pdp/fulfillment_tooltip/show"(platform: "/") {}
 
     "/pdp/fulfillment_tooltip/close"(platform: "/", type: TrackType.Event) {}
+
+    "/pdp/credits_tooltip/show"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    "/pdp/credits_tooltip/close"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+
 }
