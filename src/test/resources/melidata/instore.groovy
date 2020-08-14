@@ -1328,6 +1328,8 @@ trackTests {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
         }
 
+        //Geofence
+
         "/instore/geofence/permission_request"(platform: "/mobile", type: TrackType.Event) {}
 
         "/instore/geofence/permission_response"(platform: "/mobile", type: TrackType.Event) {
@@ -1366,6 +1368,51 @@ trackTests {
         }
 
         "/instore/geofence/clear"(platform: "/mobile", type: TrackType.Event) { }
+
+        //Reviews    
+        "/instore/reviews/ask"(platform: "/mobile", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+        }
+
+        "/instore/reviews/send"(platform: "/mobile", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+            stars = 4
+            has_comment = false
+        }
+
+        "/instore/reviews/comment"(platform: "/mobile", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+        }
+
+        "/instore/reviews/comment/back"(platform: "/mobile", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+        }
+
+        "/instore/reviews/back"(platform: "/mobile", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+        }
+
+        "/instore/reviews/error"(platform: "/mobile", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+        }
+
+        "/instore/reviews/already-asked"(platform: "/mobile", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+        }
 
         // Buyer QR
 
@@ -3031,6 +3078,8 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
+        //Geofence
+
         "/instore/geofence/permission_request"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {}
 
         "/instore/geofence/permission_response"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
@@ -3069,6 +3118,51 @@ trackTests {
         }
 
         "/instore/geofence/clear"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) { }
+
+        //Reviews    
+        "/instore/reviews/ask"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+        }
+
+        "/instore/reviews/send"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+            stars = 4
+            has_comment = false
+        }
+
+        "/instore/reviews/comment"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+        }
+
+        "/instore/reviews/comment/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+        }
+
+        "/instore/reviews/back"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+        }
+
+        "/instore/reviews/error"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+        }
+
+        "/instore/reviews/already-asked"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) { 
+            id = "1234"
+            type = "store"
+            payment_id = "567"
+        }
     }
 
     test("Instore - QR Assignment") {
