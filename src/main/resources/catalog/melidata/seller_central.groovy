@@ -263,7 +263,7 @@ tracks {
     "/seller_central/listings/communication/advertising"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action excecuted from advertising task")
         id(required: true, type: PropertyType.String, description: "Action id")
-        type(required:true, type: PropertyType.String, descritpion: "Type of the advertising task")
+        type(required:false, type: PropertyType.String, descritpion: "Type of the advertising task")
     }
 
     "/seller_central/listings/communication/advertising_sll_landing"(platform: "/", type: TrackType.View) {
@@ -274,7 +274,7 @@ tracks {
     "/seller_central/listings/communication/advertising_click"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action excecuted from advertising task")
         id(required: true, type: PropertyType.String, description: "Action id")
-        type(required:true, type: PropertyType.String, descritpion: "Type of the advertising task")
+        type(required:false, type: PropertyType.String, descritpion: "Type of the advertising task")
     }
 
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
