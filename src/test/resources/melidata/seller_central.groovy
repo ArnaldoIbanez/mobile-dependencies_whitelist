@@ -204,7 +204,7 @@ trackTests {
   }
 
   test("seller central advertising landing") {
-    "/seller_central/listings/communication/advertising_sll_landing"(platform: "/", type: TrackType.View) {
+    "/seller_central/listings/advertising_sll_landing"(platform: "/", type: TrackType.View) {
       sll_total = 12
       campaign_id = "65555"
     }

@@ -263,10 +263,9 @@ tracks {
     "/seller_central/listings/communication/advertising"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action excecuted from advertising task")
         id(required: true, type: PropertyType.String, description: "Action id")
-        type(required:false, type: PropertyType.String, descritpion: "Type of the advertising task")
     }
 
-    "/seller_central/listings/communication/advertising_sll_landing"(platform: "/", type: TrackType.View) {
+    "/seller_central/listings/advertising_sll_landing"(platform: "/", type: TrackType.View) {
         sll_total(required: true, type: PropertyType.Numeric, description: "Amount of successful live listings")
         campaign_id(required: true, type: PropertyType.String, description: "Id of the current campaign")
     }
@@ -274,7 +273,6 @@ tracks {
     "/seller_central/listings/communication/advertising_click"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action excecuted from advertising task")
         id(required: true, type: PropertyType.String, description: "Action id")
-        type(required:false, type: PropertyType.String, descritpion: "Type of the advertising task")
     }
 
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
