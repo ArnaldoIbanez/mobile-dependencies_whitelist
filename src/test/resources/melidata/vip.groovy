@@ -1575,4 +1575,21 @@ trackTests {
         }
 
     }
+
+    // Server side
+
+    test("VIP Server side tracking"){
+        def optional = {
+            item_id = "MLA792156560"
+        }
+
+        "/backend/vip"(platform: "/web/desktop", type: TrackType.Event) {
+            optional()
+        }
+
+        "/backend/vip"(platform: "/web/mobile", type: TrackType.Event) {
+            optional()
+        }
+
+    }
 }

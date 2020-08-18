@@ -1265,4 +1265,11 @@ tracks {
         shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
                 description: "Mercado Envios mode")
     }
+
+    //Server Side
+    "/backend"(platform: "/", type: TrackType.Event, isAbstract : true) {}
+
+    "/backend/vip"(platform: "/", type: TrackType.Event) {
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
+    }
 }
