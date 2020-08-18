@@ -15,6 +15,16 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
+        flow_type(
+            required: false,
+            type: PropertyType.String,
+            description: "Bank flow type",
+            values: [
+                "INVALID",
+                "C2FREE_ITAU",
+                "PACC",
+            ]
+        )
         bank(
             type: PropertyType.String,
             required: true,

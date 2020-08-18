@@ -149,4 +149,44 @@ trackTests {
             user_profile = 'no_offer'
         }
     }
+
+    // Credits Marketing Performance landing
+    test("Credits Marketing landings") {
+        // MercadoPago Business
+        "/credits/mkt_landing"(platform: "/web", type: TrackType.View, business:"mercadopago"){
+            campaign = "generic"
+        }
+        "/credits/mkt_landing/sms"(platform: "/web", type: TrackType.Event, business:"mercadopago"){
+            campaign = "generic"
+        } 
+        "/credits/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event, business:"mercadopago"){
+            campaign = "generic"
+            position = "coupon"
+        } 
+        "/credits/mkt_landing/button"(platform: "/web", type: TrackType.Event, business:"mercadopago"){
+            campaign = "generic"
+            position = "hero"
+        } 
+        "/credits/mkt_landing/button"(platform: "/web", type: TrackType.Event, business:"mercadopago"){
+            campaign = "generic"
+            position = "fixed"
+        } 
+
+        // MercadoLibre business
+        "/credits/mkt_landing"(platform: "/web", type: TrackType.View, business:"mercadolibre"){
+            campaign = "proof-landing"
+        }
+        "/credits/mkt_landing/sms"(platform: "/web", type: TrackType.Event, business:"mercadolibre"){
+            campaign = "generic"
+        } 
+        "/credits/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event, business:"mercadolibre"){
+            campaign = "generic"
+            position = "steps"
+        } 
+        "/credits/mkt_landing/button"(platform: "/web", type: TrackType.Event, business:"mercadolibre"){
+            campaign = "generic"
+            position = "footer"
+        } 
+
+    }
 }
