@@ -429,7 +429,7 @@ tracks {
     // Multicampaña
     "/advertising/pads2/hub"(platform: "/web", type: TrackType.View) {
         tab(required: true, description: "It could be: Campaigns or Ads tab", values: ['campaigns', 'ads'])
-        campaigs(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_definition)), description: "Array campaigns")
+        campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_definition)), description: "Array campaigns")
     }
 
     "/advertising/pads2/hub/createcampaign"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -671,7 +671,7 @@ tracks {
 
     "/advertising/pads2/manager/addads/confirm"(platform: "/web", type: TrackType.Event) {
         ads(required: true, description: "Current ads")
-        new_ads(required: true, type: PropertyType.String, description: "Total ads added to the campaign" )
+        new_ads(required: true, type: PropertyType.Numeric, description: "Total ads added to the campaign" )
     }
         
     "/advertising/pads2/manager/addads/editads"(platform: "/web", type: TrackType.Event) {
