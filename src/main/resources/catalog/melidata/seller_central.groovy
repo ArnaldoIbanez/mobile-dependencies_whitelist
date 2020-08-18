@@ -183,7 +183,7 @@ tracks {
         has_variations_already_opt_in(required: true, type: PropertyType.Boolean, description: "True if the item has a variation optined")
         invalid_product_cause(required: false, type: PropertyType.String, description: "The invalid product causes")
         opt_in_item_id(required: false, type: PropertyType.String, description: "The optined item id")
-        children_catalog_products_ids(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of the children catalog products ids")
+        rejected_products(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "The list of item and variations with their products catalog ids, when seller select is bad productize")
         has_variations(required: true, type: PropertyType.Boolean, description: "True if the item has variations")
         task_id(required: true, type: PropertyType.String, description: "The task id that has been modified")
 
@@ -213,7 +213,7 @@ tracks {
         technicalSpecificationsGroup(category_domain, attribute, hierarchy)
         hintsGroup(type, attribute)
 
-        sellerCentralCatalogOptinGroup(item_id, session_id, category_id, category_path, category_domain, domain_id, moderated, original_catalog_product_id, variation_id, has_variations_already_opt_in, children_catalog_products_ids, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause)
+        sellerCentralCatalogOptinGroup(item_id, session_id, category_id, category_path, category_domain, domain_id, moderated, original_catalog_product_id, variation_id, has_variations_already_opt_in, rejected_products, has_variations, seller_profile, reputation_level, selected_catalog_product_id, opt_in_item_id, invalid_product_cause)
         sellerCentralCatalogOptinTaskGroup(task_id, to, from)
 
         sellerCentralCatalogBoostGroup(item_attributes, catalog_product_attributes, item_title, catalog_product_title)
@@ -1131,6 +1131,23 @@ tracks {
         sellerCentralCatalogOptinGroup
     }
 
+    "/seller_central/catalog/optin/category_breadcrumb"(platform: "/web", isAbstract: true) {}
+    "/seller_central/catalog/optin/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
+        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+    }
+
+    "/seller_central/catalog/optin/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
+        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+    }
+
     "/seller_central/catalog/optin/invalid_product"(platform: "/web", type: TrackType.View) {
         sellerCentralCatalogOptinGroup
     }
@@ -1157,6 +1174,70 @@ tracks {
     }
 
     "/seller_central/catalog/optin/other_product_problem"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroup
+    }
+
+    "/seller_central/catalog/optin/variation_selection"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroup
+    }
+
+    "/seller_central/catalog/optin/optin_moderated"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroup
+    }
+
+    "/seller_central/catalog/optin/optin_moderated/category_breadcrumb"(platform: "/web", isAbstract: true) {}
+    "/seller_central/catalog/optin/optin_moderated/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
+        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+    }
+
+    "/seller_central/catalog/optin/optin_moderated/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
+        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+    }
+
+    "/seller_central/catalog/optin/optin_moderated/product_bullet_resume"(platform: "/web", isAbstract: true) {}
+    "/seller_central/catalog/optin/optin_moderated/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
+        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+        product_title(required: true, description: "title of catalog product", type: PropertyType.String)
+    }
+
+    "/seller_central/catalog/optin/optin_moderated/congrats"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroup
+    }
+
+    "/seller_central/catalog/optin/item_plus"(platform: "/web", type: TrackType.View) {
+        sellerCentralCatalogOptinGroup
+    }
+
+    "/seller_central/catalog/optin/item_plus/category_breadcrumb"(platform: "/web", isAbstract: true) {}
+    "/seller_central/catalog/optin/item_plus/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
+        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+    }
+
+    "/seller_central/catalog/optin/item_plus/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
+        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+    }
+
+    "/seller_central/catalog/optin/item_plus/congrats"(platform: "/web", type: TrackType.View) {
         sellerCentralCatalogOptinGroup
     }
 
