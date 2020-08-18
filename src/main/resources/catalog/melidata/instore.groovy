@@ -550,6 +550,30 @@ tracks {
 
     "/instore/geofence/clear"(platform: "/mobile", type: TrackType.Event) { }
 
+    //Reviews
+    "/instore/reviews"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {
+        id(required: true, PropertyType.String, description: "The id of entity that will be reviewed")
+        type(required: true, PropertyType.String, description: "The type of entity that will be reviewed")
+        payment_id(required: false, PropertyType.String, description: "The id of the payment that trigger the review")
+    }    
+
+    "/instore/reviews/ask"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/send"(platform: "/mobile", type: TrackType.Event) { 
+        stars(required: true, PropertyType.Numeric, description: "The number of stars given as review")
+        has_comment(required: true, PropertyType.Boolean, description: "True if the review has a comment, false if not")
+    }
+
+    "/instore/reviews/comment"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/comment/back"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/back"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/error"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/already-asked"(platform: "/mobile", type: TrackType.Event) { }
+
     //Buyer QR
 
     "/instore/buyer_qr"(platform: "/mobile", isAbstract: true) {}
