@@ -1052,6 +1052,18 @@ trackTests {
             buyer_id = "12343718"
             vip_version = "new"
         }
+
+        "/vip/credits_tooltip/show"(platform: "/", {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+            vip_version = "new"
+        })
+
+        "/vip/credits_tooltip/close"(platform: "/", type: TrackType.Event, {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+            vip_version = "new"
+        })
     }
 
     test("VIP Shipping Calculator"){

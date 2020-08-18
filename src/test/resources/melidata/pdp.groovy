@@ -603,5 +603,17 @@ trackTests {
             item_id = "MLA533657947"
             buyer_id = "12343718"
         })
+
+        "/pdp/credits_tooltip/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
+
+        "/pdp/credits_tooltip/close"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
     }
 }
