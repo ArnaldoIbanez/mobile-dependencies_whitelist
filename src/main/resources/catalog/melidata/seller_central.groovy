@@ -1116,6 +1116,8 @@ tracks {
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
     }
 
+    "/seller_central/catalog/optin/product_bullet_resume"(platform: "/web", isAbstract: true) {}
+
     "/seller_central/catalog/optin/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroup
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
