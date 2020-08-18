@@ -20,7 +20,7 @@ tracks {
                 values: ["duplicated", "invalid_shipment", "not_found", "internal_error", "no_connection", "invalid_data"],
                 description: "Specifies what kind of validation error happened.")
         invalid_data(required: false, type: PropertyType.String,
-                description: "When validation_error of type invalid_data happens this track the value sent.")
+                description: "Specifies the value sent that caused a validation error.")
         camera_error(required: true, type: PropertyType.String,
                 values: ["not_allowed", "blocked"],
                 description: "Specifies what kind of camera error happened.")
@@ -139,5 +139,4 @@ tracks {
         place_id(required: true, type: PropertyType.String,
                 description: "ID of place (agency) user operates in.")
     }
-
 }
