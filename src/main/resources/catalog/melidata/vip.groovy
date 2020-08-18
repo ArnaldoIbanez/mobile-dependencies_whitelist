@@ -1212,14 +1212,15 @@ tracks {
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
     }
 
-    "/vip/credits_tooltip/close"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/vip/credits_tooltip" (platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buyer_id(required: false, type: PropertyType.String, description: "Buyer ID")
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
-    "/vip/credits_tooltip/show"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
-    }
+    "/vip/credits_tooltip/close"(platform: "/", type: TrackType.Event) {}
 
+    "/vip/credits_tooltip/show"(platform: "/", type: TrackType.Event) {}
 
     //END -  Classifieds Credits
 

@@ -558,8 +558,14 @@ tracks {
 
     "/pdp/fulfillment_tooltip/close"(platform: "/", type: TrackType.Event) {}
 
-    "/pdp/credits_tooltip/show"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/pdp/credits_tooltip" (platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product ID")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buyer_id(required: false, type: PropertyType.String, description: "Buyer ID")
+    }
 
-    "/pdp/credits_tooltip/close"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/pdp/credits_tooltip/show"(platform: "/", type: TrackType.Event) {}
+
+    "/pdp/credits_tooltip/close"(platform: "/", type: TrackType.Event) {}
 
 }
