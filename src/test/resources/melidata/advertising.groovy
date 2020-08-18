@@ -611,7 +611,7 @@ trackTests {
     test("Advertising multicampaña") {
         "/advertising/pads2/hub"(platform: "/web", type: TrackType.View) {
             tab = "ads"
-            campaigs = [
+            campaigns = [
                     campaign_id: "222222",
                     budget: "333",
                     status: "active"
@@ -894,7 +894,7 @@ trackTests {
             status = "active"
             budget = "4000"
             ads = "ads_1"
-            new_ads= "2"
+            new_ads= 2
         }
 
         "/advertising/pads2/manager/addads/editads"(platform: "/web", type: TrackType.Event) {
