@@ -494,7 +494,9 @@ trackTests {
                 category: "x",
                 features: "x",
                 query: "x",
-                catalog: "buy_box_winner"
+                catalog: "buy_box_winner",
+                sll: "true",
+                date_created: "2020-07-01"
             ]
         }
     }
