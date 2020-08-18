@@ -924,36 +924,6 @@ tracks {
         row_id(required: true, type: PropertyType.String, description: "Row Id")
     }
 
-    "/seller_central/settings/license_form"(platform: "/", type: TrackType.View) {
-        seller_reputation(required: true, type: PropertyType.String, description: "Reputation of the seller" )
-        user_type(required: true, type: PropertyType.String, description: "The user type")
-        seller_profile(required: true, type: PropertyType.String, description: "Describe the level of interaction of the seller with the platform")
-    }
-
-    "/seller_central/settings/license_form/generate_pdf"(platform: "/", type: TrackType.Event) {
-        seller_reputation(required: true, type: PropertyType.String, description: "Reputation of the seller" )
-        user_type(required: true, type: PropertyType.String, description: "The user type")
-        seller_profile(required: true, type: PropertyType.String, description: "Describe the level of interaction of the seller with the platform")
-    }
-
-    "/seller_central/settings/license_form/snackbar"(platform: "/", type: TrackType.Event) {
-        seller_reputation(required: true, type: PropertyType.String, description: "Reputation of the seller" )
-        user_type(required: true, type: PropertyType.String, description: "The user type")
-        seller_profile(required: true, type: PropertyType.String, description: "Describe the level of interaction of the seller with the platform")
-        result(required: true, type: PropertyType.String, description: "Value of the action when a seller try to generate a pdf")
-    }
-
-    "/seller_central/settings/license"(platform: "/web", isAbstract: true) {}
-    "/seller_central/settings/license/generated"(platform: "/web", type: TrackType.Event) {
-        file_number(required:true, type: PropertyType.Numeric, description: "Quantity of files generated")
-        mail(required:true, type: PropertyType.String, description: "User mail where he receive the result")
-        serial_number(required:true, type: PropertyType.Numeric, description: "Form ID")
-        contact_number(required:true, type: PropertyType.String, description: "Seller contact number filled in form")
-        destination_address(required:true, type: PropertyType.String, description: "Shipping destination address")
-        origin_address(required:true, type: PropertyType.String, description: "Shipping origin address")
-        file_url(required:true, type: PropertyType.String, description: "URL to download the PDF generated")
-    }
-
     // SALES SECTION
 
     "/seller_central/sales"(platform: "/", isAbstract: true) {}
@@ -1146,6 +1116,15 @@ tracks {
         categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
         attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+    }
+
+    "/seller_central/catalog/optin/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
+        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+        product_title(required: true, description: "title of catalog product", type: PropertyType.String)
     }
 
     "/seller_central/catalog/optin/invalid_product"(platform: "/web", type: TrackType.View) {
