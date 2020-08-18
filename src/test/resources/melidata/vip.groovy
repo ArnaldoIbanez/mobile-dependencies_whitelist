@@ -498,16 +498,13 @@ trackTests {
 
         "/vip/video_focus"(platform: "/", type: TrackType.Event) {
             tourOption()
-
         }
         "/vip/video_focus"(platform: "/", type: TrackType.Event) {
             videoOption()
-
         }
 
         "/vip/video_focus"(platform: "/", type: TrackType.Event) {
             noneOption()
-
         }
     }
 
