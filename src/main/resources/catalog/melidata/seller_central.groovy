@@ -1105,7 +1105,6 @@ tracks {
     "/seller_central/catalog/optin/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroup
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
-        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
         attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
     }
@@ -1113,7 +1112,6 @@ tracks {
     "/seller_central/catalog/optin/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroup
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
-        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
         attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
     }
@@ -1121,7 +1119,6 @@ tracks {
     "/seller_central/catalog/optin/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroup
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
-        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
         attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
         product_title(required: true, description: "title of catalog product", type: PropertyType.String)
@@ -1168,7 +1165,6 @@ tracks {
     "/seller_central/catalog/optin/optin_moderated/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroup
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
-        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
         attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
     }
@@ -1176,7 +1172,6 @@ tracks {
     "/seller_central/catalog/optin/optin_moderated/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroup
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
-        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
         attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
     }
@@ -1185,7 +1180,6 @@ tracks {
     "/seller_central/catalog/optin/optin_moderated/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroup
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
-        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
         attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
         product_title(required: true, description: "title of catalog product", type: PropertyType.String)
@@ -1203,7 +1197,6 @@ tracks {
     "/seller_central/catalog/optin/item_plus/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroup
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
-        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
         attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
     }
@@ -1211,7 +1204,6 @@ tracks {
     "/seller_central/catalog/optin/item_plus/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroup
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
-        categorization_flow_successful(required: true, description: "Categorization finished", type: PropertyType.Boolean)
         attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
     }

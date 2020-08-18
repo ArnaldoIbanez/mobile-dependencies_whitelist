@@ -1893,7 +1893,6 @@ trackTests {
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
       list_mode = "OPTIN"
-      categorization_flow_successful = null
       attribute_id = "COLOR"
       attribute_values = [
         [
@@ -1923,7 +1922,6 @@ trackTests {
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
       list_mode = "OPTIN"
-      categorization_flow_successful = true
       attribute_id = "COLOR"
       attribute_values = [
               [
@@ -1953,7 +1951,6 @@ trackTests {
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
       list_mode = "OPTIN"
-      categorization_flow_successful = true
       attribute_id = "COLOR"
       attribute_values = [
               [
@@ -2041,7 +2038,6 @@ trackTests {
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
       list_mode = "OPTIN"
-      categorization_flow_successful = null
       attribute_id = "COLOR"
       attribute_values = [
               [
@@ -2071,7 +2067,6 @@ trackTests {
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
       list_mode = "OPTIN"
-      categorization_flow_successful = true
       attribute_id = "COLOR"
       attribute_values = [
               [
@@ -2101,7 +2096,6 @@ trackTests {
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
       list_mode = "OPTIN"
-      categorization_flow_successful = true
       attribute_id = "COLOR"
       attribute_values = [
               [
@@ -2174,7 +2168,6 @@ trackTests {
       invalid_product_cause = "INVALID_CARRIER"
       moderated = "moderated"
       list_mode = "OPTIN"
-      categorization_flow_successful = null
       attribute_id = "COLOR"
       attribute_values = [
               [
@@ -2205,7 +2198,6 @@ trackTests {
       invalid_product_cause = "INVALID_CARRIER"
       moderated = "moderated"
       list_mode = "OPTIN"
-      categorization_flow_successful = true
       attribute_id = "COLOR"
       attribute_values = [
               [
