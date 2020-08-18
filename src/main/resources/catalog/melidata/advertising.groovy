@@ -336,7 +336,7 @@ tracks {
         query(required: false, type: PropertyType.String)
         catalog(required: false, type: PropertyType.String)
         // Successful Live Listing
-        sll(required: false, type: PropertyType.Boolean)
+        sll(required: false, type: PropertyType.String)
         // Item Publish Date
         date_created(required: false, type: PropertyType.String)
     }
