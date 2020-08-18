@@ -395,7 +395,7 @@ metrics {
 		}
 	}
 
-	"buys.fashion"(description: "Track buys only in fashion domain for Sparkle exp", compute_order: true) {
+	"buys.fashion"(description: "Track buys only in fashion domain for Sparkle exp", compute_order: true, deprecation_date:"2020/08/12") {
 		startWith {
 			experiment(regex("sparkle/.*"))
 		}

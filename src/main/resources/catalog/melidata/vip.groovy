@@ -388,6 +388,12 @@ tracks {
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
+    "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+            video_type(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO", "NONE"],
+                description: "Video type of the item"
+            )
+    }
+
     "/vip/contact_seller"(platform: "/", type: TrackType.Event) {
         category_id(required: false, type: PropertyType.String,
                 description: "Item's category ID"
@@ -563,6 +569,20 @@ tracks {
     "/vip/reviews"(platform: "/", type: TrackType.View) {
         show(required: false, inheritable: false, type: PropertyType.String)
     }
+
+
+    "/vip/comparator_price"(platform: "/web", type: TrackType.View, isAbstract: true) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        price_comparison_available(required: true, type: PropertyType.Boolean,
+                description: "Indicates if the item has price comparison available")
+    }
+
+    "/vip/comparator_price/similar_properties"(platform: "/web", type: TrackType.Event) {}
+
+    "/vip/comparator_price/info_tooltip"(platform: "/web", type: TrackType.Event) {}
 
     //  QUESTION
 
@@ -1208,5 +1228,28 @@ tracks {
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
         seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
+    }
+
+    "/vip/copy_seller_info"(platform: "/web/", parentPropertiesInherited: false, type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        seller_id(required: true, type: PropertyType.Numeric, description: "Seller ID")
+        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        buyer_id(required: false, type: PropertyType.String, description: "Buyer ID")
+        loyalty_level(required: false, type: PropertyType.Numeric, description: "User's loyalty level")
+        shipping_preference(required: false, type: PropertyType.String,
+                description: "Shipping method's name shown when the user has zipcode/location preloaded")
+        shipping_cost(required: false, type: PropertyType.Numeric, description: "Indicates shipping cost")
+        shipping_method(required: false, type: PropertyType.String, description: "Shipping Method")
+        free_shipping(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the items has free shipping")
+        free_shipping_benefit(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user has free shipping or free by loyalty")
+        shipping_promise(required: false, description: "Array of shippping promise in the order with following data")
+        free_shipping_benefit_lyl(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user has free shipping benefit by loyalty")
+        discount_shipping_benefit_lyl(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the user has discount benefit by loyalty")
+        shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
+                description: "Mercado Envios mode")
     }
 }

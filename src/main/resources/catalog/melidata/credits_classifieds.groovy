@@ -15,6 +15,16 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
+        flow_type(
+            required: false,
+            type: PropertyType.String,
+            description: "Bank flow type",
+            values: [
+                "INVALID",
+                "C2FREE_ITAU",
+                "PACC",
+            ]
+        )
         bank(
             type: PropertyType.String,
             required: true,
@@ -82,42 +92,6 @@ tracks {
     }
 
     "/classi_credits/evaluation/reject"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/birth_city"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/birth_nationality"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/issuer_entity"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/issuer_state"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/birth_state"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/address_city"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/address_state"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/address_country"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/occupation"(platform: "/", type: TrackType.View) {
         creditGroup
     }
 

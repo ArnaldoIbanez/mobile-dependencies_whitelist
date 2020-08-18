@@ -278,6 +278,18 @@ trackTests {
         "/mplayer/contacts/massive_upload/successful_end"(platform: "/mobile") {}
         "/mplayer/contacts/search/start"(platform: "/mobile") {}
         "/mplayer/contacts/search/end"(platform: "/mobile") {}
+
+        //Interaction Screen
+        "/mplayer/interaction_screen"(platform: "/mobile") {
+            type = "modal"
+            cause = "warning"
+            message_id = "error-01"
+        }
+        "/mplayer/interaction_screen/event"(platform: "/mobile") {
+            type = "modal"
+            cause = "warning"
+            message_id = "error-01"
+        }
     }
 }
 

@@ -264,6 +264,21 @@ trackTests {
         }
 
         "/vip/item_gallery/back"(platform:"/mobile") {}
+        
+        "/vip/video_focus"(platform:"/", type: TrackType.Event) {
+            mandatory()
+            video_type = "TOUR360"
+        }
+
+        "/vip/video_focus"(platform:"/", type: TrackType.Event) {
+            mandatory()
+            video_type = "VIDEO"
+        }
+
+        "/vip/video_focus"(platform:"/", type: TrackType.Event) {
+            mandatory()
+            video_type = "NONE"
+        }
 
         "/vip/map"(platform:"/mobile", mandatory)
 
@@ -1436,5 +1451,72 @@ trackTests {
             item_seller_type = "car_dealer"
             item_condition = "new"
         }
+    }
+
+    test("VIP Copy Seller info") {
+        "/vip/copy_seller_info"(platform: "/web/", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            seller_id = 167086843
+            price = 100
+            buyer_id = "12343718"
+            loyalty_level = 2
+            shipping_cost = 30
+            shipping_method="standard"
+            shipping_mode = "me2"
+            free_shipping = true
+            free_shipping_benefit = false
+            free_shipping_benefit_lyl = false
+            discount_shipping_benefit_lyl = false
+            shipping_preference = "Normal a Domicilio"
+            shipping_promise = {
+                afterDispatch = true
+                min_days = 2
+                max_days = 12
+                price = {
+                    amount = 10000
+                    currency_id = "ARS"
+                    is_loyalty_discount = false
+                }
+                destination = "1429"
+            }
+        }
+    }
+
+
+    // Price Comparator - RealEstate
+
+    test("VIP Price Comparator section for used properties RE"){
+        def properties = {
+            vertical = "realEstate"
+            seller_id =  430012134
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                    "MLA1459",
+                    "MLA1493",
+                    "MLA1495",
+                    "MLA401803"
+            ]
+            buying_mode = "classified"
+            deal_ids = []
+            price_comparison_available = true
+        }
+
+        "/vip/comparator_price/similar_properties"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/comparator_price/info_tooltip"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/comparator_price/similar_properties"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/comparator_price/info_tooltip"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+
     }
 }

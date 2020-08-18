@@ -195,6 +195,29 @@ trackTests {
     }
   }
 
+  test("seller central advertising") {
+    "/seller_central/listings/communication/advertising"(platform: "/", type: TrackType.Event) {
+      action = "show"
+      id = "PADS_SADS_RECO"
+      type = "task"
+    }
+  }
+
+  test("seller central advertising landing") {
+    "/seller_central/listings/advertising_sll_landing"(platform: "/", type: TrackType.View) {
+      sll_total = 12
+      campaign_id = "65555"
+    }
+  }
+
+  test("seller central advertising click") {
+    "/seller_central/listings/communication/advertising_click"(platform: "/", type: TrackType.Event) {
+      action = "show"
+      id = "PADS_SADS_RECO"
+      type = "task"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Summary
   //------------------------------------------------------------------------------------------------------------------------------------------------------

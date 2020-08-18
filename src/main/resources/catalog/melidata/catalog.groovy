@@ -163,6 +163,7 @@ catalog {
         include business, "sms.groovy"
         include business, "reviewPages.groovy"
         include business, "wallet_ml.groovy"
+        include business, "whatsapp.groovy"
     }
 
     mercadopago.each { business ->
@@ -218,6 +219,7 @@ catalog {
         include business, "mobile.groovy"
         include business, "fees_installment.groovy"
         include business, "mp_growth_onlinepayments.groovy"
+        include business, "cashout.groovy"
     }
 
     mercadoshops.each { business ->
