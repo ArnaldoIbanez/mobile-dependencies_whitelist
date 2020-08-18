@@ -166,6 +166,10 @@ tracks {
     "/instore/error/unsupported_payment_method/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/unsupported_payment_method/retry"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/error/invalid_user_point_uif"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/invalid_user_point_uif/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/invalid_user_point_uif/abort"(platform: "/mobile", type: TrackType.Event) {}
+
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
