@@ -264,21 +264,6 @@ trackTests {
         }
 
         "/vip/item_gallery/back"(platform:"/mobile") {}
-        
-        "/vip/video_focus"(platform:"/", type: TrackType.Event) {
-            mandatory()
-            video_type = "TOUR360"
-        }
-
-        "/vip/video_focus"(platform:"/", type: TrackType.Event) {
-            mandatory()
-            video_type = "VIDEO"
-        }
-
-        "/vip/video_focus"(platform:"/", type: TrackType.Event) {
-            mandatory()
-            video_type = "NONE"
-        }
 
         "/vip/map"(platform:"/mobile", mandatory)
 
@@ -463,6 +448,65 @@ trackTests {
         }
     }
 
+    test("vip - tour 360") {
+
+        def dataSet = {
+            item_id = "MLC537771292"
+            category_id = "MLC183186"
+            buying_mode = "classified"
+            category_path = [
+                    "MLC1459",
+                    "MLC1472",
+                    "MLC6407",
+                    "MLC183186"]
+            vertical = "realEstate"
+            item_condition = "used"
+            listing_type_id = "gold"
+            item_status = "active"
+            deal_ids = []
+            catalog_listing = false
+            city = "Santiago"
+            neighborhood = "Santa Isabel"
+            state = "RM (Metropolitana)"
+            seller_id = 516954617
+            contract_available = false
+            comparator_available = false
+            gallery_pattern = "X"
+            price_comparison_available = null
+            price_comparison_position = null
+            whatsapp_available = "false"
+            quote_demand_available = false
+            description_type = "plain_text"
+            quantity_models = null
+            domain_id = "MLC-APARTMENTS_FOR_RENT"
+        }
+
+        def tourOption = {
+            dataSet()
+            video_type = "TOUR360"
+        }
+
+        def videoOption = {
+            dataSet()
+            video_type = "VIDEO"
+        }
+
+        def noneOption = {
+            dataSet()
+            video_type = "NONE"
+        }
+
+        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+            tourOption()
+        }
+        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+            videoOption()
+        }
+
+        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+            noneOption()
+        }
+    }
 
     test("Vip web mobile with reviews") {
         "/vip"(platform:"/web/mobile") {
