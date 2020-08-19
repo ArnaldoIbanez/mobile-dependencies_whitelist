@@ -1583,11 +1583,11 @@ trackTests {
             item_id = "MLA792156560"
         }
 
-        "/backend/vip"(platform: "/web/desktop", type: TrackType.Event) {
+        "/vip/backend"(platform: "/web/desktop", type: TrackType.Event) {
             optional()
         }
 
-        "/backend/vip"(platform: "/web/mobile", type: TrackType.Event) {
+        "/vip/backend"(platform: "/web/mobile", type: TrackType.Event) {
             optional()
         }
 

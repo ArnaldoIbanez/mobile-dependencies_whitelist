@@ -1267,9 +1267,7 @@ tracks {
     }
 
     //Server Side
-    "/backend"(platform: "/", type: TrackType.Event, isAbstract : true) {}
-
-    "/backend/vip"(platform: "/", type: TrackType.Event) {
+    "/vip/backend"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
     }
 }
