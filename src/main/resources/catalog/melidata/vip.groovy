@@ -1265,4 +1265,9 @@ tracks {
         shipping_mode(required: false, type: PropertyType.String, values: ["not_specified", "custom", "me1", "me2"],
                 description: "Mercado Envios mode")
     }
+
+    //Server Side
+    "/vip/backend"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
+    }
 }
