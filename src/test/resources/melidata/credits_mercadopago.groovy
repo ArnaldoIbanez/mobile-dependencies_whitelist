@@ -39,6 +39,13 @@ trackTests {
             product_types = ['sales_percentage_loan', 'fixed_term_loan']
             is_kyc_compliant = false
         }
+        "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
+            offer = [
+                    segment : 'online'
+            ]
+            product_types = ['fixed_term_loan']
+            is_kyc_compliant = false
+        }
 
         //Kyc Onboarding
         "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
@@ -51,10 +58,26 @@ trackTests {
 
         "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
             offer = [
+                    offer_type : 'early_offer'
+            ]
+            product_types = ['sales_percentage_loan', 'fixed_term_loan']
+            is_kyc_compliant = true
+        }
+
+        "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
+            offer = [
                     offer_type : 'online'
             ]
             product_types = ['sales_percentage_loan', 'fixed_term_loan']
             is_kyc_compliant = true
+        }
+
+        "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
+            offer = [
+                    offer_type : 'online'
+            ]
+            product_types = ['sales_percentage_loan', 'fixed_term_loan']
+            is_kyc_compliant = false
         }
 
         //Hub
@@ -75,10 +98,32 @@ trackTests {
         }
         "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
             offer = [
+                    segment : 'online',
+                    offer_type : 'early_offer'
+            ]
+            product_types = ['sales_percentage_loan']
+            is_kyc_compliant = false
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer = [
+                    segment : 'online'
+            ]
+            product_types = ['fixed_term_loan']
+            is_kyc_compliant = false
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer = [
                 offer_type : 'early_offer'
             ]
             product_types = ['sales_percentage_loan', 'fixed_term_loan']
             is_kyc_compliant = false
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer = [
+                    offer_type : 'early_offer'
+            ]
+            product_types = ['sales_percentage_loan', 'fixed_term_loan']
+            is_kyc_compliant = true
         }
 
         //Simulator
@@ -93,6 +138,15 @@ trackTests {
         }
         "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
             offer = [
+                    segment : 'online',
+                    offer_type : 'early_offer'
+            ]
+            product_type = 'sales_percentage_loan'
+            variant = 'fixed_amount'
+            is_kyc_compliant = true
+        }
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            offer = [
                 segment : 'online'
             ]
             product_type = 'fixed_term_loan'
@@ -101,11 +155,27 @@ trackTests {
         }
         "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
             offer = [
+                    segment : 'online'
+            ]
+            product_type = 'fixed_term_loan'
+            variant = 'fixed'
+            is_kyc_compliant = true
+        }
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            offer = [
                 offer_type: 'early_offer'
             ]
             product_type = 'sales_percentage_loan'
             variant = 'normal'
             is_kyc_compliant = true
+        }
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            offer = [
+                    offer_type: 'early_offer'
+            ]
+            product_type = 'sales_percentage_loan'
+            variant = 'normal'
+            is_kyc_compliant = false
         }
 
         //Summary
