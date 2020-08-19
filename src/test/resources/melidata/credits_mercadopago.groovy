@@ -40,6 +40,23 @@ trackTests {
             is_kyc_compliant = false
         }
 
+        //Kyc Onboarding
+        "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
+            offer = [
+                    offer_type : 'early_offer'
+            ]
+            product_types = ['sales_percentage_loan', 'fixed_term_loan']
+            is_kyc_compliant = false
+        }
+
+        "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
+            offer = [
+                    offer_type : 'online'
+            ]
+            product_types = ['sales_percentage_loan', 'fixed_term_loan']
+            is_kyc_compliant = true
+        }
+
         //Hub
         "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
             offer = [
