@@ -559,6 +559,12 @@ tracks {
         )
     }
 
+    //Kyc Onboarding for User Challenges
+    "/credits/merchant/enrollment/kyc_user_challenges_onboarding"(platform: "/", type: TrackType.View) {}
+
+    //Kyc Congrats Backoffice Challenges
+    "/credits/merchant/enrollment/kyc_back_office_congrats"(platform: "/", type: TrackType.View) {}
+
     //Hub
     "/credits/merchant/enrollment/hub"(platform: "/", type: TrackType.View) {
         offer(

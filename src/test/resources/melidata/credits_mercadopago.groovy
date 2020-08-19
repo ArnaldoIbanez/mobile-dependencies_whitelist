@@ -136,6 +136,10 @@ trackTests {
             has_prepaid = false
             loan_created_with_retry = false
         }
+
+        "/credits/merchant/enrollment/kyc_user_challenges_onboarding"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/credits/merchant/enrollment/kyc_back_office_congrats"(platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Merchant Credits Enrollment") {
