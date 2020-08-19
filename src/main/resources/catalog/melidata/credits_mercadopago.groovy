@@ -540,7 +540,23 @@ tracks {
             type: PropertyType.ArrayList,
             required: true,
         )
+        is_kyc_compliant(
+                type: PropertyType.Boolean,
+                required: false,
+        )
+    }
 
+    //Kyc Onboarding
+    "/credits/merchant/enrollment/kyc_onboarding"(platform: "/", type: TrackType.View) {
+        offer(
+                type: PropertyType.Map(offer_map),
+                required: false,
+        )
+        product_types(
+                description: "Available product types in the user's credit line",
+                type: PropertyType.ArrayList,
+                required: true,
+        )
     }
 
     //Hub
@@ -553,6 +569,10 @@ tracks {
             description: "Available product types in the user's credit line",
             type: PropertyType.ArrayList,
             required: true,
+        )
+        is_kyc_compliant(
+                type: PropertyType.Boolean,
+                required: false,
         )
     }
 
@@ -582,6 +602,10 @@ tracks {
                 "fixed"
             ],
             required: true,
+        )
+        is_kyc_compliant(
+                type: PropertyType.Boolean,
+                required: false,
         )
     }
 

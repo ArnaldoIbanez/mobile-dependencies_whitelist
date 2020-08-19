@@ -23,18 +23,21 @@ trackTests {
                 offer_type : 'early_offer'
             ]
             product_types = ['sales_percentage_loan']
+            is_kyc_compliant = true
         }
         "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
             offer = [
                 segment : 'online'
             ]
             product_types = ['fixed_term_loan']
+            is_kyc_compliant = true
         }
         "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
             offer = [
                 offer_type : 'early_offer'
             ]
             product_types = ['sales_percentage_loan', 'fixed_term_loan']
+            is_kyc_compliant = false
         }
 
         //Hub
@@ -44,18 +47,21 @@ trackTests {
                 offer_type : 'early_offer'
             ]
             product_types = ['sales_percentage_loan']
+            is_kyc_compliant = true
         }
         "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
             offer = [
                 segment : 'online'
             ]
             product_types = ['fixed_term_loan']
+            is_kyc_compliant = true
         }
         "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
             offer = [
                 offer_type : 'early_offer'
             ]
             product_types = ['sales_percentage_loan', 'fixed_term_loan']
+            is_kyc_compliant = false
         }
 
         //Simulator
@@ -66,6 +72,7 @@ trackTests {
             ]
             product_type = 'sales_percentage_loan'
             variant = 'fixed_amount'
+            is_kyc_compliant = false
         }
         "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
             offer = [
@@ -73,6 +80,7 @@ trackTests {
             ]
             product_type = 'fixed_term_loan'
             variant = 'fixed'
+            is_kyc_compliant = false
         }
         "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
             offer = [
@@ -80,6 +88,7 @@ trackTests {
             ]
             product_type = 'sales_percentage_loan'
             variant = 'normal'
+            is_kyc_compliant = true
         }
 
         //Summary
