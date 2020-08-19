@@ -1748,7 +1748,7 @@ trackTests {
         "/point_payment/onboarding_how_to_charge"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/push_mcc"(platform: "/mobile", type: TrackType.View) {}
 
-        "/point_payment/link_share" (platform: "/mobile", type: TrackType.Event) {
+        "/point_payment/link_share/button" (platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
             action = "share_link"
             label = "whatsapp"
