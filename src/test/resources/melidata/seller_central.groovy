@@ -1838,6 +1838,24 @@ trackTests {
     "/seller_central/catalog"(platform: "/web", type: TrackType.View) {}
   }
 
+  test("seller central catalog optin variation selection page view") {
+    "/seller_central/catalog/optin/variation_selection"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+    }
+  }
 
   test("seller central catalog optin page view") {
     "/seller_central/catalog/optin"(platform: "/web", type: TrackType.View) {
@@ -1848,13 +1866,101 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+        [
+          "name": "test",
+          "id": "TEST",
+          "value_id": "123",
+          "value_name": "TEST"
+        ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin product resume card showed"){
+    "/seller_central/catalog/optin/product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
     }
   }
 
@@ -1867,7 +1973,7 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
@@ -1886,13 +1992,241 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+    }
+  }
+
+  test("seller central catalog optin_moderated page view") {
+    "/seller_central/catalog/optin/optin_moderated"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "NONE"
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/optin_moderated/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/optin_moderated/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin moderated product resume card showed"){
+    "/seller_central/catalog/optin/optin_moderated/product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
+    }
+  }
+
+  test("seller central catalog optin_moderated congrats page view") {
+    "/seller_central/catalog/optin/optin_moderated/congrats"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      moderated = "moderated"
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "NONE"
+    }
+  }
+
+
+  test("seller central catalog optin item_plus page view") {
+    "/seller_central/catalog/optin/item_plus"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      moderated = "moderated"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "NONE"
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/item_plus/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      moderated = "moderated"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/item_plus/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      moderated = "moderated"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin item_plus congrats page view") {
+    "/seller_central/catalog/optin/item_plus/congrats"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      moderated = "moderated"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "NONE"
     }
   }
 
@@ -1905,7 +2239,7 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
@@ -1926,7 +2260,7 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
@@ -1948,7 +2282,7 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
@@ -1965,7 +2299,7 @@ trackTests {
     "/seller_central/catalog/optin/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
       reputation_level = "5_green"
       moderated = false
-      children_catalog_products_ids = []
+      rejected_products = []
       has_variations = true
       original_catalog_product_id = "MLA7979515"
       selected_catalog_product_id = null
@@ -1986,7 +2320,7 @@ trackTests {
     "/seller_central/catalog/optin/other_product_problem"(platform: "/web", type: TrackType.View) {
       reputation_level = "5_green"
       moderated = "true"
-      children_catalog_products_ids = []
+      rejected_products = []
       has_variations = true
       original_catalog_product_id = "MLA7979515"
       selected_catalog_product_id = null
@@ -2006,7 +2340,7 @@ trackTests {
     "/seller_central/catalog/optin/other_product_problem/product_problem_description_task/confirm"(platform: "/web", type: TrackType.Event) {
       reputation_level = "5_green"
       moderated = true
-      children_catalog_products_ids = []
+      rejected_products = []
       has_variations = true
       original_catalog_product_id = "MLA7979515"
       selected_catalog_product_id = false
