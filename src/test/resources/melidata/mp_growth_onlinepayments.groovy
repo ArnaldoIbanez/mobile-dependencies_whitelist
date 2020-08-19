@@ -36,13 +36,4 @@ trackTests {
         }
     }
 
-    test("Click on share button to whatsapp") {
-        "/share_social/share/button" (platform: "/mobile", type: TrackType.Event) {
-            action = "share_link"
-            label = "whatsapp"
-            flow_id = "123-456-789"
-            pref_id = "123-456-789"
-        }
-    }
-
 }
