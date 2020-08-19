@@ -447,11 +447,11 @@ tracks {
 
     "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/vip/call_seller_intention"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/vip/call_seller_intention"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 
-    "/vip/contact_whatsapp_intention"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/vip/contact_whatsapp_intention"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
     }
 

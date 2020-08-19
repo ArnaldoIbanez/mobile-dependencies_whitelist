@@ -206,6 +206,14 @@ trackTests {
             item_id = "MLA533657947"
         })
 
+        "/vip/call_seller_intention"(platform: "/web", type: TrackType.Event, {
+            item_id = "MLA533657947"
+        })
+
+        "/vip/contact_whatsapp_intention"(platform: "/web", type: TrackType.Event, {
+            item_id = "MLA533657947"
+        })
+
         "/vip/contact_whatsapp"(platform: "/web", type: TrackType.Event, {
             mandatory()
             item_seller_type="normal"
