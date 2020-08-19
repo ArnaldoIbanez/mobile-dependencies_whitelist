@@ -53,31 +53,28 @@ trackTests {
                     offer_type : 'early_offer'
             ]
             product_types = ['sales_percentage_loan', 'fixed_term_loan']
-            is_kyc_compliant = false
         }
 
-        "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
-            offer = [
-                    offer_type : 'early_offer'
-            ]
-            product_types = ['sales_percentage_loan', 'fixed_term_loan']
-            is_kyc_compliant = true
-        }
 
         "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
             offer = [
                     offer_type : 'online'
             ]
             product_types = ['sales_percentage_loan', 'fixed_term_loan']
-            is_kyc_compliant = true
         }
 
         "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
             offer = [
                     offer_type : 'online'
             ]
-            product_types = ['sales_percentage_loan', 'fixed_term_loan']
-            is_kyc_compliant = false
+            product_types = ['sales_percentage_loan']
+        }
+
+        "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
+            offer = [
+                    offer_type : 'online'
+            ]
+            product_types = ['fixed_term_loan']
         }
 
         //Hub
