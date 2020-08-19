@@ -1110,6 +1110,41 @@ trackTests {
         })
     }
 
+    test("VIP fulfillment free shipping onboardings") {
+
+        "/vip/show_fulfillment_fs_popup"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            item_condition = "new"
+            seller_id = 131662738
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            vip_version = "new"
+        }
+
+        "/vip/show_fulfillment_fs_tooltip"(platform: "/") {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+            vip_version = "new"
+        }
+
+        "/vip/close_fulfillment_fs_tooltip"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+            vip_version = "new"
+        }
+
+        "/vip/credits_tooltip/show"(platform: "/", {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+            vip_version = "new"
+        })
+
+    }
+
+
     test("VIP Shipping Calculator"){
 
         def model = {
