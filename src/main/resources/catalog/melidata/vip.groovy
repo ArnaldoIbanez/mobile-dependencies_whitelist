@@ -935,6 +935,31 @@ tracks {
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
+    "/vip/show_fulfillment_fs_popup"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        seller_id(required: true, type: PropertyType.Numeric)
+        item_condition(required: true, type: PropertyType.String, values: ["new", "used", "refurbished", "not_specified"],
+                description: "Whether the item is new, used or refurbished")
+        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
+    }
+
+    "/vip/show_fulfillment_fs_tooltip"(platform: "/", parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buyer_id(required: false, type: PropertyType.String, description: "Buyer ID")
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
+    }
+
+    "/vip/close_fulfillment_fs_tooltip"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        buyer_id(required: false, type: PropertyType.String, description: "Buyer ID")
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
+    }
+
     "/vip/shipping_calculator"(platform: "/", type: TrackType.View, parentPropertiesInherited: false){
         location(required: true, description: "User Location")
         //Location
