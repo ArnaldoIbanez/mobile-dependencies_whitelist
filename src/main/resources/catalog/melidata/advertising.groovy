@@ -480,7 +480,7 @@ tracks {
     }
 
     // Multicampaña
-    "/advertising/pads2/hub"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/hub"(platform: "/", type: TrackType.View) {
         tab(required: true, description: "It could be: Campaigns or Ads tab", values: ['campaigns', 'ads'])
         campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_definition)), description: "Array campaigns")
     }
@@ -561,10 +561,6 @@ tracks {
     "/advertising/pads2/hub/moveads"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     "/advertising/pads2/hub/moveads/go"(platform: "/web", type: TrackType.Event) {
-        campaign_id_from(required: true, description: "Id related to the original campaign")
-        status_from(required: true, description: "Status related to the original campaign")
-        campaign_id_to(required: true, description: "Id related to the destination campaign")
-        status_to(required: true, description: "Status related to the destination campaign")
         check(required: true, description: "Check which indicates if all moved pads must be activated by default")
         //preguntar por mayuscula de q_Ads
         q_Ads(required: true, description: "Quantity of moved pads")
