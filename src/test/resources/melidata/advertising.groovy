@@ -609,7 +609,7 @@ trackTests {
     }
 
     test("Advertising multicampaña") {
-        "/advertising/pads2/hub"(platform: "/web", type: TrackType.View) {
+        "/advertising/pads2/hub"(platform: "/", type: TrackType.View) {
             tab = "ads"
             campaigns = [
                     campaign_id: "222222",
@@ -693,10 +693,10 @@ trackTests {
         "/advertising/pads2/hub/moveads/go"(
         platform: "/web",
         type: TrackType.Event) {
-            campaign_id_from = "2222222"
-            status_from = "active"
-            campaign_id_to = "1111111"
-            status_to = "active"
+            // campaign_id_from = "2222222"
+            // status_from = "active"
+            // campaign_id_to = "1111111"
+            // status_to = "active"
             check = "avtive"
             q_Ads = "ads_q"
         }
