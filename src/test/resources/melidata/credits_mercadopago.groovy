@@ -916,6 +916,30 @@ trackTests {
             stage= "em_expired_daily_charges"
             milestone= 1
         }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "updates"
+            stage= "congrats_upsell"
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "updates"
+            stage= "cm_expired_early_repayment"
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "updates"
+            stage= "cm_congrats_debit_lastinstallment"
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "updates"
+            stage= "spl_congrats_credited_loan"
+        }
     }
 
     test("Personal Loans Adoption from Mercadopago") {

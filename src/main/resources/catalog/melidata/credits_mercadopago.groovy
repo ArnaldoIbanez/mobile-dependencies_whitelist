@@ -960,7 +960,11 @@ tracks {
                 'em_congrats_credited_loan',
                 'em_congrats_debit_installment',
                 'em_insufficient_funds',
-                'em_expired_daily_charges'
+                'em_expired_daily_charges',
+                'congrats_upsell',
+                'cm_expired_early_repayment',
+                'cm_congrats_debit_lastinstallment',
+                'spl_congrats_credited_loan'
             ]
         )
     }
