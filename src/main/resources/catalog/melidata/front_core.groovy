@@ -487,6 +487,7 @@ tracks {
         bu_line(type: PropertyType.String, required: false, description: "The business unit's line of the shortcut")
         flow(type: PropertyType.String, required: false, description: "The business unit line's flow of the shortcut")
         logic(type: PropertyType.String, required: false, description: "The logic applied for showing the shortcut")
+        user_profile(type: PropertyType.String, required: false, description: "The user profile: seller or payer")
     }
 
     "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {}
