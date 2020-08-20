@@ -431,6 +431,12 @@ tracks {
         payment_info_tag(required: false, "Execute post payment")
         remaining_attempts(required: false, PropertyType.Numeric)
     }
+    "/instore/payment_error"(platform: "/mobile", type: TrackType.Event) {
+        error(required: true, PropertyType.String, description: "payment error description")
+        retrying(required: true, PropertyType.Boolean, description: "indicates if the error occurred when retrying automatically")
+        remaining_attempts(required: false, PropertyType.Numeric, description: "remaining attemps to retry when possible")
+        status_code(required: false, PropertyType.Numeric, description: "error code sent when payement service fail")
+    }
 
 
     // Discovery
