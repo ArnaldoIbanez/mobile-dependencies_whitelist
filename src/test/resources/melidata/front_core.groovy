@@ -770,6 +770,7 @@ trackTests {
             bu_line="10"
             flow="1"
             logic="default"
+            user_profile="seller"
         }
     }
 
