@@ -704,8 +704,30 @@ tracks {
             type: PropertyType.ArrayList,
             required: true,
         )
-
+        is_kyc_compliant(
+                type: PropertyType.Boolean,
+                required: false,
+        )
     }
+
+    //Kyc Onboarding
+    "/credits/merchant/enrollment/kyc_onboarding"(platform: "/", type: TrackType.View) {
+        offer(
+                type: PropertyType.Map(offer_map),
+                required: false,
+        )
+        product_types(
+                description: "Available product types in the user's credit line",
+                type: PropertyType.ArrayList,
+                required: true,
+        )
+    }
+
+    //Kyc Onboarding for User Challenges
+    "/credits/merchant/enrollment/kyc_user_challenges_onboarding"(platform: "/", type: TrackType.View) {}
+
+    //Kyc Congrats Backoffice Challenges
+    "/credits/merchant/enrollment/kyc_back_office_congrats"(platform: "/", type: TrackType.View) {}
 
     //Hub
     "/credits/merchant/enrollment/hub"(platform: "/", type: TrackType.View) {
@@ -717,6 +739,10 @@ tracks {
             description: "Available product types in the user's credit line",
             type: PropertyType.ArrayList,
             required: true,
+        )
+        is_kyc_compliant(
+                type: PropertyType.Boolean,
+                required: false,
         )
     }
 
@@ -746,6 +772,10 @@ tracks {
                 "fixed"
             ],
             required: true,
+        )
+        is_kyc_compliant(
+                type: PropertyType.Boolean,
+                required: false,
         )
     }
 
