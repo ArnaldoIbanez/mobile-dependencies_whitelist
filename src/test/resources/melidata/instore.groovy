@@ -1232,6 +1232,14 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
+        "/instore/payment_error"(platform: "/mobile", type: TrackType.Event) {
+            error = "timeout"
+            retrying = true
+            remaining_attempts = 1
+            status_code = 502
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
         "/instore/map"(platform: "/mobile", type: TrackType.View) {
             session_id = "2183nHUADndjsu123yu8N7r73ndf"
             location = "-34.612112,-58.366109"
@@ -2846,6 +2854,14 @@ trackTests {
         "/instore/payment_info"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             payment_info_tag = "Execute post payment"
             remaining_attempts = 2
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
+        "/instore/payment_error"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            error = "timeout"
+            retrying = true
+            remaining_attempts = 1
+            status_code = 502
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
