@@ -571,6 +571,8 @@ tracks {
 
     "/pdp/fulfillment_tooltip/close"(platform: "/", type: TrackType.Event) {}
 
+    "/pdp/fulfillment_fs_modal" (platform: "/", parentPropertiesInherited: false, isAbstract: true) {}
+
     "/pdp/fulfillment_fs_tooltip" (platform: "/", parentPropertiesInherited: false, isAbstract: true) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Catalog product ID")
         item_id(required: true, type: PropertyType.String, description: "Item ID")
