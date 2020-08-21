@@ -693,12 +693,8 @@ trackTests {
         "/advertising/pads2/hub/moveads/go"(
         platform: "/web",
         type: TrackType.Event) {
-            // campaign_id_from = "2222222"
-            // status_from = "active"
-            // campaign_id_to = "1111111"
-            // status_to = "active"
             check = "avtive"
-            q_Ads = "ads_q"
+            q_ads = "ads_q"
         }
 
         "/advertising/pads2/hub/moveads/cancel"(platform: "/web", type: TrackType.Event) {}
