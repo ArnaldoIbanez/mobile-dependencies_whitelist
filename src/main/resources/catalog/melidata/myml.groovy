@@ -179,6 +179,8 @@ tracks {
         buy_it_again_lead_checkout(required: true,type: PropertyType.String, description: "Is the button going to redirect to checkout")
     }
 
+    "/myml/purchases/status/shipping_detail"(platform:"/", type: TrackType.Event) {}
+
     // ---------------- Listings
 
 
@@ -1093,6 +1095,8 @@ tracks {
 
     "/myml/invoices/opt_in/cst-devolution/button"(platform: "/", isAbstract: true) {}
     "/myml/invoices/opt_in/cst-devolution/button/save"(platform: "/") {}
+
+    "/myml/download_invoice_preference"(platform: "/", , type: TrackType.Event) {}
 
 
     //:::: SELLER - INVOICES
