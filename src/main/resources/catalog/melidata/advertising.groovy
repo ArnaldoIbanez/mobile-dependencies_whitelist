@@ -562,8 +562,7 @@ tracks {
 
     "/advertising/pads2/hub/moveads/go"(platform: "/web", type: TrackType.Event) {
         check(required: true, description: "Check which indicates if all moved pads must be activated by default")
-        //preguntar por mayuscula de q_Ads
-        q_Ads(required: true, description: "Quantity of moved pads")
+        q_ads(required: true, description: "Quantity of moved pads")
     }
 
     "/advertising/pads2/hub/moveads/cancel"(platform: "/web", type: TrackType.Event) {}
