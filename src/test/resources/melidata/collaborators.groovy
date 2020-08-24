@@ -45,9 +45,7 @@ trackTests {
     }
 
     test("Collaborators") {
-        "/collaborators"(platform:"/web", type: TrackType.View) {
-            type = 'form'
-        }
+        "/collaborators"(platform:"/web", type: TrackType.View) {}
     }
 
     test("Select role") {
@@ -116,8 +114,10 @@ trackTests {
 
     test("Show shield view") {
         "/collaborators/shield"(platform:"/mobile", type: TrackType.View) {
-            view = 'NameViewController'
-            scopes = ['pay_qr', 'collect_on_site']
+            screen_name = 'NameViewController'
+            scopes_requested = ['pay_qr', 'collect_on_site']
+            scopes_missing = ['pay_qr']
+            entry_method = 'required_scope'
        }
     }
 
@@ -169,7 +169,6 @@ trackTests {
 
     test("Collaborators") {
         "/collaborators"(platform:"/web", type: TrackType.View) {
-            type = 'form'
         }
     }
 
@@ -233,8 +232,10 @@ trackTests {
 
     test("Show shield view") {
         "/collaborators/shield"(platform:"/mobile", type: TrackType.View) {
-            view = 'NameViewController'
-            scopes = ['pay_qr', 'collect_on_site']
+            screen_name = 'NameViewController'
+            scopes_requested = ['pay_qr', 'collect_on_site']
+            scopes_missing = ['pay_qr']
+            entry_method = 'required_scope'
        }
     }
 }
