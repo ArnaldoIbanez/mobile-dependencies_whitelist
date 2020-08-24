@@ -117,7 +117,7 @@ trackTests {
             screen_name = 'NameViewController'
             scopes_requested = ['pay_qr', 'collect_on_site']
             scopes_missing = ['pay_qr']
-            entry_method = 'required_scope'
+            entry_method = 'required_scopes'
        }
     }
 
@@ -235,7 +235,7 @@ trackTests {
             screen_name = 'NameViewController'
             scopes_requested = ['pay_qr', 'collect_on_site']
             scopes_missing = ['pay_qr']
-            entry_method = 'required_scope'
+            entry_method = 'required_scopes'
        }
     }
 }

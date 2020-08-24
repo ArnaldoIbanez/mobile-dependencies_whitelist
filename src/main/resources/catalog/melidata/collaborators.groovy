@@ -87,6 +87,6 @@ tracks {
         screen_name(required: true, type: PropertyType.String, description: 'Indicates the view name that show the shield')
         scopes_requested(required: true, type: PropertyType.ArrayList(PropertyType.String), description: 'Indicates the scopes that the screen required')
         scopes_missing(required: true, type: PropertyType.ArrayList(PropertyType.String), description: 'Indicates the scopes that do not match those required on the screen')
-        entry_method(required: true, values: ['required_scope', 'supported_scopes', 'support_operators', 'show_shield', 'set_show_shield'], type: PropertyType.String, description: 'Indicates the entry method of the shield')
+        entry_method(required: true, values: ['required_scopes', 'supported_scopes', 'support_operators', 'show_shield', 'set_show_shield'], type: PropertyType.String, description: 'Indicates the entry method of the shield')
     }
 }
