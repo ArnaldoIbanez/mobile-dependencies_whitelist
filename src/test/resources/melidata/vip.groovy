@@ -1483,6 +1483,7 @@ trackTests {
             listing_type_id = "gold_premium"
             item_condition = "new"
             item_seller_type = "car_dealer"
+            catalog_listing = false
             item_status = "active"
             buying_mode = "classified"
             deal_ids = []
