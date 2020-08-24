@@ -37,12 +37,6 @@ tracks {
 
     "/collaborators/link_stores"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {}
 
-    "/collaborators/scopes"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {}
-
-    "/collaborators/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
-        type(required: true, type: PropertyType.String, description: 'Indicates the result of the creation of the operator.')
-    }
-
     "/collaborators/detail"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
         type(required: true, values: ['role', 'operator', 'invitation'], type: PropertyType.String, description: 'Indicates the type of detail that is selected.')
     }
@@ -77,5 +71,10 @@ tracks {
 
     "/collaborators/congrats"(platform:"/", type: TrackType.View, parentPropertiesInherited: false) {
     	type(required: true, type: PropertyType.String, description: 'Indicates the result of the congrats.')
+    }
+
+    "/collaborators/shield"(platform:"/mobile", type: TrackType.View, parentPropertiesInherited: false) {
+        view(required: true, type: PropertyType.String, description: 'Indicates the view name that show the shield')
+        scopes(required: true, type: PropertyType.ArrayList(PropertyType.String), description: 'Indicates the scopes that the collaborator doesn t have')
     }
 }

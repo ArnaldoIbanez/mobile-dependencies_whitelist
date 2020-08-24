@@ -114,6 +114,13 @@ trackTests {
         "/collaborators/role/name"(platform:"/mobile", type: TrackType.View) {}
     }
 
+    test("Show shield view") {
+        "/collaborators/shield"(platform:"/mobile", type: TrackType.View) {
+            view = 'NameViewController'
+            scopes = ['pay_qr', 'collect_on_site']
+       }
+    }
+
     defaultBusiness = "mercadolibre"
 
     test("Came into new version" ) {
@@ -222,5 +229,12 @@ trackTests {
 
     test("Enter role name") {
         "/collaborators/role/name"(platform:"/mobile", type: TrackType.View) {}
+    }
+
+    test("Show shield view") {
+        "/collaborators/shield"(platform:"/mobile", type: TrackType.View) {
+            view = 'NameViewController'
+            scopes = ['pay_qr', 'collect_on_site']
+       }
     }
 }
