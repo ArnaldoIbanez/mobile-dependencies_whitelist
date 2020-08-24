@@ -183,6 +183,6 @@ tracks {
 
     // PIX keys
     "/money_in/pix_keys"(platform:"/", isAbstract:true){}
-    "/money_in/pix_keys/enroll_congrat"(platform: "/", type: TrackType.View) {}
+    "/money_in/pix_keys/enroll_congrats"(platform: "/", type: TrackType.View) {}
 
 }
