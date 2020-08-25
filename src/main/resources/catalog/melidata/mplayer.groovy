@@ -73,6 +73,9 @@ tracks {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
 
+    "/mplayer/closed_request/congrats_request/detail"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/congrats_request/home"(platform: "/mobile", type: TrackType.Event) {}
+
     "/mplayer/closed_request/contact_picker/select_contact"(platform: "/mobile", type: TrackType.Event) {
         input_type(required: true, PropertyType.String, description: "the input type of contact selected, select from list or manually typed")
         source(required: false, PropertyType.String, description: "the source of the contact")
@@ -185,6 +188,9 @@ tracks {
     "/mplayer/money_split/split_created/exit"(platform: "/mobile", type: TrackType.Event) {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
+
+    "/mplayer/money_split/split_created/detail"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/money_split/split_created/home"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/money_split/result"(platform: "/mobile", isAbstract: true) {}
     "/mplayer/money_split/result/success"(platform: "/mobile", type: TrackType.View) {
