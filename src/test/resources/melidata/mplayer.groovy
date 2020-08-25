@@ -63,6 +63,9 @@ trackTests {
             button = "main_button"
         }
 
+        "/mplayer/closed_request/congrats_request/detail"(platform: "/mobile") {}
+        "/mplayer/closed_request/congrats_request/home"(platform: "/mobile") {}
+
         "/mplayer/closed_request/congrats_request/detail"(platform: "/mobile") {
             button = "detail_button"
         }
@@ -189,6 +192,9 @@ trackTests {
         "/mplayer/money_split/split_created/exit"(platform: "/mobile") {
             button = "main_button"
         }
+
+        "/mplayer/money_split/split_created/detail"(platform: "/mobile") {}
+        "/mplayer/money_split/split_created/home"(platform: "/mobile") {}
 
         "/mplayer/money_split/split_created/detail"(platform: "/mobile") {
             button = "detail_button"

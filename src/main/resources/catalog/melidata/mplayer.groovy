@@ -73,6 +73,9 @@ tracks {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
 
+    "/mplayer/closed_request/congrats_request/detail"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/congrats_request/home"(platform: "/mobile", type: TrackType.Event) {}
+
     "/mplayer/closed_request/congrats_request/detail"(platform: "/mobile", type: TrackType.Event) {
         button(required: true, PropertyType.String, description: "the button selected to navigate to detail screen")
     }
@@ -193,6 +196,9 @@ tracks {
     "/mplayer/money_split/split_created/exit"(platform: "/mobile", type: TrackType.Event) {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
+
+    "/mplayer/money_split/split_created/detail"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/money_split/split_created/home"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/money_split/split_created/detail"(platform: "/mobile", type: TrackType.Event) {
         button(required: true, PropertyType.String, description: "the button selected to navigate to detail screen")
