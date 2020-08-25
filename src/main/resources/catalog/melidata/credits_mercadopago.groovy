@@ -157,7 +157,7 @@ tracks {
     /******************************************
      *       Start: Merchants Public Landings
      ******************************************/
-     
+
     "/credits/merchant/declarative_form"(platform:"/", type: TrackType.View) {}
     "/credits/merchant/declarative_form/congrats"(platform:"/", type: TrackType.View) {}
 
@@ -341,9 +341,9 @@ tracks {
             ]
         )
     }
-    
+
     "/credits/mp-hub/no-credit-line"(platform: "/", type: TrackType.View) {}
-        
+
     "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
         flow(
             type: PropertyType.String,
@@ -355,7 +355,7 @@ tracks {
             ]
         )
     }
-    
+
     "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
         flow(
             type: PropertyType.String,
@@ -367,9 +367,9 @@ tracks {
             ]
         )
     }
-    
+
     "/credits/mp-hub/error"(platform: "/", type: TrackType.View) {}
-    
+
     "/credits/mp-hub/error/access_click"(platform: "/", type: TrackType.Event) {
         flow(
             type: PropertyType.String,
@@ -381,7 +381,7 @@ tracks {
             ]
         )
     }
-    
+
     /******************************************
      *       End: Credits Hub
      ******************************************/
@@ -391,9 +391,9 @@ tracks {
      *******************************************/
 
     "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
-    
+
     "/credits/merchant/open-market/statements-upload_click"(platform: "/", type: TrackType.Event) {}
-    
+
     "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
         reason(
             type: PropertyType.String,
@@ -417,9 +417,9 @@ tracks {
             inheritable: false,
             description: "bank identifier clicked",
             values: [
-                'caixa', 
-                'santander', 
-                'banco_do_brasil', 
+                'caixa',
+                'santander',
+                'banco_do_brasil',
                 'bradesco',
                 'itau',
             ]
@@ -439,7 +439,7 @@ tracks {
             ]
         )
     }
-    
+
     "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
         reason(
             type: PropertyType.String,
@@ -459,9 +459,9 @@ tracks {
             inheritable: false,
             description: "bank identifier clicked",
             values: [
-                'caixa', 
-                'santander', 
-                'banco_do_brasil', 
+                'caixa',
+                'santander',
+                'banco_do_brasil',
                 'bradesco',
                 'itau',
             ]
@@ -528,6 +528,10 @@ tracks {
             required: false,
         )
         is_operator_user(
+            type: PropertyType.Boolean,
+            required: false,
+        )
+        is_kyc_compliance(
             type: PropertyType.Boolean,
             required: false,
         )
@@ -600,6 +604,11 @@ tracks {
                 type: PropertyType.Boolean,
                 required: false,
         )
+        through_kyc(
+            description: "Metric to track user who has been redirected from KYC",
+            type: PropertyType.Boolean,
+            required: false,
+        )
     }
 
     //Error
@@ -614,6 +623,7 @@ tracks {
                 'rejected_by_regulation',
                 'unknown-error',
                 'admin-is-restricted',
+                'kyc_error',
                 'default'
             ],
             inheritable: false
@@ -1107,7 +1117,7 @@ tracks {
      /******************************************
      *   Start: Consumer Admin Detail
      ******************************************/
-    
+
     "/credits/consumer/administrator"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/administrator/dashboard"(platform: "/", type: TrackType.View) {
         dashboard_status(type: PropertyType.String, required: true, values: ["empty_state", "on_time", "overdue"])
@@ -1135,7 +1145,7 @@ tracks {
         )
         payment_intention(type: PropertyType.String, required: true, values: ['cho', 'ticket'])
     }
-   
+
     "/credits/consumer/administrator/summary/payment_intention"(platform: "/", type: TrackType.Event) {
     }
     "/credits/consumer/administrator/summary/cx_contact"(platform: "/", type: TrackType.Event) {
@@ -1158,11 +1168,11 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
         dashboard_status(
                             required: true,
-                            description: "Current status of the Dashboard", 
-                            type: PropertyType.String, 
-                            values: [ 
-                                        "empty_state", 
-                                        "on_time", 
+                            description: "Current status of the Dashboard",
+                            type: PropertyType.String,
+                            values: [
+                                        "empty_state",
+                                        "on_time",
                                         "overdue"
                                     ]
                         )
@@ -1179,17 +1189,17 @@ tracks {
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
                             required: true,
-                            description: "Credit line's current status", 
-                            type: PropertyType.String, 
-                            values: [ 
+                            description: "Credit line's current status",
+                            type: PropertyType.String,
+                            values: [
                                         "manually_paused"
                                     ]
                     )
     }
-    
+
     //Events
-    
-    //Mobile Events 
+
+    //Mobile Events
     "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
         installments_group
         installments_qty(
@@ -1266,7 +1276,7 @@ tracks {
     }
 
     "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {}
-    
+
     "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {}
 
     "/credits/consumer/duedate_selection/cancel"(platform: "/", type: TrackType.Event) {}
