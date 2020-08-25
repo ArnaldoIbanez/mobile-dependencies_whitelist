@@ -586,12 +586,12 @@ tracks {
         is_catalog_boost(required: false, description: "boolean - true if the item was created by Optinator (forced catalog optin) and item status is paused", type: PropertyType.Boolean)
         is_item_inactive_moderated(required: false, description: "boolean - true if it is an inactive moderated item", type: PropertyType.Boolean)
     }
-    "/sell/update/sip/buybox_modal"(platform: "/mobile", isAbstract: true) {}
-    "/sell/update/sip/buybox_modal/action"(platform: "/mobile", type: TrackType.Event) {
-        action_id(required: true, description: "ID of the Buy Box modal action", type: PropertyType.String, values: ["cancel", "reputation"])
-    }
-    "/sell/update/sip/header_action"(platform: "/mobile", type: TrackType.Event) {
+    "/sell/update/sip/header_modal"(platform: "/mobile", isAbstract: true) {
         header_type(required: true, description: "Header type", type: PropertyType.String, values: ["advisory", "buybox", "health", "warning"])
+    }
+    "/sell/update/sip/header_modal/open"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/header_modal/action"(platform: "/mobile", type: TrackType.Event) {
+        action_id(required: true, description: "ID of the modal action", type: PropertyType.String, values: ["cancel", "reputation"])
     }
     "/sell/update/sip/section"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
