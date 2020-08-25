@@ -450,7 +450,7 @@ tracks {
     "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
         southwest(required: true, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
-        location(required: true, PropertyType.String)
+        location(required: false, PropertyType.String)
     }
     "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
         action_type(required: true, PropertyType.String, description: "type of action that triggered the data request", values: ["init", "search_in_this_area", "filters_applied", "text_search"])

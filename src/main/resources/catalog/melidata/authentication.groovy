@@ -553,7 +553,7 @@ tracks {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
-        scenario(type: PropertyType.String, required: true, values: ["no_security", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled"])
+        scenario(type: PropertyType.String, required: true, values: ["no_security", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled", "awareness", "insistence", "reminder1", "reminder2"])
     }
 
     // IFPE Auth restrictions & Reauth errors
