@@ -89,43 +89,40 @@ tracks {
     }
 
     def originalPromotionStructure = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true)
-        seller_id(type: PropertyType.Numeric, required: true)
-        buying_mode(type: PropertyType.String, required: true)
-        sale_terms(type: PropertyType.ArrayList(PropertyType.Map(saleTermStructure)), required: false)
-        campaigns(type: PropertyType.ArrayList(PropertyType.String), required: false)
-        best_offer(type: PropertyType.Numeric, required: false)
-        price(type: PropertyType.Numeric, required: false)
-        original_price(type: PropertyType.Numeric, required: false)
-        promotion(type: PropertyType.Map(promotionStructure), required: false)
-        visits(type: PropertyType.Numeric, required: true)
-        available_quantity(type: PropertyType.Numeric, required: true)
-        title(type: PropertyType.String, required: true)
-        sold_quantity(type: PropertyType.Numeric, required: true)
-        secure_thumbnail(type: PropertyType.String, required: true)
-        currency(type: PropertyType.Map(currencyStructure), required: false)
-        tags(type: PropertyType.ArrayList(PropertyType.String), required: false)
-        validations(type: PropertyType.ArrayList(PropertyType.String), required: false)
-        campaign_offers(type: PropertyType.ArrayList(PropertyType.Map(campaingOffersStructure)), required: false)
+        start_date(type: PropertyType.String, required: true, description: "the local date/time when the promotion starts")
+        finish_date(type: PropertyType.String, required: true, description: "the local date/time when the promotion ends")
+        seller_id(type: PropertyType.Numeric, required: true, description: "the id of the seller creating the promotion")
+        item_id(type: PropertyType.String, required: true, description: "the id of the item to which the promotion is associated")
+        price(type: PropertyType.Numeric, required: true, description: "the price to be impacted. It matches the item's price attribute")
+        list_price(type: PropertyType.Numeric, required: true, description: "the struckthrough price shown to the user. It mathces the item's original_price attribute")
+        prime_price(type: PropertyType.Numeric, required: false, description: "the discounted price shown to users with a loyalty level over 3")
+        status(type: PropertyType.String, required: true, description: "the status of the promotion", values: ["pending", "started"])
+        type(type: PropertyType.String, required: true, description: "the type of promotion", values: ["price_discount", "lightning", "deal_of_the_day"])
+        initial_orders(type: PropertyType.Numeric, required: false, description: "Optional number of orders before the promotion started")
+        total_orders(type: PropertyType.Numeric, required: false, description: "Optional number of orders for the promotion")
+        last_updated(type: PropertyType.String, required: true, description: "the date/time with timezone when the promotion was last modified")
+        created_date(type: PropertyType.String, required: true, description: "the date/time with timezone when the promotion was created")
+        involved_stock(type: PropertyType.Numeric, required: false, description: "stock pledged to be possessed at the time the promotion is starting")
+        discount_delta(type: PropertyType.Numeric, required: false, description: "Tolerance used to calculate the discounted prices for candidate items")
     }
 
     //  FINAL PROMO STRUCTURE
     def finalPromotionStructure = objectSchemaDefinitions {
-        state(type: PropertyType.String, required: false)
-        site_time_offset(type: PropertyType.Numeric, required: false)
-        start_date(type: PropertyType.String, required: true)
-        finish_date(type: PropertyType.String, required: true)
-        is_highlight(type: PropertyType.Boolean, required: false)
-        price(type: PropertyType.Numeric, required: true)
-        prime_price(type: PropertyType.Numeric, required: false)
-        list_price(type: PropertyType.Numeric, required: true)
-        error_price(type: PropertyType.String, required: false)
-        error_prime(type: PropertyType.String, required: false)
-        input_price(type: PropertyType.String, required: true)
-        input_prime_price(type: PropertyType.String, required: false)
-        type(type: PropertyType.String, required: true)
-        involvedStock(type: PropertyType.Numeric, required: false)
-        criteria(type: PropertyType.String, required: false)
+        state(type: PropertyType.String, required: false, description: "the state of the promotion. Could be null in case of error")
+        site_time_offset(type: PropertyType.Numeric, required: false, description: "time difference between UTC and the site's timezone")
+        start_date(type: PropertyType.String, required: true, description: "the local date/time when the promotion starts")
+        finish_date(type: PropertyType.String, required: true, description: "the local date/time when the promotion ends")
+        is_highlight(type: PropertyType.Boolean, required: false, description: "whether the promotion is being featured in the 'sección de ofertas' ")
+        price(type: PropertyType.Numeric, required: true, description: "the price to be impacted. It matches the item's price attribute")
+        prime_price(type: PropertyType.Numeric, required: false, description: "the discounted price shown to users with a loyalty level over 3")
+        list_price(type: PropertyType.Numeric, required: true, description: "the struckthrough price shown to the user. It mathces the item's original_price attribute")
+        error_price(type: PropertyType.String, required: false, description: "filled when there's an error creating the promotion and the error was related to the price")
+        error_prime(type: PropertyType.String, required: false, description: "filled when there's an error creating the promotion and the error was related to the prime price")
+        input_price(type: PropertyType.String, required: true, description: "the exact text representing the price, including money sign, decimal and thousands separators")
+        input_prime_price(type: PropertyType.String, required: false, description: "the exact text representing the prime price, including money sign, decimal and thousands separators")
+        type(type: PropertyType.String, required: true, description: "the type of promotion", values: ["price_discount", "lightning", "deal_of_the_day"])
+        involvedStock(type: PropertyType.Numeric, required: false, description: "stock pledged to be possessed at the time the promotion is starting")
+        criteria(type: PropertyType.String, required: false, description: "sent only during the creation of some promotions to indicated the criteria used by the candidates api to propose that item")
     }
 
     def attributes_values_map = objectSchemaDefinitions {
@@ -1236,40 +1233,41 @@ tracks {
     "/seller_central/promotions/list"(platform: "/web", type: TrackType.View) {
         original_promotion(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original price_discount promotion data")
         original_lightning(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original lightning promotion data")
-        context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "CREATE_LIGHTNING"])
+        original_dod(required: false, type: PropertyType.Map(originalPromotionStructure), description: "Original deal_of_they_day promotion data")
+        context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "CREATE_LIGHTNING", "CREATE_DOD"])
     }
 
     "/seller_central/promotions/list/confirm"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM", "CONFIRM_LIGHTNING"])
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM", "CONFIRM_LIGHTNING", "CONFIRM_DOD"])
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
+        origin(required:true, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/list/update"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM", "CONFIRM_LIGHTNING"])
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM", "CONFIRM_LIGHTNING", "CONFIRM_DOD"])
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
+        origin(required:true, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/list/delete"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["DELETE", "DELETE_LIGHTNING"])
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["DELETE", "DELETE_LIGHTNING", "DELETE_DOD"])
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
+        origin(required:true, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/list/error"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM", "CONFIRM_LIGHTNING", "DELETE", "DELETE_LIGHTNING"])
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CONFIRM", "CONFIRM_LIGHTNING", "CONFIRM_DOD", "DELETE", "DELETE_LIGHTNING", "DELETE_DOD"])
         promotion(required: true, type: PropertyType.Map(finalPromotionStructure), description: "Final promotion data")
         promotion_duration(required: false, type: PropertyType.Numeric, description: "Duration for the new promotion")
         error(required: false, type: PropertyType.String, description: "Error saving the promotion")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
+        origin(required:true, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/list/actions"(platform: "/web", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["DISABLE", "ENABLE", "RESET_PROMOTION", "RESET_PROMOTION_LIGHTNING", "DELETE_PROMOTION", "DELETE_PROMOTION_LIGHTNING"])
+        action(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["DISABLE", "ENABLE", "RESET_PROMOTION", "RESET_PROMOTION_LIGHTNING", "RESET_PROMOTION_DOD", "DELETE_PROMOTION", "DELETE_PROMOTION_LIGHTNING", "DELETE_PROMOTION_DOD"])
         context(required: false, type: PropertyType.String, description: "Context of the user", values: ["CREATE", "EDIT", "PRIME_CHECKBOX", "RESET_PROMOTION"])
     }
 
@@ -1284,7 +1282,7 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Id of the action", values: ["apply", "clear"])
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
@@ -1292,9 +1290,8 @@ tracks {
         view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
         item_id(required:false, type: PropertyType.String, description: "Item id to which the action is executed")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
-        inventory_id(required:false, type: PropertyType.String, description: "Inventory id to which the action is executed")
         operator_id(required:false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/action/confirm"(platform: "/", type: TrackType.Event) {
@@ -1302,10 +1299,7 @@ tracks {
         view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
         item_id(required:false, type: PropertyType.String, description: "Item id to which the action is executed")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
-        id_row_selected(required:false, type: PropertyType.String, description: "Row id to which the action is executed")
-        has_variations(required: false, type: PropertyType.Boolean, description: "If the item to which the action is executed has variations")
-        operator_id(required:false, type: PropertyType.String, description: "If it is an operator, operator id that executes the action")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {
@@ -1318,7 +1312,13 @@ tracks {
     "/seller_central/promotions/list/secondary_actions"(platform: "/", type: TrackType.Event) {
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
         seller_id(required: false, type: PropertyType.Numeric, description: "The seller that triggered the action")
-        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail", ""])
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+    }
+
+    //LISTING - Candidates information
+    "/seller_central/promotions/list/info"(platform: "/", type: TrackType.Event) {
+        candidates(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Candidates for each type of promotion")
+        origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
