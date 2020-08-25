@@ -45,9 +45,7 @@ trackTests {
     }
 
     test("Collaborators") {
-        "/collaborators"(platform:"/web", type: TrackType.View) {
-            type = 'form'
-        }
+        "/collaborators"(platform:"/web", type: TrackType.View) {}
     }
 
     test("Select role") {
@@ -114,6 +112,15 @@ trackTests {
         "/collaborators/role/name"(platform:"/mobile", type: TrackType.View) {}
     }
 
+    test("Show shield view") {
+        "/collaborators/shield"(platform:"/mobile", type: TrackType.View) {
+            screen_name = 'NameViewController'
+            scopes_requested = ['pay_qr', 'collect_on_site']
+            scopes_missing = ['pay_qr']
+            entry_method = 'required_scopes'
+       }
+    }
+
     defaultBusiness = "mercadolibre"
 
     test("Came into new version" ) {
@@ -162,7 +169,6 @@ trackTests {
 
     test("Collaborators") {
         "/collaborators"(platform:"/web", type: TrackType.View) {
-            type = 'form'
         }
     }
 
@@ -222,5 +228,14 @@ trackTests {
 
     test("Enter role name") {
         "/collaborators/role/name"(platform:"/mobile", type: TrackType.View) {}
+    }
+
+    test("Show shield view") {
+        "/collaborators/shield"(platform:"/mobile", type: TrackType.View) {
+            screen_name = 'NameViewController'
+            scopes_requested = ['pay_qr', 'collect_on_site']
+            scopes_missing = ['pay_qr']
+            entry_method = 'required_scopes'
+       }
     }
 }
