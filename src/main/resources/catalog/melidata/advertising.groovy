@@ -88,6 +88,7 @@ tracks {
         free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
         budget(required: true, description: "Budget related to the landing", inheritable:false)
         ui_version(required: false, description: "UI version rendered in Search", inheritable:false)
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
     "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
@@ -96,6 +97,7 @@ tracks {
         id(required: false, values: ["adq_pads"], description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, values: ["home_desktop"], description: "indicates the position of the main slide")
         free_trial_ad(required: false, description: "Indicates if user is suitable for free trial")
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
     "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
@@ -111,6 +113,7 @@ tracks {
         free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
         id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, description: "indicates the position of the main slide")
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
     "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
@@ -118,6 +121,7 @@ tracks {
         free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
         id(required: false, values: ["adq_pads"], description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, values: ["home_desktop"], description: "indicates the position of the main slide")
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
     "/advertising/pads2/landing/change_budget"(platform: "/web", type: TrackType.Event) {
@@ -212,20 +216,24 @@ tracks {
     "/advertising/pads2/landing_freetrial"(platform: "/", type: TrackType.View) {
         free_trial_type(required: true, description: "type of free trial with which the user enters the landing pads")
         budget(required: true, description: "Budget related to the landing")
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
     "/advertising/pads2/landing_freetrial/cta"(platform: "/", type: TrackType.Event) {
         button(required: true, description: "Button that redirects to confirm page")
         id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, description: "indicates the position of the main slide")
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
     "/advertising/pads2/landing_freetrial/confirm"(platform: "/", type: TrackType.View) {
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
     "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/", type: TrackType.Event) {
         id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, description: "indicates the position of the main slide")
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
     //Lift
@@ -300,7 +308,6 @@ tracks {
     "/advertising/pads2/manager/ssl/landing/breadcrumb"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         sll_total(required: true, type: PropertyType.String, description: "Indicates the number total of sll")
-
     }
 
     //Buybox
