@@ -66,14 +66,6 @@ trackTests {
         "/mplayer/closed_request/congrats_request/detail"(platform: "/mobile") {}
         "/mplayer/closed_request/congrats_request/home"(platform: "/mobile") {}
 
-        "/mplayer/closed_request/congrats_request/detail"(platform: "/mobile") {
-            button = "detail_button"
-        }
-
-        "/mplayer/closed_request/congrats_request/home"(platform: "/mobile") {
-            button = "home_button"
-        }
-
         "/mplayer/closed_request/status"(platform: "/mobile") {
             request_status = "pending"
         }
@@ -195,14 +187,6 @@ trackTests {
 
         "/mplayer/money_split/split_created/detail"(platform: "/mobile") {}
         "/mplayer/money_split/split_created/home"(platform: "/mobile") {}
-
-        "/mplayer/money_split/split_created/detail"(platform: "/mobile") {
-            button = "detail_button"
-        }
-
-        "/mplayer/money_split/split_created/home"(platform: "/mobile") {
-            button = "home_button"
-        }
 
         "/mplayer/money_split/result/success"(platform: "/mobile") {
             payment_method_id = "1"
