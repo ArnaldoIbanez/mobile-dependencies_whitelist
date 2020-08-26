@@ -98,7 +98,7 @@ tracks {
         prog_reg_version(type: PropertyType.Numeric, required:true, description: "Version of progressive registration, if is 0 is normal registration")
     }
 
-        "/register/congrats"(platform: "/web", type: TrackType.View){
+    "/register/congrats"(platform: "/web", type: TrackType.View){
         app(type: PropertyType.String, required:true, description: "Current Flow")
         origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
         item_id(type: PropertyType.String, required:false, description: "Item" )
