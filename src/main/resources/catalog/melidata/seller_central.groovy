@@ -1090,6 +1090,13 @@ tracks {
     "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
     "/seller_central/sales/fiscal-document"(platform: "/web", isAbstract: true, type: TrackType.View) {}
 
+    // METRICS SECTION
+
+    "/seller_central/metrics"(platform: "/", isAbstract: true) {}
+    "/seller_central/metrics"(platform: "/", type: TrackType.View) {
+        sellerCentralUserSales
+    }
+
     // CATALOG OPTIN SECTION
 
     "/seller_central/catalog"(platform: "/web", isAbstract: true) {}
