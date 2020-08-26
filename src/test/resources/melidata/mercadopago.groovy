@@ -1424,7 +1424,7 @@ trackTests {
             flow_name = "Instore"
         }
 
-        "/flow_friction/networking"(platform: "/mobile", type: TrackType.Event) {
+        "/flow/friction/networking"(platform: "/mobile", type: TrackType.Event) {
             severity = "Medium"
             type = "ClientError"
             connection_type = "WiFi"
@@ -1432,7 +1432,7 @@ trackTests {
             url = "www.mercadopago.com.br"
         }
 
-        "/flow_friction/system"(platform: "/mobile", type: TrackType.Event) {
+        "/flow/friction/system"(platform: "/mobile", type: TrackType.Event) {
             severity = "Hard"
             type = "Crash"
             screen = "HomeViewController"
