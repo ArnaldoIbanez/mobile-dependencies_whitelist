@@ -554,8 +554,16 @@ tracks {
     //update flow
     "/sell/update" (platform: "/", isAbstract: true){
         item_id(required: true, description: "Item id", type: PropertyType.String)
+        is_catalog_listing(required: false, description: "If core item is a catalog listing", type: PropertyType.Boolean)
+        buybox_status(required: false, description: "Buy Box status of core catalog listing", type: PropertyType.String, values: ["winning", "losing_by_price", "losing_by_stock", "losing_by_bad_reputation", "losing_by_untrusted_seller", "losing_by_without_reputation", "calculating", "undefined"])
     }
     "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/buybox_competition"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/buybox_competition/push_action"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/buybox_competition/row_action"(platform: "/mobile", type: TrackType.Event) {
+        boost_id(required: true, description: "Id of buy box boost", type: PropertyType.String, values: ["free_shipping", "free_installments", "fulfillment", "mercado_envios", "price", "same_day_shipping", "shipping_quarantine"])
+        boost_status(required: true, description: "Status of buy box boost", type: PropertyType.String, values: ["boosted", "not_boosted", "opportunity", "not_apply"])
+    }
     "/sell/update/picture_uploader"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
@@ -577,6 +585,13 @@ tracks {
         pictures_errors(required: false, description: "Array of pictures error", type: PropertyType.ArrayList)
         is_catalog_boost(required: false, description: "boolean - true if the item was created by Optinator (forced catalog optin) and item status is paused", type: PropertyType.Boolean)
         is_item_inactive_moderated(required: false, description: "boolean - true if it is an inactive moderated item", type: PropertyType.Boolean)
+    }
+    "/sell/update/sip/header_modal"(platform: "/mobile", isAbstract: true) {
+        header_type(required: true, description: "Header type", type: PropertyType.String, values: ["advisory", "buybox", "health", "warning"])
+    }
+    "/sell/update/sip/header_modal/open"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/header_modal/action"(platform: "/mobile", type: TrackType.Event) {
+        action_id(required: true, description: "ID of the modal action", type: PropertyType.String, values: ["cancel", "reputation"])
     }
     "/sell/update/sip/section"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
