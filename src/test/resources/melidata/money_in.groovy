@@ -191,6 +191,9 @@ trackTests {
         "/money_in/cash/ifpe_cap_exceeded/insert_other_amount"(platform: "/", type: TrackType.Event) {}
         "/money_in/cash/ifpe_cap_exceeded/help"(platform: "/", type: TrackType.Event) {}
 
+        // PIX keys
+        "/money_in/pix_keys/enroll_congrats"(platform: "/", type: TrackType.View) {}
+
     }
 
 }

@@ -18,6 +18,7 @@ trackTests {
             bank = "santander"
             congrats_status = "APPROVED"
             category_path = ["MLB1743", "MLB1744"]
+            flow_type = "INVALID"
         }
 
         "/classi_credits/pre_analysis"(platform: "/web/mobile", type: TrackType.View) {

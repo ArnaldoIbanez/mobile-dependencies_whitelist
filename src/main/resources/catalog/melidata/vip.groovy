@@ -1115,6 +1115,7 @@ tracks {
                 description: "Indicates if it's an auction, buy_it_now or classified")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        catalog_listing(required: false, inheritable: true, PropertyType.Boolean, description: "Item is catalog_listing or not")
         seller_id(required: false, type: PropertyType.Numeric, description: "Seller ID")
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
