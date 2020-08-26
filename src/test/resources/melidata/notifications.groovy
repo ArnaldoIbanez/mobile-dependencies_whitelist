@@ -7314,42 +7314,41 @@ trackTests {
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-               "/notification_center/card_correios_strike"(platform: "/mobile"){
+        "/notification_center/card_correios_strike_delayed"(platform: "/mobile"){
             newsgroup_id= "card_correios_strike_delayed-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        "/notification_center/card_kyc_data_completed"(platform: "/mobile"){
+        "/notification_center/card_kyc_data_completed_virtual"(platform: "/mobile"){
             newsgroup_id= "card_kyc_data_completed_virtual-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        "/notification_center/card_kyc_data_completed"(platform: "/mobile"){
+        "/notification_center/card_kyc_data_completed_unlock"(platform: "/mobile"){
             newsgroup_id= "card_kyc_data_completed_unlock-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        "/notification_center/card_kyc_data_completed"(platform: "/mobile"){
+        "/notification_center/card_kyc_data_completed_physical_acquisition"(platform: "/mobile"){
             newsgroup_id= "card_kyc_data_completed_physical_acquisition-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         } 
-        "/notification_center/card_kyc_data_completed"(platform: "/mobile"){
+        "/notification_center/card_kyc_data_completed_prepaid_acquisition_first"(platform: "/mobile"){
             newsgroup_id= "card_kyc_data_completed_prepaid_acquisition_first-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        "/notification_center/card_kyc_data_completed"(platform: "/mobile"){
+        "/notification_center/card_kyc_data_completed_prepaid_acquisition_third"(platform: "/mobile"){
             newsgroup_id= "card_kyc_data_completed_prepaid_acquisition_third-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         }
-        "/notification_center/card_kyc_data_completed"(platform: "/mobile"){
+        "/notification_center/card_kyc_data_completed_prepaid_acquisition_second"(platform: "/mobile"){
             newsgroup_id= "card_kyc_data_completed_prepaid_acquisition_second-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
             notification_type= "deep_linking"
         } 
-
         "/notification/card_unlock_incentive_zero_day"(platform: "/mobile") {
             news_id = "card_unlock_incentive_zero_day-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg"
             event_type = "auto_dismiss"
