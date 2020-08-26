@@ -484,7 +484,10 @@ tracks {
 
     // Email Validation Authenticator
 
-    "/authenticators/email_validation"(platform: "/", isAbstract: true) {}
+    "/authenticators/email_validation"(platform: "/", isAbstract: true) {
+        flow(PropertyType.String, required: false, values: ["login", "registration", "forgot_password", "reauthentication" ], description: "Flow using authenticator")
+        client_type(PropertyType.String, required: false, values: ["web", "mobile"], description: "Client using flow")
+    }
 
     "/authenticators/email_validation/max_attempts"(platform: "/", type: TrackType.View) {}
 
