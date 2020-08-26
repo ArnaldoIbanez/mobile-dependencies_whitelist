@@ -1,4 +1,4 @@
-FROM hub.furycloud.io/mercadolibre/java-gradle:jdk8
+FROM hub.furycloud.io/mercadolibre/java:1.8-mini
 
 # Default value in image is "build".
 # Override the following env variable to call another task for packaging your app
