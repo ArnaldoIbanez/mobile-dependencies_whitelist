@@ -805,6 +805,10 @@ trackTests {
             flow = "merchant"
         }
         
+        "/credits/mp-hub/no-credit-line/stop/faqs_click"(platform: "/", type: TrackType.Event) {
+            flow = "merchant"
+        }
+        
         "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
             flow = "generic"
         }

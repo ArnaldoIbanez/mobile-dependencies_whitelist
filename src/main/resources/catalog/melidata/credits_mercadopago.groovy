@@ -367,6 +367,17 @@ tracks {
             ]
         )
     }
+
+    "/credits/mp-hub/no-credit-line/stop/faqs_click"(platform: "/", type: TrackType.Event) {
+        flow(
+            type: PropertyType.String,
+            required: true,
+            description: "FAQs flow which user choose to enter",
+            values: [
+                'merchant',
+            ]
+        )
+    }
     
     "/credits/mp-hub/error"(platform: "/", type: TrackType.View) {}
     
