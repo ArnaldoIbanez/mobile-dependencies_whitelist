@@ -1418,7 +1418,8 @@ trackTests {
         "/flow/init"(platform: "/mobile", type: TrackType.Event) {
             flow_name = "Instore"
             from = "Home"
-            details = "mp_campaing_extra_123"
+            additional_info = "campaign_extra_sellers_01"
+            sub_flow = "QR"
         }
         "/flow/end"(platform: "/mobile", type: TrackType.Event) {}
 
