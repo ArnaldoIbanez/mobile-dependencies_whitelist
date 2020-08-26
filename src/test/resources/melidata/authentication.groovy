@@ -711,17 +711,26 @@ trackTests {
 
             "/authenticators/email_validation/max_attempts"(platform: "/", type: TrackType.View) {}
 
-            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {}
+            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+                flow = "registration"
+                client_type = "mobile"
+            }
 
             "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
+                flow = "registration"
+                client_type = "mobile"
                 validation_status = "success"
             }
 
             "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
+                flow = "login"
+                client_type = "web"
                 social_option = "Google"
             }
 
             "/authenticators/email_validation/social_oauth/submit"(platform: "/", type: TrackType.Event) {
+                flow = "login"
+                client_type = "web"
                 validation_status = "success"
                 social_option = "Microsoft"
                 email_sign_in = false
