@@ -1420,9 +1420,7 @@ trackTests {
             from = "Home"
             details = "mp_campaing_extra_123"
         }
-        "/flow/end"(platform: "/mobile", type: TrackType.Event) {
-            flow_name = "Instore"
-        }
+        "/flow/end"(platform: "/mobile", type: TrackType.Event) {}
 
         "/flow/friction/networking"(platform: "/mobile", type: TrackType.Event) {
             severity = "Medium"
