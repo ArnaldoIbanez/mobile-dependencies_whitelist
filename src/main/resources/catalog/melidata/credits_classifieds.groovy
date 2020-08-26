@@ -43,7 +43,7 @@ tracks {
      }
 
     propertyGroups {
-        creditGroup(vertical, seller_id, item_id, category_id, buyer_id, bank, congrats_status, category_path)
+        creditGroup(vertical, seller_id, item_id, category_id, buyer_id, flow_type, bank, congrats_status, category_path)
     }
 
     /******************************************
@@ -52,7 +52,6 @@ tracks {
     "/classi_credits"(platform: "/", isAbstract: true) {}
     "/classi_credits/application_form"(platform: "/", isAbstract: true) {}
     "/classi_credits/evaluation"(platform: "/", isAbstract: true) {}
-    "/classi_credits/modal_fullscreen"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Classifieds Credits
