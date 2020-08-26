@@ -825,11 +825,19 @@ tracks {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
+    "/notification_center/card_kyc_data_completed"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
     "/notification_center/card_delivery_tracking"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
     "/notification_center/card_unlock_incentive"(platform: "/", type: TrackType.Event) {
+        latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
+        latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
+    }
+    "/notification_center/card_correios_strike"(platform: "/", type: TrackType.Event) {
         latest_news_type(required: true, type: PropertyType.String, description: "Corresponds to the type of the latest news of the newsgroup that is showing.")
         latest_news_id(required: true, type: PropertyType.String, description:"Corresponds to the id of the latest news of the newsgroup that is showing.")
     }
@@ -1928,6 +1936,13 @@ tracks {
 
     //Hybrid
     "/notification/card_request_challenge_pending"(platform: "/mobile") {}
+    "/notification/card_correios_strike_delayed"(platform: "/mobile") {}
+    "/notification/card_kyc_data_completed_physical_acquisition"(platform: "/mobile") {}
+    "/notification/card_kyc_data_completed_unlock"(platform: "/mobile") {}
+    "/notification/card_kyc_data_completed_virtual"(platform: "/mobile") {}
+    "/notification/card_kyc_data_completed_prepaid_acquisition_first"(platform: "/mobile") {}
+    "/notification/card_kyc_data_completed_prepaid_acquisition_second"(platform: "/mobile") {}
+    "/notification/card_kyc_data_completed_prepaid_acquisition_third"(platform: "/mobile") {}
     "/notification/card_unlock_incentive_zero_day"(platform: "/mobile") {}
     "/notification/card_unlock_incentive_second_day"(platform: "/mobile") {}
     "/notification/card_unlock_incentive_fifth_day"(platform: "/mobile") {}
