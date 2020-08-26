@@ -64,7 +64,7 @@ class CatalogUploader {
         s3Controller.setLastServersion(catalogHandler.LAST_VERSION_OBJECT, lastVersion)
         println("Upload catalog csv hive format")
         String csv = hiveFormatter.output
-        s3Controller.saveFile(catalogHandler.CSV_FILE_NAME, csv)
+        //s3Controller.saveFile(catalogHandler.CSV_FILE_NAME, csv)
     }
 
 
