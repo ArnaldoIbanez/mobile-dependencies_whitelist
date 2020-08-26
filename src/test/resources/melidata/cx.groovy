@@ -140,6 +140,7 @@ trackTests {
     }
 
     test("Support Cases") {
+        "/support/cases"(platform: "/", type: TrackType.View) {}
         "/support/cases/detail"(platform: "/", type: TrackType.View) {
             case_status = "pending"
             case_id = 12345678
@@ -240,6 +241,7 @@ trackTests {
     }
 
     test("Support Cases") {
+        "/support/cases"(platform: "/", type: TrackType.View) {}
         "/support/cases/detail"(platform: "/", type: TrackType.View) {
             case_status = "pending"
             case_id = 12345678
