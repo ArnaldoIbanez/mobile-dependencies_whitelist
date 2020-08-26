@@ -1418,10 +1418,25 @@ trackTests {
         "/flow/init"(platform: "/mobile", type: TrackType.Event) {
             flow_name = "Instore"
             from = "Home"
+            additional_info = "campaign_extra_sellers_01"
+            sub_flow = "QR"
         }
-        "/flow/end"(platform: "/mobile", type: TrackType.Event) {
-            flow_name = "Instore"
-            from = "Home"
+        "/flow/end"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/flow/friction/networking"(platform: "/mobile", type: TrackType.Event) {
+            severity = "Medium"
+            type = "ClientError"
+            connection_type = "WiFi"
+            status = "403"
+            url = "www.mercadopago.com.br"
+        }
+
+        "/flow/friction/system"(platform: "/mobile", type: TrackType.Event) {
+            severity = "Hard"
+            type = "Crash"
+            screen = "HomeViewController"
+            state = "Active"
+            exception = "NSRangeException"
         }
     }
 
