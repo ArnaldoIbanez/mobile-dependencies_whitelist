@@ -13,7 +13,7 @@ tracks {
     "/insurtech/roda"(platform: "/", isAbstract: true) {}
     "/insurtech/roda/qpage"(platform: "/", isAbstract: true) {}
 
-    // INSURTECH RODA QPage Structures
+    // INSURTECH RODA Structures
     def roda_device = objectSchemaDefinitions {
         brand(required: true, type: PropertyType.String, description: "Brand of device. For ex: Samsung.")
         model(required: false, type: PropertyType.String, description: "Model of the device. For ex: J7.")
@@ -37,6 +37,23 @@ tracks {
         coverage(required: true, type: PropertyType.String, description: "Coverage of the option. For ex: theft_break, theft, break, accident.")
         price(required: true, type: PropertyType.Numeric, description: "Price of the option.")
         deductible(required: true, type: PropertyType.Numeric, description: "Deductible percentage of the option.")
+    }
+
+    def protection_short = objectSchemaDefinitions {
+        product_id(required: true, type: PropertyType.String, values: ['garex', 'roda'], description: "Product id of the protection.")
+        insurance_purchase_key(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the protection.")
+    }
+
+    def my_protections_roda = objectSchemaDefinitions {
+        has_protections(required: true, type: PropertyType.Boolean, description: "This is true if the user has RODA protections")
+        is_current_device_protected(required: true, type: PropertyType.Boolean, description: "This is true if the current device of the track is already protected for RODA")
+        is_current_device_quotable(required: true, type: PropertyType.Boolean, description: "This is true if the current device is quotable for RODA")
+        offered(required: true, type: PropertyType.Boolean, description: "This is true if the RODA protection has been offered to the user")
+    }
+
+    def my_protections_garex = objectSchemaDefinitions {
+        has_protections(required: true, type: PropertyType.Boolean, description: "This is true if the user has GAREX protections")
+        offered(required: true, type: PropertyType.Boolean, description: "This is true if the GAREX protection has been offered to the user")
     }
 
     "/insurtech/roda/qpage"(platform:"/", type: TrackType.View) {
@@ -227,5 +244,38 @@ tracks {
 
     "/insurtech/payments/congrats_pending/go_to_home"(platform:"/mobile", type: TrackType.Event) {
         action_description(required: true, type: PropertyType.String, description: "Description of the button that appears at the end of the congrats.")
+    }
+
+    // INSURTECH MyFe
+    "/insurtech/protections"(platform: "/", isAbstract: true) {}
+
+    "/insurtech/protections"(platform:"/", type: TrackType.View) {
+        device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
+        protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
+        roda(required: true, type: PropertyType.Map(my_protections_roda), description: "RODA product data recovered in protections list")
+        garex(required: true, type: PropertyType.Map(my_protections_garex), description: "GAREX product data recovered in protections list")
+    }
+
+    "/insurtech/protections/quote-me"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page.")
+        protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
+    }
+
+    "/insurtech/protections/doubts"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+        device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
+        protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
+    }
+
+    "/insurtech/protections/finished"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
+        protections(required: false, type: PropertyType.ArrayList(PropertyType.Map(protection_short)), description: "List of current user Protections")
+    }
+
+    "/insurtech/protections/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
+    }
+
+    "/insurtech/protections/fallback"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
     }
 }
