@@ -99,6 +99,9 @@ metrics {
 				)
 			}
 		}
+		divisionBy {
+			divisionMetric("bids")
+		}
 	}
 
 	"bids.official_stores"(description: "Checkout congrats for items in any official store", compute_order: true) {
