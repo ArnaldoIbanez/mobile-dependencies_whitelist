@@ -1083,7 +1083,18 @@ tracks {
 
     "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
         prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
-        status(description: "Status of the user prepaid", type: PropertyType.String, required: true, values: ["no_prepaid", "prepaid_enabled", "prepaid_disabled"])
+        status(
+            description: "Status of the user prepaid",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                "no_prepaid",
+                "prepaid_enabled",
+                "prepaid_disabled",
+                "physical_card",
+                "virtual_card"
+            ]
+        )
     }
 
     "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {}
