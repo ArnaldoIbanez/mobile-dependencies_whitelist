@@ -38,7 +38,7 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
-            registration_version = 'regi_v0_web'
+            registration_version = "regi_v0_web"
         }
 
         "/register/form"(platform: "/web/mobile") {
@@ -47,7 +47,7 @@ trackTests {
             item_id = "MCO123321"
             captcha_showed = true
             prog_reg_version = 1
-            registration_version = 'regi_v0_web'
+            registration_version = "regi_v0_web"
         }
 
         "/register/form"(platform: "/web/desktop") {
@@ -56,7 +56,7 @@ trackTests {
             origin = "bacen"
             captcha_showed = false
             prog_reg_version = 0
-            registration_version = 'regi_v0_web'
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/desktop") {
@@ -64,7 +64,7 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
-            registration_version = 'regi_v0_web'
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -85,7 +85,7 @@ trackTests {
             ]
             errors_validation = 'back'
             prog_reg_version = 1
-            registration_version = 'regi_v0_web'
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -101,7 +101,7 @@ trackTests {
             ]
             errors_validation = 'front'
             prog_reg_version = 0
-            registration_version = 'regi_v0_web'
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -137,7 +137,7 @@ trackTests {
             ]
             errors_validation = 'back'
             prog_reg_version = 0
-            registration_version = 'regi_v0_web'
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/mobile") {
@@ -275,7 +275,7 @@ trackTests {
             origin = "email"
             item_id = "MLA21233"
             register_type = "person"
-            registration_version = 'regi_v0_web'
+            registration_version = "regi_v0_web"
         }
 
     }
@@ -433,14 +433,14 @@ trackTests {
             origin = "email"
             item_id = "MLA21233"
             register_type = "person"
-            registration_version = 'regi_v0_web'
+            registration_version = "regi_v0_web"
         }
 
         "/register/congrats"(platform:"/mobile") {
             app = "normal"
             origin = "email"
             register_type = "company"
-            registration_version = 'regi_v0_web'
+            registration_version = "regi_v0_web"
         }
 
         "/register/success"(platform:"/mobile") {
