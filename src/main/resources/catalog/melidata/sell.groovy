@@ -372,35 +372,6 @@ tracks {
     "/sell/list/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
         section_id(required: false, description: "Section of the SIP that is disabled and trigger the event.", type: PropertyType.String)
     }
-    "/sell/list/sip/update" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/listing_types_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/listing_type" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/description_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/pictures_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/description" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/pictures" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/price_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/price" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/shipping_options_me_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/title" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/shipping_options" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/payment_methods_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/payment_options" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/shipping_options" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/payment_methods_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/payment_options" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/condition_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/condition" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/product_identifier_review"(platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/product_identifier"(platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/technical_specifications"(platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/technical_specifications_review"(platform: "/mobile", type: TrackType.Event){}
-
-    "/sell/list/sip/update/include_description" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/manufacturing_time_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/manufacturing_time" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/location" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/size_selection_review" (platform: "/mobile", type: TrackType.Event){}
 
     "/sell/list/sip/notification"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/sip/notification/congrats"(platform: "/mobile", type: TrackType.Event) {}
@@ -465,7 +436,6 @@ tracks {
     "/sell/list/description_included"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description_included_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description_not_included"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/sip/update/extra_description"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description_additional_information"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description_additional_information_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/payment_methods"(platform: "/", type: TrackType.View) {}
@@ -597,20 +567,6 @@ tracks {
     "/sell/update/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
         section_id(required:true, description: "Section of the SIP that is disabled and trigger the event.", type: PropertyType.String)
     }
-    "/sell/update/sip/update/price"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/statistics"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/pictures"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/list_closed_step"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/list_paused_step"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/relist"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/listing_types"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/description"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/modify_variations"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/quantity"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/condition"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/technical_specifications"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/add_stock"(platform: "/mobile", type: TrackType.Event) {}
 
     "/sell/update/quantity_maximum_free_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/location"(platform: "/mobile", type: TrackType.View) {}
