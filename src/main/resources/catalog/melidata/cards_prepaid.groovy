@@ -25,6 +25,7 @@ tracks {
     "/wallet/cards/activation_modal/activate_card"(platform: "/", type: TrackType.Event) {} 
     "/wallet/cards/activation_modal/not_receive_card"(platform: "/", type: TrackType.Event) {} 
 
+	"/cards/prepaid-detail"(platform: "/", isAbstract: true) { }
 
     "/prepaid"(platform: "/", isAbstract: true) {
         user_profile(
