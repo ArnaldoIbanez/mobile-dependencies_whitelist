@@ -488,6 +488,7 @@ trackTests {
             app = "question"
             origin = "drawer"
             item_id = "MLM23143"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/update/error"(platform:"/mobile") {
