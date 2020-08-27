@@ -27,6 +27,7 @@ tracks {
 
 	"/cards"(platform: "/", isAbstract: true) { }
 	"/cards/prepaid-detail"(platform: "/", isAbstract: true) { }
+    "/cards/prepaid-detail/click-ask-for-card"(platform: "/", isAbstract: true) { }
 
     "/prepaid"(platform: "/", isAbstract: true) {
         user_profile(
