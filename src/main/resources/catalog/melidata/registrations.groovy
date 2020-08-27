@@ -45,7 +45,7 @@ tracks {
         item_id(type: PropertyType.String, description: "Item", required:false)
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
-        registration_version(type: PropertyType.String, description: "Registration Version", required: false)
+        registration_version(type: PropertyType.String, description: "Registration Version")
     }
 
     "/register/optin"(platform: "/web", type: TrackType.View) {
