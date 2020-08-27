@@ -2188,15 +2188,67 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
         }
-        "/sell/update/sip"(platform: "/mobile") {
+        "/sell/update/buybox_competition"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA123456"
-            has_selected_pictures = false
-            is_catalog_boost = true
-            is_item_inactive_moderated = true
+            buybox_status = "losing_by_price"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
-            seller_profile = "NEWBIE"
             vertical = "core"
+        }
+        "/sell/update/buybox_competition/push_action"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA123456"
+            buybox_status = "losing_by_price"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+        }
+        "/sell/update/buybox_competition/row_action"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA123456"
+            boost_id = "same_day_shipping"
+            boost_status = "opportunity"
+            buybox_status = "losing_by_price"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+        }
+        "/sell/update/sip"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA123456"
+            buybox_status = "losing_by_price"
+            has_selected_pictures = false
+            is_catalog_boost = true
+            is_catalog_listing = true
+            is_item_inactive_moderated = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+        }
+        "/sell/update/sip/header_modal/open"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA123456"
+            buybox_status = "losing_by_bad_reputation"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+            header_type = "buybox"
+        }
+        "/sell/update/sip/header_modal/action"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA123456"
+            buybox_status = "losing_by_bad_reputation"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+            header_type = "buybox"
+            action_id = "reputation"
         }
         "/sell/update/sip/publish/fail"(platform: "/mobile") {
             item_id = "MLA123456"

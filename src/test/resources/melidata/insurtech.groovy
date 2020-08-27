@@ -517,5 +517,199 @@ trackTests {
             purchase_id = "1e149d2f-f6ff-4693-8e63-a85c12b32358"
             action_description = "Ir al inicio"
         }
+
+        "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protections = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC123",
+                ],
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+            roda = [
+                has_protections: true,
+                is_current_device_protected: false,
+                is_current_device_quotable: false,
+                offered: false
+            ]
+            garex = [
+                has_protections: true,
+                offered: false
+            ]
+        }
+
+        "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protections = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC123",
+                ],
+            ]
+            roda = [
+                has_protections: true,
+                is_current_device_protected: false,
+                is_current_device_quotable: true,
+                offered: true
+            ]
+            garex = [
+                has_protections: false,
+                offered: false
+            ]
+        }
+
+        "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protections = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+            roda = [
+                has_protections: false,
+                is_current_device_protected: false,
+                is_current_device_quotable: true,
+                offered: true
+            ]
+            garex = [
+                has_protections: true,
+                offered: false
+            ]
+        }
+
+        "/insurtech/protections"(platform:"/web", type: TrackType.View) {
+            roda = [
+                has_protections: false,
+                is_current_device_protected: false,
+                is_current_device_quotable: false,
+                offered: false
+            ]
+            garex = [
+                has_protections: false,
+                offered: false
+            ]
+        }
+
+
+        "/insurtech/protections"(platform:"/web", type: TrackType.View) {
+            protections = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC123",
+                ],
+            ]
+            roda = [
+                has_protections: true,
+                is_current_device_protected: false,
+                is_current_device_quotable: false,
+                offered: false
+            ]
+            garex = [
+                has_protections: false,
+                offered: false
+            ]
+        }
+
+        "/insurtech/protections/quote-me"(platform:"/mobile", type: TrackType.Event) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protections = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+        }
+
+        "/insurtech/protections/doubts"(platform:"/web", type: TrackType.Event) {
+            protections = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+        }
+
+
+        "/insurtech/protections/doubts"(platform:"/mobile", type: TrackType.Event) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protections = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+        }
+
+        "/insurtech/protections/error"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }
+
+        "/insurtech/protections/error"(platform:"/web", type: TrackType.View) {
+        }
+
+        "/insurtech/protections/fallback"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }
+
+        "/insurtech/protections/fallback"(platform:"/web", type: TrackType.View) {
+        }
+
+        "/insurtech/protections/finished"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protections = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC125",
+                ]
+            ]
+        }
+
+        "/insurtech/protections/finished"(platform:"/web", type: TrackType.View) {
+            protections = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+        }
     }
 }
