@@ -45,7 +45,7 @@ tracks {
         item_id(type: PropertyType.String, description: "Item", required:false)
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
-        registration_version(type: PropertyType.String, description: "Registration Version")
+        registration_version(type: PropertyType.String, description: "Registration Version", required: false)
     }
 
     "/register/optin"(platform: "/web", type: TrackType.View) {
@@ -104,7 +104,7 @@ tracks {
         item_id(type: PropertyType.String, required:false, description: "Item" )
         // TODO: In the future register_type might be "required: true". We have to do some changes for that
         register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
-        registration_version(type: PropertyType.String, description: "Registration Version")
+        registration_version(type: PropertyType.String, description: "Registration Version", required: false)
     }
 
     "/register/form/skip-update"(platform: "/web", type: TrackType.View){}
@@ -136,7 +136,7 @@ tracks {
         source(type: PropertyType.String, description: "Source", required:false, values:["email","facebook","facebook_to_email"])
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:false)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:false)
-        registration_version(type: PropertyType.String, description: "Registration Version")
+        registration_version(type: PropertyType.String, description: "Registration Version", required:false)
     }
     "/register/form/email-suggest"(platform: "/mobile", type: TrackType.Event){}
     "/register/form/google_hint"(platform: "/mobile", isAbstract: true){
@@ -183,7 +183,7 @@ tracks {
         item_id(type: PropertyType.String, required:false, description: "Item" )
         // TODO: In the future register_type might be "required: true". We have to do some changes for that
         register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
-        registration_version(type: PropertyType.String, description: "Registration Version")
+        registration_version(type: PropertyType.String, description: "Registration Version", required: false)
     }
 
     "/register/form/update"(platform: "/mobile", type: TrackType.View){
