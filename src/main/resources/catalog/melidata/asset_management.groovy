@@ -62,15 +62,41 @@ tracks {
     "/asset_management/challenge_phone"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile", type: TrackType.View) {}
 
-    // Terms and conditions view
-    "/asset_management/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
+    // Congrats View
+    "/asset_management/congrats_success"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/congrats_success"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/congrats_error"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/congrats_error"(platform: "/web", type: TrackType.View) {}
 
-    // Not eligible view
+    // Terms & Conditions Views
+    "/asset_management/terms_and_conditions"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/terms_and_conditions"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/accept_tyc"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/accept_tyc"(platform: "/web", type: TrackType.View) {}
+
+    // Bind Reports View
+    "/asset_management/bind_reports"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/bind_reports"(platform: "/web", type: TrackType.View) {}
+
+    // Activities View
+    "/asset_management/activities"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/activities"(platform: "/web", type: TrackType.View) {}
+
+    // Generic Error View
+    "/asset_management/legacy/error"(platform: "/mobile") {}
+    "/asset_management/legacy/error"(platform: "/web") {}
+
+    // KYC Blocker View
+    "/asset_management/kyc_blocker"(platform: "/mobile") {}
+    "/asset_management/kyc_blocker"(platform: "/web") {}
+
+    // Not eligible View
     "/asset_management/not_eligible"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/not_eligible"(platform: "/web", type: TrackType.View) {}
 
     // Opt-out
     "/asset_management/opt_out"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/opt_out"(platform: "/web", type: TrackType.View) {}
     "/asset_management/result_stop_investing"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/result_stop_investing"(platform: "/web", type: TrackType.View) {}
 
@@ -82,9 +108,9 @@ tracks {
 
     // Earnings report
     "/asset_management/investment_reports"(platform: "/web", type: TrackType.View) {}
+    "/asset_management/investment_reports"(platform: "/mobile", type: TrackType.View) {}
 
     // Operations
-    "/asset_management/movements_detail"(platform: "/mobile", type: TrackType.View) {} // old name
     "/asset_management/operations"(platform: "/mobile") {}
     "/asset_management/operations"(platform: "/web") {}
     "/asset_management/operations/detail"(platform: "/mobile") {}

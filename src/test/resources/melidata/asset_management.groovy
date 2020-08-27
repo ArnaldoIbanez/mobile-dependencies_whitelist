@@ -55,15 +55,41 @@ trackTests {
         "/asset_management/challenge_phone"(platform: "/mobile") {}
         "/asset_management/challenge_single_pep_fatca_so"(platform: "/mobile") {}
 
-        // Terms and conditions View
-        "/asset_management/terms_and_conditions"(platform: "/mobile") {}
+        // Congrats View
+        "/asset_management/congrats_success"(platform: "/mobile", type: TrackType.View) {}
+        "/asset_management/congrats_success"(platform: "/web", type: TrackType.View) {}
+        "/asset_management/congrats_error"(platform: "/mobile", type: TrackType.View) {}
+        "/asset_management/congrats_error"(platform: "/web", type: TrackType.View) {}
 
-        // Not eligible view
+        // Terms & Conditions Views
+        "/asset_management/terms_and_conditions"(platform: "/mobile") {}
+        "/asset_management/terms_and_conditions"(platform: "/web") {}
+        "/asset_management/accept_tyc"(platform: "/mobile", type: TrackType.View) {}
+        "/asset_management/accept_tyc"(platform: "/web", type: TrackType.View) {}
+
+        // Bind Reports View
+        "/asset_management/bind_reports"(platform: "/mobile", type: TrackType.View) {}
+        "/asset_management/bind_reports"(platform: "/web", type: TrackType.View) {}
+
+        // Activities View
+        "/asset_management/activities"(platform: "/mobile", type: TrackType.View) {}
+        "/asset_management/activities"(platform: "/web", type: TrackType.View) {}
+
+        // Generic Error View
+        "/asset_management/legacy/error"(platform: "/mobile") {}
+        "/asset_management/legacy/error"(platform: "/web") {}
+
+        // KYC Blocker View
+        "/asset_management/kyc_blocker"(platform: "/mobile") {}
+        "/asset_management/kyc_blocker"(platform: "/web") {}
+
+        // Not eligible View
         "/asset_management/not_eligible"(platform: "/mobile") {}
         "/asset_management/not_eligible"(platform: "/web") {}
 
         // Opt-out
         "/asset_management/opt_out"(platform: "/mobile") {}
+        "/asset_management/opt_out"(platform: "/web") {}
         "/asset_management/result_stop_investing"(platform: "/mobile") {}
         "/asset_management/result_stop_investing"(platform: "/web") {}
 
@@ -73,6 +99,7 @@ trackTests {
 
         // Earnings report
         "/asset_management/investment_reports"(platform: "/web") {}
+        "/asset_management/investment_reports"(platform: "/mobile") {}
 
         "/asset_management/landing"(platform: "/web") {}
         "/asset_management/invest"(platform: "/web") {}
@@ -97,7 +124,6 @@ trackTests {
         }
 
         // Operations
-        "/asset_management/movements_detail"(platform: "/mobile") {} // old name
         "/asset_management/operations"(platform: "/mobile") {} // new name
         "/asset_management/operations/detail"(platform: "/mobile") {} // specific operation
 
