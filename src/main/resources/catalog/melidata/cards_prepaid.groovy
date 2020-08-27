@@ -333,4 +333,14 @@ tracks {
         deeplink (required:true, type: PropertyType.String, description: "Screen pushed by the action")
     }
     "/prepaid/acquisition/adapt_kyc/congrats/error"(platform: "/", type: TrackType.Event) {}
+
+    //Prepaid click ask for card
+    "/cards/prepaid-detail/click-ask-for-card" (platform: "/web/desktop", type: TrackType.Event) {
+         deviceType (
+            required: true,
+            type: PropertyType.String,
+            values: ["desktop"],
+            description: "Device type click ask for card"
+        )
+    } 
 }
