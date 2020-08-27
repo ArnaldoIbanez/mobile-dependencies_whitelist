@@ -1189,6 +1189,7 @@ trackTests {
 
         "/vip/shipping_calculator"(platform: "/", type: TrackType.View) {
             model()
+            item_id = "MLA533657947"
         }
 
          "/vip/shipping_calculator/select"(platform: "/", type: TrackType.Event) {
