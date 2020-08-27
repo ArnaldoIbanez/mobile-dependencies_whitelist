@@ -965,7 +965,7 @@ tracks {
         //Location
             //type: [address | zip_code]
             //value: String
-            shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
+        shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
     //Shipping Method
         //promise
         //  from: Integer
@@ -975,6 +975,7 @@ tracks {
         //promoted_amount: Integer
         //delivery_type: [seller_agreement|puis|delivery|post_office]
         //selected: BOOL
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
     }
 
     "/vip/shipping_calculator/select"(platform: "/", type: TrackType.Event){
