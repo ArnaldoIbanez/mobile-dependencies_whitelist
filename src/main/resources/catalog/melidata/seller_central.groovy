@@ -1092,7 +1092,6 @@ tracks {
 
     // METRICS SECTION
 
-    "/seller_central/metrics"(platform: "/", isAbstract: true) {}
     "/seller_central/metrics"(platform: "/", type: TrackType.View) {
         sellerCentralUserSales
     }
