@@ -49,6 +49,7 @@ trackTests {
             price_comparison_available = true
             price_comparison_position =  0.75
             whatsapp_available = "false"
+            video_type = "TOUR360"
             quote_demand_available = false
             new_wording_free = false
             quantity_models = 4
