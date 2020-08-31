@@ -16,6 +16,10 @@
           "type": "UNICODE_STRING"
         },
         {
+          "name": "site_id",
+          "type": "UNICODE_STRING"
+        },
+        {
           "name": "version",
           "type": "UNICODE_STRING"
         },
