@@ -82,6 +82,8 @@ tracks {
     "/asset_management/activities"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/activities"(platform: "/web", type: TrackType.View) {}
 
+    "/asset_management/legacy"(platform: "/", isAbstract: true) {}
+
     // Generic Error View
     "/asset_management/legacy/error"(platform: "/mobile") {}
     "/asset_management/legacy/error"(platform: "/web") {}

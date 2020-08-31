@@ -1,5 +1,6 @@
 package src.test.resources.melidata
 
+import com.ml.melidata.TrackType
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
@@ -321,7 +322,6 @@ trackTests {
         }
 
         // Operations
-        "/asset_management/movements_detail"(platform: "/mobile", business: "mercadolibre") {} // old name
         "/asset_management/operations"(platform: "/mobile", business: "mercadolibre") {} // new name
         "/asset_management/operations/detail"(platform: "/mobile", business: "mercadolibre") {} // specific operation
 
@@ -419,5 +419,19 @@ trackTests {
         }
 
         "/asset_management/simulator_slide"(platform: "/mobile", business: "mercadolibre") {}
+
+        "/asset_management/accept_tyc"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/activities"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/activities"(platform: "/web", business: "mercadolibre") {}
+        "/asset_management/bind_reports"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/bind_reports"(platform: "/web", business: "mercadolibre") {}
+        "/asset_management/congrats_success"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/congrats_success"(platform: "/web", business: "mercadolibre") {}
+        "/asset_management/congrats_error"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/congrats_error"(platform: "/web", business: "mercadolibre") {}
+        "/asset_management/kyc_blocker"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/kyc_blocker"(platform: "/web", business: "mercadolibre") {}
+        "/asset_management/legacy/error"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/legacy/error"(platform: "/web", business: "mercadolibre") {}
     }
 }
