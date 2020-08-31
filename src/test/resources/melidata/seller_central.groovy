@@ -2551,6 +2551,16 @@ trackTests {
     }
   }
 
+  test("seller central listing promos render with card filter") {
+    "/seller_central/promotions/cards"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing promos card filter action") {
+    "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
+      type = "lightning"
+    }
+  }
+
   test("seller central listing action") {
     "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
       action_id = "MODIFY"

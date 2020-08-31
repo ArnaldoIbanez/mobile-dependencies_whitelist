@@ -1327,6 +1327,12 @@ tracks {
         origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
+    "/seller_central/promotions/cards"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Applied filter type")
+    }
+
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS SYI V4 - RealEstate
     //------------------------------------------------------------------------------------------------------------------------------------------------------
