@@ -23,6 +23,9 @@ ENV CODECOV_TOKEN=""
 ADD ./commands/test_integration.sh /commands/test_integration.sh
 RUN chmod a+x /commands/test_integration.sh
 
+ADD ./commands/execute_after_test.sh /commands/execute_after_test.sh
+RUN chmod a+x /commands/execute_after_test.sh
+
 ADD ./commands/execute_before_package.sh /commands/execute_before_package.sh
 RUN chmod a+x /commands/execute_before_package.sh
 

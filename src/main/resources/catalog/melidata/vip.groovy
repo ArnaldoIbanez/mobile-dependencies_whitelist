@@ -179,6 +179,7 @@ tracks {
                       description: "Indicates which tooltip is shown in the VIP at the time, if any. In case it does not show anything, it should be 'none'. E.g: 'credits', 'subscription', 'cart_benefit_free_shipping', etc.")
 
         whatsapp_available(required: false, type: PropertyType.String, description: "determines if whatsapp is available")
+        video_type(required: false, type: PropertyType.String, values: ["TOUR360", "VIDEO", "NONE"], description: "determines the video type of the item")
         quote_demand_available(required: false, type: PropertyType.Boolean, description: "determines if an item has quote demand available")
         new_wording_free(required: false, type: PropertyType.Boolean, description: "determines if the new free wording is available" )
 
@@ -965,7 +966,7 @@ tracks {
         //Location
             //type: [address | zip_code]
             //value: String
-            shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
+        shipping_methods(required: true,  type: PropertyType.ArrayList,description: "Shipping Methods")
     //Shipping Method
         //promise
         //  from: Integer
@@ -975,6 +976,7 @@ tracks {
         //promoted_amount: Integer
         //delivery_type: [seller_agreement|puis|delivery|post_office]
         //selected: BOOL
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
     }
 
     "/vip/shipping_calculator/select"(platform: "/", type: TrackType.Event){

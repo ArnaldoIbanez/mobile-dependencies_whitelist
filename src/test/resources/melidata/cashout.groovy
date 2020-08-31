@@ -15,8 +15,12 @@ trackTests {
     test("Cashout") {
     
     "/cashout"(platform: "/") {}
-    "/cashout/hub"(platform: "/") {}
     "/cashout/hub/kyc"(platform: "/") {}
+
+    "/cashout/hub"(platform: "/", type: TrackType.View) {}
+    "/cashout/hub/select"(platform: "/", type: TrackType.Event) {
+        cashout_method = "rapipago"
+    }
 
     "/cashout/hub/kyc/onboarding"(platform: "/", type: TrackType.View) {}
     "/cashout/hub/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}

@@ -923,7 +923,6 @@ tracks {
 
     // SALES SECTION
 
-    "/seller_central/sales"(platform: "/", isAbstract: true) {}
     "/seller_central/sales/list"(platform: "/web", type: TrackType.View) {
         sellerCentralUserSales
     }
@@ -1092,7 +1091,6 @@ tracks {
 
     // METRICS SECTION
 
-    "/seller_central/metrics"(platform: "/", isAbstract: true) {}
     "/seller_central/metrics"(platform: "/web", type: TrackType.View) {
         sellerCentralUserSales
     }
