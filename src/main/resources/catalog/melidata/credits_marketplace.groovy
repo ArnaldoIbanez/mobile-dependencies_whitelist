@@ -779,6 +779,8 @@ tracks {
             type: PropertyType.Numeric
         )
     }
+
+    "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {}
     
     "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
         user_type(

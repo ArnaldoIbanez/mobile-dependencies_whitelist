@@ -704,6 +704,10 @@ trackTests {
             payment_method = "CASH"
             promise_due_days = 4
         }
+
+        "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {
+            user_type = "consumer"
+        }
         
         "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
             user_type = "consumer"
