@@ -33,6 +33,23 @@ tracks {
     "/vip/credits/pursue"(platform: "/", isAbstract: true) {}
 
     /******************************************
+     *       Start: Flujo Upsell Consumer
+     ******************************************/
+    "/credits/consumer/upsell/remedy"(platform: "/web", type: TrackType.View) {
+        remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
+    }
+    "/credits/consumer/upsell/remedy/save_info"(platform: "/web", type: TrackType.Event) {
+        result(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
+    }
+    "/credits/consumer/upsell/congrats"(platform: "/web", type: TrackType.View) {
+        variant(description: "Congrats variant", type: PropertyType.String, required: true, values: ["success", "retry"])
+    }
+    /******************************************
+     *       End: Flujo Upsell Consumer
+     ******************************************/
+
+
+    /******************************************
      *       Start: Consumers Public Landings
      ******************************************/
     //Public Landing
