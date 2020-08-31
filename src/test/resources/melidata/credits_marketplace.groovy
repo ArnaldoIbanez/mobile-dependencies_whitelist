@@ -158,6 +158,10 @@ trackTests {
             dashboard_status = 'overdue'
             personalLoanAccessShown = 'banner'
         }
+        "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
+            dashboard_status = 'overdue'
+            offer = 'create_promise'
+        }
         "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
             user_status = 'manually_paused'
         }
@@ -177,6 +181,15 @@ trackTests {
         "/credits/consumer/administrator_v2/suggested_modal/suggested_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
+        
+        "/credits/consumer/administrator_v2/dashboard/promises/create"(platform: "/", type: TrackType.Event) {
+            dashboard_status = 'overdue'
+            offer = 'create_promise'
+        }
+        "/credits/consumer/administrator_v2/dashboard/promises/view"(platform: "/", type: TrackType.Event) {
+            dashboard_status = 'overdue'
+            offer = 'view_promise'
+        }
 
         //Event Mobile
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
@@ -674,6 +687,38 @@ trackTests {
 
         /******************************************
         *    End: Consumers Change Due Date FLow
+        ******************************************/
+
+        /******************************************
+        *    Start: Self Service
+        ******************************************/
+        "/credits/self_service/promises/create_form"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+        
+        "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
+            user_type = "consumer"
+            is_partial_amount = true
+            bulk_amount = 7000
+            promise_amount = 5000
+            payment_method = "CASH"
+            promise_due_days = 4
+        }
+        
+        "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/promises/error"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/promises/view"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        /******************************************
+        *    End: Self Service
         ******************************************/
     }
 }
