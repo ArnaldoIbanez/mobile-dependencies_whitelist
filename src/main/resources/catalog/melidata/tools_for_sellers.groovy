@@ -161,7 +161,7 @@ tracks {
     }
     // release-options-frontend
     "/settings/release_options"(platform: "/", type:TrackType.View) {
-        referrer (required: true, type: PropertyType.String, description: "Referrer to the page")
+        referrer (required: false, type: PropertyType.String, description: "Referrer to the page")
     }
     // release-options-ui LIB
     "/release_options_ui"(platform: "/", isAbstract: true) {}
