@@ -1839,7 +1839,7 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
   test("metrics section view for web") {
-    "/seller_central/metrics"(platform: "/web/desktop", type: TrackType.View) {
+    "/seller_central/metrics"(platform: "/", type: TrackType.View) {
       seller_profile = "ADVANCED"
       seller_reputation = "5_green"
       seller_segment = "MEDIUM_SELLERS_III"
@@ -1848,7 +1848,7 @@ trackTests {
     }
   }
 
-  test("metrics section view for web") {
+  test("metrics section view for mobile") {
     "/seller_central/metrics"(platform: "/mobile", type: TrackType.View) {
       seller_profile = "ADVANCED"
       seller_reputation = "5_green"

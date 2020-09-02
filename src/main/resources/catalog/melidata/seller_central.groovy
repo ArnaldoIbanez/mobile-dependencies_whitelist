@@ -1094,7 +1094,7 @@ tracks {
 
     // METRICS SECTION
 
-    "/seller_central/metrics"(platform: "/web/desktop", type: TrackType.View) {
+    "/seller_central/metrics"(platform: "/", type: TrackType.View) {
         sellerCentralUserSales
     }
     
