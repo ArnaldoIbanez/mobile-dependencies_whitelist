@@ -13,7 +13,7 @@ SELECT
     get_json_object(event_data, '$.position') as position,
     get_json_object(event_data, '$.is_free_trial') as is_free_trial,
     get_json_object(event_data, '$.payment_status') as payment_status,
-    get_json_object(platform.fragment,'origin') origen,
+    jest(platform.fragment,'origin') origen,
     count(usr.user_id) as total,
     count(distinct usr.user_id) as distincts,
     count(path) as paths,
@@ -42,6 +42,6 @@ GROUP BY substr(ds,1,10) ,
     get_json_object(event_data, '$.discount_percent'),
     get_json_object(event_data, '$.position'),
     get_json_object(event_data, '$.is_free_trial'),
-    get_json_object(platform.fragment,'origin'),
+    jest(platform.fragment,'origin'),
     get_json_object(event_data, '$.payment_status')
   
