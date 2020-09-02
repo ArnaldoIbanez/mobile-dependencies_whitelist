@@ -1510,13 +1510,17 @@ trackTests {
   // TRACKS Seller central Sales
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  test("seller central sales list view") {
-    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {
+  test("seller central sales list view for web") {
+    "/seller_central/sales/list"(platform: "/web", type: TrackType.View) {
         seller_profile = "ADVANCED"
         seller_reputation = "5_green"
         seller_segment = "MEDIUM_SELLERS_III"
         mercado_lider = false
     }
+  }
+
+  test("seller central sales list view for mobile") {
+    "/seller_central/sales/list"(platform: "/web/mobile", type: TrackType.View) {}
   }
 
   test("seller central sales onboarding action") {
@@ -1834,7 +1838,7 @@ trackTests {
   // TRACKS Seller central METRICS SECTION
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  test("metrics section view") {
+  test("metrics section view for web") {
     "/seller_central/metrics"(platform: "/web", type: TrackType.View) {
       seller_profile = "ADVANCED"
       seller_reputation = "5_green"
@@ -1842,6 +1846,10 @@ trackTests {
       mercado_lider = false
       user_type = "real_estate_agency"
     }
+  }
+
+  test("metrics section view for mobile") {
+    "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------

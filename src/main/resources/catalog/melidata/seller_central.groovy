@@ -925,9 +925,11 @@ tracks {
 
     "/seller_central/sales"(platform: "/", isAbstract: true) {}
 
-    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {
+    "/seller_central/sales/list"(platform: "/web", type: TrackType.View) {
         sellerCentralUserSales
     }
+    
+    "/seller_central/sales/list"(platform: "/web/mobile", type: TrackType.View) {}
 
     "/seller_central/sales/list/onboarding"(platform: "/", isAbstract: true, parentPropertiesInherited: false) {}
     "/seller_central/sales/list/onboarding/action"(platform: "/", type: TrackType.Event) {
@@ -1092,9 +1094,11 @@ tracks {
 
     // METRICS SECTION
 
-    "/seller_central/metrics"(platform: "/", type: TrackType.View) {
+    "/seller_central/metrics"(platform: "/web", type: TrackType.View) {
         sellerCentralUserSales
     }
+    
+    "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
 
     // CATALOG OPTIN SECTION
 
