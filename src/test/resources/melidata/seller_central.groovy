@@ -1517,7 +1517,7 @@ trackTests {
         seller_segment = "MEDIUM_SELLERS_III"
         mercado_lider = false
     }
-    "/seller_central/sales/list"(platform: "/web-mobile", type: TrackType.View) {}
+    "/seller_central/sales/list"(platform: "/web/mobile", type: TrackType.View) {}
   }
 
   test("seller central sales onboarding action") {
@@ -1843,7 +1843,7 @@ trackTests {
       mercado_lider = false
       user_type = "real_estate_agency"
     }
-    "/seller_central/metrics"(platform: "/web-mobile", type: TrackType.View) {}
+    "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
