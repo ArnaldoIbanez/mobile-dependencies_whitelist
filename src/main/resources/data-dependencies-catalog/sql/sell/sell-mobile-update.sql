@@ -18,10 +18,10 @@ SELECT
   jest(event_data,'action_id')          AS action_id,
   jest(event_data,'section_id')         AS section_id,
   substr(ds,1,10)                       AS ds
-FROM tracks
+FROM tracks_ml
 WHERE ds >= '@param01'
   AND ds < '@param02'
-  AND application.business = 'mercadolibre'
+  AND bu = 'mercadolibre'
   AND device.platform IN ('/mobile/android', '/mobile/ios')
   AND path LIKE '/sell/update/%'
   AND jest(event_data,'vertical') = 'core'
