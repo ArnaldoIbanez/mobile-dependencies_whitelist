@@ -1330,7 +1330,7 @@ tracks {
     "/seller_central/promotions/cards"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, description: "Applied filter type")
+        type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day"])
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
