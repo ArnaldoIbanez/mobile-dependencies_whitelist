@@ -116,6 +116,16 @@ tracks {
         discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
     }
 
+    // For this path, none is required
+    "/checkout_off/loading"(platform: "/", type: TrackType.View) {
+        checkout_flow_id(required: false, description: "Unique ID of the current flow, e.g: 'b24bcffe-4b26-46c9-8646-61891dbd978b'", type: PropertyType.String)
+        product_id(required: false, description: "Unique ID of the current flow, e.g: 'BC32A4JU643001OI3920'", type: PropertyType.String)
+        productive(required: false, description: "True if productive flow", type: PropertyType.Boolean)
+        payment_quantity(required: false, description: "Payments quantity selected, e.g: 1", type: PropertyType.Numeric)
+        is_split(required: false, description: "True if the flow was split", type: PropertyType.Boolean)
+        payment_amount_local(required: false, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
+    }
+
     //Final Views
     "/checkout_off/congrats"(platform: "/", type: TrackType.View) {
         payment_installments(required: false, description: "Installments selected")
