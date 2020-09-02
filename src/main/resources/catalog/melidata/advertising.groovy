@@ -138,28 +138,33 @@ tracks {
     "/advertising/pads2/manager/upselling/banner"(platform: "/", isAbstract: true) {}
     "/advertising/pads2/manager/upselling/modal"(platform: "/", isAbstract: true) {}
 
-    "/advertising/pads2/manager/upselling/modal/show"(platform: "/", type: TrackType.View) {
+    "/advertising/pads2/manager/upselling/modal/show"(platform: "/web", type: TrackType.View) {
         campaign_id(required: true, description: "Id related to the campaign")
         multi (required: true, description: "Indicates if it is a multicampaign dashboard")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget_suggested(required: false, description: "Suggested budget related to the campaign")
         budget(required: false, description: "Current budget related to the campaign")
+        version(required: false, description: "Version")
+        
     }
 
-    "/advertising/pads2/manager/upselling/modal/go"(platform: "/", type: TrackType.Event) {
+    "/advertising/pads2/manager/upselling/modal/go"(platform: "/web", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         multi (required: true, description: "Indicates if it is a multicampaign dashboard")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget_suggested(required: false, description: "Suggested budget related to the campaign")
         budget_selected(required: false, description: "Selected budget related to the campaign")
-        budget(required: false, description: "Current budget related to the campaign")}
+        budget(required: false, description: "Current budget related to the campaign")
+        version(required: false, description: "Version")
+    }
 
-    "/advertising/pads2/manager/upselling/modal/close"(platform: "/", type: TrackType.Event) {
+    "/advertising/pads2/manager/upselling/modal/close"(platform: "/web", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         multi (required: true, description: "Indicates if it is a multicampaign dashboard")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget_suggested(required: false, description: "Suggested budget related to the campaign")
         budget_selected(required: false, description: "Selected budget related to the campaign")
+        budget(required: false, description: "Current budget related to the campaign")
     }
 
     "/advertising/pads2/manager/upselling/banner/show"(platform: "/web", type: TrackType.View) {}
@@ -173,6 +178,7 @@ tracks {
         multi (required: true, description: "Indicates if it is a multicampaign dashboard")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: false, description: "Current budget related to the campaign")
+        version(required: false, description: "Version")
     }
 
     "/advertising/pads2/manager/upselling/tooltip/go"(platform: "/web", type: TrackType.Event) {
@@ -180,6 +186,7 @@ tracks {
         multi (required: true, description: "Indicates if it is a multicampaign dashboard")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: false, description: "Current budget related to the campaign")
+        version(required: false, description: "Version")
     }
 
     "/advertising/pads2/manager/upselling/tooltip/close"(platform: "/web", type: TrackType.Event) {
@@ -187,25 +194,22 @@ tracks {
         multi (required: true, description: "Indicates if it is a multicampaign dashboard")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: false, description: "Current budget related to the campaign")
+        version(required: false, description: "Version")
     }
 
-    "/advertising/pads2/manager/box"(platform: "/", type: TrackType.Event) {}
+    "/advertising/pads2/manager/box"(platform: "/web", type: TrackType.Event) {}
 
-    "/advertising/pads2/manager/box/upselling"(platform: "/", type: TrackType.View) {
-        campaign_id(required: true, description: "Id related to the campaign")
-        multi (required: true, description: "Indicates if it is a multicampaign dashboard")
-        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
-        budget(required: false, description: "Current budget related to the campaign")
-    }
+    "/advertising/pads2/manager/box/upselling"(platform: "/web", type: TrackType.Event) {}
 
     "/advertising/pads2/manager/upselling/tooltip"(platform: "/web", type: TrackType.Event) {}
 
 
-    "/advertising/pads2/manager/box/upselling/go"(platform: "/", type: TrackType.Event) {
+    "/advertising/pads2/manager/box/upselling/go"(platform: "/web", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         multi (required: true, description: "Indicates if it is a multicampaign dashboard")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: false, description: "Current budget related to the campaign")
+        version(required: false, description: "Version")
     }
 
     //Generic landing free trial
@@ -218,6 +222,8 @@ tracks {
         button(required: true, description: "Button that redirects to confirm page")
         id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, description: "indicates the position of the main slide")
+        free_trial_type(required: true, description: "type of free trial with which the user enters the landing pads")
+        budget(required: false, description: "Budget related to the landing")
     }
 
     "/advertising/pads2/landing_freetrial/confirm"(platform: "/", type: TrackType.View) {
