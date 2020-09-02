@@ -925,7 +925,7 @@ tracks {
 
     "/seller_central/sales"(platform: "/", isAbstract: true) {}
 
-    "/seller_central/sales/list"(platform: "/web", type: TrackType.View) {
+    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {
         sellerCentralUserSales
     }
     
