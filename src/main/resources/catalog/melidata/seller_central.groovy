@@ -362,7 +362,7 @@ tracks {
         action_id(required: true, type: PropertyType.String, description: "Action id")
         view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
         count(required: true, type: PropertyType.Numeric, description: "Selected rows count")
-
+        ideal_rows(required: false, type: PropertyType.Numeric, description: "Selected ideal rows count")
     }
 
     "/seller_central/listings/preferences"(platform: "/", type: TrackType.Event) {
