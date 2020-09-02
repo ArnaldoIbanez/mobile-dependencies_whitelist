@@ -1839,7 +1839,7 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
   test("metrics section view for web") {
-    "/seller_central/metrics"(platform: "/web", type: TrackType.View) {
+    "/seller_central/metrics"(platform: "/web/desktop", type: TrackType.View) {
       seller_profile = "ADVANCED"
       seller_reputation = "5_green"
       seller_segment = "MEDIUM_SELLERS_III"
