@@ -84,11 +84,6 @@
       {
         "name": "section_id",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "ds",
-        "type": "DATE",
-        "format": "yyyy-MM-dd"
       }
     ],
     "sql": {
