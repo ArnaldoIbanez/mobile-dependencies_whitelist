@@ -928,6 +928,8 @@ tracks {
     "/seller_central/sales/list"(platform: "/", type: TrackType.View) {
         sellerCentralUserSales
     }
+    
+    "/seller_central/sales/list"(platform: "/web/mobile", type: TrackType.View) {}
 
     "/seller_central/sales/list/onboarding"(platform: "/", isAbstract: true, parentPropertiesInherited: false) {}
     "/seller_central/sales/list/onboarding/action"(platform: "/", type: TrackType.Event) {
@@ -1092,9 +1094,11 @@ tracks {
 
     // METRICS SECTION
 
-    "/seller_central/metrics"(platform: "/", type: TrackType.View) {
+    "/seller_central/metrics"(platform: "/web", type: TrackType.View) {
         sellerCentralUserSales
     }
+    
+    "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
 
     // CATALOG OPTIN SECTION
 
@@ -1325,6 +1329,12 @@ tracks {
     "/seller_central/promotions/list/info"(platform: "/", type: TrackType.Event) {
         candidates(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Candidates for each type of promotion")
         origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
+    }
+
+    "/seller_central/promotions/cards"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
+        type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day"])
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
