@@ -1839,17 +1839,7 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
   test("metrics section view for web") {
-    "/seller_central/metrics"(platform: "/", type: TrackType.View) {
-      seller_profile = "ADVANCED"
-      seller_reputation = "5_green"
-      seller_segment = "MEDIUM_SELLERS_III"
-      mercado_lider = false
-      user_type = "real_estate_agency"
-    }
-  }
-
-  test("metrics section view for mobile") {
-    "/seller_central/metrics"(platform: "/mobile", type: TrackType.View) {
+    "/seller_central/metrics"(platform: "/web", type: TrackType.View) {
       seller_profile = "ADVANCED"
       seller_reputation = "5_green"
       seller_segment = "MEDIUM_SELLERS_III"
