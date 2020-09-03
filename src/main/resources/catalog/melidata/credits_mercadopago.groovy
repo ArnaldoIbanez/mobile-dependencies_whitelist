@@ -1212,12 +1212,7 @@ tracks {
         offer(
             required: false,
             description: "Self service option shown to the user",
-            type: PropertyType.String,
-            values: [
-                "already_paid",
-                "create_promise",
-                "view_promise"
-            ]
+            type: PropertyType.ArrayList(PropertyType.String)
         )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
