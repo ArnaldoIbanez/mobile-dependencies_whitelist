@@ -1511,7 +1511,7 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
   test("seller central sales list view for web") {
-    "/seller_central/sales/list"(platform: "/web", type: TrackType.View) {
+    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {
         seller_profile = "ADVANCED"
         seller_reputation = "5_green"
         seller_segment = "MEDIUM_SELLERS_III"
