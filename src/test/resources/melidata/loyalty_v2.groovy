@@ -405,6 +405,7 @@ trackTests {
 
         "/loyalty/partners/login/invalid"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             subscription_partner = "Paramount"
+            server_error = false
         }
 
     }
@@ -414,6 +415,7 @@ trackTests {
         "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadolibre") {
             subscription_partner = "HBO"
             level = 4
+            subscription_status = "active"
         }
 
         "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {

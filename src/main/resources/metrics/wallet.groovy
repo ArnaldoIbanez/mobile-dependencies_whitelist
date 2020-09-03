@@ -1,5 +1,7 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
+def instoreMarketplaceExperiments = "(wallet/)?cdd/.*"
+
 metrics {
   "wallet_user"(description: "Counts when a user starts using Mercado Pago app") {
     startWith {
@@ -239,9 +241,33 @@ metrics {
     }
   }
 
+"discount_center"(description: "Counts a user access to the any instance of the marketplace") {
+    startWith {
+      experiment(regex(instoreMarketplaceExperiments))
+    }
+
+    countsOn {
+      condition {
+        path("/discount_center/payers/marketplace", "/discount_center/payers/marketplace/components", "/discount_center/payers/detail")
+      }
+    }
+  }
+
+  "discount_center.detail"(description: "Counts a user access to the detail") {
+    startWith {
+      experiment(regex(instoreMarketplaceExperiments))
+    }
+
+    countsOn {
+      condition {
+        path("/discount_center/payers/detail")
+      }
+    }
+  }
+
 "discount_center.marketplace.from_touchpoints"(description: "Counts a user access to the discount center from any touchpoint") {
       startWith {
-        experiment(regex("cdd/.*"))
+        experiment(regex(instoreMarketplaceExperiments))
       }
 
       countsOn {
@@ -261,7 +287,7 @@ metrics {
 
   "discount_center.marketplace.from_home_mp"(description: "Counts a user access to the discount center from home mp") {
       startWith {
-        experiment(regex("cdd/.*"))
+        experiment(regex(instoreMarketplaceExperiments))
       }
 
       countsOn {
@@ -274,7 +300,7 @@ metrics {
 
   "discount_center.marketplace.from_marketplace"(description: "Counts a user access to the marketplace from the same marketplace") {
       startWith {
-        experiment(regex("cdd/.*"))
+        experiment(regex(instoreMarketplaceExperiments))
       }
 
       countsOn {
@@ -287,7 +313,7 @@ metrics {
 
     "discount_center.detail.from_touchpoints"(description: "Counts a user access to the discount detail from any touchpoint") {
       startWith {
-        experiment(regex("cdd/.*"))
+        experiment(regex(instoreMarketplaceExperiments))
       }
 
       countsOn {
@@ -307,7 +333,7 @@ metrics {
 
     "discount_center.detail.from_home_mp"(description: "Counts a user access to the discount detail from home mp") {
       startWith {
-        experiment(regex("cdd/.*"))
+        experiment(regex(instoreMarketplaceExperiments))
       }
 
       countsOn {
@@ -320,7 +346,7 @@ metrics {
 
     "discount_center.detail.from_marketplace"(description: "Counts a user access to the discount detail from the marketplace") {
       startWith {
-        experiment(regex("cdd/.*"))
+        experiment(regex(instoreMarketplaceExperiments))
       }
 
       countsOn {
@@ -333,7 +359,7 @@ metrics {
 
     "discount_center.detail.from_detail"(description: "Counts a user access to the discount detail from another detail") {
       startWith {
-        experiment(regex("cdd/.*"))
+        experiment(regex(instoreMarketplaceExperiments))
       }
 
       countsOn {

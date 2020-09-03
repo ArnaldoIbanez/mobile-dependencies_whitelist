@@ -177,6 +177,8 @@ trackTests {
             total_storage = 12582912
             free_storage = 6291456
             app_storage = 307200
+            app_cache = 76800
+            app_data = 230400
             dark_mode_status = "enabled"
             battery_save_mode = "disabled"
             data_save_mode = "whitelisted"
@@ -190,6 +192,8 @@ trackTests {
             total_storage = 12582912
             free_storage = 6291456
             app_storage = 307200
+            app_cache = 76800
+            app_data = 230400
             dark_mode_status = "enabled"
             battery_save_mode = "disabled"
             data_save_mode = "whitelisted"

@@ -702,6 +702,8 @@ trackTests {
 
         "/myml/invoices/opt_in/cst-devolution"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/opt_in/cst-devolution/button/save"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/download_invoice_preference"(platform: "/", type: TrackType.Event) {}
     }
 
 
@@ -829,6 +831,10 @@ trackTests {
             item_id = 'MLA713079054'
             buy_it_again_experiment = 'Yes'
             buy_it_again_lead_checkout = 'No'
+        }
+
+        "/myml/purchases/status/shipping_detail"(platform:"/", type: TrackType.Event) {
+            dataSet()
         }
 
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {

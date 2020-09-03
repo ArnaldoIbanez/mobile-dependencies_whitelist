@@ -186,7 +186,7 @@ import com.ml.melidata.TrackType
           flow_id (required: true, type: PropertyType.String, description: "Flow id.")
           payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit_card", "debit_card", "voucher_card"])
           mode(required: true, false: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
-          payment_channel(required: true, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser"])
+          payment_channel(required: true, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser","external_payments"])
           amount(required: true, type: PropertyType.Numeric, description: "payment amount")
           currency(required: true, type: PropertyType.String, description: "payment currency")
           installments(required: false, type: PropertyType.Numeric, description: "installments")

@@ -166,6 +166,10 @@ tracks {
     "/instore/error/unsupported_payment_method/abort"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/unsupported_payment_method/retry"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/error/invalid_user_point_uif"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/invalid_user_point_uif/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/invalid_user_point_uif/abort"(platform: "/mobile", type: TrackType.Event) {}
+
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
         session_id(required: false, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
@@ -280,6 +284,42 @@ tracks {
     "/instore/waiting/generic_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/generic_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/waiting/supermarket_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/supermarket_cashier/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/supermarket_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/supermarket_ticket"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/supermarket_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/supermarket_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/pharmacy_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/pharmacy_cashier/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/pharmacy_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/pharmacy_ticket"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/pharmacy_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/pharmacy_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/clothing_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/clothing_cashier/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/clothing_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/clothing_ticket"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/clothing_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/clothing_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/retail_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/retail_cashier/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/retail_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/retail_ticket"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/retail_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/retail_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/vending_dispatching"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/vending_dispatching/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/vending_dispatching/back"(platform: "/mobile", type: TrackType.Event) {}
+
     "/instore/waiting/add_card"(platform: "/mobile", isAbstract: true) {}
     "/instore/waiting/add_card/cielo"(platform: "/mobile", type: TrackType.View) {}
     "/instore/waiting/add_card/cielo/add"(platform: "/mobile", type: TrackType.Event) {}
@@ -391,6 +431,12 @@ tracks {
         payment_info_tag(required: false, "Execute post payment")
         remaining_attempts(required: false, PropertyType.Numeric)
     }
+    "/instore/payment_error"(platform: "/mobile", type: TrackType.Event) {
+        error(required: true, PropertyType.String, description: "payment error description")
+        retrying(required: true, PropertyType.Boolean, description: "indicates if the error occurred when retrying automatically")
+        remaining_attempts(required: false, PropertyType.Numeric, description: "remaining attemps to retry when possible")
+        status_code(required: false, PropertyType.Numeric, description: "error code sent when payement service fail")
+    }
 
 
     // Discovery
@@ -404,7 +450,7 @@ tracks {
     "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
         southwest(required: true, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
-        location(required: true, PropertyType.String)
+        location(required: false, PropertyType.String)
     }
     "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
         action_type(required: true, PropertyType.String, description: "type of action that triggered the data request", values: ["init", "search_in_this_area", "filters_applied", "text_search"])
@@ -514,6 +560,30 @@ tracks {
 
     "/instore/geofence/clear"(platform: "/mobile", type: TrackType.Event) { }
 
+    //Reviews
+    "/instore/reviews"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {
+        id(required: true, PropertyType.String, description: "The id of entity that will be reviewed")
+        type(required: true, PropertyType.String, description: "The type of entity that will be reviewed")
+        payment_id(required: false, PropertyType.String, description: "The id of the payment that trigger the review")
+    }    
+
+    "/instore/reviews/ask"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/send"(platform: "/mobile", type: TrackType.Event) { 
+        stars(required: true, PropertyType.Numeric, description: "The number of stars given as review")
+        has_comment(required: true, PropertyType.Boolean, description: "True if the review has a comment, false if not")
+    }
+
+    "/instore/reviews/comment"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/comment/back"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/back"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/error"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/already-asked"(platform: "/mobile", type: TrackType.Event) { }
+
     //Buyer QR
 
     "/instore/buyer_qr"(platform: "/mobile", isAbstract: true) {}
@@ -557,7 +627,8 @@ tracks {
     "/instore/buyer_qr/landing/codes_expired"(platform: "/mobile", type: TrackType.View) {}
 
     "/instore/buyer_qr/button_pressed"(platform: "/mobile", type: TrackType.Event) {
-        button_type(required: true, PropertyType.String, description: "'show_codes' | 'understood' | 'retry' | 'add_money' | 'add_card' | 'maybe_later'")
+        button_type(required: false, PropertyType.String, description: "an array of strings used to know what actions the button has triggered if exists")
+        deeplink(required: false, PropertyType.String, description: "the deeplink triggered by the button if exists")
     }
 
     "/instore/buyer_qr/landing/funding_mandatory"(platform: "/mobile", type: TrackType.View) {}

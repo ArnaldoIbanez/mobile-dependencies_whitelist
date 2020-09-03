@@ -123,6 +123,12 @@ tracks {
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
     }
 
+    
+    "/kyc/iv/challenge_time"(platform: "/", type: TrackType.Event) {
+        challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie"], type: PropertyType.String, description: "Challenge type")
+        challenge_time(required: true, type: PropertyType.Numeric, description: "Time to complete challenge")
+    }
+
     "/kyc/iv/center"(platform: "/", isAbstract: true) {}
 
     "/kyc/iv/executed_action"(platform: "/mobile", type: TrackType.Event) {

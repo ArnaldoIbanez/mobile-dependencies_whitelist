@@ -161,7 +161,9 @@ catalog {
         include business, "trends.groovy"
         include business, "data_privacy.groovy"
         include business, "sms.groovy"
+        include business, "reviewPages.groovy"
         include business, "wallet_ml.groovy"
+        include business, "whatsapp.groovy"
     }
 
     mercadopago.each { business ->
@@ -179,6 +181,7 @@ catalog {
         include business, "cards_cobranded.groovy"
         include business, "cards_prepaid.groovy"
         include business, "cards_hybrid.groovy"
+        include business, "cards_mpcard.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "asset_management.groovy"
         include business, "single_player.groovy"
@@ -217,6 +220,7 @@ catalog {
         include business, "mobile.groovy"
         include business, "fees_installment.groovy"
         include business, "mp_growth_onlinepayments.groovy"
+        include business, "cashout.groovy"
     }
 
     mercadoshops.each { business ->

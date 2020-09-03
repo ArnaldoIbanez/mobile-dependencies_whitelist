@@ -6,7 +6,7 @@ metrics {
 
 //	Advertising experiments
 
-	"mclics/ads-from-search-backend-native-mla2"(description: "Experiment testing for adv") {
+	"mclics/ads-from-search-backend-native-mla2"(description: "Experiment testing for adv", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				empty("experiments.mclics/ads-from-search-backend-native-mla", false)
@@ -18,7 +18,7 @@ metrics {
 	}
 	
 	
-	"mclics/ads-from-search-backend-native-mla_full-match"(description: "Experiment subsegmentation by BS full match") {
+	"mclics/ads-from-search-backend-native-mla_full-match"(description: "Experiment subsegmentation by BS full match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -32,7 +32,7 @@ metrics {
 			}
 		}
 	}
-	"mclics/ads-from-search-backend-native-mla_soft-match"(description: "Experiment subsegmentation by BS soft match") {
+	"mclics/ads-from-search-backend-native-mla_soft-match"(description: "Experiment subsegmentation by BS soft match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -46,7 +46,7 @@ metrics {
 		}
 	}
 
-	"mclics/ads-from-search-backend-desktop-mla_full-match"(description: "Experiment subsegmentation by BS full match") {
+	"mclics/ads-from-search-backend-desktop-mla_full-match"(description: "Experiment subsegmentation by BS full match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -59,7 +59,7 @@ metrics {
 			}
 		}
 	}
-	"mclics/ads-from-search-backend-desktop-mla_soft-match"(description: "Experiment subsegmentation by BS soft match") {
+	"mclics/ads-from-search-backend-desktop-mla_soft-match"(description: "Experiment subsegmentation by BS soft match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -73,7 +73,7 @@ metrics {
 		}
 	}
 
-	"mclics/ads-from-search-backend-webmobile-mla_full-match"(description: "Experiment subsegmentation by BS full match") {
+	"mclics/ads-from-search-backend-webmobile-mla_full-match"(description: "Experiment subsegmentation by BS full match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -86,7 +86,7 @@ metrics {
 			}
 		}
 	}
-	"mclics/ads-from-search-backend-webmobile-mla_soft-match"(description: "Experiment subsegmentation by BS soft match") {
+	"mclics/ads-from-search-backend-webmobile-mla_soft-match"(description: "Experiment subsegmentation by BS soft match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -100,7 +100,7 @@ metrics {
 		}
 	}
 
-	"mclics/ads-from-search-backend-native-mlb_full-match"(description: "Experiment subsegmentation by BS full match") {
+	"mclics/ads-from-search-backend-native-mlb_full-match"(description: "Experiment subsegmentation by BS full match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -113,7 +113,7 @@ metrics {
 			}
 		}
 	}
-	"mclics/ads-from-search-backend-native-mlb_soft-match"(description: "Experiment subsegmentation by BS soft match") {
+	"mclics/ads-from-search-backend-native-mlb_soft-match"(description: "Experiment subsegmentation by BS soft match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -127,7 +127,7 @@ metrics {
 		}
 	}
 
-	"mclics/ads-from-search-backend-desktop-mlb_full-match"(description: "Experiment subsegmentation by BS full match") {
+	"mclics/ads-from-search-backend-desktop-mlb_full-match"(description: "Experiment subsegmentation by BS full match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -140,7 +140,7 @@ metrics {
 			}
 		}
 	}
-	"mclics/ads-from-search-backend-desktop-mlb_soft-match"(description: "Experiment subsegmentation by BS soft match") {
+	"mclics/ads-from-search-backend-desktop-mlb_soft-match"(description: "Experiment subsegmentation by BS soft match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -154,7 +154,7 @@ metrics {
 		}
 	}
 
-	"mclics/ads-from-search-backend-webmobile-mlb_full-match"(description: "Experiment subsegmentation by BS full match") {
+	"mclics/ads-from-search-backend-webmobile-mlb_full-match"(description: "Experiment subsegmentation by BS full match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -167,7 +167,7 @@ metrics {
 			}
 		}
 	}
-	"mclics/ads-from-search-backend-webmobile-mlb_soft-match"(description: "Experiment subsegmentation by BS soft match") {
+	"mclics/ads-from-search-backend-webmobile-mlb_soft-match"(description: "Experiment subsegmentation by BS soft match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -181,7 +181,7 @@ metrics {
 		}
 	}
 
-	"mclics/ads-from-search-backend-native-mlm_full-match"(description: "Experiment subsegmentation by BS full match") {
+	"mclics/ads-from-search-backend-native-mlm_full-match"(description: "Experiment subsegmentation by BS full match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -194,7 +194,7 @@ metrics {
 			}
 		}
 	}
-	"mclics/ads-from-search-backend-native-mlm_soft-match"(description: "Experiment subsegmentation by BS soft match") {
+	"mclics/ads-from-search-backend-native-mlm_soft-match"(description: "Experiment subsegmentation by BS soft match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -208,7 +208,7 @@ metrics {
 		}
 	}
 
-	"mclics/ads-from-search-backend-desktop-mlm_full-match"(description: "Experiment subsegmentation by BS full match") {
+	"mclics/ads-from-search-backend-desktop-mlm_full-match"(description: "Experiment subsegmentation by BS full match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -221,7 +221,7 @@ metrics {
 			}
 		}
 	}
-	"mclics/ads-from-search-backend-desktop-mlm_soft-match"(description: "Experiment subsegmentation by BS soft match") {
+	"mclics/ads-from-search-backend-desktop-mlm_soft-match"(description: "Experiment subsegmentation by BS soft match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -235,7 +235,7 @@ metrics {
 		}
 	}
 
-	"mclics/ads-from-search-backend-webmobile-mlm_full-match"(description: "Experiment subsegmentation by BS full match") {
+	"mclics/ads-from-search-backend-webmobile-mlm_full-match"(description: "Experiment subsegmentation by BS full match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -248,7 +248,7 @@ metrics {
 			}
 		}
 	}
-	"mclics/ads-from-search-backend-webmobile-mlm_soft-match"(description: "Experiment subsegmentation by BS soft match") {
+	"mclics/ads-from-search-backend-webmobile-mlm_soft-match"(description: "Experiment subsegmentation by BS soft match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -262,7 +262,7 @@ metrics {
 		}
 	}
 
-	"mclics/ads-from-search-backend-native-resto_full-match"(description: "Experiment subsegmentation by BS full match") {
+	"mclics/ads-from-search-backend-native-resto_full-match"(description: "Experiment subsegmentation by BS full match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -275,7 +275,7 @@ metrics {
 			}
 		}
 	}
-	"mclics/ads-from-search-backend-native-resto_soft-match"(description: "Experiment subsegmentation by BS soft match") {
+	"mclics/ads-from-search-backend-native-resto_soft-match"(description: "Experiment subsegmentation by BS soft match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -289,7 +289,7 @@ metrics {
 		}
 	}
 
-	"mclics/ads-from-search-backend-desktop-resto_full-match"(description: "Experiment subsegmentation by BS full match") {
+	"mclics/ads-from-search-backend-desktop-resto_full-match"(description: "Experiment subsegmentation by BS full match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(
@@ -302,7 +302,7 @@ metrics {
 			}
 		}
 	}
-	"mclics/ads-from-search-backend-desktop-resto_soft-match"(description: "Experiment subsegmentation by BS soft match") {
+	"mclics/ads-from-search-backend-desktop-resto_soft-match"(description: "Experiment subsegmentation by BS soft match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 
@@ -316,7 +316,7 @@ metrics {
 			}
 		}
 	}
-	"mclics/ads-from-search-backend-webmobile-resto_full-match"(description: "Experiment subsegmentation by BS full match") {
+	"mclics/ads-from-search-backend-webmobile-resto_full-match"(description: "Experiment subsegmentation by BS full match", deprecation_date:"2020/08/12") {
 
 		startWith {
 			condition {
@@ -332,7 +332,7 @@ metrics {
 			}
 		}
 	}
-	"mclics/ads-from-search-backend-webmobile-resto_soft-match"(description: "Experiment subsegmentation by BS soft match") {
+	"mclics/ads-from-search-backend-webmobile-resto_soft-match"(description: "Experiment subsegmentation by BS soft match", deprecation_date:"2020/08/12") {
 		startWith {
 			condition {
 				and(

@@ -411,16 +411,34 @@ tracks {
             description: "Indicate whether the user has money",
             inheritable:false
         )
+        experimental_version (
+            required: false,
+            type: PropertyType.String,
+            values: ["experimental_a", "experimental_b"],
+            description: "Indicates experimental version",
+            inheritable:false
+        )
     }
     "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy", "header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy"],
+            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy", "header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message"],
             description: "The action type tapped"
         )
     }
 
+    //Message
+    "/cards/hybrid/setup/virtual/message"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in", "money_in_experimental_a", "money_in_experimental_b", "account_info_modal", "account_info_modal_experimental_a", "account_info_modal_experimental_b"],
+            description: "The action type tapped"
+        )
+    }
+    
     //Redirect when the user don't have a virtual card
     "/cards/hybrid/setup/virtual/redirect"(platform:"/", type: TrackType.Event) {}
 
@@ -616,9 +634,9 @@ tracks {
         context (
             required: true,
             type: PropertyType.String,
-            values: ["no_kyc_no_challlenge", "kyc_challenge", "no_kyc_challenge", "kyc_no_challenge", 
+            values: ["no_kyc_no_challenge", "kyc_challenge", "no_kyc_challenge", "kyc_no_challenge", 
                     "prepaid_reparking_challenge", "prepaid_reparking_no_challenge",
-                    "seller_kyc_challenge", "seller_kyc_no_challenge", "seller_no_kyc_challenge", "seller_no_kyc_no_challlenge"],
+                    "seller_kyc_challenge", "seller_kyc_no_challenge", "seller_no_kyc_challenge", "seller_no_kyc_no_challenge"],
             description: "type of onboarding",
             inheritable:false
         )

@@ -13,6 +13,11 @@ trackTests {
             extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
+        "/kyc/iv/challenge_time"(platform: "/mobile") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "start_validation"
         }
@@ -169,6 +174,11 @@ trackTests {
             extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
+        "/kyc/iv/challenge_time"(platform: "/mobile") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "start_validation"
         }
@@ -293,6 +303,12 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
+
+        "/kyc/iv/challenge_time"(platform: "/web") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
@@ -502,6 +518,11 @@ trackTests {
             extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
+        "/kyc/iv/challenge_time"(platform: "/mobile") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "start_validation"
         }
@@ -654,6 +675,11 @@ trackTests {
             extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
+        "/kyc/iv/challenge_time"(platform: "/mobile") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "start_validation"
         }
@@ -778,6 +804,12 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
+
+        "/kyc/iv/challenge_time"(platform: "/web") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273

@@ -63,6 +63,9 @@ trackTests {
             button = "main_button"
         }
 
+        "/mplayer/closed_request/congrats_request/detail"(platform: "/mobile") {}
+        "/mplayer/closed_request/congrats_request/home"(platform: "/mobile") {}
+
         "/mplayer/closed_request/status"(platform: "/mobile") {
             request_status = "pending"
         }
@@ -182,6 +185,9 @@ trackTests {
             button = "main_button"
         }
 
+        "/mplayer/money_split/split_created/detail"(platform: "/mobile") {}
+        "/mplayer/money_split/split_created/home"(platform: "/mobile") {}
+
         "/mplayer/money_split/result/success"(platform: "/mobile") {
             payment_method_id = "1"
             transaction_amount = 100.5
@@ -278,6 +284,18 @@ trackTests {
         "/mplayer/contacts/massive_upload/successful_end"(platform: "/mobile") {}
         "/mplayer/contacts/search/start"(platform: "/mobile") {}
         "/mplayer/contacts/search/end"(platform: "/mobile") {}
+
+        //Interaction Screen
+        "/mplayer/interaction_screen"(platform: "/mobile") {
+            type = "modal"
+            cause = "warning"
+            message_id = "error-01"
+        }
+        "/mplayer/interaction_screen/event"(platform: "/mobile") {
+            type = "modal"
+            cause = "warning"
+            message_id = "error-01"
+        }
     }
 }
 

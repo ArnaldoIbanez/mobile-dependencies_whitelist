@@ -27,10 +27,28 @@ tracks {
     "/credits/consumer/myml/summary"(platform: "/", isAbstract: true) {}
     "/credits/consumer/my_account"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/upsell"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
     "/vip/credits/pursue"(platform: "/", isAbstract: true) {}
+
+    /******************************************
+     *       Start: Flujo Upsell Consumer
+     ******************************************/
+    "/credits/consumer/upsell/remedy"(platform: "/web", type: TrackType.View) {
+        remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
+    }
+    "/credits/consumer/upsell/remedy/save_info"(platform: "/web", type: TrackType.Event) {
+        remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
+    }
+    "/credits/consumer/upsell/congrats"(platform: "/web", type: TrackType.View) {
+        variant(description: "Congrats variant", type: PropertyType.String, required: true, values: ["success", "retry"])
+    }
+    /******************************************
+     *       End: Flujo Upsell Consumer
+     ******************************************/
+
 
     /******************************************
      *       Start: Consumers Public Landings
@@ -72,6 +90,13 @@ tracks {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
     }
     "/credits/consumer/public_landing/click_application_start"(platform: "/", type: TrackType.Event) {}
+
+    //Remedy
+    "/credits/consumer/opensea/add_receipt"(platform: "/web", type: TrackType.Event){}
+    "/credits/consumer/opensea/summary"(platform: "/web", type: TrackType.View) {
+        process(description: "Name of the finished process", type: PropertyType.String, required: true, values: ["receipt"])
+    }
+
     /******************************************
      *       End: Consumers Public Landings
      ******************************************/
@@ -644,7 +669,18 @@ tracks {
 
     "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
         prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
-        status(description: "Status of the user prepaid", type: PropertyType.String, required: true, values: ["no_prepaid", "prepaid_enabled", "prepaid_disabled"])
+        status(
+            description: "Status of the user prepaid",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                "no_prepaid",
+                "prepaid_enabled",
+                "prepaid_disabled",
+                "physical_card",
+                "virtual_card"
+            ]
+        )
     }
 
     "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {}

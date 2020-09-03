@@ -176,5 +176,13 @@ tracks {
     "/money_in/cash/location/warning_ticket_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_in/cash/location/warning_ticket_modal/back_button_clicked"(platform: "/", type: TrackType.Event) {}
 
+    // Cash IFPE CAP Modal
+    "/money_in/cash/ifpe_cap_exceeded"(platform: "/", type: TrackType.View) {}
+    "/money_in/cash/ifpe_cap_exceeded/insert_other_amount"(platform: "/", type: TrackType.Event) {}
+    "/money_in/cash/ifpe_cap_exceeded/help"(platform: "/", type: TrackType.Event) {}
+
+    // PIX keys
+    "/money_in/pix_keys"(platform:"/", isAbstract:true){}
+    "/money_in/pix_keys/enroll_congrats"(platform: "/", type: TrackType.View) {}
 
 }

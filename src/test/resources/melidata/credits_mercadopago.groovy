@@ -23,18 +23,58 @@ trackTests {
                 offer_type : 'early_offer'
             ]
             product_types = ['sales_percentage_loan']
+            is_kyc_compliant = true
         }
         "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
             offer = [
                 segment : 'online'
             ]
             product_types = ['fixed_term_loan']
+            is_kyc_compliant = true
         }
         "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
             offer = [
                 offer_type : 'early_offer'
             ]
             product_types = ['sales_percentage_loan', 'fixed_term_loan']
+            is_kyc_compliant = false
+        }
+        "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
+            offer = [
+                    segment : 'online'
+            ]
+            product_types = ['fixed_term_loan']
+            is_kyc_compliant = false
+        }
+
+        //Kyc Onboarding
+        "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
+            offer = [
+                    offer_type : 'early_offer'
+            ]
+            product_types = ['sales_percentage_loan', 'fixed_term_loan']
+        }
+
+
+        "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
+            offer = [
+                    offer_type : 'online'
+            ]
+            product_types = ['sales_percentage_loan', 'fixed_term_loan']
+        }
+
+        "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
+            offer = [
+                    offer_type : 'online'
+            ]
+            product_types = ['sales_percentage_loan']
+        }
+
+        "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
+            offer = [
+                    offer_type : 'online'
+            ]
+            product_types = ['fixed_term_loan']
         }
 
         //Hub
@@ -44,18 +84,43 @@ trackTests {
                 offer_type : 'early_offer'
             ]
             product_types = ['sales_percentage_loan']
+            is_kyc_compliant = true
         }
         "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
             offer = [
                 segment : 'online'
             ]
             product_types = ['fixed_term_loan']
+            is_kyc_compliant = true
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer = [
+                    segment : 'online',
+                    offer_type : 'early_offer'
+            ]
+            product_types = ['sales_percentage_loan']
+            is_kyc_compliant = false
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer = [
+                    segment : 'online'
+            ]
+            product_types = ['fixed_term_loan']
+            is_kyc_compliant = false
         }
         "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
             offer = [
                 offer_type : 'early_offer'
             ]
             product_types = ['sales_percentage_loan', 'fixed_term_loan']
+            is_kyc_compliant = false
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            offer = [
+                    offer_type : 'early_offer'
+            ]
+            product_types = ['sales_percentage_loan', 'fixed_term_loan']
+            is_kyc_compliant = true
         }
 
         //Simulator
@@ -66,6 +131,16 @@ trackTests {
             ]
             product_type = 'sales_percentage_loan'
             variant = 'fixed_amount'
+            is_kyc_compliant = false
+        }
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            offer = [
+                    segment : 'online',
+                    offer_type : 'early_offer'
+            ]
+            product_type = 'sales_percentage_loan'
+            variant = 'fixed_amount'
+            is_kyc_compliant = true
         }
         "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
             offer = [
@@ -73,6 +148,15 @@ trackTests {
             ]
             product_type = 'fixed_term_loan'
             variant = 'fixed'
+            is_kyc_compliant = false
+        }
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            offer = [
+                    segment : 'online'
+            ]
+            product_type = 'fixed_term_loan'
+            variant = 'fixed'
+            is_kyc_compliant = true
         }
         "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
             offer = [
@@ -80,6 +164,15 @@ trackTests {
             ]
             product_type = 'sales_percentage_loan'
             variant = 'normal'
+            is_kyc_compliant = true
+        }
+        "/credits/merchant/enrollment/simulator"(platform: "/mobile/android") {
+            offer = [
+                    offer_type: 'early_offer'
+            ]
+            product_type = 'sales_percentage_loan'
+            variant = 'normal'
+            is_kyc_compliant = false
         }
 
         //Summary
@@ -133,6 +226,10 @@ trackTests {
             has_prepaid = false
             loan_created_with_retry = false
         }
+
+        "/credits/merchant/enrollment/kyc_user_challenges_onboarding"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/credits/merchant/enrollment/kyc_back_office_congrats"(platform: "/mobile", type: TrackType.Event) {}
     }
 
     test("Merchant Credits Enrollment") {
@@ -140,17 +237,20 @@ trackTests {
             status = 'pending'
             product_type = 'default'
             is_capped_offer= true
+            is_kyc_compliance=true
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'rejected'
             product_type = 'early_offer'
             is_capped_offer= false
+            is_kyc_compliance=true
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'approved'
             sub_status = 'review_pending'
             product_type = 'point'
             is_capped_offer= false
+            is_kyc_compliance=true
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             offer = [
@@ -237,6 +337,7 @@ trackTests {
             option = 12
             product_type = 'fixed_term_loan'
             has_prepaid = true
+            through_kyc = true
         }
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {
             requested_amount = 10000
@@ -246,6 +347,7 @@ trackTests {
             option = 30
             product_type = 'sales_percentage_loan'
             has_prepaid = false
+            through_kyc = true
         }
     }
 
@@ -687,13 +789,53 @@ trackTests {
         "/credits/express_money/onboarding"(platform: "/mobile/android") {}
     }
 
+    test("Credits Hub") {
+        "/credits/mp-hub"(platform: "/", type: TrackType.View) {}
+
+        "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
+            flow = "open_sea_mp"
+        }
+
+        "/credits/mp-hub/no-credit-line"(platform: "/", type: TrackType.View) {}
+
+        "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+            flow = "consumer"
+        }
+
+        "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+            flow = "merchant"
+        }
+
+        "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+            flow = "merchant"
+        }
+        
+        "/credits/mp-hub/no-credit-line/stop/faqs_click"(platform: "/", type: TrackType.Event) {
+            flow = "merchant"
+        }
+        
+        "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+            flow = "generic"
+        }
+
+        "/credits/mp-hub/error"(platform: "/", type: TrackType.View) {}
+
+        "/credits/mp-hub/error/access_click"(platform: "/", type: TrackType.Event) {
+            flow = "merchant"
+        }
+
+        "/credits/mp-hub/error/access_click"(platform: "/", type: TrackType.Event) {
+            flow = "consumer"
+        }
+    }
+
     test("Merchant Open Market") {
         "/credits/merchant/open-market/statements_upload"(platform: "/", type: TrackType.Event) {}
 
         "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
             reason = "wrong_extension"
         }
-        
+
         "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
             reason = "generic"
         }
@@ -713,15 +855,15 @@ trackTests {
         "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_files"
         }
-        
+
         "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_scraping"
         }
-        
+
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
             reason = "financial_files_uploaded"
         }
-        
+
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
             reason = "financial_scraping_done"
         }
@@ -782,6 +924,30 @@ trackTests {
             campaign = "collection"
             stage= "em_expired_daily_charges"
             milestone= 1
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "updates"
+            stage= "congrats_upsell"
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "updates"
+            stage= "cm_expired_early_repayment"
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "updates"
+            stage= "cm_congrats_debit_lastinstallment"
+        }
+
+        "/credits/merchant/contacts"(platform: "/", type: TrackType.Event) {
+            medium = "email"
+            campaign = "updates"
+            stage= "spl_congrats_credited_loan"
         }
     }
 
@@ -890,7 +1056,7 @@ trackTests {
             installment_status = 'on_time'
             payment_intention = 'cho'
         }
-        
+
         "/credits/consumer/administrator/summary/payment_intention"(platform: "/mobile", type: TrackType.Event) {
             summary_status = 'on_time'
         }
@@ -910,7 +1076,7 @@ trackTests {
         //V2
         //Views
         "/credits/consumer/administrator_v2"(platform: "/mobile", type: TrackType.View) {
-           
+
         }
         "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
             user_status = 'manually_paused'
@@ -994,12 +1160,12 @@ trackTests {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
         }
-        
+
         "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
         }
-        
+
         "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10

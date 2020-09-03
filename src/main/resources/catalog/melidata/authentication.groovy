@@ -484,7 +484,10 @@ tracks {
 
     // Email Validation Authenticator
 
-    "/authenticators/email_validation"(platform: "/", isAbstract: true) {}
+    "/authenticators/email_validation"(platform: "/", isAbstract: true) {
+        flow(PropertyType.String, required: false, values: ["login", "registration", "forgot_password", "reauthentication" ], description: "Flow using authenticator")
+        client_type(PropertyType.String, required: false, values: ["web", "mobile"], description: "Client using flow")
+    }
 
     "/authenticators/email_validation/max_attempts"(platform: "/", type: TrackType.View) {}
 
@@ -545,13 +548,15 @@ tracks {
         error_msg(type: PropertyType.String, required: true, description: "Error validation and fingerprintManager message")
     }
 
+    "/screenlock/biometrics/fallback"(platform: "/mobile/android", parentPropertiesInherited: false ,type: TrackType.Event) {}
+
     // Security Blocker
 
     "/screenlock/security_blocker"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
-        scenario(type: PropertyType.String, required: true, values: ["no_security", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled"])
+        scenario(type: PropertyType.String, required: true, values: ["no_security", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled", "awareness", "insistence", "reminder1", "reminder2"])
     }
 
     // IFPE Auth restrictions & Reauth errors

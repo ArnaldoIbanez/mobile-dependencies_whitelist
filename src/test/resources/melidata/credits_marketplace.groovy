@@ -11,6 +11,26 @@ trackTests {
     test("consumer credits") {
 
         /******************************************
+        *       Start: Flujo Upsell Consumer
+        ******************************************/
+        "/credits/consumer/upsell/remedy"(platform: "/web/desktop", type: TrackType.View) {
+            remedy_name = 'declarative_info'
+        }
+        "/credits/consumer/upsell/remedy/save_info"(platform: "/web/mobile", type: TrackType.Event) {
+            remedy_name = 'declarative_info'
+        }
+        "/credits/consumer/upsell/congrats"(platform: "/web/desktop", type: TrackType.View) {
+            variant = 'success'
+        }
+        "/credits/consumer/upsell/congrats"(platform: "/web/mobile", type: TrackType.View) {
+            variant = 'retry'
+        }
+        /******************************************
+        *       End: Flujo Upsell Consumer
+        ******************************************/
+
+
+        /******************************************
          *       Start: Consumers Public Landings
          ******************************************/
         //Public Landing
@@ -65,6 +85,12 @@ trackTests {
         //Events
         "/credits/consumer/opensea/intermediate_landing/more_info"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/opensea/intermediate_landing/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
+        //Remedy
+        "/credits/consumer/opensea/add_receipt"(platform: "/web", type: TrackType.Event) {}
+        "/credits/consumer/opensea/summary"(platform: "/web", type: TrackType.View) {
+            process = 'receipt'
+        }
 
         /*********************************************
          *       End: Consumers Intermediate Landing

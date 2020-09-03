@@ -49,6 +49,7 @@ trackTests {
             price_comparison_available = true
             price_comparison_position =  0.75
             whatsapp_available = "false"
+            video_type = "TOUR360"
             quote_demand_available = false
             new_wording_free = false
             quantity_models = 4
@@ -203,6 +204,14 @@ trackTests {
         })
 
         "/vip/contact_whatsapp_intention"(platform: "/mobile", type: TrackType.Event, {
+            item_id = "MLA533657947"
+        })
+
+        "/vip/call_seller_intention"(platform: "/web", type: TrackType.Event, {
+            item_id = "MLA533657947"
+        })
+
+        "/vip/contact_whatsapp_intention"(platform: "/web", type: TrackType.Event, {
             item_id = "MLA533657947"
         })
 
@@ -448,6 +457,65 @@ trackTests {
         }
     }
 
+    test("vip - tour 360") {
+
+        def dataSet = {
+            item_id = "MLC537771292"
+            category_id = "MLC183186"
+            buying_mode = "classified"
+            category_path = [
+                    "MLC1459",
+                    "MLC1472",
+                    "MLC6407",
+                    "MLC183186"]
+            vertical = "realEstate"
+            item_condition = "used"
+            listing_type_id = "gold"
+            item_status = "active"
+            deal_ids = []
+            catalog_listing = false
+            city = "Santiago"
+            neighborhood = "Santa Isabel"
+            state = "RM (Metropolitana)"
+            seller_id = 516954617
+            contract_available = false
+            comparator_available = false
+            gallery_pattern = "X"
+            price_comparison_available = null
+            price_comparison_position = null
+            whatsapp_available = "false"
+            quote_demand_available = false
+            description_type = "plain_text"
+            quantity_models = null
+            domain_id = "MLC-APARTMENTS_FOR_RENT"
+        }
+
+        def tourOption = {
+            dataSet()
+            video_type = "TOUR360"
+        }
+
+        def videoOption = {
+            dataSet()
+            video_type = "VIDEO"
+        }
+
+        def noneOption = {
+            dataSet()
+            video_type = "NONE"
+        }
+
+        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+            tourOption()
+        }
+        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+            videoOption()
+        }
+
+        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+            noneOption()
+        }
+    }
 
     test("Vip web mobile with reviews") {
         "/vip"(platform:"/web/mobile") {
@@ -670,6 +738,32 @@ trackTests {
             item_id = "MLA213512313"
             vertical = "core"
             vip_version = "new"
+        }
+
+        "/vip/technical_specs/see_more"(platform: "/web", type: TrackType.Event){
+            item_id = "MLA213512313"
+            vertical = "motors"
+            category_id = "MLA401803"
+            item_status = "active"
+            category_path = [
+                    "MLA1459",
+                    "MLA1493",
+                    "MLA1495",
+                    "MLA401803"
+            ]
+        }
+
+        "/vip/denounce_intention"(platform: "/web", type: TrackType.Event){
+            item_id = "MLA213512313"
+            vertical = "motors"
+            category_id = "MLA401803"
+            item_status = "active"
+            category_path = [
+                    "MLA1459",
+                    "MLA1493",
+                    "MLA1495",
+                    "MLA401803"
+            ]
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
@@ -1011,7 +1105,54 @@ trackTests {
             buyer_id = "12343718"
             vip_version = "new"
         }
+
+        "/vip/credits_tooltip/show"(platform: "/", {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+            vip_version = "new"
+        })
+
+        "/vip/credits_tooltip/close"(platform: "/", type: TrackType.Event, {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+            vip_version = "new"
+        })
     }
+
+    test("VIP fulfillment free shipping onboardings") {
+
+        "/vip/show_fulfillment_fs_popup"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            item_condition = "new"
+            seller_id = 131662738
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+            vip_version = "new"
+        }
+
+        "/vip/show_fulfillment_fs_tooltip"(platform: "/") {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+            vip_version = "new"
+        }
+
+        "/vip/close_fulfillment_fs_tooltip"(platform: "/", type: TrackType.Event) {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+            vip_version = "new"
+        }
+
+        "/vip/credits_tooltip/show"(platform: "/", {
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+            vip_version = "new"
+        })
+
+    }
+
 
     test("VIP Shipping Calculator"){
 
@@ -1049,6 +1190,7 @@ trackTests {
 
         "/vip/shipping_calculator"(platform: "/", type: TrackType.View) {
             model()
+            item_id = "MLA533657947"
         }
 
          "/vip/shipping_calculator/select"(platform: "/", type: TrackType.Event) {
@@ -1190,6 +1332,56 @@ trackTests {
         }
     }
 
+    test("VIP Facilities CTA for see more attributes in technical specifications"){
+        def properties = {
+
+            vertical = "motors"
+            seller_id =  430012134
+            item_seller_type = "car_dealer"
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                    "MLA1459",
+                    "MLA1493",
+                    "MLA1495",
+                    "MLA401803"
+            ]
+            buying_mode = "classified"
+        }
+
+        "/vip/technical_specs/see_more"(platform: "/mobile", type: TrackType.Event){
+            properties()
+        }
+    }
+
+    test("VIP link from denounce"){
+        def properties = {
+
+            vertical = "motors"
+            seller_id =  430012134
+            item_seller_type = "car_dealer"
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                    "MLA1459",
+                    "MLA1493",
+                    "MLA1495",
+                    "MLA401803"
+            ]
+            buying_mode = "classified"
+        }
+
+        "/vip/denounce_intention"(platform: "/mobile", type: TrackType.Event){
+            properties()
+        }
+    }
+
     test("VIP preload MainAction Contact from search"){
         def properties = {
             item_id = "MLA792156560"
@@ -1267,6 +1459,7 @@ trackTests {
             from_view="vip"
             item_status = "active"
             vertical = "motors"
+            deal_ids = []
         }
 
         "/vip/credits_intention/card"(platform:"/web/mobile", type: TrackType.Event) {
@@ -1292,6 +1485,7 @@ trackTests {
             listing_type_id = "gold_premium"
             item_condition = "new"
             item_seller_type = "car_dealer"
+            catalog_listing = false
             item_status = "active"
             buying_mode = "classified"
             deal_ids = []
@@ -1359,5 +1553,89 @@ trackTests {
             item_seller_type = "car_dealer"
             item_condition = "new"
         }
+    }
+
+    test("VIP Copy Seller info") {
+        "/vip/copy_seller_info"(platform: "/web/", type: TrackType.Event) {
+            item_id = "MLA792156560"
+            seller_id = 167086843
+            price = 100
+            buyer_id = "12343718"
+            loyalty_level = 2
+            shipping_cost = 30
+            shipping_method="standard"
+            shipping_mode = "me2"
+            free_shipping = true
+            free_shipping_benefit = false
+            free_shipping_benefit_lyl = false
+            discount_shipping_benefit_lyl = false
+            shipping_preference = "Normal a Domicilio"
+            shipping_promise = {
+                afterDispatch = true
+                min_days = 2
+                max_days = 12
+                price = {
+                    amount = 10000
+                    currency_id = "ARS"
+                    is_loyalty_discount = false
+                }
+                destination = "1429"
+            }
+        }
+    }
+
+
+    // Price Comparator - RealEstate
+
+    test("VIP Price Comparator section for used properties RE"){
+        def properties = {
+            vertical = "realEstate"
+            seller_id =  430012134
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                    "MLA1459",
+                    "MLA1493",
+                    "MLA1495",
+                    "MLA401803"
+            ]
+            buying_mode = "classified"
+            deal_ids = []
+            price_comparison_available = true
+        }
+
+        "/vip/comparator_price/similar_properties"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/comparator_price/info_tooltip"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/comparator_price/similar_properties"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/comparator_price/info_tooltip"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+
+    }
+
+    // Server side
+
+    test("VIP Server side tracking"){
+        def optional = {
+            item_id = "MLA792156560"
+        }
+
+        "/vip/backend"(platform: "/web/desktop", type: TrackType.Event) {
+            optional()
+        }
+
+        "/vip/backend"(platform: "/web/mobile", type: TrackType.Event) {
+            optional()
+        }
+
     }
 }
