@@ -1133,11 +1133,11 @@ trackTests {
 
         "/credits/consumer/administrator_v2/dashboard/promises/create"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'overdue'
-            offer = ['payment_not_acredited', 'create_promise']
+            offer = ['payment_not_credited', 'create_promise']
         }
         "/credits/consumer/administrator_v2/dashboard/promises/view"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'overdue'
-            offer = ['payment_not_acredited', 'view_promise']
+            offer = ['payment_not_credited', 'view_promise']
         }
 
         /******************************************

@@ -180,7 +180,7 @@ trackTests {
         }
         "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = 'overdue'
-            offer = ['payment_not_acredited', 'create_promise']
+            offer = ['payment_not_credited', 'create_promise']
         }
         "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
             user_status = 'manually_paused'
@@ -204,7 +204,7 @@ trackTests {
         
         "/credits/consumer/administrator_v2/dashboard/promises/create"(platform: "/", type: TrackType.Event) {
             dashboard_status = 'overdue'
-            offer = ['payment_not_acredited', 'create_promise']
+            offer = ['payment_not_credited', 'create_promise']
         }
         "/credits/consumer/administrator_v2/dashboard/promises/view"(platform: "/", type: TrackType.Event) {
             dashboard_status = 'overdue'
