@@ -123,7 +123,7 @@ trackTests {
         "/cards/hybrid/unlock/set-pin/tap"(platform:"/", type: TrackType.Event) {
             action = "confirm"
         }
-        "/cards/hybrid/unlock/set-pin/invalide_pin"(platform: "/", type: TrackType.Event) {}
+        "/cards/hybrid/unlock/set-pin/invalid_pin"(platform: "/", type: TrackType.Event) {}
     }
 
     // Unlock: Update App

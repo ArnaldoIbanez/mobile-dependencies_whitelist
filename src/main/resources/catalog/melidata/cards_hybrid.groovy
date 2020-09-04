@@ -154,7 +154,7 @@ tracks {
         )
     }
 
-    "/cards/hybrid/unlock/set-pin/invalide_pin"(platform: "/", type: TrackType.Event) {}
+    "/cards/hybrid/unlock/set-pin/invalid_pin"(platform: "/", type: TrackType.Event) {}
 
     // Unlock: Update App
     "/cards/hybrid/unlock/update-app"(platform: "/", type: TrackType.View) {}
