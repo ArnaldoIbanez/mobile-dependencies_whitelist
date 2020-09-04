@@ -47,6 +47,7 @@ trackTests {
             free_shipping_benefit = false
             loyalty_level = 2
             price_comparison_available = true
+            has_good_price = true
             price_comparison_position =  0.75
             whatsapp_available = "false"
             video_type = "TOUR360"

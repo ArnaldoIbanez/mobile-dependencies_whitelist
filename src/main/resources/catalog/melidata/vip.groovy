@@ -148,6 +148,8 @@ tracks {
                         "or smaller than the gallery size ('Z')")
         price_comparison_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has price comparison available")
+        has_good_price(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has tagged as good price according to price comparison")
         price_comparison_position(required: false, type: PropertyType.Numeric,
                 description: "Indicates position price comparison")
         // OFFICIAL_STORES
