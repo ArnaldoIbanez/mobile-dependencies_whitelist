@@ -2569,6 +2569,16 @@ trackTests {
     }
   }
 
+  test("seller central listing promos render with onboarding") {
+    "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing promos render with onboarding action") {
+    "/seller_central/promotions/onboarding/action"(platform: "/", type: TrackType.Event) {
+      action = "start"
+    }
+  }
+
   test("seller central listing action") {
     "/seller_central/promotions/action"(platform: "/", type: TrackType.Event) {
       action_id = "MODIFY"

@@ -928,7 +928,7 @@ tracks {
     "/seller_central/sales/list"(platform: "/", type: TrackType.View) {
         sellerCentralUserSales
     }
-    
+
     "/seller_central/sales/list"(platform: "/web/mobile", type: TrackType.View) {}
 
     "/seller_central/sales/list/onboarding"(platform: "/", isAbstract: true, parentPropertiesInherited: false) {}
@@ -1097,7 +1097,7 @@ tracks {
     "/seller_central/metrics"(platform: "/web", type: TrackType.View) {
         sellerCentralUserSales
     }
-    
+
     "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
 
     // CATALOG OPTIN SECTION
@@ -1335,6 +1335,14 @@ tracks {
 
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day"])
+    }
+
+    "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/promotions/onboarding/action"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start"])
+        page(required: false, type: PropertyType.Numeric, description: "Page number")
+        viewId(required:false, type: PropertyType.String, descritpion: "Onboarding id if applies")
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
