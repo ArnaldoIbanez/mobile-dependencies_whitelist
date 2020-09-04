@@ -450,12 +450,39 @@ tracks {
 
     "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {}
 
-    "/vip/call_seller_intention"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/vip/call_seller_intention"(platform: "/", type: TrackType.Event) {
+        category_id(required: true, type: PropertyType.String, description: "Item's category ID")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         item_id(required: true, type: PropertyType.String, description: "Item ID")
+        vertical(required: true, description: "Vertical name over show phone event is displayed")
+        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        event_source(required: true, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        catalog_listing(required: false, PropertyType.Boolean, description: "Item is catalog_listing or not")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
     }
 
-    "/vip/contact_whatsapp_intention"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/vip/contact_whatsapp_intention"(platform: "/", type: TrackType.Event) {
+        category_id(required: true, type: PropertyType.String, description: "Item's category ID")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
         item_id(required: true, type: PropertyType.String, description: "Item ID")
+        vertical(required: true, description: "Vertical name over show phone event is displayed")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        event_source(required: true, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        catalog_listing(required: true, PropertyType.Boolean, description: "Item is catalog_listing or not")
+        source(required: true,  type: PropertyType.String, description: "Source of the referred")
+    }
+
+    "/vip/show_phone_intention"(platform: "/", type: TrackType.Event) {
+        category_id(required: false, type: PropertyType.String, description: "Item's category ID")
+        category_path(required: false, type: PropertyType.ArrayList , description:  "Category path of the the item")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        vertical(required: false, description: "Vertical name over show phone event is displayed")
+        listing_type_id(required: false, description: "Item bucket, ex: premium, gold, etc")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+        catalog_listing(required: false, type: PropertyType.Boolean, description: "Item's catalog listing. it will be true when comes from VPP")
     }
 
     "/vip/show_phone"(platform: "/", type: TrackType.Event) {
