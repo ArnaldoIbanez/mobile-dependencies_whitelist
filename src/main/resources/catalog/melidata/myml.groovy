@@ -608,7 +608,7 @@ tracks {
     "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
         seller_type(required: false,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
     }
-    
+
     // MLC - Tracking click - if seller profile needs go to previous page
     "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
         seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
@@ -631,13 +631,25 @@ tracks {
 
     // MLB - Certificate
     "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
-    
+
     // MLB - Invoice Data (NFe)
     "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
+
+    // MLB - Base Validations
+    "/myml/invoices/optin/validation"(platform: "/", isAbstract: true) {}
     
+    // MLB - Activity Validation
+    "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {}
+
+    // MLB - Business Name (Social Reason) Validation
+    "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {}
+
+    // MLB - State Registry Validation
+    "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {}
+
     // MLB - Basic tax settings
     "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
-    
+
     // MLB - Blocked Access Page
     "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
         reason(required: true,  values: ["ADDRESS_NOT_REGISTERED", "NOT_OWNER", "NO_DOCUMENT_REGISTERED"], description: "Seller access blocked for this reason")
