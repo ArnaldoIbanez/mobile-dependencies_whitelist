@@ -222,6 +222,28 @@ trackTests {
             ]
         }
 
+        "/insurtech/roda/qpage/error"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }
+
+        "/insurtech/roda/qpage/error"(platform:"/web", type: TrackType.View) {
+        }
+
+        "/insurtech/roda/qpage/fallback"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }
+
+        "/insurtech/roda/qpage/fallback"(platform:"/web", type: TrackType.View) {
+        }
+
         "/insurtech/roda/qpage/deductible"(platform:"/mobile", type: TrackType.View) {
             device = [
                 brand: "Samsung",
