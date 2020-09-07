@@ -88,6 +88,7 @@
     ],
     "sql": {
       "script": "sell/sell-mobile-update.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",
