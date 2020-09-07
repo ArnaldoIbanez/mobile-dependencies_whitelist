@@ -1251,9 +1251,9 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
     
-    "/credits/consumer/administrator_v2/dashboard/promises"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/administrator_v2/dashboard/promises/create"(platform: "/mobile", type: TrackType.Event) {}
-    "/credits/consumer/administrator_v2/dashboard/promises/view"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/promises"(platform: "/mobile", isAbstract: true) {}
+    "/credits/consumer/administrator_v2/promises/create"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
 
     /******************************************
      *       End: Consumers Administrator

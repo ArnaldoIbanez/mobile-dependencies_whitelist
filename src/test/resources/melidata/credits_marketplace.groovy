@@ -202,14 +202,8 @@ trackTests {
         "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/web/desktop", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/web/desktop", type: TrackType.Event) {}
         
-        "/credits/consumer/administrator_v2/dashboard/promises/create"(platform: "/", type: TrackType.Event) {
-            dashboard_status = 'overdue'
-            offer = ['payment_not_credited', 'create_promise']
-        }
-        "/credits/consumer/administrator_v2/dashboard/promises/view"(platform: "/", type: TrackType.Event) {
-            dashboard_status = 'overdue'
-            offer = ['payment_not_acredited', 'view_promise']
-        }
+        "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
 
         //Event Mobile
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {

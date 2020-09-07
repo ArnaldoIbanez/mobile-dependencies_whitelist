@@ -236,9 +236,9 @@ tracks {
     "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/", type: TrackType.Event) {}
     
-    "/credits/consumer/administrator_v2/dashboard/promises"(platform: "/", isAbstract: true) {}
-    "/credits/consumer/administrator_v2/dashboard/promises/create"(platform: "/", type: TrackType.Event) {}
-    "/credits/consumer/administrator_v2/dashboard/promises/view"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/promises"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
 
     //Mobile Events 
     "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {

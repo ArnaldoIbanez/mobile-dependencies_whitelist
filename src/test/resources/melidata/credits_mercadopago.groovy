@@ -1131,14 +1131,8 @@ trackTests {
             summary_status = "on_time"
         }
 
-        "/credits/consumer/administrator_v2/dashboard/promises/create"(platform: "/mobile", type: TrackType.Event) {
-            dashboard_status = 'overdue'
-            offer = ['payment_not_credited', 'create_promise']
-        }
-        "/credits/consumer/administrator_v2/dashboard/promises/view"(platform: "/mobile", type: TrackType.Event) {
-            dashboard_status = 'overdue'
-            offer = ['payment_not_credited', 'view_promise']
-        }
+        "/credits/consumer/administrator_v2/promises/create"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
 
         /******************************************
             *       End: Consumers Admin Detail
