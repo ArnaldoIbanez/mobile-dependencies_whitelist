@@ -135,10 +135,18 @@ trackTests {
         }
     }
 
-    test("Mercadopago discount sellers history view") {
+    test("Mercadopago discount sellers history view sin banner de moderacion") {
         "/discount_sellers/history" (platform: "/mobile", type: TrackType.View) {
             session_id = "1"
             campaigns = "{modelo}"
+        }
+    }
+    
+    test("Mercadopago discount sellers history view con banner de moderacion") {
+        "/discount_sellers/history" (platform: "/mobile", type: TrackType.View) {
+            session_id = "1"
+            campaigns = "{modelo}"
+            moderation = "{modelo}"
         }
     }
 
