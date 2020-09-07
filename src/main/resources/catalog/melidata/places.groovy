@@ -14,7 +14,7 @@ tracks {
                 description: "ID of place (agency) user operates in.")
         shipment_id(required: true, type: PropertyType.String,
                 description: "ID of shipment being validated for reception.")
-        display(required: true, type: PropertyType.String, values: ["browser", "standalone", "none"],
+        display(required: false, type: PropertyType.String, values: ["browser", "standalone", "none"],
                 description: "Specifies the display mode app is running as.")
         validation_error(required: true, type: PropertyType.String,
                 values: ["duplicated", "invalid_shipment", "not_found", "internal_error", "no_connection", "invalid_data"],
@@ -47,8 +47,7 @@ tracks {
     "/places"(platform: "/web", isAbstract: true) {}
 
     "/places/reception"(platform: "/web", type: TrackType.View) {
-        place_id(required: true, type: PropertyType.String,
-                description: "ID of place (agency) user operates in.")
+        place_view
     }
 
     "/places/outbounds"(platform: "/web", type: TrackType.View) {
