@@ -153,6 +153,8 @@ tracks {
     "/credits/merchant"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
     "/credits/mp-hub"(platform: "/", isAbstract: true) {}
+    "/credits/self_service"(platform: "/", isAbstract: true) {}
+    "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Merchants Public Landings
@@ -1207,6 +1209,11 @@ tracks {
                         "banner"
                 ]
         )
+        offer(
+            required: false,
+            description: "Self service option shown to the user",
+            type: PropertyType.ArrayList(PropertyType.String)
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
@@ -1243,7 +1250,10 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
-
+    
+    "/credits/consumer/administrator_v2/promises"(platform: "/mobile", isAbstract: true) {}
+    "/credits/consumer/administrator_v2/promises/create"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
 
     /******************************************
      *       End: Consumers Administrator
@@ -1305,5 +1315,93 @@ tracks {
 
      /******************************************
      *    End: Consumers Change Due Date FLow
+     ******************************************/
+
+     /******************************************
+     *    Start: Self service
+     ******************************************/
+    "/credits/self_service/promises/create_form"(platform: "/", type: TrackType.View) {
+        user_type(
+            required: true,
+            description: "User type (merchant, consumer or mix",
+            type: PropertyType.String,
+            values: [
+                "merchant",
+                "consumer",
+                "mix"
+            ]
+        )
+    }
+        
+    "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
+        is_partial_amount(
+            required: true,
+            description: "Whether promise amount is less than bulk amount",
+            type: PropertyType.Boolean
+        )
+        bulk_amount(
+            required: true,
+            description: "Bulk amount or total debt amount for user",
+            type: PropertyType.Numeric
+        )
+        promise_amount(
+            required: true,
+            description: "Promise amount filled in by user",
+            type: PropertyType.Numeric
+        )
+        payment_method(
+            required: true,
+            description: "Payment method selected for promise",
+            type: PropertyType.String
+        )
+        promise_due_days(
+            required: true,
+            description: "How many days until the promise is due from the day it was created",
+            type: PropertyType.Numeric
+        )
+    }
+
+    "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {}
+    
+    "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
+        user_type(
+            required: true,
+            description: "User type (merchant, consumer or mix",
+            type: PropertyType.String,
+            values: [
+                "merchant",
+                "consumer",
+                "mix"
+            ]
+        )
+    }
+
+    "/credits/self_service/promises/error"(platform: "/", type: TrackType.View) {
+        user_type(
+            required: true,
+            description: "User type (merchant, consumer or mix",
+            type: PropertyType.String,
+            values: [
+                "merchant",
+                "consumer",
+                "mix"
+            ]
+        )
+    }
+
+    "/credits/self_service/promises/view"(platform: "/", type: TrackType.View) {
+        user_type(
+            required: true,
+            description: "User type (merchant, consumer or mix",
+            type: PropertyType.String,
+            values: [
+                "merchant",
+                "consumer",
+                "mix"
+            ]
+        )
+    }
+     /******************************************
+     *    End: Self service
      ******************************************/
 }
