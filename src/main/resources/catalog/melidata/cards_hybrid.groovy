@@ -651,6 +651,13 @@ tracks {
     }
 
     // Request: Challenge
+    "/cards/hybrid/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+        reasons (
+            required: true,
+            type: PropertyType.ArrayList(PropertyType.String),
+            description: "list of reasons that allow to do the request flow"
+        )
+    }
     "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
     "/cards/hybrid/request/physical/challenge/tap"(platform: "/", type: TrackType.Event) {
         action (
@@ -700,7 +707,13 @@ tracks {
         )
     }
     // Request: Success Physical
-    "/cards/hybrid/request/physical/success"(platform: "/", type: TrackType.Event) {}
+    "/cards/hybrid/request/physical/success"(platform: "/", type: TrackType.Event) {
+        reasons (
+            required: true,
+            type: PropertyType.ArrayList(PropertyType.String),
+            description: "list of reasons that allow to do the request flow"
+        )
+    }
     
     // CARD IDENTIFICATION
     // --------
@@ -746,7 +759,13 @@ tracks {
     } 
 
     // Request: Success Virtual
-    "/cards/hybrid/request/virtual/success"(platform: "/", type: TrackType.Event) {}
+    "/cards/hybrid/request/virtual/success"(platform: "/", type: TrackType.Event) {
+        reasons (
+            required: true,
+            type: PropertyType.ArrayList(PropertyType.String),
+            description: "list of reasons that allow to do the request flow"
+        )
+    }
 
     //COACHMARK
     // --------
