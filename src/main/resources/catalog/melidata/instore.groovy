@@ -494,6 +494,28 @@ tracks {
         message(required: true, PropertyType.String, description: "server error description")
         attributable_to(required: true, PropertyType.String)
     }
+    "/instore/map/marketplace"(platform: "/mobile", isAbstract: true) {}
+    "/instore/map/marketplace/filter_bar_result"(platform: "/mobile", type: TrackType.Event) {
+        filter_result(required:false, type: PropertyType.ArrayList, description: "The list of filter bar result. Represents the filter selection")
+        session_id(required: true, type: PropertyType.String, description: "The user session id")
+        from(required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/instore/map/marketplace/filter_cell_result"(platform: "/mobile", type: TrackType.Event) {
+        filter_result(required:false, type: PropertyType.ArrayList, description: "The list of filter cell result. Represents the filter selection")
+        session_id(required: true, type: PropertyType.String, description: "The user session id")
+        from(required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/instore/map/marketplace/filter_cell_view"(platform: "/mobile", type: TrackType.View) {
+        from(required: false, type: PropertyType.String, description: "Where the flow start")
+        session_id(required: true, type: PropertyType.String, description: "The user session id")
+        filter_list(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The list of filter values used in the filter cell view")
+    }
+    "/instore/map/marketplace/store_selected"(platform: "/mobile", type: TrackType.Event) {
+        from(required: false, type: PropertyType.String, description: "Where the flow start")
+        session_id(required: true, type: PropertyType.String, description: "The user session id")
+        store_name(required: true, PropertyType.String, description: "the name of the selected store")
+        store_id(required: true, PropertyType.String, description: "the store's id")
+    }
 
     //QR Tip
     "/instore/tip"(platform: "/mobile", type: TrackType.View) {
