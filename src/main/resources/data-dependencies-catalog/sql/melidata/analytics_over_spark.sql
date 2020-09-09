@@ -1,0 +1,3 @@
+select application_id, driver_host, execution_id, job_query, poolname, username, job_id, process_name, manager, result_size, result_serialization_time, executor_run_time, executor_deserialize_time, executor_deserialize_cpu_time, executor_cpu_time, bytes_read, records_read, bytes_written, records_written, failure_reason, substr(ds, 1 , 10) AS ds
+from spark_jobs
+WHERE ds >= '@param01' and ds< '@param02'
