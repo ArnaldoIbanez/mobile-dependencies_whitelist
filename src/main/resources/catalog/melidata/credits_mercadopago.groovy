@@ -329,7 +329,7 @@ tracks {
             description: "Flow which the user is being redirected",
             values: [
                 'merchant_administrator',
-                'expres_money_enrollment',
+                'express_money_enrollment',
                 'personal_loan_adoption_ml',
                 'personal_loan_adoption_mp',
                 'personal_loan_collection',
