@@ -142,6 +142,17 @@ tracks {
         driver_id(required: false, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         route_id(required: false, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
     }
+    "/logistics/profile/trainings_list"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        route_id(required: false, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        logistic_type(required: false, type: PropertyType.String, description: "Specifies the current logistic type of the driver", inheritable: false)
+    }
+    "/logistics/profile/trainings_list/training"(platform: "/mobile", type: TrackType.View) {
+        driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
+        route_id(required: false, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        training_id(required: true, type: PropertyType.String, description: "Specifies the training id for the view", inheritable: false)
+        logistic_type(required: false, type: PropertyType.String, description: "Specifies the current logistic type of the driver", inheritable: false)
+    }
     "/logistics/last_mile/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
         pack_id(required: true, type: PropertyType.String, description: "Specifies the pack id that had an error", inheritable: false)
     }
