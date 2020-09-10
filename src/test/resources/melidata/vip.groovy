@@ -1664,6 +1664,16 @@ trackTests {
 
     }
 
+    test("VIP item free return"){
+        def properties = {
+            item_id = "MLA792156560"
+        }
+
+        "/vip/item/free_return"(platform: "/", type: TrackType.View) {
+            properties()
+        }
+    }
+
     // Server side
 
     test("VIP Server side tracking"){

@@ -618,6 +618,12 @@ tracks {
 
     "/vip/comparator_price/info_tooltip"(platform: "/web", type: TrackType.Event) {}
 
+    "/vip/item"(parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/vip/item/free_return"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+    }
+
     //  QUESTION
 
     "/vip/question"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
