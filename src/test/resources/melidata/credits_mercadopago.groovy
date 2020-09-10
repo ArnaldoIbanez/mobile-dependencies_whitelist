@@ -1086,7 +1086,7 @@ trackTests {
         }
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'overdue'
-            offer = ['payment_not_acredited', 'create_promise']
+            offer = ['payment_not_credited', 'create_promise']
         }
 
         //Events
@@ -1133,6 +1133,7 @@ trackTests {
 
         "/credits/consumer/administrator_v2/promises/create"(platform: "/mobile", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/mobile", type: TrackType.Event) {}
 
         /******************************************
             *       End: Consumers Admin Detail

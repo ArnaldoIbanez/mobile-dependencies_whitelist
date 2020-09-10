@@ -1254,6 +1254,7 @@ tracks {
     "/credits/consumer/administrator_v2/promises"(platform: "/mobile", isAbstract: true) {}
     "/credits/consumer/administrator_v2/promises/create"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/mobile", type: TrackType.Event) {}
 
     /******************************************
      *       End: Consumers Administrator

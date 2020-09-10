@@ -204,6 +204,7 @@ trackTests {
         
         "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
 
         //Event Mobile
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {

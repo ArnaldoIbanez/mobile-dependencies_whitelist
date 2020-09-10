@@ -239,6 +239,7 @@ tracks {
     "/credits/consumer/administrator_v2/promises"(platform: "/", isAbstract: true) {}
     "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
 
     //Mobile Events 
     "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
