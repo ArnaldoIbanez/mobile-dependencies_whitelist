@@ -57,7 +57,7 @@ tracks {
 
     "/reviews/tab"(platform: "/") {
         type(required: true, type: PropertyType.String, values: ["all", "positive", "negative"], description: "type tab")
-        item_id(required: true, type: PropertyType.String)
+        item_id(required: false, type: PropertyType.String)
         catalog_product_id(required: false, type: PropertyType.String)
     }
 }
