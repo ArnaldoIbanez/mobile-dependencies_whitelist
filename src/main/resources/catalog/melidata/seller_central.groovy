@@ -255,22 +255,51 @@ tracks {
       view_id(required:false, type: PropertyType.String, descritpion: "View that has been called")
     }
 
+    // Start SLL SC
     "/seller_central/listings/communication"(platform: "/", isAbstract: true) {}
 
     "/seller_central/listings/communication/advertising"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Action excecuted from advertising task")
-        id(required: true, type: PropertyType.String, description: "Action id")
-    }
-
-    "/seller_central/listings/advertising_sll_landing"(platform: "/", type: TrackType.View) {
-        sll_total(required: true, type: PropertyType.Numeric, description: "Amount of successful live listings")
-        campaign_id(required: true, type: PropertyType.String, description: "Id of the current campaign")
+        action(required: false, type: PropertyType.String, description: "Action excecuted from advertising task")
+        id(required: false, type: PropertyType.String, description: "Action id")
+        type(required: false, type: PropertyType.String, description: "Action type")
     }
 
     "/seller_central/listings/communication/advertising_click"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action excecuted from advertising task")
         id(required: true, type: PropertyType.String, description: "Action id")
+        type(required: false, type: PropertyType.String, description: "Action type")
     }
+
+    "/seller_central/listings/communication/advertising/sll_landing"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/listings/communication/advertising/sll_landing/activated"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        sll_total_activated(required: false, type: PropertyType.String, description: "Indicates the number total of sll activated")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
+    }
+
+    "/seller_central/listings/communication/advertising/sll_landing/breadcrum"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        sll_total_activated(required: false, type: PropertyType.String, description: "Indicates the number total of sll activated")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
+    }
+
+     "/seller_central/listings/communication/advertising/sll_landing/tooltip"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        sll_total_activated(required: false, type: PropertyType.String, description: "Indicates the number total of sll activated")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
+    }
+
+    "/seller_central/listings/advertising_sll_landing"(platform: "/", type: TrackType.View) {
+        sll_total(required: true, type: PropertyType.Numeric, description: "Indicates the number total of sll")
+        campaign_id(required: true, type: PropertyType.String, description: "Id related to the campaign")
+    }
+
+    "/seller_central/listings/advertising_sll_landing/activated"(platform: "/", type: TrackType.View) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
+    }
+    // End SLL SC
 
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
 

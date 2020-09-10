@@ -218,6 +218,31 @@ trackTests {
     }
   }
 
+  test("Advertising manager SLL") {
+    "/seller_central/listings/advertising_sll_landing/activated"(platform: "/", type: TrackType.View) {
+      campaign_id = "2222222"
+      sll_total = "10"
+    }
+
+    "/seller_central/listings/communication/advertising/sll_landing/activated"(platform: "/", type: TrackType.Event) {
+      campaign_id = "2222222"
+      sll_total_activated = "10"
+      sll_total = "10"
+    }
+
+    "/seller_central/listings/communication/advertising/sll_landing/breadcrum"(platform: "/", type: TrackType.Event) {
+      campaign_id = "2222222"
+      sll_total_activated = "10"
+      sll_total = "10"
+    }
+
+    "/seller_central/listings/communication/advertising/sll_landing/tooltip"(platform: "/", type: TrackType.Event) {
+      campaign_id = "2222222"
+      sll_total_activated = "10"
+      sll_total = "10"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Summary
   //------------------------------------------------------------------------------------------------------------------------------------------------------
