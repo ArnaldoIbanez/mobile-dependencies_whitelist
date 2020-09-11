@@ -20,7 +20,7 @@ ENV GRADLE_RUN="bootRun"
 ##### CODECOV #####
 ENV CODECOV_TOKEN=""
 
-ADD ./commands/test_integration.sh /commands/test.sh
+ADD ./commands/test.sh /commands/test.sh
 RUN chmod a+x /commands/test.sh
 
 #ADD ./commands/execute_after_test.sh /commands/execute_after_test.sh
