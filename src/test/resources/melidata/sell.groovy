@@ -86,6 +86,7 @@ trackTests {
             condition = "used"
             price = 123.456
             quantity = 8
+            session_id = "516954617-listres-f2831864de5d"
         }
 
         def massiveItemData = {
