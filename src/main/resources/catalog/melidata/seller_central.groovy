@@ -255,22 +255,51 @@ tracks {
       view_id(required:false, type: PropertyType.String, descritpion: "View that has been called")
     }
 
+    // Start SLL SC
     "/seller_central/listings/communication"(platform: "/", isAbstract: true) {}
 
     "/seller_central/listings/communication/advertising"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Action excecuted from advertising task")
-        id(required: true, type: PropertyType.String, description: "Action id")
-    }
-
-    "/seller_central/listings/advertising_sll_landing"(platform: "/", type: TrackType.View) {
-        sll_total(required: true, type: PropertyType.Numeric, description: "Amount of successful live listings")
-        campaign_id(required: true, type: PropertyType.String, description: "Id of the current campaign")
+        action(required: false, type: PropertyType.String, description: "Action excecuted from advertising task")
+        id(required: false, type: PropertyType.String, description: "Action id")
+        type(required: false, type: PropertyType.String, description: "Action type")
     }
 
     "/seller_central/listings/communication/advertising_click"(platform: "/", type: TrackType.Event) {
         action(required: true, type: PropertyType.String, description: "Action excecuted from advertising task")
         id(required: true, type: PropertyType.String, description: "Action id")
+        type(required: false, type: PropertyType.String, description: "Action type")
     }
+
+    "/seller_central/listings/communication/advertising/sll_landing"(platform: "/", isAbstract: true) {}
+
+    "/seller_central/listings/communication/advertising/sll_landing/activated"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        sll_total_activated(required: false, type: PropertyType.String, description: "Indicates the number total of sll activated")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
+    }
+
+    "/seller_central/listings/communication/advertising/sll_landing/breadcrum"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        sll_total_activated(required: false, type: PropertyType.String, description: "Indicates the number total of sll activated")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
+    }
+
+     "/seller_central/listings/communication/advertising/sll_landing/tooltip"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        sll_total_activated(required: false, type: PropertyType.String, description: "Indicates the number total of sll activated")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
+    }
+
+    "/seller_central/listings/advertising_sll_landing"(platform: "/", type: TrackType.View) {
+        sll_total(required: true, type: PropertyType.Numeric, description: "Indicates the number total of sll")
+        campaign_id(required: true, type: PropertyType.String, description: "Id related to the campaign")
+    }
+
+    "/seller_central/listings/advertising_sll_landing/activated"(platform: "/", type: TrackType.View) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
+    }
+    // End SLL SC
 
     "/seller_central/listings/onboarding"(platform: "/mobile", type: TrackType.View) {}
 
@@ -362,7 +391,7 @@ tracks {
         action_id(required: true, type: PropertyType.String, description: "Action id")
         view_id(required:false, type: PropertyType.String, description: "View where the event has been called")
         count(required: true, type: PropertyType.Numeric, description: "Selected rows count")
-
+        ideal_rows(required: false, type: PropertyType.Numeric, description: "Selected ideal rows count")
     }
 
     "/seller_central/listings/preferences"(platform: "/", type: TrackType.Event) {
@@ -925,10 +954,10 @@ tracks {
 
     "/seller_central/sales"(platform: "/", isAbstract: true) {}
 
-    "/seller_central/sales/list"(platform: "/web", type: TrackType.View) {
+    "/seller_central/sales/list"(platform: "/", type: TrackType.View) {
         sellerCentralUserSales
     }
-    
+
     "/seller_central/sales/list"(platform: "/web/mobile", type: TrackType.View) {}
 
     "/seller_central/sales/list/onboarding"(platform: "/", isAbstract: true, parentPropertiesInherited: false) {}
@@ -1097,7 +1126,7 @@ tracks {
     "/seller_central/metrics"(platform: "/web", type: TrackType.View) {
         sellerCentralUserSales
     }
-    
+
     "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
 
     // CATALOG OPTIN SECTION
@@ -1335,6 +1364,14 @@ tracks {
 
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day"])
+    }
+
+    "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}
+
+    "/seller_central/promotions/onboarding/action"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Id of the action", values: ["close", "dismiss", "rollback", "start"])
+        page(required: false, type: PropertyType.Numeric, description: "Page number")
+        viewId(required:false, type: PropertyType.String, descritpion: "Onboarding id if applies")
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------

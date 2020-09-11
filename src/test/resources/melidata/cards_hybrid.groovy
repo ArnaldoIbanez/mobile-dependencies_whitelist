@@ -123,7 +123,7 @@ trackTests {
         "/cards/hybrid/unlock/set-pin/tap"(platform:"/", type: TrackType.Event) {
             action = "confirm"
         }
-        "/cards/hybrid/unlock/set-pin/invalide_pin"(platform: "/", type: TrackType.Event) {}
+        "/cards/hybrid/unlock/set-pin/invalid_pin"(platform: "/", type: TrackType.Event) {}
     }
 
     // Unlock: Update App
@@ -704,6 +704,11 @@ trackTests {
     }
 
     // Request: Challenge
+    test("cards hybrid request physical challenge success") {
+        "/cards/hybrid/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+        }
+    }
     test("cards hybrid request physical challenge") {
         "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
     }
@@ -777,7 +782,9 @@ trackTests {
 
     // Request: Success Physical
     test("cards hybrid physical success event"){
-        "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["card_whitelist_physical_first", "reissue"]
+        }
     }
 
     // CARD IDENTIFICATION
@@ -809,7 +816,9 @@ trackTests {
 
     // Request: Success Virtual
     test("cards hybrid virtual success event"){
-        "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["virtual_debit_available_push_strategy_first", "reissue"]
+        }
     }
 
     test ("Hybrid Setup") {
@@ -824,11 +833,6 @@ trackTests {
         "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {
              deviceType = "desktop"
         }
-    }
-    
-    // Request: Success Virtual
-    test("cards hybrid virtual success event"){
-        "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {}
     }
 
     //COACHMARK

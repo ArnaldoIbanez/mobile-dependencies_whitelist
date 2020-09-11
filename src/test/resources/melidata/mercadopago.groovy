@@ -2868,6 +2868,18 @@ trackTests {
         "/bill_payments/input_validation_error"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
+
+        //congrats
+        "/bill_payments/congrats"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/dda"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
     }
 
 
@@ -4733,7 +4745,6 @@ trackTests {
         // Access denied
         "/point/register/access_denied"(platform: "/", type: TrackType.View) {}
     }
-
 
     test("Browser device tracking in mobile") {
         "/browser/tracking" (platform: "/mobile") {

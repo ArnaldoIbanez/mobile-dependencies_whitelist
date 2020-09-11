@@ -62,6 +62,14 @@ tracks {
         financing_type(required: false, type: PropertyType.Map(financing_type_track_structure), description: "Financing data of item if it has")
     }
 
+    "/insurtech/roda/qpage/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+    }
+
+    "/insurtech/roda/qpage/fallback"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+    }
+
     "/insurtech/roda/qpage/deductible"(platform:"/", type: TrackType.Event) {
         device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
     }

@@ -47,6 +47,7 @@ trackTests {
             free_shipping_benefit = false
             loyalty_level = 2
             price_comparison_available = true
+            has_good_price = true
             price_comparison_position =  0.75
             whatsapp_available = "false"
             video_type = "TOUR360"
@@ -200,19 +201,30 @@ trackTests {
         })
 
         "/vip/call_seller_intention"(platform: "/mobile", type: TrackType.Event, {
+            mandatory()
             item_id = "MLA533657947"
+            event_source="link"
         })
 
         "/vip/contact_whatsapp_intention"(platform: "/mobile", type: TrackType.Event, {
-            item_id = "MLA533657947"
+            mandatory()
+            event_source="link"
+            catalog_listing=false
+            source=""
         })
 
         "/vip/call_seller_intention"(platform: "/web", type: TrackType.Event, {
+            mandatory()
             item_id = "MLA533657947"
+            event_source="link"
         })
 
         "/vip/contact_whatsapp_intention"(platform: "/web", type: TrackType.Event, {
+            mandatory()
             item_id = "MLA533657947"
+            event_source="link"
+            catalog_listing=false
+            source=""
         })
 
         "/vip/contact_whatsapp"(platform: "/web", type: TrackType.Event, {
@@ -259,6 +271,36 @@ trackTests {
         })
 
         "/vip/show_phone"(platform: "/web/mobile", type: TrackType.Event, {
+            mandatory()
+            listing_type_id = "GOLD"
+            item_seller_type = "AB001"
+        })
+
+        "/vip/show_phone_intention"(platform: "/mobile", type: TrackType.Event, {
+            mandatory()
+            listing_type_id = "GOLD"
+            item_seller_type = "AB001"
+        })
+
+        "/vip/show_phone_intention"(platform: "/web/desktop", type: TrackType.Event, {
+            mandatory()
+            listing_type_id = "GOLD"
+            item_seller_type = "AB001"
+        })
+
+        "/vip/show_phone_intention"(platform: "/web/mobile", type: TrackType.Event, {
+            mandatory()
+            listing_type_id = "GOLD"
+            item_seller_type = "AB001"
+        })
+
+        "/vip/show_phone_intention"(platform: "/web/desktop", type: TrackType.Event, {
+            mandatory()
+            listing_type_id = "GOLD"
+            item_seller_type = "AB001"
+        })
+
+        "/vip/show_phone_intention"(platform: "/web/mobile", type: TrackType.Event, {
             mandatory()
             listing_type_id = "GOLD"
             item_seller_type = "AB001"
@@ -1620,6 +1662,16 @@ trackTests {
             properties()
         }
 
+    }
+
+    test("VIP item free return"){
+        def properties = {
+            item_id = "MLA792156560"
+        }
+
+        "/vip/item/free_return"(platform: "/", type: TrackType.View) {
+            properties()
+        }
     }
 
     // Server side

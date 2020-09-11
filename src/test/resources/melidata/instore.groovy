@@ -2931,6 +2931,48 @@ trackTests {
             message = "server error"
             attributable_to = "server"
         }
+        "/instore/map/marketplace/filter_bar_result"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            filter_result = [[tag:"ship",value:"true"],[tag:"pickup",value:"true"]]
+            from = "from"
+        }
+        "/instore/map/marketplace/filter_cell_result"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            filter_result = [[tag:"ship",value:"true"],[tag:"pickup",value:"true"]]
+            from = "from"
+        }
+        "/instore/map/marketplace/filter_cell_view"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            filter_list = ["markets","pharmacies","coffee_shops"]
+            from = "from"
+        }
+        "/instore/map/marketplace/store_selected"(platform: "/mobile", business: "mercadopago", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            from = "from"
+            store_id = "1234"
+            store_name = "store"
+        }
+        "/instore/map/marketplace/filter_bar_result"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            filter_result = [[tag:"ship",value:"true"],[tag:"pickup",value:"true"]]
+            from = "from"
+        }
+        "/instore/map/marketplace/filter_cell_result"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            filter_result = [[tag:"ship",value:"true"],[tag:"pickup",value:"true"]]
+            from = "from"
+        }
+        "/instore/map/marketplace/filter_cell_view"(platform: "/mobile", type: TrackType.View) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            filter_list = ["markets","pharmacies","coffee_shops"]
+            from = "from"
+        }
+        "/instore/map/marketplace/store_selected"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "2183nHUADndjsu123yu8N7r73ndf"
+            from = "from"
+            store_id = "1234"
+            store_name = "store"
+        }
 
         //QR Tip
         "/instore/tip"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {

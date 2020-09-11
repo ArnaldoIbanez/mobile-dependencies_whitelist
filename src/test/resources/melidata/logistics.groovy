@@ -163,6 +163,17 @@ trackTests {
             driver_id = "123"
             route_id = "123"
         }
+        "/logistics/profile/trainings_list"(platform: "/mobile", type: TrackType.View) {
+            driver_id = "123"
+            route_id = "123"
+            logistic_type = "last_mile"
+        }
+        "/logistics/profile/trainings_list/training"(platform: "/mobile", type: TrackType.View) {
+            driver_id = "123"
+            route_id = "123"
+            training_id = "123"
+            logistic_type = "last_mile"
+        }
         "/logistics/last_mile/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
             pack_id = "124"
             defaultLocation()

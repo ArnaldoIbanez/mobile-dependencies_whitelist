@@ -18,7 +18,7 @@ SELECT
   jest(event_data,'action_id')          AS action_id,
   jest(event_data,'section_id')         AS section_id,
   substr(ds,1,10)                       AS ds
-FROM tracks_ml
+FROM melidata.tracks_ml
 WHERE ds >= '@param01'
   AND ds < '@param02'
   AND bu = 'mercadolibre'

@@ -71,6 +71,7 @@ catalog {
         include business, "mobile_commons.groovy"
         include business, "google_connect.groovy"
         include business, "security_settings.groovy"
+        include business, "privacy_preferences.groovy"
         include business, "mgm.groovy"
         include business, "mediations.groovy"
         include business, "esc_manager.groovy"
@@ -164,6 +165,7 @@ catalog {
         include business, "reviewPages.groovy"
         include business, "wallet_ml.groovy"
         include business, "whatsapp.groovy"
+        include business, "global_selling.groovy"
     }
 
     mercadopago.each { business ->
