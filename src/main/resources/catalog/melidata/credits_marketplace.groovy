@@ -756,12 +756,13 @@ tracks {
     "/credits/self_service/promises/create_form"(platform: "/", type: TrackType.View) {
         user_type(
             required: true,
-            description: "User type (merchant, consumer or mix",
+            description: "User type (merchant, consumer, mix or no credit)",
             type: PropertyType.String,
             values: [
                 "merchant",
                 "consumer",
-                "mix"
+                "mix",
+                "no_credit"
             ]
         )
     }
@@ -799,12 +800,13 @@ tracks {
     "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
         user_type(
             required: true,
-            description: "User type (merchant, consumer or mix",
+            description: "User type (merchant, consumer, mix or no credit)",
             type: PropertyType.String,
             values: [
                 "merchant",
                 "consumer",
-                "mix"
+                "mix",
+                "no_credit"
             ]
         )
     }
@@ -812,12 +814,13 @@ tracks {
     "/credits/self_service/promises/error"(platform: "/", type: TrackType.View) {
         user_type(
             required: true,
-            description: "User type (merchant, consumer or mix",
+            description: "User type (merchant, consumer, mix or no credit)",
             type: PropertyType.String,
             values: [
                 "merchant",
                 "consumer",
-                "mix"
+                "mix",
+                "no_credit"
             ]
         )
     }
@@ -825,12 +828,13 @@ tracks {
     "/credits/self_service/promises/view"(platform: "/", type: TrackType.View) {
         user_type(
             required: true,
-            description: "User type (merchant, consumer or mix",
+            description: "User type (merchant, consumer, mix or no credit)",
             type: PropertyType.String,
             values: [
                 "merchant",
                 "consumer",
-                "mix"
+                "mix",
+                "no_credit"
             ]
         )
     }
