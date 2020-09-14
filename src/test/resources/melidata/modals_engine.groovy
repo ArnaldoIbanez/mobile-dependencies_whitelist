@@ -89,8 +89,8 @@ trackTests {
 			"/modals_engine/fallback"(platform: "/mobile", type: TrackType.Event) {
 				id = "modal_id"
 				modal_type = "full"
-				link = "no_modal_found"
-				from = "mercadopago://cellphone-recharge"
+				from = "notifications_center"
+				link = "mercadopago://cellphone-recharge"
 			}
 			"/modals_engine/ignore"(platform: "/mobile", type: TrackType.Event) {
 				id = "modal_id"
