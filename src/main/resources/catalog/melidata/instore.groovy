@@ -801,4 +801,56 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/qr_code/qr_reader"(platform: "/mobile") {}
+
+    // MLScanner
+    "/scanner"(platform: "/mobile", isAbstract: true) {
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow")
+        context(required: true, PropertyType.String, description: "the content where scanner is using")
+    }
+
+    "/scanner/setup"(platform: "/mobile", type: TrackType.Event) {
+        mode(required: true, PropertyType.String, description: "how the scanner will use", values: ["scanner", "resolver", "scanner+resolver"])
+        inputs(required: true, PropertyType.ArrayList(PropertyType.String), description: "which inputs the scanner will scan")
+        focus_mode(required: false, PropertyType.String, description: "how the focus will work - iOS only")
+        torch_enabled(required: true, PropertyType.Boolean)
+        spinner_enabled(required: true, PropertyType.Boolean)
+        redesign_enabled(required: true, PropertyType.Boolean)
+        auto_start(required: true, PropertyType.Boolean, description: "automatically start after inizialitation")
+        auto_stop(required: true, PropertyType.Boolean, description: "automatically stop after resolve or scan")
+        auto_resolve(required: true, PropertyType.Boolean, description: "automatically resolve code after scan")
+        listen_events(required: true, PropertyType.ArrayList(PropertyType.String), description: "events the client are listening")
+    }
+
+    "/scanner/discovery"(platform: "/mobile", type: TrackType.Event) {
+        data(required: true, PropertyType.String, description: "data scanned")
+        torch_on(required: true, PropertyType.Boolean, description: "if torch was on when scanned")
+    }
+
+     "/scanner/resolve"(platform: "/mobile", type: TrackType.Event) {
+        data(required: true, PropertyType.String)
+        status(required: true, PropertyType.String)
+    }
+
+    // MLScanner - Smart Context
+    "/scanner/smart_context"(platform: "/mobile", isAbstract: true) {}
+    
+    "/scanner/smart_context/tooltip"(platform: "/mobile", isAbstract: true) {
+        text(required: true, PropertyType.String)
+    }
+
+    "/scanner/smart_context/tooltip/updated"(platform: "/mobile", type: TrackType.Event) {
+        ttl(required: true, PropertyType.Numeric, description: "how many seconds will be this text on screen")
+    }
+
+    "/scanner/smart_context/tooltip/tapped"(platform: "/mobile", type: TrackType.Event) {
+        url(required: false, PropertyType.String, description: "url as link to open in text")
+    }
+
+    "/scanner/smart_context/torch"(platform: "/mobile", isAbstract: true) {}
+
+    "/scanner/smart_context/torch/displayed"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/scanner/smart_context/torch/tapped"(platform: "/mobile", type: TrackType.Event) {
+        enabled(required: true, PropertyType.Boolean)
+    }
 }
