@@ -6,6 +6,10 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
+  test("Categories Root") {
+        "/categories_root"(platform: "/", type: TrackType.View) {}
+  }
+
   // old schema
   test("deals landings") {
       "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {

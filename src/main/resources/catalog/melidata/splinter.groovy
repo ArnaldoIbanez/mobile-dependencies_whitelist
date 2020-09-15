@@ -9,6 +9,8 @@ tracks {
     initiative = "1202"
     defaultBusiness = "mercadolibre"
 
+    "/categories_root"(platform: "/", type: TrackType.View) {}
+
     //Landings Deals - retrocompatibility
     "/deals"(platform: "/", isAbstract: true) {}
 
