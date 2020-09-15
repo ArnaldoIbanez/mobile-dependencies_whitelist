@@ -155,6 +155,7 @@ tracks {
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
         quantity(required: false, description: "Item quantity")
+        session_id(required: false, description: "Session ID for Supply Re V4 use case")
     }
 
     "/sell/modify_and_relist/single/row"(platform: "/web", type: TrackType.View){}
@@ -695,6 +696,7 @@ tracks {
     }
     "/sell/relist/congrats"(platform: "/web/desktop", type: TrackType.View) {
         can_complete_attributes(required: true, description: "Field to identify if link to update was offered.", type: PropertyType.Boolean)
+        session_id(required: false, description: "Session ID for Supply Re V4 use case")
     }
     "/sell/relist/congrats"(platform: "/mobile", type: TrackType.View) {}
 
