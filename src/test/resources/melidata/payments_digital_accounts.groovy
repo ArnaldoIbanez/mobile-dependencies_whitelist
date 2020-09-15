@@ -9,7 +9,7 @@ trackTests {
     *  Payments - Digital Accounts - Banking  *
     ******************************************/
 
-    test("Banking Balannce MP") {
+    test("Banking Balance MP") {
         "/banking/balance"(platform: "/", type: TrackType.View) {}
     }
 
