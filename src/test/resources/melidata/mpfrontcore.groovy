@@ -123,7 +123,7 @@ trackTests {
     }
 
     test("Mercadopago Landing Cuenta / Conta") {
-        "/landing/digital_account" (platform: "/", type: TrackType.View) {}
+        "/landing/digital_account" (platform: "/") {}
     }
 
     test("Business Site") {

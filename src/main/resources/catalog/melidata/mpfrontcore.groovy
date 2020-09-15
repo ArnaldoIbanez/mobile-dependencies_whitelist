@@ -161,7 +161,7 @@ tracks {
     "/landing/home"(platform: "/web") {}
 
     // MP Landing - Conta / Cuenta
-    "/landing/digital_account"(platform: "/web") {}
+    "/landing/digital_account"(platform: "/") {}
 
     // MP Landing - Landing Sellers
     "/landing/sellers"(platform: "/") {}
