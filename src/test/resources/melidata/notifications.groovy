@@ -1513,6 +1513,7 @@ trackTests {
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/campaigns_generic"(platform: "/") {
@@ -1525,6 +1526,7 @@ trackTests {
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
             send_health_check = true
         }
 
@@ -5550,6 +5552,7 @@ trackTests {
             test_notification = false
             sent_date = "20180508"
             batch_id = "MLB_PACK_20180508_2"
+            communication_id = "7bae547c-bb6b-4190-953e-4cf3907972b7"
         }
 
         "/notification/campaigns_cart_recovery"(platform: "/mobile") {

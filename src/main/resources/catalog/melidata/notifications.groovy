@@ -1426,6 +1426,7 @@ tracks {
           test_notification(required: true, type: PropertyType.Boolean, description: "Indicates if notification is for test")
           sent_date(required: false, type: PropertyType.String, description: "date of send notification.")
           batch_id(required: false, type: PropertyType.String, description: "Id of batch.")
+          communication_id(required: false, type: PropertyType.String, description: "Hermes communication id.")
       }
 
       //MKT Deals
