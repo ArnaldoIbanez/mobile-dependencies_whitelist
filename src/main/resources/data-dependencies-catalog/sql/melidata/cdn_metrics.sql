@@ -28,6 +28,7 @@ FROM (
   FROM melidata.tracks_ml
   WHERE path = '/cdn/profiler'
   AND type = 'event'
+  AND bu = 'mercadolibre'
   AND ds >= '@dateFROM'
   AND ds < '@dateTO'
 )
