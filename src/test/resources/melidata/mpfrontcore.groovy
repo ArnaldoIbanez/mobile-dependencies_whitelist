@@ -122,10 +122,6 @@ trackTests {
         }
     }
 
-    test("Mercadopago Landing Home") {
-        "/landing/home" (platform: "/", type: TrackType.View) {}
-    }
-
     test("Mercadopago Landing Cuenta / Conta") {
         "/landing/digital_account" (platform: "/", type: TrackType.View) {}
     }
