@@ -133,6 +133,10 @@ trackTests {
         "/banking/pnf"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Banking PNF") {
+        "/banking/activities"(platform: "/", type: TrackType.View) {}
+    }
+
 
     /**
      * Tracks Tests - Public Context

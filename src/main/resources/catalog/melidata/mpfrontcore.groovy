@@ -142,6 +142,10 @@ tracks {
     // MP Banking - PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
 
+    // MP Banking - Activities
+    test("Banking PNF") {
+        "/banking/activities"(platform: "/", type: TrackType.View) {}
+    }
 
     /******************************************
     *         Tracks - Public Context         *
