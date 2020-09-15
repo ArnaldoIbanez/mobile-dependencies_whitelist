@@ -459,12 +459,12 @@ trackTests {
         "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
             shipment_id = "222"
         }
-        "logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
+        "/logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
             driver_id = "123"
         }
-        "logistics/last_mile/control_tower/incident_selection"(platform: "/mobile", type: TrackType.View) {
+        "/logistics/last_mile/control_tower/incident_selection"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
             driver_id = "123"
@@ -488,16 +488,7 @@ trackTests {
         "/logistics/first_mile/list"(platform: "/mobile", type: TrackType.View) {
             route_id = "123"
             first_mile_logistic_type = "FF"
-            pickups_status = [
-                [
-                    id: "1",
-                    status: "pending"
-                ],
-                [
-                    id: "2",
-                    status: "finished"
-                ]
-            ]
+            pickups_status = ["pending" ,"finished"]
         }
         "/logistics/first_mile/scanner"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
