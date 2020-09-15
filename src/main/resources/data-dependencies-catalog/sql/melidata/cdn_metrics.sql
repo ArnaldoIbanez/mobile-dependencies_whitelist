@@ -28,6 +28,9 @@ FROM (
   FROM melidata.tracks_ml
   WHERE path = '/cdn/profiler'
   AND type = 'event'
+  AND bu = 'mercadolibre'
+  AND ds >= '@dateFROM'
+  AND ds < '@dateTO'
 )
 WHERE site_id IS NOT NULL
 AND device_platform IS NOT NULL
@@ -36,4 +39,3 @@ AND file_name IS NOT NULL
 AND cache_status IS NOT NULL
 AND file_size IS NOT NULL
 AND duration IS NOT NULL
-AND ds >= '@dateFROM' and ds < '@dateTO'
