@@ -4201,6 +4201,27 @@ trackTests {
             ]
         }
 
+        "/screenlock/status"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
+            ]
+        }
     }
 
     test("Push Notification") {
