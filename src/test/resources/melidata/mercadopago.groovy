@@ -660,10 +660,6 @@ trackTests {
         }
     }
 
-    test("Landing mercadopago buyers") {
-        "/landing/buyers" (platform: "/web") {}
-    }
-
     test("Landing mercadopago promotions") {
         "/landing/promotions" (platform: "/web") {}
     }
