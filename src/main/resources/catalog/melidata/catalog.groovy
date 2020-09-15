@@ -166,6 +166,7 @@ catalog {
         include business, "wallet_ml.groovy"
         include business, "whatsapp.groovy"
         include business, "global_selling.groovy"
+        include business, "categories.groovy"
     }
 
     mercadopago.each { business ->
