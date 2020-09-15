@@ -1159,6 +1159,21 @@ trackTests {
     }
   }
 
+  test("seller central rebate chosen"){
+    "/seller_central/modify/update_rebate"(platform: "/", type: TrackType.Event) {
+      item_type = "product"
+      category_id = "MLA390784"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      from = "-1"
+      to = "6270"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+    }
+  }
+
   test("seller central track to measure health changes"){
     "/seller_central/modify/success"(platform: "/web", type: TrackType.Event){
       item_type = "default"
