@@ -217,10 +217,10 @@ trackTests {
     
      //Physical acquisition stop: Tracking
     test("cards hybrid dashboard physical acquistion stop tracking") {
-        "/cards/hybrid/dashboard/physical_acquisition_stop"(platform:"/", type: TrackType.Event) {
+        "/cards/hybrid/dashboard/physical_acquisition_stop/tap"(platform:"/", type: TrackType.Event) {
             action = "primary_button"
         }
-        "/cards/hybrid/dashboard/physical_acquisition_stop"(platform:"/", type: TrackType.Event) {
+        "/cards/hybrid/dashboard/physical_acquisition_stop/tap"(platform:"/", type: TrackType.Event) {
             action = "secondary_button"
         }
     }
