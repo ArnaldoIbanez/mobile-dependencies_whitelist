@@ -490,7 +490,9 @@ trackTests {
             first_mile_logistic_type = "FF"
             pickups_status = ["pending" ,"finished"]
         }
-        "/logistics/first_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
+        "/logistics/first_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {
+            pickups_status = ["pending" ,"finished"]
+        }
         "/logistics/first_mile/scanner"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             first_mile_logistic_type = "FF"
