@@ -71,6 +71,7 @@ catalog {
         include business, "mobile_commons.groovy"
         include business, "google_connect.groovy"
         include business, "security_settings.groovy"
+        include business, "privacy_preferences.groovy"
         include business, "mgm.groovy"
         include business, "mediations.groovy"
         include business, "esc_manager.groovy"
@@ -110,6 +111,7 @@ catalog {
         include business, "mobile.groovy"
         include business, "myml.groovy"
         include business, "myml_mercadoshops.groovy"
+        include business, "my_purchases.groovy"
         include business, "seller_central.groovy"
         include business, "vendor_central.groovy"
         include business, "onboarding.groovy"
@@ -145,6 +147,7 @@ catalog {
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
         include business, "kyc.groovy"
+        include business, "user_blocker.groovy"
         include business, "pdp.groovy"
         include business, "qadb.groovy"
         include business, "promotions.groovy"
@@ -159,7 +162,10 @@ catalog {
         include business, "trends.groovy"
         include business, "data_privacy.groovy"
         include business, "sms.groovy"
+        include business, "reviewPages.groovy"
         include business, "wallet_ml.groovy"
+        include business, "whatsapp.groovy"
+        include business, "global_selling.groovy"
     }
 
     mercadopago.each { business ->
@@ -167,15 +173,18 @@ catalog {
         include business, "activities.groovy"
         include business, "mp_digital_account.groovy"
         include business, "mpfrontcore.groovy"
+        include business, "payments_digital_accounts.groovy"
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
+        include business, "credits_credit_card.groovy"
         include business, "credits_mercadopago.groovy"
         include business, "mercadopago_mails.groovy"
         include business, "mercadopago_devsite.groovy"
         include business, "cards_cobranded.groovy"
         include business, "cards_prepaid.groovy"
         include business, "cards_hybrid.groovy"
+        include business, "cards_mpcard.groovy"
         include business, "cellphone_recharge.groovy"
         include business, "asset_management.groovy"
         include business, "single_player.groovy"
@@ -213,6 +222,8 @@ catalog {
         include business, "mp_insurtech.groovy"
         include business, "mobile.groovy"
         include business, "fees_installment.groovy"
+        include business, "mp_growth_onlinepayments.groovy"
+        include business, "cashout.groovy"
     }
 
     mercadoshops.each { business ->

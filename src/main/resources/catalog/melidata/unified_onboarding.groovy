@@ -19,12 +19,18 @@ tracks {
 
     "/unified_onboarding/challenge" (platform: "/mobile", type: TrackType.View) {
         progress(required: false, type: PropertyType.String, description: "Wizard Step Number")
+        value(required: false, inheritable: false, type: PropertyType.String, description: "Value associated with challenge")
     }
 
     "/unified_onboarding/challenge/open" (platform: "/mobile", type: TrackType.Event) {
+        value(required: false, inheritable: false, type: PropertyType.String, description: "Value associated with challenge")
     }
 
     "/unified_onboarding/challenge/back" (platform: "/mobile", type: TrackType.Event) {
+    }
+
+    "/unified_onboarding/challenge/error" (platform: "/mobile", type: TrackType.Event) {
+        value(required: true, inheritable: false, type: PropertyType.String, description: "Error description")
     }
 
     "/unified_onboarding/challenge/confirm" (platform: "/mobile", type: TrackType.Event) {
@@ -34,9 +40,9 @@ tracks {
     "/unified_onboarding/challenge/component" (platform: "/mobile", isAbstract: true) {
         component_id(required: true, type: PropertyType.String, description: "Component's id")
         component_type(required: true, type: PropertyType.String, description: "Component's type")
+        value(required: true, type: PropertyType.String, description: "Component's value")
     }
 
     "/unified_onboarding/challenge/component/tap" (platform: "/mobile", type: TrackType.Event) {
-        value(required: true, type: PropertyType.String, description: "Component's value")
     }
 }

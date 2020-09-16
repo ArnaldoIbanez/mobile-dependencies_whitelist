@@ -24,6 +24,11 @@ trackTests {
             payment_amount_local = 100.00
             flow_context = "init"
             flow_type = "card_express"
+            is_free_trial = false
+            subscription_partner = "hbogo"
+            loyalty_level = 1
+            discount_type = "cosmetic"
+            discount_percent = 10
         }
 
         def finishDefaultProperties = {
@@ -387,6 +392,10 @@ trackTests {
 
         // Properties not necessary
         "/checkout_off/error"(platform: "/web/mobile") {
+        }
+
+        // Properties not necessary
+        "/checkout_off/loading"(platform: "/web/mobile") {
         }
 
         // MP personalFrontend
@@ -427,6 +436,11 @@ trackTests {
             payment_amount_local = 100.00
             flow_context = "init"
             flow_type = "card_express"
+            is_free_trial = false
+            subscription_partner = "hbogo"
+            loyalty_level = 1
+            discount_type = "cosmetic"
+            discount_percent = 10
         }
 
         def finishDefaultProperties = {
@@ -790,6 +804,10 @@ trackTests {
 
         // Properties not necessary
         "/checkout_off/error"(platform: "/web/mobile") {
+        }
+
+        // Properties not necessary
+        "/checkout_off/loading"(platform: "/web/mobile") {
         }
 
         // MP personalFrontend

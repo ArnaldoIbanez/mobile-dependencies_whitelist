@@ -88,6 +88,17 @@ trackTests {
             quantity = 8
         }
 
+        def itemDataForRelist = {
+            item_id = "MLA123456"
+            listing_type_id = "gold_special"
+            vertical = "CORE"
+            buying_mode = "buy_it_now"
+            condition = "used"
+            price = 123.456
+            quantity = 8
+            session_id = "516954617-reactivateres-f2831864de5d"
+        }
+
         def massiveItemData = {
             items_amount = 2
         }
@@ -95,12 +106,17 @@ trackTests {
         "/sell/quick_relist/single"  (platform: "/web/desktop", itemData)
         "/sell/quick_relist/massive" (platform: "/web/desktop", massiveItemData)
 
-        "/sell/modify_and_relist/single/row"   (platform: "/web/desktop", itemData)
+        "/sell/modify_and_relist/single/row"   (platform: "/web/desktop", itemDataForRelist)
         "/sell/modify_and_relist/single/cards" (platform: "/web/desktop", itemData)
         "/sell/modify_and_relist/massive/row"  (platform: "/web/desktop", massiveItemData)
         "/sell/relist/congrats"(platform: "/web/desktop"){
             can_complete_attributes= true
             item_id = "MLA12345"
+        }
+        "/sell/relist/congrats"(platform: "/web/desktop"){
+            can_complete_attributes= true
+            item_id = "MLA12345"
+            session_id = "516954617-reactivateres-f2831864de5d"
         }
         "/sell/relist/congrats"(platform: "/mobile"){
             item_id = "MLA12345"
@@ -283,187 +299,6 @@ trackTests {
             vertical = "core"
         }
         "/sell/list/sip/section/disabled"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/location"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/size_selection_review"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/condition"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/condition_review"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-
-        "/sell/list/sip/update/product_identifier_review"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/product_identifier"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/technical_specifications_review"(
-                platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/technical_specifications"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/description"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/description_review"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/include_description"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/listing_type"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/listing_types_review"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/manufacturing_time"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/manufacturing_time_review"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/payment_methods_review"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/payment_options"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/pictures"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/pictures_review"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/price"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/price_review"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/shipping_options"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/shipping_options_me_review"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/title"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
@@ -838,6 +673,13 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
         }
+        "/sell/list/picture_uploader/crop"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "core"
+        }
         "/sell/list/picture_uploader/delete"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
@@ -1174,20 +1016,6 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
         }
-        "/sell/list/picture_editor/function/crop"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/picture_editor/function/delete"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
         "/sell/list/pictures/crop/crop_accepted"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
@@ -1218,7 +1046,13 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
         }
-
+        "/sell/list/free_shipping_review"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "core"
+        }
         "/sell/list/sip/publish/pictures_fail"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
@@ -1245,20 +1079,6 @@ trackTests {
             vertical = "core"
         }
         "/sell/list/listing_types"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/sip/update/extra_description"(platform: "/mobile") {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "core"
-        }
-        "/sell/list/picture_editor/function/rotate"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
@@ -1508,20 +1328,6 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "real_estate"
         }
-        "/sell/list/picture_editor/function/delete"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "real_estate"
-        }
-        "/sell/list/picture_editor/function/crop"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "real_estate"
-        }
         "/sell/list/pictures/crop/crop_accepted"(platform: "/mobile", type: TrackType.Event) {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
@@ -1530,13 +1336,6 @@ trackTests {
             vertical = "real_estate"
         }
         "/sell/list/pictures/crop/crop_canceled"(platform: "/mobile", type: TrackType.Event) {
-            session_id = "214464778-list-d5e5a20b2935"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            vertical = "real_estate"
-        }
-        "/sell/list/picture_editor/function/rotate"(platform: "/mobile", type: TrackType.Event) {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
@@ -2217,15 +2016,67 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
         }
-        "/sell/update/sip"(platform: "/mobile") {
+        "/sell/update/buybox_competition"(platform: "/mobile", type: TrackType.View) {
             item_id = "MLA123456"
-            has_selected_pictures = false
-            is_catalog_boost = true
-            is_item_inactive_moderated = true
+            buybox_status = "losing_by_price"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
-            seller_profile = "NEWBIE"
             vertical = "core"
+        }
+        "/sell/update/buybox_competition/push_action"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA123456"
+            buybox_status = "losing_by_price"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+        }
+        "/sell/update/buybox_competition/row_action"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA123456"
+            boost_id = "same_day_shipping"
+            boost_status = "opportunity"
+            buybox_status = "losing_by_price"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+        }
+        "/sell/update/sip"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA123456"
+            buybox_status = "losing_by_price"
+            has_selected_pictures = false
+            is_catalog_boost = true
+            is_catalog_listing = true
+            is_item_inactive_moderated = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+        }
+        "/sell/update/sip/header_modal/open"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA123456"
+            buybox_status = "losing_by_bad_reputation"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+            header_type = "buybox"
+        }
+        "/sell/update/sip/header_modal/action"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA123456"
+            buybox_status = "losing_by_bad_reputation"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+            header_type = "buybox"
+            action_id = "reputation"
         }
         "/sell/update/sip/publish/fail"(platform: "/mobile") {
             item_id = "MLA123456"
@@ -2236,24 +2087,6 @@ trackTests {
             vertical = "core"
         }
         "/sell/update/goals"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/picture_editor/function/crop"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/picture_editor/function/delete"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/picture_editor/function/rotate"(platform: "/mobile") {
             item_id = "MLA123456"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
@@ -2284,91 +2117,6 @@ trackTests {
             seller_segment=""
             seller_profile="NEWBIE"
         }
-        "/sell/update/sip/update"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/sip/update/add_stock"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/sip/update/condition"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/sip/update/description"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/sip/update/list_closed_step"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/sip/update/list_paused_step"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/sip/update/listing_types"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/sip/update/modify_variations"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/sip/update/technical_specifications"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/sip/update/pictures"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/sip/update/price"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/sip/update/quantity"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/sip/update/relist"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/sip/update/statistics"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-
         "/sell/update/color_selection"(platform: "/mobile") {
             item_id = "MLA123456"
             seller_reputation = "NO_REPUTATION"
@@ -2483,25 +2231,25 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
         }
-        "/sell/update/picture_uploader/crop/crop_canceled"(platform: "/mobile") {
+        "/sell/update/picture_uploader/mode/camera"(platform: "/mobile") {
             item_id = "MLA123456"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
         }
-        "/sell/update/picture_uploader/crop/crop_acepted"(platform: "/mobile") {
-            item_id = "MLA123456"
-            seller_reputation = "NO_REPUTATION"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-        }
-        "/sell/update/picture_uploader/rotate"(platform: "/mobile") {
+        "/sell/update/picture_uploader/crop"(platform: "/mobile") {
             item_id = "MLA123456"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
         }
         "/sell/update/picture_uploader/delete"(platform: "/mobile") {
+            item_id = "MLA123456"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+        }
+        "/sell/update/picture_uploader/rotate"(platform: "/mobile") {
             item_id = "MLA123456"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
@@ -2851,6 +2599,17 @@ trackTests {
             list_mode = "LIST"
         }
     }
+    test("SYI v4 redirect to syi-core confirmed"){
+        "/sell/item_data/redirect_syi_core/confirm"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+        }
+    }
     test("SYI v4 redirect from title to install the app"){
         "/sell/item_data/title/redirect_store"(platform: "/web/mobile", type: TrackType.Event){
             seller_profile = "ADVANCED"
@@ -2981,6 +2740,36 @@ trackTests {
             title_predicted = "test"
             product_title = "Iphone X"
             list_mode = "LIST"
+        }
+    }
+    test("SYI v4 product identifier card showed"){
+        "/sell/item_data/product_identifier/show"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA1055"
+            session_id = "123-update-abc123"
+            item_type = "default"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+        }
+    }
+    test("SYI v4 product identifier card confirmed"){
+        "/sell/item_data/product_identifier/confirm"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA1055"
+            session_id = "123-update-abc123"
+            item_type = "default"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
+        }
+    }
+    test("SYI v4 product identifier card required"){
+        "/sell/item_data/product_identifier/required"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA1055"
+            session_id = "123-update-abc123"
+            item_type = "default"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            seller_reputation = "green"
         }
     }
     test("SYI v4 flow decision card showed"){
@@ -4383,10 +4172,22 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
-            has_drag = false
-            valid_street_number = false
-            valid_intent = false
+            intent_type = "drag"
+        }
 
+        "/sell/item_data/location/intent"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            category_id = "MLC183186"
+            item_type = "default"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-7afd00a54af7"
+            vertical = "real_estate"
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+            intent_type = "valid_street_number"
         }
     }
 
@@ -4420,6 +4221,45 @@ trackTests {
             business = "classified"
             platform = "pi"
             listing_type_id = "silver"
+        }
+    }
+
+    test("SYI v4 publicar - picture card intents") {
+        "/sell/item_data/pictures/intent"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            category_id = "MLC183186"
+            item_type = "default"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+            seller_profile = "NEWBIE"
+            session_id = "571359341-listres-7afd00a54af7"
+            vertical = "real_estate"
+            user_type = "real_estate_agency"
+            business = "classified"
+            platform = "pi"
+            listing_type_id = "silver"
+            intent_type = "pictures_upload"
+            pictures_info = [
+                    [
+                            "width": 100,
+                            "height": 500,
+                            "size": 2048,
+                            "format": "image/jpeg",
+                            "valid": true
+                    ],
+                    [
+                            "width": 800,
+                            "height": 600,
+                            "size": 1024,
+                            "format": "image/png",
+                            "valid": false
+                    ],
+                    [
+                            "width": 800,
+                            "height": 600,
+                            "valid": false
+                    ],
+            ]
         }
     }
 
@@ -4569,7 +4409,7 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
-            valid_intent = false
+            intent_type = "invalid_intent"
             field_intent_ids = ["CONTACT_SCHEDULE", "OPERATION_SUBTYPE", "TOTAL_AREA"]
         }
     }
@@ -4771,32 +4611,105 @@ trackTests {
         }
     }
 
-    test("SYI v4 publicar - shield debts") {
-        "/sell/shield/validations/show"(platform: "/web", type: TrackType.Event) {
-            seller_reputation = "NO_REPUTATION"
+    test("SYI v4 publicar - splash screen - show ") {
+        "/sell/onboarding/splash/show"(platform: "/web", type: TrackType.Event) {
             business = "classified"
-            item_type = "default"
-            session_id = "583247067-listres-0a5ad0c976ff"
+            category_id: "MLC1459"
             vertical = "real_estate"
             platform = "pi"
-            seller_segment = ""
-            seller_profile = "NEWBIE"
-            shield_type = "user_has_debt"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
         }
     }
 
-    test("SYI v4 publicar - shield debts") {
-        "/sell/shield/validations/confirm"(platform: "/web", type: TrackType.Event) {
+    test("SYI v4 publicar - splash screen - confirm") {
+        "/sell/onboarding/splash/confirm"(platform: "/web", type: TrackType.Event) {
+            business = "classified"
+            category_id: "MLC1459"
+            vertical = "real_estate"
+            platform = "pi"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
+        }
+    }
+
+    test("SYI v4 publicar - publication package required - show ") {
+        "/sell/error_step/package_error/show"(platform: "/web", type: TrackType.Event) {
+            session_id = "473569667-listres-29d4faa1bc5a"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar - publication package required - confirm") {
+        "/sell/error_step/package_error/confirm"(platform: "/web", type: TrackType.Event) {
             seller_reputation = "NO_REPUTATION"
             business = "classified"
             item_type = "default"
-            session_id = "583247067-listres-0a5ad0c976ff"
+            session_id = "473569667-listres-29d4faa1bc5a"
+            vertical = "real_estate"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar -  user with debt - confirm") {
+        "/sell/error_step/user_has_debt_error/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            business = "classified"
+            item_type = "default"
+            session_id = "473569667-listres-29d4faa1bc5a"
+            vertical = "real_estate"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar -  user with debt - show") {
+        "/sell/error_step/user_has_debt_error/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            business = "classified"
+            item_type = "default"
+            session_id = "473569667-listres-29d4faa1bc5a"
+            vertical = "real_estate"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar -  package limit exceeded  - show") {
+        "/sell/error_step/package_empty/show"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            business = "classified"
+            item_type = "default"
+            session_id = "473569667-listres-29d4faa1bc5a"
+            vertical = "real_estate"
+            platform = "pi"
+        }
+    }
+
+    test("SYI v4 publicar -  package limit exceeded - confirm") {
+        "/sell/error_step/package_empty/confirm"(platform: "/web", type: TrackType.Event) {
+            seller_reputation = "NO_REPUTATION"
+            business = "classified"
+            item_type = "default"
+            session_id = "473569667-listres-29d4faa1bc5a"
+            vertical = "real_estate"
+            platform = "pi"
+        }
+    }
+
+    test("SYI V4 Publicar - Paso Uno - Card de pictures  y Ver Planes") {
+        def dataSet = {
+            seller_reputation = "NO_REPUTATION"
+            business = "classified"
+            item_type = "default"
+            session_id = "600095330-listres-5a85212250cd"
             vertical = "real_estate"
             platform = "pi"
             seller_segment = ""
+            category_id = "MLC183186"
             seller_profile = "NEWBIE"
-            shield_type = "user_has_debt"
+            listing_type_id = "silver"
+            category_path = ["MLC1459", "MLC1472", "MLC6407", "MLC183186"]
         }
+        "/sell/item_data/plans/confirm"(platform: "/web", type: TrackType.Event, dataSet)
+        "/sell/item_data/pictures_modal/show"(platform: "/web", type: TrackType.Event, dataSet)
+        "/sell/item_data/video/show"(platform: "/web", type: TrackType.Event, dataSet)
+        "/sell/item_data/video/confirm"(platform: "/web", type: TrackType.Event, dataSet)
     }
-    
 }

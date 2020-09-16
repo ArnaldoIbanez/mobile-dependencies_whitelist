@@ -17,7 +17,7 @@ tracks {
 
     "/advertising/landings/pads2/mail"(platform: "/", isAbstract: true) {}
 
-    "/advertising/landings/pads2/mail/congrats"(platform: "/web", type: TrackType.View) {
+    "/advertising/landings/pads2/mail/congrats"(platform: "/", type: TrackType.View) {
         user_id(required:true, description: "User id")
         items_id(required:true, description: "Items ids")
     }
@@ -27,7 +27,7 @@ tracks {
     "/advertising/pads2/manager/card"(platform: "/", isAbstract: true) {}
     "/advertising/pads2/manager/ssl"(platform: "/", isAbstract: true) {}
 
-    "/advertising/pads2/manager"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/manager"(platform: "/", type: TrackType.View) {
         campaign_id(required: true, description: "Id related to the campaign")
         status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: false, description: "Current budget related to the campaign")
@@ -45,18 +45,16 @@ tracks {
 
     "/advertising/pads2/manager/box"(platform: "/web", type: TrackType.Event, isAbstract: true) {}
 
-    "/advertising/pads2/manager/box/upselling"(platform: "/web", type: TrackType.Event) {
-        version(required: false, description: "Version")
-    }
+    "/advertising/pads2/manager/box/upselling"(platform: "/web", type: TrackType.Event) {}
 
-    "/advertising/pads2/manager/update_campaign_status"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/update_campaign_status"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: true, description: "Current budget related to the campaign")
         previous_status (required: true, description: "Previous status related to the campaign", values: ['active', 'paused'])
     }
 
-    "/advertising/pads2/manager/update_campaign_budget"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/update_campaign_budget"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: true, description: "Current budget related to the campaign")
@@ -86,17 +84,20 @@ tracks {
     "/advertising/pads2/manager/onboarding/modal/close"(platform: "/web", type: TrackType.Event) {}
 
     //Generic landing
-    "/advertising/pads2/landing"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/landing"(platform: "/", type: TrackType.View) {
         free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
         budget(required: true, description: "Budget related to the landing", inheritable:false)
         ui_version(required: false, description: "UI version rendered in Search", inheritable:false)
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
-    "/advertising/pads2/landing/main_action"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
         button(required: true, description: "Button that redirects to confirm page")
         budget(required: true, description: "Budget related to the landing", inheritable:false)
         id(required: false, values: ["adq_pads"], description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, values: ["home_desktop"], description: "indicates the position of the main slide")
+        free_trial_ad(required: false, description: "Indicates if user is suitable for free trial")
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
     "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
@@ -104,21 +105,23 @@ tracks {
         position(required: false, values: ["home_desktop"], description: "indicates the position of the main slide")
     }
 
-    "/advertising/pads2/landing/contract_confirmation"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/landing/contract_confirmation"(platform: "/", type: TrackType.View) {
     }
 
-    "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/", type: TrackType.Event) {
         budget(required: true, description: "Budget related to the campaign")
         free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
         id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, description: "indicates the position of the main slide")
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
-    "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
         budget(required: true, description: "Budget related to the campaign")
         free_trial_ad(required: true, description: "Indicates if user is suitable for free trial")
         id(required: false, values: ["adq_pads"], description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, values: ["home_desktop"], description: "indicates the position of the main slide")
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
     "/advertising/pads2/landing/change_budget"(platform: "/web", type: TrackType.Event) {
@@ -133,17 +136,35 @@ tracks {
 
     //Upselling
     "/advertising/pads2/manager/upselling"(platform: "/", isAbstract: true) {
-        budget_new(required: true, description: "New budget assigned to the user")
+        budget_new(required: false, description: "New budget assigned to the user")
     }
 
     "/advertising/pads2/manager/upselling/banner"(platform: "/", isAbstract: true) {}
     "/advertising/pads2/manager/upselling/modal"(platform: "/", isAbstract: true) {}
 
-    "/advertising/pads2/manager/upselling/modal/show"(platform: "/web", type: TrackType.View) {}
+    "/advertising/pads2/manager/upselling/modal/show"(platform: "/", type: TrackType.View) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        multi (required: true, description: "Indicates if it is a multicampaign dashboard")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget_suggested(required: false, description: "Suggested budget related to the campaign")
+        budget(required: false, description: "Current budget related to the campaign")
+    }
 
-    "/advertising/pads2/manager/upselling/modal/go"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/upselling/modal/go"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        multi (required: true, description: "Indicates if it is a multicampaign dashboard")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget_suggested(required: false, description: "Suggested budget related to the campaign")
+        budget_selected(required: false, description: "Selected budget related to the campaign")
+        budget(required: false, description: "Current budget related to the campaign")}
 
-    "/advertising/pads2/manager/upselling/modal/close"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/upselling/modal/close"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        multi (required: true, description: "Indicates if it is a multicampaign dashboard")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget_suggested(required: false, description: "Suggested budget related to the campaign")
+        budget_selected(required: false, description: "Selected budget related to the campaign")
+    }
 
     "/advertising/pads2/manager/upselling/banner/show"(platform: "/web", type: TrackType.View) {}
 
@@ -153,41 +174,78 @@ tracks {
 
     "/advertising/pads2/manager/upselling/mark"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         campaign_id(required: true, description: "Id related to the campaign")
-        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+        multi (required: true, description: "Indicates if it is a multicampaign dashboard")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         budget(required: false, description: "Current budget related to the campaign")
-        version(required: false, description: "Version")
+    }
+
+    "/advertising/pads2/manager/upselling/tooltip/go"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        multi (required: true, description: "Indicates if it is a multicampaign dashboard")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget(required: false, description: "Current budget related to the campaign")
+    }
+
+    "/advertising/pads2/manager/upselling/tooltip/close"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        multi (required: true, description: "Indicates if it is a multicampaign dashboard")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget(required: false, description: "Current budget related to the campaign")
+    }
+
+    "/advertising/pads2/manager/box"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/box/upselling"(platform: "/", type: TrackType.View) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        multi (required: true, description: "Indicates if it is a multicampaign dashboard")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget(required: false, description: "Current budget related to the campaign")
+    }
+
+    "/advertising/pads2/manager/upselling/tooltip"(platform: "/web", type: TrackType.Event) {}
+
+
+    "/advertising/pads2/manager/box/upselling/go"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        multi (required: true, description: "Indicates if it is a multicampaign dashboard")
+        status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget(required: false, description: "Current budget related to the campaign")
     }
 
     //Generic landing free trial
-    "/advertising/pads2/landing_freetrial"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/landing_freetrial"(platform: "/", type: TrackType.View) {
         free_trial_type(required: true, description: "type of free trial with which the user enters the landing pads")
         budget(required: true, description: "Budget related to the landing")
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
-    "/advertising/pads2/landing_freetrial/cta"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/landing_freetrial/cta"(platform: "/", type: TrackType.Event) {
         button(required: true, description: "Button that redirects to confirm page")
         id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, description: "indicates the position of the main slide")
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
-    "/advertising/pads2/landing_freetrial/confirm"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/landing_freetrial/confirm"(platform: "/", type: TrackType.View) {
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
-    "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/", type: TrackType.Event) {
         id(required: false, description: "Indicates if the user was redirected to the landing using the main slide of the home")
         position(required: false, description: "indicates the position of the main slide")
+        experiment(required: false, description: "progressive rollout experiment", inheritable:false)
     }
 
     //Lift
     "/advertising/pads2/manager/lift"(platform: "/web", isAbstract: true) {}
 
     "/advertising/pads2/manager/lift/details"(platform: "/web", isAbstract: true) {}
-    "/advertising/pads2/manager/lift/details/show"(platform: "/web", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/details/close"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/details/show"(platform: "/", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/details/close"(platform: "/", type: TrackType.Event) {}
 
     "/advertising/pads2/manager/lift/chart"(platform: "/web", isAbstract: true) {}
-    "/advertising/pads2/manager/lift/chart/show"(platform: "/web", type: TrackType.Event) {}
-    "/advertising/pads2/manager/lift/chart/close"(platform: "/web", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/chart/show"(platform: "/", type: TrackType.Event) {}
+    "/advertising/pads2/manager/lift/chart/close"(platform: "/", type: TrackType.Event) {}
 
     "/advertising/pads2/manager/lift/tooltip"(platform: "/web", isAbstract: true) {}
     "/advertising/pads2/manager/lift/tooltip/adv_sales"(platform: "/web", type: TrackType.Event) {}
@@ -200,57 +258,56 @@ tracks {
     "/advertising/pads2/manager/lift/tooltip/take_rate"(platform: "/web", type: TrackType.Event) {}
 
     "/advertising/pads2/manager/lift/modal"(platform: "/web", isAbstract: true) {}
-    "/advertising/pads2/manager/lift/modal/open"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/lift/modal/open"(platform: "/", type: TrackType.Event) {
         share_value(required: true, description: "Porcentual share value")
     }
-    "/advertising/pads2/manager/lift/modal/pause"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/lift/modal/pause"(platform: "/", type: TrackType.Event) {
         share_value(required: true, description: "Porcentual share value")
     }
-    "/advertising/pads2/manager/lift/modal/continue"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/lift/modal/continue"(platform: "/", type: TrackType.Event) {
         share_value(required: true, description: "Porcentual share value")
     }
-    "/advertising/pads2/manager/lift/modal/close"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/lift/modal/close"(platform: "/", type: TrackType.Event) {
         share_value(required: true, description: "Porcentual share value")
     }
 
     //Card Upselling
-    "/advertising/pads2/manager/card/upselling"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/manager/card/upselling"(platform: "/", type: TrackType.View) {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: false, type: PropertyType.String, description: "Current budget related to the campaign")
         budget_new(required: false, type: PropertyType.String, description: "New budget related to the campaig")
     }
 
-    "/advertising/pads2/manager/card/upselling"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/card/upselling"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: false, type: PropertyType.String, description: "Current budget related to the campaign")
         budget_new(required: false, type: PropertyType.String, description: "New budget related to the campaig")
     }
 
     //SLL
-    "/advertising/pads2/manager/card/sll"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/manager/card/sll"(platform: "/", type: TrackType.View) {
         campaign_id(required: true, description: "Id related to the campaign")
         sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
     }
 
-    "/advertising/pads2/manager/card/sll"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/card/sll"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
     }
 
-    "/advertising/pads2/manager/ssl/landing"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/manager/ssl/landing"(platform: "/", type: TrackType.View) {
         campaign_id(required: true, description: "Id related to the campaign")
         sll_total(required: false, type: PropertyType.String, description: "Indicates the number total of sll")
     }
 
-    "/advertising/pads2/manager/ssl/landing/activated"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/ssl/landing/activated"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         sll_total_activated(required: false, type: PropertyType.String, description: "Indicates the number total of sll activated")
     }
 
-    "/advertising/pads2/manager/ssl/landing/breadcrumb"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/ssl/landing/breadcrumb"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         sll_total(required: true, type: PropertyType.String, description: "Indicates the number total of sll")
-
     }
 
     //Buybox
@@ -285,35 +342,35 @@ tracks {
     //Matching
     "/advertising/pads2/manager/winbacks"(platform: "/", isAbstract: true) {}
 
-    "/advertising/pads2/manager/winbacks/onboarding"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/winbacks/onboarding"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, description: "Current budget related to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
         step(required: true, description: "Current modal step")
     }
 
-    "/advertising/pads2/manager/winbacks/onboarding/cta"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/winbacks/onboarding/cta"(platform: "/", type: TrackType.Event) {
     }
 
     "/advertising/pads2/manager/winbacks/onboarding/cta/close"(platform: "/web", type: TrackType.Event) {
     }
 
-    "/advertising/pads2/manager/winbacks/confirmation"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/winbacks/confirmation"(platform: "/", type: TrackType.Event) {
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, description: "Current budget related to the campaign")
         new_budget(required: true, description: "New budget assigned to the campaign")
         status(required: true, description: "Current status related to the campaign", values: ['active', 'paused'])
     }
 
-    "/advertising/pads2/manager/winbacks/confirmation/cta"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/winbacks/confirmation/cta"(platform: "/", type: TrackType.Event) {
     }
 
-    "/advertising/pads2/manager/winbacks/confirmation/cta/close"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/manager/winbacks/confirmation/cta/close"(platform: "/", type: TrackType.Event) {
     }
 
     //Sorting
     "/advertising/pads2/manager/sort"(
-        platform: "/web",
+        platform: "/",
         type: TrackType.Event) {
         sort_by(
                 required: true,
@@ -338,6 +395,10 @@ tracks {
         multi(required: false, type: PropertyType.String)
         query(required: false, type: PropertyType.String)
         catalog(required: false, type: PropertyType.String)
+        // Successful Live Listing
+        sll(required: false, type: PropertyType.String)
+        // Item Publish Date
+        date_created(required: false, type: PropertyType.String)
     }
 
     //Campaigns
@@ -348,7 +409,7 @@ tracks {
     }
     
     "/advertising/pads2/manager/filters"(
-        platform: "/web",
+        platform: "/",
         type: TrackType.Event) {
         filters(
                 required: true,
@@ -363,7 +424,7 @@ tracks {
 
     // Range
     "/advertising/pads2/manager/metrics_range"(
-        platform: "/web",
+        platform: "/",
         type: TrackType.Event) {
         multi(required: false, type: PropertyType.String, description: "Indicates if it is a multicampaign dashboard")
         days(required: true, type: PropertyType.Numeric)
@@ -426,9 +487,9 @@ tracks {
     }
 
     // Multicampaña
-    "/advertising/pads2/hub"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/hub"(platform: "/", type: TrackType.View) {
         tab(required: true, description: "It could be: Campaigns or Ads tab", values: ['campaigns', 'ads'])
-        campaigs(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_definition)), description: "Array campaigns")
+        campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_definition)), description: "Array campaigns")
     }
 
     "/advertising/pads2/hub/createcampaign"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -507,13 +568,8 @@ tracks {
     "/advertising/pads2/hub/moveads"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {}
 
     "/advertising/pads2/hub/moveads/go"(platform: "/web", type: TrackType.Event) {
-        campaign_id_from(required: true, description: "Id related to the original campaign")
-        status_from(required: true, description: "Status related to the original campaign")
-        campaign_id_to(required: true, description: "Id related to the destination campaign")
-        status_to(required: true, description: "Status related to the destination campaign")
         check(required: true, description: "Check which indicates if all moved pads must be activated by default")
-        //preguntar por mayuscula de q_Ads
-        q_Ads(required: true, description: "Quantity of moved pads")
+        q_ads(required: true, description: "Quantity of moved pads")
     }
 
     "/advertising/pads2/hub/moveads/cancel"(platform: "/web", type: TrackType.Event) {}
@@ -670,7 +726,7 @@ tracks {
 
     "/advertising/pads2/manager/addads/confirm"(platform: "/web", type: TrackType.Event) {
         ads(required: true, description: "Current ads")
-        new_ads(required: true, type: PropertyType.String, description: "Total ads added to the campaign" )
+        new_ads(required: true, type: PropertyType.Numeric, description: "Total ads added to the campaign" )
     }
         
     "/advertising/pads2/manager/addads/editads"(platform: "/web", type: TrackType.Event) {
@@ -750,4 +806,22 @@ tracks {
         budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
     }
 
+    //Admin Mobile
+
+    "/advertising/pads2/manager/faqs"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+        has_problem(required: true, description: "Problem related to the campaign", values: ['true', 'false'])
+        problem_type(required: true, description: "Type problem related to the campaign")
+    }
+
+    "/advertising/pads2/manager/budget"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
+        status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
+        suggested_budget(required: true, description: "Suggested budget related to the campaign")
+    }
+
+    "/advertising/pads2/manager/budget/suggested"(platform: "/", type: TrackType.Event) {}
 }

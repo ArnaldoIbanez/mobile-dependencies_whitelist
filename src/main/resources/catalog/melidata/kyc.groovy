@@ -93,6 +93,7 @@ tracks {
     "/kyc/error"(platform: "/", type: TrackType.Event) {
         label (required: false, type: PropertyType.String, description: "The label attached to the current event")
         verbose (required: false, type: PropertyType.String, description: "The error description for the error occurred")
+        kyc_flow_id(required: false, type: PropertyType.String, description: "The kyc flow identifier")
     }
 
     "/kyc/odr_error"(platform: "/", type: TrackType.Event) {
@@ -120,6 +121,12 @@ tracks {
         initiative(required: false, type: PropertyType.String, description: "Users initiative")
         kyc_flow_id(required: false, type: PropertyType.String, description: "Kyc flow")
         flow(required: false, type: PropertyType.String, description: "Remedies flow")
+    }
+
+    
+    "/kyc/iv/challenge_time"(platform: "/", type: TrackType.Event) {
+        challenge_type(required: true,values: ["doc_front", "doc_back", "proof_of_life", "selfie"], type: PropertyType.String, description: "Challenge type")
+        challenge_time(required: true, type: PropertyType.Numeric, description: "Time to complete challenge")
     }
 
     "/kyc/iv/center"(platform: "/", isAbstract: true) {}

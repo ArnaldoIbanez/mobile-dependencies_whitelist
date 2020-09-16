@@ -26,6 +26,11 @@ tracks {
         payment_amount_local(required: true, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
         flow_context(required: false, description: "Information about current flow's status, e.g: 'init'", type: PropertyType.String)
         flow_type(required: false, description: "Current flow type, e.g: 'card_express'", type: PropertyType.String)
+        is_free_trial(required: false, description: "If the subscription is activated with a free trial, e.g: 'true|false'", type: PropertyType.Boolean)
+        subscription_partner(required: false, description: "If it´s a subscription set seller brand, e.g: 'HBO'", type: PropertyType.String)
+        loyalty_level(required: false, description: "Payer's loyalty level, e.g: '1|2|3|4|5|6'", type: PropertyType.Numeric)
+        discount_type(required: false, description: "Discount type applied, e.g: 'cosmetic'", type: PropertyType.String, values: ["transactional", "cosmetic"])
+        discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
     }
 
     // EVENTS
@@ -104,6 +109,21 @@ tracks {
         payment_quantity(required: false, description: "Payments quantity selected, e.g: 1", type: PropertyType.Numeric)
         flow_context(required: false, description: "Information about current flow's status, e.g: 'init'", type: PropertyType.String)
         flow_type(required: false, description: "Current flow type, e.g: 'card_express'", type: PropertyType.String)
+        is_free_trial(required: false, description: "If the subscription is activated with a free trial, e.g: 'true|false'", type: PropertyType.Boolean)
+        subscription_partner(required: false, description: "If it´s a subscription set seller brand, e.g: 'HBO'", type: PropertyType.String)
+        loyalty_level(required: false, description: "Payer's loyalty level, e.g: '1|2|3|4|5|6'", type: PropertyType.Numeric)
+        discount_type(required: false, description: "Discount type applied, e.g: 'cosmetic'", type: PropertyType.String, values: ["transactional", "cosmetic"])
+        discount_percent(required: false, description: "Discount percentage applied, e.g: 10", type: PropertyType.Numeric)
+    }
+
+    // For this path, none is required
+    "/checkout_off/loading"(platform: "/", type: TrackType.View) {
+        checkout_flow_id(required: false, description: "Unique ID of the current flow, e.g: 'b24bcffe-4b26-46c9-8646-61891dbd978b'", type: PropertyType.String)
+        product_id(required: false, description: "Unique ID of the current flow, e.g: 'BC32A4JU643001OI3920'", type: PropertyType.String)
+        productive(required: false, description: "True if productive flow", type: PropertyType.Boolean)
+        payment_quantity(required: false, description: "Payments quantity selected, e.g: 1", type: PropertyType.Numeric)
+        is_split(required: false, description: "True if the flow was split", type: PropertyType.Boolean)
+        payment_amount_local(required: false, description: "Ticket value in local currency, e.g: 250.50", type: PropertyType.Numeric)
     }
 
     //Final Views

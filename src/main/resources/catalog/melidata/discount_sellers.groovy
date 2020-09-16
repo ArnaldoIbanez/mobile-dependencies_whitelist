@@ -97,6 +97,7 @@ tracks {
 
     "/discount_sellers/history" (platform: "/mobile", type: TrackType.View) {
         campaigns(required: false, type: PropertyType.String, description: "Campaign list")
+	moderation(required: false, type: PropertyType.String, description: "Moderation Banner")    
     }
 
     "/discount_sellers/history/redirect" (platform: "/mobile", type: TrackType.Event) {

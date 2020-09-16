@@ -123,7 +123,7 @@ trackTests {
         "/cards/hybrid/unlock/set-pin/tap"(platform:"/", type: TrackType.Event) {
             action = "confirm"
         }
-        "/cards/hybrid/unlock/set-pin/invalide_pin"(platform: "/", type: TrackType.Event) {}
+        "/cards/hybrid/unlock/set-pin/invalid_pin"(platform: "/", type: TrackType.Event) {}
     }
 
     // Unlock: Update App
@@ -431,6 +431,18 @@ trackTests {
             initial_status = "inactive"
             has_money = false
         }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            has_money = false
+            experimental_version = "experimental_a"
+        }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            has_money = false
+            experimental_version = "experimental_b"
+        }
     }
     test("cards hybrid setup virtual card taps tracking") {
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -459,6 +471,31 @@ trackTests {
         }
         "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
             action = "card_sec_code_copy"
+        }
+        "/cards/hybrid/setup/virtual/tap"(platform:"/", type: TrackType.Event) {
+            action = "additional_message"
+        }
+    }
+    
+    //Account options
+    test("cards hybrid setup virtual card message") {
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in_experimental_a"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in_experimental_b"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal_experimental_a"
+        }
+        "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "account_info_modal_experimental_b"
         }
     }
     
@@ -514,8 +551,9 @@ trackTests {
             card_id = "1234abcd"
             action = "secondary_button"
         }
-
-        "/cards/hybrid/block_card/virtual/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/hybrid/block_card/virtual/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+         }
     }
 
     // REISSUE PHYSICAL
@@ -533,7 +571,9 @@ trackTests {
             card_id = "1234abcd"
             action = "secondary_button"
         }
-        "/cards/hybrid/block_card/physical/success"(platform:"/", type: TrackType.Event) { }
+        "/cards/hybrid/block_card/physical/success"(platform:"/", type: TrackType.Event) { 
+            reasons = ["debit_available_push_strategy_second", "reissue"]
+        }
     }
 
     // SETUP FÍSICA
@@ -645,7 +685,7 @@ trackTests {
     // Request: Onboarding
     test("cards hybrid request physical onboarding") {
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
-            context = "no_kyc_no_challlenge"
+            context = "no_kyc_no_challenge"
         }
         "/cards/hybrid/request/physical/onboarding"(platform: "/", type: TrackType.View) {
             context = "kyc_challenge"
@@ -667,6 +707,11 @@ trackTests {
     }
 
     // Request: Challenge
+    test("cards hybrid request physical challenge success") {
+        "/cards/hybrid/request/physical/challenge/success"(platform: "/", type: TrackType.Event) {
+            reasons = ["debit_available_push_strategy_none", "reissue"]
+        }
+    }
     test("cards hybrid request physical challenge") {
         "/cards/hybrid/request/physical/challenge"(platform: "/", type: TrackType.View) {}
     }
@@ -740,7 +785,9 @@ trackTests {
 
     // Request: Success Physical
     test("cards hybrid physical success event"){
-        "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/hybrid/request/physical/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["card_whitelist_physical_first", "reissue"]
+        }
     }
 
     // CARD IDENTIFICATION
@@ -772,7 +819,9 @@ trackTests {
 
     // Request: Success Virtual
     test("cards hybrid virtual success event"){
-        "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {}
+        "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {
+            reasons = ["virtual_debit_available_push_strategy_first", "reissue"]
+        }
     }
 
     test ("Hybrid Setup") {
@@ -787,11 +836,6 @@ trackTests {
         "/cards/mp-card/hybrid/detail/click-send-message" (platform: "/web/desktop", type: TrackType.Event) {
              deviceType = "desktop"
         }
-    }
-    
-    // Request: Success Virtual
-    test("cards hybrid virtual success event"){
-        "/cards/hybrid/request/virtual/success"(platform:"/", type: TrackType.Event) {}
     }
 
     //COACHMARK
