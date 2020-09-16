@@ -17,6 +17,70 @@ metrics {
     }
   }
 
+  "wallet_home.banking.balance"(description: "Counts when an user taps the balance row on the banking section") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/wallet_home/section/tap/banking")
+        and(
+          equals("event_data.component_id", "balance"),
+          equals("application.business", "mercadopago")
+        )
+      }
+    }
+  }
+
+  "wallet_home.banking.assets"(description: "Counts when an user taps the assets row on the banking section") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/wallet_home/section/tap/banking")
+        and(
+          equals("event_data.component_id", "assets"),
+          equals("application.business", "mercadopago")
+        )
+      }
+    }
+  }
+
+  "wallet_home.banking.credits"(description: "Counts when an user taps the credits row on the banking section") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/wallet_home/section/tap/banking")
+        and(
+          equals("event_data.component_id", "credits"),
+          equals("application.business", "mercadopago")
+        )
+      }
+    }
+  }
+
+  "wallet_home.banking.cards"(description: "Counts when an user taps the cards row on the banking section") {
+    startWith {
+      experiment(regex("wallet/.*"))
+    }
+
+    countsOn {
+      condition {
+        path("/wallet_home/section/tap/banking")
+        and(
+          equals("event_data.component_id", "cards"),
+          equals("application.business", "mercadopago")
+        )
+      }
+    }
+  }
+
   //Main Payer Flow taps
 
   "wallet_home.discount_center"(description: "Counts when an user taps the Discount Center section in the Home", deprecation_date:"2020/09/30") {

@@ -190,7 +190,7 @@ tracks {
 
     // Mis Consultas
 
-    "/support/cases"(platform: "/", isAbstract: true) {}
+    "/support/cases"(platform: "/", type: TrackType.View) {}
 
     "/support/cases/detail"(platform: "/", type: TrackType.View) {
         case_status(required: true, type: PropertyType.String,

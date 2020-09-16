@@ -167,7 +167,7 @@ tracks {
     }
 
     def metadata_user_definition = objectSchemaDefinitions {
-        type(type: PropertyType.String, required: true, values: ['payer', 'seller', 'undefined'], description: "The user's type seller or payer")
+        type(type: PropertyType.String, required: true, values: ['payer', 'seller', 'newbie'], description: "The user profile")
     }
 
     def loyalty_section_definition = objectSchemaDefinitions {
@@ -196,7 +196,7 @@ tracks {
 
     def header_definition = objectSchemaDefinitions {
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
-        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user's type seller or payer")
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
 
     def metadata_definition = objectSchemaDefinitions {
@@ -436,6 +436,7 @@ tracks {
 
     "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty header information")
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
 
     /**********************************/
@@ -487,6 +488,7 @@ tracks {
         bu_line(type: PropertyType.String, required: false, description: "The business unit's line of the shortcut")
         flow(type: PropertyType.String, required: false, description: "The business unit line's flow of the shortcut")
         logic(type: PropertyType.String, required: false, description: "The logic applied for showing the shortcut")
+        user_profile(type: PropertyType.String, required: false, description: "The user profile", values: ["seller", "payer", "newbie"])
     }
 
     "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {}

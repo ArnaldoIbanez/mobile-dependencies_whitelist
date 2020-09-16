@@ -196,4 +196,9 @@ trackTests {
         }
         "/home/category/real_estate/request_contract"(platform: "/", type: TrackType.View, dataSet)
     }
+
+    test("Home Advertising banners") {
+        "/home/advertising"(platform: "/", type: TrackType.Event) {}
+        "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
+    }
 }

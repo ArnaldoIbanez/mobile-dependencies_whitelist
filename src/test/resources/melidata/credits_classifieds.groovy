@@ -18,6 +18,7 @@ trackTests {
             bank = "santander"
             congrats_status = "APPROVED"
             category_path = ["MLB1743", "MLB1744"]
+            flow_type = "INVALID"
         }
 
         "/classi_credits/pre_analysis"(platform: "/web/mobile", type: TrackType.View) {
@@ -53,42 +54,6 @@ trackTests {
         }
 
         "/classi_credits/evaluation/reject"(platform: "/web/mobile", type: TrackType.View) {
-            properties()
-        }
-
-        "/classi_credits/modal_fullscreen/birth_city"(platform: "/", type: TrackType.View) {
-            properties()
-        }
-
-        "/classi_credits/modal_fullscreen/birth_nationality"(platform: "/", type: TrackType.View) {
-            properties()
-        }
-
-        "/classi_credits/modal_fullscreen/issuer_entity"(platform: "/", type: TrackType.View) {
-            properties()
-        }
-
-        "/classi_credits/modal_fullscreen/issuer_state"(platform: "/", type: TrackType.View) {
-            properties()
-        }
-
-        "/classi_credits/modal_fullscreen/birth_state"(platform: "/", type: TrackType.View) {
-            properties()
-        }
-
-        "/classi_credits/modal_fullscreen/address_city"(platform: "/", type: TrackType.View) {
-            properties()
-        }
-
-        "/classi_credits/modal_fullscreen/address_state"(platform: "/", type: TrackType.View) {
-            properties()
-        }
-
-        "/classi_credits/modal_fullscreen/address_country"(platform: "/", type: TrackType.View) {
-            properties()
-        }
-
-        "/classi_credits/modal_fullscreen/occupation"(platform: "/", type: TrackType.View) {
             properties()
         }
 

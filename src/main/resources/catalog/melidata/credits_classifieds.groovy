@@ -15,6 +15,16 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item id")
         category_id(required: true, type: PropertyType.String, description: "Item's category id")
         buyer_id(required: false, type: PropertyType.Numeric, description: "Buyer id")
+        flow_type(
+            required: false,
+            type: PropertyType.String,
+            description: "Bank flow type",
+            values: [
+                "INVALID",
+                "C2FREE_ITAU",
+                "PACC",
+            ]
+        )
         bank(
             type: PropertyType.String,
             required: true,
@@ -28,12 +38,12 @@ tracks {
                 "itau",
             ]
         )
-        congrats_status(required: false, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
+        congrats_status(required: false, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])
         category_path(required: true, type: PropertyType.ArrayList, description: "Item's category tree", serverSide: true) // -> Lo completa Melidata automaticamente
      }
 
     propertyGroups {
-        creditGroup(vertical, seller_id, item_id, category_id, buyer_id, bank, congrats_status, category_path)
+        creditGroup(vertical, seller_id, item_id, category_id, buyer_id, flow_type, bank, congrats_status, category_path)
     }
 
     /******************************************
@@ -42,7 +52,6 @@ tracks {
     "/classi_credits"(platform: "/", isAbstract: true) {}
     "/classi_credits/application_form"(platform: "/", isAbstract: true) {}
     "/classi_credits/evaluation"(platform: "/", isAbstract: true) {}
-    "/classi_credits/modal_fullscreen"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Classifieds Credits
@@ -82,42 +91,6 @@ tracks {
     }
 
     "/classi_credits/evaluation/reject"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/birth_city"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/birth_nationality"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/issuer_entity"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/issuer_state"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/birth_state"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/address_city"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/address_state"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/address_country"(platform: "/", type: TrackType.View) {
-        creditGroup
-    }
-
-    "/classi_credits/modal_fullscreen/occupation"(platform: "/", type: TrackType.View) {
         creditGroup
     }
 

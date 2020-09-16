@@ -34,6 +34,8 @@ tracks {
       amount(required: true, type: PropertyType.Numeric)
       no_interest(required: true, type: PropertyType.Boolean)
       currency_id(required: true, type: PropertyType.String)
+      decimals(required: false, type: PropertyType.String)
+      price(required: false, type: PropertyType.String)
     }
 
     def lightningDealConfigurationDefinition = objectSchemaDefinitions {
@@ -114,6 +116,29 @@ tracks {
       position(required: true, type: PropertyType.Numeric, description: "position in array")
     }
 
+    def itemsExtraStructure = objectSchemaDefinitions {
+      component_name(required: true, type: PropertyType.String, description: "The component name used to display the items extra")
+      type_content(required: false, type: PropertyType.Boolean, description: "The items content type to display")
+      row(required: false, type: PropertyType.Numeric, description: "Indicate where the items extra should be displayed")
+      items(required: true, type: PropertyType.ArrayList(PropertyType.Map(itemExtraStructure)), description: "Items extra to display")
+    }
+
+    def itemExtraStructure = objectSchemaDefinitions {
+      id(required: false, type: PropertyType.String, description: "Item's id")
+      title(required: true, type: PropertyType.String, description: "Item's title")
+      image_id(required: true, type: PropertyType.String, description: "Item's image id")
+      image_src(required: true, type: PropertyType.String, description: "Item's image src")
+      free_shipping(required: true, type: PropertyType.Boolean, description: "Inidcate whether the item has free shipping")
+      fulfillment(required: true, type: PropertyType.Boolean, description: "Inidcate whether the item has fulfillment")
+      link(required: true, type: PropertyType.Map(linkStructure), description: "Item's link")
+      price(required: true, type: PropertyType.Map(priceStructure), description: "Item's price")
+      installments(required: true, type: PropertyType.Map(installmentsDefinition), description: "Item's installments")
+    }
+
+    def linkStructure = objectSchemaDefinitions {
+      url(required: true, type: PropertyType.String, description: "Link url")
+    }
+
     propertyDefinitions {
         deal_print_id(required: true, type: PropertyType.String, description: "Unique id per render")
         items(required: true, type: PropertyType.ArrayList(PropertyType.Map(itemStructure)), 
@@ -128,10 +153,11 @@ tracks {
         selected_filters(required: false, type: PropertyType.Map, description: "The data of all applied filters")
         displayed_shortcuts(required: false, type: PropertyType.ArrayList(PropertyType.Map(shortcutsStructure)), description: "The filters shortcuts shown to the user in each request")
         is_recommended_domain(required: false, type: PropertyType.Boolean, description: "Indicate whether filters domains are recommended")
+        items_extra(required: false, type: PropertyType.Map(itemsExtraStructure), description: "Items extra to display")
     }
     
     propertyGroups {
-        general_promotions_info(deal_print_id, items, page, origin, filter_applied, filter_position, selected_filters, displayed_shortcuts, is_recommended_domain)
+        general_promotions_info(deal_print_id, items, page, origin, filter_applied, filter_position, selected_filters, displayed_shortcuts, is_recommended_domain, items_extra)
     }
 
     //Promotions Landing

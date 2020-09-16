@@ -54,5 +54,11 @@ tracks {
         catalog_product_id(required: false, type: PropertyType.String)
         context(required: true, type: PropertyType.String, description: "If the context is pdp or vip", values:["PDP", "VIP"])
     }
+
+    "/reviews/tab"(platform: "/") {
+        type(required: true, type: PropertyType.String, values: ["all", "positive", "negative"], description: "type tab")
+        item_id(required: false, type: PropertyType.String)
+        catalog_product_id(required: false, type: PropertyType.String)
+    }
 }
 

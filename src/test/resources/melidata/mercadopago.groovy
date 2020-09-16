@@ -31,6 +31,15 @@ trackTests {
             average_error_time = 11
         }
 
+        "/melidata/statistics/experiments"(platform:"/mobile", type:TrackType.Control){
+            start_time="2015-01-21T13:14:09.415-0300"
+            duration=230
+            experiments_amount=6
+            persistence_enabled=false
+            experiment_to_retrieve="homesDummy"
+            execution_status="successful"
+        }
+
         "/melidata/shrink_database"(platform: "/mobile/android", type: TrackType.Control) {
             delete_records = 40
             current_size = 69632
@@ -76,6 +85,7 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form"(platform: "/web/mobile") {
@@ -84,6 +94,7 @@ trackTests {
             item_id = "MCO123321"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/desktop") {
@@ -91,6 +102,7 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -99,6 +111,7 @@ trackTests {
             item_id = "MCO123321"
             captcha_showed = true
             prog_reg_version = 1
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -107,6 +120,7 @@ trackTests {
             item_id = "MCO123321"
             captcha_showed = true
             prog_reg_version = 1
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/mobile") {
@@ -114,6 +128,7 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/geolocation"(platform:"/web/mobile") {
@@ -122,6 +137,7 @@ trackTests {
             captcha_showed = true
             prog_reg_version = 0
             geo_location_code = 1
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/facebook-connect"(platform:"/web/desktop") {
@@ -129,6 +145,7 @@ trackTests {
             source = "email"
             captcha_showed = false
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/facebook-connect/facebook-register-selected"(platform:"/web/mobile") {
@@ -136,6 +153,7 @@ trackTests {
             source = "facebook"
             captcha_showed = false
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/facebook-connect/email-register-selected"(platform:"/web/desktop") {
@@ -143,6 +161,7 @@ trackTests {
             source = "email"
             captcha_showed = false
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/facebook-connect/login-selected"(platform:"/web/mobile") {
@@ -150,6 +169,7 @@ trackTests {
             source = "email"
             captcha_showed = false
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/site-identification"(platform:"/web/mobile") {
@@ -158,6 +178,7 @@ trackTests {
             captcha_showed = true
             prog_reg_version = 0
             ip_site_id = "MCO"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/site-identification/url-site-selected"(platform:"/web/desktop") {
@@ -166,6 +187,7 @@ trackTests {
             captcha_showed = true
             prog_reg_version = 0
             ip_site_id = "MCO"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/site-identification/ip-site-selected"(platform:"/web/desktop") {
@@ -174,6 +196,7 @@ trackTests {
             captcha_showed = true
             prog_reg_version = 0
             ip_site_id = "MCO"
+            registration_version = "regi_v0_web"
         }
 
         "/register/success"(platform: "/web/desktop") {
@@ -196,6 +219,7 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/optin"(platform: "/web/desktop") {
@@ -224,6 +248,7 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
     }
 
@@ -254,77 +279,92 @@ trackTests {
             origin = "email"
             item_id = "MLA21233"
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
         "/register/form"(platform:"/mobile") {
             app = "registration"
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form"(platform:"/mobile") {
             app = "normal"
             register_type = "company"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/require" (platform: "/mobile") {
             app = "normal"
-        }
-
-        "/register/form/challenge/require" (platform: "/mobile") {
-            app = "normal"
-            origin = "drawer"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/require" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
+            registration_version = "regi_v0_web"
+        }
+
+        "/register/form/challenge/require" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/show" (platform: "/mobile") {
             app = "normal"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/show" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/show" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/cancel" (platform: "/mobile") {
             app = "normal"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/cancel" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/cancel" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/solve" (platform: "/mobile") {
             app = "normal"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/solve" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/solve" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform:"/mobile") {
@@ -339,6 +379,7 @@ trackTests {
                     ]
             ]
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform:"/mobile") {
@@ -350,12 +391,14 @@ trackTests {
                     ]
             ]
             register_type = "company"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform:"/mobile") {
             app = "favorite"
             origin = "email"
             item_id = "MLA21233"
+            registration_version = "regi_v0_web"
         }
         "/register/account-recovery-hub"(platform:"/mobile") {
             app = "favorite"
@@ -379,18 +422,21 @@ trackTests {
             origin = "email"
             item_id = "MLA21233"
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
 
         "/register/congrats"(platform:"/mobile") {
             app = "normal"
             origin = "email"
             register_type = "company"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/update"(platform:"/mobile") {
             app = "question"
             origin = "drawer"
             item_id = "MLM23143"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/update/error"(platform:"/mobile") {
@@ -404,18 +450,21 @@ trackTests {
                             field: 'first_name'
                     ]
             ]
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/update/save"(platform:"/mobile") {
             app = "question"
             origin = "drawer"
             item_id = "MLM23143"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/update/not-now"(platform:"/mobile") {
             app = "question"
             origin = "drawer"
             item_id = "MLM23143"
+            registration_version = "regi_v0_web"
         }
 
         "/register/successful-update"(platform:"/mobile") {
@@ -426,32 +475,38 @@ trackTests {
 
         "/register/form/company-link"(platform: "/mobile"){
             app = "normal"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/person-link"(platform: "/mobile"){
             app = "normal"
+            registration_version = "regi_v0_web"
         }
 
         "/register/congrats/complete-fiscal-data"(platform: "/mobile"){
             app = "normal"
             register_type = "company"
+            registration_version = "regi_v0_web"
         }
 
         "/register/congrats/complete-fiscal-data-later"(platform: "/mobile"){
             app = "normal"
             register_type = "company"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/google_hint/show"(platform: "/mobile") {
             app = "mp"
             step = "phoneRegistration"
             field = "phone"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/google_hint/select"(platform: "/mobile") {
             app = "mp"
             step = "phoneRegistration"
             field = "phone"
+            registration_version = "regi_v0_web"
         }
     }
 
@@ -603,10 +658,6 @@ trackTests {
         "/landing/sellers/mss/click" (platform: "/web") {
             page_name = "dzero"
         }
-    }
-
-    test("Landing mercadopago buyers") {
-        "/landing/buyers" (platform: "/web") {}
     }
 
     test("Landing mercadopago promotions") {
@@ -1418,10 +1469,25 @@ trackTests {
         "/flow/init"(platform: "/mobile", type: TrackType.Event) {
             flow_name = "Instore"
             from = "Home"
+            additional_info = "campaign_extra_sellers_01"
+            sub_flow = "QR"
         }
-        "/flow/end"(platform: "/mobile", type: TrackType.Event) {
-            flow_name = "Instore"
-            from = "Home"
+        "/flow/end"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/flow/friction/networking"(platform: "/mobile", type: TrackType.Event) {
+            severity = "Medium"
+            type = "ClientError"
+            connection_type = "WiFi"
+            status = "403"
+            url = "www.mercadopago.com.br"
+        }
+
+        "/flow/friction/system"(platform: "/mobile", type: TrackType.Event) {
+            severity = "Hard"
+            type = "Crash"
+            screen = "HomeViewController"
+            state = "Active"
+            exception = "NSRangeException"
         }
     }
 
@@ -1747,6 +1813,13 @@ trackTests {
         "/point_payment/onboarding_chooser"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/onboarding_how_to_charge"(platform: "/mobile", type: TrackType.View) {}
         "/point_payment/push_mcc"(platform: "/mobile", type: TrackType.View) {}
+
+        "/point_payment/link_share/button" (platform: "/mobile", type: TrackType.Event) {
+            flow_id = "UUID"
+            action = "share_link"
+            label = "whatsapp"
+            pref_id = "123-456-789"
+        }
 
         "/point_payment/flow_tracker/pairing"(platform: "/mobile", type: TrackType.Event) {
             flow_id = "UUID"
@@ -2789,6 +2862,18 @@ trackTests {
             mandatory()
         }
         "/bill_payments/input_validation_error"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        //congrats
+        "/bill_payments/congrats"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/dda"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
     }
@@ -4116,6 +4201,27 @@ trackTests {
             ]
         }
 
+        "/screenlock/status"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
+            ]
+        }
     }
 
     test("Push Notification") {
@@ -4656,7 +4762,6 @@ trackTests {
         // Access denied
         "/point/register/access_denied"(platform: "/", type: TrackType.View) {}
     }
-
 
     test("Browser device tracking in mobile") {
         "/browser/tracking" (platform: "/mobile") {

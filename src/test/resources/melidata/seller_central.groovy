@@ -195,6 +195,54 @@ trackTests {
     }
   }
 
+  test("seller central advertising") {
+    "/seller_central/listings/communication/advertising"(platform: "/", type: TrackType.Event) {
+      action = "show"
+      id = "PADS_SADS_RECO"
+      type = "task"
+    }
+  }
+
+  test("seller central advertising landing") {
+    "/seller_central/listings/advertising_sll_landing"(platform: "/", type: TrackType.View) {
+      sll_total = 12
+      campaign_id = "65555"
+    }
+  }
+
+  test("seller central advertising click") {
+    "/seller_central/listings/communication/advertising_click"(platform: "/", type: TrackType.Event) {
+      action = "show"
+      id = "PADS_SADS_RECO"
+      type = "task"
+    }
+  }
+
+  test("Advertising manager SLL") {
+    "/seller_central/listings/advertising_sll_landing/activated"(platform: "/", type: TrackType.View) {
+      campaign_id = "2222222"
+      sll_total = "10"
+    }
+
+    "/seller_central/listings/communication/advertising/sll_landing/activated"(platform: "/", type: TrackType.Event) {
+      campaign_id = "2222222"
+      sll_total_activated = "10"
+      sll_total = "10"
+    }
+
+    "/seller_central/listings/communication/advertising/sll_landing/breadcrum"(platform: "/", type: TrackType.Event) {
+      campaign_id = "2222222"
+      sll_total_activated = "10"
+      sll_total = "10"
+    }
+
+    "/seller_central/listings/communication/advertising/sll_landing/tooltip"(platform: "/", type: TrackType.Event) {
+      campaign_id = "2222222"
+      sll_total_activated = "10"
+      sll_total = "10"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Summary
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1111,6 +1159,21 @@ trackTests {
     }
   }
 
+  test("seller central rebate chosen"){
+    "/seller_central/modify/update_rebate"(platform: "/", type: TrackType.Event) {
+      item_type = "product"
+      category_id = "MLA390784"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      from = "-1"
+      to = "6270"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+    }
+  }
+
   test("seller central track to measure health changes"){
     "/seller_central/modify/success"(platform: "/web", type: TrackType.Event){
       item_type = "default"
@@ -1487,13 +1550,17 @@ trackTests {
   // TRACKS Seller central Sales
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
-  test("seller central sales list view") {
+  test("seller central sales list view for web") {
     "/seller_central/sales/list"(platform: "/", type: TrackType.View) {
         seller_profile = "ADVANCED"
         seller_reputation = "5_green"
         seller_segment = "MEDIUM_SELLERS_III"
         mercado_lider = false
     }
+  }
+
+  test("seller central sales list view for mobile") {
+    "/seller_central/sales/list"(platform: "/web/mobile", type: TrackType.View) {}
   }
 
   test("seller central sales onboarding action") {
@@ -1808,6 +1875,24 @@ trackTests {
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller central METRICS SECTION
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("metrics section view for web") {
+    "/seller_central/metrics"(platform: "/web", type: TrackType.View) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+    }
+  }
+
+  test("metrics section view for mobile") {
+    "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Catalog Optin
   //------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -1815,6 +1900,24 @@ trackTests {
     "/seller_central/catalog"(platform: "/web", type: TrackType.View) {}
   }
 
+  test("seller central catalog optin variation selection page view") {
+    "/seller_central/catalog/optin/variation_selection"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+    }
+  }
 
   test("seller central catalog optin page view") {
     "/seller_central/catalog/optin"(platform: "/web", type: TrackType.View) {
@@ -1825,13 +1928,101 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+        [
+          "name": "test",
+          "id": "TEST",
+          "value_id": "123",
+          "value_name": "TEST"
+        ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin product resume card showed"){
+    "/seller_central/catalog/optin/product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
     }
   }
 
@@ -1844,7 +2035,7 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
@@ -1863,13 +2054,241 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+    }
+  }
+
+  test("seller central catalog optin_moderated page view") {
+    "/seller_central/catalog/optin/optin_moderated"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "NONE"
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/optin_moderated/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/optin_moderated/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin moderated product resume card showed"){
+    "/seller_central/catalog/optin/optin_moderated/product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
+    }
+  }
+
+  test("seller central catalog optin_moderated congrats page view") {
+    "/seller_central/catalog/optin/optin_moderated/congrats"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      moderated = "moderated"
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "NONE"
+    }
+  }
+
+
+  test("seller central catalog optin item_plus page view") {
+    "/seller_central/catalog/optin/item_plus"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      moderated = "moderated"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "NONE"
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/item_plus/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      moderated = "moderated"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin page view") {
+    "/seller_central/catalog/optin/item_plus/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      moderated = "moderated"
+      list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+    }
+  }
+
+  test("seller central catalog optin item_plus congrats page view") {
+    "/seller_central/catalog/optin/item_plus/congrats"(platform: "/web", type: TrackType.View) {
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      moderated = "moderated"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "NONE"
     }
   }
 
@@ -1882,7 +2301,7 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
@@ -1903,7 +2322,7 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
@@ -1925,7 +2344,7 @@ trackTests {
       original_catalog_product_id = "MLA1055"
       variation_id = 1234567
       has_variations_already_opt_in = true
-      children_catalog_products_ids = ["MLA1055"]
+      rejected_products = ["MLA1055"]
       has_variations = true
       seller_profile = "ADVANCED"
       reputation_level= "yellow"
@@ -1942,7 +2361,7 @@ trackTests {
     "/seller_central/catalog/optin/product_problem/confirm"(platform: "/web", type: TrackType.Event) {
       reputation_level = "5_green"
       moderated = false
-      children_catalog_products_ids = []
+      rejected_products = []
       has_variations = true
       original_catalog_product_id = "MLA7979515"
       selected_catalog_product_id = null
@@ -1963,7 +2382,7 @@ trackTests {
     "/seller_central/catalog/optin/other_product_problem"(platform: "/web", type: TrackType.View) {
       reputation_level = "5_green"
       moderated = "true"
-      children_catalog_products_ids = []
+      rejected_products = []
       has_variations = true
       original_catalog_product_id = "MLA7979515"
       selected_catalog_product_id = null
@@ -1983,7 +2402,7 @@ trackTests {
     "/seller_central/catalog/optin/other_product_problem/product_problem_description_task/confirm"(platform: "/web", type: TrackType.Event) {
       reputation_level = "5_green"
       moderated = true
-      children_catalog_products_ids = []
+      rejected_products = []
       has_variations = true
       original_catalog_product_id = "MLA7979515"
       selected_catalog_product_id = false
@@ -2007,89 +2426,21 @@ trackTests {
   test("Seller Central Promotions - View event sending original promotion data"){
     "/seller_central/promotions"(platform: "/web", type: TrackType.View){
       original_promotion = [
-              id: "MLA808249210",
-              seller_id: 450981020,
-              buying_mode: "buy_it_now",
-              sale_terms: [
-                      [
-                              id: "LOYALTY_LEVEL_4",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ],
-                      [
-                              id: "LOYALTY_LEVEL_5",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ],
-                      [
-                              id: "LOYALTY_LEVEL_3",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ],
-                      [
-                              id: "LOYALTY_LEVEL_6",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ]
-              ],
-              campaigns: [],
-              best_offer: null,
-              price: 500,
-              original_price: 1000,
-              promotion: [
-                      status: "started",
-                      price: 500,
-                      start_date: "2019-09-18T03:00:00.000Z",
-                      finish_date: "2019-10-05T02:59:00.000Z",
-                      list_price: 1000,
-                      prime_price: 400
-              ],
-              visits: 27,
-              available_quantity: 97,
-              title: "Item De Testeo, Por Favor No Ofertar --kc:off",
-              sold_quantity: 3,
-              secure_thumbnail: "https://http2.mlstatic.com/resources/frontend/statics/processing-image/1.0.0/I-ES.jpg",
-              currency: [
-                      id: "ARS",
-                      decimal_places: 2,
-                      symbol: "\$"
-              ],
-              tags: [
-                      "loyalty_discount_eligible",
-                      "test_item",
-                      "immediate_payment"
-              ],
-              validations: [],
-              campaign_offers: [
-                      [
-                              offer_mode: "LONG_TAIL",
-                              offer: null,
-                              campaign: [
-                                      name: "campanianueva",
-                                      identifier: "MLA626",
-                                      start_date: "2018-10-26T16:10:00.000Z",
-                                      finish_date: "2019-12-12T13:17:21.000Z",
-                                      dead_line: "2019-03-03T00:57:00.000Z",
-                                      type: "discounts",
-                                      status: "started",
-                                      is_active: false,
-                                      is_available: false,
-                                      applied_offer: false
-                              ]
-                      ]
-              ]
+              start_date: "2020-08-01T00:00:00",
+              finish_date: "2020-08-01T23:59:59.999999999",
+              seller_id: 472118157,
+              item_id: "MLA870917274",
+              price: 25500,
+              list_price: 30000,
+              prime_price: null,
+              status: "pending",
+              type: "price_discount",
+              initial_orders: null,
+              total_orders: 0,
+              last_updated: "2020-07-30T20:00:37.787Z",
+              created_date: "2020-07-30T20:00:37.787Z",
+              involved_stock: null,
+              discount_delta: null,
       ]
     }
 
@@ -2108,97 +2459,31 @@ trackTests {
               error_prime: null,
               input_price: "500",
               input_prime_price: "400",
-              type: "always_on",
+              type: "price_discount",
       ]
       promotion_duration = 17
     }
 
     // TESTS FOR NEW PATHS
     "/seller_central/promotions/list"(platform: "/web", type: TrackType.View){
-      original_promotion = [
-              id: "MLA808249210",
-              seller_id: 450981020,
-              buying_mode: "buy_it_now",
-              sale_terms: [
-                      [
-                              id: "LOYALTY_LEVEL_4",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ],
-                      [
-                              id: "LOYALTY_LEVEL_5",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ],
-                      [
-                              id: "LOYALTY_LEVEL_3",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ],
-                      [
-                              id: "LOYALTY_LEVEL_6",
-                              value_id: null,
-                              value_struct: [
-                                      number: 400,
-                                      unit: "ARS"
-                              ]
-                      ]
-              ],
-              campaigns: [],
-              best_offer: null,
-              price: 500,
-              original_price: 1000,
-              promotion: [
-                      status: "started",
-                      price: 500,
-                      start_date: "2019-09-18T03:00:00.000Z",
-                      finish_date: "2019-10-05T02:59:00.000Z",
-                      list_price: 1000,
-                      prime_price: 400
-              ],
-              visits: 27,
-              available_quantity: 97,
-              title: "Item De Testeo, Por Favor No Ofertar --kc:off",
-              sold_quantity: 3,
-              secure_thumbnail: "https://http2.mlstatic.com/resources/frontend/statics/processing-image/1.0.0/I-ES.jpg",
-              currency: [
-                      id: "ARS",
-                      decimal_places: 2,
-                      symbol: "\$"
-              ],
-              tags: [
-                      "loyalty_discount_eligible",
-                      "test_item",
-                      "immediate_payment"
-              ],
-              validations: [],
-              campaign_offers: [
-                      [
-                              offer_mode: "LONG_TAIL",
-                              offer: null,
-                              campaign: [
-                                      name: "campanianueva",
-                                      identifier: "MLA626",
-                                      start_date: "2018-10-26T16:10:00.000Z",
-                                      finish_date: "2019-12-12T13:17:21.000Z",
-                                      dead_line: "2019-03-03T00:57:00.000Z",
-                                      type: "discounts",
-                                      status: "started",
-                                      is_active: false,
-                                      is_available: false,
-                                      applied_offer: false
-                              ]
-                      ]
-              ]
+      original_promotion = []
+      original_lightning = []
+      original_dod = [
+              start_date: "2020-08-01T00:00:00",
+              finish_date: "2020-08-01T23:59:59.999999999",
+              seller_id: 472118157,
+              item_id: "MLA870917274",
+              price: 25500,
+              list_price: 30000,
+              prime_price: null,
+              status: "pending",
+              type: "deal_of_the_day",
+              initial_orders: null,
+              total_orders: 0,
+              last_updated: "2020-07-30T20:00:37.787Z",
+              created_date: "2020-07-30T20:00:37.787Z",
+              involved_stock: 20,
+              discount_delta: 0.05,
       ]
       context: "CREATE"
     }
@@ -2218,7 +2503,7 @@ trackTests {
               error_prime: null,
               input_price: "500",
               input_prime_price: "400",
-              type: "always_on",
+              type: "price_discount",
       ]
       promotion_duration = 17
       origin = "listing"
@@ -2239,9 +2524,10 @@ trackTests {
               error_prime: null,
               input_price: "500",
               input_prime_price: "400",
-              type: "always_on",
+              type: "price_discount",
       ]
       promotion_duration = 17
+      origin = "listing"
     }
 
     "/seller_central/promotions/list/delete"(platform: "/web", type: TrackType.Event){
@@ -2259,9 +2545,10 @@ trackTests {
               error_prime: null,
               input_price: "500",
               input_prime_price: "400",
-              type: "always_on",
+              type: "price_discount",
       ]
       promotion_duration = 17
+      origin = "listing"
     }
 
     "/seller_central/promotions/list/error"(platform: "/web", type: TrackType.Event){
@@ -2279,10 +2566,11 @@ trackTests {
               error_prime: null,
               input_price: "500",
               input_prime_price: "400",
-              type: "always_on",
+              type: "price_discount",
       ]
       promotion_duration = 17
       error = "net::ERR_ABORTED 404"
+      origin = "listing"
     }
 
     "/seller_central/promotions/list/actions"(platform: "/web", type: TrackType.Event){
@@ -2297,6 +2585,38 @@ trackTests {
 
   test("seller central listing main page") {
     "/seller_central/promotions/list"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("seller central listing promos render") {
+    "/seller_central/promotions/list/info"(platform: "/", type: TrackType.Event) {
+      candidates = ["CANDIDATE_DOD"]
+    }
+  }
+
+  test("seller central listing promos render with no candidates") {
+    "/seller_central/promotions/list/info"(platform: "/", type: TrackType.Event) {
+      candidates = []
+    }
+  }
+
+  test("seller central listing promos render with card filter") {
+    "/seller_central/promotions/cards"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing promos card filter action") {
+    "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
+      type = "lightning"
+    }
+  }
+
+  test("seller central listing promos render with onboarding") {
+    "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}
+  }
+
+  test("seller central listing promos render with onboarding action") {
+    "/seller_central/promotions/onboarding/action"(platform: "/", type: TrackType.Event) {
+      action = "start"
+    }
   }
 
   test("seller central listing action") {
