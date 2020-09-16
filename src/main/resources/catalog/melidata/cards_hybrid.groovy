@@ -505,6 +505,12 @@ tracks {
             values: ["primary_button", "secondary_button"],
             description: "The action type tapped"
         )
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable: false
+        )
     }
     "/cards/hybrid/block_card/virtual/success"(platform: "/", type: TrackType.Event) {
         reasons (
