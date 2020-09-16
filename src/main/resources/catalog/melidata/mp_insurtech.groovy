@@ -60,7 +60,7 @@ tracks {
         insurance_purchase_key(required: true, type: PropertyType.String, description: "Insurance purchase key associated to the RODA protection.")
         amount_total(required: true, type: PropertyType.Numeric, description: "Total Price of the purchased option plan.")
         amount_fee(required: true, type: PropertyType.Numeric, description: "Fee amount obtained by meli for the purchased option plan.")
-        option_check(required: true, type: PropertyType.String, description: "Level of the hardware check. For ex: total, screen.")
+        option_check(required: true, type: PropertyType.String, values['total', 'screen'], description: "Level of the hardware check. For ex: total, screen.")
         option_coverage(required: true, type: PropertyType.String, description: "Coverage of the acquired protection. For ex: theft, break, screen, theft_break.")
         deductible(required: true, type: PropertyType.Numeric, description: "Deductible percentage of the option.")
         has_open_claim(required: true, type: PropertyType.Boolean, description: "This is true if the protection has an open claim.")
