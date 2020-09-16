@@ -275,4 +275,28 @@ trackTests {
             session_id = "1"
         }
     }
+    
+    // **********************************************************
+    // ******************** Events - Congrats *******************
+    // **********************************************************
+    
+    test("Mercadopago discount sellers congrats view") {
+        "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {
+            session_id = "1"
+            status = "pending"
+        }
+    }
+    
+    test("Mercadopago discount sellers congrats tap") {
+        "/discount_sellers/congrats/tap" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "1"
+            title = "Title"
+        }
+    }
+    
+    test("Mercadopago discount sellers congrats close") {
+        "/discount_sellers/congrats/close" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "1"
+        }
+    }
 }
