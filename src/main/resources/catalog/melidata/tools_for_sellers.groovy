@@ -15,6 +15,7 @@ tracks {
 
     propertyDefinitions {
         tab_context(required: true, type: PropertyType.String, description: "the tab where the actions are clicked", values: ["/stores/details_pos", "/stores/details_devices"])
+        types(required: true, type: PropertyType.String, description: "the delivery types selected by the user", values: ['none', 'pickup', 'delivery', 'both'])
     }
 
     //Account mydata
@@ -49,6 +50,7 @@ tracks {
     "/stores"(platform: "/", isAbstract: true) {}
     "/stores/create"(platform: "/", type: TrackType.View) {}
     "/stores/create_poses"(platform: "/", type: TrackType.View) {}
+    "/stores/create_delivery"(platform: "/", isAbstract: true) {}
     "/stores/create_delivery/start"(platform: "/", type: TrackType.View) {}
     "/stores/create_delivery/end"(platform: "/", type: TrackType.Event) {
         types(required: true, type: PropertyType.String, description: "the delivery types selected by the user", values: ['none', 'pickup', 'delivery', 'both'])
@@ -56,6 +58,7 @@ tracks {
     "/stores/link_operators"(platform: "/", type: TrackType.View) {}
     "/stores/list"(platform: "/", type: TrackType.View) {}
     "/stores/update"(platform: "/", type: TrackType.View) {}
+    "/stores/update_delivery"(platform: "/", isAbstract: true) {}
     "/stores/update_delivery/start"(platform: "/", type: TrackType.View) {}
     "/stores/update_delivery/end"(platform: "/", type: TrackType.Event) {
         types(required: true, type: PropertyType.String, description: "the delivery types selected by the user", values: ['none', 'pickup', 'delivery', 'both'])
