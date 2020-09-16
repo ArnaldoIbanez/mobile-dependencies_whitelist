@@ -1544,21 +1544,21 @@ trackTests {
             collector_id = "388741077"
         }
 
-        "/instore/buyer_qr/landing/back_office_pending"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+        "/instore/buyer_qr/landing/back_office_pending"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             regulation_name = "MLM_IFPE"
             regulation_user_status = "APPLIED"
             regulation_evaluation_result =  "PENDING_MANUAL_REVIEW"
         }
 
-        "/instore/buyer_qr/landing/no_terms_and_conditions"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+        "/instore/buyer_qr/landing/no_terms_and_conditions"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             regulation_name = "MLM_IFPE"
             regulation_user_status = "POTENTIAL"
             regulation_evaluation_result = "PENDING_EVALUATION"
         }
 
-        "/instore/buyer_qr/landing/ifpe_no_apliance"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+        "/instore/buyer_qr/landing/ifpe_no_apliance"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             regulation_name = "MLM_IFPE"
             regulation_user_status = "BLOCK"
@@ -3100,6 +3100,27 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2123"
             device_time_difference = 800
             device_time_range_status = "below_time_range"
+        }
+
+        "/instore/buyer_qr/landing/back_office_pending"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            regulation_name = "MLM_IFPE"
+            regulation_user_status = "APPLIED"
+            regulation_evaluation_result =  "PENDING_MANUAL_REVIEW"
+        }
+
+        "/instore/buyer_qr/landing/no_terms_and_conditions"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            regulation_name = "MLM_IFPE"
+            regulation_user_status = "POTENTIAL"
+            regulation_evaluation_result = "PENDING_EVALUATION"
+        }
+
+        "/instore/buyer_qr/landing/ifpe_no_apliance"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            regulation_name = "MLM_IFPE"
+            regulation_user_status = "BLOCK"
+            regulation_evaluation_result = "DOES_NOT_COMPLY"
         }
 
         //Buyer QR - Generic Error
