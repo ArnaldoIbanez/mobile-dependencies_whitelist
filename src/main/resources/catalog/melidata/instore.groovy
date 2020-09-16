@@ -690,6 +690,24 @@ tracks {
         device_time_range_status(required: true, PropertyType.String, values:["below_time_range", "above_time_range"], description:  "if the time difference is below or above the servers")
     }
 
+    "/instore/buyer_qr/landing/back_office_pending"(platform: "/mobile", type: TrackType.View) {
+        regulation_name(required: true, PropertyType.String, description: "The name of the regulation corresponding to the landing")
+        regulation_user_status(required: true, PropertyType.String, description:  "The user status in the regulation")
+        regulation_evaluation_result(required: true, PropertyType.String, description: "The evaluation result according the regulation landing")
+    }
+
+    "/instore/buyer_qr/landing/no_terms_and_conditions"(platform: "/mobile", type: TrackType.View) {
+        regulation_name(required: true, PropertyType.String, description: "The name of the regulation corresponding to the landing")
+        regulation_user_status(required: true, PropertyType.String, description:  "The user status in the regulation")
+        regulation_evaluation_result(required: true, PropertyType.String, description: "The evaluation result according the regulation landing")
+    }
+
+    "/instore/buyer_qr/landing/ifpe_no_apliance"(platform: "/mobile", type: TrackType.View) {
+        regulation_name(required: true, PropertyType.String, description: "The name of the regulation corresponding to the landing")
+        regulation_user_status(required: true, PropertyType.String, description:  "The user status in the regulation")
+        regulation_evaluation_result(required: true, PropertyType.String, description: "The evaluation result according the regulation landing")
+    }
+
     //Buyer QR - Generic Error
 
     "/instore/buyer_qr/generic_landing"(platform: "/mobile", type: TrackType.View) {}
