@@ -191,12 +191,12 @@ trackTests {
                 [
                     coverage: "theft_break",
                     price: 123.33,
-                    deductible: 30.44
+                    deductible_amount: 12.33,
                 ],
                 [
                     coverage: "theft_break",
                     price: 100.33,
-                    deductible: 20.44
+                    deductible_amount: 12.33,
                 ]
             ]
             financing_type = null
@@ -213,7 +213,7 @@ trackTests {
                 [
                     coverage: "total",
                     price: 123.33,
-                    deductible: 30.44
+                    deductible_amount: 12.33,
                 ],
             ]
             financing_type = [
@@ -277,7 +277,6 @@ trackTests {
                 monthly_price: 15.44,
                 fee_price: 10.44,
                 currency_id: "BRL",
-                deductible: 10.25,
                 deductible_amount: 20.00,
                 check: "total"
             ]
@@ -301,7 +300,6 @@ trackTests {
                 monthly_price: 15.44,
                 fee_price: 10.44,
                 currency_id: "BRL",
-                deductible: 10.25,
                 deductible_amount: 20.00,
                 check: "total"
             ]
@@ -748,7 +746,7 @@ trackTests {
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
-                deductible: 10,
+                deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
@@ -760,7 +758,7 @@ trackTests {
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
-                deductible: 10,
+                deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
@@ -773,7 +771,7 @@ trackTests {
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
-                deductible: 10,
+                deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
@@ -786,7 +784,7 @@ trackTests {
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
-                deductible: 10,
+                deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
@@ -799,7 +797,7 @@ trackTests {
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
-                deductible: 10,
+                deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
@@ -813,7 +811,7 @@ trackTests {
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
-                deductible: 10,
+                deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
@@ -826,7 +824,7 @@ trackTests {
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
-                deductible: 10,
+                deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
@@ -839,7 +837,7 @@ trackTests {
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
-                deductible: 10,
+                deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
@@ -852,7 +850,7 @@ trackTests {
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
-                deductible: 10,
+                deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
@@ -866,7 +864,7 @@ trackTests {
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
-                deductible: 10,
+                deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
@@ -884,7 +882,7 @@ trackTests {
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
-                deductible: 10,
+                deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
@@ -900,7 +898,7 @@ trackTests {
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
-                deductible: 10,
+                deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]
@@ -913,7 +911,7 @@ trackTests {
                 amount_fee:  10.72,
                 option_check: "total",
                 option_coverage: "theft_break",
-                deductible: 10,
+                deductible_amount: 10.72,
                 has_open_claim: false,
                 is_current_device_protection: false,
             ]

@@ -8,11 +8,6 @@ tracks {
 
     initiative = "1212"
 
-    // INSURTECH RODA QPage Abstract
-    "/insurtech"(platform: "/", isAbstract: true) {}
-    "/insurtech/roda"(platform: "/", isAbstract: true) {}
-    "/insurtech/roda/qpage"(platform: "/", isAbstract: true) {}
-
     // INSURTECH RODA Structures
     def roda_device = objectSchemaDefinitions {
         brand(required: true, type: PropertyType.String, description: "Brand of device. For ex: Samsung.")
@@ -28,7 +23,6 @@ tracks {
         monthly_price(required: true, type: PropertyType.Numeric, description: "Monthly price of the option.")
         fee_price(required: true, type: PropertyType.Numeric, description: "Fee price for meli of the option.")
         currency_id(required: true, type: PropertyType.String, description: "Currency id of the option. For ex: BRL.")
-        deductible(required: true, type: PropertyType.Numeric, description: "Deductible percentage of the option.")
         deductible_amount(required: true, type: PropertyType.Numeric, description: "Deductible amount of the option.")
         check(required: true, type: PropertyType.String, description: "Check HW required. For ex: total.")
     }
@@ -36,7 +30,7 @@ tracks {
     def roda_option_short = objectSchemaDefinitions {
         coverage(required: true, type: PropertyType.String, description: "Coverage of the option. For ex: theft_break, theft, break, accident.")
         price(required: true, type: PropertyType.Numeric, description: "Price of the option.")
-        deductible(required: true, type: PropertyType.Numeric, description: "Deductible percentage of the option.")
+        deductible_amount(required: true, type: PropertyType.Numeric, description: "Deductible amount of the option.")
     }
 
     def protection_short = objectSchemaDefinitions {
@@ -62,7 +56,7 @@ tracks {
         amount_fee(required: true, type: PropertyType.Numeric, description: "Fee amount obtained by meli for the purchased option plan.")
         option_check(required: true, type: PropertyType.String, values: ['total', 'screen'], description: "Level of the hardware check. For ex: total, screen.")
         option_coverage(required: true, type: PropertyType.String, values: ['theft_break', 'theft', 'break', 'screen'], description: "Coverage of the acquired protection. For ex: theft, break, screen, theft_break.")
-        deductible(required: true, type: PropertyType.Numeric, description: "Deductible percentage of the option.")
+        deductible_amount(required: true, type: PropertyType.Numeric, description: "Deductible amount of the option.")
         has_open_claim(required: true, type: PropertyType.Boolean, description: "This is true if the protection has an open claim.")
         is_current_device_protection(required: true, type: PropertyType.Boolean, description: "This is true if the current device of the track is the one related to this protection.")
     }
@@ -72,6 +66,12 @@ tracks {
         franchise_payment_id(required: false, type: PropertyType.Numeric, description: "ID of payment associated to the franchise.")
         franchise_payment_amount(required: false, type: PropertyType.Numeric, description: "Amount associated to the franchise payment.")
     }
+
+    // INSURTECH RODA QPage Abstract
+    "/insurtech"(platform: "/", isAbstract: true) {}
+
+    "/insurtech/roda"(platform: "/", isAbstract: true) {}
+    "/insurtech/roda/qpage"(platform: "/", isAbstract: true) {}
 
     "/insurtech/roda/qpage"(platform:"/", type: TrackType.View) {
         device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
