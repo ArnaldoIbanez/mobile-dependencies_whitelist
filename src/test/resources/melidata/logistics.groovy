@@ -491,7 +491,6 @@ trackTests {
             pickups_status = ["pending" ,"finished"]
         }
         "/logistics/first_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {
-            pickups_status = ["pending" ,"finished"]
         }
         "/logistics/first_mile/scanner"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()

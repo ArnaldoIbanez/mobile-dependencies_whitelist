@@ -377,7 +377,7 @@ tracks {
         pickups_status(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the diferent status in all the pickups")
     }
     "/logistics/first_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {
-        pickups_status(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the diferent status in all the pickups")
+        pickups_status(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the diferent status in all the pickups")
     }
     "/logistics/first_mile/scanner"(platform: "/mobile", type: TrackType.View) {
         location
