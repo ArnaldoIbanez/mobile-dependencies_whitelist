@@ -325,7 +325,7 @@ trackTests {
 
         "/logistics/last_mile/detail/distance_modal"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
-            current_distance = "500"
+            distance = "500"
             context = "could_not_deliver"
         }
 

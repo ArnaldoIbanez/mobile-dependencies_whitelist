@@ -243,7 +243,7 @@ tracks {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
     }
     "/logistics/last_mile/detail/distance_modal"(platform: "/mobile", type: TrackType.View) {
-        current_distance(required: false, type: PropertyType.String, description: "Specifies the distance between the driver and the destination in meters")
+        distance(required: false, type: PropertyType.String, description: "Specifies the distance between the driver and the destination in meters")
         context(required: true, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't",
                 values: ["deliver", "could_not_deliver"])
     }
