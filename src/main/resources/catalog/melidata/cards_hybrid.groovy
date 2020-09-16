@@ -840,7 +840,7 @@ tracks {
     }
     
     // Options message
-    "/cards/hybrid/setup/options/message"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/setup/options/message"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/setup/options/message/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
