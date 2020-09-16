@@ -687,6 +687,7 @@ tracks {
         payment_status_detail(required: true, type: PropertyType.String, description: "Payment status")
         preference_amount(required: false, type: PropertyType.Numeric, description: "Total amount")
         currency_id(required: false, type: PropertyType.String, description: "Currency id")
+        discount_coupon_amount(required: false, type: PropertyType.Numeric, description: "Discount coupon amount")
         has_split_payment(required: false, type: PropertyType.Boolean, description: "Pay with split payment")
         has_bottom_view(required: false, type: PropertyType.Boolean, description: "Result view has bottom view component")
         has_top_view(required: false, type: PropertyType.Boolean, description: "Result view has top view component")
