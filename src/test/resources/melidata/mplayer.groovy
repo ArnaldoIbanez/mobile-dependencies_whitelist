@@ -52,6 +52,11 @@ trackTests {
 
         "/mplayer/send_money/result/in_process"(platform: "/mobile") {}
 
+        "/mplayer/send_money/redirector/manual_amount"(platform: "/mobile") {
+            flow = "flow"
+            contact_type = "user_id"
+        }
+
         // Money Request
         "/mplayer/closed_request/onboarding"(platform: "/mobile") {}
         "/mplayer/closed_request/contact_picker"(platform: "/mobile") {}
