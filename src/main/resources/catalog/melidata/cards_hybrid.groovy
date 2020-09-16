@@ -270,8 +270,30 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["physical_delivered", "hybrid_active", "debit_active", "physical_inactive", "user_need_challenge", "virtual_only", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped"],
+            values: ["physical_delivered", "hybrid_active", "debit_active", "physical_inactive", "user_need_challenge", "virtual_only", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "options", "card_data"],
             description: "Mini card tapped"
+          )
+    }
+    
+    //Banner: Tracking
+    "/cards/hybrid/dashboard/banner"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/banner/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["render", "physical_inactive", "virtual_only", "user_need_challenge", "tracking_pending", "tracking_ready_to_ship", "tracking_shipped", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "physical_delivered", "tracking_not_delivered", "kyc_pending_manual_review", "kyc_not_compliance", "kyc_compliance", "debit_active", "hybrid_active"],
+            description: "Banner tapped"
+          )
+    }
+    
+    //Banner: Tracking
+    "/cards/hybrid/dashboard/physical_acquisition_stop"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/dashboard/physical_acquisition_stop/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["primary_button", "secondary_button"],
+            description: "Physical acquisition stop tapped"
           )
     }
     
@@ -423,7 +445,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy", "header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message"],
+            values: ["reissue", "freeze", "unfreeze", "card_unfreeze", "copy", "header_help", "card_name_copy", "card_number_copy", "card_sec_code_copy", "additional_message", "additional_message_freeze"],
             description: "The action type tapped"
         )
     }
@@ -798,5 +820,33 @@ tracks {
             description: "Coachmark identificator"
         )
     }
+    
+    // OPTIONS
+    // --------
+     "/cards/hybrid/setup/options"(platform: "/", type: TrackType.View) {
+         virtual_status (required:false, type: PropertyType.String, description: "Virtual status", inheritable:false)
+         debit_status (required:false, type: PropertyType.String, description: "Debit status", inheritable:false)
+         hybrid_status (required:false, type: PropertyType.String, description: "Hybrid status", inheritable:false)
+         empty_state (required:false, type: PropertyType.String, description: "Empty state status", inheritable:false)
+     }
 
+    "/cards/hybrid/setup/options/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["block_card", "change_limits", "change_pin", "virtual_debit_unfreeze", "virtual_debit_freeze", "physical_unfreeze", "physical_freeze", "primary_button_empty_state"],
+            description: "Row tapped"
+        )
+    }
+    
+    // Options message
+    "/cards/hybrid/setup/options/message"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/setup/options/message/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["blocked_pin"],
+            description: "Message button tapped"
+        )
+    }
 }
