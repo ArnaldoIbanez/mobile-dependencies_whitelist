@@ -48,9 +48,18 @@ tracks {
     //Stores
     "/stores"(platform: "/", isAbstract: true) {}
     "/stores/create"(platform: "/", type: TrackType.View) {}
+    "/stores/create_poses"(platform: "/", type: TrackType.View) {}
+    "/stores/create_delivery/start"(platform: "/", type: TrackType.View) {}
+    "/stores/create_delivery/end"(platform: "/", type: TrackType.Event) {
+        types(required: true, type: PropertyType.String, description: "the delivery types selected by the user", values: ['none', 'pickup', 'delivery', 'both'])
+    }
     "/stores/link_operators"(platform: "/", type: TrackType.View) {}
     "/stores/list"(platform: "/", type: TrackType.View) {}
     "/stores/update"(platform: "/", type: TrackType.View) {}
+    "/stores/update_delivery/start"(platform: "/", type: TrackType.View) {}
+    "/stores/update_delivery/end"(platform: "/", type: TrackType.Event) {
+        types(required: true, type: PropertyType.String, description: "the delivery types selected by the user", values: ['none', 'pickup', 'delivery', 'both'])
+    }
     "/stores/details"(platform: "/", type: TrackType.View) {}
     "/stores/details_pos"(platform: "/", type: TrackType.View) {}
     "/stores/details_devices"(platform: "/", type: TrackType.View) {}
