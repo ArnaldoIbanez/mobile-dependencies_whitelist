@@ -124,6 +124,7 @@ tracks {
         carrier_code(required: false, type: PropertyType.String, description: "Carrier code of the network provider (MCC+MNC)")
         carrier_name(required: false, type: PropertyType.String, description: "Name of the carrier network provider")
         nfc_compatible(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Nfc compatible with the device")
+        nfc_enabled(required: false, type: PropertyType.Boolean, description: "Nfc is enabled or not")
     }
 
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}
