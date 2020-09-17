@@ -349,13 +349,9 @@ tracks {
         claim(required: true, type: PropertyType.Map(claim_roda), description: "RODA Protection claim data")
     }
 
-    "/insurtech/protections/detail/roda/phone_activation"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
-        protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
-    }
+    "/insurtech/protections/detail/roda/phone_activation"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {}
 
-    "/insurtech/protections/detail/roda/shipping_instructions"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
-        protection(required: true, type: PropertyType.Map(protection_roda), description: "RODA Protection data")
-    }
+    "/insurtech/protections/detail/roda/shipping_instructions"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) { }
 
     "/insurtech/protections/detail/roda/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the my-fe page. This will be non empty when accessing from mobile")
