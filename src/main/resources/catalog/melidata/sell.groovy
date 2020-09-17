@@ -34,6 +34,10 @@ tracks {
     def item_from_map = objectSchemaDefinitions {
         category_id(required: true, PropertyType.String, description: "Original item's category id")
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+        item_id(required: true, description: "Original item id", PropertyType.String)
+        status(required: true, description: "Original item status", PropertyType.String)
+        substatus(required: true, description: "Original item substatus", PropertyType.String)
+        sold_quantity(required: true, description: "Original item sold quantity", PropertyType.Numeric)
     }
     def picture_info_map = objectSchemaDefinitions {
         width(required: true, type: PropertyType.Numeric, description: "this property describes width of the image")
@@ -60,8 +64,8 @@ tracks {
         predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
         parent_product_id(required: false, type: PropertyType.String, description: "Catalog product parent id for item")
         product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
-        item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
-        list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL/LIST AGAIN/CHANGE_CATEGORY  V4 flows.", PropertyType.Map(item_from_map))
+        list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST", "LIST_AGAIN", "CHANGE_CATEGORY"])
         vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         listing_type_id(required: false, description: "Item listing type id")
         listing_type_free_available(required: false, type: PropertyType.Boolean, description: "Listing type free available")
