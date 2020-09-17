@@ -166,6 +166,7 @@ trackTests {
             captcha_showed = false
             deal_ids = []
             item_condition= "new"
+            has_good_price= true
         })
 
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
@@ -774,12 +775,14 @@ trackTests {
 
         "/vip/show_all_description"(platform: "/", type: TrackType.Event){
             item_id = "MLA213512313"
+            has_good_price = true
         }
 
         "/vip/technical_specs"(platform: "/web", type: TrackType.View){
             item_id = "MLA213512313"
             vertical = "core"
             vip_version = "new"
+            has_good_price = false
         }
 
         "/vip/technical_specs/see_more"(platform: "/web", type: TrackType.Event){
@@ -793,6 +796,7 @@ trackTests {
                     "MLA1495",
                     "MLA401803"
             ]
+            has_good_price = true
         }
 
         "/vip/denounce_intention"(platform: "/web", type: TrackType.Event){
@@ -806,11 +810,13 @@ trackTests {
                     "MLA1495",
                     "MLA401803"
             ]
+            has_good_price = true
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
             vip_version = "new"
+            has_good_price = false
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
@@ -824,6 +830,7 @@ trackTests {
             item_id = "MLA213512313"
             catalog_product_id="MLA123456"
             vip_version = "new"
+            has_good_price = true
         }
 
         "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {

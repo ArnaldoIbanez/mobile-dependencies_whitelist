@@ -1892,6 +1892,130 @@ trackTests {
     "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
   }
 
+  test("metrics section view for web") {
+    "/seller_central/metrics/show_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/clear_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/apply_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/close_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/chart_render"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+      metric = "GMV"
+      value = "2000"
+      badget_type = "up"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/date_picker_show"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+      period_type = "primary"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/date_picker_apply"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+      period_type = "primary"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Catalog Optin
   //------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -4630,9 +4630,18 @@ trackTests {
 
     test("Stores frontend admin") {
         "/stores/create"(platform: "/web", type: TrackType.View) {}
+        "/stores/create_poses"(platform: "/web", type: TrackType.View) {}
+        "/stores/create_delivery/start"(platform: "/web", type: TrackType.View) {}
+        "/stores/create_delivery/end"(platform: "/web", type: TrackType.Event) {
+        types = 'both'
+        }
         "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
         "/stores/list"(platform: "/web", type: TrackType.View) {}
         "/stores/update"(platform: "/web", type: TrackType.View) {}
+        "/stores/update_delivery/start"(platform: "/web", type: TrackType.View) {}
+        "/stores/update_delivery/end"(platform: "/web", type: TrackType.Event) {
+        types = 'both'
+        }
         "/stores/details"(platform: "/web", type: TrackType.View) {}
         "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
         "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
@@ -4669,9 +4678,18 @@ trackTests {
         }
 
         "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/create_poses"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/create_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/create_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
+        types = 'pickup'
+        }
         "/stores/link_operators"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/list"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/update"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/update_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/update_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
+        types = 'pickup'
+        }
         "/stores/details"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/pos/create"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/pos/update"(platform: "/web/mobile", type: TrackType.View) {}

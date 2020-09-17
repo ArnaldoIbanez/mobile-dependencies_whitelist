@@ -516,7 +516,8 @@ tracks {
         card_id (
             required: true,
             type: PropertyType.String,
-            description: "Card id"
+            description: "Card id",
+            inheritable: false
         )
     }
     "/cards/hybrid/block_card/virtual/tap"(platform:"/", type: TrackType.Event) {
@@ -526,8 +527,14 @@ tracks {
             values: ["primary_button", "secondary_button"],
             description: "The action type tapped"
         )
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable: false
+        )
     }
-    "/cards/hybrid/block_card/virtual/success"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/cards/hybrid/block_card/virtual/success"(platform: "/", type: TrackType.Event) {
         reasons (
             required: true,
             type: PropertyType.ArrayList(PropertyType.String),
@@ -840,7 +847,7 @@ tracks {
     }
     
     // Options message
-    "/cards/hybrid/setup/options/message"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/setup/options/message"(platform: "/", isAbstract: true) {}
     "/cards/hybrid/setup/options/message/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
