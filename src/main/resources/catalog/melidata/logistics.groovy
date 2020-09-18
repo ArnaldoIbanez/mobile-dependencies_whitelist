@@ -374,10 +374,9 @@ tracks {
     "/logistics/first_mile/list"(platform: "/mobile", type: TrackType.View) {
         first_mile_logistic_type(required:false, type: PropertyType.String, values: ["XD", "FF"], description: "Identifies whether it is a fulfillment or a cross-docking pickup for first mile")
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
-        pickups_status(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the diferent status in all the pickups")
+        pickups_status(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the diferent status in all the pickups", inheritable: false)
     }
     "/logistics/first_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {
-        pickups_status(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the diferent status in all the pickups")
     }
     "/logistics/first_mile/scanner"(platform: "/mobile", type: TrackType.View) {
         location
