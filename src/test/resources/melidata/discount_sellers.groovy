@@ -280,10 +280,24 @@ trackTests {
     // ******************** Events - Congrats *******************
     // **********************************************************
     
-    test("Mercadopago discount sellers congrats view") {
+    test("Mercadopago discount sellers congrats success view") {
+        "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {
+            session_id = "1"
+            status = "success"
+        }
+    }
+    
+    test("Mercadopago discount sellers congrats pending view") {
         "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {
             session_id = "1"
             status = "pending"
+        }
+    }
+    
+    test("Mercadopago discount sellers congrats rejected view") {
+        "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {
+            session_id = "1"
+            status = "rejected"
         }
     }
     
