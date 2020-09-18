@@ -52,6 +52,11 @@ trackTests {
 
         "/mplayer/send_money/result/in_process"(platform: "/mobile") {}
 
+        "/mplayer/send_money/redirector/manual_amount"(platform: "/mobile") {
+            flow = "flow"
+            contact_type = "user_id"
+        }
+
         // Money Request
         "/mplayer/closed_request/onboarding"(platform: "/mobile") {}
         "/mplayer/closed_request/contact_picker"(platform: "/mobile") {}
@@ -59,6 +64,12 @@ trackTests {
         "/mplayer/closed_request/mandatory_reason"(platform: "/mobile") {}
         "/mplayer/closed_request/congrats_request"(platform: "/mobile") {}
         "/mplayer/closed_request/reject"(platform: "/mobile") {}
+        "/mplayer/closed_request/congrats_request/exit"(platform: "/mobile") {
+            button = "main_button"
+        }
+
+        "/mplayer/closed_request/congrats_request/detail"(platform: "/mobile") {}
+        "/mplayer/closed_request/congrats_request/home"(platform: "/mobile") {}
 
         "/mplayer/closed_request/status"(platform: "/mobile") {
             request_status = "pending"
@@ -68,6 +79,12 @@ trackTests {
             input_type = "manual"
             source = "phone"
             is_recent = false
+        }
+
+        "/mplayer/closed_request/contact_picker/invalid_nickname"(platform: "/mobile") {}
+
+        "/mplayer/closed_request/contact_picker/continue"(platform: "/mobile") {
+            quantity = 5
         }
 
         "/mplayer/closed_request/manual_amount/continue"(platform: "/mobile") {
@@ -153,6 +170,8 @@ trackTests {
             input_type = "manual"
             is_recent = false
         }
+        "/mplayer/money_split/contact_picker/invalid_nickname"(platform: "/mobile") {}
+
         "/mplayer/money_split/contact_picker/continue"(platform: "/mobile") {
             quantity = 5
         }
@@ -162,12 +181,17 @@ trackTests {
             has_open_detail = false
         }
 
+        "/mplayer/money_split/review_and_confirm/back"(platform: "/mobile") {}
+
         "/mplayer/money_split/split_detail"(platform: "/mobile") {}
 
         "/mplayer/money_split/split_created"(platform: "/mobile") {}
         "/mplayer/money_split/split_created/exit"(platform: "/mobile") {
             button = "main_button"
         }
+
+        "/mplayer/money_split/split_created/detail"(platform: "/mobile") {}
+        "/mplayer/money_split/split_created/home"(platform: "/mobile") {}
 
         "/mplayer/money_split/result/success"(platform: "/mobile") {
             payment_method_id = "1"
@@ -258,7 +282,25 @@ trackTests {
         "/mplayer/mkt_landing/button"(platform: "/web"){
             campaign = "sube"
             position = "footer"
-        } 
+        }
+
+        // Contacts
+        "/mplayer/contacts/massive_upload/start"(platform: "/mobile") {}
+        "/mplayer/contacts/massive_upload/successful_end"(platform: "/mobile") {}
+        "/mplayer/contacts/search/start"(platform: "/mobile") {}
+        "/mplayer/contacts/search/end"(platform: "/mobile") {}
+
+        //Interaction Screen
+        "/mplayer/interaction_screen"(platform: "/mobile") {
+            type = "modal"
+            cause = "warning"
+            message_id = "error-01"
+        }
+        "/mplayer/interaction_screen/event"(platform: "/mobile") {
+            type = "modal"
+            cause = "warning"
+            message_id = "error-01"
+        }
     }
 }
 

@@ -11,7 +11,7 @@
     "format": "yyyy-MM-dd"
   },
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "columns": [
       {
         "name": "Site",
@@ -64,7 +64,6 @@
     ],
     "sql": {
       "script": "business-assurance/billboard_events_by_users.sql",
-      "engine": "spark",
       "parameters": [
         {
            "name": "param01",

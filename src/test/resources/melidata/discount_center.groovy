@@ -25,6 +25,7 @@ trackTests {
                         category: "Fast Food",
                         mcc: 5611201,
                         position: 0,
+                        index: 0,
                         level: 1,
                         distance: 258,
                         store_id: 30091709,
@@ -50,6 +51,7 @@ trackTests {
                     category: "Fast Food",
                     mcc: 5611201,
                     position: 0,
+                    index: 0,
                     level: 1,
                     distance: 258,
                     store_id: 30091709,
@@ -107,6 +109,9 @@ trackTests {
             tracking_id= "1004194"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             referer_origin= "12341234"
+            category="Restaurant"
+            collector_id="1234"
+            store_id="1234"
         }
     }
 
@@ -135,6 +140,71 @@ trackTests {
             tracking_id= "1004194"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             referer_origin= "12341234"
+            category="Restaurant"
+            collector_id="1234"
+            store_id="1234"
+        }
+    }
+
+    test("Mercado Pago discount center payers detail terms") {
+        "/discount_center/payers/detail/terms" (platform: "/mobile", type: TrackType.Event) {
+            title = "Angus"
+            enabled = true
+            availability = "full"
+            level = 1
+            blocked = false
+            amount = 20.0
+            amount_type = "percent"
+            status = "active"
+            stores_id = [
+                    30091700
+            ]
+            has_logo = false
+            coupon_used = true
+            sections= [
+                    [
+                            id: "header",
+                            type: "header",
+                            position: 0
+                    ]
+            ]
+            tracking_id= "1004194"
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            referer_origin= "12341234"
+            category="Restaurant"
+            collector_id="1234"
+            store_id="1234"
+        }
+    }
+
+    test("Mercado Pago discount center payers detail tap") {
+        "/discount_center/payers/detail/tap" (platform: "/mobile", type: TrackType.Event) {
+            title = "Angus"
+            enabled = true
+            availability = "full"
+            level = 1
+            blocked = false
+            amount = 20.0
+            amount_type = "percent"
+            status = "active"
+            stores_id = [
+                    30091700
+            ]
+            has_logo = false
+            coupon_used = true
+            sections= [
+                    [
+                            id: "header",
+                            type: "header",
+                            position: 0
+                    ]
+            ]
+            tracking_id= "1004194"
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            referer_origin= "12341234"
+            category="Restaurant"
+            collector_id="1234"
+            store_id="1234"
         }
     }
 
@@ -178,15 +248,17 @@ trackTests {
             flow_detail= [
                 store_id: "30974197",
                 pos_id: "7414488"
-            ]     
+            ]
+            category="category_test"
+            experiments="experiment_test"
         }
     }
 
     test("Mercado Pago discount center payers touchpoint px congrats show") {
         "/discount_center/payers/touchpoint/px_congrats/show" (platform: "/mobile", type: TrackType.Event) {
-            items= [ 
-                [ 
-                    tracking_id: "346859234" 
+            items= [
+                [
+                    tracking_id: "346859234"
                 ]
             ]
             flow= "/instore"
@@ -198,6 +270,29 @@ trackTests {
                 store_id: "30974197",
                 pos_id: "7414488"
             ]
+            category="category_test"
+            experiments="experiment_test"
+        }
+    }
+
+    test("Mercado Pago discount center payers touchpoint px congrats print") {
+        "/discount_center/payers/touchpoint/px_congrats/print" (platform: "/mobile", type: TrackType.Event) {
+            items= [
+                    [
+                            tracking_id: "346859234"
+                    ]
+            ]
+            flow= "/instore"
+            checkout_type= "one_tap"
+            security_enabled= false
+            session_id= "65c7168b-cf25-4033-ad7a-e7874868a164"
+            session_time= 58
+            flow_detail= [
+                    store_id: "30974197",
+                    pos_id: "7414488"
+            ]
+            category="category_test"
+            experiments="experiment_test"
         }
     }
 
@@ -256,6 +351,7 @@ trackTests {
                                 category: "Fast Food",
                                 mcc: 5611201,
                                 position: 0,
+                                index: 0,
                                 level: 1,
                                 distance: 258,
                                 store_id: 30091709,
@@ -282,6 +378,7 @@ trackTests {
                                 category: "Fast Food",
                                 mcc: 5611201,
                                 position: 0,
+                                index: 0,
                                 level: 1,
                                 distance: 258,
                                 store_id: 30091709,
@@ -295,6 +392,46 @@ trackTests {
                             ]
                         ]
                     ]
+                ],
+                image_banner: [
+                        [
+                                marketplace_type: "image_banner",
+                                segment_id: "sellers_banner",
+                                marketplace_index: 4,
+                                items: [
+                                        [  
+                                            tracking_id: "image_banner_1234",
+                                            index: 0
+                                        ]
+                                ]
+                        ]
+                ],
+                last_viewed: [
+                        [
+                                marketplace_type: "last_viewed",
+                                segment_id: "neighborhood",
+                                marketplace_index: 5,
+                                items: [
+                                        [   tracking_id: "1004194",
+                                            blocked: false,
+                                            name: "Mc Donalds",
+                                            category: "Fast Food",
+                                            mcc: 5611201,
+                                            position: 0,
+                                            index: 0,
+                                            level: 1,
+                                            distance: 258,
+                                            store_id: 30091709,
+                                            availability: "full",
+                                            amount_type: "fixed",
+                                            amount: 15,
+                                            priority: 9,
+                                            collector_id: 1234567,
+                                            has_logo: false,
+                                            coupon_used: true
+                                        ]
+                                ]
+                        ]
                 ],
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
@@ -343,6 +480,7 @@ trackTests {
                                 category: "Fast Food",
                                 mcc: 5611201,
                                 position: 0,
+                                index: 0,
                                 level: 1,
                                 distance: 258,
                                 store_id: 30091709,
@@ -369,6 +507,83 @@ trackTests {
                                 category: "Fast Food",
                                 mcc: 5611201,
                                 position: 0,
+                                index: 0,
+                                level: 1,
+                                distance: 258,
+                                store_id: 30091709,
+                                availability: "full",
+                                amount_type: "fixed",
+                                amount: 15,
+                                priority: 9,
+                                collector_id: 1234567,
+                                has_logo: false,
+                                coupon_used: true
+                            ]
+                        ]
+                    ]
+                ],
+                image_banner: [
+                        [
+                                marketplace_type: "image_banner",
+                                segment_id: "sellers_banner",
+                                marketplace_index: 4,
+                                items: [
+                                        [  
+                                            tracking_id: "image_banner_1234",
+                                            index: 0
+                                        ]
+                                ]
+                        ]
+                ],
+                last_viewed: [
+                        [
+                                marketplace_type: "last_viewed",
+                                segment_id: "neighborhood",
+                                marketplace_index: 5,
+                                items: [
+                                        [   tracking_id: "1004194",
+                                            blocked: false,
+                                            name: "Mc Donalds",
+                                            category: "Fast Food",
+                                            mcc: 5611201,
+                                            position: 0,
+                                            index: 0,
+                                            level: 1,
+                                            distance: 258,
+                                            store_id: 30091709,
+                                            availability: "full",
+                                            amount_type: "fixed",
+                                            amount: 15,
+                                            priority: 9,
+                                            collector_id: 1234567,
+                                            has_logo: false,
+                                            coupon_used: true
+                                        ]
+                                ]
+                        ]
+                ],
+            ]
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+    }
+
+    test("Mercado Pago discount center payers marketplace tap") {
+        "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
+            components= [
+                row: [
+                    [
+                        marketplace_type: "row",
+                        segment_id: "neighborhood",
+                        marketplace_index: 4,
+                        items: [
+                            [   tracking_id: "1004194",
+                                blocked: false,
+                                name: "Mc Donalds",
+                                category: "Fast Food",
+                                mcc: 5611201,
+                                position: 0,
+                                index: 0,
                                 level: 1,
                                 distance: 258,
                                 store_id: 30091709,
@@ -389,38 +604,16 @@ trackTests {
         }
     }
 
-    test("Mercado Pago discount center payers marketplace show") {
-        "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
-            components= [
-                row: [
-                    [
-                        marketplace_type: "row",
-                        segment_id: "neighborhood",
-                        marketplace_index: 4,
-                        items: [
-                            [   tracking_id: "1004194",
-                                blocked: false,
-                                name: "Mc Donalds",
-                                category: "Fast Food",
-                                mcc: 5611201,
-                                position: 0,
-                                level: 1,
-                                distance: 258,
-                                store_id: 30091709,
-                                availability: "full",
-                                amount_type: "fixed",
-                                amount: 15,
-                                priority: 9,
-                                collector_id: 1234567,
-                                has_logo: false,
-                                coupon_used: true
-                            ]
-                        ]
-                    ]
-                ],
-            ]
+    //WHATSAPP
+
+    test("Mercado Pago discount center payers detail Whatsapp") {
+        "/discount_center/payers/detail/whatsapp" (platform: "/mobile", type: TrackType.View) {
+            collector_id="1234"
+            store_id="1234"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-            marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            category="Restaurant"
+            title = "Angus"
+            tracking_id= "1004194"
         }
     }
 }

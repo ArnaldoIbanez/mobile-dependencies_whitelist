@@ -12,16 +12,16 @@
       "operation": "append",
       "columns": [
         {
+          "name": "total",
+          "type": "INTEGER"
+        },
+        {
           "name": "site",
           "type": "UNICODE_STRING"
         },
         {
           "name": "reputation",
           "type": "UNICODE_STRING"
-        },
-        {
-          "name": "top_position",
-          "type": "INTEGER"
         }
       ],
       "sql": {

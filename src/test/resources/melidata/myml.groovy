@@ -143,6 +143,57 @@ trackTests {
     }
 
     test("Optin flow") {
+        "/myml/invoices/optin"(platform: "/") {}
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+        "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
+            seller_type = "PJ"
+        }
+
+        "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/validation"(platform: "/") {}
+        "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
+
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "ADDRESS_NOT_REGISTERED"
+        }
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NOT_OWNER"
+        }
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NO_DOCUMENT_REGISTERED"
+        }
+
         "/myml/invoices/not-found"(platform: "/") {}
         "/myml/invoices/landing"(platform: "/") {}
         "/myml/invoices/landing/optin"(platform: "/", type: TrackType.Event) {
@@ -314,6 +365,12 @@ trackTests {
         "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/order/devolution/success"(platform: "/", type: TrackType.Event) {
             devolution_type = "total"
+            order_id = '2468239444'
+        }
+        "/myml/invoices/order/devolution/modal"(platform: "/", type: TrackType.Event) {
+            action = "close_modal"
+            order_id = '2468239444'
+            invoice_id = '549401'
         }
     }
 
@@ -649,6 +706,8 @@ trackTests {
 
         "/myml/invoices/opt_in/cst-devolution"(platform: "/", type: TrackType.Event) {}
         "/myml/invoices/opt_in/cst-devolution/button/save"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/download_invoice_preference"(platform: "/", type: TrackType.Event) {}
     }
 
 
@@ -670,77 +729,6 @@ trackTests {
             purchase_status = "Paid"
             PurchaseStatus = "Paid"
 
-        }
-
-        def newPurchasesDataSet = {
-            items = [
-                [
-                    business: "mercadolibre",
-                    page_vertical: "CORE",
-                    domain: "MLM-SMARTPHONES",
-                    category_l1: "MLM1234",
-                    category_l2: "MLM568",
-                    listing_type: "gold_pro",
-                    item_id: "MLA12345678",
-                    quantity: 2,
-                    variation_id: 987298347,
-                    condition: "new"
-                ],
-                [
-                    business: "mercadolibre",
-                    page_vertical: "CORE",
-                    domain: "MLM-SMARTPHONES",
-                    category_l1: "MLM1234",
-                    category_l2: "MLM568",
-                    category_l3: "MLM5444",
-                    category_l4: "MLM731",
-                    category_l5: "MLM0948",
-                    listing_type: "gold_pro",
-                    item_id: "MLA12345678",
-                    quantity: 2,
-                    condition: "new",
-                    product_id: "MLM5154108",
-                    deals: ["MLM1123", "MLM6534"]
-                ]
-            ]
-
-          seller: [
-                [
-                    id: 2,
-                    nickname: "Nombre del vendedor",
-                    messages_count: 0
-                ]
-          ]
-
-          buyer: [
-                [
-                    id: 12345,
-                    is_prime: "true"
-                ]
-          ]
-          
-          payments: [
-                [
-                    payment_method_type: "credit_card",
-                    payment_method_id: "visa",
-                    payment_status: "approved",
-                    payment_status_detail: "success"
-            ]
-          ]
-
-          shipping: [
-          ]
-          
-          purchases_flow: "v2"
-          purchase_status: "paid"
-          checkout_flow: "order"
-          vertical_case_id: "shipping"
-          vertical_sub_case_id: "shipping_delivered_delivery_address"
-          garex: "no"
-          x_mc_request_id: "aaaaa-vvvvvv-cccc-ddd"
-          purchase_id: 1234
-          pack_id: 1234
-          order_id: 1234
         }
 
         "/myml/sales/list"(platform: "/web", type: TrackType.Event) {}
@@ -849,24 +837,15 @@ trackTests {
             buy_it_again_lead_checkout = 'No'
         }
 
+        "/myml/purchases/status/shipping_detail"(platform:"/", type: TrackType.Event) {
+            dataSet()
+        }
+
         "/myml/purchases/shipping" (platform:"/", type: TrackType.View) {
             dataSet()
         }
 
-        // ----- new purchases
-
-        "/myml/purchases/status" (platform:"/", type: TrackType.View) {
-            newPurchasesDataSet()
-        }
-
-        "/myml/purchases/items" (platform:"/", type: TrackType.View) {
-            newPurchasesDataSet()
-        }
-
-        "/myml/purchases/instructions" (platform:"/", type: TrackType.View) {
-            newPurchasesDataSet()
-        }
-
+        // -------
 
         "/myml/loyal_discounts/add" (platform: "/web", type: TrackType.Event) {
             item = {

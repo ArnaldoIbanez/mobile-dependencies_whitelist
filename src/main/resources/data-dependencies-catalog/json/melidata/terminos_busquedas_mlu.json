@@ -35,6 +35,7 @@
     ],
     "sql": {
       "script": "business-assurance/terminos_busquedas_mlu.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

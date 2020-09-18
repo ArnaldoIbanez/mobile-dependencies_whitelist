@@ -4,6 +4,7 @@ SELECT P.site AS site,
       P.users AS users_device,
       C.filter_applied AS filter_applied,
       C.filter_value AS filter_value,
+      C.filter_position AS filter_position,
       C.origin AS filter_origin,
       C.clicks AS filter_clicks,
       C.uid AS filter_uid,
@@ -31,6 +32,7 @@ JOIN
     jest(event_data, 'origin') AS origin,
     jest(event_data, 'filter_applied') AS filter_applied,
     jest(jest(event_data, 'selected_filters'),jest(event_data, 'filter_applied')) AS filter_value,
+    jest(event_data, 'filter_position') AS filter_position,
     usr.uid AS uid,
     COUNT(*) AS clicks,
     substr(ds,1,10) AS track_date
@@ -45,6 +47,7 @@ JOIN
     jest(event_data, 'origin'),
     jest(event_data, 'filter_applied'),
     jest(jest(event_data, 'selected_filters'),jest(event_data, 'filter_applied')),
+    jest(event_data, 'filter_position'),
     usr.uid,
     substr(ds,1,10)
 ) C

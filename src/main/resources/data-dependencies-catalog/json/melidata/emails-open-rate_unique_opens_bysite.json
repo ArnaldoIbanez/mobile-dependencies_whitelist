@@ -1,9 +1,9 @@
 {
   "users": [
-    "lucia.blanc@mercadolibre.com"
+    "melidata_dev@mercadolibre.com"
   ],
   "process_name": "emails_open_rate_unique_opens_bysite",
-  "cron": "00 06 * * *",
+  "cron": "12 00 * * *",
   "extract": {
     "operation": "append",
     "columns": [
@@ -35,6 +35,7 @@
     ],
     "sql": {
       "script": "business-assurance/emails-open-rate_unique_opens_bysite.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

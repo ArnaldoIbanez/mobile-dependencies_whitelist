@@ -26,7 +26,7 @@ LEFT JOIN
   FROM
   (
     SELECT
-      jest(others['fragment'], 'from') as client_id,
+      jest(COALESCE(platform.fragment, others['fragment']), 'from') as client_id,
       device.platform as platform,
       substr(ds, 1, 10) AS ds
     FROM
@@ -35,8 +35,8 @@ LEFT JOIN
       ds >= '@param01' 
       AND ds < '@param02'
       AND path like '/search'
-      AND jest(others['fragment'], 'origin') like 'supermarket_navigation'
-      AND jest(others['fragment'], 'from') is not null
+      AND jest(COALESCE(platform.fragment, others['fragment']), 'origin') like 'supermarket_navigation'
+      AND jest(COALESCE(platform.fragment, others['fragment']), 'from') is not null
   ) as clicks
   GROUP BY clicks.ds, clicks.platform, clicks.client_id
 ) as sub_clicks

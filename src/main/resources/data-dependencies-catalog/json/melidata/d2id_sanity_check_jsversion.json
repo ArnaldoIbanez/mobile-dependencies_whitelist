@@ -3,7 +3,7 @@
     "melidata_dev@mercadolibre.com"
   ],
   "process_name": "d2id_sanity_check_jsversion",
-  "cron": "00 06 * * *",
+  "cron": "00 15 * * *",
   "partition": {
     "name": "day",
     "type": "DATE",

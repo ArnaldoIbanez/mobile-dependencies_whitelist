@@ -11,7 +11,7 @@
         "format": "yyyy-MM-dd"
   },
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "site": "Sales",
     "columns": [
       {
@@ -45,6 +45,7 @@
     ],
     "sql": {
       "script": "cpg/attribution_cpg_2.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

@@ -42,6 +42,7 @@
       ],
       "sql": {
         "script": "mobile/in-app_updates/in-app_updates.sql",
+        "engine": "spark",
         "parameters": [
           {
             "name": "param01",

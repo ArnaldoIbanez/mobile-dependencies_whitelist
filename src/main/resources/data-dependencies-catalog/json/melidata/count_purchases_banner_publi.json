@@ -44,6 +44,7 @@
     ],
     "sql": {
       "script": "business-assurance/count_purchases_banner_publi.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

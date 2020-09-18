@@ -29,6 +29,11 @@ tracks {
         question_id(required: false, description: "it has no value if failed is true")
         question_text(required:false, description: "The question ask by the user", type:PropertyType.String)
         failed( required: true, description: "whenever the post was succesful or not")
+		error(required: false, description: "Contains the error code for the questions post api, should there be one",
+		type: PropertyType.Numeric)
+		error_cause(required: false, description: "Contains the cause of error for the questions post api, should there be one",
+		type: PropertyType.String)
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
     "/questions/ask/post" (platform: "/web", type: TrackType.Event) {

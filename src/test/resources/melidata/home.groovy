@@ -111,6 +111,7 @@ trackTests {
             from="breadcrumb"
             category_id='MLA1051'
             category_path=['MLA1051']
+            last_modified='2020-06-12T13:12:16.534Z'
         }
     }
 
@@ -180,4 +181,24 @@ trackTests {
         "/home/supermarket"(platform: "/") {}
     }
 
+    test("Home.com tracking") {
+        "/home_com"(platform: "/", type: TrackType.View) {}
+        
+        "/home_com/site_click"(platform: "/") {
+            site_click = 'AR'
+        }
+    }
+
+    test("Contract home tracking") {
+        def dataSet = {
+            category_id = 'MLC1459'
+            category_path = ['MLC1459']
+        }
+        "/home/category/real_estate/request_contract"(platform: "/", type: TrackType.View, dataSet)
+    }
+
+    test("Home Advertising banners") {
+        "/home/advertising"(platform: "/", type: TrackType.Event) {}
+        "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
+    }
 }

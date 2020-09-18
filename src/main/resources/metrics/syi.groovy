@@ -3,7 +3,7 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-    "relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent") {
+    "relist_upgrade"(description: "An Item was relisted in a higher listing type than its parent", deprecation_date:"2020/08/12") {
         startWith {
             experiment("sell/full_relist_single_item")
         }
@@ -19,7 +19,7 @@ metrics {
         }
     }
 
-    "relist_downgrade"(description: "An Item was relisted in a lower listing type than its parent") {
+    "relist_downgrade"(description: "An Item was relisted in a lower listing type than its parent", deprecation_date:"2020/08/12") {
         startWith {
             experiment("sell/full_relist_single_item")
         }
@@ -35,7 +35,7 @@ metrics {
         }
     }
 
-    "upgrade_listing"(description: "upgrade listing success for sell experiments") {
+    "upgrade_listing"(description: "upgrade listing success for sell experiments", deprecation_date:"2020/08/12") {
         startWith {
             experiment("sell/congrats_upgrade_listing_type")
         }
@@ -47,7 +47,7 @@ metrics {
         }
     }
 
-    "seller_central/goal_achieved"(description: "Goal achieved") {
+    "seller_central/goal_achieved"(description: "Goal achieved", deprecation_date:"2020/08/12") {
         startWith {
             experiment("sell/health-goals_order")
         }
@@ -88,7 +88,7 @@ metrics {
 
     "sell_list_congrats"(description: "Arrival to congrats page - Selling flow", categorization:"important") {
         startWith {
-            experiment(regex("sell/.*"))
+            experiment(regex("sell/.*|classifieds/.*"))
         }
 
         countsOn {

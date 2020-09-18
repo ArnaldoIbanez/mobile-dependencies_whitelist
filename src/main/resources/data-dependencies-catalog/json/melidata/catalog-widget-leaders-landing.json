@@ -35,6 +35,7 @@
     ],
     "sql": {
       "script": "business-assurance/catalog-widget-leaders-landing.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

@@ -19,8 +19,9 @@ FROM (
     device.device_type AS device_type,
     device.vendor AS device_vendor,
     substr(ds,1,10) as track_date
-  FROM tracks
+  FROM melidata.tracks_ml
   WHERE path LIKE '/home/supermarket'
+    AND bu = 'mercadolibre'
     AND ds>='@param01' AND ds<'@param02'
   ) a
 GROUP BY source, placement, platform, device_type, device_vendor, track_date;

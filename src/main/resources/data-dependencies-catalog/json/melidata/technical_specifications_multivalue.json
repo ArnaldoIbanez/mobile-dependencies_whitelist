@@ -9,7 +9,7 @@
     "type": "DATE"
   },
   "extract": {
-    "operation": "append",
+    "operation": "destroy",
     "site": "QA",
     "columns": [
       {
@@ -39,6 +39,7 @@
     ],
     "sql": {
       "script": "business-assurance/technical_specifications_multivalue.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

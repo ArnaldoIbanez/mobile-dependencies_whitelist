@@ -3,7 +3,7 @@
       "carlos.del@mercadolibre.com"
     ],
     "process_name": "sell_listing_filters_applied",
-    "cron": "00 06 * * *",
+    "cron": "00 15 * * *",
     "partition": {
       "name": "ds",
       "type": "DATE"
@@ -27,7 +27,6 @@
       ],
       "sql": {
         "script": "sell/sell-listing-filters-applied.sql",
-        "engine": "spark",
         "parameters": [
           {
             "name": "param01",

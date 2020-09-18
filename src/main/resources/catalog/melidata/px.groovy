@@ -18,15 +18,15 @@ tracks {
         collector_id(required: false, description: "Collector external id")
         security_enabled(required: false, type: PropertyType.Boolean, description: "If the user has biometric or passcode validation to make a payment")
         experiments(required: false, type: PropertyType.String, description: "Active experiments")
+
+        payment_method_id(required: false, type: PropertyType.String, description: "Payment method id")
+        card_id(required: false, type: PropertyType.String , description: "Card id")
+        reason(required: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card", "invalid_esc", "invalid_fingerprint", "unexpected_tokenization_error", "esc_disabled", "no_reason"])
     }
 
     propertyGroups {
         externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, experiments)
-    }
-
-    def payment_method = objectSchemaDefinitions {
-      payment_method_type(type: PropertyType.String, required: true)
-      payment_method_id(type: PropertyType.String, required: true)
+        securityCodeViewData(payment_method_id, card_id, reason)
     }
 
     // Views:
@@ -63,21 +63,15 @@ tracks {
     "/px_checkout/payments/select_method/prepaid_card"(platform: "/mobile", isAbstract: true){}
 
     "/px_checkout/payments/select_method/credit_card/cvv"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        payment_method_id(required: false, type: PropertyType.String, description: "Payment method id")
-        card_id(required: false, type: PropertyType.String , description: "Card id")
-        reason(required: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card"]);
+        securityCodeViewData
         externalData
     }
     "/px_checkout/payments/select_method/debit_card/cvv"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        payment_method_id(required: false, type: PropertyType.String, description: "Payment method id")
-        card_id(required: false, type: PropertyType.String , description: "Card id")
-        reason(required: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card"]);
+        securityCodeViewData
         externalData
     }
     "/px_checkout/payments/select_method/prepaid_card/cvv"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
-        payment_method_id(required: false, type: PropertyType.String, description: "Payment method id")
-        card_id(required: false, type: PropertyType.String , description: "Card id")
-        reason(required: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card"]);
+        securityCodeViewData
         externalData
     }
 
@@ -226,6 +220,7 @@ tracks {
         has_bottom_view(required: false, type: PropertyType.Boolean, description: "Result view has bottom view component")
         has_top_view(required: false, type: PropertyType.Boolean, description: "Result view has top view component")
         has_important_view(required: false, type: PropertyType.Boolean, description: "Result view has important view component")
+        has_money_split_view(required: false, type: PropertyType.Boolean, description: "Result view has money split view component")
         score_level(required: false, type: PropertyType.Numeric, description: "Payer score level")
         discounts_count(required: false, type: PropertyType.Numeric, description: "Discounts items displayed")
         campaigns_ids(required: false, type: PropertyType.String, description: "Campaigns ids of discounts displayed")
@@ -234,7 +229,6 @@ tracks {
     "/px_checkout/result/success"(platform: "/mobile", type: TrackType.View) {}
     "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {}
     "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {
-        recoverable(required: true, type: PropertyType.Boolean, description: "Pay is recoverable")
         remedies(required: true, type: PropertyType.ArrayList, description: "List of remedies")
     }
     "/px_checkout/result/unknown"(platform: "/mobile", type: TrackType.View) {}
@@ -498,6 +492,9 @@ tracks {
     }
 
     // One Tap:
+    "/px_checkout/review/one_tap/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
     "/px_checkout/review/one_tap/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         externalData
     }
@@ -618,9 +615,12 @@ tracks {
     }
 
     "/px_checkout/result/error/remedy"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, description: "Remedy type", values: ["payment_method_suggestion" , "cvv_request", "kyc_request"])
-        extra_info(required: true, PropertyType.Map(payment_method), description: "Extra payment method info")
         externalData
+        type(required: true, type: PropertyType.String, description: "Remedy type", values: ["payment_method_suggestion" , "cvv_request", "kyc_request"])
+        extra_info(required: false, description: "Extra payment method info")
+        index(required: true, type: PropertyType.Numeric , description: "Selected remedy index")
+        payment_status(required: true, type: PropertyType.String, description: "Payment status")
+        payment_status_detail(required: true, type: PropertyType.String, description: "Payment status")
       }
 
     // Approved business
@@ -665,4 +665,175 @@ tracks {
         behaviour(required: true, type: PropertyType.String, description: "Behaviour which stimulate event", values: ["start_checkout" , "switch_split", "tap_card", "tap_pay"])
         deepLink(required: true, type: PropertyType.String, description: "Deeplink being launched")
     }
+
+    // Deep link launched from the congrats success screen
+    "/px_checkout/result/success/deep_link"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+        type(required: false, type: PropertyType.String, description: "type deep link launched")
+        deep_link(required: false, type: PropertyType.String, description: "deep link launched")
+    }
+// Payment Congrats:
+    // Payment Congrats result views
+    "/payment_congrats"(platform: "/mobile", isAbstract: true){
+        externalData
+    }
+    
+    "/payment_congrats/result"(platform: "/mobile", isAbstract: true){
+        style(required: true, type: PropertyType.String, description: "Business result or generic", values: ["generic" , "custom"])
+        payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
+        payment_method_type(required: false, type: PropertyType.String, description: "Payment method type id")
+        payment_id(required: false, type: PropertyType.Numeric, description: "Payment id")
+        payment_status(required: true, type: PropertyType.String, description: "Payment status")
+        payment_status_detail(required: true, type: PropertyType.String, description: "Payment status")
+        preference_amount(required: false, type: PropertyType.Numeric, description: "Total amount")
+        currency_id(required: false, type: PropertyType.String, description: "Currency id")
+        discount_coupon_amount(required: false, type: PropertyType.Numeric, description: "Discount coupon amount")
+        has_split_payment(required: false, type: PropertyType.Boolean, description: "Pay with split payment")
+        has_bottom_view(required: false, type: PropertyType.Boolean, description: "Result view has bottom view component")
+        has_top_view(required: false, type: PropertyType.Boolean, description: "Result view has top view component")
+        has_important_view(required: false, type: PropertyType.Boolean, description: "Result view has important view component")
+        has_money_split_view(required: false, type: PropertyType.Boolean, description: "Result view has money split view component")
+        score_level(required: false, type: PropertyType.Numeric, description: "Payer score level")
+        discounts_count(required: false, type: PropertyType.Numeric, description: "Discounts items displayed")
+        campaign_id(required: false, type: PropertyType.String, description: "Campaign id of discount applied to payment")
+    }
+    "/payment_congrats/result/success"(platform: "/mobile", type: TrackType.View) {}
+    "/payment_congrats/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {}
+    "/payment_congrats/result/error"(platform: "/mobile", type: TrackType.View) {}
+    "/payment_congrats/result/unknown"(platform: "/mobile", type: TrackType.View) {}
+        
+    // Approved payment
+    "/payment_congrats/result/success/continue"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/success/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/success/tap_score"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/success/tap_discount_item"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        index(required: true, type: PropertyType.Numeric , description: "Discount item index")
+        campaign_id(required: false, type: PropertyType.String, description: "Discount's campaign id")
+        externalData
+    }
+    "/payment_congrats/result/success/tap_see_all_discounts"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/success/tap_download_app"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/success/tap_cross_selling"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/success/tap_view_receipt"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // Unknown result
+    "/payment_congrats/result/unknown/continue"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/unknown/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/unknown/tap_score"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/unknown/tap_discount_item"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        index(required: true, type: PropertyType.Numeric , description: "Discount item index")
+        campaign_id(required: false, type: PropertyType.String, description: "Discount's campaign id")
+        externalData
+    }
+    "/payment_congrats/result/unknown/tap_see_all_discounts"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/unknown/tap_download_app"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/unknown/tap_cross_selling"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/unknown/change_payment_method"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/unknown/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/unknown/secondary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/unknown/tap_view_receipt"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // In process payment
+    "/payment_congrats/result/further_action_needed/continue"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/further_action_needed/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/further_action_needed/tap_score"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/further_action_needed/tap_discount_item"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        index(required: true, type: PropertyType.Numeric , description: "Discount item index")
+        campaign_id(required: false, type: PropertyType.String, description: "Discount's campaign id")
+        externalData
+    }
+    "/payment_congrats/result/further_action_needed/tap_see_all_discounts"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/further_action_needed/tap_download_app"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/further_action_needed/tap_cross_selling"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/further_action_needed/tap_view_receipt"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // Rejected payment
+    "/payment_congrats/result/error/change_payment_method"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/error/abort"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // Approved business
+    "/payment_congrats/result/success/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/success/secondary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // Pending business
+    "/payment_congrats/result/further_action_needed/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    
+    "/payment_congrats/result/further_action_needed/secondary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+    // Rejected business
+    "/payment_congrats/result/error/primary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+    "/payment_congrats/result/error/secondary_action"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+    }
+
+     // Deep link launched from the congrats success screen
+    "/payment_congrats/result/success/deep_link"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        externalData
+        type(required: false, type: PropertyType.String, description: "type deep link launched")
+        deep_link(required: false, type: PropertyType.String, description: "deep link launched")
+    }
+
 }
+
