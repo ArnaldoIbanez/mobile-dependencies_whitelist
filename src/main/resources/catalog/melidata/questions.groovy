@@ -24,9 +24,8 @@ tracks {
         catalog_product_id(required: false, description: "Id of the product", type: PropertyType.String)
     }
 
-    "/questions/ask/post"(platform: "/", type: TrackType.Event) {
-        //TODO revisar si no conviene pasar failed() a otro path "/questions/ask/post/failed"
-        question_id(required: false, description: "it has no value if failed is true")
+    "/questions/ask/post"(platform: "/", type: TrackType.Event) {       
+        question_id(required: true, description: "it might have no value if failed is true, but's ok. If SLA just does not work because of this is the smallest problem. Something bigger is happening with question_id trackings")
         question_text(required:false, description: "The question ask by the user", type:PropertyType.String)
         failed( required: true, description: "whenever the post was succesful or not")
 		error(required: false, description: "Contains the error code for the questions post api, should there be one",
