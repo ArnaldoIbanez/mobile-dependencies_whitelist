@@ -1025,7 +1025,7 @@ trackTests {
   }
 
   test("seller central salesChannel only marketplace"){
-    "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event){
+    "/seller_central/modify/update_sales_channel"(platform: "/", type: TrackType.Event){
       item_type = "product"
       category_id = "MLA390784"
       item_id = "MLA682118081"
@@ -1070,7 +1070,7 @@ trackTests {
   }
 
   test("seller central price value updated"){
-    "/seller_central/modify/update_sales_channel"(platform: "/", type: TrackType.Event){
+    "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event){
       item_type = "product"
       category_id = "MLA390784"
       item_id = "MLA682118081"
