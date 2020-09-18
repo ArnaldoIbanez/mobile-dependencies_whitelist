@@ -184,7 +184,7 @@ tracks {
     // **********************************************************
 
     "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {
-        status(required: true, inheritable: false, type: PropertyType.String, description: "Congrats Status")
+        status(required: true, inheritable: false, type: PropertyType.String, values: ["success", "pending", "rejected"], description: "Congrats Status")
     }
 
     "/discount_sellers/congrats/tap" (platform: "/mobile", type: TrackType.Event) {
