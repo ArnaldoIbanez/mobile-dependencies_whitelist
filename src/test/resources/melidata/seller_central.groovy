@@ -1024,7 +1024,7 @@ trackTests {
     }
   }
 
-  test("seller central salesChannel only marketplace"){
+  test("seller central update salesChannel"){
     "/seller_central/modify/update_sales_channel"(platform: "/", type: TrackType.Event){
       item_type = "product"
       category_id = "MLA390784"
@@ -1034,38 +1034,8 @@ trackTests {
       seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
-      marketplace: true
-      mshops: false
-    }
-  }
-
-  test("seller central salesChannel only mshops"){
-    "/seller_central/modify/update_sales_channel"(platform: "/", type: TrackType.Event){
-      item_type = "product"
-      category_id = "MLA390784"
-      item_id = "MLA682118081"
-      session_id = "123-update-abc123"
-      seller_profile = "ADVANCED"
-      seller_reputation = "5_green"
-      listing_type = "gold_pro"
-      shipping_local_pickup = true
-      marketplace: false
-      mshops: true
-    }
-  }
-
-  test("seller central salesChannel both channel"){
-    "/seller_central/modify/update_sales_channel"(platform: "/", type: TrackType.Event){
-      item_type = "product"
-      category_id = "MLA390784"
-      item_id = "MLA682118081"
-      session_id = "123-update-abc123"
-      seller_profile = "ADVANCED"
-      seller_reputation = "5_green"
-      listing_type = "gold_pro"
-      shipping_local_pickup = true
-      marketplace: true
-      mshops: true
+      marketplace = true
+      mshops = true
     }
   }
 
