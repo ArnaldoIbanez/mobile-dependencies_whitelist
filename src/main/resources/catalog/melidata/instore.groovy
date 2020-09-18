@@ -75,6 +75,8 @@ tracks {
     }
     "/instore/amount/calculator"(platform: "/mobile", type: TrackType.View) {}
     "/instore/amount/calculator/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/amount/calculator/error"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/amount/calculator/error/retry"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/amount/price_list"(platform: "/mobile", type: TrackType.View) {
         available_prices(required: false, PropertyType.String)
@@ -82,6 +84,8 @@ tracks {
         visible_prices(required: false, PropertyType.Numeric)
     }
     "/instore/amount/price_list/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/amount/price_list/error"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/amount/price_list/error/retry"(platform: "/mobile", type: TrackType.Event) {}
 
 
     // Generic Error
