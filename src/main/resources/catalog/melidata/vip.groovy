@@ -18,7 +18,18 @@ tracks {
         value_name(type: PropertyType.String, required: true, description: "Attribute value_name")
     }
 
+    Object available_promotions_map = objectSchemaDefinitions {
+        campaign_id(required: true, type: PropertyType.String, description: "Promotion campaign id")
+        type(required: true, type: PropertyType.String, description: "Promotion campaign type")
+        original_value(required: true, type: PropertyType.Numeric, description: "Promotion campaign item original value")
+        value(required: true, type: PropertyType.Numeric, description: "Promotion campaign item value")
+    }
+
     propertyDefinitions {
+        // TODO, podemos hacerlo required? Hay casos donde un item no tengan price?
+        price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        currency_id(required: false, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
         cart_content(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the VIP has cart features (only for core items)")
         add_to_cart_availability(required: false, type: PropertyType.String, values: ["yes_default", "yes_discount", "yes_fs", "no_high_ratio", "no_too_many_items", "no_item_price_too_low"],
@@ -50,6 +61,11 @@ tracks {
         preselection_type(required: false, type: PropertyType.String, values: ["none", "parcial", "full"], description: "Indicates the variation preselection type for this instance of the VIP")
         enforced_preselection(required: false, type: PropertyType.String, values: ["search", "cart", "gallery", "stock"], description: "Indicates the type of enforced variation preselection for this instance of the VIP")
 
+        // PRICING 2.0
+        available_promotions(required: false, type: PropertyType.ArrayList(PropertyType.Map(available_promotions_map)),
+                description: "Lists the available promotions for the item")
+        discount_reasons(required: false, type: PropertyType.ArrayList, description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
+
         //afterDispatch: if unknown or unknown_frame (true/false)
         //min_days: minimum number of days of the promise. (int)
         //max_days: maximun number of days of the promise. (int or null -If it doesn´t apply-)
@@ -62,6 +78,7 @@ tracks {
         shipping_info(shipping_preference, shipping_mode, free_shipping, local_pick_up,
                 logistic_type, free_shipping_benefit, shipping_promise, free_shipping_benefit_lyl, discount_shipping_benefit_lyl)
         variation_info(preselection_type, enforced_preselection)
+        pricing_info(available_promotions, discount_reasons, price, original_price, currency_id)
     }
 
     //VIP FLOW
@@ -103,11 +120,6 @@ tracks {
 
         // ONLY CORE FIELDS
         quantity( required: false, type: PropertyType.Numeric, description: "Available items quantity show at this vip")
-        // TODO, podemos hacerlo required? Hay casos donde un item no tengan price?
-        price(required: false, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
-        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
-        currency_id(required: false, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
-        discount_reasons( required: false, type: PropertyType.ArrayList, description: "The discounts applied to this item original_price, to finally show price (loyalty, deal)")
 
         review_rate(required: false, type: PropertyType.Numeric, inheritable: false, description: "The rating average of the reviews")
         reviews_attributes(required: false, type: PropertyType.ArrayList, inheritable: false, description: "Reviewable catalog attribute names")
@@ -198,6 +210,9 @@ tracks {
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
 
         map_item_attributes(required: false, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "Map of items attributes")
+
+        // PRICING 2.0
+        pricing_info
 
     }
 
@@ -324,6 +339,7 @@ tracks {
         credits_opensea(required: false, type: PropertyType.Boolean, description: "Indicates that it was initiated by the purchase from Credits Open Sea")
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
         attribute_combinations(required: false, type: PropertyType.Numeric, description: "Indicates the amount of variation pickers an item has")
+        pricing_info
     }
 
     "/vip/buy_action"(platform: "/web", parentPropertiesInherited: false) {
@@ -359,6 +375,7 @@ tracks {
         add_cart_info
         shipping_info
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
+        pricing_info
     }
 
     "/vip/add_cart_action"(platform: "/web", parentPropertiesInherited: false) {

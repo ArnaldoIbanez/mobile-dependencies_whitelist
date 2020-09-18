@@ -1037,6 +1037,18 @@ trackTests {
             enforced_preselection = "stock"
         }
 
+        def pricingTwoPointO = {
+            available_promotions=[
+                {
+                    campaign_id = "1761"
+                    type = "DISCOUNT"
+                    original_value = 953
+                    value = 643.5
+                }
+            ]
+            discount_reasons=["deal"]
+        }
+
         "/vip/buy_action"(platform: "/", type: TrackType.View) {
             defaultTrackInformation()
             cartInformation()
@@ -1120,6 +1132,25 @@ trackTests {
             shipping_method()
             vip_version = "new"
         }
+
+        // PRICING 2.0
+
+        "/vip/buy_action"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+            pricingTwoPointO()
+            credits_opensea = true
+            vip_version = "new"
+        }
+
+         "/vip/add_cart_action"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+            pricingTwoPointO()
+            vip_version = "new"
+         }
     }
 
     test("VIP zipcode") {
@@ -1696,5 +1727,40 @@ trackTests {
             optional()
         }
 
+    }
+
+    // Pricing 2.0
+
+    test("Vip tracking in web for pricing 2.0") {
+        def dataSet = {
+            item_id = "MLB533657947"
+            category_id = "MLA43718"
+            category_path = ["MLB1234","MLB6789"]
+            buying_mode = "buy_it_now"
+            official_store_id = 1
+            deal_ids = ["MLB24"]
+            review_rate=5
+            specifications_size = 1
+            vertical = "core"
+            item_condition = "new"
+            item_status = "active"
+            listing_type_id = "gold_special"
+            seller_id = 131662738
+            power_seller_status = "platinum"
+            deal_ids = ["MLA100"]
+            catalog_listing = false
+            tracking_id="dd1ec405-0a55-4b55-aaa5-de29cc3ab5fb"
+            available_promotions = [
+                {
+                    campaign_id = "1761"
+                    type = "DISCOUNT"
+                    original_value = 953
+                    value = 643.5
+                }
+            ]
+            discount_reasons = ["deal"]
+        }
+
+        "/vip"(platform:"/web", dataSet)
     }
 }
