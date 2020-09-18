@@ -52,7 +52,7 @@ tracks {
     }
 
     "/questions/answer/post"(platform: "/", type: TrackType.Event) {
-        question_id(required: false, description: "it has no value if failed is true")
+        question_id(required: true, description: "it might have no value if failed is true, but's ok. If SLA just does not work because of this is the smallest problem. Something bigger is happening with question_id trackings")
     }
 
     "/questions/answer/post"(platform: "/mobile", type: TrackType.Event) {
