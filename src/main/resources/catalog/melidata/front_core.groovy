@@ -468,7 +468,9 @@ tracks {
         percentage(type: PropertyType.Numeric, required: true, description: "The user's loyalty level percentage")
     }
 
-    "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {}
+    "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {
+        level(required: false, type: PropertyType.Numeric, description: "Loyalty level")
+    }
 
     "/wallet_home/section/tap/shortcuts"(platform: "/mobile", type: TrackType.Event) {
         from(type: PropertyType.String, required: true, values: ['section', 'sheet'])
