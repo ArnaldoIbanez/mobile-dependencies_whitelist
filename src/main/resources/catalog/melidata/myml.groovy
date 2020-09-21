@@ -632,12 +632,15 @@ tracks {
     // MLB - Certificate
     "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
 
+    // MLB - GNRE
+    "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {}
+
     // MLB - Invoice Data (NFe)
     "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
 
     // MLB - Base Validations
     "/myml/invoices/optin/validation"(platform: "/", isAbstract: true) {}
-    
+
     // MLB - Activity Validation
     "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {}
 

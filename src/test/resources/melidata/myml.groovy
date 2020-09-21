@@ -177,6 +177,7 @@ trackTests {
         }
 
         "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {}
         "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
         "/myml/invoices/optin/validation"(platform: "/") {}
         "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {}
