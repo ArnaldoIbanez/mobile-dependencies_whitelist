@@ -252,11 +252,15 @@ trackTests {
             packs_info = "pack"
             route_id = "123"
             driver_id = "1234"
+            receiver_latitude = "1234"
+            receiver_longitude = "1234"
         }
 
         "/logistics/last_mile/list/suggest_trip/start_trip"(platform: "/mobile", type: TrackType.Event) {
             packs_info = "pack"
             route_id = "123"
+            receiver_latitude = "1234"
+            receiver_longitude = "1234"
         }
 
         "/logistics/last_mile/list/start_trip"(platform: "/mobile", type: TrackType.Event) {

@@ -183,10 +183,14 @@ tracks {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered", inheritable: false)
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
         driver_id(required: true, type: PropertyType.String, description: "Specifies the driver id", inheritable: false)
+        latitude(required: false, description: "the latitude at which we are requesting agencies")
+        longitude(required: false, description: "the longitude at which we are requesting agencies")
     }
     "/logistics/last_mile/list/suggest_trip/start_trip"(platform: "/mobile", type: TrackType.Event) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered", inheritable: false)
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
+        latitude(required: false, description: "the latitude at which we are requesting agencies")
+        longitude(required: false, description: "the longitude at which we are requesting agencies")
     }
     "/logistics/last_mile/list/old_route"(platform: "/mobile", type: TrackType.View) {
         route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: false)
