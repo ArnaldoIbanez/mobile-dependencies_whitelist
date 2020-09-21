@@ -704,6 +704,13 @@ tracks {
         sellerCentralModifyCardsGroup
     }
 
+    "/seller_central/modify/update_sales_channel"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyGroupTableForPdp
+        marketplace(required: true, type: PropertyType.Boolean, description: "if MercadoLibre channel is selected")
+        mshops(required: true, type: PropertyType.Boolean, description: "if MercadoShops channel is selected")
+    }
+
     "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
