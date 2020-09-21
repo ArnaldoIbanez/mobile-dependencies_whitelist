@@ -701,6 +701,7 @@ tracks {
     "/sell/relist/congrats"(platform: "/web/desktop", type: TrackType.View) {
         can_complete_attributes(required: true, description: "Field to identify if link to update was offered.", type: PropertyType.Boolean)
         session_id(required: false, description: "Session ID for Supply Re V4 use case")
+        listing_type(required: false, description: "Listing type id used to resell item")
     }
     "/sell/relist/congrats"(platform: "/mobile", type: TrackType.View) {}
 
