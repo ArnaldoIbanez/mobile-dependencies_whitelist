@@ -634,7 +634,7 @@ tracks {
 
     // MLB - Blocked Access Page
     "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
-        reason(required: true,  values: ["ADDRESS_NOT_REGISTERED", "NOT_OWNER", "NO_DOCUMENT_REGISTERED"], description: "Seller access blocked for this reason")
+        reason(required: true,  values: ["NOT_OWNER", "NO_DOCUMENT_REGISTERED"], description: "Seller access blocked for this reason")
     }
 
     // MLB - Certificate

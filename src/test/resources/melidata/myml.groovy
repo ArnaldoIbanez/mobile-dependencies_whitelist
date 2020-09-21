@@ -178,9 +178,6 @@ trackTests {
 
         "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
         "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
-            reason = "ADDRESS_NOT_REGISTERED"
-        }
-        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
             reason = "NOT_OWNER"
         }
         "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
