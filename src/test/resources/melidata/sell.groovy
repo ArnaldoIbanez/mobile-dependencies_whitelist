@@ -117,6 +117,7 @@ trackTests {
             can_complete_attributes= true
             item_id = "MLA12345"
             session_id = "516954617-reactivateres-f2831864de5d"
+            listing_type = "silver"
         }
         "/sell/relist/congrats"(platform: "/mobile"){
             item_id = "MLA12345"
