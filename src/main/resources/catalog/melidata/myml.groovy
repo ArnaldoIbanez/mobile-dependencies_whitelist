@@ -629,6 +629,14 @@ tracks {
         seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
     }
 
+    // MLB - Basic tax settings
+    "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
+
+    // MLB - Blocked Access Page
+    "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+        reason(required: true,  values: ["ADDRESS_NOT_REGISTERED", "NOT_OWNER", "NO_DOCUMENT_REGISTERED"], description: "Seller access blocked for this reason")
+    }
+
     // MLB - Certificate
     "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
 
@@ -649,15 +657,6 @@ tracks {
 
     // MLB - State Registry Validation
     "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {}
-
-    // MLB - Basic tax settings
-    "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
-
-    // MLB - Blocked Access Page
-    "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
-        reason(required: true,  values: ["ADDRESS_NOT_REGISTERED", "NOT_OWNER", "NO_DOCUMENT_REGISTERED"], description: "Seller access blocked for this reason")
-    }
-
 
     //not found
     "/myml/invoices/not-found"(platform: "/") {}

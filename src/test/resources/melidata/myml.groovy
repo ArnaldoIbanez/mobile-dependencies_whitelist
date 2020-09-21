@@ -176,15 +176,7 @@ trackTests {
             seller_type = "PJ"
         }
 
-        "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/validation"(platform: "/") {}
-        "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {}
         "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
-
         "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
             reason = "ADDRESS_NOT_REGISTERED"
         }
@@ -194,6 +186,13 @@ trackTests {
         "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
             reason = "NO_DOCUMENT_REGISTERED"
         }
+        "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/validation"(platform: "/") {}
+        "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {}
 
         "/myml/invoices/not-found"(platform: "/") {}
         "/myml/invoices/landing"(platform: "/") {}
