@@ -765,7 +765,7 @@ tracks {
 
     // CARD REQUEST virtual on boarding
     // --------
-    "/cards/hybrid/request/virtual/onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/virtual/onboarding"(platform: "/", type: TrackType.View) {
         context (
             required: false,
             type: PropertyType.String,
@@ -773,6 +773,7 @@ tracks {
             description: "type of onboarding",
             inheritable:false
         )
+    }
     "/cards/hybrid/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
