@@ -796,6 +796,7 @@ trackTests {
           price = 299
           is_guest = true
           user_id = 5010815
+          e2e_test = false
         }
     }
 
