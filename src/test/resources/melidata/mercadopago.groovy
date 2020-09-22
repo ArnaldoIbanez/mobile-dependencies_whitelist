@@ -772,6 +772,15 @@ trackTests {
           is_guest = true
           user_id = 5010815
         }
+
+        "/point/buyingflow/invalid_address"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          user_id = 5010815
+        }
     }
 
     test("MP-MA Landing QR") {
