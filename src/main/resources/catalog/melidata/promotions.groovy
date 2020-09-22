@@ -59,9 +59,9 @@ tracks {
       sold_quantity(required: true, type: PropertyType.Numeric)
       available_quantity(required: true, type: PropertyType.Numeric)
       tags(required: true, type: PropertyType.ArrayList(PropertyType.String))
-      warranty(required: true, type: PropertyType.String)
+      warranty(required: false, type: PropertyType.String)
       accepts_mercadopago(required: true, type: PropertyType.Boolean)
-      health(required: true, type: PropertyType.Numeric, 
+      health(required: false, type: PropertyType.Numeric, 
               description: "Variable used to calculate item score in promotions backend")
       score(required: true, type: PropertyType.Numeric, 
               description: "Item's score calculated by promotions backend based on several variables")
@@ -98,13 +98,20 @@ tracks {
       private_label(required: false, type: PropertyType.Numeric,
               description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")    
       promotion_type(required: true, type: PropertyType.String,
-              values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "others"], description: "Type of promotion")
+              values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "LIGHTNING_DEAL", "BUY_BOX_WINNER", "others"], description: "Type of promotion")
       prime_discount(required: false, type: PropertyType.Boolean, 
               description: "Indicates whether the item has discounts by mercado puntos")
       deal_print_id(required: false, type: PropertyType.String, description: "Unique id per render")
       installments(required: false, type: PropertyType.Map(installmentsDefinition), description: "Installments info for the item")
       lightning_deal_configuration(required: false, type: PropertyType.Map(lightningDealConfigurationDefinition), description: "Configuration for the item if is lighting deal")
       deal_of_the_day_configuration(required: false, type: PropertyType.Map(dealOfTheDayConfigurationDefinition), description: "Configuration for the item if is deal of the day")
+      dispatching_normally(required: false, type: PropertyType.Boolean, description: "Indicate whether the item support dispatching normally")
+    }
+
+    def shortcutsStructure = objectSchemaDefinitions {
+      filter(required: true, type: PropertyType.Map, description: "filter described")
+      is_recommended_domain(required: true, type: PropertyType.Boolean, description: "whether the filter is recommended or not")
+      position(required: true, type: PropertyType.Numeric, description: "position in array")
     }
 
     propertyDefinitions {
@@ -115,10 +122,16 @@ tracks {
         //             description: "Indicates the implemented scoring, order and selection algorithms")
         page(required: true, type: PropertyType.Map(pageStructure), 
                     description: "Indicates pagination information like limit, offset and total")
+        origin(required: false, type: PropertyType.String, description: "The page section where the user interact")
+        filter_applied(required: false, type: PropertyType.String, description: "The current applied filter name")
+        filter_position(required: false, type: PropertyType.Numeric, description: "The current applied filter position")
+        selected_filters(required: false, type: PropertyType.Map, description: "The data of all applied filters")
+        displayed_shortcuts(required: false, type: PropertyType.ArrayList(PropertyType.Map(shortcutsStructure)), description: "The filters shortcuts shown to the user in each request")
+        is_recommended_domain(required: false, type: PropertyType.Boolean, description: "Indicate whether filters domains are recommended")
     }
     
     propertyGroups {
-        general_promotions_info(deal_print_id, items, page)
+        general_promotions_info(deal_print_id, items, page, origin, filter_applied, filter_position, selected_filters, displayed_shortcuts, is_recommended_domain)
     }
 
     //Promotions Landing

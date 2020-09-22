@@ -33,4 +33,3 @@ AND NOT ARRAY_CONTAINS(info.autoselects, REGEXP_REPLACE(regexp_replace ((attribu
 AND attribute_filter NOT LIKE "%999%" and REGEXP_REPLACE(REGEXP_REPLACE(regexp_replace ((attribute_filter),'"',''),'\\{',''),'([a-z]|[a-z]*_[a-z]*||[a-z]*_[a-z]*_[a-z]*)','') != ''
 GROUP BY category, platform, REGEXP_REPLACE(regexp_replace ((attribute_filter),'"',''),'\\{',''), ds) casi
 GROUP BY casi.category, casi.platform,casi.filtro, usages, ds
-ORDER BY cantidad_usos DESC;

@@ -37,7 +37,7 @@ dependencies {
 
 	compile 'com.amazonaws:aws-java-sdk:1.11.68'
 	compile 'commons-io:commons-io:2.4'
-	compile 'com.mercadolibre.melidata.catalog:commons:2.0.1'
+	compile 'com.mercadolibre.melidata.catalog:commons:2.0.2'
 	compile group: 'com.facebook.presto', name: 'presto-jdbc', version: '0.220'
 	compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 	compile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
@@ -76,13 +76,15 @@ task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
 task testAll (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.TestManager'
 	classpath = sourceSets.main.runtimeClasspath
-	args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations"]
+	args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-monitoring",
+	"mlo-mon-pyme-pvnm-aas"]
 }
 
 task uploadAll(type:JavaExec) {
     main = 'com.melidata.definitions.task.UploadManager'
     classpath = sourceSets.main.runtimeClasspath
-    args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations"]
+    args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-monitoring", 
+	"mlo-mon-pyme-pvnm-aas"]
 }
 
 task testMelidata (dependsOn: 'classes', type: JavaExec) {
@@ -121,6 +123,18 @@ task testRecommendations (dependsOn: 'classes', type: JavaExec) {
 	args = ["recommendations"]
 }
 
+task testMonitoring (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-monitoring"]
+}
+
+task testMonitoringPymePvnmAasCatalog (dependsOn: 'classes', type: JavaExec) {
+	main = 'com.melidata.definitions.task.CatalogTest'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-pyme-pvnm-aas"]
+}
+
 task testCronnedQueries (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.CronnedQueriesTest'
 	classpath = sourceSets.main.runtimeClasspath
@@ -134,7 +148,8 @@ task testMetrics (dependsOn: 'classes', type: JavaExec) {
 task uploadAllCatalog(type:JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
-	args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations"]
+	args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-monitoring",
+	"mlo-mon-pyme-pvnm-aas"]
 }
 
 task uploadMeliDataCatalog(type:JavaExec) {
@@ -171,6 +186,18 @@ task uploadRecommendationsCatalog(type:JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["recommendations"]
+}
+
+task uploadMonitoringCatalog(type:JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-monitoring"]
+}
+
+task uploadMonitoringPymePvnmAasCatalog(type:JavaExec) {
+	main = 'com.melidata.definitions.uploaders.CatalogUploader'
+	classpath = sourceSets.main.runtimeClasspath
+	args = ["mlo-mon-pyme-pvnm-aas"]
 }
 
 task uploadMetrics(type:JavaExec) {

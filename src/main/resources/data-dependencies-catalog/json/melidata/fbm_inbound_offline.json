@@ -168,6 +168,7 @@
 ],
     "sql": {
       "script": "shipping/fbm-inbound-offline.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

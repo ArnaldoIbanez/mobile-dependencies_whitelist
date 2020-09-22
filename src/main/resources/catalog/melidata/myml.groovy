@@ -16,23 +16,27 @@ tracks {
         PurchaseStatus(required:false, type: PropertyType.String)//solo va a existir por un mes, hasta que hagamos la subida para mobile
 
 	    seller(required: false, type:PropertyType.ArrayList, description: "Array of sellers with their data")
-	    //id
-	    //nickname
-	    //mercado_lider
-	    //reputation_level
+	    // id
+	    // nickname
+	    // mercado_lider
+	    // reputation_level
+        // messages_count
 
 	    buyer(required: false, type:PropertyType.ArrayList, description: "Array of buyers with their data")
-	    //id
-	    //nickname
-	    //loyalty_level
+	    // id
+	    // nickname
+	    // loyalty_level
+        // is_prime
 
         render_buy_it_again(required: false, type: PropertyType.String, description: "Has render the buy_it_again button")
+
     }
 
     propertyGroups {
         mymlGroup(cart_content, CartContent, status, purchase_status, PurchaseStatus, seller, buyer, render_buy_it_again)
     }
 
+    // ---------------- Sales
 
     "/myml/sales"(platform: "/", isAbstract: true) {
         mymlGroup
@@ -86,9 +90,14 @@ tracks {
 
     "/myml/sales/item"(platform:"/", type: TrackType.View) {}
 
+
+    // ---------------- Purchases
+
+
     "/myml/purchases"(platform: "/", isAbstract: true) {
     	mymlGroup
     }
+
     // Deprecar en Julio
     "/myml/purchases"(platform: "/mobile", isAbstract: true) {
         dimensions(required: false, description: "Temporal for 1 months")
@@ -120,6 +129,8 @@ tracks {
     	carrier(required:false, type: PropertyType.String)
     }
 
+    "/myml/purchases/detail/history"(platform:"/", type: TrackType.View) {}
+
     "/myml/purchases/print_label"(platform: "/") {}
 
     "/myml/purchases/print_label/show_stores_map"(platform: "/", type: TrackType.Event) {}
@@ -142,8 +153,6 @@ tracks {
 
     "/myml/purchases/order"(platform:"/", type: TrackType.View) {}
 
-    "/myml/purchases/detail/history"(platform:"/", type: TrackType.View) {}
-
     "/myml/purchases/feedback"(platform: "/mobile", isAbstract: true) {}
 
     "/myml/purchases/feedback/rating"(platform: "/mobile", type: TrackType.View) {}
@@ -158,17 +167,20 @@ tracks {
 
     "/myml/purchases/feedback/error"(platform: "/mobile", type: TrackType.View) {}
 
-    "/myml/purchases/status"(platform:"/", type: TrackType.View) {}
-
     "/myml/purchases/item"(platform:"/", type: TrackType.View) {}
 
     "/myml/purchases/seller"(platform:"/", type: TrackType.View) {}
+
+    "/myml/purchases/status"(platform:"/", type: TrackType.View) {}
 
     "/myml/purchases/status/buy_it_again"(platform:"/mobile", type: TrackType.Event) {
         item_id(required: true,type: PropertyType.String, description: "Item id")
         buy_it_again_experiment(required: true,type: PropertyType.String, description: "Is the user in the experiment")
         buy_it_again_lead_checkout(required: true,type: PropertyType.String, description: "Is the button going to redirect to checkout")
     }
+
+    // ---------------- Listings
+
 
     "/myml"(platform: "/", isAbstract: true) {}
     "/myml/listings"(platform: "/web", type: TrackType.View) {
@@ -590,6 +602,46 @@ tracks {
         campaign_source(required: false, type: PropertyType.String, description: "Campaign source")
     }
 
+    "/myml/invoices/optin"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+        seller_type(required: false,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+    
+    // MLC - Tracking click - if seller profile needs go to previous page
+    "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+
+    // MLC - Tracking click - if seller profile needs help
+    "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+
+    // MLC - Tracking click -  if seller profile needs change yours data
+    "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+
+    // MLC - Tracking click - if seller profile accept use biller (facturador)
+    "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
+        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+    }
+
+    // MLB - Certificate
+    "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
+    
+    // MLB - Invoice Data (NFe)
+    "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
+    
+    // MLB - Basic tax settings
+    "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
+    
+    // MLB - Blocked Access Page
+    "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+        reason(required: true,  values: ["ADDRESS_NOT_REGISTERED", "NOT_OWNER", "NO_DOCUMENT_REGISTERED"], description: "Seller access blocked for this reason")
+    }
+
+
     //not found
     "/myml/invoices/not-found"(platform: "/") {}
 
@@ -765,6 +817,16 @@ tracks {
     //devolution
     "/myml/invoices/order/devolution"(platform: "/") {}
     "/myml/invoices/order/devolution/confirm"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/order/devolution/success"(platform: "/", type: TrackType.Event) {
+        devolution_type(require: true, type: PropertyType.String, description: "Successfully issues a devolution NF-e.")
+        order_id(require: true, type: PropertyType.String, description: "Successfully issues a devolution NF-e. and send order_id")
+
+    }
+    "/myml/invoices/order/devolution/modal"(platform: "/", type: TrackType.Event) {
+        action(require: true, type: PropertyType.String, description: "Action performed by the user")
+        order_id(require: true, type: PropertyType.String, description: "MLB orderId")
+        invoice_id(require: true, type: PropertyType.String, description: "MLB invoiceId")
+    }
 
     //buyer
     "/myml/invoices/order/buyer-info"(platform: "/") {}
@@ -1018,6 +1080,21 @@ tracks {
     "/myml/invoices/opt_in/difal/button"(platform: "/", isAbstract: true) {}
     "/myml/invoices/opt_in/difal/button/save"(platform: "/") {}
 
+    // rule composition
+    "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/rule-composition"(platform: "/") {}
+
+    "/myml/invoices/opt_in/rule-composition/button"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/rule-composition/button/save"(platform: "/") {}
+
+    // cst nfe devolution
+    "/myml/invoices/opt_in"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/cst-devolution"(platform: "/") {}
+
+    "/myml/invoices/opt_in/cst-devolution/button"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/opt_in/cst-devolution/button/save"(platform: "/") {}
+
+
     //:::: SELLER - INVOICES
 
     "/myml/buy_it_again"(platform: "/mobile") {}
@@ -1152,7 +1229,7 @@ tracks {
 
     "/myml/fiscal_rules/massive/upload/action/edit"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/fiscal_rules/massive/upload/action/rules"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_rules/massive/upload/action/advanced_tax_settings"(platform: "/", type: TrackType.Event) {}
 
     "/myml/fiscal_rules/massive/upload/action/download"(platform: "/", type: TrackType.Event) {}
 

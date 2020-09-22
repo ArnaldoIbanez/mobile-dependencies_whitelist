@@ -69,7 +69,7 @@ tracks {
 
     // WEB
     "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {
-        promoter (required:true, type: PropertyType.String, description: "Indicates the id of the inviter/promoter")
+        promoter (required:false, type: PropertyType.String, description: "Indicates the id of the inviter/promoter")
     }
     "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
 

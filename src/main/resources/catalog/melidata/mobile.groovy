@@ -39,13 +39,33 @@ tracks {
     }
 
     "/application/uninstall_event" (platform: "/mobile", type: TrackType.Event){
-        type (required: true, type: PropertyType.String)
-        date_created (required: true, type: PropertyType.String)
-        lang (required: true, type: PropertyType.String)
-        timezone (required: true, type: PropertyType.String)
-        last_seen (required: false, type: PropertyType.String)
-        source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"])
+        type (required: true, type: PropertyType.String, description: "Kind of device")
+        date_created (required: true, type: PropertyType.String, description: "Device registration")
+        lang (required: true, type: PropertyType.String, description: "Device language")
+        timezone (required: true, type: PropertyType.String, description: "Device timezone")
+        last_seen (required: false, type: PropertyType.String, description: "Last alive's signal")
+        source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"], description: "Source that set status")
+        current_checking_day (required: false, type: PropertyType.Numeric, description: "Day that is checking status")
+        execution_id (required: false, type: PropertyType.String, description: "The execution id")
+        app_storage (required: false, type: PropertyType.Numeric, description: "App storage on device")
+        free_storage (required: false, type: PropertyType.Numeric, description: "Free storage on device")
+        total_storage (required: false, type: PropertyType.Numeric, description: "Total storage on device")
     }
+
+    "/application/not_engaged" (platform: "/mobile", type: TrackType.Event){
+        type (required: true, type: PropertyType.String, description: "Kind of device")
+        date_created (required: true, type: PropertyType.String, description: "Device registration")
+        lang (required: true, type: PropertyType.String, description: "Device language")
+        timezone (required: true, type: PropertyType.String, description: "Device timezone")
+        last_seen (required: false, type: PropertyType.String, description: "Last alive's signal")
+        source (required: false, type: PropertyType.String, values: ["test", "uninstalls_checker_flow", "token_purge"], description: "Source that set status")
+        current_checking_day (required: false, type: PropertyType.Numeric, description: "Day that is checking status")
+        execution_id (required: false, type: PropertyType.String, description: "The execution id")
+        app_storage (required: false, type: PropertyType.Numeric, description: "App storage on device")
+        free_storage (required: false, type: PropertyType.Numeric, description: "Free storage on device")
+        total_storage (required: false, type: PropertyType.Numeric, description: "Total storage on device")
+    }
+
 
     "/permissions"(platform: "/mobile", isAbstract: true){}
     "/permissions/location"(platform: "/mobile", type: TrackType.View){
@@ -71,6 +91,12 @@ tracks {
                 descripcion: "True if the url is the first url to be loaded. Next urls will have this flag in false (redirects, taps)")
     }
 
+    "/landing/deeplinks"(platform: "/mobile") {
+        desired_link(required:true, type: PropertyType.String, descripcion: "Original Link where we want to search for a Target Link")
+        target_link(required:false, type: PropertyType.String, descripcion:"The Target Link that was retrieved by the Original Link")
+        message(required:false, type: PropertyType.String, descripcion: "Extra message for Error Description")
+    }
+
     "/sso" (platform: "/mobile", isAbstract: true){}
     "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
     "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
@@ -88,6 +114,16 @@ tracks {
         total_storage(required: true, type: PropertyType.Numeric, description: "Total storage in the device in bytes")
         free_storage(required: true, type: PropertyType.Numeric, description: "Free storage in the device in bytes")
         app_storage(required: true, type: PropertyType.Numeric, description: "Application occupied storage in bytes")
+        app_cache(required: false, type: PropertyType.Numeric, description: "Application cache occupied storage in bytes")
+        app_data(required: false, type: PropertyType.Numeric, description: "Application data occupied storage in bytes")
+        dark_mode_status(required: false, type: PropertyType.String, values: ["enabled", "battery_enabled", "disabled", "undefined"],
+         description: "Dark Mode status")
+        battery_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled"], description: "Battery Save mode")
+        data_save_mode(required: false, type: PropertyType.String, values: ["enabled", "disabled", "whitelisted", "undefined"], description: "Data Save mode")
+        do_not_disturb_mode(required: false, type: PropertyType.String, values: ["disabled", "important_interruptions", "no_interruptions", "alarms_only", "undefined"], description: "Do Not Disturb mode")
+        carrier_code(required: false, type: PropertyType.String, description: "Carrier code of the network provider (MCC+MNC)")
+        carrier_name(required: false, type: PropertyType.String, description: "Name of the carrier network provider")
+        nfc_compatible(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Nfc compatible with the device")
     }
 
     "/devices_settings"(platform:"/mobile", isAbstract:true) {}
@@ -105,5 +141,27 @@ tracks {
         device_id(required: true, description: "The real device_id, may differ from device field")
         enable(required:true, type:PropertyType.Boolean, description: "Indicates if settings are enabled")
         registration_id(required: false, description: "The registration id", type: PropertyType.String)
+    }
+
+    "/devices/websec"(platform:"/mobile/android", isAbstract:true) {}
+
+    "/devices/websec/deeplinks_data"(platform: "/mobile/android", type:TrackType.Event){
+        from(required: false, type: PropertyType.String, description: "From where is the navigation originated")
+        destination(required: false, type: PropertyType.String, description: "Activity which will render the deeplink")
+        scheme(required: false, type: PropertyType.String, description: "The scheme")
+        encodedUri(required: false, type: PropertyType.String, description: "Full encoded deeplink uri")
+        segments(required: false, type: PropertyType.String, description: "All segments")
+        query(required: false, type: PropertyType.String, description: "Full deeplink query")
+    }
+
+    //apprater
+    "/apprater"(platform:"/mobile", isAbstract:true) {}
+
+    "/apprater/add_track"(platform: "/mobile") {
+        type_track(required: true, type: PropertyType.String, description:"Type of track that happen in the app (PAYMENT_APPROVE,CRASHED,WITHDRAW,etc")
+    }
+    "/apprater/error_service_rules"(platform: "/mobile") {
+    }
+    "/apprater/popup"(platform: "/mobile") {
     }
 }

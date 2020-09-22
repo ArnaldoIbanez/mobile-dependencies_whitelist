@@ -61,6 +61,7 @@
     }],
     "sql": {
       "script": "notifications/notifications-push-metrics-governance.sql",
+      "engine": "spark",
       "parameters": [{
         "name": "send_date",
         "value": "DAY-3",

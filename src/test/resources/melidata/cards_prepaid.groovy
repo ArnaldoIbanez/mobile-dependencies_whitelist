@@ -296,4 +296,22 @@ trackTests {
         "/prepaid/faq/detail/rejected_international_authorization/money_in" (platform: "/", type: TrackType.Event) {}
         "/prepaid/faq/detail/rejected_international_authorization/reissue" (platform: "/", type: TrackType.Event) {}
     }
+
+    test ("Cards acquisition pj onboarding") {
+        "/prepaid/acquisition/pj_onboarding"(platform: "/", type: TrackType.View) {}
+        "/prepaid/acquisition/pj_onboarding/tap"(platform: "/", type: TrackType.Event) {} 
+        "/prepaid/acquisition/pj_onboarding/error"(platform: "/", type: TrackType.Event) {} 
+    }
+
+    test ("Cards acquisition Onboarding Adapt KYC") {
+        "/prepaid/acquisition/onboarding_adapt_kyc"(platform: "/", type: TrackType.View) {}
+        "/prepaid/acquisition/onboarding_adapt_kyc/tap"(platform: "/", type: TrackType.Event) {}
+        "/prepaid/acquisition/onboarding_adapt_kyc/error"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test ("Cards acquisition Congrats Adapt KYC") {
+        "/prepaid/acquisition/adapt_kyc/congrats"(platform: "/", type: TrackType.View) {}
+        "/prepaid/acquisition/adapt_kyc/congrats/tap"(platform: "/", type: TrackType.Event) { deeplink = "deeplink" }
+        "/prepaid/acquisition/adapt_kyc/congrats/error"(platform: "/", type: TrackType.Event) {}
+    }
 }

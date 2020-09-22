@@ -1,0 +1,49 @@
+{
+  "users": [
+    "santiago.marchioni@mercadolibre.com",
+    "syi-puma@mercadolibre.com.ar"
+  ],
+  "process_name": "sell_bulk_publish_errors",
+  "cron": "00 06 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
+  "extract": {
+    "operation": "append",
+    "site": "QA",
+    "columns": [
+      {
+      "name": "site_id",
+      "type": "UNICODE_STRING"
+      },
+      {
+      "name": "category",
+      "type": "UNICODE_STRING"
+      },
+      {
+        "name": "error_code",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "quantity",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "sell/sell-bulk-publish-errors.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

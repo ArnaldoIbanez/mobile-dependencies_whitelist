@@ -9,4 +9,3 @@ from tracks
     AND ds >= '@param01'
     AND ds <= '@param02'
 group by substr(ds,1,10), device.platform, application.site_id, device.os_version, path
-order by substr(ds,1,10)

@@ -25,5 +25,3 @@ FROM
  ) AS t1
 GROUP BY
  t1.site_id, t1.date_sent, t1.platform, t1.utm_source
-ORDER BY
- t1.site_id, t1.date_sent, t1.platform, t1.utm_source

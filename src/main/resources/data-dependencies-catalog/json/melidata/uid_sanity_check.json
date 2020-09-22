@@ -43,6 +43,7 @@
     ],
     "sql": {
       "script": "melidata/uid_sanity_check.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

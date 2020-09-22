@@ -1217,20 +1217,7 @@ tracks {
     * GarEx es una entidad que representa la garantia que el usuario elige para su producto
     * */
 
-    //web
-
-    "/checkout/garex"(platform:"/web", type: TrackType.View) {}
-    "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
-    "/checkout/garex/selected_garex"(platform:"/web", type: TrackType.Event) {
-        garex(required: true, type: PropertyType.Map(garexTrackStructure) )
-    }
-    "/checkout/garex/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
-    "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
-        garex(required: true, type: PropertyType.Map(garexTrackStructure) )
-    }
-
     //mobile
-
     "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
     "/checkout/garex/more_info"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/garex/selected_garex"(platform:"/mobile", type: TrackType.Event) {

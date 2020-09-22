@@ -1,10 +1,10 @@
 SELECT path,
-       jest
-           (event_data, 'total_installments') AS quantity,
-       jest
-           (event_data, 'paid_installments')  AS paid_installments,
-       jest
-           (event_data, 'page_status')        AS status,
+       get_json_object
+           (event_data, '$.total_installments') AS quantity,
+       get_json_object
+           (event_data, '$.paid_installments')  AS paid_installments,
+       get_json_object
+           (event_data, '$.page_status')        AS status,
        count
            (*)                                AS total,
        device.platform                        AS platform,
@@ -21,15 +21,15 @@ GROUP BY substr
          event_data,
          device.platform,
          application.site_id
-HAVING jest
-           (event_data, 'total_installments') >= jest
-           (event_data, 'paid_installments')
-UNION
+HAVING get_json_object
+           (event_data, '$.total_installments') >= get_json_object
+           (event_data, '$.paid_installments')
+UNION ALL
 SELECT path,
        ''                                   AS quantity,
        ''                                   AS paid_installments,
-       jest
-           (event_data, 'dashboard_status') AS status,
+       get_json_object
+           (event_data, '$.dashboard_status') AS status,
        count
            (*)                              AS total,
        device.platform                      AS platform,
@@ -46,13 +46,13 @@ GROUP BY substr
          event_data,
          device.platform,
          application.site_id
-UNION
+UNION ALL
 SELECT path,
-       jest
-           (event_data, 'installments_qty') AS quantity,
+       get_json_object
+           (event_data, '$.installments_qty') AS quantity,
        ''                                   AS paid_installments,
-       jest
-           (event_data, 'dashboard_status') AS status,
+       get_json_object
+           (event_data, '$.dashboard_status') AS status,
        count
            (*)                              AS total,
        device.platform                      AS platform,
@@ -70,12 +70,12 @@ GROUP BY substr
          event_data,
          device.platform,
          application.site_id
-UNION
+UNION ALL
 SELECT path,
        ''                              AS quantity,
        ''                              AS paid_installments,
-       jest
-           (event_data, 'page_status') AS status,
+       get_json_object
+           (event_data, '$.page_status') AS status,
        COUNT
            (*)                         AS total,
        device.platform                 AS platform,

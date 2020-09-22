@@ -32,6 +32,7 @@
     "sql": {
 
       "script": "melidata/tracks-count.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

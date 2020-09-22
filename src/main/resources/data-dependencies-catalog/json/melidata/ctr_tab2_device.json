@@ -45,6 +45,7 @@
     }],
     "sql": {
       "script": "bi/ctr_tab2_device.sql",
+      "engine": "spark",
       "parameters": []
     }
   }

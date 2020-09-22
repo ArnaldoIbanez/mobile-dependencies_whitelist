@@ -1,7 +1,11 @@
 package src.test.resources.melidata
 import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 import com.ml.melidata.TrackType
-import com.ml.melidata.catalog.PropertyType
+
+/**************************************************************
+ * CONTACT: In case of changes over this file, please send us
+ *  a message to our e-mail: front_native_devs@mercadolibre.com
+ **************************************************************/
 
 /**************************
  * WALLET HOME TEST TRACKS *
@@ -277,6 +281,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -291,7 +298,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: false
                     ],
                     assets: [],
                     credits: [],
@@ -432,6 +440,13 @@ trackTests {
                     ordinal: 14,
                     content_type : 'complete'
             ]
+            ifpe_regulation= [
+                    ordinal: 15,
+                    content_type : 'complete'
+            ]
+            metadata = [
+                accessibility_voice: false
+            ]
         }
     }
 
@@ -440,6 +455,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -454,7 +472,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: true
                     ],
                     assets: [],
                     credits: [],
@@ -485,7 +504,8 @@ trackTests {
                     shortcut_ids: [
                         "gran_dia_mcdonals"
                     ],
-                    has_view_more: true
+                    has_view_more: true,
+                    has_view_more_ripple: true,
             ]
             prepaid_banner = [
                     content_type : 'partial',
@@ -593,6 +613,13 @@ trackTests {
             bcra_regulation= [
                     ordinal: 14,
                     content_type : 'complete'
+            ]
+            ifpe_regulation= [
+                    ordinal: 15,
+                    content_type : 'complete'
+            ]
+            metadata = [
+                accessibility_voice: true
             ]
         }
     }
@@ -708,43 +735,19 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - Subscription") {
+        "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://loyalty"
+            section_id="subscription"
+            component_id="cta"
+        }
+    }
+
     test("Mercadopago Home Tap v3 - Survey") {
         "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
             section_id="survey"
             component_id="user_survey"
-        }
-    }
-
-    test("Mercadopago Home Tap v3 - Secondary Actions") {
-        "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="secondary_actions"
-            component_id="user_secondary_actions"
-        }
-    }
-
-    test("Mercadopago Home Tap v3 - Cross Selling") {
-        "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="cross_selling"
-            component_id="user_cross_selling"
-        }
-    }
-
-    test("Mercadopago Home Tap v3 - Prepaid Banner") {
-        "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="prepaid_banner"
-            component_id="user_prepaid_banner"
-        }
-    }
-
-    test("Mercadopago Home Tap v3 - Benefits") {
-        "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="benefits"
-            component_id="user_benefits"
         }
     }
 
@@ -761,8 +764,41 @@ trackTests {
             has_aware = false
             has_label = true
             group_id = "seller"
-            component_id="user_survey"
             group_position = 6
+            audience="all"
+            bu="1"
+            bu_line="10"
+            flow="1"
+            logic="default"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - shortcuts (without optionals)") {
+        "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="payer"
+            component_id="scan_qr"
+            from = "sheet"
+            content_id = "business"
+            position = 3
+            enabled = true
+            is_favorite = false
+            has_aware = false
+            has_label = true
+        }
+
+        "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="payer"
+            component_id="scan_qr"
+            from = "sheet"
+            content_id = "business"
+            position = 3
+            enabled = true
+            is_favorite = false
+            has_aware = false
+            has_label = true
+            has_ripple = false
         }
     }
 
@@ -775,6 +811,34 @@ trackTests {
         "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
             group_ids = ["payer", "business", "seller", "favorites"]
             shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+        }
+
+        "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
+            group_ids = ["payer", "business", "seller", "favorites"]
+            shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+            favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+            has_ftu = false
+        }
+
+        "/wallet_home/shortcuts_sheet/dismiss" (platform: "/mobile", type: TrackType.Event) {
+            from = "drag"
+            time_spent = 122
+        }
+    }
+
+    test("Mercadopago shortcut favorite edition") { 
+        "/wallet_home/shortcuts_sheet/edit" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/shortcuts_sheet/edit/drop" (platform: "/mobile", type: TrackType.Event) {
+            initial_position = 1
+            end_position = 2
+            shortcut_id = "scan_qr"
+        }
+
+        "/wallet_home/shortcuts_sheet/cancel" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/shortcuts_sheet/save" (platform: "/mobile", type: TrackType.View) {
+            favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
         }
     }
 
@@ -1071,6 +1135,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -1085,7 +1152,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: true
                     ],
                     assets: [],
                     credits: [],
@@ -1116,7 +1184,8 @@ trackTests {
                     shortcut_ids: [
                         "gran_dia_mcdonals"
                     ],
-                    has_view_more: true
+                    has_view_more: true,
+                    has_view_more_ripple: true,
             ]
             prepaid_banner = [
                     content_type : 'partial',
@@ -1221,6 +1290,15 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            subscription= [
+                    content_type : 'partial',
+                    ordinal: 14,
+                    level: 3,
+                    partner: "HBO"
+            ]
+            metadata = [
+                accessibility_voice: false
+            ]
         }
     }
 
@@ -1229,6 +1307,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -1243,7 +1324,8 @@ trackTests {
                     ],
                     cards: [
                             prepaid: false,
-                            quantity: 9
+                            quantity: 9,
+                            debit: false
                     ],
                     assets: [],
                     credits: [],
@@ -1379,6 +1461,15 @@ trackTests {
                     ordinal: 13,
                     content_type : 'complete'
             ]
+            subscription= [
+                    content_type : 'partial',
+                    ordinal: 14,
+                    level: 3,
+                    partner: "HBO"
+            ]
+            metadata = [
+                accessibility_voice: true
+            ]
         }
     }
 
@@ -1493,6 +1584,14 @@ trackTests {
         }
     }
 
+    test("Mercadopago Home Tap v3 - Subscription") {
+        "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://loyalty"
+            section_id="subscription"
+            component_id="cta"
+        }
+    }
+
     test("Mercadopago Home Tap v3 - Survey") {
         "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
@@ -1517,37 +1616,19 @@ trackTests {
             component_id="user_survey"
             group_position = 6
         }
-    }
 
-    test("Mercadopago Home Tap v3 - Secondary Actions") {
-        "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event) {
+        "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
             link = "mercadopago://instore/scan_qr"
-            section_id="secondary_actions"
-            component_id="user_secondary_actions"
-        }
-    }
-
-    test("Mercadopago Home Tap v3 - Cross Selling") {
-        "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="cross_selling"
-            component_id="user_cross_selling"
-        }
-    }
-
-    test("Mercadopago Home Tap v3 - Prepaid Banner") {
-        "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="prepaid_banner"
-            component_id="user_prepaid_banner"
-        }
-    }
-
-    test("Mercadopago Home Tap v3 - Benefits") {
-        "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
-            link = "mercadopago://instore/scan_qr"
-            section_id="benefits"
-            component_id="user_benefits"
+            section_id="payer"
+            component_id="scan_qr"
+            from = "sheet"
+            content_id = "business"
+            position = 3
+            enabled = true
+            is_favorite = false
+            has_aware = false
+            has_label = true
+            has_ripple = false
         }
     }
 
@@ -1559,6 +1640,34 @@ trackTests {
         "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
             group_ids = ["payer", "business", "seller", "favorites"]
             shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+        }
+
+        "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
+            group_ids = ["payer", "business", "seller", "favorites"]
+            shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+            favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+            has_ftu = false
+        }
+
+        "/wallet_home/shortcuts_sheet/dismiss" (platform: "/mobile", type: TrackType.Event) {
+            from = "drag"
+            time_spent = 122
+        }
+    }
+
+    test("Mercadopago shortcut favorite edition") { 
+        "/wallet_home/shortcuts_sheet/edit" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/shortcuts_sheet/edit/drop" (platform: "/mobile", type: TrackType.Event) {
+            initial_position = 1
+            end_position = 2
+            shortcut_id = "scan_qr"
+        }
+
+        "/wallet_home/shortcuts_sheet/cancel" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/shortcuts_sheet/save" (platform: "/mobile", type: TrackType.View) {
+            favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
         }
     }
 
@@ -1582,4 +1691,111 @@ trackTests {
             section = "footer"
         }
     }
+
+    ["mercadolibre", "mercadopago"].each { business ->
+        defaultBusiness = business
+
+        test("Home Tap v3 - Secondary Actions [${business}]") {
+            "/wallet_home/section/tap/secondary_actions"(platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                section_id = "secondary_actions"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                position = 1
+                logic = "user_journey"
+                flow = "default"
+            }
+            "/wallet_home/section/tap/secondary_actions"(platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                section_id = "secondary_actions"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
+            }
+        }
+        test("Mercadopago Home Tap v3 - Cross Selling [${business}]") {
+            "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "cross_selling_item1"
+                section_id = "cross_selling"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
+            }
+            "/wallet_home/section/tap/cross_selling" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                section_id = "secondary_actions"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
+            }
+        }
+
+        test("Mercadopago Home Tap v3 - Prepaid Banner [${business}]") {
+            "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "cross_selling_item1"
+                section_id = "cross_selling"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
+            }
+            "/wallet_home/section/tap/prepaid_banner" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                section_id = "secondary_actions"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
+            }
+        }
+        test("Mercadopago Home Tap v3 - Benefits [${business}]") {
+            "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "cross_selling_item1"
+                section_id = "cross_selling"
+                action_id = "default"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                link = "mercadopago://entity/sube"
+                logic = "user_journey"
+                flow = "default"
+                position = 1
+            }
+            "/wallet_home/section/tap/benefits" (platform: "/mobile", type: TrackType.Event) {
+                audience = "all"
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                section_id = "secondary_actions"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                logic = "user_journey"
+                flow = "default"
+            }
+        }
+
+    }    
 }

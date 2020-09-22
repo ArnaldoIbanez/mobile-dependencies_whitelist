@@ -9,7 +9,7 @@
         "type": "DATE"
   },
   "extract": {
-    "operation": "overwrite",
+    "operation": "destroy",
     "site": "MeliLake",
     "columns": [
       {

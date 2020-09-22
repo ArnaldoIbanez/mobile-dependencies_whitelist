@@ -17,7 +17,6 @@ select todo.fecha, todo.site, todo.platform, todo.query, todo.total_buy, todo.to
  			and jet(event_data, 'first_for_order') = 'true'
  			and (regexp_replace(jet(platform.http.cookies, 'LAST_SEARCH'),'-',' ') is not null and regexp_replace(jet(platform.http.cookies, 'LAST_SEARCH'),'-',' ') != '{}')
  			group by substr(ds,1,10), application.site_id, device.platform, regexp_replace(jet(platform.http.cookies, 'LAST_SEARCH'),'-',' '), regexp_extract(jet(event_data, 'items[0].item.category_path'),'\\["(.*?)"',1)
- 			order by total_buy desc
  		) queries_with_buy
  
  		LEFT JOIN
@@ -45,4 +44,3 @@ select todo.fecha, todo.site, todo.platform, todo.query, todo.total_buy, todo.to
  
  )todo
  where todo.total_searchs >= todo.total_buy
- order by todo.total_buy desc

@@ -8,6 +8,15 @@ tracks {
 
     initiative = "1034"
 
+    def third_party_data_definition = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: false)
+    }
+
+    def third_party_definition = objectSchemaDefinitions {
+        source(type: PropertyType.String, required: true)
+        data(type: PropertyType.Map(third_party_data_definition), required: true)
+    }
+
     "/traffic"(platform: "/", isAbstract: true) {}
 
     "/traffic/inbound"(platform: "/", isAbstract: true) {}
@@ -16,10 +25,12 @@ tracks {
         tool(type: PropertyType.Numeric, description: "Referrer's ID, this could identify Google, Facebook or any other channel")
         word(required: false, type: PropertyType.String, description: "This is the name of the marketing campaign.")
         go(type: PropertyType.String, description: "Destination URL of the marketing campaign.")
+        third_party(required: false, type: PropertyType.Map(third_party_definition), description: "Third party data from ads")
     }
 
     "/traffic/inbound/organic"(platform: "/") {
-        referrer(required: true, type: PropertyType.String, description: "Browser used before getting to us.")
+        referrer(required: true, type: PropertyType.String, description: "URL where the traffic came from.")
+        destination(required: false, type: PropertyType.String, description: "URL where the traffic is going to.")
     }
 
     "/traffic/inbound/notification"(platform: "/") {

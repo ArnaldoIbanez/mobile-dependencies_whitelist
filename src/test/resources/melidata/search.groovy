@@ -20,6 +20,22 @@ trackTests {
             url              : "http://example.com"
     ]
 
+    def bestSellerInfo = [
+            candidates   : 10,
+            selected     : [ "MLA1234" ],
+            selected_qty : 1,
+            selected_positions : [ 1, 3, 5 ]
+    ]
+
+    def tagTrackingInfo = [
+        best_seller : [
+                [item_id: "MLC510446223", position: 2],
+                [item_id: "MLC510446224", position: 3, product_id:"MLC510446224"],
+        ],
+        shipping_guaranteed : [],
+        deal_of_the_day : []
+    ]
+
     def promiseInfo = [
             sameday: ["MLA123411"],
             nextday: ["MLA12345645"]
@@ -142,11 +158,11 @@ trackTests {
             ]
             carousel_filters = []
             seo = [
-                    is_whitelisted                : true,
-                    check_mode                    : "GMV",
-                    gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true
+                    is_whitelisted         : true,
+                    check_mode             : "GMV",
+                    value                  : 15,
+                    is_default             : false,
+                    is_on_seo_h1_experiment: true
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
@@ -154,6 +170,8 @@ trackTests {
             promoted_items = ["MLA1", "MLA2"]
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
+            best_seller_info = bestSellerInfo
+            tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -269,11 +287,11 @@ trackTests {
             ]
             carousel_filters = ["BRAND", "official_store", "STYLE"]
             seo = [
-                    is_whitelisted                : true,
-                    check_mode                    : "GMV",
-                    gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true
+                    is_whitelisted         : true,
+                    check_mode             : "GMV",
+                    value                  : 15,
+                    is_default             : false,
+                    is_on_seo_h1_experiment: true
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
@@ -281,6 +299,8 @@ trackTests {
             promoted_items = ["MLA1", "MLA2"]
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
+            best_seller_info = bestSellerInfo
+            tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -297,6 +317,7 @@ trackTests {
                             "type" : "PDP"
                     ]
             ]
+            review_pages = ["ventilador", "nintendo"]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -546,11 +567,11 @@ trackTests {
             pdp_rows = []
             carousel_filters = []
             seo = [
-                    is_whitelisted                : true,
-                    check_mode                    : "GMV",
-                    gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true
+                    is_whitelisted         : true,
+                    check_mode             : "GMV",
+                    value                  : 15,
+                    is_default             : false,
+                    is_on_seo_h1_experiment: true
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true

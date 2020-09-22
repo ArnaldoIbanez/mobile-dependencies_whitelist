@@ -6,6 +6,32 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
+    test("Traffic with google data") {
+        "/traffic/inbound/matt"(platform: "/") {
+            tool = 123456
+            word = "campaignName"
+            go = "http://ofertas.mercadolibre.com.mx/hot-sale"
+            third_party = {
+                source = "google"
+                data = {
+                    id = "EAIaIQobChMI8rLxq6fN6gIVS4CRCh0TgAK8EAkYAiABEgIMHPD_BwE"
+                }
+            }
+        }
+    }
+
+    test("Traffic with google data") {
+        "/traffic/inbound/matt"(platform: "/") {
+            tool = 123456
+            word = "campaignName"
+            go = "http://ofertas.mercadolibre.com.mx/hot-sale"
+            third_party = {
+                source = "google"
+                data = {}
+            }
+        }
+    }
+
     test("Traffic") {
         "/traffic/inbound/matt"(platform: "/") {
             tool = 123456
@@ -51,13 +77,25 @@ trackTests {
         }
     }
 
-    test("Google search traffic") {
+    test("Google search traffic without destination") {
         "/traffic/inbound/organic"(platform: "/") {
             referrer = "www.google.com"
         }
 
         "/traffic/inbound/organic"(platform: "/", business: "mercadopago") {
             referrer = "www.google.com"
+        }
+    }
+
+    test("Google search traffic with destination") {
+        "/traffic/inbound/organic"(platform: "/") {
+            referrer = "www.google.com.uy"
+            destination = "www.mercadolibre.com.uy"
+        }
+
+        "/traffic/inbound/organic"(platform: "/", business: "mercadopago") {
+            referrer = "www.google.com.uy"
+            destination = "www.mercadopago.com.uy"
         }
     }
 
