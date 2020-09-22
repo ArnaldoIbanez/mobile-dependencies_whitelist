@@ -10,6 +10,10 @@ trackTests {
 
     test("MGM track ML") {
 
+        /*************************
+        * MGM PAYER TRACKS v2  *
+        *************************/
+
         // MOBILE
         // Access MGM flow
         "/mgm/payers/init"(platform: "/mobile", type: TrackType.Event) {
@@ -66,7 +70,10 @@ trackTests {
         "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {}
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
 
-        // MGM Seller
+        /*************************
+        * MGM SELLER TRACKS  *
+        *************************/
+
         "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}
         "/mgm_seller/dashboard" (platform: "/mobile", type: TrackType.View) {}
 
@@ -84,6 +91,10 @@ trackTests {
 
     test("MGM track MP") {
 
+        /*************************
+        * MGM PAYER TRACKS v2  *
+        *************************/
+
         // MOBILE
         // Access MGM flow
         "/mgm/payers/init"(platform: "/mobile", type: TrackType.Event) {
@@ -140,7 +151,10 @@ trackTests {
         "/mgm/payers/stop_landing"(platform: "/web", type: TrackType.View) {}
         "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
 
-        // MGM Seller
+        /*************************
+        * MGM SELLER TRACKS *
+        *************************/
+
         "/mgm_seller/referal" (platform: "/mobile", type: TrackType.View) {}
         "/mgm_seller/dashboard" (platform: "/mobile", type: TrackType.View) {}
 
@@ -151,5 +165,92 @@ trackTests {
         }
 
         "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
+
+        /*************************
+        * MGM TRACKS v3  *
+        *************************/
+
+        "/mgm/v3/promoter"(platform: "/mobile", type: TrackType.View) {
+            program_id = "123"
+            is_recurrent = true
+            floating_banner_id = "1234"
+            sections = [
+                [ 
+                    order: 0,
+                    section_id: "12323" 
+                ],
+                [
+                    order: 1,
+                    section_id: "12323" 
+                ]
+            ]
+            from = "modals_engine"
+        }
+
+        "/mgm/v3/promoter/share/tap"(platform: "/mobile", type: TrackType.Event) {
+                program_id = "123"
+                is_recurrent = true
+                action_id = "123"
+                shared_app_id = "123"
+                from = "modals_engine"
+        }
+
+        "/mgm/v3/promoter/banner/tap"(platform: "/mobile", type: TrackType.Event) {
+                program_id = "123"
+                is_recurrent = true
+                target_program = "mgm_point"
+                from = "modals_engine"
+        }    
+
+        "/mgm/v3/promoter/floating_banner/dismiss"(platform: "/mobile", type: TrackType.Event) {
+                program_id = "123"
+                is_recurrent = true
+                banner_id = "123"
+                from = "modals_engine"
+        }
+
+        "/mgm/v3/guest"(platform: "/mobile", type: TrackType.View) {
+                program_id = "123"
+                sections = [
+                    [ 
+                        order: 0,
+                        section_id: "12323" 
+                    ],
+                    [
+                        order: 1,
+                        section_id: "12323" 
+                    ]
+                ]
+                from = "modals_engine"
+        }
+
+        "/mgm/v3/guest/cross_selling/tap"(platform: "/mobile", type: TrackType.Event) {
+                program_id = "123"
+                action_id = "123"
+                from = "modals_engine"
+        }
+
+        "/mgm/v3/guest/main_action/tap"(platform: "/mobile", type: TrackType.Event) {
+                program_id = "123"
+                action_id = "123"
+                from = "modals_engine"
+        }
+
+        "/mgm/v3/error"(platform: "/mobile", type: TrackType.View) {
+                program_id = "123"
+                reason = "kyc_invitado"
+        }
+
+        "/mgm/v3/error/dismiss"(platform: "/mobile", type: TrackType.Event) {
+                program_id = "123"
+                reason = "kyc_invitado"
+        }
+
+        "/mgm/v3/error/tap"(platform: "/mobile", type: TrackType.Event) {
+                cta = "quiet"
+                program_id = "123"
+                link = "meli://coupon"
+                reason = "kyc_invitado"
+        }
     }
 }

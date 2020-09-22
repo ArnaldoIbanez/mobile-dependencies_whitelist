@@ -15,9 +15,9 @@ tracks {
 
     initiative = '1176'
 
-    /**
-     * MGM Screen Tracks
-     */
+    /*************************
+     * MGM PAYER TRACKS v2  *
+     *************************/
 
     // General Path
     "/mgm"(platform: "/", isAbstract: true) {}
@@ -73,7 +73,10 @@ tracks {
     }
     "/mgm/payers/stop_landing/redirect"(platform: "/web", type: TrackType.Event) {}
 
-    // MGM Seller Mobile
+    /*************************
+     * MGM SELLER TRACKS *
+     *************************/
+
     "/mgm_seller" (platform: "/mobile", isAbstract: true) {}
 
     // Views
@@ -87,5 +90,91 @@ tracks {
         link(required: false, type: PropertyType.String, description: "link to screen")
     }
     "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
+
+    /*************************
+     * MGM TRACKS v3  *
+     *************************/
+
+    propertyDefinitions {
+        program_id(required: true, type: PropertyType.String, description: "")
+        is_recurrent(required: true, type: PropertyType.Boolean, description: "")
+        from(required: false, type: PropertyType.String, description: "")
+    }
+
+    propertyGroups {
+        mgmPromoterMinimumFields(
+            program_id, is_recurrent, from
+        )
+        mgmGuestMinimumFields(
+            program_id, from
+        )
+    }
+
+    def item_section_definition = objectSchemaDefinitions {
+        order(type: PropertyType.Numeric, required: true, description: "")
+        section_id(type: PropertyType.String, required: true, description: "")
+    }
+
+    // General Path
+    "/mgm/v3"(platform: "/", isAbstract: true) {}
+
+    "/mgm/v3/promoter"(platform: "/mobile", type: TrackType.View) {
+        mgmPromoterMinimumFields
+        floating_banner_id(required: false, type: PropertyType.String, description: "")
+        sections(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_section_definition)), description: "")
+    }
+
+    "/mgm/v3/promoter/share"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true){}
+
+    "/mgm/v3/promoter/share/tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mgmPromoterMinimumFields
+        action_id(required: true, type: PropertyType.String, description: "")
+        shared_app_id(required: false, type: PropertyType.String, description: "")
+    }
+
+    "/mgm/v3/promoter/banner"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true){}
+
+    "/mgm/v3/promoter/banner/tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mgmPromoterMinimumFields
+        target_program(required: true, type: PropertyType.String, description: "")
+    }
+
+    "/mgm/v3/promoter/floating_banner"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true){}
+
+    "/mgm/v3/promoter/floating_banner/dismiss"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mgmPromoterMinimumFields
+        banner_id(required: true, type: PropertyType.String, description: "")
+    }
+
+    "/mgm/v3/guest"(platform: "/mobile", type: TrackType.View) {
+        mgmGuestMinimumFields
+        sections(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_section_definition)), description: "")
+    }
+
+    "/mgm/v3/guest/cross_selling"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true){}
+
+    "/mgm/v3/guest/cross_selling/tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mgmGuestMinimumFields
+        action_id(required: true, type: PropertyType.String, description: "")
+    }
+
+    "/mgm/v3/guest/main_action"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true){}
+
+    "/mgm/v3/guest/main_action/tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        mgmGuestMinimumFields
+        action_id(required: true, type: PropertyType.String, description: "")
+    }
+
+    "/mgm/v3/error"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        program_id(required: true, type: PropertyType.String, description: "")
+        reason(required:true, type: PropertyType.String, description: "", values: ["kyc_invitado", "kyc_invitador", "kyc_invitado_fraudulento"])
+    }
+
+    "/mgm/v3/error/dismiss"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/mgm/v3/error/tap"(platform: "/mobile", type: TrackType.Event) {
+        cta(required:true, type: PropertyType.String, description: "", values: ["quiet", "transparent", "loud"])
+        link(required: true, type: PropertyType.String, description: "")
+    }
 
 }
