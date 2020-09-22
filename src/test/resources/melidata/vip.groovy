@@ -1729,8 +1729,22 @@ trackTests {
 
     }
 
-    // Pricing 2.0
+    // Pricing 2.0 - Payments Modal Track
+    test("VIP Pricing 2.0 - Payments Modal track") {
+        "/vip/pricing_rebates/modal_payments_action"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB1640051252"
+            is_cash_price = true
+            original_price = 100
+            price = 85
+            currency_id = "BRL"
+            installments_value_total = 104.4
+            installments_value_each = 8.7
+            installments_amount = 12
+            is_free_installments = false
+        }
+    }
 
+    // Pricing 2.0 - View track
     test("Vip tracking in web for pricing 2.0") {
         def dataSet = {
             item_id = "MLB533657947"

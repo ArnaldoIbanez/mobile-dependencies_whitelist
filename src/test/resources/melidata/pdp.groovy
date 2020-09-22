@@ -664,4 +664,19 @@ trackTests {
             buyer_id = "12343718"
         })
     }
+
+    // Pricing 2.0 - Payments Modal Track
+    test("PDP Pricing 2.0 - Payments Modal track") {
+        "/pdp/pricing_rebates/modal_payments_action"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB1640051252"
+            is_cash_price = true
+            original_price = 100
+            price = 85
+            currency_id = "BRL"
+            installments_value_total = 104.4
+            installments_value_each = 8.7
+            installments_amount = 12
+            is_free_installments = false
+        }
+    }
 }

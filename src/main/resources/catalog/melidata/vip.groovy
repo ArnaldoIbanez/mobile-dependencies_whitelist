@@ -1368,4 +1368,17 @@ tracks {
     "/vip/backend"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         item_id(required: false, type: PropertyType.String, description: "Item ID")
     }
+
+    "/vip/pricing_rebates"(platform: "/", isAbstract: true) {}
+    "/vip/pricing_rebates/modal_payments_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        is_cash_price(required: true, type: PropertyType.Boolean, description: "Indicates if it is an offer with rebate discount")
+        price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
+        original_price(required: true, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
+        installments_value_total(required:true, type: PropertyType.Numeric, description: "The final price with installments in payment method")        
+        installments_value_each(required:true, type: PropertyType.Numeric, description: "The price of each installment in payment method")        
+        installments_amount(required:true, type: PropertyType.Numeric, description: "The amount of installments in payment method")        
+        is_free_installments(required: true, type: PropertyType.Boolean, description: "Indicates if installments are without interest in payment method")
+    }
 }
