@@ -1784,7 +1784,6 @@ trackTests {
         "/vip/advertising/related_services_mobile-motors"(platform: "/", type: TrackType.Event) {}
         "/vip/advertising/related_services-motors"(platform: "/", type: TrackType.Event) {}
         "/vip/advertising/300x250-motors"(platform: "/", type: TrackType.Event) {}
-        "/vip/advertising"(platform: "/", type: TrackType.Event) {}
         "/vip/advertising/fullscreen-core"(platform: "/", type: TrackType.Event) {}
         "/vip/advertising/300x250-core"(platform: "/", type: TrackType.Event) {}
     }
