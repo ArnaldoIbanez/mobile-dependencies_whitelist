@@ -1381,4 +1381,9 @@ tracks {
         installments_amount(required:true, type: PropertyType.Numeric, description: "The amount of installments in payment method")        
         is_free_installments(required: true, type: PropertyType.Boolean, description: "Indicates if installments are without interest in payment method")
     }
+
+    "/vip/advertising"(platform: "/", isAbstract: true) {}
+
+    "/vip/advertising/fullscreen-motors"(platform: "/", type: TrackType.Event) {}
+
 }

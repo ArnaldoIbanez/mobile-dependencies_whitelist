@@ -1777,4 +1777,9 @@ trackTests {
 
         "/vip"(platform:"/web", dataSet)
     }
+
+    test("Vip motors Advertising banners") {
+        "/vip/advertising"(platform: "/", isAbstract: true) {}
+        "/vip/advertising/fullscreen-motors"(platform: "/", type: TrackType.Event) {}
+    }
 }
