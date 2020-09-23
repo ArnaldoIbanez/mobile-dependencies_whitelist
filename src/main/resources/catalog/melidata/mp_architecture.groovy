@@ -119,5 +119,7 @@ tracks {
         description (required:false, type: PropertyType.String, description: "Status description")
     }
 
+    "/pix_payment_button_viewed"(platform: "/mobile", type: TrackType.Event) {}
+    "/pix_payment_button_clicked"(platform: "/mobile", type: TrackType.Event) {}
 
 }
