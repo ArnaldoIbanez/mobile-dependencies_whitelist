@@ -1779,7 +1779,7 @@ trackTests {
     }
 
     test("Vip motors Advertising banners") {
-        "/vip/advertising"(platform: "/", isAbstract: true) {}
+        "/vip/advertising"(platform: "/", type: TrackType.Event) {}
         "/vip/advertising/fullscreen-motors"(platform: "/", type: TrackType.Event) {}
     }
 }
