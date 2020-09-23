@@ -1382,8 +1382,8 @@ tracks {
         is_free_installments(required: true, type: PropertyType.Boolean, description: "Indicates if installments are without interest in payment method")
     }
 
-    "/vip/advertising"(platform: "/", type: TrackType.Event) {}
+    "/vip/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
 
-    "/vip/advertising/fullscreen-motors"(platform: "/", type: TrackType.Event) {}
+    "/vip/advertising/fullscreen-motors"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
 
 }
