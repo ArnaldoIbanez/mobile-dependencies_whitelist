@@ -2230,6 +2230,8 @@ trackTests {
         // Page
         "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
         "/checkout/shipping/input_address"(platform:"/web", dataSet)
+        "/checkout/shipping/input_address/map"(platform:"/mobile", dataSet)
+        "/checkout/shipping/input_address/map"(platform:"/web", dataSet)
         "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event, dataSet)
 
         // Event
@@ -2405,6 +2407,32 @@ trackTests {
                     ]
             ]
             recovery_flow=false
+        }
+        "/checkout/shipping/input_address/caixa_postal"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/checkout/shipping/input_address/error_map"(platform: "/", type: TrackType.Event) {
+            label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
         }
 
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)
