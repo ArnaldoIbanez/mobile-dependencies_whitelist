@@ -850,7 +850,7 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
         }
-        "/sell/list/sip_optional_landing"(platform: "/mobile") {
+        "/sell/list/sip_optional_landing"(platform: "/mobile",  type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
