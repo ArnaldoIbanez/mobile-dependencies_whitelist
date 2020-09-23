@@ -25,11 +25,9 @@ FROM (
   get_json_object(event_data, '$.duration') as duration,
   remote_ip as remote_ip,
   substr(ds, 1, 10) as ds
-  -- FROM melidata.tracks_ml // temporary change
   FROM tracks
   WHERE path = '/cdn/profiler'
   AND type = 'event'
-  -- AND bu = 'mercadolibre' // temporary change
   AND application.business = 'mercadolibre'
   AND ds >= '@dateFROM'
   AND ds < '@dateTO'
