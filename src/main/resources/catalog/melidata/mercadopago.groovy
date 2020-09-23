@@ -123,6 +123,10 @@ tracks {
         groupCheckoutProperties
     }
 
+     "/point/buyingflow/complete_phone"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
+    }
+
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
         product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
