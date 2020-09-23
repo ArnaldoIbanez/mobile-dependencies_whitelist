@@ -1386,4 +1386,14 @@ tracks {
 
     "/vip/advertising/fullscreen-motors"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
 
+    "/vip/advertising/related_services_mobile-motors"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
+
+    "/vip/advertising/related_services-motors"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
+
+    "/vip/advertising/300x250-motors"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
+
+    "/vip/advertising/fullscreen-core"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
+
+    "/vip/advertising/300x250-core"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
+
 }

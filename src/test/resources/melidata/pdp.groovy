@@ -679,4 +679,9 @@ trackTests {
             is_free_installments = false
         }
     }
+
+    test("Pdp Advertising banners") {
+        "/pdp/advertising"(platform: "/", type: TrackType.Event) {}
+        "/pdp/advertising/fullscreen"(platform: "/", type: TrackType.Event) {}
+    }
 }

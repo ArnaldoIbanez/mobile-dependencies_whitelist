@@ -1781,5 +1781,14 @@ trackTests {
     test("Vip motors Advertising banners") {
         "/vip/advertising"(platform: "/", type: TrackType.Event) {}
         "/vip/advertising/fullscreen-motors"(platform: "/", type: TrackType.Event) {}
+        "/vip/advertising/related_services_mobile-motors"(platform: "/", type: TrackType.Event) {}
+        "/vip/advertising/related_services-motors"(platform: "/", type: TrackType.Event) {}
+        "/vip/advertising/300x250-motors"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test("Vip core Advertising banners") {
+        "/vip/advertising"(platform: "/", type: TrackType.Event) {}
+        "/vip/advertising/fullscreen-core"(platform: "/", type: TrackType.Event) {}
+        "/vip/advertising/300x250-core"(platform: "/", type: TrackType.Event) {}
     }
 }
