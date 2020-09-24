@@ -1700,6 +1700,14 @@ trackTests {
             properties()
         }
 
+        "/vip/comparator_price/interactive_bin"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+
+        "/vip/comparator_price/interactive_bin"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+
     }
 
     test("VIP item free return"){
