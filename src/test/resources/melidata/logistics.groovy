@@ -123,6 +123,7 @@ trackTests {
         //Flow decision scanner
         "/logistics/flow_decision/scanner"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            driver_id = "987"
         }
 
         //Flow decision scanner error
