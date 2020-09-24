@@ -259,11 +259,13 @@ tracks {
 
     "/seller_central/summary/notice"(platform: "/web", type: TrackType.Event) {
         goal(required: true, description: "The primary goal of the clicked notice")
+        seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
     }
 
     "/seller_central/summary/task"(platform: "/web", type: TrackType.Event) {
         module_id(required: true, description: "Identification for group task module")
         task_id(required: true, description: "The id of selected task")
+        seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
     }
 
 

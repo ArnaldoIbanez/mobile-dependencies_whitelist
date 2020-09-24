@@ -286,6 +286,7 @@ trackTests {
   test("Seller central summary notice click") {
     "/seller_central/summary/notice"(platform: "/web", type: TrackType.Event) {
       goal = "best_price"
+      seller_experience = "ADVANCED"
     }
   }
 
@@ -293,6 +294,7 @@ trackTests {
     "/seller_central/summary/task"(platform: "/web", type: TrackType.Event) {
       module_id = "listing"
       task_id = "BEST_PRICE_ELIGIBLE"
+      seller_experience = "ADVANCED"
     }
   }
 
