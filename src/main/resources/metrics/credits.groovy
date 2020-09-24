@@ -138,9 +138,9 @@ metrics {
         }
     }
 
-    "credits_consumer.personal_loan_conversion"(description: "Credits conversion under adoption personal loans flow") {
+    "credits_consumer.personal_loan_access_order"(description: "Credits conversion under personal loans access order in admin flow") {
         startWith {
-            experiment("credits/credits_short_onboarding", "credits/credits_default_selected_loans")
+            experiment("credits/credits_consumer_admin_pl_access_order")
         }
         countsOn {
             condition {
