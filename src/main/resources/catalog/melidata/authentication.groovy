@@ -530,6 +530,10 @@ tracks {
         errors(type: PropertyType.ArrayList, required: false)
     }
 
+    "/screenlock/status"(platform: "/mobile", type: TrackType.Event) {
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+    }
+
     "/screenlock/opening_lock"(platform: "/mobile", type: TrackType.View) {
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }

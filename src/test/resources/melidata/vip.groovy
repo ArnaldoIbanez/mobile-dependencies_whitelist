@@ -166,6 +166,7 @@ trackTests {
             captcha_showed = false
             deal_ids = []
             item_condition= "new"
+            has_good_price= true
         })
 
         "/vip/call_seller"(platform:"/mobile", type: TrackType.Event, {
@@ -774,12 +775,14 @@ trackTests {
 
         "/vip/show_all_description"(platform: "/", type: TrackType.Event){
             item_id = "MLA213512313"
+            has_good_price = true
         }
 
         "/vip/technical_specs"(platform: "/web", type: TrackType.View){
             item_id = "MLA213512313"
             vertical = "core"
             vip_version = "new"
+            has_good_price = false
         }
 
         "/vip/technical_specs/see_more"(platform: "/web", type: TrackType.Event){
@@ -793,6 +796,7 @@ trackTests {
                     "MLA1495",
                     "MLA401803"
             ]
+            has_good_price = true
         }
 
         "/vip/denounce_intention"(platform: "/web", type: TrackType.Event){
@@ -806,11 +810,13 @@ trackTests {
                     "MLA1495",
                     "MLA401803"
             ]
+            has_good_price = true
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
             item_id = "MLA213512313"
             vip_version = "new"
+            has_good_price = false
         }
 
         "/vip/question"(platform: "/", type: TrackType.View){
@@ -824,6 +830,7 @@ trackTests {
             item_id = "MLA213512313"
             catalog_product_id="MLA123456"
             vip_version = "new"
+            has_good_price = true
         }
 
         "/vip/questions/quick_access"(platform: "/",type: TrackType.View) {
@@ -1030,6 +1037,18 @@ trackTests {
             enforced_preselection = "stock"
         }
 
+        def pricingTwoPointO = {
+            available_promotions=[
+                {
+                    campaign_id = "1761"
+                    type = "DISCOUNT"
+                    original_value = 953
+                    value = 643.5
+                }
+            ]
+            discount_reasons=["deal"]
+        }
+
         "/vip/buy_action"(platform: "/", type: TrackType.View) {
             defaultTrackInformation()
             cartInformation()
@@ -1113,6 +1132,25 @@ trackTests {
             shipping_method()
             vip_version = "new"
         }
+
+        // PRICING 2.0
+
+        "/vip/buy_action"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+            pricingTwoPointO()
+            credits_opensea = true
+            vip_version = "new"
+        }
+
+         "/vip/add_cart_action"(platform: "/", type: TrackType.View) {
+            defaultTrackInformation()
+            cartInformation()
+            shippingInformation()
+            pricingTwoPointO()
+            vip_version = "new"
+         }
     }
 
     test("VIP zipcode") {
@@ -1689,5 +1727,54 @@ trackTests {
             optional()
         }
 
+    }
+
+    // Pricing 2.0 - Payments Modal Track
+    test("VIP Pricing 2.0 - Payments Modal track") {
+        "/vip/pricing_rebates/modal_payments_action"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB1640051252"
+            is_cash_price = true
+            original_price = 100
+            price = 85
+            currency_id = "BRL"
+            installments_value_total = 104.4
+            installments_value_each = 8.7
+            installments_amount = 12
+            is_free_installments = false
+        }
+    }
+
+    // Pricing 2.0 - View track
+    test("Vip tracking in web for pricing 2.0") {
+        def dataSet = {
+            item_id = "MLB533657947"
+            category_id = "MLA43718"
+            category_path = ["MLB1234","MLB6789"]
+            buying_mode = "buy_it_now"
+            official_store_id = 1
+            deal_ids = ["MLB24"]
+            review_rate=5
+            specifications_size = 1
+            vertical = "core"
+            item_condition = "new"
+            item_status = "active"
+            listing_type_id = "gold_special"
+            seller_id = 131662738
+            power_seller_status = "platinum"
+            deal_ids = ["MLA100"]
+            catalog_listing = false
+            tracking_id="dd1ec405-0a55-4b55-aaa5-de29cc3ab5fb"
+            available_promotions = [
+                {
+                    campaign_id = "1761"
+                    type = "DISCOUNT"
+                    original_value = 953
+                    value = 643.5
+                }
+            ]
+            discount_reasons = ["deal"]
+        }
+
+        "/vip"(platform:"/web", dataSet)
     }
 }

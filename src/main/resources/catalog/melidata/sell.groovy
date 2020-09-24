@@ -34,10 +34,10 @@ tracks {
     def item_from_map = objectSchemaDefinitions {
         category_id(required: true, PropertyType.String, description: "Original item's category id")
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
-        id(required: true, description: "Original item id", PropertyType.String)
+        item_id(required: true, description: "Original item id", PropertyType.String)
         status(required: true, description: "Original item status", PropertyType.String)
         substatus(required: true, description: "Original item substatus", PropertyType.String)
-        soldQuantity(required: true, description: "Original item sold quantity", PropertyType.Numeric)
+        sold_quantity(required: true, description: "Original item sold quantity", PropertyType.Numeric)
     }
     def picture_info_map = objectSchemaDefinitions {
         width(required: true, type: PropertyType.Numeric, description: "this property describes width of the image")
@@ -159,6 +159,7 @@ tracks {
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
         quantity(required: false, description: "Item quantity")
+        session_id(required: false, description: "Session ID for Supply Re V4 use case")
     }
 
     "/sell/modify_and_relist/single/row"(platform: "/web", type: TrackType.View){}
@@ -699,6 +700,8 @@ tracks {
     }
     "/sell/relist/congrats"(platform: "/web/desktop", type: TrackType.View) {
         can_complete_attributes(required: true, description: "Field to identify if link to update was offered.", type: PropertyType.Boolean)
+        session_id(required: false, description: "Session ID for Supply Re V4 use case")
+        listing_type(required: false, description: "Listing type id used to resell item")
     }
     "/sell/relist/congrats"(platform: "/mobile", type: TrackType.View) {}
 

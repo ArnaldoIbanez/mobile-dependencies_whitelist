@@ -157,6 +157,16 @@ tracks {
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
 
     /******************************************
+     *       Start: Consumer Public Landings
+     ******************************************/
+    "/credits/consumer/public_landing"(platform: "/", type: TrackType.View) {
+        user_profile(type: PropertyType.String, required: true, inheritable: false, values: ["guest", "no_offer"])
+    }
+    /******************************************
+     *       End: Consumer Public Landings
+     ******************************************/
+
+    /******************************************
      *       Start: Merchants Public Landings
      ******************************************/
 

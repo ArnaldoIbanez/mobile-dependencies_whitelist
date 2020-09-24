@@ -1234,4 +1234,10 @@ trackTests {
         *    End: Self Service
         ******************************************/
     }
+
+    test("Credits Consumer from MercadoPago"){
+        "/credits/consumer/public_landing"(platform: "/") {
+            user_profile = 'no_offer'
+        }
+    }
 }

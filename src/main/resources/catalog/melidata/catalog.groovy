@@ -166,6 +166,7 @@ catalog {
         include business, "wallet_ml.groovy"
         include business, "whatsapp.groovy"
         include business, "global_selling.groovy"
+        include business, "categories.groovy"
     }
 
     mercadopago.each { business ->
@@ -173,6 +174,7 @@ catalog {
         include business, "activities.groovy"
         include business, "mp_digital_account.groovy"
         include business, "mpfrontcore.groovy"
+        include business, "payments_digital_accounts.groovy"
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"

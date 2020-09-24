@@ -177,4 +177,19 @@ tracks {
     }
 
     "/discount_sellers/landing/back" (platform: "/mobile", type: TrackType.Event) {}
+	
+	
+    // **********************************************************
+    // ******************** Events - Congrats ********************
+    // **********************************************************
+
+    "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {
+        status(required: true, inheritable: false, type: PropertyType.String, values: ["success", "pending", "rejected"], description: "Congrats Status")
+    }
+
+    "/discount_sellers/congrats/tap" (platform: "/mobile", type: TrackType.Event) {
+        title(required: false, type: PropertyType.String, description: "Action title")
+    }
+
+    "/discount_sellers/congrats/close" (platform: "/mobile", type: TrackType.Event) {}
 }

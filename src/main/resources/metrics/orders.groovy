@@ -171,42 +171,6 @@ metrics {
 			}
 		}
 	}
-
-	"bids|new_buyers"(description: "New buyers from feed", compute_order: true) {
-		countsOn {
-			condition {
-				and (
-					equals("path", "/orders/ordercreated"),
-					equals("event_data.buyer_segment", "new_buyer")
-				)
-			}
-		}
-	}
-
-	"bids|inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
-		countsOn {
-			condition {
-				and (
-					equals("path", "/orders/ordercreated"),
-					or(
-						equals("event_data.buyer_segment", "new_buyer"),
-						equals("event_data.buyer_segment", "recovered_buyer")
-					)
-				)
-			}
-		}
-	}
-
-	"bids|active_buyers"(description: "Active buyers from feed", compute_order: true) {
-		countsOn {
-			condition {
-				and (
-					equals("path", "/orders/ordercreated"),
-					equals("event_data.buyer_segment", "active_buyer")
-				)
-			}
-		}
-	}
 	
 	"bids.sameItem"(description: "/orders/ordercreated from feed in the sam item of experiement", compute_order: true) {
 		countsOn {
