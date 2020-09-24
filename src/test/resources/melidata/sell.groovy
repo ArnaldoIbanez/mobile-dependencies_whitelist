@@ -2576,6 +2576,12 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            item_from = {
+                item_id = "MLA123"
+                sold_quantity = 2
+                status = "under_review"
+                substatus = "finalized_for_prevention"
+            }
         }
     }
     test("SYI v4 title card showed"){
@@ -4366,6 +4372,7 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            item_from = null
         }
     }
 
