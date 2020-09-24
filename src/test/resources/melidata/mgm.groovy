@@ -86,7 +86,7 @@ trackTests {
             "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
 
             /*************************
-            * MGM TRACKS v3  *
+            * MGM PAYER TRACKS v3  *
             *************************/
 
             "/mgm/v3/promoter"(platform: "/mobile", type: TrackType.View) {
@@ -166,7 +166,6 @@ trackTests {
             }
 
             "/mgm/v3/error/tap"(platform: "/mobile", type: TrackType.Event) {
-                    cta = "quiet"
                     program_id = "program_id"
                     link = "meli://coupon"
                     reason = "kyc_invitado"

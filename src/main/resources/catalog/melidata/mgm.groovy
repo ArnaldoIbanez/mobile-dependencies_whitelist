@@ -92,7 +92,7 @@ tracks {
     "/mgm_seller/referal/swipe" (platform: "/mobile", type: TrackType.Event) {}
 
     /*************************
-     * MGM TRACKS v3  *
+     * MGM PAYER TRACKS v3  *
      *************************/
 
     propertyDefinitions {
@@ -167,13 +167,12 @@ tracks {
 
     "/mgm/v3/error"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         program_id(required: true, type: PropertyType.String, description: "Indicates the id of the program")
-        reason(required:true, type: PropertyType.String, description: "Indicates the reason of the error", values: ["kyc_invitado", "kyc_invitador", "kyc_invitado_fraudulento"])
+        reason(required:true, type: PropertyType.String, description: "Indicates the reason of the error", values: ["kyc_invitado", "kyc_invitador", "kyc_invitado_fraudulento", "network"])
     }
 
     "/mgm/v3/error/dismiss"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mgm/v3/error/tap"(platform: "/mobile", type: TrackType.Event) {
-        cta(required:true, type: PropertyType.String, description: "Indicates the type of the cta", values: ["quiet", "transparent", "loud"])
         link(required: true, type: PropertyType.String, description: "link to where the app was navigating to")
     }
 
