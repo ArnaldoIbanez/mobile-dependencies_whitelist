@@ -490,7 +490,7 @@ trackTests {
             ]
             recovery_flow=true
         }
-        "/cart/checkout/shipping/input_address/caixa_postal"(platform: "/", type: TrackType.Event) {
+        "/cart/checkout/shipping/input_address/caixa_postal_number"(platform: "/", type: TrackType.Event) {
             label = "Ingresar solo valores numéricos"
             items = [
                     [
