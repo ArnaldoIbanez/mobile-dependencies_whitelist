@@ -366,7 +366,8 @@ trackTests {
                 product_type: 'fixed_term',
                 segment: 'online',
                 category: 'regular',
-                offer_type: 'early_offer'
+                offer_type: 'early_offer',
+                promise: 'create_promise',
             ]
         }
 
@@ -809,11 +810,11 @@ trackTests {
         "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
             flow = "merchant"
         }
-        
+
         "/credits/mp-hub/no-credit-line/stop/faqs_click"(platform: "/", type: TrackType.Event) {
             flow = "merchant"
         }
-        
+
         "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
             flow = "generic"
         }
@@ -1204,7 +1205,7 @@ trackTests {
         "/credits/self_service/promises/create_form"(platform: "/", type: TrackType.View) {
             user_type = "consumer"
         }
-        
+
         "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
             user_type = "consumer"
             is_partial_amount = true
@@ -1217,7 +1218,7 @@ trackTests {
         "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {
             user_type = "consumer"
         }
-        
+
         "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
             user_type = "consumer"
         }
