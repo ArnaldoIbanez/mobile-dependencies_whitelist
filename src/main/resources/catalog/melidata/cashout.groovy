@@ -13,8 +13,12 @@ tracks {
     **/
 
     "/cashout"(platform: "/", isAbstract: true) {}
-    "/cashout/hub"(platform: "/", isAbstract: true) {}
     "/cashout/hub/kyc"(platform: "/", isAbstract: true) {}
+
+    "/cashout/hub"(platform: "/", type: TrackType.View) {}
+    "/cashout/hub/select"(platform: "/", type: TrackType.Event) {
+        cashout_method (required:true, description: "Selected cashout method")
+    }
 
     "/cashout/hub/kyc/onboarding"(platform: "/", type: TrackType.View) {}
     "/cashout/hub/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}

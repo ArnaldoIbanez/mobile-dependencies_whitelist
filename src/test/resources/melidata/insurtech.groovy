@@ -191,12 +191,12 @@ trackTests {
                 [
                     coverage: "theft_break",
                     price: 123.33,
-                    deductible: 30.44
+                    deductible_amount: 12.33,
                 ],
                 [
                     coverage: "theft_break",
                     price: 100.33,
-                    deductible: 20.44
+                    deductible_amount: 12.33,
                 ]
             ]
             financing_type = null
@@ -213,13 +213,35 @@ trackTests {
                 [
                     coverage: "total",
                     price: 123.33,
-                    deductible: 30.44
+                    deductible_amount: 12.33,
                 ],
             ]
             financing_type = [
                 no_interest_allowed : true,
                 installments: 12
             ]
+        }
+
+        "/insurtech/roda/qpage/error"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }
+
+        "/insurtech/roda/qpage/error"(platform:"/web", type: TrackType.View) {
+        }
+
+        "/insurtech/roda/qpage/fallback"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }
+
+        "/insurtech/roda/qpage/fallback"(platform:"/web", type: TrackType.View) {
         }
 
         "/insurtech/roda/qpage/deductible"(platform:"/mobile", type: TrackType.View) {
@@ -255,7 +277,6 @@ trackTests {
                 monthly_price: 15.44,
                 fee_price: 10.44,
                 currency_id: "BRL",
-                deductible: 10.25,
                 deductible_amount: 20.00,
                 check: "total"
             ]
@@ -279,7 +300,6 @@ trackTests {
                 monthly_price: 15.44,
                 fee_price: 10.44,
                 currency_id: "BRL",
-                deductible: 10.25,
                 deductible_amount: 20.00,
                 check: "total"
             ]
@@ -517,5 +537,371 @@ trackTests {
             purchase_id = "1e149d2f-f6ff-4693-8e63-a85c12b32358"
             action_description = "Ir al inicio"
         }
+
+        // INSURTECH Protections - my-fe
+        "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protections = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC123",
+                ],
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+            roda = [
+                has_protections: true,
+                is_current_device_protected: false,
+                is_current_device_quotable: false,
+                offered: false
+            ]
+            garex = [
+                has_protections: true,
+                offered: false
+            ]
+        }
+
+        "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protections = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC123",
+                ],
+            ]
+            roda = [
+                has_protections: true,
+                is_current_device_protected: false,
+                is_current_device_quotable: true,
+                offered: true
+            ]
+            garex = [
+                has_protections: false,
+                offered: false
+            ]
+        }
+
+        "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protections = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+            roda = [
+                has_protections: false,
+                is_current_device_protected: false,
+                is_current_device_quotable: true,
+                offered: true
+            ]
+            garex = [
+                has_protections: true,
+                offered: false
+            ]
+        }
+
+        "/insurtech/protections"(platform:"/web", type: TrackType.View) {
+            roda = [
+                has_protections: false,
+                is_current_device_protected: false,
+                is_current_device_quotable: false,
+                offered: false
+            ]
+            garex = [
+                has_protections: false,
+                offered: false
+            ]
+        }
+
+
+        "/insurtech/protections"(platform:"/web", type: TrackType.View) {
+            protections = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC123",
+                ],
+            ]
+            roda = [
+                has_protections: true,
+                is_current_device_protected: false,
+                is_current_device_quotable: false,
+                offered: false
+            ]
+            garex = [
+                has_protections: false,
+                offered: false
+            ]
+        }
+
+        "/insurtech/protections/quote-me"(platform:"/mobile", type: TrackType.Event) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protections = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+        }
+
+        "/insurtech/protections/doubts"(platform:"/web", type: TrackType.Event) {
+            protections = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+        }
+
+
+        "/insurtech/protections/doubts"(platform:"/mobile", type: TrackType.Event) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protections = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+        }
+
+        "/insurtech/protections/error"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }
+
+        "/insurtech/protections/error"(platform:"/web", type: TrackType.View) {
+        }
+
+        "/insurtech/protections/fallback"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }
+
+        "/insurtech/protections/fallback"(platform:"/web", type: TrackType.View) {
+        }
+
+        "/insurtech/protections/finished"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protections = [
+                [
+                    product_id: "roda",
+                    insurance_purchase_key: "roda-ABC125",
+                ]
+            ]
+        }
+
+        "/insurtech/protections/finished"(platform:"/web", type: TrackType.View) {
+            protections = [
+                [
+                    product_id: "garex",
+                    insurance_purchase_key: "garex-ABC125",
+                ]
+            ]
+        }
+
+        // INSURTECH Protections Detail - my-detail-fe
+        "/insurtech/protections/detail/roda"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+        "/insurtech/protections/detail/roda"(platform:"/web", type: TrackType.View) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/begin_claim"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/download_policy"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/pay"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+            type = 'pending_payment'
+        }
+
+        "/insurtech/protections/detail/roda/recommendations"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/cancel"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/help"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/web", type: TrackType.View) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+            type = 'deductible'
+        }
+
+        "/insurtech/protections/detail/roda/claim_detail"(platform:"/web", type: TrackType.View) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+            claim = [
+                id: "ABC125-DEEF",
+                franchise_payment_id: 10021312312,
+                franchise_payment_amount:  10.72,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/claim_detail"(platform:"/web", type: TrackType.View) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+            claim = [
+                id: "ABC125-DEEF",
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/phone_activation"(platform:"/web", type: TrackType.View) {}
+
+        "/insurtech/protections/detail/roda/shipping_instructions"(platform:"/web", type: TrackType.View) {}
+
+        "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }∫
+        "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {}
     }
 }

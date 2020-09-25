@@ -123,6 +123,7 @@ trackTests {
         //Flow decision scanner
         "/logistics/flow_decision/scanner"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            driver_id = "987"
         }
 
         //Flow decision scanner error
@@ -162,6 +163,17 @@ trackTests {
             defaultLocation()
             driver_id = "123"
             route_id = "123"
+        }
+        "/logistics/profile/trainings_list"(platform: "/mobile", type: TrackType.View) {
+            driver_id = "123"
+            route_id = "123"
+            logistic_type = "last_mile"
+        }
+        "/logistics/profile/trainings_list/training"(platform: "/mobile", type: TrackType.View) {
+            driver_id = "123"
+            route_id = "123"
+            training_id = "123"
+            logistic_type = "last_mile"
         }
         "/logistics/last_mile/add_package/invalid"(platform: "/mobile", type: TrackType.View) {
             pack_id = "124"
@@ -241,11 +253,15 @@ trackTests {
             packs_info = "pack"
             route_id = "123"
             driver_id = "1234"
+            latitude = "1234"
+            longitude = "1234"
         }
 
         "/logistics/last_mile/list/suggest_trip/start_trip"(platform: "/mobile", type: TrackType.Event) {
             packs_info = "pack"
             route_id = "123"
+            latitude = "1234"
+            longitude = "1234"
         }
 
         "/logistics/last_mile/list/start_trip"(platform: "/mobile", type: TrackType.Event) {
@@ -314,7 +330,7 @@ trackTests {
 
         "/logistics/last_mile/detail/distance_modal"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
-            current_distance = "500"
+            distance = "500"
             context = "could_not_deliver"
         }
 
@@ -406,21 +422,13 @@ trackTests {
             route_id = "123"
             driver_id = "222"
             target_route = "321"
+            packs_amount = 3
         }
         "/logistics/last_mile/transloading_congrats/fail"(platform: "/mobile", type: TrackType.View) {
             route_id = "123"
             driver_id = "222"
             target_route = "321"
-        }
-        "/logistics/last_mile/package/scanner/transloading_selection_modal/transload_all"(platform: "/mobile", type: TrackType.Event) {
-            route_id = "123"
-            driver_id = "222"
-            target_route = "321"
-        }
-        "/logistics/last_mile/package/scanner/transloading_selection_modal/transload_some"(platform: "/mobile", type: TrackType.Event) {
-            route_id = "123"
-            driver_id = "222"
-            target_route = "321"
+            packs_amount = 2
         }
         "/logistics/last_mile/deliver/buyer_document_form"(platform: "/mobile", type: TrackType.View) {
             driver_id = "123"
@@ -448,12 +456,12 @@ trackTests {
         "/logistics/last_mile/package/security_keyword/helper"(platform: "/mobile", type: TrackType.Event) {
             shipment_id = "222"
         }
-        "logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
+        "/logistics/last_mile/control_tower/incident_view"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
             driver_id = "123"
         }
-        "logistics/last_mile/control_tower/incident_selection"(platform: "/mobile", type: TrackType.View) {
+        "/logistics/last_mile/control_tower/incident_selection"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
             route_id = "123"
             driver_id = "123"
@@ -477,16 +485,9 @@ trackTests {
         "/logistics/first_mile/list"(platform: "/mobile", type: TrackType.View) {
             route_id = "123"
             first_mile_logistic_type = "FF"
-            pickups_status = [
-                [
-                    id: "1",
-                    status: "pending"
-                ],
-                [
-                    id: "2",
-                    status: "finished"
-                ]
-            ]
+            pickups_status = ["pending" ,"finished"]
+        }
+        "/logistics/first_mile/list/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {
         }
         "/logistics/first_mile/scanner"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()

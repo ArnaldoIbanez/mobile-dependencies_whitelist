@@ -152,4 +152,10 @@ tracks {
     "/bill_payments/shopping"(platform: "/mobile") {}
     "/bill_payments/input_validation_error"(platform: "/mobile", type: TrackType.Event) {}
 
+    // congrats
+    "/bill_payments/congrats"(platform: "/mobile", type: TrackType.View) {}
+
+    "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/congrats/dda"(platform: "/mobile", type: TrackType.Event) {}
+
 }

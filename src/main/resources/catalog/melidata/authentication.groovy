@@ -484,7 +484,10 @@ tracks {
 
     // Email Validation Authenticator
 
-    "/authenticators/email_validation"(platform: "/", isAbstract: true) {}
+    "/authenticators/email_validation"(platform: "/", isAbstract: true) {
+        flow(PropertyType.String, required: false, values: ["login", "registration", "forgot_password", "reauthentication" ], description: "Flow using authenticator")
+        client_type(PropertyType.String, required: false, values: ["web", "mobile"], description: "Client using flow")
+    }
 
     "/authenticators/email_validation/max_attempts"(platform: "/", type: TrackType.View) {}
 
@@ -525,6 +528,10 @@ tracks {
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os validation flow")
         result(type: PropertyType.String, required: true, values: ["success", "error"])
         errors(type: PropertyType.ArrayList, required: false)
+    }
+
+    "/screenlock/status"(platform: "/mobile", type: TrackType.Event) {
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 
     "/screenlock/opening_lock"(platform: "/mobile", type: TrackType.View) {

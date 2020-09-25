@@ -314,4 +314,10 @@ trackTests {
         "/prepaid/acquisition/adapt_kyc/congrats/tap"(platform: "/", type: TrackType.Event) { deeplink = "deeplink" }
         "/prepaid/acquisition/adapt_kyc/congrats/error"(platform: "/", type: TrackType.Event) {}
     }
+
+    test ("Prepaid Detail") {
+        "/cards/prepaid-detail/click-ask-for-card" (platform: "/web/desktop", type: TrackType.Event) {
+             deviceType = "desktop"
+        }
+    }
 }

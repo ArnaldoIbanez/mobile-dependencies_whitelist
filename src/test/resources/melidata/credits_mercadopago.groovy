@@ -237,17 +237,20 @@ trackTests {
             status = 'pending'
             product_type = 'default'
             is_capped_offer= true
+            is_kyc_compliance=true
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'rejected'
             product_type = 'early_offer'
             is_capped_offer= false
+            is_kyc_compliance=true
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             status = 'approved'
             sub_status = 'review_pending'
             product_type = 'point'
             is_capped_offer= false
+            is_kyc_compliance=true
         }
         "/credits/merchant/enrollment"(platform: "/web/desktop") {
             offer = [
@@ -334,6 +337,7 @@ trackTests {
             option = 12
             product_type = 'fixed_term_loan'
             has_prepaid = true
+            through_kyc = true
         }
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {
             requested_amount = 10000
@@ -343,6 +347,7 @@ trackTests {
             option = 30
             product_type = 'sales_percentage_loan'
             has_prepaid = false
+            through_kyc = true
         }
     }
 
@@ -786,35 +791,39 @@ trackTests {
 
     test("Credits Hub") {
         "/credits/mp-hub"(platform: "/", type: TrackType.View) {}
-        
+
         "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
             flow = "open_sea_mp"
         }
 
         "/credits/mp-hub/no-credit-line"(platform: "/", type: TrackType.View) {}
-        
+
         "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
             flow = "consumer"
         }
-        
+
         "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
             flow = "merchant"
         }
-        
+
         "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+            flow = "merchant"
+        }
+        
+        "/credits/mp-hub/no-credit-line/stop/faqs_click"(platform: "/", type: TrackType.Event) {
             flow = "merchant"
         }
         
         "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
             flow = "generic"
         }
-        
+
         "/credits/mp-hub/error"(platform: "/", type: TrackType.View) {}
-        
+
         "/credits/mp-hub/error/access_click"(platform: "/", type: TrackType.Event) {
             flow = "merchant"
         }
-        
+
         "/credits/mp-hub/error/access_click"(platform: "/", type: TrackType.Event) {
             flow = "consumer"
         }
@@ -826,7 +835,7 @@ trackTests {
         "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
             reason = "wrong_extension"
         }
-        
+
         "/credits/merchant/open-market/statements_upload/error"(platform: "/", type: TrackType.Event) {
             reason = "generic"
         }
@@ -846,15 +855,15 @@ trackTests {
         "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_files"
         }
-        
+
         "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
             reason = "financial_scraping"
         }
-        
+
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
             reason = "financial_files_uploaded"
         }
-        
+
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
             reason = "financial_scraping_done"
         }
@@ -1047,7 +1056,7 @@ trackTests {
             installment_status = 'on_time'
             payment_intention = 'cho'
         }
-        
+
         "/credits/consumer/administrator/summary/payment_intention"(platform: "/mobile", type: TrackType.Event) {
             summary_status = 'on_time'
         }
@@ -1067,13 +1076,17 @@ trackTests {
         //V2
         //Views
         "/credits/consumer/administrator_v2"(platform: "/mobile", type: TrackType.View) {
-           
+
         }
         "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
             user_status = 'manually_paused'
         }
         "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
             dashboard_status = 'on_time'
+        }
+        "/credits/consumer/administrator_v2/dashboard"(platform: "/mobile", type: TrackType.View) {
+            dashboard_status = 'overdue'
+            offer = ['payment_not_credited', 'create_promise']
         }
 
         //Events
@@ -1117,6 +1130,11 @@ trackTests {
         "/credits/consumer/administrator/summary/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {
             summary_status = "on_time"
         }
+
+        "/credits/consumer/administrator_v2/promises/create"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/mobile", type: TrackType.Event) {}
+
         /******************************************
             *       End: Consumers Admin Detail
         ******************************************/
@@ -1151,12 +1169,12 @@ trackTests {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
         }
-        
+
         "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
         }
-        
+
         "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {
             available_products = ["consumer_loan", "personal_loan"]
             due_date = 10
@@ -1177,5 +1195,49 @@ trackTests {
         /******************************************
         *    End: Consumers Change Due Date FLow
         ******************************************/
+    }
+
+    test("Self service from MercadoPago") {
+        /******************************************
+        *    Start: Self Service
+        ******************************************/
+        "/credits/self_service/promises/create_form"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+        
+        "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
+            user_type = "consumer"
+            is_partial_amount = true
+            bulk_amount = 7000
+            promise_amount = 5000
+            payment_method = "CASH"
+            promise_due_days = 4
+        }
+
+        "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {
+            user_type = "consumer"
+        }
+        
+        "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/promises/error"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        "/credits/self_service/promises/view"(platform: "/", type: TrackType.View) {
+            user_type = "consumer"
+        }
+
+        /******************************************
+        *    End: Self Service
+        ******************************************/
+    }
+
+    test("Credits Consumer from MercadoPago"){
+        "/credits/consumer/public_landing"(platform: "/") {
+            user_profile = 'no_offer'
+        }
     }
 }
