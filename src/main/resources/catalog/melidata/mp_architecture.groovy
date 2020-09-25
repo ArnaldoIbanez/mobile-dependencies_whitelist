@@ -81,7 +81,11 @@ tracks {
 
     "/sign_in"(platform: "/mobile", type: TrackType.View) {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
+        has_pix_option(required:false, type PropertyType.Boolean, description: "Pix option available for MLB users")
     }
+
+    "/sign_in/pix_flow"(platform: "/mobile", type: TrackType.Event) {}
+
     "/sign_in/sso"(platform: "/mobile", type: TrackType.Event) {
         label (required:true, type: PropertyType.String, description: "Status")
     }
@@ -118,8 +122,5 @@ tracks {
         label (required:true, type: PropertyType.String, description: "Status")
         description (required:false, type: PropertyType.String, description: "Status description")
     }
-
-    "/pix_payment_button_viewed"(platform: "/mobile", type: TrackType.Event) {}
-    "/pix_payment_button_clicked"(platform: "/mobile", type: TrackType.Event) {}
 
 }

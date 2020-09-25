@@ -1524,7 +1524,9 @@ trackTests {
     test("Sign In") {
         "/sign_in"(platform: "/mobile") {
             from = "/deep_link"
+            has_pix_option = true
         }
+        "/sign_in/pix_flow"(platform: "/mobile", type: TrackType.Event) {}
         "/sign_in/facebook"(platform: "/mobile") {
             label = "success"
             from = "/deep_link"
@@ -4785,11 +4787,6 @@ trackTests {
         "/browser/tracking" (platform: "/mobile") {
             browser_id = "9e588da2-f853-4266-a933-0f62f960345c"
         }
-    }
-
-    test("Pix Payment") {
-        "/pix_payment_button_viewed"(platform: "/mobile", type: TrackType.Event) {}
-        "/pix_payment_button_clicked"(platform: "/mobile", type: TrackType.Event) {}
     }
 
 }
