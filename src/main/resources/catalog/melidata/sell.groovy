@@ -307,6 +307,7 @@ tracks {
     "/sell/list/draft/shipping_mandatory_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/shipping_options_me"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/sip_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/sip_optional_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/size_selection"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/size_selection_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/size_selection_fallback"(platform:"/mobile", type: TrackType.View){}
@@ -515,6 +516,7 @@ tracks {
     "/sell/list/shipping_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/shipping_mandatory_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/sip_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_optional_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/title_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/listing_types"(platform: "/", type: TrackType.View) {}
     "/sell/list/item_description"(platform: "/", type: TrackType.View){
