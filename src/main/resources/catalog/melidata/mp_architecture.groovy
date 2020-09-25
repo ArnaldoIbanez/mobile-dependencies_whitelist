@@ -81,7 +81,7 @@ tracks {
 
     "/sign_in"(platform: "/mobile", type: TrackType.View) {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
-        has_pix_option(required:false, type PropertyType.Boolean, description: "Pix option available for MLB users")
+        has_pix_option(required:false, type: PropertyType.Boolean, description: "Pix option available for MLB users")
     }
 
     "/sign_in/pix_flow"(platform: "/mobile", type: TrackType.Event) {}
