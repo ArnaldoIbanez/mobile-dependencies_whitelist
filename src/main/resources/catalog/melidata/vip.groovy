@@ -637,6 +637,8 @@ tracks {
 
     "/vip/comparator_price/info_tooltip"(platform: "/web", type: TrackType.Event) {}
 
+    "/vip/comparator_price/interactive_bin"(platform: "/web", type: TrackType.Event) {}
+
     "/vip/item"(parentPropertiesInherited: false, isAbstract: true) {}
 
     "/vip/item/free_return"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
