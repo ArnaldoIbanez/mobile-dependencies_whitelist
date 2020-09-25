@@ -149,7 +149,7 @@ metrics {
         }
     }
 
-    "credits_consumer.personal_loan_access_order"(description: "Credits conversion under personal loans access order in admin flow") {
+    "credits_consumer.personal_loan_access_order"(description: "Credits conversion under personal loans access order in admin flow", deprecation_date:"2020/12/31") {
         startWith {
             experiment("credits/credits_consumer_admin_pl_access_order")
         }
