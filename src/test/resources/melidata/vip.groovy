@@ -201,6 +201,25 @@ trackTests {
             mandatory()
         })
 
+        "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event, {
+            item_id = "MLB1246990714"
+            catalog_listing = false
+            buying_mode = "classified"
+            vertical = "motors"
+            from_view = "vip"
+            deal_ids = ["MLB2633"]
+            event_source = "button"
+            source = ""
+            item_status = "active"
+            category_id = "MLB1744"
+            category_path = ["MLA1234", "MLA6789"]
+            item_seller_type = "car_dealer"
+            item_condition = "new"
+            listing_type_id = "gold_premium"
+            has_good_price = false
+            seller_id = 210183916
+        })
+
         "/vip/call_seller_intention"(platform: "/mobile", type: TrackType.Event, {
             mandatory()
             item_id = "MLA533657947"
@@ -354,6 +373,24 @@ trackTests {
             event_source = "technicalSpecs"
             source = "htmlView"
             item_seller_type="car_dealer"
+        })
+
+        "/vip/question_intention"(platform: "/mobile", type: TrackType.Event, {
+            item_id= "MLB1650303704"
+            listing_type_id = "gold_premium"
+            item_condition= "used"
+            deal_ids= []
+            category_id= "MLB1744"
+            category_path=  ["MLB1743","MLB1744"]
+            vertical= "motors"
+            item_status= "active"
+            buying_mode= "classified"
+            seller_id= 308998259
+            item_seller_type= "car_dealer"
+            event_source= "vip"
+            unregistered_contact= false
+            unregistered_contact_context= false
+            has_good_price= false
         })
 
         "/vip/captcha_showed"(platform: "/web/desktop", type: TrackType.Event, {
@@ -1582,6 +1619,18 @@ trackTests {
 
         "/vip/classi_credits_onboard/close"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
+        }
+
+        "/vip/classi_credits_onboard"(platform: "/mobile", type: TrackType.Event) {
+            vip_version = "new"
+        }
+
+        "/vip/classi_credits_onboard/ok"(platform: "/mobile", type: TrackType.Event) {
+            vip_version = "new"
+        }
+
+        "/vip/classi_credits_onboard/close"(platform: "/mobile", type: TrackType.Event) {
+            vip_version = "new"
         }
     }
 
