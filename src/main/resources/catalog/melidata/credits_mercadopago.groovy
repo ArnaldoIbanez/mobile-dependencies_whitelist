@@ -200,7 +200,7 @@ tracks {
         )
         promise(
             type: PropertyType.String,
-            required: true,
+            required: false,
             values: [
                 'create_promise',
                 'view_promise',
