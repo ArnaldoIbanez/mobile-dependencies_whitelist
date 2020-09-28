@@ -36,6 +36,7 @@ trackTests {
                 delivery: true,
                 pickup: false
             ]
+            session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
 
@@ -328,6 +329,45 @@ trackTests {
                                 ]
                         ]
                 ],
+                hybrid_row: [
+                    [
+                        marketplace_type: "row",
+                        segment_id: "neighborhood",
+                        marketplace_index: 4,
+                        items: [
+                            [   tracking_id: "1004194",
+                                blocked: false,
+                                name: "Mc Donalds",
+                                category: "Fast Food",
+                                mcc: 5611201,
+                                position: 0,
+                                index: 0,
+                                level: 1,
+                                distance: 258,
+                                store_id: 30091709,
+                                availability: "full",
+                                amount_type: "fixed",
+                                amount: 15,
+                                priority: 9,
+                                collector_id: 1234567,
+                                has_logo: false,
+                                coupon_used: true
+                            ]
+                        ]
+                    ]
+                ],
+                hybrid_carousel: [
+                    [
+                        name: "Mc Donalds",
+                        category: "5611201",
+                        position: 0,
+                        index: 0,
+                        distance: 258,
+                        store_id: 30091709,
+                        collector_id: 30882093,
+                        tracking_id: "30091709"
+                    ]
+                ]
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
@@ -465,10 +505,10 @@ trackTests {
 
     test("Mercado Pago discount center payers marketplace tap") {
         "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
-            components= [
+            components = [
                 row: [
                     [
-                        marketplace_type: "row",
+                        marketplace_type: "hybrid_row",
                         segment_id: "neighborhood",
                         marketplace_index: 4,
                         items: [
