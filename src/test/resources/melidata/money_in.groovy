@@ -61,6 +61,9 @@ trackTests {
 
         "/money_in/onboarding/enter"(platform: "/", type: TrackType.Event) {}
         "/money_in/onboarding/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/kyc/onboarding"(platform: "/", type: TrackType.View) {}
+        "/money_in/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
+        "/money_in/kyc/onboarding/close"(platform: "/", type: TrackType.Event) {}
 
         //TED
 
