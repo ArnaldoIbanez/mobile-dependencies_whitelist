@@ -85,7 +85,7 @@ tracks {
 
     // Loyalty Partners VDP
     "/loyalty/partners"(platform: "/", isAbstract: true) {
-        subscription_partner(required: true, description: "VDP partner name (HBO, Paramount, etc.)", type: PropertyType.String)
+        subscription_partner(required: false, description: "VDP partner name (HBO, Paramount, etc.)", type: PropertyType.String)
         discount_percent(required: false, description: "User discount", type: PropertyType.Numeric)
         origin(required: false, description: "Where was the vdp initiated from")
         loyalty_level(type: PropertyType.Numeric, required: false)
