@@ -1410,6 +1410,50 @@ trackTests {
         }
     }
 
+    // TRACKS MYML ADVANCED TAX SETTING
+
+    test('Advanced tax settings messa error') {
+        "/myml/advanced_tax_settings/message"(platform: "/", type: TrackType.View) {
+            code = 400
+        }
+    }
+
+    test('Advanced tax settings home') {
+        "/myml/advanced_tax_settings/home"(platform: "/", type: TrackType.View) {}
+
+        "/myml/advanced_tax_settings/home/access"(platform: "/", type: TrackType.Event) {
+            destination_to = "https://myaccount.mercadolivre.com.br/advanced-tax-settings/cst/sale"
+        }
+    }
+
+    test('Advanced tax setting difal') {
+        "/myml/advanced_tax_settings/difal"(platform: "/", type: TrackType.View) {}
+
+        "/myml/advanced_tax_settings/difal/save"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test('Advanced tax setting csosn') {
+        "/myml/advanced_tax_settings/csosn"(platform: "/", type: TrackType.View) {}
+
+        "/myml/advanced_tax_settings/csosn/save"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test('Advanced tax setting rule composition') {
+        "/myml/advanced_tax_settings/rule_composition"(platform: "/", type: TrackType.View) {}
+
+        "/myml/advanced_tax_settings/rule_composition/save"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test('Advanced tax setting CSTS') {
+        "/myml/advanced_tax_settings/cst_sale"(platform: "/", type: TrackType.View) {}
+
+        "/myml/advanced_tax_settings/cst_sale/save"(platform: "/", type: TrackType.Event) {}
+
+        "/myml/advanced_tax_settings/cst_devolution"(platform: "/", type: TrackType.View) {}
+
+        "/myml/advanced_tax_settings/cst_devolution/save"(platform: "/", type: TrackType.Event) {}
+    }
+
     //TRACKS MYML Search Bookmarks Alerts
     test("Search Alerts List") {
         "/myml/search_alerts/list"(platform: "/", type: TrackType.View) {
