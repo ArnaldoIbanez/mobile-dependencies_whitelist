@@ -1261,7 +1261,7 @@ tracks {
         callback_url(required: true, type: PropertyType.String, description: "Callback URL")
         name(required: true, type: PropertyType.String, description: "File name to upload")
         type(required: true, type: PropertyType.String, description: "File type to upload")
-        size(required: true, type: PropertyType.String, description: "File size to upload")
+        size(required: true, type: PropertyType.Numeric, description: "File size to upload")
     }
 
     "/myml/fiscal_rules/massive/upload/status"(platform: "/", type: TrackType.View) {
