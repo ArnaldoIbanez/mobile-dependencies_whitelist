@@ -436,5 +436,12 @@ trackTests {
             level = 4
             type = "modify-action"
         }
+
+        "/loyalty/partners/summary"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            level = 4
+        }
+
+        "/loyalty/partners/summary"(platform: "/", type: TrackType.View, business: "mercadopago") {
+        }
     }
 }
