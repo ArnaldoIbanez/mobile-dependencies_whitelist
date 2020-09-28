@@ -1422,7 +1422,7 @@ trackTests {
         "/myml/advanced_tax_settings/home"(platform: "/", type: TrackType.View) {}
 
         "/myml/advanced_tax_settings/home/access"(platform: "/", type: TrackType.Event) {
-            pageToGo = "https://myaccount.mercadolivre.com.br/advanced-tax-settings/cst/sale"
+            destination_to = "https://myaccount.mercadolivre.com.br/advanced-tax-settings/cst/sale"
         }
     }
 

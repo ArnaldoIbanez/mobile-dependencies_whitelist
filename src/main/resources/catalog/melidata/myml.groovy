@@ -1279,7 +1279,7 @@ tracks {
     "/myml/advanced_tax_settings/home"(platform: "/", type: TrackType.View) {}
 
     "/myml/advanced_tax_settings/home/access"(platform: "/", type: TrackType.Event) {
-        pageToGo(required: true, type: PropertyType.String, desciption: 'Page to GO')
+        destination_to(required: true, type: PropertyType.String, desciption: 'Page to GO')
     }
 
     "/myml/advanced_tax_settings/difal"(platform: "/", type: TrackType.View) {}
