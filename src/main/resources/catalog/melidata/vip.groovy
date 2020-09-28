@@ -467,7 +467,13 @@ tracks {
         source(required: true,  type: PropertyType.String, description: "Source of the referred")
     }
 
-    "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {}
+    "/vip/contact_whatsapp"(platform: "/mobile", type: TrackType.Event) {
+        catalog_listing(required: false, PropertyType.Boolean, description: "Item is catalog_listing or not")
+        from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
+        event_source(required: false, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
+        item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
+    }
 
     "/vip/call_seller_intention"(platform: "/", type: TrackType.Event) {
         category_id(required: true, type: PropertyType.String, description: "Item's category ID")
@@ -490,8 +496,8 @@ tracks {
         item_seller_type(required: false, description: "Seller type: normal, real_estate_user, etc")
         event_source(required: true, type: PropertyType.String, description: "source of the event", values: ["button", "link", "modal"])
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
-        catalog_listing(required: true, PropertyType.Boolean, description: "Item is catalog_listing or not")
-        source(required: true,  type: PropertyType.String, description: "Source of the referred")
+        catalog_listing(required: false, PropertyType.Boolean, description: "Item is catalog_listing or not")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
     }
 
     "/vip/show_phone_intention"(platform: "/", type: TrackType.Event) {
@@ -694,7 +700,7 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID in case of having a PDP with BBW")
     }
 
-    "/vip/question_intention"(platform: "/web", type: TrackType.Event) {
+    "/vip/question_intention"(platform: "/", type: TrackType.Event) {
         unregistered_contact(required: true, type: PropertyType.Boolean,
                 description: "User is unregister type")
         unregistered_contact_context(required: true, type: PropertyType.Boolean,
@@ -1141,6 +1147,7 @@ tracks {
 
     "/vip/contact_seller/preload"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
         item_id(required: true, type: PropertyType.String, description: "Item ID")
+        source(required: false,  type: PropertyType.String, description: "Source of the referred")
     }
 
     "/vip/call_seller/preload"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
@@ -1238,6 +1245,18 @@ tracks {
                 description: "Whenever the items is active, closed or paused")
         vertical(required: true, type: PropertyType.String,
                 values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+    }
+
+    "/vip/classi_credits_onboard"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        vip_version(required: true, type: PropertyType.String, description: "Migration state")
+    }
+
+    "/vip/classi_credits_onboard/ok"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        vip_version(required: true, type: PropertyType.String, description: "Migration state")
+    }
+
+    "/vip/classi_credits_onboard/close"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        vip_version(required: true, type: PropertyType.String, description: "Migration state")
     }
 
     "/vip/credits_intention"(platform: "/", type: TrackType.Event, isAbstract: true) {}
