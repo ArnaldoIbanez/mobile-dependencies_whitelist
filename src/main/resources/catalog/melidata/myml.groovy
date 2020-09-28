@@ -1259,9 +1259,9 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Action of sheets")
         context(required: true, type: PropertyType.String, description: "Context of user flow")
         callback_url(required: true, type: PropertyType.String, description: "Callback URL")
-        name(required: true, type: PropertyType.String, description: "File name to upload")
-        type(required: true, type: PropertyType.String, description: "File type to upload")
-        size(required: true, type: PropertyType.Numeric, description: "File size to upload")
+        name(required: false, type: PropertyType.String, description: "File name to upload")
+        type(required: false, type: PropertyType.String, description: "File type to upload")
+        size(required: false, type: PropertyType.Numeric, description: "File size to upload")
     }
 
     "/myml/fiscal_rules/massive/upload/status"(platform: "/", type: TrackType.View) {

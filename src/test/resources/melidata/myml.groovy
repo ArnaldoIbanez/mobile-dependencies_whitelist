@@ -1343,7 +1343,7 @@ trackTests {
             action = "edit"
             context = "default"
             callback_url = "https://www.mercadolivre.com.br"
-            name = "sheet_test.xlsx"
+            name = "testname"
             type = "xlsx"
             size = 1000
         }
