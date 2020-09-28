@@ -1200,7 +1200,7 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Action of sheets")
         context(required: true, type: PropertyType.String, description: "Context of user flow")
         callback_url(required: true, type: PropertyType.String, description: "Callback URL")
-        selected(required: true, type: PropertyType.String, description: "Ids selected")
+        selected(required: false, type: PropertyType.String, description: "Ids selected")
     }
 
     "/myml/fiscal_rules/massive/button"(platform: "/", isAbstract: true) {}
@@ -1209,7 +1209,7 @@ tracks {
         action(required: true, type: PropertyType.String, description: "Action of sheets")
         context(required: true, type: PropertyType.String, description: "Context of user flow")
         callback_url(required: true, type: PropertyType.String, description: "Callback URL")
-        selected(required: true, type: PropertyType.String, description: "Ids selected")
+        selected(required: false, type: PropertyType.String, description: "Ids selected")
     }
 
     "/myml/fiscal_rules/massive/button/upload"(platform: "/", type: TrackType.Event) {
