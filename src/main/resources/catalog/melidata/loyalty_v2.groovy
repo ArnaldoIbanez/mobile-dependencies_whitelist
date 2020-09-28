@@ -164,4 +164,8 @@ tracks {
         type(required: false, description: "Action type (detail-action, modify-action, tyc-action, etc.)", type: PropertyType.String)
     }
 
+    "/loyalty/partners/summary"(platform: "/", type: TrackType.View) {
+        level(type: PropertyType.Numeric, required: false)
+    }
+
 }
