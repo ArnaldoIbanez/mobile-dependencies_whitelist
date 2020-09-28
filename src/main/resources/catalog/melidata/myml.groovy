@@ -1270,37 +1270,37 @@ tracks {
 
     //Tracks MYML ADVANCED TAX SETTINGS
 
-    "/myml/advanced-tax-settings"(platform: "/", isAbstract: true) {}
+    "/myml/advanced_tax_settings"(platform: "/", isAbstract: true) {}
 
-    "/myml/advanced-tax-settings/message"(platform: "/", type: TrackType.View) {
+    "/myml/advanced_tax_settings/message"(platform: "/", type: TrackType.View) {
         code(required: true, type: PropertyType.Numeric, description: "Error")
     }
 
-    "/myml/advanced-tax-settings/home"(platform: "/", type: TrackType.View) {}
+    "/myml/advanced_tax_settings/home"(platform: "/", type: TrackType.View) {}
 
-    "/myml/advanced-tax-settings/home/access"(platform: "/", type: TrackType.Event) {
-        href(required: true, type: PropertyType.String, desciption: 'Page to GO')
+    "/myml/advanced_tax_settings/home/access"(platform: "/", type: TrackType.Event) {
+        pageToGo(required: true, type: PropertyType.String, desciption: 'Page to GO')
     }
 
-    "/myml/advanced-tax-settings/difal"(platform: "/", type: TrackType.View) {}
+    "/myml/advanced_tax_settings/difal"(platform: "/", type: TrackType.View) {}
 
-    "/myml/advanced-tax-settings/difal/save"(platform: "/", type: TrackType.Event) {}
+    "/myml/advanced_tax_settings/difal/save"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/advanced-tax-settings/csosn"(platform: "/", type: TrackType.View) {}
+    "/myml/advanced_tax_settings/csosn"(platform: "/", type: TrackType.View) {}
 
-    "/myml/advanced-tax-settings/csosn/save"(platform: "/", type: TrackType.Event) {}
+    "/myml/advanced_tax_settings/csosn/save"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/advanced-tax-settings/rule-composition"(platform: "/", type: TrackType.View) {}
+    "/myml/advanced_tax_settings/rule_composition"(platform: "/", type: TrackType.View) {}
 
-    "/myml/advanced-tax-settings/rule-composition/save"(platform: "/", type: TrackType.Event) {}
+    "/myml/advanced_tax_settings/rule_composition/save"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/advanced-tax-settings/cst-sale"(platform: "/", type: TrackType.View) {}
+    "/myml/advanced_tax_settings/cst_sale"(platform: "/", type: TrackType.View) {}
 
-    "/myml/advanced-tax-settings/cst-sale/save"(platform: "/", type: TrackType.Event) {}
+    "/myml/advanced_tax_settings/cst_sale/save"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/advanced-tax-settings/cst-devolution"(platform: "/", type: TrackType.View) {}
+    "/myml/advanced_tax_settings/cst_devolution"(platform: "/", type: TrackType.View) {}
 
-    "/myml/advanced-tax-settings/cst-devolution/save"(platform: "/", type: TrackType.Event) {}
+    "/myml/advanced_tax_settings/cst_devolution/save"(platform: "/", type: TrackType.Event) {}
 
     //TRACKS MYML Search Bookmarks Alerts
     "/myml/search_alerts"(type: TrackType.View, isAbstract: true) {}
