@@ -1297,11 +1297,17 @@ trackTests {
         }
 
         "/myml/fiscal_rules/massive/button/download_error"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
             id = "1a2b3c4d"
             status = "error"
         }
 
         "/myml/fiscal_rules/massive/modal/progress"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
             id = "1a2b3c4d"
             status = "success"
             scope = "download"
@@ -1314,10 +1320,16 @@ trackTests {
         }
 
         "/myml/fiscal_rules/massive/upload/uploader/change"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br" 
             has_files = true
         }
 
         "/myml/fiscal_rules/massive/upload/uploader/error"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
             error = "Invalid file type"
         }
 
@@ -1337,14 +1349,23 @@ trackTests {
         }
 
         "/myml/fiscal_rules/massive/upload/status"(platform: "/", type: TrackType.View) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
             id = "1a2b3c4d"
         }
 
         "/myml/fiscal_rules/massive/upload/status/button/fiscal_information"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
             id = "1a2b3c4d"
         }
 
         "/myml/fiscal_rules/massive/upload/status/button/advanced_tax_settings"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
             id = "1a2b3c4d"
         }
     }
