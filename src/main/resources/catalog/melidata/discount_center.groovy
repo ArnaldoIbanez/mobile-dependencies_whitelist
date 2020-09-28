@@ -11,60 +11,55 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks {
 
     initiative = "1218"
+	
+    "/discount_center" (platform: "/mobile", isAbstract: true) {}
+    "/discount_center/payers" (platform: "/mobile", isAbstract: true) {}
 
-    def item_definition = objectSchemaDefinitions {
-        tracking_id(type: PropertyType.String, required: true, description: "The id of the item we are showing")
-        blocked(type: PropertyType.Boolean, required: true, description: "If the discount is blocked or not")
-        name(type: PropertyType.String, required: true, description: "The name of the discount")
-        category(type: PropertyType.String, required: false, description: "The category of the discount")
-        mcc(type: PropertyType.Numeric, required: false, description: "The mcc of the category of the discount")
-        position(type: PropertyType.Numeric, required: true, description: "The position of the discount in the list")
-        index(type: PropertyType.Numeric, required: true, description: "The index of the discount in the list")
-        availability(type: PropertyType.String, required: false, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status of the discount")
-        level(type: PropertyType.Numeric, required: true, description: "The minimum loyalty level required for the discount")
-        distance(type: PropertyType.Numeric, required: false, description: "The distance to the closest store")
-        store_id(type: PropertyType.Numeric, required: false, description: "The store id of the closest store")
-        amount_type(type: PropertyType.String, required: true, values: ['fixed', 'percent'], description: "The amount type")
-        amount(type: PropertyType.Numeric, required: false, description: "The discount amount in fixed values")
-        priority(type: PropertyType.Numeric, required: true, description: "The discount brand priority")
-        collector_id(type: PropertyType.Numeric, required: false, description: "The discount collector id")
-        has_logo(type: PropertyType.Boolean, required: true, description: "If the discount has a logo or not")
-        coupon_used(type: PropertyType.Boolean, required: true, description: "If the coupon is used")
+    // VSP
+
+    def store_review_definition = objectSchemaDefinitions {
+        rating(type: PropertyType.Numeric, required: true, description: "The store rating")
+        count(type: PropertyType.Numeric, required: true, description: "The number of reviews")
     }
+
+    def store_discount_definition = objectSchemaDefinitions {
+        campaign_id(type: PropertyType.Numeric, required: true, description: "The campaign id")
+        index(type: PropertyType.Numeric, required: true, description: "The position in the list")
+        blocked(type: PropertyType.Boolean, required: true, description: "If the discount is not usable")
+        availability(type: PropertyType.String, required: false, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status")
+        level(type: PropertyType.Numeric, required: true, description: "The minimum loyalty level required")
+        amount_type(type: PropertyType.String, required: true, values: ['fixed', 'percent'], description: "The amount type")
+        amount(type: PropertyType.Numeric, required: true, description: "The amount")
+        priority(type: PropertyType.Numeric, required: true, description: "The discount brand priority")
+    }
+
+    def store_delivery_definition = objectSchemaDefinitions {
+        radius(type: PropertyType.Numeric, required: false, description: "The delivery radius")
+        delivery(type: PropertyType.Boolean, required: true, description: "If the store has delivery")
+        pickup(type: PropertyType.Boolean, required: true, description: "If the store has pickup")
+    }
+
+    "/discount_center/payers/vsp" (platform: "/mobile", type: TrackType.View) {
+        store_id(type: PropertyType.Numeric, required: true, description: "The store id")
+        collector_id(type: PropertyType.Numeric, required: true, description: "The collector id")
+        brand_id(type: PropertyType.Numeric, required: false, description: "The brand id")
+        name(type: PropertyType.String, required: false, description: "The name")
+        distance(type: PropertyType.Numeric, required: true, description: "The distance")
+        has_logo(type: PropertyType.Boolean, required: true, description: "If the store has a logo")
+        category(type: PropertyType.String, required: false, description: "The category")
+        mcc(type: PropertyType.String, required: true, description: "The mcc")
+        review(type: PropertyType.Map(store_review_definition), required: false, description: "The review node")
+        discounts(type: PropertyType.ArrayList(PropertyType.Map(store_discount_definition)), required: false, description: "The discounts")
+        delivery(type: PropertyType.Map(store_delivery_definition), required: false, description: "The delivery node")
+    }
+
+    // DETAIL
 
     def section_definition = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true, description: "The section identifier")
         type(type: PropertyType.String, required: true, description: "The section type")
         position(type: PropertyType.Numeric, required: true, description: "The position of the section in the list")
     }
-	
-    "/discount_center" (platform: "/mobile", isAbstract: true) {}
-    "/discount_center/payers" (platform: "/mobile", isAbstract: true) {}
-
-    // LIST
-
-    "/discount_center/payers/list" (platform: "/mobile", type: TrackType.View) {
-      session_id(required: false, type: PropertyType.String, description: "Unique code that identifies a user's session")
-    }
-
-    "/discount_center/payers/list/print" (platform: "/mobile", type: TrackType.Event) {
-        items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the list")
-    }
-
-    "/discount_center/payers/list/show" (platform: "/mobile", type: TrackType.Event) {
-      items(required: true, type: PropertyType.ArrayList(PropertyType.Map(item_definition)), description: "Items shown in the list")
-      offset(required: false, type: PropertyType.Numeric, description: "The offset in the list")
-      filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The enabled filters")
-      user_loyalty_level(required: true, type: PropertyType.Numeric, description: "The user loyalty level")
-    }
-
-    "/discount_center/payers/list/tap_filter" (platform: "/mobile", type: TrackType.Event) {
-        filter_id(required: true, type: PropertyType.String, description: "The filter identifier")
-        index(required: true, type: PropertyType.Numeric, description: "The filter position")
-        action(required: true, type: PropertyType.String, description: "The filter state")
-    }
-
-    // DETAIL
 
     "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
         title(required: false, type: PropertyType.String, description: "The discount name")
@@ -87,10 +82,6 @@ tracks {
         collector_id(type: PropertyType.String, required: false, description: "The collector id of the item")
         store_id(type: PropertyType.Numeric, required: false, description: "The store id of the closest store")
     }
-
-    "/discount_center/payers/detail/share" (platform: "/mobile", type: TrackType.Event) {}
-
-    "/discount_center/payers/detail/terms" (platform: "/mobile", type: TrackType.Event) {}
 
     "/discount_center/payers/detail/tap" (platform: "/mobile", type: TrackType.Event) {}
 
@@ -155,6 +146,26 @@ tracks {
     }
 
     // MARKETPLACE
+
+    def item_definition = objectSchemaDefinitions {
+        tracking_id(type: PropertyType.String, required: true, description: "The id of the item we are showing")
+        blocked(type: PropertyType.Boolean, required: true, description: "If the discount is blocked or not")
+        name(type: PropertyType.String, required: true, description: "The name of the discount")
+        category(type: PropertyType.String, required: false, description: "The category of the discount")
+        mcc(type: PropertyType.Numeric, required: false, description: "The mcc of the category of the discount")
+        position(type: PropertyType.Numeric, required: true, description: "The position of the discount in the list")
+        index(type: PropertyType.Numeric, required: true, description: "The index of the discount in the list")
+        availability(type: PropertyType.String, required: false, values: ['full', 'fewleft', 'soldout', 'soldout_today'], description: "Availability status of the discount")
+        level(type: PropertyType.Numeric, required: true, description: "The minimum loyalty level required for the discount")
+        distance(type: PropertyType.Numeric, required: false, description: "The distance to the closest store")
+        store_id(type: PropertyType.Numeric, required: false, description: "The store id of the closest store")
+        amount_type(type: PropertyType.String, required: true, values: ['fixed', 'percent'], description: "The amount type")
+        amount(type: PropertyType.Numeric, required: false, description: "The discount amount in fixed values")
+        priority(type: PropertyType.Numeric, required: true, description: "The discount brand priority")
+        collector_id(type: PropertyType.Numeric, required: false, description: "The discount collector id")
+        has_logo(type: PropertyType.Boolean, required: true, description: "If the discount has a logo or not")
+        coupon_used(type: PropertyType.Boolean, required: true, description: "If the coupon is used")
+    }
 
     def main_slider_item_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the main slider item we are showing")
@@ -241,16 +252,5 @@ tracks {
     "/discount_center/payers/marketplace/components/print" (platform: "/mobile", type: TrackType.Event) {
       marketplace_id(required: true, type: PropertyType.String, description: "An unique identifier to group the same marketplace")
       components(required: true, type: PropertyType.Map(marketplace_components_definition), description: "Marketplace components")
-    }
-
-    //WHATSAPP
-
-    "/discount_center/payers/detail/whatsapp" (platform: "/mobile", type: TrackType.View) {
-        store_id(type: PropertyType.Numeric, required: false, description: "The store id of the store")
-        collector_id(type: PropertyType.String, required: false, description: "The collector id of the item")
-        session_id(required: true, type: PropertyType.String, description: "Unique code that identifies a user's session")
-        category(type: PropertyType.String, required: false, description: "The category of the item")
-        title(required: false, type: PropertyType.String, description: "The store name")
-        tracking_id(required: true, type: PropertyType.String, description: "Tracking id of the presented whatsapp detail")
     }
 }
