@@ -63,15 +63,7 @@ tracks {
             required: false,
             type: PropertyType.Boolean
         )
-        promise(
-            type: PropertyType.String,
-            required: false,
-            values: [
-                'create_promise',
-                'view_promise',
-                'not_apply',
-            ]
-        )
+
         variant(
             description: "Option types from the user's credit line",
             type: PropertyType.String,
@@ -207,10 +199,13 @@ tracks {
             inheritable: false
         )
         promise(
-            type: PropertyType.ArrayList(
-                PropertyType.Map(promise)
-            ),
-            required: false,
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'create_promise',
+                'view_promise',
+                'not_apply',
+            ],
             inheritable: false
         )
         show_cx_widget(

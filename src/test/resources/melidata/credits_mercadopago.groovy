@@ -367,7 +367,6 @@ trackTests {
                 segment: 'online',
                 category: 'regular',
                 offer_type: 'early_offer',
-                promise: 'create_promise',
             ]
         }
 
@@ -440,9 +439,12 @@ trackTests {
         "/credits/merchant/administrator"(platform: "/") {}
         "/credits/merchant/administrator"(platform: "/") {
             status = 'on_time'
+            promise = 'not_apply'
         }
         "/credits/merchant/administrator"(platform: "/") {
             status = 'overdue'
+            promise = 'view_promise'
+
         }
         "/credits/merchant/administrator"(platform: "/") {
             status = 'empty'
@@ -454,6 +456,7 @@ trackTests {
             products = [
                 fixed_term_map()
             ]
+            promise = 'create_promise'
             show_cx_widget = true
         })
 
