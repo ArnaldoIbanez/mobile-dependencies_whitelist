@@ -754,9 +754,7 @@ trackTests {
         "/advertising/pads2/hub/moveads/cancel"(platform: "/web", type: TrackType.Event) {}
 
         "/advertising/pads2/hub/moveads/filters"(platform: "/web", type: TrackType.Event) {
-        filters = [
-                    query: "x",
-                ]
+            query = "search"
         }
 
         "/advertising/pads2/createcampaign"(platform: "/web", type: TrackType.Event) {}
@@ -1089,7 +1087,7 @@ trackTests {
             sads_total = 10
         }
 
-        "/advertising/pads2/hub/card/sads_new"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/hub/card/sads_new/go"(platform: "/web", type: TrackType.Event) {
             tab = "ads"
             sads_total = 10
         }

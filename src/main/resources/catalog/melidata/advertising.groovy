@@ -575,7 +575,7 @@ tracks {
     "/advertising/pads2/hub/moveads/cancel"(platform: "/web", type: TrackType.Event) {}
 
     "/advertising/pads2/hub/moveads/filters"(platform: "/web", type: TrackType.Event) {
-        filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
+        query(required: true, type:PropertyType.String , description: "Indicates the query searched by the user")
     }
 
     "/advertising/pads2/createcampaign"(platform: "/web", type: TrackType.Event) {}
@@ -815,7 +815,7 @@ tracks {
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll ads without campaign")
     }
 
-    "/advertising/pads2/hub/card/sads_new"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/hub/card/sads_new/go"(platform: "/web", type: TrackType.Event) {
         tab(required: true, type: PropertyType.String, description: "Indicates the tab from where the track is sent")
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll ads without campaign")
     }
