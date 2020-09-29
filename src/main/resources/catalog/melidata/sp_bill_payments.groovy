@@ -49,6 +49,14 @@ tracks {
     "/bill_payments/input_amount"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/input_amount/back"(platform: "/mobile", type: TrackType.Event) {}
 
+    // Input data
+    "/bill_payments/input_data"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/input_data/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Input debt id
+    "/bill_payments/input_option_debt"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/input_option_debt/back"(platform: "/mobile", type: TrackType.Event) {}
+
     // Info screen
     "/bill_payments/info_screen"(platform: "/mobile", type: TrackType.View) {}
 
