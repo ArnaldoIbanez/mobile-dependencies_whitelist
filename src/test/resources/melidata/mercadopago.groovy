@@ -2630,6 +2630,53 @@ trackTests {
             barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
         }
 
+        // Invoice
+        "/bill_payments/invoices"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/info_hour"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+        }
+
+        // Input amount
+        "/bill_payments/input_amount"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input_amount/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+
+        // Input data
+        "/bill_payments/input_data"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input_data/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Input debt id
+        "/bill_payments/input_option_debt"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input_option_debt/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Info screen
+        "/bill_payments/info_screen"(platform: "/mobile") {
+            mandatory()
+        }
+
         // FTU
         "/bill_payments/ftu"(platform: "/mobile") {
             mandatory()
