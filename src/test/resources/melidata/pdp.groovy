@@ -682,7 +682,7 @@ trackTests {
 
     test("Pdp Advertising banners") {
         "/pdp/advertising"(platform: "/", type: TrackType.Event) {
-            advertising_id = "fullscreen-core"
+            advertising_id = "fullscreen"
         }
     }
 }
