@@ -34,6 +34,10 @@ tracks {
     def item_from_map = objectSchemaDefinitions {
         category_id(required: true, PropertyType.String, description: "Original item's category id")
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+        item_id(required: true, description: "Original item id", PropertyType.String)
+        status(required: true, description: "Original item status", PropertyType.String)
+        substatus(required: true, description: "Original item substatus", PropertyType.String)
+        sold_quantity(required: true, description: "Original item sold quantity", PropertyType.Numeric)
     }
     def picture_info_map = objectSchemaDefinitions {
         width(required: true, type: PropertyType.Numeric, description: "this property describes width of the image")
@@ -60,8 +64,8 @@ tracks {
         predictions(required: false, type: PropertyType.Map(predictions_map), description: "Array of predictions of categories and/or attributes")
         parent_product_id(required: false, type: PropertyType.String, description: "Catalog product parent id for item")
         product_id(required: false, type: PropertyType.String, description: "Catalog product id for item")
-        item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL V4 flows.", PropertyType.Map(item_from_map))
-        list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+        item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL/LIST AGAIN/CHANGE_CATEGORY  V4 flows.", PropertyType.Map(item_from_map))
+        list_mode(required: false, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST", "LIST_AGAIN", "CHANGE_CATEGORY"])
         vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
         listing_type_id(required: false, description: "Item listing type id")
         listing_type_free_available(required: false, type: PropertyType.Boolean, description: "Listing type free available")
@@ -155,6 +159,7 @@ tracks {
         condition(required: false, description: "Item condition: used/new/not_specified")
         price(required: false, description: "Item price")
         quantity(required: false, description: "Item quantity")
+        session_id(required: false, description: "Session ID for Supply Re V4 use case")
     }
 
     "/sell/modify_and_relist/single/row"(platform: "/web", type: TrackType.View){}
@@ -302,6 +307,7 @@ tracks {
     "/sell/list/draft/shipping_mandatory_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/shipping_options_me"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/sip_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/sip_optional_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/size_selection"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/size_selection_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/size_selection_fallback"(platform:"/mobile", type: TrackType.View){}
@@ -372,35 +378,6 @@ tracks {
     "/sell/list/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
         section_id(required: false, description: "Section of the SIP that is disabled and trigger the event.", type: PropertyType.String)
     }
-    "/sell/list/sip/update" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/listing_types_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/listing_type" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/description_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/pictures_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/description" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/pictures" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/price_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/price" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/shipping_options_me_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/title" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/shipping_options" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/payment_methods_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/payment_options" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/shipping_options" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/payment_methods_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/payment_options" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/condition_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/condition" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/product_identifier_review"(platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/product_identifier"(platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/technical_specifications"(platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/technical_specifications_review"(platform: "/mobile", type: TrackType.Event){}
-
-    "/sell/list/sip/update/include_description" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/manufacturing_time_review" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/manufacturing_time" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/location" (platform: "/mobile", type: TrackType.Event){}
-    "/sell/list/sip/update/size_selection_review" (platform: "/mobile", type: TrackType.Event){}
 
     "/sell/list/sip/notification"(platform: "/mobile", isAbstract: true) {}
     "/sell/list/sip/notification/congrats"(platform: "/mobile", type: TrackType.Event) {}
@@ -465,7 +442,6 @@ tracks {
     "/sell/list/description_included"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description_included_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description_not_included"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/list/sip/update/extra_description"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description_additional_information"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/description_additional_information_review"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/payment_methods"(platform: "/", type: TrackType.View) {}
@@ -540,6 +516,7 @@ tracks {
     "/sell/list/shipping_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/shipping_mandatory_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/sip_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_optional_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/title_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/listing_types"(platform: "/", type: TrackType.View) {}
     "/sell/list/item_description"(platform: "/", type: TrackType.View){
@@ -554,8 +531,16 @@ tracks {
     //update flow
     "/sell/update" (platform: "/", isAbstract: true){
         item_id(required: true, description: "Item id", type: PropertyType.String)
+        is_catalog_listing(required: false, description: "If core item is a catalog listing", type: PropertyType.Boolean)
+        buybox_status(required: false, description: "Buy Box status of core catalog listing", type: PropertyType.String, values: ["winning", "losing_by_price", "losing_by_stock", "losing_by_bad_reputation", "losing_by_untrusted_seller", "losing_by_without_reputation", "calculating", "undefined"])
     }
     "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/buybox_competition"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/buybox_competition/push_action"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/buybox_competition/row_action"(platform: "/mobile", type: TrackType.Event) {
+        boost_id(required: true, description: "Id of buy box boost", type: PropertyType.String, values: ["free_shipping", "free_installments", "fulfillment", "mercado_envios", "price", "same_day_shipping", "shipping_quarantine"])
+        boost_status(required: true, description: "Status of buy box boost", type: PropertyType.String, values: ["boosted", "not_boosted", "opportunity", "not_apply"])
+    }
     "/sell/update/picture_uploader"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/picture_uploader/mode"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/picture_uploader/mode/camera"(platform: "/mobile", type: TrackType.Event) {}
@@ -578,24 +563,17 @@ tracks {
         is_catalog_boost(required: false, description: "boolean - true if the item was created by Optinator (forced catalog optin) and item status is paused", type: PropertyType.Boolean)
         is_item_inactive_moderated(required: false, description: "boolean - true if it is an inactive moderated item", type: PropertyType.Boolean)
     }
+    "/sell/update/sip/header_modal"(platform: "/mobile", isAbstract: true) {
+        header_type(required: true, description: "Header type", type: PropertyType.String, values: ["advisory", "buybox", "health", "warning"])
+    }
+    "/sell/update/sip/header_modal/open"(platform: "/mobile", type: TrackType.Event) {}
+    "/sell/update/sip/header_modal/action"(platform: "/mobile", type: TrackType.Event) {
+        action_id(required: true, description: "ID of the modal action", type: PropertyType.String, values: ["cancel", "reputation"])
+    }
     "/sell/update/sip/section"(platform: "/mobile", isAbstract: true) {}
     "/sell/update/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
         section_id(required:true, description: "Section of the SIP that is disabled and trigger the event.", type: PropertyType.String)
     }
-    "/sell/update/sip/update/price"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/statistics"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/pictures"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/list_closed_step"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/list_paused_step"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/relist"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/listing_types"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/description"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/modify_variations"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/quantity"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/condition"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/technical_specifications"(platform: "/mobile", type: TrackType.Event) {}
-    "/sell/update/sip/update/add_stock"(platform: "/mobile", type: TrackType.Event) {}
 
     "/sell/update/quantity_maximum_free_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/location"(platform: "/mobile", type: TrackType.View) {}
@@ -724,6 +702,8 @@ tracks {
     }
     "/sell/relist/congrats"(platform: "/web/desktop", type: TrackType.View) {
         can_complete_attributes(required: true, description: "Field to identify if link to update was offered.", type: PropertyType.Boolean)
+        session_id(required: false, description: "Session ID for Supply Re V4 use case")
+        listing_type(required: false, description: "Listing type id used to resell item")
     }
     "/sell/relist/congrats"(platform: "/mobile", type: TrackType.View) {}
 
@@ -768,6 +748,8 @@ tracks {
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
+        item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL/LIST AGAIN/CHANGE_CATEGORY  V4 flows.", PropertyType.Map(item_from_map))
+
     }
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}
@@ -796,6 +778,10 @@ tracks {
         categoryFlow
         product_title(required: true, description: "title of catalog product", type: PropertyType.String)
     }
+    "/sell/item_data/product_identifier"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/product_identifier/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/product_identifier/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/product_identifier/required"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/flow_decision"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/flow_decision/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/flow_decision/confirm"(platform: "/web", type: TrackType.Event) {
@@ -1135,11 +1121,13 @@ tracks {
 
     "/sell/item_data/plans"(platform: "/web", isAbstract: true) {
         sellGroup
+        listingTypeFlow
     }
     "/sell/item_data/plans/confirm"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/item_data/pictures_modal"(platform: "/web", isAbstract: true) {
         sellGroup
+        listingTypeFlow
     }
     "/sell/item_data/pictures_modal/show"(platform: "/web", type: TrackType.Event) {}
 
@@ -1179,5 +1167,11 @@ tracks {
     "/sell/error_step/user_has_debt_error"(platform: "/web", isAbstract: true) {}
     "/sell/error_step/user_has_debt_error/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/error_step/user_has_debt_error/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/item_data/video"(platform: "/web", isAbstract: true) {
+        listingTypeFlow
+    }
+    "/sell/item_data/video/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/video/confirm"(platform: "/web", type: TrackType.Event) {}
 
 }

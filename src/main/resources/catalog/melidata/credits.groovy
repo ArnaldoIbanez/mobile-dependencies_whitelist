@@ -15,9 +15,27 @@ tracks {
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
     "/credits/merchant"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/upsell"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea/integrated_flow"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea/remedy"(platform: "/", isAbstract: true) {}
+
+    /******************************************
+    *       Start: Flujo Upsell Consumer
+    ******************************************/
+        //ML
+    "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View) {
+        remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
+    }
+    "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event) {
+        remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
+    }
+    "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View) {
+        variant(description: "Congrats variant", type: PropertyType.String, required: true, values: ["success", "retry"])
+    }
+    /******************************************
+    *       End: Flujo Upsell Consumer
+    ******************************************/
 
     /***********************************************
      *       Start: Consumers Integrated Flow (mercadolibre - mercadopago)
@@ -109,6 +127,22 @@ tracks {
             type: PropertyType.String,
             required: true
         )
+    }
+
+    // Credits Marketing Performance landing 
+    "/credits/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/credits/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/credits/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
+    }
+    "/credits/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }
 
     /******************************************

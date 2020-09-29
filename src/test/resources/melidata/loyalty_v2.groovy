@@ -405,6 +405,7 @@ trackTests {
 
         "/loyalty/partners/login/invalid"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             subscription_partner = "Paramount"
+            server_error = false
         }
 
     }
@@ -414,6 +415,7 @@ trackTests {
         "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadolibre") {
             subscription_partner = "HBO"
             level = 4
+            subscription_status = "active"
         }
 
         "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
@@ -433,6 +435,13 @@ trackTests {
             subscription_status = "ended"
             level = 4
             type = "modify-action"
+        }
+
+        "/loyalty/partners/summary"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            level = 4
+        }
+
+        "/loyalty/partners/summary"(platform: "/", type: TrackType.View, business: "mercadopago") {
         }
     }
 }

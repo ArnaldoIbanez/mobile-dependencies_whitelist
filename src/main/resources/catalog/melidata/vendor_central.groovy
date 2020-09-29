@@ -73,4 +73,13 @@ tracks {
         modal(required: true, type: PropertyType.Numeric, description: "The total number of categories that were downloaded from modal")
     }
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor Central Purchase order listing
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    "/vendor_central/inbound"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/inbound/listing"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/inbound/detail"(platform: "/web", type: TrackType.View) {}
+
 }

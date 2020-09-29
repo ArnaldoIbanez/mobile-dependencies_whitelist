@@ -57,6 +57,12 @@ tracks {
     "/mplayer/send_money/result/in_process"(platform: "/mobile", type: TrackType.View) {
     }
 
+    "/mplayer/send_money/redirector"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/send_money/redirector/manual_amount"(platform: "/mobile", type: TrackType.View) {
+        flow(required: true, PropertyType.String, description: "the source flow")
+        contact_type(required: true, PropertyType.String, description: "the type of the contact")
+    }
+
     // Closed Request
     "/mplayer/closed_request"(platform: "/mobile", isAbstract: true) {}
     "/mplayer/closed_request/onboarding"(platform: "/mobile", type: TrackType.View) {}
@@ -72,6 +78,9 @@ tracks {
     "/mplayer/closed_request/congrats_request/exit"(platform: "/mobile", type: TrackType.Event) {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
+
+    "/mplayer/closed_request/congrats_request/detail"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/congrats_request/home"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/closed_request/contact_picker/select_contact"(platform: "/mobile", type: TrackType.Event) {
         input_type(required: true, PropertyType.String, description: "the input type of contact selected, select from list or manually typed")
@@ -185,6 +194,9 @@ tracks {
     "/mplayer/money_split/split_created/exit"(platform: "/mobile", type: TrackType.Event) {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
+
+    "/mplayer/money_split/split_created/detail"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/money_split/split_created/home"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/money_split/result"(platform: "/mobile", isAbstract: true) {}
     "/mplayer/money_split/result/success"(platform: "/mobile", type: TrackType.View) {
@@ -318,4 +330,18 @@ tracks {
     "/mplayer/contacts/search/start"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/contacts/search/end"(platform: "/mobile", type: TrackType.Event) {}
 
+    // Interaction Screen
+    "/mplayer/interaction_screen"(platform: "/mobile", type: TrackType.View) {
+        type(required: true, PropertyType.String, values: ["modal", "full_screen"], description: "Describe the appearance")
+        cause(required: true, PropertyType.String, description: "Interaction screen reason")
+        message_id(required: true, PropertyType.String, description: "Interaction screen id")
+    }
+    "/mplayer/interaction_screen/event"(platform: "/mobile", type: TrackType.Event) {
+        type(required: true, PropertyType.String, values: ["modal", "full_screen"], description: "Describe the appearance")
+        cause(required: true, PropertyType.String, description: "Interaction screen reason")
+        message_id(required: true, PropertyType.String, description: "Interaction screen id")
+        action(required: false, PropertyType.String, description: "Component action")
+        help_link(required: false, PropertyType.String, values:["help_webview", "help_modal"], description: "The action of the help link")
+        check_panel(required: false, PropertyType.String, values:["help_webview", "help_modal"], description: "The action of the check panel")
+    }
 }

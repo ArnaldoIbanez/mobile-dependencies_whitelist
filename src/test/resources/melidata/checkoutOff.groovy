@@ -394,6 +394,10 @@ trackTests {
         "/checkout_off/error"(platform: "/web/mobile") {
         }
 
+        // Properties not necessary
+        "/checkout_off/loading"(platform: "/web/mobile") {
+        }
+
         // MP personalFrontend
         "/tools/list"(platform: "/web"){
         }
@@ -800,6 +804,10 @@ trackTests {
 
         // Properties not necessary
         "/checkout_off/error"(platform: "/web/mobile") {
+        }
+
+        // Properties not necessary
+        "/checkout_off/loading"(platform: "/web/mobile") {
         }
 
         // MP personalFrontend

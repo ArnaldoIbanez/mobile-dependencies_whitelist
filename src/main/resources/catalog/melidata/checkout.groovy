@@ -1144,6 +1144,10 @@ tracks {
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
     }
+    "/checkout/shipping/input_address/map"(platform:"/", type: TrackType.View, isAbstract: true) {
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+    }
 
     // Event
     "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event) {
@@ -1184,6 +1188,18 @@ tracks {
     }
     "/checkout/shipping/input_address/internal_number"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the internal number")
+    }
+    "/checkout/shipping/input_address/caixa_postal_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the caixa postal number")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/checkout/shipping/input_address/error_map"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the map step")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
 

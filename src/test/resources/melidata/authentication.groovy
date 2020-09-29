@@ -711,17 +711,26 @@ trackTests {
 
             "/authenticators/email_validation/max_attempts"(platform: "/", type: TrackType.View) {}
 
-            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {}
+            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+                flow = "registration"
+                client_type = "mobile"
+            }
 
             "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
+                flow = "registration"
+                client_type = "mobile"
                 validation_status = "success"
             }
 
             "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
+                flow = "login"
+                client_type = "web"
                 social_option = "Google"
             }
 
             "/authenticators/email_validation/social_oauth/submit"(platform: "/", type: TrackType.Event) {
+                flow = "login"
+                client_type = "web"
                 validation_status = "success"
                 social_option = "Microsoft"
                 email_sign_in = false
@@ -777,6 +786,8 @@ trackTests {
                 error_msg_id = 501
                 error_msg = "ERROR_CANT_VALIDATE"
             }
+
+            "/screenlock/biometrics/fallback"(platform: "/mobile/android", type: TrackType.Event) {}
 
             "/screenlock/security_blocker"(platform: "/mobile/ios", type: TrackType.View) {
                 enrollment_status = "enabled"
@@ -851,6 +862,28 @@ trackTests {
             }
 
             "/screenlock/opening_lock/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/status"(platform: "/mobile/android", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [

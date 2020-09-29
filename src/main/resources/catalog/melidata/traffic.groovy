@@ -10,6 +10,29 @@ tracks {
 
     def third_party_data_definition = objectSchemaDefinitions {
         id(type: PropertyType.String, required: false)
+        gclid(type: PropertyType.String, required: false)
+        ad_id(type: PropertyType.String, required: false)
+        adset_id(type: PropertyType.String, required: false)
+        campaign_id(type: PropertyType.String, required: false)
+        placement(type: PropertyType.String, required: false)
+        site_source_name(type: PropertyType.String, required: false)
+        ad_group_id(type: PropertyType.String, required: false)
+        match_type(type: PropertyType.String, required: false)
+        network(type: PropertyType.String, required: false)
+        device(type: PropertyType.String, required: false)
+        creative(type: PropertyType.String, required: false)
+        keyword(type: PropertyType.String, required: false)
+        ad_position(type: PropertyType.String, required: false)
+        ad_type(type: PropertyType.String, required: false)
+        merchant_id(type: PropertyType.String, required: false)
+        product_id(type: PropertyType.String, required: false)
+        product_partition_id(type: PropertyType.String, required: false)
+        target_id(type: PropertyType.String, required: false)
+        loc_interest_ms(type: PropertyType.String, required: false)
+        loc_physical_ms(type: PropertyType.String, required: false)
+        device_model(type: PropertyType.String, required: false)
+        feed_item_id(type: PropertyType.String, required: false)
+        campaign_name(type: PropertyType.String, required: false)
     }
 
     def third_party_definition = objectSchemaDefinitions {

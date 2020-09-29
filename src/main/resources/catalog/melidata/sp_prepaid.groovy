@@ -345,7 +345,9 @@ tracks {
 
 
     // Congrats success
-    "/single_player/prepaid/congrats_success"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/prepaid/congrats_success"(platform: "/mobile", type: TrackType.View) {
+        payment_id(required: true, PropertyType.String, description: "ID of the payment")
+    }
 
     "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", type: TrackType.Event) {}

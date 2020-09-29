@@ -135,10 +135,18 @@ trackTests {
         }
     }
 
-    test("Mercadopago discount sellers history view") {
+    test("Mercadopago discount sellers history view sin banner de moderacion") {
         "/discount_sellers/history" (platform: "/mobile", type: TrackType.View) {
             session_id = "1"
             campaigns = "{modelo}"
+        }
+    }
+    
+    test("Mercadopago discount sellers history view con banner de moderacion") {
+        "/discount_sellers/history" (platform: "/mobile", type: TrackType.View) {
+            session_id = "1"
+            campaigns = "{modelo}"
+            moderation = "{modelo}"
         }
     }
 
@@ -264,6 +272,44 @@ trackTests {
     
     test("Mercadopago discount sellers landing back") {
         "/discount_sellers/landing/back" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "1"
+        }
+    }
+    
+    // **********************************************************
+    // ******************** Events - Congrats *******************
+    // **********************************************************
+    
+    test("Mercadopago discount sellers congrats success view") {
+        "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {
+            session_id = "1"
+            status = "success"
+        }
+    }
+    
+    test("Mercadopago discount sellers congrats pending view") {
+        "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {
+            session_id = "1"
+            status = "pending"
+        }
+    }
+    
+    test("Mercadopago discount sellers congrats rejected view") {
+        "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {
+            session_id = "1"
+            status = "rejected"
+        }
+    }
+    
+    test("Mercadopago discount sellers congrats tap") {
+        "/discount_sellers/congrats/tap" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "1"
+            title = "Title"
+        }
+    }
+    
+    test("Mercadopago discount sellers congrats close") {
+        "/discount_sellers/congrats/close" (platform: "/mobile", type: TrackType.Event) {
             session_id = "1"
         }
     }

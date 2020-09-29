@@ -179,6 +179,8 @@ tracks {
         buy_it_again_lead_checkout(required: true,type: PropertyType.String, description: "Is the button going to redirect to checkout")
     }
 
+    "/myml/purchases/status/shipping_detail"(platform:"/", type: TrackType.Event) {}
+
     // ---------------- Listings
 
 
@@ -606,7 +608,7 @@ tracks {
     "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
         seller_type(required: false,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
     }
-    
+
     // MLC - Tracking click - if seller profile needs go to previous page
     "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
         seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
@@ -627,20 +629,34 @@ tracks {
         seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
     }
 
-    // MLB - Certificate
-    "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
-    
-    // MLB - Invoice Data (NFe)
-    "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
-    
     // MLB - Basic tax settings
     "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
-    
+
     // MLB - Blocked Access Page
     "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
-        reason(required: true,  values: ["ADDRESS_NOT_REGISTERED", "NOT_OWNER", "NO_DOCUMENT_REGISTERED"], description: "Seller access blocked for this reason")
+        reason(required: true,  values: ["NOT_OWNER", "NO_DOCUMENT_REGISTERED"], description: "Seller access blocked for this reason")
     }
 
+    // MLB - Certificate
+    "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
+
+    // MLB - GNRE
+    "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {}
+
+    // MLB - Invoice Data (NFe)
+    "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
+
+    // MLB - Base Validations
+    "/myml/invoices/optin/validation"(platform: "/", isAbstract: true) {}
+
+    // MLB - Activity Validation
+    "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {}
+
+    // MLB - Business Name (Social Reason) Validation
+    "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {}
+
+    // MLB - State Registry Validation
+    "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {}
 
     //not found
     "/myml/invoices/not-found"(platform: "/") {}
@@ -1094,6 +1110,8 @@ tracks {
     "/myml/invoices/opt_in/cst-devolution/button"(platform: "/", isAbstract: true) {}
     "/myml/invoices/opt_in/cst-devolution/button/save"(platform: "/") {}
 
+    "/myml/download_invoice_preference"(platform: "/", , type: TrackType.Event) {}
+
 
     //:::: SELLER - INVOICES
 
@@ -1179,76 +1197,120 @@ tracks {
     // Massive Page
 
     "/myml/fiscal_rules/massive"(platform: "/", type: TrackType.View) {
-        callback(required: true, type: PropertyType.String, description: "Callback URL")
         action(required: true, type: PropertyType.String, description: "Action of sheets")
-        selected(required: true, type: PropertyType.String, description: "Ids selected")
+        context(required: true, type: PropertyType.String, description: "Context of user flow")
+        callback_url(required: true, type: PropertyType.String, description: "Callback URL")
+        selected(required: false, type: PropertyType.String, description: "Ids selected")
     }
 
     "/myml/fiscal_rules/massive/button"(platform: "/", isAbstract: true) {}
 
     "/myml/fiscal_rules/massive/button/download"(platform: "/", type: TrackType.Event) {
-        action(required: true, type: PropertyType.String, description: "Action type of download")
-        selected(required: true, type: PropertyType.String, description: "Ids of download")
+        action(required: true, type: PropertyType.String, description: "Action of sheets")
+        context(required: true, type: PropertyType.String, description: "Context of user flow")
+        callback_url(required: true, type: PropertyType.String, description: "Callback URL")
+        selected(required: false, type: PropertyType.String, description: "Ids selected")
     }
 
-    "/myml/fiscal_rules/massive/button/upload"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/modal"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/download"(platform: "/", isAbstract: true) {}
-
-    "/myml/fiscal_rules/massive/download/helper"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/download/button"(platform: "/", isAbstract: true) {}
-
-    "/myml/fiscal_rules/massive/download/button/start"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/download/action"(platform: "/", isAbstract: true) {}
-
-    "/myml/fiscal_rules/massive/download/action/primary"(platform: "/", type: TrackType.Event) {
-        link(required: true, type: PropertyType.String, description: "Link of button primary")
+    "/myml/fiscal_rules/massive/button/upload"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action of sheets")
+        context(required: true, type: PropertyType.String, description: "Context of user flow")
+        callback_url(required: true, type: PropertyType.String, description: "Callback URL")
     }
 
-    "/myml/fiscal_rules/massive/download/action/secondary"(platform: "/", type: TrackType.Event) {
-        link(required: true, type: PropertyType.String, description: "Link of button secondary")
+    "/myml/fiscal_rules/massive/button/download_error"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of batch error")
+        status(required: true, type: PropertyType.String, description: "Status of batch error")
     }
 
-    "/myml/fiscal_rules/massive/upload"(platform: "/", type: TrackType.View) {}
+    "/myml/fiscal_rules/massive/modal"(platform: "/", isAbstract: true) {}
 
-    "/myml/fiscal_rules/massive/upload/modal"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/upload/status"(platform: "/", type: TrackType.View) {
-        status(required: true, type: PropertyType.String, description: "Status of upload")
+    "/myml/fiscal_rules/massive/modal/progress"(platform: "/", type: TrackType.Event) {
+        status(required: true, type: PropertyType.String, description: "Status of batch")
+        scope(required: true, type: PropertyType.String, values: ["download", "upload"], description: "Scope of batch")
+        id(required: true, type: PropertyType.String, description: "ID of batch")
     }
 
-    "/myml/fiscal_rules/massive/upload/status/helpers"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_rules/massive/upload"(platform: "/", type: TrackType.View) {
+        action(required: true, type: PropertyType.String, description: "Action of sheets")
+        context(required: true, type: PropertyType.String, description: "Context of user flow")
+        callback_url(required: true, type: PropertyType.String, description: "Callback URL")
+    }
 
-    "/myml/fiscal_rules/massive/upload/action"(platform: "/", isAbstract: true) {}
+    "/myml/fiscal_rules/massive/upload/uploader"(platform: "/", isAbstract: true) {}
 
-    "/myml/fiscal_rules/massive/upload/action/upload"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_rules/massive/upload/uploader/change"(platform: "/", type: TrackType.Event) {
+        has_files(required: true, type: PropertyType.Boolean, description: "Has files selected")
+    }
 
-    "/myml/fiscal_rules/massive/upload/action/edit"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/upload/action/advanced_tax_settings"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/upload/action/download"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/upload/actions"(platform: "/", isAbstract: true) {}
-
-    "/myml/fiscal_rules/massive/upload/actions/helper"(platform: "/", type: TrackType.Event) {}
+    "/myml/fiscal_rules/massive/upload/uploader/error"(platform: "/", type: TrackType.Event) {
+        error(required: true, type: PropertyType.String, description: "Error into selected file")
+    }
 
     "/myml/fiscal_rules/massive/upload/button"(platform: "/", isAbstract: true) {}
-    
-    "/myml/fiscal_rules/massive/upload/button/start"(platform: "/", type: TrackType.Event) {}
 
-    "/myml/fiscal_rules/massive/upload/button/remove"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/upload/button/uplater"(platform: "/", type: TrackType.Event) {}
-
-    "/myml/fiscal_rules/massive/wizard"(platform: "/", type: TrackType.Event) {
-        show(required: true, type: PropertyType.Boolean, description: "Visible or hidden")
-        times(required: true, type: PropertyType.Numeric, description: "Quantity of view")
+    "/myml/fiscal_rules/massive/upload/button/later"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action of sheets")
+        context(required: true, type: PropertyType.String, description: "Context of user flow")
+        callback_url(required: true, type: PropertyType.String, description: "Callback URL")
     }
+
+    "/myml/fiscal_rules/massive/upload/button/save"(platform: "/", type: TrackType.Event) {
+        action(required: true, type: PropertyType.String, description: "Action of sheets")
+        context(required: true, type: PropertyType.String, description: "Context of user flow")
+        callback_url(required: true, type: PropertyType.String, description: "Callback URL")
+        name(required: false, type: PropertyType.String, description: "File name to upload")
+        type(required: false, type: PropertyType.String, description: "File type to upload")
+        size(required: false, type: PropertyType.Numeric, description: "File size to upload")
+    }
+
+    "/myml/fiscal_rules/massive/upload/status"(platform: "/", type: TrackType.View) {
+        id(required: true, type: PropertyType.String, description: "ID of batch")
+    }
+
+    "/myml/fiscal_rules/massive/upload/status/button"(platform: "/", isAbstract: true) {}
+
+    "/myml/fiscal_rules/massive/upload/status/button/fiscal_information"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of batch")
+    }
+
+    "/myml/fiscal_rules/massive/upload/status/button/advanced_tax_settings"(platform: "/", type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "ID of batch")
+    }
+
+    //Tracks MYML ADVANCED TAX SETTINGS
+
+    "/myml/advanced_tax_settings"(platform: "/", isAbstract: true) {}
+
+    "/myml/advanced_tax_settings/message"(platform: "/", type: TrackType.View) {
+        code(required: true, type: PropertyType.Numeric, description: "Error")
+    }
+
+    "/myml/advanced_tax_settings/home"(platform: "/", type: TrackType.View) {}
+
+    "/myml/advanced_tax_settings/home/access"(platform: "/", type: TrackType.Event) {
+        destination_to(required: true, type: PropertyType.String, desciption: 'Page to GO')
+    }
+
+    "/myml/advanced_tax_settings/difal"(platform: "/", type: TrackType.View) {}
+
+    "/myml/advanced_tax_settings/difal/save"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/advanced_tax_settings/csosn"(platform: "/", type: TrackType.View) {}
+
+    "/myml/advanced_tax_settings/csosn/save"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/advanced_tax_settings/rule_composition"(platform: "/", type: TrackType.View) {}
+
+    "/myml/advanced_tax_settings/rule_composition/save"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/advanced_tax_settings/cst_sale"(platform: "/", type: TrackType.View) {}
+
+    "/myml/advanced_tax_settings/cst_sale/save"(platform: "/", type: TrackType.Event) {}
+
+    "/myml/advanced_tax_settings/cst_devolution"(platform: "/", type: TrackType.View) {}
+
+    "/myml/advanced_tax_settings/cst_devolution/save"(platform: "/", type: TrackType.Event) {}
 
     //TRACKS MYML Search Bookmarks Alerts
     "/myml/search_alerts"(type: TrackType.View, isAbstract: true) {}

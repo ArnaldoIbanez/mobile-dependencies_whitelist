@@ -35,8 +35,7 @@ select
         and result = 'success'
         and enrollment_status = 'disabled'
         and device.platform = '/mobile/android'
-        and major <= '2'
-        and minor < '99'
+        and (bu = 'mercadopago' and major = '2' and minor < '99')
           then usr.user_id
           else null
     end) as cant_enrollments_legacy_android,
@@ -56,8 +55,7 @@ select
         and result = 'success'
         and enrollment_status = 'enabled'
         and device.platform = '/mobile/android'
-        and major <= '2'
-        and minor < '99'
+        and (bu = 'mercadopago' and major = '2' and minor < '99')
           then usr.user_id
           else null
     end) as cant_unenrollments_legacy_android,
@@ -66,8 +64,7 @@ select
       when path = '/security_settings/screenlock/toggle'
         and toggleaction = 'disable'
         and enrollment_status = 'disabled'
-        and major >= '2'
-        and minor >= '99'
+        and not (bu = 'mercadopago' and major = '2' and minor < '99')
           then usr.user_id
           else null
     end) as cant_unenrollments,
@@ -145,8 +142,7 @@ FROM ( SELECT
           user_id,
           site_id
       ) patot on t1.usr.user_id = patot.user_id
-where major >= '2'
-and minor >= '96'
+where not (bu = 'mercadopago' and major = '2' and minor < '96')
 group by
   device.platform,
   site,

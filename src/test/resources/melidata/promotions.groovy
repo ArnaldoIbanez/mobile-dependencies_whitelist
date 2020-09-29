@@ -177,6 +177,40 @@ trackTests {
                 position: 2
               ]
             ]
+            items_extra = [
+              component_name: "offers_for_user",
+              type_content: "domain_id",
+              row: 4,
+              items: [
+                [
+                  id: "MLA123",
+                  title: "Notebook Hp Intel Core I3 4gb 1tb Pantalla 14 Hdmi Wifi Gtia Oficial",
+                  image_id: "683598-MLA42907993112_072020",
+                  image_src: "https://http2.mlstatic.com/D_683598-MLA42907993112_072020-T.jpg",
+                  free_shipping: true,
+                  fulfillment: false,
+                  link: [
+                    url: "https://articulo.mercadolibre.com.ar/MLA-689581949-notebook-hp-intel-core-i3-4gb-1tb-pantalla"
+                  ],
+                  price: [
+                    price: "68.999",
+                    original_price: "106.649",
+                    discount: 35,
+                    currency: "\$",
+                    decimals: "00",
+                    has_loyalty_discount: false
+                  ],
+                  installments: [
+                    quantity: 12,
+                    amount: 9784.63,
+                    no_interest: false,
+                    currency_id: "ARS",
+                    decimals: "63",
+                    price: "9.784"
+                  ]
+                ]
+              ]
+            ]
         }
  
         "/promotions"(platform:"/web/desktop", type: TrackType.Event, {

@@ -662,6 +662,9 @@ trackTests {
             loyalty = [
                     level: 9
             ]
+            metadata_user = [
+                type: "newbie"
+            ]
         }
     }
 
@@ -740,6 +743,7 @@ trackTests {
             link = "mercadopago://loyalty"
             section_id="subscription"
             component_id="cta"
+            level=4
         }
     }
 
@@ -770,6 +774,7 @@ trackTests {
             bu_line="10"
             flow="1"
             logic="default"
+            user_profile="newbie"
         }
     }
 
@@ -1510,6 +1515,9 @@ trackTests {
         "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
             loyalty = [
                     level: 9
+            ]
+            metadata_user = [
+                type: "seller"
             ]
         }
     }
