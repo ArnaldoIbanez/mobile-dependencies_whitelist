@@ -70,8 +70,8 @@ tracks {
     }
 
     //Feedback: Tracking
-    "/cards/hybrid/tracking/feedback"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/tracking/feedback/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/shipping/tracking/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/shipping/tracking/feedback/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
