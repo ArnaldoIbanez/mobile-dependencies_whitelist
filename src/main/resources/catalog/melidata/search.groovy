@@ -357,4 +357,8 @@ tracks {
         sparkle_info(required: true, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
     }
 
+    "/search/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
+    }
+
 }
