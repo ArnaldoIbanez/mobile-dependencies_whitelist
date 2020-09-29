@@ -549,7 +549,8 @@ tracks {
         card_id (
             required: true,
             type: PropertyType.String,
-            description: "Card id"
+            description: "Card id",
+            inheritable: false
         )
     }
     "/cards/hybrid/block_card/physical/tap"(platform:"/", type: TrackType.Event) {
@@ -559,9 +560,15 @@ tracks {
             values: ["primary_button", "secondary_button"],
             description: "The action type tapped"
         )
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable: false
+        )
     }
 
-    "/cards/hybrid/block_card/physical/success"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/cards/hybrid/block_card/physical/success"(platform: "/", type: TrackType.Event) {
         reasons (
             required: true,
             type: PropertyType.ArrayList(PropertyType.String),
@@ -685,7 +692,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["close", "continue"],
+            values: ["close", "continue", "unlock"],
             description: "action tap by the user in the onboarding"
         )
     }
