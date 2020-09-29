@@ -45,6 +45,13 @@ tracks {
         barcode(required: true, type: PropertyType.String, description: "the barcode used to pay")
     }
 
+    // Input amount
+    "/bill_payments/input_amount"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/input_amount/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Info screen
+    "/bill_payments/info_screen"(platform: "/mobile", type: TrackType.View) {}
+
     // FTU
     "/bill_payments/ftu"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/ftu/close"(platform: "/mobile", type: TrackType.Event) {}
