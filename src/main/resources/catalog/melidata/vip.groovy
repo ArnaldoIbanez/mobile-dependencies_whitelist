@@ -1402,4 +1402,8 @@ tracks {
         installments_amount(required:true, type: PropertyType.Numeric, description: "The amount of installments in payment method")        
         is_free_installments(required: true, type: PropertyType.Boolean, description: "Indicates if installments are without interest in payment method")
     }
+
+    "/vip/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
+    }
 }

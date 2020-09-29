@@ -1834,4 +1834,10 @@ trackTests {
 
         "/vip"(platform:"/web", dataSet)
     }
+
+    test("Vip Advertising banners") {
+        "/vip/advertising"(platform: "/", type: TrackType.Event) {
+            advertising_id = "fullscreen-core"
+        }
+    }
 }
