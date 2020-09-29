@@ -27,6 +27,9 @@ trackTests {
         "/cards/hybrid/shipping/tracking/show"(platform:"/", type: TrackType.Event) {
             component_id = "banner_unlock"
         }
+        "/cards/hybrid/tracking/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
 
     }
 

@@ -69,6 +69,17 @@ tracks {
         )
     }
 
+    //Feedback: Tracking
+    "/cards/hybrid/tracking/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/tracking/feedback/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["research_form"],
+            description: "Feedback action tapped"
+          )
+    }
+
     // UNLOCK
     // --------
     "/cards/hybrid/unlock"(platform: "/", isAbstract: true) { }
