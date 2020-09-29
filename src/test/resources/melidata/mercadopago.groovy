@@ -31,6 +31,15 @@ trackTests {
             average_error_time = 11
         }
 
+        "/melidata/statistics/experiments"(platform:"/mobile", type:TrackType.Control){
+            start_time="2015-01-21T13:14:09.415-0300"
+            duration=230
+            experiments_amount=6
+            persistence_enabled=false
+            experiment_to_retrieve="homesDummy"
+            execution_status="successful"
+        }
+
         "/melidata/shrink_database"(platform: "/mobile/android", type: TrackType.Control) {
             delete_records = 40
             current_size = 69632
@@ -76,6 +85,7 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form"(platform: "/web/mobile") {
@@ -84,6 +94,7 @@ trackTests {
             item_id = "MCO123321"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/desktop") {
@@ -91,6 +102,7 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform: "/web/mobile") {
@@ -99,6 +111,7 @@ trackTests {
             item_id = "MCO123321"
             captcha_showed = true
             prog_reg_version = 1
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/desktop") {
@@ -107,6 +120,7 @@ trackTests {
             item_id = "MCO123321"
             captcha_showed = true
             prog_reg_version = 1
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform: "/web/mobile") {
@@ -114,6 +128,7 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/geolocation"(platform:"/web/mobile") {
@@ -122,6 +137,7 @@ trackTests {
             captcha_showed = true
             prog_reg_version = 0
             geo_location_code = 1
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/facebook-connect"(platform:"/web/desktop") {
@@ -129,6 +145,7 @@ trackTests {
             source = "email"
             captcha_showed = false
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/facebook-connect/facebook-register-selected"(platform:"/web/mobile") {
@@ -136,6 +153,7 @@ trackTests {
             source = "facebook"
             captcha_showed = false
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/facebook-connect/email-register-selected"(platform:"/web/desktop") {
@@ -143,6 +161,7 @@ trackTests {
             source = "email"
             captcha_showed = false
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/facebook-connect/login-selected"(platform:"/web/mobile") {
@@ -150,6 +169,7 @@ trackTests {
             source = "email"
             captcha_showed = false
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/site-identification"(platform:"/web/mobile") {
@@ -158,6 +178,7 @@ trackTests {
             captcha_showed = true
             prog_reg_version = 0
             ip_site_id = "MCO"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/site-identification/url-site-selected"(platform:"/web/desktop") {
@@ -166,6 +187,7 @@ trackTests {
             captcha_showed = true
             prog_reg_version = 0
             ip_site_id = "MCO"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/site-identification/ip-site-selected"(platform:"/web/desktop") {
@@ -174,6 +196,7 @@ trackTests {
             captcha_showed = true
             prog_reg_version = 0
             ip_site_id = "MCO"
+            registration_version = "regi_v0_web"
         }
 
         "/register/success"(platform: "/web/desktop") {
@@ -196,6 +219,7 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/optin"(platform: "/web/desktop") {
@@ -224,6 +248,7 @@ trackTests {
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
     }
 
@@ -254,77 +279,92 @@ trackTests {
             origin = "email"
             item_id = "MLA21233"
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
         "/register/form"(platform:"/mobile") {
             app = "registration"
             source = "email"
             captcha_showed = true
             prog_reg_version = 0
+            registration_version = "regi_v0_web"
         }
 
         "/register/form"(platform:"/mobile") {
             app = "normal"
             register_type = "company"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/require" (platform: "/mobile") {
             app = "normal"
-        }
-
-        "/register/form/challenge/require" (platform: "/mobile") {
-            app = "normal"
-            origin = "drawer"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/require" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
+            registration_version = "regi_v0_web"
+        }
+
+        "/register/form/challenge/require" (platform: "/mobile") {
+            app = "normal"
+            origin = "drawer"
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/show" (platform: "/mobile") {
             app = "normal"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/show" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/show" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/cancel" (platform: "/mobile") {
             app = "normal"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/cancel" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/cancel" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/solve" (platform: "/mobile") {
             app = "normal"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/solve" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/challenge/solve" (platform: "/mobile") {
             app = "normal"
             origin = "drawer"
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform:"/mobile") {
@@ -339,6 +379,7 @@ trackTests {
                     ]
             ]
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/error"(platform:"/mobile") {
@@ -350,12 +391,14 @@ trackTests {
                     ]
             ]
             register_type = "company"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/another-email"(platform:"/mobile") {
             app = "favorite"
             origin = "email"
             item_id = "MLA21233"
+            registration_version = "regi_v0_web"
         }
         "/register/account-recovery-hub"(platform:"/mobile") {
             app = "favorite"
@@ -379,18 +422,21 @@ trackTests {
             origin = "email"
             item_id = "MLA21233"
             register_type = "person"
+            registration_version = "regi_v0_web"
         }
 
         "/register/congrats"(platform:"/mobile") {
             app = "normal"
             origin = "email"
             register_type = "company"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/update"(platform:"/mobile") {
             app = "question"
             origin = "drawer"
             item_id = "MLM23143"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/update/error"(platform:"/mobile") {
@@ -404,18 +450,21 @@ trackTests {
                             field: 'first_name'
                     ]
             ]
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/update/save"(platform:"/mobile") {
             app = "question"
             origin = "drawer"
             item_id = "MLM23143"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/update/not-now"(platform:"/mobile") {
             app = "question"
             origin = "drawer"
             item_id = "MLM23143"
+            registration_version = "regi_v0_web"
         }
 
         "/register/successful-update"(platform:"/mobile") {
@@ -426,32 +475,38 @@ trackTests {
 
         "/register/form/company-link"(platform: "/mobile"){
             app = "normal"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/person-link"(platform: "/mobile"){
             app = "normal"
+            registration_version = "regi_v0_web"
         }
 
         "/register/congrats/complete-fiscal-data"(platform: "/mobile"){
             app = "normal"
             register_type = "company"
+            registration_version = "regi_v0_web"
         }
 
         "/register/congrats/complete-fiscal-data-later"(platform: "/mobile"){
             app = "normal"
             register_type = "company"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/google_hint/show"(platform: "/mobile") {
             app = "mp"
             step = "phoneRegistration"
             field = "phone"
+            registration_version = "regi_v0_web"
         }
 
         "/register/form/google_hint/select"(platform: "/mobile") {
             app = "mp"
             step = "phoneRegistration"
             field = "phone"
+            registration_version = "regi_v0_web"
         }
     }
 
@@ -603,10 +658,6 @@ trackTests {
         "/landing/sellers/mss/click" (platform: "/web") {
             page_name = "dzero"
         }
-    }
-
-    test("Landing mercadopago buyers") {
-        "/landing/buyers" (platform: "/web") {}
     }
 
     test("Landing mercadopago promotions") {
@@ -1418,10 +1469,25 @@ trackTests {
         "/flow/init"(platform: "/mobile", type: TrackType.Event) {
             flow_name = "Instore"
             from = "Home"
+            additional_info = "campaign_extra_sellers_01"
+            sub_flow = "QR"
         }
-        "/flow/end"(platform: "/mobile", type: TrackType.Event) {
-            flow_name = "Instore"
-            from = "Home"
+        "/flow/end"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/flow/friction/networking"(platform: "/mobile", type: TrackType.Event) {
+            severity = "Medium"
+            type = "ClientError"
+            connection_type = "WiFi"
+            status = "403"
+            url = "www.mercadopago.com.br"
+        }
+
+        "/flow/friction/system"(platform: "/mobile", type: TrackType.Event) {
+            severity = "Hard"
+            type = "Crash"
+            screen = "HomeViewController"
+            state = "Active"
+            exception = "NSRangeException"
         }
     }
 
@@ -1458,7 +1524,9 @@ trackTests {
     test("Sign In") {
         "/sign_in"(platform: "/mobile") {
             from = "/deep_link"
+            has_pix_option = true
         }
+        "/sign_in/pix_flow"(platform: "/mobile", type: TrackType.Event) {}
         "/sign_in/facebook"(platform: "/mobile") {
             label = "success"
             from = "/deep_link"
@@ -2564,6 +2632,53 @@ trackTests {
             barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
         }
 
+        // Invoice
+        "/bill_payments/invoices"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/info_hour"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+        }
+
+        // Input amount
+        "/bill_payments/input_amount"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input_amount/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+
+        // Input data
+        "/bill_payments/input_data"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input_data/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Input debt id
+        "/bill_payments/input_option_debt"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input_option_debt/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Info screen
+        "/bill_payments/info_screen"(platform: "/mobile") {
+            mandatory()
+        }
+
         // FTU
         "/bill_payments/ftu"(platform: "/mobile") {
             mandatory()
@@ -2796,6 +2911,18 @@ trackTests {
             mandatory()
         }
         "/bill_payments/input_validation_error"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        //congrats
+        "/bill_payments/congrats"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/dda"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
     }
@@ -4123,6 +4250,27 @@ trackTests {
             ]
         }
 
+        "/screenlock/status"(platform: "/mobile/android", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
+            ]
+        }
+
+        "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
+            enrollment_status = "enabled"
+            os_status = "biometrics"
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
+            ]
+        }
     }
 
     test("Push Notification") {
@@ -4531,9 +4679,18 @@ trackTests {
 
     test("Stores frontend admin") {
         "/stores/create"(platform: "/web", type: TrackType.View) {}
+        "/stores/create_poses"(platform: "/web", type: TrackType.View) {}
+        "/stores/create_delivery/start"(platform: "/web", type: TrackType.View) {}
+        "/stores/create_delivery/end"(platform: "/web", type: TrackType.Event) {
+        types = 'both'
+        }
         "/stores/link_operators"(platform: "/web", type: TrackType.View) {}
         "/stores/list"(platform: "/web", type: TrackType.View) {}
         "/stores/update"(platform: "/web", type: TrackType.View) {}
+        "/stores/update_delivery/start"(platform: "/web", type: TrackType.View) {}
+        "/stores/update_delivery/end"(platform: "/web", type: TrackType.Event) {
+        types = 'both'
+        }
         "/stores/details"(platform: "/web", type: TrackType.View) {}
         "/stores/pos/create"(platform: "/web", type: TrackType.View) {}
         "/stores/pos/update"(platform: "/web", type: TrackType.View) {}
@@ -4570,9 +4727,18 @@ trackTests {
         }
 
         "/stores/create"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/create_poses"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/create_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/create_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
+        types = 'pickup'
+        }
         "/stores/link_operators"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/list"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/update"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/update_delivery/start"(platform: "/web/mobile", type: TrackType.View) {}
+        "/stores/update_delivery/end"(platform: "/web/mobile", type: TrackType.Event) {
+        types = 'pickup'
+        }
         "/stores/details"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/pos/create"(platform: "/web/mobile", type: TrackType.View) {}
         "/stores/pos/update"(platform: "/web/mobile", type: TrackType.View) {}
@@ -4663,7 +4829,6 @@ trackTests {
         // Access denied
         "/point/register/access_denied"(platform: "/", type: TrackType.View) {}
     }
-
 
     test("Browser device tracking in mobile") {
         "/browser/tracking" (platform: "/mobile") {

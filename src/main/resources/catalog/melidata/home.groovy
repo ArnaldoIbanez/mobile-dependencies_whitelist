@@ -217,4 +217,9 @@ tracks {
     }
 
     "/home/category/real_estate/request_contract"(platform: "/", type: TrackType.View) {}
+
+    "/home/advertising"(platform: "/", type: TrackType.Event) {}
+
+    "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
+
 }

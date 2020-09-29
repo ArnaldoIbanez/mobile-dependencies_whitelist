@@ -52,6 +52,11 @@ trackTests {
 
         "/mplayer/send_money/result/in_process"(platform: "/mobile") {}
 
+        "/mplayer/send_money/redirector/manual_amount"(platform: "/mobile") {
+            flow = "flow"
+            contact_type = "user_id"
+        }
+
         // Money Request
         "/mplayer/closed_request/onboarding"(platform: "/mobile") {}
         "/mplayer/closed_request/contact_picker"(platform: "/mobile") {}
@@ -62,6 +67,9 @@ trackTests {
         "/mplayer/closed_request/congrats_request/exit"(platform: "/mobile") {
             button = "main_button"
         }
+
+        "/mplayer/closed_request/congrats_request/detail"(platform: "/mobile") {}
+        "/mplayer/closed_request/congrats_request/home"(platform: "/mobile") {}
 
         "/mplayer/closed_request/status"(platform: "/mobile") {
             request_status = "pending"
@@ -181,6 +189,9 @@ trackTests {
         "/mplayer/money_split/split_created/exit"(platform: "/mobile") {
             button = "main_button"
         }
+
+        "/mplayer/money_split/split_created/detail"(platform: "/mobile") {}
+        "/mplayer/money_split/split_created/home"(platform: "/mobile") {}
 
         "/mplayer/money_split/result/success"(platform: "/mobile") {
             payment_method_id = "1"

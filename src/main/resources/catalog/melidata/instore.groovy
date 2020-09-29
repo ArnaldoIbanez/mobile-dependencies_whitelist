@@ -75,6 +75,8 @@ tracks {
     }
     "/instore/amount/calculator"(platform: "/mobile", type: TrackType.View) {}
     "/instore/amount/calculator/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/amount/calculator/error"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/amount/calculator/error/retry"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/amount/price_list"(platform: "/mobile", type: TrackType.View) {
         available_prices(required: false, PropertyType.String)
@@ -82,6 +84,8 @@ tracks {
         visible_prices(required: false, PropertyType.Numeric)
     }
     "/instore/amount/price_list/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/amount/price_list/error"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/amount/price_list/error/retry"(platform: "/mobile", type: TrackType.Event) {}
 
 
     // Generic Error
@@ -431,6 +435,12 @@ tracks {
         payment_info_tag(required: false, "Execute post payment")
         remaining_attempts(required: false, PropertyType.Numeric)
     }
+    "/instore/payment_error"(platform: "/mobile", type: TrackType.Event) {
+        error(required: true, PropertyType.String, description: "payment error description")
+        retrying(required: true, PropertyType.Boolean, description: "indicates if the error occurred when retrying automatically")
+        remaining_attempts(required: false, PropertyType.Numeric, description: "remaining attemps to retry when possible")
+        status_code(required: false, PropertyType.Numeric, description: "error code sent when payement service fail")
+    }
 
 
     // Discovery
@@ -444,7 +454,7 @@ tracks {
     "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
         southwest(required: true, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
-        location(required: true, PropertyType.String)
+        location(required: false, PropertyType.String)
     }
     "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
         action_type(required: true, PropertyType.String, description: "type of action that triggered the data request", values: ["init", "search_in_this_area", "filters_applied", "text_search"])
@@ -487,6 +497,28 @@ tracks {
         id(required: true, PropertyType.String, description:"an identifer for the type of error")
         message(required: true, PropertyType.String, description: "server error description")
         attributable_to(required: true, PropertyType.String)
+    }
+    "/instore/map/marketplace"(platform: "/mobile", isAbstract: true) {}
+    "/instore/map/marketplace/filter_bar_result"(platform: "/mobile", type: TrackType.Event) {
+        filter_result(required:false, type: PropertyType.ArrayList, description: "The list of filter bar result. Represents the filter selection")
+        session_id(required: true, type: PropertyType.String, description: "The user session id")
+        from(required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/instore/map/marketplace/filter_cell_result"(platform: "/mobile", type: TrackType.Event) {
+        filter_result(required:false, type: PropertyType.ArrayList, description: "The list of filter cell result. Represents the filter selection")
+        session_id(required: true, type: PropertyType.String, description: "The user session id")
+        from(required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/instore/map/marketplace/filter_cell_view"(platform: "/mobile", type: TrackType.View) {
+        from(required: false, type: PropertyType.String, description: "Where the flow start")
+        session_id(required: true, type: PropertyType.String, description: "The user session id")
+        filter_list(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The list of filter values used in the filter cell view")
+    }
+    "/instore/map/marketplace/store_selected"(platform: "/mobile", type: TrackType.Event) {
+        from(required: false, type: PropertyType.String, description: "Where the flow start")
+        session_id(required: true, type: PropertyType.String, description: "The user session id")
+        store_name(required: true, PropertyType.String, description: "the name of the selected store")
+        store_id(required: true, PropertyType.String, description: "the store's id")
     }
 
     //QR Tip
@@ -657,9 +689,29 @@ tracks {
         status(required: true, PropertyType.String)
     }
 
+    "/instore/buyer_qr/landing/offline"(platform: "/mobile", type: TrackType.View) {}
+
     "/instore/buyer_qr/landing/wrong_time"(platform: "/mobile", type: TrackType.View) {
         device_time_difference(required: true, PropertyType.Numeric, description: "Time difference between the server and the device in millis")
         device_time_range_status(required: true, PropertyType.String, values:["below_time_range", "above_time_range"], description:  "if the time difference is below or above the servers")
+    }
+
+    "/instore/buyer_qr/landing/back_office_pending"(platform: "/mobile", type: TrackType.View) {
+        regulation_name(required: true, PropertyType.String, description: "The name of the regulation corresponding to the landing")
+        regulation_user_status(required: true, PropertyType.String, description:  "The user status in the regulation")
+        regulation_evaluation_result(required: true, PropertyType.String, description: "The evaluation result according the regulation landing")
+    }
+
+    "/instore/buyer_qr/landing/no_terms_and_conditions"(platform: "/mobile", type: TrackType.View) {
+        regulation_name(required: true, PropertyType.String, description: "The name of the regulation corresponding to the landing")
+        regulation_user_status(required: true, PropertyType.String, description:  "The user status in the regulation")
+        regulation_evaluation_result(required: true, PropertyType.String, description: "The evaluation result according the regulation landing")
+    }
+
+    "/instore/buyer_qr/landing/ifpe_no_apliance"(platform: "/mobile", type: TrackType.View) {
+        regulation_name(required: true, PropertyType.String, description: "The name of the regulation corresponding to the landing")
+        regulation_user_status(required: true, PropertyType.String, description:  "The user status in the regulation")
+        regulation_evaluation_result(required: true, PropertyType.String, description: "The evaluation result according the regulation landing")
     }
 
     //Buyer QR - Generic Error
@@ -773,4 +825,56 @@ tracks {
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/qr_code/qr_reader"(platform: "/mobile") {}
+
+    // MLScanner
+    "/scanner"(platform: "/mobile", isAbstract: true) {
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow")
+        context(required: true, PropertyType.String, description: "the content where scanner is using")
+    }
+
+    "/scanner/setup"(platform: "/mobile", type: TrackType.Event) {
+        mode(required: true, PropertyType.String, description: "how the scanner will use", values: ["scanner", "resolver", "scanner+resolver"])
+        inputs(required: true, PropertyType.ArrayList(PropertyType.String), description: "which inputs the scanner will scan")
+        focus_mode(required: false, PropertyType.String, description: "how the focus will work - iOS only")
+        torch_enabled(required: true, PropertyType.Boolean)
+        spinner_enabled(required: true, PropertyType.Boolean)
+        redesign_enabled(required: true, PropertyType.Boolean)
+        auto_start(required: true, PropertyType.Boolean, description: "automatically start after inizialitation")
+        auto_stop(required: true, PropertyType.Boolean, description: "automatically stop after resolve or scan")
+        auto_resolve(required: true, PropertyType.Boolean, description: "automatically resolve code after scan")
+        listen_events(required: true, PropertyType.ArrayList(PropertyType.String), description: "events the client are listening")
+    }
+
+    "/scanner/discovery"(platform: "/mobile", type: TrackType.Event) {
+        data(required: true, PropertyType.String, description: "data scanned")
+        torch_on(required: true, PropertyType.Boolean, description: "if torch was on when scanned")
+    }
+
+     "/scanner/resolve"(platform: "/mobile", type: TrackType.Event) {
+        data(required: true, PropertyType.String)
+        status(required: true, PropertyType.String)
+    }
+
+    // MLScanner - Smart Context
+    "/scanner/smart_context"(platform: "/mobile", isAbstract: true) {}
+    
+    "/scanner/smart_context/tooltip"(platform: "/mobile", isAbstract: true) {
+        text(required: true, PropertyType.String)
+    }
+
+    "/scanner/smart_context/tooltip/updated"(platform: "/mobile", type: TrackType.Event) {
+        ttl(required: true, PropertyType.Numeric, description: "how many seconds will be this text on screen")
+    }
+
+    "/scanner/smart_context/tooltip/tapped"(platform: "/mobile", type: TrackType.Event) {
+        url(required: false, PropertyType.String, description: "url as link to open in text")
+    }
+
+    "/scanner/smart_context/torch"(platform: "/mobile", isAbstract: true) {}
+
+    "/scanner/smart_context/torch/displayed"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/scanner/smart_context/torch/tapped"(platform: "/mobile", type: TrackType.Event) {
+        enabled(required: true, PropertyType.Boolean)
+    }
 }

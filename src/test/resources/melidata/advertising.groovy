@@ -80,6 +80,12 @@ trackTests {
             budget = 500
         }
 
+        "/advertising/pads2/landing"(platform: "/", type: TrackType.View) {
+            free_trial_ad = true
+            budget = 500
+            experiment = true
+        }
+
         "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
             button = "top"
             free_trial_ad = true
@@ -92,6 +98,13 @@ trackTests {
             budget = 500
             id = "adq_pads"
             position = "home_desktop"
+        }
+
+        "/advertising/pads2/landing/main_action"(platform: "/", type: TrackType.Event) {
+            button = "top"
+            free_trial_ad = true
+            budget = 500
+            experiment = true
         }
 
         "/advertising/pads2/landing/from_main_slider"(platform: "/web", type: TrackType.Event) {
@@ -117,6 +130,22 @@ trackTests {
             position = "home_desktop"
         }
 
+        "/advertising/pads2/landing/contract_confirmation/confirmOfficialStore"(platform: "/", type: TrackType.Event) {
+            budget = "22.22"
+            free_trial_ad = false
+            id = "adq_pads"
+            position = "home_desktop"
+            experiment = true
+        }
+
+        "/advertising/pads2/landing/contract_confirmation/confirm"(platform: "/", type: TrackType.Event) {
+            budget = "22.22"
+            free_trial_ad = true
+            id = "adq_pads"
+            position = "home_desktop"
+            experiment = true
+        }
+
         "/advertising/pads2/landing/contract_confirmation/change_budget"(platform: "/web", type: TrackType.Event) {
             free_trial_ad = false
         }
@@ -139,8 +168,6 @@ trackTests {
             status = "active"
             budget = "500"
             budget_suggested = "1000"
-            version = "view1"
-            budget_new = "800"
         }
 
         "/advertising/pads2/manager/upselling/modal/go"(platform: "/", type: TrackType.Event) {
@@ -150,8 +177,6 @@ trackTests {
             budget = "500"
             budget_suggested = "1000"
             budget_selected = "800"
-            budget_new = "800"
-            version = "view1"
         }
 
         "/advertising/pads2/manager/upselling/modal/close"(platform: "/web", type: TrackType.Event) {
@@ -161,8 +186,6 @@ trackTests {
             budget = "500"
             budget_suggested = "1000"
             budget_selected = "800"
-            budget_new = "800"
-
         }
 
         "/advertising/pads2/manager/upselling/banner/show"(platform: "/web", type: TrackType.View) {
@@ -187,46 +210,42 @@ trackTests {
         }
 
         "/advertising/pads2/manager/upselling/mark"(platform: "/web", type: TrackType.Event) {
-            campaign_id = "283973028"
+            campaign_id = "2222222"
             multi = false
             status = "active"
             budget = "500"
-            version = "view1"
         }
 
         "/advertising/pads2/manager/upselling/tooltip/go"(platform: "/web", type: TrackType.Event) {
-            campaign_id = "283973028"
+            campaign_id = "2222222"
             multi = false
             status = "active"
             budget = "500"
-            version = "view1"
-            budget_new = "800"
         }
 
         "/advertising/pads2/manager/upselling/tooltip/close"(platform: "/web", type: TrackType.Event) {
-            campaign_id = "283973028"
-            multi = false
-            status = "active"
-            budget = "500"
-            version = "view1"
-            budget_new = "800"
-        }
-
-        "/advertising/pads2/manager/box/upselling/go"(platform: "/web", type: TrackType.Event) {
-            campaign_id = "283973028"
+            campaign_id = "2222222"
             multi = false
             status = "active"
             budget = "500"
         }
 
-        "/advertising/pads2/manager/box"(platform: "/web", type: TrackType.View) {
+        "/advertising/pads2/manager/box/upselling/go"(platform: "/", type: TrackType.Event) {
+            campaign_id = "2222222"
+            multi = false
+            status = "active"
+            budget = "500"
+        }
+
+        "/advertising/pads2/manager/box"(platform: "/", type: TrackType.Event) {
             campaign_id = "2222222"
             status = "active"
             budget = "500"
         }
 
-        "/advertising/pads2/manager/box/upselling"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/manager/box/upselling"(platform: "/", type: TrackType.View) {
             campaign_id = "2222222"
+            multi = false
             status = "active"
             budget = "500"
         }
@@ -235,9 +254,8 @@ trackTests {
             campaign_id = "2222222"
             status = "active"
             budget = "500"
-            budget_new = "1000"
         }
-
+  
     }
 
     test("Landing congrats") {
@@ -263,6 +281,12 @@ trackTests {
             budget = "500"
         }
 
+        "/advertising/pads2/landing_freetrial"(platform: "/", type: TrackType.View) {
+            free_trial_type = "M"
+            budget = "500"
+            experiment = true
+        }
+
         "/advertising/pads2/landing_freetrial/cta"(platform: "/", type: TrackType.View) {
             free_trial_type = "M"
             budget = "500"
@@ -275,6 +299,13 @@ trackTests {
             free_trial_type = "M"
             budget = "500"
             button = "top"
+        }
+
+        "/advertising/pads2/landing_freetrial/cta"(platform: "/", type: TrackType.View) {
+            free_trial_type = "M"
+            budget = "500"
+            button = "top"
+            experiment = true
         }
 
         "/advertising/pads2/landing_freetrial/confirm"(platform: "/", type: TrackType.View) {
@@ -282,16 +313,28 @@ trackTests {
             budget = "500"
         }
 
-        "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/", type: TrackType.View) {
+        "/advertising/pads2/landing_freetrial/confirm"(platform: "/", type: TrackType.View) {
+            free_trial_type = "M"
+            budget = "500"
+            experiment = true
+        }
+
+        "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/", type: TrackType.Event) {
             free_trial_type = "M"
             budget = "500"
             id = "adq_pads"
             position = "home_desktop"
         }
 
-        "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/", type: TrackType.View) {
+        "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/", type: TrackType.Event) {
             free_trial_type = "M"
             budget = "500"
+        }
+
+        "/advertising/pads2/landing_freetrial/confirm/cta"(platform: "/", type: TrackType.Event) {
+            free_trial_type = "M"
+            budget = "500"
+            experiment = true
         }
     }
 
@@ -620,7 +663,7 @@ trackTests {
     }
 
     test("Advertising multicampaña") {
-        "/advertising/pads2/hub"(platform: "/web", type: TrackType.View) {
+        "/advertising/pads2/hub"(platform: "/", type: TrackType.View) {
             tab = "ads"
             campaigns = [
                     campaign_id: "222222",
@@ -704,12 +747,8 @@ trackTests {
         "/advertising/pads2/hub/moveads/go"(
         platform: "/web",
         type: TrackType.Event) {
-            campaign_id_from = "2222222"
-            status_from = "active"
-            campaign_id_to = "1111111"
-            status_to = "active"
             check = "avtive"
-            q_Ads = "ads_q"
+            q_ads = "ads_q"
         }
 
         "/advertising/pads2/hub/moveads/cancel"(platform: "/web", type: TrackType.Event) {}
