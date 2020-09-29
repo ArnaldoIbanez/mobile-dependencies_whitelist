@@ -1382,18 +1382,7 @@ tracks {
         is_free_installments(required: true, type: PropertyType.Boolean, description: "Indicates if installments are without interest in payment method")
     }
 
-    "/vip/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
-
-    "/vip/advertising/fullscreen-motors"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
-
-    "/vip/advertising/related_services_mobile-motors"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
-
-    "/vip/advertising/related_services-motors"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
-
-    "/vip/advertising/300x250-motors"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
-
-    "/vip/advertising/fullscreen-core"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
-
-    "/vip/advertising/300x250-core"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
-
+    "/vip/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        advertising_id(requered: true, type: PropertyType.String, description: "Indica el identificador del banner")
+    }
 }

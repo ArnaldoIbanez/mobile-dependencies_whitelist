@@ -619,7 +619,7 @@ tracks {
         is_free_installments(required: true, type: PropertyType.Boolean, description: "Indicates if installments are without interest in payment method")
     }
 
-    "/pdp/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
-
-    "/pdp/advertising/fullscreen"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {}
+    "/pdp/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        advertising_id(requered: true, type: PropertyType.String, description: "Indica el identificador del banner")
+    }
 }
