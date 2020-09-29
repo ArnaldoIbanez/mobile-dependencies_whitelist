@@ -616,4 +616,10 @@ trackTests {
         }
     }
 
+    test("Search Advertising banners") {
+        "/search/advertising"(platform: "/", type: TrackType.Event) {
+            advertising_id = "sky"
+        }
+    }
+
 }
