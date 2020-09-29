@@ -14,6 +14,17 @@ tracks {
     def categoryRegex = /(\S*)/
     def categoryPathRegex = /\[(\S*(, )?)*\]/
 
+    def merch_data_dafinition = objectSchemaDefinitions {
+        audience(type: PropertyType.String, required: true)
+        bu(type: PropertyType.String, required: true)
+        bu_line(type: PropertyType.String, required: true)
+        component_id(type: PropertyType.String, required: true)
+        content_id(type: PropertyType.String, required: true)
+        flow(type: PropertyType.String, required: true)
+        logic(type: PropertyType.String, required: true)
+        position(type: PropertyType.Numeric, required: true)
+    }
+
     def seo_item_definition = objectSchemaDefinitions {
         is_whitelisted(type: PropertyType.Boolean, required: true)
         check_mode(type: PropertyType.String, values: ["GMV", "SC", "DEFAULT:GMV", "DEFAULT:SC"], required: true)
@@ -110,6 +121,7 @@ tracks {
 
         //Tracks from Search Backend:
         backend_data(required: false)
+        merch_data(required: false, description: 'Merch Banner tracking info', type: PropertyType.Map(merch_data_dafinition))
         official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
         items_with_logos(required: false, description: 'items ids that show the brand logo', PropertyType.ArrayList)
         pdp_grouped_search(required: false, description: 'indicates whether the product rows are result of grouping or not', PropertyType.Boolean)

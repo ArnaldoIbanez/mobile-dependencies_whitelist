@@ -164,6 +164,16 @@ trackTests {
                     is_default             : false,
                     is_on_seo_h1_experiment: true
             ]
+            merch_data = [
+                    audience         : "all",
+                    bu             : "3",
+                    bu_line                  : "26",
+                    component_id             : "search_ml",
+                    content_id             : "test_integration_cellphones_mla",
+                    flow: "-1",
+                    logic: "campaigns",
+                    position: 0
+            ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
             pdp_info = pdpInfo
@@ -292,6 +302,16 @@ trackTests {
                     value                  : 15,
                     is_default             : false,
                     is_on_seo_h1_experiment: true
+            ]
+            merch_data = [
+                    audience         : "all",
+                    bu             : "3",
+                    bu_line                  : "26",
+                    component_id             : "search_ml",
+                    content_id             : "test_integration_cellphones_mla",
+                    flow: "-1",
+                    logic: "campaigns",
+                    position: 0
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
@@ -572,6 +592,16 @@ trackTests {
                     value                  : 15,
                     is_default             : false,
                     is_on_seo_h1_experiment: true
+            ]
+            merch_data = [
+                    audience         : "all",
+                    bu             : "3",
+                    bu_line                  : "26",
+                    component_id             : "search_ml",
+                    content_id             : "test_integration_cellphones_mla",
+                    flow: "-1",
+                    logic: "campaigns",
+                    position: 0
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
