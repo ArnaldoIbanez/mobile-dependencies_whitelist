@@ -1395,7 +1395,7 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         is_cash_price(required: true, type: PropertyType.Boolean, description: "Indicates if it is an offer with rebate discount")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
-        original_price(required: true, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
         installments_value_total(required:true, type: PropertyType.Numeric, description: "The final price with installments in payment method")        
         installments_value_each(required:true, type: PropertyType.Numeric, description: "The price of each installment in payment method")        
