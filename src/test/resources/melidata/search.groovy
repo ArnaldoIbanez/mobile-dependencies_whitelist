@@ -161,8 +161,7 @@ trackTests {
                     is_whitelisted         : true,
                     check_mode             : "GMV",
                     value                  : 15,
-                    is_default             : false,
-                    is_on_seo_h1_experiment: true
+                    is_default             : false
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
@@ -290,8 +289,7 @@ trackTests {
                     is_whitelisted         : true,
                     check_mode             : "GMV",
                     value                  : 15,
-                    is_default             : false,
-                    is_on_seo_h1_experiment: true
+                    is_default             : false
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
@@ -570,8 +568,7 @@ trackTests {
                     is_whitelisted         : true,
                     check_mode             : "GMV",
                     value                  : 15,
-                    is_default             : false,
-                    is_on_seo_h1_experiment: true
+                    is_default             : false
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
