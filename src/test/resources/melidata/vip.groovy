@@ -1780,7 +1780,7 @@ trackTests {
 
     test("Vip Advertising banners") {
         "/vip/advertising"(platform: "/", type: TrackType.Event) {
-            advertising_id(requered: true, type: PropertyType.String, description: "Indica el identificador del banner")
+            advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
         }
     }
 }
