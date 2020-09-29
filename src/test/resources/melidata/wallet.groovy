@@ -19,7 +19,7 @@ trackTests {
 
         "/wallet/cards/add_card"(platform:"/mobile", {
             id_banner = "cards_list_prepaid_banner_acquisition"
-            other_cards = true
+            other_cards = "true"
         })
         "/wallet/cards/add_card/success"(platform:"/mobile", {})
         "/wallet/cards/add_card/failed"(platform:"/mobile", {})
