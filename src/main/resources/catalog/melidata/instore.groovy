@@ -842,7 +842,7 @@ tracks {
         focus_mode(required: false, PropertyType.String, description: "how the focus will work - iOS only")
         torch_enabled(required: true, PropertyType.Boolean)
         spinner_enabled(required: true, PropertyType.Boolean)
-        redesign_enabled(required: true, PropertyType.Boolean)
+        smart_context_enabled(required: true, PropertyType.Boolean, description: "scanner built with smart context enabled")
         auto_start(required: true, PropertyType.Boolean, description: "automatically start after inizialitation")
         auto_stop(required: true, PropertyType.Boolean, description: "automatically stop after resolve or scan")
         auto_resolve(required: true, PropertyType.Boolean, description: "automatically resolve code after scan")

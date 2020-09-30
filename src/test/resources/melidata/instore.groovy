@@ -3486,7 +3486,7 @@ trackTests {
             focus_mode = "autoFocus"
             torch_enabled = true
             spinner_enabled = true
-            redesign_enabled = true
+            smart_context_enabled = true
             auto_start = true
             auto_stop = true
             auto_resolve = true
@@ -3500,7 +3500,7 @@ trackTests {
             focus_mode = "autoFocus"
             torch_enabled = true
             spinner_enabled = true
-            redesign_enabled = true
+            smart_context_enabled = true
             auto_start = true
             auto_stop = true
             auto_resolve = true
