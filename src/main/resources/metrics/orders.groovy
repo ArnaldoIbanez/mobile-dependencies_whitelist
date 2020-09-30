@@ -48,6 +48,9 @@ metrics {
 				)
 			}
 		}
+		divisionBy {
+			divisionMetric("bids")
+		}
 	}
 	
 	"bids.pdp.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
