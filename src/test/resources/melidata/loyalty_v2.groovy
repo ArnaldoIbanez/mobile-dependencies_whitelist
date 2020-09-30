@@ -305,7 +305,7 @@ trackTests {
             discount_percent = 40
         }
 
-        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             loyalty_level = 1
             subscription_partner = "Paramount"
             payment_id = "42323"
@@ -316,7 +316,7 @@ trackTests {
             type = "tyc"
         }
 
-        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
+        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
             loyalty_level = 1
             subscription_partner = "Paramount"
             payment_id = "42323"
@@ -327,6 +327,14 @@ trackTests {
             type = "action"
             label = "Ir a HBO"
             deeplink = "meli://loyalty"
+        }
+
+        "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            type = "email"
+        }
+
+        "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            type = "site"
         }
 
     }

@@ -124,6 +124,9 @@ tracks {
         deeplink(required: false, description: "Action link to go", type: PropertyType.String)
     }
 
+    "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event) {
+        type(required: true, description: "Info showed in description", type: PropertyType.String)
+    }
 
     // Loyalty Subscription Login
     "/loyalty/partners/login"(platform: "/", type: TrackType.View) {}
