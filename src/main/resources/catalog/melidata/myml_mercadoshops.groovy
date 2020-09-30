@@ -448,6 +448,16 @@ tracks {
 
     "/mercado_shops/marketing/google/shopping/resume"(platform: "/", type: TrackType.Event){}
 
+    "/mercado_shops/marketing/google_shopping_smart"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/google_shopping_smart/context_help"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_shopping_smart/campaign"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/google_shopping_smart/campaign/set"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_shopping_smart/campaign/context_help"(platform: "/", type: TrackType.Event){}
+
     "/mercado_shops/marketing/instagram"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/marketing/instagram/context_help"(platform: "/", type: TrackType.View){}
