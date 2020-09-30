@@ -350,7 +350,7 @@ task uploadMonitoringAmlCXMedCatalog(type: JavaExec) {
 	args = ["mlo-mon-aml-cx-med"]
 }
 
-task ƒ(type: JavaExec) {
+task uploadMonitoringDomainDetectorAwsCatalog(type: JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["mlo-mon-tagging-domain-detector-aws"]
