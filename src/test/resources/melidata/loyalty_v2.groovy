@@ -333,7 +333,7 @@ trackTests {
             type = "email"
         }
 
-        "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+        "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             type = "site"
         }
 
