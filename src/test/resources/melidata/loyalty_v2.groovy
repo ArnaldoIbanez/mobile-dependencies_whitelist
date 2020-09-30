@@ -331,10 +331,14 @@ trackTests {
 
         "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event, business: "mercadopago") {
             type = "email"
+            payment_id = "42323"
+            payment_status = "success"
         }
 
         "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             type = "site"
+            payment_id = "42323"
+            payment_status = "success"
         }
 
     }
