@@ -157,8 +157,12 @@ trackTests {
         }
 
         //Mobile
-        "/garex/checkout"(platform:"/mobile", type: TrackType.View) {}
-        "/garex/checkout/more_info"(platform:"/mobile", type: TrackType.Event) {}
+        "/garex/checkout"(platform:"/mobile", type: TrackType.View) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
+        "/garex/checkout/more_info"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
         "/garex/checkout/selected_garex"(platform:"/mobile", type: TrackType.Event) {
             garex_id = "MLA390289_GAR16001"
             period = 24
@@ -166,13 +170,57 @@ trackTests {
             revenue_share_fee = 71.3
             revenue = 863.80
             currency_id = "ARS"
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
         }
-        "/garex/checkout/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {}
+        "/garex/checkout/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
         "/garex/checkout/delete"(platform:"/mobile", type: TrackType.Event) {
             garex_id = "MLA390289_GAR16001"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
             cost = 1234
             currency_id = "ARS"
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
+
+        "/garex/checkout/back"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
+
+        "/garex/checkout/tap_selector"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+            garex_id = "MLA390289_GAR16001"
+            period = 24
+            cost = 1234
+            revenue_share_fee = 71.3
+            revenue = 863.80
+            currency_id = "ARS"
+        }
+
+        "/garex/checkout/selected_warranty_option"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+            garex_id = "MLA390289_GAR16001"
+            period = 24
+            cost = 1234
+            revenue_share_fee = 71.3
+            revenue = 863.80
+            currency_id = "ARS"
+        }
+
+        "/garex/checkout/conditions_disclaimer"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
+        
+        "/garex/checkout/terms_disclaimer"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
+
+        "/garex/skeleton"(platform:"/mobile", type: TrackType.View) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
+
+        "/garex/skeleton/back"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
         }
     }
 
