@@ -806,7 +806,7 @@ tracks {
         budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
     }
 
-    // Multicampaña - Sads Paused
+    // Multicampaña - Sads New
 
     "/advertising/pads2/hub/card"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {}
 
@@ -849,6 +849,60 @@ tracks {
 
     "/advertising/pads2/hub/sads_new/moveads/filters"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         query(required: true, type:PropertyType.String , description: "Indicates the query searched by the user")
+    }
+
+    // Multicampaña - Sads paused
+
+    "/advertising/pads2/hub/card/sads_paused"(platform: "/web", type:TrackType.View){
+        tab(required: true, type: PropertyType.String, description: "Indicates the tab from where the track is sent")
+        sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll ads without campaign")
+    }
+
+    "/advertising/pads2/hub/card/sads_paused/go"(platform: "/web", type:TrackType.Event){
+        tab(required: true, type: PropertyType.String, description: "Indicates the tab from where the track is sent")
+        sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
+    }
+
+    "/advertising/pads2/hub/sads_paused/landing"(platform: "/web", type:TrackType.View, parentPropertiesInherited: false){
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id of the campaign")
+        sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
+    }
+
+    "/advertising/pads2/hub/sads_paused/landing/activated"(platform: "/web", type:TrackType.Event, parentPropertiesInherited: false){
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id of the campaign")
+        sads_activated(required: true, type: PropertyType.Numeric, description: "Number  Sads to active")
+    }
+
+    "/advertising/pads2/hub/sads_paused/landing/breadcrumb"(platform: "/web", type:TrackType.Event){
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id of the campaign")
+        sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
+    }
+
+    "/advertising/pads2/hub/sads_paused/landing/see_campaign"(platform: "/web", type:TrackType.Event){
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id of the campaign")
+        sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
+    }
+
+    "/advertising/pads2/sads_paused/"(platform: "/web", type:TrackType.Event){}
+
+    "/advertising/pads2/sads_paused/landing"(platform: "/web", type:TrackType.View){
+        sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id of the campaign")
+    }
+
+    "/advertising/pads2/sads_paused/landing/activated"(platform: "/web", type:TrackType.Event){
+        sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
+        sads_total_activated(required: true, type: PropertyType.Numeric, description: "Indicates the number total of sads activated")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id of the campaign")
+    }
+
+    "/advertising/pads2/sads_paused/landing/breadcrumb"(platform: "/web", type:TrackType.Event){
+        sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id of the campaign")
+    }
+
+    "/advertising/pads2/sads_paused/landing/filters"(platform: "/", type: TrackType.Event) {
+        filters(required: true, type: PropertyType.Map(filters_definition), description: "List of applied filters")
     }
 
     // Multicampaña - Upselling
