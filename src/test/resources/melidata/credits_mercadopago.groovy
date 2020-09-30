@@ -366,7 +366,7 @@ trackTests {
                 product_type: 'fixed_term',
                 segment: 'online',
                 category: 'regular',
-                offer_type: 'early_offer'
+                offer_type: 'early_offer',
             ]
         }
 
@@ -439,9 +439,12 @@ trackTests {
         "/credits/merchant/administrator"(platform: "/") {}
         "/credits/merchant/administrator"(platform: "/") {
             status = 'on_time'
+            promise = 'not_apply'
         }
         "/credits/merchant/administrator"(platform: "/") {
             status = 'overdue'
+            promise = 'view_promise'
+
         }
         "/credits/merchant/administrator"(platform: "/") {
             status = 'empty'
@@ -453,6 +456,7 @@ trackTests {
             products = [
                 fixed_term_map()
             ]
+            promise = 'create_promise'
             show_cx_widget = true
         })
 
@@ -809,11 +813,11 @@ trackTests {
         "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
             flow = "merchant"
         }
-        
+
         "/credits/mp-hub/no-credit-line/stop/faqs_click"(platform: "/", type: TrackType.Event) {
             flow = "merchant"
         }
-        
+
         "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
             flow = "generic"
         }
@@ -1204,7 +1208,7 @@ trackTests {
         "/credits/self_service/promises/create_form"(platform: "/", type: TrackType.View) {
             user_type = "consumer"
         }
-        
+
         "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
             user_type = "consumer"
             is_partial_amount = true
@@ -1217,7 +1221,7 @@ trackTests {
         "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {
             user_type = "consumer"
         }
-        
+
         "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
             user_type = "consumer"
         }

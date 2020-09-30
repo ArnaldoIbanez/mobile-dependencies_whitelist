@@ -63,6 +63,7 @@ tracks {
             required: false,
             type: PropertyType.Boolean
         )
+
         variant(
             description: "Option types from the user's credit line",
             type: PropertyType.String,
@@ -195,6 +196,16 @@ tracks {
                 PropertyType.Map(with_status)
             ),
             required: false,
+            inheritable: false
+        )
+        promise(
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'create_promise',
+                'view_promise',
+                'not_apply',
+            ],
             inheritable: false
         )
         show_cx_widget(
@@ -390,7 +401,7 @@ tracks {
             ]
         )
     }
-    
+
     "/credits/mp-hub/error"(platform: "/", type: TrackType.View) {}
 
     "/credits/mp-hub/error/access_click"(platform: "/", type: TrackType.Event) {
@@ -1260,7 +1271,7 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
-    
+
     "/credits/consumer/administrator_v2/promises"(platform: "/mobile", isAbstract: true) {}
     "/credits/consumer/administrator_v2/promises/create"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
@@ -1344,7 +1355,7 @@ tracks {
             ]
         )
     }
-        
+
     "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
         is_partial_amount(
             required: true,
@@ -1374,7 +1385,7 @@ tracks {
     }
 
     "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {}
-    
+
     "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
         user_type(
             required: true,
