@@ -1017,6 +1017,80 @@ tracks {
             required: false,
             inheritable: false
         )
+        requested_amount(
+                description: "User requested amount",
+                type: PropertyType.Numeric,
+                required: false,
+        )
+        max_amount(
+                description: "Credit line maximum allowed amount",
+                type: PropertyType.Numeric,
+                required: false,
+        )
+        min_amount(
+                description: "Credit line minimum allowed amount",
+                type: PropertyType.Numeric,
+                required: false,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+    }
+
+    "/credits/express_money/amount_input/simulation"(platform: "/mobile", type: TrackType.View) {
+        requested_amount(
+                description: "User requested amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        max_amount(
+                description: "Credit line maximum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        min_amount(
+                description: "Credit line minimum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: true,
+        )
+    }
+
+    "/credits/express_money/amount_input/simulation"(platform: "/", type: TrackType.Event) {
+        requested_amount(
+                description: "User requested amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        max_amount(
+                description: "Credit line maximum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        min_amount(
+                description: "Credit line minimum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: true,
+        )
+    }
+
+    "/credits/express_money/amount_input/term_option"(platform: "/web", type: TrackType.Event) {
+        selected_payment_term(
+                description: "Payment term selected",
+                type: PropertyType.String,
+                required: true,
+        )
     }
 
     "/credits/express_money/summary"(platform: "/", type: TrackType.View) {
@@ -1034,6 +1108,21 @@ tracks {
             description: "Credit line minimum allowed amount",
             type: PropertyType.Numeric,
             required: true,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        selected_payment_term(
+                description: "Payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        payment_terms(
+                description: "Available payment terms",
+                type: PropertyType.ArrayList,
+                required: false,
         )
     }
 
@@ -1057,6 +1146,21 @@ tracks {
             description: "Credit line minimum allowed amount",
             type: PropertyType.Numeric,
             required: true,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        selected_payment_term(
+                description: "Payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        payment_terms(
+                description: "Available payment terms",
+                type: PropertyType.ArrayList,
+                required: false,
         )
     }
 
