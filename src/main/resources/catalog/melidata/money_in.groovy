@@ -13,6 +13,7 @@ tracks {
     **/
 
     "/money_in"(platform: "/", isAbstract: true) {}
+    "/money_in/kyc"(platform: "/", isAbstract: true) {}
 
     //Payment methods tracks
     "/money_in/payment_methods"(platform: "/", type: TrackType.View) {}
@@ -49,6 +50,9 @@ tracks {
     "/money_in/onboarding"(platform: "/", isAbstract: true) {}
 
     //Onboarding
+     "/money_in/kyc/onboarding"(platform: "/", type: TrackType.View) {}
+     "/money_in/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
+     "/money_in/kyc/onboarding/close"(platform: "/", type: TrackType.Event) {}
      "/money_in/onboarding/add_money"(platform: "/", type: TrackType.View) {}
      "/money_in/onboarding/simplify_payments"(platform: "/", type: TrackType.View) {}
      "/money_in/onboarding/invest_money"(platform: "/", type: TrackType.View) {}

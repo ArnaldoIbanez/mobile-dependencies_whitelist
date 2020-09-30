@@ -313,4 +313,41 @@ trackTests {
             session_id = "1"
         }
     }
+    
+    // **********************************************************
+    // ******************** Events - FTU ************************
+    // **********************************************************
+    
+    test("Mercadopago discount sellers FTU view with URL") {
+        "/discount_sellers/ftu" (platform: "/mobile", type: TrackType.View) {
+            session_id = "1"
+            url = "some url"
+        }
+    }
+    
+    test("Mercadopago discount sellers FTU view without URL") {
+        "/discount_sellers/ftu" (platform: "/mobile", type: TrackType.View) {
+            session_id = "1"
+        }
+    }
+    
+    test("Mercadopago discount sellers ftu tap") {
+        "/discount_sellers/ftu/tap" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "1"
+            title = "Title"
+        }
+    }
+    
+    test("Mercadopago discount sellers ftu back") {
+        "/discount_sellers/ftu/back" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "1"
+        }
+    }
+    
+    test("Mercadopago discount sellers ftu error") {
+        "/discount_sellers/ftu/error" (platform: "/mobile", type: TrackType.Event) {
+            session_id = "1"
+            description = "error description"
+        }
+    }
 }

@@ -180,7 +180,7 @@ tracks {
 	
 	
     // **********************************************************
-    // ******************** Events - Congrats ********************
+    // ******************** Events - Congrats *******************
     // **********************************************************
 
     "/discount_sellers/congrats" (platform: "/mobile", type: TrackType.View) {
@@ -192,4 +192,22 @@ tracks {
     }
 
     "/discount_sellers/congrats/close" (platform: "/mobile", type: TrackType.Event) {}
+	
+    // **********************************************************
+    // ******************** Events - FTU ************************
+    // **********************************************************
+
+    "/discount_sellers/ftu" (platform: "/mobile", type: TrackType.View) {
+        url(required: false, inheritable: false, type: PropertyType.String, description: "URL loaded in the FTU's web view")
+    }
+
+    "/discount_sellers/ftu/tap" (platform: "/mobile", type: TrackType.Event) {
+        title(required: false, type: PropertyType.String, description: "Action title")
+    }
+
+    "/discount_sellers/ftu/back" (platform: "/mobile", type: TrackType.Event) {}
+	
+    "/discount_sellers/ftu/error" (platform: "/mobile", type: TrackType.Event) {
+	description(required: false, type: PropertyType.String, description: "Error description")
+    }
 }
