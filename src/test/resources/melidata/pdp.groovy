@@ -679,4 +679,10 @@ trackTests {
             is_free_installments = false
         }
     }
+
+    test("Pdp Advertising banners") {
+        "/pdp/advertising"(platform: "/", type: TrackType.Event) {
+            advertising_id = "fullscreen"
+        }
+    }
 }

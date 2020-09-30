@@ -1321,4 +1321,29 @@ tracks {
     //TRACKS MYML MYContact Section
     "/myml/mycontact" (type: TrackType.View, isAbstract: true) {}
     "/myml/mycontact/main" (type: TrackType.View) {}
+
+    // TRACKS MYML Invoice Detail
+    "/myml/invoices/detail"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/detail/correction_letter_modal_open"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/correction_letter_modal_cancel"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/correction_letter_modal_confirm"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/correction_letter_save"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/correction_letter_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_modal_open"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_modal_cancel"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_modal_confirm"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_save"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/cancel_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/resend_invoice_save"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/resend_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/fiscal_data_modal_open"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/fiscal_data_modal_close"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/to_send_devolution_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/create_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/print_danfe_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/fix_invoice_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/download_xml_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/re_print_gnre_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/print_gnre_click"(platform: "/", type: TrackType.Event) {}
+    "/myml/invoices/detail/copy_access_key_click"(platform: "/", type: TrackType.Event) {}
 }
