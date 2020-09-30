@@ -161,8 +161,7 @@ trackTests {
                     is_whitelisted         : true,
                     check_mode             : "GMV",
                     value                  : 15,
-                    is_default             : false,
-                    is_on_seo_h1_experiment: true
+                    is_default             : false
             ]
             merch_data = [
                     audience         : "all",
@@ -300,8 +299,7 @@ trackTests {
                     is_whitelisted         : true,
                     check_mode             : "GMV",
                     value                  : 15,
-                    is_default             : false,
-                    is_on_seo_h1_experiment: true
+                    is_default             : false
             ]
             merch_data = [
                     audience         : "all",
@@ -590,8 +588,7 @@ trackTests {
                     is_whitelisted         : true,
                     check_mode             : "GMV",
                     value                  : 15,
-                    is_default             : false,
-                    is_on_seo_h1_experiment: true
+                    is_default             : false
             ]
             merch_data = [
                     audience         : "all",
