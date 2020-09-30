@@ -1322,7 +1322,7 @@ trackTests {
         "/myml/fiscal_rules/massive/upload/uploader/change"(platform: "/", type: TrackType.Event) {
             action = "edit"
             context = "default"
-            callback_url = "https://www.mercadolivre.com.br" 
+            callback_url = "https://www.mercadolivre.com.br"
             has_files = true
         }
 
@@ -1428,5 +1428,32 @@ trackTests {
     // TRACKS MYML MyContact Section
     test("MyContact Main"){
         "/myml/mycontact/main"(platform: "/", type: TrackType.View){}
+    }
+
+    // TRACKS MYML Invoice Detail
+    test('Invoices detail view') {
+        "/myml/invoices/detail"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/detail/correction_letter_modal_open"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/correction_letter_modal_cancel"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/correction_letter_modal_confirm"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/correction_letter_save"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/correction_letter_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/cancel_invoice_modal_open"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/cancel_invoice_modal_cancel"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/cancel_invoice_modal_confirm"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/cancel_invoice_save"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/cancel_invoice_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/resend_invoice_save"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/resend_invoice_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/fiscal_data_modal_open"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/fiscal_data_modal_close"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/to_send_devolution_invoice_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/create_invoice_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/print_danfe_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/fix_invoice_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/download_xml_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/re_print_gnre_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/print_gnre_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/copy_access_key_click"(platform: "/", type: TrackType.Event) {}
     }
 }
