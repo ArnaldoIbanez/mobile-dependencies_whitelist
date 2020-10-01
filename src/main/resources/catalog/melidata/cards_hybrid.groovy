@@ -787,7 +787,7 @@ tracks {
         context (
             required: false,
             type: PropertyType.String,
-            values: ["no_kyc", "kyc"],
+            values: ["no_kyc", "kyc", "onboarding_shown"],
             description: "type of onboarding",
             inheritable:false
         )
