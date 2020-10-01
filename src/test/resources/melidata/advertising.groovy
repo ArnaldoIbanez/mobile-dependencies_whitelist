@@ -1139,6 +1139,8 @@ trackTests {
             sads_total = 10
         }
 
+        "/advertising/pads2/hub/sads_paused"(platform: "/web", type:TrackType.View){}
+
         "/advertising/pads2/hub/sads_paused/landing"(platform: "/web", type:TrackType.View){
             campaign_id = 99999
             sads_total = 10
@@ -1159,7 +1161,7 @@ trackTests {
             sads_total = 10
         }
 
-        "/advertising/pads2/sads_paused/"(platform: "/web", type:TrackType.Event){}
+        "/advertising/pads2/sads_paused"(platform: "/web", type:TrackType.Event){}
 
         "/advertising/pads2/sads_paused/landing"(platform: "/web", type:TrackType.View){
             sads_total = 10

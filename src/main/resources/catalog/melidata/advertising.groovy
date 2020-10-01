@@ -863,6 +863,8 @@ tracks {
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
     }
 
+    "/advertising/pads2/hub/sads_paused"(platform: "/web", type:TrackType.View, parentPropertiesInherited: false){}
+
     "/advertising/pads2/hub/sads_paused/landing"(platform: "/web", type:TrackType.View, parentPropertiesInherited: false){
         campaign_id(required: true, type: PropertyType.Numeric, description: "Id of the campaign")
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
@@ -883,7 +885,7 @@ tracks {
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
     }
 
-    "/advertising/pads2/sads_paused/"(platform: "/web", type:TrackType.Event){}
+    "/advertising/pads2/sads_paused"(platform: "/web", type:TrackType.Event){}
 
     "/advertising/pads2/sads_paused/landing"(platform: "/web", type:TrackType.View){
         sads_total(required: true, type: PropertyType.Numeric, description: "Number of sll paused ads")
