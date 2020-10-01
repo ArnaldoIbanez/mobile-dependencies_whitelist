@@ -213,13 +213,13 @@ tracks {
 
         // PRICING 2.0
         pricing_info
+        description_type(required: false, description: "Description type: plain text, html, both, none",
+                values: ["plain_text", "html", "both", "none"])
 
     }
 
     "/vip"(platform: "/web") {
         specifications_size(required: false, type: PropertyType.Numeric, description: "Specifications attributes quantity")
-        description_type(required: false, description: "Description type: plain text, html, both, none",
-                values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, type: PropertyType.String, description: "Max_size of first picture gallery")
         contract_available(required: false, type: PropertyType.Boolean)
         gallery_dimension(required: false, type: PropertyType.String, values: ["wide", "square", "artsinfoto"],
@@ -440,6 +440,7 @@ tracks {
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        failed( required: false, description: "whenever the post was successful or not")
     }
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
@@ -959,7 +960,7 @@ tracks {
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
                 description: "Listing type of the item")
         deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
-        item_seller_type(required: false, values: ['car_dealer'], description: "Seller type: normal, car_dealer, etc")
+        item_seller_type(required: false, values: ['car_dealer','normal'], description: "Seller type: normal, car_dealer, etc")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
     }

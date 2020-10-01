@@ -73,6 +73,7 @@ trackTests {
             mandatory()
             catalog_listing = false
             items_attributes()
+            description_type = "none"
         })
 
         "/vip"(platform: "/web/mobile", {
@@ -142,6 +143,7 @@ trackTests {
             item_seller_type = "AB001"
             deal_ids = []
             item_condition= "new"
+            failed = false
         })
 
         "/vip/contact_seller"(platform: "/web/desktop", type: TrackType.Event, {
@@ -1471,6 +1473,7 @@ trackTests {
 
         "/vip/technical_specs/see_more"(platform: "/mobile", type: TrackType.Event){
             properties()
+            item_seller_type = "normal"
         }
     }
 
