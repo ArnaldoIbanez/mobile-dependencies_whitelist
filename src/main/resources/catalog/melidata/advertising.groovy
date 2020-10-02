@@ -408,6 +408,12 @@ tracks {
         status(required: true, type: PropertyType.String, values: ['active', 'paused'])
     }
 
+    def campaigns_budget_definition = objectSchemaDefinitions {
+        campaign_id(required: true, type: PropertyType.Numeric)
+        budget_old(required: true, type: PropertyType.Numeric)
+        budget_new(required: true, type: PropertyType.Numeric)
+    }
+
     //Campaigns paused
     def campaigns_paused = objectSchemaDefinitions {
         campaign_id(required: true, type: PropertyType.Numeric)
@@ -971,6 +977,35 @@ tracks {
         budget(required: true, type: PropertyType.Numeric, description: "Budget of the campaign")
         status(required: true, type: PropertyType.String, description: "Current status of the campaign", values: ['active', 'paused'])
     }
+
+    // Multicampaña - Upselling x Campaigns
+
+    "/advertising/pads2/hub/box/upselling"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+        total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
+    }
+
+    "/advertising/pads2/hub/box/upselling/go"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
+    }
+
+    "/advertising/pads2/hub/upselling/landing"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+        total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
+        campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_budget_definition)), description: "Array campaigns")
+    }
+
+    "/advertising/pads2/hub/upselling/landing/breadcrumb"(platform: "/", type: TrackType.Event) {
+        total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
+        campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_budget_definition)), description: "Array campaigns")
+    }
+
+
+    "/advertising/pads2/hub/upselling/landing/go"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
+        total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
+        campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_budget_definition)), description: "Array campaigns")
+    }
+
+
+
 
     //Admin Mobile
 
