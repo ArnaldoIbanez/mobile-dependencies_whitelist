@@ -99,13 +99,18 @@ tracks {
         alternative_buying_option_info(position, item_id, buying_option_id, seller_id, seller_name)
     }
 
+    def highlights_definition  = objectSchemaDefinitions {
+        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
+        melichoice_score(required: false, type: PropertyType.Numeric, description: "Score of Melichoice Product")
+        melichoice_origin(required: false, type: PropertyType.String, description: "Origin of Melichoice Product")
+        melichoice_domain(required: false, type: PropertyType.String, description: "Domain of Melichoice Product")
+    }
+
     //VPP FLOW
 
     "/pdp"(platform: "/") {
         // Temp fields
-        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
-
-        cac_item(required: false, type: PropertyType.Boolean, 
+        cac_item(required: false, type: PropertyType.Boolean,
                  description: "Indicates whether the product is listed as 'CodoACodo'")
 
         cac_status(required: false, type: PropertyType.String, 
@@ -191,6 +196,11 @@ tracks {
 
         // General
         pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
+
+        //Highlights
+        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
+
+        highlights(required: false, type: PropertyType.Map(highlights_definition), description: "Highlights Map")
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {

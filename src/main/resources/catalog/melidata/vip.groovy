@@ -64,6 +64,12 @@ tracks {
         variation_info(preselection_type, enforced_preselection)
     }
 
+    def highlights_definition  = objectSchemaDefinitions {
+        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
+        melichoice_score(required: false, type: PropertyType.Numeric, description: "Score of Melichoice Product")
+        melichoice_origin(required: false, type: PropertyType.String, description: "Origin of Melichoice Product")
+        melichoice_domain(required: false, type: PropertyType.String, description: "Domain of Melichoice Product")
+    }
     //VIP FLOW
 
     "/vip"(platform: "/") {
@@ -194,6 +200,10 @@ tracks {
 
         map_item_attributes(required: false, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "Map of items attributes")
 
+        // Highlights
+        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
+
+        highlights(required: false, type: PropertyType.Map(highlights_definition), description: "Highlights Map")
     }
 
     "/vip"(platform: "/web") {
