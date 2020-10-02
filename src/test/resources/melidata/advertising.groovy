@@ -1078,7 +1078,7 @@ trackTests {
         }
     }
 
-    test("Advertising multicampaña Sads Paused") {
+    test("Advertising multicampaña Sads New") {
 
         "/advertising/pads2/hub/card"(platform: "/web", type: TrackType.View) {}
 
@@ -1124,6 +1124,76 @@ trackTests {
         "/advertising/pads2/hub/sads_new/moveads/filters"(platform: "/web", type: TrackType.Event) {
             query = "search"
         }
+
+    }
+
+    test("Advertising multicampaña Sads Paused") {
+
+        "/advertising/pads2/hub/card/sads_paused"(platform: "/web", type:TrackType.View){
+            tab = "ads"
+            sads_total = 10
+        }
+
+        "/advertising/pads2/hub/card/sads_paused/go"(platform: "/web", type:TrackType.Event){
+            tab="ads"
+            sads_total = 10
+        }
+
+        "/advertising/pads2/hub/sads_paused"(platform: "/web", type:TrackType.View){}
+
+        "/advertising/pads2/hub/sads_paused/landing"(platform: "/web", type:TrackType.View){
+            sads_total = 10
+            campaigns = [
+                    campaign_id: 99999,
+                    pads:20
+            ]
+        }
+
+        "/advertising/pads2/hub/sads_paused/landing/activated"(platform: "/web", type:TrackType.Event){
+            sads_activated = 10
+            campaigns = [
+                    campaign_id: 99999,
+                    pads:20
+            ]
+        }
+
+        "/advertising/pads2/hub/sads_paused/landing/breadcrumb"(platform: "/web", type:TrackType.Event){
+            sads_total = 10
+            campaigns = [
+                    campaign_id: 99999,
+                    pads:20
+            ]
+        }
+
+        "/advertising/pads2/hub/sads_paused/landing/see_campaign"(platform: "/web", type:TrackType.Event){
+            campaign_id = 99999
+            sads_total = 10
+        }
+
+        "/advertising/pads2/sads_paused"(platform: "/web", type:TrackType.Event){}
+
+        "/advertising/pads2/sads_paused/landing"(platform: "/web", type:TrackType.View){
+            sads_total = 10
+            campaign_id = 99999
+        }
+
+        "/advertising/pads2/sads_paused/landing/activated"(platform: "/web", type:TrackType.Event){
+            sads_total = 10
+            sads_total_activated = 10
+            campaign_id = 99999
+        }
+
+        "/advertising/pads2/sads_paused/landing/breadcrumb"(platform: "/web", type:TrackType.Event){
+            sads_total = 10
+            campaign_id = 99999
+        }
+
+        "/advertising/pads2/sads_paused/landing/filters"(platform: "/", type: TrackType.Event) {
+            filters = [
+                    query: "search"
+            ]
+        }
+
     }
 
     test("Advertising multicampaña Upselling") {
