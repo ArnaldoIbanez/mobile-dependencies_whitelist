@@ -316,7 +316,7 @@ trackTests {
     }
 
     test ("Prepaid Detail") {
-        "/cards/prepaid-detail/click-ask-for-card" (platform: "/web/desktop", type: TrackType.Event) {
+        "/cards/prepaid-detail/click-ask-for-card" (platform: "/", type: TrackType.Event) {
              deviceType = "desktop"
         }
     }
