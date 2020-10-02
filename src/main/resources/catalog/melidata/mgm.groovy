@@ -132,7 +132,9 @@ tracks {
         shared_app_id(required: false, type: PropertyType.String, description: "Indicates in which channel did the user shared the coupon (ex: Slack).")
     }
 
-    "/mgm/v3/promoter/share/terms"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/mgm/v3/promoter/share/terms"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/mgm/v3/promoter/share/terms/tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mgmPromoterMinimumFields
     }
 
@@ -171,7 +173,9 @@ tracks {
 
     "/mgm/v3/guest/floating_banner"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
 
-    "/mgm/v3/guest/floating_banner/terms"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/mgm/v3/guest/floating_banner/terms"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {}
+
+    "/mgm/v3/guest/floating_banner/terms/tap"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mgmGuestMinimumFields
     }
 

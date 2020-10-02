@@ -114,7 +114,7 @@ trackTests {
                     from = "modals_engine"
             }
 
-            "/mgm/v3/promoter/share/terms"(platform: "/mobile", type: TrackType.Event) {
+            "/mgm/v3/promoter/share/terms/tap"(platform: "/mobile", type: TrackType.Event) {
                 program_id = "mla_payers"
                 is_recurrent = true
                 from = "modals_engine"
@@ -161,7 +161,7 @@ trackTests {
                     from = "modals_engine"
             }
 
-            "/mgm/v3/guest/floating_banner/terms"(platform: "/mobile", type: TrackType.Event) {
+            "/mgm/v3/guest/floating_banner/terms/tap"(platform: "/mobile", type: TrackType.Event) {
                 program_id = "mla_payers"
                 from = "modals_engine"
             }
