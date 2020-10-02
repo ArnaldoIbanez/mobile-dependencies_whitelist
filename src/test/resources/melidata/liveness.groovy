@@ -194,7 +194,7 @@ trackTests {
 		"/liveness/landing"(platform: "/mobile/android") {}
 
 		"/liveness/fallback"(platform: "/mobile/android") {
-			type = "timeout"
+			type = "cancel"
 		}
 
 		"/liveness/unsupported"(platform: "/mobile/android") {}
@@ -242,7 +242,7 @@ trackTests {
 		"/liveness/landing"(platform: "/mobile/ios") {}
 
 		"/liveness/fallback"(platform: "/mobile/ios") {
-			type = "timeout"
+			type = "cancel"
 		}
 
 		"/liveness/unsupported"(platform: "/mobile/ios") {}
