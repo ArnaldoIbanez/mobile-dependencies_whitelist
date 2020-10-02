@@ -14,7 +14,8 @@ class InitiativeValidate {
     static validateInitiative(String path, String initiativeId) {
         totalPaths << path
 
-        if(initiativeId && InitiativeAPI.getInstance().applications.any() { ApplicationModel init -> init.getInitiativeId() == initiativeId }) {
+        if(initiativeId && (InitiativeAPI.getInstance().applications.any() { ApplicationModel init -> init.getInitiativeId() == initiativeId }
+            || InitiativeAPI.getInstance().initiatives.any() { Integer init -> init.toString() == initiativeId })) {
             validPaths << path
             return true
         } else {

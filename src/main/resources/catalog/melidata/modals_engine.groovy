@@ -42,6 +42,10 @@ tracks {
         modalsEngineMinimumFields
         type(required: true, type: PropertyType.String, description: "internal error code")
     }
+    "/modals_engine/fallback"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        modalsEngineMinimumFields
+        link(required: true, type: PropertyType.String, description: "fallback link the app was navigating to")
+    }
     "/modals_engine/ignore"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         modalsEngineMinimumFields
     }

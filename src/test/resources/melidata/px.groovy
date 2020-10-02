@@ -599,6 +599,7 @@ trackTests {
             has_bottom_view = false
             has_top_view = false
             has_important_view = false
+            has_money_split_view = true
             score_level = 5
             discounts_count = 6
             campaigns_ids = "1, 2, 3, 4, 5, 6"
@@ -622,11 +623,12 @@ trackTests {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
             preference_amount = 500
             currency_id = "ARS"
-            discount_coupon_amount = 100
+            
             has_split_payment = false
             has_bottom_view = false
             has_top_view = false
             has_important_view = false
+            has_money_split_view = false
             score_level = 5
             discounts_count = 6
             campaigns_ids = "1, 2, 3, 4, 5, 6"
@@ -680,7 +682,6 @@ trackTests {
             preference_amount = 500
             currency_id = "ARS"
             has_split_payment = false
-            recoverable = true
             remedies = [ "cvv_request" ]
         }
 
@@ -1708,11 +1709,6 @@ trackTests {
         }
 
         "/px_checkout/result/error/remedy"(platform: "/mobile", type: TrackType.Event) {
-            type = "cvv_request"
-            extra_info = {
-              payment_method_type = "credit_card"
-              payment_method_id = "master"
-            }
             flow_detail = {
               collector_id = 1234
               brand_name = "YPF"
@@ -1721,6 +1717,14 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            type = "cvv_request"
+            extra_info = {
+              payment_method_type = "credit_card"
+              payment_method_id = "master"
+            }
+            index = 1
+            payment_status = "rejected"
+            payment_status_detail = "cc_rejected_other_reason"
         }
 
         // Approved business
@@ -1839,11 +1843,6 @@ trackTests {
         }
 
         "/px_checkout/result/error/remedy"(platform: "/mobile", type: TrackType.Event) {
-            type = "cvv_request"
-            extra_info = {
-              payment_method_type = "credit_card"
-              payment_method_id = "master"
-            }
             flow_detail = {
               collector_id = 1234
               brand_name = "YPF"
@@ -1852,6 +1851,14 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            type = "cvv_request"
+            extra_info = {
+              payment_method_type = "credit_card"
+              payment_method_id = "master"
+            }
+            index = 1
+            payment_status = "rejected"
+            payment_status_detail = "cc_rejected_other_reason"
         }
 
         "/px_checkout/result/success/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
@@ -1903,7 +1910,451 @@ trackTests {
             behaviour = "tap_pay"
             deepLink = "mercadopago://kyc/"
         }
+
+        "/px_checkout/result/success/deep_link"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+              collector_id = 1234
+              brand_name = "YPF"
+              store_id = 1234
+              pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            type = "money_split"
+            deep_link = "mercadopago://mplayer/"
+        }
     }
+
+        test("PX - Payment-Congrats- Views") {
+        //Payment Congrats: 
+
+        "/payment_congrats/result/success"(platform: "/mobile", type: TrackType.View) {
+            style = "generic"
+            payment_method_id = "redlink"
+            payment_method_type = "atm"
+            payment_id = 1234
+            payment_status = "approved"
+            payment_status_detail = "approved"
+
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            discount_coupon_amount = 100
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
+            has_bottom_view = false
+            has_top_view = false
+            has_important_view = false
+            has_money_split_view = true
+            score_level = 5
+            discounts_count = 6
+            campaign_id = "10"
+        }
+        "/payment_congrats/result/unknown"(platform: "/mobile", type: TrackType.View) {
+            style = "generic"
+            payment_method_id = "redlink"
+            payment_method_type = "atm"
+            payment_id = 1234
+            payment_status = "approved"
+            payment_status_detail = "approved"
+
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
+            has_bottom_view = false
+            has_top_view = false
+            has_important_view = false
+            has_money_split_view = false
+            score_level = 5
+            discounts_count = 6
+            campaign_id = "10"
+        }
+        "/payment_congrats/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {
+            style = "generic"
+            payment_method_id = "visa"
+            payment_method_type = "credit_card"
+            payment_id = 1234
+            payment_status = "pending"
+            payment_status_detail = "pending"
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
+        }
+        "/payment_congrats/result/error"(platform: "/mobile", type: TrackType.View) {
+            style = "generic"
+            payment_method_id = "visa"
+            payment_method_type = "credit_card"
+            payment_id = 1234
+            payment_status = "rejected"
+            payment_status_detail = "STATUS_DETAIL_REJECTED_REJECTED_BY_BANK"
+
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
+        }
+    }
+    test("PX - Payment-Congrats- Events") {
+        // Approved payment
+        "/payment_congrats/result/success/continue"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/tap_score"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/tap_discount_item"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            index = 1
+            campaign_id = "1"
+        }
+
+        "/payment_congrats/result/success/tap_see_all_discounts"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/tap_download_app"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/tap_cross_selling"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        // In process payment
+        "/payment_congrats/result/further_action_needed/continue"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/tap_score"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/tap_discount_item"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            index = 1
+            campaign_id = "1"
+        }
+
+        "/payment_congrats/result/further_action_needed/tap_see_all_discounts"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/tap_download_app"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/tap_cross_selling"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        // Rejected payment
+        "/payment_congrats/result/error/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/error/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        // Approved business
+        "/payment_congrats/result/success/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        // Pending business
+        "/payment_congrats/result/further_action_needed/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        // Rejected business
+        "/payment_congrats/result/error/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/error/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/unknown/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/unknown/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/continue"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+         "/payment_congrats/result/unknown/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/tap_cross_selling"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/tap_discount_item"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            index = 1
+            campaign_id = "1"
+        }
+
+         "/payment_congrats/result/unknown/tap_download_app"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/tap_score"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/tap_see_all_discounts"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/deep_link"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+              collector_id = 1234
+              brand_name = "YPF"
+              store_id = 1234
+              pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            type = "money_split"
+            deep_link = "mercadopago://mplayer/"
+        }
+      }
 
     defaultBusiness = "mercadopago"
 
@@ -2524,6 +2975,7 @@ trackTests {
             has_bottom_view = false
             has_top_view = false
             has_important_view = false
+            has_money_split_view = true
             score_level = 5
             discounts_count = 6
             campaigns_ids = "1, 2, 3, 4, 5, 6"
@@ -2552,6 +3004,7 @@ trackTests {
             has_bottom_view = false
             has_top_view = false
             has_important_view = false
+            has_money_split_view = false
             score_level = 5
             discounts_count = 6
             campaigns_ids = "1, 2, 3, 4, 5, 6"
@@ -2605,7 +3058,6 @@ trackTests {
             preference_amount = 500
             currency_id = "ARS"
             has_split_payment = false
-            recoverable = true
             remedies = [ "cvv_request" ]
         }
 
@@ -3667,11 +4119,6 @@ trackTests {
         }
 
         "/px_checkout/result/error/remedy"(platform: "/mobile", type: TrackType.Event) {
-            type = "cvv_request"
-            extra_info = {
-              payment_method_type = "credit_card"
-              payment_method_id = "master"
-            }
             flow_detail = {
               collector_id = 1234
               brand_name = "YPF"
@@ -3680,6 +4127,14 @@ trackTests {
             }
             flow = "/instore"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            type = "cvv_request"
+            extra_info = {
+              payment_method_type = "credit_card"
+              payment_method_id = "master"
+            }
+            index = 1
+            payment_status = "rejected"
+            payment_status_detail = "cc_rejected_other_reason"
         }
 
         // Approved business
@@ -3800,5 +4255,448 @@ trackTests {
             behaviour = "tap_pay"
             deepLink = "mercadopago://kyc/"
         }
+
+        "/px_checkout/result/success/deep_link"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+              collector_id = 1234
+              brand_name = "YPF"
+              store_id = 1234
+              pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            type = "money_split"
+            deep_link = "mercadopago://mplayer/"
+        }
     }
+    test("PX - Payment-Congrats- Views") {
+        //Payment Congrats: 
+
+        "/payment_congrats/result/success"(platform: "/mobile", type: TrackType.View) {
+            style = "generic"
+            payment_method_id = "redlink"
+            payment_method_type = "atm"
+            payment_id = 1234
+            payment_status = "approved"
+            payment_status_detail = "approved"
+
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
+            has_bottom_view = false
+            has_top_view = false
+            has_important_view = false
+            has_money_split_view = true
+            score_level = 5
+            discounts_count = 6
+            campaign_id = "10"
+        }
+        "/payment_congrats/result/unknown"(platform: "/mobile", type: TrackType.View) {
+            style = "generic"
+            payment_method_id = "redlink"
+            payment_method_type = "atm"
+            payment_id = 1234
+            payment_status = "approved"
+            payment_status_detail = "approved"
+
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
+            has_bottom_view = false
+            has_top_view = false
+            has_important_view = false
+            has_money_split_view = false
+            score_level = 5
+            discounts_count = 6
+            campaign_id = "10"
+        }
+        "/payment_congrats/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {
+            style = "generic"
+            payment_method_id = "visa"
+            payment_method_type = "credit_card"
+            payment_id = 1234
+            payment_status = "pending"
+            payment_status_detail = "pending"
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
+        }
+        "/payment_congrats/result/error"(platform: "/mobile", type: TrackType.View) {
+            style = "generic"
+            payment_method_id = "visa"
+            payment_method_type = "credit_card"
+            payment_id = 1234
+            payment_status = "rejected"
+            payment_status_detail = "STATUS_DETAIL_REJECTED_REJECTED_BY_BANK"
+
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            preference_amount = 500
+            currency_id = "ARS"
+            has_split_payment = false
+        }
+    }
+    test("PX - Payment-Congrats- Events") {
+        // Approved payment
+        "/payment_congrats/result/success/continue"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/tap_score"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/tap_discount_item"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            index = 1
+            campaign_id = "1"
+        }
+
+        "/payment_congrats/result/success/tap_see_all_discounts"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/tap_download_app"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/tap_cross_selling"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        // In process payment
+        "/payment_congrats/result/further_action_needed/continue"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/tap_score"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/tap_discount_item"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            index = 1
+            campaign_id = "1"
+        }
+
+        "/payment_congrats/result/further_action_needed/tap_see_all_discounts"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/tap_download_app"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/tap_cross_selling"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        // Rejected payment
+        "/payment_congrats/result/error/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/error/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        // Approved business
+        "/payment_congrats/result/success/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        // Pending business
+        "/payment_congrats/result/further_action_needed/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        // Rejected business
+        "/payment_congrats/result/error/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/error/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/further_action_needed/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/unknown/tap_view_receipt"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/unknown/abort"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/change_payment_method"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/continue"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+         "/payment_congrats/result/unknown/primary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/secondary_action"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/tap_cross_selling"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/tap_discount_item"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            index = 1
+            campaign_id = "1"
+        }
+
+         "/payment_congrats/result/unknown/tap_download_app"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/tap_score"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+         "/payment_congrats/result/unknown/tap_see_all_discounts"(platform: "/mobile", type: TrackType.Event) {
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/payment_congrats/result/success/deep_link"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+              collector_id = 1234
+              brand_name = "YPF"
+              store_id = 1234
+              pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+            type = "money_split"
+            deep_link = "mercadopago://mplayer/"
+        }
+      }
+
 }

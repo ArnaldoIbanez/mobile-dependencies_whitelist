@@ -1,0 +1,111 @@
+{
+  "users": [
+    "julio.cardenas@mercadolibre.cl"
+  ],
+  "process_name": "suscriptions",
+  "cron": "00 04 * * *",
+  "partition": {
+        "name": "ds",
+        "type": "DATE"
+  },
+  "extract": {
+    "operation": "append",
+    "columns": [
+      {
+        "name": "platform",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "business",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "path",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "site_id",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "level",
+        "type": "INTEGER"
+      },
+      {
+        "name": "origin",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "title",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "item_number",
+        "type": "INTEGER"
+      },
+      {
+        "name": "type",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "subscription_status",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "subscription_partner",
+        "type": "UNICODE_STRING"
+      },
+      {
+        "name": "content",
+        "type": "UNICODE_STRING"
+      },      
+      {
+        "name": "discount_percent",
+        "type": "INTEGER"
+      },
+      {
+        "name": "position",
+        "type": "INTEGER"
+      }, 
+      {
+        "name": "is_free_trial",
+        "type": "UNICODE_STRING"
+      }, 
+      {
+        "name": "payment_status",
+        "type": "UNICODE_STRING"
+      },  
+      {
+        "name": "origen",
+        "type": "UNICODE_STRING"
+      },   
+      {
+        "name": "total",
+        "type": "INTEGER"
+      },                           
+      {
+        "name": "distincts",
+        "type": "INTEGER"
+      },
+      {
+        "name": "paths",
+        "type": "INTEGER"
+      }
+    ],
+    "sql": {
+      "script": "loyalty/suscriptions.sql",
+      "parameters": [
+        {
+          "name": "param01",
+          "value": "DAY-1",
+          "format": "yyyy-MM-dd"
+        },
+        {
+          "name": "param02",
+          "value": "DAY-0",
+          "format": "yyyy-MM-dd"
+        }
+      ]
+    }
+  }
+}

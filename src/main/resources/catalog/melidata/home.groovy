@@ -215,4 +215,11 @@ tracks {
     "/home_com/site_click"(platform: "/", type: TrackType.Event) {
         site_click(required: true, type: PropertyType.String)
     }
+
+    "/home/category/real_estate/request_contract"(platform: "/", type: TrackType.View) {}
+
+    "/home/advertising"(platform: "/", type: TrackType.Event) {}
+
+    "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
+
 }

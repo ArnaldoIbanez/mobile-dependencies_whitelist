@@ -13,7 +13,9 @@ trackTests {
             version = "2.0"
         })
 
-        "/wallet/cards/detail"(platform:"/mobile", {})
+        "/wallet/cards/detail"(platform:"/mobile", {
+            version = "2.0"
+        })
 
         "/wallet/cards/add_card"(platform:"/mobile", {
             id_banner = "cards_list_prepaid_banner_acquisition"

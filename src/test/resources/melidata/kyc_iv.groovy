@@ -13,6 +13,11 @@ trackTests {
             extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
+        "/kyc/iv/challenge_time"(platform: "/mobile") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "start_validation"
         }
@@ -169,6 +174,11 @@ trackTests {
             extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
+        "/kyc/iv/challenge_time"(platform: "/mobile") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "start_validation"
         }
@@ -293,6 +303,12 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
+
+        "/kyc/iv/challenge_time"(platform: "/web") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
@@ -356,9 +372,10 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
-        "/kyc/iv/address"(platform: "/web") {
+        "/kyc/iv/image_upload"(platform: "/web") {
             flow = "credits_address"
             transaction_user_id = 109479273
+            doc_type = "address"
         }
         "/kyc/iv/center/card"(platform: "/web") {
             status = "landing"
@@ -499,6 +516,11 @@ trackTests {
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "check_step"
             extra_params = "meli://identity_validation/?flow=uniqueness"
+        }
+
+        "/kyc/iv/challenge_time"(platform: "/mobile") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
         }
 
         "/kyc/iv/executed_action"(platform: "/mobile") {
@@ -653,6 +675,11 @@ trackTests {
             extra_params = "meli://identity_validation/?flow=uniqueness"
         }
 
+        "/kyc/iv/challenge_time"(platform: "/mobile") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/executed_action"(platform: "/mobile") {
             executed_action = "start_validation"
         }
@@ -777,6 +804,12 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
+
+        "/kyc/iv/challenge_time"(platform: "/web") {
+            challenge_type = "doc_front"
+            challenge_time = 24000
+        }
+
         "/kyc/iv/phone_landing"(platform: "/web") {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
@@ -830,9 +863,10 @@ trackTests {
             flow = "ss_approve_iv_selfie"
             transaction_user_id = 109479273
         }
-        "/kyc/iv/address"(platform: "/web") {
-            flow = "credits_address"
+        "/kyc/iv/image_upload"(platform: "/web") {
+            flow = "address_company"
             transaction_user_id = 109479273
+            doc_type = "address_company"
         }
         "/kyc/iv/trust_vote_recommender"(platform: "/web") {
             flow = "poc_trust_vote_tc"

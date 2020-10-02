@@ -16,10 +16,10 @@ from (
         if(device.platform in ('/web/mobile/forced','/web/mobile/static','/web/mobile/forced/static'),'/web/mobile', device.platform)) as platform,
         if( device.platform = '/mobile/ios', jest(event_data,'query'), jest(event_data,'backend_data.processed_query')) as termino,
         jest(event_data,'category_path[0]') as cat_l1_id
-    from tracks
+    from melidata.tracks_ml
     where ds >='@param01' and ds <'@param02'
-       and application.business = 'mercadolibre'
-      and application.site_id = 'MLU'
+       and bu = 'mercadolibre'
+      and site = 'MLU'
       and not is_bot(device.user_agent)
       and path like '/search%'
       and length(jest(event_data,'query')) > 0

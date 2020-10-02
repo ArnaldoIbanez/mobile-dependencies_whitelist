@@ -1,0 +1,64 @@
+{
+  "users": [
+    "notifications-it@mercadolibre.com"
+  ],
+  "process_name": "application_not_engaged_uninstall_storage_event",
+  "cron": "00 04 * * *",
+  "partition": {
+    "name": "ds",
+    "type": "DATE"
+  },
+  "extract": {
+    "operation": "append",
+    "columns": [{
+      "name": "marketplace",
+      "type": "UNICODE_STRING"
+    },{
+      "name": "site_id",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "path",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "has_user",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "app_version",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "platform",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "source",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "last_seen",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "current_checking_day",
+      "type": "INTEGER"
+    }, {
+      "name": "execution_id",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "free_storage_percentage",
+      "type": "UNICODE_STRING"
+    }, {
+      "name": "cantidad",
+      "type": "INTEGER"
+    }],
+    "sql": {
+      "script": "application/application-not_engaged_uninstall_storage_event.sql",
+      "engine": "spark",
+      "parameters": [{
+        "name": "date",
+        "value": "DAY-1",
+        "format": "yyyy-MM-dd"
+      }, {
+        "name": "one_day_after_date",
+        "value": "DAY",
+        "format": "yyyy-MM-dd"
+      }]
+    }
+  }
+}

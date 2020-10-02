@@ -22,6 +22,7 @@ trackTests {
             vertical_id = "antenna"
             provider_id = "antenna_mla_directv_prepago"
             flavor = "sube_nfc"
+            last_recharge = "1459"
         }
 
         def view_time = {
@@ -180,6 +181,7 @@ trackTests {
             mandatory()
             step_information()
             available_items()
+            notification_panel()
         }
 
         "/single_player/prepaid/product_list/selected_product"(platform: "/mobile", type: TrackType.Event) {
@@ -404,32 +406,41 @@ trackTests {
         "/single_player/prepaid/congrats_success"(platform: "/mobile", type: TrackType.View) {
             mandatory()
             step_information()
+            payment_id = "252"
         }
 
         "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            payment_id = "252"
         }
         "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            payment_id = "252"
         }
         "/single_player/prepaid/congrats_success/another_recharge"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            payment_id = "252"
         }
         "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            payment_id = "252"
         }
         "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             application_name = "com.sube.cargasube"
+            payment_id = "252"
         }
         "/single_player/prepaid/congrats_success/credit_charge"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            payment_id = "252"
         }
         "/single_player/prepaid/congrats_success/show_terminals"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            payment_id = "252"
         }
         "/single_player/prepaid/congrats_success/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            payment_id = "252"
         }
 
 
@@ -778,6 +789,7 @@ trackTests {
             mandatory()
             step_information()
             available_items()
+            notification_panel()
         }
 
         "/single_player/prepaid/product_list/selected_product"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
@@ -1002,32 +1014,41 @@ trackTests {
         "/single_player/prepaid/congrats_success"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
             step_information()
+            payment_id = "232"
         }
 
         "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            payment_id = "232"
         }
         "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            payment_id = "232"
         }
         "/single_player/prepaid/congrats_success/another_recharge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            payment_id = "232"
         }
         "/single_player/prepaid/congrats_success/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            payment_id = "232"
         }
         "/single_player/prepaid/congrats_success/open_external_application"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             application_name = "Sube"
+            payment_id = "232"
         }
         "/single_player/prepaid/congrats_success/credit_charge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            payment_id = "232"
         }
         "/single_player/prepaid/congrats_success/show_terminals"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            payment_id = "232"
         }
         "/single_player/prepaid/congrats_success/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            payment_id = "232"
         }
 
 

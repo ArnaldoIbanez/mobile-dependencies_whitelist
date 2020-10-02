@@ -22,6 +22,7 @@ trackTests {
         def seeMoreTrack = {
             item_id="MLA834078638"
             catalog_product_id="MLA15243603"
+            context="PDP"
         }
 
         def dataSetCongrats = {
@@ -56,6 +57,12 @@ trackTests {
             type = "detail"
         }
 
+        def reviews_tab_track = {
+            item_id="MLA533657947"
+            catalog_product_id="MLA15243603"
+            type = "all"
+        }
+
         "/reviews/form"(platform:"/", dataSetForm)
 
         "/reviews/edit"(platform:"/", dataSet)
@@ -75,6 +82,7 @@ trackTests {
         "/reviews/show"(platform:"/", vipTrack)
 
         "/reviews/see_more"(platform: "/", seeMoreTrack)
-    }
 
+        "/reviews/tab"(platform: "/", reviews_tab_track)
+    }
 }

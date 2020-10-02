@@ -31,7 +31,7 @@
       "parameters": [
         {
           "name": "param01",
-          "value": "DAY-4",
+          "value": "DAY-7",
           "format": "yyyy-MM-dd"
         },
         {

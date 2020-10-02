@@ -189,4 +189,16 @@ trackTests {
         }
     }
 
+    test("Contract home tracking") {
+        def dataSet = {
+            category_id = 'MLC1459'
+            category_path = ['MLC1459']
+        }
+        "/home/category/real_estate/request_contract"(platform: "/", type: TrackType.View, dataSet)
+    }
+
+    test("Home Advertising banners") {
+        "/home/advertising"(platform: "/", type: TrackType.Event) {}
+        "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
+    }
 }

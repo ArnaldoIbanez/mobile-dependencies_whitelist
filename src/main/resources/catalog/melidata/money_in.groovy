@@ -13,6 +13,7 @@ tracks {
     **/
 
     "/money_in"(platform: "/", isAbstract: true) {}
+    "/money_in/kyc"(platform: "/", isAbstract: true) {}
 
     //Payment methods tracks
     "/money_in/payment_methods"(platform: "/", type: TrackType.View) {}
@@ -49,6 +50,9 @@ tracks {
     "/money_in/onboarding"(platform: "/", isAbstract: true) {}
 
     //Onboarding
+     "/money_in/kyc/onboarding"(platform: "/", type: TrackType.View) {}
+     "/money_in/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
+     "/money_in/kyc/onboarding/close"(platform: "/", type: TrackType.Event) {}
      "/money_in/onboarding/add_money"(platform: "/", type: TrackType.View) {}
      "/money_in/onboarding/simplify_payments"(platform: "/", type: TrackType.View) {}
      "/money_in/onboarding/invest_money"(platform: "/", type: TrackType.View) {}
@@ -135,4 +139,70 @@ tracks {
     "/money_in/caixa/disclaimer/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
     "/money_in/caixa/disclaimer/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
 
+    // Cash Tickets - Locations 
+    "/money_in/cash"(platform:"/", isAbstract:true){}
+    "/money_in/cash/location_list"(platform: "/", type: TrackType.View) {}
+    "/money_in/cash/location/location_selected"(platform: "/", type: TrackType.Event) {
+        id (required:true, description: "Selected location")
+    }
+
+    // Cash Tickets - Amount 
+    "/money_in/cash/amount"(platform: "/", type: TrackType.View) {
+        type (required:true, description: "Ticket type source", values: ["paycash", "oxxo"])
+    }
+    "/money_in/cash/amount/continue_button_clicked"(platform: "/", type: TrackType.Event) {
+        type (required:true, description: "Continue type ticket selected", values: ["paycash", "oxxo"])
+        amount (required:true, description: "Continue amount entered")
+    }
+
+    // Cash Tickets - Info 
+    "/money_in/cash/ticket"(platform: "/", type: TrackType.View) {
+        type (required:true, description: "Ticket type source", values: ["paycash", "oxxo"])
+    }
+    "/money_in/cash/ticket/cancel_button_clicked"(platform: "/", type: TrackType.Event) {
+        type (required:true, description: "Cancel ticket selected", values: ["paycash", "oxxo"])
+    }
+
+    // Cash Tickets - Camcel Modal 
+    "/money_in/cash/cancel_ticket_modal"(platform: "/", type: TrackType.View) {
+        type (required:true, description: "Ticket type source", values: ["paycash", "oxxo"])
+    }
+    "/money_in/cash/cancel_ticket_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {
+        type (required:true, description: "Cancel ticket selected", values: ["paycash", "oxxo"])
+    }
+    "/money_in/cash/cancel_ticket_modal/back_ticket_button_clicked"(platform: "/", type: TrackType.Event) {
+        type (required:true, description: "Back ticket selected", values: ["paycash", "oxxo"])
+    }
+
+    // Oxxo Tickets - Disuassive Modal 
+    "/money_in/cash/location"(platform:"/", isAbstract:true){}
+    "/money_in/cash/location/warning_ticket_modal"(platform: "/", type: TrackType.View) {}
+    "/money_in/cash/location/warning_ticket_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+    "/money_in/cash/location/warning_ticket_modal/back_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+    // Cash IFPE CAP Modal
+    "/money_in/cash/ifpe_cap_exceeded"(platform: "/", type: TrackType.View) {}
+    "/money_in/cash/ifpe_cap_exceeded/insert_other_amount"(platform: "/", type: TrackType.Event) {}
+    "/money_in/cash/ifpe_cap_exceeded/help"(platform: "/", type: TrackType.Event) {}
+
+    //PIX keys - Congrats
+    "/money_in/pix_keys"(platform:"/", isAbstract:true){}
+    "/money_in/pix_keys/enroll_congrats"(platform: "/", type: TrackType.View) {}
+    //PIX keys - Admin
+    "/money_in/pix_keys/onboarding"(platform: "/", type: TrackType.View) {}
+    "/money_in/pix_keys/onboarding/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {}
+    "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {}
+    "/money_in/pix_keys/admin"(platform: "/", type: TrackType.View) {}
+    "/money_in/pix_keys/admin/resolve_request"(platform: "/", type: TrackType.Event) {}
+    "/money_in/pix_keys/admin/detail_key"(platform: "/", type: TrackType.Event) {}
+    "/money_in/pix_keys/admin/add_key"(platform: "/", type: TrackType.Event) {}
+    "/money_in/pix_keys/key_detail"(platform: "/", type: TrackType.View) {}
+    "/money_in/pix_keys/key_detail/remove_key"(platform: "/", type: TrackType.Event) {}
+    "/money_in/pix_keys/key_claim_detail"(platform: "/", type: TrackType.View) {}
+    "/money_in/pix_keys/key_claim_detail/approve"(platform: "/", type: TrackType.Event) {}
+    "/money_in/pix_keys/key_claim_detail/reject"(platform: "/", type: TrackType.Event) {}
+    "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {}
+    "/money_in/pix_keys/congrats/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_in/pix_keys/notification"(platform: "/", type: TrackType.Event) {}
 }

@@ -55,6 +55,7 @@ tracks {
         results(required: false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
         query(required: true, type: PropertyType.String, description: "Search query")
         transactional_results(required: false, type: PropertyType.ArrayList(PropertyType.Map(transactional_result)))
+        intentions(required: false, type: PropertyType.ArrayList(PropertyType.Map(transactional_result)))
         context(required: true, type: PropertyType.String, description: "If the context is pdp or vip", values:["PDP", "VIP"])
     }
 

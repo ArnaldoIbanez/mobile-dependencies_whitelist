@@ -27,10 +27,11 @@ tracks {
         price (type: PropertyType.Numeric, required: true, description: "Price of device")
         is_guest (type: PropertyType.Boolean, required: true, description: "User logged as guest")
         user_id (type: PropertyType.Numeric, required: true, description: "User ID")
+        e2e_test (type: PropertyType.Boolean, required: true, description: "e2e Test")
     }
 
     propertyGroups {
-        groupCheckoutProperties(flow_id, product, currency, price, is_guest, user_id)
+        groupCheckoutProperties(flow_id, product, currency, price, is_guest, user_id, e2e_test)
     }
 
     "/"(platform: "/", isAbstract: true) {
@@ -118,6 +119,14 @@ tracks {
         groupCheckoutProperties
     }
 
+    "/point/buyingflow/invalid_address"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
+    }
+
+     "/point/buyingflow/complete_phone"(platform: "/", type: TrackType.View) {
+        groupCheckoutProperties
+    }
+
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
         product (type: PropertyType.String, required: true, description: "Name of device, example: 'point-h'")
@@ -155,6 +164,7 @@ tracks {
         device_id (required: true, type: PropertyType.String, description: "ID of Point device")
         amount (required: true, type: PropertyType.Numeric, description: "Ticket amount")
         is_guest (required: true, type: PropertyType.Boolean, description: "Guest user flag")
+        e2e_test (required: true, type: PropertyType.Boolean, description: "e2e Test")
     }
 
     "/point/flows/congrats/instructions"(platform:"/", type: TrackType.View) {}
@@ -432,6 +442,14 @@ tracks {
         progress (required: true, type: PropertyType.Numeric, description: "Update progress at cancel")
     }
     "/settings/cost_calculator/detail"(platform: "/mobile", type: TrackType.View) {}
+
+    "/settings/cost_calculator/detail/action_button"(platform: "/mobile", type: TrackType.Event) {
+        amount(required: true, type: PropertyType.Numeric, description: "Amount calculated by cost_calculator")
+        method(required: true, type: PropertyType.String, values: ["point", "qr", "share_social"], description: "Method simulated by seller")
+        payment_financing(required: true, type: PropertyType.String, values: ["credit", "debit", "account_money"], description: "Payment financing selected by seller")
+        installments(required: true, type: PropertyType.Numeric, description: "Installments simulated by seller")
+    }
+
     "/settings/cost_calculator/chooser"(platform: "/mobile", type: TrackType.View) {}
     "/settings/cost_calculator/input"(platform: "/mobile", type: TrackType.View) {}
     "/settings/help"(platform: "/mobile", type: TrackType.View) {}
