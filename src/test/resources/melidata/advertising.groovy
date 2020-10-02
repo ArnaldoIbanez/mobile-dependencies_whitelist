@@ -1262,7 +1262,7 @@ trackTests {
             total_campaigns = 10
         }
 
-        "/advertising/pads2/hub/box/upselling"(platform: "/web", type: TrackType.Event) {
+        "/advertising/pads2/hub/box/upselling/go"(platform: "/web", type: TrackType.Event) {
             total_campaigns = 10
         }
 
