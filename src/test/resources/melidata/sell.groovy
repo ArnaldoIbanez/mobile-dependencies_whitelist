@@ -2093,6 +2093,18 @@ trackTests {
             header_type = "buybox"
             action_id = "reputation"
         }
+        "/sell/update/sip"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA123456"
+            buybox_status = "losing_by_free_listing_type"
+            has_selected_pictures = false
+            is_catalog_boost = true
+            is_catalog_listing = true
+            is_item_inactive_moderated = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+        }
         "/sell/update/sip/publish/fail"(platform: "/mobile") {
             item_id = "MLA123456"
             error_message="error"
