@@ -440,7 +440,7 @@ tracks {
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
-        failed( required: false, description: "whenever the post was successful or not")
+        failed( required: false, type: PropertyType.Boolean, description: "whenever the post was successful or not")
     }
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
