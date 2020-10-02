@@ -338,7 +338,7 @@ tracks {
     "/prepaid/acquisition/adapt_kyc/congrats/error"(platform: "/", type: TrackType.Event) {}
 
     //Prepaid click ask for card
-    "/cards/prepaid-detail/click-ask-for-card" (platform: "/", type: TrackType.Event) {
+    "/cards/prepaid-detail/click-ask-for-card" (platform: "/web/desktop", type: TrackType.Event) {
          deviceType (
             required: true,
             type: PropertyType.String,
