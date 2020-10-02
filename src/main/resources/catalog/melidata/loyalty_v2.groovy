@@ -89,6 +89,7 @@ tracks {
         discount_percent(required: false, description: "User discount", type: PropertyType.Numeric)
         origin(required: false, description: "Where was the vdp initiated from")
         loyalty_level(type: PropertyType.Numeric, required: false)
+        plan_id(required: false, description: "User selected subscription plan id", type: PropertyType.Numeric)
     }
 
     "/loyalty/partners/vdp"(platform: "/", type: TrackType.View) {
