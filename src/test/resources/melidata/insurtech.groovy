@@ -951,5 +951,359 @@ trackTests {
             ]
         }∫
         "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {}
+
+        // INSURTECH Claims
+
+        "/insurtech/protections/claims"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/use-service"(platform:"/web", type: TrackType.Event) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/use-service-certificate"(platform:"/web", type: TrackType.Event) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/use-service-not-certificate"(platform:"/web", type: TrackType.Event) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/cancel-protection"(platform:"/web", type: TrackType.Event) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+        
+        "/insurtech/protections/claims/help"(platform:"/web", type: TrackType.Event) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/read-certificate"(platform:"/web", type: TrackType.Event) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/need-help"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/click-help"(platform:"/web", type: TrackType.Event) {
+            help_id = '1234'
+        }
+
+        "/insurtech/protections/claims/cancel/reasons"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+         "/insurtech/protections/claims/cancel/click-reasons"(platform:"/web", type: TrackType.Event) {
+            reason_id = '1234'
+        }
+
+        "/insurtech/protections/claims/cancel/other-reasons"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/cancel/confirm-other-reasons"(platform:"/web", type: TrackType.Event) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/cancel/review"(platform:"/web", type: TrackType.View){
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+
+        "/insurtech/protections/claims/cancel/review/cancel"(platform:"/web", type: TrackType.Event){
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+        
+        "/insurtech/protections/claims/cancel/review/keep"(platform:"/", type: TrackType.Event){
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/cancel/congrats-success"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/cancel/congrats-failed"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/execute/item"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/execute/item/confirm"(platform:"/web", type: TrackType.Event){
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/execute/description"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/execute/description/confirm"(platform:"/web", type: TrackType.Event){
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/execute/questions"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/execute/questions/click-reasons"(platform:"/web", type: TrackType.Event){
+            reason_id='123123'
+        }
+        "/insurtech/protections/claims/execute/questions/click-police-report"(platform:"/web", type: TrackType.Event){
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+        "/insurtech/protections/claims/execute/questions/click-not-police-report"(platform:"/web", type: TrackType.Event){
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+
+        "/insurtech/protections/claims/execute/address"(platform:"/web", type: TrackType.View){
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/execute/address/check"(platform:"/web", type: TrackType.Event){
+            address_id= '123123'
+        }
+        "/insurtech/protections/claims/execute/address/confirm"(platform:"/web", type: TrackType.Event){
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/execute/review"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+        
+        "/insurtech/protections/claims/execute/address/review"(platform:"/web", type: TrackType.Event) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/execute/congrats-success"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/execute/congrats-failed"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/execute/certificate-update"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+        "/insurtech/protections/claims/execute/certificate-update/confirm"(platform:"/web", type: TrackType.Event) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+
+        "/insurtech/protections/claims/execute/franchise"(platform:"/web", type: TrackType.View) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]  
+        }
+        "/insurtech/protections/claims/execute/franchise/confirm"(platform:"/web", type: TrackType.Event) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
+        "/insurtech/protections/claims/execute/franchise/cancel"(platform:"/web", type: TrackType.Event) {
+            claim =[
+                domain:"mercadolibre.com.ar",
+                entity_type:"quote",
+                entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
+            ]
+        }
     }
 }
