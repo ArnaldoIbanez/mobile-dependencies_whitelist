@@ -189,8 +189,8 @@ tracks {
     "/money_in/pix_keys"(platform:"/", isAbstract:true){}
     "/money_in/pix_keys/enroll_congrats"(platform: "/", type: TrackType.View) {}
     //PIX keys - Admin
-    "/money_in/pix_keys/onbarding"(platform: "/", type: TrackType.View) {}
-    "/money_in/pix_keys/onbarding/continue"(platform: "/", type: TrackType.Event) {}
+    "/money_in/pix_keys/onboarding"(platform: "/", type: TrackType.View) {}
+    "/money_in/pix_keys/onboarding/continue"(platform: "/", type: TrackType.Event) {}
     "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {}
     "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {}
     "/money_in/pix_keys/admin"(platform: "/", type: TrackType.View) {}
@@ -200,9 +200,9 @@ tracks {
     "/money_in/pix_keys/key_detail"(platform: "/", type: TrackType.View) {}
     "/money_in/pix_keys/key_detail/remove_key"(platform: "/", type: TrackType.Event) {}
     "/money_in/pix_keys/key_claim_detail"(platform: "/", type: TrackType.View) {}
-    "/money_in/pix_keys/key_claim_detail/aprove"(platform: "/", type: TrackType.Event) {}
+    "/money_in/pix_keys/key_claim_detail/approve"(platform: "/", type: TrackType.Event) {}
     "/money_in/pix_keys/key_claim_detail/reject"(platform: "/", type: TrackType.Event) {}
     "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {}
     "/money_in/pix_keys/congrats/continue"(platform: "/", type: TrackType.Event) {}
-    "/money_in/pix_keys/notifiaction"(platform: "/", type: TrackType.Event) {}
+    "/money_in/pix_keys/notification"(platform: "/", type: TrackType.Event) {}
 }
