@@ -10,6 +10,7 @@ trackTests {
     test("Questions tracking in web") {
         "/questions/ask/post" (platform:"/", type: TrackType.Event) {
             item_id = "MLA533657947"
+            question_id = 11494965485
             failed = false
             context = "/questions"
             catalog_product_id = "MLA533657234"

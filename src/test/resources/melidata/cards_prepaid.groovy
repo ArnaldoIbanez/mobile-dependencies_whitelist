@@ -303,4 +303,21 @@ trackTests {
         "/prepaid/acquisition/pj_onboarding/error"(platform: "/", type: TrackType.Event) {} 
     }
 
+    test ("Cards acquisition Onboarding Adapt KYC") {
+        "/prepaid/acquisition/onboarding_adapt_kyc"(platform: "/", type: TrackType.View) {}
+        "/prepaid/acquisition/onboarding_adapt_kyc/tap"(platform: "/", type: TrackType.Event) {}
+        "/prepaid/acquisition/onboarding_adapt_kyc/error"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test ("Cards acquisition Congrats Adapt KYC") {
+        "/prepaid/acquisition/adapt_kyc/congrats"(platform: "/", type: TrackType.View) {}
+        "/prepaid/acquisition/adapt_kyc/congrats/tap"(platform: "/", type: TrackType.Event) { deeplink = "deeplink" }
+        "/prepaid/acquisition/adapt_kyc/congrats/error"(platform: "/", type: TrackType.Event) {}
+    }
+
+    test ("Prepaid Detail") {
+        "/cards/prepaid-detail/click-ask-for-card" (platform: "/web/desktop", type: TrackType.Event) {
+             deviceType = "desktop"
+        }
+    }
 }

@@ -36,7 +36,7 @@ import com.ml.melidata.TrackType
 
 
         propertyDefinitions {
-            card_read_tag(required: true, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc"])
+            card_read_tag(required: true, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc","swipe_nfc","chip_nfc"])
             first_six(required: true, type: PropertyType.String,description: "first six card numbers")
             last_four(required: true, type: PropertyType.String,description: "last four card numbers")
             is_fallback(required: true, type: PropertyType.Boolean,description: "is a payment through fallback")
@@ -186,7 +186,7 @@ import com.ml.melidata.TrackType
           flow_id (required: true, type: PropertyType.String, description: "Flow id.")
           payment_method_type(required: false, type: PropertyType.String, description: "card type",values: ["credit_card", "debit_card", "voucher_card"])
           mode(required: true, false: PropertyType.String, description: "flow origin",values: ["cart", "amount"])
-          payment_channel(required: true, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser"])
+          payment_channel(required: true, type: PropertyType.String , description:  "payment channel selected by the user",values:["qr","point","share_social","cash","chooser","external_payments"])
           amount(required: true, type: PropertyType.Numeric, description: "payment amount")
           currency(required: true, type: PropertyType.String, description: "payment currency")
           installments(required: false, type: PropertyType.Numeric, description: "installments")
@@ -228,7 +228,7 @@ import com.ml.melidata.TrackType
             error_type(PropertyType.String, required: true)
             paymentData
             poi_id(required: true, type: PropertyType.String, description: "poi device id")
-            card_read_tag(required: false, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc"])
+            card_read_tag(required: false, type: PropertyType.String, description: "card tag",values:["swipe","chip","nfc","swipe_nfc","chip_nfc"])
             first_six(required: false, type: PropertyType.String,description: "first six card numbers")
             last_four(required: false, type: PropertyType.String,description: "last four card numbers")
             is_fallback(required: false, type: PropertyType.Boolean,description: "is a payment through fallback")

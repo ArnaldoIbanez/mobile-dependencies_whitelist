@@ -85,7 +85,7 @@ tracks {
 
     // Loyalty Partners VDP
     "/loyalty/partners"(platform: "/", isAbstract: true) {
-        subscription_partner(required: true, description: "VDP partner name (HBO, Paramount, etc.)", type: PropertyType.String)
+        subscription_partner(required: false, description: "VDP partner name (HBO, Paramount, etc.)", type: PropertyType.String)
         discount_percent(required: false, description: "User discount", type: PropertyType.Numeric)
         origin(required: false, description: "Where was the vdp initiated from")
         loyalty_level(type: PropertyType.Numeric, required: false)
@@ -124,19 +124,19 @@ tracks {
         deeplink(required: false, description: "Action link to go", type: PropertyType.String)
     }
 
-
-    // Loyalty Subscription Login
-    "/loyalty/partners/login"(platform: "/", type: TrackType.View) {
-        partner(required: false, description: "Partner name", type: PropertyType.String)
+    "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event) {
+        type(required: true, description: "Info showed in description", type: PropertyType.String)
     }
 
-    "/loyalty/partners/login/action"(platform: "/", type: TrackType.Event) {}
+    // Loyalty Subscription Login
+    "/loyalty/partners/login"(platform: "/", type: TrackType.View) {}
 
+    "/loyalty/partners/login/action"(platform: "/", type: TrackType.Event) {}
 
     "/loyalty/partners/login/verify"(platform: "/", type: TrackType.View) {}
 
     "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event) {
-        type(required: true, description: "Action type", values: ["notification", "email", "another"], type: PropertyType.String)
+        type(required: true, description: "Action type", values: ["push", "email", "another"], type: PropertyType.String)
     }
 
 
@@ -150,6 +150,25 @@ tracks {
 
     "/loyalty/partners/login/verified"(platform: "/", type: TrackType.Event) {
         url(required: false, description: "Url to go", type: PropertyType.String)
+    }
+
+    "/loyalty/partners/login/invalid"(platform: "/", type: TrackType.Event) {
+        server_error(required: false, description: "Server error", type: PropertyType.String)
+    }
+
+    // Loyalty Subscription Admin
+    "/loyalty/partners/admin"(platform: "/", type: TrackType.View) {
+        subscription_partner(required: true, description: "VDP partner name (HBO, Paramount, etc.)", type: PropertyType.String)
+        level(type: PropertyType.Numeric, required: false)
+        subscription_status(required: false, description: "Subscrition Status", type: PropertyType.String)
+    }
+
+    "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event) {
+        type(required: false, description: "Action type (detail-action, modify-action, tyc-action, etc.)", type: PropertyType.String)
+    }
+
+    "/loyalty/partners/summary"(platform: "/", type: TrackType.View) {
+        level(type: PropertyType.Numeric, required: false)
     }
 
 }

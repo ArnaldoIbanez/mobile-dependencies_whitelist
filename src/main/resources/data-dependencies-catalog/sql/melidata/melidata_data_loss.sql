@@ -1,85 +1,40 @@
-SELECT c.platform, c.site, c.is_carrito, sum(c.bt_orders) as bt_orders_presence, sum(c.entities) as entities_presence, sum(c.checkouts)as checkouts_presence, count(DISTINCT c.entity_id) as total_entities, c.track_date FROM(
-SELECT b.entity_id, b.platform, b.site, b.is_carrito, sum(IF(bt_orders >= 1, 1, 0)) bt_orders, sum(IF(orders >= 1, 1, 0)) entities, sum(IF(checkouts >= 1, 1, 0)) checkouts, track_date FROM (
-  SELECT entity_id, platform, site, is_carrito, sum(if(source = 'bt_order', 1, 0)) as bt_orders, sum(if(source = 'entity', 1, 0)) as orders, sum(if(source = 'checkout', 1, 0)) as checkouts, track_date FROM (
-    SELECT if(jest(event_data, 'order_id') IS NULL, jest(event_data, 'purchase_id'), jest(event_data, 'order_id')) as entity_id,
-          CASE path
-               WHEN '/checkout/congrats' THEN 'checkout'
-               ELSE 'entity'
-           END as source,
-          CASE device.platform
+SELECT platform, site, is_carrito, sum(if(is_carrito = 'false', bt_orders, 0)) as bt_orders_presence, sum(if(is_carrito = 'false', orders, bt_orders)) as entities_presence, sum(checkouts) as checkouts_presence, sum(if(is_carrito = 'false', orders, bt_orders)) as total_entities, date_created as track_date from 
+(select entity_id, 1 as bt_orders, site, platform, is_carrito, SUM(IF(path = '/orders/ordercreated' or path = '/purchases/purchasecreated',1,0)) as orders, SUM(IF(path = '/checkout/congrats' or path = '/cart/checkout/congrats',1,0)) as checkouts,date_created
+from (
+  (select distinct(CAST(o.ord_order_id as string)) as entity_id, CAST(o.ord_created_dt as string) as date_created, o.sit_site_id as site, t.path as path, CASE ORD_APP_ID
+               WHEN '7092' THEN 'android'
+               WHEN '1505' THEN 'ios'
+               ELSE 'web'
+           END as platform,
+  'false' as is_carrito
+  from melilake.bt_odr_purchase_orders o
+  left join (
+    select distinct get_json_object(event_data, '$.order_id') as entity_id, path
+      from melidata.tracks_ml where ds >= '@param01'
+        and ds < '@param02'
+        and (path='/orders/ordercreated' or path = '/checkout/congrats')
+        and bu = 'mercadolibre'
+  ) t on (cast(o.ord_order_id as string) = t.entity_id )
+  where cast(o.ord_created_dt as string) = '@param01'
+  AND pck_pack_id IS NULL)
+  UNION ALL
+  (select distinct get_json_object(event_data, '$.purchase_id') as entity_id, substr(ds,1,10) as date_created, application.site_id as site, tc.path, CASE device.platform
                WHEN '/mobile/android' THEN 'android'
                WHEN '/mobile/ios' THEN 'ios'
                ELSE 'web'
-           END as platform,
-           CASE path
-             WHEN '/purchases/purchasecreated' THEN 'true'
-             ELSE 'false'
-             END as is_carrito,
-    application.site_id as site, substr(ds,1,10) as track_date FROM tracks
-    WHERE ds >= '@param01'
-      AND ds < '@param02'
-    AND
-    (
-      (
-        path = '/checkout/congrats'
-        AND jest(event_data, 'order_id') IS NOT NULL
-        AND jest(event_data, 'congrats_seq') = '1'
-      )
-    OR
-      (
-        path = '/orders/ordercreated'
-        AND jest(event_data, 'is_carrito') = 'false'
-        AND jest(event_data, 'order_id') IS NOT NULL
-      )
-    OR
-      (
-        path = '/purchases/purchasecreated'
-        AND jest(event_data, 'purchase_id') IS NOT NULL
-      )
-    )
-    AND array_contains(array('/mobile/android', '/mobile/ios', '/web/mobile', '/web/desktop'), device.platform)
-    GROUP BY if(jest(event_data, 'order_id') IS NULL, jest(event_data, 'purchase_id'), jest(event_data, 'order_id')),
-          CASE path
-               WHEN '/checkout/congrats' THEN 'checkout'
-               ELSE 'entity'
-           END,
-          CASE device.platform
-               WHEN '/mobile/android' THEN 'android'
-               WHEN '/mobile/ios' THEN 'ios'
-               ELSE 'web'
-           END,
-           CASE path
-             WHEN '/purchases/purchasecreated' THEN 'true'
-             ELSE 'false'
-             END,
-    application.site_id, substr(ds,1,10)
-    UNION ALL
-    select DISTINCT(CAST(ord_order_id as string)) as entity_id, 'bt_order' as source, CASE ORD_APP_ID
-               WHEN 7092 THEN 'android'
-               WHEN 1505 THEN 'ios'
-               ELSE 'web'
-           END as platform,
-           'false' as is_carrito,
-           sit_site_id as site,
-           '@param01' as track_date
-      from melilake.bt_odr_purchase_orders o
-      where substring(from_unixtime(unix_timestamp(o.ord_created_dt, 'MMM dd, yyyy')),1,10) = '@param01'
-      AND pck_pack_id IS NULL
-    UNION ALL
-    SELECT DISTINCT(jest(event_data, 'purchase_id')) as entity_id, 'checkout' as source, CASE device.platform
-               WHEN '/mobile/android' THEN 'android'
-               WHEN '/mobile/ios' THEN 'ios'
-               ELSE 'web'
-           END as platform,
-          'true' as is_carrito,
-    application.site_id as site, substr(ds,1,10) as track_date FROM tracks
-      WHERE ds >= '@param01'
-      AND ds < '@param02'
-      AND path = '/cart/checkout/congrats'
-      AND jest(event_data, 'congrats_seq') = '1'
-      AND jest(event_data, 'purchase_id') IS NOT NULL
-  ) a
-  GROUP BY entity_id, platform, site, is_carrito, track_date
-) b
-GROUP BY entity_id, platform, site, is_carrito, track_date) c
-GROUP BY platform, site, is_carrito, track_date
+           END as platform, 'true' as is_carrito
+      from melidata.tracks_ml oc
+  left join (
+    select distinct jest(event_data, 'purchase_id') as entity_id, path
+      from melidata.tracks_ml where ds >= '@param01'
+        and ds < '@param02'
+        and path = '/cart/checkout/congrats'
+        and bu = 'mercadolibre'
+  ) tc on (get_json_object(oc.event_data, '$.purchase_id') = tc.entity_id)
+  where ds >= '@param01'
+  and ds < '@param02'
+  and oc.path='/purchases/purchasecreated'
+  and bu = 'mercadolibre')
+) a
+group by entity_id, site, platform, date_created, is_carrito) b
+GROUP BY site, platform, date_created, is_carrito

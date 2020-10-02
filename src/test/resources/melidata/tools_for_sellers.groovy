@@ -15,6 +15,10 @@ trackTests {
     }
   }
 
+  test("Release options screen referrer null") {
+    "/settings/release_options"(platform: "/", type:TrackType.View) {}
+  }
+
   test("Release options screen referrer not null") {
     "/settings/release_options"(platform: "/", type:TrackType.View) {
       referrer = "https://www.mercadopago.com.ar/business"

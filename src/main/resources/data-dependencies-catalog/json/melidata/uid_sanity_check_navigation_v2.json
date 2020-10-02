@@ -31,6 +31,7 @@
     ],
     "sql": {
       "script": "melidata/uid_sanity_check_navigation_v2.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

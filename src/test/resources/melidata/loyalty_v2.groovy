@@ -305,7 +305,7 @@ trackTests {
             discount_percent = 40
         }
 
-        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             loyalty_level = 1
             subscription_partner = "Paramount"
             payment_id = "42323"
@@ -316,7 +316,7 @@ trackTests {
             type = "tyc"
         }
 
-        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.View, business: "mercadopago") {
+        "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
             loyalty_level = 1
             subscription_partner = "Paramount"
             payment_id = "42323"
@@ -327,6 +327,18 @@ trackTests {
             type = "action"
             label = "Ir a HBO"
             deeplink = "meli://loyalty"
+        }
+
+        "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            type = "email"
+            payment_id = "42323"
+            payment_status = "success"
+        }
+
+        "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            type = "site"
+            payment_id = "42323"
+            payment_status = "success"
         }
 
     }
@@ -361,7 +373,7 @@ trackTests {
 
         "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
             subscription_partner = "HBO"
-            type = "notification"
+            type = "push"
         }
 
         "/loyalty/partners/login/verify/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
@@ -399,6 +411,49 @@ trackTests {
             subscription_partner = "HBO"
         }
 
+        "/loyalty/partners/login/invalid"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            subscription_partner = "HBO"
+        }
+
+        "/loyalty/partners/login/invalid"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            subscription_partner = "Paramount"
+            server_error = false
+        }
+
     }
 
+    test("Loyalty Subscription Admin") {
+
+        "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            subscription_partner = "HBO"
+            level = 4
+            subscription_status = "active"
+        }
+
+        "/loyalty/partners/admin"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            subscription_partner = "Paramount"
+            level = 4
+        }
+
+        "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
+            subscription_partner = "HBO"
+            subscription_status = "active"
+            level = 4
+            type = "detail-action"
+        }
+
+        "/loyalty/partners/admin/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
+            subscription_partner = "HBO"
+            subscription_status = "ended"
+            level = 4
+            type = "modify-action"
+        }
+
+        "/loyalty/partners/summary"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            level = 4
+        }
+
+        "/loyalty/partners/summary"(platform: "/", type: TrackType.View, business: "mercadopago") {
+        }
+    }
 }

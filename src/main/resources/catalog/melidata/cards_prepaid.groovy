@@ -25,6 +25,9 @@ tracks {
     "/wallet/cards/activation_modal/activate_card"(platform: "/", type: TrackType.Event) {} 
     "/wallet/cards/activation_modal/not_receive_card"(platform: "/", type: TrackType.Event) {} 
 
+	"/cards"(platform: "/", isAbstract: true) { }
+	"/cards/prepaid-detail"(platform: "/", isAbstract: true) { }
+    "/cards/prepaid-detail/click-ask-for-card"(platform: "/", isAbstract: true) { }
 
     "/prepaid"(platform: "/", isAbstract: true) {
         user_profile(
@@ -321,4 +324,26 @@ tracks {
     "/prepaid/acquisition/pj_onboarding/tap"(platform: "/", type: TrackType.Event) {}
     "/prepaid/acquisition/pj_onboarding/error"(platform: "/", type: TrackType.Event) {}
 
+    // Onboarding Adapt KYC
+    "/prepaid/acquisition/onboarding_adapt_kyc"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/onboarding_adapt_kyc/tap"(platform: "/", type: TrackType.Event) {}
+    "/prepaid/acquisition/onboarding_adapt_kyc/error"(platform: "/", type: TrackType.Event) {}
+
+    // Congrats Adapt KYC 
+    "/prepaid/acquisition/adapt_kyc"(platform: "/", isAbstract: true){}
+    "/prepaid/acquisition/adapt_kyc/congrats"(platform: "/", type: TrackType.View) {}
+    "/prepaid/acquisition/adapt_kyc/congrats/tap"(platform: "/", type: TrackType.Event) {
+        deeplink (required:true, type: PropertyType.String, description: "Screen pushed by the action")
+    }
+    "/prepaid/acquisition/adapt_kyc/congrats/error"(platform: "/", type: TrackType.Event) {}
+
+    //Prepaid click ask for card
+    "/cards/prepaid-detail/click-ask-for-card" (platform: "/web/desktop", type: TrackType.Event) {
+         deviceType (
+            required: true,
+            type: PropertyType.String,
+            values: ["desktop"],
+            description: "Device type click ask for card"
+        )
+    } 
 }

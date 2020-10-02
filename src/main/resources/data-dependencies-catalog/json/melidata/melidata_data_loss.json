@@ -43,6 +43,7 @@
     ],
     "sql": {
       "script": "melidata/melidata_data_loss.sql",
+      "engine": "spark",
       "parameters": [
         {
           "name": "param01",

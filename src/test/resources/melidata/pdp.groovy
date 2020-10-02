@@ -55,38 +55,48 @@ trackTests {
 
     def items_data = {
         [
-                [
-                        item_id              : "MLA787787584",
-                        price                : 8400,
-                        original_price       : 10000,
-                        currency_id          : "ARS",
-                        installment_info     : "6f",
-                        item_condition       : "new",
-                        sold_quantity        : 5,
-                        shipping_conditions  : "discount_gap",
-                        bo_pick_up_conditions: "no_discount",
-                        pushing_puis         : false,
-                        showing_puis         : false,
-                        official_store_id    : 231,
-                        seller_id            : 1234,
-                        seller_name          : "fulano",
-                        available_quantity   : 31,
-                        cart_content         : true,
-                        logistic_type        : "cross_docking",
-                        has_full_filment     : false
+            [
+                item_id              : "MLA787787584",
+                price                : 8400,
+                original_price       : 10000,
+                currency_id          : "ARS",
+                installment_info     : "6f",
+                item_condition       : "new",
+                sold_quantity        : 5,
+                shipping_conditions  : "discount_gap",
+                bo_pick_up_conditions: "no_discount",
+                pushing_puis         : false,
+                showing_puis         : false,
+                official_store_id    : 231,
+                seller_id            : 1234,
+                seller_name          : "fulano",
+                available_quantity   : 31,
+                cart_content         : true,
+                logistic_type        : "cross_docking",
+                has_full_filment     : false,
+                available_promotions : [
+                    [
+                        campaign_id     : "1761",
+                        type            : "DISCOUNT",
+                        original_value  : 953,
+                        value           : 643.5
+                    ]
                 ],
-                [
-                        item_id              : "MLA7877875184",
-                        shipping_conditions  : "discount_gap",
-                        bo_pick_up_conditions: "no_discount"
+                discount_reasons : ["deal"]
+            ],
+            [
+                item_id              : "MLA7877875184",
+                shipping_conditions  : "discount_gap",
+                bo_pick_up_conditions: "no_discount"
 
-                ]
+            ]
         ]
     }
 
     //PDP FLOW
     test("pdp mandatory tracking") {
         "/pdp"(platform: "/", {
+            best_seller_position = 3
             cac_item = false
             cac_status = "normal"
             catalog_product_id = "MLA1234"
@@ -206,6 +216,18 @@ trackTests {
             seller_name = "any seller"
         }
 
+        def pricingTwoPointO = {
+            available_promotions = [
+                {
+                    campaign_id = "1761"
+                    type = "DISCOUNT"
+                    original_value = 953
+                    value = 643.5
+                }
+            ]
+            discount_reasons = ["deal"]
+        }
+
         "/pdp"(platform: "/", {
             catalog_product_id = "MLA1234"
             item_id = "MLA533657947"
@@ -244,6 +266,7 @@ trackTests {
             cart()
             shipping()
             pickup()
+            pricingTwoPointO()
         })
 
         "/pdp/buy_action"(platform: "/", {
@@ -269,6 +292,7 @@ trackTests {
             cart()
             shipping()
             pickup()
+            pricingTwoPointO()
 
             price = 8400
             currency_id = "ARS"
@@ -298,6 +322,7 @@ trackTests {
             cart()
             shipping()
             pickup()
+            pricingTwoPointO()
 
             price = 8400
             currency_id = "ARS"
@@ -578,6 +603,18 @@ trackTests {
             currency_id = "ARS"
             original_price = 18.0
         })
+
+        "/pdp/fulfillment_fs_modal/show"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            category_id = "MLA43718"
+            category_path = ["MLA1234","MLA6789"]
+            item_condition = "new"
+            seller_id = 131662738
+            price = 15.3
+            currency_id = "ARS"
+            original_price = 18.0
+        })
         
         "/pdp/cbt_modal/show"(platform: "/", type: TrackType.Event, {
             catalog_product_id = "MLA1234"
@@ -602,5 +639,50 @@ trackTests {
             item_id = "MLA533657947"
             buyer_id = "12343718"
         })
+
+        "/pdp/fulfillment_fs_tooltip/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
+
+        "/pdp/credits_tooltip/show"(platform: "/", {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
+
+        "/pdp/fulfillment_fs_tooltip/close"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
+
+        "/pdp/credits_tooltip/close"(platform: "/", type: TrackType.Event, {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            buyer_id = "12343718"
+        })
+    }
+
+    // Pricing 2.0 - Payments Modal Track
+    test("PDP Pricing 2.0 - Payments Modal track") {
+        "/pdp/pricing_rebates/modal_payments_action"(platform: "/", type: TrackType.Event) {
+            item_id = "MLB1640051252"
+            is_cash_price = true
+            original_price = 100
+            price = 85
+            currency_id = "BRL"
+            installments_value_total = 104.4
+            installments_value_each = 8.7
+            installments_amount = 12
+            is_free_installments = false
+        }
+    }
+
+    test("Pdp Advertising banners") {
+        "/pdp/advertising"(platform: "/", type: TrackType.Event) {
+            advertising_id = "fullscreen"
+        }
     }
 }

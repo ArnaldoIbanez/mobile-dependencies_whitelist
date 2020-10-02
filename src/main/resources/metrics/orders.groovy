@@ -48,6 +48,9 @@ metrics {
 				)
 			}
 		}
+		divisionBy {
+			divisionMetric("bids")
+		}
 	}
 	
 	"bids.pdp.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
@@ -71,21 +74,36 @@ metrics {
 		}
 	}
 	
-	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq?authuser=0#h.p_2qPD6v_1dTSd", compute_order: true, categorization:"important") {
+	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd  && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals(
-						externalCondition {
-							url("internal/orders/\$0")
-							replace("event_data.order_id")
-							method("get")
-							successfulCodes(200,206)
-							jsonPath("status")
-						},
-						"cancelled"
+				and (
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("status")
+							},
+							"cancelled"
+					),
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("hidden_for_seller")
+							},
+							false
+					),
 				)
 			}
+		}
+		divisionBy {
+			divisionMetric("bids")
 		}
 	}
 
@@ -103,6 +121,10 @@ metrics {
 	}
 
 	"bids.samedeal"(description: "Checkout congrats for items in the same deal of exposition", compute_order: true) {
+		startWith {
+			experiment("/search/test")
+		}
+		
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -152,42 +174,6 @@ metrics {
 			}
 		}
 	}
-
-	"bids|new_buyers"(description: "New buyers from feed", compute_order: true) {
-		countsOn {
-			condition {
-				and (
-					equals("path", "/orders/ordercreated"),
-					equals("event_data.buyer_segment", "new_buyer")
-				)
-			}
-		}
-	}
-
-	"bids|inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
-		countsOn {
-			condition {
-				and (
-					equals("path", "/orders/ordercreated"),
-					or(
-						equals("event_data.buyer_segment", "new_buyer"),
-						equals("event_data.buyer_segment", "recovered_buyer")
-					)
-				)
-			}
-		}
-	}
-
-	"bids|active_buyers"(description: "Active buyers from feed", compute_order: true) {
-		countsOn {
-			condition {
-				and (
-					equals("path", "/orders/ordercreated"),
-					equals("event_data.buyer_segment", "active_buyer")
-				)
-			}
-		}
-	}
 	
 	"bids.sameItem"(description: "/orders/ordercreated from feed in the sam item of experiement", compute_order: true) {
 		countsOn {
@@ -199,6 +185,9 @@ metrics {
 	}
 
 	"bids.sameItemQuick"(description: "Quick attribution of bids", compute_order: true, ttl: 30) {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -238,8 +227,45 @@ metrics {
 		}
 	}
 
+	"bids.sameProduct.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, categorization:"important") {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
+		
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and (
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("status")
+							},
+							"cancelled"
+					),
+					equals("event_data.items.item.catalog_product_id", property("catalog_product_id") ),
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("hidden_for_seller")
+							},
+							false
+					),
+				)
+			}
+		}
+	}
 
 	"bids.sameProductQuick"(description: "/orders/ordercreated from feed", compute_order: true, ttl: 30) {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -249,6 +275,9 @@ metrics {
 	}
 
 	"bids.sameParent"(description: "/orders/ordercreated from feed in the same parent product of experiement", compute_order: true) {
+		startWith {
+			experiment(regex("(vip|pdp|qadb)/.*"))
+		}
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -259,6 +288,10 @@ metrics {
 
 				       
 	"bids.sameSearch"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
+		startWith {
+			experiment(regex("search/.*"))
+		}
+		
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -266,6 +299,31 @@ metrics {
 			}
 		}
 	}			       
+	
+	"bids.sameSearch.paid"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
+		startWith {
+			experiment(regex("search/.*"))
+		}
+		
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and ( 
+					equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"paid"
+					),
+				equals("event_data.items.item.id", property("item_ids"))
+				)	
+			}
+		}
+	}	
 
 	"buys.pdp"(description: "Track PDP buys", compute_order: true) {
 		countsOn {
@@ -307,7 +365,7 @@ metrics {
 		}
 	}
 
-	"buys.fashion"(description: "Track buys only in fashion domain for Sparkle exp", compute_order: true) {
+	"buys.fashion"(description: "Track buys only in fashion domain for Sparkle exp", compute_order: true, deprecation_date:"2020/08/12") {
 		startWith {
 			experiment(regex("sparkle/.*"))
 		}
@@ -330,28 +388,11 @@ metrics {
 		}
 	}
 
-	"bids.with_garex"(description: "/orders/ordercreated that has a meli_warranty in internal tags meaning that garex has been purchased.", compute_order: true) {
+	"bids.sameOrder.paid"(description: "/orders/ordercreated from feed in the same order with Orders-API confirmation of experiement", compute_order: true) {
 		startWith {
-			experiment(regex("(checkout|buyingflow|insurtech)/.*"))
+			experiment(regex("(checkout|buyingflow)/.*"))
 		}
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				like(
-					externalCondition {
-						url("internal/orders/\$0")
-						replace("event_data.order_id")
-						method("get")
-						successfulCodes(200,206)
-						jsonPath("internal_tags")
-					},
-					"meli_warranty"
-				)
-			}
-		}
-	}
-
-	"bids.sameOrder"(description: "/orders/ordercreated from feed in the same order with Orders-API confirmation of experiement", compute_order: true) {
+		
 		countsOn {
 			condition {
 				path("/orders/ordercreated")

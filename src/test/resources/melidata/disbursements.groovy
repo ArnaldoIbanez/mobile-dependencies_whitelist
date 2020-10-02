@@ -38,6 +38,10 @@ trackTests {
     }
     "/disbursements/xoom/rejected/go_home"(platform: "/", type: TrackType.Event) {
         reason = "by_data_error"
-    } 
+    }
+    "/disbursements/xoom/information"(platform: "/", type: TrackType.View) {}
+    "/disbursements/xoom/information/share"(platform: "/", type: TrackType.Event) {}
+    "/disbursements/xoom/information/kyc"(platform: "/", type: TrackType.Event) {}
+
     }
 }

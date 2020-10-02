@@ -281,6 +281,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -452,6 +455,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -498,7 +504,8 @@ trackTests {
                     shortcut_ids: [
                         "gran_dia_mcdonals"
                     ],
-                    has_view_more: true
+                    has_view_more: true,
+                    has_view_more_ripple: true,
             ]
             prepaid_banner = [
                     content_type : 'partial',
@@ -655,6 +662,9 @@ trackTests {
             loyalty = [
                     level: 9
             ]
+            metadata_user = [
+                type: "newbie"
+            ]
         }
     }
 
@@ -733,6 +743,7 @@ trackTests {
             link = "mercadopago://loyalty"
             section_id="subscription"
             component_id="cta"
+            level=4
         }
     }
 
@@ -757,8 +768,42 @@ trackTests {
             has_aware = false
             has_label = true
             group_id = "seller"
-            component_id="user_survey"
             group_position = 6
+            audience="all"
+            bu="1"
+            bu_line="10"
+            flow="1"
+            logic="default"
+            user_profile="newbie"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - shortcuts (without optionals)") {
+        "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="payer"
+            component_id="scan_qr"
+            from = "sheet"
+            content_id = "business"
+            position = 3
+            enabled = true
+            is_favorite = false
+            has_aware = false
+            has_label = true
+        }
+
+        "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="payer"
+            component_id="scan_qr"
+            from = "sheet"
+            content_id = "business"
+            position = 3
+            enabled = true
+            is_favorite = false
+            has_aware = false
+            has_label = true
+            has_ripple = false
         }
     }
 
@@ -773,9 +818,32 @@ trackTests {
             shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
         }
 
+        "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
+            group_ids = ["payer", "business", "seller", "favorites"]
+            shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+            favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+            has_ftu = false
+        }
+
         "/wallet_home/shortcuts_sheet/dismiss" (platform: "/mobile", type: TrackType.Event) {
             from = "drag"
             time_spent = 122
+        }
+    }
+
+    test("Mercadopago shortcut favorite edition") { 
+        "/wallet_home/shortcuts_sheet/edit" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/shortcuts_sheet/edit/drop" (platform: "/mobile", type: TrackType.Event) {
+            initial_position = 1
+            end_position = 2
+            shortcut_id = "scan_qr"
+        }
+
+        "/wallet_home/shortcuts_sheet/cancel" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/shortcuts_sheet/save" (platform: "/mobile", type: TrackType.View) {
+            favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
         }
     }
 
@@ -1072,6 +1140,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -1118,7 +1189,8 @@ trackTests {
                     shortcut_ids: [
                         "gran_dia_mcdonals"
                     ],
-                    has_view_more: true
+                    has_view_more: true,
+                    has_view_more_ripple: true,
             ]
             prepaid_banner = [
                     content_type : 'partial',
@@ -1240,6 +1312,9 @@ trackTests {
             header = [
                     loyalty: [
                             level: 5
+                    ],
+                    metadata_user:[
+                            type: "payer"
                     ]
             ]
             content_type = 'partial'
@@ -1441,6 +1516,9 @@ trackTests {
             loyalty = [
                     level: 9
             ]
+            metadata_user = [
+                type: "seller"
+            ]
         }
     }
 
@@ -1546,6 +1624,20 @@ trackTests {
             component_id="user_survey"
             group_position = 6
         }
+
+        "/wallet_home/section/tap/shortcuts" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="payer"
+            component_id="scan_qr"
+            from = "sheet"
+            content_id = "business"
+            position = 3
+            enabled = true
+            is_favorite = false
+            has_aware = false
+            has_label = true
+            has_ripple = false
+        }
     }
 
     test("Mercadopago cross sell experiments") {
@@ -1558,9 +1650,32 @@ trackTests {
             shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
         }
 
+        "/wallet_home/shortcuts_sheet/view" (platform: "/mobile", type: TrackType.View) {
+            group_ids = ["payer", "business", "seller", "favorites"]
+            shortcut_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+            favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
+            has_ftu = false
+        }
+
         "/wallet_home/shortcuts_sheet/dismiss" (platform: "/mobile", type: TrackType.Event) {
             from = "drag"
             time_spent = 122
+        }
+    }
+
+    test("Mercadopago shortcut favorite edition") { 
+        "/wallet_home/shortcuts_sheet/edit" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/shortcuts_sheet/edit/drop" (platform: "/mobile", type: TrackType.Event) {
+            initial_position = 1
+            end_position = 2
+            shortcut_id = "scan_qr"
+        }
+
+        "/wallet_home/shortcuts_sheet/cancel" (platform: "/mobile", type: TrackType.Event) {}
+
+        "/wallet_home/shortcuts_sheet/save" (platform: "/mobile", type: TrackType.View) {
+            favorite_ids = ["scan_qr", "send_money", "recharge_sube", "money_out", "money_in"]
         }
     }
 

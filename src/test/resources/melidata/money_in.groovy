@@ -61,6 +61,9 @@ trackTests {
 
         "/money_in/onboarding/enter"(platform: "/", type: TrackType.Event) {}
         "/money_in/onboarding/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/kyc/onboarding"(platform: "/", type: TrackType.View) {}
+        "/money_in/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
+        "/money_in/kyc/onboarding/close"(platform: "/", type: TrackType.Event) {}
 
         //TED
 
@@ -146,6 +149,53 @@ trackTests {
         "/money_in/caixa/disclaimer"(platform: "/", type: TrackType.View) {}
         "/money_in/caixa/disclaimer/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
         "/money_in/caixa/disclaimer/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+         // Cash Tickets - Locations 
+        "/money_in/cash/location_list"(platform: "/", type: TrackType.View) {}
+        "/money_in/cash/location/location_selected"(platform: "/", type: TrackType.Event) {
+            id = "paycash_7-eleven"
+        }
+
+        // Cash Tickets - Amount 
+        "/money_in/cash/amount"(platform: "/", type: TrackType.View) {
+            type = "oxxo"
+        }
+        "/money_in/cash/amount/continue_button_clicked"(platform: "/", type: TrackType.Event) {
+            type = "oxxo"
+            amount = "23"
+        }
+
+        // Cash Tickets - Info 
+        "/money_in/cash/ticket"(platform: "/", type: TrackType.View) {
+            type = "paycash"
+        }
+        "/money_in/cash/ticket/cancel_button_clicked"(platform: "/", type: TrackType.Event) {
+            type = "paycash"
+        }
+
+        // Cash Tickets - Camcel Modal 
+        "/money_in/cash/cancel_ticket_modal"(platform: "/", type: TrackType.View) {
+            type = "paycash"
+        }
+        "/money_in/cash/cancel_ticket_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {
+            type = "paycash"
+        }
+        "/money_in/cash/cancel_ticket_modal/back_ticket_button_clicked"(platform: "/", type: TrackType.Event) {
+            type = "paycash"
+        }
+
+        // Oxxo Tickets - Disuassive Modal 
+        "/money_in/cash/location/warning_ticket_modal"(platform: "/", type: TrackType.View) {}
+        "/money_in/cash/location/warning_ticket_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+        "/money_in/cash/location/warning_ticket_modal/back_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+        // Cash IFPE CAP Modal
+        "/money_in/cash/ifpe_cap_exceeded"(platform: "/", type: TrackType.View) {}
+        "/money_in/cash/ifpe_cap_exceeded/insert_other_amount"(platform: "/", type: TrackType.Event) {}
+        "/money_in/cash/ifpe_cap_exceeded/help"(platform: "/", type: TrackType.Event) {}
+
+        // PIX keys
+        "/money_in/pix_keys/enroll_congrats"(platform: "/", type: TrackType.View) {}
 
     }
 

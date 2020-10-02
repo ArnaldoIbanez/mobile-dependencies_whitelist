@@ -27,6 +27,15 @@ trackTests {
             selected_positions : [ 1, 3, 5 ]
     ]
 
+    def tagTrackingInfo = [
+        best_seller : [
+                [item_id: "MLC510446223", position: 2],
+                [item_id: "MLC510446224", position: 3, product_id:"MLC510446224"],
+        ],
+        shipping_guaranteed : [],
+        deal_of_the_day : []
+    ]
+
     def promiseInfo = [
             sameday: ["MLA123411"],
             nextday: ["MLA12345645"]
@@ -149,11 +158,20 @@ trackTests {
             ]
             carousel_filters = []
             seo = [
-                    is_whitelisted                : true,
-                    check_mode                    : "GMV",
-                    gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true
+                    is_whitelisted         : true,
+                    check_mode             : "GMV",
+                    value                  : 15,
+                    is_default             : false
+            ]
+            merch_data = [
+                    audience         : "all",
+                    bu             : "3",
+                    bu_line                  : "26",
+                    component_id             : "search_ml",
+                    content_id             : "test_integration_cellphones_mla",
+                    flow: "-1",
+                    logic: "campaigns",
+                    position: 0
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
@@ -162,6 +180,7 @@ trackTests {
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
             best_seller_info = bestSellerInfo
+            tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -277,11 +296,20 @@ trackTests {
             ]
             carousel_filters = ["BRAND", "official_store", "STYLE"]
             seo = [
-                    is_whitelisted                : true,
-                    check_mode                    : "GMV",
-                    gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true
+                    is_whitelisted         : true,
+                    check_mode             : "GMV",
+                    value                  : 15,
+                    is_default             : false
+            ]
+            merch_data = [
+                    audience         : "all",
+                    bu             : "3",
+                    bu_line                  : "26",
+                    component_id             : "search_ml",
+                    content_id             : "test_integration_cellphones_mla",
+                    flow: "-1",
+                    logic: "campaigns",
+                    position: 0
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
@@ -290,6 +318,7 @@ trackTests {
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
             best_seller_info = bestSellerInfo
+            tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -556,11 +585,20 @@ trackTests {
             pdp_rows = []
             carousel_filters = []
             seo = [
-                    is_whitelisted                : true,
-                    check_mode                    : "GMV",
-                    gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true
+                    is_whitelisted         : true,
+                    check_mode             : "GMV",
+                    value                  : 15,
+                    is_default             : false
+            ]
+            merch_data = [
+                    audience         : "all",
+                    bu             : "3",
+                    bu_line                  : "26",
+                    component_id             : "search_ml",
+                    content_id             : "test_integration_cellphones_mla",
+                    flow: "-1",
+                    logic: "campaigns",
+                    position: 0
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
@@ -602,6 +640,12 @@ trackTests {
             query = "this is a query"
             sparkle_info = sparkleInfo
 
+        }
+    }
+
+    test("Search Advertising banners") {
+        "/search/advertising"(platform: "/", type: TrackType.Event) {
+            advertising_id = "sky"
         }
     }
 
