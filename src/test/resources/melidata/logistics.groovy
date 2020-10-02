@@ -332,6 +332,7 @@ trackTests {
             defaultLocation()
             distance = "500"
             context = "could_not_deliver"
+            is_blocking = false
         }
 
         "/logistics/last_mile/detail/start_trip"(platform: "/mobile", type: TrackType.Event) {
