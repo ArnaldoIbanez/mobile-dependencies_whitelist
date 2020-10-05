@@ -666,10 +666,12 @@ trackTests {
         "/advertising/pads2/hub"(platform: "/", type: TrackType.View) {
             tab = "ads"
             campaigns = [
-                    campaign_id: "222222",
-                    budget: "333",
-                    status: "active"
-                ]
+                    [
+                            campaign_id: "222222",
+                            budget: "333",
+                            status: "active"
+                    ]
+            ]
         }
 
         "/advertising/pads2/hub/createcampaign"(platform: "/web", type: TrackType.Event) {
@@ -1269,27 +1271,33 @@ trackTests {
         "/advertising/pads2/hub/upselling/landing"(platform: "/web", type: TrackType.View) {
             total_campaigns = 10
             campaigns = [
-                        campaign_id: 123456,
-                        budget_old: 2000,
+                    {
+                        campaign_id: 123456
+                        budget_old: 2000
                         budget_new: 3000
+                    }
             ]
         }
 
         "/advertising/pads2/hub/upselling/landing/breadcrumb"(platform: "/web", type: TrackType.Event) {
             total_campaigns = 10
             campaigns = [
-                    campaign_id: 123456,
-                    budget_old: 2000,
-                    budget_new: 3000
+                    {
+                        campaign_id: 123456
+                        budget_old: 2000
+                        budget_new: 3000
+                    }
             ]
         }
 
         "/advertising/pads2/hub/upselling/landing/go"(platform: "/web", type: TrackType.Event) {
             total_campaigns = 10
             campaigns = [
-                    campaign_id: 123456,
-                    budget_old: 2000,
-                    budget_new: 3000
+                    {
+                        campaign_id: 123456
+                        budget_old: 2000
+                        budget_new: 3000
+                    }
             ]
         }
 

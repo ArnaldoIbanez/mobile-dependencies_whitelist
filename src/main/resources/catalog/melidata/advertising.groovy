@@ -980,6 +980,8 @@ tracks {
 
     // Multicampaña - Upselling x Campaigns
 
+    "/advertising/pads2/hub/box"(platform: "/", isAbstract: true) {}
+
     "/advertising/pads2/hub/box/upselling"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
         total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
     }
@@ -990,18 +992,18 @@ tracks {
 
     "/advertising/pads2/hub/upselling/landing"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
         total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
-        campaigns(required: true, type: PropertyType.ArrayList(PropertyType.Map(campaigns_budget_definition)), description: "Array campaigns")
+        campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_budget_definition)), description: "Array campaigns")
     }
 
     "/advertising/pads2/hub/upselling/landing/breadcrumb"(platform: "/", type: TrackType.Event) {
         total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
-        campaigns(required: true, type: PropertyType.ArrayList(PropertyType.Map(campaigns_budget_definition)), description: "Array campaigns")
+        campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_budget_definition)), description: "Array campaigns")
     }
 
 
     "/advertising/pads2/hub/upselling/landing/go"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {
         total_campaigns(required: true, type: PropertyType.Numeric, description: "Number of total campaigns")
-        campaigns(required: true, type: PropertyType.ArrayList(PropertyType.Map(campaigns_budget_definition)), description: "Array campaigns")
+        campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_budget_definition)), description: "Array campaigns")
     }
 
 
