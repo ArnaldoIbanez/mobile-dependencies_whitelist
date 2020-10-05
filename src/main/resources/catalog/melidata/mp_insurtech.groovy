@@ -369,6 +369,13 @@ tracks {
     "/insurtech/protections/claims"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")
     }
+    "/insurtech/protections/claims/cancel"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")
+    }
+    "/insurtech/protections/claims/execute"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")
+    }
+
     "/insurtech/protections/claims/use-service"(platform:"/", type: TrackType.Event) {}
     "/insurtech/protections/claims/use-service-certificate"(platform:"/", type: TrackType.Event) {}
     "/insurtech/protections/claims/use-service-not-certificate"(platform:"/", type: TrackType.Event) {}
@@ -381,6 +388,10 @@ tracks {
     }
     "/insurtech/protections/claims/click-help"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         help_id(required: true, type: PropertyType.String, description: "")
+    }
+
+    "/insurtech/protections/claims/need-help"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")
     }
 
     "/insurtech/protections/claims/cancel/reasons"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
@@ -398,8 +409,8 @@ tracks {
     "/insurtech/protections/claims/cancel/review"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")
     }
-    "/insurtech/protections/claims/cancel/review/cancel"(platform:"/", type: TrackType.Event) {}
-    "/insurtech/protections/claims/cancel/review/keep"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/cancel/review-cancel"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/cancel/review-keep"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/claims/cancel/congrats-success"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")
@@ -412,36 +423,36 @@ tracks {
     "/insurtech/protections/claims/execute/item"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")
     }
-    "/insurtech/protections/claims/execute/item/confirm"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/execute/item-confirm"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/claims/execute/description"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")
     }
-    "/insurtech/protections/claims/execute/description/confirm"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/execute/description-confirm"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/claims/execute/questions"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")
     }
 
-    "/insurtech/protections/claims/execute/questions/click-reasons"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+    "/insurtech/protections/claims/execute/questions-click-reasons"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         reason_id(required: true, type: PropertyType.String, description: "")
     }
-    "/insurtech/protections/claims/execute/questions/click-police-report"(platform:"/", type: TrackType.Event) {}
-    "/insurtech/protections/claims/execute/questions/click-not-police-report"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/execute/questions-click-police-report"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/execute/questions-click-not-police-report"(platform:"/", type: TrackType.Event) {}
 
 
     "/insurtech/protections/claims/execute/address"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")
     }
-   "/insurtech/protections/claims/execute/address/check"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
+   "/insurtech/protections/claims/execute/address-check"(platform:"/", type: TrackType.Event, parentPropertiesInherited:false) {
         address_id(required: true, type: PropertyType.String, description: "")
     }
-    "/insurtech/protections/claims/execute/address/confirm"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/execute/address-confirm"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/claims/execute/review"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")
     }
-    "/insurtech/protections/claims/execute/address/review"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/execute/address-review"(platform:"/", type: TrackType.Event) {}
 
    "/insurtech/protections/claims/execute/congrats-success"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")
@@ -454,11 +465,11 @@ tracks {
     "/insurtech/protections/claims/execute/certificate-update"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")
     }
-    "/insurtech/protections/claims/execute/certificate-update/confirm"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/execute/certificate-update-confirm"(platform:"/", type: TrackType.Event) {}
 
     "/insurtech/protections/claims/execute/franchise"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         claim(required: true, type: PropertyType.Map(claim_garex_roda), description: "Claim data")    
     }
-    "/insurtech/protections/claims/execute/franchise/confirm"(platform:"/", type: TrackType.Event) {}
-    "/insurtech/protections/claims/execute/franchise/cancel"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/execute/franchise-confirm"(platform:"/", type: TrackType.Event) {}
+    "/insurtech/protections/claims/execute/franchise-cancel"(platform:"/", type: TrackType.Event) {}
 }
