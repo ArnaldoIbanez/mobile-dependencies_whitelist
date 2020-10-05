@@ -157,8 +157,12 @@ trackTests {
         }
 
         //Mobile
-        "/garex/checkout"(platform:"/mobile", type: TrackType.View) {}
-        "/garex/checkout/more_info"(platform:"/mobile", type: TrackType.Event) {}
+        "/garex/checkout"(platform:"/mobile", type: TrackType.View) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
+        "/garex/checkout/more_info"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
         "/garex/checkout/selected_garex"(platform:"/mobile", type: TrackType.Event) {
             garex_id = "MLA390289_GAR16001"
             period = 24
@@ -166,13 +170,57 @@ trackTests {
             revenue_share_fee = 71.3
             revenue = 863.80
             currency_id = "ARS"
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
         }
-        "/garex/checkout/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {}
+        "/garex/checkout/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
         "/garex/checkout/delete"(platform:"/mobile", type: TrackType.Event) {
             garex_id = "MLA390289_GAR16001"
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
             cost = 1234
             currency_id = "ARS"
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
+
+        "/garex/checkout/back"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
+
+        "/garex/checkout/tap_selector"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+            garex_id = "MLA390289_GAR16001"
+            period = 24
+            cost = 1234
+            revenue_share_fee = 71.3
+            revenue = 863.80
+            currency_id = "ARS"
+        }
+
+        "/garex/checkout/selected_warranty_option"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+            garex_id = "MLA390289_GAR16001"
+            period = 24
+            cost = 1234
+            revenue_share_fee = 71.3
+            revenue = 863.80
+            currency_id = "ARS"
+        }
+
+        "/garex/checkout/conditions_disclaimer"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
+        
+        "/garex/checkout/terms_disclaimer"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
+
+        "/garex/skeleton"(platform:"/mobile", type: TrackType.View) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
+
+        "/garex/skeleton/back"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
         }
     }
 
@@ -191,12 +239,12 @@ trackTests {
                 [
                     coverage: "theft_break",
                     price: 123.33,
-                    deductible: 30.44
+                    deductible_amount: 12.33,
                 ],
                 [
                     coverage: "theft_break",
                     price: 100.33,
-                    deductible: 20.44
+                    deductible_amount: 12.33,
                 ]
             ]
             financing_type = null
@@ -213,7 +261,7 @@ trackTests {
                 [
                     coverage: "total",
                     price: 123.33,
-                    deductible: 30.44
+                    deductible_amount: 12.33,
                 ],
             ]
             financing_type = [
@@ -277,7 +325,6 @@ trackTests {
                 monthly_price: 15.44,
                 fee_price: 10.44,
                 currency_id: "BRL",
-                deductible: 10.25,
                 deductible_amount: 20.00,
                 check: "total"
             ]
@@ -301,7 +348,6 @@ trackTests {
                 monthly_price: 15.44,
                 fee_price: 10.44,
                 currency_id: "BRL",
-                deductible: 10.25,
                 deductible_amount: 20.00,
                 check: "total"
             ]
@@ -540,6 +586,7 @@ trackTests {
             action_description = "Ir al inicio"
         }
 
+        // INSURTECH Protections - my-fe
         "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {
             device = [
                 brand: "Samsung",
@@ -733,5 +780,176 @@ trackTests {
                 ]
             ]
         }
+
+        // INSURTECH Protections Detail - my-detail-fe
+        "/insurtech/protections/detail/roda"(platform:"/mobile", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+        "/insurtech/protections/detail/roda"(platform:"/web", type: TrackType.View) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/begin_claim"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/download_policy"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/pay"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+            type = 'pending_payment'
+        }
+
+        "/insurtech/protections/detail/roda/recommendations"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/cancel"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/help"(platform:"/web", type: TrackType.Event) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/payment_ticket_instructions"(platform:"/web", type: TrackType.View) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+            type = 'deductible'
+        }
+
+        "/insurtech/protections/detail/roda/claim_detail"(platform:"/web", type: TrackType.View) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+            claim = [
+                id: "ABC125-DEEF",
+                franchise_payment_id: 10021312312,
+                franchise_payment_amount:  10.72,
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/claim_detail"(platform:"/web", type: TrackType.View) {
+            protection = [
+                insurance_purchase_key: "roda-ABC125",
+                amount_total: 100.72,
+                amount_fee:  10.72,
+                option_check: "total",
+                option_coverage: "theft_break",
+                deductible_amount: 10.72,
+                has_open_claim: false,
+                is_current_device_protection: false,
+            ]
+            claim = [
+                id: "ABC125-DEEF",
+            ]
+        }
+
+        "/insurtech/protections/detail/roda/phone_activation"(platform:"/web", type: TrackType.View) {}
+
+        "/insurtech/protections/detail/roda/shipping_instructions"(platform:"/web", type: TrackType.View) {}
+
+        "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {
+            device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+        }∫
+        "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {}
     }
 }

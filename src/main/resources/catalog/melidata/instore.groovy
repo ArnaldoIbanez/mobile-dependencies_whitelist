@@ -75,6 +75,8 @@ tracks {
     }
     "/instore/amount/calculator"(platform: "/mobile", type: TrackType.View) {}
     "/instore/amount/calculator/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/amount/calculator/error"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/amount/calculator/error/retry"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/amount/price_list"(platform: "/mobile", type: TrackType.View) {
         available_prices(required: false, PropertyType.String)
@@ -82,6 +84,8 @@ tracks {
         visible_prices(required: false, PropertyType.Numeric)
     }
     "/instore/amount/price_list/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/amount/price_list/error"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/amount/price_list/error/retry"(platform: "/mobile", type: TrackType.Event) {}
 
 
     // Generic Error
@@ -169,6 +173,10 @@ tracks {
     "/instore/error/invalid_user_point_uif"(platform: "/mobile", type: TrackType.View) {}
     "/instore/error/invalid_user_point_uif/back"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/invalid_user_point_uif/abort"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/invalid_user_seller_uif"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/invalid_user_seller_uif/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/invalid_user_seller_uif/abort"(platform: "/mobile", type: TrackType.Event) {}
 
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
@@ -685,9 +693,29 @@ tracks {
         status(required: true, PropertyType.String)
     }
 
+    "/instore/buyer_qr/landing/offline"(platform: "/mobile", type: TrackType.View) {}
+
     "/instore/buyer_qr/landing/wrong_time"(platform: "/mobile", type: TrackType.View) {
         device_time_difference(required: true, PropertyType.Numeric, description: "Time difference between the server and the device in millis")
         device_time_range_status(required: true, PropertyType.String, values:["below_time_range", "above_time_range"], description:  "if the time difference is below or above the servers")
+    }
+
+    "/instore/buyer_qr/landing/back_office_pending"(platform: "/mobile", type: TrackType.View) {
+        regulation_name(required: true, PropertyType.String, description: "The name of the regulation corresponding to the landing")
+        regulation_user_status(required: true, PropertyType.String, description:  "The user status in the regulation")
+        regulation_evaluation_result(required: true, PropertyType.String, description: "The evaluation result according the regulation landing")
+    }
+
+    "/instore/buyer_qr/landing/no_terms_and_conditions"(platform: "/mobile", type: TrackType.View) {
+        regulation_name(required: true, PropertyType.String, description: "The name of the regulation corresponding to the landing")
+        regulation_user_status(required: true, PropertyType.String, description:  "The user status in the regulation")
+        regulation_evaluation_result(required: true, PropertyType.String, description: "The evaluation result according the regulation landing")
+    }
+
+    "/instore/buyer_qr/landing/ifpe_no_apliance"(platform: "/mobile", type: TrackType.View) {
+        regulation_name(required: true, PropertyType.String, description: "The name of the regulation corresponding to the landing")
+        regulation_user_status(required: true, PropertyType.String, description:  "The user status in the regulation")
+        regulation_evaluation_result(required: true, PropertyType.String, description: "The evaluation result according the regulation landing")
     }
 
     //Buyer QR - Generic Error
@@ -814,7 +842,7 @@ tracks {
         focus_mode(required: false, PropertyType.String, description: "how the focus will work - iOS only")
         torch_enabled(required: true, PropertyType.Boolean)
         spinner_enabled(required: true, PropertyType.Boolean)
-        redesign_enabled(required: true, PropertyType.Boolean)
+        smart_context_enabled(required: true, PropertyType.Boolean, description: "scanner built with smart context enabled")
         auto_start(required: true, PropertyType.Boolean, description: "automatically start after inizialitation")
         auto_stop(required: true, PropertyType.Boolean, description: "automatically stop after resolve or scan")
         auto_resolve(required: true, PropertyType.Boolean, description: "automatically resolve code after scan")

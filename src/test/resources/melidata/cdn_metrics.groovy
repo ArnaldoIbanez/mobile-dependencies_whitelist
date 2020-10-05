@@ -9,11 +9,11 @@ trackTests {
 
     test("CDN Metrics tracks test") {
         def defaultTrackInformation = {
-            filename = "https://assets.mlstatic.com/frontend-assets/frontend-cdn-metrics/assets/home.desktop.css"
+            fileName = "https://assets.mlstatic.com/frontend-assets/frontend-cdn-metrics/assets/home.desktop.css"
             size = 0
             duration = 601.4849999992293
-            cdn_provider = "google"
-            cache_status = "MISS"
+            cdnProvider = "google"
+            cacheStatus = "MISS"
             connection = "4g"
         }
 

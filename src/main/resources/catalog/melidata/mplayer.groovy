@@ -57,6 +57,12 @@ tracks {
     "/mplayer/send_money/result/in_process"(platform: "/mobile", type: TrackType.View) {
     }
 
+    "/mplayer/send_money/redirector"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/send_money/redirector/manual_amount"(platform: "/mobile", type: TrackType.View) {
+        flow(required: true, PropertyType.String, description: "the source flow")
+        contact_type(required: true, PropertyType.String, description: "the type of the contact")
+    }
+
     // Closed Request
     "/mplayer/closed_request"(platform: "/mobile", isAbstract: true) {}
     "/mplayer/closed_request/onboarding"(platform: "/mobile", type: TrackType.View) {}

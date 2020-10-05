@@ -199,6 +199,15 @@ tracks {
         intent_value(required: false, type: PropertyType.String, description: "this property describes the intent value if exists")
         field_intent_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the field ids for the intent")
         pictures_info(required: true, type: PropertyType.ArrayList(PropertyType.Map(picture_info_map)), description: "this property describes array of pictures information")
+
+        // Seller Metrics
+        applied_filters(required: false, type: PropertyType.ArrayList, description: "List of applied filters")
+        finish_period(required: false, type: PropertyType.String, description: "Finish period ID")
+        start_period(required: false, type: PropertyType.String, description: "Start period ID")
+        from_previous(required: false, type: PropertyType.String, description: "From start date")
+        from_current(required: false, type: PropertyType.String, description: "From end date")
+        to_previous(required: false, type: PropertyType.String, description: "To start date")
+        to_current(required: false, type: PropertyType.String, description: "To end date")
     }
 
     propertyGroups {
@@ -220,6 +229,9 @@ tracks {
         intentGroup(intent_type, intent_value)
         technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
         pictureIntentGroup(intent_type, pictures_info)
+
+        // Seller Metrics
+        sellerMetricsContext(applied_filters, finish_period, start_period, from_previous, from_current, to_previous, to_current)
     }
 
     // Summary
@@ -243,6 +255,17 @@ tracks {
         adv_segmentation(required: false, description: "Advertisement segmentation ")
         reputation_level(required: false, values: ["1_red", "2_orange", "3_yellow", "4_light_green", "5_green"], description: "Reputation for Pads")
         seller_experience(required: false, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
+    }
+
+    "/seller_central/summary/notice"(platform: "/web", type: TrackType.Event) {
+        goal(required: true, description: "The primary goal of the clicked notice")
+        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
+    }
+
+    "/seller_central/summary/task"(platform: "/web", type: TrackType.Event) {
+        module_id(required: true, description: "Identification for group task module")
+        task_id(required: true, description: "The id of selected task")
+        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
     }
 
 
@@ -683,6 +706,13 @@ tracks {
         sellerCentralModifyCardsGroup
     }
 
+    "/seller_central/modify/update_sales_channel"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyGroupTableForPdp
+        marketplace(required: true, type: PropertyType.Boolean, description: "if MercadoLibre channel is selected")
+        mshops(required: true, type: PropertyType.Boolean, description: "if MercadoShops channel is selected")
+    }
+
     "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
@@ -732,6 +762,12 @@ tracks {
     }
 
     "/seller_central/modify/update_price_push_winner_pdp"(platform: "/", type: TrackType.Event) {
+        sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
+        sellerCentralModifyGroupTableForPdp
+    }
+
+    "/seller_central/modify/update_rebate"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
         sellerCentralModifyCardsGroupValue
         sellerCentralModifyGroupTableForPdp
@@ -1118,7 +1154,12 @@ tracks {
 
     "/seller_central/sales/fiscal_document"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
     "/seller_central/sales/fiscal_document/action"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
-    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
+    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", isAbstract: true, type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "action ID")
+    }
+    "/seller_central/sales/fiscal_document/action/primary"(platform: "/web", isAbstract: true, type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "action ID")
+    }
     "/seller_central/sales/fiscal-document"(platform: "/web", isAbstract: true, type: TrackType.View) {}
 
     // METRICS SECTION
@@ -1128,6 +1169,46 @@ tracks {
     }
 
     "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
+
+    "/seller_central/metrics/show_filters"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        sellerMetricsContext
+    }
+
+    "/seller_central/metrics/clear_filters"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        sellerMetricsContext
+    }
+
+    "/seller_central/metrics/apply_filters"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        sellerMetricsContext
+    }
+
+    "/seller_central/metrics/close_filters"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        sellerMetricsContext
+    }
+
+    "/seller_central/metrics/chart_render"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        sellerMetricsContext
+        metric(required: true, type: PropertyType.String, description: "Metric ID")
+        value(required: true, type: PropertyType.String, description: "Value of metric")
+        badget_type(required: true, type: PropertyType.String, description: "Badge type")
+    }
+
+    "/seller_central/metrics/date_picker_show"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        sellerMetricsContext
+        period_type(required: true, type: PropertyType.String, description: "Period type")
+    }
+
+    "/seller_central/metrics/date_picker_apply"(platform: "/web", type: TrackType.Event) {
+        sellerCentralUserSales
+        sellerMetricsContext
+        period_type(required: true, type: PropertyType.String, description: "Period type")
+    }
 
     // CATALOG OPTIN SECTION
 

@@ -6,7 +6,7 @@ trackTests {
     defaultBusiness = "mercadopago"
 
     /******************************************
-    *              MP FRONT CORE              *
+    *     Payments - All - Front End Core     *
     ******************************************/
 
     /**
@@ -53,18 +53,6 @@ trackTests {
 
     test("Mercadopago Activities Detail Shipping") {
         "/activity/detail/shipping" (platform: "/web", type: TrackType.View) {}
-    }
-
-    test("Mercadopago Activities Balance") {
-        "/activities/balance" (platform: "/web", type: TrackType.View) {}
-    }
-
-    test("Mercadopago Activities PNF Adelantos") {
-        "/activities/balance/advances" (platform: "/web", type: TrackType.View) {}
-    }
-
-    test("Mercadopago Activities PNF Adelantos Congrats") {
-        "/activities/balance/advances/congrats" (platform: "/web", type: TrackType.View) {}
     }
 
     test("Mercadopago Activities Export") {
@@ -121,16 +109,20 @@ trackTests {
         "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
     }
 
-    test("Banking Balannce MP") {
+    test("Mercadopago Banking Balance") {
         "/banking/balance"(platform: "/", type: TrackType.View) {}
     }
 
-    test("Banking Calendar MP") {
+    test("Mercadopago Banking Balance Calendar") {
         "/banking/calendar"(platform: "/", type: TrackType.View) {}
     }
 
-    test("Banking Activities") {
+    test("Mercadopago Banking Balance Activities") {
         "/banking/activities"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Mercadopago Banking Movements") {
+        "/banking/movements"(platform: "/", type: TrackType.View) {}
     }
 
     test("Banking PNF") {
@@ -140,7 +132,6 @@ trackTests {
     /**
      * Tracks Tests - Public Context
      */
-
     test("Digital Wallet") {
         "/digital_wallet"(platform: "/", type: TrackType.View) {}
         "/digital_wallet/click_show_video"(platform: "/", type: TrackType.Event) {
@@ -149,6 +140,10 @@ trackTests {
         "/digital_wallet/click_download_app"(platform: "/", type: TrackType.Event) {
             section_store = "hero_playstore"
         }
+    }
+
+    test("Mercadopago Landing Cuenta / Conta") {
+        "/landing/digital_account" (platform: "/") {}
     }
 
     test("Business Site") {
@@ -167,7 +162,7 @@ trackTests {
           section = "last"
         }
     }
-    
+
     test("Splinter MP Landings") {
       "/landing/marketing"(platform: "/", type: TrackType.View) {
         key = 'landing-de-prueba'

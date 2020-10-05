@@ -61,6 +61,9 @@ trackTests {
 
         "/money_in/onboarding/enter"(platform: "/", type: TrackType.Event) {}
         "/money_in/onboarding/close"(platform: "/", type: TrackType.Event) {}
+        "/money_in/kyc/onboarding"(platform: "/", type: TrackType.View) {}
+        "/money_in/kyc/onboarding/continue"(platform: "/", type: TrackType.Event) {}
+        "/money_in/kyc/onboarding/close"(platform: "/", type: TrackType.Event) {}
 
         //TED
 
@@ -191,8 +194,25 @@ trackTests {
         "/money_in/cash/ifpe_cap_exceeded/insert_other_amount"(platform: "/", type: TrackType.Event) {}
         "/money_in/cash/ifpe_cap_exceeded/help"(platform: "/", type: TrackType.Event) {}
 
-        // PIX keys
+        //PIX keys - Congrats
         "/money_in/pix_keys/enroll_congrats"(platform: "/", type: TrackType.View) {}
+        //PIX keys - Admin
+        "/money_in/pix_keys/onboarding"(platform: "/", type: TrackType.View) {}
+        "/money_in/pix_keys/onboarding/continue"(platform: "/", type: TrackType.Event) {}
+        "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {}
+        "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {}
+        "/money_in/pix_keys/admin"(platform: "/", type: TrackType.View) {}
+        "/money_in/pix_keys/admin/resolve_request"(platform: "/", type: TrackType.Event) {}
+        "/money_in/pix_keys/admin/detail_key"(platform: "/", type: TrackType.Event) {}
+        "/money_in/pix_keys/admin/add_key"(platform: "/", type: TrackType.Event) {}
+        "/money_in/pix_keys/key_detail"(platform: "/", type: TrackType.View) {}
+        "/money_in/pix_keys/key_detail/remove_key"(platform: "/", type: TrackType.Event) {}
+        "/money_in/pix_keys/key_claim_detail"(platform: "/", type: TrackType.View) {}
+        "/money_in/pix_keys/key_claim_detail/approve"(platform: "/", type: TrackType.Event) {}
+        "/money_in/pix_keys/key_claim_detail/reject"(platform: "/", type: TrackType.Event) {}
+        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {}
+        "/money_in/pix_keys/congrats/continue"(platform: "/", type: TrackType.Event) {}
+        "/money_in/pix_keys/notification"(platform: "/", type: TrackType.Event) {}
 
     }
 

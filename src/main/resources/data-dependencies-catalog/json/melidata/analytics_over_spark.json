@@ -90,10 +90,6 @@
       {
         "name": "table_read",
         "type": "UNICODE_STRING"
-      },
-      {
-        "name": "failure_reason",
-        "type": "UNICODE_STRING"
       }
     ],
     "sql": {

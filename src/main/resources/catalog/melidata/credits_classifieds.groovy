@@ -36,6 +36,7 @@ tracks {
                 "banco_do_brasil",
                 "bradesco",
                 "itau",
+                "votorantim",
             ]
         )
         congrats_status(required: false, type: PropertyType.String, description: "Status credits", values: ["APPROVED", "IN_ANALYSIS", "REJECTED", "ERROR", "PRE_ANALYSIS_REJECTED", "PRE_ANALYSIS_ERROR"])

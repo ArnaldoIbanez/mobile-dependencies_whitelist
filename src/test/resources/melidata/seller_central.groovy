@@ -283,6 +283,21 @@ trackTests {
     }
   }
 
+  test("Seller central summary notice click") {
+    "/seller_central/summary/notice"(platform: "/web", type: TrackType.Event) {
+      goal = "best_price"
+      seller_experience = "ADVANCED"
+    }
+  }
+
+  test("Seller central summary task click") {
+    "/seller_central/summary/task"(platform: "/web", type: TrackType.Event) {
+      module_id = "listing"
+      task_id = "BEST_PRICE_ELIGIBLE"
+      seller_experience = "ADVANCED"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1024,6 +1039,21 @@ trackTests {
     }
   }
 
+  test("seller central update salesChannel"){
+    "/seller_central/modify/update_sales_channel"(platform: "/", type: TrackType.Event){
+      item_type = "product"
+      category_id = "MLA390784"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+      marketplace = true
+      mshops = true
+    }
+  }
+
   test("seller central price value updated"){
     "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event){
       item_type = "product"
@@ -1146,6 +1176,21 @@ trackTests {
 
   test("seller central item price push winner was updated"){
     "/seller_central/modify/update_price_push_winner_pdp"(platform: "/", type: TrackType.Event) {
+      item_type = "product"
+      category_id = "MLA390784"
+      item_id = "MLA682118081"
+      session_id = "123-update-abc123"
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      from = "-1"
+      to = "6270"
+      listing_type = "gold_pro"
+      shipping_local_pickup = true
+    }
+  }
+
+  test("seller central rebate chosen"){
+    "/seller_central/modify/update_rebate"(platform: "/", type: TrackType.Event) {
       item_type = "product"
       category_id = "MLA390784"
       item_id = "MLA682118081"
@@ -1844,7 +1889,15 @@ trackTests {
   }
 
   test("upload invoices view secondary actions") {
-    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", type: TrackType.Event) {
+      id = "fiscal_document_go_back"
+    }
+  }
+
+  test("upload invoices view primary actions") {
+    "/seller_central/sales/fiscal_document/action/primary"(platform: "/web", type: TrackType.Event) {
+      id = "save_fiscal_document"
+    }
   }
 
   test("upload invoices view actions") {
@@ -1875,6 +1928,130 @@ trackTests {
 
   test("metrics section view for mobile") {
     "/seller_central/metrics"(platform: "/web/mobile", type: TrackType.View) {}
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/show_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/clear_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/apply_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/close_filters"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/chart_render"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+      metric = "GMV"
+      value = "2000"
+      badget_type = "up"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/date_picker_show"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+      period_type = "primary"
+    }
+  }
+
+  test("metrics section view for web") {
+    "/seller_central/metrics/date_picker_apply"(platform: "/web", type: TrackType.Event) {
+      seller_profile = "ADVANCED"
+      seller_reputation = "5_green"
+      seller_segment = "MEDIUM_SELLERS_III"
+      mercado_lider = false
+      user_type = "real_estate_agency"
+      applied_filters = []
+      finish_period = "lastPeriod"
+      start_period = "today"
+      from_previous = "02/01/2020"
+      from_current = "02/01/2020"
+      to_previous = "01/01/2020"
+      to_current = "01/01/2020"
+      period_type = "primary"
+    }
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------
