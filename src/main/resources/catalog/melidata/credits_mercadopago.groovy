@@ -1028,8 +1028,8 @@ tracks {
             required: false,
             inheritable: false
         )
-        requested_amount(
-                description: "User requested amount",
+        default_amount(
+                description: "Default requested amount",
                 type: PropertyType.Numeric,
                 required: false,
         )
@@ -1046,6 +1046,11 @@ tracks {
         default_payment_term(
                 description: "Default payment term selected",
                 type: PropertyType.String,
+                required: false,
+        )
+        payment_terms(
+                description: "Available payment terms",
+                type: PropertyType.ArrayList,
                 required: false,
         )
     }
