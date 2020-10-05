@@ -1280,4 +1280,24 @@ trackTests {
             suggested_budget = "7000"
         }
     }
+
+    test("Advertising Manager Traces") {
+        
+        "/advertising/pads2/manager/traces"(platform: "/", type: TrackType.Event) {
+            action = "Access_Campaign_Tab"
+            owner_id = 666
+            collaborator_id = 777
+            is_collaborator = true
+            quantity = 1
+            previous_value = "previous"
+            next_value = "next"
+            campaign_id = 1
+        }
+
+        "/advertising/pads2/manager/traces"(platform: "/", type: TrackType.Event) {
+            action = "Access_Campaign_Tab"
+            owner_id = 666
+            is_collaborator = false
+        }
+    }
 }

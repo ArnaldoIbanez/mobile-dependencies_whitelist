@@ -990,4 +990,17 @@ tracks {
     }
 
     "/advertising/pads2/manager/budget/suggested"(platform: "/", type: TrackType.Event) {}
+
+    // Operation Traces
+
+    "/advertising/pads2/manager/traces"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        action(required: true, type: PropertyType.String, description: "Action performed")
+        owner_id(required: true, type: PropertyType.Numeric, description: "Owner user id")
+        collaborator_id(required: false, type: PropertyType.Numeric, description: "Collaborator user id, if available")
+        is_collaborator(required: true, type: PropertyType.Boolean, description: "User is collaborator")
+        quantity(required: false, type: PropertyType.Numeric, description: "Quantity associated with event, if available")
+        previous_value(required: false, type: PropertyType.String, description: "Previous value associated with event, if available")
+        next_value(required: false, type: PropertyType.String, description: "Next value associated with event, if available")
+        campaign_id(required: false, type: PropertyType.Numeric, description: "Campaing id, if available")
+    }
 }
