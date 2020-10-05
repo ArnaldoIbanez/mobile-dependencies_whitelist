@@ -20,11 +20,6 @@ trackTests {
             url              : "http://example.com"
     ]
 
-    def highlightInfo = [
-            bestSellerInfo,
-            melichoiceInfo
-    ]
-
     def bestSellerInfo = [
             candidates   : ["MLB1","MLB2"],
             selected     : [ "MLB2" ],
@@ -37,6 +32,11 @@ trackTests {
                     ["id": "MLB5", "origin":"killer_matched"]
             ],
             selected     : [ "MLB3","MLB4" ],
+    ]
+
+    def highlightInfo = [
+            bestSellerInfo,
+            melichoiceInfo
     ]
 
     def tagTrackingInfo = [
