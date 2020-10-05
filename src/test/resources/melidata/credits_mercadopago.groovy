@@ -705,26 +705,29 @@ trackTests {
 
         "/credits/express_money/amount_input"(platform: "/web/desktop", type: TrackType.View) {
             show_onboarding = true
-            requested_amount = 1000
+            default_amount = 1000
             max_amount = 1000
             min_amount = 100
             default_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
         }
 
         "/credits/express_money/amount_input"(platform: "/mobile/android") {
             show_onboarding = true
-            requested_amount = 1000
+            default_amount = 1000
             max_amount = 1000
             min_amount = 100
             default_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
         }
 
         "/credits/express_money/amount_input"(platform: "/mobile/ios") {
             show_onboarding = false
-            requested_amount = 1000
+            default_amount = 1000
             max_amount = 1000
             min_amount = 100
             default_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
         }
 
         "/credits/express_money/amount_input"(platform: "/web/desktop") {}
