@@ -109,26 +109,6 @@ trackTests {
         "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
     }
 
-    test("Mercadopago Banking Balance") {
-        "/banking/balance"(platform: "/", type: TrackType.View) {}
-    }
-
-    test("Mercadopago Banking Balance Calendar") {
-        "/banking/calendar"(platform: "/", type: TrackType.View) {}
-    }
-
-    test("Mercadopago Banking Balance Activities") {
-        "/banking/activities"(platform: "/", type: TrackType.View) {}
-    }
-
-    test("Mercadopago Banking Movements") {
-        "/banking/movements"(platform: "/", type: TrackType.View) {}
-    }
-
-    test("Banking PNF") {
-        "/banking/pnf"(platform: "/", type: TrackType.View) {}
-    }
-
     /**
      * Tracks Tests - Public Context
      */

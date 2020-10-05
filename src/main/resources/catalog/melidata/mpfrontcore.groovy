@@ -129,20 +129,6 @@ tracks {
     // MP Webview COVID - Custom Amount
     "/mp_covid/custom_amount"(platform: "/", type: TrackType.View) {}
 
-    // MP Banking
-    "/banking"(platform: "/", isAbstract: true) {}
-
-    // MP Banking - Balance
-    "/banking/balance"(platform: "/", type: TrackType.View) {}
-    "/banking/calendar"(platform: "/", type: TrackType.View) {}
-    "/banking/activities"(platform: "/", type: TrackType.View) {}
-
-    // MP Banking - PNF
-    "/banking/pnf"(platform: "/", type: TrackType.View) {}
-
-    // MP Banking - Movements
-    "/banking/movements"(platform: "/", type: TrackType.View) {}
-
     /******************************************
     *         Tracks - Public Context         *
     ******************************************/

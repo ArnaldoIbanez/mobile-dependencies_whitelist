@@ -9,15 +9,23 @@ trackTests {
     *  Payments - Digital Accounts - Banking  *
     ******************************************/
 
-    test("Banking Balance MP") {
+    test("Balance") {
         "/banking/balance"(platform: "/", type: TrackType.View) {}
     }
 
-    test("Banking Calendar MP") {
+    test("Balance Calendar") {
         "/banking/calendar"(platform: "/", type: TrackType.View) {}
     }
 
-    test("Banking PNF") {
+    test("Balance Activities") {
+        "/banking/activities"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("Movements") {
+        "/banking/movements"(platform: "/", type: TrackType.View) {}
+    }
+
+    test("PNF") {
         "/banking/pnf"(platform: "/", type: TrackType.View) {}
     }
 }
