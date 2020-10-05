@@ -217,7 +217,6 @@ tracks {
 
         // PRICING 2.0
         pricing_info
-
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
