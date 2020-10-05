@@ -20,11 +20,23 @@ trackTests {
             url              : "http://example.com"
     ]
 
+    def highlightInfo = [
+            bestSellerInfo,
+            melichoiceInfo
+    ]
+
     def bestSellerInfo = [
-            candidates   : 10,
-            selected     : [ "MLA1234" ],
-            selected_qty : 1,
-            selected_positions : [ 1, 3, 5 ]
+            candidates   : ["MLB1","MLB2"],
+            selected     : [ "MLB2" ],
+    ]
+
+    def melichoiceInfo = [
+            candidates   : [
+                    ["id": "MLB3", "origin":"killer_matched"],
+                    ["id": "MLB4", "origin":"killer_matched"],
+                    ["id": "MLB5", "origin":"killer_matched"]
+            ],
+            selected     : [ "MLB3","MLB4" ],
     ]
 
     def tagTrackingInfo = [
@@ -170,7 +182,7 @@ trackTests {
             promoted_items = ["MLA1", "MLA2"]
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
-            best_seller_info = bestSellerInfo
+            highlight_info = highlightInfo
             tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
@@ -299,7 +311,7 @@ trackTests {
             promoted_items = ["MLA1", "MLA2"]
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
-            best_seller_info = bestSellerInfo
+            highlight_info = highlightInfo
             tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
