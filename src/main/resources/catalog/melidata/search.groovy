@@ -41,11 +41,24 @@ tracks {
         url(type: PropertyType.String, required: true)
     }
 
+    def highlight_object = objectSchemaDefinitions {
+        best_seller_info(required: false, description: 'best seller tracking info', type: PropertyType.Map(best_seller_object))
+        meli_choice_info(required: false, description: 'meli choice tracking info', type: PropertyType.Map(meli_choice_object))
+    }
+
     def best_seller_object = objectSchemaDefinitions {
-        candidates(type: PropertyType.Numeric, required: true)
-        selected(type: PropertyType.ArrayList(PropertyType.String), required: true)
-        selected_qty(type: PropertyType.Numeric, required: true)
-        selected_positions(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+        candidates(type: PropertyType.ArrayList(PropertyType.String), required: true)
+        selected(type: PropertyType.ArrayList(PropertyType.String), required: false)
+    }
+
+    def meli_choice_object = objectSchemaDefinitions {
+        candidates(type: PropertyType.Map(meli_choice_item), required: true)
+        selected(type: PropertyType.ArrayList(PropertyType.String), required: false)
+    }
+
+    def meli_choice_item = objectSchemaDefinitions {
+        id(type: PropertyType.Map(PropertyType.String), required: true)
+        origin(type: PropertyType.ArrayList(PropertyType.String), required: true)
     }
 
     def tag_tracking_datum_object = objectSchemaDefinitions {
@@ -104,7 +117,7 @@ tracks {
         show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
         sparkle_info(required: false, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
-        best_seller_info(required: false, description: 'best seller tracking info', type: PropertyType.Map(best_seller_object))
+        highlight_object(required: false, description: 'highlight tracking info', type: PropertyType.Map(highlight_object))
         tag_tracking_info(required: false, description: 'tag tracking info', type: PropertyType.Map(tag_tracking_map_object))
 
 
