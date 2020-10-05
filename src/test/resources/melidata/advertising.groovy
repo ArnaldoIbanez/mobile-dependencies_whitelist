@@ -666,11 +666,11 @@ trackTests {
         "/advertising/pads2/hub"(platform: "/", type: TrackType.View) {
             tab = "ads"
             campaigns = [
-                    [
-                            campaign_id: "222222",
-                            budget: "333",
-                            status: "active"
-                    ]
+                    {
+                        campaign_id: "222222"
+                        budget: "333"
+                        status: "active"
+                    }
             ]
         }
 
