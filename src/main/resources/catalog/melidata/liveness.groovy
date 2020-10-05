@@ -7,15 +7,13 @@ import com.ml.melidata.TrackType
 tracks {
     initiative = '1127'
 
-    "/liveness"(platform: "/", isAbstract: true) {
-    	model_id(type: PropertyType.String, required: true, description: "Model id of view")
-    }
+    "/liveness"(platform: "/", isAbstract: true) {}
 
-    "/liveness/enrollment"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/liveness/enrollment"(platform: "/", type: TrackType.Event) {
     	params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
     }
 
-    "/liveness/authentication"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/liveness/authentication"(platform: "/", type: TrackType.Event) {
     	params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
     }
 
