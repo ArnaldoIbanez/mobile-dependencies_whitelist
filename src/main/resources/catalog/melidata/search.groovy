@@ -43,17 +43,17 @@ tracks {
 
     def meli_choice_item = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true)
-        origin(type: PropertyType.String, required: true)
+        origin(type: PropertyType.String, required: true, description: "origin of MC candidate")
     }
 
     def meli_choice_object = objectSchemaDefinitions {
-        candidates(type: PropertyType.ArrayList(PropertyType.Map(meli_choice_item)), required: true)
-        selected(type: PropertyType.ArrayList(PropertyType.String), required: false)
+        candidates(type: PropertyType.ArrayList(PropertyType.Map(meli_choice_item)), required: true, description: "list of melichoice candidates")
+        selected(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "selected melichoice candidates")
     }
 
     def best_seller_object = objectSchemaDefinitions {
-        candidates(type: PropertyType.ArrayList(PropertyType.String), required: true)
-        selected(type: PropertyType.ArrayList(PropertyType.String), required: false)
+        candidates(type: PropertyType.ArrayList(PropertyType.String), required: true, "list of best seller candidates")
+        selected(type: PropertyType.ArrayList(PropertyType.String), required: false, "selected best seller candidates")
     }
 
     def highlight_object = objectSchemaDefinitions {
