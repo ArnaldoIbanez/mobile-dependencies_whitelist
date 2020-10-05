@@ -61,10 +61,10 @@ trackTests {
             vip_version = "new"
             best_seller_position = 5
             highlights = [
-                best_seller_position = 5,
-                melichoice_domain = "CELLPHONES",
-                melichoice_origin = "killer",
-                melichoice_score = 0.3
+                "best_seller_position": 5,
+                "melichoice_domain": "CELLPHONES",
+                "melichoice_origin": "killer",
+                "melichoice_score": 0.3
             ]
         }
 
