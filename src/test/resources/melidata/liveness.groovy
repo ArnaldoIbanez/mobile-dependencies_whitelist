@@ -9,7 +9,6 @@ trackTests {
     test("Liveness mobile android ml") {
 
 		"/liveness/enrollment"(platform: "/mobile/android") {
-			model_id = "test"
             params = "test=true"
         }
 	
@@ -18,7 +17,6 @@ trackTests {
         }
 
 		"/liveness/initialization"(platform: "/mobile/android") {
-			model_id = "test"
             initialization_result = true
         }
 
@@ -57,7 +55,6 @@ trackTests {
 	test("Liveness mobile ios ml") {
 
 		"/liveness/enrollment"(platform: "/mobile/ios") {
-			model_id = "test"
             params = "test=true"
         }
 	
@@ -66,7 +63,6 @@ trackTests {
         }
 
 		"/liveness/initialization"(platform: "/mobile/ios") {
-			model_id = "test"
             initialization_result = true
         }
 
@@ -105,7 +101,6 @@ trackTests {
 	test("Liveness mobile web ml") {
 
 		"/liveness/enrollment"(platform: "/web") {
-			model_id = "test"
             params = "test=true"
         }
 	
@@ -114,7 +109,6 @@ trackTests {
         }
 
 		"/liveness/initialization"(platform: "/web") {
-			model_id = "test"
             initialization_result = true
         }
 
@@ -155,7 +149,6 @@ trackTests {
 	test("Liveness mobile android mp") {
 
 		"/liveness/enrollment"(platform: "/mobile/android") {
-			model_id = "test"
             params = "test=true"
         }
 	
@@ -164,7 +157,6 @@ trackTests {
         }
 
 		"/liveness/initialization"(platform: "/mobile/android") {
-			model_id = "test"
             initialization_result = true
         }
 
@@ -203,7 +195,6 @@ trackTests {
 	test("Liveness mobile ios mp") {
 
 		"/liveness/enrollment"(platform: "/mobile/ios") {
-			model_id = "test"
             params = "test=true"
         }
 	
@@ -212,7 +203,6 @@ trackTests {
         }
 
 		"/liveness/initialization"(platform: "/mobile/ios") {
-			model_id = "test"
             initialization_result = true
         }
 
@@ -251,7 +241,6 @@ trackTests {
 	test("Liveness mobile web mp") {
 
 		"/liveness/enrollment"(platform: "/web") {
-			model_id = "test"
             params = "test=true"
         }
 	
@@ -260,7 +249,6 @@ trackTests {
         }
 
 		"/liveness/initialization"(platform: "/web") {
-			model_id = "test"
             initialization_result = true
         }
 

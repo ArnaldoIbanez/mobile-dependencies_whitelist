@@ -8,14 +8,14 @@ tracks {
     initiative = '1127'
 
     "/liveness"(platform: "/", isAbstract: true) {
-    	model_id(type: PropertyType.String, required: false, description: "Model id of view")
+    	model_id(type: PropertyType.String, required: true, description: "Model id of view")
     }
 
-    "/liveness/enrollment"(platform: "/", type: TrackType.Event) {
+    "/liveness/enrollment"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
     	params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
     }
 
-    "/liveness/authentication"(platform: "/", type: TrackType.Event) {
+    "/liveness/authentication"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
     	params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
     }
 
