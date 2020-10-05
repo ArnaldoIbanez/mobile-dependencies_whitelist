@@ -150,6 +150,7 @@ trackTests {
     test("cards hybrid dashboard") {
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
             message_status = "warning"
@@ -157,6 +158,7 @@ trackTests {
         }
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = "[minicard, flap, activities, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
             activities_status = "activities"
@@ -410,9 +412,7 @@ trackTests {
     
     //Map Info: Tracking
     test("cards hybrid dasboard map info") {
-        "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {
-            action = "map_info"
-        }
+        "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {}
     }
 
     // Generic Webview
@@ -758,9 +758,7 @@ trackTests {
 
     //Map Info: Tracking
     test("cards hybrid limits map info") {
-        "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {
-            action = "map_info"
-        }
+        "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {}
     }
 
     // Request
