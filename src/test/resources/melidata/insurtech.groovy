@@ -210,7 +210,7 @@ trackTests {
         "/garex/checkout/conditions_disclaimer"(platform: "/mobile", type: TrackType.Event) {
             session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
         }
-        
+
         "/garex/checkout/terms_disclaimer"(platform: "/mobile", type: TrackType.Event) {
             session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
         }
@@ -229,7 +229,7 @@ trackTests {
     test('Insurtech - test roda tacking') {
 
         "/insurtech/roda/qpage"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model: "J7",
                 model_code: "SM-J700M",
@@ -251,7 +251,7 @@ trackTests {
         }
 
         "/insurtech/roda/qpage"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model: "J7",
                 model_code: "SM-J700M",
@@ -271,7 +271,7 @@ trackTests {
         }
 
         "/insurtech/roda/qpage/error"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
                 size: "64GB",
@@ -282,7 +282,7 @@ trackTests {
         }
 
         "/insurtech/roda/qpage/fallback"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
                 size: "64GB",
@@ -293,7 +293,7 @@ trackTests {
         }
 
         "/insurtech/roda/qpage/deductible"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model: "J7",
                 model_code: "SM-J700M",
@@ -302,7 +302,7 @@ trackTests {
         }
 
         "/insurtech/roda/qpage/faq"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model: "J7",
                 model_code: "SM-J700M",
@@ -312,7 +312,7 @@ trackTests {
         }
 
         "/insurtech/roda/qpage/buy"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model: "J7",
                 model_code: "SM-J700M",
@@ -335,7 +335,7 @@ trackTests {
         }
 
         "/insurtech/roda/qpage/buy"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model: "J7",
                 model_code: "SM-J700M",
@@ -352,6 +352,25 @@ trackTests {
                 check: "total"
             ]
             financing_type = null
+        }
+
+        "/insurtech/roda/qpage/option_selected"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            option = [
+                id: "123123-asdad",
+                coverage: "theft_break",
+                price: 123.44,
+                monthly_price: 15.44,
+                fee_price: 10.44,
+                currency_id: "BRL",
+                deductible_amount: 20.00,
+                check: "total"
+            ]
         }
 
         //Mobile
@@ -588,7 +607,7 @@ trackTests {
 
         // INSURTECH Protections - my-fe
         "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model: "J7",
                 model_code: "SM-J700M",
@@ -617,7 +636,7 @@ trackTests {
         }
 
         "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model: "J7",
                 model_code: "SM-J700M",
@@ -642,7 +661,7 @@ trackTests {
         }
 
         "/insurtech/protections"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
                 size: "64GB",
@@ -699,7 +718,7 @@ trackTests {
         }
 
         "/insurtech/protections/quote-me"(platform:"/mobile", type: TrackType.Event) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
                 size: "64GB",
@@ -723,7 +742,7 @@ trackTests {
 
 
         "/insurtech/protections/doubts"(platform:"/mobile", type: TrackType.Event) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
                 size: "64GB",
@@ -737,7 +756,7 @@ trackTests {
         }
 
         "/insurtech/protections/error"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
                 size: "64GB",
@@ -748,7 +767,7 @@ trackTests {
         }
 
         "/insurtech/protections/fallback"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
                 size: "64GB",
@@ -759,7 +778,7 @@ trackTests {
         }
 
         "/insurtech/protections/finished"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
                 size: "64GB",
@@ -783,7 +802,7 @@ trackTests {
 
         // INSURTECH Protections Detail - my-detail-fe
         "/insurtech/protections/detail/roda"(platform:"/mobile", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
                 size: "64GB",
@@ -944,7 +963,7 @@ trackTests {
         "/insurtech/protections/detail/roda/shipping_instructions"(platform:"/web", type: TrackType.View) {}
 
         "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {
-            device = [
+            client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
                 size: "64GB",
