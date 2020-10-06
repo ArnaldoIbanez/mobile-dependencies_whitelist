@@ -41,13 +41,8 @@ tracks {
         url(type: PropertyType.String, required: true)
     }
 
-    def meli_choice_item = objectSchemaDefinitions {
-        id(type: PropertyType.String, required: true)
-        origin(type: PropertyType.String, required: true, description: "origin of MC candidate")
-    }
-
     def meli_choice_object = objectSchemaDefinitions {
-        candidates(type: PropertyType.ArrayList(PropertyType.Map(meli_choice_item)), required: true, description: "list of melichoice candidates")
+        candidates(type: PropertyType.ArrayList(PropertyType.String), required: true, description: "list of melichoice candidates")
         selected(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "selected melichoice candidates")
     }
 
@@ -65,12 +60,14 @@ tracks {
         item_id(type: PropertyType.String, required: true)
         position(type: PropertyType.Numeric, required: true)
         product_id(type: PropertyType.String, required: false)
+        origin(type: PropertyType.String, required: false)
     }
 
     def tag_tracking_map_object = objectSchemaDefinitions {
         best_seller(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         shipping_guaranteed(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         deal_of_the_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        meli_choice(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {

@@ -21,16 +21,12 @@ trackTests {
     ]
 
     def bestSellerInfo = [
-            candidates   : ["MLB1","MLB2"],
+            candidates   : 3,
             selected     : [ "MLB2" ],
     ]
 
     def melichoiceInfo = [
-            candidates   : [
-                    ["id": "MLB3", "origin":"killer_matched"],
-                    ["id": "MLB4", "origin":"killer_matched"],
-                    ["id": "MLB5", "origin":"killer_matched"]
-            ],
+            candidates   : 14,
             selected     : [ "MLB3","MLB4" ],
     ]
 
@@ -45,7 +41,11 @@ trackTests {
                 [item_id: "MLC510446224", position: 3, product_id:"MLC510446224"],
         ],
         shipping_guaranteed : [],
-        deal_of_the_day : []
+        deal_of_the_day : [],
+        meli_choice : [
+                [item_id: "MLB510446223", position: 1, origin:"killer_matched"],
+                [item_id: "MLB510446224", position: 4, product_id:"MLB1333", origin:"killer_matched"]
+        ]
     ]
 
     def promiseInfo = [
