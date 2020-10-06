@@ -1287,52 +1287,52 @@ tracks {
     }
 
     "/myml/advanced_tax_settings/home"(platform: "/", type: TrackType.View) {
-        context(required: true, type: PropertyType.String, desciption: 'Context about page')
+        context(required: true, type: PropertyType.String, description: 'Context about page')
     }
 
     "/myml/advanced_tax_settings/home/access"(platform: "/", type: TrackType.Event) {
-        destination_to(required: true, type: PropertyType.String, desciption: 'Page to GO')
-        context(required: true, type: PropertyType.String, desciption: 'Context about event')
+        destination_to(required: true, type: PropertyType.String, description: 'Page to GO')
+        context(required: true, type: PropertyType.String, description: 'Context about event')
     }
 
     "/myml/advanced_tax_settings/difal"(platform: "/", type: TrackType.View) {
-        context(required: true, type: PropertyType.String, desciption: 'Context about page')
+        context(required: true, type: PropertyType.String, description: 'Context about page')
     }
 
     "/myml/advanced_tax_settings/difal/save"(platform: "/", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, desciption: 'Context about event')
+        context(required: true, type: PropertyType.String, description: 'Context about event')
     }
 
     "/myml/advanced_tax_settings/csosn"(platform: "/", type: TrackType.View) {
-        context(required: true, type: PropertyType.String, desciption: 'Context about page')
+        context(required: true, type: PropertyType.String, description: 'Context about page')
     }
 
     "/myml/advanced_tax_settings/csosn/save"(platform: "/", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, desciption: 'Context about event')
+        context(required: true, type: PropertyType.String, description: 'Context about event')
     }
 
     "/myml/advanced_tax_settings/rule_composition"(platform: "/", type: TrackType.View) {
-        context(required: true, type: PropertyType.String, desciption: 'Context about page')
+        context(required: true, type: PropertyType.String, description: 'Context about page')
     }
 
     "/myml/advanced_tax_settings/rule_composition/save"(platform: "/", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, desciption: 'Context about event')
+        context(required: true, type: PropertyType.String, description: 'Context about event')
     }
 
     "/myml/advanced_tax_settings/cst_sale"(platform: "/", type: TrackType.View) {
-        context(required: true, type: PropertyType.String, desciption: 'Context about page')
+        context(required: true, type: PropertyType.String, description: 'Context about page')
     }
 
     "/myml/advanced_tax_settings/cst_sale/save"(platform: "/", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, desciption: 'Context about event')
+        context(required: true, type: PropertyType.String, description: 'Context about event')
     }
 
     "/myml/advanced_tax_settings/cst_devolution"(platform: "/", type: TrackType.View) {
-        context(required: true, type: PropertyType.String, desciption: 'Context about page')
+        context(required: true, type: PropertyType.String, description: 'Context about page')
     }
 
     "/myml/advanced_tax_settings/cst_devolution/save"(platform: "/", type: TrackType.Event) {
-        context(required: true, type: PropertyType.String, desciption: 'Context about event')
+        context(required: true, type: PropertyType.String, description: 'Context about event')
     }
 
     //TRACKS MYML Search Bookmarks Alerts
