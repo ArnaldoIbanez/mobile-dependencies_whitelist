@@ -692,8 +692,6 @@ trackTests {
             item_id = "MLA533657947"
             domain_id = "MLA-CELLPHONES"
             is_highlighted = true
-            listing_type_id = "gold_special"
-            category_path = ["MLA1234","MLA6789"]
             category_id = "MLA43718"
             seller_id = 131662738
         }
@@ -705,8 +703,6 @@ trackTests {
             item_id = "MLA533657947"
             domain_id = "MLA-CELLPHONES"
             is_highlighted = true
-            listing_type_id = "gold_special"
-            category_path = ["MLA1234","MLA6789"]
             category_id = "MLA43718"
             seller_id = 131662738
         }
