@@ -669,7 +669,7 @@ trackTests {
                     campaign_id: "222222",
                     budget: "333",
                     status: "active"
-                ]
+            ]
         }
 
         "/advertising/pads2/hub/createcampaign"(platform: "/web", type: TrackType.Event) {
@@ -1254,6 +1254,52 @@ trackTests {
             budget = 1500
             status = "paused"
         }
+    }
+
+    test("Advertising multicampaña Upselling x Campaigns") {
+
+        "/advertising/pads2/hub/box/upselling"(platform: "/web", type: TrackType.View) {
+            total_campaigns = 10
+        }
+
+        "/advertising/pads2/hub/box/upselling/go"(platform: "/web", type: TrackType.Event) {
+            total_campaigns = 10
+        }
+
+        "/advertising/pads2/hub/upselling/landing"(platform: "/web", type: TrackType.View) {
+            total_campaigns = 10
+            campaigns = [
+                    {
+                        campaign_id: 123456
+                        budget_old: 2000
+                        budget_new: 3000
+                    }
+            ]
+        }
+
+        "/advertising/pads2/hub/upselling/landing/breadcrumb"(platform: "/web", type: TrackType.Event) {
+            total_campaigns = 10
+            campaigns = [
+                    {
+                        campaign_id: 123456
+                        budget_old: 2000
+                        budget_new: 3000
+                    }
+            ]
+        }
+
+        "/advertising/pads2/hub/upselling/landing/go"(platform: "/web", type: TrackType.Event) {
+            total_campaigns = 10
+            campaigns = [
+                    {
+                        campaign_id: 123456
+                        budget_old: 2000
+                        budget_new: 3000
+                    }
+            ]
+        }
+
+
     }
 
     test("Advertising Admin Mobile") {
