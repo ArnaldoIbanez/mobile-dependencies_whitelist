@@ -1492,7 +1492,9 @@ trackTests {
             additional_info = "campaign_extra_sellers_01"
             sub_flow = "QR"
         }
-        "/flow/end"(platform: "/mobile", type: TrackType.Event) {}
+        "/flow/end"(platform: "/mobile", type: TrackType.Event) {
+            flow_name = "Instore"
+        }
 
         "/flow/friction/networking"(platform: "/mobile", type: TrackType.Event) {
             severity = "Medium"
