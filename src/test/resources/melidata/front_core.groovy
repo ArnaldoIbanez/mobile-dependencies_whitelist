@@ -743,6 +743,7 @@ trackTests {
             link = "mercadopago://loyalty"
             section_id="subscription"
             component_id="cta"
+            level=4
         }
     }
 

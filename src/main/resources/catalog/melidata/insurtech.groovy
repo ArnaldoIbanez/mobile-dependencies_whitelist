@@ -55,7 +55,9 @@ tracks {
     }
 
     //Mobile
-    "/garex/checkout"(platform:"/mobile", type: TrackType.View) {}
+    "/garex/checkout"(platform:"/mobile", type: TrackType.View) {
+        session_id(required: false, type: PropertyType.String, description: "Session id of the user")
+    }
     "/garex/checkout/more_info"(platform:"/mobile", type: TrackType.Event) {}
     "/garex/checkout/selected_garex"(platform:"/mobile", type: TrackType.Event) {
         garex_id(required: true, type: PropertyType.String, description: "Selected warranty id")
@@ -72,4 +74,29 @@ tracks {
         cost(required: true, type: PropertyType.Numeric, description: "Warranty cost")
         currency_id(required: true, type: PropertyType.String, description: "Currency id")
     }
+
+    "/garex/checkout/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/garex/checkout/tap_selector"(platform: "/mobile", type: TrackType.Event) {
+        garex_id(required: true, type: PropertyType.String, description: "Selected warranty id")
+        period(required: true, type: PropertyType.Numeric, description: "Contracted warranty period")
+        cost(required: true, type: PropertyType.Numeric, description: "Warranty cost")
+        revenue_share_fee(required: true, type: PropertyType.Numeric, description: "Percentage of revenue for mercado libre")
+        revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for mercado libre")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
+    }
+    "/garex/checkout/selected_warranty_option"(platform: "/mobile", type: TrackType.Event) {
+        garex_id(required: true, type: PropertyType.String, description: "Selected warranty id")
+        period(required: true, type: PropertyType.Numeric, description: "Contracted warranty period")
+        cost(required: true, type: PropertyType.Numeric, description: "Warranty cost")
+        revenue_share_fee(required: true, type: PropertyType.Numeric, description: "Percentage of revenue for mercado libre")
+        revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for mercado libre")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
+    }
+    "/garex/checkout/conditions_disclaimer"(platform: "/mobile", type: TrackType.Event) {}
+    "/garex/checkout/terms_disclaimer"(platform: "/mobile", type: TrackType.Event) {}
+    
+    "/garex/skeleton"(platform:"/mobile", type: TrackType.View) {
+        session_id(required: false, type: PropertyType.String, description: "Session id of the user")
+    }
+    "/garex/skeleton/back"(platform:"/mobile", type: TrackType.Event) {}
 }

@@ -10,6 +10,7 @@
     "/traffic/inbound/matt",
     "/traffic/inbound/organic",
     "/buy_intention",
+    "/listing_intention",
     "/search",
     "/bookmarks/action/post",
     "/orders/ordercreated",

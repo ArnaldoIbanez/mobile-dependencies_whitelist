@@ -756,6 +756,16 @@ trackTests {
                 os_status = "biometrics"
                 elapsed_time = 50
                 result = "success"
+                transaction_information = [
+                    "amount": "100.0",
+                    "type": "transactional"
+                ]
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
             }
 
             "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -765,6 +775,16 @@ trackTests {
                 elapsed_time = 50
                 result = "error"
                 errors = ["user_cancelled"]
+                transaction_information = [
+                    "amount": "0",
+                    "type": "non_transactional"
+                ]
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
             }
 
             "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -773,6 +793,16 @@ trackTests {
                 os_status = "basic_screenlock"
                 elapsed_time = 50
                 result = "success"
+                transaction_information = [
+                    "amount": "0",
+                    "type": "other"
+                ]
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
             }
 
             "/screenlock/biometrics/failure"(platform: "/mobile/android", type: TrackType.Event) {
@@ -862,6 +892,28 @@ trackTests {
             }
 
             "/screenlock/opening_lock/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/status"(platform: "/mobile/android", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
