@@ -49,7 +49,7 @@ tracks {
 
     def meli_choice_object = objectSchemaDefinitions {
         candidates(type: PropertyType.ArrayList(PropertyType.String), required: true, description: "list of melichoice candidates")
-        selected(type: PropertyType.ArrayList(meli_choice_item_object), required: false, description: "selected melichoice candidates")
+        selected(type: PropertyType.ArrayList(PropertyType.Map(meli_choice_item_object)), required: false, description: "selected melichoice candidates")
         overrides(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "melichoice items overrides best seller")
     }
 
