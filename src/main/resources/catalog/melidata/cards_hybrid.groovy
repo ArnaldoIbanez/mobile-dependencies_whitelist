@@ -250,6 +250,7 @@ tracks {
     // --------
      "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
          dashboard_status (required:true, type: PropertyType.String, description: "Current sections", inheritable:false)
+         dashboard_banner_status (required: false, type: PropertyType.String, description: "Banner for card tracking status", inheritable: false)
          minicard_status (required:false, type: PropertyType.String, description: "Mini card status", inheritable:false)
          flap_status (required:false, type: PropertyType.String, description: "Flap status", inheritable:false)
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
@@ -410,14 +411,7 @@ tracks {
 
     //Map Info: Tracking
     "/cards/hybrid/dashboard/map_info"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            values: ["map_info"],
-            description: "Map info tapped"
-          )
-    }
+    "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {}
     
     // SETUP VIRTUAL
     // --------
@@ -675,14 +669,7 @@ tracks {
 
     //Map Info: Tracking
     "/cards/hybrid/limits_setup/map_info"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            values: ["map_info"],
-            description: "Map info tapped"
-          )
-    }
+    "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {}
 
     // Request
 
