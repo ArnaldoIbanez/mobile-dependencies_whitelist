@@ -644,7 +644,19 @@ tracks {
 
     "/vip/comparator_price/info_tooltip"(platform: "/web", type: TrackType.Event) {}
 
-    "/vip/comparator_price/interactive_bin"(platform: "/web", type: TrackType.Event) {}
+
+    "/vip/comparator_price/interactive_bin"(platform: "/web", type: TrackType.View, isAbstract: true) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        price_comparison_available(required: true, type: PropertyType.Boolean,
+                description: "Indicates if the item has price comparison available")
+    }
+
+    "/vip/comparator_price/interactive_bin/tooltip"(platform: "/web", type: TrackType.Event) {}
+
+    "/vip/comparator_price/interactive_bin/bar"(platform: "/web", type: TrackType.Event) {}
 
     "/vip/item"(parentPropertiesInherited: false, isAbstract: true) {}
 

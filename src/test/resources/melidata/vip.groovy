@@ -1752,11 +1752,19 @@ trackTests {
             properties()
         }
 
-        "/vip/comparator_price/interactive_bin"(platform: "/web/desktop", type: TrackType.Event) {
+        "/vip/comparator_price/interactive_bin/tooltip"(platform: "/web/desktop", type: TrackType.Event) {
             properties()
         }
 
-        "/vip/comparator_price/interactive_bin"(platform: "/web/mobile", type: TrackType.Event) {
+        "/vip/comparator_price/interactive_bin/tooltip"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+
+        "/vip/comparator_price/interactive_bin/bar"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+
+        "/vip/comparator_price/interactive_bin/bar"(platform: "/web/mobile", type: TrackType.Event) {
             properties()
         }
 
