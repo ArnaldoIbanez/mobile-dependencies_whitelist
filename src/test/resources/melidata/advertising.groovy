@@ -1144,24 +1144,30 @@ trackTests {
         "/advertising/pads2/hub/sads_paused/landing"(platform: "/web", type:TrackType.View){
             sads_total = 10
             campaigns = [
-                    campaign_id: 99999,
-                    pads:20
+                        {
+                             campaign_id: 99999
+                             pads: 20
+                        }
             ]
         }
 
         "/advertising/pads2/hub/sads_paused/landing/activated"(platform: "/web", type:TrackType.Event){
             sads_activated = 10
             campaigns = [
-                    campaign_id: 99999,
-                    pads:20
+                        {
+                             campaign_id: 99999
+                             pads: 20
+                        }
             ]
         }
 
         "/advertising/pads2/hub/sads_paused/landing/breadcrumb"(platform: "/web", type:TrackType.Event){
             sads_total = 10
             campaigns = [
-                    campaign_id: 99999,
-                    pads:20
+                        {
+                             campaign_id: 99999
+                             pads: 20
+                        }
             ]
         }
 
