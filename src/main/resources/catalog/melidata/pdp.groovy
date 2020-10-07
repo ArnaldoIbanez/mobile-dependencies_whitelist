@@ -622,4 +622,19 @@ tracks {
     "/pdp/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
     }
+
+    "/pdp/technical_specs"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        is_highlighted(required: true, type: PropertyType.Boolean, description: "If the layout displayed is highlighted")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        seller_id(required: true, type: PropertyType.Numeric, description: "The Id of the seller")
+    }
+
+    "/pdp/technical_specs/show"(platform: "/", parentPropertiesInherited: true) {
+    }
+
+    "/pdp/technical_specs/view_more"(platform: "/", parentPropertiesInherited: true) {
+    }
 }
