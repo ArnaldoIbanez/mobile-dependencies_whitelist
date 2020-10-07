@@ -28,9 +28,10 @@ trackTests {
     def melichoiceInfo = [
             candidates   : 14,
             selected     : [ "MLB3","MLB4" ],
+            overrides : ["MLB3"]
     ]
 
-    def highlightInfo = [
+    def highlightsInfo = [
             bestSellerInfo,
             melichoiceInfo
     ]
@@ -182,7 +183,7 @@ trackTests {
             promoted_items = ["MLA1", "MLA2"]
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
-            highlight_info = highlightInfo
+            highlights_info = highlightsInfo
             tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
@@ -311,7 +312,7 @@ trackTests {
             promoted_items = ["MLA1", "MLA2"]
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
-            highlight_info = highlightInfo
+            highlights_info = highlightsInfo
             tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
