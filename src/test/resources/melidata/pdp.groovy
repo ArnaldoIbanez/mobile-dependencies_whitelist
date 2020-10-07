@@ -686,17 +686,6 @@ trackTests {
         }
     }
 
-    test("Technical Specs") {
-        "/pdp/technical_specs"(platform: "/", type: TrackType.Event) {
-            catalog_product_id = "MLA1234"
-            item_id = "MLA533657947"
-            domain_id = "MLA-CELLPHONES"
-            is_highlighted = true
-            category_id = "MLA43718"
-            seller_id = 131662738
-        }
-    }
-
     test("Technical Specs Viewport") {
         "/pdp/technical_specs/show"(platform: "/", type: TrackType.Event) {
             catalog_product_id = "MLA1234"
