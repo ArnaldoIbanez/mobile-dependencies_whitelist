@@ -30,7 +30,6 @@ tracks {
         check_mode(type: PropertyType.String, values: ["GMV", "SC", "DEFAULT:GMV", "DEFAULT:SC"], required: true)
         value(type: PropertyType.Numeric, required: true)
         is_default(type: PropertyType.Boolean, required: true)
-        is_on_seo_h1_experiment(type: PropertyType.Boolean, required: false)
     }
 
     def location_info_definition = objectSchemaDefinitions {
