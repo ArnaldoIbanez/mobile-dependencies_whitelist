@@ -632,6 +632,9 @@ tracks {
         seller_id(required: false, type: PropertyType.Numeric, description: "The Id of the seller")
     }
 
+    "/pdp/technical_specs/show"(platform: "/", parentPropertiesInherited: true) {
+    }
+
     "/pdp/technical_specs/view_more"(platform: "/", parentPropertiesInherited: true) {
     }
 }
