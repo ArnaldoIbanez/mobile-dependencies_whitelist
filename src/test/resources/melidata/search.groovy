@@ -27,7 +27,11 @@ trackTests {
 
     def melichoiceInfo = [
             candidates   : 14,
-            selected     : [ "MLB3","MLB4" ],
+            selected     : [
+                    [item_id: "MLC510446223", origin: "killer_matched" ],
+                    [item_id: "MLC510446224", product_id:"MLC510446224", origin: "killer_matched"]
+
+            ],
             overrides : ["MLB3"]
     ]
 

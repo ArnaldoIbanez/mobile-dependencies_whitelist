@@ -41,9 +41,15 @@ tracks {
         url(type: PropertyType.String, required: true)
     }
 
+    def meli_choice_item_object = objectSchemaDefinitions{
+        item_id(type: PropertyType.String, required: true)
+        product_id(type: PropertyType.String, required: false)
+        origin(type: PropertyType.String, required: true)
+    }
+
     def meli_choice_object = objectSchemaDefinitions {
         candidates(type: PropertyType.ArrayList(PropertyType.String), required: true, description: "list of melichoice candidates")
-        selected(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "selected melichoice candidates")
+        selected(type: PropertyType.ArrayList(meli_choice_item_object), required: false, description: "selected melichoice candidates")
         overrides(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "melichoice items overrides best seller")
     }
 
@@ -61,7 +67,6 @@ tracks {
         item_id(type: PropertyType.String, required: true)
         position(type: PropertyType.Numeric, required: true)
         product_id(type: PropertyType.String, required: false)
-        origin(type: PropertyType.String, required: false)
     }
 
     def tag_tracking_map_object = objectSchemaDefinitions {
