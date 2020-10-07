@@ -97,6 +97,12 @@ trackTests {
     test("pdp mandatory tracking") {
         "/pdp"(platform: "/", {
             best_seller_position = 3
+            highlights = [
+                "best_seller_position": 5,
+                "melichoice_domain": "CELLPHONES",
+                "melichoice_origin": "killer",
+                "melichoice_score": 0.3
+            ]
             cac_item = false
             cac_status = "normal"
             catalog_product_id = "MLA1234"
