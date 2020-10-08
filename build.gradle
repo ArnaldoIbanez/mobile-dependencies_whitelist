@@ -217,11 +217,6 @@ task testPortabilityCatalog (dependsOn: 'classes', type: JavaExec) {
 	args = ["mpb-portability"]
 }
 
-task testCronnedQueries (dependsOn: 'classes', type: JavaExec) {
-	main = 'com.melidata.definitions.task.CronnedQueriesTest'
-	classpath = sourceSets.main.runtimeClasspath
-}
-
 task testMetrics (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.MetricsTest'
 	classpath = sourceSets.main.runtimeClasspath
@@ -364,16 +359,6 @@ task uploadPortabilityCatalog(type: JavaExec) {
 
 task uploadMetrics(type:JavaExec) {
 	main = 'com.melidata.definitions.uploaders.MetricsUploader'
-	classpath = sourceSets.main.runtimeClasspath
-}
-
-task uploadBatchQueries(type:JavaExec) {
-	main = 'com.melidata.definitions.uploaders.QueriesUploader'
-	classpath = sourceSets.main.runtimeClasspath
-}
-
-task exportCronQueries(type:JavaExec) {
-	main = 'com.melidata.metrics.format.QueryFormatter'
 	classpath = sourceSets.main.runtimeClasspath
 }
 
