@@ -217,31 +217,31 @@ trackTests {
         def statement_closed_status = "closed"
 
         def account_data_pending = [
-                rating = rating_a,
-                status = status_pending,
-                status_detail = "",
-                overdue_days = 4
+                rating: rating_a,
+                status: status_pending,
+                status_detail: "",
+                overdue_days: 4
         ]
 
         def account_data_active = [
-                rating = rating_b,
-                status = status_active,
-                status_detail = "",
-                overdue_days = 0
+                rating: rating_b,
+                status: status_active,
+                status_detail: "",
+                overdue_days: 0
         ]
 
         def account_data_blocked = [
-                rating = rating_b,
-                status = status_blocked,
-                status_detail = "",
-                overdue_days = 0
+                rating: rating_b,
+                status: status_blocked,
+                status_detail: "",
+                overdue_days: 0
         ]
 
         def account_data_cancelled = [
-                rating = rating_b,
-                status = status_cancelled,
-                status_detail = "",
-                overdue_days = 0
+                rating: rating_b,
+                status: status_cancelled,
+                status_detail: "",
+                overdue_days: 0
         ]
 
         "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
