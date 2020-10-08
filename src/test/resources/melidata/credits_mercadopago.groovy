@@ -436,9 +436,11 @@ trackTests {
             status = 'on_time'
         }
 
-        "/credits/merchant/administrator"(platform: "/") {}
         "/credits/merchant/administrator"(platform: "/") {
-            status = 'on_time'
+           promise = 'none'
+        }
+        "/credits/merchant/administrator"(platform: "/") {
+           status = 'on_time'
            promise = 'none'
         }
         "/credits/merchant/administrator"(platform: "/") {
@@ -448,6 +450,7 @@ trackTests {
         }
         "/credits/merchant/administrator"(platform: "/") {
             status = 'empty'
+            promise = 'none'
         }
         "/credits/merchant/administrator"(platform: "/", {
             offers = [
