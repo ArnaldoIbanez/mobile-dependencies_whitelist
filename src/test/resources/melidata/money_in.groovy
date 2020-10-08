@@ -206,32 +206,32 @@ trackTests {
         }
         "/money_in/pix_keys/onboarding/continue"(platform: "/", type: TrackType.Event) {}
         "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {}
-        "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {
+        "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {}
+        "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {
             key_type = "cpf"
         }
-        "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {
+        "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {
             key_type = "cnpj"
         }
-        "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {
+        "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {
             key_type = "telephone"
         }
-         "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {
+         "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {
             key_type = "email"
         }
-        "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {
+        "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {
             key_type = "evp"
         }
-        "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {
+        "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {
             key_type = "evp"
         }
-        "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {
+        "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {
             key_value_from_profile = "true"
         }
-        "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {
+        "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {
             key_type = "cpf"
             key_value_from_profile = "false"
         }
-        "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {}
         "/money_in/pix_keys/admin"(platform: "/", type: TrackType.View) {}
         "/money_in/pix_keys/admin/resolve_request"(platform: "/", type: TrackType.Event) {}
         "/money_in/pix_keys/admin/resolve_request"(platform: "/", type: TrackType.Event) {

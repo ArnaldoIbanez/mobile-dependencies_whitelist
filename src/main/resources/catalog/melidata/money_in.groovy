@@ -193,11 +193,11 @@ tracks {
     "/money_in/pix_keys/onboarding/continue"(platform: "/", type: TrackType.Event) {
         is_evp_checked (required:false, description: "Indicate if the user checked the evp option")
     }
-    "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {
+    "/money_in/pix_keys/create"(platform: "/", type: TrackType.View) {}
+    "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {
         key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
         key_value_from_profile (required:false, description: "Indicate if the key is loaded from vault")
     }
-    "/money_in/pix_keys/create/type_selected"(platform: "/", type: TrackType.Event) {}
     "/money_in/pix_keys/admin"(platform: "/", type: TrackType.View) {}
     "/money_in/pix_keys/admin/resolve_request"(platform: "/", type: TrackType.Event) {
         claim_type (required:false, description: "Request type", values: ["ownership", "portability"])
