@@ -634,11 +634,11 @@ tracks {
 
     "/pdp/technical_specs"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
         is_highlighted(required: true, type: PropertyType.Boolean, description: "If the layout displayed is highlighted")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        seller_id(required: true, type: PropertyType.Numeric, description: "The Id of the seller")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        seller_id(required: false, type: PropertyType.Numeric, description: "The Id of the seller")
     }
 
     "/pdp/technical_specs/show"(platform: "/", parentPropertiesInherited: true) {
