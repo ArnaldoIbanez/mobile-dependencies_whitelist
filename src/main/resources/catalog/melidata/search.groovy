@@ -131,6 +131,7 @@ tracks {
         show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
         sparkle_info(required: false, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
+        best_seller_info(type: PropertyType.Map(best_seller_object), required: false, description: 'best seller tracking info')
         highlights_info(required: false, description: 'highlight tracking info', type: PropertyType.Map(highlights_object))
         tag_tracking_info(required: false, description: 'tag tracking info', type: PropertyType.Map(tag_tracking_map_object))
 
