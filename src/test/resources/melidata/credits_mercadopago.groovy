@@ -1001,6 +1001,32 @@ trackTests {
             reason = "financial_scraping"
         }
 
+        "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
+            reason = "finished_flow"
+        }
+
+        "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {}
+
+        "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
+            reason = "integration_error"
+        }
+
+        "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
+            reason = "generic"
+        }
+
+        "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+            reason = "finished_flow"
+        }
+
+        "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+            reason = "finished_session"
+        }
+
+        "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+            reason = "not_available"
+        }
+
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
             reason = "financial_files_uploaded"
         }
