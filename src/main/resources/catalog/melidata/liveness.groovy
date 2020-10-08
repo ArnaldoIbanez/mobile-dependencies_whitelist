@@ -28,6 +28,7 @@ tracks {
     }
 
     "/liveness/result"(platform: "/", type: TrackType.Event) {
+        success(type: PropertyType.Boolean, required: true, description: "Result of response")
         upload_time(type: PropertyType.Numeric, required: true, description: "Time to upload challenge")
         liveness_result(type: PropertyType.Numeric, required: true, description: "Result of server validation")
     }

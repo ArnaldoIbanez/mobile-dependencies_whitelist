@@ -27,6 +27,7 @@ trackTests {
         }
 
         "/liveness/result"(platform: "/mobile/android") {
+        	success = false
             upload_time = 1413
             liveness_result = 0 
         }
@@ -74,6 +75,7 @@ trackTests {
         }
 
         "/liveness/result"(platform: "/mobile/ios") {
+        	success = true
             upload_time = 1413
             liveness_result = 0 
         }
@@ -121,6 +123,7 @@ trackTests {
         }
 
         "/liveness/result"(platform: "/web") {
+        	success = true
             upload_time = 1413
             liveness_result = 0 
         }
@@ -170,6 +173,7 @@ trackTests {
         }
 
         "/liveness/result"(platform: "/mobile/android") {
+        	success = true
             upload_time = 1413
             liveness_result = 0 
         }
@@ -217,6 +221,7 @@ trackTests {
         }
 
         "/liveness/result"(platform: "/mobile/ios") {
+        	success = true
             upload_time = 1413
             liveness_result = 0 
         }
@@ -264,6 +269,7 @@ trackTests {
         }
 
         "/liveness/result"(platform: "/web") {
+        	success = true
             upload_time = 1413
             liveness_result = 0 
         }
