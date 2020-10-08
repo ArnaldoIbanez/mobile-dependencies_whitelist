@@ -679,7 +679,18 @@ trackTests {
             user_status = 'on_time'
             offer = 'express_money'
         }
-        "/credits/merchant/money_advance/congrats"(platform: "/mobile/android") {}
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/android", type: TrackType.View) {
+            offer = 'none'
+        }
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/android", type: TrackType.View) {
+            offer = 'express_money'
+        }
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/ios", type: TrackType.View) {
+            offer = 'none'
+        }
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/ios", type: TrackType.View) {
+            offer = 'express_money'
+        }
         "/credits/merchant/money_advance/no_options"(platform: "/web/desktop") {}
         "/credits/merchant/money_advance/error"(platform: "/web/desktop") {
             reason = 'bad_request'
