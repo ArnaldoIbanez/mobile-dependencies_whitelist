@@ -922,7 +922,17 @@ tracks {
     }
 
     //Congrats money advance mobile
-    "/credits/merchant/money_advance/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/merchant/money_advance/congrats"(platform: "/mobile", type: TrackType.View) {
+        offer(
+                description: "User has express money offer",
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'none',
+                        'express_money'
+                ]
+        )
+    }
 
     //Hub money advance
     "/credits/merchant/money_advance/hub"(platform: "/web", type: TrackType.View) {
