@@ -10,25 +10,27 @@ tracks {
     "/liveness"(platform: "/", isAbstract: true) {}
 
     "/liveness/enrollment"(platform: "/", type: TrackType.Event) {
-    	params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
+        params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
     }
 
     "/liveness/authentication"(platform: "/", type: TrackType.Event) {
-    	params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
+        params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
     }
 
     "/liveness/initialization"(platform: "/", type: TrackType.Event) {
-    	initialization_result(type: PropertyType.Boolean, required: true, description: "Status of initialization")
+        initialization_result(type: PropertyType.Boolean, required: true, description: "Result of initialization")
+        initialization_status(type: PropertyType.Numeric, required: true, description: "Status of initialization")
     }
 
-	"/liveness/challenge_time"(platform: "/", type: TrackType.Event) {
-		time(type: PropertyType.Numeric, required: true, description: "Time to complete challenge")
-		challenge_result(type: PropertyType.Numeric, required: true, description: "Result of client validation")
+    "/liveness/challenge_time"(platform: "/", type: TrackType.Event) {
+        time(type: PropertyType.Numeric, required: true, description: "Time to complete challenge")
+        challenge_result(type: PropertyType.Numeric, required: true, description: "Result of client validation")
     }
 
-	"/liveness/result"(platform: "/", type: TrackType.Event) {
-		upload_time(type: PropertyType.Numeric, required: true, description: "Time to upload challenge")
-		liveness_result(type: PropertyType.Numeric, required: true, description: "Result of server validation")
+    "/liveness/result"(platform: "/", type: TrackType.Event) {
+        success(type: PropertyType.Boolean, required: true, description: "Result of response")
+        upload_time(type: PropertyType.Numeric, required: true, description: "Time to upload challenge")
+        liveness_result(type: PropertyType.Numeric, required: true, description: "Result of server validation")
     }
 
     "/liveness/redirect"(platform: "/mobile", type: TrackType.Event) {
@@ -48,11 +50,11 @@ tracks {
         error_cause(type: PropertyType.String, required: true, description: "Error cause")
     }
 
-	"/liveness/landing"(platform: "/", type: TrackType.View) {}
+    "/liveness/landing"(platform: "/", type: TrackType.View) {}
 
-	"/liveness/fallback"(platform: "/", type: TrackType.View) {
-		type(type: PropertyType.String, required: true, values: ["timeout", "cancel"], description: "Type of fallback")
-	}
+    "/liveness/fallback"(platform: "/", type: TrackType.View) {
+        type(type: PropertyType.String, required: true, values: ["timeout", "cancel"], description: "Type of fallback")
+    }
 
-	"/liveness/unsupported"(platform: "/", type: TrackType.View) {}
+    "/liveness/unsupported"(platform: "/", type: TrackType.View) {}
 }
