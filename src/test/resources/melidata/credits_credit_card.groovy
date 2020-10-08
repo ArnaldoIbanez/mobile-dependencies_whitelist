@@ -51,7 +51,7 @@ trackTests {
         //Amount input
         "/credits/credit_card/payment/amount_input"(platform: "/", type: TrackType.View) {
             offer = offer_data_scoring_a
-            statement_status = "overdue"
+            statement_status = "open"
         }
 
         //Summary
@@ -163,8 +163,6 @@ trackTests {
 
         def statement_open_status = "open"
         def statement_closed_status = "closed"
-        def statement_overdue_status = "overdue"
-        def statement_paid_status = "paid"
 
         // Statement
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
@@ -176,11 +174,11 @@ trackTests {
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
-            statement_status = statement_overdue_status
+            statement_status = statement_open_status
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
-            statement_status = statement_paid_status
+            statement_status = statement_open_status
         }
 
         "/credits/credit_card/statement/download_pdf_action"(platform: "/", type: TrackType.Event) {
@@ -200,6 +198,78 @@ trackTests {
 
         /*********************************************
          *       End: Credit Card Statement
+         *********************************************/
+    }
+
+    test("Credits Credit Card - Dashboard tests") {
+        /***********************************************
+         *       Start: Credit Card Dashboard
+         ***********************************************/
+
+        def rating_a = "A"
+        def rating_b = "B"
+        def status_pending = "pending"
+        def status_active = "active"
+        def status_blocked = "blocked"
+        def status_cancelled = "cancelled"
+
+        def statement_open_status = "open"
+        def statement_closed_status = "closed"
+
+        def account_data_pending = [
+                rating = rating_a,
+                status = status_pending,
+                status_detail = "",
+                overdue_days = 4
+        ]
+
+        def account_data_active = [
+                rating = rating_b,
+                status = status_active,
+                status_detail = "",
+                overdue_days = 0
+        ]
+
+        def account_data_blocked = [
+                rating = rating_b,
+                status = status_blocked,
+                status_detail = "",
+                overdue_days = 0
+        ]
+
+        def account_data_cancelled = [
+                rating = rating_b,
+                status = status_cancelled,
+                status_detail = "",
+                overdue_days = 0
+        ]
+
+        "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
+            account = account_data_pending
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
+            account = account_data_active
+            statement_status = statement_open_status
+            pending_payments = false
+        }
+
+        "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
+            account = account_data_blocked
+            statement_status = statement_closed_status
+            pending_payments = false
+        }
+
+        "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
+            account = account_data_cancelled
+            statement_status = statement_closed_status
+            pending_payments = false
+        }
+
+        /*********************************************
+         *       End: Credit Card Dashboard
          *********************************************/
     }
 }

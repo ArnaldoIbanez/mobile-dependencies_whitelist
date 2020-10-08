@@ -8,6 +8,35 @@ tracks {
 
     initiative = "1205"
 
+    def account_data = objectSchemaDefinitions {
+        rating(
+                description: "Rating user's account",
+                type: PropertyType.String,
+                required: true
+        )
+        status(
+                description: "Status user's account",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "pending",
+                        "active",
+                        "blocked",
+                        "cancelled"
+                ]
+        )
+        status_detail(
+                description: "Status detail of user's account",
+                type: PropertyType.String,
+                required: true
+        )
+        overdue_days(
+                description: "Overdue days of user's account",
+                type: PropertyType.Numeric,
+                required: true
+        )
+    }
+
     def amount_input_data = objectSchemaDefinitions {
         amount(
             description: "The amount that the user want to pay",
@@ -76,9 +105,7 @@ tracks {
             required: true,
             values: [
                 "closed",
-                "open",
-                "overdue",
-                "paid"
+                "open"
             ]
         )
         payment_option(
@@ -112,6 +139,15 @@ tracks {
             description: "The year of the selected period",
             type: PropertyType.Numeric,
             required: true
+        )
+        account(
+                type: PropertyType.Map(account_data),
+                required: false
+        )
+        pending_payments(
+                description: "The pending payments",
+                type: PropertyType.Boolean,
+                required: true
         )
     }
 
@@ -264,5 +300,19 @@ tracks {
 
     /*********************************************
      *       End: Credit Card Statement
+     *********************************************/
+
+    /***********************************************
+     *       Start: Credit Card Dashboard
+     ***********************************************/
+    // Dashboard
+    "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
+        account
+        statement_status
+        pending_payments
+    }
+
+    /*********************************************
+     *       End: Credit Card Dashboard
      *********************************************/
 }
