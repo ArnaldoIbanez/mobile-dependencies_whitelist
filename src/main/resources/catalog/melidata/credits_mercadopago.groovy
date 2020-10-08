@@ -200,11 +200,11 @@ tracks {
         )
         promise(
             type: PropertyType.String,
-            required: false,
+            required: true,
             values: [
                 'create_promise',
                 'view_promise',
-                'not_apply',
+                'none',
             ],
             inheritable: false
         )
