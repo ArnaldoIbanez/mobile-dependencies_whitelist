@@ -69,6 +69,17 @@ tracks {
         )
     }
 
+    //Feedback: Tracking
+    "/cards/hybrid/shipping/tracking/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/shipping/tracking/feedback/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["research_form"],
+            description: "Feedback action tapped"
+          )
+    }
+
     // UNLOCK
     // --------
     "/cards/hybrid/unlock"(platform: "/", isAbstract: true) { }
@@ -239,6 +250,7 @@ tracks {
     // --------
      "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
          dashboard_status (required:true, type: PropertyType.String, description: "Current sections", inheritable:false)
+         dashboard_banner_status (required: false, type: PropertyType.String, description: "Banner for card tracking status", inheritable: false)
          minicard_status (required:false, type: PropertyType.String, description: "Mini card status", inheritable:false)
          flap_status (required:false, type: PropertyType.String, description: "Flap status", inheritable:false)
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
@@ -270,7 +282,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["physical_delivered", "hybrid_active", "debit_active", "physical_inactive", "user_need_challenge", "virtual_only", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "options", "card_data"],
+            values: ["physical_delivered", "hybrid_active", "debit_active", "physical_inactive", "user_need_challenge", "virtual_only", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "options", "card_data", "kyc_compliance", "kyc_not_compliance"],
             description: "Mini card tapped"
           )
     }
@@ -325,7 +337,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["help", "call", "block"],
+            values: ["help", "call", "block", "contact"],
             description: "Linear button tapped"
           )
     }
@@ -399,14 +411,7 @@ tracks {
 
     //Map Info: Tracking
     "/cards/hybrid/dashboard/map_info"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            values: ["map_info"],
-            description: "Map info tapped"
-          )
-    }
+    "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {}
     
     // SETUP VIRTUAL
     // --------
@@ -549,7 +554,8 @@ tracks {
         card_id (
             required: true,
             type: PropertyType.String,
-            description: "Card id"
+            description: "Card id",
+            inheritable: false
         )
     }
     "/cards/hybrid/block_card/physical/tap"(platform:"/", type: TrackType.Event) {
@@ -559,9 +565,15 @@ tracks {
             values: ["primary_button", "secondary_button"],
             description: "The action type tapped"
         )
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable: false
+        )
     }
 
-    "/cards/hybrid/block_card/physical/success"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/cards/hybrid/block_card/physical/success"(platform: "/", type: TrackType.Event) {
         reasons (
             required: true,
             type: PropertyType.ArrayList(PropertyType.String),
@@ -657,14 +669,7 @@ tracks {
 
     //Map Info: Tracking
     "/cards/hybrid/limits_setup/map_info"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            values: ["map_info"],
-            description: "Map info tapped"
-          )
-    }
+    "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {}
 
     // Request
 
@@ -685,7 +690,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["close", "continue"],
+            values: ["close", "continue", "unlock"],
             description: "action tap by the user in the onboarding"
         )
     }
@@ -765,7 +770,15 @@ tracks {
 
     // CARD REQUEST virtual on boarding
     // --------
-    "/cards/hybrid/request/virtual/onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/virtual/onboarding"(platform: "/", type: TrackType.View) {
+        context (
+            required: false,
+            type: PropertyType.String,
+            values: ["no_kyc", "kyc", "onboarding_shown"],
+            description: "type of onboarding",
+            inheritable:false
+        )
+    }
     "/cards/hybrid/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,

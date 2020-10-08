@@ -97,6 +97,12 @@ trackTests {
     test("pdp mandatory tracking") {
         "/pdp"(platform: "/", {
             best_seller_position = 3
+            highlights = [
+                "best_seller_position": 5,
+                "melichoice_domain": "CELLPHONES",
+                "melichoice_origin": "killer",
+                "melichoice_score": 0.3
+            ]
             cac_item = false
             cac_status = "normal"
             catalog_product_id = "MLA1234"
@@ -677,6 +683,34 @@ trackTests {
             installments_value_each = 8.7
             installments_amount = 12
             is_free_installments = false
+        }
+    }
+
+    test("Pdp Advertising banners") {
+        "/pdp/advertising"(platform: "/", type: TrackType.Event) {
+            advertising_id = "fullscreen"
+        }
+    }
+
+    test("Technical Specs Viewport") {
+        "/pdp/technical_specs/show"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            domain_id = "MLA-CELLPHONES"
+            is_highlighted = true
+            category_id = "MLA43718"
+            seller_id = 131662738
+        }
+    }
+
+    test("Technical Specs View More") {
+        "/pdp/technical_specs/view_more"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            domain_id = "MLA-CELLPHONES"
+            is_highlighted = true
+            category_id = "MLA43718"
+            seller_id = 131662738
         }
     }
 }

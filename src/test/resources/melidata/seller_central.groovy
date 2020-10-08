@@ -286,6 +286,7 @@ trackTests {
   test("Seller central summary notice click") {
     "/seller_central/summary/notice"(platform: "/web", type: TrackType.Event) {
       goal = "best_price"
+      seller_experience = "ADVANCED"
     }
   }
 
@@ -293,6 +294,7 @@ trackTests {
     "/seller_central/summary/task"(platform: "/web", type: TrackType.Event) {
       module_id = "listing"
       task_id = "BEST_PRICE_ELIGIBLE"
+      seller_experience = "ADVANCED"
     }
   }
 
@@ -1887,7 +1889,15 @@ trackTests {
   }
 
   test("upload invoices view secondary actions") {
-    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", type: TrackType.Event) {
+      id = "fiscal_document_go_back"
+    }
+  }
+
+  test("upload invoices view primary actions") {
+    "/seller_central/sales/fiscal_document/action/primary"(platform: "/web", type: TrackType.Event) {
+      id = "save_fiscal_document"
+    }
   }
 
   test("upload invoices view actions") {

@@ -307,6 +307,7 @@ tracks {
     "/sell/list/draft/shipping_mandatory_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/shipping_options_me"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/sip_landing"(platform:"/mobile", type: TrackType.View){}
+    "/sell/list/draft/sip_optional_landing"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/size_selection"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/size_selection_review"(platform:"/mobile", type: TrackType.View){}
     "/sell/list/draft/size_selection_fallback"(platform:"/mobile", type: TrackType.View){}
@@ -515,6 +516,7 @@ tracks {
     "/sell/list/shipping_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/shipping_mandatory_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/sip_landing"(platform: "/", type: TrackType.View) {}
+    "/sell/list/sip_optional_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/list/title_landing"(platform: "/", type: TrackType.View) {}
     "/sell/list/listing_types"(platform: "/", type: TrackType.View) {}
     "/sell/list/item_description"(platform: "/", type: TrackType.View){
@@ -530,7 +532,7 @@ tracks {
     "/sell/update" (platform: "/", isAbstract: true){
         item_id(required: true, description: "Item id", type: PropertyType.String)
         is_catalog_listing(required: false, description: "If core item is a catalog listing", type: PropertyType.Boolean)
-        buybox_status(required: false, description: "Buy Box status of core catalog listing", type: PropertyType.String, values: ["winning", "losing_by_price", "losing_by_stock", "losing_by_bad_reputation", "losing_by_untrusted_seller", "losing_by_without_reputation", "calculating", "undefined"])
+        buybox_status(required: false, description: "Buy Box status of core catalog listing", type: PropertyType.String, values: ["winning", "losing_by_price", "losing_by_stock", "losing_by_bad_reputation", "losing_by_untrusted_seller", "losing_by_without_reputation", "calculating", "undefined", "losing_by_free_listing_type"])
     }
     "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/buybox_competition"(platform: "/mobile", type: TrackType.View) {}
@@ -746,6 +748,8 @@ tracks {
     "/sell/item_data"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
+        item_from(required: false, description: "Map with information about the original item in the LIST SIMILAR/LIST EQUAL/LIST AGAIN/CHANGE_CATEGORY  V4 flows.", PropertyType.Map(item_from_map))
+
     }
     "/sell/item_data/title"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/title/show"(platform: "/web", type: TrackType.Event) {}

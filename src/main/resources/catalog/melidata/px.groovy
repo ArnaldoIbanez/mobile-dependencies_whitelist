@@ -696,6 +696,8 @@ tracks {
         score_level(required: false, type: PropertyType.Numeric, description: "Payer score level")
         discounts_count(required: false, type: PropertyType.Numeric, description: "Discounts items displayed")
         campaign_id(required: false, type: PropertyType.String, description: "Campaign id of discount applied to payment")
+        campaigns_ids(required: false, type: PropertyType.String, description: "Campaigns ids of discounts displayed")
+        extra_info(required: false, description: "Extra payment method info")
     }
     "/payment_congrats/result/success"(platform: "/mobile", type: TrackType.View) {}
     "/payment_congrats/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {}

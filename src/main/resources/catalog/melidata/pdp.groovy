@@ -116,13 +116,18 @@ tracks {
         results(required:false, type: PropertyType.ArrayList(PropertyType.Map(question_result)), description: "Initial results")
     }
 
+    def highlights_definition  = objectSchemaDefinitions {
+        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
+        melichoice_score(required: false, type: PropertyType.Numeric, description: "Score of Melichoice Product")
+        melichoice_origin(required: false, type: PropertyType.String, description: "Origin of Melichoice Product")
+        melichoice_domain(required: false, type: PropertyType.String, description: "Domain of Melichoice Product")
+    }
+
     //VPP FLOW
 
     "/pdp"(platform: "/") {
         // Temp fields
-        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
-
-        cac_item(required: false, type: PropertyType.Boolean, 
+        cac_item(required: false, type: PropertyType.Boolean,
                  description: "Indicates whether the product is listed as 'CodoACodo'")
 
         cac_status(required: false, type: PropertyType.String, 
@@ -205,9 +210,13 @@ tracks {
         // General
         pdp_type(required: false, type: PropertyType.String, inheritable: false, values: ["NO_STOCK","RED", "GREEN_WITH_OFFER", "GREEN_NO_OFFER", "YELLOW_WITH_OFFER", "YELLOW_NO_OFFER"], description: "Indicates the type of pdp")
 
+        //Highlights
+        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
+
+        highlights(required: false, type: PropertyType.Map(highlights_definition), description: "Highlights Map")
+
         // PRICING 2.0
         pricing_info
-
     }
 
     "/pdp/buy_action"(platform: "/", parentPropertiesInherited: false) {
@@ -611,11 +620,30 @@ tracks {
         item_id(required: true, type: PropertyType.String, description: "Item ID")
         is_cash_price(required: true, type: PropertyType.Boolean, description: "Indicates if it is an offer with rebate discount")
         price(required: true, type: PropertyType.Numeric, description: "Indicates the item price seen by the user. After discount")
-        original_price(required: true, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
+        original_price(required: false, type: PropertyType.Numeric, description: "Indicates the original price of the item. Before applying discounts")
         currency_id(required: true, type: PropertyType.String, description: "The currency in which the prices amounts are expressed")
         installments_value_total(required:true, type: PropertyType.Numeric, description: "The final price with installments in payment method")
         installments_value_each(required:true, type: PropertyType.Numeric, description: "The price of each installment in payment method")
         installments_amount(required:true, type: PropertyType.Numeric, description: "The amount of installments in payment method")
         is_free_installments(required: true, type: PropertyType.Boolean, description: "Indicates if installments are without interest in payment method")
+    }
+
+    "/pdp/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
+    }
+
+    "/pdp/technical_specs"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        is_highlighted(required: true, type: PropertyType.Boolean, description: "If the layout displayed is highlighted")
+        domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        seller_id(required: true, type: PropertyType.Numeric, description: "The Id of the seller")
+    }
+
+    "/pdp/technical_specs/show"(platform: "/", parentPropertiesInherited: true) {
+    }
+
+    "/pdp/technical_specs/view_more"(platform: "/", parentPropertiesInherited: true) {
     }
 }

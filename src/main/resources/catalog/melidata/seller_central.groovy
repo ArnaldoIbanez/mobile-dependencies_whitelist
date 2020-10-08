@@ -259,11 +259,13 @@ tracks {
 
     "/seller_central/summary/notice"(platform: "/web", type: TrackType.Event) {
         goal(required: true, description: "The primary goal of the clicked notice")
+        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
     }
 
     "/seller_central/summary/task"(platform: "/web", type: TrackType.Event) {
         module_id(required: true, description: "Identification for group task module")
         task_id(required: true, description: "The id of selected task")
+        seller_experience(required: true, type: PropertyType.String, description: "Type of experience. ", values: ['NEWBIE','INTERMEDIATE','ADVANCED'])
     }
 
 
@@ -1152,7 +1154,12 @@ tracks {
 
     "/seller_central/sales/fiscal_document"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
     "/seller_central/sales/fiscal_document/action"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
-    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", isAbstract: true, type: TrackType.Event) {}
+    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", isAbstract: true, type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "action ID")
+    }
+    "/seller_central/sales/fiscal_document/action/primary"(platform: "/web", isAbstract: true, type: TrackType.Event) {
+        id(required: true, type: PropertyType.String, description: "action ID")
+    }
     "/seller_central/sales/fiscal-document"(platform: "/web", isAbstract: true, type: TrackType.View) {}
 
     // METRICS SECTION
