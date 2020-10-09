@@ -639,6 +639,7 @@ tracks {
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
         category_id(required: false, type: PropertyType.String, description: "Item's category id")
         seller_id(required: false, type: PropertyType.Numeric, description: "The Id of the seller")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Category path of the the item")
     }
 
     "/pdp/technical_specs/show"(platform: "/", parentPropertiesInherited: true) {

@@ -700,6 +700,7 @@ trackTests {
             is_highlighted = true
             category_id = "MLA43718"
             seller_id = 131662738
+            category_path = ["MLA1234", "MLA6789"]
         }
     }
 
@@ -711,6 +712,7 @@ trackTests {
             is_highlighted = true
             category_id = "MLA43718"
             seller_id = 131662738
+            category_path = ["MLA1234", "MLA6789"]
         }
     }
 }
