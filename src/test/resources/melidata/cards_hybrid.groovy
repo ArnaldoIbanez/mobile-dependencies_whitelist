@@ -704,6 +704,12 @@ trackTests {
             action = "research_form"
         }
     }
+
+    test("cards hybrid physical unlock") {
+        "/cards/hybrid/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+            action = "close"
+        }
+    }
     
      // CHANGE-PIN
     // --------
@@ -986,4 +992,12 @@ trackTests {
             action = "blocked_pin"
         }
     }
+
+    //OPTIONS Feedback
+    test("cards hybrid options feedback button event") {
+        "/cards/hybrid/setup/options/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
+    }
+
 }
