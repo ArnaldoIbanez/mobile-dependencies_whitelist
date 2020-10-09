@@ -308,7 +308,7 @@ tracks {
     // Dashboard
     "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
         account
-        statement_status
+        statement_status_group
         pending_payments
     }
 
