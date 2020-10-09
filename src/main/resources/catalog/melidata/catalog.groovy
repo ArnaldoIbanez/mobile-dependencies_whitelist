@@ -87,6 +87,7 @@ catalog {
         include business, "merchengine.groovy"
         include business, "navigation_sections.groovy"
         include business, "checkoutOff.groovy"
+        include business, "insurtech.groovy"
     }
 
     mercadolibre.each { business ->
@@ -160,7 +161,7 @@ catalog {
         include business, "cdn_metrics.groovy"
         include business, "splinter.groovy"
         include business, "update_browser.groovy"
-        include business, "insurtech.groovy"
+        include business, "ml_insurtech.groovy"
         include business, "trends.groovy"
         include business, "data_privacy.groovy"
         include business, "sms.groovy"
