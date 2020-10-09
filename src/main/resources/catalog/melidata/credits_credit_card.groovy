@@ -158,6 +158,8 @@ tracks {
         bucket_group(bucket)
         statement_status_group(statement_status)
         statement_period(month, year)
+        pending_payments_group(pending_payments)
+
     }
 
     /******************************************
@@ -309,7 +311,7 @@ tracks {
     "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
         account
         statement_status_group
-        pending_payments
+        pending_payments_group
     }
 
     /*********************************************
