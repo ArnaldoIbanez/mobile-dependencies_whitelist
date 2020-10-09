@@ -951,17 +951,24 @@ trackTests {
             ]
         }∫
         "/insurtech/protections/detail/roda/error"(platform:"/web", type: TrackType.View) {}
+    }
 
+    ["mercadolibre", "mercadopago"].each { business ->
+		defaultBusiness = business
+    test("Insurtech - ${business} tests roda claims tacking ") {
         // INSURTECH Claims
 
+ 
         "/insurtech/protections/claims"(platform:"/", type: TrackType.View) {
             product_data =[
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
+                product_type:"roda",
+                product_id:"MLB_RD00000000000065134TEST"
             ]
         }
 
-         "/insurtech/protections/claims/cancel"(platform:"/", type: TrackType.View) {
+        "/insurtech/protections/claims/cancel"(platform:"/", type: TrackType.View) {
             product_data =[
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
@@ -978,8 +985,7 @@ trackTests {
                 product_id:"MLB_RD00000000000065134TEST"
             ]
         }
-
-
+ 
         "/insurtech/protections/claims/use_service"(platform:"/", type: TrackType.Event) {
             product_data =[
                 entity_type:"quote",
@@ -1206,7 +1212,7 @@ trackTests {
             ]
         }
         
-        "/insurtech/protections/claims/execute/address/review"(platform:"/", type: TrackType.Event) {
+        "/insurtech/protections/claims/execute/review/confirm"(platform:"/", type: TrackType.Event) {
             product_data =[
                 entity_type:"quote",
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
@@ -1277,4 +1283,5 @@ trackTests {
             ]
         }
     }
+  }
 }
