@@ -156,6 +156,7 @@ tracks {
     "/credits/mp-hub"(platform: "/", isAbstract: true) {}
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
+    "/credits/merchant/open-market/financial-scraping"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Consumer Public Landings
@@ -470,6 +471,34 @@ tracks {
             values: [
                 'financial_files',
                 'financial_scraping',
+                'finished_flow',
+            ]
+        )
+    }
+
+    "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "Quanto integration error",
+            values: [
+                'integration_error',
+                'generic',
+            ]
+        )
+    }
+
+    "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "Quanto integration message",
+            values: [
+                'finished_flow',
+                'finished_session',
+                'not_available',
             ]
         )
     }
@@ -922,7 +951,17 @@ tracks {
     }
 
     //Congrats money advance mobile
-    "/credits/merchant/money_advance/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/merchant/money_advance/congrats"(platform: "/mobile", type: TrackType.View) {
+        offer(
+                description: "User has express money offer",
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'none',
+                        'express_money'
+                ]
+        )
+    }
 
     //Hub money advance
     "/credits/merchant/money_advance/hub"(platform: "/web", type: TrackType.View) {
