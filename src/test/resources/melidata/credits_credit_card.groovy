@@ -193,7 +193,7 @@ trackTests {
         }
 
         "/credits/credit_card/statement/payment_action"(platform: "/", type: TrackType.Event) {
-            statement_status = statement_overdue_status
+            statement_status = statement_open_status
         }
 
         /*********************************************
