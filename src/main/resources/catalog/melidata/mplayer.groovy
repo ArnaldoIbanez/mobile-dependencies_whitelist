@@ -63,6 +63,15 @@ tracks {
         contact_type(required: true, PropertyType.String, description: "the type of the contact")
     }
 
+    "/mplayer/send_money/contact_picker/search"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/send_money/contact_picker/add_new_contact"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/mplayer/send_money/bottom_sheet"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/send_money/bottom_sheet/new_contact_email"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/send_money/bottom_sheet/new_contact_phone"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/send_money/bottom_sheet/continue"(platform: "/mobile", type: TrackType.Event) {}
+
+
     // Closed Request
     "/mplayer/closed_request"(platform: "/mobile", isAbstract: true) {}
     "/mplayer/closed_request/onboarding"(platform: "/mobile", type: TrackType.View) {}
@@ -119,6 +128,15 @@ tracks {
     }
 
     "/mplayer/closed_request/result/in_process"(platform: "/mobile", type: TrackType.View) {}
+
+    "/mplayer/closed_request/contact_picker/search"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/contact_picker/add_new_contact"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/mplayer/closed_request/bottom_sheet"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/closed_request/bottom_sheet/new_contact_email"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/bottom_sheet/new_contact_phone"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/bottom_sheet/continue"(platform: "/mobile", type: TrackType.Event) {}
+
 
     // Open Request
     "/mplayer/open_request"(platform: "/mobile", isAbstract: true) {}
@@ -209,6 +227,15 @@ tracks {
     }
     
     "/mplayer/money_split/result/in_process"(platform: "/mobile", type: TrackType.View) {}
+
+    "/mplayer/money_split/contact_picker/search"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/money_split/contact_picker/add_new_contact"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/mplayer/money_split/bottom_sheet"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/bottom_sheet/new_contact_email"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/money_split/bottom_sheet/new_contact_phone"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/money_split/bottom_sheet/continue"(platform: "/mobile", type: TrackType.Event) {}
+
 
     // Tracing
     "/mplayer/tracing"(platform: "/mobile", isAbstract: true) {}
