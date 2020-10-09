@@ -57,7 +57,9 @@ tracks {
 
     //Tu negocio
     "/your_business"(platform: "/web", isAbstract: true) {}
-    "/your_business/home"(platform: "/web", type: TrackType.View) {}
+    "/your_business/home"(platform: "/web", type: TrackType.View) {
+        show_tax_warning(required: false, description: "the name of the tax card", type: PropertyType.String)
+    }
     "/your_business/image_upload"(platform:"/web", type: TrackType.Event) {}
     "/your_business/mydata_edit"(platform:"/web", type: TrackType.Event) {}
     "/your_business/confirm_action"(platform:"/web", type: TrackType.Event) {
