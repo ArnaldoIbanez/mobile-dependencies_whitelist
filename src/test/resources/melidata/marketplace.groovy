@@ -192,6 +192,11 @@ trackTests {
             is_main_url = true
             version = "2"
         }
+        "/landing/generic"(platform: "/mobile", business: "mercadopago"){
+            url = "https://www.mercadolibre.com"
+            is_main_url = true
+            version = "2"
+        }
 
         "/webkit/deeplink_open/error"(platform: "/mobile") {
             url = "https://www.mercadolibre.com"
@@ -603,18 +608,6 @@ trackTests {
         "/recommendations/print" {}
     }
 
-    test("deals landings") {
-        "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
-            deal_id = "mla_1234"
-        }
-    }
-
-    test("deals landings with deals_print_id") {
-        "/deals/landing" (platform:"/web/desktop", type: TrackType.View) {
-            deal_print_id = "6de7c870-2e66-11ea-b9de-a199b7428951"
-        }
-    }
-
     test("MP-MA Landing QR") {
         "/merchant_acquisition/" (platform: "/", type: TrackType.View) {}
         "/merchant_acquisition/qr" (platform: "/", type: TrackType.View) {}
@@ -706,9 +699,13 @@ trackTests {
 
     test("sso"){
         "/sso/login_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/login_successful" (platform: "/mobile", type: TrackType.Event, business: "mercadopago"){}
         "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/logout_successful" (platform: "/mobile", type: TrackType.Event, business: "mercadopago"){}
         "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/attempt_successful" (platform: "/mobile", type: TrackType.Event, business: "mercadopago"){}
         "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event){}
+        "/sso/attempt_error" (platform: "/mobile", type: TrackType.Event, business: "mercadopago"){}
     }
 
 }

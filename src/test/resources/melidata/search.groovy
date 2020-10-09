@@ -20,6 +20,39 @@ trackTests {
             url              : "http://example.com"
     ]
 
+    def bestSellerInfo = [
+            candidates   : 3,
+            selected     : [ "MLB2" ],
+    ]
+
+    def melichoiceInfo = [
+            candidates   : 14,
+            selected     : [
+                    [item_id: "MLC510446223", origin: "killer_matched" ],
+                    [item_id: "MLC510446224", product_id:"MLC510446224", origin: "killer_matched"]
+
+            ],
+            overrides : ["MLB3"]
+    ]
+
+    def highlightsInfo = [
+            bestSellerInfo,
+            melichoiceInfo
+    ]
+
+    def tagTrackingInfo = [
+        best_seller : [
+                [item_id: "MLC510446223", position: 2],
+                [item_id: "MLC510446224", position: 3, product_id:"MLC510446224"],
+        ],
+        shipping_guaranteed : [],
+        deal_of_the_day : [],
+        meli_choice : [
+                [item_id: "MLB510446223", position: 1, origin:"killer_matched"],
+                [item_id: "MLB510446224", position: 4, product_id:"MLB1333", origin:"killer_matched"]
+        ]
+    ]
+
     def promiseInfo = [
             sameday: ["MLA123411"],
             nextday: ["MLA12345645"]
@@ -142,11 +175,20 @@ trackTests {
             ]
             carousel_filters = []
             seo = [
-                    is_whitelisted                : true,
-                    check_mode                    : "GMV",
-                    gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true
+                    is_whitelisted         : true,
+                    check_mode             : "GMV",
+                    value                  : 15,
+                    is_default             : false
+            ]
+            merch_data = [
+                    audience         : "all",
+                    bu             : "3",
+                    bu_line                  : "26",
+                    component_id             : "search_ml",
+                    content_id             : "test_integration_cellphones_mla",
+                    flow: "-1",
+                    logic: "campaigns",
+                    position: 0
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
@@ -154,6 +196,8 @@ trackTests {
             promoted_items = ["MLA1", "MLA2"]
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
+            highlights_info = highlightsInfo
+            tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -269,11 +313,20 @@ trackTests {
             ]
             carousel_filters = ["BRAND", "official_store", "STYLE"]
             seo = [
-                    is_whitelisted                : true,
-                    check_mode                    : "GMV",
-                    gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true
+                    is_whitelisted         : true,
+                    check_mode             : "GMV",
+                    value                  : 15,
+                    is_default             : false
+            ]
+            merch_data = [
+                    audience         : "all",
+                    bu             : "3",
+                    bu_line                  : "26",
+                    component_id             : "search_ml",
+                    content_id             : "test_integration_cellphones_mla",
+                    flow: "-1",
+                    logic: "campaigns",
+                    position: 0
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
@@ -281,6 +334,8 @@ trackTests {
             promoted_items = ["MLA1", "MLA2"]
             user_profile_type = "BUYER"
             sparkle_info = sparkleInfo
+            highlights_info = highlightsInfo
+            tag_tracking_info = tagTrackingInfo
             location_info = [
                     "zipcode": "1430",
                     "default_zipcode": false,
@@ -297,6 +352,7 @@ trackTests {
                             "type" : "PDP"
                     ]
             ]
+            review_pages = ["ventilador", "nintendo"]
         })
 
         "/search"(platform: "/mobile", defaultSearchInformation)
@@ -546,11 +602,20 @@ trackTests {
             pdp_rows = []
             carousel_filters = []
             seo = [
-                    is_whitelisted                : true,
-                    check_mode                    : "GMV",
-                    gmv_value                     : 15,
-                    vip_clicks                    : 0,
-                    is_on_seo_whitelist_experiment: true
+                    is_whitelisted         : true,
+                    check_mode             : "GMV",
+                    value                  : 15,
+                    is_default             : false
+            ]
+            merch_data = [
+                    audience         : "all",
+                    bu             : "3",
+                    bu_line                  : "26",
+                    component_id             : "search_ml",
+                    content_id             : "test_integration_cellphones_mla",
+                    flow: "-1",
+                    logic: "campaigns",
+                    position: 0
             ]
             pdp_highlight_enabled = true
             pdp_grouped_search = true
@@ -592,6 +657,12 @@ trackTests {
             query = "this is a query"
             sparkle_info = sparkleInfo
 
+        }
+    }
+
+    test("Search Advertising banners") {
+        "/search/advertising"(platform: "/", type: TrackType.Event) {
+            advertising_id = "sky"
         }
     }
 

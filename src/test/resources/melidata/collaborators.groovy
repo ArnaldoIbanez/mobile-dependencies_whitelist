@@ -7,96 +7,74 @@ trackTests {
     defaultBusiness = "mercadopago"
 
     test("Came into new version" ) {
-        "/collaborators_admin"(platform:"/web", type: TrackType.View) {
+        "/collaborators/home"(platform:"/web", type: TrackType.View) {
+            type = 'form'
             from = 'mail'
             source = 'seven_day'
             have_operators = true
-            segmentation = 'first_stage'
         }
     }
 
     test("Start of creation of a new operator" ) {
-        "/collaborators_admin/invite"(platform:"/web", type: TrackType.View) {
-            segmentation = 'first_stage'
+        "/collaborators/invite"(platform:"/web", type: TrackType.View) {
             email_already_exists = false
         }
     }
 
     test("Start of creation of a role for the new operator" ) {
-        "/collaborators_admin/roles"(platform:"/web", type: TrackType.View) {}
-        "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
-            segmentation = 'first_stage'
-        }
-        "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View) {}
-    }
-
-    test("Finish of creation of the new operator" ) {
-        "/collaborators_admin/congrats"(platform:"/web", type: TrackType.View) {
-            type = 'success'
-            segmentation = 'first_stage'
-        }
+        "/collaborators/scopes"(platform:"/", type: TrackType.View) {}
+        "/collaborators/link_stores"(platform:"/", type: TrackType.View) {}
     }
 
     test("Detail of a created role") {
-        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+        "/collaborators/detail"(platform:"/", type: TrackType.View) {
             type = 'role'
-            segmentation = 'no-data'
         }
     }
 
     test("Detail of a created operator") {
-        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+        "/collaborators/detail"(platform:"/", type: TrackType.View) {
             type = 'operator'
-            segmentation = 'no-data'
         }
     }
 
     test("Detail of a created invitation") {
-        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+        "/collaborators/detail"(platform:"/", type: TrackType.View) {
             type = 'invitation'
-            segmentation = 'no-data'
         }
     }
 
     test("Collaborators") {
-        "/collaborators"(platform:"/web", type: TrackType.View) {
-            type = 'form'
-            segmentation = 'first_stage'
-        }
+        "/collaborators"(platform:"/web", type: TrackType.View) {}
     }
 
     test("Select role") {
-        "/collaborators/select_role"(platform:"/web", type: TrackType.View) {
+        "/collaborators/select_role"(platform:"/", type: TrackType.View) {
             type = 'form'
-            segmentation = 'first_stage'
         }
     }
 
     test("Transform account") {
         "/collaborators/transform_account"(platform:"/web", type: TrackType.View) {
             type = 'form'
-            segmentation = 'first_stage'
         }
     }
 
     test("Deadline") {
         "/collaborators/deadline"(platform:"/web", type: TrackType.View) {
             type = 'form'
-            segmentation = 'no-data'
         }
     }
 
     test("Deadline form") {
         "/collaborators/deadline/form"(platform:"/web", type: TrackType.View) {
             type = 'form'
-            segmentation = 'no-data'
         }
     }
 
     test("Contact owner") {
         "/collaborators/contact_owner"(platform:"/web", type: TrackType.View) {
             type = 'form'
-            segmentation = 'no-data'
         }
     }
 
@@ -105,119 +83,122 @@ trackTests {
     }
 
     test("Show scope detail") {
-        "/collaborators/scopes/detail"(platform:"/", type: TrackType.View) {
+        "/collaborators/scopes/detail"(platform:"/mobile", type: TrackType.View) {
             scope = 'test_scope'
         }
     }
 
     test("Tap continue") {
-        "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event) {}
+        "/collaborators/scopes/continue"(platform:"/mobile", type: TrackType.Event) {}
     }
 
-    test("Create o edit role") {
-        "/collaborators/role"(platform:"/", type: TrackType.View) {}
-        "/collaborators/role/name"(platform:"/", type: TrackType.View) {}
+    test("Tap save") {
+        "/collaborators/scopes/save"(platform:"/mobile", type: TrackType.Event) {}
     }
-
+ 
     test("Show congrats in create role") {
-        "/collaborators/role/congrats"(platform:"/", type: TrackType.View) {
+        "/collaborators/role/congrats"(platform:"/mobile", type: TrackType.View) {
             type = "success"
         }
+    }
+
+    test("Finish of creation of the new operator" ) {
+        "/collaborators/congrats"(platform:"/", type: TrackType.View) {
+            type = 'success'
+        }
+    }
+
+    test("Enter role name") {
+        "/collaborators/role/name"(platform:"/mobile", type: TrackType.View) {}
+    }
+
+    test("Show shield view") {
+        "/collaborators/shield"(platform:"/mobile", type: TrackType.View) {
+            screen_name = 'NameViewController'
+            scopes_requested = ['pay_qr', 'collect_on_site']
+            scopes_missing = ['pay_qr']
+            entry_method = 'required_scopes'
+       }
     }
 
     defaultBusiness = "mercadolibre"
 
     test("Came into new version" ) {
-        "/collaborators_admin"(platform:"/web", type: TrackType.View) {
+        "/collaborators/home"(platform:"/web", type: TrackType.View) {
+            type = 'form'
             from = 'mail'
             source = 'seven_day'
             have_operators = true
-            segmentation = 'first_stage'
         }
     }
 
     test("Start of creation of a new operator" ) {
-        "/collaborators_admin/invite"(platform:"/web", type: TrackType.View) {
-            segmentation = 'first_stage'
+        "/collaborators/invite"(platform:"/web", type: TrackType.View) {
             email_already_exists = false
         }
     }
 
     test("Start of creation of a role for the new operator" ) {
-        "/collaborators_admin/roles"(platform:"/web", type: TrackType.View) {}
-        "/collaborators_admin/roles/create"(platform:"/web", type: TrackType.View) {
-            segmentation = 'first_stage'
-        }
-        "/collaborators_admin/link_stores"(platform:"/web", type: TrackType.View) {}
+        "/collaborators/scopes"(platform:"/", type: TrackType.View) {}
+        "/collaborators/link_stores"(platform:"/web", type: TrackType.View) {}
     }
 
     test("Finish of creation of the new operator" ) {
-        "/collaborators_admin/congrats"(platform:"/web", type: TrackType.View) {
+        "/collaborators/congrats"(platform:"/web", type: TrackType.View) {
             type = 'success'
-            segmentation = 'first_stage'
         }
     }
 
         test("Detail of a created role") {
-        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+        "/collaborators/detail"(platform:"/web", type: TrackType.View) {
             type = 'role'
-            segmentation = 'no-data'
         }
     }
 
     test("Detail of a created operator") {
-        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+        "/collaborators/detail"(platform:"/web", type: TrackType.View) {
             type = 'operator'
-            segmentation = 'no-data'
         }
     }
 
     test("Detail of a created invitation") {
-        "/collaborators_admin/detail"(platform:"/web", type: TrackType.View) {
+        "/collaborators/detail"(platform:"/web", type: TrackType.View) {
             type = 'invitation'
-            segmentation = 'no-data'
         }
     }
 
     test("Collaborators") {
         "/collaborators"(platform:"/web", type: TrackType.View) {
-            type = 'form'
-            segmentation = 'first_stage'
         }
     }
 
     test("Select role") {
         "/collaborators/select_role"(platform:"/web", type: TrackType.View) {
             type = 'form'
-            segmentation = 'first_stage'
         }
     }
 
     test("Transform account") {
         "/collaborators/transform_account"(platform:"/web", type: TrackType.View) {
             type = 'form'
-            segmentation = 'first_stage'
         }
     }
 
     test("Deadline") {
         "/collaborators/deadline"(platform:"/web", type: TrackType.View) {
             type = 'form'
-            segmentation = 'no-data'
         }
     }
 
     test("Deadline form") {
         "/collaborators/deadline/form"(platform:"/web", type: TrackType.View) {
             type = 'form'
-            segmentation = 'no-data'
         }
     }
 
     test("Contact owner") {
         "/collaborators/contact_owner"(platform:"/web", type: TrackType.View) {
             type = 'form'
-            segmentation = 'no-data'
         }
     }
 
@@ -226,23 +207,35 @@ trackTests {
     }
 
     test("Show scope detail") {
-        "/collaborators/scopes/detail"(platform:"/", type: TrackType.View) {
+        "/collaborators/scopes/detail"(platform:"/mobile", type: TrackType.View) {
             scope = 'test_scope'
         }
     }
 
     test("Tap continue") {
-        "/collaborators/scopes/continue"(platform:"/", type: TrackType.Event) {}
+        "/collaborators/scopes/continue"(platform:"/mobile", type: TrackType.Event) {}
     }
 
-    test("Create o edit role") {
-        "/collaborators/role"(platform:"/", type: TrackType.View) {}
-        "/collaborators/role/name"(platform:"/", type: TrackType.View) {}
+    test("Tap save") {
+        "/collaborators/scopes/save"(platform:"/mobile", type: TrackType.Event) {}
     }
 
     test("Show congrats in create role") {
-        "/collaborators/role/congrats"(platform:"/", type: TrackType.View) {
+        "/collaborators/role/congrats"(platform:"/mobile", type: TrackType.View) {
             type = "success"
         }
+    }
+
+    test("Enter role name") {
+        "/collaborators/role/name"(platform:"/mobile", type: TrackType.View) {}
+    }
+
+    test("Show shield view") {
+        "/collaborators/shield"(platform:"/mobile", type: TrackType.View) {
+            screen_name = 'NameViewController'
+            scopes_requested = ['pay_qr', 'collect_on_site']
+            scopes_missing = ['pay_qr']
+            entry_method = 'required_scopes'
+       }
     }
 }

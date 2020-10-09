@@ -57,6 +57,12 @@ tracks {
     "/mplayer/send_money/result/in_process"(platform: "/mobile", type: TrackType.View) {
     }
 
+    "/mplayer/send_money/redirector"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/send_money/redirector/manual_amount"(platform: "/mobile", type: TrackType.View) {
+        flow(required: true, PropertyType.String, description: "the source flow")
+        contact_type(required: true, PropertyType.String, description: "the type of the contact")
+    }
+
     // Closed Request
     "/mplayer/closed_request"(platform: "/mobile", isAbstract: true) {}
     "/mplayer/closed_request/onboarding"(platform: "/mobile", type: TrackType.View) {}
@@ -64,23 +70,41 @@ tracks {
     "/mplayer/closed_request/manual_amount"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/closed_request/mandatory_reason"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/closed_request/congrats_request"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/closed_request/reject"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/closed_request/status"(platform: "/mobile", type: TrackType.View) {
         request_status(required: false, PropertyType.String, description: "the status of the request")
     }
 
+    "/mplayer/closed_request/congrats_request/exit"(platform: "/mobile", type: TrackType.Event) {
+        button(required: true, PropertyType.String, description: "the button selected to exit")
+    }
+
+    "/mplayer/closed_request/congrats_request/detail"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/congrats_request/home"(platform: "/mobile", type: TrackType.Event) {}
+
     "/mplayer/closed_request/contact_picker/select_contact"(platform: "/mobile", type: TrackType.Event) {
         input_type(required: true, PropertyType.String, description: "the input type of contact selected, select from list or manually typed")
-        source(required: true, PropertyType.String, description: "the source of the contact")
+        source(required: false, PropertyType.String, description: "the source of the contact")
         is_recent(required: true, PropertyType.Boolean, description: "if the seleted contact is a recent contact")
     }
+
+    "/mplayer/closed_request/contact_picker/continue"(platform: "/mobile", type: TrackType.Event) {
+        quantity(required: true, PropertyType.Numeric, description: "the number of selected contacts")
+    }
+
+    "/mplayer/closed_request/contact_picker/invalid_nickname"(platform: "/mobile", type: TrackType.Event) {}
+
     "/mplayer/closed_request/manual_amount/continue"(platform: "/mobile", type: TrackType.Event) {
         transaction_amount(required: true, PropertyType.Numeric, description: "the transaction amount")
         has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
     }
     "/mplayer/closed_request/mandatory_reason/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/mandatory_reason/emoji_selected"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/closed_request/status/pay"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/closed_request/status/reject"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/reject/reject"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/closed_request/reject/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/closed_request/result"(platform: "/mobile", isAbstract: true) {}
 
@@ -91,7 +115,7 @@ tracks {
     }
 
     "/mplayer/closed_request/result/error"(platform: "/mobile", type: TrackType.View) {
-        error(required: true, PropertyType.String, description: "the transaction error")
+        error(required: false, PropertyType.String, description: "the transaction error")
     }
 
     "/mplayer/closed_request/result/in_process"(platform: "/mobile", type: TrackType.View) {}
@@ -109,6 +133,7 @@ tracks {
         has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
     }
     "/mplayer/open_request/mandatory_reason/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/open_request/mandatory_reason/emoji_selected"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/open_request/share_request/whatsapp"(platform: "/mobile", type: TrackType.Event) {}
     "/mplayer/open_request/share_request/native"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -121,7 +146,7 @@ tracks {
     }
 
     "/mplayer/open_request/result/error"(platform: "/mobile", type: TrackType.View) {
-        error(required: true, PropertyType.String, description: "the transaction error")
+        error(required: false, PropertyType.String, description: "the transaction error")
     }
 
     "/mplayer/open_request/result/in_process"(platform: "/mobile", type: TrackType.View) {}
@@ -143,6 +168,7 @@ tracks {
 
     "/mplayer/money_split/reason"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/money_split/reason/emoji_selected"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/money_split/reason/continue"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/money_split/contact_picker"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/money_split/contact_picker/select_contact"(platform: "/mobile", type: TrackType.Event) {
@@ -153,10 +179,14 @@ tracks {
         quantity(required: true, PropertyType.Numeric, description: "the number of selected contacts")
     }
 
+    "/mplayer/money_split/contact_picker/invalid_nickname"(platform: "/mobile", type: TrackType.Event) {}
+    
     "/mplayer/money_split/review_and_confirm"(platform: "/mobile", type: TrackType.View) {}
     "/mplayer/money_split/review_and_confirm/continue"(platform: "/mobile", type: TrackType.Event) {
         has_open_detail(required: true, PropertyType.Boolean, description: "the detail was opened or not")
     }
+
+    "/mplayer/money_split/review_and_confirm/back"(platform: "/mobile", type: TrackType.Event) {}
 
     "/mplayer/money_split/split_detail"(platform: "/mobile", type: TrackType.View) {}
 
@@ -165,9 +195,19 @@ tracks {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
 
+    "/mplayer/money_split/split_created/detail"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/money_split/split_created/home"(platform: "/mobile", type: TrackType.Event) {}
+
     "/mplayer/money_split/result"(platform: "/mobile", isAbstract: true) {}
-    "/mplayer/money_split/result/success"(platform: "/mobile", type: TrackType.View) {}
-    "/mplayer/money_split/result/error"(platform: "/mobile", type: TrackType.View) {}
+    "/mplayer/money_split/result/success"(platform: "/mobile", type: TrackType.View) {
+        payment_method_id(required: true, PropertyType.String, description: "the payment method id")
+        transaction_amount(required: true, PropertyType.Numeric, description: "the transaction amount")
+        fee_info(required: false, PropertyType.String, description: "the info of the fee")
+    }
+    "/mplayer/money_split/result/error"(platform: "/mobile", type: TrackType.View) {
+        error(required: false, PropertyType.String, description: "the transaction error")
+    }
+    
     "/mplayer/money_split/result/in_process"(platform: "/mobile", type: TrackType.View) {}
 
     // Tracing
@@ -202,6 +242,11 @@ tracks {
     "/mplayer/tracing/reject_event/exit"(platform: "/mobile", type: TrackType.Event) {
         button(required: true, PropertyType.String, description: "the button selected to exit")
     }
+
+    "/mplayer/tracing/social_hub/"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/tracing/social_hub/money_split"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/tracing/social_hub/send_money"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/tracing/social_hub/money_request"(platform: "/mobile", type: TrackType.Event) {}
 
     "/money_request"(platform: "/", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
@@ -242,4 +287,61 @@ tracks {
     "/send_money/bacen/open"(platform: "/mobile") {}
     "/send_money/bacen/close"(platform: "/mobile") {}
     "/send_money/confirm"(platform: "/web", type: TrackType.Event){}
+
+    // Request Landing
+
+    "/mplayer/request_landing"(platform: "/web", type: TrackType.View){
+        request_status(required: false, PropertyType.String, description: "the status of the request")
+    }
+
+    "/mplayer/request_landing/success"(platform: "/web", type: TrackType.Event){
+        transaction_amount(required: false, PropertyType.Numeric, description: "the transaction amount")
+        has_reason(required: false, PropertyType.Boolean, description: "if the transaction have a reason message")
+    }
+
+    "/mplayer/download_app"(platform: "/web", type: TrackType.View){}
+
+    "/mplayer/download_app/appstore"(platform: "/web", type: TrackType.Event){}
+
+    "/mplayer/download_app/playstore"(platform: "/web", type: TrackType.Event){}
+
+    // Multiplayer/Friends Marketing Performance Landing
+    "/mplayer/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/mplayer/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/mplayer/mkt_landing/copy-clipboard"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
+    }
+    "/mplayer/mkt_landing/button"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
+    }
+
+    // Contacts
+    "/mplayer/contacts"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/contacts/massive_upload"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/contacts/search"(platform: "/mobile", isAbstract: true) {}
+    "/mplayer/contacts/massive_upload/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/contacts/massive_upload/successful_end"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/contacts/search/start"(platform: "/mobile", type: TrackType.Event) {}
+    "/mplayer/contacts/search/end"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Interaction Screen
+    "/mplayer/interaction_screen"(platform: "/mobile", type: TrackType.View) {
+        type(required: true, PropertyType.String, values: ["modal", "full_screen"], description: "Describe the appearance")
+        cause(required: true, PropertyType.String, description: "Interaction screen reason")
+        message_id(required: true, PropertyType.String, description: "Interaction screen id")
+    }
+    "/mplayer/interaction_screen/event"(platform: "/mobile", type: TrackType.Event) {
+        type(required: true, PropertyType.String, values: ["modal", "full_screen"], description: "Describe the appearance")
+        cause(required: true, PropertyType.String, description: "Interaction screen reason")
+        message_id(required: true, PropertyType.String, description: "Interaction screen id")
+        action(required: false, PropertyType.String, description: "Component action")
+        help_link(required: false, PropertyType.String, values:["help_webview", "help_modal"], description: "The action of the help link")
+        check_panel(required: false, PropertyType.String, values:["help_webview", "help_modal"], description: "The action of the check panel")
+    }
 }

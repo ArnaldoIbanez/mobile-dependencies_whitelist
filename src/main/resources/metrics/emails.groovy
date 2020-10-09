@@ -9,8 +9,8 @@ metrics {
                 path("/email/orders")
 
                 and(
-                        equals("event_data.event_type", "open"),
-                        equals("event_data.order_id", property("order_id"))
+                    equals("event_data.event_type", "open"),
+                    equals("event_data.order_id", property("order_id"))
                 )
             }
         }
