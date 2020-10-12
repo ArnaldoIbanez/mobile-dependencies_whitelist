@@ -979,6 +979,57 @@ trackTests {
             session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
         }
 
+        "/px_checkout/security_code"(platform: "/mobile", type: TrackType.View) {
+            payment_method_id = "mastercard"
+            payment_method_type = "credit_card"
+            card_id = "1234"
+            issuer_id = "1234"
+            bin = "123456"
+            reason = "call_for_auth"
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/security_code/abort"(platform: "/mobile", type: TrackType.Event) {
+            payment_method_id = "visa"
+            payment_method_type = "credit_card"
+            card_id = "1234"
+            issuer_id = "123"
+            bin = "654321"
+            reason = "call_for_auth"
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/security_code/confirm"(platform: "/mobile", type: TrackType.Event) {
+            payment_method_id = "visa"
+            payment_method_type = "credit_card"
+            card_id = "1234"
+            issuer_id = "123"
+            bin = "654321"
+            reason = "call_for_auth"
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
         // Card Form events:
 
         // Number:
@@ -3028,6 +3079,57 @@ trackTests {
         }
 
         "/px_checkout/payments/select_method/prepaid_card/cvv/back"(platform: "/mobile", type: TrackType.Event) {
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/security_code"(platform: "/mobile", type: TrackType.View) {
+            payment_method_id = "mastercard"
+            payment_method_type = "credit_card"
+            card_id = "1234"
+            issuer_id = "1234"
+            bin = "123456"
+            reason = "call_for_auth"
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/security_code/abort"(platform: "/mobile", type: TrackType.Event) {
+            payment_method_id = "visa"
+            payment_method_type = "credit_card"
+            card_id = "1234"
+            issuer_id = "123"
+            bin = "654321"
+            reason = "call_for_auth"
+            flow_detail = {
+                collector_id = 1234
+                brand_name = "YPF"
+                store_id = 1234
+                pos_id = 1234
+            }
+            flow = "/instore"
+            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
+        }
+
+        "/px_checkout/security_code/confirm"(platform: "/mobile", type: TrackType.Event) {
+            payment_method_id = "visa"
+            payment_method_type = "credit_card"
+            card_id = "1234"
+            issuer_id = "123"
+            bin = "654321"
+            reason = "call_for_auth"
             flow_detail = {
                 collector_id = 1234
                 brand_name = "YPF"
