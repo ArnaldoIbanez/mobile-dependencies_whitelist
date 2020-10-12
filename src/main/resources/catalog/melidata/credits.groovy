@@ -15,9 +15,27 @@ tracks {
     "/credits"(platform: "/", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
     "/credits/merchant"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/upsell"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea/integrated_flow"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea/remedy"(platform: "/", isAbstract: true) {}
+
+    /******************************************
+    *       Start: Flujo Upsell Consumer
+    ******************************************/
+        //ML
+    "/credits/consumer/upsell/remedy"(platform: "/", type: TrackType.View) {
+        remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
+    }
+    "/credits/consumer/upsell/remedy/save_info"(platform: "/", type: TrackType.Event) {
+        remedy_name(description: "Remedy Name", type: PropertyType.String, required: true, values: ["declarative_info"])
+    }
+    "/credits/consumer/upsell/congrats"(platform: "/", type: TrackType.View) {
+        variant(description: "Congrats variant", type: PropertyType.String, required: true, values: ["success", "retry"])
+    }
+    /******************************************
+    *       End: Flujo Upsell Consumer
+    ******************************************/
 
     /***********************************************
      *       Start: Consumers Integrated Flow (mercadolibre - mercadopago)

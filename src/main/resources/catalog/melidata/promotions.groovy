@@ -56,45 +56,18 @@ tracks {
       price(required: true, type: PropertyType.Map(priceStructure), description: "Item's price")
       free_shipping(required: true, type: PropertyType.Boolean, description: "Item's free_shipping condition")
       fulfillment(required: true, type: PropertyType.Boolean)
-      listing_type_id(required: true, type: PropertyType.String)
-      logistic_type(required: true, type: PropertyType.String)
-      sold_quantity(required: true, type: PropertyType.Numeric)
-      available_quantity(required: true, type: PropertyType.Numeric)
-      tags(required: true, type: PropertyType.ArrayList(PropertyType.String))
-      warranty(required: false, type: PropertyType.String)
-      accepts_mercadopago(required: true, type: PropertyType.Boolean)
-      health(required: false, type: PropertyType.Numeric, 
-              description: "Variable used to calculate item score in promotions backend")
-      score(required: true, type: PropertyType.Numeric, 
-              description: "Item's score calculated by promotions backend based on several variables")
       score_prior(required: false, type: PropertyType.Numeric, 
               description: "Item's score calculated by ML model")
       position_prior(required: false, type: PropertyType.Numeric, 
               description: "Item's position calculated by prior_score")
-      posterior_score(required: false, type: PropertyType.Numeric, 
-              description: "Item's score calculated with prior_score and learning data")
       position_posterior(required: false, type: PropertyType.Numeric, 
               description: "Item's position calculated by posterior_score")
-      credibility(required: false, type: PropertyType.Numeric, 
-              description: "Variable used to calculate item score in promotions backend")
       benefit(required: true, type: PropertyType.Numeric)
-      interest(required: false, type: PropertyType.Numeric)
-      item_clicks(required: false, type: PropertyType.Numeric)
-      conversion_rate(required: false, type: PropertyType.Numeric)
-      expected_clicks(required: false, type: PropertyType.Numeric)
       boosted(required: false, type: PropertyType.Boolean, 
               description: "Indicates whether the item was manually positioned")
       model_version(required: false, type: PropertyType.String)
       position(required: false, type: PropertyType.Numeric)
       created_date(required: false, type: PropertyType.String)
-      alpha(required: false, type: PropertyType.Numeric, 
-              description: "Weighting for equation learning. Calculated with total number of item prints within promotions")
-      beta(required: false, type: PropertyType.Numeric, 
-              description: "Adjustment parameters to weigh how much the ctr and the conversion rate add to learning")
-      gamma(required: false, type: PropertyType.Numeric, 
-              description: "Adjustment parameters to weigh how much the ctr and the conversion rate add to learning")
-      rebate(required: false, type: PropertyType.Numeric, 
-              description: "Attribute that the publication has or has not")
       one_p(required: false, type: PropertyType.Numeric, 
               description: "Attribute that the publication has or has not. If present, credibility is replaced with 1")
       private_label(required: false, type: PropertyType.Numeric,
@@ -103,6 +76,28 @@ tracks {
               values:["TODAY_PROMOTION", "DEAL_OF_THE_DAY", "LIGHTNING_DEAL", "BUY_BOX_WINNER", "others"], description: "Type of promotion")
       prime_discount(required: false, type: PropertyType.Boolean, 
               description: "Indicates whether the item has discounts by mercado puntos")
+      score(required: true, type: PropertyType.Numeric, 
+              description: "Item's score calculated by promotions backend based on several variables")
+      posterior_score(required: false, type: PropertyType.Numeric, 
+              description: "Item's score calculated with prior_score and learning data")
+      listing_type_id(required: false, type: PropertyType.String)
+      logistic_type(required: false, type: PropertyType.String)
+      sold_quantity(required: false, type: PropertyType.Numeric)
+      available_quantity(required: false, type: PropertyType.Numeric)
+      tags(required: false, type: PropertyType.ArrayList(PropertyType.String))
+      warranty(required: false, type: PropertyType.String)
+      accepts_mercadopago(required: false, type: PropertyType.Boolean)
+      health(required: false, type: PropertyType.Numeric, 
+              description: "Variable used to calculate item score in promotions backend")
+      
+      credibility(required: false, type: PropertyType.Numeric, 
+              description: "Variable used to calculate item score in promotions backend")
+      interest(required: false, type: PropertyType.Numeric)
+      item_clicks(required: false, type: PropertyType.Numeric)
+      conversion_rate(required: false, type: PropertyType.Numeric)
+      expected_clicks(required: false, type: PropertyType.Numeric)
+      rebate(required: false, type: PropertyType.Numeric, 
+              description: "Attribute that the publication has or has not")
       deal_print_id(required: false, type: PropertyType.String, description: "Unique id per render")
       installments(required: false, type: PropertyType.Map(installmentsDefinition), description: "Installments info for the item")
       lightning_deal_configuration(required: false, type: PropertyType.Map(lightningDealConfigurationDefinition), description: "Configuration for the item if is lighting deal")

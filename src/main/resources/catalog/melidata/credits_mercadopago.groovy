@@ -63,6 +63,7 @@ tracks {
             required: false,
             type: PropertyType.Boolean
         )
+
         variant(
             description: "Option types from the user's credit line",
             type: PropertyType.String,
@@ -155,6 +156,17 @@ tracks {
     "/credits/mp-hub"(platform: "/", isAbstract: true) {}
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
+    "/credits/merchant/open-market/financial-scraping"(platform: "/", isAbstract: true) {}
+
+    /******************************************
+     *       Start: Consumer Public Landings
+     ******************************************/
+    "/credits/consumer/public_landing"(platform: "/", type: TrackType.View) {
+        user_profile(type: PropertyType.String, required: true, inheritable: false, values: ["guest", "no_offer"])
+    }
+    /******************************************
+     *       End: Consumer Public Landings
+     ******************************************/
 
     /******************************************
      *       Start: Merchants Public Landings
@@ -185,6 +197,16 @@ tracks {
                 PropertyType.Map(with_status)
             ),
             required: false,
+            inheritable: false
+        )
+        promise(
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'create_promise',
+                'view_promise',
+                'none',
+            ],
             inheritable: false
         )
         show_cx_widget(
@@ -380,7 +402,7 @@ tracks {
             ]
         )
     }
-    
+
     "/credits/mp-hub/error"(platform: "/", type: TrackType.View) {}
 
     "/credits/mp-hub/error/access_click"(platform: "/", type: TrackType.Event) {
@@ -449,6 +471,34 @@ tracks {
             values: [
                 'financial_files',
                 'financial_scraping',
+                'finished_flow',
+            ]
+        )
+    }
+
+    "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "Quanto integration error",
+            values: [
+                'integration_error',
+                'generic',
+            ]
+        )
+    }
+
+    "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "Quanto integration message",
+            values: [
+                'finished_flow',
+                'finished_session',
+                'not_available',
             ]
         )
     }
@@ -901,7 +951,17 @@ tracks {
     }
 
     //Congrats money advance mobile
-    "/credits/merchant/money_advance/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/merchant/money_advance/congrats"(platform: "/mobile", type: TrackType.View) {
+        offer(
+                description: "User has express money offer",
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'none',
+                        'express_money'
+                ]
+        )
+    }
 
     //Hub money advance
     "/credits/merchant/money_advance/hub"(platform: "/web", type: TrackType.View) {
@@ -1007,6 +1067,85 @@ tracks {
             required: false,
             inheritable: false
         )
+        default_amount(
+                description: "Default requested amount",
+                type: PropertyType.Numeric,
+                required: false,
+        )
+        max_amount(
+                description: "Credit line maximum allowed amount",
+                type: PropertyType.Numeric,
+                required: false,
+        )
+        min_amount(
+                description: "Credit line minimum allowed amount",
+                type: PropertyType.Numeric,
+                required: false,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        payment_terms(
+                description: "Available payment terms",
+                type: PropertyType.ArrayList,
+                required: false,
+        )
+    }
+
+    "/credits/express_money/amount_input/simulation"(platform: "/mobile", type: TrackType.View) {
+        requested_amount(
+                description: "User requested amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        max_amount(
+                description: "Credit line maximum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        min_amount(
+                description: "Credit line minimum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: true,
+        )
+    }
+
+    "/credits/express_money/amount_input/simulation"(platform: "/", type: TrackType.Event) {
+        requested_amount(
+                description: "User requested amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        max_amount(
+                description: "Credit line maximum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        min_amount(
+                description: "Credit line minimum allowed amount",
+                type: PropertyType.Numeric,
+                required: true,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: true,
+        )
+    }
+
+    "/credits/express_money/amount_input/term_option"(platform: "/web", type: TrackType.Event) {
+        selected_payment_term(
+                description: "Payment term selected",
+                type: PropertyType.String,
+                required: true,
+        )
     }
 
     "/credits/express_money/summary"(platform: "/", type: TrackType.View) {
@@ -1024,6 +1163,21 @@ tracks {
             description: "Credit line minimum allowed amount",
             type: PropertyType.Numeric,
             required: true,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        selected_payment_term(
+                description: "Payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        payment_terms(
+                description: "Available payment terms",
+                type: PropertyType.ArrayList,
+                required: false,
         )
     }
 
@@ -1047,6 +1201,21 @@ tracks {
             description: "Credit line minimum allowed amount",
             type: PropertyType.Numeric,
             required: true,
+        )
+        default_payment_term(
+                description: "Default payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        selected_payment_term(
+                description: "Payment term selected",
+                type: PropertyType.String,
+                required: false,
+        )
+        payment_terms(
+                description: "Available payment terms",
+                type: PropertyType.ArrayList,
+                required: false,
         )
     }
 
@@ -1250,7 +1419,7 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard/close_mp_modal"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_store_mp"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/error_message/button_pressed"(platform: "/mobile", type: TrackType.Event) {}
-    
+
     "/credits/consumer/administrator_v2/promises"(platform: "/mobile", isAbstract: true) {}
     "/credits/consumer/administrator_v2/promises/create"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
@@ -1334,7 +1503,7 @@ tracks {
             ]
         )
     }
-        
+
     "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
         is_partial_amount(
             required: true,
@@ -1364,7 +1533,7 @@ tracks {
     }
 
     "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {}
-    
+
     "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
         user_type(
             required: true,

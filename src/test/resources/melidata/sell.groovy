@@ -88,6 +88,17 @@ trackTests {
             quantity = 8
         }
 
+        def itemDataForRelist = {
+            item_id = "MLA123456"
+            listing_type_id = "gold_special"
+            vertical = "CORE"
+            buying_mode = "buy_it_now"
+            condition = "used"
+            price = 123.456
+            quantity = 8
+            session_id = "516954617-reactivateres-f2831864de5d"
+        }
+
         def massiveItemData = {
             items_amount = 2
         }
@@ -95,12 +106,18 @@ trackTests {
         "/sell/quick_relist/single"  (platform: "/web/desktop", itemData)
         "/sell/quick_relist/massive" (platform: "/web/desktop", massiveItemData)
 
-        "/sell/modify_and_relist/single/row"   (platform: "/web/desktop", itemData)
+        "/sell/modify_and_relist/single/row"   (platform: "/web/desktop", itemDataForRelist)
         "/sell/modify_and_relist/single/cards" (platform: "/web/desktop", itemData)
         "/sell/modify_and_relist/massive/row"  (platform: "/web/desktop", massiveItemData)
         "/sell/relist/congrats"(platform: "/web/desktop"){
             can_complete_attributes= true
             item_id = "MLA12345"
+        }
+        "/sell/relist/congrats"(platform: "/web/desktop"){
+            can_complete_attributes= true
+            item_id = "MLA12345"
+            session_id = "516954617-reactivateres-f2831864de5d"
+            listing_type = "silver"
         }
         "/sell/relist/congrats"(platform: "/mobile"){
             item_id = "MLA12345"
@@ -827,6 +844,13 @@ trackTests {
             vertical = "core"
         }
         "/sell/list/sip_landing"(platform: "/mobile") {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "core"
+        }
+        "/sell/list/sip_optional_landing"(platform: "/mobile",  type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
@@ -1766,6 +1790,13 @@ trackTests {
             seller_profile = "NEWBIE"
             vertical = "core"
         }
+        "/sell/list/draft/sip_optional_landing"(platform: "/mobile", type: TrackType.View) {
+            session_id = "214464778-list-d5e5a20b2935"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            seller_profile = "NEWBIE"
+            vertical = "core"
+        }
         "/sell/list/draft/sip"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
             seller_reputation = "NO_REPUTATION"
@@ -2061,6 +2092,18 @@ trackTests {
             vertical = "core"
             header_type = "buybox"
             action_id = "reputation"
+        }
+        "/sell/update/sip"(platform: "/mobile", type: TrackType.View) {
+            item_id = "MLA123456"
+            buybox_status = "losing_by_free_listing_type"
+            has_selected_pictures = false
+            is_catalog_boost = true
+            is_catalog_listing = true
+            is_item_inactive_moderated = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
         }
         "/sell/update/sip/publish/fail"(platform: "/mobile") {
             item_id = "MLA123456"
@@ -2559,6 +2602,12 @@ trackTests {
             item_type = "default"
             seller_reputation = "green"
             list_mode = "LIST"
+            item_from = {
+                item_id = "MLA123"
+                sold_quantity = 2
+                status = "under_review"
+                substatus = "finalized_for_prevention"
+            }
         }
     }
     test("SYI v4 title card showed"){
@@ -2679,6 +2728,12 @@ trackTests {
             title_predicted = "test"
             confirm_category_detail = "not_present"
             list_mode = "LIST"
+            item_from = {
+                item_id = "MLA123"
+                sold_quantity = 2
+                status = "under_review"
+                substatus = "finalized_for_prevention"
+            }
         }
     }
     test("SYI v4 category card confirmed motors"){
@@ -4343,6 +4398,7 @@ trackTests {
             user_type = "real_estate_agency"
             business = "classified"
             platform = "pi"
+            item_from = null
         }
     }
 

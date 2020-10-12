@@ -87,12 +87,14 @@ catalog {
         include business, "merchengine.groovy"
         include business, "navigation_sections.groovy"
         include business, "checkoutOff.groovy"
+        include business, "insurtech.groovy"
     }
 
     mercadolibre.each { business ->
         include business, "add_to_cart.groovy"
         include business, "bookmarks.groovy"
         include business, "buyIntention.groovy"
+        include business, "listingIntention.groovy"
         include business, "cards_cobranded_ml.groovy"
         include business, "cards_prepaid.groovy"
         include business, "cartCheckout.groovy"
@@ -147,6 +149,7 @@ catalog {
         include business, "asset_management.groovy"
         include business, "remedy.groovy"
         include business, "kyc.groovy"
+        include business, "liveness.groovy"
         include business, "user_blocker.groovy"
         include business, "pdp.groovy"
         include business, "qadb.groovy"
@@ -158,7 +161,7 @@ catalog {
         include business, "cdn_metrics.groovy"
         include business, "splinter.groovy"
         include business, "update_browser.groovy"
-        include business, "insurtech.groovy"
+        include business, "ml_insurtech.groovy"
         include business, "trends.groovy"
         include business, "data_privacy.groovy"
         include business, "sms.groovy"
@@ -166,6 +169,7 @@ catalog {
         include business, "wallet_ml.groovy"
         include business, "whatsapp.groovy"
         include business, "global_selling.groovy"
+        include business, "categories.groovy"
     }
 
     mercadopago.each { business ->
@@ -173,6 +177,7 @@ catalog {
         include business, "activities.groovy"
         include business, "mp_digital_account.groovy"
         include business, "mpfrontcore.groovy"
+        include business, "payments_digital_accounts.groovy"
         include business, "account_fund.groovy"
         include business, "bulk_payments.groovy"
         include business, "mercadopago.groovy"
@@ -192,6 +197,7 @@ catalog {
         include business, "transport.groovy"
         include business, "remedy.groovy"
         include business, "kyc.groovy"
+        include business, "liveness.groovy"
         include business, "user_blocker.groovy"
         include business, "digital_account.groovy"
         include business, "front_core.groovy"

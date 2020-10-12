@@ -14,12 +14,22 @@ tracks {
     def categoryRegex = /(\S*)/
     def categoryPathRegex = /\[(\S*(, )?)*\]/
 
+    def merch_data_dafinition = objectSchemaDefinitions {
+        audience(type: PropertyType.String, required: true)
+        bu(type: PropertyType.String, required: true)
+        bu_line(type: PropertyType.String, required: true)
+        component_id(type: PropertyType.String, required: true)
+        content_id(type: PropertyType.String, required: true)
+        flow(type: PropertyType.String, required: true)
+        logic(type: PropertyType.String, required: true)
+        position(type: PropertyType.Numeric, required: true)
+    }
+
     def seo_item_definition = objectSchemaDefinitions {
         is_whitelisted(type: PropertyType.Boolean, required: true)
         check_mode(type: PropertyType.String, values: ["GMV", "SC", "DEFAULT:GMV", "DEFAULT:SC"], required: true)
         value(type: PropertyType.Numeric, required: true)
         is_default(type: PropertyType.Boolean, required: true)
-        is_on_seo_h1_experiment(type: PropertyType.Boolean, required: true)
     }
 
     def location_info_definition = objectSchemaDefinitions {
@@ -41,11 +51,26 @@ tracks {
         url(type: PropertyType.String, required: true)
     }
 
+    def meli_choice_item_object = objectSchemaDefinitions{
+        item_id(type: PropertyType.String, required: true)
+        product_id(type: PropertyType.String, required: false)
+        origin(type: PropertyType.String, required: true)
+    }
+
+    def meli_choice_object = objectSchemaDefinitions {
+        candidates(type: PropertyType.ArrayList(PropertyType.String), required: true, description: "list of melichoice candidates")
+        selected(type: PropertyType.ArrayList(PropertyType.Map(meli_choice_item_object)), required: false, description: "selected melichoice candidates")
+        overrides(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "melichoice items overrides best seller")
+    }
+
     def best_seller_object = objectSchemaDefinitions {
-        candidates(type: PropertyType.Numeric, required: true)
-        selected(type: PropertyType.ArrayList(PropertyType.String), required: true)
-        selected_qty(type: PropertyType.Numeric, required: true)
-        selected_positions(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+        candidates(type: PropertyType.ArrayList(PropertyType.String), required: true, "list of best seller candidates")
+        selected(type: PropertyType.ArrayList(PropertyType.String), required: false, "selected best seller candidates")
+    }
+
+    def highlights_object = objectSchemaDefinitions {
+        best_seller_info(type: PropertyType.Map(best_seller_object), required: false, description: 'best seller tracking info')
+        meli_choice_info(type: PropertyType.Map(meli_choice_object), required: false, description: 'meli choice tracking info')
     }
 
     def tag_tracking_datum_object = objectSchemaDefinitions {
@@ -58,6 +83,7 @@ tracks {
         best_seller(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         shipping_guaranteed(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         deal_of_the_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        meli_choice(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {
@@ -104,12 +130,14 @@ tracks {
         show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
         sparkle_info(required: false, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
-        best_seller_info(required: false, description: 'best seller tracking info', type: PropertyType.Map(best_seller_object))
+        best_seller_info(type: PropertyType.Map(best_seller_object), required: false, description: 'best seller tracking info')
+        highlights_info(required: false, description: 'highlight tracking info', type: PropertyType.Map(highlights_object))
         tag_tracking_info(required: false, description: 'tag tracking info', type: PropertyType.Map(tag_tracking_map_object))
 
 
         //Tracks from Search Backend:
         backend_data(required: false)
+        merch_data(required: false, description: 'Merch Banner tracking info', type: PropertyType.Map(merch_data_dafinition))
         official_stores_carousel_shown(required: false, description: 'which TOs are in the carousel', PropertyType.ArrayList)
         items_with_logos(required: false, description: 'items ids that show the brand logo', PropertyType.ArrayList)
         pdp_grouped_search(required: false, description: 'indicates whether the product rows are result of grouping or not', PropertyType.Boolean)
@@ -343,6 +371,10 @@ tracks {
     "/search/sparkle"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         query(required: true, description: "the words used to make a search", type: PropertyType.String)
         sparkle_info(required: true, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
+    }
+
+    "/search/advertising"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        advertising_id(required: true, type: PropertyType.String, description: "Indica el identificador del banner")
     }
 
 }

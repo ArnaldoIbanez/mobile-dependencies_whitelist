@@ -513,6 +513,11 @@ tracks {
         opening_custom(required: true, type: PropertyType.String, description: "Elapsed time to ask for screenLock")
     }
 
+    def transactionInformationStructure = objectSchemaDefinitions {
+        amount(required: true, type: PropertyType.String, description: "amount of the transaction")
+        type(required: true, type: PropertyType.String, values: ["transactional", "non_transactional", "other"])
+    }
+
     // Biometrics / Screenlock
     "/screenlock"(platform: "/mobile", isAbstract: true) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
@@ -526,8 +531,14 @@ tracks {
     "/screenlock/validation_end"(platform: "/mobile", type: TrackType.Event) {
         flow_id(type: PropertyType.String, required: true)
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os validation flow")
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+        transaction_information(type: PropertyType.Map(transactionInformationStructure), required: true, description: "transaction information")
         result(type: PropertyType.String, required: true, values: ["success", "error"])
         errors(type: PropertyType.ArrayList, required: false)
+    }
+
+    "/screenlock/status"(platform: "/mobile", type: TrackType.Event) {
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
     }
 
     "/screenlock/opening_lock"(platform: "/mobile", type: TrackType.View) {
