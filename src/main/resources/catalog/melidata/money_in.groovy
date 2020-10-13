@@ -232,6 +232,10 @@ tracks {
         claim_status (required:false, description: "Claim status", values: ["Completed", "Canceled", "waiting_resolution"])
     }
 
+
+    "/money_in/pix"(platform:"/", isAbstract: true){}
+    "/money_in/pix/key"(platform: "/", isAbstract: true){}
+
     //PIX onboarding
     "/money_in/pix/onboarding"(platform:"/", type: TrackType.View){}
     "/money_in/pix/onboarding/continue"(platform: "/", type: TrackType.Event){}
@@ -259,4 +263,5 @@ tracks {
     //PIX Setup QR
     "/money_in/pix/key/setup_qr"(platform:"/", type: TrackType.View){}
     "/money_in/pix/key/setup_qr/continue"(platform: "/", type: TrackType.Event){}
+
 }
