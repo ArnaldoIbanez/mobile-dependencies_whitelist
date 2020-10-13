@@ -250,6 +250,7 @@ tracks {
     }
     
     "/search/breadcrumb"(platform: "/mobile", isAbstract: true) {}
+    "/search/breadcrumb"(platform: "/web", isAbstract: true) {}
     
     "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event) {
         limit(required: false, description: "the max number of items returned", type: PropertyType.Numeric)
@@ -262,6 +263,10 @@ tracks {
         limit(required: false, description: "the max number of items returned", type: PropertyType.Numeric)
         offset(required: false, description: "the number of items skipped on the search", type: PropertyType.Numeric)
         total(required: false, description: "amount of search items returned", type: PropertyType.Numeric)
+    }
+
+    "/search/breadcrumb/click"(platform: "/web", type: TrackType.Event) {
+        url(required: true, description: "Url of the link associated to the breadcrumb")
     }
 
     "/search/filters_carousel"(platform: "/web", isAbstract: true) {}
@@ -304,6 +309,12 @@ tracks {
     "/search/official_stores_carousel/click"(platform: "/", type: TrackType.Event) {
         to_name(required: true, description: 'the name of the official store selected', PropertyType.String)
         to_position(required: true, description: 'the position of the official store in the carousel', PropertyType.Numeric)
+    }
+
+    "/search/official_store_logo"(platform: "/", isAbstract: true) {}
+
+    "/search/official_store_logo/click"(platform: "/", type: TrackType.Event) {
+        official_store_id(required: true, description: "Official store id of the shown logo")
     }
 
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {

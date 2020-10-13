@@ -431,6 +431,11 @@ trackTests {
             filter_id = "9997262-AMLA_7262_2"
         }
 
+        "/search/breadcrumb/click"(platform: "/web", type: TrackType.Event) {
+            defaultWebTrack()
+            url = "https://www.mercadolibre.com.ar/tienda/nike"
+        }
+
         "/search/back"(platform: "/mobile", defaultSearchInformation)
         "/search/long_press"(platform: "/mobile") {
             item_id = "MLA170232"
@@ -506,6 +511,14 @@ trackTests {
             defaultSearchInformation()
             to_name = "adidas"
             to_position = 2
+        }
+        "/search/official_store_logo/click"(platform: "/mobile") {
+            defaultSearchInformation()
+            official_store_id = "1450"
+        }
+        "/search/official_store_logo/click"(platform: "/web") {
+            defaultWebTrack()
+            official_store_id = "1450"
         }
         "/search/banner"(platform: "/web", defaultWebTrack)
         "/search/banner/click"(platform: "/web", type: TrackType.Event) {
