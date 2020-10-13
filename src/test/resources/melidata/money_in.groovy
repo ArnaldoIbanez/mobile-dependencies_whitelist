@@ -374,5 +374,73 @@ trackTests {
             action_type = "delete"
             claim_status = "waiting_resolution"
         }
+
+        //PIX Setup QR
+        "/money_in/pix/key/setup_qr"(platform:"/", type: TrackType.View){}
+        "/money_in/pix/key/setup_qr/continue"(platform: "/", type: TrackType.Event){}
+
+        //PIX onboarding tests
+        "/money_in/pix/onboarding"(platform:"/", type: TrackType.View){}
+        "/money_in/pix/onboarding/continue"(platform: "/", type: TrackType.Event){}
+        "/money_in/pix/redirect_ted"(platform: "/", type: TrackType.Event){}
+        "/money_in/pix/redirect_admin_key"(platform: "/", type: TrackType.Event){}
+
+        //PIX mykeys tests
+        "/money_in/pix/my_keys"(platform:"/", type: TrackType.View){}
+        "/money_in/pix/my_keys/swipe"(platform: "/", type: TrackType.Event){}
+        "/money_in/pix/my_keys/add_keys"(platform: "/", type: TrackType.Event){}
+        "/money_in/pix/my_keys/generate_qr"(platform: "/", type: TrackType.Event){
+            key_type = "cpf"
+        }
+        "/money_in/pix/my_keys/generate_qr"(platform: "/", type: TrackType.Event){
+            key_type = "cnpf"
+        }
+        "/money_in/pix/my_keys/generate_qr"(platform: "/", type: TrackType.Event){
+            key_type = "telephone"
+        }
+        "/money_in/pix/my_keys/generate_qr"(platform: "/", type: TrackType.Event){
+            key_type = "email"
+        }
+        "/money_in/pix/my_keys/generate_qr"(platform: "/", type: TrackType.Event){
+            key_type = "evp"
+        }
+        "/money_in/pix/my_keys/copy"(platform: "/", type: TrackType.Event){
+            key_type = "cpf"
+        }
+        "/money_in/pix/my_keys/copy"(platform: "/", type: TrackType.Event){
+            key_type = "cnpf"
+        }
+        "/money_in/pix/my_keys/copy"(platform: "/", type: TrackType.Event){
+            key_type = "telephone"
+        }
+        "/money_in/pix/my_keys/copy"(platform: "/", type: TrackType.Event){
+            key_type = "email"
+        }
+        "/money_in/pix/my_keys/copy"(platform: "/", type: TrackType.Event){
+            key_type = "evp"
+        }
+        "/money_in/pix/my_keys/share"(platform: "/", type: TrackType.Event){
+            key_type = "cpf"
+        }
+        "/money_in/pix/my_keys/share"(platform: "/", type: TrackType.Event){
+            key_type = "cnpf"
+        }
+        "/money_in/pix/my_keys/share"(platform: "/", type: TrackType.Event){
+            key_type = "telephone"
+        }
+        "/money_in/pix/my_keys/share"(platform: "/", type: TrackType.Event){
+            key_type = "email"
+        }
+        "/money_in/pix/my_keys/share"(platform: "/", type: TrackType.Event){
+            key_type = "evp"
+        }
+
+        //PIX QR
+        "/money_in/pix/qr"(platform:"/", type: TrackType.View){}
+        "/money_in/pix/qr/setup"(platform: "/", type: TrackType.Event){}
+
+        //PIX Setup QR
+        "/money_in/pix/key/setup_qr"(platform:"/", type: TrackType.View){}
+        "/money_in/pix/key/setup_qr/continue"(platform: "/", type: TrackType.Event){}
     }
 }

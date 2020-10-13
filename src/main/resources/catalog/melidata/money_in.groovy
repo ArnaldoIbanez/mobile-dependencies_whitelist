@@ -231,4 +231,28 @@ tracks {
         claim_type (required:false, description: "Request type", values: ["ownership", "portability"])
         claim_status (required:false, description: "Claim status", values: ["Completed", "Canceled", "waiting_resolution"])
     }
+
+    //PIX onboarding
+    "/money_in/pix/onboarding"(platform:"/", type: TrackType.View){}
+    "/money_in/pix/onboarding/continue"(platform: "/", type: TrackType.Event){}
+    "/money_in/pix/redirect_ted"(platform: "/", type: TrackType.Event){}
+    "/money_in/pix/redirect_admin_key"(platform: "/", type: TrackType.Event){}
+
+    //PIX mykeys
+    "/money_in/pix/my_keys"(platform:"/", type: TrackType.View){}
+    "/money_in/pix/my_keys/swipe"(platform: "/", type: TrackType.Event){}
+    "/money_in/pix/my_keys/add_keys"(platform: "/", type: TrackType.Event){}
+    "/money_in/pix/my_keys/generate_qr"(platform: "/", type: TrackType.Event){
+        key_type(required:false, description: "key type", values: ["cpf", "cnpf", "telephone", "email", "evp"])
+    }
+    "/money_in/pix/my_keys/copy"(platform: "/", type: TrackType.Event){
+        key_type(required:false, description: "key type", values: ["cpf", "cnpf", "telephone", "email", "evp"])
+    }
+    "/money_in/pix/my_keys/share"(platform: "/", type: TrackType.Event){
+        key_type(required:false, description: "key type", values: ["cpf", "cnpf", "telephone", "email", "evp"])
+    }
+
+    //PIX QR
+    "/money_in/pix/qr"(platform:"/", type: TrackType.View){}
+    "/money_in/pix/qr/setup"(platform: "/", type: TrackType.Event){}
 }
