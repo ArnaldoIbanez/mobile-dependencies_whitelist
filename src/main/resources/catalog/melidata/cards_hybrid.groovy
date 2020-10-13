@@ -17,6 +17,7 @@ tracks {
         from (required: false, type: PropertyType.String, description: "Context from where its started")
      }
     "/cards/hybrid"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/physical"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/coachmark"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/request"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/request/virtual"(platform: "/", isAbstract: true) { }
@@ -606,6 +607,16 @@ tracks {
             description: "The action type tapped"
         )
     }
+    // Unlock FÍSICA
+    "/cards/hybrid/physical/unlock"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close"],
+            description: "Unlock Physical Button Tapped"
+          )
+    }
     
     //Feedback: Tracking
     "/cards/hybrid/setup/physical/feedback"(platform: "/", isAbstract: true) {}
@@ -867,6 +878,17 @@ tracks {
             type: PropertyType.String,
             values: ["blocked_pin"],
             description: "Message button tapped"
+        )
+    }
+
+    //Feedback
+    "/cards/hybrid/setup/options/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/options/feedback/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["research_form"],
+            description: "Feedback button tapped"
         )
     }
 }

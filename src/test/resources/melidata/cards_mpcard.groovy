@@ -564,6 +564,12 @@ trackTests {
             action = "research_form"
         }
     }
+
+    test("cards hybrid physical unlock") {
+        "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+            action = "close"
+        }
+    }
     
      // CHANGE-PIN
     // --------

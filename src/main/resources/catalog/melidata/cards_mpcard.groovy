@@ -17,6 +17,7 @@ tracks {
         from (required: false, type: PropertyType.String, description: "Context from where its started")
      }
     "/cards/mpcard"(platform: "/", isAbstract: true) { }
+    "/cards/mpcard/physical"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/coachmark"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/request"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/request/virtual"(platform: "/", isAbstract: true) { }
@@ -501,6 +502,17 @@ tracks {
             type: PropertyType.String,
             values: ["research_form"],
             description: "Feedback action tapped"
+          )
+    }
+
+    // Unlock FÍSICA
+    "/cards/mpcard/physical/unlock"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close"],
+            description: "Unlock Physical Button Tapped"
           )
     }
     
