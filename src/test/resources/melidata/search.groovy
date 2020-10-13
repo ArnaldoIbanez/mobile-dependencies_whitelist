@@ -514,7 +514,8 @@ trackTests {
         }
         "/search/official_store_logo/click"(platform: "/mobile") {
             defaultSearchInformation()
-            official_store_id = "1450"
+            store = "Maybelline"
+            url = "https://www.mercadolibre.com.pe/tienda/maybelline"
         }
         "/search/official_store_logo/click"(platform: "/web") {
             defaultWebTrack()
