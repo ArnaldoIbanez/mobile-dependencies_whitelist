@@ -314,7 +314,8 @@ tracks {
     "/search/official_store_logo"(platform: "/", isAbstract: true) {}
 
     "/search/official_store_logo/click"(platform: "/", type: TrackType.Event) {
-        official_store_id(required: true, description: "Official store id of the shown logo")
+        store(required: true, description: "Official store name of the shown logo")
+        url(required: true, description: "Url of landing associated with the logo click event")
     }
 
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {
