@@ -1877,29 +1877,6 @@ trackTests {
     Garex tracks tests
     * */
     test('checkout garex') {
-        "/checkout/garex"(platform:"/web", type: TrackType.View) {}
-        "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
-        "/checkout/garex/selected_garex"(platform:"/web", type: TrackType.Event) {
-            garex = [
-                    "id": "MLA390289_GAR16001",
-                    "period": 24,
-                    "cost": 1234,
-                    "revenue_share_fee": 70,
-                    "revenue": 863.80,
-                    "currency_id": "ARS"
-            ]
-        }
-        "/checkout/garex/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
-        "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
-            garex = [
-                    "id": "MLA390289_GAR16001",
-                    "period": 24,
-                    "cost": 1234,
-                    "revenue_share_fee": 70,
-                    "revenue": 863.80,
-                    "currency_id": "ARS"
-            ]
-        }
 
         "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
         "/checkout/garex/delete"(platform:"/mobile", type: TrackType.Event) {
@@ -2253,6 +2230,8 @@ trackTests {
         // Page
         "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
         "/checkout/shipping/input_address"(platform:"/web", dataSet)
+        "/checkout/shipping/input_address/map"(platform:"/mobile", dataSet)
+        "/checkout/shipping/input_address/map"(platform:"/web", dataSet)
         "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event, dataSet)
 
         // Event
@@ -2428,6 +2407,32 @@ trackTests {
                     ]
             ]
             recovery_flow=false
+        }
+        "/checkout/shipping/input_address/caixa_postal_number"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/checkout/shipping/input_address/error_map"(platform: "/", type: TrackType.Event) {
+            label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
         }
 
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)

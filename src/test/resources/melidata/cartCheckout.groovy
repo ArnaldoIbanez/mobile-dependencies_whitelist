@@ -324,6 +324,14 @@ trackTests {
             dataSet()
             edit_flow = false
         }
+        "/cart/checkout/shipping/input_address/map"(platform:"/mobile") {
+            dataSet()
+            edit_flow = false
+        }
+        "/cart/checkout/shipping/input_address/map"(platform:"/web") {
+            dataSet()
+            edit_flow = false
+        }
         // Event
         "/cart/checkout/shipping/input_address/name"(platform: "/", type: TrackType.Event) {
             label = "La cantidad de caracteres ingresados es inválida"
@@ -471,6 +479,32 @@ trackTests {
         }
         "/cart/checkout/shipping/input_address/internal_number"(platform: "/", type: TrackType.Event) {
             label = "Completa este dato"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/caixa_postal_number"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/cart/checkout/shipping/input_address/error_map"(platform: "/", type: TrackType.Event) {
+            label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
             items = [
                     [
                             quantity: 1,

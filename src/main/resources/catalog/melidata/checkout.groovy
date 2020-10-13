@@ -1144,6 +1144,10 @@ tracks {
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
     }
+    "/checkout/shipping/input_address/map"(platform:"/", type: TrackType.View, isAbstract: true) {
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+    }
 
     // Event
     "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event) {
@@ -1185,6 +1189,18 @@ tracks {
     "/checkout/shipping/input_address/internal_number"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the internal number")
     }
+    "/checkout/shipping/input_address/caixa_postal_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the caixa postal number")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/checkout/shipping/input_address/error_map"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the map step")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
 
 
     "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event) {}
@@ -1217,20 +1233,7 @@ tracks {
     * GarEx es una entidad que representa la garantia que el usuario elige para su producto
     * */
 
-    //web
-
-    "/checkout/garex"(platform:"/web", type: TrackType.View) {}
-    "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
-    "/checkout/garex/selected_garex"(platform:"/web", type: TrackType.Event) {
-        garex(required: true, type: PropertyType.Map(garexTrackStructure) )
-    }
-    "/checkout/garex/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
-    "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
-        garex(required: true, type: PropertyType.Map(garexTrackStructure) )
-    }
-
     //mobile
-
     "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
     "/checkout/garex/more_info"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/garex/selected_garex"(platform:"/mobile", type: TrackType.Event) {
