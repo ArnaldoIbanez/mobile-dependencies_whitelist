@@ -4831,7 +4831,9 @@ trackTests {
 
     test("Tu negocio") {
         "/your_business/home"(platform: "/web", type: TrackType.View) {}
-        "/your_business/home"(platform: "/web/mobile", type: TrackType.View) {}
+        "/your_business/home"(platform: "/web/mobile", type: TrackType.View) {
+            show_tax_warning = "regular_at"
+        }
         "/your_business/image_upload"(platform:"/web", type: TrackType.Event) {}
         "/your_business/mydata_edit"(platform:"/web", type: TrackType.Event) {}
         "/your_business/confirm_action"(platform:"/web", type: TrackType.Event) {
