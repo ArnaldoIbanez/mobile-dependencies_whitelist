@@ -255,4 +255,8 @@ tracks {
     //PIX QR
     "/money_in/pix/qr"(platform:"/", type: TrackType.View){}
     "/money_in/pix/qr/setup"(platform: "/", type: TrackType.Event){}
+
+    //PIX Setup QR
+    "/money_in/pix/key/setup_qr"(platform:"/", type: TrackType.View){}
+    "/money_in/pix/key/setup_qr/continue"(platform: "/", type: TrackType.Event){}
 }

@@ -374,11 +374,7 @@ trackTests {
             action_type = "delete"
             claim_status = "waiting_resolution"
         }
-
-        //PIX Setup QR
-        "/money_in/pix/key/setup_qr"(platform:"/", type: TrackType.View){}
-        "/money_in/pix/key/setup_qr/continue"(platform: "/", type: TrackType.Event){}
-
+        
         //PIX onboarding tests
         "/money_in/pix/onboarding"(platform:"/", type: TrackType.View){}
         "/money_in/pix/onboarding/continue"(platform: "/", type: TrackType.Event){}
