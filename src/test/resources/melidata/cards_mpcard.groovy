@@ -586,6 +586,19 @@ trackTests {
     test("cards mpcard change pin congrats") {
         "/cards/mpcard/change_pin/congrats"(platform: "/", type: TrackType.View) {}
     }
+
+    // NIP
+    // --------
+    test("cards mpcard nip screen") {
+        "/cards/mpcard/nip/physical"(platform: "/", type: TrackType.View) {
+            card_id = "Axs12345"
+        }
+    }
+    test("cards mpcard nip, It_was_not_me link message tap") {
+        "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {
+            action = "blocked_pin"
+        }
+    }
     
     // LIMITS
     // --------
