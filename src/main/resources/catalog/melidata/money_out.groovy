@@ -210,6 +210,6 @@ tracks {
     //Transfer Hub - Pix
     "/money_out/transfers/pix_dashboard"(platform: "/", type: TrackType.View) {}
     "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
-        type(required_:false, description: "Indicates the type selected ", values: ["cpf", "cnpj", "telefone", "email", "chave_aleatoria", "datos_conta"])
+        type(required_:false, description: "Indicates the type selected ")
     }
 }
