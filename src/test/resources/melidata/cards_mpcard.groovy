@@ -564,10 +564,22 @@ trackTests {
             action = "research_form"
         }
     }
+    // Physical Unlock
+    test("cards hybrid physical unlock View") {
+        "/cards/mpcard/physical/unlock"(platform:"/", type: TrackType.View) {
+            card_id = "Axs12345"
+        }
+    }
 
-    test("cards hybrid physical unlock") {
+    test("cards hybrid physical unlock Events") {
         "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
             action = "close"
+        }
+        "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+            action = "unlock_card"
+        }
+        "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+            action = "block_card"
         }
     }
     

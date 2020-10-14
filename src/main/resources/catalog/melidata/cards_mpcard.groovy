@@ -507,12 +507,19 @@ tracks {
     }
 
     // Unlock FÍSICA
-    "/cards/mpcard/physical/unlock"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/physical/unlock"(platform: "/", isAbstract: true) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable:false,
+        )
+    }
     "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["close"],
+            values: ["close", "unlock_card", "block_card"],
             description: "Unlock Physical Button Tapped"
           )
     }
