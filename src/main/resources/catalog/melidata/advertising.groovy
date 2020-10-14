@@ -1010,7 +1010,69 @@ tracks {
         campaigns(required: false, type: PropertyType.ArrayList(PropertyType.Map(campaigns_budget_definition)), description: "Array campaigns")
     }
 
+    // Multicampaña - Winbacks
 
+    "/advertising/pads2/hub/winbacks"(platform: "/web", type: TrackType.Event, parentPropertiesInherited: false) {}
+
+    "/advertising/pads2/hub/winbacks/modal"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/winbacks/modal/show"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: true, type: PropertyType.String, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget(required: true, type: PropertyType.Numeric, description: "Current budget related to the campaign")
+        step(required: true, type: PropertyType.Numeric, description: "Current modal step")
+    }
+
+    "/advertising/pads2/hub/winbacks/modal/go"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: true, type: PropertyType.String, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget(required: true, type: PropertyType.Numeric, description: "Current budget related to the campaign")
+        step(required: true, type: PropertyType.Numeric, description: "Current modal step")
+    }
+
+    "/advertising/pads2/hub/winbacks/modal/close"(platform: "/web", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        status(required: true, type: PropertyType.String, description: "Current status related to the campaign", values: ['active', 'paused'])
+        budget(required: true, type: PropertyType.Numeric, description: "Current budget related to the campaign")
+        step(required: true, type: PropertyType.Numeric, description: "Current modal step")
+    }
+
+    "/advertising/pads2/hub/winbacks/confirmation"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/winbacks/confirmation/show"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.Numeric, description: "Current budget related to the campaign")
+        new_budget(required: true, type: PropertyType.Numeric, description: "New budget assigned to the campaign")
+        status(required: true, type: PropertyType.String, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+
+    "/advertising/pads2/hub/winbacks/confirmation/go"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.Numeric, description: "Current budget related to the campaign")
+        new_budget(required: true, type: PropertyType.Numeric, description: "New budget assigned to the campaign")
+        status(required: true, type: PropertyType.String, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+
+    "/advertising/pads2/hub/winbacks/confirmation/close"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        budget(required: true, type: PropertyType.Numeric, description: "Current budget related to the campaign")
+        new_budget(required: true, type: PropertyType.Numeric, description: "New budget assigned to the campaign")
+        status(required: true, type: PropertyType.String, description: "Current status related to the campaign", values: ['active', 'paused'])
+    }
+
+    "/advertising/pads2/hub/winbacks/createcampaign"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/winbacks/createcampaign/show"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/winbacks/createcampaign/go"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/winbacks/pause"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/winbacks/pause/show"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/winbacks/pause/go"(platform: "/web", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/winbacks/pause/close"(platform: "/web", type: TrackType.Event) {}
 
 
     //Admin Mobile
