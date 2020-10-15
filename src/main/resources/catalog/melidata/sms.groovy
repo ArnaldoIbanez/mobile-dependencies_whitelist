@@ -16,7 +16,7 @@ tracks {
         segment_name(required: false, type: PropertyType.String, description: "Identifies a user segment within a communication (e.g. communication_id=remarketing, communication_version=1.0.0, segment_name=loyals")
         experiment_name(required: false, type: PropertyType.String, description: "Identifies an experiment within a communication (e.g. communication_id=remarketing, communication_version=1.0.0, segment_name=loyals, experiment_name=layout1")
         communication_data(required: false, type: PropertyType.String, description: "Specific data for the campaign")
-        event_type(required: true, type: PropertyType.String, description: "type of SMS event", values: ["sent", "unsubscribe"])
+        event_type(required: true, type: PropertyType.String, description: "type of SMS event", values: ["sent", "unsubscribe","discarded"])
     }
 
 }
