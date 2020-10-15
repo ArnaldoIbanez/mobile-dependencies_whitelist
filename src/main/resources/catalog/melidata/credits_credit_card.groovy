@@ -314,6 +314,30 @@ tracks {
         pending_payments_group
     }
 
+    "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        account
+        statement_status_group
+        pending_payments_group
+    }
+
+    "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        account
+        statement_status_group
+        pending_payments_group
+    }
+
+    "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        account
+        statement_status_group
+        pending_payments_group
+    }
+
+    "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        account
+        statement_status_group
+        pending_payments_group
+    }
+
     /*********************************************
      *       End: Credit Card Dashboard
      *********************************************/

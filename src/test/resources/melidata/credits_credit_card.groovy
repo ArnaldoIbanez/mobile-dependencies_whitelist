@@ -216,6 +216,8 @@ trackTests {
         def statement_open_status = "open"
         def statement_closed_status = "closed"
 
+        //View Dashboard
+        //Dashboard View Account Status PENDING and Status Open
         "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
             rating: rating_a
             status: status_pending
@@ -225,6 +227,7 @@ trackTests {
             pending_payments = true
         }
 
+        //Dashboard View Account Status Active and Status Open
         "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
             rating: rating_b
             status: status_active
@@ -234,6 +237,7 @@ trackTests {
             pending_payments = false
         }
 
+        //Dashboard View Account Status Blocked and Status Closed
         "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
             rating: rating_b
             status: status_blocked
@@ -243,6 +247,7 @@ trackTests {
             pending_payments = false
         }
 
+        //Dashboard View Account Status Cancelled and Status Closed
         "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
             rating: rating_b
             status: status_cancelled
@@ -250,6 +255,330 @@ trackTests {
             overdue_days: 0
             statement_status = statement_closed_status
             pending_payments = false
+        }
+
+        //Event Payment
+        //Dashboard Event Payment Button Account Status Pending and Status Open
+        "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Payment Button Account Status Pending and Status Closed
+        "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Payment Button Account Status Active and Status Open
+        "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Payment Button Account Status Active and Status Closed
+        "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Payment Button Account Status Blocked and Status Open
+        "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Payment Button Account Status Blocked and Status Closed
+        "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Payment Button Account Status Cancelled and Status Open
+        "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 10
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Payment Button Account Status Cancelled and Status Closed
+        "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 5
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Event Loyalty
+        //Dashboard Event Loyalty Button Account Status Pending and Status Open
+        "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Loyalty Button Account Status Pending and Status Closed
+        "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Loyalty Button Account Status Active and Status Open
+        "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Loyalty Button Account Status Active and Status Closed
+        "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Loyalty Button Account Status Blocked and Status Open
+        "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Loyalty Button Account Status Blocked and Status Closed
+        "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Loyalty Button Account Status Cancelled and Status Open
+        "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 10
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Loyalty Button Account Status Cancelled and Status Closed
+        "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 5
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Event Statement
+        //Dashboard Event Statement Button Account Status Pending and Status Open
+        "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Statement Button Account Status Pending and Status Closed
+        "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Statement Button Account Status Active and Status Open
+        "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Statement Button Account Status Active and Status Closed
+        "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Statement Button Account Status Blocked and Status Open
+        "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Statement Button Account Status Blocked and Status Closed
+        "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Statement Button Account Status Cancelled and Status Open
+        "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 10
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Statement Button Account Status Cancelled and Status Closed
+        "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 5
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Event Help
+        //Dashboard Event Help Button Account Status Pending and Status Open
+        "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Help Button Account Status Pending and Status Closed
+        "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Help Button Account Status Active and Status Open
+        "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Help Button Account Status Active and Status Closed
+        "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Help Button Account Status Blocked and Status Open
+        "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Help Button Account Status Blocked and Status Closed
+        "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Help Button Account Status Cancelled and Status Open
+        "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 10
+            statement_status = statement_open_status
+            pending_payments = true
+        }
+
+        //Dashboard Event Help Button Account Status Cancelled and Status Closed
+        "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 5
+            statement_status = statement_closed_status
+            pending_payments = true
         }
 
         /*********************************************
