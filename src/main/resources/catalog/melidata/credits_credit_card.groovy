@@ -349,6 +349,12 @@ tracks {
         statement_status_group
     }
 
+    "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        account
+        statement_status_group
+    }
+
+
     /*********************************************
      *       End: Credit Card Dashboard
      *********************************************/

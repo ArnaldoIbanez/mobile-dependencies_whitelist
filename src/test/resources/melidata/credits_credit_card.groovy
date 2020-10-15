@@ -768,6 +768,83 @@ trackTests {
             statement_status = statement_closed_status
         }
 
+
+        //
+        //
+        //Event Show Limit Modal
+        //Dashboard Event Show Limit Modal Button Account Status Pending and Status Open
+        "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Show Limit Modal Button Account Status Pending and Status Closed
+        "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+        }
+
+        //Dashboard Event Show Limit Modal Button Account Status Active and Status Open
+        "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Show Limit Modal Button Account Status Active and Status Closed
+        "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+        }
+
+        //Dashboard Event Show Limit Modal Button Account Status Blocked and Status Open
+        "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Show Limit Modal Button Account Status Blocked and Status Closed
+        "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+        }
+
+        //Dashboard Event Show Limit Modal Button Account Status Cancelled and Status Open
+        "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 10
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Show Limit Modal Button Account Status Cancelled and Status Closed
+        "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 5
+            statement_status = statement_closed_status
+        }
+        //
+
         /*********************************************
          *       End: Credit Card Dashboard
          *********************************************/
