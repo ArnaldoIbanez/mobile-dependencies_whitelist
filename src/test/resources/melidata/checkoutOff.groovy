@@ -6,7 +6,7 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
-    test("Checkout Off") {
+    test("Checkout Off - MercadoPago") {
         def defaultProperties = {
             checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
             product_id = "BC32A4JU643001OI3920"
@@ -50,6 +50,7 @@ trackTests {
         def finishOnlyRequiredProperties = {
             payment_status_detail = "accredited"
             payment_status = "approved"
+            payment_id = "5408994392"
         }
 
         // ALL PROPERTIES TESTS
@@ -418,7 +419,7 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
-    test("Checkout Off") {
+    test("Checkout Off - MercadoLibre") {
         def defaultProperties = {
             checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
             product_id = "BC32A4JU643001OI3920"
@@ -462,6 +463,7 @@ trackTests {
         def finishOnlyRequiredProperties = {
             payment_status_detail = "accredited"
             payment_status = "approved"
+            payment_id = "5408994392"
         }
 
         // ALL PROPERTIES TESTS
