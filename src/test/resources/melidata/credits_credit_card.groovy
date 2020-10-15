@@ -768,9 +768,6 @@ trackTests {
             statement_status = statement_closed_status
         }
 
-
-        //
-        //
         //Event Show Limit Modal
         //Dashboard Event Show Limit Modal Button Account Status Pending and Status Open
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
@@ -843,7 +840,6 @@ trackTests {
             overdue_days = 5
             
         }
-        //
 
         /*********************************************
          *       End: Credit Card Dashboard
