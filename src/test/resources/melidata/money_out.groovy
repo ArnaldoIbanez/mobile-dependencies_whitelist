@@ -117,6 +117,7 @@ trackTests {
       "/money_out/transfers"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/home/transfer_mp"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/transfer_bank"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/transfer_pix"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/home/send_money"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
@@ -218,6 +219,27 @@ trackTests {
       //Transfer Hub - Coelsa Error
       "/money_out/transfers/home/coelsa_error"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/home/coelsa_error/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+      //Transfer Hub - Pix
+      "/money_out/transfers/pix_dashboard"(platform: "/", type: TrackType.View) {}
+      "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
+        type = "cpf"
+      }
+      "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
+        type = "cnpj"
+      }
+      "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
+        type = "email"
+      }
+      "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
+        type = "telefone"
+      }
+      "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
+        type = "chave_aleatoria"
+      }
+      "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
+        type = "datos_conta"
+      }
 
     }
 }
