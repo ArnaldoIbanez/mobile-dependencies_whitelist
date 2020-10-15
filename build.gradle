@@ -37,7 +37,7 @@ dependencies {
 
 	compile 'com.amazonaws:aws-java-sdk:1.11.68'
 	compile 'commons-io:commons-io:2.4'
-	compile 'com.mercadolibre.melidata.catalog:commons:2.0.7'
+	compile 'com.mercadolibre.melidata.catalog:commons:2.0.11'
 	compile group: 'com.facebook.presto', name: 'presto-jdbc', version: '0.220'
 	compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 	compile group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
