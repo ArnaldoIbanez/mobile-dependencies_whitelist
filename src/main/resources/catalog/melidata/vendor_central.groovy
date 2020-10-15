@@ -82,4 +82,19 @@ tracks {
 
     "/vendor_central/inbound/detail"(platform: "/web", type: TrackType.View) {}
 
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Vendor Central Contra COGS
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/vendor_central/contra_cogs"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/contra_cogs/list"(platform: "/", isAbstract: true) {}
+
+    "/vendor_central/contra_cogs/list/search"(platform: "/web", type: TrackType.Event) {
+        filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the filters ids applied to the search")
+        sorts(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the sorts ids applied the search")
+        search_terms(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the search terms applied for the search")
+        task(required: false, type: PropertyType.String, description: "this property describes the task id applied for the search")
+    }
+
 }
