@@ -20,13 +20,17 @@ tracks {
         experiments(required: false, type: PropertyType.String, description: "Active experiments")
 
         payment_method_id(required: false, type: PropertyType.String, description: "Payment method id")
-        card_id(required: false, type: PropertyType.String , description: "Card id")
+        payment_method_type(required: false, type: PropertyType.String, description: "Payment method type")
+        card_id(required: false, type: PropertyType.String, description: "Card id")
+        issuer_id(required: false, type: PropertyType.String, description: "Issuer id")
+        bin(required: false, type: PropertyType.String, description: "Bin")
         reason(required: false, type: PropertyType.String, description: "Why this screen is shown", values: ["esc_cap", "saved_card", "call_for_auth", "disabled_card", "invalid_esc", "invalid_fingerprint", "unexpected_tokenization_error", "esc_disabled", "no_reason"])
     }
 
     propertyGroups {
         externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, experiments)
         securityCodeViewData(payment_method_id, card_id, reason)
+        securityCodeData(payment_method_id, payment_method_type, card_id, issuer_id, bin, reason)
     }
 
     // Views:
@@ -73,6 +77,16 @@ tracks {
     "/px_checkout/payments/select_method/prepaid_card/cvv"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
         securityCodeViewData
         externalData
+    }
+
+    "/px_checkout/security_code"(platform: "/mobile", type: TrackType.View) {
+        securityCodeData
+    }
+    "/px_checkout/security_code/abort"(platform: "/mobile", type: TrackType.Event) {
+        securityCodeData
+    }
+    "/px_checkout/security_code/confirm"(platform: "/mobile", type: TrackType.Event) {
+        securityCodeData
     }
 
     // Bank deals views
