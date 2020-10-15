@@ -15,7 +15,30 @@ tracks {
     "/discount_center" (platform: "/mobile", isAbstract: true) {}
     "/discount_center/payers" (platform: "/mobile", isAbstract: true) {}
 
-    // VSP
+    propertyDefinitions {
+        flow_detail(required: false, description: "External info")
+        flow(required: false, type: PropertyType.String, description: "External flow name")
+        session_id(required: false, type: PropertyType.String, description: "Internal session id")
+        session_time(required: false, type: PropertyType.Numeric, description: "Session time")
+        checkout_type(required: false, type: PropertyType.String, description: "Checkout type")
+        collector_id(required: false, description: "Collector external id")
+        security_enabled(required: false, type: PropertyType.Boolean, description: "If the user has biometric or passcode validation to make a payment")
+        category(type: PropertyType.String, required: false, description: "The category id")
+        mcc(type: PropertyType.String, required: true, description: "The mcc")
+        experiments(required: false, type: PropertyType.String, description: "Active experiments")
+        store_id(type: PropertyType.Numeric, required: true, description: "The store id")
+        brand_id(type: PropertyType.Numeric, required: false, description: "The brand id")
+        name(type: PropertyType.String, required: false, description: "The name")
+        distance(type: PropertyType.Numeric, required: true, description: "The distance")
+        review(type: PropertyType.Map(store_review_definition), required: false, description: "The review node")
+        discounts(type: PropertyType.ArrayList(PropertyType.Map(store_discount_definition)), required: false, description: "The discounts")
+        delivery(type: PropertyType.Map(store_delivery_definition), required: false, description: "The delivery node")
+    }
+
+    propertyGroups {
+        externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, category, experiments)
+        storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id)
+    }
 
     def store_review_definition = objectSchemaDefinitions {
         rating(type: PropertyType.Numeric, required: true, description: "The store rating")
@@ -39,24 +62,7 @@ tracks {
         pickup(type: PropertyType.Boolean, required: true, description: "If the store has pickup")
     }
 
-    storePropertyDefinitions {
-        store_id(type: PropertyType.Numeric, required: true, description: "The store id")
-        collector_id(type: PropertyType.Numeric, required: true, description: "The collector id")
-        brand_id(type: PropertyType.Numeric, required: false, description: "The brand id")
-        name(type: PropertyType.String, required: false, description: "The name")
-        distance(type: PropertyType.Numeric, required: true, description: "The distance")
-        category(type: PropertyType.String, required: false, description: "The category")
-        mcc(type: PropertyType.String, required: true, description: "The mcc")
-        review(type: PropertyType.Map(store_review_definition), required: false, description: "The review node")
-        discounts(type: PropertyType.ArrayList(PropertyType.Map(store_discount_definition)), required: false, description: "The discounts")
-        delivery(type: PropertyType.Map(store_delivery_definition), required: false, description: "The delivery node")
-        session_id(type: PropertyType.String, required: true, description: "Unique code that identifies a user's session")
-    }
-
-    storePropertyGroups {
-        storeGroup(store_id, collector_id, brand_id, name, distance, category, mcc, review, discounts, delivery, session_id)
-    }
-
+    // VSP
     "/discount_center/payers/vsp" (platform: "/mobile", type: TrackType.View) {
         storeGroup
     }
@@ -115,24 +121,8 @@ tracks {
 
     // TOUCH POINT
 
-    propertyDefinitions {
-        flow_detail(required: false, description: "External info")
-        flow(required: false, type: PropertyType.String, description: "External flow name")
-        session_id(required: false, type: PropertyType.String, description: "Internal session id")
-        session_time(required: false, type: PropertyType.Numeric, description: "Session time")
-        checkout_type(required: false, type: PropertyType.String, description: "Checkout type")
-        collector_id(required: false, description: "Collector external id")
-        security_enabled(required: false, type: PropertyType.Boolean, description: "If the user has biometric or passcode validation to make a payment")
-        category(type: PropertyType.String, required: false, description: "The category id")
-        experiments(required: false, type: PropertyType.String, description: "Active experiments")
-    }
-
     def touchpoint_item_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the item we are showing")
-    }
-
-    propertyGroups {
-        externalData(flow, flow_detail, collector_id, session_id, session_time, checkout_type, security_enabled, category, experiments)
     }
 
     "/discount_center/payers/touchpoint" (platform: "/mobile", isAbstract: true) {}
