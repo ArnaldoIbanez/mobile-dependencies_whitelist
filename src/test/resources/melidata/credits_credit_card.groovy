@@ -265,7 +265,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Payment Button Account Status Pending and Status Closed
@@ -275,7 +274,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         //Dashboard Event Payment Button Account Status Active and Status Open
@@ -285,7 +283,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Payment Button Account Status Active and Status Closed
@@ -295,7 +292,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         //Dashboard Event Payment Button Account Status Blocked and Status Open
@@ -305,7 +301,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Payment Button Account Status Blocked and Status Closed
@@ -315,7 +310,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         //Dashboard Event Payment Button Account Status Cancelled and Status Open
@@ -325,7 +319,6 @@ trackTests {
             status_detail: ""
             overdue_days: 10
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Payment Button Account Status Cancelled and Status Closed
@@ -335,7 +328,79 @@ trackTests {
             status_detail: ""
             overdue_days: 5
             statement_status = statement_closed_status
-            pending_payments = true
+        }
+
+        //Payment Limit Modal
+        //Dashboard Event Payment Limit Modal Button Account Status Pending and Status Open
+        "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Payment Limit Modal Button Account Status Pending and Status Closed
+        "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+        }
+
+        //Dashboard Event Payment Limit Modal Button Account Status Active and Status Open
+        "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Payment Limit Modal Button Account Status Active and Status Closed
+        "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+        }
+
+        //Dashboard Event Payment Limit Modal Button Account Status Blocked and Status Open
+        "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Payment Limit Modal Button Account Status Blocked and Status Closed
+        "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+        }
+
+        //Dashboard Event Payment Limit Modal Button Account Status Cancelled and Status Open
+        "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 10
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Payment Limit Modal Button Account Status Cancelled and Status Closed
+        "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 5
+            statement_status = statement_closed_status
         }
 
         //Event Loyalty
@@ -346,7 +411,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Loyalty Button Account Status Pending and Status Closed
@@ -356,7 +420,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         //Dashboard Event Loyalty Button Account Status Active and Status Open
@@ -366,7 +429,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Loyalty Button Account Status Active and Status Closed
@@ -376,7 +438,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         //Dashboard Event Loyalty Button Account Status Blocked and Status Open
@@ -386,7 +447,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Loyalty Button Account Status Blocked and Status Closed
@@ -396,7 +456,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         //Dashboard Event Loyalty Button Account Status Cancelled and Status Open
@@ -406,7 +465,6 @@ trackTests {
             status_detail: ""
             overdue_days: 10
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Loyalty Button Account Status Cancelled and Status Closed
@@ -416,7 +474,6 @@ trackTests {
             status_detail: ""
             overdue_days: 5
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         //Event Statement
@@ -427,7 +484,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Statement Button Account Status Pending and Status Closed
@@ -437,7 +493,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         //Dashboard Event Statement Button Account Status Active and Status Open
@@ -447,7 +502,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Statement Button Account Status Active and Status Closed
@@ -457,7 +511,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         //Dashboard Event Statement Button Account Status Blocked and Status Open
@@ -467,7 +520,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Statement Button Account Status Blocked and Status Closed
@@ -477,7 +529,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         //Dashboard Event Statement Button Account Status Cancelled and Status Open
@@ -487,7 +538,6 @@ trackTests {
             status_detail: ""
             overdue_days: 10
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Statement Button Account Status Cancelled and Status Closed
@@ -497,7 +547,152 @@ trackTests {
             status_detail: ""
             overdue_days: 5
             statement_status = statement_closed_status
-            pending_payments = true
+        }
+
+        //Event Row Statement
+        //Dashboard Event Row Statement Button Account Status Pending and Status Open
+        "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Row Statement Button Account Status Pending and Status Closed
+        "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+        }
+
+        //Dashboard Event Row Statement Button Account Status Active and Status Open
+        "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Row Statement Button Account Status Active and Status Closed
+        "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+        }
+
+        //Dashboard Event Row Statement Button Account Status Blocked and Status Open
+        "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Row Statement Button Account Status Blocked and Status Closed
+        "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+        }
+
+        //Dashboard Event Row Statement Button Account Status Cancelled and Status Open
+        "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 10
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Row Statement Button Account Status Cancelled and Status Closed
+        "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 5
+            statement_status = statement_closed_status
+        }
+
+        //Event Limit Modal Statement
+        //Dashboard Event Limit Modal Statement Button Account Status Pending and Status Open
+        "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Limit Modal Statement Button Account Status Pending and Status Closed
+        "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_pending
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+        }
+
+        //Dashboard Event Limit Modal Statement Button Account Status Active and Status Open
+        "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Limit Modal Statement Button Account Status Active and Status Closed
+        "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_active
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+        }
+
+        //Dashboard Event Limit Modal Statement Button Account Status Blocked and Status Open
+        "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Limit Modal Statement Button Account Status Blocked and Status Closed
+        "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_blocked
+            status_detail: ""
+            overdue_days: 4
+            statement_status = statement_closed_status
+        }
+
+        //Dashboard Event Limit Modal Statement Button Account Status Cancelled and Status Open
+        "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 10
+            statement_status = statement_open_status
+        }
+
+        //Dashboard Event Limit Modal Statement Button Account Status Cancelled and Status Closed
+        "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event) {
+            rating: rating_a
+            status: status_cancelled
+            status_detail: ""
+            overdue_days: 5
+            statement_status = statement_closed_status
         }
 
         //Event Help
@@ -508,7 +703,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Help Button Account Status Pending and Status Closed
@@ -518,7 +712,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         //Dashboard Event Help Button Account Status Active and Status Open
@@ -528,7 +721,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Help Button Account Status Active and Status Closed
@@ -538,7 +730,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         //Dashboard Event Help Button Account Status Blocked and Status Open
@@ -548,7 +739,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Help Button Account Status Blocked and Status Closed
@@ -558,7 +748,6 @@ trackTests {
             status_detail: ""
             overdue_days: 4
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         //Dashboard Event Help Button Account Status Cancelled and Status Open
@@ -568,7 +757,6 @@ trackTests {
             status_detail: ""
             overdue_days: 10
             statement_status = statement_open_status
-            pending_payments = true
         }
 
         //Dashboard Event Help Button Account Status Cancelled and Status Closed
@@ -578,7 +766,6 @@ trackTests {
             status_detail: ""
             overdue_days: 5
             statement_status = statement_closed_status
-            pending_payments = true
         }
 
         /*********************************************
