@@ -137,26 +137,17 @@ trackTests {
         }
 
         "/sell/list/congrats"(platform: "/web/desktop", {
-            itemData
+            itemData()
             chosen_categorization_model = "ZORDON"
         })
+        
         "/sell/upgrade_on"(platform: "/web/desktop", itemData)
 
-    }
-    test("Sell Flow view Pages"){
-        def itemData = {
-            item_id = "MLA123456"
-            listing_type_id = "gold_special"
-            vertical = "MOT"
-            buying_mode = "buy_it_now"
-            condition = "used"
-            price = 123.456
-            referer = "mail_upgrade_classified"
-        }
     }
 
     test("Sell Flow view Pages upselling pads"){
         def itemData = {
+            item_id = "MLA123456"
             reputation_level = "platinum"
             placement = "syi_congrats"
             adv_segmentation = "1-Active (0-30)"
@@ -250,6 +241,7 @@ trackTests {
 
         "/sell/list/congrats"(platform: "/mobile") {
             session_id = "214464778-list-d5e5a20b2935"
+            item_id = "MLA12345"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
@@ -877,6 +869,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "core"
+            item_id = "MLA12345"
             defaultCatalogFlowMobile()
         }
 
@@ -1116,6 +1109,7 @@ trackTests {
             seller_segment = ""
             seller_profile = "NEWBIE"
             vertical = "real_estate"
+            item_id = "MLA12345"
         }
         "/sell/list/sip"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
