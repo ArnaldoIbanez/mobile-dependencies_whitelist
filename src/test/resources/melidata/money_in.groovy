@@ -329,31 +329,37 @@ trackTests {
         }
         "/money_in/pix_keys/key_claim_detail/delete"(platform: "/", type: TrackType.View) {}
         "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {}
-        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.Event) {
+        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {
+            type = "green"
+        }
+        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {
+            type = "yellow"
+        }
+        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {
             key_type = "cnpj"
         }
-        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.Event) {
+        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {
             key_type = "cpf"
         }
-        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.Event) {
+        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {
             key_type = "telephone"
         }
-        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.Event) {
+        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {
             key_type = "email"
         }
-        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.Event) {
+        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {
             key_type = "evp"
         }
-         "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.Event) {
+         "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {
             request_type = "registration"
         }
-        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.Event) {
+        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {
             request_type = "delete"
         }
-        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.Event) {
+        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {
             request_type = "ownership"
         }
-        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.Event) {
+        "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {
             request_type = "portability"
         }
         "/money_in/pix_keys/congrats/continue"(platform: "/", type: TrackType.Event) {}
