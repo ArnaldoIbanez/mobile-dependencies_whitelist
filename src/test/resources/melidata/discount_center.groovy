@@ -244,30 +244,30 @@ trackTests {
                                 type: "store",
                                 index: 0,
                                 store: [
-                                    store_id = 30286315,
-                                    collector_id = 20565408,
-                                    name = "Maqyherr De Jose Luis Mangini",
-                                    distance = 1813,
-                                    category = "Ferretería",
-                                    mcc = "523630",
-                                    discounts = [
-                                            [
-                                                    campaign_id: 1070400,
-                                                    index: 0,
-                                                    blocked: false,
-                                                    availability: "full",
-                                                    level: 1,
-                                                    amount_type: "percent",
-                                                    amount: 5.0,
-                                                    priority: 6
-                                            ]
-                                    ],
-                                    delivery = [
-                                            radius: 1000,
-                                            delivery: true,
-                                            pickup: false
-                                    ],
-                                    session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+                                    store_id: 30286315,
+                                                collector_id: 20565408,
+                                                name: "Maqyherr De Jose Luis Mangini",
+                                                distance: 1813,
+                                                category: "Ferretería",
+                                                mcc: "523630",
+                                                discounts: [
+                                                        [
+                                                                campaign_id: 1070400,
+                                                                index: 0,
+                                                                blocked: false,
+                                                                availability: "full",
+                                                                level: 1,
+                                                                amount_type: "percent",
+                                                                amount: 5.0,
+                                                                priority: 6
+                                                        ]
+                                                ],
+                                                delivery: [
+                                                        radius: 1000,
+                                                        delivery: true,
+                                                        pickup: false
+                                                ],
+                                                session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                 ]
                             ],
                             [
@@ -283,30 +283,30 @@ trackTests {
                         segment_id: "neighborhood",
                         marketplace_index: 4,
                         items: [
-                            [   store_id = 30286315,
-                                collector_id = 20565408,
-                                name = "Maqyherr De Jose Luis Mangini",
-                                distance = 1813,
-                                category = "Ferretería",
-                                mcc = "523630",
-                                discounts = [
-                                        [
-                                                campaign_id: 1070400,
-                                                index: 0,
-                                                blocked: false,
-                                                availability: "full",
-                                                level: 1,
-                                                amount_type: "percent",
-                                                amount: 5.0,
-                                                priority: 6
-                                        ]
-                                ],
-                                delivery = [
-                                        radius: 1000,
-                                        delivery: true,
-                                        pickup: false
-                                ],
-                                session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+                            [   store_id: 30286315,
+                                                collector_id: 20565408,
+                                                name: "Maqyherr De Jose Luis Mangini",
+                                                distance: 1813,
+                                                category: "Ferretería",
+                                                mcc: "523630",
+                                                discounts: [
+                                                        [
+                                                                campaign_id: 1070400,
+                                                                index: 0,
+                                                                blocked: false,
+                                                                availability: "full",
+                                                                level: 1,
+                                                                amount_type: "percent",
+                                                                amount: 5.0,
+                                                                priority: 6
+                                                        ]
+                                                ],
+                                                delivery: [
+                                                        radius: 1000,
+                                                        delivery: true,
+                                                        pickup: false
+                                                ],
+                                                session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                             ]
                         ]
                     ]
@@ -357,30 +357,30 @@ trackTests {
                         segment_id: "neighborhood",
                         marketplace_index: 4,
                         items: [
-                            [   store_id = 30286315,
-                                collector_id = 20565408,
-                                name = "Maqyherr De Jose Luis Mangini",
-                                distance = 1813,
-                                category = "Ferretería",
-                                mcc = "523630",
-                                discounts = [
-                                        [
-                                                campaign_id: 1070400,
-                                                index: 0,
-                                                blocked: false,
-                                                availability: "full",
-                                                level: 1,
-                                                amount_type: "percent",
-                                                amount: 5.0,
-                                                priority: 6
-                                        ]
-                                ],
-                                delivery = [
-                                        radius: 1000,
-                                        delivery: true,
-                                        pickup: false
-                                ],
-                                session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+                            [   store_id: 30286315,
+                                                collector_id: 20565408,
+                                                name: "Maqyherr De Jose Luis Mangini",
+                                                distance: 1813,
+                                                category: "Ferretería",
+                                                mcc: "523630",
+                                                discounts: [
+                                                        [
+                                                                campaign_id: 1070400,
+                                                                index: 0,
+                                                                blocked: false,
+                                                                availability: "full",
+                                                                level: 1,
+                                                                amount_type: "percent",
+                                                                amount: 5.0,
+                                                                priority: 6
+                                                        ]
+                                                ],
+                                                delivery: [
+                                                        radius: 1000,
+                                                        delivery: true,
+                                                        pickup: false
+                                                ],
+                                                session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                             ]
                         ]
                     ]
@@ -395,30 +395,30 @@ trackTests {
                                                 type: "store",
                                                 index: 0,
                                                 store: [
-                                                        store_id = 30286315,
-                                                        collector_id = 20565408,
-                                                        name = "Maqyherr De Jose Luis Mangini",
-                                                        distance = 1813,
-                                                        category = "Ferretería",
-                                                        mcc = "523630",
-                                                        discounts = [
-                                                                [
-                                                                        campaign_id: 1070400,
-                                                                        index: 0,
-                                                                        blocked: false,
-                                                                        availability: "full",
-                                                                        level: 1,
-                                                                        amount_type: "percent",
-                                                                        amount: 5.0,
-                                                                        priority: 6
-                                                                ]
-                                                        ],
-                                                        delivery = [
-                                                                radius: 1000,
-                                                                delivery: true,
-                                                                pickup: false
-                                                        ],
-                                                        session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+                                                        store_id: 30286315,
+                                                collector_id: 20565408,
+                                                name: "Maqyherr De Jose Luis Mangini",
+                                                distance: 1813,
+                                                category: "Ferretería",
+                                                mcc: "523630",
+                                                discounts: [
+                                                        [
+                                                                campaign_id: 1070400,
+                                                                index: 0,
+                                                                blocked: false,
+                                                                availability: "full",
+                                                                level: 1,
+                                                                amount_type: "percent",
+                                                                amount: 5.0,
+                                                                priority: 6
+                                                        ]
+                                                ],
+                                                delivery: [
+                                                        radius: 1000,
+                                                        delivery: true,
+                                                        pickup: false
+                                                ],
+                                                session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                                 ]
                                         ],
                                         [
@@ -473,30 +473,30 @@ trackTests {
                                                 type: "store",
                                                 index: 0,
                                                 store: [
-                                                        store_id = 30286315,
-                                                        collector_id = 20565408,
-                                                        name = "Maqyherr De Jose Luis Mangini",
-                                                        distance = 1813,
-                                                        category = "Ferretería",
-                                                        mcc = "523630",
-                                                        discounts = [
-                                                                [
-                                                                        campaign_id: 1070400,
-                                                                        index: 0,
-                                                                        blocked: false,
-                                                                        availability: "full",
-                                                                        level: 1,
-                                                                        amount_type: "percent",
-                                                                        amount: 5.0,
-                                                                        priority: 6
-                                                                ]
-                                                        ],
-                                                        delivery = [
-                                                                radius: 1000,
-                                                                delivery: true,
-                                                                pickup: false
-                                                        ],
-                                                        session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+                                                        store_id: 30286315,
+                                                collector_id: 20565408,
+                                                name: "Maqyherr De Jose Luis Mangini",
+                                                distance: 1813,
+                                                category: "Ferretería",
+                                                mcc: "523630",
+                                                discounts: [
+                                                        [
+                                                                campaign_id: 1070400,
+                                                                index: 0,
+                                                                blocked: false,
+                                                                availability: "full",
+                                                                level: 1,
+                                                                amount_type: "percent",
+                                                                amount: 5.0,
+                                                                priority: 6
+                                                        ]
+                                                ],
+                                                delivery: [
+                                                        radius: 1000,
+                                                        delivery: true,
+                                                        pickup: false
+                                                ],
+                                                session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                                 ]
                                         ],
                                         [
@@ -512,30 +512,30 @@ trackTests {
                                 segment_id: "neighborhood",
                                 marketplace_index: 4,
                                 items: [
-                                        [   store_id = 30286315,
-                                            collector_id = 20565408,
-                                            name = "Maqyherr De Jose Luis Mangini",
-                                            distance = 1813,
-                                            category = "Ferretería",
-                                            mcc = "523630",
-                                            discounts = [
-                                                    [
-                                                            campaign_id: 1070400,
-                                                            index: 0,
-                                                            blocked: false,
-                                                            availability: "full",
-                                                            level: 1,
-                                                            amount_type: "percent",
-                                                            amount: 5.0,
-                                                            priority: 6
-                                                    ]
-                                            ],
-                                            delivery = [
-                                                    radius: 1000,
-                                                    delivery: true,
-                                                    pickup: false
-                                            ],
-                                            session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+                                        [   store_id: 30286315,
+                                                collector_id: 20565408,
+                                                name: "Maqyherr De Jose Luis Mangini",
+                                                distance: 1813,
+                                                category: "Ferretería",
+                                                mcc: "523630",
+                                                discounts: [
+                                                        [
+                                                                campaign_id: 1070400,
+                                                                index: 0,
+                                                                blocked: false,
+                                                                availability: "full",
+                                                                level: 1,
+                                                                amount_type: "percent",
+                                                                amount: 5.0,
+                                                                priority: 6
+                                                        ]
+                                                ],
+                                                delivery: [
+                                                        radius: 1000,
+                                                        delivery: true,
+                                                        pickup: false
+                                                ],
+                                                session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                         ]
                                 ]
                         ]
@@ -559,30 +559,30 @@ trackTests {
                                 segment_id: "neighborhood",
                                 marketplace_index: 5,
                                 items: [
-                                        [   store_id = 30286315,
-                                            collector_id = 20565408,
-                                            name = "Maqyherr De Jose Luis Mangini",
-                                            distance = 1813,
-                                            category = "Ferretería",
-                                            mcc = "523630",
-                                            discounts = [
-                                                    [
-                                                            campaign_id: 1070400,
-                                                            index: 0,
-                                                            blocked: false,
-                                                            availability: "full",
-                                                            level: 1,
-                                                            amount_type: "percent",
-                                                            amount: 5.0,
-                                                            priority: 6
-                                                    ]
-                                            ],
-                                            delivery = [
-                                                    radius: 1000,
-                                                    delivery: true,
-                                                    pickup: false
-                                            ],
-                                            session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+                                        [   store_id: 30286315,
+                                                collector_id: 20565408,
+                                                name: "Maqyherr De Jose Luis Mangini",
+                                                distance: 1813,
+                                                category: "Ferretería",
+                                                mcc: "523630",
+                                                discounts: [
+                                                        [
+                                                                campaign_id: 1070400,
+                                                                index: 0,
+                                                                blocked: false,
+                                                                availability: "full",
+                                                                level: 1,
+                                                                amount_type: "percent",
+                                                                amount: 5.0,
+                                                                priority: 6
+                                                        ]
+                                                ],
+                                                delivery: [
+                                                        radius: 1000,
+                                                        delivery: true,
+                                                        pickup: false
+                                                ],
+                                                session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                         ]
                                 ]
                         ]
@@ -595,20 +595,20 @@ trackTests {
 
     test("Mercado Pago discount center payers marketplace tap") {
         "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
-            components= [
+            components = [
                     row: [
                             [
                                     marketplace_type: "row",
                                     segment_id: "neighborhood",
                                     marketplace_index: 4,
                                     items: [
-                                            [   store_id = 30286315,
-                                                collector_id = 20565408,
-                                                name = "Maqyherr De Jose Luis Mangini",
-                                                distance = 1813,
-                                                category = "Ferretería",
-                                                mcc = "523630",
-                                                discounts = [
+                                            [   store_id: 30286315,
+                                                collector_id: 20565408,
+                                                name: "Maqyherr De Jose Luis Mangini",
+                                                distance: 1813,
+                                                category: "Ferretería",
+                                                mcc: "523630",
+                                                discounts: [
                                                         [
                                                                 campaign_id: 1070400,
                                                                 index: 0,
@@ -620,12 +620,12 @@ trackTests {
                                                                 priority: 6
                                                         ]
                                                 ],
-                                                delivery = [
+                                                delivery: [
                                                         radius: 1000,
                                                         delivery: true,
                                                         pickup: false
                                                 ],
-                                                session_id = "27131d31-6910-4855-85fe-70ad2d97f7ed"
+                                                session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                             ]
                                     ]
                             ]

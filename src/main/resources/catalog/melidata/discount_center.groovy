@@ -146,17 +146,7 @@ tracks {
     // MARKETPLACE
 
     def store_item_definition = objectSchemaDefinitions {
-        store_id(type: PropertyType.Numeric, required: true, description: "The store id")
-        brand_id(type: PropertyType.Numeric, required: false, description: "The brand id")
-        name(type: PropertyType.String, required: false, description: "The name")
-        distance(type: PropertyType.Numeric, required: true, description: "The distance")
-        review(type: PropertyType.Map(store_review_definition), required: false, description: "The review node")
-        discounts(type: PropertyType.ArrayList(PropertyType.Map(store_discount_definition)), required: false, description: "The discounts")
-        delivery(type: PropertyType.Map(store_delivery_definition), required: false, description: "The delivery node")
-        collector_id(required: false, description: "Collector external id")
-        session_id(required: false, type: PropertyType.String, description: "Internal session id")
-        category(type: PropertyType.String, required: false, description: "The category id")
-        mcc(type: PropertyType.String, required: true, description: "The mcc")
+        storeGroup
     }
 
     def card_item_definition = objectSchemaDefinitions {
