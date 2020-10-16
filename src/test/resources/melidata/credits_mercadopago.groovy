@@ -1129,11 +1129,19 @@ trackTests {
 
         "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
             prepaid = true
+            virtual_card = true
+            physical_card = false
+        }
+
+        "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.Event) {
+            virtual_card = true
+            physical_card = false
         }
 
         "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
             prepaid = false
             page = 1
+            sk = 'sk1234'
         }
 
         "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {
@@ -1405,6 +1413,7 @@ trackTests {
     test("Credits Consumer from MercadoPago"){
         "/credits/consumer/public_landing"(platform: "/") {
             user_profile = 'no_offer'
+            sk = 'landing'
         }
     }
 }

@@ -163,6 +163,7 @@ tracks {
      ******************************************/
     "/credits/consumer/public_landing"(platform: "/", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: true, inheritable: false, values: ["guest", "no_offer"])
+        sk(type: PropertyType.String, required: false)
     }
     /******************************************
      *       End: Consumer Public Landings
@@ -1247,10 +1248,19 @@ tracks {
 
     "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
         prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: true)
+        virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
+        physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
+    }
+
+    "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.Event) {
+        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
+        virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
+        physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
     }
 
     "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
+        sk(description: "Onboarding page number", type: PropertyType.String, required: false)
     }
 
     "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {}
@@ -1259,7 +1269,9 @@ tracks {
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
     }
 
-    "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
+        sk(description: "Onboarding page number", type: PropertyType.String, required: false)
+    }
 
     "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {}
 
