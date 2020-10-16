@@ -61,6 +61,6 @@ tracks {
     }
 
     "/traffic/inbound/direct"(platform: "/") {
-        go(type: PropertyType.String, description: "Destination URL of direct's traffic.")
+        go(type: PropertyType.String, description: "Destination URL of direct traffic.")
     }
 }
