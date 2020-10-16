@@ -221,6 +221,7 @@ tracks {
     }
     "/money_in/pix_keys/key_claim_detail/delete"(platform: "/", type: TrackType.View) {}
     "/money_in/pix_keys/congrats"(platform: "/", type: TrackType.View) {
+        type (required:false, description: "congrats type", values: ["green", "red", "yellow"])
         key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
         request_type (required:false, description: "Request type", values: ["registration", "delete", "ownership", "portability"])
     }
