@@ -159,4 +159,14 @@ trackTests {
             news_id = "12332323"
         }
     }
+
+    test("Direct traffic") {
+        "/traffic/inbound/direct"(platform: "/") {
+            go = "www.mercadolibre.com.uy"
+        }
+        "/traffic/inbound/direct"(platform: "/", business: "mercadopago") {
+            go = "www.mercadolibre.com.uy"
+        }
+    }   
+    
 }
