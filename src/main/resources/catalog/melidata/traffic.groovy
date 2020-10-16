@@ -59,4 +59,8 @@ tracks {
     "/traffic/inbound/notification"(platform: "/") {
         news_id(required: true, type: PropertyType.String, description: "news_id from the notification that opened the app.")
     }
+
+    "/traffic/inbound/direct"(platform: "/") {
+        go(type: PropertyType.String, description: "Destination URL of the marketing campaign.")
+    }
 }
