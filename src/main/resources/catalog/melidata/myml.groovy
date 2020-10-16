@@ -606,57 +606,75 @@ tracks {
 
     "/myml/invoices/optin"(platform: "/", isAbstract: true) {}
     "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
-        seller_type(required: false,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+        seller_type(required: false,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
     }
 
     // MLC - Tracking click - if seller profile needs go to previous page
     "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
-        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+        seller_type(required: true,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
     }
 
     // MLC - Tracking click - if seller profile needs help
     "/myml/invoices/optin/home/needs_help"(platform: "/", type: TrackType.Event) {
-        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+        seller_type(required: true,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
     }
 
     // MLC - Tracking click -  if seller profile needs change yours data
     "/myml/invoices/optin/home/modify_data"(platform: "/", type: TrackType.Event) {
-        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+        seller_type(required: true,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
     }
 
     // MLC - Tracking click - if seller profile accept use biller (facturador)
     "/myml/invoices/optin/home/enabled_for_biller"(platform: "/", type: TrackType.Event) {
-        seller_type(required: true,  values: ["PF", "PJ"], description: "Seller profile is PF or PJ")
+        seller_type(required: true,  values: ["PF", "PJ"], description: "[MLC] Seller profile is PF or PJ")
     }
 
     // MLB - Basic tax settings
-    "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - Blocked Access Page
     "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
         reason(required: true,  values: ["NOT_OWNER", "NO_DOCUMENT_REGISTERED"], description: "Seller access blocked for this reason")
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
     }
 
     // MLB - Certificate
-    "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - GNRE
-    "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - Invoice Data (NFe)
-    "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - Base Validations
-    "/myml/invoices/optin/validation"(platform: "/", isAbstract: true) {}
+    "/myml/invoices/optin/validation"(platform: "/", isAbstract: true) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - Activity Validation
-    "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - Business Name (Social Reason) Validation
-    "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     // MLB - State Registry Validation
-    "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {}
+    "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {
+        seller_tax_regime(required: false,  values: ["Regime Normal", "Simples Nacional"], description: "Seller Tax Regime is Simples Nacional or Regime Normal")
+    }
 
     //not found
     "/myml/invoices/not-found"(platform: "/") {}
