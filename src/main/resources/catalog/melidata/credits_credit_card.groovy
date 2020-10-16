@@ -152,14 +152,14 @@ tracks {
     }
 
     propertyGroups {
+        dashboard_view_group(account, statement_status, pending_payments)
+        dashboard_event_group(account, statement_status)
         payment_group(offer, statement_status)
         upgrade_info(offer, is_card_active)
         full_payment_group(offer, statement_status, payment_option, amount_input, payment_plan)
         bucket_group(bucket)
         statement_status_group(statement_status)
         statement_period(month, year)
-        pending_payments_group(pending_payments)
-
     }
 
     /******************************************
@@ -309,9 +309,39 @@ tracks {
      ***********************************************/
     // Dashboard
     "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
-        account
-        statement_status_group
-        pending_payments_group
+        dashboard_view_group
+    }
+
+    "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
     }
 
     /*********************************************
