@@ -654,11 +654,11 @@ tracks {
     "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {}
 
     "/credits/consumer/personal/adoption/onboarding/close"(platform: "/mobile", type: TrackType.Event) {
-        page(description: "Source key", type: PropertyType.Numeric, required: false)
+        page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
     }
 
     "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
-        sk(description: "Onboarding page number", type: PropertyType.String, required: false)
+        sk(description: "Source key", type: PropertyType.String, required: false)
     }
 
     "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {}
