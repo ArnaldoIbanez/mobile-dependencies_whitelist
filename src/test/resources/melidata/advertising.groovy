@@ -1313,6 +1313,82 @@ trackTests {
 
     }
 
+    test("Multicampaña - winbacks") {
+
+        "/advertising/pads2/hub/winbacks"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/hub/winbacks/modal"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/hub/winbacks/modal/show"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 123
+            status = "paused"
+            budget = 2000
+            step = 1
+        }
+
+        "/advertising/pads2/hub/winbacks/modal/go"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 123
+            status = "paused"
+            budget = 2000
+            step = 3
+        }
+
+        "/advertising/pads2/hub/winbacks/modal/close"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 123
+            status = "paused"
+            budget = 2000
+            step = 1
+        }
+
+        "/advertising/pads2/hub/winbacks/confirmation"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/hub/winbacks/confirmation/show"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 123
+            status = "paused"
+            budget = 2000
+            new_budget = 2500
+        }
+
+        "/advertising/pads2/hub/winbacks/confirmation/go"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 123
+            status = "paused"
+            budget = 2000
+            new_budget = 2500
+        }
+
+        "/advertising/pads2/hub/winbacks/confirmation/close"(platform: "/web", type: TrackType.Event) {
+            campaign_id = 123
+            status = "paused"
+            budget = 2000
+            new_budget = 2500
+        }
+
+        "/advertising/pads2/hub/winbacks/createcampaign"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/hub/winbacks/createcampaign/show"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/hub/winbacks/createcampaign/go"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/hub/winbacks/pause"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/hub/winbacks/pause/show"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/hub/winbacks/pause/go"(platform: "/web", type: TrackType.Event) {
+        }
+
+        "/advertising/pads2/hub/winbacks/pause/close"(platform: "/web", type: TrackType.Event) {
+        }
+
+    }
+
     test("Advertising Admin Mobile") {
 
         "/advertising/pads2/manager/faqs"(platform: "/", type: TrackType.Event) {
