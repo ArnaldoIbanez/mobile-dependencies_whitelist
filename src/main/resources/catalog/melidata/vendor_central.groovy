@@ -15,9 +15,9 @@ tracks {
     "/vendor_central/summary"(platform: "/", isAbstract: true) {}
 
     "/vendor_central/summary/hub"(platform: "/web", type: TrackType.View) {}
-    
+
     "/vendor_central/summary/discount"(platform: "/web", type: TrackType.View) {}
-    
+
     "/vendor_central/summary/discount_congrats"(platform: "/web", type: TrackType.View) {}
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -96,5 +96,9 @@ tracks {
         search_terms(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the search terms applied for the search")
         task(required: false, type: PropertyType.String, description: "this property describes the task id applied for the search")
     }
+
+    "/vendor_central/contra_cogs/listing"(platform: "/web", type: TrackType.View) {}
+
+    "/vendor_central/contra_cogs/detail"(platform: "/web", type: TrackType.View) {}
 
 }

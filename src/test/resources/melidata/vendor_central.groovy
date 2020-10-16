@@ -116,5 +116,13 @@ trackTests {
     }
   }
 
+  test("Vendor Central contra cogs listing view") {
+    "/vendor_central/contra_cogs/listing"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central contra cogs detail view") {
+    "/vendor_central/contra_cogs/detail"(platform: "/web", type: TrackType.View) {}
+  }
+
 }
 
