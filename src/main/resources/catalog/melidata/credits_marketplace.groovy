@@ -42,7 +42,7 @@ tracks {
     //Page views
     "/credits/consumer/public_landing"(platform: "/", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: true, inheritable: false, values: ["guest", "no_offer"])
-        sk(type: PropertyType.String, required: false)
+        sk(description: "Source key", type: PropertyType.String, required: false)
     }
     "/credits/consumer/public_landing/application_result"(platform: "/", type: TrackType.View) {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
@@ -648,13 +648,13 @@ tracks {
 
     "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
-        sk(description: "Onboarding page number", type: PropertyType.String, required: false)
+        sk(description: "Source key", type: PropertyType.String, required: false)
     }
 
     "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {}
 
     "/credits/consumer/personal/adoption/onboarding/close"(platform: "/mobile", type: TrackType.Event) {
-        page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
+        page(description: "Source key", type: PropertyType.Numeric, required: false)
     }
 
     "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
