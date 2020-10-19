@@ -21,7 +21,8 @@ trackTests {
             payment_quantity = 1
             collector_id = 1010101001
             available_methods = ["credit_card", "account_money"]
-            payment_amount_local = 100.00
+            total_amount = 100.00
+            currency_id = "ARS"
             flow_context = "init"
             flow_type = "card_express"
             is_free_trial = false
@@ -36,6 +37,9 @@ trackTests {
             payment_status_detail = "accredited"
             payment_status = "approved"
             payment_id = "5408994392"
+            total_amount = 100.00
+            currency_id = "ARS"
+            total_amount_usd = 1000.00
         }
 
         def onlyRequiredProperties = {
@@ -44,13 +48,17 @@ trackTests {
             productive = true
             is_split = false
             payment_quantity = 1
-            payment_amount_local = 100.00
+            total_amount = 100.00
+            currency_id = "ARS"
         }
 
         def finishOnlyRequiredProperties = {
             payment_status_detail = "accredited"
             payment_status = "approved"
             payment_id = "5408994392"
+            total_amount = 100.00
+            currency_id = "ARS"
+            total_amount_usd = 1000.00
         }
 
         // ALL PROPERTIES TESTS
@@ -434,7 +442,8 @@ trackTests {
             payment_quantity = 1
             collector_id = 1010101001
             available_methods = ["credit_card", "account_money"]
-            payment_amount_local = 100.00
+            total_amount = 100.00
+            currency_id = "ARS"
             flow_context = "init"
             flow_type = "card_express"
             is_free_trial = false
@@ -449,6 +458,10 @@ trackTests {
             payment_status_detail = "accredited"
             payment_status = "approved"
             payment_id = "5408994392"
+            
+            total_amount = 100.00
+            currency_id = "ARS"
+            total_amount_usd = 1000.00
         }
 
         def onlyRequiredProperties = {
@@ -457,13 +470,17 @@ trackTests {
             productive = true
             is_split = false
             payment_quantity = 1
-            payment_amount_local = 100.00
+            total_amount = 100.00
+            currency_id = "ARS"
         }
 
         def finishOnlyRequiredProperties = {
             payment_status_detail = "accredited"
             payment_status = "approved"
-            payment_id = "5408994392"
+            payment_id = "5408994392"        
+            total_amount = 100.00
+            currency_id = "ARS"
+            total_amount_usd = 1000.00
         }
 
         // ALL PROPERTIES TESTS
