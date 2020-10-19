@@ -683,6 +683,10 @@ tracks {
         )
     }
 
+    "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
+
     "/credits/consumer/personal/adoption/congrats/go_withdrawals"(platform: "/mobile", type: TrackType.Event) {}
 
     "/credits/consumer/personal/adoption/generic_message"(platform: "/mobile", type: TrackType.View) {
