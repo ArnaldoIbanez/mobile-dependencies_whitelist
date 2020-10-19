@@ -1133,9 +1133,13 @@ trackTests {
             physical_card = false
         }
 
-        "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.Event) {
+        "/credits/consumer/personal/adoption/go_prepaid"(platform: "/mobile", type: TrackType.Event) {
             virtual_card = true
             physical_card = false
+        }
+
+        "/credits/consumer/personal/adoption/go_wallet"(platform: "/mobile", type: TrackType.Event) {
+            prepaid = true
         }
 
         "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
