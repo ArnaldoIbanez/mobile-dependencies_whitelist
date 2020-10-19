@@ -1295,7 +1295,11 @@ tracks {
         )
     }
 
-    "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {
+        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
+        virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
+        physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
+    }
 
     "/credits/consumer/personal/adoption/congrats/go_prepaid"(platform: "/mobile", type: TrackType.Event) {
         prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
@@ -1310,11 +1314,7 @@ tracks {
         status(description: "Status of the user prepaid", type: PropertyType.String, required: true, values: ["no_prepaid", "prepaid_enabled", "prepaid_disabled"])
     }
 
-    "/credits/consumer/personal/adoption/generic_message/go_prepaid"(platform: "/mobile", type: TrackType.Event) {
-        prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
-        virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
-        physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
-    }
+    "/credits/consumer/personal/adoption/generic_message/go_prepaid"(platform: "/mobile", type: TrackType.Event) {}
 
 
     /******************************************
