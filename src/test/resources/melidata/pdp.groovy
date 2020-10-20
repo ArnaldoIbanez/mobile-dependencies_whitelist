@@ -441,6 +441,10 @@ trackTests {
         "/pdp/description/show"(platform: "/", {
             catalog_product_id = "MLA1234"
         })
+
+        "/pdp/show_complete_description"(platform: "/web/desktop", {
+            catalog_product_id = "MLA1234"
+        })
     }
 
     test("mobile special actions") {
