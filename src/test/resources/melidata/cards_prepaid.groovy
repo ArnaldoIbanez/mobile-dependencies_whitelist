@@ -140,6 +140,10 @@ trackTests {
         }
         "/prepaid/challenge/delivery"(platform: "/mobile", type: TrackType.View) {}
         "/prepaid/challenge/money_in/onboarding"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/challenge/money_in/onboarding/slide/exit"(platform:"/mobile", type: TrackType.Event) {
+            slide = 1
+            cause = "close"
+        }
         "/prepaid/challenge/onboarding"(platform: "/mobile", type: TrackType.View) {}
     }
 
