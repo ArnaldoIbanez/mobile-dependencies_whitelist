@@ -20,6 +20,7 @@ tracks {
     "/liveness/initialization"(platform: "/", type: TrackType.Event) {
         initialization_result(type: PropertyType.Boolean, required: true, description: "Result of initialization")
         initialization_status(type: PropertyType.Numeric, required: true, description: "Status of initialization")
+        initialization_description(type: PropertyType.String, required: true, description: "Description of initialization")
     }
 
     "/liveness/challenge_time"(platform: "/", type: TrackType.Event) {
