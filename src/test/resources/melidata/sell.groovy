@@ -4746,4 +4746,16 @@ trackTests {
         "/sell/item_data/video/show"(platform: "/web", type: TrackType.Event, dataSet)
         "/sell/item_data/video/confirm"(platform: "/web", type: TrackType.Event, dataSet)
     }
+
+    test("Validate goals - Update"){
+        def dataSet = {
+            item_id = "MLB1676065989"
+            seller_profile = "INTERMEDIATE"
+            seller_segment = "NONE"
+            sent_again = false
+            vertical = "motors"
+        }
+        "/sell/update/technical_spec_goal_not_supported_landing"(platform: "/mobile", type: TrackType.Event, dataSet)
+        "/sell/update/video_goal_not_supported_landing"(platform: "/mobile", type: TrackType.Event, dataSet)
+    }
 }

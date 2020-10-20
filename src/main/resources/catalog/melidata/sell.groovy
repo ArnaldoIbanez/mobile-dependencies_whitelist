@@ -644,6 +644,18 @@ tracks {
     "/sell/update/health_goal_loss_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
 
+    "/sell/update/technical_spec_goal_not_supported_landing"(platform: "/mobile", type: TrackType.Event) {
+        item_id(required: true, description: "Item id")
+        seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
+        seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
+        vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+    }
+    "/sell/update/video_goal_not_supported_landing"(platform: "/mobile", type: TrackType.Event) {
+        item_id(required: true, description: "Item id")
+        seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
+        seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
+        vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+    }
 
     "/sell/list/pictures_uploader"(platform: "/web/desktop", isAbstract: true){}
     "/sell/list/pictures_uploader/validations"(platform: "/web/desktop", type: TrackType.Event){
