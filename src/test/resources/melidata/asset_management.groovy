@@ -242,6 +242,10 @@ trackTests {
         "/asset_management/show_clarifications"(platform: "/mobile", type: TrackType.Event) {}
         "/asset_management/show_clarifications"(platform: "/web", type: TrackType.Event) {}
 
+        //Bind Reports
+        "/asset_management/bind-reports"(platform: "/mobile", type: TrackType.Event) {}
+        "/asset_management/bind-reports"(platform: "/web", type: TrackType.Event) {}
+
         // Meli tests
 
         // Onboarding
@@ -466,5 +470,8 @@ trackTests {
         "/asset_management/previous_month"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/show_clarifications"(platform: "/web", business: "mercadolibre") {}
         "/asset_management/show_clarifications"(platform: "/mobile", business: "mercadolibre") {}
+
+        "/asset_management/bind-reports"(platform: "/web", business: "mercadolibre") {}
+        "/asset_management/bind-reports"(platform: "/mobile", business: "mercadolibre") {}
     }
 }
