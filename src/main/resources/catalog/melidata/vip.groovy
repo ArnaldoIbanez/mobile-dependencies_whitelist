@@ -152,7 +152,7 @@ tracks {
                 description: "Seller's reputation level")
         available_consumer_credit(required: false, type: PropertyType.Boolean, description: "Indicates if the item has a credit available for the item's seller")
 
-        // CLASI FIELDS
+        // VIS FIELDS
         reservation_price(required: false, description: "Price of the reservation")
         quotation_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item can be quoted (cotizado)")
@@ -170,6 +170,9 @@ tracks {
                 description: "Indicates if the item has tagged as good price according to price comparison")
         price_comparison_position(required: false, type: PropertyType.Numeric,
                 description: "Indicates position price comparison")
+        has_seller_level_kyc(required: false, type: PropertyType.Boolean,
+                description: "Indicates if seller has checked by kyc in level 5 or above")
+
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
         store_type(required: false, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")

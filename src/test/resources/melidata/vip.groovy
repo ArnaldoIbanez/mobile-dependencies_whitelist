@@ -66,6 +66,7 @@ trackTests {
                 "melichoice_origin": "killer",
                 "melichoice_score": 0.3
             ]
+            has_seller_level_kyc = true
         }
 
         Object items_attributes = {
