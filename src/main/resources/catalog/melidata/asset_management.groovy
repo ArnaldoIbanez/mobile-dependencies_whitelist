@@ -202,4 +202,8 @@ tracks {
     //Clarifications events
     "/asset_management/show_clarifications"(platform: "/mobile", type: TrackType.Event) {}
     "/asset_management/show_clarifications"(platform: "/web", type: TrackType.Event) {}
+
+    //Bind Reports
+    "/asset_management/bind_reports"(platform: "/mobile", type: TrackType.View) {}
+    "/asset_management/bind_reports"(platform: "/web", type: TrackType.View) {}
 }
