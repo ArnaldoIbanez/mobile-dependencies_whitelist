@@ -73,8 +73,7 @@ tracks {
     "/asset_management/terms_and_conditions"(platform: "/web", type: TrackType.View) {}
     "/asset_management/accept_tyc"(platform: "/mobile", type: TrackType.View) {}
     "/asset_management/accept_tyc"(platform: "/web", type: TrackType.View) {}
-    "/asset_management/accepted_tyc"(platform: "/mobile", type: TrackType.Event) {}
-    "/asset_management/accepted_tyc"(platform: "/web", type: TrackType.Event) {}
+    "/asset_management/accepted_tyc"(platform: "/", type: TrackType.Event) {}
 
     // Bind Reports View
     "/asset_management/bind_reports"(platform: "/mobile", type: TrackType.View) {}
@@ -186,20 +185,13 @@ tracks {
     "/asset_management/simulator_slide"(platform: "/mobile", type: TrackType.Event) {}
 
     //Chart events
-    "/asset_management/tab_year"(platform: "/mobile", type: TrackType.Event) {}
-    "/asset_management/tab_year"(platform: "/web", type: TrackType.Event) {}
-    "/asset_management/tab_month"(platform: "/mobile", type: TrackType.Event) {}
-    "/asset_management/tab_month"(platform: "/web", type: TrackType.Event) {}
-    "/asset_management/previous_year"(platform: "/mobile", type: TrackType.Event) {}
-    "/asset_management/previous_year"(platform: "/web", type: TrackType.Event) {}
-    "/asset_management/next_year"(platform: "/mobile", type: TrackType.Event) {}
-    "/asset_management/next_year"(platform: "/web", type: TrackType.Event) {}
-    "/asset_management/previous_month"(platform: "/mobile", type: TrackType.Event) {}
-    "/asset_management/previous_month"(platform: "/web", type: TrackType.Event) {}
-    "/asset_management/next_month"(platform: "/mobile", type: TrackType.Event) {}
-    "/asset_management/next_month"(platform: "/web", type: TrackType.Event) {}
+    "/asset_management/tab_year"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/tab_month"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/previous_year"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/next_year"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/previous_month"(platform: "/", type: TrackType.Event) {}
+    "/asset_management/next_month"(platform: "/", type: TrackType.Event) {}
     
     //Clarifications events
-    "/asset_management/show_clarifications"(platform: "/mobile", type: TrackType.Event) {}
-    "/asset_management/show_clarifications"(platform: "/web", type: TrackType.Event) {}
+    "/asset_management/show_clarifications"(platform: "/", type: TrackType.Event) {}
 }

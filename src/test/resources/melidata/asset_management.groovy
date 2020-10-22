@@ -437,8 +437,7 @@ trackTests {
         "/asset_management/simulator_slide"(platform: "/mobile", business: "mercadolibre") {}
 
         "/asset_management/accept_tyc"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/accepted_tyc"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/accepted_tyc"(platform: "/web", business: "mercadolibre") {}
+        "/asset_management/accepted_tyc"(platform: "/", business: "mercadolibre") {}
         "/asset_management/activities"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/activities"(platform: "/web", business: "mercadolibre") {}
         "/asset_management/bind_reports"(platform: "/mobile", business: "mercadolibre") {}
@@ -452,19 +451,12 @@ trackTests {
         "/asset_management/legacy/error"(platform: "/mobile", business: "mercadolibre") {}
         "/asset_management/legacy/error"(platform: "/web", business: "mercadolibre") {}
 
-        "/asset_management/tab_year"(platform: "/web", business: "mercadolibre") {}
-        "/asset_management/tab_year"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/tab_month"(platform: "/web", business: "mercadolibre") {}
-        "/asset_management/tab_month"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/next_year"(platform: "/web", business: "mercadolibre") {}
-        "/asset_management/next_year"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/next_month"(platform: "/web", business: "mercadolibre") {}
-        "/asset_management/next_month"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/previous_year"(platform: "/web", business: "mercadolibre") {}
-        "/asset_management/previous_year"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/previous_month"(platform: "/web", business: "mercadolibre") {}
-        "/asset_management/previous_month"(platform: "/mobile", business: "mercadolibre") {}
-        "/asset_management/show_clarifications"(platform: "/web", business: "mercadolibre") {}
-        "/asset_management/show_clarifications"(platform: "/mobile", business: "mercadolibre") {}
+        "/asset_management/tab_year"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/tab_month"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/next_year"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/next_month"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/previous_year"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/previous_month"(platform: "/", business: "mercadolibre") {}
+        "/asset_management/show_clarifications"(platform: "/", business: "mercadolibre") {}
     }
 }
