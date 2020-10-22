@@ -1001,5 +1001,27 @@ trackTests {
             action = "research_form"
         }
     }
-
+    
+    //NFC HUB
+    test("cards hybrid nfc enrollment hub") {
+        "/cards/nfc/enrollment/hub"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "continue_later"
+        }
+        "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/nfc/enrollment/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_tap_and_pay"
+        }
+        "/cards/nfc/enrollment/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_pin"
+        }
+        "/cards/nfc/enrollment/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_nfc"
+        }     
+        "/cards/nfc/enrollment/hub/redirect"(platform:"/", type: TrackType.Event) {
+            action = "success_redirect"
+        }
+    } 
 }

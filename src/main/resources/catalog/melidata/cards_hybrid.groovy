@@ -25,6 +25,9 @@ tracks {
     "/cards/engagement"(platform: "/", isAbstract: true) { }
     "/cards/mp-card"(platform: "/", isAbstract: true) { }
     "/cards/mp-card/hybrid"(platform: "/", isAbstract: true) { }
+    "/cards/nfc"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment/hub/step"(platform: "/", isAbstract: true) { }
 
 
 
@@ -889,6 +892,34 @@ tracks {
             type: PropertyType.String,
             values: ["research_form"],
             description: "Feedback button tapped"
+        )
+    }
+    
+    // ENROLLMENT-HUB-NFC
+    //-------------------
+    "/cards/nfc/enrollment/hub"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back","continue_later"],
+            description: "Action Tapped"
+        )
+    }
+    "/cards/nfc/enrollment/hub/step/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["step_tap_and_pay","step_pin","step_nfc"],
+            description: "Step Button Tapped"
+        )
+    }
+    "/cards/nfc/enrollment/hub/redirect"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["success_redirect"],
+            description: "Redirection Done"
         )
     }
 }
