@@ -8,6 +8,35 @@ tracks {
 
     initiative = "1205"
 
+    def account_data = objectSchemaDefinitions {
+        rating(
+                description: "Rating user's account",
+                type: PropertyType.String,
+                required: true
+        )
+        status(
+                description: "Status user's account",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "pending",
+                        "active",
+                        "blocked",
+                        "cancelled"
+                ]
+        )
+        status_detail(
+                description: "Status detail of user's account",
+                type: PropertyType.String,
+                required: true
+        )
+        overdue_days(
+                description: "Overdue days of user's account",
+                type: PropertyType.Numeric,
+                required: true
+        )
+    }
+
     def amount_input_data = objectSchemaDefinitions {
         amount(
             description: "The amount that the user want to pay",
@@ -76,9 +105,7 @@ tracks {
             required: true,
             values: [
                 "closed",
-                "open",
-                "overdue",
-                "paid"
+                "open"
             ]
         )
         payment_option(
@@ -113,9 +140,20 @@ tracks {
             type: PropertyType.Numeric,
             required: true
         )
+        account(
+                type: PropertyType.Map(account_data),
+                required: false
+        )
+        pending_payments(
+                description: "The pending payments",
+                type: PropertyType.Boolean,
+                required: true
+        )
     }
 
     propertyGroups {
+        dashboard_view_group(account, statement_status, pending_payments)
+        dashboard_event_group(account, statement_status)
         payment_group(offer, statement_status)
         upgrade_info(offer, is_card_active)
         full_payment_group(offer, statement_status, payment_option, amount_input, payment_plan)
@@ -264,5 +302,49 @@ tracks {
 
     /*********************************************
      *       End: Credit Card Statement
+     *********************************************/
+
+    /***********************************************
+     *       Start: Credit Card Dashboard
+     ***********************************************/
+    // Dashboard
+    "/credits/credit_card/dashboard"(platform: "/", type: TrackType.View) {
+        dashboard_view_group
+    }
+
+    "/credits/credit_card/dashboard/payment_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/limit_modal_payment_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/loyalty_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/statement_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/row_statement_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/limit_modal_statement_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/help_button_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        dashboard_event_group
+    }
+
+    /*********************************************
+     *       End: Credit Card Dashboard
      *********************************************/
 }

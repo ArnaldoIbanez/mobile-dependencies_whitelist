@@ -81,6 +81,12 @@ tracks {
         pricing_info(available_promotions, discount_reasons, price, original_price, currency_id)
     }
 
+    def highlights_definition  = objectSchemaDefinitions {
+        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
+        melichoice_score(required: false, type: PropertyType.Numeric, description: "Score of Melichoice Product")
+        melichoice_origin(required: false, type: PropertyType.String, description: "Origin of Melichoice Product")
+        melichoice_domain(required: false, type: PropertyType.String, description: "Domain of Melichoice Product")
+    }
     //VIP FLOW
 
     "/vip"(platform: "/") {
@@ -146,7 +152,7 @@ tracks {
                 description: "Seller's reputation level")
         available_consumer_credit(required: false, type: PropertyType.Boolean, description: "Indicates if the item has a credit available for the item's seller")
 
-        // CLASI FIELDS
+        // VIS FIELDS
         reservation_price(required: false, description: "Price of the reservation")
         quotation_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item can be quoted (cotizado)")
@@ -164,6 +170,9 @@ tracks {
                 description: "Indicates if the item has tagged as good price according to price comparison")
         price_comparison_position(required: false, type: PropertyType.Numeric,
                 description: "Indicates position price comparison")
+        has_seller_level_kyc(required: false, type: PropertyType.Boolean,
+                description: "Indicates if seller has checked by kyc in level 5 or above")
+
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
         store_type(required: false, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")
@@ -211,15 +220,22 @@ tracks {
 
         map_item_attributes(required: false, type: PropertyType.ArrayList(PropertyType.Map(attributes_values_map)), description: "Map of items attributes")
 
+
+        // Highlights
+        best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
+
+        highlights(required: false, type: PropertyType.Map(highlights_definition), description: "Highlights Map")
+
         // PRICING 2.0
         pricing_info
+        description_type(required: false, description: "Description type: plain text, html, both, none",
+                values: ["plain_text", "html", "both", "none"])
+
 
     }
 
     "/vip"(platform: "/web") {
         specifications_size(required: false, type: PropertyType.Numeric, description: "Specifications attributes quantity")
-        description_type(required: false, description: "Description type: plain text, html, both, none",
-                values: ["plain_text", "html", "both", "none"])
         max_size_gallery(required: false, type: PropertyType.String, description: "Max_size of first picture gallery")
         contract_available(required: false, type: PropertyType.Boolean)
         gallery_dimension(required: false, type: PropertyType.String, values: ["wide", "square", "artsinfoto"],
@@ -440,6 +456,7 @@ tracks {
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        failed( required: false, type: PropertyType.Boolean, description: "whenever the post was successful or not")
     }
 
     "/vip/call_seller"(platform: "/", type: TrackType.Event) {
@@ -643,7 +660,19 @@ tracks {
 
     "/vip/comparator_price/info_tooltip"(platform: "/web", type: TrackType.Event) {}
 
-    "/vip/comparator_price/interactive_bin"(platform: "/web", type: TrackType.Event) {}
+
+    "/vip/comparator_price/interactive_bin"(platform: "/web", type: TrackType.View, isAbstract: true) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        price_comparison_available(required: true, type: PropertyType.Boolean,
+                description: "Indicates if the item has price comparison available")
+    }
+
+    "/vip/comparator_price/interactive_bin/tooltip"(platform: "/web", type: TrackType.Event) {}
+
+    "/vip/comparator_price/interactive_bin/bar"(platform: "/web", type: TrackType.Event) {}
 
     "/vip/item"(parentPropertiesInherited: false, isAbstract: true) {}
 
@@ -959,7 +988,7 @@ tracks {
                 values: ["free", "bronze", "silver", "gold", "gold_special", "gold_premium", "gold_pro"],
                 description: "Listing type of the item")
         deal_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "IDs of applied discounts")
-        item_seller_type(required: false, values: ['car_dealer'], description: "Seller type: normal, car_dealer, etc")
+        item_seller_type(required: false, values: ['car_dealer','normal'], description: "Seller type: normal, car_dealer, etc")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
     }

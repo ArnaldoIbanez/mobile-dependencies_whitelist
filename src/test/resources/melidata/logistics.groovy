@@ -260,6 +260,7 @@ trackTests {
         "/logistics/last_mile/list/suggest_trip/start_trip"(platform: "/mobile", type: TrackType.Event) {
             packs_info = "pack"
             route_id = "123"
+            driver_id = "1234"
             latitude = "1234"
             longitude = "1234"
         }
@@ -332,6 +333,7 @@ trackTests {
             defaultLocation()
             distance = "500"
             context = "could_not_deliver"
+            is_blocking = false
         }
 
         "/logistics/last_mile/detail/start_trip"(platform: "/mobile", type: TrackType.Event) {

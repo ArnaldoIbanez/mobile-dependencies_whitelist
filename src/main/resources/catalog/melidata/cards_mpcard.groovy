@@ -17,6 +17,8 @@ tracks {
         from (required: false, type: PropertyType.String, description: "Context from where its started")
      }
     "/cards/mpcard"(platform: "/", isAbstract: true) { }
+    "/cards/mpcard/physical"(platform: "/", isAbstract: true) { }
+    "/cards/mpcard/nip"(platform: "/", isAbstract: true) {}
     "/cards/mpcard/coachmark"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/request"(platform: "/", isAbstract: true) { }
     "/cards/mpcard/request/virtual"(platform: "/", isAbstract: true) { }
@@ -503,6 +505,24 @@ tracks {
             description: "Feedback action tapped"
           )
     }
+
+    // Unlock FÍSICA
+    "/cards/mpcard/physical/unlock"(platform: "/", isAbstract: true) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable:false,
+        )
+    }
+    "/cards/mpcard/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close", "unlock_card", "block_card"],
+            description: "Unlock Physical Button Tapped"
+          )
+    }
     
     // CHANGE-PIN
     // --------
@@ -529,6 +549,26 @@ tracks {
             values: ["header_help"],
             description: "Header action tapped"
           )
+    }
+
+    // NIP
+    // -------
+    "/cards/mpcard/nip/physical"(platform: "/", type: TrackType.View) {
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable:false
+        )
+    }
+    "/cards/mpcard/nip/message"(platform: "/", isAbstract: true) {}
+    "/cards/mpcard/nip/message/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["blocked_pin"],
+            description: "It_was_not_me Link button message tapped"
+        )
     }
     
     //Number Selector

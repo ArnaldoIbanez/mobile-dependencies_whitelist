@@ -436,10 +436,12 @@ trackTests {
             status = 'on_time'
         }
 
-        "/credits/merchant/administrator"(platform: "/") {}
         "/credits/merchant/administrator"(platform: "/") {
-            status = 'on_time'
-            promise = 'not_apply'
+           promise = 'none'
+        }
+        "/credits/merchant/administrator"(platform: "/") {
+           status = 'on_time'
+           promise = 'none'
         }
         "/credits/merchant/administrator"(platform: "/") {
             status = 'overdue'
@@ -448,6 +450,7 @@ trackTests {
         }
         "/credits/merchant/administrator"(platform: "/") {
             status = 'empty'
+            promise = 'none'
         }
         "/credits/merchant/administrator"(platform: "/", {
             offers = [
@@ -676,7 +679,18 @@ trackTests {
             user_status = 'on_time'
             offer = 'express_money'
         }
-        "/credits/merchant/money_advance/congrats"(platform: "/mobile/android") {}
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/android", type: TrackType.View) {
+            offer = 'none'
+        }
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/android", type: TrackType.View) {
+            offer = 'express_money'
+        }
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/ios", type: TrackType.View) {
+            offer = 'none'
+        }
+        "/credits/merchant/money_advance/congrats"(platform: "/mobile/ios", type: TrackType.View) {
+            offer = 'express_money'
+        }
         "/credits/merchant/money_advance/no_options"(platform: "/web/desktop") {}
         "/credits/merchant/money_advance/error"(platform: "/web/desktop") {
             reason = 'bad_request'
@@ -705,26 +719,29 @@ trackTests {
 
         "/credits/express_money/amount_input"(platform: "/web/desktop", type: TrackType.View) {
             show_onboarding = true
-            requested_amount = 1000
+            default_amount = 1000
             max_amount = 1000
             min_amount = 100
             default_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
         }
 
         "/credits/express_money/amount_input"(platform: "/mobile/android") {
             show_onboarding = true
-            requested_amount = 1000
+            default_amount = 1000
             max_amount = 1000
             min_amount = 100
             default_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
         }
 
         "/credits/express_money/amount_input"(platform: "/mobile/ios") {
             show_onboarding = false
-            requested_amount = 1000
+            default_amount = 1000
             max_amount = 1000
             min_amount = 100
             default_payment_term = "7"
+            payment_terms = ["7", "14", "21"]
         }
 
         "/credits/express_money/amount_input"(platform: "/web/desktop") {}
@@ -984,6 +1001,32 @@ trackTests {
             reason = "financial_scraping"
         }
 
+        "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
+            reason = "finished_flow"
+        }
+
+        "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {}
+
+        "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
+            reason = "integration_error"
+        }
+
+        "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
+            reason = "generic"
+        }
+
+        "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+            reason = "finished_flow"
+        }
+
+        "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+            reason = "finished_session"
+        }
+
+        "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+            reason = "not_available"
+        }
+
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
             reason = "financial_files_uploaded"
         }
@@ -1086,11 +1129,14 @@ trackTests {
 
         "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
             prepaid = true
+            virtual_card = true
+            physical_card = false
         }
 
         "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
             prepaid = false
             page = 1
+            sk = 'sk1234'
         }
 
         "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {
@@ -1362,6 +1408,7 @@ trackTests {
     test("Credits Consumer from MercadoPago"){
         "/credits/consumer/public_landing"(platform: "/") {
             user_profile = 'no_offer'
+            sk = 'landing'
         }
     }
 }

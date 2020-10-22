@@ -173,7 +173,7 @@ tracks {
     // Tambien se utiliza para Apps
     "/sell/list/congrats"(platform: "/", type: TrackType.View){
         session_id(required: false, description: "The listing session id")
-        item_id(required: false, description: "Item id")
+        item_id(required: true, description: "Item id")
         listing_type_id(required: false, description: "Item listing type id")
         vertical(required: false, description: "Item Vertical: core/service/motor/real_estate/etc...")
         buying_mode(required: false, description: "Item buying mode: buy_it_now/auction/classified")
@@ -532,7 +532,7 @@ tracks {
     "/sell/update" (platform: "/", isAbstract: true){
         item_id(required: true, description: "Item id", type: PropertyType.String)
         is_catalog_listing(required: false, description: "If core item is a catalog listing", type: PropertyType.Boolean)
-        buybox_status(required: false, description: "Buy Box status of core catalog listing", type: PropertyType.String, values: ["winning", "losing_by_price", "losing_by_stock", "losing_by_bad_reputation", "losing_by_untrusted_seller", "losing_by_without_reputation", "calculating", "undefined"])
+        buybox_status(required: false, description: "Buy Box status of core catalog listing", type: PropertyType.String, values: ["winning", "losing_by_price", "losing_by_stock", "losing_by_bad_reputation", "losing_by_untrusted_seller", "losing_by_without_reputation", "calculating", "undefined", "losing_by_free_listing_type"])
     }
     "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/buybox_competition"(platform: "/mobile", type: TrackType.View) {}
@@ -644,6 +644,18 @@ tracks {
     "/sell/update/health_goal_loss_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/quotable_category_landing"(platform: "/mobile", type: TrackType.View) {}
 
+    "/sell/update/technical_spec_goal_not_supported_landing"(platform: "/mobile", type: TrackType.Event) {
+        item_id(required: true, description: "Item id")
+        seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
+        seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
+        vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+    }
+    "/sell/update/video_goal_not_supported_landing"(platform: "/mobile", type: TrackType.Event) {
+        item_id(required: true, description: "Item id")
+        seller_profile(required: true, type: PropertyType.String, description: "Type of seller")
+        seller_segment(required: true, type: PropertyType.String, description: "Seller segment by GMV")
+        vertical(required: false, description: "item vertical", values:["core", "motors", "real_estate", "services"], type: PropertyType.String)
+    }
 
     "/sell/list/pictures_uploader"(platform: "/web/desktop", isAbstract: true){}
     "/sell/list/pictures_uploader/validations"(platform: "/web/desktop", type: TrackType.Event){

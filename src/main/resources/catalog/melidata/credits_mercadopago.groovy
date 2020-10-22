@@ -156,12 +156,14 @@ tracks {
     "/credits/mp-hub"(platform: "/", isAbstract: true) {}
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
+    "/credits/merchant/open-market/financial-scraping"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Consumer Public Landings
      ******************************************/
     "/credits/consumer/public_landing"(platform: "/", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: true, inheritable: false, values: ["guest", "no_offer"])
+        sk(description: "Source key", type: PropertyType.String, required: false)
     }
     /******************************************
      *       End: Consumer Public Landings
@@ -200,11 +202,11 @@ tracks {
         )
         promise(
             type: PropertyType.String,
-            required: false,
+            required: true,
             values: [
                 'create_promise',
                 'view_promise',
-                'not_apply',
+                'none',
             ],
             inheritable: false
         )
@@ -470,6 +472,34 @@ tracks {
             values: [
                 'financial_files',
                 'financial_scraping',
+                'finished_flow',
+            ]
+        )
+    }
+
+    "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "Quanto integration error",
+            values: [
+                'integration_error',
+                'generic',
+            ]
+        )
+    }
+
+    "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "Quanto integration message",
+            values: [
+                'finished_flow',
+                'finished_session',
+                'not_available',
             ]
         )
     }
@@ -922,7 +952,17 @@ tracks {
     }
 
     //Congrats money advance mobile
-    "/credits/merchant/money_advance/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/merchant/money_advance/congrats"(platform: "/mobile", type: TrackType.View) {
+        offer(
+                description: "User has express money offer",
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'none',
+                        'express_money'
+                ]
+        )
+    }
 
     //Hub money advance
     "/credits/merchant/money_advance/hub"(platform: "/web", type: TrackType.View) {
@@ -1028,8 +1068,8 @@ tracks {
             required: false,
             inheritable: false
         )
-        requested_amount(
-                description: "User requested amount",
+        default_amount(
+                description: "Default requested amount",
                 type: PropertyType.Numeric,
                 required: false,
         )
@@ -1046,6 +1086,11 @@ tracks {
         default_payment_term(
                 description: "Default payment term selected",
                 type: PropertyType.String,
+                required: false,
+        )
+        payment_terms(
+                description: "Available payment terms",
+                type: PropertyType.ArrayList,
                 required: false,
         )
     }
@@ -1203,10 +1248,13 @@ tracks {
 
     "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
         prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: true)
+        virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
+        physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
     }
 
     "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
+        sk(description: "Source key", type: PropertyType.String, required: false)
     }
 
     "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {}
@@ -1215,7 +1263,9 @@ tracks {
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
     }
 
-    "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
+        sk(description: "Source key", type: PropertyType.String, required: false)
+    }
 
     "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {}
 

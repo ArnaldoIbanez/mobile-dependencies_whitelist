@@ -210,6 +210,7 @@ trackTests {
             discount_percent = 30
             subscription_status = "freetrial"
             origin = "home"
+            plan_id = 123123
         }
 
         "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business: "mercadopago") {
@@ -293,6 +294,7 @@ trackTests {
             payment_status_detail = "activated"
             is_free_trial = "true"
             discount_percent = 40
+            plan_id = 123123
         }
 
         "/loyalty/partners/checkout/congrats"(platform: "/", type: TrackType.View, business: "mercadopago") {
@@ -333,6 +335,7 @@ trackTests {
             type = "email"
             payment_id = "42323"
             payment_status = "success"
+            plan_id = 123123
         }
 
         "/loyalty/partners/checkout/congrats/info"(platform: "/", type: TrackType.Event, business: "mercadolibre") {

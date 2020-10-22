@@ -59,6 +59,14 @@ trackTests {
 			neighborhood = "none"
 			state = "none"
             vip_version = "new"
+            best_seller_position = 5
+            highlights = [
+                "best_seller_position": 5,
+                "melichoice_domain": "CELLPHONES",
+                "melichoice_origin": "killer",
+                "melichoice_score": 0.3
+            ]
+            has_seller_level_kyc = true
         }
 
         Object items_attributes = {
@@ -73,6 +81,7 @@ trackTests {
             mandatory()
             catalog_listing = false
             items_attributes()
+            description_type = "none"
         })
 
         "/vip"(platform: "/web/mobile", {
@@ -142,6 +151,7 @@ trackTests {
             item_seller_type = "AB001"
             deal_ids = []
             item_condition= "new"
+            failed = false
         })
 
         "/vip/contact_seller"(platform: "/web/desktop", type: TrackType.Event, {
@@ -1471,6 +1481,7 @@ trackTests {
 
         "/vip/technical_specs/see_more"(platform: "/mobile", type: TrackType.Event){
             properties()
+            item_seller_type = "normal"
         }
     }
 
@@ -1749,11 +1760,19 @@ trackTests {
             properties()
         }
 
-        "/vip/comparator_price/interactive_bin"(platform: "/web/desktop", type: TrackType.Event) {
+        "/vip/comparator_price/interactive_bin/tooltip"(platform: "/web/desktop", type: TrackType.Event) {
             properties()
         }
 
-        "/vip/comparator_price/interactive_bin"(platform: "/web/mobile", type: TrackType.Event) {
+        "/vip/comparator_price/interactive_bin/tooltip"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+
+        "/vip/comparator_price/interactive_bin/bar"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+
+        "/vip/comparator_price/interactive_bin/bar"(platform: "/web/mobile", type: TrackType.Event) {
             properties()
         }
 

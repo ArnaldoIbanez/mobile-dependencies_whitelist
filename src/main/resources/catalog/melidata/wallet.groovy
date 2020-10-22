@@ -33,7 +33,7 @@ tracks {
     // Add card Events
     "/wallet/cards/add_card"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         id_banner (required:true, type: PropertyType.String, description: "Prepaid/Debit banner id")
-        other_cards (required:true, type: PropertyType.String, description: "It's true when there are other bankings cards added")
+        other_cards (required:true, type: PropertyType.Boolean, description: "It's true when there are other bankings cards added")
     }
     "/wallet/cards/add_card/success"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
     "/wallet/cards/add_card/failed"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {}
