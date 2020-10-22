@@ -351,6 +351,40 @@ trackTests {
                                 ]
                         ]
                 ],
+                hybrid_last_viewed: [
+                        [
+                                marketplace_type: "hybrid_last_viewed",
+                                segment_id: "neighborhood",
+                                marketplace_index: 5,
+                                items: [
+                                        [   store_id: 30286315,
+                                            collector_id: 20565408,
+                                            name: "Maqyherr De Jose Luis Mangini",
+                                            distance: 1813,
+                                            category: "Ferretería",
+                                            mcc: "523630",
+                                            discounts: [
+                                                    [
+                                                            campaign_id: 1070400,
+                                                            index: 0,
+                                                            blocked: false,
+                                                            availability: "full",
+                                                            level: 1,
+                                                            amount_type: "percent",
+                                                            amount: 5.0,
+                                                            priority: 6
+                                                    ]
+                                            ],
+                                            delivery: [
+                                                    radius: 1000,
+                                                    delivery: true,
+                                                    pickup: false
+                                            ],
+                                            session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
+                                        ]
+                                ]
+                        ]
+                ],
                 hybrid_row: [
                     [
                         marketplace_type: "row",
@@ -583,6 +617,40 @@ trackTests {
                                                         pickup: false
                                                 ],
                                                 session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
+                                        ]
+                                ]
+                        ]
+                ],
+                hybrid_last_viewed: [
+                        [
+                                marketplace_type: "hybrid_last_viewed",
+                                segment_id: "neighborhood",
+                                marketplace_index: 5,
+                                items: [
+                                        [   store_id: 30286315,
+                                            collector_id: 20565408,
+                                            name: "Maqyherr De Jose Luis Mangini",
+                                            distance: 1813,
+                                            category: "Ferretería",
+                                            mcc: "523630",
+                                            discounts: [
+                                                    [
+                                                            campaign_id: 1070400,
+                                                            index: 0,
+                                                            blocked: false,
+                                                            availability: "full",
+                                                            level: 1,
+                                                            amount_type: "percent",
+                                                            amount: 5.0,
+                                                            priority: 6
+                                                    ]
+                                            ],
+                                            delivery: [
+                                                    radius: 1000,
+                                                    delivery: true,
+                                                    pickup: false
+                                            ],
+                                            session_id: "27131d31-6910-4855-85fe-70ad2d97f7ed"
                                         ]
                                 ]
                         ]
