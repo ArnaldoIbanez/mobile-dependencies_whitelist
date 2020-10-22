@@ -7,12 +7,12 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
-    def offer_data_scoring_a = [
-        scoring: "A"
+    def account_rating_a = [
+        rating: "A"
     ]
 
-    def offer_data_scoring_b = [
-        scoring: "B"
+    def account_rating_b = [
+            rating: "B"
     ]
 
     def amount_input_data = [
@@ -62,7 +62,7 @@ trackTests {
          ***********************************************/
         //Hub
         "/credits/credit_card/payment/hub"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_a
+            account = account_rating_a
             statement_status = "closed"
         }
 
@@ -72,40 +72,40 @@ trackTests {
 
         //Payment plan
         "/credits/credit_card/payment/payment_plan_selection"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+            account = account_rating_b
             statement_status = "open"
         }
 
         //Amount input
         "/credits/credit_card/payment/amount_input"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_a
+            account = account_rating_a
             statement_status = "open"
         }
 
         //Summary
         "/credits/credit_card/payment/summary"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_a
+            account = account_rating_a
             statement_status = "closed"
             payment_option = "total"
             amount_input = amount_input_data
         }
 
         "/credits/credit_card/payment/summary"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+            account = account_rating_b
             statement_status = "closed"
             payment_option = "payment_plan"
             payment_plan = payment_plan_data
         }
 
         "/credits/credit_card/payment/payment_action"(platform: "/", type: TrackType.Event) {
-            offer = offer_data_scoring_a
+            account = account_rating_a
             statement_status = "closed"
             payment_option = "total"
             amount_input = amount_input_data
         }
 
         "/credits/credit_card/payment/payment_action"(platform: "/", type: TrackType.Event) {
-            offer = offer_data_scoring_b
+            account = account_rating_b
             statement_status = "closed"
             payment_option = "payment_plan"
             payment_plan = payment_plan_data
@@ -126,21 +126,21 @@ trackTests {
 
         // Onboarding
         "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+            account = account_rating_b
             is_card_active = true
             page = 1
         }
 
         // Payment due date selection
         "/credits/credit_card/upgrade/payment_due_date_selection"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+            account = account_rating_b
             is_card_active = true
             buckets = [1, 15, 25]
         }
 
         // Summary
         "/credits/credit_card/upgrade/summary"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+            account = account_rating_b
             is_card_active = true
             bucket = 15
             limit = 2000
@@ -153,19 +153,19 @@ trackTests {
 
         // Congrats
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+            account = account_rating_b
             is_card_active = true
             status = congrats_approved_status
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_a
+            account = account_rating_a
             is_card_active = true
             status = congrats_pending_status
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
-            offer = offer_data_scoring_b
+            account = account_rating_b
             is_card_active = true
             status = congrats_rejected_status
         }
@@ -198,7 +198,7 @@ trackTests {
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {
-            statement_status = "closed"
+            statement_status = statement_closed_status
         }
 
         "/credits/credit_card/statement"(platform: "/", type: TrackType.View) {

@@ -10,14 +10,14 @@ tracks {
 
     def account_data = objectSchemaDefinitions {
         rating(
-                description: "Rating user's account",
+                description: "User reputation level",
                 type: PropertyType.String,
                 required: true
         )
         status(
                 description: "Status user's account",
                 type: PropertyType.String,
-                required: true,
+                required: false,
                 values: [
                         "pending",
                         "active",
@@ -28,12 +28,12 @@ tracks {
         status_detail(
                 description: "Status detail of user's account",
                 type: PropertyType.String,
-                required: true
+                required: false
         )
         overdue_days(
                 description: "Overdue days of user's account",
                 type: PropertyType.Numeric,
-                required: true
+                required: false
         )
     }
 
@@ -78,19 +78,7 @@ tracks {
         )
     }
 
-    def offer_data = objectSchemaDefinitions {
-        scoring(
-            description: "User reputation level",
-            type: PropertyType.String,
-            required: true,
-        )
-    }
-
     propertyDefinitions {
-        offer(
-            type: PropertyType.Map(offer_data),
-            required: true
-        )
         amount_input(
             type: PropertyType.Map(amount_input_data),
             required: false
@@ -154,9 +142,9 @@ tracks {
     propertyGroups {
         dashboard_view_group(account, statement_status, pending_payments)
         dashboard_event_group(account, statement_status)
-        payment_group(offer, statement_status)
-        upgrade_info(offer, is_card_active)
-        full_payment_group(offer, statement_status, payment_option, amount_input, payment_plan)
+        payment_group(account, statement_status)
+        upgrade_info(account, is_card_active)
+        full_payment_group(account, statement_status, payment_option, amount_input, payment_plan)
         bucket_group(bucket)
         statement_status_group(statement_status)
         statement_period(month, year)
