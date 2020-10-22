@@ -432,7 +432,6 @@ trackTests {
         }
 
         "/search/breadcrumb/click"(platform: "/web", type: TrackType.Event) {
-            defaultWebTrack()
             url = "https://www.mercadolibre.com.ar/tienda/nike"
         }
 
@@ -513,12 +512,10 @@ trackTests {
             to_position = 2
         }
         "/search/official_store_logo/click"(platform: "/mobile") {
-            defaultSearchInformation()
             store = "Maybelline"
             url = "https://www.mercadolibre.com.pe/tienda/maybelline"
         }
         "/search/official_store_logo/click"(platform: "/web") {
-            defaultWebTrack()
             store = "Maybelline"
             url = "https://www.mercadolibre.com.pe/tienda/maybelline"
         }
