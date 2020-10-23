@@ -334,6 +334,7 @@ trackTests {
             distance = "500"
             context = "could_not_deliver"
             is_blocking = false
+            shipment_id = "222"
         }
 
         "/logistics/last_mile/detail/start_trip"(platform: "/mobile", type: TrackType.Event) {
