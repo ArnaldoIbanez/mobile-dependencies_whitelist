@@ -408,4 +408,16 @@ tracks {
     "/kyc/iv/error_page"(platform: "/web", type: TrackType.View) {
     }
 
+    // KYC File Upload
+    "/kyc/upload_file"(platform: "/", isAbstract: true) {}
+
+    "/kyc/upload_file/open_files"(platform: "/", type: TrackType.Event) { }
+
+    "/kyc/upload_file/upload_start"(platform: "/", type: TrackType.Event) {
+        amount (required: true, type: PropertyType.String, description: "The amount of files")
+    }
+
+    "/kyc/upload_file/upload_success"(platform: "/", type: TrackType.Event) { }
+
+    "/kyc/upload_file/upload_fail"(platform: "/", type: TrackType.Event) { }
 }
