@@ -348,5 +348,15 @@ trackTests {
 
         "/kyc/upload_file/upload_fail"(platform: "/mobile", business: "mercadolibre") {}
 
+        "/kyc/upload_file/open_files"(platform: "/mobile", business: "mercadopago") {}
+
+         "/kyc/upload_file/upload_start"(platform: "/mobile", business: "mercadopago") {
+            amount = "2"
+        }
+
+        "/kyc/upload_file/upload_success"(platform: "/mobile", business: "mercadopago") {}
+
+        "/kyc/upload_file/upload_fail"(platform: "/mobile", business: "mercadopago") {}
+
     }
 }
