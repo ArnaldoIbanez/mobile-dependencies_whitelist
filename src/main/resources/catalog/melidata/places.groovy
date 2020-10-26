@@ -25,7 +25,7 @@ tracks {
                 values: ["not_allowed", "blocked"],
                 description: "Specifies what kind of camera error happened.")
         code_type(required: true, type: PropertyType.String,
-                values: ["QRCode", "Datamatrix", "Barcode", "Unknown"],
+                values: ["QR", "Datamatrix", "Barcode", "Unknown"],
                 description: "Specifies what kind of 1D/2D code were scanned")
         scanner_input(required: true, type: PropertyType.String,
                 description: "Specifies the raw input of the external scanner")
@@ -74,6 +74,8 @@ tracks {
 
     "/places/reception/validate_shipment/error"(platform: "/web", type: TrackType.Event) {
         place_validation
+        shipment_id(required: false, type: PropertyType.String,
+                description: "ID of shipment being validated for reception.")
     }
 
     "/places/reception/access_camera/error"(platform: "/web", type: TrackType.Event) {
