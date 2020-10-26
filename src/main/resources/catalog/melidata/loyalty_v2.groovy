@@ -110,7 +110,7 @@ tracks {
     }
 
     "/loyalty/partners/teaser"(platform: "/", type: TrackType.View) {
-        content(required: true, description: "Content of the partner. Ex: Game Of Thrones", type: PropertyType.String)
+        content(required: false, description: "Content of the partner. Ex: Game Of Thrones", type: PropertyType.String)
     }
 
     // Loyalty Subscription Congrats
