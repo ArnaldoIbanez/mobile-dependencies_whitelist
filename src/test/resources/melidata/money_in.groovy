@@ -380,6 +380,18 @@ trackTests {
             action_type = "delete"
             claim_status = "waiting_resolution"
         }
+        "/money_in/pix_keys/delete_confirm/continue"(platform: "/", type: TrackType.Event) {
+             key_type = "evp"
+        }
+        "/money_in/pix_keys/delete_confirm"(platform: "/", type: TrackType.View) {
+            key_type = "evp"
+        }
+        "/money_in/pix_keys/delete_confirm/cancel"(platform: "/", type: TrackType.Event) {
+            key_type = "evp"		
+        }
+        "/money_in/pix_keys/cpf_confirm"(platform: "/", type: TrackType.View) {
+            key_value_from_profile = true
+        }
         
         //PIX onboarding tests
         "/money_in/pix/onboarding"(platform:"/", type: TrackType.View){}
