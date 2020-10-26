@@ -1498,6 +1498,7 @@ trackTests {
         }
         "/sell/list/draft/congrats"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
+            item_id = "MLA12345"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"
@@ -1506,6 +1507,7 @@ trackTests {
         }
         "/sell/list/draft/congrats/payment_pending"(platform: "/mobile", type: TrackType.View) {
             session_id = "214464778-list-d5e5a20b2935"
+            item_id = "MLA12345"
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             seller_profile = "NEWBIE"

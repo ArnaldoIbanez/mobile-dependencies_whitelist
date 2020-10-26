@@ -260,6 +260,7 @@ tracks {
         catalogFlowMobile
     }
     "/sell/list/draft/congrats"(platform:"/mobile", type: TrackType.View){
+        item_id(required: true, description: "Item id")
         catalogFlowMobile
     }
     "/sell/list/draft/congrats/payment_pending"(platform:"/mobile", type: TrackType.View){}
