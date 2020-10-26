@@ -19,6 +19,7 @@ tracks {
     "/banking/balance"(platform: "/", type: TrackType.View) {}
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
     "/banking/activities"(platform: "/", type: TrackType.View) {}
+    "/banking/cerc"(platform: "/", type: TrackType.View) {}
 
     // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
