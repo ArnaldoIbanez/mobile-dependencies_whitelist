@@ -338,6 +338,7 @@ trackTests {
 
         "/kyc/profile"(platform: "/mobile", business: "mercadolibre") {}
 
+        // KYC File Upload
         "/kyc/upload_file/open_files"(platform: "/mobile", business: "mercadolibre") {}
 
          "/kyc/upload_file/upload_start"(platform: "/mobile", business: "mercadolibre") {
