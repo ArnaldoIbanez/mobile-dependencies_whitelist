@@ -154,12 +154,12 @@ trackTests {
         "/credits/consumer/opensea/remedy/authorization/quit_remedy"(platform: "/", type: TrackType.Event, business:"mercadolibre") {}
         "/credits/consumer/opensea/remedy/authorization/quit_remedy"(platform: "/", type: TrackType.Event, business:"mercadopago") {}
         /* Remedy MLM WebView */
-        "/credits/consumer/opensea/remedy/authorization"(platform: "/mobile", type: TrackType.View, business:"mercadolibre") {}
-        "/credits/consumer/opensea/remedy/authorization"(platform: "/mobile", type: TrackType.View, business:"mercadopago") {}
-        "/credits/consumer/opensea/remedy/authorization/give_consent"(platform: "/mobile", type: TrackType.Event, business:"mercadolibre") {}
-        "/credits/consumer/opensea/remedy/authorization/give_consent"(platform: "/mobile", type: TrackType.Event, business:"mercadopago") {}
-        "/credits/consumer/opensea/remedy/authorization/deny_consent"(platform: "/mobile", type: TrackType.Event, business:"mercadolibre") {}
-        "/credits/consumer/opensea/remedy/authorization/deny_consent"(platform: "/mobile", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/consumer/opensea/remedy/opt_in_authorization"(platform: "/mobile", type: TrackType.View, business:"mercadolibre") {}
+        "/credits/consumer/opensea/remedy/opt_in_authorization"(platform: "/mobile", type: TrackType.View, business:"mercadopago") {}
+        "/credits/consumer/opensea/remedy/opt_in_authorization/give_consent"(platform: "/mobile", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/opensea/remedy/opt_in_authorization/give_consent"(platform: "/mobile", type: TrackType.Event, business:"mercadopago") {}
+        "/credits/consumer/opensea/remedy/opt_in_authorization/deny_consent"(platform: "/mobile", type: TrackType.Event, business:"mercadolibre") {}
+        "/credits/consumer/opensea/remedy/opt_in_authorization/deny_consent"(platform: "/mobile", type: TrackType.Event, business:"mercadopago") {}
         /******************************************
          *   End: Consumers Opensea Flow
          ******************************************/
