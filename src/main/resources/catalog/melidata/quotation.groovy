@@ -22,7 +22,7 @@ tracks {
 
     propertyGroups {
         quotationDetails(seller_id, category_id, vertical, error_type, model_id, unit_id)
-        quotationEventData(item_id, source, model_id)
+        quotationEventData(item_id, source, unit_id)
     }
     //TODO: Se agregaron al catálogo unos fix con los datos que hoy mandan las apis y los fronts, como estos van a ser refactorizados, queda pendiente volver a ajustar este catálogo y dejarlo con la info correcta.
 

@@ -250,7 +250,7 @@ trackTests {
         "/quotation/credits_intention/card"(platform: "/web", type: TrackType.Event) {
             item_id = "MLC12345"
             source = "congrats_link"
-            model_id = "102B"
+            unit_id = 98123
         }
     }
 }
