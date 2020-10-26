@@ -339,25 +339,25 @@ trackTests {
         "/kyc/profile"(platform: "/mobile", business: "mercadolibre") {}
 
         // KYC File Upload
-        "/kyc/upload_file/open_files"(platform: "/mobile", business: "mercadolibre") {}
+        "/kyc/upload_file/open_files"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
 
-         "/kyc/upload_file/upload_start"(platform: "/mobile", business: "mercadolibre") {
+        "/kyc/upload_file/upload_start"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {
             amount = "5"
         }
 
-        "/kyc/upload_file/upload_success"(platform: "/mobile", business: "mercadolibre") {}
+        "/kyc/upload_file/upload_success"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
 
-        "/kyc/upload_file/upload_fail"(platform: "/mobile", business: "mercadolibre") {}
+        "/kyc/upload_file/upload_fail"(platform: "/mobile", type: TrackType.Event, business: "mercadolibre") {}
 
-        "/kyc/upload_file/open_files"(platform: "/mobile", business: "mercadopago") {}
+        "/kyc/upload_file/open_files"(platform: "/mobile", type: TrackType.Event, business: "mercadopago") {}
 
-         "/kyc/upload_file/upload_start"(platform: "/mobile", business: "mercadopago") {
+        "/kyc/upload_file/upload_start"(platform: "/mobile", type: TrackType.Event, business: "mercadopago") {
             amount = "2"
         }
 
-        "/kyc/upload_file/upload_success"(platform: "/mobile", business: "mercadopago") {}
+        "/kyc/upload_file/upload_success"(platform: "/mobile", type: TrackType.Event, business: "mercadopago") {}
 
-        "/kyc/upload_file/upload_fail"(platform: "/mobile", business: "mercadopago") {}
+        "/kyc/upload_file/upload_fail"(platform: "/mobile", type: TrackType.Event, business: "mercadopago") {}
 
     }
 }
