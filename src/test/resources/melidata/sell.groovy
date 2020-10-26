@@ -2033,6 +2033,7 @@ trackTests {
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             vertical = "core"
+            rebate_status = "not_boosted"
         }
         "/sell/update/buybox_competition/push_action"(platform: "/mobile", type: TrackType.Event) {
             item_id = "MLA123456"
@@ -2042,12 +2043,23 @@ trackTests {
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             vertical = "core"
+            rebate_status = "not_boosted"
         }
         "/sell/update/buybox_competition/row_action"(platform: "/mobile", type: TrackType.Event) {
             item_id = "MLA123456"
             boost_id = "same_day_shipping"
             boost_status = "opportunity"
             buybox_status = "losing_by_price"
+            is_catalog_listing = true
+            seller_profile = "NEWBIE"
+            seller_reputation = "NO_REPUTATION"
+            seller_segment = ""
+            vertical = "core"
+            rebate_status = "not_boosted"
+        }
+        "/sell/update/sip/rebate/action"(platform: "/mobile", type: TrackType.Event) {
+            item_id = "MLA123456"
+            buybox_status = "winning"
             is_catalog_listing = true
             seller_profile = "NEWBIE"
             seller_reputation = "NO_REPUTATION"
@@ -2065,6 +2077,7 @@ trackTests {
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             vertical = "core"
+            rebate_status = "boosted"
         }
         "/sell/update/sip/header_modal/open"(platform: "/mobile", type: TrackType.Event) {
             item_id = "MLA123456"
@@ -2098,6 +2111,7 @@ trackTests {
             seller_reputation = "NO_REPUTATION"
             seller_segment = ""
             vertical = "core"
+            rebate_status = "none"
         }
         "/sell/update/sip/publish/fail"(platform: "/mobile") {
             item_id = "MLA123456"

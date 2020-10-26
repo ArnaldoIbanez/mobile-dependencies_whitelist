@@ -535,7 +535,9 @@ tracks {
         buybox_status(required: false, description: "Buy Box status of core catalog listing", type: PropertyType.String, values: ["winning", "losing_by_price", "losing_by_stock", "losing_by_bad_reputation", "losing_by_untrusted_seller", "losing_by_without_reputation", "calculating", "undefined", "losing_by_free_listing_type"])
     }
     "/sell/update/attribute"(platform: "/mobile", type: TrackType.View) {}
-    "/sell/update/buybox_competition"(platform: "/mobile", type: TrackType.View) {}
+    "/sell/update/buybox_competition"(platform: "/mobile", type: TrackType.View) {
+        rebate_status(required: true, description: "Status of rebate", type: PropertyType.String, values: ["not_boosted", "none"])
+    }
     "/sell/update/buybox_competition/push_action"(platform: "/mobile", type: TrackType.Event) {}
     "/sell/update/buybox_competition/row_action"(platform: "/mobile", type: TrackType.Event) {
         boost_id(required: true, description: "Id of buy box boost", type: PropertyType.String, values: ["free_shipping", "free_installments", "fulfillment", "mercado_envios", "price", "same_day_shipping", "shipping_quarantine"])
@@ -562,6 +564,7 @@ tracks {
         pictures_errors(required: false, description: "Array of pictures error", type: PropertyType.ArrayList)
         is_catalog_boost(required: false, description: "boolean - true if the item was created by Optinator (forced catalog optin) and item status is paused", type: PropertyType.Boolean)
         is_item_inactive_moderated(required: false, description: "boolean - true if it is an inactive moderated item", type: PropertyType.Boolean)
+        rebate_status(required: false, description: "Status of rebate", type: PropertyType.String, values: ["boosted", "not_boosted", "none"])
     }
     "/sell/update/sip/header_modal"(platform: "/mobile", isAbstract: true) {
         header_type(required: true, description: "Header type", type: PropertyType.String, values: ["advisory", "buybox", "health", "warning"])
@@ -574,6 +577,8 @@ tracks {
     "/sell/update/sip/section/disabled"(platform: "/mobile", type: TrackType.Event) {
         section_id(required:true, description: "Section of the SIP that is disabled and trigger the event.", type: PropertyType.String)
     }
+    "/sell/update/sip/rebate"(platform: "/mobile", isAbstract: true) {}
+    "/sell/update/sip/rebate/action"(platform: "/mobile", type: TrackType.Event) {}
 
     "/sell/update/quantity_maximum_free_landing"(platform: "/mobile", type: TrackType.View) {}
     "/sell/update/location"(platform: "/mobile", type: TrackType.View) {}
