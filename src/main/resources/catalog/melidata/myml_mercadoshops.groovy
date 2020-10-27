@@ -432,6 +432,14 @@ tracks {
 
     "/mercado_shops/marketing/facebook/store/context_help"(platform: "/", type: TrackType.Event){}
 
+    "/mercado_shops/marketing/facebook/store/meta_tag_configuration"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/facebook/store/domain_verification"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/facebook/store/domain_verification/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
     "/mercado_shops/marketing/google"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/google/shopping"(platform: "/", type: TrackType.Event){}
