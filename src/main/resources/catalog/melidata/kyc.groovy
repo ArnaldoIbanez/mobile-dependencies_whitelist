@@ -257,6 +257,8 @@ tracks {
 
     "/kyc/iv/activity/picture_confirmation"(platform: "/mobile", type: TrackType.View) {}
 
+    "/kyc/iv/activity/liveness"(platform: "/mobile", type: TrackType.View) {}
+    
     // Mobile tracks
     "/kyc/iv/center/row"(platform: "/mobile", type: TrackType.View) {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
