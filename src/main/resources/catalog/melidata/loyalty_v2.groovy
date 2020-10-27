@@ -109,6 +109,10 @@ tracks {
         type(required: true, description: "User discount", values: ["primary", "secondary", "tyc"], type: PropertyType.String)
     }
 
+    "/loyalty/partners/teaser"(platform: "/", type: TrackType.View) {
+        content(required: false, description: "Content of the partner. Ex: Game Of Thrones", type: PropertyType.String)
+    }
+
     // Loyalty Subscription Congrats
     "/loyalty/partners/checkout"(platform: "/", isAbstract: true) {}
 
