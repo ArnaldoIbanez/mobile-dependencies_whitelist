@@ -145,6 +145,7 @@ tracks {
 
         //SELLER FIELDS
         seller_id(required: true, type: PropertyType.Numeric)
+        seller_type(required: false, type: PropertyType.String, description: "Seller type: normal, real_estate_user, etc")
         power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
                 description: "Seller's Mercado Lider level")
         reputation_level(required: false, type: PropertyType.String,

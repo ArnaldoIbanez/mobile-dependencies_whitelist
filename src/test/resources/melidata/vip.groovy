@@ -67,6 +67,7 @@ trackTests {
                 "melichoice_score": 0.3
             ]
             has_seller_level_kyc = true
+            seller_type = 'normal'
         }
 
         Object items_attributes = {
