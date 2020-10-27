@@ -363,7 +363,6 @@ tracks {
     }
     "/cart/checkout/shipping/input_address/telephone_input"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the telephone_input")
-        value(required: false, type: PropertyType.String, description: "If the address has an error on the telephone_input track the telephone_input value")
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
         session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
