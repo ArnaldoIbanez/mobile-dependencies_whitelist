@@ -13,8 +13,9 @@ tracks {
     // External merchants tracks
     "/external"(platform: "/", isAbstract: true){}
 
-    "/external/merchants"(platform: "/", isAbstract: true){
+    "/external/merchants"(platform: "/"){
         domain(required: true, description: "domain of current view", type: PropertyType.String, regex: domainRegex)
+        view(required: false, description: "current section of the external merchant website", type: PropertyType.String)
     }
 
     "/external/merchants/home"(platform: "/", type: TrackType.View){}
@@ -24,5 +25,4 @@ tracks {
     "/external/merchants/item"(platform: "/", type: TrackType.View){}
 
     "/external/merchants/search"(platform: "/", type: TrackType.View){}
-
 }

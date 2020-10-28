@@ -22,5 +22,6 @@ catalog {
     shipping.each { business ->
         include business, "tracking.groovy"
         include business, "labels.groovy"
+        include business, "ssm.groovy"
     }
 }

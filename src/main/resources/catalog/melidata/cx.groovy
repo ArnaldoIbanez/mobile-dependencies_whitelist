@@ -113,6 +113,18 @@ tracks {
                 description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
     }
 
+    "/portal/home"(platform: "/", type: TrackType.View) {
+        portal_source_id(required: false, type: PropertyType.Numeric,
+                description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+    }
+
+    "/portal/zrp"(platform: "/", type: TrackType.View) {
+        portal_source_id(required: false, type: PropertyType.Numeric,
+                description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+    }
+
+    "/portal/validate_user"(platform: "/", type: TrackType.View) {}
+
     // Support Widget
 
     "/support"(platform: "/", isAbstract:  true) {}
@@ -126,6 +138,14 @@ tracks {
 
     "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
         portal_source_id
+    }
+
+    "/support/widget/home"(platform: "/", type: TrackType.View) {
+        portal_source_id(required: false, type: PropertyType.Numeric, description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+    }
+
+    "/support/widget/zrp"(platform: "/", type: TrackType.View) {
+        portal_source_id(required: false, type: PropertyType.Numeric, description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
     }
 
     "/support/widget/faq"(platform: "/", type: TrackType.View) {
@@ -170,11 +190,11 @@ tracks {
 
     // Mis Consultas
 
-    "/support/cases"(platform: "/", isAbstract: true) {}
+    "/support/cases"(platform: "/", type: TrackType.View) {}
 
     "/support/cases/detail"(platform: "/", type: TrackType.View) {
         case_status(required: true, type: PropertyType.String,
-            values: ["pending", "waiting_for_info", "waiting_for_external", "waiting_for_fix", "fixed", "final_answer", "finished_no_answer", "duplicated", "finished", "final_greetings"],
+            values: ["pending", "waiting_for_info", "waiting_for_external", "waiting_for_fix", "fixed", "final_answer", "finished_no_answer", "duplicated", "finished", "final_greetings", "final_closed"],
             description: "Case status")
         case_id(required: true, type: PropertyType.Numeric,
             description: "CX case id")

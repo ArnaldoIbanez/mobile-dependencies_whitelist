@@ -19,6 +19,32 @@ tracks {
         product (type: PropertyType.String, required: true, description: "Product name, example: 'mkt-combustibles'")
     }
 
+    // Covid19 Marketing Performance landing 
+    "/payers_growth/mkt_landing"(platform: "/web", isAbstract: true){}
+    "/payers_growth/mkt_landing/codoacodo"(platform: "/web", type: TrackType.View) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/payers_growth/mkt_landing/codoacodo/sms"(platform: "/web", type: TrackType.Event) { 
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+    }
+    "/payers_growth/mkt_landing/codoacodo/copy-clipboard"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["coupon", "steps"], description: "Indicates position of copy button")
+    }
+    "/payers_growth/mkt_landing/codoacodo/button"(platform: "/web", type: TrackType.Event) {
+        campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
+        position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
+    }
+
+    // Experiment landing - Ukraine Lab
+    "/payers_growth/xp_landing"(platform: "/", type: TrackType.View) {
+        landing_id (required: true, type: PropertyType.String, description: "Indicate landing id")
+    }
+    "/payers_growth/xp_landing/button"(platform: "/", type: TrackType.Event) {
+        landing_id (required: true, type: PropertyType.String, description: "Indicate landing id")
+        action (required: true, type: PropertyType.String, values: ["recharge_mp", "recharge_ml"], description: "Indicates button action: recharge on mp or recharge on ml")
+    }
+
     "/payers_growth"(platform: "/mobile", isAbstract: true) {}
 
     // Shake It Screens

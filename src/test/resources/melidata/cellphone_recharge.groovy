@@ -211,7 +211,7 @@ trackTests {
         }
 
         // Recharge Marketing Landing
-        "/cellphone_recharge/mkt_landing"(platform: "/web"){
+        "/cellphone_recharge/mkt_landing"(platform: "/"){
             campaign = 'generic'
         }
         "/cellphone_recharge/mkt_landing/sms"(platform: "/web"){
@@ -225,15 +225,15 @@ trackTests {
             campaign = 'generic'
             position = "steps"
         } 
-        "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+        "/cellphone_recharge/mkt_landing/button"(platform: "/"){
             campaign = 'generic'
             position = "hero"
         } 
-        "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+        "/cellphone_recharge/mkt_landing/button"(platform: "/"){
             campaign = 'generic'
             position = "fixed"
         } 
-        "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+        "/cellphone_recharge/mkt_landing/button"(platform: "/"){
             campaign = 'generic'
             position = "footer"
         } 
@@ -447,10 +447,10 @@ trackTests {
         }
 
         // Recharge Marketing Landing
-        "/cellphone_recharge/mkt_landing"(platform: "/web"){
+        "/cellphone_recharge/mkt_landing"(platform: "/"){
             campaign = "generic"
         }
-        "/cellphone_recharge/mkt_landing"(platform: "/web"){
+        "/cellphone_recharge/mkt_landing"(platform: "/"){
             campaign = "personal"
         }
         "/cellphone_recharge/mkt_landing/sms"(platform: "/web"){
@@ -464,15 +464,15 @@ trackTests {
             campaign = "generic"
             position = "steps"
         } 
-        "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+        "/cellphone_recharge/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "hero"
         } 
-        "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+        "/cellphone_recharge/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "fixed"
         } 
-        "/cellphone_recharge/mkt_landing/button"(platform: "/web"){
+        "/cellphone_recharge/mkt_landing/button"(platform: "/"){
             campaign = "generic"
             position = "footer"
         } 
