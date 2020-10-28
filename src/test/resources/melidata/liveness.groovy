@@ -25,6 +25,7 @@ trackTests {
         "/liveness/challenge_time"(platform: "/mobile/android") {
             time = 1241
             challenge_result = 0
+            challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/mobile/android") {
@@ -78,6 +79,7 @@ trackTests {
         "/liveness/challenge_time"(platform: "/mobile/ios") {
             time = 1241
             challenge_result = 0
+            challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/mobile/ios") {
@@ -128,6 +130,7 @@ trackTests {
         "/liveness/challenge_time"(platform: "/web") {
             time = 1241
             challenge_result = 0
+            challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/web") {
@@ -183,6 +186,7 @@ trackTests {
         "/liveness/challenge_time"(platform: "/mobile/android") {
             time = 1241
             challenge_result = 0
+            challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/mobile/android") {
@@ -236,6 +240,7 @@ trackTests {
         "/liveness/challenge_time"(platform: "/mobile/ios") {
             time = 1241
             challenge_result = 0
+            challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/mobile/ios") {
@@ -287,6 +292,7 @@ trackTests {
         "/liveness/challenge_time"(platform: "/web") {
             time = 1241
             challenge_result = 0
+            challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/web") {

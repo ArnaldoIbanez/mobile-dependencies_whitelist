@@ -26,6 +26,7 @@ tracks {
     "/liveness/challenge_time"(platform: "/", type: TrackType.Event) {
         time(type: PropertyType.Numeric, required: true, description: "Time to complete challenge")
         challenge_result(type: PropertyType.Numeric, required: true, description: "Result of client validation")
+        challenge_result_description(type: PropertyType.String, required: true, description: "Description of validation")
     }
 
     "/liveness/result"(platform: "/", type: TrackType.Event) {
