@@ -123,24 +123,27 @@ trackTests {
         def congrats_approved_status = "approved"
         def congrats_pending_status = "pending"
         def congrats_rejected_status = "rejected"
+        def stop_page_no_proposal = "no_proposal_match"
+        def stop_page_invalid_proposal = "invalid_proposal_status"
+        def stop_page_already_active = "user_has_active_account"
 
         // Onboarding
         "/credits/credit_card/upgrade/onboarding"(platform: "/", type: TrackType.View) {
-            account = account_rating_b
+            proposal = account_rating_b
             is_card_active = true
             page = 1
         }
 
         // Payment due date selection
         "/credits/credit_card/upgrade/payment_due_date_selection"(platform: "/", type: TrackType.View) {
-            account = account_rating_b
+            proposal = account_rating_b
             is_card_active = true
             buckets = [1, 15, 25]
         }
 
         // Summary
         "/credits/credit_card/upgrade/summary"(platform: "/", type: TrackType.View) {
-            account = account_rating_b
+            proposal = account_rating_b
             is_card_active = true
             bucket = 15
             limit = 2000
@@ -153,19 +156,19 @@ trackTests {
 
         // Congrats
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
-            account = account_rating_b
+            proposal = account_rating_b
             is_card_active = true
             status = congrats_approved_status
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
-            account = account_rating_a
+            proposal = account_rating_a
             is_card_active = true
             status = congrats_pending_status
         }
 
         "/credits/credit_card/upgrade/congrats"(platform: "/", type: TrackType.View) {
-            account = account_rating_b
+            proposal = account_rating_b
             is_card_active = true
             status = congrats_rejected_status
         }
@@ -177,6 +180,19 @@ trackTests {
         // Error
         "/credits/credit_card/upgrade/error"(platform: "/", type: TrackType.View) {
             reason = "Network error"
+        }
+
+        // Stop page
+        "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
+            reason = stop_page_no_proposal
+        }
+
+        "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
+            reason = stop_page_invalid_proposal
+        }
+
+        "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
+            reason = stop_page_already_active
         }
 
         /*********************************************
