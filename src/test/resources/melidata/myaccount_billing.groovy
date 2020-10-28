@@ -8,6 +8,18 @@ trackTests {
     defaultBusiness = "mercadolibre"
 
     test("Bill Detail") {
+        "/myaccount/billing/detail"(platform: "/", type: TrackType.View) {
+            bill_exp_date = 20201026
+            has_cancelled_payments = true
+            has_debt = false
+            has_taxes = true
+            is_expired_bill = false
+            is_open_bill = true
+            is_paid_bill = true
+            user_can_pay = false
+            type = "BILL_DETAIL_CARD_CLICK_PAY"
+        }
+
         "/myaccount/billing/detail"(platform: "/", type: TrackType.Event) {
             bill_exp_date = 20201026
             has_cancelled_payments = true

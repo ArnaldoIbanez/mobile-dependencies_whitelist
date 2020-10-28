@@ -19,7 +19,7 @@ tracks {
         completed(type: PropertyType.Boolean, required: true)
 
     }
-    "/myaccount/billing/detail"(type: TrackType.Event) {
+    "/myaccount/billing/detail"(platform: "/") {
         bill_exp_date(type: PropertyType.Numeric, required: false, description: "Bill Expiration date in format YYYYMMDD")
         has_cancelled_payments(type: PropertyType.Boolean, required: true, description: "Indicates if bill has cancelled payments")
         has_debt(type: PropertyType.Boolean, required: true, description: "Indicates if the bill has an amount to pay")
