@@ -46,6 +46,10 @@ trackTests {
             error_cause = "true"
         }
 
+        "/liveness/action"(platform: "/mobile/android") {
+            type = "close"
+        }
+
         "/liveness/landing"(platform: "/mobile/android") {}
 
         "/liveness/fallback"(platform: "/mobile/android") {
@@ -94,12 +98,13 @@ trackTests {
             error_type = "test"
             error_cause = "true"
         }
+        "/liveness/action"(platform: "/mobile/ios") {
+            type = "close"
+        }
 
         "/liveness/landing"(platform: "/mobile/ios") {}
 
-        "/liveness/fallback"(platform: "/mobile/ios") {
-            type = "timeout"
-        }
+        "/liveness/fallback"(platform: "/mobile/ios") {}
 
         "/liveness/unsupported"(platform: "/mobile/ios") {}
     }
@@ -142,6 +147,10 @@ trackTests {
         "/liveness/generic_error"(platform: "/web") {
             error_type = "test"
             error_cause = "true"
+        }
+
+        "/liveness/action"(platform: "/web") {
+            type = "close"
         }
 
         "/liveness/landing"(platform: "/web") {}
@@ -195,6 +204,10 @@ trackTests {
             error_cause = "true"
         }
 
+        "/liveness/action"(platform: "/mobile/android") {
+            type = "close"
+        }
+
         "/liveness/landing"(platform: "/mobile/android") {}
 
         "/liveness/fallback"(platform: "/mobile/android") {
@@ -244,11 +257,13 @@ trackTests {
             error_cause = "true"
         }
 
+        "/liveness/action"(platform: "/mobile/ios") {
+            type = "close"
+        }
+
         "/liveness/landing"(platform: "/mobile/ios") {}
 
-        "/liveness/fallback"(platform: "/mobile/ios") {
-            type = "cancel"
-        }
+        "/liveness/fallback"(platform: "/mobile/ios") {}
 
         "/liveness/unsupported"(platform: "/mobile/ios") {}
     }
@@ -291,6 +306,10 @@ trackTests {
         "/liveness/generic_error"(platform: "/web") {
             error_type = "test"
             error_cause = "true"
+        }
+
+        "/liveness/action"(platform: "/web") {
+            type = "close"
         }
 
         "/liveness/landing"(platform: "/web") {}
