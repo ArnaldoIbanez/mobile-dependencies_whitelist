@@ -1212,7 +1212,7 @@ tracks {
         seller_profile(required: true, description: "Type of seller", type: PropertyType.String)
         domain_id(required: true, description: "Product domain id", type: PropertyType.String)
         product_id(required: true, description: "Catalog product id", type: PropertyType.String)
-        has_validation_error(required: true, description: "Title has personal validation error or not", type: PropertyType.Boolean)
+        has_validation_error(required: true, description: "Other suggestion has personal validation error or not", type: PropertyType.Boolean)
         error_references(required: true, description: "List of validation error references", PropertyType.ArrayList(PropertyType.String))
     }
 

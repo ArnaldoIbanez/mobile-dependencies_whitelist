@@ -4776,7 +4776,7 @@ trackTests {
     }
 
     test("product suggestion with title with personal data validation error"){
-        "/sell/product_suggestion/title/personal_data_validation"(platform: "/", type: TrackType.Event){
+        "/sell/product_suggestion/title/personal_data_validation"(platform: "/web", type: TrackType.Event){
             text = "Title text with personal data error"
             seller_profile = "NEWBIE"
             domain_id = "MLA-CELLPHONES"
@@ -4787,7 +4787,7 @@ trackTests {
     }
 
     test("product suggestion with other suggestion with personal data validation error"){
-        "/sell/product_suggestion/title/personal_data_validation"(platform: "/", type: TrackType.Event){
+        "/sell/product_suggestion/title/personal_data_validation"(platform: "/web", type: TrackType.Event){
             text = "Other suggestion text with personal data error"
             seller_profile = "NEWBIE"
             domain_id = "MLA-CELLPHONES"
