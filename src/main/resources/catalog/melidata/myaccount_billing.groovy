@@ -28,6 +28,6 @@ tracks {
         is_open_bill(type: PropertyType.Boolean, required: true, description: "Indicates if is an open bill")
         is_paid_bill(type: PropertyType.Boolean, required: true, description: "Indicates if is a paid bill")
         user_can_pay(type: PropertyType.Boolean, required: true, description: "Indicates if the user can pay the bill")
-        type(type: PropertyType.String, required: true, description: "Indicates the type of tracked event")
+        type(type: PropertyType.String, required: false, description: "Indicates the type of tracked event")
     }
 }

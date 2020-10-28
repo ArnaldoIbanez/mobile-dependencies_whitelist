@@ -17,7 +17,6 @@ trackTests {
             is_open_bill = true
             is_paid_bill = true
             user_can_pay = false
-            type = "BILL_DETAIL_CARD_CLICK_PAY"
         }
 
         "/myaccount/billing/detail"(platform: "/", type: TrackType.Event) {
