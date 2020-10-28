@@ -1034,8 +1034,10 @@ trackTests {
       seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
+      from = "true"
+      to = "false"
       marketplace = true
-      mshops = true
+      mshops = false
     }
   }
 
