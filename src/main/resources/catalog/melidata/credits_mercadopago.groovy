@@ -271,6 +271,10 @@ tracks {
         products_with_status
     }
 
+    "/credits/merchant/administrator/detail/conditions/case_resolution_click"(platform: "/", type: TrackType.Event) {
+        products_with_status
+    }
+
     "/credits/merchant/administrator/history"(platform:"/", type: TrackType.View) {}
 
     "/credits/merchant/administrator/payment_history"(platform:"/", type: TrackType.View) {
