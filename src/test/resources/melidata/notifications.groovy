@@ -2712,18 +2712,26 @@ trackTests {
         /* Team: IT Payments - Payroll | Initiative: Salary Portability */
         /*                       contact: payroll-devs@mercadolibre.com */
         "/notification/payroll_portability_request_accepted"(platform: "/mobile") {
+            news_id = "payroll-portability_request_accepted-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
             portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
         }
 
         "/notification/payroll_portability_request_denied"(platform: "/mobile") {
+            news_id = "payroll-portability_request_denied-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
             portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
         }
 
         "/notification/payroll_portability_request_failed"(platform: "/mobile") {
+            news_id = "payroll-portability_request_failed-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
             portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
         }
 
         "/notification/payroll_portability_request_integrated"(platform: "/mobile") {
+            news_id = "payroll-portability_request_integrated-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
             portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
         }
         /* ------------------------------------------------------------ */
