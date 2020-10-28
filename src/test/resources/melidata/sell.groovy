@@ -4774,4 +4774,26 @@ trackTests {
         "/sell/update/technical_spec_goal_not_supported_landing"(platform: "/mobile", type: TrackType.Event, dataSet)
         "/sell/update/video_goal_not_supported_landing"(platform: "/mobile", type: TrackType.Event, dataSet)
     }
+
+    test("product suggestion with title with personal data validation error"){
+        "/sell/product_suggestion/title/personal_data_validation"(platform: "/", type: TrackType.Event){
+            text = "Title text with personal data error"
+            seller_profile = "NEWBIE"
+            domain_id = "MLA-CELLPHONES"
+            product_id = "MLA123"
+            has_validation_error = true
+            error_references = ["BILLING"]
+        }
+    }
+
+    test("product suggestion with other suggestion with personal data validation error"){
+        "/sell/product_suggestion/title/personal_data_validation"(platform: "/", type: TrackType.Event){
+            text = "Other suggestion text with personal data error"
+            seller_profile = "NEWBIE"
+            domain_id = "MLA-CELLPHONES"
+            product_id = "MLA123"
+            has_validation_error = true
+            error_references = ["BILLING"]
+        }
+    }
 }

@@ -1192,4 +1192,28 @@ tracks {
     "/sell/item_data/video/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/video/confirm"(platform: "/web", type: TrackType.Event) {}
 
+    "/sell/product_suggestion"(platform: "/", isAbstract: true) {}
+
+    "/sell/product_suggestion/title"(platform: "/", isAbstract: true) {}
+
+    "/sell/product_suggestion/title/personal_data_validation"(platform: "/web", type: TrackType.Event) {
+        text(required: true, description: "Suggested title of catalog product", type: PropertyType.String)
+        seller_profile(required: true, description: "Type of seller", type: PropertyType.String)
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+        product_id(required: true, description: "Catalog product id", type: PropertyType.String)
+        has_validation_error(required: true, description: "Title has personal validation error or not", type: PropertyType.Boolean)
+        error_references(required: true, description: "List of validation error references", PropertyType.ArrayList(PropertyType.String))
+    }
+
+    "/sell/product_suggestion/other_suggestion"(platform: "/", isAbstract: true) {}
+
+    "/sell/product_suggestion/other_suggestion/personal_data_validation"(platform: "/web", type: TrackType.Event) {
+        text(required: true, description: "Other suggestion of catalog product", type: PropertyType.String)
+        seller_profile(required: true, description: "Type of seller", type: PropertyType.String)
+        domain_id(required: true, description: "Product domain id", type: PropertyType.String)
+        product_id(required: true, description: "Catalog product id", type: PropertyType.String)
+        has_validation_error(required: true, description: "Title has personal validation error or not", type: PropertyType.Boolean)
+        error_references(required: true, description: "List of validation error references", PropertyType.ArrayList(PropertyType.String))
+    }
+
 }
