@@ -4787,7 +4787,7 @@ trackTests {
     }
 
     test("product suggestion with other suggestion with personal data validation error"){
-        "/sell/product_suggestion/title/personal_data_validation"(platform: "/web", type: TrackType.Event){
+        "/sell/product_suggestion/other_suggestion/personal_data_validation"(platform: "/web", type: TrackType.Event){
             text = "Other suggestion text with personal data error"
             seller_profile = "NEWBIE"
             domain_id = "MLA-CELLPHONES"
