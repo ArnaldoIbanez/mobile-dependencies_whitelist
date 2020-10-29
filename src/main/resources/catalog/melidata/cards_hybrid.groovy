@@ -437,9 +437,16 @@ tracks {
             inheritable:false
         )
         has_money (
-            required: true,
+            required: false,
             type: PropertyType.Boolean,
             description: "Indicate whether the user has money",
+            inheritable:false
+        )
+        product_type (
+			required: false,
+            type: PropertyType.String,
+            values: ["prepaid","hybrid","credit"],
+            description: "Indicate card type",
             inheritable:false
         )
         experimental_version (
@@ -805,7 +812,13 @@ tracks {
     // Hybrid Detail
     "/cards/mp-card/hybrid/detail" (platform: "/web", type: TrackType.View) {} 
     // Hybrid downloadApp Event
-    "/cards/mp-card/hybrid/detail/download-app" (platform:"/web", type: TrackType.Event) {}
+    "/cards/mp-card/hybrid/detail/download-app" (platform:"/web", type: TrackType.Event) {
+    	osName (
+    		required: false,
+            type: PropertyType.String,
+            description: "Device OS"
+    		)
+    }
     // Hybrid sendSMS Event
     "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
         status (
