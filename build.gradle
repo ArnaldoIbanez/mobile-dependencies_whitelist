@@ -77,7 +77,7 @@ task testAll (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.TestManager'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-mon-fda-test-app",
-	"mlo-mon-fda-test-app-busi", "mlo-mon-pyme-pvnm-aas", "mlo-mon-fda-items-plus", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api", 
+	"mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api", 
 	"mlo-mon-tagging-flammable-text", "mlo-mon-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability"]
 }
@@ -86,7 +86,7 @@ task uploadAll(type:JavaExec) {
     main = 'com.melidata.definitions.task.UploadManager'
     classpath = sourceSets.main.runtimeClasspath
     args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-mon-fda-test-app", 
-	"mlo-mon-fda-test-app-busi", "mlo-mon-pyme-pvnm-aas", "mlo-mon-fda-items-plus", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api", 
+	"mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api", 
 	"mlo-mon-tagging-flammable-text", "mlo-mon-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability"]
 }
@@ -139,10 +139,10 @@ task testMonitoringTestAppBusiCatalog(dependsOn: 'classes', type: JavaExec) {
 	args = ["mlo-mon-fda-test-app-busi"]
 }
 
-task testMonitoringPymePvnmAasCatalog (dependsOn: 'classes', type: JavaExec) {
+task testMonitoringFlanAasCatalog (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
-	args = ["mlo-mon-pyme-pvnm-aas"]
+	args = ["mlo-mon-flan"]
 }
 
 task testMonitoringFdaItemsPlusCatalog (dependsOn: 'classes', type: JavaExec) {
@@ -232,7 +232,7 @@ task uploadAllCatalog(type:JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-mon-fda-test-app",
-	"mlo-mon-fda-test-app-busi", "mlo-mon-pyme-pvnm-aas", "mlo-mon-fda-items-plus", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api", 
+	"mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api", 
 	"mlo-mon-tagging-flammable-text", "mlo-mon-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability"]
 }
@@ -285,10 +285,10 @@ task uploadMonitoringTestAppBusiCatalog(type:JavaExec) {
 	args = ["mlo-mon-fda-test-app-busi"]
 }
 
-task uploadMonitoringPymePvnmAasCatalog(type:JavaExec) {
+task uploadMonitoringFlanAasCatalog(type:JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
-	args = ["mlo-mon-pyme-pvnm-aas"]
+	args = ["mlo-mon-flan"]
 }
 
 task uploadMonitoringFdaItemsPlusCatalog(type:JavaExec) {
