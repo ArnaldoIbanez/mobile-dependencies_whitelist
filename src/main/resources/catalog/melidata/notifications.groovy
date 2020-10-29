@@ -1634,6 +1634,14 @@ tracks {
       "/notification/payroll_portability_request_integrated"(platform: "/") {
           portability_request_id(required: true, type: PropertyType.String)
       }
+
+      "/notification/payroll_portability_first_salary"(platform: "/") {
+          portability_id(required: true, type: PropertyType.String)
+      }
+
+      "/notification/payroll_portability_ted_rejected"(platform: "/") {
+          portability_id(required: true, type: PropertyType.String)
+      }
       /* ------------------------------------------------------------ */
 
       //Puis
