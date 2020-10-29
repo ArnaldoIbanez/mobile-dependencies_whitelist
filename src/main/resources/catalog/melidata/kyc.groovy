@@ -422,4 +422,16 @@ tracks {
     "/kyc/upload_file/upload_success"(platform: "/", type: TrackType.Event) { }
 
     "/kyc/upload_file/upload_fail"(platform: "/", type: TrackType.Event) { }
+
+    // KYC Landing Congrats
+
+    "/kyc/landing"(platform: "/", type: TrackType.View) { 
+        initiative (required: true, type: PropertyType.String, description: "The initiative")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
+    }
+
+    "/kyc/congrats"(platform: "/", type: TrackType.View) { 
+        initiative (required: true, type: PropertyType.String, description: "The initiative")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
+    }
 }
