@@ -25,6 +25,7 @@ trackTests {
         "/liveness/challenge_time"(platform: "/mobile/android") {
             time = 1241
             challenge_result = 0
+            challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/mobile/android") {
@@ -44,6 +45,10 @@ trackTests {
         "/liveness/generic_error"(platform: "/mobile/android") {
             error_type = "test"
             error_cause = "true"
+        }
+
+        "/liveness/action"(platform: "/mobile/android") {
+            type = "close"
         }
 
         "/liveness/landing"(platform: "/mobile/android") {}
@@ -74,6 +79,7 @@ trackTests {
         "/liveness/challenge_time"(platform: "/mobile/ios") {
             time = 1241
             challenge_result = 0
+            challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/mobile/ios") {
@@ -94,12 +100,13 @@ trackTests {
             error_type = "test"
             error_cause = "true"
         }
+        "/liveness/action"(platform: "/mobile/ios") {
+            type = "close"
+        }
 
         "/liveness/landing"(platform: "/mobile/ios") {}
 
-        "/liveness/fallback"(platform: "/mobile/ios") {
-            type = "timeout"
-        }
+        "/liveness/fallback"(platform: "/mobile/ios") {}
 
         "/liveness/unsupported"(platform: "/mobile/ios") {}
     }
@@ -123,6 +130,7 @@ trackTests {
         "/liveness/challenge_time"(platform: "/web") {
             time = 1241
             challenge_result = 0
+            challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/web") {
@@ -142,6 +150,10 @@ trackTests {
         "/liveness/generic_error"(platform: "/web") {
             error_type = "test"
             error_cause = "true"
+        }
+
+        "/liveness/action"(platform: "/web") {
+            type = "close"
         }
 
         "/liveness/landing"(platform: "/web") {}
@@ -174,6 +186,7 @@ trackTests {
         "/liveness/challenge_time"(platform: "/mobile/android") {
             time = 1241
             challenge_result = 0
+            challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/mobile/android") {
@@ -193,6 +206,10 @@ trackTests {
         "/liveness/generic_error"(platform: "/mobile/android") {
             error_type = "test"
             error_cause = "true"
+        }
+
+        "/liveness/action"(platform: "/mobile/android") {
+            type = "close"
         }
 
         "/liveness/landing"(platform: "/mobile/android") {}
@@ -223,6 +240,7 @@ trackTests {
         "/liveness/challenge_time"(platform: "/mobile/ios") {
             time = 1241
             challenge_result = 0
+            challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/mobile/ios") {
@@ -244,11 +262,13 @@ trackTests {
             error_cause = "true"
         }
 
+        "/liveness/action"(platform: "/mobile/ios") {
+            type = "close"
+        }
+
         "/liveness/landing"(platform: "/mobile/ios") {}
 
-        "/liveness/fallback"(platform: "/mobile/ios") {
-            type = "cancel"
-        }
+        "/liveness/fallback"(platform: "/mobile/ios") {}
 
         "/liveness/unsupported"(platform: "/mobile/ios") {}
     }
@@ -272,6 +292,7 @@ trackTests {
         "/liveness/challenge_time"(platform: "/web") {
             time = 1241
             challenge_result = 0
+            challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/web") {
@@ -291,6 +312,10 @@ trackTests {
         "/liveness/generic_error"(platform: "/web") {
             error_type = "test"
             error_cause = "true"
+        }
+
+        "/liveness/action"(platform: "/web") {
+            type = "close"
         }
 
         "/liveness/landing"(platform: "/web") {}
