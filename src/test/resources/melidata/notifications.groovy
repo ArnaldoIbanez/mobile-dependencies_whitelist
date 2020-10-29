@@ -2743,7 +2743,7 @@ trackTests {
 
         "/notification/payroll_portability_request_denied"(platform: "/mobile") {
             news_id = "payroll-portability_request_denied-d869c411-b7c5-4b1b-944f-7b90b15912c0"
-            event_type = "auto_dismis"
+            event_type = "auto_dismiss"
             portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
         }
 
@@ -6866,7 +6866,7 @@ trackTests {
 
         "/notification/payroll_portability_request_denied"(platform: "/mobile") {
             news_id = "payroll-portability_request_denied-d869c411-b7c5-4b1b-944f-7b90b15912c0"
-            event_type = "auto_dismis"
+            event_type = "auto_dismiss"
             portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
         }
 
