@@ -437,9 +437,16 @@ tracks {
             inheritable:false
         )
         has_money (
-            required: true,
+            required: false,
             type: PropertyType.Boolean,
             description: "Indicate whether the user has money",
+            inheritable:false
+        )
+        product_type (
+			required: false,
+            type: PropertyType.String,
+            values: ["prepaid","hybrid","credit"],
+            description: "Indicate card type",
             inheritable:false
         )
         experimental_version (
