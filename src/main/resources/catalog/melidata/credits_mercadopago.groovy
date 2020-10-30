@@ -1190,22 +1190,22 @@ tracks {
         has_prepaid(
             description: "Metric to track users who has accepted a loan and has prepaid card enabled",
             type: PropertyType.Boolean,
-            required: true,
+            required: false,
         )
         requested_amount(
             description: "User requested amount",
             type: PropertyType.Numeric,
-            required: true,
+            required: false,
         )
         max_amount(
             description: "Credit line maximum allowed amount",
             type: PropertyType.Numeric,
-            required: true,
+            required: false,
         )
         min_amount(
             description: "Credit line minimum allowed amount",
             type: PropertyType.Numeric,
-            required: true,
+            required: false,
         )
         default_payment_term(
                 description: "Default payment term selected",
@@ -1222,6 +1222,14 @@ tracks {
                 type: PropertyType.ArrayList,
                 required: false,
         )
+        reason(
+            description: "State reason",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'already_taken_credit_line',
+            ]
+        )
     }
 
     "/credits/express_money/error"(platform: "/", type: TrackType.View) {
@@ -1235,6 +1243,17 @@ tracks {
                 'ccb_creation',
                 'simulation',
                 'default',
+            ]
+        )
+    }
+
+    "/credits/express_money/info"(platform: "/", type: TrackType.View) {
+        reason(
+            description: "State reason",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'no_credit_lines_present',
             ]
         )
     }

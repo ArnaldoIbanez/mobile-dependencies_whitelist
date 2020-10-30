@@ -904,6 +904,10 @@ trackTests {
             payment_terms = ["7", "14", "21"]
         }
 
+        "/credits/express_money/congrats"(platform: "/mobile/ios", type: TrackType.View) {
+            reason = "already_taken_credit_line"
+        }
+
         "/credits/express_money/error"(platform: "/web/desktop") {
             reason = 'default'
         }
@@ -942,6 +946,10 @@ trackTests {
 
         "/credits/express_money/error"(platform: "/mobile/android") {
             reason = 'simulation'
+        }
+
+        "/credits/express_money/info"(platform: "/mobile/android") {
+            reason = 'no_credit_lines_present'
         }
 
         "/credits/express_money/onboarding"(platform: "/mobile/android") {}
