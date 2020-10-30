@@ -58,15 +58,7 @@ tracks {
 
     "/liveness/landing"(platform: "/", type: TrackType.View) {}
 
-    "/liveness/fallback"(platform: "/web", type: TrackType.View) {
-        type(type: PropertyType.String, required: true, values: ["timeout", "cancel"], description: "Type of fallback")
-    }
-
-    "/liveness/fallback"(platform: "/mobile/android", type: TrackType.View) {
-        type(type: PropertyType.String, required: true, values: ["timeout", "cancel"], description: "Type of fallback")
-    }
-
-    "/liveness/fallback"(platform: "/mobile/ios", type: TrackType.View) {}
+    "/liveness/fallback"(platform: "/", type: TrackType.View) {}
 
     "/liveness/unsupported"(platform: "/", type: TrackType.View) {}
 }

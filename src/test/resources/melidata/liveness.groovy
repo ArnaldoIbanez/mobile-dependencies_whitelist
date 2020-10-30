@@ -53,9 +53,7 @@ trackTests {
 
         "/liveness/landing"(platform: "/mobile/android") {}
 
-        "/liveness/fallback"(platform: "/mobile/android") {
-            type = "timeout"
-        }
+        "/liveness/fallback"(platform: "/mobile/android") {}
 
         "/liveness/unsupported"(platform: "/mobile/android") {}
     }
@@ -158,9 +156,7 @@ trackTests {
 
         "/liveness/landing"(platform: "/web") {}
 
-        "/liveness/fallback"(platform: "/web") {
-            type = "timeout"
-        }
+        "/liveness/fallback"(platform: "/web") {}
 
         "/liveness/unsupported"(platform: "/web") {}
     }
@@ -214,9 +210,7 @@ trackTests {
 
         "/liveness/landing"(platform: "/mobile/android") {}
 
-        "/liveness/fallback"(platform: "/mobile/android") {
-            type = "cancel"
-        }
+        "/liveness/fallback"(platform: "/mobile/android") {}
 
         "/liveness/unsupported"(platform: "/mobile/android") {}
     }
@@ -320,9 +314,7 @@ trackTests {
 
         "/liveness/landing"(platform: "/web") {}
 
-        "/liveness/fallback"(platform: "/web") {
-            type = "timeout"
-        }
+        "/liveness/fallback"(platform: "/web") {}
 
         "/liveness/unsupported"(platform: "/web") {}
     }
