@@ -227,6 +227,18 @@ tracks {
             ],
             inheritable: false
         )
+        from(
+            description: "States previous navigation step (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        additional_info(
+            description: "Additional information regarding flow navigation",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
     }
 
     "/credits/merchant/administrator/spc_click"(platform: "/", type: TrackType.Event) {
@@ -602,6 +614,18 @@ tracks {
         is_kyc_compliance(
             type: PropertyType.Boolean,
             required: false,
+        )
+        from(
+            description: "States previous navigation step (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        additional_info(
+            description: "Additional information regarding flow navigation",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
         )
     }
 
@@ -1097,6 +1121,18 @@ tracks {
                 type: PropertyType.ArrayList,
                 required: false,
         )
+        from(
+            description: "States previous navigation step (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        additional_info(
+            description: "Additional information regarding flow navigation",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
     }
 
     "/credits/express_money/amount_input/simulation"(platform: "/mobile", type: TrackType.View) {
@@ -1230,6 +1266,18 @@ tracks {
                 'already_taken_credit_line',
             ]
         )
+        from(
+            description: "States previous navigation step (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        additional_info(
+            description: "Additional information regarding flow navigation",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
     }
 
     "/credits/express_money/error"(platform: "/", type: TrackType.View) {
@@ -1256,9 +1304,34 @@ tracks {
                 'no_credit_lines_present',
             ]
         )
+        from(
+            description: "States previous navigation step (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        additional_info(
+            description: "Additional information regarding flow navigation",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
     }
 
-    "/credits/express_money/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/express_money/onboarding"(platform: "/mobile", type: TrackType.View) {
+        from(
+            description: "States previous navigation step (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        additional_info(
+            description: "Additional information regarding flow navigation",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+    }
 
     /******************************************
      *   End: Express money
