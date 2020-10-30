@@ -359,5 +359,26 @@ trackTests {
 
         "/kyc/upload_file/upload_fail"(platform: "/", business: "mercadopago") {}
 
+        // KYC Landing Congrats
+
+        "/kyc/landing"(platform: "/", business: "mercadopago") { 
+            initiative = "initiative"
+            kyc_flow_id = "flowid"
+        }
+
+        "/kyc/congrats"(platform: "/", business: "mercadopago") { 
+            initiative = "initiative"
+            kyc_flow_id = "flowid"
+        }
+
+        "/kyc/landing"(platform: "/", business: "mercadolibre") { 
+            initiative = "initiative"
+            kyc_flow_id = "flowid"
+        }
+
+        "/kyc/congrats"(platform: "/", business: "mercadolibre") { 
+            initiative = "initiative"
+            kyc_flow_id = "flowid"
+        }
     }
 }
