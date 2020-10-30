@@ -86,6 +86,7 @@ catalog {
         include business, "card_form.groovy"
         include business, "merchengine.groovy"
         include business, "navigation_sections.groovy"
+        include business, "cookie_disclaimer.groovy"
         include business, "checkoutOff.groovy"
         include business, "insurtech.groovy"
     }
