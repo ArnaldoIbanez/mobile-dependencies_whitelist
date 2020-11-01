@@ -425,12 +425,18 @@ tracks {
 
     "/vip/item_gallery/back"(platform: "/mobile") {}
 
-    "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+    "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
         catalog_listing(required: false, type: PropertyType.Boolean, description: "Item's catalog listing. it will be true when comes from VPP")
         contract_available(required: false, type: PropertyType.Boolean)
         description_type(required: false, description: "Description type: plain text, html, both, none",
                 values: ["plain_text", "html", "both", "none"])
         video_type(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO", "NONE"],
+                description: "Video type of the item"
+            )
+    }
+
+    "/vip/video_focus"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+        video_type(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO"],
                 description: "Video type of the item"
             )
     }

@@ -596,15 +596,22 @@ trackTests {
             video_type = "NONE"
         }
 
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             tourOption()
         }
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             videoOption()
         }
 
-        "/vip/video_focus"(platform: "/", type: TrackType.Event) {
+        "/vip/video_focus"(platform: "/web", type: TrackType.Event) {
             noneOption()
+        }
+
+        "/vip/video_focus"(platform: "/mobile", type: TrackType.Event) {
+            tourOption()
+        }
+        "/vip/video_focus"(platform: "/mobile", type: TrackType.Event) {
+            videoOption()
         }
     }
 
