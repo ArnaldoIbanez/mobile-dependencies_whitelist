@@ -356,6 +356,16 @@ tracks {
 
     "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         dashboard_event_group
+        available_limit(
+                description: "Amount available limit card",
+                type: PropertyType.Numeric,
+                required: true
+        )
+        total_limit(
+                description: "Total amount limit card",
+                type: PropertyType.Numeric,
+                required: true
+        )
     }
 
     /*********************************************
