@@ -1,6 +1,6 @@
 import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
-def searchVipClassifiedExperiments = "((search|vip|classifieds|vis)/.*)|(pdp/viewItemPageMigration.*)|(sparkle/vis.*)"
+def searchVipClassifiedExperiments = "((search|vip|classifieds|vis)/.*)|(pdp/viewItemPageMigration.*)|(sparkle/vis.*))"
 
 metrics {
 
