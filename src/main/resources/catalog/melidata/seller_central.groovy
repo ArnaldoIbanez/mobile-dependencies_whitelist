@@ -1471,4 +1471,11 @@ tracks {
     "/seller_central/modify/detail/listing_highlight_package_info"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/listing_highlight_package_info/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/modify/detail/listing_highlight_package_info/confirm"(platform: "/", type: TrackType.Event) {}
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central Questions
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+    "/seller_central/questions"(platform: "/", type: TrackType.View) {}
+
 }
