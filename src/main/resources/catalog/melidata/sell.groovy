@@ -1053,6 +1053,11 @@ tracks {
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
     }
 
+    "/sell/congrats/share_task"(platform: "/web", isAbstract: true) {}
+    "/sell/congrats/share_task/email"(platform: "/web", type: TrackType.Event) {}
+    "/sell/congrats/share_task/facebook"(platform: "/web", type: TrackType.Event) {}
+    "/sell/congrats/share_task/twitter"(platform: "/web", type: TrackType.Event) {}
+
     "/sell/presip"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
