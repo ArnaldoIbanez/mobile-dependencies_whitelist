@@ -93,7 +93,7 @@ tracks {
         intent_value(required: false, type: PropertyType.String, description: "this property describes the intent value if exists")
         field_intent_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the field ids for the intent")
         pictures_info(required: true, type: PropertyType.ArrayList(PropertyType.Map(picture_info_map)), description: "this property describes array of pictures information")
-        gtin_enabled_for_user(required: false,  values:["ENABLED", "DISABLED", "NOT_PRESENT"], type: PropertyType.String, description: "Which type of result was offered to the user")
+        gtin_experience(required: false,  values:["ENABLED", "DISABLED", "NOT_PRESENT"], type: PropertyType.String, description: "Which type of result was offered to the user")
         query_type(required: false,  values:["GTIN", "QUERY_STRING"], type: PropertyType.String, description: "GTIN or String query")
         query_search(required: false, type: PropertyType.String, description: "value of search query")
         result_type(required: false,  values:["GTIN_NOT_FOUND", "GTIN_INVALID", "GTIN_INACTIVE", "GTIN_ACTIVE", "QUERY_NO_RESULTS", "QUERY_DOMAIN_SUGGESTIONS", "QUERY_DOMAIN_ONE_SHOT", "QUERY_PRODUCT_SUGGESTIONS", "QUERY_PRODUCT_ONE_SHOT"], type: PropertyType.String, description: "Which type of result was offered to the user")
@@ -116,7 +116,7 @@ tracks {
         intentGroup(intent_type, intent_value)
         technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
         pictureIntentGroup(intent_type, pictures_info)
-        productFinder(gtin_enabled_for_user, query_type, query_search, result_type, product_predictions, accumulated_search_results, products_selected_index)
+        productFinder(gtin_experience, query_type, query_search, result_type, product_predictions, accumulated_search_results, products_selected_index)
     }
 
     // Sell
