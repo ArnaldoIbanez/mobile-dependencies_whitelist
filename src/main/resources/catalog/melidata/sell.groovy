@@ -8,9 +8,21 @@ tracks {
 
     initiative = "1029"
 
+    def attribute = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "Attribute ID")
+        value_id(type: PropertyType.String, required: true, description: "Value ID")
+        name(type: PropertyType.String, required: false, description: "Attribute Name")
+        value_name(type: PropertyType.String, required: false, description: "Value Name")
+    }
+    def product_prediction = objectSchemaDefinitions {
+        product_id(type: PropertyType.String, required: true, description: "Product ID")
+    }
     def category_prediction_map = objectSchemaDefinitions {
         path(type: PropertyType.ArrayList(PropertyType.String), required: true, description: "Category path")
         score(type: PropertyType.Numeric, required: true, description: "Score of the prediction")
+        attributes(type: PropertyType.ArrayList(PropertyType.Map(attribute)), required: false, description: "Array of predictions of attributes")
+        category_id(type: PropertyType.String, required: false, description: "Category ID")
+        domain_id(type: PropertyType.String, required: false, description: "Domain ID")
     }
     def attribute_prediction_map = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true, description: "Attribute id")
@@ -78,10 +90,9 @@ tracks {
         pictures_info(required: true, type: PropertyType.ArrayList(PropertyType.Map(picture_info_map)), description: "this property describes array of pictures information")
         gtin_enabled_for_user()
         query_type(required: false,  values:["GTIN", "QUERY_STRING"], type: PropertyType.String, description: "GTIN or String query")
-        search_query(required: false, type: PropertyType.String, description: "value of search query")
+        query_search(required: false, type: PropertyType.String, description: "value of search query")
         result_type(required: false,  values:["GTIN_NOT_FOUND", "GTIN_INVALID", "GTIN_INACTIVE", "GTIN_ACTIVE", "QUERY_NO_RESULTS", "QUERY_DOMAIN_SUGGESTIONS", "QUERY_DOMAIN_ONE_SHOT", "QUERY_PRODUCT_SUGGESTIONS", "QUERY_PRODUCT_ONE_SHOT"], type: PropertyType.String, description: "Which type of result was offered to the user")
-        predictions()
-        product_predictions()
+        product_predictions(required: false, type: PropertyType.ArrayList(PropertyType.Map(product_prediction)), description: "Product Predictions")
         accumulated_search_results()
         products_selected_index(required: false, description: "Index of the selected product", type: PropertyType.Numeric)
 
