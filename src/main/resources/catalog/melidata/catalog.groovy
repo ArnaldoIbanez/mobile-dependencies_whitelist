@@ -229,6 +229,7 @@ catalog {
         include business, "mobile.groovy"
         include business, "fees_installment.groovy"
         include business, "mp_growth_onlinepayments.groovy"
+        include business, "mango_admin.groovy"
         include business, "cashout.groovy"
         include business, "pix.groovy"
     }
