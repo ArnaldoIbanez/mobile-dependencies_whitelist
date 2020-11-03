@@ -74,7 +74,7 @@ tracks {
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
-        chosen_categorization_model(required: false, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
+        chosen_categorization_model(required: false, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY", "PRODUCTS_SEARCH"], type: PropertyType.String)
         category_prediction_selected_index(required: false, description: "Index selected in Multiples Suggestions", PropertyType.Numeric)
         attribute_values(required: false, description: "Array of attributes in categorization", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
         title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
@@ -950,6 +950,23 @@ tracks {
     "/sell/item_data/color"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    //--------------------------------------------------------------------------------------------------------------------
+    // Product Finder (Start)
+    //--------------------------------------------------------------------------------------------------------------------
+
+
+    "/sell/item_data/products_finder/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder_button/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder_input/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/CARRIER/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/CARRIER/confirm"(platform: "/web", type: TrackType.Event) {}
+
+   //--------------------------------------------------------------------------------------------------------------------
+    // Product Finder (End)
+    //--------------------------------------------------------------------------------------------------------------------
 
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
         sellGroup
