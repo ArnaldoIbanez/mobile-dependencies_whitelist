@@ -4796,4 +4796,52 @@ trackTests {
             error_references = ["BILLING"]
         }
     }
+
+    test("SYI v4 congrats share email"){
+        "/sell/congrats/share_task/email"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            list_mode = "LIST"
+            item_id = "MLA123"
+        }
+    }
+
+    test("SYI v4 congrats share facebook"){
+        "/sell/congrats/share_task/facebook"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            list_mode = "LIST"
+            item_id = "MLA123"
+        }
+    }
+
+    test("SYI v4 congrats share twitter"){
+        "/sell/congrats/share_task/twitter"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            list_mode = "LIST"
+            item_id = "MLA123"
+        }
+    }
 }
