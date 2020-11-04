@@ -2759,7 +2759,7 @@ trackTests {
         }
     }
     test("SYI v4 products finder showed"){
-        "/sell/item_data/CARRIER/show"(platform: "/web", type: TrackType.Event){
+        "/sell/item_data/carrier_task/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"
@@ -2781,7 +2781,7 @@ trackTests {
         }
     }
     test("SYI v4 products finder confirmed"){
-        "/sell/item_data/CARRIER/confirm"(platform: "/web", type: TrackType.Event){
+        "/sell/item_data/carrier_task/confirm"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
             session_id = "123-update-abc123"

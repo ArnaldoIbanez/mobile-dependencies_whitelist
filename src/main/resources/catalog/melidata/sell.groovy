@@ -987,12 +987,12 @@ tracks {
         categoryFlow
         productFinderGroup
     }
-    "/sell/item_data/CARRIER"(platform: "/web", isAbstract: true) {}
-    "/sell/item_data/CARRIER/show"(platform: "/web", type: TrackType.Event) {
+    "/sell/item_data/carrier_task"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/carrier_task/show"(platform: "/web", type: TrackType.Event) {
         categoryFlow
         productFinderGroup
     }
-    "/sell/item_data/CARRIER/confirm"(platform: "/web", type: TrackType.Event) {
+    "/sell/item_data/carrier_task/confirm"(platform: "/web", type: TrackType.Event) {
         categoryFlow
         productFinderGroup
     }
