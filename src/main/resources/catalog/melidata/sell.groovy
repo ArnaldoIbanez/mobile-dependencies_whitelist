@@ -1058,6 +1058,15 @@ tracks {
     "/sell/congrats/share_task/facebook"(platform: "/web", type: TrackType.Event) {}
     "/sell/congrats/share_task/twitter"(platform: "/web", type: TrackType.Event) {}
 
+    "/sell/congrats/go_kyc_onboarding"(platform: "/web", type: TrackType.Event) {
+        seller_type(required: true, description: "Seller type: normal, real_estate_agency, etc", type: PropertyType.String)
+        seller_id(required: true, type: PropertyType.Numeric)
+    }
+
+    "/sell/congrats/go_health_action"(platform: "/web", type: TrackType.Event) {
+        action(required: true, description: "Health action: picture, price, video, etc", type: PropertyType.String)
+    }
+
     "/sell/presip"(platform: "/web", type: TrackType.View) {
         sellGroup
         item_type(required: true, description: "item type", values:["default", "product", "no_prediction"], type: PropertyType.String)
