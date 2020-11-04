@@ -1059,12 +1059,12 @@ tracks {
     "/sell/congrats/share_task/twitter"(platform: "/web", type: TrackType.Event) {}
 
     "/sell/congrats/go_kyc_onboarding"(platform: "/web", type: TrackType.Event) {
-        seller_type(required: true, description: "Seller type: normal, real_estate_agency, etc", type: PropertyType.String)
+        seller_type(required: true, description: "Seller type: normal, real_estate_agency, etc", values:["normal", "car_dealer", "real_estate_agency", "brand"], type: PropertyType.String)
         seller_id(required: true, type: PropertyType.Numeric)
     }
 
     "/sell/congrats/go_health_action"(platform: "/web", type: TrackType.Event) {
-        action(required: true, description: "Health action: picture, price, video, etc", type: PropertyType.String)
+        action(required: true, description: "Health action: picture, price, video, etc", values:["publish", "price", "whatsapp", "video", "picture", "upgrade_listing", "technical_specification"], type: PropertyType.String)
     }
 
     "/sell/presip"(platform: "/web", type: TrackType.View) {
