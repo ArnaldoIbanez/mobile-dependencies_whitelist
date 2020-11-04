@@ -5055,4 +5055,39 @@ trackTests {
             item_id = "MLA123"
         }
     }
+
+    test("SYI v4 congrats health action"){
+        "/sell/congrats/go_health_action"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            list_mode = "LIST"
+            item_id = "MLA123"
+            action = "picture"
+        }
+    }
+
+    test("SYI v4 congrats kyc onboarding"){
+        "/sell/congrats/go_kyc_onboarding"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            list_mode = "LIST"
+            item_id = "MLA123"
+            seller_type = "normal"
+            seller_id = 123
+        }
+    }
 }
