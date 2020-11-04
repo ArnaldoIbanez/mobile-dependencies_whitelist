@@ -93,7 +93,7 @@ tracks {
         intent_value(required: false, type: PropertyType.String, description: "this property describes the intent value if exists")
         field_intent_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the field ids for the intent")
         pictures_info(required: true, type: PropertyType.ArrayList(PropertyType.Map(picture_info_map)), description: "this property describes array of pictures information")
-        gtin_experience(required: false,  values:["ENABLED", "DISABLED", "NOT_PRESENT"], type: PropertyType.String, description: "Which type of result was offered to the user")
+        gtin_experience(required: false,  values:["ENABLED", "DISABLED", "NOT_PRESENT"], type: PropertyType.String, description: "Wether the user can see the GTIN experience or not")
         query_type(required: false,  values:["GTIN", "QUERY_STRING"], type: PropertyType.String, description: "GTIN or String query")
         query_search(required: false, type: PropertyType.String, description: "value of search query")
         result_type(required: false,  values:["GTIN_NOT_FOUND", "GTIN_INVALID", "GTIN_INACTIVE", "GTIN_ACTIVE", "QUERY_NO_RESULTS", "QUERY_DOMAIN_SUGGESTIONS", "QUERY_DOMAIN_ONE_SHOT", "QUERY_PRODUCT_SUGGESTIONS", "QUERY_PRODUCT_ONE_SHOT"], type: PropertyType.String, description: "Which type of result was offered to the user")
@@ -116,7 +116,7 @@ tracks {
         intentGroup(intent_type, intent_value)
         technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
         pictureIntentGroup(intent_type, pictures_info)
-        productFinder(gtin_experience, query_type, query_search, result_type, product_predictions, accumulated_search_results, products_selected_index)
+        productFinderGroup(gtin_experience, query_type, query_search, result_type, product_predictions, accumulated_search_results, products_selected_index)
     }
 
     // Sell
@@ -803,7 +803,7 @@ tracks {
     "/sell/item_data/title/redirect_store"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {
         categoryFlow
-        productFinder
+        productFinderGroup
     }
     "/sell/item_data/category_suggested/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {
@@ -812,7 +812,7 @@ tracks {
     "/sell/item_data/category_suggested/wrong_category"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {
         categoryFlow
-        productFinder
+        productFinderGroup
     }
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
@@ -822,7 +822,7 @@ tracks {
     "/sell/item_data/product_bullet_resume"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
         categoryFlow
-        productFinder
+        productFinderGroup
         product_title(required: true, description: "title of catalog product", type: PropertyType.String)
     }
     "/sell/item_data/product_identifier"(platform: "/web", isAbstract: true) {}
@@ -880,25 +880,25 @@ tracks {
     "/sell/item_data/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
-        productFinder
+        productFinderGroup
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/item_data/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
-        productFinder
+        productFinderGroup
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/item_data/category_breadcrumb/previous"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
-        productFinder
+        productFinderGroup
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/item_data/category_breadcrumb/navigate"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
-        productFinder
+        productFinderGroup
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/item_data/catalog_decision"(platform: "/web", isAbstract: true) {}
@@ -972,7 +972,7 @@ tracks {
     //--------------------------------------------------------------------------------------------------------------------
     "/sell/item_data/products_finder"(platform: "/web", isAbstract: true) {
         categoryFlow
-        productFinder
+        productFinderGroup
     }
     "/sell/item_data/products_finder/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/products_finder/confirm"(platform: "/web", type: TrackType.Event) {}
@@ -980,21 +980,21 @@ tracks {
     "/sell/item_data/products_finder_button"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/products_finder_button/confirm"(platform: "/web", type: TrackType.Event) {
         categoryFlow
-        productFinder
+        productFinderGroup
     }
     "/sell/item_data/products_finder_input"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/products_finder_input/confirm"(platform: "/web", type: TrackType.Event) {
         categoryFlow
-        productFinder
+        productFinderGroup
     }
     "/sell/item_data/CARRIER"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/CARRIER/show"(platform: "/web", type: TrackType.Event) {
         categoryFlow
-        productFinder
+        productFinderGroup
     }
     "/sell/item_data/CARRIER/confirm"(platform: "/web", type: TrackType.Event) {
         categoryFlow
-        productFinder
+        productFinderGroup
     }
    //--------------------------------------------------------------------------------------------------------------------
     // Product Finder (End)
@@ -1103,7 +1103,7 @@ tracks {
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
         categoryFlow
-        productFinder
+        productFinderGroup
         listingTypeFlow
         item_id(required: true, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
@@ -1112,7 +1112,7 @@ tracks {
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
         sellGroup
         categoryFlow
-        productFinder
+        productFinderGroup
         item_id(required: false, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
@@ -1120,7 +1120,7 @@ tracks {
     "/sell/congrats/listing_types/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
         sellGroup
         categoryFlow
-        productFinder
+        productFinderGroup
         item_id(required: false, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
         has_free(required: true, type: PropertyType.Boolean)
