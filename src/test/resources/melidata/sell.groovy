@@ -2687,6 +2687,28 @@ trackTests {
         }
     }
     test("SYI v4 products finder confirmed"){
+        "/sell/item_data/products_finder/restart"(platform: "/web", type: TrackType.Event){
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            gtin_experience = "ENABLED"
+            query_type = "QUERY_STRING"
+            query_search = "test search"
+            result_type = "QUERY_DOMAIN_SUGGESTIONS"
+            product_predictions = [{ product_id: "id_of_product"}]
+            accumulated_search_results = [{
+                query_type: "QUERY_STRING"
+                query_search: "test search"
+                result_type: "QUERY_DOMAIN_SUGGESTIONS"
+            }]
+            products_selected_index = -1
+        }
+    }
+    test("SYI v4 products finder confirmed"){
         "/sell/item_data/products_finder_input/confirm"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
