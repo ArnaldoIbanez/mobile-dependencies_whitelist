@@ -27,6 +27,9 @@ trackTests {
         "/cards/hybrid/shipping/tracking/show"(platform:"/", type: TrackType.Event) {
             component_id = "banner_unlock"
         }
+        "/cards/hybrid/shipping/tracking/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
 
     }
 
@@ -147,6 +150,7 @@ trackTests {
     test("cards hybrid dashboard") {
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = "[minicard, flap, activities, message, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
             message_status = "warning"
@@ -154,6 +158,7 @@ trackTests {
         }
         "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
             dashboard_status = "[minicard, flap, activities, account_options, carousel, linear_buttons, account_info]"
+            dashboard_banner_status = "virtual_only"
             minicard_status = "virtual_only"
             flap_status = "virtual_only"
             activities_status = "activities"
@@ -212,6 +217,12 @@ trackTests {
         }
         "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
             action = "card_data"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "kyc_compliance"
+        }
+        "/cards/hybrid/dashboard/mini_card/tap"(platform:"/", type: TrackType.Event) {
+            action = "kyc_not_compliance"
         }
     }
     
@@ -314,6 +325,9 @@ trackTests {
         "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
             action = "block"
         }
+        "/cards/hybrid/dashboard/linear_buttons/tap"(platform:"/", type: TrackType.Event) {
+            action = "contact"
+        }
     }
     
     //Message: Tracking
@@ -398,9 +412,7 @@ trackTests {
     
     //Map Info: Tracking
     test("cards hybrid dasboard map info") {
-        "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {
-            action = "map_info"
-        }
+        "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {}
     }
 
     // Generic Webview
@@ -510,6 +522,26 @@ trackTests {
             initial_status = "inactive"
             has_money = false
             experimental_version = "experimental_b"
+        }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            product_type = "credit"
+            experimental_version = "experimental_a"
+        }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            product_type = "prepaid"
+            has_money = true
+            experimental_version = "experimental_a"
+        }
+        "/cards/hybrid/setup/virtual"(platform:"/", type: TrackType.View) {
+            card_id = "12345abcdef"
+            initial_status = "inactive"
+            product_type = "hybrid"
+            has_money = true
+            experimental_version = "experimental_a"
         }
     }
     test("cards hybrid setup virtual card taps tracking") {
@@ -692,6 +724,12 @@ trackTests {
             action = "research_form"
         }
     }
+
+    test("cards hybrid physical unlock") {
+        "/cards/hybrid/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+            action = "close"
+        }
+    }
     
      // CHANGE-PIN
     // --------
@@ -746,9 +784,7 @@ trackTests {
 
     //Map Info: Tracking
     test("cards hybrid limits map info") {
-        "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {
-            action = "map_info"
-        }
+        "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {}
     }
 
     // Request
@@ -879,7 +915,12 @@ trackTests {
     test("cards hybrid virtual onboarding"){
         "/cards/hybrid/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {}
     }
-     test("cards hybrid virtual onboarding tap") {
+    test("cards hybrid virtual onboarding"){
+        "/cards/hybrid/request/virtual/onboarding"(platform:"/", type: TrackType.Event) {
+            context = "kyc"
+        }
+    }
+    test("cards hybrid virtual onboarding tap") {
         "/cards/hybrid/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
             action = "close"
         }
@@ -897,7 +938,11 @@ trackTests {
 
     test ("Hybrid Setup") {
         "/cards/mp-card/hybrid/detail" (platform: "/web/desktop", type: TrackType.View) {}
+        "/cards/mp-card/hybrid/detail" (platform: "/web/mobile", type: TrackType.View) {}
         "/cards/mp-card/hybrid/detail/download-app" (platform: "/web/desktop", type: TrackType.Event) {}
+        "/cards/mp-card/hybrid/detail/download-app" (platform: "/web/mobile", type: TrackType.Event) {
+            osName = "android"
+        }
         "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
             status = "OK"
         }
@@ -971,4 +1016,34 @@ trackTests {
             action = "blocked_pin"
         }
     }
+
+    //OPTIONS Feedback
+    test("cards hybrid options feedback button event") {
+        "/cards/hybrid/setup/options/feedback/tap"(platform:"/", type: TrackType.Event) {
+            action = "research_form"
+        }
+    }
+    
+    //NFC HUB
+    test("cards hybrid nfc enrollment hub") {
+        "/cards/nfc/enrollment/hub"(platform:"/", type: TrackType.View) {}
+        "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "continue_later"
+        }
+        "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+            action = "back"
+        }
+        "/cards/nfc/enrollment/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_tap_and_pay"
+        }
+        "/cards/nfc/enrollment/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_pin"
+        }
+        "/cards/nfc/enrollment/hub/step/tap"(platform:"/", type: TrackType.Event) {
+            action = "step_nfc"
+        }     
+        "/cards/nfc/enrollment/hub/redirect"(platform:"/", type: TrackType.Event) {
+            action = "success_redirect"
+        }
+    } 
 }

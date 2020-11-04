@@ -257,6 +257,8 @@ tracks {
 
     "/kyc/iv/activity/picture_confirmation"(platform: "/mobile", type: TrackType.View) {}
 
+    "/kyc/iv/activity/liveness"(platform: "/mobile", type: TrackType.View) {}
+    
     // Mobile tracks
     "/kyc/iv/center/row"(platform: "/mobile", type: TrackType.View) {
         status(type: PropertyType.String, required: true, description: "Remedy center status of user")
@@ -408,4 +410,28 @@ tracks {
     "/kyc/iv/error_page"(platform: "/web", type: TrackType.View) {
     }
 
+    // KYC File Upload
+    "/kyc/upload_file"(platform: "/", isAbstract: true) {}
+
+    "/kyc/upload_file/open_files"(platform: "/", type: TrackType.Event) { }
+
+    "/kyc/upload_file/upload_start"(platform: "/", type: TrackType.Event) {
+        amount (required: true, type: PropertyType.String, description: "The amount of files")
+    }
+
+    "/kyc/upload_file/upload_success"(platform: "/", type: TrackType.Event) { }
+
+    "/kyc/upload_file/upload_fail"(platform: "/", type: TrackType.Event) { }
+
+    // KYC Landing Congrats
+
+    "/kyc/landing"(platform: "/", type: TrackType.View) { 
+        initiative (required: true, type: PropertyType.String, description: "The initiative")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
+    }
+
+    "/kyc/congrats"(platform: "/", type: TrackType.View) { 
+        initiative (required: true, type: PropertyType.String, description: "The initiative")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
+    }
 }

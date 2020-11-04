@@ -839,6 +839,26 @@ trackTests {
           user_id = 5010815
           e2e_test = false
         }
+
+        "/point/buyingflow/invalid_address"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          user_id = 5010815
+          e2e_test = false
+        }
+
+        "/point/buyingflow/complete_phone"(platform: "/", type: TrackType.View) {
+          flow_id = "83ee2407-1a73-4eca-922d-b07c7904552c"
+          product = "11"
+          currency = "ARS"
+          price = 299
+          is_guest = true
+          user_id = 5010815
+          e2e_test = false
+        }
     }
 
     test("MP-MA Landing QR") {
@@ -1472,7 +1492,9 @@ trackTests {
             additional_info = "campaign_extra_sellers_01"
             sub_flow = "QR"
         }
-        "/flow/end"(platform: "/mobile", type: TrackType.Event) {}
+        "/flow/end"(platform: "/mobile", type: TrackType.Event) {
+            flow_name = "Instore"
+        }
 
         "/flow/friction/networking"(platform: "/mobile", type: TrackType.Event) {
             severity = "Medium"
@@ -1524,7 +1546,9 @@ trackTests {
     test("Sign In") {
         "/sign_in"(platform: "/mobile") {
             from = "/deep_link"
+            has_pix_option = true
         }
+        "/sign_in/pix_flow"(platform: "/mobile", type: TrackType.Event) {}
         "/sign_in/facebook"(platform: "/mobile") {
             label = "success"
             from = "/deep_link"
@@ -2630,9 +2654,51 @@ trackTests {
             barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
         }
 
-        "/bill_payments/home/call_to_action"(platform: "/mobile", type: TrackType.Event) {
+        // Invoice
+        "/bill_payments/invoices"(platform: "/mobile") {
             mandatory()
-            item = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+        }
+
+        "/bill_payments/invoices/info_hour"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+        }
+
+        // Input amount
+        "/bill_payments/input_amount"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input_amount/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+
+        // Input data
+        "/bill_payments/input_data"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input_data/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Input debt id
+        "/bill_payments/input_option_debt"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input_option_debt/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        // Info screen
+        "/bill_payments/info_screen"(platform: "/mobile") {
+            mandatory()
         }
 
         // FTU
@@ -2715,7 +2781,6 @@ trackTests {
             mandatory()
             categoryProperties()
             entity = "Monterrey"
-            item = "item 2"
         }
         "/bill_payments/category_details/item"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -2761,15 +2826,7 @@ trackTests {
 
         // Scanner
 
-        "/bill_payments/enable_camera"(platform: "/mobile") {
-            mandatory()
-        }
-
-        "/bill_payments/permission_camera"(platform: "/mobile") {
-            mandatory()
-        }
-
-        "/bill_payments/scan"(platform: "/mobile") {
+         "/bill_payments/scan"(platform: "/mobile") {
             mandatory()
         }
 
@@ -3812,6 +3869,16 @@ trackTests {
             os_status = "biometrics"
             elapsed_time = 50
             result = "success"
+            transaction_information = [
+                "amount": "100.0",
+                "type": "transactional"
+            ]
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
+            ]
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -3821,6 +3888,16 @@ trackTests {
             elapsed_time = 50
             result = "error"
             errors = ["user_cancelled"]
+            transaction_information = [
+                "amount": "0",
+                "type": "non_transactional"
+            ]
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
+            ]
         }
 
         "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -3829,6 +3906,16 @@ trackTests {
             os_status = "basic_screenlock"
             elapsed_time = 50
             result = "success"
+            transaction_information = [
+                "amount": "0",
+                "type": "other"
+            ]
+            config = [
+                "transaction": "disabled",
+                "opening_lock": "enabled",
+                "transaction_custom": "0",
+                "opening_custom": "0"
+            ]
         }
 
         "/screenlock/biometrics/failure"(platform: "/mobile/android", type: TrackType.Event) {
@@ -4744,7 +4831,9 @@ trackTests {
 
     test("Tu negocio") {
         "/your_business/home"(platform: "/web", type: TrackType.View) {}
-        "/your_business/home"(platform: "/web/mobile", type: TrackType.View) {}
+        "/your_business/home"(platform: "/web/mobile", type: TrackType.View) {
+            show_tax_warning = "regular_at"
+        }
         "/your_business/image_upload"(platform:"/web", type: TrackType.Event) {}
         "/your_business/mydata_edit"(platform:"/web", type: TrackType.Event) {}
         "/your_business/confirm_action"(platform:"/web", type: TrackType.Event) {

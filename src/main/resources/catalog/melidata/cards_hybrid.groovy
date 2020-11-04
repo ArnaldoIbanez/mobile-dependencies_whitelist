@@ -17,6 +17,7 @@ tracks {
         from (required: false, type: PropertyType.String, description: "Context from where its started")
      }
     "/cards/hybrid"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/physical"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/coachmark"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/request"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/request/virtual"(platform: "/", isAbstract: true) { }
@@ -24,6 +25,9 @@ tracks {
     "/cards/engagement"(platform: "/", isAbstract: true) { }
     "/cards/mp-card"(platform: "/", isAbstract: true) { }
     "/cards/mp-card/hybrid"(platform: "/", isAbstract: true) { }
+    "/cards/nfc"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment/hub/step"(platform: "/", isAbstract: true) { }
 
 
 
@@ -67,6 +71,17 @@ tracks {
             values: ["exit", "reissue"],
             description: "Action tapped"
         )
+    }
+
+    //Feedback: Tracking
+    "/cards/hybrid/shipping/tracking/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/shipping/tracking/feedback/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["research_form"],
+            description: "Feedback action tapped"
+          )
     }
 
     // UNLOCK
@@ -239,6 +254,7 @@ tracks {
     // --------
      "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
          dashboard_status (required:true, type: PropertyType.String, description: "Current sections", inheritable:false)
+         dashboard_banner_status (required: false, type: PropertyType.String, description: "Banner for card tracking status", inheritable: false)
          minicard_status (required:false, type: PropertyType.String, description: "Mini card status", inheritable:false)
          flap_status (required:false, type: PropertyType.String, description: "Flap status", inheritable:false)
          message_status (required:false, type: PropertyType.String, description: "Message status", inheritable:false)
@@ -270,7 +286,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["physical_delivered", "hybrid_active", "debit_active", "physical_inactive", "user_need_challenge", "virtual_only", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "options", "card_data"],
+            values: ["physical_delivered", "hybrid_active", "debit_active", "physical_inactive", "user_need_challenge", "virtual_only", "tracking_pending", "tracking_ready_to_ship", "tracking_not_delivered", "tracking_soon_deliver", "tracking_delayed", "tracking_waiting_for_withdrawal", "tracking_shipped", "options", "card_data", "kyc_compliance", "kyc_not_compliance"],
             description: "Mini card tapped"
           )
     }
@@ -325,7 +341,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["help", "call", "block"],
+            values: ["help", "call", "block", "contact"],
             description: "Linear button tapped"
           )
     }
@@ -399,14 +415,7 @@ tracks {
 
     //Map Info: Tracking
     "/cards/hybrid/dashboard/map_info"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            values: ["map_info"],
-            description: "Map info tapped"
-          )
-    }
+    "/cards/hybrid/dashboard/map_info/tap"(platform:"/", type: TrackType.Event) {}
     
     // SETUP VIRTUAL
     // --------
@@ -428,9 +437,16 @@ tracks {
             inheritable:false
         )
         has_money (
-            required: true,
+            required: false,
             type: PropertyType.Boolean,
             description: "Indicate whether the user has money",
+            inheritable:false
+        )
+        product_type (
+			required: false,
+            type: PropertyType.String,
+            values: ["prepaid","hybrid","credit"],
+            description: "Indicate card type",
             inheritable:false
         )
         experimental_version (
@@ -549,7 +565,8 @@ tracks {
         card_id (
             required: true,
             type: PropertyType.String,
-            description: "Card id"
+            description: "Card id",
+            inheritable: false
         )
     }
     "/cards/hybrid/block_card/physical/tap"(platform:"/", type: TrackType.Event) {
@@ -559,9 +576,15 @@ tracks {
             values: ["primary_button", "secondary_button"],
             description: "The action type tapped"
         )
+        card_id (
+            required: true,
+            type: PropertyType.String,
+            description: "Card id",
+            inheritable: false
+        )
     }
 
-    "/cards/hybrid/block_card/physical/success"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/cards/hybrid/block_card/physical/success"(platform: "/", type: TrackType.Event) {
         reasons (
             required: true,
             type: PropertyType.ArrayList(PropertyType.String),
@@ -593,6 +616,16 @@ tracks {
             values: ["reissue", "freeze", "unfreeze", "change_pin", "change_limits", "header_help"],
             description: "The action type tapped"
         )
+    }
+    // Unlock FÍSICA
+    "/cards/hybrid/physical/unlock"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/physical/unlock/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["close"],
+            description: "Unlock Physical Button Tapped"
+          )
     }
     
     //Feedback: Tracking
@@ -657,14 +690,7 @@ tracks {
 
     //Map Info: Tracking
     "/cards/hybrid/limits_setup/map_info"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {
-        action (
-            required: true,
-            type: PropertyType.String,
-            values: ["map_info"],
-            description: "Map info tapped"
-          )
-    }
+    "/cards/hybrid/limits_setup/map_info/tap"(platform:"/", type: TrackType.Event) {}
 
     // Request
 
@@ -685,7 +711,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["close", "continue"],
+            values: ["close", "continue", "unlock"],
             description: "action tap by the user in the onboarding"
         )
     }
@@ -765,7 +791,15 @@ tracks {
 
     // CARD REQUEST virtual on boarding
     // --------
-    "/cards/hybrid/request/virtual/onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/request/virtual/onboarding"(platform: "/", type: TrackType.View) {
+        context (
+            required: false,
+            type: PropertyType.String,
+            values: ["no_kyc", "kyc", "onboarding_shown"],
+            description: "type of onboarding",
+            inheritable:false
+        )
+    }
     "/cards/hybrid/request/virtual/onboarding/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
@@ -776,9 +810,15 @@ tracks {
     }
 
     // Hybrid Detail
-    "/cards/mp-card/hybrid/detail" (platform: "/web/desktop", type: TrackType.View) {} 
+    "/cards/mp-card/hybrid/detail" (platform: "/web", type: TrackType.View) {} 
     // Hybrid downloadApp Event
-    "/cards/mp-card/hybrid/detail/download-app" (platform:"/web/desktop", type: TrackType.Event) {} 
+    "/cards/mp-card/hybrid/detail/download-app" (platform:"/web", type: TrackType.Event) {
+    	osName (
+    		required: false,
+            type: PropertyType.String,
+            description: "Device OS"
+    		)
+    }
     // Hybrid sendSMS Event
     "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
         status (
@@ -854,6 +894,45 @@ tracks {
             type: PropertyType.String,
             values: ["blocked_pin"],
             description: "Message button tapped"
+        )
+    }
+
+    //Feedback
+    "/cards/hybrid/setup/options/feedback"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/options/feedback/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["research_form"],
+            description: "Feedback button tapped"
+        )
+    }
+    
+    // ENROLLMENT-HUB-NFC
+    //-------------------
+    "/cards/nfc/enrollment/hub"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back","continue_later"],
+            description: "Action Tapped"
+        )
+    }
+    "/cards/nfc/enrollment/hub/step/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["step_tap_and_pay","step_pin","step_nfc"],
+            description: "Step Button Tapped"
+        )
+    }
+    "/cards/nfc/enrollment/hub/redirect"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["success_redirect"],
+            description: "Redirection Done"
         )
     }
 }

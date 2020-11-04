@@ -425,6 +425,15 @@ trackTests {
         "/instore/error/invalid_user_point_uif/abort"(platform: "/mobile", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
+        "/instore/error/invalid_user_seller_uif"(platform: "/mobile", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/invalid_user_seller_uif/back"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/invalid_user_seller_uif/abort"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
 
         // Amount
         "/instore/amount/price_list"(platform: "/mobile", type: TrackType.View) {
@@ -1531,20 +1540,6 @@ trackTests {
             status = "failure"
         }
 
-        "/instore/buyer_qr/landing/insufficient_money_change_payment_method"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
-            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            collector_id = "388741077"
-            collector_name = "Oxxo"
-            item_amount = "200"
-            payment_method_id = ""
-            payment_method_name = "Dinero en Mercado Pago"
-            payment_id = "1879867544"
-            amount_paid = "160"
-            currency_id =  "ARS"
-            payment_date = "12/07/07:23.55.32hs"
-            status = "failure"
-        }
-
         "/instore/buyer_qr/landing/insufficient_money_add_card"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
             status = "failure"
@@ -1559,18 +1554,8 @@ trackTests {
             collector_id = "388741077"
         }
 
-        "/instore/buyer_qr/landing/insufficient_money_add_card"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+        "/instore/buyer_qr/landing/offline"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
-            status = "failure"
-            amount_paid = "160"
-            item_amount = "200"
-            payment_method_name = "Dinero en Mercado Pago"
-            payment_method_id = ""
-            currency_id =  "ARS"
-            payment_date = "12/07/07:23.55.32hs"
-            payment_id = "1879867544"
-            collector_name = "Oxxo"
-            collector_id = "388741077"
         }
 
         "/instore/buyer_qr/landing/back_office_pending"(platform: "/mobile", type: TrackType.View) {
@@ -2166,6 +2151,15 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
         "/instore/error/invalid_user_point_uif/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/invalid_user_seller_uif"(platform: "/mobile", business:"mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/invalid_user_seller_uif/back"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+        "/instore/error/invalid_user_seller_uif/abort"(platform: "/mobile", business:"mercadopago", type: TrackType.Event) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
@@ -3148,6 +3142,38 @@ trackTests {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
         }
 
+        "/instore/buyer_qr/landing/insufficient_money_add_card"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            status = "failure"
+            amount_paid = "160"
+            item_amount = "200"
+            payment_method_name = "Dinero en Mercado Pago"
+            payment_method_id = ""
+            currency_id =  "ARS"
+            payment_date = "12/07/07:23.55.32hs"
+            payment_id = "1879867544"
+            collector_name = "Oxxo"
+            collector_id = "388741077"
+        }
+
+        "/instore/buyer_qr/landing/insufficient_money_change_payment_method"(platform: "/mobile", business: "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+            collector_id = "388741077"
+            collector_name = "Oxxo"
+            item_amount = "200"
+            payment_method_id = ""
+            payment_method_name = "Dinero en Mercado Pago"
+            payment_id = "1879867544"
+            amount_paid = "160"
+            currency_id =  "ARS"
+            payment_date = "12/07/07:23.55.32hs"
+            status = "failure"
+        }
+
+        "/instore/buyer_qr/landing/offline"(platform: "/mobile", "business": "mercadopago", type: TrackType.View) {
+            session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC2692"
+        }
+
         "/instore/buyer_qr/landing/wrong_time"(platform: "/mobile", type: TrackType.View) {
             session_id = "8778E611-A48A-4CAF-9E7B-3700D1AC5345"
             device_time_difference = 1500
@@ -3460,7 +3486,7 @@ trackTests {
             focus_mode = "autoFocus"
             torch_enabled = true
             spinner_enabled = true
-            redesign_enabled = true
+            smart_context_enabled = true
             auto_start = true
             auto_stop = true
             auto_resolve = true
@@ -3474,7 +3500,7 @@ trackTests {
             focus_mode = "autoFocus"
             torch_enabled = true
             spinner_enabled = true
-            redesign_enabled = true
+            smart_context_enabled = true
             auto_start = true
             auto_stop = true
             auto_resolve = true

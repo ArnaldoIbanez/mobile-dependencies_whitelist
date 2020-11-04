@@ -60,6 +60,9 @@ tracks {
         userProfile (required: false, type: PropertyType.String,, description: "User profile type", values: ['newbie', 'collector', 'payer'])
     }
 
+    // MP Enigma
+    "/not-found"(platform: "/", type: TrackType.View) {}
+
     // MP Home - Merch Engine Events
     "/mp_home/sections"(platform: "/", , isAbstract: true) {}
     "/mp_home/sections/crossselling"(platform: "/", , isAbstract: true) {}
