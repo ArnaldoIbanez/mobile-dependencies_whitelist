@@ -117,7 +117,6 @@ tracks {
     "/bill_payments/main_category/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/category_details/close"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/category_details/back"(platform: "/mobile", type: TrackType.Event) {}
-    
 
     "/bill_payments/help"(platform: "/mobile") {}
     "/bill_payments/associated_entities"(platform: "/mobile") {}
