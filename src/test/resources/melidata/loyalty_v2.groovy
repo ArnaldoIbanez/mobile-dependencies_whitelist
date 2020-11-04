@@ -365,7 +365,6 @@ trackTests {
             subscription_partner = "HBO"
         }
 
-
         "/loyalty/partners/login/verify"(platform: "/", type: TrackType.View, business: "mercadolibre") {
             subscription_partner = "HBO"
         }
@@ -457,6 +456,18 @@ trackTests {
         }
 
         "/loyalty/partners/summary"(platform: "/", type: TrackType.View, business: "mercadopago") {
+        }
+
+        "/loyalty/partners/teaser"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            subscription_partner = "Disney"
+            content = "Start Wars"
+            origin = "home"
+        }
+
+        "/loyalty/partners/teaser"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            subscription_partner = "HBO Go"
+            content = "Game of thrones"
+            discount_percent = 30
         }
     }
 }

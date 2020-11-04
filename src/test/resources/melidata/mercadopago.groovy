@@ -2634,6 +2634,11 @@ trackTests {
         }
 
         // Home
+        "/bill_payments/home/call_to_action"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            item = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+        }
+
          "/bill_payments/home"(platform: "/mobile") {
             mandatory()
         }
@@ -2781,11 +2786,13 @@ trackTests {
             mandatory()
             categoryProperties()
             entity = "Monterrey"
+            item = "item 2"
         }
         "/bill_payments/category_details/item"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             categoryProperties()
             entity = "Monterrey"
+            item = "item 2"
         }
         "/bill_payments/main_category/result_search"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -2825,6 +2832,13 @@ trackTests {
         }
 
         // Scanner
+        "/bill_payments/enable_camera"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/permission_camera"(platform: "/mobile") {
+            mandatory()
+        }
 
          "/bill_payments/scan"(platform: "/mobile") {
             mandatory()

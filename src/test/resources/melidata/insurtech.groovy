@@ -177,7 +177,6 @@ trackTests {
         }
         "/garex/checkout/delete"(platform:"/mobile", type: TrackType.Event) {
             garex_id = "MLA390289_GAR16001"
-            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
             cost = 1234
             currency_id = "ARS"
             session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
@@ -221,6 +220,21 @@ trackTests {
 
         "/garex/skeleton/back"(platform:"/mobile", type: TrackType.Event) {
             session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+        }
+
+        "/garex/checkout/quote_creation_success"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+            quote_id = "ed3506b2-b41c-442d-9981-b49eb65d57a4"
+        }
+
+        "/garex/checkout/quote_creation_error"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+            garex_id = "MLA390289_GAR16001"
+            period = 24
+            cost = 1234
+            revenue_share_fee = 71.3
+            revenue = 863.80
+            currency_id = "ARS"
         }
     }
 

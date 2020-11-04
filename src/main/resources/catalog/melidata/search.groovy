@@ -265,7 +265,7 @@ tracks {
         total(required: false, description: "amount of search items returned", type: PropertyType.Numeric)
     }
 
-    "/search/breadcrumb/click"(platform: "/web", type: TrackType.Event) {
+    "/search/breadcrumb/click"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
         url(required: true, description: "Url of the link associated to the breadcrumb")
     }
 
@@ -313,7 +313,7 @@ tracks {
 
     "/search/official_store_logo"(platform: "/", isAbstract: true) {}
 
-    "/search/official_store_logo/click"(platform: "/", type: TrackType.Event) {
+    "/search/official_store_logo/click"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
         store(required: true, description: "Official store name of the shown logo")
         url(required: true, description: "Url of landing associated with the logo click event")
     }

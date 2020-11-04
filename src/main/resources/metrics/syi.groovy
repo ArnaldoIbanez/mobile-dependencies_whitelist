@@ -88,7 +88,7 @@ metrics {
 
     "sell_list_congrats"(description: "Arrival to congrats page - Selling flow", categorization:"important") {
         startWith {
-            experiment(regex("sell/.*|classifieds/.*|pdp/postContactSYIRedirect"))
+            experiment(regex("sell/.*|vis/.*|pdp/postContactSYIRedirect|sparkle/vis/.*"))
         }
 
         countsOn {

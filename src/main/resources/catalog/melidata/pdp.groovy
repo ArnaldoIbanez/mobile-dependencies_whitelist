@@ -363,6 +363,10 @@ tracks {
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
     }
 
+    "/pdp/show_complete_description"(platform: "/web/desktop", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
+    }
+
     "/pdp/description"(platform: "/", isAbstract: true) {}
     "/pdp/description/show"(platform: "/", parentPropertiesInherited: false) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")

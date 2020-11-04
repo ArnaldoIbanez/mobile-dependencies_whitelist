@@ -61,7 +61,7 @@ trackTests {
 
         def defaultTrackInformation = {
             place_id = "123456"
-            code_type = "QRCode"
+            code_type = "QR"
             scanner_input = "{'id':'12345678901', hash: 'jndiSD_FSGXn289352hjfXF'}"
             scanner_output = "{'id':'12345678901'}"
             scanner_end_char = 13
@@ -72,13 +72,27 @@ trackTests {
         }
     }
 
-    test("places reception validation error event") {
+    test("places reception validation error event with valid data") {
 
         def defaultTrackInformation = {
             place_id = "123456"
             shipment_id = "12345678901"
             display = "browser"
             validation_error = "duplicated"
+        }
+
+        "/places/reception/validate_shipment/error"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places reception validation error event with invalid data") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+            display = "browser"
+            validation_error = "invalid_data"
+            invalid_data = "I8fhuje2324fffkklfsnN"
         }
 
         "/places/reception/validate_shipment/error"(platform: "/web", type: TrackType.Event) {

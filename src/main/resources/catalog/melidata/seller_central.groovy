@@ -708,6 +708,7 @@ tracks {
 
     "/seller_central/modify/update_sales_channel"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
         sellerCentralModifyGroupTableForPdp
         marketplace(required: true, type: PropertyType.Boolean, description: "if MercadoLibre channel is selected")
         mshops(required: true, type: PropertyType.Boolean, description: "if MercadoShops channel is selected")
@@ -1470,4 +1471,11 @@ tracks {
     "/seller_central/modify/detail/listing_highlight_package_info"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/listing_highlight_package_info/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/modify/detail/listing_highlight_package_info/confirm"(platform: "/", type: TrackType.Event) {}
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central Questions
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+    "/seller_central/questions"(platform: "/", type: TrackType.View) {}
+
 }

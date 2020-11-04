@@ -162,6 +162,20 @@ tracks {
     "/prepaid/challenge/delivery"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/challenge/money_in"(platform: "/mobile", isAbstract: true) {}
     "/prepaid/challenge/money_in/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/money_in/onboarding/slide"(platform: "/mobile", isAbstract: true) {}
+    "/prepaid/challenge/money_in/onboarding/slide/exit"(platform: "/mobile", type: TrackType.Event) {
+        slide(
+                required: true,
+                type: PropertyType.Numeric,
+                description: "Slide number where ocurre the event"
+        )
+        cause(
+                required: true,
+                type: PropertyType.String,
+                values: ["close", "back"],
+                description: "The quit reason"
+        )
+    }
     "/prepaid/challenge/onboarding"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/challenge/onboarding/slide"(platform: "/mobile", isAbstract: true) {}
     "/prepaid/challenge/onboarding/slide/first"(platform: "/mobile", type: TrackType.View) {}
@@ -338,11 +352,10 @@ tracks {
     "/prepaid/acquisition/adapt_kyc/congrats/error"(platform: "/", type: TrackType.Event) {}
 
     //Prepaid click ask for card
-    "/cards/prepaid-detail/click-ask-for-card" (platform: "/web/desktop", type: TrackType.Event) {
-         deviceType (
-            required: true,
+    "/cards/prepaid-detail/click-ask-for-card" (platform: "/web", type: TrackType.Event) {
+         osName (
+            required: false,
             type: PropertyType.String,
-            values: ["desktop"],
             description: "Device type click ask for card"
         )
     } 

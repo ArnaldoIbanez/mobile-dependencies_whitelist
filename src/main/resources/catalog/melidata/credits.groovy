@@ -113,6 +113,10 @@ tracks {
     "/credits/consumer/opensea/remedy/authorization/modal"(platform: "/mobile", type: TrackType.View) {}
     "/credits/consumer/opensea/remedy/authorization/recovery"(platform: "/", type: TrackType.View) {}
     "/credits/consumer/opensea/remedy/authorization/quit_remedy"(platform: "/", type: TrackType.Event) {}
+    /* Remedy MLM WebView */
+    "/credits/consumer/opensea/remedy/opt_in_authorization"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/consumer/opensea/remedy/opt_in_authorization/give_consent"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/opensea/remedy/opt_in_authorization/deny_consent"(platform: "/mobile", type: TrackType.Event) {}
 
     /******************************************
      *   End: Consumers Opensea Flow

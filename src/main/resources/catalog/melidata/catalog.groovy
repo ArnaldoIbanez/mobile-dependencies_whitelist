@@ -86,6 +86,7 @@ catalog {
         include business, "card_form.groovy"
         include business, "merchengine.groovy"
         include business, "navigation_sections.groovy"
+        include business, "cookie_disclaimer.groovy"
         include business, "checkoutOff.groovy"
         include business, "insurtech.groovy"
     }
@@ -228,7 +229,9 @@ catalog {
         include business, "mobile.groovy"
         include business, "fees_installment.groovy"
         include business, "mp_growth_onlinepayments.groovy"
+        include business, "mango_admin.groovy"
         include business, "cashout.groovy"
+        include business, "pix.groovy"
     }
 
     mercadoshops.each { business ->

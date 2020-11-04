@@ -25,6 +25,9 @@ tracks {
     "/cards/engagement"(platform: "/", isAbstract: true) { }
     "/cards/mp-card"(platform: "/", isAbstract: true) { }
     "/cards/mp-card/hybrid"(platform: "/", isAbstract: true) { }
+    "/cards/nfc"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment/hub/step"(platform: "/", isAbstract: true) { }
 
 
 
@@ -434,9 +437,16 @@ tracks {
             inheritable:false
         )
         has_money (
-            required: true,
+            required: false,
             type: PropertyType.Boolean,
             description: "Indicate whether the user has money",
+            inheritable:false
+        )
+        product_type (
+			required: false,
+            type: PropertyType.String,
+            values: ["prepaid","hybrid","credit"],
+            description: "Indicate card type",
             inheritable:false
         )
         experimental_version (
@@ -800,9 +810,15 @@ tracks {
     }
 
     // Hybrid Detail
-    "/cards/mp-card/hybrid/detail" (platform: "/web/desktop", type: TrackType.View) {} 
+    "/cards/mp-card/hybrid/detail" (platform: "/web", type: TrackType.View) {} 
     // Hybrid downloadApp Event
-    "/cards/mp-card/hybrid/detail/download-app" (platform:"/web/desktop", type: TrackType.Event) {} 
+    "/cards/mp-card/hybrid/detail/download-app" (platform:"/web", type: TrackType.Event) {
+    	osName (
+    		required: false,
+            type: PropertyType.String,
+            description: "Device OS"
+    		)
+    }
     // Hybrid sendSMS Event
     "/cards/mp-card/hybrid/detail/send-sms" (platform: "/web/desktop", type: TrackType.Event) {
         status (
@@ -889,6 +905,34 @@ tracks {
             type: PropertyType.String,
             values: ["research_form"],
             description: "Feedback button tapped"
+        )
+    }
+    
+    // ENROLLMENT-HUB-NFC
+    //-------------------
+    "/cards/nfc/enrollment/hub"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/enrollment/hub/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["back","continue_later"],
+            description: "Action Tapped"
+        )
+    }
+    "/cards/nfc/enrollment/hub/step/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["step_tap_and_pay","step_pin","step_nfc"],
+            description: "Step Button Tapped"
+        )
+    }
+    "/cards/nfc/enrollment/hub/redirect"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["success_redirect"],
+            description: "Redirection Done"
         )
     }
 }

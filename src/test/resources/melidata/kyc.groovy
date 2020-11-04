@@ -337,5 +337,48 @@ trackTests {
         }
 
         "/kyc/profile"(platform: "/mobile", business: "mercadolibre") {}
+
+        // KYC File Upload
+        "/kyc/upload_file/open_files"(platform: "/", business: "mercadolibre") {}
+
+        "/kyc/upload_file/upload_start"(platform: "/", business: "mercadolibre") {
+            amount = "5"
+        }
+
+        "/kyc/upload_file/upload_success"(platform: "/", business: "mercadolibre") {}
+
+        "/kyc/upload_file/upload_fail"(platform: "/", business: "mercadolibre") {}
+
+        "/kyc/upload_file/open_files"(platform: "/", business: "mercadopago") {}
+
+        "/kyc/upload_file/upload_start"(platform: "/", business: "mercadopago") {
+            amount = "2"
+        }
+
+        "/kyc/upload_file/upload_success"(platform: "/", business: "mercadopago") {}
+
+        "/kyc/upload_file/upload_fail"(platform: "/", business: "mercadopago") {}
+
+        // KYC Landing Congrats
+
+        "/kyc/landing"(platform: "/", business: "mercadopago") { 
+            initiative = "initiative"
+            kyc_flow_id = "flowid"
+        }
+
+        "/kyc/congrats"(platform: "/", business: "mercadopago") { 
+            initiative = "initiative"
+            kyc_flow_id = "flowid"
+        }
+
+        "/kyc/landing"(platform: "/", business: "mercadolibre") { 
+            initiative = "initiative"
+            kyc_flow_id = "flowid"
+        }
+
+        "/kyc/congrats"(platform: "/", business: "mercadolibre") { 
+            initiative = "initiative"
+            kyc_flow_id = "flowid"
+        }
     }
 }

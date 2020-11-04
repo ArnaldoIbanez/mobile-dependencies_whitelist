@@ -1049,8 +1049,10 @@ trackTests {
       seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
+      from = "true"
+      to = "false"
       marketplace = true
-      mshops = true
+      mshops = false
     }
   }
 
@@ -2816,6 +2818,14 @@ trackTests {
     }
 
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {}
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central Questions
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  test("Seller central render Questions") {
+    "/seller_central/questions"(platform: "/", type: TrackType.View) {}
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------

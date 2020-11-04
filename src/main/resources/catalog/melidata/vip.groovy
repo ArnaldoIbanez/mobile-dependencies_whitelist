@@ -145,6 +145,7 @@ tracks {
 
         //SELLER FIELDS
         seller_id(required: true, type: PropertyType.Numeric)
+        seller_type(required: false, type: PropertyType.String, description: "Seller type: normal, real_estate_user, etc")
         power_seller_status(required: false, type: PropertyType.String, values: ["silver", "gold", "platinum"],
                 description: "Seller's Mercado Lider level")
         reputation_level(required: false, type: PropertyType.String,
@@ -152,7 +153,7 @@ tracks {
                 description: "Seller's reputation level")
         available_consumer_credit(required: false, type: PropertyType.Boolean, description: "Indicates if the item has a credit available for the item's seller")
 
-        // CLASI FIELDS
+        // VIS FIELDS
         reservation_price(required: false, description: "Price of the reservation")
         quotation_available(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item can be quoted (cotizado)")
@@ -168,8 +169,13 @@ tracks {
                 description: "Indicates if the item has price comparison available")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        catalog_market_price(required: false, type: PropertyType.Numeric,
+                description: "Price of item according the market, for example FIPE in MLB")
         price_comparison_position(required: false, type: PropertyType.Numeric,
                 description: "Indicates position price comparison")
+        has_seller_level_kyc(required: false, type: PropertyType.Boolean,
+                description: "Indicates if seller has checked by kyc in level 5 or above")
+
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
         store_type(required: false, type: PropertyType.String, values: ["normal", "brand"], description: "Indicates store type")
@@ -1306,10 +1312,11 @@ tracks {
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+                values: ["core", "motors", "real_estate", "services"], description: "Vertical of the item")
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        financial_institution(required: false, type: PropertyType.String, description: "Name of the financial institution linked to card")
     }
 
     "/vip/credits_intention/main_action/up"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -1330,7 +1337,7 @@ tracks {
         source(required: false,  type: PropertyType.String, description: "Source of the referred")
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+                values: ["core", "motors", "real_estate", "services"], description: "Vertical of the item")
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
     }
 
@@ -1355,7 +1362,7 @@ tracks {
         source(required: fasle,  type: PropertyType.String, description: "Source of the referred")
         from_view(required: false, type: PropertyType.String, description: "Section where it's coming from")
         vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+                values: ["core", "motors", "real_estate", "services"], description: "Vertical of the item")
         deal_ids(required: false, type: PropertyType.ArrayList, description: "IDs of applied discounts")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
