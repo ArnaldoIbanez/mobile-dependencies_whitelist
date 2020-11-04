@@ -1445,7 +1445,11 @@ tracks {
     "/seller_central/promotions/cards"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day"])
+        type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day", "meli_campaign"])
+    }
+
+    "/seller_central/promotions/error"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CREATE", "CREATE_LIGHTNING", "CREATE_DOD", "CREATE_MARKETPLACE_CAMPAIGN", "DELETE", "DELETE_LIGHTNING", "DELETE_DOD", "DELETE_MARKETPLACE_CAMPAIGN"])
     }
 
     "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}
