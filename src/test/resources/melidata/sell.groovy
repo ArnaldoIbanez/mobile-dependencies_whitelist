@@ -2686,7 +2686,7 @@ trackTests {
             products_selected_index = -1
         }
     }
-    test("SYI v4 products finder confirmed"){
+    test("SYI v4 products finder click on back to search"){
         "/sell/item_data/products_finder/restart"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
@@ -2708,7 +2708,7 @@ trackTests {
             products_selected_index = -1
         }
     }
-    test("SYI v4 products finder confirmed"){
+    test("SYI v4 products finder input confirmed"){
         "/sell/item_data/products_finder_input/confirm"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
@@ -2733,7 +2733,7 @@ trackTests {
             products_selected_index = -1
         }
     }
-    test("SYI v4 products finder confirmed"){
+    test("SYI v4 products finder button confirmed"){
         "/sell/item_data/products_finder_button/confirm"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
@@ -2758,7 +2758,7 @@ trackTests {
             products_selected_index = -1
         }
     }
-    test("SYI v4 products finder showed"){
+    test("SYI v4 carrier task showed"){
         "/sell/item_data/carrier_task/show"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
@@ -2780,7 +2780,7 @@ trackTests {
             products_selected_index = -1
         }
     }
-    test("SYI v4 products finder confirmed"){
+    test("SYI v4 carrier task confirmed"){
         "/sell/item_data/carrier_task/confirm"(platform: "/web", type: TrackType.Event){
             seller_profile = "ADVANCED"
             seller_segment = "professional_sellers"
