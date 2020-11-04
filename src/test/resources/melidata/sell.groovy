@@ -3876,7 +3876,58 @@ trackTests {
             list_mode = "LIST"
         }
     }
-
+    test("SYI v4 Category breadcrumb previous"){
+        "/sell/item_data/category_breadcrumb/previous"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            gtin_experience = "ENABLED"
+            query_type = "QUERY_STRING"
+            query_search = "test search"
+            result_type = "QUERY_DOMAIN_SUGGESTIONS"
+            product_predictions = [{ product_id: "id_of_product"}]
+            accumulated_search_results = [{
+                query_type: "QUERY_STRING"
+                query_search: "test search"
+                result_type: "QUERY_DOMAIN_SUGGESTIONS"
+            }]
+            products_selected_index = -1
+        }
+    }
+    test("SYI v4 Category breadcrumb navigate"){
+        "/sell/item_data/category_breadcrumb/navigate"(platform: "/web", type: TrackType.Event){
+            category_id = "MLA390784"
+            seller_profile = "ADVANCED"
+            seller_segment = "professional_sellers"
+            session_id = "123-update-abc123"
+            vertical = "core"
+            categorization_flow_successful = true
+            chosen_categorization_model = "ZORDON"
+            title_predicted = "test"
+            item_type = "default"
+            seller_reputation = "green"
+            list_mode = "LIST"
+            gtin_experience = "ENABLED"
+            query_type = "QUERY_STRING"
+            query_search = "test search"
+            result_type = "QUERY_DOMAIN_SUGGESTIONS"
+            product_predictions = [{ product_id: "id_of_product"}]
+            accumulated_search_results = [{
+                query_type: "QUERY_STRING"
+                query_search: "test search"
+                result_type: "QUERY_DOMAIN_SUGGESTIONS"
+            }]
+            products_selected_index = -1
+        }
+    }
     test("List Equals V3 Modifications"){
         def originalItemData = [
                 has_variations: false,

@@ -889,6 +889,18 @@ tracks {
         productFinder
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
+    "/sell/item_data/category_breadcrumb/previous"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        categoryFlow
+        productFinder
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+    }
+    "/sell/item_data/category_breadcrumb/navigate"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        categoryFlow
+        productFinder
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+    }
     "/sell/item_data/catalog_decision"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/catalog_decision/show"(platform: "/web", type: TrackType.Event) {
         sellGroup
@@ -964,6 +976,7 @@ tracks {
     }
     "/sell/item_data/products_finder/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/products_finder/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder/restart"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/products_finder_button"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/products_finder_button/confirm"(platform: "/web", type: TrackType.Event) {
         categoryFlow
