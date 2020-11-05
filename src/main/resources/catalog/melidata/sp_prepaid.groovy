@@ -496,9 +496,9 @@ tracks {
 
     // Congrats success
     "/single_player/paygo/congrats_success"(platform: "/mobile", type: TrackType.View) {
-        device_id(required: true, PropertyType.String, description: "Push device id")
+        device_id(required: false, PropertyType.String, description: "Push device id")
         device_number(required: true, PropertyType.String, description: "Device number of the recharge")
-        product_id(required: true, PropertyType.String, description: "Product id")
+        product_id(required: false, PropertyType.String, description: "Product id")
         vertical_id(required: true, PropertyType.String, description: "Vertical of the flow")
         provider_id(required: true, PropertyType.String, description: "Provider of the operation")
     }
