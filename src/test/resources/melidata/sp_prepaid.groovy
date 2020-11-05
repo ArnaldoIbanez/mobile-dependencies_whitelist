@@ -1307,7 +1307,7 @@ trackTests {
         // TRACKS Meli
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         
-        / FTU
+        // FTU
         "/single_player/paygo/first_time_use"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
         }
