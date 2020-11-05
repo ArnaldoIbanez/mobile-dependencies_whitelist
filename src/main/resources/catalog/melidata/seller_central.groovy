@@ -1423,6 +1423,10 @@ tracks {
         origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
+    "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CREATE", "CREATE_LIGHTNING", "CREATE_DOD", "CREATE_MARKETPLACE_CAMPAIGN", "DELETE", "DELETE_LIGHTNING", "DELETE_DOD", "DELETE_MARKETPLACE_CAMPAIGN"])
+    }
+
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
@@ -1446,10 +1450,6 @@ tracks {
 
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
         type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day", "meli_campaign"])
-    }
-
-    "/seller_central/promotions/error"(platform: "/", type: TrackType.Event) {
-        action_id(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CREATE", "CREATE_LIGHTNING", "CREATE_DOD", "CREATE_MARKETPLACE_CAMPAIGN", "DELETE", "DELETE_LIGHTNING", "DELETE_DOD", "DELETE_MARKETPLACE_CAMPAIGN"])
     }
 
     "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}

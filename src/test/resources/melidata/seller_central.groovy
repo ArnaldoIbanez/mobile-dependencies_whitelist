@@ -2773,12 +2773,6 @@ trackTests {
     }
   }
 
-  test("seller central listing promos error action") {
-    "/seller_central/promotions/error"(platform: "/", type: TrackType.Event) {
-      action_id = "CREATE"
-    }
-  }
-
   test("seller central listing promos render with onboarding") {
     "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}
   }
@@ -2798,6 +2792,12 @@ trackTests {
   test("seller central listing action") {
     "/seller_central/promotions/action/confirm"(platform: "/", type: TrackType.Event) {
       action_id = "MODIFY"
+    }
+  }
+
+  test("seller central listing promos error action") {
+    "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event) {
+      action_id = "CREATE"
     }
   }
 
