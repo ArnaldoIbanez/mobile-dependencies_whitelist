@@ -977,6 +977,11 @@ tracks {
                 'express_money'
             ]
         )
+        release_attemps_number(
+                description: "Number of attemps to release the advance",
+                type: PropertyType.Numeric,
+                required: false,
+        )
     }
 
     //Congrats money advance mobile
