@@ -291,6 +291,12 @@ trackTests {
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {
             reason = 'loan_creation'
         }
+        "/credits/merchant/enrollment/info"(platform: "/mobile") {
+            reason = 'already_taken_credit_line'
+        }
+        "/credits/merchant/enrollment/info"(platform: "/mobile") {
+            reason = 'no_credit_lines_present'
+        }
         "/credits/merchant/enrollment/documentation"(platform: "/web/desktop") {
             user_type = 'moral'
         }

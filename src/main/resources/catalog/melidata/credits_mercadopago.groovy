@@ -722,6 +722,18 @@ tracks {
         )
     }
 
+    "/credits/merchant/enrollment/info"(platform: "/mobile", type: TrackType.View) {
+        reason(
+                description: "State reason",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        'already_taken_credit_line',
+                        "no_credit_lines_present"
+                ]
+        )
+    }
+
     //Documentation
     "/credits/merchant/enrollment/documentation"(platform: "/", type: TrackType.View) {
         user_type(
