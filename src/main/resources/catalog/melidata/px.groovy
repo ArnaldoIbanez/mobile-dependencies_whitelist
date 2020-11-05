@@ -228,7 +228,6 @@ tracks {
         payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
         payment_method_type(required: true, type: PropertyType.String, description: "Payment method type id")
         extra_info(required: false, description: "Extra payment method info")
-        payment_id(required: true, type: PropertyType.Numeric, description: "Payment id")
         payment_status(required: true, type: PropertyType.String, description: "Payment status")
         payment_status_detail(required: true, type: PropertyType.String, description: "Payment status")
         preference_amount(required: false, type: PropertyType.Numeric, description: "Total amount") // TODO Should be deleted when total amount fully implemented
@@ -246,7 +245,9 @@ tracks {
         campaigns_ids(required: false, type: PropertyType.String, description: "Campaigns ids of discounts displayed")
         campaign_id(required: false, type: PropertyType.String, description: "Campaign id of discount applied to payment")
     }
-    "/px_checkout/result/success"(platform: "/mobile", type: TrackType.View) {}
+    "/px_checkout/result/success"(platform: "/mobile", type: TrackType.View) {
+        payment_id(required: true, type: PropertyType.Numeric, description: "Payment id")
+    }
     "/px_checkout/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {}
     "/px_checkout/result/error"(platform: "/mobile", type: TrackType.View) {
         remedies(required: true, type: PropertyType.ArrayList, description: "List of remedies")
@@ -702,7 +703,6 @@ tracks {
         style(required: true, type: PropertyType.String, description: "Business result or generic", values: ["generic" , "custom"])
         payment_method_id(required: true, type: PropertyType.String, description: "Payment method id")
         payment_method_type(required: false, type: PropertyType.String, description: "Payment method type id")
-        payment_id(required: false, type: PropertyType.Numeric, description: "Payment id")
         payment_status(required: true, type: PropertyType.String, description: "Payment status")
         payment_status_detail(required: true, type: PropertyType.String, description: "Payment status")
         preference_amount(required: false, type: PropertyType.Numeric, description: "Total amount")
@@ -720,7 +720,9 @@ tracks {
         campaigns_ids(required: false, type: PropertyType.String, description: "Campaigns ids of discounts displayed")
         extra_info(required: false, description: "Extra payment method info")
     }
-    "/payment_congrats/result/success"(platform: "/mobile", type: TrackType.View) {}
+    "/payment_congrats/result/success"(platform: "/mobile", type: TrackType.View) {
+        payment_id(required: false, type: PropertyType.Numeric, description: "Payment id") // Check 'required'
+    }
     "/payment_congrats/result/further_action_needed"(platform: "/mobile", type: TrackType.View) {}
     "/payment_congrats/result/error"(platform: "/mobile", type: TrackType.View) {}
     "/payment_congrats/result/unknown"(platform: "/mobile", type: TrackType.View) {}
