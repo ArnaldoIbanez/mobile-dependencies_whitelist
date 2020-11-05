@@ -707,16 +707,19 @@ trackTests {
             status = 'on_time'
             user_status = 'on_time'
             offer = 'none'
+            release_attemps_number = 4
         }
         "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'delayed'
             user_status = 'overdue'
             offer = 'none'
+            release_attemps_number = 4
         }
           "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'on_time'
             user_status = 'on_time'
             offer = 'express_money'
+              release_attemps_number = 4
         }
         "/credits/merchant/money_advance/congrats"(platform: "/mobile/android", type: TrackType.View) {
             offer = 'none'
