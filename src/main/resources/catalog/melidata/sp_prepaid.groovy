@@ -773,7 +773,7 @@ tracks {
     // Congrats Cancel Tag
     "/single_player/paygo/congrats_cancel_tag"(platform: "/mobile", type: TrackType.View) {}
 
-    "/single_player/paygo/congrats_cancel/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/congrats_cancel_tag/back_to_home"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 

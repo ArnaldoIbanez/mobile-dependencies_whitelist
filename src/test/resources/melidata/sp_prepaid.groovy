@@ -1572,7 +1572,6 @@ trackTests {
         // Debt Detail
         "/single_player/paygo/debt_detail"(platform: "/mobile", type: TrackType.View) {
             mandatory()
-            view_time()
         }
 
         "/single_player/paygo/debt_detail/confirm"(platform: "/mobile", type: TrackType.Event) {
@@ -1665,7 +1664,7 @@ trackTests {
             mandatory()
         }
 
-        "/single_player/paygo/congrats_cancel/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/paygo/congrats_cancel_tag/back_to_home"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -1924,7 +1923,6 @@ trackTests {
         // Debt Detail
         "/single_player/paygo/debt_detail"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
-            view_time()
         }
 
         "/single_player/paygo/debt_detail/confirm"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
@@ -2017,7 +2015,7 @@ trackTests {
             mandatory()
         }
 
-        "/single_player/paygo/congrats_cancel/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/paygo/congrats_cancel_tag/back_to_home"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
