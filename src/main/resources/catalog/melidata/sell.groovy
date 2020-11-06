@@ -974,6 +974,9 @@ tracks {
         categoryFlow
         productFinderGroup
     }
+    "/sell/item_data/products_finder/update"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder/category_selection"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder/product_selection"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/products_finder/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/products_finder/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/products_finder/restart"(platform: "/web", type: TrackType.Event) {}
