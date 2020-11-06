@@ -732,6 +732,18 @@ tracks {
                         "no_credit_lines_present"
                 ]
         )
+        from(
+                description: "States previous navigation step (could be from same flow or not)",
+                type: PropertyType.String,
+                required: false,
+                inheritable: false
+        )
+        additional_info(
+                description: "Additional information regarding flow navigation",
+                type: PropertyType.String,
+                required: false,
+                inheritable: false
+        )
     }
 
     //Documentation

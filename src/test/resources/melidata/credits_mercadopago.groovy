@@ -295,6 +295,11 @@ trackTests {
             reason = 'already_taken_credit_line'
         }
         "/credits/merchant/enrollment/info"(platform: "/mobile") {
+            reason = 'already_taken_credit_line'
+            from = "hub"
+            additional_info = 'clicked_on_access_row'
+        }
+        "/credits/merchant/enrollment/info"(platform: "/mobile") {
             reason = 'no_credit_lines_present'
         }
         "/credits/merchant/enrollment/documentation"(platform: "/web/desktop") {
