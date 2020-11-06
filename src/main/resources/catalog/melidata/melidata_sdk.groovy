@@ -22,6 +22,16 @@ tracks {
         last_statistics_timestamp(required: false)
     }
 
+    "/melidata/statistics/experiments"(platform: "/mobile", type: TrackType.Control, parentPropertiesInherited: false) {
+        start_time()
+        duration(type: PropertyType.Numeric)
+        experiments_amount(type: PropertyType.Numeric)
+        persistence_enabled(type:PropertyType.Boolean)
+        experiment_to_retrieve()
+        execution_status(values: ['successful', 'error'])
+        error(required: false)
+    }
+
     "/melidata/null_track"(platform: "/mobile") {
         context()
     }

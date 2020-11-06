@@ -32,6 +32,10 @@ tracks {
 
         //SELLER FIELDS
         seller_id(required: true, type: PropertyType.Numeric)
+
+        //VIS FIELDS
+        has_good_price(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has tagged as good price according to price comparison")
     }
 
     "/contact/congrats"(platform: "/web") {

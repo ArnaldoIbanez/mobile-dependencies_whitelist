@@ -1,1 +1,0 @@
-select to_date(ds) as dsdate, device.platform as platform, count(distinct usr.user_id) as logged_users, count(distinct usr.uid) as total_users from tracks where ds >= 'TWO_HOURS_AGO' and ds < 'ONE_HOUR_AGO' group by ds, device.platform

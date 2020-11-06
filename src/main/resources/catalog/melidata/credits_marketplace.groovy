@@ -27,6 +27,8 @@ tracks {
     "/credits/consumer/myml/summary"(platform: "/", isAbstract: true) {}
     "/credits/consumer/my_account"(platform: "/", isAbstract: true) {}
     "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
+    "/credits/self_service"(platform: "/", isAbstract: true) {}
+    "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -40,6 +42,7 @@ tracks {
     //Page views
     "/credits/consumer/public_landing"(platform: "/", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: true, inheritable: false, values: ["guest", "no_offer"])
+        sk(description: "Source key", type: PropertyType.String, required: false)
     }
     "/credits/consumer/public_landing/application_result"(platform: "/", type: TrackType.View) {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
@@ -72,6 +75,13 @@ tracks {
         result(description: "Current status of the IV application", type: PropertyType.String, required: true, values: ["manual_review", "approved", "rejected"])
     }
     "/credits/consumer/public_landing/click_application_start"(platform: "/", type: TrackType.Event) {}
+
+    //Remedy
+    "/credits/consumer/opensea/add_receipt"(platform: "/web", type: TrackType.Event){}
+    "/credits/consumer/opensea/summary"(platform: "/web", type: TrackType.View) {
+        process(description: "Name of the finished process", type: PropertyType.String, required: true, values: ["receipt"])
+    }
+
     /******************************************
      *       End: Consumers Public Landings
      ******************************************/
@@ -176,6 +186,11 @@ tracks {
                         "banner"
                 ]
         )
+        offer(
+            required: false,
+            description: "Self service option shown to the user",
+            type: PropertyType.ArrayList(PropertyType.String)
+        )
     }
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
@@ -203,6 +218,11 @@ tracks {
     "/credits/consumer/administrator_v2/suggested_modal/suggested_product_modal"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/", type: TrackType.Event) {}
+    
+    "/credits/consumer/administrator_v2/promises"(platform: "/", isAbstract: true) {}
+    "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
 
     //Mobile Events 
     "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
@@ -211,7 +231,7 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard/choose_installments"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_help"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_personal_loan"(platform: "/mobile", type: TrackType.Event) {}
-    "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/get_educative"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/dashboard/go_mp"(platform: "/mobile", type: TrackType.Event) {
@@ -431,13 +451,14 @@ tracks {
         status(required: true, type: PropertyType.String, values: ["no_charge_period", "fixed_charge_period_1", "fixed_charge_period_2", "daily_charge_period"],
                 description: "Indicates user status")
         milestone(type: PropertyType.Numeric, required: true)
-        context(required: false, values: ["search", "vip", "home"],
+        context(required: false, values: ["search", "vip", "pdp", "home"],
                 description: "The page or section where the nav action is taking place")
+        vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
 
     propertyGroups {
         pursue_nav_properties(status, milestone, context)
-        pursue_modal_properties(milestone, context)
+        pursue_modal_properties(milestone, context, vip_version)
     }
 
     //Page Views
@@ -615,10 +636,13 @@ tracks {
 
     "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
         prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: true)
+        virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
+        physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
     }
 
     "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
+        sk(description: "Source key", type: PropertyType.String, required: false)
     }
 
     "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {}
@@ -627,7 +651,9 @@ tracks {
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
     }
 
-    "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
+        sk(description: "Source key", type: PropertyType.String, required: false)
+    }
 
     "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -643,7 +669,18 @@ tracks {
 
     "/credits/consumer/personal/adoption/congrats"(platform: "/mobile", type: TrackType.View) {
         prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: false)
-        status(description: "Status of the user prepaid", type: PropertyType.String, required: true, values: ["no_prepaid", "prepaid_enabled", "prepaid_disabled"])
+        status(
+            description: "Status of the user prepaid",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                "no_prepaid",
+                "prepaid_enabled",
+                "prepaid_disabled",
+                "physical_card",
+                "virtual_card"
+            ]
+        )
     }
 
     "/credits/consumer/personal/adoption/congrats/go_wallet"(platform: "/mobile", type: TrackType.Event) {}
@@ -699,5 +736,97 @@ tracks {
 
      /******************************************
      *    End: Consumers Change Due Date FLow
+     ******************************************/
+     
+     /******************************************
+     *    Start: Self service
+     ******************************************/
+    "/credits/self_service/promises/create_form"(platform: "/", type: TrackType.View) {
+        user_type(
+            required: true,
+            description: "User type (merchant, consumer, mix or no credit)",
+            type: PropertyType.String,
+            values: [
+                "merchant",
+                "consumer",
+                "mix",
+                "no_credit"
+            ]
+        )
+    }
+        
+    "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
+        is_partial_amount(
+            required: true,
+            description: "Whether promise amount is less than bulk amount",
+            type: PropertyType.Boolean
+        )
+        bulk_amount(
+            required: true,
+            description: "Bulk amount or total debt amount for user",
+            type: PropertyType.Numeric
+        )
+        promise_amount(
+            required: true,
+            description: "Promise amount filled in by user",
+            type: PropertyType.Numeric
+        )
+        payment_method(
+            required: true,
+            description: "Payment method selected for promise",
+            type: PropertyType.String
+        )
+        promise_due_days(
+            required: true,
+            description: "How many days until the promise is due from the day it was created",
+            type: PropertyType.Numeric
+        )
+    }
+
+    "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {}
+    
+    "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
+        user_type(
+            required: true,
+            description: "User type (merchant, consumer, mix or no credit)",
+            type: PropertyType.String,
+            values: [
+                "merchant",
+                "consumer",
+                "mix",
+                "no_credit"
+            ]
+        )
+    }
+
+    "/credits/self_service/promises/error"(platform: "/", type: TrackType.View) {
+        user_type(
+            required: true,
+            description: "User type (merchant, consumer, mix or no credit)",
+            type: PropertyType.String,
+            values: [
+                "merchant",
+                "consumer",
+                "mix",
+                "no_credit"
+            ]
+        )
+    }
+
+    "/credits/self_service/promises/view"(platform: "/", type: TrackType.View) {
+        user_type(
+            required: true,
+            description: "User type (merchant, consumer, mix or no credit)",
+            type: PropertyType.String,
+            values: [
+                "merchant",
+                "consumer",
+                "mix",
+                "no_credit"
+            ]
+        )
+    }
+     /******************************************
+     *    End: Self service
      ******************************************/
 }

@@ -33,6 +33,8 @@ tracks {
             description: "Indicates if the current content has any channels configured")
         portal_form_id(required: true, type: PropertyType.Numeric, 
             description: "Indicates the id of the form shown")
+        portal_broken_link_error(required: false, type: PropertyType.Boolean,
+            description: "Indicates if the link used is broken")
     }
 
     propertyGroups {
@@ -43,6 +45,7 @@ tracks {
         portal_problem_id(portal_problem_id)
         portal_has_channels_configured(portal_has_channels_configured)
         portal_form_id(portal_form_id)
+        portal_broken_link_error(portal_broken_link_error)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
@@ -56,7 +59,7 @@ tracks {
         portal_problem_id
         portal_contact(required: false, type: PropertyType.Map,
                 description: "Indicates if the current hub has channels enabled and why it hasn't")
-
+        portal_broken_link_error
     }
 
     "/portal/hub"(platform: "/", type: TrackType.View) {
@@ -66,6 +69,7 @@ tracks {
         portal_content_id(required: false, type: PropertyType.Numeric,
                 description: "Indicates the content ID from where the user created a contact. Required false because some contacts do not come from contents")
         portal_source_id
+        portal_broken_link_error
     }
 
     "/portal/problem"(platform: "/", type: TrackType.View) {
@@ -76,6 +80,7 @@ tracks {
         portal_contact
         portal_has_channels_configured(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the current content has any channels configured")
+        portal_broken_link_error
     }
 
     "/portal/form"(platform: "/", type: TrackType.View) {
@@ -85,6 +90,7 @@ tracks {
         portal_source_id
         portalContentTypeOptionalGroup
         portal_problem_id
+        portal_broken_link_error
     }
 
     "/portal/folder"(platform: "/", type: TrackType.View) {
@@ -92,6 +98,7 @@ tracks {
         portal_source_id(required: false, type: PropertyType.Numeric,
             description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
         portalContentTypeOptionalGroup
+        portal_broken_link_error
     }
 
     "/portal/create_case"(platform: "/", type: TrackType.Event) {
@@ -101,17 +108,34 @@ tracks {
         portal_source_id
         portalContentTypeOptionalGroup
         portal_problem_id
+        portal_broken_link_error
     }
 
     "/portal/search"(platform: "/", type: TrackType.View) {
         portal_source_id(required: false, type: PropertyType.Numeric,
                 description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+        portal_broken_link_error
     }
 
     "/portal/folder_rules"(platform: "/", type: TrackType.View) {
         portal_source_id(required: false, type: PropertyType.Numeric,
                 description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+        portal_broken_link_error
     }
+
+    "/portal/home"(platform: "/", type: TrackType.View) {
+        portal_source_id(required: false, type: PropertyType.Numeric,
+                description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+        portal_broken_link_error
+    }
+
+    "/portal/zrp"(platform: "/", type: TrackType.View) {
+        portal_source_id(required: false, type: PropertyType.Numeric,
+                description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+        portal_broken_link_error
+    }
+
+    "/portal/validate_user"(platform: "/", type: TrackType.View) {}
 
     // Support Widget
 
@@ -122,10 +146,22 @@ tracks {
         portal_content_id(required: false, type: PropertyType.Numeric, description: "Indicates the id of the content shown on the page, in case its not the home page")
         portalContentTypeOptionalGroup
         portal_source_id
+        portal_broken_link_error
     }
 
     "/support/widget/folder_rules"(platform: "/", type: TrackType.View) {
         portal_source_id
+        portal_broken_link_error
+    }
+
+    "/support/widget/home"(platform: "/", type: TrackType.View) {
+        portal_source_id(required: false, type: PropertyType.Numeric, description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+        portal_broken_link_error
+    }
+
+    "/support/widget/zrp"(platform: "/", type: TrackType.View) {
+        portal_source_id(required: false, type: PropertyType.Numeric, description: "Indicates the source ID for the current page. Required false because some folders with exclusive attention are contact points and most are not")
+        portal_broken_link_error
     }
 
     "/support/widget/faq"(platform: "/", type: TrackType.View) {
@@ -136,6 +172,7 @@ tracks {
         portal_problem_id
         portal_contact(required: false, type: PropertyType.Map,
                 description: "Indicates if the current hub has channels enabled and why it hasn't")
+        portal_broken_link_error
     }
 
     "/support/widget/problem"(platform: "/", type: TrackType.View) {
@@ -146,6 +183,7 @@ tracks {
         portal_contact
         portal_has_channels_configured(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the current content has any channels configured")
+        portal_broken_link_error
     }
 
     "/support/widget/form"(platform: "/", type: TrackType.View) {
@@ -154,6 +192,7 @@ tracks {
         portal_source_id
         portal_form_id
         portal_problem_id
+        portal_broken_link_error
     }
 
     "/support/widget/create_case"(platform: "/", type: TrackType.Event) {
@@ -162,19 +201,21 @@ tracks {
         portal_source_id
         portal_form_id
         portal_problem_id
+        portal_broken_link_error
     }
 
     "/support/widget/search"(platform: "/", type: TrackType.View) {
         portal_source_id
+        portal_broken_link_error
     }
 
     // Mis Consultas
 
-    "/support/cases"(platform: "/", isAbstract: true) {}
+    "/support/cases"(platform: "/", type: TrackType.View) {}
 
     "/support/cases/detail"(platform: "/", type: TrackType.View) {
         case_status(required: true, type: PropertyType.String,
-            values: ["pending", "waiting_for_info", "waiting_for_external", "waiting_for_fix", "fixed", "final_answer", "finished_no_answer", "duplicated", "finished", "final_greetings"],
+            values: ["pending", "waiting_for_info", "waiting_for_external", "waiting_for_fix", "fixed", "final_answer", "finished_no_answer", "duplicated", "finished", "final_greetings", "final_closed"],
             description: "Case status")
         case_id(required: true, type: PropertyType.Numeric,
             description: "CX case id")

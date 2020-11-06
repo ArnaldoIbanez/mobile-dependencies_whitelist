@@ -12,13 +12,14 @@ tracks {
         shop_id(required: true, type: PropertyType.Numeric)
         shop_domain(required: true, type: PropertyType.String)
         shop_name(required: true, type: PropertyType.String)
+        operator_id(required: false, type: PropertyType.Numeric)
         delegation_status(
             required: true,
             type: PropertyType.String,
             values: [
                 'NOT_DELEGATED', 'REGISTERED', 'CHECK_FOR_TOTAL_DELEGATION', 'CHECK_FOR_PARTIAL_DELEGATION',
                 'DELEGATION_OK', 'CERTIFICATE_OK', 'CERTIFICATE_ERROR', 'NAVIGATION_OK', 'NAVIGATION_ERROR',
-                'ERROR', 'DELEGATION_ERROR', 'ACTIVE'
+                'ERROR', 'DELEGATION_ERROR', 'ACTIVE', 'DELEGATION_CEASED'
             ]
         )
         success(required: true, type: PropertyType.Boolean, description: "The request was fulfilled successfully")
@@ -32,7 +33,7 @@ tracks {
     }
 
     propertyGroups {
-        mshopsGroup(shop_id, shop_domain, shop_name, ref)
+        mshopsGroup(shop_id, shop_domain, shop_name, operator_id, ref)
         mshopsDomainsGroup(delegation_status)
         mshopsEventGroup(success, error_code)
     }
@@ -53,7 +54,7 @@ tracks {
                 values: [
                         'NOT_DELEGATED', 'REGISTERED', 'CHECK_FOR_TOTAL_DELEGATION', 'CHECK_FOR_PARTIAL_DELEGATION',
                         'DELEGATION_OK', 'CERTIFICATE_OK', 'CERTIFICATE_ERROR', 'NAVIGATION_OK', 'NAVIGATION_ERROR',
-                        'ERROR', 'DELEGATION_ERROR', 'ACTIVE'
+                        'ERROR', 'DELEGATION_ERROR', 'ACTIVE', 'DELEGATION_CEASED'
                 ]
         )
         success(required: false, type: PropertyType.Boolean, description: "The request was fulfilled successfully")
@@ -64,6 +65,8 @@ tracks {
         is_confirmation_banner(required: true, type: PropertyType.Boolean, description: "Banner Confirmation is being shown")
         is_show_dday_banner(required: true, type: PropertyType.Boolean, description: "Banner DDay is being shown")
     }
+
+    "/mercado_shops/access_denied"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/admin"(platform: "/", type: TrackType.View){}
 
@@ -82,7 +85,7 @@ tracks {
                 required: false,
                 type: PropertyType.String,
                 values: ['AFIP', 'BANNER', 'BRANDS', 'CATEGORIES', 'CAROUSEL', 'COLORS', 'CONTACT',
-                         'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FOOTER', 'GRID',
+                         'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FOOTER', 'GENERAL', 'GRID',
                          'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE', 'LOGO', 'MENU', 'MOSAIC', 'PRICE_AND_IMAGE',
                          'PRICE_AND_IMAGE_ADVANCED', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS',
                          'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TABBED_CAROUSEL', 'TEXT_BANNER', 'FISCAL_DATA',
@@ -122,6 +125,11 @@ tracks {
     "/mercado_shops/admin/sidebar/discovery"(platform: "/", type: TrackType.Event){
         max_items(required: true, type: PropertyType.Numeric, description: "Number of categories to show")
         categories(required: true, type: PropertyType.ArrayList, description: "Selected categories to show")
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/admin/sidebar/discovery_advanced"(platform: "/", type: TrackType.Event){
+        theme(required: true, type: PropertyType.String, description: "Id of the selected theme for the discovery")
         mshopsEventGroup
     }
 
@@ -422,6 +430,16 @@ tracks {
 
     "/mercado_shops/marketing/facebook/store/pixel_activation/active"(platform: "/", type: TrackType.Event){}
 
+    "/mercado_shops/marketing/facebook/store/context_help"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/facebook/store/meta_tag_configuration"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/facebook/store/domain_verification"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/facebook/store/domain_verification/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
     "/mercado_shops/marketing/google"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/google/shopping"(platform: "/", type: TrackType.Event){}
@@ -437,6 +455,38 @@ tracks {
     "/mercado_shops/marketing/google/shopping/procedure"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/google/shopping/resume"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_shopping_smart"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/google_shopping_smart/context_help"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_shopping_smart/campaign"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/google_shopping_smart/campaign/set"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/google_shopping_smart/campaign/context_help"(platform: "/", type: TrackType.Event){}
+
+    // GOOGLE SHOPPING DASHBOARD
+
+    "/mercado_shops/marketing/google_shopping_smart/dashboard"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/google_shopping_smart/dashboard/delete"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_shopping_smart/dashboard/pause"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_shopping_smart/dashboard/activate"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_shopping_smart/dashboard/set_budget"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
+    "/mercado_shops/marketing/google_shopping_smart/dashboard/context_help"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/instagram"(platform: "/", type: TrackType.View){}
 
@@ -454,5 +504,23 @@ tracks {
 
     "/mercado_shops/hub/boost"(platform: "/", type: TrackType.Event){
         option(required: true, type: PropertyType.String)
+    }
+
+    "/mercado_shops/hub/google"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/hub/google/shopping"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/hub/google/shopping/activate"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/hub/google/shopping/deactivate"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/hub/google/shopping/reactivate"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/discounts/"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/discounts/set"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+        percentage(required: true, type: PropertyType.Numeric, description: "Discount Percentage")
+        status(required: true, type: PropertyType.String, description: "Discount State", values: ['ACTIVE', 'INACTIVE'])
     }
 }

@@ -10,6 +10,7 @@
     "/traffic/inbound/matt",
     "/traffic/inbound/organic",
     "/buy_intention",
+    "/listing_intention",
     "/search",
     "/bookmarks/action/post",
     "/orders/ordercreated",
@@ -21,6 +22,7 @@
     "/questions/qadb/show",
     "/questions/qadb/input_focus",
     "/questions/qadb/search",
+    "/pdp/qadb/call-to-action",
     "/vip/contact_seller",
     "/register/success",
     "/register/failure",
@@ -29,6 +31,11 @@
     "/kyc/error",
     "/melidata/ab_split",
     "/px_checkout/result/success",
-    "/cards/acquisition/error"
+    "/cards/acquisition/error",
+    "/cards/engagement/error",
+    "/wallet/cards/listing/error",
+    "/friction",
+    "/px_checkout/result/error",
+    "/checkout_off/congrats"
   ]
 }

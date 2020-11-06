@@ -14,6 +14,14 @@ trackTests {
     "/vendor_central/summary/hub"(platform: "/web", type: TrackType.View) {}
   }
 
+  test("Vendor Central summary discount view") {
+    "/vendor_central/summary/discount"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central summary discount congrats view") {
+    "/vendor_central/summary/discount_congrats"(platform: "/web", type: TrackType.View) {}
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Vendor central BULK Offering offline editor
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -47,7 +55,7 @@ trackTests {
 
   test("Vendor Central offline bulk upload congrats") {
     "/vendor_central/bulk/offline/upload/congrats"(platform: "/", type: TrackType.View) {
-      type = "failed"
+      type = "SUCCESS"
     }
   }
 
@@ -82,6 +90,38 @@ trackTests {
       search_list = 4
       modal = 0
     }
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Vendor Central Purchase order listing
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  test("Vendor Central purchase order listing view") {
+    "/vendor_central/inbound/listing"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central purchase order detail view") {
+    "/vendor_central/inbound/detail"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central Contra COGS list search event") {
+
+    "/vendor_central/contra_cogs/list/search"(platform: "/web", type: TrackType.Event) {
+    }
+
+    "/vendor_central/contra_cogs/list/search"(platform: "/web", type: TrackType.Event) {
+      filters = ["filter_id_1", "filter_id_2"]
+      sorts = ["sort_id_1"]
+      search_terms = ["term1", "term2"]
+      task = "task_id"
+    }
+  }
+
+  test("Vendor Central contra cogs listing view") {
+    "/vendor_central/contra_cogs/listing"(platform: "/web", type: TrackType.View) {}
+  }
+
+  test("Vendor Central contra cogs detail view") {
+    "/vendor_central/contra_cogs/detail"(platform: "/web", type: TrackType.View) {}
   }
 
 }

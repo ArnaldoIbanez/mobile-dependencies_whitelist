@@ -4,37 +4,6 @@ import static com.ml.melidata.metrics.parsers.dsl.MetricsDsl.metrics
 
 metrics {
 
-	"orders"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				equals("event_data.is_carrito", false)
-			}
-		}
-	}
-
-
-	"orders.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				and (
-						equals(
-								externalCondition {
-									url("internal/orders/\$0")
-									replace("event_data.order_id")
-									method("get")
-									successfulCodes(200,206)
-									jsonPath("status")
-								},
-								"paid"
-						),
-						equals("event_data.is_carrito", false)
-				)
-			}
-		}
-	}
-
 	"bids"(description: "/orders/ordercreated from feed (carrito included)", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
@@ -53,6 +22,9 @@ metrics {
 	}
 
 	"bids.quick"(description: "/orders/ordercreated from feed (carrito included) with short attribution time (3h)", compute_order: true, ttl: 180) {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -75,6 +47,9 @@ metrics {
 						"paid"
 				)
 			}
+		}
+		divisionBy {
+			divisionMetric("bids")
 		}
 	}
 	
@@ -99,38 +74,48 @@ metrics {
 		}
 	}
 	
-	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq?authuser=0#h.p_2qPD6v_1dTSd", compute_order: true, categorization:"important") {
+	"bids.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd  && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, categorization:"important") {
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
-				equals(
-						externalCondition {
-							url("internal/orders/\$0")
-							replace("event_data.order_id")
-							method("get")
-							successfulCodes(200,206)
-							jsonPath("status")
-						},
-						"cancelled"
+				and (
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("status")
+							},
+							"cancelled"
+					),
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("hidden_for_seller")
+							},
+							false
+					),
 				)
 			}
+		}
+		divisionBy {
+			divisionMetric("bids")
 		}
 	}
 
 	"bids.official_stores"(description: "Checkout congrats for items in any official store", compute_order: true) {
+		startWith {
+			experiment(regex("(search|vip)/.*"))
+		}
+
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
 				empty("event_data.items.item.official_store_id", false)
-			}
-		}
-	}
-
-	"bids.samedeal"(description: "Checkout congrats for items in the same deal of exposition", compute_order: true) {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				sameDeal("event_data.items.item.deal_ids", true)
 			}
 		}
 	}
@@ -176,131 +161,6 @@ metrics {
 			}
 		}
 	}
-
-	"bids|new_buyers"(description: "New buyers from feed", compute_order: true) {
-		countsOn {
-			condition {
-				and (
-					equals("path", "/orders/ordercreated"),
-					equals("event_data.buyer_segment", "new_buyer")
-				)
-			}
-		}
-	}
-
-	"bids|inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
-		countsOn {
-			condition {
-				and (
-					equals("path", "/orders/ordercreated"),
-					or(
-						equals("event_data.buyer_segment", "new_buyer"),
-						equals("event_data.buyer_segment", "recovered_buyer")
-					)
-				)
-			}
-		}
-	}
-
-	"bids|active_buyers"(description: "Active buyers from feed", compute_order: true) {
-		countsOn {
-			condition {
-				and (
-					equals("path", "/orders/ordercreated"),
-					equals("event_data.buyer_segment", "active_buyer")
-				)
-			}
-		}
-	}
-
-
-	// TODO REMOVE
-	"orders|new_buyers"(description: "New buyers from feed", compute_order: true) {
-		countsOn {
-			condition {
-				or(
-						and (
-								equals("path", "/orders/ordercreated"),
-								equals("event_data.is_carrito", false),
-								equals("event_data.buyer_segment", "new_buyer")
-						),
-						and (
-								equals("path","/purchases/purchasecreated"),
-								equals("event_data.buyer_segment", "new_buyer")
-						)
-				)
-			}
-		}
-	}
-
-	// TODO REMOVE
-	"orders|inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
-		countsOn {
-			condition {
-				or(
-						and (
-								equals("path", "/orders/ordercreated"),
-								equals("event_data.is_carrito", false),
-								or(
-										equals("event_data.buyer_segment", "new_buyer"),
-										equals("event_data.buyer_segment", "recovered_buyer")
-								)
-						),
-						and (
-								equals("path","/purchases/purchasecreated"),
-								or(
-										equals("event_data.buyer_segment", "new_buyer"),
-										equals("event_data.buyer_segment", "recovered_buyer")
-								)
-						)
-				)
-			}
-		}
-	}
-
-	// TODO REMOVE
-	"orders|active_buyers"(description: "Active buyers from feed", compute_order: true) {
-		countsOn {
-			condition {
-				or(
-						and (
-								equals("path", "/orders/ordercreated"),
-								equals("event_data.is_carrito", false),
-								equals("event_data.buyer_segment", "active_buyer")
-						),
-						and (
-								equals("path","/purchases/purchasecreated"),
-								equals("event_data.buyer_segment", "active_buyer")
-						)
-				)
-			}
-		}
-	}
-
-	"orders.sameItem"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				and(
-					equals("event_data.is_carrito", false),
-					equals("event_data.items.item.id", property("item_id"))
-				)
-			}
-		}
-	}
-
-	// TODO Remove
-	"orders.sameItemQuick"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true, ttl: 30) {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				and(
-					equals("event_data.is_carrito", false),
-					equals("event_data.items.item.id", property("item_id"))
-				)
-			}
-		}
-	}
 	
 	"bids.sameItem"(description: "/orders/ordercreated from feed in the sam item of experiement", compute_order: true) {
 		countsOn {
@@ -312,35 +172,14 @@ metrics {
 	}
 
 	"bids.sameItemQuick"(description: "Quick attribution of bids", compute_order: true, ttl: 30) {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
 				equals("event_data.items.item.id", property("item_id"))
 
-			}
-		}
-	}
-
-	"orders.sameProduct"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				and(
-						equals("event_data.is_carrito", false),
-						equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
-				)
-			}
-		}
-	}
-	
-	"orders.sameProductQuick"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true, ttl: 30) {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				and(
-						equals("event_data.is_carrito", false),
-						equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
-				)
 			}
 		}
 	}
@@ -353,8 +192,67 @@ metrics {
 			}
 		}
 	}
+	
+	"bids.sameProduct.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation and in the same product of experiement", compute_order: true) {
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and ( 
+					equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"paid"
+					),
+				equals("event_data.items.item.catalog_product_id", property("catalog_product_id"))
+				)	
+			}
+		}
+	}
+
+	"bids.sameProduct.cancelled"(description: "/orders/ordercreated that were finally cancelled. https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_2qPD6v_1dTSd && https://sites.google.com/mercadolibre.com/apicore/purchases/order/faq#h.p_XLySDD9XvDh9", compute_order: true, categorization:"important") {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
+		
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and (
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("status")
+							},
+							"cancelled"
+					),
+					equals("event_data.items.item.catalog_product_id", property("catalog_product_id") ),
+					equals(
+							externalCondition {
+								url("internal/orders/\$0")
+								replace("event_data.order_id")
+								method("get")
+								successfulCodes(200,206)
+								jsonPath("hidden_for_seller")
+							},
+							false
+					),
+				)
+			}
+		}
+	}
 
 	"bids.sameProductQuick"(description: "/orders/ordercreated from feed", compute_order: true, ttl: 30) {
+		startWith {
+			experiment(regex("qadb/.*"))
+		}
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -363,19 +261,10 @@ metrics {
 		}
 	}
 
-	"orders.sameParent"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				and(
-						equals("event_data.is_carrito", false),
-						equals("event_data.items.item.catalog_parent_id", property("catalog_parent_id"))
-				)
-			}
-		}
-	}
-
 	"bids.sameParent"(description: "/orders/ordercreated from feed in the same parent product of experiement", compute_order: true) {
+		startWith {
+			experiment(regex("(vip|pdp|qadb)/.*"))
+		}
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -383,21 +272,13 @@ metrics {
 			}
 		}
 	}
-				  
 
-	"orders.sameSearch"(description: "/orders/ordercreated from feed (not from carrito)", compute_order: true) {
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				and(
-						equals("event_data.is_carrito", false),
-						equals("event_data.items.item.id", property("item_ids"))
-				)
-			}
-		}
-	}
 				       
 	"bids.sameSearch"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
+		startWith {
+			experiment(regex("search/.*"))
+		}
+		
 		countsOn {
 			condition {
 				path("/orders/ordercreated")
@@ -405,6 +286,31 @@ metrics {
 			}
 		}
 	}			       
+	
+	"bids.sameSearch.paid"(description: "/orders/ordercreated from feed in items that were present in the experiments search", compute_order: true) {
+		startWith {
+			experiment(regex("search/.*"))
+		}
+		
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and ( 
+					equals(
+						externalCondition {
+							url("internal/orders/\$0")
+							replace("event_data.order_id")
+							method("get")
+							successfulCodes(200,206)
+							jsonPath("status")
+						},
+						"paid"
+					),
+				equals("event_data.items.item.id", property("item_ids"))
+				)	
+			}
+		}
+	}	
 
 	"buys.pdp"(description: "Track PDP buys", compute_order: true) {
 		countsOn {
@@ -446,7 +352,7 @@ metrics {
 		}
 	}
 
-	"buys.fashion"(description: "Track buys only in fashion domain for Sparkle exp", compute_order: true) {
+	"buys.fashion"(description: "Track buys only in fashion domain for Sparkle exp", compute_order: true, deprecation_date:"2020/08/12") {
 		startWith {
 			experiment(regex("sparkle/.*"))
 		}
@@ -465,6 +371,30 @@ metrics {
 								)
 						)
 				)
+			}
+		}
+	}
+
+	"bids.sameOrder.paid"(description: "/orders/ordercreated from feed in the same order with Orders-API confirmation of experiement", compute_order: true) {
+		startWith {
+			experiment(regex("(checkout|buyingflow)/.*"))
+		}
+		
+		countsOn {
+			condition {
+				path("/orders/ordercreated")
+				and(
+						equals("event_data.order_id", property("order_id")),
+						equals(
+								externalCondition {
+									url("internal/orders/\$0")
+									replace("event_data.order_id")
+									method("get")
+									successfulCodes(200, 206)
+									jsonPath("status")
+								},
+								"paid"
+						))
 			}
 		}
 	}

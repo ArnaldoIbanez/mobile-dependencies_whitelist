@@ -1144,46 +1144,74 @@ tracks {
         items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
         recovery_flow(required: false, description: "Is recovery CHO flow")
     }
+    "/checkout/shipping/input_address/map"(platform:"/", type: TrackType.View, isAbstract: true) {
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+    }
 
     // Event
     "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the name")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the name track the name value")
     }
     "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_name")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_name track the street_name value")
     }
     "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the zip_code")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the zip_code track the zip_code value")
     }
     "/checkout/shipping/input_address/city"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the city")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the city track the city value")
     }
     "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the colony")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the colony track the colony value")
     }
     "/checkout/shipping/input_address/street_number"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the street_number")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the street_number track the street_number value")
     }
     "/checkout/shipping/input_address/references"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the references")
     }
     "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the delivery track the delivery value")
     }
     "/checkout/shipping/input_address/delivery_instructions"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the delivery_instructions")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the delivery_instructions track the delivery_instructions value")
     }
     "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the phone track the phone value")
     }
     "/checkout/shipping/input_address/telephone_input"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the telephone_input")
     }
     "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event) {
-        label(required: true, type: PropertyType.String, description: "If the address has an error on the phone")
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the additional info")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the additional info track the additional info value")
     }
     "/checkout/shipping/input_address/internal_number"(platform:"/", type: TrackType.Event) {
         label(required: true, type: PropertyType.String, description: "If the address has an error on the internal number")
+    }
+    "/checkout/shipping/input_address/caixa_postal_number"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the caixa postal number")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the caixa postal number track the caixa postal number value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
+    }
+    "/checkout/shipping/input_address/error_map"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+        label(required: true, type: PropertyType.String, description: "If the address has an error on the map step")
+        value(required: false, type: PropertyType.String, description: "If the address has an error on the map step track the map coordiantes value")
+        items(required: false, type: PropertyType.ArrayList, description: "Array of items in the cart with following data")
+        recovery_flow(required: false, description: "Is recovery CHO flow")
+        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
     }
 
 
@@ -1217,20 +1245,7 @@ tracks {
     * GarEx es una entidad que representa la garantia que el usuario elige para su producto
     * */
 
-    //web
-
-    "/checkout/garex"(platform:"/web", type: TrackType.View) {}
-    "/checkout/garex/more_info"(platform:"/web", type: TrackType.Event) {}
-    "/checkout/garex/selected_garex"(platform:"/web", type: TrackType.Event) {
-        garex(required: true, type: PropertyType.Map(garexTrackStructure) )
-    }
-    "/checkout/garex/not_selected_garex"(platform:"/web", type: TrackType.Event) {}
-    "/checkout/garex/delete"(platform:"/web", type: TrackType.Event) {
-        garex(required: true, type: PropertyType.Map(garexTrackStructure) )
-    }
-
     //mobile
-
     "/checkout/garex"(platform:"/mobile", type: TrackType.View) {}
     "/checkout/garex/more_info"(platform:"/mobile", type: TrackType.Event) {}
     "/checkout/garex/selected_garex"(platform:"/mobile", type: TrackType.Event) {
