@@ -722,6 +722,30 @@ tracks {
         )
     }
 
+    "/credits/merchant/enrollment/info"(platform: "/mobile", type: TrackType.View) {
+        reason(
+                description: "State reason",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        'already_taken_credit_line',
+                        "no_credit_lines_present"
+                ]
+        )
+        from(
+                description: "States previous navigation step (could be from same flow or not)",
+                type: PropertyType.String,
+                required: false,
+                inheritable: false
+        )
+        additional_info(
+                description: "Additional information regarding flow navigation",
+                type: PropertyType.String,
+                required: false,
+                inheritable: false
+        )
+    }
+
     //Documentation
     "/credits/merchant/enrollment/documentation"(platform: "/", type: TrackType.View) {
         user_type(
@@ -976,6 +1000,11 @@ tracks {
                 'none',
                 'express_money'
             ]
+        )
+        release_attemps_number(
+                description: "Number of attemps to release the advance",
+                type: PropertyType.Numeric,
+                required: false,
         )
     }
 

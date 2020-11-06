@@ -37,6 +37,9 @@ tracks {
     "/bill_payments/home/pay"(platform: "/mobile", type: TrackType.Event) {
         barcode(required: true, type: PropertyType.String, description: "the barcode used to pay")
     }
+    "/bill_payments/home/call_to_action"(platform: "/mobile", type: TrackType.Event) {
+        item (required:false, type: PropertyType.String, description: "The chosen item label")
+    }
 
     // Invoice
     "/bill_payments/invoices"(platform: "/mobile", type: TrackType.View) {}
@@ -89,6 +92,8 @@ tracks {
     "/bill_payments/receipt/share"(platform: "/mobile", type: TrackType.Event) {}
 
     // Scanner
+    "/bill_payments/permission_camera"(platform: "/mobile") {}
+    "/bill_payments/enable_camera"(platform: "/mobile") {}
     "/bill_payments/scan"(platform: "/mobile") {}
     "/bill_payments/read"(platform: "/mobile", type: TrackType.Event) {
         barcode(required: true, type: PropertyType.String, description: "the barcode used to pay")
@@ -98,11 +103,13 @@ tracks {
     "/bill_payments/main_category"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/category_details"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/main_category/item"(platform: "/mobile", type: TrackType.Event) {
-        entity (required:true, type: PropertyType.String, description: "The chosen entitie label")
+        entity (required:false, type: PropertyType.String, description: "The chosen entitie label")
+        item (required:false, type: PropertyType.String, description: "The chosen item label")
     }
 
     "/bill_payments/category_details/item"(platform: "/mobile", type: TrackType.Event) {
         entity (required:true, type: PropertyType.String, description: "The chosen entitie label")
+        item (required:false, type: PropertyType.String, description: "The chosen item label")
     }
 
     "/bill_payments/main_category/result_search"(platform: "/mobile", type: TrackType.Event) {
@@ -125,7 +132,6 @@ tracks {
     "/bill_payments/main_category/back"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/category_details/close"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/category_details/back"(platform: "/mobile", type: TrackType.Event) {}
-    
 
     "/bill_payments/help"(platform: "/mobile") {}
     "/bill_payments/associated_entities"(platform: "/mobile") {}

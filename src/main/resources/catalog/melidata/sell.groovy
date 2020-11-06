@@ -974,6 +974,9 @@ tracks {
         categoryFlow
         productFinderGroup
     }
+    "/sell/item_data/products_finder/update"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder/category_selection"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder/product_selection"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/products_finder/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/products_finder/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/products_finder/restart"(platform: "/web", type: TrackType.Event) {}
@@ -1136,6 +1139,15 @@ tracks {
     "/sell/congrats/share_task/email"(platform: "/web", type: TrackType.Event) {}
     "/sell/congrats/share_task/facebook"(platform: "/web", type: TrackType.Event) {}
     "/sell/congrats/share_task/twitter"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/congrats/go_kyc_onboarding"(platform: "/web", type: TrackType.Event) {
+        seller_type(required: true, description: "Seller type: normal, real_estate_agency, etc", values:["normal", "car_dealer", "real_estate_agency", "brand"], type: PropertyType.String)
+        seller_id(required: true, type: PropertyType.Numeric)
+    }
+
+    "/sell/congrats/go_health_action"(platform: "/web", type: TrackType.Event) {
+        action(required: true, description: "Health action: picture, price, video, etc", values:["publish", "price", "whatsapp", "video", "picture", "upgrade_listing", "technical_specification"], type: PropertyType.String)
+    }
 
     "/sell/presip"(platform: "/web", type: TrackType.View) {
         sellGroup

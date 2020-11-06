@@ -291,6 +291,17 @@ trackTests {
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {
             reason = 'loan_creation'
         }
+        "/credits/merchant/enrollment/info"(platform: "/mobile") {
+            reason = 'already_taken_credit_line'
+        }
+        "/credits/merchant/enrollment/info"(platform: "/mobile") {
+            reason = 'already_taken_credit_line'
+            from = "hub"
+            additional_info = 'clicked_on_access_row'
+        }
+        "/credits/merchant/enrollment/info"(platform: "/mobile") {
+            reason = 'no_credit_lines_present'
+        }
         "/credits/merchant/enrollment/documentation"(platform: "/web/desktop") {
             user_type = 'moral'
         }
@@ -707,16 +718,19 @@ trackTests {
             status = 'on_time'
             user_status = 'on_time'
             offer = 'none'
+            release_attemps_number = 4
         }
         "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'delayed'
             user_status = 'overdue'
             offer = 'none'
+            release_attemps_number = 4
         }
           "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'on_time'
             user_status = 'on_time'
             offer = 'express_money'
+              release_attemps_number = 4
         }
         "/credits/merchant/money_advance/congrats"(platform: "/mobile/android", type: TrackType.View) {
             offer = 'none'
