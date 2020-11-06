@@ -433,4 +433,23 @@ metrics {
       }
     }
   }
+
+  "payment.installments"(description: "Counts when a user pay with installments > 1", compute_payment: true) {
+    startWith {
+      experiment("px_nativo/highlight_installments")
+    }
+
+    countsOn {
+      condition {
+        path("/px_checkout/result/success")
+        and(
+          notEquals("event_data.extra_info.payer_cost.installments", "1"),
+          or(
+            equals("event_data.payment_method_type", "credit_card"),
+            equals("event_data.payment_method_type", "consumer_credits")
+          )
+        )
+      }
+    }
+  }
 }
