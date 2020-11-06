@@ -6,6 +6,8 @@ import com.ml.melidata.catalog.PropertyType
 import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 tracks
 {
+    initiative = "1179"
+
     propertyDefinitions {
         latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
         longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
