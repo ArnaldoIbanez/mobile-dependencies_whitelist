@@ -1516,7 +1516,10 @@ trackTests {
         "/single_player/paygo/recurrence"(platform: "/mobile", type: TrackType.View) {
             mandatory()
         }
-
+        "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/recurrence/more_charges"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
@@ -1867,7 +1870,10 @@ trackTests {
         "/single_player/paygo/recurrence"(platform: "/mobile", business: "mercadolibre", type: TrackType.View) {
             mandatory()
         }
-
+        "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/recurrence/more_charges"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()

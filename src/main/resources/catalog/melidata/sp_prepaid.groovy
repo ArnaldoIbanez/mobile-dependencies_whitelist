@@ -660,6 +660,9 @@ tracks {
     // Recurrence
     "/single_player/paygo/recurrence"(platform: "/mobile", type: TrackType.View) {}
 
+    "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
     "/single_player/paygo/recurrence/more_charges"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
