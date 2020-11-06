@@ -244,6 +244,7 @@ catalog {
         include business, "full.groovy"
         include business, "wms.groovy"
         include business, "logistics.groovy"
+        include business, "drivers_app.groovy"
         include business, "places.groovy"
         include business, "notifications_menvios.groovy"
     }
