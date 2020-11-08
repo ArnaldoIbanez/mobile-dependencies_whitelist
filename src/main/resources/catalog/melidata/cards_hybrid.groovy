@@ -466,6 +466,17 @@ tracks {
         )
     }
 
+    //Highlighted row
+    "/cards/hybrid/setup/virtual/highlighted_row"(platform: "/", isAbstract: true) { }
+    "/cards/hybrid/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in"],
+            description: "Highlighted Row button tapped"
+        )
+    }
+
     //Message
     "/cards/hybrid/setup/virtual/message"(platform: "/", isAbstract: true) { }
     "/cards/hybrid/setup/virtual/message/tap"(platform:"/", type: TrackType.Event) {
