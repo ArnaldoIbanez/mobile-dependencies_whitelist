@@ -1311,6 +1311,16 @@ trackTests {
             flow = "toll"
             session_id = "0b2d62f4-ac8a-4fee-a70e-fde5dcaf4519"
         }
+
+        def step_information = {
+            device_id = "321"
+            device_number = "057000658453238063"
+            product_id = "23"
+            vertical_id = "toll"
+            provider_id = "toll_mla_v2"
+            flavor = "toll"
+            last_recharge = "1459"
+        }
         
         def view_time = {
             view_time = 38927

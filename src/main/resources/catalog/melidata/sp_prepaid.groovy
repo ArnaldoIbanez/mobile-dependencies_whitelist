@@ -531,6 +531,7 @@ tracks {
 
     "/single_player/paygo"(platform: "/mobile", isAbstract: true) {
         mandatory
+        step_information
     }
 
 
