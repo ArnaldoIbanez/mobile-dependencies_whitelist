@@ -665,9 +665,11 @@ tracks {
     "/single_player/paygo/recurrence"(platform: "/mobile", type: TrackType.View) {}
 
     "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", type: TrackType.Event) {
+        item_structure
         view_time
     }
     "/single_player/paygo/recurrence/more_charges"(platform: "/mobile", type: TrackType.Event) {
+        item_structure
         view_time
     }
     "/single_player/paygo/recurrence/device_list"(platform: "/mobile", type: TrackType.Event) {
@@ -688,6 +690,7 @@ tracks {
     "/single_player/paygo/charge_list"(platform: "/mobile", type: TrackType.View) {}
 
     "/single_player/paygo/charge_list/selected_charge"(platform: "/mobile", type: TrackType.Event) {
+        item_structure
         view_time
     }
     "/single_player/paygo/charge_list/back"(platform: "/mobile", type: TrackType.Event) {
@@ -755,6 +758,7 @@ tracks {
         view_time
     }
     "/single_player/paygo/device_detail/delete_device"(platform: "/mobile", type: TrackType.Event) {
+        item_structure
         view_time
     }
     "/single_player/paygo/device_detail/back"(platform: "/mobile", type: TrackType.Event) {
@@ -776,7 +780,7 @@ tracks {
     "/single_player/paygo/cancel_device/confirm"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/paygo/cancel_device/back"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/cancel_device/cancel"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
@@ -795,7 +799,7 @@ tracks {
     "/single_player/paygo/delete_device/confirm"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/paygo/delete_device/back"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/delete_device/cancel"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 

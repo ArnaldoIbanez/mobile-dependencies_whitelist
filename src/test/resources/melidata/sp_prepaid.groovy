@@ -1353,6 +1353,12 @@ trackTests {
             content = ["Vehículos con ruedas dobles", "Altura mayor a 2,10m"]
         }
 
+        def item_structure = {
+            item_id = 11
+            type = "item2"
+            content = ["Vehículos con ruedas dobles", "Altura mayor a 2,10m"]
+        }
+
 
         //------------------------------------------------------------------------------------------------------------------------------------------------------
         // TRACKS Mercado Pago
@@ -1534,10 +1540,12 @@ trackTests {
         }
         "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            item_structure()
             view_time()
         }
         "/single_player/paygo/recurrence/more_charges"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            item_structure()
             view_time()
         }
         "/single_player/paygo/recurrence/device_list"(platform: "/mobile", type: TrackType.Event) {
@@ -1566,6 +1574,7 @@ trackTests {
 
         "/single_player/paygo/charge_list/selected_charge"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            item_structure()
             view_time()
         }
         "/single_player/paygo/charge_list/back"(platform: "/mobile", type: TrackType.Event) {
@@ -1649,6 +1658,7 @@ trackTests {
         }
         "/single_player/paygo/device_detail/delete_device"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            item_structure()
             view_time()
         }
         "/single_player/paygo/device_detail/back"(platform: "/mobile", type: TrackType.Event) {
@@ -1679,7 +1689,7 @@ trackTests {
             mandatory()
             view_time()
         }
-        "/single_player/paygo/cancel_device/back"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/paygo/cancel_device/cancel"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -1707,7 +1717,7 @@ trackTests {
             mandatory()
             view_time()
         }
-        "/single_player/paygo/delete_device/back"(platform: "/mobile", type: TrackType.Event) {
+        "/single_player/paygo/delete_device/cancel"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -1904,10 +1914,12 @@ trackTests {
         }
         "/single_player/paygo/recurrence/selected_charge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            item_structure()
             view_time()
         }
         "/single_player/paygo/recurrence/more_charges"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            item_structure()
             view_time()
         }
         "/single_player/paygo/recurrence/device_list"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
@@ -1936,6 +1948,7 @@ trackTests {
 
         "/single_player/paygo/charge_list/selected_charge"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            item_structure()
             view_time()
         }
         "/single_player/paygo/charge_list/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
@@ -2019,6 +2032,7 @@ trackTests {
         }
         "/single_player/paygo/device_detail/delete_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            item_structure()
             view_time()
         }
         "/single_player/paygo/device_detail/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
@@ -2049,7 +2063,7 @@ trackTests {
             mandatory()
             view_time()
         }
-        "/single_player/paygo/cancel_device/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/paygo/cancel_device/cancel"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -2077,7 +2091,7 @@ trackTests {
             mandatory()
             view_time()
         }
-        "/single_player/paygo/delete_device/back"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+        "/single_player/paygo/delete_device/cancel"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
