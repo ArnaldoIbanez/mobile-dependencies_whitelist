@@ -311,8 +311,8 @@ trackTests {
             context = "mock"
             driver_id = "1234"
             shipment_id = "1234"
-            receiver_latitude = "1234"
-            receiver_longitude = "1234"
+            latitude = "1234"
+            longitude = "1234"
         }
 
         "/logistics/last_mile/congrats/fail"(platform: "/mobile", type: TrackType.View) {
@@ -320,8 +320,8 @@ trackTests {
             context = "mock"
             driver_id = "1234"
             shipment_id = "1234"
-            receiver_latitude = "1234"
-            receiver_longitude = "1234"
+            latitude = "1234"
+            longitude = "1234"
         }
 
         "/logistics/last_mile/detail"(platform: "/mobile", type: TrackType.View) {
