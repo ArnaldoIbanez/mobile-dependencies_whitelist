@@ -7,7 +7,14 @@ import com.ml.melidata.TrackType
 tracks {
     initiative = '1127'
 
-    "/liveness"(platform: "/", isAbstract: true) {}
+    "/liveness"(platform: "/mobile", isAbstract: true) {
+        transaction_id(type: PropertyType.String, required: false, description: "Transaction id for user identifier")
+    }
+
+    "/liveness"(platform: "/web", isAbstract: true) {
+        transaction_id(type: PropertyType.String, required: true, description: "Transaction id for user identifier")
+    }
+
 
     "/liveness/enrollment"(platform: "/", type: TrackType.Event) {
         params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
