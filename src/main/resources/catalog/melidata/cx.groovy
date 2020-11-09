@@ -36,9 +36,9 @@ tracks {
         portal_broken_link_error(required: false, type: PropertyType.Boolean,
             description: "Indicates if the link used is broken")
         portal_broken_link_source_url(required: false, type: PropertyType.String, 
-            description: "Indicates the source url when found a broken link")
+            description: "Indicates the source url if when found a broken link")
         portal_broken_link_destination_url(required: false, type: PropertyType.String, 
-            description: "Indicates the destination url when found a broken link")
+            description: "Indicates the destination url if when found a broken link")
     }
 
     propertyGroups {
