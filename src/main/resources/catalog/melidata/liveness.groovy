@@ -30,7 +30,7 @@ tracks {
         initialization_description(type: PropertyType.String, required: true, description: "Description of initialization")
     }
 
-    "/liveness/challenge_time"(platform: "/", type: TrackType.Event) {
+    "/liveness/challenge"(platform: "/", type: TrackType.Event) {
         time(type: PropertyType.Numeric, required: true, description: "Time to complete challenge")
         challenge_result(type: PropertyType.Numeric, required: true, description: "Result of client validation")
         challenge_result_description(type: PropertyType.String, required: true, description: "Description of validation")
@@ -60,20 +60,16 @@ tracks {
     }
 
     "/liveness/action"(platform: "/", type: TrackType.Event) {
-        type(type: PropertyType.String, required: true, values: ["close"], description: "Type of actions")
+        type(type: PropertyType.String, required: true, values: [
+                "close",
+                "back",
+                "start_liveness"
+        ], description: "Type of actions")
     }
 
     "/liveness/landing"(platform: "/", type: TrackType.View) {}
 
-    "/liveness/fallback"(platform: "/web", type: TrackType.View) {
-        type(type: PropertyType.String, required: true, values: ["timeout", "cancel"], description: "Type of fallback")
-    }
-
-    "/liveness/fallback"(platform: "/mobile/android", type: TrackType.View) {
-        type(type: PropertyType.String, required: true, values: ["timeout", "cancel"], description: "Type of fallback")
-    }
-
-    "/liveness/fallback"(platform: "/mobile/ios", type: TrackType.View) {}
+    "/liveness/fallback"(platform: "/", type: TrackType.View) {}
 
     "/liveness/unsupported"(platform: "/", type: TrackType.View) {}
 }

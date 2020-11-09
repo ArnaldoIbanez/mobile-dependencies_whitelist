@@ -227,6 +227,18 @@ tracks {
             ],
             inheritable: false
         )
+        from(
+            description: "States previous navigation step (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        additional_info(
+            description: "Additional information regarding flow navigation",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
     }
 
     "/credits/merchant/administrator/spc_click"(platform: "/", type: TrackType.Event) {
@@ -603,6 +615,18 @@ tracks {
             type: PropertyType.Boolean,
             required: false,
         )
+        from(
+            description: "States previous navigation step (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        additional_info(
+            description: "Additional information regarding flow navigation",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
     }
 
     //Without Proposal
@@ -695,6 +719,30 @@ tracks {
                 'default'
             ],
             inheritable: false
+        )
+    }
+
+    "/credits/merchant/enrollment/info"(platform: "/mobile", type: TrackType.View) {
+        reason(
+                description: "State reason",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        'already_taken_credit_line',
+                        "no_credit_lines_present"
+                ]
+        )
+        from(
+                description: "States previous navigation step (could be from same flow or not)",
+                type: PropertyType.String,
+                required: false,
+                inheritable: false
+        )
+        additional_info(
+                description: "Additional information regarding flow navigation",
+                type: PropertyType.String,
+                required: false,
+                inheritable: false
         )
     }
 
@@ -953,6 +1001,11 @@ tracks {
                 'express_money'
             ]
         )
+        release_attemps_number(
+                description: "Number of attemps to release the advance",
+                type: PropertyType.Numeric,
+                required: false,
+        )
     }
 
     //Congrats money advance mobile
@@ -1097,6 +1150,18 @@ tracks {
                 type: PropertyType.ArrayList,
                 required: false,
         )
+        from(
+            description: "States previous navigation step (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        additional_info(
+            description: "Additional information regarding flow navigation",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
     }
 
     "/credits/express_money/amount_input/simulation"(platform: "/mobile", type: TrackType.View) {
@@ -1190,22 +1255,22 @@ tracks {
         has_prepaid(
             description: "Metric to track users who has accepted a loan and has prepaid card enabled",
             type: PropertyType.Boolean,
-            required: true,
+            required: false,
         )
         requested_amount(
             description: "User requested amount",
             type: PropertyType.Numeric,
-            required: true,
+            required: false,
         )
         max_amount(
             description: "Credit line maximum allowed amount",
             type: PropertyType.Numeric,
-            required: true,
+            required: false,
         )
         min_amount(
             description: "Credit line minimum allowed amount",
             type: PropertyType.Numeric,
-            required: true,
+            required: false,
         )
         default_payment_term(
                 description: "Default payment term selected",
@@ -1221,6 +1286,26 @@ tracks {
                 description: "Available payment terms",
                 type: PropertyType.ArrayList,
                 required: false,
+        )
+        reason(
+            description: "State reason",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'already_taken_credit_line',
+            ]
+        )
+        from(
+            description: "States previous navigation step (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        additional_info(
+            description: "Additional information regarding flow navigation",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
         )
     }
 
@@ -1239,7 +1324,43 @@ tracks {
         )
     }
 
-    "/credits/express_money/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/express_money/info"(platform: "/", type: TrackType.View) {
+        reason(
+            description: "State reason",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'no_credit_lines_present',
+            ]
+        )
+        from(
+            description: "States previous navigation step (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        additional_info(
+            description: "Additional information regarding flow navigation",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+    }
+
+    "/credits/express_money/onboarding"(platform: "/mobile", type: TrackType.View) {
+        from(
+            description: "States previous navigation step (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+        additional_info(
+            description: "Additional information regarding flow navigation",
+            type: PropertyType.String,
+            required: false,
+            inheritable: false
+        )
+    }
 
     /******************************************
      *   End: Express money

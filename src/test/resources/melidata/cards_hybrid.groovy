@@ -579,6 +579,13 @@ trackTests {
             action = "additional_message_freeze"
         }
     }
+
+    //Highlighted Row
+    test("cards hybrid setup virtual Highlighted Row") {
+        "/cards/hybrid/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
+        }
+    }
     
     //Account options
     test("cards hybrid setup virtual card message") {

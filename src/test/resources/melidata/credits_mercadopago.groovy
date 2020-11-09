@@ -265,6 +265,23 @@ trackTests {
                 ]
             ]
         }
+        "/credits/merchant/enrollment"(platform: "/mobile/android") {
+            status = 'pending'
+            product_type = 'default'
+            is_capped_offer= true
+            is_kyc_compliance=true
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
+        "/credits/merchant/enrollment"(platform: "/mobile/ios") {
+            status = 'pending'
+            product_type = 'default'
+            is_capped_offer= true
+            is_kyc_compliance=true
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
+
         "/credits/merchant/enrollment/without_proposal"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/confirmation"(platform: "/web/desktop") {
             amount = 200000
@@ -273,6 +290,17 @@ trackTests {
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {
             reason = 'loan_creation'
+        }
+        "/credits/merchant/enrollment/info"(platform: "/mobile") {
+            reason = 'already_taken_credit_line'
+        }
+        "/credits/merchant/enrollment/info"(platform: "/mobile") {
+            reason = 'already_taken_credit_line'
+            from = "hub"
+            additional_info = 'clicked_on_access_row'
+        }
+        "/credits/merchant/enrollment/info"(platform: "/mobile") {
+            reason = 'no_credit_lines_present'
         }
         "/credits/merchant/enrollment/documentation"(platform: "/web/desktop") {
             user_type = 'moral'
@@ -462,6 +490,11 @@ trackTests {
             promise = 'create_promise'
             show_cx_widget = true
         })
+        "/credits/merchant/administrator"(platform: "/") {
+            promise = 'none'
+            from = 'enrollment'
+            additional_info = 'credit_line_taken'
+        }
 
         "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {}
 
@@ -685,16 +718,19 @@ trackTests {
             status = 'on_time'
             user_status = 'on_time'
             offer = 'none'
+            release_attemps_number = 4
         }
         "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'delayed'
             user_status = 'overdue'
             offer = 'none'
+            release_attemps_number = 4
         }
           "/credits/merchant/money_advance/congrats"(platform: "/web/desktop") {
             status = 'on_time'
             user_status = 'on_time'
             offer = 'express_money'
+              release_attemps_number = 4
         }
         "/credits/merchant/money_advance/congrats"(platform: "/mobile/android", type: TrackType.View) {
             offer = 'none'
@@ -728,10 +764,14 @@ trackTests {
 
         "/credits/express_money/amount_input"(platform: "/mobile/android", type: TrackType.View) {
             show_onboarding = true
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
         "/credits/express_money/amount_input"(platform: "/mobile/ios", type: TrackType.View) {
             show_onboarding = false
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
         "/credits/express_money/amount_input"(platform: "/web/desktop", type: TrackType.View) {
@@ -750,6 +790,8 @@ trackTests {
             min_amount = 100
             default_payment_term = "7"
             payment_terms = ["7", "14", "21"]
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
         "/credits/express_money/amount_input"(platform: "/mobile/ios") {
@@ -759,6 +801,8 @@ trackTests {
             min_amount = 100
             default_payment_term = "7"
             payment_terms = ["7", "14", "21"]
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
         "/credits/express_money/amount_input"(platform: "/web/desktop") {}
@@ -904,6 +948,12 @@ trackTests {
             payment_terms = ["7", "14", "21"]
         }
 
+        "/credits/express_money/congrats"(platform: "/mobile/ios", type: TrackType.View) {
+            reason = "already_taken_credit_line"
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
+
         "/credits/express_money/error"(platform: "/web/desktop") {
             reason = 'default'
         }
@@ -942,6 +992,12 @@ trackTests {
 
         "/credits/express_money/error"(platform: "/mobile/android") {
             reason = 'simulation'
+        }
+
+        "/credits/express_money/info"(platform: "/mobile/android") {
+            reason = 'no_credit_lines_present'
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
         "/credits/express_money/onboarding"(platform: "/mobile/android") {}

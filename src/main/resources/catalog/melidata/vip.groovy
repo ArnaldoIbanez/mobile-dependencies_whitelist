@@ -169,6 +169,8 @@ tracks {
                 description: "Indicates if the item has price comparison available")
         has_good_price(required: false, type: PropertyType.Boolean,
                 description: "Indicates if the item has tagged as good price according to price comparison")
+        catalog_market_price(required: false, type: PropertyType.Numeric,
+                description: "Price of item according the market, for example FIPE in MLB")
         price_comparison_position(required: false, type: PropertyType.Numeric,
                 description: "Indicates position price comparison")
         has_seller_level_kyc(required: false, type: PropertyType.Boolean,

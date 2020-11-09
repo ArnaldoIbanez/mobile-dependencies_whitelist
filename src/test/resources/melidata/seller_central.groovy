@@ -2795,6 +2795,12 @@ trackTests {
     }
   }
 
+  test("seller central listing promos error action") {
+    "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event) {
+      action_id = "CREATE"
+    }
+  }
+
   test("seller central listing secondary_actions") {
     "/seller_central/promotions/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
   }
@@ -2818,6 +2824,14 @@ trackTests {
     }
 
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {}
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central Questions
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  test("Seller central render Questions") {
+    "/seller_central/questions"(platform: "/", type: TrackType.View) {}
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------

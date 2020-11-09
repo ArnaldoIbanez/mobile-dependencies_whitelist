@@ -12,7 +12,7 @@ trackTests {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
         }
-    
+
         "/liveness/authentication"(platform: "/mobile/android") {
             params = "test=true"
         }
@@ -24,14 +24,14 @@ trackTests {
             transaction_id = "fdsf21341fdsf13123"
         }
 
-        "/liveness/challenge_time"(platform: "/mobile/android") {
+        "/liveness/challenge"(platform: "/mobile/android") {
             time = 1241
             challenge_result = 0
             challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/mobile/android") {
-        	success = false
+            success = false
             upload_time = 1413
             liveness_result = 0 
             transaction_id = "fdsf21341fdsf13123"
@@ -56,9 +56,7 @@ trackTests {
 
         "/liveness/landing"(platform: "/mobile/android") {}
 
-        "/liveness/fallback"(platform: "/mobile/android") {
-            type = "timeout"
-        }
+        "/liveness/fallback"(platform: "/mobile/android") {}
 
         "/liveness/unsupported"(platform: "/mobile/android") {}
     }
@@ -68,7 +66,7 @@ trackTests {
         "/liveness/enrollment"(platform: "/mobile/ios") {
             params = "test=true"
         }
-    
+
         "/liveness/authentication"(platform: "/mobile/ios") {
             params = "test=true"
         }
@@ -80,16 +78,16 @@ trackTests {
             transaction_id = "fdsf21341fdsf13123"
         }
 
-        "/liveness/challenge_time"(platform: "/mobile/ios") {
+        "/liveness/challenge"(platform: "/mobile/ios") {
             time = 1241
             challenge_result = 0
             challenge_result_description = "test"
         }
 
         "/liveness/result"(platform: "/mobile/ios") {
-        	success = true
+            success = true
             upload_time = 1413
-            liveness_result = 0 
+            liveness_result = 0
         }
 
         "/liveness/redirect"(platform: "/mobile/ios") {
@@ -122,7 +120,7 @@ trackTests {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
         }
-    
+
         "/liveness/authentication"(platform: "/web") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
@@ -135,7 +133,7 @@ trackTests {
             transaction_id = "fdsf21341fdsf13123"
         }
 
-        "/liveness/challenge_time"(platform: "/web") {
+        "/liveness/challenge"(platform: "/web") {
             time = 1241
             challenge_result = 0
             challenge_result_description = "test"
@@ -143,7 +141,7 @@ trackTests {
         }
 
         "/liveness/result"(platform: "/web") {
-        	success = true
+            success = true
             upload_time = 1413
             liveness_result = 0 
             transaction_id = "fdsf21341fdsf13123"
@@ -175,7 +173,6 @@ trackTests {
         }
 
         "/liveness/fallback"(platform: "/web") {
-            type = "timeout"
             transaction_id = "fdsf21341fdsf13123"
         }
 
@@ -191,7 +188,7 @@ trackTests {
         "/liveness/enrollment"(platform: "/mobile/android") {
             params = "test=true"
         }
-    
+
         "/liveness/authentication"(platform: "/mobile/android") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
@@ -203,7 +200,7 @@ trackTests {
             initialization_description = "test"
         }
 
-        "/liveness/challenge_time"(platform: "/mobile/android") {
+        "/liveness/challenge"(platform: "/mobile/android") {
             time = 1241
             challenge_result = 0
             challenge_result_description = "test"
@@ -211,9 +208,9 @@ trackTests {
         }
 
         "/liveness/result"(platform: "/mobile/android") {
-        	success = true
+            success = true
             upload_time = 1413
-            liveness_result = 0 
+            liveness_result = 0
         }
 
         "/liveness/redirect"(platform: "/mobile/android") {
@@ -234,11 +231,17 @@ trackTests {
             type = "close"
         }
 
+        "/liveness/action"(platform: "/mobile/android") {
+            type = "back"
+        }
+
+        "/liveness/action"(platform: "/mobile/android") {
+            type = "start_liveness"
+        }
+
         "/liveness/landing"(platform: "/mobile/android") {}
 
-        "/liveness/fallback"(platform: "/mobile/android") {
-            type = "cancel"
-        }
+        "/liveness/fallback"(platform: "/mobile/android") {}
 
         "/liveness/unsupported"(platform: "/mobile/android") {}
     }
@@ -248,7 +251,7 @@ trackTests {
         "/liveness/enrollment"(platform: "/mobile/ios") {
             params = "test=true"
         }
-    
+
         "/liveness/authentication"(platform: "/mobile/ios") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
@@ -260,7 +263,7 @@ trackTests {
             initialization_description = "test"
         }
 
-        "/liveness/challenge_time"(platform: "/mobile/ios") {
+        "/liveness/challenge"(platform: "/mobile/ios") {
             time = 1241
             challenge_result = 0
             challenge_result_description = "test"
@@ -268,9 +271,9 @@ trackTests {
         }
 
         "/liveness/result"(platform: "/mobile/ios") {
-        	success = true
+            success = true
             upload_time = 1413
-            liveness_result = 0 
+            liveness_result = 0
         }
 
         "/liveness/redirect"(platform: "/mobile/ios") {
@@ -291,6 +294,14 @@ trackTests {
             type = "close"
         }
 
+        "/liveness/action"(platform: "/mobile/ios") {
+            type = "back"
+        }
+
+        "/liveness/action"(platform: "/mobile/ios") {
+            type = "start_liveness"
+        }
+
         "/liveness/landing"(platform: "/mobile/ios") {}
 
         "/liveness/fallback"(platform: "/mobile/ios") {}
@@ -304,7 +315,7 @@ trackTests {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
         }
-    
+
         "/liveness/authentication"(platform: "/web") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
@@ -317,7 +328,7 @@ trackTests {
             transaction_id = "fdsf21341fdsf13123"
         }
 
-        "/liveness/challenge_time"(platform: "/web") {
+        "/liveness/challenge"(platform: "/web") {
             time = 1241
             challenge_result = 0
             challenge_result_description = "test"
@@ -325,7 +336,7 @@ trackTests {
         }
 
         "/liveness/result"(platform: "/web") {
-        	success = true
+            success = true
             upload_time = 1413
             liveness_result = 0 
             transaction_id = "fdsf21341fdsf13123"
@@ -352,12 +363,21 @@ trackTests {
             transaction_id = "fdsf21341fdsf13123"
         }
 
+        "/liveness/action"(platform: "/web") {
+            type = "back"
+            transaction_id = "fdsf21341fdsf13123"
+        }
+
+        "/liveness/action"(platform: "/web") {
+            type = "start_liveness"
+            transaction_id = "fdsf21341fdsf13123"
+        }
+
         "/liveness/landing"(platform: "/web") {
             transaction_id = "fdsf21341fdsf13123"
         }
 
         "/liveness/fallback"(platform: "/web") {
-            type = "timeout"
             transaction_id = "fdsf21341fdsf13123"
         }
 
