@@ -595,16 +595,19 @@ tracks {
 
     "/single_player/paygo/category_list/selected_category"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mandatory
+        step_information
         view_time
         item_structure
     }
     "/single_player/paygo/category_list/more_categories"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mandatory
+        step_information
         view_time
         item_structure
     }
     "/single_player/paygo/category_list/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mandatory
+        step_information
         view_time
     }
 
@@ -717,20 +720,24 @@ tracks {
     // Multiple devices
     "/single_player/paygo/multiple_devices"(platform: "/mobile", type: TrackType.View) {
         quantity(required: true, PropertyType.Numeric, description: "Quantity of items")
+        notification_panel(required: false, PropertyType.Map(notification_panel_structure), description: "Information about the notification panel showed")
         available_items
     }
 
     "/single_player/paygo/multiple_devices/selected_device"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mandatory
+        step_information
         view_time
         item_structure
     }
     "/single_player/paygo/multiple_devices/another_device"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mandatory
+        step_information
         view_time
     }
     "/single_player/paygo/multiple_devices/back"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
         mandatory
+        step_information
         view_time
     }
 
