@@ -3020,10 +3020,6 @@ trackTests {
         }
 
         //congrats
-        "/bill_payments/congrats"(platform: "/mobile") {
-            mandatory()
-        }
-
         "/bill_payments/congrats/success"(platform: "/mobile") {
             mandatory()
         }
