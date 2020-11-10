@@ -881,25 +881,109 @@ tracks {
     
     // OPTIONS
     // --------
+
+
+    propertyDefinitions {
+        product_type(
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'virtual_debit',
+                'virtual_prepaid',
+                'virtual_credit',
+                'virtual_hybrid',
+                'virtual_debit_nfc',
+                'chip_debit',
+                'chip_prepaid',
+                'chip_credit',
+                'chip_hybrid',
+                'chip_debit_nfc',
+                'contacless_debit',
+                'contacless_prepaid',
+                'contacless_credit',
+                'contacless_hybrid',
+                'contacless_debit_nfc',
+                'wallet_debit',
+                'wallet_prepaid',
+                'wallet_credit',
+                'wallet_hybrid',
+                'wallet_debit_nfc',
+            ]
+        )
+        status(
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'active',
+                'blocked',
+                'delivered',
+                'deprecated',
+                'depurated',
+                'freeze',
+                'inactive',
+                'pin_blocked'
+            ]
+        )
+        action(
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'freeze',
+                'unfreeze',
+                'reissue',
+                'change_limits',
+                'change_pin',
+            ]
+        )
+    }
+
+    propertyGroups {
+        card_group(product_type, status)
+    }
+
+    propertyGroups {
+        card_action_group(product_type, action)
+    }
+
+    def card_map = objectSchemaDefinitions {
+        card_group
+    }
+
      "/cards/hybrid/setup/options"(platform: "/", type: TrackType.View) {
-         virtual_status (required:false, type: PropertyType.String, description: "Virtual status", inheritable:false)
-         debit_status (required:false, type: PropertyType.String, description: "Debit status", inheritable:false)
-         hybrid_status (required:false, type: PropertyType.String, description: "Hybrid status", inheritable:false)
-         empty_state (required:false, type: PropertyType.String, description: "Empty state status", inheritable:false)
+         cards(
+             required: true,
+             type: PropertyType.ArrayList(PropertyType.Map(card_map)),
+             inheritable: false
+         )
      }
 
-    "/cards/hybrid/setup/options/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/setup/options/empty_state"(platform: "/", type: TrackType.View) {}
+    "/cards/hybrid/setup/options/empty_state/tap"(platform: "/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["block_card", "change_limits", "change_pin", "virtual_debit_unfreeze", "virtual_debit_freeze", "physical_unfreeze", "physical_freeze", "primary_button_empty_state"],
-            description: "Row tapped"
+            values: ["primary_button"],
+            inheritable: false
         )
+    }
+
+
+    "/cards/hybrid/setup/options/tap"(platform:"/", type: TrackType.Event) {
+        card_action_group
+    }
+
+    "/cards/hybrid/setup/options/tap/success"(platform:"/", type: TrackType.Event) {
+        card_action_group
+    }
+
+    "/cards/hybrid/setup/options/tap/failure"(platform:"/", type: TrackType.Event) {
+        card_action_group
     }
     
     // Options message
     "/cards/hybrid/setup/options/message"(platform: "/", isAbstract: true) {}
-    "/cards/hybrid/setup/options/message/tap"(platform:"/", type: TrackType.Event) {
+    "/cards/hybrid/setup/options/message/lock"(platform: "/", isAbstract: true) {}
+    "/cards/hybrid/setup/options/message/lock/tap"(platform:"/", type: TrackType.Event) {
         action (
             required: true,
             type: PropertyType.String,
