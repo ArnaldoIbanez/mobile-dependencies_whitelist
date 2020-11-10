@@ -576,6 +576,12 @@ tracks {
         scenario(type: PropertyType.String, required: true, values: ["no_security", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled", "awareness", "insistence", "reminder1", "reminder2"])
     }
 
+    "/screenlock/multiple_sessions_shield"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
+        enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
+        os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+    }
+
     // IFPE Auth restrictions & Reauth errors
     "/auth/restrictions"(platform: "/", type: TrackType.View) {}
     "/auth/restrictions/error"(platform: "/", type: TrackType.View) {
