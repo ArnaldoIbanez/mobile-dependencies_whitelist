@@ -381,6 +381,7 @@ tracks {
                 values: ["asc", "desc"],
                 description: "Sort direction"
             )
+        campaign_id(required: false, description: "Id related to the campaign")
         budget(required: false, type: PropertyType.String, description: "Current budget related to the campaign")
         status(required: false, description: "Current status related to the campaign", values: ['active', 'paused'])
         multi(required: false, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
@@ -438,6 +439,7 @@ tracks {
     "/advertising/pads2/manager/metrics_range"(
         platform: "/",
         type: TrackType.Event) {
+        campaign_id(required: false, description: "Id related to the campaign")
         multi(required: false, type: PropertyType.String, description: "Indicates if it is a multicampaign dashboard")
         days(required: true, type: PropertyType.Numeric)
         to(required: true, type: PropertyType.String)
