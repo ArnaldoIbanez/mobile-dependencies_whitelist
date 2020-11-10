@@ -46,6 +46,11 @@ trackTests {
             product_types = ['fixed_term_loan']
             is_kyc_compliant = false
         }
+        "/credits/merchant/enrollment/onboarding"(platform: "/mobile/android") {
+            product_types = ['fixed_term_loan']
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
 
         //Kyc Onboarding
         "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
@@ -75,6 +80,12 @@ trackTests {
                     offer_type : 'online'
             ]
             product_types = ['fixed_term_loan']
+        }
+
+        "/credits/merchant/enrollment/kyc_onboarding"(platform: "/mobile/android") {
+            product_types = ['fixed_term_loan']
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
         //Hub
@@ -121,6 +132,11 @@ trackTests {
             ]
             product_types = ['sales_percentage_loan', 'fixed_term_loan']
             is_kyc_compliant = true
+        }
+        "/credits/merchant/enrollment/hub"(platform: "/mobile/android") {
+            product_types = ['sales_percentage_loan', 'fixed_term_loan']
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
         //Simulator
@@ -229,7 +245,17 @@ trackTests {
 
         "/credits/merchant/enrollment/kyc_user_challenges_onboarding"(platform: "/mobile", type: TrackType.Event) {}
 
+        "/credits/merchant/enrollment/kyc_user_challenges_onboarding"(platform: "/mobile", type: TrackType.Event) {
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
+
         "/credits/merchant/enrollment/kyc_back_office_congrats"(platform: "/mobile", type: TrackType.Event) {}
+
+        "/credits/merchant/enrollment/kyc_back_office_congrats"(platform: "/mobile", type: TrackType.Event) {
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
     }
 
     test("Merchant Credits Enrollment") {
@@ -290,6 +316,11 @@ trackTests {
         "/credits/merchant/enrollment/congrats"(platform: "/web/desktop") {}
         "/credits/merchant/enrollment/error"(platform: "/web/desktop") {
             reason = 'loan_creation'
+        }
+        "/credits/merchant/enrollment/error"(platform: "mobile") {
+            reason = 'loan_creation'
+            from = "hub"
+            additional_info = 'clicked_on_access_row'
         }
         "/credits/merchant/enrollment/info"(platform: "/mobile") {
             reason = 'already_taken_credit_line'
@@ -495,6 +526,11 @@ trackTests {
             from = 'enrollment'
             additional_info = 'credit_line_taken'
         }
+        "/credits/merchant/administrator"(platform: "/") {
+            promise = 'none'
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
 
         "/credits/merchant/administrator/spc_click"(platform: "/web/desktop") {}
 
@@ -503,6 +539,11 @@ trackTests {
         }
 
         "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
+
+        "/credits/merchant/administrator/error"(platform: "/mobile") {
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
+        }
 
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {}
         "/credits/merchant/administrator/detail"(platform: "/web/desktop") {
@@ -544,6 +585,11 @@ trackTests {
                 fixed_term_map(),
                 sales_percentage_map()
             ]
+        }
+
+        "/credits/merchant/administrator/late_debt"(platform: "/mobile") {
+            from = 'hub'
+            additional_info = 'clicked_on_access_row'
         }
 
         "/credits/merchant/administrator/detail/conditions"(platform: "/web/desktop") {}
