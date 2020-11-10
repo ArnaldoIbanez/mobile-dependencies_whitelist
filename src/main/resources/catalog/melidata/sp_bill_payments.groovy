@@ -200,6 +200,7 @@ tracks {
     "/bill_payments/input_validation_error"(platform: "/mobile", type: TrackType.Event) {}
 
     // congrats success
+    "/bill_payments/congrats"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/congrats/success"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/congrats/success/receipt"(platform: "/mobile", type: TrackType.Event) {}
