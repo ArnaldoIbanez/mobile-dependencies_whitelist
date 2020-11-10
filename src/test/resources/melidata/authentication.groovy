@@ -871,6 +871,29 @@ trackTests {
                 ]
                 scenario = "never_auto_enrolled"
             }
+
+            "/screenlock/multiple_sessions_shield"(platform: "/mobile/android", type: TrackType.View) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/multiple_sessions_shield"(platform: "/mobile/ios", type: TrackType.View) {
+                enrollment_status = "disabled"
+                os_status = "basic_screenlock"
+                config = [
+                        "transaction": "enabled",
+                        "opening_lock": "disabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
         }
 
         test("Screenlock app opening lock feature") {
