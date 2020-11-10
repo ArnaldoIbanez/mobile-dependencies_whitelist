@@ -984,42 +984,70 @@ trackTests {
     //OPTIONS
     test("cards hybrid options tracking") {
         "/cards/hybrid/setup/options"(platform:"/", type: TrackType.View) {
-            virtual_status = "blocked"
-            debit_status = "freezed"
-            hybrid_status = "active"
+            cards = [
+                [
+                    "product_type": "virtual_debit",
+                    "status": "active",
+                ],
+                [
+                    "product_type": "virtual_credit",
+                    "status": "active",
+                ],
+                [
+                    "product_type": "chip_prepaid",
+                    "status": "active",
+                ]
+            ]
         }
         "/cards/hybrid/setup/options"(platform:"/", type: TrackType.View) {
-            empty_state = "hybrid_invalid"
+            cards = []
+        }
+        "/cards/hybrid/setup/options/empty_state"(platform:"/", type: TrackType.View) {}
+        "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
+            action = "primary_button"
         }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
-            action = "block_card"
+            product_type = "chip_prepaid"
+            action = "reissue"
         }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "chip_prepaid"
             action = "change_limits"
         }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "chip_prepaid"
             action = "change_pin"
         }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
-            action = "virtual_debit_unfreeze"
+            product_type = "virtual_debit"
+            action = "freeze"
+
         }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
-            action = "virtual_debit_freeze"
+            product_type = "virtual_debit"
+            action = "freeze"
         }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
-            action = "physical_unfreeze"
+            product_type = "chip_prepaid"
+            action = "unfreeze"
         }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
-            action = "physical_freeze"
+            product_type = "chip_prepaid"
+            action = "freeze"
         }
-        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
-            action = "primary_button_empty_state"
+        "/cards/hybrid/setup/options/tap/success"(platform: "/", type: TrackType.Event) {
+            product_type = "chip_prepaid"
+            action = "freeze"
+        }
+        "/cards/hybrid/setup/options/tap/failure"(platform: "/", type: TrackType.Event) {
+            product_type = "chip_prepaid"
+            action = "freeze"
         }
     }
-    
+
     //OPTIONS Message
     test("cards hybrid options message tracking") {
-        "/cards/hybrid/setup/options/message/tap"(platform:"/", type: TrackType.Event) {
+        "/cards/hybrid/setup/options/message/lock/tap"(platform:"/", type: TrackType.Event) {
             action = "blocked_pin"
         }
     }
@@ -1030,7 +1058,7 @@ trackTests {
             action = "research_form"
         }
     }
-    
+
     //NFC HUB
     test("cards hybrid nfc enrollment hub") {
         "/cards/nfc/enrollment/hub"(platform:"/", type: TrackType.View) {}
