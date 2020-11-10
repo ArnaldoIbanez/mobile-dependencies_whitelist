@@ -632,6 +632,9 @@ tracks {
     "/single_player/paygo/review_information/edit_address"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+    "/single_player/paygo/review_information/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
     "/single_player/paygo/review_information/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
@@ -656,7 +659,9 @@ tracks {
 
 
     // Congrats rejected
-    "/single_player/paygo/congrats_rejected"(platform: "/mobile", type: TrackType.View) {}
+    "/single_player/paygo/congrats_rejected"(platform: "/mobile", type: TrackType.View) {
+        error_code(required: false, PropertyType.String, description: "Error code in server")
+    }
     "/single_player/paygo/congrats_rejected/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/paygo/congrats_pending/back"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -810,4 +815,42 @@ tracks {
     "/single_player/paygo/congrats_delete_tag/back_to_home"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+
+
+    // Errors
+    "/single_player/paygo/error"(platform: "/mobile", isAbstract: true) {}
+
+    // Errors - Internal error
+    "/single_player/paygo/error/internal"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/error/internal/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/paygo/error/internal/back"(platform: "/mobile", type: TrackType.Event) {}
+
+
+    // Errors - Server error
+    "/single_player/paygo/error/server"(platform: "/mobile", type: TrackType.View) {
+        error_code(required: false, PropertyType.String, description: "Error code in server")
+    }
+
+    "/single_player/paygo/error/server/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/error/server/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+
+    // Errors - Connection error
+    "/single_player/paygo/error/connection"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/error/connection/retry"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/paygo/error/connection/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/paygo/error/connection/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    
+
+    // Errors - Timeout error
+    "/single_player/paygo/error/timeout"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/error/timeout/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+    "/single_player/paygo/error/timeout/back"(platform: "/mobile", type: TrackType.Event) {}
 }
