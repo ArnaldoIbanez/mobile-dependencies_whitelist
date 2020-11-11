@@ -980,22 +980,22 @@ tracks {
     "/sell/item_data/products_finder/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/products_finder/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/products_finder/restart"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/products_finder_button"(platform: "/web", isAbstract: true) {}
-    "/sell/item_data/products_finder_button/confirm"(platform: "/web", type: TrackType.Event) {
+    "/sell/item_data/products_finder_bar"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/products_finder_bar/confirm"(platform: "/web", type: TrackType.Event) {
         categoryFlow
         productFinderGroup
     }
-    "/sell/item_data/products_finder_input"(platform: "/web", isAbstract: true) {}
-    "/sell/item_data/products_finder_input/confirm"(platform: "/web", type: TrackType.Event) {
+    "/sell/item_data/carrier"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/carrier/show"(platform: "/web", type: TrackType.Event) {
         categoryFlow
         productFinderGroup
     }
-    "/sell/item_data/carrier_task"(platform: "/web", isAbstract: true) {}
-    "/sell/item_data/carrier_task/show"(platform: "/web", type: TrackType.Event) {
+    "/sell/item_data/carrier/confirm"(platform: "/web", type: TrackType.Event) {
         categoryFlow
         productFinderGroup
     }
-    "/sell/item_data/carrier_task/confirm"(platform: "/web", type: TrackType.Event) {
+    "/sell/item_data/product_resume"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/product_resume/previous"(platform: "/web", type: TrackType.Event) {
         categoryFlow
         productFinderGroup
     }
