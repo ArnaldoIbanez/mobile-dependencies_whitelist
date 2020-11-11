@@ -994,6 +994,7 @@ tracks {
         categoryFlow
         productFinderGroup
     }
+    "/sell/item_data/product_resume"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/product_resume/previous"(platform: "/web", type: TrackType.Event) {
         categoryFlow
         productFinderGroup
