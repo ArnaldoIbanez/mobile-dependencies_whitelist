@@ -994,6 +994,10 @@ tracks {
         categoryFlow
         productFinderGroup
     }
+    "/sell/item_data/product_resume/previous"(platform: "/web", type: TrackType.Event) {
+        categoryFlow
+        productFinderGroup
+    }
    //--------------------------------------------------------------------------------------------------------------------
     // Product Finder (End)
     //--------------------------------------------------------------------------------------------------------------------
