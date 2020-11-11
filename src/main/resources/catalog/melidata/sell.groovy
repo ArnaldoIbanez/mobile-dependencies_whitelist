@@ -8,9 +8,26 @@ tracks {
 
     initiative = "1029"
 
+    def attribute_map = objectSchemaDefinitions {
+        id(type: PropertyType.String, required: true, description: "Attribute ID")
+        value_id(type: PropertyType.String, required: true, description: "Value ID")
+        name(type: PropertyType.String, required: false, description: "Attribute Name")
+        value_name(type: PropertyType.String, required: false, description: "Value Name")
+    }
+    def search_result_map = objectSchemaDefinitions {
+        query_type(required: false,  values:["GTIN", "QUERY_STRING"], type: PropertyType.String, description: "GTIN or String query")
+        query_search(required: false, type: PropertyType.String, description: "value of search query")
+        result_type(required: false,  values:["GTIN_NOT_FOUND", "GTIN_INVALID", "GTIN_INACTIVE", "GTIN_ACTIVE", "QUERY_NO_RESULTS", "QUERY_DOMAIN_SUGGESTIONS", "QUERY_DOMAIN_ONE_SHOT", "QUERY_PRODUCT_SUGGESTIONS", "QUERY_PRODUCT_ONE_SHOT"], type: PropertyType.String, description: "Which type of result was offered to the user")
+    }
+    def product_prediction_map = objectSchemaDefinitions {
+        product_id(type: PropertyType.String, required: true, description: "Product ID")
+    }
     def category_prediction_map = objectSchemaDefinitions {
         path(type: PropertyType.ArrayList(PropertyType.String), required: true, description: "Category path")
         score(type: PropertyType.Numeric, required: true, description: "Score of the prediction")
+        attributes(type: PropertyType.ArrayList(PropertyType.Map(attribute_map)), required: false, description: "Array of predictions of attributes")
+        category_id(type: PropertyType.String, required: false, description: "Category ID")
+        domain_id(type: PropertyType.String, required: false, description: "Domain ID")
     }
     def attribute_prediction_map = objectSchemaDefinitions {
         id(type: PropertyType.String, required: true, description: "Attribute id")
@@ -57,7 +74,7 @@ tracks {
         session_id(required: true, type: PropertyType.String, description: "Id for user session")
         seller_reputation(required: true, type: PropertyType.String, description: "Seller's reputation")
         categorization_flow_successful(required: false, description: "Categorization finished", type: PropertyType.Boolean)
-        chosen_categorization_model(required: false, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY"], type: PropertyType.String)
+        chosen_categorization_model(required: false, description: "Which predictor we used to predict category", values:["ZORDON", "DOMAIN_SEARCH", "DEFAULT", "DOMAIN_DISCOVERY", "PRODUCTS_SEARCH"], type: PropertyType.String)
         category_prediction_selected_index(required: false, description: "Index selected in Multiples Suggestions", PropertyType.Numeric)
         attribute_values(required: false, description: "Array of attributes in categorization", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
         title_predicted(required: false, description: "Title used to predict category", type: PropertyType.String)
@@ -76,6 +93,14 @@ tracks {
         intent_value(required: false, type: PropertyType.String, description: "this property describes the intent value if exists")
         field_intent_ids(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "this property describes the field ids for the intent")
         pictures_info(required: true, type: PropertyType.ArrayList(PropertyType.Map(picture_info_map)), description: "this property describes array of pictures information")
+        gtin_experience(required: false,  values:["ENABLED", "DISABLED", "NOT_PRESENT"], type: PropertyType.String, description: "Wether the user can see the GTIN experience or not")
+        query_type(required: false,  values:["GTIN", "QUERY_STRING"], type: PropertyType.String, description: "GTIN or String query")
+        query_search(required: false, type: PropertyType.String, description: "value of search query")
+        result_type(required: false,  values:["GTIN_NOT_FOUND", "GTIN_INVALID", "GTIN_INACTIVE", "GTIN_ACTIVE", "QUERY_NO_RESULTS", "QUERY_DOMAIN_SUGGESTIONS", "QUERY_DOMAIN_ONE_SHOT", "QUERY_PRODUCT_SUGGESTIONS", "QUERY_PRODUCT_ONE_SHOT"], type: PropertyType.String, description: "Which type of result was offered to the user")
+        product_predictions(required: false, type: PropertyType.ArrayList(PropertyType.Map(product_prediction_map)), description: "Product Predictions")
+        accumulated_search_results(type: PropertyType.ArrayList(PropertyType.Map(search_result_map)), required: false, description: "Array of accumulated search results")
+        products_selected_index(required: false, description: "Index of the selected product", type: PropertyType.Numeric)
+
     }
 
     propertyGroups {
@@ -91,6 +116,7 @@ tracks {
         intentGroup(intent_type, intent_value)
         technicalSpecsIntentsGroup(intent_type, intent_value, field_intent_ids)
         pictureIntentGroup(intent_type, pictures_info)
+        productFinderGroup(gtin_experience, query_type, query_search, result_type, product_predictions, accumulated_search_results, products_selected_index)
     }
 
     // Sell
@@ -777,6 +803,7 @@ tracks {
     "/sell/item_data/title/redirect_store"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category_suggested"(platform: "/web", isAbstract: true) {
         categoryFlow
+        productFinderGroup
     }
     "/sell/item_data/category_suggested/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category_suggested/confirm"(platform: "/web", type: TrackType.Event) {
@@ -785,6 +812,7 @@ tracks {
     "/sell/item_data/category_suggested/wrong_category"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category"(platform: "/web", isAbstract: true) {
         categoryFlow
+        productFinderGroup
     }
     "/sell/item_data/category/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/category/confirm"(platform: "/web", type: TrackType.Event) {
@@ -794,6 +822,7 @@ tracks {
     "/sell/item_data/product_bullet_resume"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
         categoryFlow
+        productFinderGroup
         product_title(required: true, description: "title of catalog product", type: PropertyType.String)
     }
     "/sell/item_data/product_identifier"(platform: "/web", isAbstract: true) {}
@@ -851,11 +880,25 @@ tracks {
     "/sell/item_data/category_breadcrumb/update"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
+        productFinderGroup
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/item_data/category_breadcrumb/mount"(platform: "/web", type: TrackType.Event) {
         sellGroup
         categoryFlow
+        productFinderGroup
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+    }
+    "/sell/item_data/category_breadcrumb/previous"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        categoryFlow
+        productFinderGroup
+        item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+    }
+    "/sell/item_data/category_breadcrumb/navigate"(platform: "/web", type: TrackType.Event) {
+        sellGroup
+        categoryFlow
+        productFinderGroup
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
     "/sell/item_data/catalog_decision"(platform: "/web", isAbstract: true) {}
@@ -923,6 +966,37 @@ tracks {
     "/sell/item_data/color"(platform: "/web", isAbstract: true) {}
     "/sell/item_data/color/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/color/confirm"(platform: "/web", type: TrackType.Event) {}
+
+    //--------------------------------------------------------------------------------------------------------------------
+    // Product Finder (Start)
+    //--------------------------------------------------------------------------------------------------------------------
+    "/sell/item_data/products_finder"(platform: "/web", isAbstract: true) {
+        categoryFlow
+        productFinderGroup
+    }
+    "/sell/item_data/products_finder/update"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder/category_selection"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder/product_selection"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder/show"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder/confirm"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder/restart"(platform: "/web", type: TrackType.Event) {}
+    "/sell/item_data/products_finder_bar"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/products_finder_bar/confirm"(platform: "/web", type: TrackType.Event) {
+        categoryFlow
+        productFinderGroup
+    }
+    "/sell/item_data/carrier"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/carrier/show"(platform: "/web", type: TrackType.Event) {
+        categoryFlow
+        productFinderGroup
+    }
+    "/sell/item_data/carrier/confirm"(platform: "/web", type: TrackType.Event) {
+        categoryFlow
+        productFinderGroup
+    }
+   //--------------------------------------------------------------------------------------------------------------------
+    // Product Finder (End)
+    //--------------------------------------------------------------------------------------------------------------------
 
     "/sell/item_conditions"(platform: "/web", type: TrackType.View) {
         sellGroup
@@ -1027,6 +1101,7 @@ tracks {
     "/sell/congrats"(platform: "/web", type: TrackType.View) {
         sellGroup
         categoryFlow
+        productFinderGroup
         listingTypeFlow
         item_id(required: true, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
@@ -1035,6 +1110,7 @@ tracks {
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
         sellGroup
         categoryFlow
+        productFinderGroup
         item_id(required: false, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
     }
@@ -1042,6 +1118,7 @@ tracks {
     "/sell/congrats/listing_types/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
         sellGroup
         categoryFlow
+        productFinderGroup
         item_id(required: false, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
         has_free(required: true, type: PropertyType.Boolean)
@@ -1051,6 +1128,20 @@ tracks {
         sellGroup
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["LIST_EQUALS", "LIST_SIMILAR", "LIST"])
+    }
+
+    "/sell/congrats/share_task"(platform: "/web", isAbstract: true) {}
+    "/sell/congrats/share_task/email"(platform: "/web", type: TrackType.Event) {}
+    "/sell/congrats/share_task/facebook"(platform: "/web", type: TrackType.Event) {}
+    "/sell/congrats/share_task/twitter"(platform: "/web", type: TrackType.Event) {}
+
+    "/sell/congrats/go_kyc_onboarding"(platform: "/web", type: TrackType.Event) {
+        seller_type(required: true, description: "Seller type: normal, real_estate_agency, etc", values:["normal", "car_dealer", "real_estate_agency", "brand"], type: PropertyType.String)
+        seller_id(required: true, type: PropertyType.Numeric)
+    }
+
+    "/sell/congrats/go_health_action"(platform: "/web", type: TrackType.Event) {
+        action(required: true, description: "Health action: picture, price, video, etc", values:["publish", "price", "whatsapp", "video", "picture", "upgrade_listing", "technical_specification"], type: PropertyType.String)
     }
 
     "/sell/presip"(platform: "/web", type: TrackType.View) {
