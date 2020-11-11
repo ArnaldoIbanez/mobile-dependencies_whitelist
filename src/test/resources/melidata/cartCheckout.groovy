@@ -604,7 +604,7 @@ trackTests {
 
         "/cart/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
             suggested = "{\"latitude\":\"12.12\",\"longitude\":\"42.42\"}"
-            final = "{\"latitude\":\"12.13\",\"longitude\":\"42.40\"}"
+            finalCoordinates = "{\"latitude\":\"12.13\",\"longitude\":\"42.40\"}"
         }
 
         // First Visit

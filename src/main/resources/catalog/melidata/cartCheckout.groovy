@@ -420,7 +420,7 @@ tracks {
 
     "/cart/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         suggested(required: true, type: PropertyType.String, description: "The suggested coordinates where we positioned the user on the map")
-        final(required: true, type: PropertyType.String, description: "The final coordinates where the user finally positioned on the map")
+        finalCoordinates(required: true, type: PropertyType.String, description: "The final coordinates where the user finally positioned on the map")
     }
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
