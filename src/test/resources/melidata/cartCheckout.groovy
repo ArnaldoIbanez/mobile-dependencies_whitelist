@@ -586,12 +586,12 @@ trackTests {
 
         "/cart/checkout/shipping/input_address/select_street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
             written = "sug"
-            final = "suggested street"
+            finalText = "suggested street"
         }
 
         "/cart/checkout/shipping/input_address/select_phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
             written = "123"
-            final = "12345678"
+            finalText = "12345678"
         }
         
         "/cart/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
