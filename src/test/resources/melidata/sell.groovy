@@ -3791,6 +3791,9 @@ trackTests {
             title_predicted = "test"
             list_mode = "LIST"
             listing_type_id = "gold"
+            health_card_shown = true
+            kyc_card_shown = true
+            share_card_shown = true
         }
     }
     test("SYI v4 congrats card showed"){
