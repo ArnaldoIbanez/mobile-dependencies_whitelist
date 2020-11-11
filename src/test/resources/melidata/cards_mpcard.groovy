@@ -470,6 +470,13 @@ trackTests {
             action = "additional_message"
         }
     }
+
+    //Highlighted Row
+    test("cards mpcard setup virtual Highlighted Row") {
+        "/cards/mpcard/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {
+            action = "money_in"
+        }
+    }
     
     //Account options
     test("cards mpcard setup virtual card message") {

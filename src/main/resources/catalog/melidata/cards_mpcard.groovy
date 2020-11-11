@@ -388,6 +388,16 @@ tracks {
             description: "Virtual card buttons tapped"
         )
     }
+    //Highlighted row
+    "/cards/mpcard/setup/virtual/highlighted_row"(platform: "/", isAbstract: true) { }
+    "/cards/mpcard/setup/virtual/highlighted_row/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["money_in"],
+            description: "Highlighted Row button tapped"
+        )
+    }
 
     //Message
     "/cards/mpcard/setup/virtual/message"(platform: "/", isAbstract: true) { }

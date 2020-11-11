@@ -220,19 +220,19 @@ tracks {
         driver_id(required: false, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
     }
     "/logistics/last_mile/congrats/ok"(platform: "/mobile", type: TrackType.View) {
-        context(required: true, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't")
+        context(required: false, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't")
         driver_id(required: true, type: PropertyType.String, description: "Specifies the ID of the driver that made the deliver")
-        shipment_id(required: true, type: PropertyType.String, description: "Specifies the ID of the shipment that was delivered")
-        receiver_latitude(required: true, type: PropertyType.String, description: "Specifies the latitude of the receiver when the delivery was made")
-        receiver_longitude(required: true, type: PropertyType.String, description: "Specifies the longitude of the receiver when the delivery was made")
+        shipment_id(required: false, type: PropertyType.String, description: "Specifies the ID of the shipment that was delivered")
+        latitude(required: false, type: PropertyType.String, description: "Specifies the latitude from driver")
+        longitude(required: false, type: PropertyType.String, description: "Specifies the longitude from driver")
         receiver_relationship(required: false, type: PropertyType.String, description: "Specifies the receiver relationship")
     }
     "/logistics/last_mile/congrats/fail"(platform: "/mobile", type: TrackType.View) {
-        context(required: true, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't")
+        context(required: false, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't")
         driver_id(required: true, type: PropertyType.String, description: "Specifies the ID of the driver that made the deliver")
-        shipment_id(required: true, type: PropertyType.String, description: "Specifies the ID of the shipment that was delivered")
-        receiver_latitude(required: true, type: PropertyType.String, description: "Specifies the latitude of the receiver when the delivery was made")
-        receiver_longitude(required: true, type: PropertyType.String, description: "Specifies the longitude of the receiver when the delivery was made")
+        shipment_id(required: false, type: PropertyType.String, description: "Specifies the ID of the shipment that was delivered")
+        latitude(required: false, type: PropertyType.String, description: "Specifies the latitude from driver")
+        longitude(required: false, type: PropertyType.String, description: "Specifies the longitude from driver")
     }
     "/logistics/last_mile/detail"(platform: "/mobile", type: TrackType.View) {
         is_next_destination(required: true, type: PropertyType.Boolean, description: "Specifies if the detail is from the next destination shipment", inheritable: false)

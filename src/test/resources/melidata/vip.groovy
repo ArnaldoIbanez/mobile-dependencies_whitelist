@@ -49,6 +49,7 @@ trackTests {
             price_comparison_available = true
             has_good_price = true
             price_comparison_position =  0.75
+            catalog_market_price =  37855
             whatsapp_available = "false"
             video_type = "TOUR360"
             quote_demand_available = false

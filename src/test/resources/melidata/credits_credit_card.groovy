@@ -627,48 +627,64 @@ trackTests {
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "open"
+            available_limit = 900
+            total_limit = 1000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Pending and Status Closed
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_pending_data
             statement_status = "closed"
+            available_limit = 900
+            total_limit = 1000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Active and Status Open
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "open"
+            available_limit = 900
+            total_limit = 1000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Active and Status Closed
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_active_data
             statement_status = "closed"
+            available_limit = 500
+            total_limit = 1000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Blocked and Status Open
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "open"
+            available_limit = 300
+            total_limit = 1000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Blocked and Status Closed
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_blocked_data
             statement_status = "closed"
+            available_limit = 4000
+            total_limit = 5000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Cancelled and Status Open
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "open"
+            available_limit = 1500
+            total_limit = 2000
         }
 
         //Dashboard Event Show Limit Modal Button Account Status Cancelled and Status Closed
         "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event) {
             account = account_cancelled_data
             statement_status = "closed"
+            available_limit = 900
+            total_limit = 1000
         }
 
         /*********************************************

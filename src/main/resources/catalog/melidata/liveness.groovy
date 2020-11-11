@@ -7,7 +7,14 @@ import com.ml.melidata.TrackType
 tracks {
     initiative = '1127'
 
-    "/liveness"(platform: "/", isAbstract: true) {}
+    "/liveness"(platform: "/mobile", isAbstract: true) {
+        transaction_id(type: PropertyType.String, required: false, description: "Transaction id for user identifier")
+    }
+
+    "/liveness"(platform: "/web", isAbstract: true) {
+        transaction_id(type: PropertyType.String, required: true, description: "Transaction id for user identifier")
+    }
+
 
     "/liveness/enrollment"(platform: "/", type: TrackType.Event) {
         params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
@@ -23,7 +30,7 @@ tracks {
         initialization_description(type: PropertyType.String, required: true, description: "Description of initialization")
     }
 
-    "/liveness/challenge_time"(platform: "/", type: TrackType.Event) {
+    "/liveness/challenge"(platform: "/", type: TrackType.Event) {
         time(type: PropertyType.Numeric, required: true, description: "Time to complete challenge")
         challenge_result(type: PropertyType.Numeric, required: true, description: "Result of client validation")
         challenge_result_description(type: PropertyType.String, required: true, description: "Description of validation")
@@ -53,7 +60,11 @@ tracks {
     }
 
     "/liveness/action"(platform: "/", type: TrackType.Event) {
-        type(type: PropertyType.String, required: true, values: ["close"], description: "Type of actions")
+        type(type: PropertyType.String, required: true, values: [
+                "close",
+                "back",
+                "start_liveness"
+        ], description: "Type of actions")
     }
 
     "/liveness/landing"(platform: "/", type: TrackType.View) {}
