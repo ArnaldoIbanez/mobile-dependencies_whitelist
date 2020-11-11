@@ -2448,6 +2448,29 @@ trackTests {
             recovery_flow=true
         }
 
+        "/cart/checkout/shipping/input_address/select_street_name"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+            written = "sug"
+            final = "suggested street"
+        }
+
+        "/cart/checkout/shipping/input_address/select_phone"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+            written = "123"
+            final = "12345678"
+        }
+        
+        "/cart/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+            count = 10.0
+        }
+        
+        "/cart/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+            count = 2.0
+        }
+
+        "/cart/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
+            suggested = "{\"latitude\":\"12.12\",\"longitude\":\"42.42\"}"
+            final = "{\"latitude\":\"12.13\",\"longitude\":\"42.40\"}"
+        }
+
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)
         "/checkout/shipping/input_address_number/whithout_number"(platform:"/web", dataSet)
         "/checkout/shipping/select_address"(platform:"/web", dataSet)
