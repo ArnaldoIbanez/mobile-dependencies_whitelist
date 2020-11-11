@@ -50,6 +50,8 @@ tracks {
         portal_has_channels_configured(portal_has_channels_configured)
         portal_form_id(portal_form_id)
         portal_broken_link_error(portal_broken_link_error)
+        portal_broken_link_source_url(portal_broken_link_source_url)
+        portal_broken_link_destination_url(portal_broken_link_destination_url)
     }
 
     "/portal"(platform: "/", isAbstract:  true) {}
