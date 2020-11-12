@@ -1110,6 +1110,9 @@ tracks {
         listingTypeFlow
         item_id(required: true, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        health_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for Health card")
+        kyc_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for KYC card")
+        share_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for share in social network card")
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {
