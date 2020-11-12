@@ -2448,25 +2448,25 @@ trackTests {
             recovery_flow=true
         }
 
-        "/cart/checkout/shipping/input_address/select_street_name"(platform: "/", type: TrackType.Event) {
+        "/checkout/shipping/input_address/select_street_name"(platform: "/", type: TrackType.Event) {
             written = "sug"
             finalText = "suggested street"
         }
 
-        "/cart/checkout/shipping/input_address/select_phone"(platform: "/", type: TrackType.Event) {
+        "/checkout/shipping/input_address/select_phone"(platform: "/", type: TrackType.Event) {
             written = "123"
             finalText = "12345678"
         }
         
-        "/cart/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
+        "/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
             count = 10.0
         }
         
-        "/cart/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
+        "/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
             count = 2.0
         }
 
-        "/cart/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event) {
+        "/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event) {
             suggested = [
                 "latitude": 12.12,
                 "longitude": 42.42
