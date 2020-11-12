@@ -44,8 +44,23 @@ tracks {
     "/home/back"(platform: "/mobile") {
     }
 
-    "/home/navigation_history"(platform: "/mobile"){
+    "/home/navigation_history"(platform: "/") {
+        privacy_config_state(required: true, type: PropertyType.Boolean)
+    }
 
+    "/home/navigation_history/privacy_config_on"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/home/navigation_history/privacy_config_off"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/home/navigation_history/remove_all"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/home/navigation_history/remove"(platform: "/", type: TrackType.Event) {
+        item_id(required: true, type: PropertyType.String)
+        product_id(required: false, type: PropertyType.String)
+        parent_product_id(required: false, type: PropertyType.String)
     }
 
     "/home/pulltorefresh"(platform: "/mobile", type: TrackType.Event) {
