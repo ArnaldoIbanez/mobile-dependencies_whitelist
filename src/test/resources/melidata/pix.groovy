@@ -21,5 +21,8 @@ trackTests {
 		"/pix_flows/landing/tap"(platform: "/"){
 			action = 'money_in'
 		}
+		"/pix_flows/landing/tap"(platform: "/"){
+			action = 'sell_cost'
+		}
 	}
 }
