@@ -288,7 +288,11 @@ tracks {
         products_with_status
     }
 
-    "/credits/merchant/administrator/detail/conditions/case_resolution_click"(platform: "/", type: TrackType.Event) {
+    "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/", type: TrackType.Event) {
+        products_with_status
+    }
+
+    "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/", type: TrackType.Event) {
         products_with_status
     }
 

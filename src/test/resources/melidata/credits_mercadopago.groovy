@@ -631,20 +631,37 @@ trackTests {
             sales_percentage_loan_on_time()
         }
 
-        "/credits/merchant/administrator/detail/conditions/case_resolution_click"(platform: "/web/desktop") {}
-        "/credits/merchant/administrator/detail/conditions/case_resolution_click"(platform: "/web/desktop") {
+        "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/web/desktop") {
             fixed_term_on_time()
         }
-        "/credits/merchant/administrator/detail/conditions/case_resolution_click"(platform: "/web/desktop") {
+        "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/web/desktop") {
             fixed_term_loan_on_time()
         }
-        "/credits/merchant/administrator/detail/conditions/case_resolution_click"(platform: "/web/desktop") {
+        "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/web/desktop") {
             express_money_overdue()
         }
-        "/credits/merchant/administrator/detail/conditions/case_resolution_click"(platform: "/web/desktop") {
+        "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/web/desktop") {
             sales_percentage_on_time()
         }
-        "/credits/merchant/administrator/detail/conditions/case_resolution_click"(platform: "/web/desktop") {
+        "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/web/desktop") {
+            sales_percentage_loan_on_time()
+        }
+
+        "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/web/desktop") {}
+        "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/web/desktop") {
+            fixed_term_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/web/desktop") {
+            fixed_term_loan_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/web/desktop") {
+            express_money_overdue()
+        }
+        "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/web/desktop") {
+            sales_percentage_on_time()
+        }
+        "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/web/desktop") {
             sales_percentage_loan_on_time()
         }
 
