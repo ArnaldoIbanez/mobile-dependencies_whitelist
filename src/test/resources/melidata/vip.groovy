@@ -49,6 +49,7 @@ trackTests {
             price_comparison_available = true
             has_good_price = true
             price_comparison_position =  0.75
+            catalog_market_price =  37855
             whatsapp_available = "false"
             video_type = "TOUR360"
             quote_demand_available = false
@@ -1859,5 +1860,61 @@ trackTests {
         "/vip/advertising"(platform: "/", type: TrackType.Event) {
             advertising_id = "fullscreen-core"
         }
+    }
+
+    // Points of Interest - RealEstate
+
+    test("VIP Points of Interest section for properties RE"){
+        def properties = {
+            vertical = "realEstate"
+            seller_id =  430012134
+            listing_type_id = "silver"
+            category_id = "MLA401803"
+            item_status = "active"
+            item_id = "MLA792156560"
+            item_condition = "new"
+            category_path = [
+                    "MLA1459",
+                    "MLA1493",
+                    "MLA1495",
+                    "MLA401803"
+            ]
+            buying_mode = "classified"
+            deal_ids = []
+            points_interest_available = true
+        }
+
+        "/vip/points_of_interest/transport"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/transport"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/education"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/education"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/leisure"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/leisure"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/commerce"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/commerce"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/health"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/health"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+
+
     }
 }

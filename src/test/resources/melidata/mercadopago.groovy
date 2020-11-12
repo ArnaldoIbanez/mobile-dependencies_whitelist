@@ -2638,6 +2638,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/home/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/home/info_hour"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -2649,9 +2653,27 @@ trackTests {
         "/bill_payments/home/scan_barcode"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
+
+        "/bill_payments/home/search_entities"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/home/activity"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/home/pay"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+        }
+
+        "/bill_payments/home/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/home/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            product_id = "10"
         }
 
         // Invoice
@@ -2663,9 +2685,36 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/invoices/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/invoices/pay"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+        }
+
+        "/bill_payments/invoices/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/invoices/pay"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            product_id = "10"
+        }
+
+        // Product picker
+        "/bill_payments/product_picker"(platform: "/mobile") {
+            mandatory()
+        }
+
+        // Input option
+        "/bill_payments/input_option"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/input_option/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
         }
 
         // Input amount
@@ -2718,9 +2767,10 @@ trackTests {
             mandatory()
         }
 
-        "/bill_payments/opt_in"(platform: "/mobile", type: TrackType.View) {
+        "/bill_payments/opt_in/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
+
         "/bill_payments/opt_in/close"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -2749,6 +2799,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/barcode_manual_input/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/barcode_manual_input/info_hour"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -2764,6 +2818,11 @@ trackTests {
         "/bill_payments/receipt"(platform: "/mobile") {
             mandatory()
         }
+
+        "/bill_payments/receipt/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/receipt/share"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -2781,11 +2840,13 @@ trackTests {
             mandatory()
             categoryProperties()
             entity = "Monterrey"
+            item = "item 2"
         }
         "/bill_payments/category_details/item"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             categoryProperties()
             entity = "Monterrey"
+            item = "item 2"
         }
         "/bill_payments/main_category/result_search"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
@@ -2825,14 +2886,36 @@ trackTests {
         }
 
         // Scanner
+        "/bill_payments/enable_camera"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/permission_camera"(platform: "/mobile") {
+            mandatory()
+        }
 
          "/bill_payments/scan"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/scan/back"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/scan_error"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/scan_error/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
         "/bill_payments/read"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             barcode = "34190.34016 04770.560003 00000.000000 5 82030005288261"
+            camera_flash = false
+            timestamp = 1043
+            barcode_format = "ITR40"
         }
 
         "/bill_payments/fixed_amount"(platform: "/mobile") {
@@ -2937,18 +3020,31 @@ trackTests {
         }
 
         //congrats
+
         "/bill_payments/congrats"(platform: "/mobile") {
             mandatory()
         }
-        "/bill_payments/congrats/receipt"(platform: "/mobile", type: TrackType.Event) {
+
+        "/bill_payments/congrats/success"(platform: "/mobile") {
+            mandatory()
+        }
+        "/bill_payments/congrats/success/receipt"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
-        "/bill_payments/congrats/dda"(platform: "/mobile", type: TrackType.Event) {
+        "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        //search
+        "/bill_payments/search"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/search_error"(platform: "/mobile") {
             mandatory()
         }
     }
-
 
     test("Fund account") {
         "/fund_account/fund_amount"(platform: "/mobile") {
@@ -3967,6 +4063,12 @@ trackTests {
             ]
             scenario = "never_auto_enrolled"
         }
+
+        "/screenlock/multiple_sessions_shield"(platform: "/mobile/android", type: TrackType.View) {
+        }
+
+        "/screenlock/multiple_sessions_shield"(platform: "/mobile/ios", type: TrackType.View) {
+        }
     }
 
     test("Screenlock config") {
@@ -4400,7 +4502,27 @@ trackTests {
     }
 
     test("Security Settings") {
-        "/security_settings"(platform: "/", type: TrackType.View) {}
+        "/security_settings"(platform: "/", type: TrackType.View) { }
+        
+        "/security_settings"(platform: "/", type: TrackType.View) {
+            registered_by_phone = true
+        }
+
+        "/security_settings"(platform: "/", type: TrackType.View) {
+            registered_by_phone = false
+        }
+
+        "/security_settings/action"(platform: "/", type: TrackType.Event) {
+            registered_by_phone = false
+            event_type = "click"
+            target = "nickname"
+        }
+
+        "/security_settings/action"(platform: "/", type: TrackType.Event) {
+            registered_by_phone = true
+            event_type = "click"
+            target = "phone"
+        }
 
         "/security_settings/2fa"(platform: "/", type: TrackType.View) {}
 

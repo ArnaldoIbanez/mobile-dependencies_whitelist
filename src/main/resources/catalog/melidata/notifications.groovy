@@ -1616,6 +1616,34 @@ tracks {
           order_id(required: true, type: PropertyType.Numeric)
       }
 
+      /* ============================================================ */
+      /* Team: IT Payments - Payroll | Initiative: Salary Portability */
+      /*                       contact: payroll-devs@mercadolibre.com */
+      "/notification/payroll_portability_request_accepted"(platform: "/") {
+          portability_request_id(required: true, type: PropertyType.String)
+      }
+
+      "/notification/payroll_portability_request_denied"(platform: "/") {
+          portability_request_id(required: true, type: PropertyType.String)
+      }
+
+      "/notification/payroll_portability_request_failed"(platform: "/") {
+          portability_request_id(required: true, type: PropertyType.String)
+      }
+
+      "/notification/payroll_portability_request_integrated"(platform: "/") {
+          portability_request_id(required: true, type: PropertyType.String)
+      }
+
+      "/notification/payroll_portability_first_salary"(platform: "/") {
+          portability_id(required: true, type: PropertyType.String)
+      }
+
+      "/notification/payroll_portability_ted_rejected"(platform: "/") {
+          portability_id(required: true, type: PropertyType.String)
+      }
+      /* ------------------------------------------------------------ */
+
       //Puis
       "/notification/puis_agency_withdrawal"(platform: "/") {
           pickup_id(required: true, type: PropertyType.Numeric)

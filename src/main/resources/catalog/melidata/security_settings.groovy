@@ -10,7 +10,16 @@ tracks {
     initiative = "1127"
 
     // Security Settings
-    "/security_settings"(platform: "/", type: TrackType.View) {}
+
+    "/security_settings"(platform: "/", type: TrackType.View) {
+        registered_by_phone(type: PropertyType.Boolean, required: false, description: "User is or not V3", inheritable:false)
+    }
+
+    "/security_settings/action"(platform: "/", type: TrackType.Event) {
+        registered_by_phone(type: PropertyType.Boolean, required: true, description: "User is or not V3")
+        event_type(type: PropertyType.String, required: true, values: ["click"], description: "User clicked a cell or card")
+        target(type: PropertyType.String, required: true, values: ["nickname", "email", "password", "secondFactor", "devices", "connectedApps", "phone", "appSecurity"], description: "Name of cell that was clicked")
+    }
 
     "/security_settings/2fa"(platform: "/", type: TrackType.View) {}
 

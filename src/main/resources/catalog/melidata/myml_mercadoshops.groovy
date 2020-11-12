@@ -19,7 +19,7 @@ tracks {
             values: [
                 'NOT_DELEGATED', 'REGISTERED', 'CHECK_FOR_TOTAL_DELEGATION', 'CHECK_FOR_PARTIAL_DELEGATION',
                 'DELEGATION_OK', 'CERTIFICATE_OK', 'CERTIFICATE_ERROR', 'NAVIGATION_OK', 'NAVIGATION_ERROR',
-                'ERROR', 'DELEGATION_ERROR', 'ACTIVE'
+                'ERROR', 'DELEGATION_ERROR', 'ACTIVE', 'DELEGATION_CEASED'
             ]
         )
         success(required: true, type: PropertyType.Boolean, description: "The request was fulfilled successfully")
@@ -85,7 +85,7 @@ tracks {
                 required: false,
                 type: PropertyType.String,
                 values: ['AFIP', 'BANNER', 'BRANDS', 'CATEGORIES', 'CAROUSEL', 'COLORS', 'CONTACT',
-                         'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FOOTER', 'GRID',
+                         'CONTACT_FROM_SHOP_NAME', 'DISCOVERY', 'DISCOVERY_ADVANCED', 'FLASH', 'FOOTER', 'GENERAL', 'GRID',
                          'HEADER', 'HEADER_ADVANCED', 'HEADER_MESSAGE', 'LOGO', 'MENU', 'MOSAIC', 'PRICE_AND_IMAGE',
                          'PRICE_AND_IMAGE_ADVANCED', 'SHOP_NAME', 'SLIDER', 'SOCIAL_NETWORKS',
                          'SOCIAL_NETWORKS_FROM_SHOP_NAME', 'SUBDOMAIN', 'TABBED_CAROUSEL', 'TEXT_BANNER', 'FISCAL_DATA',
@@ -431,6 +431,14 @@ tracks {
     "/mercado_shops/marketing/facebook/store/pixel_activation/active"(platform: "/", type: TrackType.Event){}
 
     "/mercado_shops/marketing/facebook/store/context_help"(platform: "/", type: TrackType.Event){}
+
+    "/mercado_shops/marketing/facebook/store/meta_tag_configuration"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/facebook/store/domain_verification"(platform: "/", type: TrackType.View){}
+
+    "/mercado_shops/marketing/facebook/store/domain_verification/save"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
 
     "/mercado_shops/marketing/google"(platform: "/", type: TrackType.Event){}
 
