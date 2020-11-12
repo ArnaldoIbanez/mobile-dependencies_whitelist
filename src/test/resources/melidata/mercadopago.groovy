@@ -4063,6 +4063,12 @@ trackTests {
             ]
             scenario = "never_auto_enrolled"
         }
+
+        "/screenlock/multiple_sessions_shield"(platform: "/mobile/android", type: TrackType.View) {
+        }
+
+        "/screenlock/multiple_sessions_shield"(platform: "/mobile/ios", type: TrackType.View) {
+        }
     }
 
     test("Screenlock config") {
