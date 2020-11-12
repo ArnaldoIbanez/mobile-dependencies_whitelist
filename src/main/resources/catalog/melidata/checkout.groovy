@@ -29,6 +29,11 @@ tracks {
         currency_id(required: true, type: PropertyType.String)
     }
 
+    def coordinatesStructure = objectSchemaDefinitions {
+      latitude(required: true, type: PropertyType.Numeric)
+      longitude(required: true, type: PropertyType.Numeric)
+    }
+
     //CHECKOUT FLOW
 
     "/checkout"(platform: "/") {
@@ -1233,8 +1238,8 @@ tracks {
     }
 
     "/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
-        suggested(required: true, type: PropertyType.String, description: "The suggested coordinates where we positioned the user on the map")
-        finalCoordinates(required: true, type: PropertyType.String, description: "The final coordinates where the user finally positioned on the map")
+        suggested(required: true, type: PropertyType.Map(coordinatesStructure), description: "The suggested coordinates where we positioned the user on the map")
+        finalCoordinates(required: true, type: PropertyType.Map(coordinatesStructure), description: "The final coordinates where the user finally positioned on the map")
     }
 
     "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event) {}
