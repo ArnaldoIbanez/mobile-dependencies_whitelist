@@ -237,7 +237,7 @@ task testMonitoringFdaFraudMercadoenviosCatalog (dependsOn: 'classes', type: Jav
 	args = ["mlo-mon-fda-fraud-mercadoenvios"]
 }
 
-task testMonitoringFdaFraudMercadoenviosCatalog (dependsOn: 'classes', type: JavaExec) {
+task testMonitoringFraudMarketplaceCancelCatalog (dependsOn: 'classes', type: JavaExec) {
 	main = 'com.melidata.definitions.task.CatalogTest'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["mlo-mon-fraud-marketplace-cancel"]
@@ -402,7 +402,7 @@ task uploadMonitoringFdaFraudMercadoenviosCatalog(type: JavaExec) {
 	args = ["mlo-mon-fda-fraud-mercadoenvios"]
 }
 
-task uploadMonitoringFdaFraudMercadoenviosCatalog(type: JavaExec) {
+task uploadMonitoringFraudMarketplaceCancelCatalog(type: JavaExec) {
 	main = 'com.melidata.definitions.uploaders.CatalogUploader'
 	classpath = sourceSets.main.runtimeClasspath
 	args = ["mlo-mon-fraud-marketplace-cancel"]
