@@ -6,8 +6,6 @@ class TestManager {
 
         println("Testing catalog....")
         CatalogTest.main(args)
-        println("Testing bi-integration....")
-        CronnedQueriesTest.main(args)
         println("Testing metrics....")
         MetricsTest.main(args)
     }
