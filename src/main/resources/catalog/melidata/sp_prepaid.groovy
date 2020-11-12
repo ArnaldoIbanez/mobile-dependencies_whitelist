@@ -629,6 +629,9 @@ tracks {
     "/single_player/paygo/review_information/more_information"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+    "/single_player/paygo/review_information/understood_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
     "/single_player/paygo/review_information/edit_device_number"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
@@ -713,6 +716,9 @@ tracks {
     "/single_player/paygo/charge_detail/more_information"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+    "/single_player/paygo/charge_detail/understood_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
     "/single_player/paygo/charge_detail/view_receipt"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
@@ -739,7 +745,14 @@ tracks {
         available_items
     }
 
-    "/single_player/paygo/multiple_devices/more_information"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/multiple_devices/more_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
+        view_time
+    }
+    "/single_player/paygo/multiple_devices/understood_information"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        mandatory
+        step_information
         view_time
     }
     "/single_player/paygo/multiple_devices/selected_device"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
@@ -766,6 +779,9 @@ tracks {
     "/single_player/paygo/device_detail/more_information"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
+    "/single_player/paygo/device_detail/understood_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
     "/single_player/paygo/device_detail/activate_device"(platform: "/mobile", type: TrackType.Event) {
         view_time
         item_structure
@@ -776,6 +792,7 @@ tracks {
     }
     "/single_player/paygo/device_detail/cancel_device"(platform: "/mobile", type: TrackType.Event) {
         view_time
+        item_structure
     }
     "/single_player/paygo/device_detail/delete_device"(platform: "/mobile", type: TrackType.Event) {
         item_structure
@@ -790,6 +807,9 @@ tracks {
     "/single_player/paygo/shipping_detail"(platform: "/mobile", type: TrackType.View) {}
 
     "/single_player/paygo/shipping_detail/more_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/shipping_detail/understood_information"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
     "/single_player/paygo/shipping_detail/back"(platform: "/mobile", type: TrackType.Event) {

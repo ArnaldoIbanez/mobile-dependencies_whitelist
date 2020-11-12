@@ -1490,6 +1490,10 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/paygo/review_information/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/review_information/edit_device_number"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
@@ -1603,6 +1607,10 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/paygo/charge_detail/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/charge_detail/view_receipt"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
@@ -1641,6 +1649,10 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/paygo/multiple_devices/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/multiple_devices/selected_device"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
@@ -1666,6 +1678,10 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/paygo/device_detail/understood_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/device_detail/activate_device"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             item_structure()
@@ -1678,6 +1694,7 @@ trackTests {
         }
         "/single_player/paygo/device_detail/cancel_device"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
+            item_structure()
             view_time()
         }
         "/single_player/paygo/device_detail/delete_device"(platform: "/mobile", type: TrackType.Event) {
@@ -1698,6 +1715,10 @@ trackTests {
         }
 
         "/single_player/paygo/shipping_detail/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/shipping_detail/understood_information"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             view_time()
         }
@@ -1954,6 +1975,10 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/paygo/review_information/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/review_information/edit_device_number"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
@@ -2067,6 +2092,10 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/paygo/charge_detail/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/charge_detail/view_receipt"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
@@ -2105,6 +2134,10 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/paygo/multiple_devices/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/multiple_devices/selected_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
@@ -2130,6 +2163,10 @@ trackTests {
             mandatory()
             view_time()
         }
+        "/single_player/paygo/device_detail/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
         "/single_player/paygo/device_detail/activate_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             item_structure()
@@ -2142,6 +2179,7 @@ trackTests {
         }
         "/single_player/paygo/device_detail/cancel_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
+            item_structure()
             view_time()
         }
         "/single_player/paygo/device_detail/delete_device"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
@@ -2162,6 +2200,10 @@ trackTests {
         }
 
         "/single_player/paygo/shipping_detail/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            view_time()
+        }
+        "/single_player/paygo/shipping_detail/understood_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             view_time()
         }
