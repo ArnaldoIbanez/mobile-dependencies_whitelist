@@ -4063,6 +4063,12 @@ trackTests {
             ]
             scenario = "never_auto_enrolled"
         }
+
+        "/screenlock/multiple_sessions_shield"(platform: "/mobile/android", type: TrackType.View) {
+        }
+
+        "/screenlock/multiple_sessions_shield"(platform: "/mobile/ios", type: TrackType.View) {
+        }
     }
 
     test("Screenlock config") {
@@ -4496,7 +4502,27 @@ trackTests {
     }
 
     test("Security Settings") {
-        "/security_settings"(platform: "/", type: TrackType.View) {}
+        "/security_settings"(platform: "/", type: TrackType.View) { }
+        
+        "/security_settings"(platform: "/", type: TrackType.View) {
+            registered_by_phone = true
+        }
+
+        "/security_settings"(platform: "/", type: TrackType.View) {
+            registered_by_phone = false
+        }
+
+        "/security_settings/action"(platform: "/", type: TrackType.Event) {
+            registered_by_phone = false
+            event_type = "click"
+            target = "nickname"
+        }
+
+        "/security_settings/action"(platform: "/", type: TrackType.Event) {
+            registered_by_phone = true
+            event_type = "click"
+            target = "phone"
+        }
 
         "/security_settings/2fa"(platform: "/", type: TrackType.View) {}
 

@@ -980,22 +980,22 @@ tracks {
     "/sell/item_data/products_finder/show"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/products_finder/confirm"(platform: "/web", type: TrackType.Event) {}
     "/sell/item_data/products_finder/restart"(platform: "/web", type: TrackType.Event) {}
-    "/sell/item_data/products_finder_button"(platform: "/web", isAbstract: true) {}
-    "/sell/item_data/products_finder_button/confirm"(platform: "/web", type: TrackType.Event) {
+    "/sell/item_data/products_finder_bar"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/products_finder_bar/confirm"(platform: "/web", type: TrackType.Event) {
         categoryFlow
         productFinderGroup
     }
-    "/sell/item_data/products_finder_input"(platform: "/web", isAbstract: true) {}
-    "/sell/item_data/products_finder_input/confirm"(platform: "/web", type: TrackType.Event) {
+    "/sell/item_data/carrier"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/carrier/show"(platform: "/web", type: TrackType.Event) {
         categoryFlow
         productFinderGroup
     }
-    "/sell/item_data/carrier_task"(platform: "/web", isAbstract: true) {}
-    "/sell/item_data/carrier_task/show"(platform: "/web", type: TrackType.Event) {
+    "/sell/item_data/carrier/confirm"(platform: "/web", type: TrackType.Event) {
         categoryFlow
         productFinderGroup
     }
-    "/sell/item_data/carrier_task/confirm"(platform: "/web", type: TrackType.Event) {
+    "/sell/item_data/product_resume"(platform: "/web", isAbstract: true) {}
+    "/sell/item_data/product_resume/previous"(platform: "/web", type: TrackType.Event) {
         categoryFlow
         productFinderGroup
     }
@@ -1110,6 +1110,9 @@ tracks {
         listingTypeFlow
         item_id(required: true, type: PropertyType.String)
         item_type(required: true, description: "item type", values:["default", "product"], type: PropertyType.String)
+        health_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for Health card")
+        kyc_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for KYC card")
+        share_card_shown(required: false, type: PropertyType.Boolean, description: "Flag for share in social network card")
     }
 
     "/sell/congrats/show"(platform: "/web", parentPropertiesInherited: false, type: TrackType.Event) {

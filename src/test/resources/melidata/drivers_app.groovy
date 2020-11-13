@@ -8,13 +8,13 @@ trackTests {
 
     defaultBusiness = "mercadoenvios"
 
-    def defaultLocation =
-            {
-                latitude = "-36.34443"
-                longitude = "-35.34332"
-            }
+    test("MercadoEnvios - Driver Apps - Testing Sorting") {
 
-    test("Testing Sorting") {
+        def defaultLocation =
+                {
+                    latitude = "-36.34443"
+                    longitude = "-35.34332"
+                }
 
         def defaultDriverData =
                 {
@@ -130,6 +130,144 @@ trackTests {
         "/sorting/qr_checkout"(platform: "/mobile", type: TrackType.View) {
             defaultDriverData()
             route_id = "1333"
+        }
+    }
+
+    test("MercadoEnvíos - Driver Apps - Testing List & Detail") {
+
+        def defaultDeliveryData = {
+            route_info = [
+                    route_id : "323232",
+                    route_status : "active",
+                    facility_id : "SMX1",
+                    route_type : "LM",
+                    vehicle_id : "dyuwduw"
+            ]
+        }
+
+        def defaultPackInfo = {
+            packs_info = [
+                    [
+                            sender_id: "12345",
+                            shipment_id: "1234456",
+                            shipment_substatus: "test",
+                            receiver_info: [
+                                    id: "123",
+                                    geo_type: "ROOFTOP",
+                                    delivery_preference: "residential",
+                                    latitude: "-36.34443",
+                                    longitude: "-35.34332"
+                            ]
+                    ]
+            ]
+        }
+
+        def defaultLocation =
+                {
+                    latitude = "-36.34443"
+                    longitude = "-35.34332"
+                }
+
+        "/driver/stops/list_view"(platform: "/mobile", type: TrackType.View) {
+            defaultLocation()
+            defaultDeliveryData()
+            defaultPackInfo()
+        }
+
+        "/driver/stops/list_view/next_stop"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            stop_order = 4
+            defaultLocation()
+        }
+
+        "/driver/stops/map_view"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            defaultLocation()
+        }
+
+        "/driver/stops/map_view/next_stop"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            stop_order = 4
+            defaultLocation()
+        }
+
+        "/driver/stops/next_modal/going"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            suggested_stop = 4
+            defaultLocation()
+        }
+
+        "/driver/stops/end_trip"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            defaultLocation()
+        }
+
+        "/driver/stops/add_package"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultLocation()
+        }
+
+        "/driver/stops/add_package/qr_detected"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            qr_data = "Un qr de test"
+            defaultLocation()
+        }
+
+        "/driver/stops/add_package/manual_modal"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultLocation()
+        }
+
+        "/driver/stops/add_package/manual_modal/qr_detected"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            qr_data = "Un qr de test"
+            defaultLocation()
+        }
+
+        "/driver/stops/add_package/error"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            shipment_id = "34433434343"
+            defaultLocation()
+        }
+
+        "/driver/stops/detail"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            stop_order = 4
+            defaultLocation()
+        }
+
+        "/driver/stops/detail/call"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            stop_order = 4
+            defaultLocation()
+        }
+
+        "/driver/stops/detail/message"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            stop_order = 4
+            defaultLocation()
+        }
+
+        "/driver/stops/detail/next_stop"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            stop_order = 4
+            defaultLocation()
+        }
+
+        "/driver/stops/detail/map"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultPackInfo()
+            stop_order = 4
+            defaultLocation()
         }
     }
 }
