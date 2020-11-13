@@ -127,4 +127,22 @@ trackTests {
             type = "exit"
         }
     } 
+
+    // Used
+
+    test("Black friday used ftu view") {
+        "/blackfriday/ftu-used" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Black friday used ftu back event") {
+        "/blackfriday/ftu-used/back" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Black friday used ftu tap event") {
+        "/blackfriday/ftu-used/cta" (platform: "/mobile", type: TrackType.Event) {
+            type = "exit"
+        }
+    } 
+
+
 }
