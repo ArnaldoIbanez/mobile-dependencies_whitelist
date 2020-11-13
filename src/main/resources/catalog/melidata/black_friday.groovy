@@ -9,6 +9,8 @@ tracks {
     
     initiative="12169"
 
+    "/blackfriday" (platform: "/mobile", isAbstract: true) {}
+
     "/blackfriday/reservation" (platform: "/mobile", type: TrackType.View) {}
 
     "/blackfriday/reservation/back" (platform: "/mobile", type: TrackType.Event) {}
