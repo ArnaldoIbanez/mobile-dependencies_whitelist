@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
     
-    initiative="12169"
+    //initiative="12169"
 
     "/blackfriday" (platform: "/mobile", isAbstract: true) {}
 
