@@ -11,10 +11,6 @@ trackTests {
         "/blackfriday" (platform: "/mobile", type: TrackType.View) {}
     }
 
-    test("Black friday reservation view") {
-        "/blackfriday/reservation" (platform: "/mobile", type: TrackType.View) {}
-    }
-
     // Reservation
 
     test("Black friday reservation view") {
