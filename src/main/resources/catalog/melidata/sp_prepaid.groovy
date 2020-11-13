@@ -758,6 +758,17 @@ tracks {
     }
 
 
+    // Debt Detail With Others
+    "/single_player/paygo/debt_detail_with_others"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/debt_detail_with_others/confirm"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/debt_detail_with_others/cancel"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+
     // Multiple devices
     "/single_player/paygo/multiple_devices"(platform: "/mobile", type: TrackType.View) {
         quantity(required: true, PropertyType.Numeric, description: "Quantity of items")
@@ -793,32 +804,76 @@ tracks {
     }
 
 
-    // Device Detail
-    "/single_player/paygo/device_detail"(platform: "/mobile", type: TrackType.View) {}
+    // Requested Device Detail
+    "/single_player/paygo/requested_device_detail"(platform: "/mobile", type: TrackType.View) {}
 
-    "/single_player/paygo/device_detail/more_information"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/requested_device_detail/more_information"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/paygo/device_detail/understood_information"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/requested_device_detail/understood_information"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
-    "/single_player/paygo/device_detail/activate_device"(platform: "/mobile", type: TrackType.Event) {
-        view_time
-        item_structure
-    }
-    "/single_player/paygo/device_detail/shipping_detail"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/requested_device_detail/activate_device"(platform: "/mobile", type: TrackType.Event) {
         view_time
         item_structure
     }
-    "/single_player/paygo/device_detail/cancel_device"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/requested_device_detail/shipping_detail"(platform: "/mobile", type: TrackType.Event) {
         view_time
         item_structure
     }
-    "/single_player/paygo/device_detail/delete_device"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/requested_device_detail/cancel_device"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+        item_structure
+    }
+    "/single_player/paygo/requested_device_detail/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Active Device Detail
+    "/single_player/paygo/active_device_detail"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/active_device_detail/more_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/active_device_detail/understood_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/active_device_detail/delete_device"(platform: "/mobile", type: TrackType.Event) {
         item_structure
         view_time
     }
-    "/single_player/paygo/device_detail/cancel"(platform: "/mobile", type: TrackType.Event) {
+    "/single_player/paygo/active_device_detail/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+
+    // Pending Device Detail
+    "/single_player/paygo/pending_device_detail"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/pending_device_detail/more_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/pending_device_detail/understood_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/pending_device_detail/back"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+
+    // Blocked Device Detail
+    "/single_player/paygo/blocked_device_detail"(platform: "/mobile", type: TrackType.View) {}
+
+    "/single_player/paygo/blocked_device_detail/more_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/blocked_device_detail/understood_information"(platform: "/mobile", type: TrackType.Event) {
+        view_time
+    }
+    "/single_player/paygo/blocked_device_detail/delete_device"(platform: "/mobile", type: TrackType.Event) {
+        item_structure
+        view_time
+    }
+    "/single_player/paygo/blocked_device_detail/back"(platform: "/mobile", type: TrackType.Event) {
         view_time
     }
 
