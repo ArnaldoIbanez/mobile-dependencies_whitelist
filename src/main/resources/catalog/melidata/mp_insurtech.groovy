@@ -14,6 +14,7 @@ tracks {
         model(required: false, type: PropertyType.String, description: "Model of the device. For ex: J7.")
         model_code(required: true, type: PropertyType.String, description: "Model code of the device. For ex: SM-J700M.")
         size(required: true, type: PropertyType.String, description: "Size of the device. For ex: 64GB.")
+        device_code(required: false, type: PropertyType.String, description: "device code to quote")
     }
 
     def roda_option = objectSchemaDefinitions {
