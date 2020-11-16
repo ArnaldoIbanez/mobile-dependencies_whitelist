@@ -933,6 +933,7 @@ tracks {
                 'reissue',
                 'change_limits',
                 'change_pin',
+                'disable_credit_card'
             ]
         )
     }
