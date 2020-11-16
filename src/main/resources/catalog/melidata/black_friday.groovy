@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
     
-    //initiative="12169"
+    initiative="1217"
 
     "/blackfriday" (platform: "/mobile", isAbstract: true) {}
 
@@ -48,6 +48,15 @@ tracks {
     "/blackfriday/reserved/close" (platform: "/mobile", type: TrackType.Event) {}
 
     "/blackfriday/reserved/cta" (platform: "/mobile", type: TrackType.Event) {
+        type(required: true, inheritable: false, type: PropertyType.String, description: "The call to action type")
+    }
+
+
+    "/blackfriday/unavailable" (platform: "/mobile", type: TrackType.View) {}
+
+    "/blackfriday/unavailable/close" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/blackfriday/unavailable/cta" (platform: "/mobile", type: TrackType.Event) {
         type(required: true, inheritable: false, type: PropertyType.String, description: "The call to action type")
     }
 

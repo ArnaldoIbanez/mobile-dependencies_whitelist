@@ -96,6 +96,22 @@ trackTests {
         }
     }
 
+    // Sold out
+
+    test("Black friday unavailable view") {
+        "/blackfriday/unavailable" (platform: "/mobile", type: TrackType.View) {}
+    }
+
+    test("Black friday unavailable close event") {
+        "/blackfriday/unavailable/close" (platform: "/mobile", type: TrackType.Event) {}
+    }
+
+    test("Black friday unavailable tap event") {
+        "/blackfriday/unavailable/cta" (platform: "/mobile", type: TrackType.Event) {
+            type = "exit"
+        }
+    }
+
     // Discounts
 
     test("Black friday discounts view") {
