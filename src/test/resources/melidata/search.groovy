@@ -503,6 +503,9 @@ trackTests {
         "/search/alert_intention"(platform: "/") {
             defaultSearchInformation()
         }
+        "/search/map_link"(platform: "/") {
+            defaultSearchInformation()
+        }
         "/search/official_stores_carousel"(platform: "/") {
             defaultSearchInformation()
         }

@@ -175,6 +175,8 @@ tracks {
                 description: "Indicates position price comparison")
         has_seller_level_kyc(required: false, type: PropertyType.Boolean,
                 description: "Indicates if seller has checked by kyc in level 5 or above")
+        points_interest_available(required: false, type: PropertyType.Boolean,
+                description: "Indicates if the item has points of interest available")
 
         // OFFICIAL_STORES
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
@@ -649,34 +651,6 @@ tracks {
         show(required: false, inheritable: false, type: PropertyType.String)
     }
 
-
-    "/vip/comparator_price"(platform: "/web", type: TrackType.View, isAbstract: true) {
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-        price_comparison_available(required: true, type: PropertyType.Boolean,
-                description: "Indicates if the item has price comparison available")
-    }
-
-    "/vip/comparator_price/similar_properties"(platform: "/web", type: TrackType.Event) {}
-
-    "/vip/comparator_price/info_tooltip"(platform: "/web", type: TrackType.Event) {}
-
-
-    "/vip/comparator_price/interactive_bin"(platform: "/web", type: TrackType.View, isAbstract: true) {
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        vertical(required: true, type: PropertyType.String,
-                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
-        price_comparison_available(required: true, type: PropertyType.Boolean,
-                description: "Indicates if the item has price comparison available")
-    }
-
-    "/vip/comparator_price/interactive_bin/tooltip"(platform: "/web", type: TrackType.Event) {}
-
-    "/vip/comparator_price/interactive_bin/bar"(platform: "/web", type: TrackType.Event) {}
-
     "/vip/item"(parentPropertiesInherited: false, isAbstract: true) {}
 
     "/vip/item/free_return"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
@@ -756,6 +730,51 @@ tracks {
         item_id(required: true)
         vip_version(required: false, type: PropertyType.String, values: ["old", "new"], description: "VIP version that is sending the track")
     }
+
+
+    // Environment Information
+
+    "/vip/comparator_price"(platform: "/web", type: TrackType.View, isAbstract: true) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        price_comparison_available(required: true, type: PropertyType.Boolean,
+                description: "Indicates if the item has price comparison available")
+    }
+
+    "/vip/comparator_price/similar_properties"(platform: "/web", type: TrackType.Event) {}
+
+    "/vip/comparator_price/info_tooltip"(platform: "/web", type: TrackType.Event) {}
+
+
+    "/vip/comparator_price/interactive_bin"(platform: "/web", type: TrackType.View, isAbstract: true) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        price_comparison_available(required: true, type: PropertyType.Boolean,
+                description: "Indicates if the item has price comparison available")
+    }
+
+    "/vip/comparator_price/interactive_bin/tooltip"(platform: "/web", type: TrackType.Event) {}
+
+    "/vip/comparator_price/interactive_bin/bar"(platform: "/web", type: TrackType.Event) {}
+
+    "/vip/points_of_interest"(platform: "/web", type: TrackType.View, isAbstract: true) {
+        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        category_id(required: true, type: PropertyType.String, description: "Item's category id")
+        vertical(required: true, type: PropertyType.String,
+                values: ["core", "motors", "realEstate", "services"], description: "Vertical of the item")
+        points_interest_available(required: true, type: PropertyType.Boolean,
+                description: "Indicates if the item has points of interest available")
+    }
+
+    "/vip/points_of_interest/transport"(platform: "/web", type: TrackType.Event) {}
+    "/vip/points_of_interest/education"(platform: "/web", type: TrackType.Event) {}
+    "/vip/points_of_interest/leisure"(platform: "/web", type: TrackType.Event) {}
+    "/vip/points_of_interest/commerce"(platform: "/web", type: TrackType.Event) {}
+    "/vip/points_of_interest/health"(platform: "/web", type: TrackType.Event) {}
 
     //TODO chequear con mobile estos tracks
     //  DESCRIPTION
