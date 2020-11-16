@@ -1004,7 +1004,7 @@ trackTests {
         }
         "/cards/hybrid/setup/options/empty_state"(platform:"/", type: TrackType.View) {}
         "/cards/hybrid/setup/options/empty_state/tap"(platform:"/", type: TrackType.Event) {
-            action = "primary_button"
+            action = "button_primary"
         }
         "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
             product_type = "chip_prepaid"
