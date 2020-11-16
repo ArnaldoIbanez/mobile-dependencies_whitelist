@@ -1433,4 +1433,20 @@ trackTests {
             is_collaborator = false
         }
     }
+
+    test("Bidding Create campaign") {
+        "/advertising/pads2/createcampaign/strategy"(platform: "/", type: TrackType.View) {
+        }
+        "/advertising/pads2/createcampaign/strategy/next"(platform: "/", type: TrackType.Event) {
+            strategy = "LAUNCHING"
+        }
+        "/advertising/pads2/createcampaign/strategy/breadcrumb"(platform: "/", type: TrackType.Event) {
+        }
+        "/advertising/pads2/createcampaign/step1/helper"(platform: "/", type: TrackType.Event) {
+        }
+        "/advertising/pads2/createcampaign/step1/helper/trtarget"(platform: "/", type: TrackType.Event) {
+        }
+        "/advertising/pads2/createcampaign/step1/helper/strategy"(platform: "/", type: TrackType.Event) {
+        }
+    }
 }

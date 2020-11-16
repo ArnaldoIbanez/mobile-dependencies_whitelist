@@ -594,27 +594,31 @@ tracks {
 
     "/advertising/pads2/createcampaign"(platform: "/web", type: TrackType.Event) {}
 
-    "/advertising/pads2/createcampaign/step1"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/createcampaign/step1"(platform: "/", type: TrackType.View) {
         //CONSULTAR SOBRE VALORES 
         campaign_name(required: false, type: PropertyType.String, description: "Name related to the campaign")
         budget(required: false, type: PropertyType.String, description: "Budget related to the campaign")
     }
 
-    "/advertising/pads2/createcampaign/step1/next"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/createcampaign/step1/next"(platform: "/", type: TrackType.Event) {
         campaign_name(required: true, type: PropertyType.String, description: "Name related to the campaign")
         budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
+        //BIDDING
+        strategy(required: false, type: PropertyType.String, description: "Campaign Strategy")
     }
 
     "/advertising/pads2/createcampaign/step1/breadcrumb"(platform: "/web", type: TrackType.Event) {}
 
     "/advertising/pads2/createcampaign/step1/helperbudget"(platform: "/web", type: TrackType.Event) {}
 
-    "/advertising/pads2/createcampaign/step2"(platform: "/web", type: TrackType.View, parentPropertiesInherited: false) {
+    "/advertising/pads2/createcampaign/step2"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {
         campaign_name(required: true, type: PropertyType.String, description: "Name related to the campaign")
         budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
+        //BIDDING
+        strategy(required: false, type: PropertyType.String, description: "Campaign Strategy")
     }
 
-    "/advertising/pads2/createcampaign/step2/createcampaign"(platform: "/web", type: TrackType.Event) {
+    "/advertising/pads2/createcampaign/step2/createcampaign"(platform: "/", type: TrackType.Event) {
         ads(required: true, description: "Number of ads included for new campaign")
         check_active(required: true, description: "Indicates if all included ads must be activated", values: ['true', 'false'])
     }
@@ -703,11 +707,13 @@ tracks {
         status_check(required: true, description: "uncheck or mark the check to create the campaign with active ads", values: ['true', 'false'])
         }
 
-    "/advertising/pads2/createcampaign/confirm"(platform: "/web", type: TrackType.View) {
+    "/advertising/pads2/createcampaign/confirm"(platform: "/", type: TrackType.View) {
         status_check(required: true, description: "uncheck or mark the check to create the campaign with active ads", values: ['true', 'false'])
         budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
         ads(required: true, type: PropertyType.Numeric, description: "Included ads in campaign")
         campaign_name(required: true, type: PropertyType.String, description: "Name related to the campaign")
+        //BIDDING
+        strategy(required: false, type: PropertyType.String, description: "Campaign Strategy")
         }
 
     "/advertising/pads2/createcampaign/seecampaign"(platform: "/web", type: TrackType.Event) {
@@ -1108,4 +1114,16 @@ tracks {
         next_value(required: false, type: PropertyType.String, description: "Next value associated with event, if available")
         campaign_id(required: false, type: PropertyType.Numeric, description: "Campaing id, if available")
     }
+
+    // Bidding Create Campaign
+
+    "/advertising/pads2/createcampaign/strategy"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {}
+
+    "/advertising/pads2/createcampaign/strategy/next"(platform: "/", type: TrackType.Event) {
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+    }
+    "/advertising/pads2/createcampaign/strategy/breadcrumb"(platform: "/", type: TrackType.Event) {}
+    "/advertising/pads2/createcampaign/step1/helper"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/advertising/pads2/createcampaign/step1/helper/trtarget"(platform: "/", type: TrackType.Event) {}
+    "/advertising/pads2/createcampaign/step1/helper/strategy"(platform: "/", type: TrackType.Event) {}
 }
