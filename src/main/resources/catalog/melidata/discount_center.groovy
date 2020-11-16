@@ -214,7 +214,7 @@ tracks {
 
     def marketplace_filters_definition = objectSchemaDefinitions {
         tracking_id(type: PropertyType.String, required: true, description: "The id of the image banner we are showing")
-        selected(type: PropertyType.Boolean, required: false, description: "The state of the filter we are showing")
+        selected(type: PropertyType.String, required: true, values: ['selected', 'unselected', 'none'], description: "The state of the displayed filters")
         index(type: PropertyType.Numeric, required: true, description: "The position of the filter within the component")
     }
 
