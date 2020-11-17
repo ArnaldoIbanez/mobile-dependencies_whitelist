@@ -435,7 +435,7 @@ tracks {
             )
     }
 
-    "/vip/video_focus"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.Event) {
+    "/vip/video_focus"(platform: "/mobile", parentPropertiesInherited: false) {
         video_type(required: true, type: PropertyType.String, values: ["TOUR360", "VIDEO"],
                 description: "Video type of the item"
             )
