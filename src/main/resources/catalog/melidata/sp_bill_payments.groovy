@@ -72,10 +72,18 @@ tracks {
     "/bill_payments/input_option_debt/back"(platform: "/mobile", type: TrackType.Event) {}
 
     // Info screen
-    "/bill_payments/info_screen"(platform: "/mobile", type: TrackType.View) {}
+    "/bill_payments/info_screen"(platform: "/mobile", type: TrackType.View) {
+        label(required: false, type: PropertyType.String, description: "the label the info screen")
+    }
+
     "/bill_payments/info_screen/pay_another_service"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/info_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
     "/bill_payments/info_screen/money_in"(platform: "/mobile", type: TrackType.Event) {}
+
+    // Dialog
+    "/bill_payments/dialog"(platform: "/mobile", type: TrackType.View) {
+        label(required: false, type: PropertyType.String, description: "the label the dialog")
+    }
 
     // FTU
     "/bill_payments/ftu"(platform: "/mobile", type: TrackType.View) {}
