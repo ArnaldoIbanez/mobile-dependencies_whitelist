@@ -44,6 +44,8 @@ trackTests {
       categories = ["Mochilas", "Banquetas", "Bicicletas"]
       filters = ["active", "status"]
       items = 3
+      type='EDITABLE_INFORMATION'
+      selected_columns=['STATUS, SKU']
     }
   }
 
