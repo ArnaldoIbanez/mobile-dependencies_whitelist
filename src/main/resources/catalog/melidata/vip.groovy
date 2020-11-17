@@ -82,6 +82,7 @@ tracks {
     }
 
     def highlights_definition  = objectSchemaDefinitions {
+        id(required: false, type: PropertyType.String, description: "Id of the highlight")
         best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
         melichoice_score(required: false, type: PropertyType.Numeric, description: "Score of Melichoice Product")
         melichoice_origin(required: false, type: PropertyType.String, description: "Origin of Melichoice Product")

@@ -79,11 +79,19 @@ tracks {
         product_id(type: PropertyType.String, required: false)
     }
 
+    def tag_tracking_datum_new_object = objectSchemaDefinitions {
+        item_id(type: PropertyType.String, required: true)
+        position(type: PropertyType.Numeric, required: true)
+        product_id(type: PropertyType.String, required: false)
+        type(type: PropertyType.String, required: false)
+    }
+
     def tag_tracking_map_object = objectSchemaDefinitions {
         best_seller(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         shipping_guaranteed(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         deal_of_the_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         meli_choice(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        highlights(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {

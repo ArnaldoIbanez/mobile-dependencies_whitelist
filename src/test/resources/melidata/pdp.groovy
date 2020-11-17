@@ -98,6 +98,7 @@ trackTests {
         "/pdp"(platform: "/", {
             best_seller_position = 3
             highlights = [
+                "id": "id_highlight",
                 "best_seller_position": 5,
                 "melichoice_domain": "CELLPHONES",
                 "melichoice_origin": "killer",
