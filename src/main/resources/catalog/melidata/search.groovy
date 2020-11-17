@@ -77,12 +77,6 @@ tracks {
         item_id(type: PropertyType.String, required: true)
         position(type: PropertyType.Numeric, required: true)
         product_id(type: PropertyType.String, required: false)
-    }
-
-    def tag_tracking_datum_new_object = objectSchemaDefinitions {
-        item_id(type: PropertyType.String, required: true)
-        position(type: PropertyType.Numeric, required: true)
-        product_id(type: PropertyType.String, required: false)
         type(type: PropertyType.String, required: false)
     }
 
