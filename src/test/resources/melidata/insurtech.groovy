@@ -254,6 +254,7 @@ trackTests {
                 model: "Xperia",
                 model_code: "Xa1",
                 size: "32GB",
+                device_code: "diw387_1u1",
             ]
             options = [
                 [
@@ -285,6 +286,7 @@ trackTests {
                 model: "Xperia",
                 model_code: "Xa1",
                 size: "32GB",
+                device_code: "diw387_1u1",
             ]
             options = [
                 [
@@ -335,24 +337,6 @@ trackTests {
         }
 
         "/insurtech/roda/qpage/quoting_fallback"(platform:"/web", type: TrackType.View) {}
- 
-        "/insurtech/roda/qpage/deductible"(platform:"/mobile", type: TrackType.View) {
-            client_device = [
-                brand: "Samsung",
-                model: "J7",
-                model_code: "SM-J700M",
-                size: "64GB",
-            ]
-            order_device = [
-                brand: "Sony",
-                model: "Xperia",
-                model_code: "Xa1",
-                size: "32GB",
-            ]
-            entity_type = "order"
-            entity_id = 789078907890
-            item_id = "MLB123124"
-        }
 
         "/insurtech/roda/qpage/faq"(platform:"/mobile", type: TrackType.View) {
             client_device = [
@@ -366,6 +350,7 @@ trackTests {
                 model: "Xperia",
                 model_code: "Xa1",
                 size: "32GB",
+                device_code: "diw387_1u1",
             ]
             entity_type = "order"
             entity_id = 789078907890
@@ -385,6 +370,7 @@ trackTests {
                 model: "Xperia",
                 model_code: "Xa1",
                 size: "32GB",
+                device_code: "diw387_1u1",
             ]
             option = [
                 id: "123123-asdad",
@@ -399,7 +385,7 @@ trackTests {
             entity_type = "order"
             entity_id = 789078907890
             item_id = "MLB123124"
-            hardaware_check = false
+            hardware_check = false
             financing_type = [
                 no_interest_allowed : true,
                 installments: 12
@@ -428,11 +414,12 @@ trackTests {
                 model: "Xperia",
                 model_code: "Xa1",
                 size: "32GB",
+                device_code: "diw387_1u1",
             ]
             entity_type = "order"
             entity_id = 789078907890
             item_id = "MLB123124"
-            hardaware_check = true
+            hardware_check = true
             financing_type = null
         }
 
@@ -448,6 +435,7 @@ trackTests {
                 model: "Xperia",
                 model_code: "Xa1",
                 size: "32GB",
+                device_code: "diw387_1u1",
             ]
             option = [
                 id: "123123-asdad",

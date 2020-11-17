@@ -12,9 +12,9 @@ tracks {
     def roda_device = objectSchemaDefinitions {
         brand(required: true, type: PropertyType.String, description: "Brand of device. For ex: Samsung.")
         model(required: false, type: PropertyType.String, description: "Model of the device. For ex: J7.")
-        model_code(required: true, type: PropertyType.String, description: "Model code of the device. For ex: SM-J700M.")
+        model_code(required: false, type: PropertyType.String, description: "Model code of the device. For ex: SM-J700M.")
         size(required: true, type: PropertyType.String, description: "Size of the device. For ex: 64GB.")
-        device_code(required: false, type: PropertyType.String, description: "device code to quote")
+        device_code(required: false, type: PropertyType.String, description: "device code to quote. For ex: diw387_1u1")
     }
 
     def roda_option = objectSchemaDefinitions {
@@ -78,7 +78,7 @@ tracks {
 
     "/insurtech/roda/qpage"(platform:"/", type: TrackType.View) {
         client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data entering qpage")
-        order_device(required:true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        order_device(required:false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         options(required: false, type: PropertyType.ArrayList(PropertyType.Map(roda_option_short)), description: "Options presented in the qpage for quotation")
         entity_type (required: true, type: PropertyType.String, description: "Entity type insurtech product", values: ['device', 'order'])
         entity_id (required: true, type:  PropertyType.Numeric, description: "Entity id insurtech product")
@@ -101,13 +101,9 @@ tracks {
         quotable(required: false, type: PropertyType.Boolean, description:"If a device is tradable or not")
     }
 
-    "/insurtech/roda/qpage/deductible"(platform:"/", type: TrackType.Event) {
-        client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
-    }
-
     "/insurtech/roda/qpage/faq"(platform:"/", type: TrackType.Event) {
         client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data entering qpage")
-        order_device(required:true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        order_device(required:false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         entity_type (required: true, type: PropertyType.String, description: "Entity type insurtech product", values: ["device", "order"])
         entity_id (required: true, type:  PropertyType.Numeric, description: "Entity id insurtech product")
         item_id (required: false, type: PropertyType.String, description: "id of the item that is offered protection")
@@ -116,18 +112,18 @@ tracks {
 
     "/insurtech/roda/qpage/buy"(platform:"/", type: TrackType.Event) {
         client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data entering qpage")
-        order_device(required:true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        order_device(required:false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         option(required: true, type: PropertyType.Map(roda_option), description: "Option plan selected on purchase.")
         entity_type (required: true, type: PropertyType.String, description: "Entity type insurtech product", values: ["device", "order"])
         entity_id (required: true, type:  PropertyType.Numeric, description: "Entity id insurtech product")
         item_id (required: false, type: PropertyType.String, description: "id of the item that is offered protection")
-        hardaware_check (required: true, type: PropertyType.Boolean, description: "If you require hardware check")
+        hardware_check (required: true, type: PropertyType.Boolean, description: "If you require hardware check")
         financing_type(required: false, type: PropertyType.Map(financing_type_track_structure), description: "Financing data of item if it has")
     }
 
     "/insurtech/roda/qpage/option_selected"(platform:"/", type: TrackType.Event) {
         client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data entering qpage")
-        order_device(required:true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        order_device(required:false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         option(required: true, type: PropertyType.Map(roda_option), description: "Option plan selected.")
         entity_type (required: true, type: PropertyType.String, description: "Entity type insurtech product", values: ["device", "order"])
         entity_id (required: true, type:  PropertyType.Numeric, description: "Entity id insurtech product")
