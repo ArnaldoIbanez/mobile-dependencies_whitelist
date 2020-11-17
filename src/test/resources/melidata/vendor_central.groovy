@@ -49,6 +49,16 @@ trackTests {
     }
   }
 
+    test("Vendor Central offline bulk download confirm with empty unrequired fields") {
+    "/vendor_central/bulk/offline/download/confirm"(platform: "/", type: TrackType.Event) {
+      categories = ["Mochilas", "Banquetas", "Bicicletas"]
+      filters = []
+      items = 3
+      type="OFFERING"
+      selected_columns=[]
+    }
+  }
+
   test("Vendor Central offline bulk download congrats") {
     "/vendor_central/bulk/offline/download/congrats"(platform: "/", type: TrackType.View) {
     type = "success"
