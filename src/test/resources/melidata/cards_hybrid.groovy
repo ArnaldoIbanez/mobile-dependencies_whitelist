@@ -1043,6 +1043,10 @@ trackTests {
             product_type = "chip_prepaid"
             action = "freeze"
         }
+        "/cards/hybrid/setup/options/tap"(platform: "/", type: TrackType.Event) {
+            product_type = "chip_hybrid"
+            action = "disable_credit_card"
+        }
     }
 
     //OPTIONS Message
