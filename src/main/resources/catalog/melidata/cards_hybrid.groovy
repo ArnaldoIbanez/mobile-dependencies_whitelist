@@ -898,11 +898,11 @@ tracks {
                 'chip_credit',
                 'chip_hybrid',
                 'chip_debit_nfc',
-                'contacless_debit',
-                'contacless_prepaid',
-                'contacless_credit',
-                'contacless_hybrid',
-                'contacless_debit_nfc',
+                'contactless_debit',
+                'contactless_prepaid',
+                'contactless_credit',
+                'contactless_hybrid',
+                'contactless_debit_nfc',
                 'wallet_debit',
                 'wallet_prepaid',
                 'wallet_credit',
@@ -933,6 +933,7 @@ tracks {
                 'reissue',
                 'change_limits',
                 'change_pin',
+                'disable_credit_card'
             ]
         )
     }
@@ -962,7 +963,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["primary_button"],
+            values: ["button_primary"],
             inheritable: false
         )
     }

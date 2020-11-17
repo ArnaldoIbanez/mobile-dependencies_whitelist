@@ -19,6 +19,22 @@ trackTests {
         }
     }
 
+    test("places home view") {
+        "/places/home"(platform: "/web", type: TrackType.View) {}
+    }
+
+    test("places home geolocation_error") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+            geolocation_error_message = "Permission denied"
+        }
+
+        "/places/home/geolocation_error"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
     test("places reception_congrats view") {
 
         def defaultTrackInformation = {
@@ -68,6 +84,18 @@ trackTests {
         }
 
         "/places/reception/external_scan"(platform: "/web", type: TrackType.Event) {
+            defaultTrackInformation()
+        }
+    }
+
+    test("places reception geolocation_error") {
+
+        def defaultTrackInformation = {
+            place_id = "123456"
+            geolocation_error_message = "Permission denied"
+        }
+
+        "/places/home/geolocation_error"(platform: "/web", type: TrackType.Event) {
             defaultTrackInformation()
         }
     }

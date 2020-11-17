@@ -465,24 +465,24 @@ trackTests {
                 filters: [
                         [
                                 index: 0,
-                                selected: false,
+                                selected: "selected",
                                 tracking_id: "filter_tracking_id",
                         ],
                         [
                                 index: 1,
-                                selected: true,
+                                selected: "none",
                                 tracking_id: "filter1_tracking_id",
                         ],
                 ],
                 filters_l2: [
                         [
                                 index: 0,
-                                selected: false,
+                                selected: "unselected",
                                 tracking_id: "filter_tracking_id",
                         ],
                         [
                                 index: 1,
-                                selected: false,
+                                selected: "selected",
                                 tracking_id: "filter1_l2_tracking_id",
                         ],
                 ],
@@ -648,24 +648,29 @@ trackTests {
                 filters: [
                         [
                                 index: 0,
-                                selected: false,
+                                selected: "unselected",
                                 tracking_id: "filter_tracking_id",
                         ],
                         [
                                 index: 1,
-                                selected: true,
+                                selected: "none",
                                 tracking_id: "filter1_tracking_id",
+                        ],
+                        [
+                                index: 2,
+                                selected: "selected",
+                                tracking_id: "filter2_tracking_id",
                         ],
                 ],
                 filters_l2: [
                         [
                                 index: 0,
-                                selected: false,
+                                selected: "selected",
                                 tracking_id: "filter_tracking_id",
                         ],
                         [
                                 index: 1,
-                                selected: false,
+                                selected: "unselected",
                                 tracking_id: "filter1_l2_tracking_id",
                         ],
                 ],
@@ -756,7 +761,7 @@ trackTests {
                     filters_l2: [
                         [
                                 index: 0,
-                                selected: false,
+                                selected: "selected",
                                 tracking_id: "filter_tracking_id",
                         ]
                 ],

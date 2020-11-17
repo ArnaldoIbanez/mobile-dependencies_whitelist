@@ -233,6 +233,7 @@ catalog {
         include business, "mango_admin.groovy"
         include business, "cashout.groovy"
         include business, "pix.groovy"
+        include business, "black_friday.groovy"
     }
 
     mercadoshops.each { business ->

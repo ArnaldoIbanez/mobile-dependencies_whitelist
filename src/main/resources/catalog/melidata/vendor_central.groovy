@@ -36,6 +36,8 @@ tracks {
         items(required: true, type: PropertyType.Numeric, description: "Amount of downloaded items")
         filters(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied filters")
         categories(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "List of applied categories")
+        type(required: true, type: PropertyType.String, description: "Selected type of excel editing process")
+        selected_columns(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "List of selected sheet columns to edit")
     }
 
     "/vendor_central/bulk/offline/download/congrats"(platform: "/", type: TrackType.View) {
