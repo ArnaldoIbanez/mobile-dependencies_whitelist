@@ -962,7 +962,7 @@ tracks {
         action (
             required: true,
             type: PropertyType.String,
-            values: ["primary_button"],
+            values: ["button_primary"],
             inheritable: false
         )
     }
