@@ -1449,4 +1449,87 @@ trackTests {
         "/advertising/pads2/createcampaign/step1/helper/strategy"(platform: "/", type: TrackType.Event) {
         }
     }
+
+    test("Bidding HUB") {
+        "/advertising/pads2/hub/onboarding"(platform: "/", type: TrackType.View) {}
+
+        "/advertising/pads2/hub/onboarding/bidding"(platform: "/", type: TrackType.View) {}
+
+        "/advertising/pads2/hub/onboarding/bidding/show"(platform: "/", type: TrackType.View) {}
+
+        "/advertising/pads2/hub/onboarding/bidding/go"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/hub/tooltip"(platform: "/", type: TrackType.Event) {} 
+
+        "/advertising/pads2/hub/tooltip/bidding"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/hub/tooltip/bidding/objective"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/hub/tooltip/bidding/show"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+        }
+
+        "/advertising/pads2/hub/tooltip/bidding/go"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+        }
+
+        "/advertising/pads2/hub/modal"(platform: "/", type: TrackType.View) {}
+
+        "/advertising/pads2/hub/modal/bidding"(platform: "/", type: TrackType.View) {}
+
+        "/advertising/pads2/hub/modal/bidding/strategy"(platform: "/", type: TrackType.View) {}
+
+        "/advertising/pads2/hub/modal/bidding/strategy/show"(platform: "/", type: TrackType.View) {
+            campaign_id = 1
+        }
+
+        "/advertising/pads2/hub/modal/bidding/strategy/go"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+            strategy_previous = "LAUNCHING"
+            strategy_new = "PROFITABILITY"
+        }
+
+        "/advertising/pads2/hub/modal/bidding/strategy/helper"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+        }
+
+        "/advertising/pads2/hub/modal/bidding/trtarget"(platform: "/", type: TrackType.View) {}
+
+        "/advertising/pads2/hub/modal/bidding/trtarget/show"(platform: "/", type: TrackType.View) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = "35"
+        }
+
+        "/advertising/pads2/hub/modal/bidding/trtarget/go"(platform: "/", type: TrackType.Event) {
+            campaign_id = 35
+            strategy = "PROFITABILITY"
+            trtarget_previous = "35"
+            trtarget_new = "40"
+        }
+
+        "/advertising/pads2/hub/modal/bidding/trtarget/helper"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = "35"
+        }
+
+        "/advertising/pads2/hub/modal/bidding/trtarget/changestrategy"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = "35"
+        }
+
+        "/advertising/pads2/hub/update"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/hub/update/bidding"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/hub/update/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
+        
+        "/advertising/pads2/hub/update/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
+            campaign_id = 1
+            strategy = "LAUNCHING"
+            trtarget = "35"
+        }
+    }
 }

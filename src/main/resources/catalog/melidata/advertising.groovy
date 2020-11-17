@@ -1126,4 +1126,74 @@ tracks {
     "/advertising/pads2/createcampaign/step1/helper"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
     "/advertising/pads2/createcampaign/step1/helper/trtarget"(platform: "/", type: TrackType.Event) {}
     "/advertising/pads2/createcampaign/step1/helper/strategy"(platform: "/", type: TrackType.Event) {}
+
+    //Bidding HUB
+
+    "/advertising/pads2/hub/onboarding"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {}
+    "/advertising/pads2/hub/onboarding/bidding"(platform: "/", type: TrackType.View) {}
+    
+    "/advertising/pads2/hub/onboarding/bidding/show"(platform: "/", type: TrackType.View) {}
+    "/advertising/pads2/hub/onboarding/bidding/go"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/tooltip"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {} 
+    "/advertising/pads2/hub/tooltip/bidding"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/hub/tooltip/bidding/objective"(platform: "/", type: TrackType.Event) {}
+    "/advertising/pads2/hub/tooltip/bidding/show"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+    "/advertising/pads2/hub/tooltip/bidding/go"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/hub/modal"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {}
+    "/advertising/pads2/hub/modal/bidding"(platform: "/", type: TrackType.View) {}
+    "/advertising/pads2/hub/modal/bidding/strategy"(platform: "/", type: TrackType.View) {}
+
+    "/advertising/pads2/hub/modal/bidding/strategy/show"(platform: "/", type: TrackType.View) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+    "/advertising/pads2/hub/modal/bidding/strategy/go"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy_previous(required: true, type: PropertyType.String, description: "Previous selected strategy")
+        strategy_new(required: true, type: PropertyType.String, description: "New selected strategy")
+    }
+    "/advertising/pads2/hub/modal/bidding/strategy/helper"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+
+    "/advertising/pads2/hub/modal/bidding/trtarget"(platform: "/", type: TrackType.View, parentPropertiesInherited: false) {}
+
+    "/advertising/pads2/hub/modal/bidding/trtarget/show"(platform: "/", type: TrackType.View) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.String, description: "Take Rate selected")
+    }
+    "/advertising/pads2/hub/modal/bidding/trtarget/go"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget_previous(required: true, type: PropertyType.String, description: "Previous selected Take Rate")
+        trtarget_new(required: true, type: PropertyType.String, description: "New selected Take Rate")
+    }
+    "/advertising/pads2/hub/modal/bidding/trtarget/helper"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.String, description: "Take Rate selected")
+    }
+    "/advertising/pads2/hub/modal/bidding/trtarget/changestrategy"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.String, description: "Take Rate selected")
+    }
+
+    "/advertising/pads2/hub/update"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/advertising/pads2/hub/update/bidding"(platform: "/", type: TrackType.Event) {}
+    "/advertising/pads2/hub/update/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
+    
+    "/advertising/pads2/hub/update/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.String, description: "Take Rate selected")
+    }
+
 }
