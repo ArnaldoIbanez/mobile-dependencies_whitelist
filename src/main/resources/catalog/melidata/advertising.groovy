@@ -1196,4 +1196,73 @@ tracks {
         trtarget(required: true, type: PropertyType.String, description: "Take Rate selected")
     }
 
+    //Bidding Dashboard
+
+    "/advertising/pads2/manager/bidding"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/advertising/pads2/manager/bidding/strategy"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/bidding/strategy/helper"(platform: "/", type: TrackType.Event) {
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.String, description: "Take Rate selected")
+    }
+
+    "/advertising/pads2/manager/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        name_previous(required: true, type: PropertyType.String, description: "Previous name related to the campaign.")
+        name_new(required: true, type: PropertyType.String, description: "New name related to the campaign.")
+    }
+
+    "/advertising/pads2/manager/modal"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {}
+    "/advertising/pads2/manager/modal/bidding"(platform: "/", type: TrackType.Event) {}
+    "/advertising/pads2/manager/modal/bidding/strategy"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/modal/bidding/strategy/show"(platform: "/", type: TrackType.View) {
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+    }
+    "/advertising/pads2/manager/modal/bidding/strategy/go"(platform: "/", type: TrackType.Event) {
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy_previous(required: true, type: PropertyType.String, description: "Previous selected strategy")
+        strategy_new(required: true, type: PropertyType.String, description: "New selected strategy")
+    }
+    "/advertising/pads2/manager/modal/bidding/strategy/helper"(platform: "/", type: TrackType.Event) {
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+    }
+
+    "/advertising/pads2/manager/modal/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
+
+    "/advertising/pads2/manager/modal/bidding/trtarget/show"(platform: "/", type: TrackType.View) {
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.String, description: "Take Rate selected")
+    }
+    "/advertising/pads2/manager/modal/bidding/trtarget/go"(platform: "/", type: TrackType.Event) {
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget_previous(required: true, type: PropertyType.String, description: "Previous selected Take Rate")
+        trtarget_new(required: true, type: PropertyType.String, description: "New selected Take Rate")
+    }
+    "/advertising/pads2/manager/modal/bidding/trtarget/helper"(platform: "/", type: TrackType.Event) {
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.String, description: "Take Rate selected")
+    }
+    "/advertising/pads2/manager/modal/bidding/trtarget/changestrategy"(platform: "/", type: TrackType.Event) {
+        multi(required: true, type: PropertyType.Boolean, description: "Indicate if user ir multicampaign")
+        campaign_id(required: true, type: PropertyType.Numeric, description: "Id related to the campaign")
+        strategy(required: true, type: PropertyType.String, description: "Strategy selected")
+        trtarget(required: true, type: PropertyType.String, description: "Take Rate selected")
+    }
+
 }

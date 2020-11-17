@@ -1435,19 +1435,19 @@ trackTests {
     }
 
     test("Bidding Create campaign") {
-        "/advertising/pads2/createcampaign/strategy"(platform: "/", type: TrackType.View) {
-        }
+        
+        "/advertising/pads2/createcampaign/strategy"(platform: "/", type: TrackType.View) {}
+
         "/advertising/pads2/createcampaign/strategy/next"(platform: "/", type: TrackType.Event) {
             strategy = "LAUNCHING"
         }
-        "/advertising/pads2/createcampaign/strategy/breadcrumb"(platform: "/", type: TrackType.Event) {
-        }
-        "/advertising/pads2/createcampaign/step1/helper"(platform: "/", type: TrackType.Event) {
-        }
-        "/advertising/pads2/createcampaign/step1/helper/trtarget"(platform: "/", type: TrackType.Event) {
-        }
-        "/advertising/pads2/createcampaign/step1/helper/strategy"(platform: "/", type: TrackType.Event) {
-        }
+        "/advertising/pads2/createcampaign/strategy/breadcrumb"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/createcampaign/step1/helper"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/createcampaign/step1/helper/trtarget"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/createcampaign/step1/helper/strategy"(platform: "/", type: TrackType.Event) {}
     }
 
     test("Bidding HUB") {
@@ -1525,11 +1525,84 @@ trackTests {
         "/advertising/pads2/hub/update/bidding"(platform: "/", type: TrackType.Event) {}
 
         "/advertising/pads2/hub/update/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
-        
+
         "/advertising/pads2/hub/update/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
             campaign_id = 1
             strategy = "LAUNCHING"
             trtarget = "35"
+        }
+    }
+
+    test("Bidding Dashboard") {
+
+        "/advertising/pads2/manager/bidding"(platform: "/", type: TrackType.Event) {}
+        "/advertising/pads2/manager/bidding/strategy"(platform: "/", type: TrackType.Event) {}
+        "/advertising/pads2/manager/bidding/strategy/helper"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget = "3"
+        }
+
+        "/advertising/pads2/manager/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
+        "/advertising/pads2/manager/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 1
+            name_previous = "Test"
+            name_new = "Celular"
+        }
+
+        "/advertising/pads2/manager/modal"(platform: "/", type: TrackType.Event) {}
+        "/advertising/pads2/manager/modal/bidding"(platform: "/", type: TrackType.Event) {}
+        "/advertising/pads2/manager/modal/bidding/strategy"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/manager/modal/bidding/strategy/show"(platform: "/", type: TrackType.View) {
+            multi = false
+            campaign_id = 1
+        }
+
+        "/advertising/pads2/manager/modal/bidding/strategy/go"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 1
+            strategy_previous = "PROFITABILITY"
+            strategy_new = "LAUNCHING"
+        }
+
+        "/advertising/pads2/manager/modal/bidding/strategy/helper"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 1
+            strategy = "PROFITABILITY"
+        }
+
+        "/advertising/pads2/manager/modal/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/manager/modal/bidding/trtarget/show"(platform: "/", type: TrackType.View) {
+            multi = true
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget = "3"
+        }
+
+        "/advertising/pads2/manager/modal/bidding/trtarget/go"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget_previous = "20"
+            trtarget_new = "45"
+        }
+
+        "/advertising/pads2/manager/modal/bidding/trtarget/helper"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget = "3"
+        }
+
+        "/advertising/pads2/manager/modal/bidding/trtarget/changestrategy"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget = "3"
         }
     }
 }
