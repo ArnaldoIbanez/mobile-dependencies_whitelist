@@ -2749,6 +2749,11 @@ trackTests {
             mandatory()
         }
 
+        // Dialog
+        "/bill_payments/dialog"(platform: "/mobile") {
+            mandatory()
+        }
+
         // Info screen
         "/bill_payments/info_screen"(platform: "/mobile") {
             mandatory()
