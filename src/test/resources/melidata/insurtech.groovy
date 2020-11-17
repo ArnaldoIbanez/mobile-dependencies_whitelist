@@ -321,7 +321,7 @@ trackTests {
                 model_code: "SM-J700M",
                 size: "64GB",
             ]
-            fallback_type= "deafult"
+            fallback_type= "default"
         }
 
         "/insurtech/roda/qpage/fallback"(platform:"/web", type: TrackType.View) {}
@@ -332,7 +332,7 @@ trackTests {
                 model_code: "SM-J700M",
                 size: "64GB",
             ]
-            fallback_type= "deafult"
+            fallback_type= "default"
             quotable= true
         }
 

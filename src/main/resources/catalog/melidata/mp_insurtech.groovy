@@ -92,12 +92,12 @@ tracks {
 
     "/insurtech/roda/qpage/fallback"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
-        fallback_type(required: false, type: PropertyType.String, description: "Type of fallback with which I enter the view")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'received_date_expired'], description: "Type of fallback with which I enter the view")
     }
 
     "/insurtech/roda/qpage/quoting_fallback"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
-        fallback_type(required: false, type: PropertyType.String, description: "Type of fallback with which I enter the view")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'received_date_expired'], description: "Type of fallback with which I enter the view")
         quotable(required: false, type: PropertyType.Boolean, description:"If a device is tradable or not")
     }
 
