@@ -781,6 +781,7 @@ tracks {
     "/vip/points_of_interest/leisure"(platform: "/web", type: TrackType.Event) {}
     "/vip/points_of_interest/commerce"(platform: "/web", type: TrackType.Event) {}
     "/vip/points_of_interest/health"(platform: "/web", type: TrackType.Event) {}
+    "/vip/points_of_interest/link_map"(platform: "/web", type: TrackType.Event) {}
 
     //TODO chequear con mobile estos tracks
     //  DESCRIPTION

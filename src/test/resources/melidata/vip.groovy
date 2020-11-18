@@ -1921,6 +1921,12 @@ trackTests {
         "/vip/points_of_interest/health"(platform: "/web/mobile", type: TrackType.Event) {
             properties()
         }
+        "/vip/points_of_interest/link_map"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/link_map"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
 
 
     }
