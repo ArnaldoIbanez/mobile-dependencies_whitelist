@@ -52,7 +52,26 @@ trackTests {
             mp_installed = true 
         }
 
-        "/home/navigation_history"(platform: "/mobile") {}
+        "/home/navigation_history"(platform: "/") {
+            privacy_config_state = true
+        }
+
+        "/home/navigation_history/privacy_config_on"(platform: "/") {
+            privacy_config_state = false
+        }
+
+        "/home/navigation_history/privacy_config_off"(platform: "/") {
+            privacy_config_state = true
+        }
+
+        "/home/navigation_history/remove_all"(platform: "/") {
+            privacy_config_state = false
+        }
+
+        "/home/navigation_history/remove"(platform: "/") {
+            item_id = "MLB681933310"
+            privacy_config_state = true
+        }
 
         "/home/abort"(platform: "/mobile") {}
 
