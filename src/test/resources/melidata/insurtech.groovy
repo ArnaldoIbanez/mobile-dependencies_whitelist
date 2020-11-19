@@ -271,7 +271,7 @@ trackTests {
             entity_type = "order"
             entity_id = 789078907890
             item_id = "MLB123124"
-            financing_type = null
+            buying_mode = 'buy_it_now'
         }
 
         "/insurtech/roda/qpage"(platform:"/mobile", type: TrackType.View) {
@@ -298,10 +298,7 @@ trackTests {
             entity_type = "order"
             entity_id = 789078907890
             item_id = "MLB123124"
-            financing_type = [
-                no_interest_allowed : true,
-                installments: 12
-            ]
+            buying_mode = 'buy_it_now'
         }
 
         "/insurtech/roda/qpage/error"(platform:"/mobile", type: TrackType.View) {
@@ -310,9 +307,11 @@ trackTests {
                 model_code: "SM-J700M",
                 size: "64GB",
             ]
+            buying_mode = 'buy_it_now'
         }
 
         "/insurtech/roda/qpage/error"(platform:"/web", type: TrackType.View) {
+            buying_mode = 'subscription'
         }
 
         "/insurtech/roda/qpage/fallback"(platform:"/mobile", type: TrackType.View) {
@@ -322,9 +321,12 @@ trackTests {
                 size: "64GB",
             ]
             fallback_type= "default"
+            buying_mode = 'buy_it_now'
         }
 
-        "/insurtech/roda/qpage/fallback"(platform:"/web", type: TrackType.View) {}
+        "/insurtech/roda/qpage/fallback"(platform:"/web", type: TrackType.View) {
+            buying_mode = 'subscription'
+        }
 
          "/insurtech/roda/qpage/quoting_fallback"(platform:"/mobile", type: TrackType.View) {
             client_device = [
@@ -334,9 +336,31 @@ trackTests {
             ]
             fallback_type= "default"
             quotable= true
+            buying_mode = 'buy_it_now'
         }
 
-        "/insurtech/roda/qpage/quoting_fallback"(platform:"/web", type: TrackType.View) {}
+        "/insurtech/roda/qpage/quoting_fallback"(platform:"/web", type: TrackType.View) {
+            buying_mode = 'subscription'
+        }
+
+        "/insurtech/roda/qpage/deductible"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            order_device = [
+                brand: "Sony",
+                model: "Xperia",
+                model_code: "Xa1",
+                size: "32GB",
+            ]
+            entity_type = "order"
+            entity_id = 789078907890
+            item_id = "MLB123124"
+            buying_mode = 'buy_it_now'
+        }
 
         "/insurtech/roda/qpage/faq"(platform:"/mobile", type: TrackType.View) {
             client_device = [
@@ -356,6 +380,7 @@ trackTests {
             entity_id = 789078907890
             item_id = "MLB123124"
             faq = "protection-cancel"
+            buying_mode = 'buy_it_now'
         }
 
         "/insurtech/roda/qpage/buy"(platform:"/mobile", type: TrackType.View) {
@@ -386,10 +411,7 @@ trackTests {
             entity_id = 789078907890
             item_id = "MLB123124"
             hardware_check = false
-            financing_type = [
-                no_interest_allowed : true,
-                installments: 12
-            ]
+            buying_mode = 'buy_it_now'
         }
 
         "/insurtech/roda/qpage/buy"(platform:"/mobile", type: TrackType.View) {
@@ -420,7 +442,7 @@ trackTests {
             entity_id = 789078907890
             item_id = "MLB123124"
             hardware_check = true
-            financing_type = null
+            buying_mode = 'subscription'
         }
 
         "/insurtech/roda/qpage/option_selected"(platform:"/mobile", type: TrackType.View) {
@@ -450,6 +472,7 @@ trackTests {
             entity_type = "order"
             entity_id = 789078907890
             item_id = "MLB123124"
+            buying_mode = 'subscription'
         }
 
        "/insurtech/roda/qpage/quoting_fallback/select"(platform:"/", type: TrackType.Event) {
@@ -460,6 +483,7 @@ trackTests {
             ]
             fallback_type= "deafult"
             quotable= true
+            buying_mode = 'buy_it_now'
         }
 
         //Mobile
