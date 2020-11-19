@@ -261,15 +261,23 @@ trackTests {
                     coverage: "theft_break",
                     price: 123.33,
                     deductible_amount: 12.33,
+                    gtin:[
+                        "7899403636915",
+                        "7893299910425"
+                    ],
                 ],
                 [
                     coverage: "theft_break",
                     price: 100.33,
                     deductible_amount: 12.33,
+                    gtin:[
+                        "7899403636915",
+                        "7893299910425"
+                    ],
                 ]
             ]
             entity_type = "order"
-            entity_id = 789078907890
+            entity_id = "MLB789078907890"
             item_id = "MLB123124"
             buying_mode = 'buy_it_now'
         }
@@ -293,10 +301,14 @@ trackTests {
                     coverage: "total",
                     price: 123.33,
                     deductible_amount: 12.33,
+                    gtin:[
+                        "7899403636915",
+                        "7893299910425"
+                    ]
                 ],
             ]
             entity_type = "order"
-            entity_id = 789078907890
+            entity_id = "MLB789078907890"
             item_id = "MLB123124"
             buying_mode = 'buy_it_now'
         }
@@ -357,7 +369,7 @@ trackTests {
                 size: "32GB",
             ]
             entity_type = "order"
-            entity_id = 789078907890
+            entity_id = "MLB789078907890"
             item_id = "MLB123124"
             buying_mode = 'buy_it_now'
         }
@@ -377,7 +389,7 @@ trackTests {
                 device_code: "diw387_1u1",
             ]
             entity_type = "order"
-            entity_id = 789078907890
+            entity_id = "789078907890"
             item_id = "MLB123124"
             faq = "protection-cancel"
             buying_mode = 'buy_it_now'
@@ -405,10 +417,14 @@ trackTests {
                 fee_price: 10.44,
                 currency_id: "BRL",
                 deductible_amount: 20.00,
-                check: "total"
+                check: "total",
+                gtin:[
+                    "7899403636915",
+                    "7893299910425"
+                ],
             ]
             entity_type = "order"
-            entity_id = 789078907890
+            entity_id = "789078907890"
             item_id = "MLB123124"
             hardware_check = false
             buying_mode = 'buy_it_now'
@@ -429,7 +445,11 @@ trackTests {
                 fee_price: 10.44,
                 currency_id: "BRL",
                 deductible_amount: 20.00,
-                check: "total"
+                check: "total",
+                gtin:[
+                    "7899403636915",
+                    "7893299910425"
+                ],
             ]
             order_device = [
                 brand: "Sony",
@@ -439,7 +459,7 @@ trackTests {
                 device_code: "diw387_1u1",
             ]
             entity_type = "order"
-            entity_id = 789078907890
+            entity_id = "789078907890"
             item_id = "MLB123124"
             hardware_check = true
             buying_mode = 'subscription'
@@ -467,10 +487,14 @@ trackTests {
                 fee_price: 10.44,
                 currency_id: "BRL",
                 deductible_amount: 20.00,
-                check: "total"
+                check: "total",
+                gtin:[
+                    "7899403636915",
+                    "7893299910425"
+                ],
             ]
             entity_type = "order"
-            entity_id = 789078907890
+            entity_id = "789078907890"
             item_id = "MLB123124"
             buying_mode = 'subscription'
         }

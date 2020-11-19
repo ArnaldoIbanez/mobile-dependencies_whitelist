@@ -11,8 +11,8 @@ tracks {
     // INSURTECH RODA Structures
     def roda_device = objectSchemaDefinitions {
         brand(required: true, type: PropertyType.String, description: "Brand of device. For ex: Samsung.")
-        model(required: false, type: PropertyType.String, description: "Model of the device. For ex: J7.")
-        model_code(required: false, type: PropertyType.String, description: "Model code of the device. For ex: SM-J700M.")
+        model(required: false, type: PropertyType.String, description: "Model of the device. For ex: J7. Send by provider.")
+        model_code(required: false, type: PropertyType.String, description: "Model code of the device. For ex: SM-J700M. Get from native.")
         size(required: true, type: PropertyType.String, description: "Size of the device. For ex: 64GB.")
         device_code(required: false, type: PropertyType.String, description: "device code to quote. For ex: diw387_1u1")
     }
@@ -26,14 +26,14 @@ tracks {
         currency_id(required: true, type: PropertyType.String, description: "Currency id of the option. For ex: BRL.")
         deductible_amount(required: true, type: PropertyType.Numeric, description: "Deductible amount of the option.")
         check(required: true, type: PropertyType.String, description: "Check HW required. For ex: total.")
-        gtin(required: false, type: PropertyType.String, description: "Identifier for quotes.")
+        gtin(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "GLobal Trade Item Numer")
     }
-
+          
     def roda_option_short = objectSchemaDefinitions {
         coverage(required: true, type: PropertyType.String, description: "Coverage of the option. For ex: theft_break, theft, break, accident.")
         price(required: true, type: PropertyType.Numeric, description: "Price of the option.")
         deductible_amount(required: true, type: PropertyType.Numeric, description: "Deductible amount of the option.")
-        gtin(required: false, type: PropertyType.String, description: "Identifier for quotes.")
+        gtin(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "GLobal Trade Item Numer")
     }
 
     def protection_short = objectSchemaDefinitions {
@@ -81,7 +81,7 @@ tracks {
         order_device(required:false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         options(required: false, type: PropertyType.ArrayList(PropertyType.Map(roda_option_short)), description: "Options presented in the qpage for quotation")
         entity_type (required: true, type: PropertyType.String, description: "Entity type insurtech product", values: ['device', 'order'])
-        entity_id (required: true, type:  PropertyType.Numeric, description: "Entity id insurtech product")
+        entity_id (required: true, type:  PropertyType.String, description: "Entity id insurtech product")
         item_id (required: false, type: PropertyType.String, description: "id of the item that is offered protection")
         buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
     }
@@ -113,7 +113,7 @@ tracks {
         client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data entering qpage")
         order_device(required:false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         entity_type (required: true, type: PropertyType.String, description: "Entity type insurtech product", values: ["device", "order"])
-        entity_id (required: true, type:  PropertyType.Numeric, description: "Entity id insurtech product")
+        entity_id (required: true, type:  PropertyType.String, description: "Entity id insurtech product")
         item_id (required: false, type: PropertyType.String, description: "id of the item that is offered protection")
         faq(required: true, type: PropertyType.String, description: "Name of the FAQ viewed. For ex: protection-cancel, deductible-fee")
         buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
@@ -124,7 +124,7 @@ tracks {
         order_device(required:false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         option(required: true, type: PropertyType.Map(roda_option), description: "Option plan selected on purchase.")
         entity_type (required: true, type: PropertyType.String, description: "Entity type insurtech product", values: ["device", "order"])
-        entity_id (required: true, type:  PropertyType.Numeric, description: "Entity id insurtech product")
+        entity_id (required: true, type:  PropertyType.String, description: "Entity id insurtech product")
         item_id (required: false, type: PropertyType.String, description: "id of the item that is offered protection")
         hardware_check (required: true, type: PropertyType.Boolean, description: "If you require hardware check")
         buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
@@ -135,7 +135,7 @@ tracks {
         order_device(required:false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         option(required: true, type: PropertyType.Map(roda_option), description: "Option plan selected.")
         entity_type (required: true, type: PropertyType.String, description: "Entity type insurtech product", values: ["device", "order"])
-        entity_id (required: true, type:  PropertyType.Numeric, description: "Entity id insurtech product")
+        entity_id (required: true, type:  PropertyType.String, description: "Entity id insurtech product")
         item_id (required: false, type: PropertyType.String, description: "id of the item that is offered protection")
         buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")    
     }
