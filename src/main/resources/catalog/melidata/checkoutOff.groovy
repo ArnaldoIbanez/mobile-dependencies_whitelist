@@ -66,6 +66,11 @@ tracks {
     "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/paypal_login/no_display"(platform: "/", type: TrackType.View) {}
 
+    // OneClick track
+    "/checkout_off/payment/one_click_redirect"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/one_click_processing"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/one_click_return"(platform: "/", type: TrackType.View) {}
+
     "/checkout_off/payment/review_express"(platform: "/", type: TrackType.View) {}
 
     // Split payments paths
@@ -161,6 +166,10 @@ tracks {
 
     "/checkout_off/payment/paypal_ftu"(platform: "/", type: TrackType.View) {}
     "/checkout_off/payment/paypal_login"(platform: "/", type: TrackType.View) {}
+
+    "/checkout_off/payment/one_click_redirect"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/one_click_processing"(platform: "/", type: TrackType.View) {}
+    "/checkout_off/payment/one_click_return"(platform: "/", type: TrackType.View) {}
 
     // Shipping tracks
     "/checkout_off/shipping"(platform: "/", isAbstract: true) {}
