@@ -2685,6 +2685,10 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/invoices/cancel_dda"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/invoices/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -2745,8 +2749,25 @@ trackTests {
             mandatory()
         }
 
+        // Dialog
+        "/bill_payments/dialog"(platform: "/mobile") {
+            mandatory()
+        }
+
         // Info screen
         "/bill_payments/info_screen"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/pay_another_service"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/info_screen/money_in"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
@@ -2898,6 +2919,18 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/scan/flash"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/scan/type_barcode"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/scan/click"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         "/bill_payments/scan/back"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -3033,6 +3066,10 @@ trackTests {
         }
 
         "/bill_payments/congrats/success/dda"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/congrats/success/activate_digital_invoices"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
 
