@@ -45,7 +45,7 @@ tracks {
     }
 
     "/home/navigation_history"(platform: "/") {
-        privacy_config_state(required: true, type: PropertyType.Boolean)
+        privacy_config_state(required: false, type: PropertyType.Boolean)
     }
 
     "/home/navigation_history/privacy_config_on"(platform: "/", type: TrackType.Event) {
