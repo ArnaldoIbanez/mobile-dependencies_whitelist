@@ -19,11 +19,16 @@ tracks
                 description: "Specifies the container assigned to a driver when routing was made")
         container_packages(required: true, type: PropertyType.Numeric,
                 description: "Specifies the amount of packages in the scanned container")
+
+        packs_info(type: PropertyType.ArrayList(PropertyType.Map(pack_info_definition)), required: true, inheritable: false)
+        route_info(type: PropertyType.Map(route_info_definition), required: true, inheritable: false)
+        stop_order(type: PropertyType.Numeric, required: false, inheritable: false)
     }
 
     propertyGroups {
         driver_info(vehicle_id, latitude, longitude)
         sorting_info(container_scanned, container_assigned, container_packages)
+        delivery_info(latitude, longitude, packs_info, route_info, stop_order)
     }
 
     def receiver_definition = objectSchemaDefinitions {
@@ -209,6 +214,43 @@ tracks
 
     "/driver/stops/detail/map"(platform: "/mobile", type: TrackType.Event) {
         stop_order(required: false, type: PropertyType.Numeric, description: "Specifies the shipment delivery order", inheritable: false)
+    }
+
+/// DELIVERY FLOW TRACKS
+
+    "/driver/delivery"(platform: "/mobile", isAbstract: true) {
+        delivery_info
+    }
+
+    "/driver/delivery/receipt"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/delivery/receipt/selection"(platform: "/mobile", type: TrackType.Event) {
+        receiver_type(required: true, type: PropertyType.String,
+                values: ["holder", "reception", "family", "neighbour"],
+                description: "Describes the relationship between receiver and buyer")
+    }
+
+    "/driver/delivery/receiver_info"(platform: "/mobile", type: TrackType.View) {
+        receiver_type(required: true, type: PropertyType.String,
+                values: ["holder", "reception", "family", "neighbour"],
+                description: "Describes the relationship between receiver and buyer")
+    }
+
+    "/driver/delivery/delivery_ok"(platform: "/mobile", type: TrackType.View) {
+        receiver_type(required: true, type: PropertyType.String,
+                values: ["holder", "reception", "family", "neighbour"],
+                description: "Describes the relationship between receiver and buyer")
+        doc_type(required: true, type: PropertyType.String,
+                description: "Describes the doc type filled by receiver (but not the doc number)")
+    }
+
+    "/driver/delivery/undeliver_reason"(platform: "/mobile", type: TrackType.View) {
+    }
+
+    "/driver/delivery/undelivery_ok"(platform: "/mobile", type: TrackType.View) {
+        selected_reason(required: true, type: PropertyType.String,
+                description: "Describes why the driver couldn't deliver the packages")
     }
 }
 
