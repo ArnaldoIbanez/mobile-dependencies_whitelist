@@ -2829,9 +2829,61 @@ trackTests {
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller Central Questions
   //------------------------------------------------------------------------------------------------------------------------------------------------------
-  
+
   test("Seller central render Questions") {
     "/seller_central/questions"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("Seller central response Questions") {
+    "/seller_central/questions/response"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central delete Questions") {
+    "/seller_central/questions/delete"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central denunciation Questions") {
+    "/seller_central/questions/denunciation"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central block buyer Questions") {
+    "/seller_central/questions/blockBuyer"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -208,6 +208,13 @@ tracks {
         from_current(required: false, type: PropertyType.String, description: "From end date")
         to_previous(required: false, type: PropertyType.String, description: "To start date")
         to_current(required: false, type: PropertyType.String, description: "To end date")
+
+        // Seller Central Questions
+        question_id(requested: false, type: PropertyType.String, description: "Question ID")
+        site_id(requested: true, type: PropertyType.String, description: "Site ID")
+        item_status(requested: true, type: PropertyType.String, description: "Current item status")
+        question_date_created(required: true, type: PropertyType.String, description: "Question creation date")
+        question_date_action(required: true, type: PropertyType.String, description: "Question response date")
     }
 
     propertyGroups {
@@ -232,6 +239,9 @@ tracks {
 
         // Seller Metrics
         sellerMetricsContext(applied_filters, finish_period, start_period, from_previous, from_current, to_previous, to_current)
+
+        // Seller Questions
+        sellerCentralActionQuestionsGroup(seller_profile, seller_segment, question_id, item_id, site_id, item_status, question_date_created, question_date_action)
     }
 
     // Summary
@@ -1479,7 +1489,23 @@ tracks {
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS Seller Central Questions
     //------------------------------------------------------------------------------------------------------------------------------------------------------
-    
+
     "/seller_central/questions"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/questions/response"(platform: "/", type: TrackType.Event) {
+        sellerCentralActionQuestionsGroup
+    }
+
+    "/seller_central/questions/delete"(platform: "/", type: TrackType.Event) {
+        sellerCentralActionQuestionsGroup
+    }
+
+    "/seller_central/questions/denunciation"(platform: "/", type: TrackType.Event) {
+        sellerCentralActionQuestionsGroup
+    }
+
+    "/seller_central/questions/blockBuyer"(platform: "/", type: TrackType.Event) {
+        sellerCentralActionQuestionsGroup
+    }
 
 }
