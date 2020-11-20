@@ -2080,6 +2080,7 @@ tracks {
     "/notification/card_nip_first_try"(platform: "/mobile") {}
     "/notification/card_nip_second_try"(platform: "/mobile") {}
     "/notification/card_nip_nip_block"(platform: "/mobile") {}
+    "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/mobile") {}
     //Prepaid
     "/notification/prepaid_card_shipped"(platform: "/mobile") {}
     "/notification/prepaid_card_waiting_for_withdrawal"(platform: "/mobile") {}
