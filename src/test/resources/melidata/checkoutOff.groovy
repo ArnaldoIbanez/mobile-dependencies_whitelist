@@ -176,6 +176,18 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -336,6 +348,18 @@ trackTests {
 
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
         }
 
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
@@ -598,6 +622,18 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -758,6 +794,18 @@ trackTests {
 
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
         }
 
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {

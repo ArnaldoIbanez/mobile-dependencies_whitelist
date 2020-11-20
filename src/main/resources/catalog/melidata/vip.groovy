@@ -82,6 +82,7 @@ tracks {
     }
 
     def highlights_definition  = objectSchemaDefinitions {
+        id(required: false, type: PropertyType.String, description: "Id of the highlight")
         best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
         melichoice_score(required: false, type: PropertyType.Numeric, description: "Score of Melichoice Product")
         melichoice_origin(required: false, type: PropertyType.String, description: "Origin of Melichoice Product")
@@ -781,6 +782,7 @@ tracks {
     "/vip/points_of_interest/leisure"(platform: "/web", type: TrackType.Event) {}
     "/vip/points_of_interest/commerce"(platform: "/web", type: TrackType.Event) {}
     "/vip/points_of_interest/health"(platform: "/web", type: TrackType.Event) {}
+    "/vip/points_of_interest/link_map"(platform: "/web", type: TrackType.Event) {}
 
     //TODO chequear con mobile estos tracks
     //  DESCRIPTION

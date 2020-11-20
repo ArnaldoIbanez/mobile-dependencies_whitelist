@@ -62,6 +62,7 @@ trackTests {
             vip_version = "new"
             best_seller_position = 5
             highlights = [
+                "id": "id_highlight",
                 "best_seller_position": 5,
                 "melichoice_domain": "CELLPHONES",
                 "melichoice_origin": "killer",
@@ -1919,6 +1920,12 @@ trackTests {
             properties()
         }
         "/vip/points_of_interest/health"(platform: "/web/mobile", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/link_map"(platform: "/web/desktop", type: TrackType.Event) {
+            properties()
+        }
+        "/vip/points_of_interest/link_map"(platform: "/web/mobile", type: TrackType.Event) {
             properties()
         }
 
