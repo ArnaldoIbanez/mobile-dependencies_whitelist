@@ -8585,6 +8585,12 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
         }
+                
+        "/notification/card_limit_rejected_withdraw_by_maximum_limit"(platform: "/mobile") {
+            news_id = "card_limit-rejected_withdraw_by_maximum_limit-51AO96HEQBssK6rdZvm1r3ZwvwMldsI1bhlDmv1rj4LrpP0Sn8nZGQMQ5pbTZBrg-1565881200"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
     }
 
 }
