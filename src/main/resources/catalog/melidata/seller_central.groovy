@@ -1492,6 +1492,8 @@ tracks {
 
     "/seller_central/questions"(platform: "/", type: TrackType.View) {}
 
+    "/seller_central/questions/item"(platform: "/", type: TrackType.View) {}
+
     "/seller_central/questions/response"(platform: "/", type: TrackType.Event) {
         sellerCentralActionQuestionsGroup
     }
