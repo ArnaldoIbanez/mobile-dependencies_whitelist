@@ -1,13 +1,20 @@
 buildscript {
-    ext {
-        springBootVersion = '1.5.8.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
+	ext {
+		springBootVersion = '1.5.8.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+plugins {
+	id 'java-library'
+	id 'jacoco'
+	id 'maven-publish'
+	id 'checkstyle'
 }
 
 apply plugin: 'java'
@@ -19,16 +26,19 @@ apply plugin: 'jacoco'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+group = 'com.mercadolibre.melidata.catalog'
+version = '2.2.1'
+
 repositories {
-    mavenCentral()
-    jcenter()
-    maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
-    maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
-    maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
+	mavenCentral()
+	jcenter()
+	maven { url "http://git.ml.com:8081/nexus/content/groups/ML" }
+	maven { url "http://git.ml.com:8081/nexus/content/repositories/MLGrailsPlugins" }
+	maven { url "http://git.ml.com:8081/nexus/content/groups/Arquitectura" }
 }
 
 configurations {
-    providedRuntime
+	providedRuntime
 }
 
 dependencies {
@@ -62,11 +72,6 @@ jacocoTestReport {
 					exclude: ['**/*'])
 		})
 	}
-}
-
-
-task wrapper(type: Wrapper) {
-	gradleVersion = '3.5'
 }
 
 task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
@@ -498,17 +503,6 @@ task exportMetrics(type:JavaExec) {
 
 task bootRepackage {
 }
-
-group = 'com.mercadolibre.melidata.catalog'
-version = '2.2.1'
-
-plugins {
-    id 'java-library'
-    id 'jacoco'
-    id 'maven-publish'
-    id 'checkstyle'
-}
-
 
 publishing {
     println("Publishing version ${version} to repository")
