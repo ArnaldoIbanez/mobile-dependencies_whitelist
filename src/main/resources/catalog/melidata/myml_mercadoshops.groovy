@@ -523,4 +523,6 @@ tracks {
         percentage(required: true, type: PropertyType.Numeric, description: "Discount Percentage")
         status(required: true, type: PropertyType.String, description: "Discount State", values: ['ACTIVE', 'INACTIVE'])
     }
+
+    "/mercado_shops/discounts/create/coupon"(platform: "/", type: TrackType.View){}
 }
