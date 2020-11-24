@@ -66,7 +66,7 @@ jacocoTestReport {
 
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '2.1'
+	gradleVersion = '3.5'
 }
 
 task coverage (dependsOn:[":test",":jacocoTestReport"]) << {
@@ -86,7 +86,7 @@ task testAll (dependsOn: 'classes', type: JavaExec) {
 task uploadAll(type:JavaExec) {
     main = 'com.melidata.definitions.task.UploadManager'
     classpath = sourceSets.main.runtimeClasspath
-    args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-mon-fda-test-app", 
+    args = ["melidata", "shipping", "advertising", "component_prints", "cx_help_channels", "recommendations", "mlo-mon-fda-test-app",
 	"mlo-mon-fda-test-app-busi", "mlo-mon-flan", "mlo-mon-fda-items-plus", "mlo-mon-wagner-deploy", "mlo-mon-fraud-automl-api",
 	"mlo-mon-tagging-flammable-text", "mlo-mon-fda-categorizer-aml", "mlo-mon-app-fake", "mlo-mon-fda-scd", "mlo-mon-shipping-time",
 	"mlo-mon-gdls-domain-fakes", "mlo-mon-autoofertasfraude", "mlo-mon-aml-cx-med", "mlo-mon-tagging-domain-detector-aws", "mpb-portability",
