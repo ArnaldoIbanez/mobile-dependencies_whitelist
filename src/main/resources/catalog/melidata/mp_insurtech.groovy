@@ -93,13 +93,13 @@ tracks {
 
     "/insurtech/roda/qpage/fallback"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
-        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'received_date_expired'], description: "Type of fallback with which I enter the view")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
         buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
     }
 
     "/insurtech/roda/qpage/quoting_fallback"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
-        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'received_date_expired'], description: "Type of fallback with which I enter the view")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
         quotable(required: false, type: PropertyType.Boolean, description:"If a device is tradable or not")
         buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")    
     }
@@ -142,7 +142,7 @@ tracks {
     
     "/insurtech/roda/qpage/quoting_fallback/select"(platform:"/", type: TrackType.Event) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
-        fallback_type(required: true, type: PropertyType.String, description: "Type of fallback with which I enter the view")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
         quotable(required: false, type: PropertyType.Boolean, description:"If a device is tradable or not")
         buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
     }
