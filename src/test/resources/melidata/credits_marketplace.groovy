@@ -17,6 +17,7 @@ trackTests {
         //Page views
         "/credits/consumer/public_landing"(platform: "/web/desktop") {
             user_profile = 'no_offer'
+            sk = 'landing'
         }
         "/credits/consumer/public_landing/application_result"(platform: "/web/desktop") {
             result = 'manual_review'
@@ -203,6 +204,9 @@ trackTests {
             dashboard_status = 'empty_state'
         }
         "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {
+            dashboard_status = 'overdue'
+        }
+        "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/web/desktop", type: TrackType.Event) {
             dashboard_status = 'overdue'
         }
         "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {
@@ -540,11 +544,14 @@ trackTests {
 
         "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
             prepaid = true
+            virtual_card = true
+            physical_card = false
         }
 
         "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
             prepaid = false
             page = 1
+            sk = 'sk1234'
         }
 
         "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {
@@ -558,6 +565,7 @@ trackTests {
 
         "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
             prepaid = false
+            sk = 'sk1234'
         }
 
         "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {

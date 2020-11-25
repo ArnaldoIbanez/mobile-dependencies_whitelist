@@ -711,6 +711,23 @@ trackTests {
 
             "/authenticators/email_validation/max_attempts"(platform: "/", type: TrackType.View) {}
 
+            "/authenticators/email_validation/enter_email"(platform: "/", type: TrackType.View) {
+                flow = "registration"
+                client_type = "mobile"
+            }
+
+            "/authenticators/email_validation/enter_email/submit"(platform: "/", type: TrackType.Event) {
+                flow = "registration"
+                client_type = "mobile"
+                validation_status = "success"
+            }
+
+            "/authenticators/email_validation/enter_email/submit"(platform: "/", type: TrackType.Event) {
+                flow = "registration"
+                client_type = "mobile"
+                validation_status = "user_exists"
+            }
+
             "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
                 flow = "registration"
                 client_type = "mobile"
@@ -756,6 +773,16 @@ trackTests {
                 os_status = "biometrics"
                 elapsed_time = 50
                 result = "success"
+                transaction_information = [
+                    "amount": "100.0",
+                    "type": "transactional"
+                ]
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
             }
 
             "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -765,6 +792,16 @@ trackTests {
                 elapsed_time = 50
                 result = "error"
                 errors = ["user_cancelled"]
+                transaction_information = [
+                    "amount": "0",
+                    "type": "non_transactional"
+                ]
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
             }
 
             "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -773,6 +810,16 @@ trackTests {
                 os_status = "basic_screenlock"
                 elapsed_time = 50
                 result = "success"
+                transaction_information = [
+                    "amount": "0",
+                    "type": "other"
+                ]
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
             }
 
             "/screenlock/biometrics/failure"(platform: "/mobile/android", type: TrackType.Event) {
@@ -824,6 +871,13 @@ trackTests {
                 ]
                 scenario = "never_auto_enrolled"
             }
+
+            "/screenlock/multiple_sessions_shield"(platform: "/mobile/android", type: TrackType.View) {
+            }
+
+            "/screenlock/multiple_sessions_shield"(platform: "/mobile/ios", type: TrackType.View) {
+            }
+
         }
 
         test("Screenlock app opening lock feature") {

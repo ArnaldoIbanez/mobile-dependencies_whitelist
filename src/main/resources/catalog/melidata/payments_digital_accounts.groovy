@@ -15,10 +15,15 @@ tracks {
     // MP Banking
     "/banking"(platform: "/", isAbstract: true) {}
 
-    // MP Banking - Balance
+    // Balance
     "/banking/balance"(platform: "/", type: TrackType.View) {}
     "/banking/calendar"(platform: "/", type: TrackType.View) {}
+    "/banking/activities"(platform: "/", type: TrackType.View) {}
+    "/banking/cerc"(platform: "/", type: TrackType.View) {}
 
-    // MP Banking - PNF
+    // PNF
     "/banking/pnf"(platform: "/", type: TrackType.View) {}
+
+    // Movements
+    "/banking/movements"(platform: "/", type: TrackType.View) {}
 }

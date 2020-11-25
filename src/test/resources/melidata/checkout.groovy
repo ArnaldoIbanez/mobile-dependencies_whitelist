@@ -2230,11 +2230,14 @@ trackTests {
         // Page
         "/checkout/shipping/input_address"(platform:"/mobile", dataSet)
         "/checkout/shipping/input_address"(platform:"/web", dataSet)
+        "/checkout/shipping/input_address/map"(platform:"/mobile", dataSet)
+        "/checkout/shipping/input_address/map"(platform:"/web", dataSet)
         "/checkout/shipping/input_address/back"(platform:"/", type: TrackType.Event, dataSet)
 
         // Event
         "/checkout/shipping/input_address/name"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2248,6 +2251,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/street_name"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2261,6 +2265,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/zip_code"(platform:"/", type: TrackType.Event){
             label = "La cantidad de caracteres ingresados es inválida"
+            value = "00"
             items = [
                     [
                             quantity: 1,
@@ -2274,6 +2279,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/city"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2287,6 +2293,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/colony"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2300,6 +2307,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/street_number"(platform:"/",  type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
+            value = "aaa"
             items = [
                     [
                             quantity: 1,
@@ -2326,6 +2334,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/delivery"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2339,6 +2348,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/delivery_instructions"(platform:"/", type: TrackType.Event){
             label = "Completa este dato"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2352,6 +2362,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/phone"(platform:"/", type: TrackType.Event){
             label = "Ingresar solo valores numéricos"
+            value = ""
             items = [
                     [
                             quantity: 1,
@@ -2378,6 +2389,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event){
             label = "Revisa este dato"
+            value = "!*"
             items = [
                     [
                             quantity: 1,
@@ -2391,6 +2403,7 @@ trackTests {
         }
         "/checkout/shipping/input_address/additional_info"(platform:"/", type: TrackType.Event){
             label = "Revisa este dato"
+            value = ""
             session_id="some_session_id"
         }
         "/checkout/shipping/input_address/internal_number"(platform:"/", type: TrackType.Event){
@@ -2405,6 +2418,63 @@ trackTests {
                     ]
             ]
             recovery_flow=false
+        }
+        "/checkout/shipping/input_address/caixa_postal_number"(platform: "/", type: TrackType.Event) {
+            label = "Ingresar solo valores numéricos"
+            value = "aa"
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+        "/checkout/shipping/input_address/error_map"(platform: "/", type: TrackType.Event) {
+            label = "Mové el mapa y ubicá el pin en tu ubicación exacta"
+            value = ""
+            items = [
+                    [
+                            quantity: 1,
+                            item    : [
+                                    id          : "MLM590711277",
+                                    variation_id: ""
+                            ]
+                    ]
+            ]
+            recovery_flow=true
+        }
+
+        "/checkout/shipping/input_address/select_street_name"(platform: "/", type: TrackType.Event) {
+            written = "sug"
+            finalText = "suggested street"
+        }
+
+        "/checkout/shipping/input_address/select_phone"(platform: "/", type: TrackType.Event) {
+            written = "123"
+            finalText = "12345678"
+        }
+        
+        "/checkout/shipping/input_address/search_replaced_zip_code"(platform: "/", type: TrackType.Event) {
+            count = 10.0
+        }
+        
+        "/checkout/shipping/input_address/select_replaced_zip_code"(platform: "/", type: TrackType.Event) {
+            count = 2.0
+        }
+
+        "/checkout/shipping/input_address/select_map_position"(platform: "/", type: TrackType.Event) {
+            suggested = [
+                "latitude": 12.12,
+                "longitude": 42.42
+            ]
+            finalCoordinates = [
+                "latitude": 12.13,
+                "longitude": 42.40
+            ]
         }
 
         "/checkout/shipping/input_address_number"(platform:"/web", dataSet)

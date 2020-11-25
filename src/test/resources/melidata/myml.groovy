@@ -149,7 +149,13 @@ trackTests {
             seller_type = "PF"
         }
         "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
-            seller_type = "PJ"
+            seller_type = "PF"
+        }
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/home"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
         }
         "/myml/invoices/optin/home/back_page"(platform: "/", type: TrackType.Event) {
             seller_type = "PF"
@@ -176,22 +182,70 @@ trackTests {
             seller_type = "PJ"
         }
 
-        "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/validation"(platform: "/") {}
-        "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {}
-        "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {}
-
-        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
-            reason = "ADDRESS_NOT_REGISTERED"
+        "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/basic_tax_settings"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
         }
         "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
             reason = "NOT_OWNER"
         }
         "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NOT_OWNER"
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NOT_OWNER"
+            seller_tax_regime = "Simples Nacional"
+        }
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
             reason = "NO_DOCUMENT_REGISTERED"
+        }
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NO_DOCUMENT_REGISTERED"
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/blocked_access"(platform: "/", type: TrackType.View) {
+            reason = "NO_DOCUMENT_REGISTERED"
+            seller_tax_regime = "Simples Nacional"
+        }
+        "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/certificate"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
+        }
+        "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/gnre"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
+        }
+        "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/invoice_data"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
+        }
+        "/myml/invoices/optin/validation"(platform: "/") {}
+        "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/validation/activity"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
+        }
+        "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/validation/business_name"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
+        }
+        "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Regime Normal"
+        }
+        "/myml/invoices/optin/validation/state_registry"(platform: "/", type: TrackType.View) {
+            seller_tax_regime = "Simples Nacional"
         }
 
         "/myml/invoices/not-found"(platform: "/") {}
@@ -1278,138 +1332,165 @@ trackTests {
         }
     }
 
-    test("Myml Massive Page") {
+    test("Myml Fiscal Rules Massive Page") {
         "/myml/fiscal_rules/massive"(platform: "/", type: TrackType.View) {
-            callback = "www.mercadolivre.com.br"
             action = "edit"
-            selected = "MSwyLDMsNA=="
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+            selected = "1, 2, 3, 4"
         }
 
         "/myml/fiscal_rules/massive/button/download"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
             action = "edit"
-            selected = "MSwyLDMsNA=="
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+            selected = "1, 2, 3, 4"
         }
 
         "/myml/fiscal_rules/massive/button/upload"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
             action = "edit"
-            selected = "MSwyLDMsNA=="
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
         }
 
-        "/myml/fiscal_rules/massive/modal"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
+        "/myml/fiscal_rules/massive/button/download_error"(platform: "/", type: TrackType.Event) {
             action = "edit"
-            selected = "MSwyLDMsNA=="
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+            id = "1a2b3c4d"
+            status = "error"
         }
 
-
-        "/myml/fiscal_rules/massive/download/button/start"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
+        "/myml/fiscal_rules/massive/modal/progress"(platform: "/", type: TrackType.Event) {
             action = "edit"
-            selected = "MSwyLDMsNA=="
-        }
-
-        "/myml/fiscal_rules/massive/download/action/primary"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
-            action = "edit"
-            selected = "MSwyLDMsNA=="
-            link = "www.mercadolivre.com.br"
-        }
-
-        "/myml/fiscal_rules/massive/download/action/secondary"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
-            action = "edit"
-            selected = "MSwyLDMsNA=="
-            link = "www.mercadolivre.com.br"
-        }
-
-        "/myml/fiscal_rules/massive/download/helper"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
-            action = "edit"
-            selected = "MSwyLDMsNA=="
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+            id = "1a2b3c4d"
+            status = "success"
+            scope = "download"
         }
 
         "/myml/fiscal_rules/massive/upload"(platform: "/", type: TrackType.View) {
-            callback = "www.mercadolivre.com.br"
             action = "edit"
-            selected = "MSwyLDMsNA=="
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+        }
+
+        "/myml/fiscal_rules/massive/upload/uploader/change"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+            has_files = true
+        }
+
+        "/myml/fiscal_rules/massive/upload/uploader/error"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+            error = "Invalid file type"
+        }
+
+        "/myml/fiscal_rules/massive/upload/button/later"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+        }
+
+        "/myml/fiscal_rules/massive/upload/button/save"(platform: "/", type: TrackType.Event) {
+            action = "edit"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+            name = "testname"
+            type = "xlsx"
+            size = 1000
         }
 
         "/myml/fiscal_rules/massive/upload/status"(platform: "/", type: TrackType.View) {
-            callback = "www.mercadolivre.com.br"
             action = "edit"
-            selected = "MSwyLDMsNA=="
-            status = "warning"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+            id = "1a2b3c4d"
         }
 
-        "/myml/fiscal_rules/massive/upload/modal"(platform: "/", type: TrackType.View) {
-            callback = "www.mercadolivre.com.br"
+        "/myml/fiscal_rules/massive/upload/status/button/fiscal_information"(platform: "/", type: TrackType.Event) {
             action = "edit"
-            selected = "MSwyLDMsNA=="
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+            id = "1a2b3c4d"
         }
 
-        "/myml/fiscal_rules/massive/upload/status/helpers"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
+        "/myml/fiscal_rules/massive/upload/status/button/advanced_tax_settings"(platform: "/", type: TrackType.Event) {
             action = "edit"
-            selected = "MSwyLDMsNA=="
-            status = "warning"
+            context = "default"
+            callback_url = "https://www.mercadolivre.com.br"
+            id = "1a2b3c4d"
+        }
+    }
+
+    // TRACKS MYML ADVANCED TAX SETTING
+
+    test('Advanced tax settings messa error') {
+        "/myml/advanced_tax_settings/message"(platform: "/", type: TrackType.View) {
+            code = 400
+        }
+    }
+
+    test('Advanced tax settings home') {
+        "/myml/advanced_tax_settings/home"(platform: "/", type: TrackType.View) {
+            context = "optin"
         }
 
-        "/myml/fiscal_rules/massive/upload/action/upload"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
-            action = "edit"
-            selected = "MSwyLDMsNA=="
+        "/myml/advanced_tax_settings/home/access"(platform: "/", type: TrackType.Event) {
+            destination_to = "https://myaccount.mercadolivre.com.br/advanced-tax-settings/cst/sale"
+            context = "optin"
+        }
+    }
+
+    test('Advanced tax setting difal') {
+        "/myml/advanced_tax_settings/difal"(platform: "/", type: TrackType.View) {
+            context = "optin"
         }
 
-        "/myml/fiscal_rules/massive/upload/action/edit"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
-            action = "edit"
-            selected = "MSwyLDMsNA=="
+        "/myml/advanced_tax_settings/difal/save"(platform: "/", type: TrackType.Event) {
+            context = "optin"
+        }
+    }
+
+    test('Advanced tax setting csosn') {
+        "/myml/advanced_tax_settings/csosn"(platform: "/", type: TrackType.View) {
+            context = "optin"
         }
 
-        "/myml/fiscal_rules/massive/upload/action/advanced_tax_settings"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
-            action = "edit"
-            selected = "MSwyLDMsNA=="
+        "/myml/advanced_tax_settings/csosn/save"(platform: "/", type: TrackType.Event) {
+            context = "optin"
+        }
+    }
+
+    test('Advanced tax setting rule composition') {
+        "/myml/advanced_tax_settings/rule_composition"(platform: "/", type: TrackType.View) {
+            context = "default"
         }
 
-        "/myml/fiscal_rules/massive/upload/action/download"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
-            action = "edit"
-            selected = "MSwyLDMsNA=="
+        "/myml/advanced_tax_settings/rule_composition/save"(platform: "/", type: TrackType.Event) {
+            context = "default"
+        }
+    }
+
+    test('Advanced tax setting CSTS') {
+        "/myml/advanced_tax_settings/cst_sale"(platform: "/", type: TrackType.View) {
+            context = "default"
         }
 
-        "/myml/fiscal_rules/massive/upload/actions/helper"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
-            action = "edit"
-            selected = "MSwyLDMsNA=="
-        }
-        
-        "/myml/fiscal_rules/massive/upload/button/start"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
-            action = "edit"
-            selected = "MSwyLDMsNA=="
+        "/myml/advanced_tax_settings/cst_sale/save"(platform: "/", type: TrackType.Event) {
+            context = "default"
         }
 
-        "/myml/fiscal_rules/massive/upload/button/remove"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
-            action = "edit"
-            selected = "MSwyLDMsNA=="
+        "/myml/advanced_tax_settings/cst_devolution"(platform: "/", type: TrackType.View) {
+            context = "default"
         }
 
-        "/myml/fiscal_rules/massive/upload/button/uplater"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
-            action = "edit"
-            selected = "MSwyLDMsNA=="
-        }
-
-        "/myml/fiscal_rules/massive/wizard"(platform: "/", type: TrackType.Event) {
-            callback = "www.mercadolivre.com.br"
-            action = "edit"
-            selected = "MSwyLDMsNA=="
-            show = false
-            times = 3
+        "/myml/advanced_tax_settings/cst_devolution/save"(platform: "/", type: TrackType.Event) {
+            context = "default"
         }
     }
 
@@ -1427,5 +1508,32 @@ trackTests {
     // TRACKS MYML MyContact Section
     test("MyContact Main"){
         "/myml/mycontact/main"(platform: "/", type: TrackType.View){}
+    }
+
+    // TRACKS MYML Invoice Detail
+    test('Invoices detail view') {
+        "/myml/invoices/detail"(platform: "/", type: TrackType.View) {}
+        "/myml/invoices/detail/correction_letter_modal_open"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/correction_letter_modal_cancel"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/correction_letter_modal_confirm"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/correction_letter_save"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/correction_letter_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/cancel_invoice_modal_open"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/cancel_invoice_modal_cancel"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/cancel_invoice_modal_confirm"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/cancel_invoice_save"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/cancel_invoice_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/resend_invoice_save"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/resend_invoice_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/fiscal_data_modal_open"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/fiscal_data_modal_close"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/to_send_devolution_invoice_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/create_invoice_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/print_danfe_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/fix_invoice_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/download_xml_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/re_print_gnre_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/print_gnre_click"(platform: "/", type: TrackType.Event) {}
+        "/myml/invoices/detail/copy_access_key_click"(platform: "/", type: TrackType.Event) {}
     }
 }

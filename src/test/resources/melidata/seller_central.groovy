@@ -283,6 +283,21 @@ trackTests {
     }
   }
 
+  test("Seller central summary notice click") {
+    "/seller_central/summary/notice"(platform: "/web", type: TrackType.Event) {
+      goal = "best_price"
+      seller_experience = "ADVANCED"
+    }
+  }
+
+  test("Seller central summary task click") {
+    "/seller_central/summary/task"(platform: "/web", type: TrackType.Event) {
+      module_id = "listing"
+      task_id = "BEST_PRICE_ELIGIBLE"
+      seller_experience = "ADVANCED"
+    }
+  }
+
   //------------------------------------------------------------------------------------------------------------------------------------------------------
   // TRACKS Seller central Bulk
   //------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1024,8 +1039,8 @@ trackTests {
     }
   }
 
-  test("seller central salesChannel only marketplace"){
-    "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event){
+  test("seller central update salesChannel"){
+    "/seller_central/modify/update_sales_channel"(platform: "/", type: TrackType.Event){
       item_type = "product"
       category_id = "MLA390784"
       item_id = "MLA682118081"
@@ -1034,38 +1049,10 @@ trackTests {
       seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
-      marketplace: true
-      mshops: false
-    }
-  }
-
-  test("seller central salesChannel only mshops"){
-    "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event){
-      item_type = "product"
-      category_id = "MLA390784"
-      item_id = "MLA682118081"
-      session_id = "123-update-abc123"
-      seller_profile = "ADVANCED"
-      seller_reputation = "5_green"
-      listing_type = "gold_pro"
-      shipping_local_pickup = true
-      marketplace: false
-      mshops: true
-    }
-  }
-
-  test("seller central salesChannel both channel"){
-    "/seller_central/modify/update_price"(platform: "/", type: TrackType.Event){
-      item_type = "product"
-      category_id = "MLA390784"
-      item_id = "MLA682118081"
-      session_id = "123-update-abc123"
-      seller_profile = "ADVANCED"
-      seller_reputation = "5_green"
-      listing_type = "gold_pro"
-      shipping_local_pickup = true
-      marketplace: true
-      mshops: true
+      from = "true"
+      to = "false"
+      marketplace = true
+      mshops = false
     }
   }
 
@@ -1904,7 +1891,15 @@ trackTests {
   }
 
   test("upload invoices view secondary actions") {
-    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", type: TrackType.Event) {}
+    "/seller_central/sales/fiscal_document/action/secondary"(platform: "/web", type: TrackType.Event) {
+      id = "fiscal_document_go_back"
+    }
+  }
+
+  test("upload invoices view primary actions") {
+    "/seller_central/sales/fiscal_document/action/primary"(platform: "/web", type: TrackType.Event) {
+      id = "save_fiscal_document"
+    }
   }
 
   test("upload invoices view actions") {
@@ -2800,6 +2795,12 @@ trackTests {
     }
   }
 
+  test("seller central listing promos error action") {
+    "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event) {
+      action_id = "CREATE"
+    }
+  }
+
   test("seller central listing secondary_actions") {
     "/seller_central/promotions/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
   }
@@ -2823,6 +2824,66 @@ trackTests {
     }
 
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {}
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central Questions
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Seller central render Questions") {
+    "/seller_central/questions"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("Seller central response Questions") {
+    "/seller_central/questions/response"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central delete Questions") {
+    "/seller_central/questions/delete"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central denunciation Questions") {
+    "/seller_central/questions/denunciation"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central block buyer Questions") {
+    "/seller_central/questions/blockBuyer"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -123,6 +123,7 @@ trackTests {
         //Flow decision scanner
         "/logistics/flow_decision/scanner"(platform: "/mobile", type: TrackType.View) {
             defaultLocation()
+            driver_id = "987"
         }
 
         //Flow decision scanner error
@@ -252,11 +253,16 @@ trackTests {
             packs_info = "pack"
             route_id = "123"
             driver_id = "1234"
+            latitude = "1234"
+            longitude = "1234"
         }
 
         "/logistics/last_mile/list/suggest_trip/start_trip"(platform: "/mobile", type: TrackType.Event) {
             packs_info = "pack"
             route_id = "123"
+            driver_id = "1234"
+            latitude = "1234"
+            longitude = "1234"
         }
 
         "/logistics/last_mile/list/start_trip"(platform: "/mobile", type: TrackType.Event) {
@@ -305,8 +311,8 @@ trackTests {
             context = "mock"
             driver_id = "1234"
             shipment_id = "1234"
-            receiver_latitude = "1234"
-            receiver_longitude = "1234"
+            latitude = "1234"
+            longitude = "1234"
         }
 
         "/logistics/last_mile/congrats/fail"(platform: "/mobile", type: TrackType.View) {
@@ -314,8 +320,8 @@ trackTests {
             context = "mock"
             driver_id = "1234"
             shipment_id = "1234"
-            receiver_latitude = "1234"
-            receiver_longitude = "1234"
+            latitude = "1234"
+            longitude = "1234"
         }
 
         "/logistics/last_mile/detail"(platform: "/mobile", type: TrackType.View) {
@@ -327,6 +333,8 @@ trackTests {
             defaultLocation()
             distance = "500"
             context = "could_not_deliver"
+            is_blocking = false
+            shipment_id = "222"
         }
 
         "/logistics/last_mile/detail/start_trip"(platform: "/mobile", type: TrackType.Event) {

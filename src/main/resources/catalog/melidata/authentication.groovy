@@ -491,6 +491,12 @@ tracks {
 
     "/authenticators/email_validation/max_attempts"(platform: "/", type: TrackType.View) {}
 
+    "/authenticators/email_validation/enter_email"(platform: "/", type: TrackType.View) {}
+
+    "/authenticators/email_validation/enter_email/submit"(platform: "/", type: TrackType.Event) {
+        validation_status(PropertyType.String, required: false, values:["success", "user_exists",  "email_max_length_exceeded", "invalid_email_format", "forbidden_email_domain", "forbidden_email_word", "malformed_email_address"], description: "Email submition status by response")
+    }
+
     "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {}
 
     "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
@@ -513,6 +519,11 @@ tracks {
         opening_custom(required: true, type: PropertyType.String, description: "Elapsed time to ask for screenLock")
     }
 
+    def transactionInformationStructure = objectSchemaDefinitions {
+        amount(required: true, type: PropertyType.String, description: "amount of the transaction")
+        type(required: true, type: PropertyType.String, values: ["transactional", "non_transactional", "other"])
+    }
+
     // Biometrics / Screenlock
     "/screenlock"(platform: "/mobile", isAbstract: true) {
         enrollment_status(type: PropertyType.String, required: true, values: ["enabled", "disabled"])
@@ -526,6 +537,8 @@ tracks {
     "/screenlock/validation_end"(platform: "/mobile", type: TrackType.Event) {
         flow_id(type: PropertyType.String, required: true)
         elapsed_time(type: PropertyType.Numeric, required: true, description: "elapsed time in os validation flow")
+        config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
+        transaction_information(type: PropertyType.Map(transactionInformationStructure), required: true, description: "transaction information")
         result(type: PropertyType.String, required: true, values: ["success", "error"])
         errors(type: PropertyType.ArrayList, required: false)
     }
@@ -561,6 +574,9 @@ tracks {
         os_status(type: PropertyType.String, required: true, values: ["biometrics", "basic_screenlock", "none"])
         config(type: PropertyType.Map(screenlockConfigStructure), required: true, description: "current screenlock config")
         scenario(type: PropertyType.String, required: true, values: ["no_security", "never_auto_enrolled", "both_enrolled", "single_enrolled", "none_enrolled", "awareness", "insistence", "reminder1", "reminder2"])
+    }
+
+    "/screenlock/multiple_sessions_shield"(platform: "/mobile", parentPropertiesInherited: false, type: TrackType.View) {
     }
 
     // IFPE Auth restrictions & Reauth errors
