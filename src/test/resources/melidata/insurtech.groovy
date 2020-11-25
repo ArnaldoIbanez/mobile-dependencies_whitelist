@@ -505,7 +505,7 @@ trackTests {
                 model_code: "SM-J700M",
                 size: "64GB",
             ]
-            fallback_type= "deafult"
+            fallback_type= "default"
             quotable= true
             buying_mode = 'buy_it_now'
         }
