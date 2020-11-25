@@ -524,5 +524,6 @@ tracks {
         status(required: true, type: PropertyType.String, description: "Discount State", values: ['ACTIVE', 'INACTIVE'])
     }
 
+    "/mercado_shops/discounts/create"(platform: "/", type: TrackType.View){}
     "/mercado_shops/discounts/create/coupon"(platform: "/", type: TrackType.View){}
 }
