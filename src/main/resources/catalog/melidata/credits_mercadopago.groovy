@@ -497,7 +497,6 @@ tracks {
             values: [
                 'financial_files',
                 'financial_scraping',
-                'finished_flow',
             ]
         )
     }
@@ -535,8 +534,9 @@ tracks {
             required: true,
             description: "From which flow was stop page accessed",
             values: [
-                'financial_files_uploaded',
-                'financial_scraping_done',
+                'financial_files',
+                'financial_scraping',
+                'finished_flow',
             ]
         )
     }

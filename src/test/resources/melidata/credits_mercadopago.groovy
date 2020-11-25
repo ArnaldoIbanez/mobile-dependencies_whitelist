@@ -1137,10 +1137,6 @@ trackTests {
             reason = "financial_scraping"
         }
 
-        "/credits/merchant/open-market/congrats"(platform: "/", type: TrackType.View) {
-            reason = "finished_flow"
-        }
-
         "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {}
 
         "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
@@ -1164,11 +1160,15 @@ trackTests {
         }
 
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
-            reason = "financial_files_uploaded"
+            reason = "financial_files"
         }
 
         "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
-            reason = "financial_scraping_done"
+            reason = "financial_scraping"
+        }
+
+        "/credits/merchant/open-market/stop"(platform: "/", type: TrackType.View) {
+            reason = "finished_flow"
         }
 
         "/credits/merchant/open-market/form"(platform: "/", type: TrackType.View) {
