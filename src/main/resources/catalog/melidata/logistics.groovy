@@ -420,6 +420,13 @@ tracks {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the packages being picked up")
     }
+    "/logistics/first_mile/pickup/partial"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: true)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: true)
+        pickup_point_id(required: true, type: PropertyType.String, description: "Specifies the current pickup point id", inheritable: true)
+    }
+    "/logistics/first_mile/pickup/partial/full_vehicle"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/first_mile/pickup/partial/all_picked"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/first_mile/pickup/seller_document_form/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/first_mile/pickup/seller_document_form/view_list"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/first_mile/pickup/signature"(platform: "/mobile", type: TrackType.View) {
