@@ -275,6 +275,10 @@ tracks {
         )
     }
 
+    "/credits/merchant/administrator/contextual_help_click"(platform: "/", type: TrackType.Event) {
+
+    }
+
     //Detail
     "/credits/merchant/administrator/detail"(platform: "/", type: TrackType.View) {
         products_with_status

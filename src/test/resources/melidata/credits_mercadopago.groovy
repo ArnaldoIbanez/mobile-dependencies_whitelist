@@ -540,6 +540,9 @@ trackTests {
 
         "/credits/merchant/administrator/error"(platform: "/web/desktop") {}
 
+
+        "/credits/merchant/administrator/contextual_help_click"(platform: "/") {}
+
         "/credits/merchant/administrator/error"(platform: "/mobile") {
             from = 'hub'
             additional_info = 'clicked_on_access_row'
