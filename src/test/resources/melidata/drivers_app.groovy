@@ -194,6 +194,17 @@ trackTests {
             defaultLocation()
         }
 
+        "/driver/stops/toc"(platform: "/mobile", type: TrackType.View) {
+            defaultDeliveryData()
+            defaultLocation()
+        }
+
+        "/driver/stops/toc/save"(platform: "/mobile", type: TrackType.Event) {
+            defaultDeliveryData()
+            defaultLocation()
+            problem_description = "vehicle_problem"
+        }
+
         "/driver/stops/next_modal/going"(platform: "/mobile", type: TrackType.Event) {
             defaultDeliveryData()
             defaultPackInfo()
@@ -309,14 +320,14 @@ trackTests {
             defaultDeliveryData()
             defaultPackInfo()
             defaultLocation()
-            defaultStopOrder()
+            defaultStopOrder
         }
 
         "/driver/delivery/receipt/selection"(platform: "/mobile", type: TrackType.Event) {
             defaultDeliveryData()
             defaultPackInfo()
             defaultLocation()
-            defaultStopOrder()
+            defaultStopOrder
             receiver_type = "reception"
         }
 
@@ -324,7 +335,7 @@ trackTests {
             defaultDeliveryData()
             defaultPackInfo()
             defaultLocation()
-            defaultStopOrder()
+            defaultStopOrder
             receiver_type = "reception"
         }
 
@@ -332,7 +343,7 @@ trackTests {
             defaultDeliveryData()
             defaultPackInfo()
             defaultLocation()
-            defaultStopOrder()
+            defaultStopOrder
             receiver_type = "reception"
             doc_type = "CURP"
         }
@@ -341,14 +352,14 @@ trackTests {
             defaultDeliveryData()
             defaultPackInfo()
             defaultLocation()
-            defaultStopOrder()
+            defaultStopOrder
         }
 
         "/driver/delivery/undelivery_ok"(platform: "/mobile", type: TrackType.View) {
             defaultDeliveryData()
             defaultPackInfo()
             defaultLocation()
-            defaultStopOrder()
+            defaultStopOrder
             selected_reason = "nobody_address"
         }
     }

@@ -20,15 +20,13 @@ tracks
         container_packages(required: true, type: PropertyType.Numeric,
                 description: "Specifies the amount of packages in the scanned container")
 
-        packs_info(type: PropertyType.ArrayList(PropertyType.Map(pack_info_definition)), required: true, inheritable: false)
-        route_info(type: PropertyType.Map(route_info_definition), required: true, inheritable: false)
-        stop_order(type: PropertyType.Numeric, required: false, inheritable: false)
+        stop_order(type: PropertyType.Numeric, required: false)
     }
 
     propertyGroups {
         driver_info(vehicle_id, latitude, longitude)
         sorting_info(container_scanned, container_assigned, container_packages)
-        delivery_info(latitude, longitude, packs_info, route_info, stop_order)
+        delivery_info(latitude, longitude, stop_order)
     }
 
     def receiver_definition = objectSchemaDefinitions {
@@ -194,6 +192,19 @@ tracks
         qr_data(required: true, type: PropertyType.String, description: "Specifies the qr data scanned by driver")
     }
 
+    "/driver/stops/toc"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.View) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+        route_info(type: PropertyType.Map(route_info_definition), required: true)
+    }
+
+    "/driver/stops/toc/save"(platform: "/mobile", parentPropertiesInherited:false, type: TrackType.Event) {
+        latitude(required:false, type: PropertyType.String, description: "The latitude of driver at that point")
+        longitude(required:false, type: PropertyType.String, description: "The longitude of driver at that point")
+        route_info(type: PropertyType.Map(route_info_definition), required: true)
+        problem_description(required: true, type: PropertyType.String, description: "Specifies the problem in route")
+    }
+
     //DETAIL TRACKS
 
     "/driver/stops/detail"(platform: "/mobile", type: TrackType.View) {
@@ -220,6 +231,8 @@ tracks
 
     "/driver/delivery"(platform: "/mobile", isAbstract: true) {
         delivery_info
+        packs_info(type: PropertyType.ArrayList(PropertyType.Map(pack_info_definition)), required: true)
+        route_info(type: PropertyType.Map(route_info_definition), required: true)
     }
 
     "/driver/delivery/receipt"(platform: "/mobile", type: TrackType.View) {
