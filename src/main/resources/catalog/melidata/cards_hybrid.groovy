@@ -1031,4 +1031,15 @@ tracks {
             description: "Redirection Done"
         )
     }
+    // ONBOARDING-NFC
+    //-------------------
+    "/cards/nfc/enrollment/hub/onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/enrollment/hub/onboarding"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["main"],
+            description: "Main Button Tapped"
+        )
+    }
 }
