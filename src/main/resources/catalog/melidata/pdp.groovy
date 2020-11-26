@@ -98,7 +98,6 @@ tracks {
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
         seller_id(required: false, type: PropertyType.Numeric, description: "ID for seller")
         seller_name(required: false, type: PropertyType.String, description: "Name of seller")
-        seller_fraudulent(required: false, type: PropertyType.Boolean, description: "Indicates if the seller is fraudulent")
         subtitle_types(required: false, type: PropertyType.ArrayList, description: "seller subtitles types")
         available_quantity(required: false, type: PropertyType.Numeric, description: "Available product quantity at this pdp")
         cart_content(required: false, type: PropertyType.Boolean, description: "Content of cart")
@@ -117,6 +116,7 @@ tracks {
     }
 
     def highlights_definition  = objectSchemaDefinitions {
+        id(required: false, type: PropertyType.String, description: "Id of the highlight")
         best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
         melichoice_score(required: false, type: PropertyType.Numeric, description: "Score of Melichoice Product")
         melichoice_origin(required: false, type: PropertyType.String, description: "Origin of Melichoice Product")
@@ -361,6 +361,10 @@ tracks {
         product_status(required: true, type: PropertyType.String, values: ["pending", "active", "closed", "paused", "under_review", "not_yet_active", "payment_required"],
                 description: "Whenever the items is active, closed or paused")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
+    }
+
+    "/pdp/show_complete_description"(platform: "/web/desktop", parentPropertiesInherited: false) {
+        catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
     }
 
     "/pdp/description"(platform: "/", isAbstract: true) {}
@@ -634,11 +638,12 @@ tracks {
 
     "/pdp/technical_specs"(platform: "/", parentPropertiesInherited: false, isAbstract: true) {
         catalog_product_id(required: true, type: PropertyType.String, description: "Product ID")
-        item_id(required: true, type: PropertyType.String, description: "Item ID")
+        item_id(required: false, type: PropertyType.String, description: "Item ID")
         is_highlighted(required: true, type: PropertyType.Boolean, description: "If the layout displayed is highlighted")
         domain_id(required: true, type: PropertyType.String, description: "Product's domain id")
-        category_id(required: true, type: PropertyType.String, description: "Item's category id")
-        seller_id(required: true, type: PropertyType.Numeric, description: "The Id of the seller")
+        category_id(required: false, type: PropertyType.String, description: "Item's category id")
+        seller_id(required: false, type: PropertyType.Numeric, description: "The Id of the seller")
+        category_path(required: false, type: PropertyType.ArrayList, description: "Category path of the the item")
     }
 
     "/pdp/technical_specs/show"(platform: "/", parentPropertiesInherited: true) {

@@ -140,6 +140,10 @@ trackTests {
         }
         "/prepaid/challenge/delivery"(platform: "/mobile", type: TrackType.View) {}
         "/prepaid/challenge/money_in/onboarding"(platform: "/mobile", type: TrackType.View) {}
+        "/prepaid/challenge/money_in/onboarding/slide/exit"(platform:"/mobile", type: TrackType.Event) {
+            slide = 1
+            cause = "close"
+        }
         "/prepaid/challenge/onboarding"(platform: "/mobile", type: TrackType.View) {}
     }
 
@@ -316,8 +320,9 @@ trackTests {
     }
 
     test ("Prepaid Detail") {
-        "/cards/prepaid-detail/click-ask-for-card" (platform: "/web/desktop", type: TrackType.Event) {
-             deviceType = "desktop"
+        "/cards/prepaid-detail/click-ask-for-card" (platform: "/web/desktop", type: TrackType.Event) { }
+        "/cards/prepaid-detail/click-ask-for-card" (platform: "/web/mobile", type: TrackType.Event) {
+             osName = "android"
         }
     }
 }

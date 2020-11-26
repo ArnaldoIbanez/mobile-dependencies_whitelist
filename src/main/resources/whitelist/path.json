@@ -35,6 +35,7 @@
     "/cards/engagement/error",
     "/wallet/cards/listing/error",
     "/friction",
-    "/px_checkout/result/error"
+    "/px_checkout/result/error",
+    "/checkout_off/congrats"
   ]
 }

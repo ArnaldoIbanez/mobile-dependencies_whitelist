@@ -17,6 +17,10 @@ trackTests {
         "/mp_home" (platform: "/", type: TrackType.View) {}
     }
 
+    test("Mercadopago 404") {
+        "/not-found" (platform: "/", type: TrackType.View) {}
+    }
+
     test("Mercadopago Home Merch Engine Events") {
         "/mp_home/sections/crossselling/print" (platform: "/", type: TrackType.Event) {}
         "/mp_home/sections/crossselling/view" (platform: "/", type: TrackType.Event) {}

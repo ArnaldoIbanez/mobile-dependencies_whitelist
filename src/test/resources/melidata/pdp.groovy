@@ -98,6 +98,7 @@ trackTests {
         "/pdp"(platform: "/", {
             best_seller_position = 3
             highlights = [
+                "id": "id_highlight",
                 "best_seller_position": 5,
                 "melichoice_domain": "CELLPHONES",
                 "melichoice_origin": "killer",
@@ -441,6 +442,10 @@ trackTests {
         "/pdp/description/show"(platform: "/", {
             catalog_product_id = "MLA1234"
         })
+
+        "/pdp/show_complete_description"(platform: "/web/desktop", {
+            catalog_product_id = "MLA1234"
+        })
     }
 
     test("mobile special actions") {
@@ -700,6 +705,7 @@ trackTests {
             is_highlighted = true
             category_id = "MLA43718"
             seller_id = 131662738
+            category_path = ["MLA1234", "MLA6789"]
         }
     }
 
@@ -711,6 +717,7 @@ trackTests {
             is_highlighted = true
             category_id = "MLA43718"
             seller_id = 131662738
+            category_path = ["MLA1234", "MLA6789"]
         }
     }
 }

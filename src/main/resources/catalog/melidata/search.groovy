@@ -51,23 +51,41 @@ tracks {
         url(type: PropertyType.String, required: true)
     }
 
+    def meli_choice_item_object = objectSchemaDefinitions{
+        item_id(type: PropertyType.String, required: true)
+        product_id(type: PropertyType.String, required: false)
+        origin(type: PropertyType.String, required: true)
+    }
+
+    def meli_choice_object = objectSchemaDefinitions {
+        candidates(type: PropertyType.ArrayList(PropertyType.String), required: true, description: "list of melichoice candidates")
+        selected(type: PropertyType.ArrayList(PropertyType.Map(meli_choice_item_object)), required: false, description: "selected melichoice candidates")
+        overrides(type: PropertyType.ArrayList(PropertyType.String), required: false, description: "melichoice items overrides best seller")
+    }
+
     def best_seller_object = objectSchemaDefinitions {
-        candidates(type: PropertyType.Numeric, required: true)
-        selected(type: PropertyType.ArrayList(PropertyType.String), required: true)
-        selected_qty(type: PropertyType.Numeric, required: true)
-        selected_positions(type: PropertyType.ArrayList(PropertyType.Numeric), required: true)
+        candidates(type: PropertyType.ArrayList(PropertyType.String), required: true, "list of best seller candidates")
+        selected(type: PropertyType.ArrayList(PropertyType.String), required: false, "selected best seller candidates")
+    }
+
+    def highlights_object = objectSchemaDefinitions {
+        best_seller_info(type: PropertyType.Map(best_seller_object), required: false, description: 'best seller tracking info')
+        meli_choice_info(type: PropertyType.Map(meli_choice_object), required: false, description: 'meli choice tracking info')
     }
 
     def tag_tracking_datum_object = objectSchemaDefinitions {
         item_id(type: PropertyType.String, required: true)
         position(type: PropertyType.Numeric, required: true)
         product_id(type: PropertyType.String, required: false)
+        type(type: PropertyType.String, required: false)
     }
 
     def tag_tracking_map_object = objectSchemaDefinitions {
         best_seller(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         shipping_guaranteed(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         deal_of_the_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        meli_choice(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        highlights(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {
@@ -114,7 +132,8 @@ tracks {
         show_apparel_carousel(required: false, description: "search with apparel carousel", type: PropertyType.Boolean)
         tracking_id(required: false, description: "UUID for each page print", PropertyType.String)
         sparkle_info(required: false, description: 'sparkle tracking info', type: PropertyType.Map(sparkle_info_object))
-        best_seller_info(required: false, description: 'best seller tracking info', type: PropertyType.Map(best_seller_object))
+        best_seller_info(type: PropertyType.Map(best_seller_object), required: false, description: 'best seller tracking info')
+        highlights_info(required: false, description: 'highlight tracking info', type: PropertyType.Map(highlights_object))
         tag_tracking_info(required: false, description: 'tag tracking info', type: PropertyType.Map(tag_tracking_map_object))
 
 
@@ -233,6 +252,7 @@ tracks {
     }
     
     "/search/breadcrumb"(platform: "/mobile", isAbstract: true) {}
+    "/search/breadcrumb"(platform: "/web", isAbstract: true) {}
     
     "/search/breadcrumb/open"(platform: "/mobile", type: TrackType.Event) {
         limit(required: false, description: "the max number of items returned", type: PropertyType.Numeric)
@@ -245,6 +265,10 @@ tracks {
         limit(required: false, description: "the max number of items returned", type: PropertyType.Numeric)
         offset(required: false, description: "the number of items skipped on the search", type: PropertyType.Numeric)
         total(required: false, description: "amount of search items returned", type: PropertyType.Numeric)
+    }
+
+    "/search/breadcrumb/click"(platform: "/web", type: TrackType.Event, parentPropertiesInherited:false) {
+        url(required: true, description: "Url of the link associated to the breadcrumb")
     }
 
     "/search/filters_carousel"(platform: "/web", isAbstract: true) {}
@@ -287,6 +311,13 @@ tracks {
     "/search/official_stores_carousel/click"(platform: "/", type: TrackType.Event) {
         to_name(required: true, description: 'the name of the official store selected', PropertyType.String)
         to_position(required: true, description: 'the position of the official store in the carousel', PropertyType.Numeric)
+    }
+
+    "/search/official_store_logo"(platform: "/", isAbstract: true) {}
+
+    "/search/official_store_logo/click"(platform: "/", type: TrackType.Event, parentPropertiesInherited:false) {
+        store(required: true, description: "Official store name of the shown logo")
+        url(required: true, description: "Url of landing associated with the logo click event")
     }
 
     "/search/input"(platform: "/mobile", parentPropertiesInherited: false) {
@@ -332,6 +363,9 @@ tracks {
     }
 
     "/search/alert_intention"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/search/map_link"(platform: "/", type: TrackType.Event) {
     }
 
     "/search/category_recommendations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){

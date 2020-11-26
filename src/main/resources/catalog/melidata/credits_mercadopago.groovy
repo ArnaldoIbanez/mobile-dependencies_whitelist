@@ -75,6 +75,18 @@ tracks {
             ],
             required: true,
         )
+        from(
+            description: "States previous navigation step (could be from same flow or not)",
+            type: PropertyType.String,
+            required: false,
+            inheritable: true
+        )
+        additional_info(
+            description: "Additional information regarding flow navigation",
+            type: PropertyType.String,
+            required: false,
+            inheritable: true
+        )
     }
 
     propertyGroups {
@@ -87,6 +99,10 @@ tracks {
 
     propertyGroups {
         products_with_status(product_type, segment, category, offer_type, status)
+    }
+
+    propertyGroups {
+        source_tracking(from, additional_info)
     }
 
     def with_status = objectSchemaDefinitions {
@@ -150,18 +166,20 @@ tracks {
      *       Abstract definitions
      ******************************************/
     "/credits"(platform: "/", isAbstract: true) {}
-    "/credits/express_money"(platform: "/", isAbstract: true) {}
-    "/credits/merchant"(platform: "/", isAbstract: true) {}
+    "/credits/express_money"(platform: "/web", isAbstract: true) {}
+    "/credits/merchant"(platform: "/web", isAbstract: true) {}
     "/credits/consumer"(platform: "/", isAbstract: true) {}
     "/credits/mp-hub"(platform: "/", isAbstract: true) {}
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
+    "/credits/merchant/open-market/financial-scraping"(platform: "/", isAbstract: true) {}
 
     /******************************************
      *       Start: Consumer Public Landings
      ******************************************/
     "/credits/consumer/public_landing"(platform: "/", type: TrackType.View) {
         user_profile(type: PropertyType.String, required: true, inheritable: false, values: ["guest", "no_offer"])
+        sk(description: "Source key", type: PropertyType.String, required: false)
     }
     /******************************************
      *       End: Consumer Public Landings
@@ -200,11 +218,11 @@ tracks {
         )
         promise(
             type: PropertyType.String,
-            required: false,
+            required: true,
             values: [
                 'create_promise',
                 'view_promise',
-                'not_apply',
+                'none',
             ],
             inheritable: false
         )
@@ -225,6 +243,7 @@ tracks {
             ],
             inheritable: false
         )
+        source_tracking
     }
 
     "/credits/merchant/administrator/spc_click"(platform: "/", type: TrackType.Event) {
@@ -266,6 +285,14 @@ tracks {
     }
 
     "/credits/merchant/administrator/detail/conditions/ccb_click"(platform: "/", type: TrackType.Event) {
+        products_with_status
+    }
+
+    "/credits/merchant/administrator/detail/conditions/ccc_click"(platform: "/", type: TrackType.Event) {
+        products_with_status
+    }
+
+    "/credits/merchant/administrator/detail/conditions/dde_click"(platform: "/", type: TrackType.Event) {
         products_with_status
     }
 
@@ -470,6 +497,34 @@ tracks {
             values: [
                 'financial_files',
                 'financial_scraping',
+                'finished_flow',
+            ]
+        )
+    }
+
+    "/credits/merchant/open-market/financial-scraping_click"(platform: "/", type: TrackType.Event) {}
+
+    "/credits/merchant/open-market/financial-scraping/error"(platform: "/", type: TrackType.Event) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "Quanto integration error",
+            values: [
+                'integration_error',
+                'generic',
+            ]
+        )
+    }
+
+    "/credits/merchant/open-market/financial-scraping/message"(platform: "/", type: TrackType.Event) {
+        reason(
+            type: PropertyType.String,
+            required: true,
+            description: "Quanto integration message",
+            values: [
+                'finished_flow',
+                'finished_session',
+                'not_available',
             ]
         )
     }
@@ -569,6 +624,7 @@ tracks {
             type: PropertyType.Boolean,
             required: false,
         )
+        source_tracking
     }
 
     //Without Proposal
@@ -661,6 +717,18 @@ tracks {
                 'default'
             ],
             inheritable: false
+        )
+    }
+
+    "/credits/merchant/enrollment/info"(platform: "/mobile", type: TrackType.View) {
+        reason(
+                description: "State reason",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        'already_taken_credit_line',
+                        "no_credit_lines_present"
+                ]
         )
     }
 
@@ -919,10 +987,25 @@ tracks {
                 'express_money'
             ]
         )
+        release_attemps_number(
+                description: "Number of attemps to release the advance",
+                type: PropertyType.Numeric,
+                required: false,
+        )
     }
 
     //Congrats money advance mobile
-    "/credits/merchant/money_advance/congrats"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/merchant/money_advance/congrats"(platform: "/mobile", type: TrackType.View) {
+        offer(
+                description: "User has express money offer",
+                type: PropertyType.String,
+                required: false,
+                values: [
+                        'none',
+                        'express_money'
+                ]
+        )
+    }
 
     //Hub money advance
     "/credits/merchant/money_advance/hub"(platform: "/web", type: TrackType.View) {
@@ -1020,6 +1103,10 @@ tracks {
     /******************************************
      *    Start: Express money
      ******************************************/
+
+    "/credits/express_money"(platform: "/mobile", type: TrackType.View) {
+        source_tracking
+    }
 
     "/credits/express_money/amount_input"(platform: "/", type: TrackType.View) {
         show_onboarding(
@@ -1146,22 +1233,22 @@ tracks {
         has_prepaid(
             description: "Metric to track users who has accepted a loan and has prepaid card enabled",
             type: PropertyType.Boolean,
-            required: true,
+            required: false,
         )
         requested_amount(
             description: "User requested amount",
             type: PropertyType.Numeric,
-            required: true,
+            required: false,
         )
         max_amount(
             description: "Credit line maximum allowed amount",
             type: PropertyType.Numeric,
-            required: true,
+            required: false,
         )
         min_amount(
             description: "Credit line minimum allowed amount",
             type: PropertyType.Numeric,
-            required: true,
+            required: false,
         )
         default_payment_term(
                 description: "Default payment term selected",
@@ -1177,6 +1264,14 @@ tracks {
                 description: "Available payment terms",
                 type: PropertyType.ArrayList,
                 required: false,
+        )
+        reason(
+            description: "State reason",
+            type: PropertyType.String,
+            required: false,
+            values: [
+                'already_taken_credit_line',
+            ]
         )
     }
 
@@ -1195,7 +1290,18 @@ tracks {
         )
     }
 
-    "/credits/express_money/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/express_money/info"(platform: "/", type: TrackType.View) {
+        reason(
+            description: "State reason",
+            type: PropertyType.String,
+            required: true,
+            values: [
+                'no_credit_lines_present',
+            ]
+        )
+    }
+
+    "/credits/express_money/onboarding"(platform: "/mobile", type: TrackType.View) { }
 
     /******************************************
      *   End: Express money
@@ -1208,10 +1314,13 @@ tracks {
 
     "/credits/consumer/personal/adoption"(platform: "/mobile", type: TrackType.View) {
         prepaid(description: "Identifies if the user has prepaid", type: PropertyType.Boolean, required: true)
+        virtual_card(description: "Identifies if the user has virtual card", type: PropertyType.Boolean, required: false)
+        physical_card(description: "Identifies if the user has physical card", type: PropertyType.Boolean, required: false)
     }
 
     "/credits/consumer/personal/adoption/onboarding"(platform: "/mobile", type: TrackType.View) {
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: true)
+        sk(description: "Source key", type: PropertyType.String, required: false)
     }
 
     "/credits/consumer/personal/adoption/onboarding/go_simulation"(platform: "/mobile", type: TrackType.Event) {}
@@ -1220,7 +1329,9 @@ tracks {
         page(description: "Onboarding page number", type: PropertyType.Numeric, required: false)
     }
 
-    "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {}
+    "/credits/consumer/personal/adoption/simulator"(platform: "/mobile", type: TrackType.View) {
+        sk(description: "Source key", type: PropertyType.String, required: false)
+    }
 
     "/credits/consumer/personal/adoption/simulator/go_review"(platform: "/mobile", type: TrackType.Event) {}
 
