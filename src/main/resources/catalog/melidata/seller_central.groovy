@@ -208,6 +208,13 @@ tracks {
         from_current(required: false, type: PropertyType.String, description: "From end date")
         to_previous(required: false, type: PropertyType.String, description: "To start date")
         to_current(required: false, type: PropertyType.String, description: "To end date")
+
+        // Seller Central Questions
+        question_id(requested: false, type: PropertyType.String, description: "Question ID")
+        site_id(requested: true, type: PropertyType.String, description: "Site ID")
+        item_status(requested: true, type: PropertyType.String, description: "Current item status")
+        question_date_created(required: true, type: PropertyType.String, description: "Question creation date")
+        question_date_action(required: true, type: PropertyType.String, description: "Question response date")
     }
 
     propertyGroups {
@@ -232,6 +239,9 @@ tracks {
 
         // Seller Metrics
         sellerMetricsContext(applied_filters, finish_period, start_period, from_previous, from_current, to_previous, to_current)
+
+        // Seller Questions
+        sellerCentralActionQuestionsGroup(seller_profile, seller_segment, question_id, item_id, site_id, item_status, question_date_created, question_date_action)
     }
 
     // Summary
@@ -708,6 +718,7 @@ tracks {
 
     "/seller_central/modify/update_sales_channel"(platform: "/", type: TrackType.Event) {
         sellerCentralModifyCardsGroup
+        sellerCentralModifyCardsGroupValue
         sellerCentralModifyGroupTableForPdp
         marketplace(required: true, type: PropertyType.Boolean, description: "if MercadoLibre channel is selected")
         mshops(required: true, type: PropertyType.Boolean, description: "if MercadoShops channel is selected")
@@ -1422,6 +1433,10 @@ tracks {
         origin(required:false, type: PropertyType.String, descritpion: "View where the event has been called", values: ["listing", "promos", "mail"])
     }
 
+    "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event) {
+        action_id(required: true, type: PropertyType.String, description: "Action executed by the seller", values: ["CREATE", "CREATE_LIGHTNING", "CREATE_DOD", "CREATE_MARKETPLACE_CAMPAIGN", "DELETE", "DELETE_LIGHTNING", "DELETE_DOD", "DELETE_MARKETPLACE_CAMPAIGN"])
+    }
+
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {
         view_id(required:false, type: PropertyType.String, descritpion: "View where the event has been called")
     }
@@ -1444,7 +1459,7 @@ tracks {
     "/seller_central/promotions/cards"(platform: "/", type: TrackType.Event) {}
 
     "/seller_central/promotions/cards/apply"(platform: "/", type: TrackType.Event) {
-        type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day"])
+        type(required: true, type: PropertyType.String, description: "Applied filter type", values: ["dod", "lightning", "deal_of_the_day", "meli_campaign"])
     }
 
     "/seller_central/promotions/onboarding"(platform: "/", type: TrackType.Event) {}
@@ -1470,4 +1485,29 @@ tracks {
     "/seller_central/modify/detail/listing_highlight_package_info"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/listing_highlight_package_info/show"(platform: "/", type: TrackType.Event) {}
     "/seller_central/modify/detail/listing_highlight_package_info/confirm"(platform: "/", type: TrackType.Event) {}
+
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+    // TRACKS Seller Central Questions
+    //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    "/seller_central/questions"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/questions/item"(platform: "/", type: TrackType.View) {}
+
+    "/seller_central/questions/response"(platform: "/", type: TrackType.Event) {
+        sellerCentralActionQuestionsGroup
+    }
+
+    "/seller_central/questions/delete"(platform: "/", type: TrackType.Event) {
+        sellerCentralActionQuestionsGroup
+    }
+
+    "/seller_central/questions/denunciation"(platform: "/", type: TrackType.Event) {
+        sellerCentralActionQuestionsGroup
+    }
+
+    "/seller_central/questions/blockBuyer"(platform: "/", type: TrackType.Event) {
+        sellerCentralActionQuestionsGroup
+    }
+
 }

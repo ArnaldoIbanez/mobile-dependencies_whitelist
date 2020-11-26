@@ -461,7 +461,31 @@ trackTests {
                                         ]
                                 ]
                         ]
-                ]
+                ],
+                filters: [
+                        [
+                                index: 0,
+                                selected: "selected",
+                                tracking_id: "filter_tracking_id",
+                        ],
+                        [
+                                index: 1,
+                                selected: "none",
+                                tracking_id: "filter1_tracking_id",
+                        ],
+                ],
+                filters_l2: [
+                        [
+                                index: 0,
+                                selected: "unselected",
+                                tracking_id: "filter_tracking_id",
+                        ],
+                        [
+                                index: 1,
+                                selected: "selected",
+                                tracking_id: "filter1_l2_tracking_id",
+                        ],
+                ],
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
@@ -621,6 +645,35 @@ trackTests {
                                 ]
                         ]
                 ],
+                filters: [
+                        [
+                                index: 0,
+                                selected: "unselected",
+                                tracking_id: "filter_tracking_id",
+                        ],
+                        [
+                                index: 1,
+                                selected: "none",
+                                tracking_id: "filter1_tracking_id",
+                        ],
+                        [
+                                index: 2,
+                                selected: "selected",
+                                tracking_id: "filter2_tracking_id",
+                        ],
+                ],
+                filters_l2: [
+                        [
+                                index: 0,
+                                selected: "selected",
+                                tracking_id: "filter_tracking_id",
+                        ],
+                        [
+                                index: 1,
+                                selected: "unselected",
+                                tracking_id: "filter1_l2_tracking_id",
+                        ],
+                ],
                 hybrid_last_viewed: [
                         [
                                 marketplace_type: "hybrid_last_viewed",
@@ -698,6 +751,20 @@ trackTests {
                                     ]
                             ]
                     ]
+            ]
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+            marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
+        }
+
+        "/discount_center/payers/marketplace/components/tap" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                    filters_l2: [
+                        [
+                                index: 0,
+                                selected: "selected",
+                                tracking_id: "filter_tracking_id",
+                        ]
+                ],
             ]
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
             marketplace_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"

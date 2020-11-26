@@ -17,6 +17,7 @@ tracks {
         configuration_token (required: false, type: PropertyType.String, description: "The configuration token")
         callback (required: false, type: PropertyType.String, description: "The callback deeplink that is executed when the flow ends")
         kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
+        transaction_id (required: false, type: PropertyType.String, description: "The transaction id from session less registration flow")
     }
 
     // challenge life cyclev v2
@@ -422,4 +423,16 @@ tracks {
     "/kyc/upload_file/upload_success"(platform: "/", type: TrackType.Event) { }
 
     "/kyc/upload_file/upload_fail"(platform: "/", type: TrackType.Event) { }
+
+    // KYC Landing Congrats
+
+    "/kyc/landing"(platform: "/", type: TrackType.View) { 
+        initiative (required: true, type: PropertyType.String, description: "The initiative")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
+    }
+
+    "/kyc/congrats"(platform: "/", type: TrackType.View) { 
+        initiative (required: true, type: PropertyType.String, description: "The initiative")
+        kyc_flow_id (required: true, type: PropertyType.String, description: "The kyc flow identifier")
+    }
 }

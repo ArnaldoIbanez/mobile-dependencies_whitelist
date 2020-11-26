@@ -37,6 +37,14 @@ tracks {
         )
     }
 
+    def proposal_data = objectSchemaDefinitions {
+        rating(
+                description: "User reputation level",
+                type: PropertyType.String,
+                required: true
+        )
+    }
+
     def amount_input_data = objectSchemaDefinitions {
         amount(
             description: "The amount that the user want to pay",
@@ -132,6 +140,10 @@ tracks {
                 type: PropertyType.Map(account_data),
                 required: false
         )
+        proposal(
+                type: PropertyType.Map(proposal_data),
+                required: true
+        )
         pending_payments(
                 description: "The pending payments",
                 type: PropertyType.Boolean,
@@ -143,7 +155,7 @@ tracks {
         dashboard_view_group(account, statement_status, pending_payments)
         dashboard_event_group(account, statement_status)
         payment_group(account, statement_status)
-        upgrade_info(account, is_card_active)
+        upgrade_info(proposal, is_card_active)
         full_payment_group(account, statement_status, payment_option, amount_input, payment_plan)
         bucket_group(bucket)
         statement_status_group(statement_status)
@@ -261,6 +273,20 @@ tracks {
         reason(type: PropertyType.String, required: false)
     }
 
+    // Stop page
+    "/credits/credit_card/upgrade/stop_page"(platform: "/", type: TrackType.View) {
+        reason(
+                description: "Reason why the Card can't be upgraded",
+                type: PropertyType.String,
+                required: true,
+                values: [
+                        "no_proposal_match",
+                        "invalid_proposal_status",
+                        "user_has_active_account"
+                ]
+        )
+    }
+
     /*********************************************
      *       End: Credit Card Upgrade
      *********************************************/
@@ -330,6 +356,16 @@ tracks {
 
     "/credits/credit_card/dashboard/show_limit_action"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         dashboard_event_group
+        available_limit(
+                description: "Amount available limit card",
+                type: PropertyType.Numeric,
+                required: true
+        )
+        total_limit(
+                description: "Total amount limit card",
+                type: PropertyType.Numeric,
+                required: true
+        )
     }
 
     /*********************************************

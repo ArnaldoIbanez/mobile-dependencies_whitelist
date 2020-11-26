@@ -77,6 +77,7 @@ tracks {
         item_id(type: PropertyType.String, required: true)
         position(type: PropertyType.Numeric, required: true)
         product_id(type: PropertyType.String, required: false)
+        type(type: PropertyType.String, required: false)
     }
 
     def tag_tracking_map_object = objectSchemaDefinitions {
@@ -84,6 +85,7 @@ tracks {
         shipping_guaranteed(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         deal_of_the_day(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
         meli_choice(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
+        highlights(type: PropertyType.ArrayList(PropertyType.Map(tag_tracking_datum_object)), required: false)
     }
 
     def category_definition = objectSchemaDefinitions {
@@ -361,6 +363,9 @@ tracks {
     }
 
     "/search/alert_intention"(platform: "/", type: TrackType.Event) {
+    }
+
+    "/search/map_link"(platform: "/", type: TrackType.Event) {
     }
 
     "/search/category_recommendations"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false){
