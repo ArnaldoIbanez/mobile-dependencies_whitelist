@@ -66,6 +66,8 @@ tracks {
     // Input data
     "/bill_payments/input_data"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/input_data/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/input_data/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/input_data/info_hour"(platform: "/mobile", type: TrackType.Event) {}
 
     // Input debt id
     "/bill_payments/input_option_debt"(platform: "/mobile", type: TrackType.View) {}

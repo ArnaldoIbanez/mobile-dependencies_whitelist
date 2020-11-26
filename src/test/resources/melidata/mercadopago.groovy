@@ -2740,6 +2740,14 @@ trackTests {
             mandatory()
         }
 
+        "/bill_payments/input_data/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/input_data/info_hour"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
         // Input debt id
         "/bill_payments/input_option_debt"(platform: "/mobile") {
             mandatory()
