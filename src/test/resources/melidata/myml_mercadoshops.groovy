@@ -948,6 +948,16 @@ trackTests {
             status = 'ACTIVE'
             percentage = 5
         }
+        "/mercado_shops/discounts/create"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
+        "/mercado_shops/discounts/create/coupon"(platform: "/", type: TrackType.View){
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
