@@ -432,16 +432,16 @@ trackTests {
         }
 
         // MP personalFrontend
-        "/tools/list"(platform: "/web"){
+        "/tools/list"(platform: "/"){
         }
 
-        "/tools/list/button_create"(platform: "/web"){
+        "/tools/list/button_create"(platform: "/"){
         }
 
-        "/tools/create"(platform: "/web"){
+        "/tools/create"(platform: "/"){
         }
 
-        "/tools/confirm_create_edit"(platform: "/web"){
+        "/tools/confirm_create_edit"(platform: "/"){
         }
 
         "/balance/reports"(platform: "/web"){

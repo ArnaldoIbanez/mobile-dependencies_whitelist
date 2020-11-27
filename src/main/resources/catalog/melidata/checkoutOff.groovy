@@ -153,13 +153,13 @@ tracks {
     "/checkout_off/congrats/call_for_auth/input_code"(platform: "/", type: TrackType.View) {}
 
     //MP personalFrontend
-    "/tools"(platform: "/web", isAbstract: true) {}
+    "/tools"(platform: "/", isAbstract: true) {}
 
-    "/tools/list"(platform: "/web", type: TrackType.View) {}
-    "/tools/list/button_create"(platform: "/web") {}
+    "/tools/list"(platform: "/", type: TrackType.View) {}
+    "/tools/list/button_create"(platform: "/") {}
 
-    "/tools/create"(platform: "/web", type: TrackType.View) {}
-    "/tools/confirm_create_edit"(platform: "/web") {}
+    "/tools/create"(platform: "/", type: TrackType.View) {}
+    "/tools/confirm_create_edit"(platform: "/") {}
 
     "/balance"(platform: "/web", isAbstract: true){}
     "/balance/reports"(platform: "/web", type: TrackType.View){}
