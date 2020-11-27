@@ -6,7 +6,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1109"
+    initiative = "1254"
 
     // REGISTER
 
@@ -268,9 +268,7 @@ tracks {
 
     // Registro V3 HUB
     "/register/v3"(platform: "/", isAbstract: true){}
-    "/register/v3/hub"(platform: "/", isAbstract: true){
-      client_type(type: PropertyType.String, required: true, values: ["web", "mobile"], description: "discerning from hybrid mobile (webview) or web")
-    }
+    "/register/v3/hub"(platform: "/", isAbstract: true){}
     "/register/v3/hub/landing"(platform: "/", type: TrackType.View){}
     "/register/v3/hub/main"(platform: "/", type: TrackType.View){
       status(type: PropertyType.String, required: true, values: ["finished", "in_progress"], description: "Registration HUB global status")

@@ -685,11 +685,9 @@ trackTests {
     test("Registration v3 HUB") {
 
         // ML
-        "/register/v3/hub/landing"(platform: "/mobile/android"){
-          client_type = "mobile"
+        "/register/v3/hub/landing"(platform: "/mobile"){
         }
-        "/register/v3/hub/main"(platform: "/web/mobile"){
-            client_type = "mobile"
+        "/register/v3/hub/main"(platform: "/mobile"){
             status = "in_progress"
             steps = [
                 [
@@ -706,25 +704,15 @@ trackTests {
                 ],
             ]
         }
-        "/register/v3/hub/email_validation/congrats"(platform: "/web/mobile"){
-          client_type = "mobile"
-        }
-        "/register/v3/hub/phone_validation/congrats"(platform: "/web/mobile"){
-          client_type = "mobile"
-        }
-        "/register/v3/hub/kyc/congrats"(platform: "/web/mobile"){
-          client_type = "mobile"
-        }
-        "/register/v3/hub/congrats"(platform: "/web/mobile"){
-          client_type = "mobile"
-        }
+        "/register/v3/hub/email_validation/congrats"(platform: "/mobile"){}
+        "/register/v3/hub/phone_validation/congrats"(platform: "/mobile"){}
+        "/register/v3/hub/kyc/congrats"(platform: "/mobile"){}
+        "/register/v3/hub/congrats"(platform: "/mobile"){}
 
         // MP
          "/register/v3/hub/landing"(platform: "/mobile/android", business: "mercadopago"){
-          client_type = "mobile"
         }
-        "/register/v3/hub/main"(platform: "/web/mobile", business: "mercadopago"){
-            client_type = "mobile"
+        "/register/v3/hub/main"(platform: "/mobile", business: "mercadopago"){
             status = "in_progress"
             steps = [
                 [
@@ -741,17 +729,9 @@ trackTests {
                 ],
             ]
         }
-        "/register/v3/hub/email_validation/congrats"(platform: "/web/mobile", business: "mercadopago"){
-          client_type = "mobile"
-        }
-        "/register/v3/hub/phone_validation/congrats"(platform: "/web/mobile", business: "mercadopago"){
-          client_type = "mobile"
-        }
-        "/register/v3/hub/kyc/congrats"(platform: "/web/mobile", business: "mercadopago"){
-          client_type = "mobile"
-        }
-        "/register/v3/hub/congrats"(platform: "/web/mobile", business: "mercadopago"){
-          client_type = "mobile"
-        }
+        "/register/v3/hub/email_validation/congrats"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/hub/phone_validation/congrats"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/hub/kyc/congrats"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/hub/congrats"(platform: "/mobile", business: "mercadopago"){}
     }
 }

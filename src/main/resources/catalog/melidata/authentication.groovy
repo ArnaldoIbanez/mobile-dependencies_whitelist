@@ -453,6 +453,11 @@ tracks {
         phone_source(type: PropertyType.String, required: true, description: "Source of phone number, could be manual or the name of the suggestion used")
     }
 
+    "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
+        phone_source(type: PropertyType.String, required: false, description: "Source of phone number, could be manual or the name of the suggestion used")
+        validation_status(PropertyType.String, required: false, values: ["success", "user_exists", "invalid_phone_format", "empty", "server_error"], description: "validation status by response")
+    }
+
     "/authenticators/phone_validation/channel_selector"(platform: "/", isAbstract: true) {
         status(PropertyType.String, required: true, values: ["success", "failure", "pending_validation" ], description: "challenge status by response")
         available_channels(PropertyType.ArrayList, required: true, description: "channels available to select")
@@ -465,15 +470,23 @@ tracks {
     }
 
     "/authenticators/phone_validation/enter_code"(platform: "/", isAbstract: true) {
-        status(PropertyType.String, required: true, values: ["success", "failure", "pending_validation" ], description: "challenge status by response")
-        available_channels(PropertyType.ArrayList, required: true, description: "channels available to select")
+        status(PropertyType.String, required: false, values: ["success", "failure", "pending_validation" ], description: "challenge status by response")
+        available_channels(PropertyType.ArrayList, required: false, description: "channels available to select")
         selected_channel(PropertyType.String, required: true, values: ["push", "sms", "call", "whatsapp" ], description: "channel selected by user")
     }
 
     "/authenticators/phone_validation/enter_code"(platform: "/", type: TrackType.View) {}
 
+    "/authenticators/phone_validation/enter_code"(platform: "/mobile", isAbstract: true) {
+        selected_channel(PropertyType.String, required: true, values: ["sms", "whatsapp" ], description: "channel selected by user")
+    }
+
     "/authenticators/phone_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
         phone_source(type: PropertyType.String, required: false, description: "Source of phone number, could be manual or the name of the suggestion used")
+    }
+
+    "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
+        validation_status(type: PropertyType.String, required: false, values: ["success", "invalid_code_length", "empty", "server_error", "failure" ], description: "validation status by response")
     }
 
     "/authenticators/phone_validation/phone_confirmation"(platform: "/", type: TrackType.View) {}
