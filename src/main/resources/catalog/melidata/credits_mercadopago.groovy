@@ -172,6 +172,7 @@ tracks {
     "/credits/mp-hub"(platform: "/", isAbstract: true) {}
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
+    "/credits/self_service/debt-relief"(platform: "/", isAbstract: true) {}
     "/credits/merchant/open-market/financial-scraping"(platform: "/", isAbstract: true) {}
 
     /******************************************
@@ -222,6 +223,8 @@ tracks {
             values: [
                 'create_promise',
                 'view_promise',
+                'create_debt_relief',
+                'view_debt_relief',
                 'none',
             ],
             inheritable: false
@@ -1495,6 +1498,8 @@ tracks {
     "/credits/consumer/administrator_v2/promises"(platform: "/mobile", isAbstract: true) {}
     "/credits/consumer/administrator_v2/promises/create"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/debt_relief"(platform: "/mobile", isAbstract: true) {}
+    "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/mobile", type: TrackType.Event) {}
 
     /******************************************
@@ -1647,6 +1652,90 @@ tracks {
             ]
         )
     }
+
+    "/credits/self_service/debt_relief"(platform: "/", type: TrackType.View) {
+        user_type(
+            required: true,
+            description: "User type (merchant, consumer or mix)",
+            type: PropertyType.String,
+            values: [
+                "merchant",
+                "consumer",
+                "mix"
+            ]
+        )
+    }
+
+    "/credits/self_service/debt_relief/summary"(platform: "/", type: TrackType.View) {
+            bulk_amount(
+                required: true,
+                description: "Bulk amount of the debt relief proposed by the user",
+                type: PropertyType.Numeric
+            )
+            total_amount(
+                required: true,
+                description: "Total debt amount",
+                type: PropertyType.Numeric
+            )
+            min_amount(
+                required: false,
+                description: "Total debt amount",
+                type: PropertyType.Boolean
+            )
+            user_type(
+                 required: true,
+                 description: "User type (merchant, consumer or mix)",
+                 type: PropertyType.String,
+                 values: [
+                     "merchant",
+                     "consumer",
+                     "mix"
+                 ]
+             )
+        }
+
+    "/credits/self_service/debt_relief/accept_summary"(platform: "/", type: TrackType.Event) {
+            bulk_amount(
+                required: true,
+                description: "Bulk amount of the debt relief proposed by the user",
+                type: PropertyType.Numeric
+            )
+            total_amount(
+                required: true,
+                description: "Total debt amount",
+                type: PropertyType.Numeric
+            )
+            installments_id(
+                required: true,
+                description: "Total debt amount",
+                type: PropertyType.ArrayList
+            )
+            user_type(
+                 required: true,
+                 description: "User type (merchant, consumer or mix)",
+                 type: PropertyType.String,
+                 values: [
+                     "merchant",
+                     "consumer",
+                     "mix"
+                 ]
+             )
+
+        }
+
+    "/credits/self_service/debt_relief/without_offer"(platform: "/", type: TrackType.View) {
+            user_type(
+                required: true,
+                description: "User type (merchant, consumer, mix or no credit)",
+                type: PropertyType.String,
+                values: [
+                    "merchant",
+                    "consumer",
+                    "mix",
+                    "no_credit"
+                ]
+            )
+        }
      /******************************************
      *    End: Self service
      ******************************************/
