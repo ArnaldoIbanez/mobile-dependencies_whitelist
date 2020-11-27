@@ -101,6 +101,13 @@ tracks {
     "/point_payment/onboarding_chooser"(platform: "/mobile", type: TrackType.View) {}
     "/point_payment/push_mcc"(platform: "/mobile", type: TrackType.View) {}
 
+    "/point_payment/link_share/button"(platform: "/mobile", type: TrackType.Event) {
+        flow_id (required: true, type: PropertyType.String, description: "Flow id.")
+        action (required: true, values: ["share_link", "copy_link", "copy_to_clipboard"], description: "Type of share button clicked")
+        label (required: false, values: ["whatsapp", "facebook", "twitter", "email", "instagram", "other"], description: "Type of share_link event")
+        pref_id (required: false, type: PropertyType.String, description: "Preference id")
+    }
+
     "/point_payment/flow_tracker"(platform: "/mobile", type: TrackType.Event, isAbstract: true) {
         flow_id (required: true, type: PropertyType.String, description: "Flow id.")
         user_id (required: false, type: PropertyType.String, description: "User id.")

@@ -45,6 +45,7 @@ tracks {
         item_id(type: PropertyType.String, description: "Item", required:false)
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:true)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:true)
+        registration_version(type: PropertyType.String, description: "Registration Version")
     }
 
     "/register/optin"(platform: "/web", type: TrackType.View) {
@@ -97,6 +98,15 @@ tracks {
         prog_reg_version(type: PropertyType.Numeric, required:true, description: "Version of progressive registration, if is 0 is normal registration")
     }
 
+    "/register/congrats"(platform: "/web", type: TrackType.View){
+        app(type: PropertyType.String, required:true, description: "Current Flow")
+        origin(type: PropertyType.String, required:false, description: "The source where the flow was called")
+        item_id(type: PropertyType.String, required:false, description: "Item" )
+        // TODO: In the future register_type might be "required: true". We have to do some changes for that
+        register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
+        registration_version(type: PropertyType.String, description: "Registration Version")
+    }
+
     "/register/form/skip-update"(platform: "/web", type: TrackType.View){}
     "/register/optin/push"(platform: "/web", type: TrackType.View){}
     "/register/optin/skip"(platform: "/web", type: TrackType.View){}
@@ -126,6 +136,7 @@ tracks {
         source(type: PropertyType.String, description: "Source", required:false, values:["email","facebook","facebook_to_email"])
         captcha_showed(type: PropertyType.Boolean, description: "If captcha is showed", required:false)
         prog_reg_version(type: PropertyType.Numeric, description: "Version of progressive registration, if is 0 is normal registration", required:false)
+        registration_version(type: PropertyType.String, description: "Registration Version")
     }
     "/register/form/email-suggest"(platform: "/mobile", type: TrackType.Event){}
     "/register/form/google_hint"(platform: "/mobile", isAbstract: true){
@@ -172,6 +183,7 @@ tracks {
         item_id(type: PropertyType.String, required:false, description: "Item" )
         // TODO: In the future register_type might be "required: true". We have to do some changes for that
         register_type(type: PropertyType.String, required: false, description: "User type", values: ["person", "company"])
+        registration_version(type: PropertyType.String, description: "Registration Version")
     }
 
     "/register/form/update"(platform: "/mobile", type: TrackType.View){
@@ -253,5 +265,23 @@ tracks {
     "/register/phone_registration/verification/autodetect_code"(platform: "/mobile", type: TrackType.Event){}
     "/register/phone_registration/sign_in"(platform: "/mobile", type: TrackType.Event){}
     "/register/phone_registration/create_account"(platform: "/mobile", type: TrackType.Event){}
-}
 
+    // Registro V3 HUB
+    "/register/v3"(platform: "/", isAbstract: true){}
+    "/register/v3/hub"(platform: "/", isAbstract: true){
+      client_type(type: PropertyType.String, required: true, values: ["web", "mobile"], description: "discerning from hybrid mobile (webview) or web")
+    }
+    "/register/v3/hub/landing"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/main"(platform: "/", type: TrackType.View){
+      status(type: PropertyType.String, required: true, values: ["finished", "in_progress"], description: "Registration HUB global status")
+      steps(type: PropertyType.ArrayList, , required:true, description: "Array of objects indicating each step id and status")
+    }
+    
+    "/register/v3/hub/email_validation"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/phone_validation"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/kyc"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/email_validation/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/phone_validation/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/kyc/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/congrats"(platform: "/", type: TrackType.View){}
+}

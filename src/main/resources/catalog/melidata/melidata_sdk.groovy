@@ -8,7 +8,7 @@ tracks {
 
     initiative = "1145"
 
-    "/melidata"(platform: "/mobile", isAbstract: true) {}
+    "/melidata"(platform: "/", isAbstract: true) {}
 
     "/melidata/statistics"(platform: "/mobile", type: TrackType.Event) {
         errors_counter(type: PropertyType.Map)
@@ -20,6 +20,16 @@ tracks {
         average_ok_time()
         average_error_time()
         last_statistics_timestamp(required: false)
+    }
+
+    "/melidata/statistics/experiments"(platform: "/mobile", type: TrackType.Control, parentPropertiesInherited: false) {
+        start_time()
+        duration(type: PropertyType.Numeric)
+        experiments_amount(type: PropertyType.Numeric)
+        persistence_enabled(type:PropertyType.Boolean)
+        experiment_to_retrieve()
+        execution_status(values: ['successful', 'error'])
+        error(required: false)
     }
 
     "/melidata/null_track"(platform: "/mobile") {
@@ -38,6 +48,7 @@ tracks {
 
     "/melidata/shrink_database"(platform: "/mobile/android", type: TrackType.Control ) {}
     "/melidata/shrink_database"(platform: "/mobile/ios", type: TrackType.Event ) {}
-
+    
+    "/melidata/ab_split"(platform: "/", type: TrackType.Event ) {}
 }
 

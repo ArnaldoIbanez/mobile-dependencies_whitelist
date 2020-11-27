@@ -63,7 +63,7 @@ tracks {
 
     "/money_detail"(platform: "/", isAbstract: true) {}
     "/money_detail"(platform: "/mobile", isAbstract: true) {
-        flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
+        flow (required:false, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/money_detail/balance"(platform: "/mobile") {}

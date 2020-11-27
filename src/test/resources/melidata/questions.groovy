@@ -10,6 +10,7 @@ trackTests {
     test("Questions tracking in web") {
         "/questions/ask/post" (platform:"/", type: TrackType.Event) {
             item_id = "MLA533657947"
+            question_id = 11494965485
             failed = false
             context = "/questions"
             catalog_product_id = "MLA533657234"
@@ -28,6 +29,15 @@ trackTests {
             context = "/vip"
             question_id = "12346"
             failed = false
+        }
+
+        "/questions/ask/post"(platform: "/mobile") {
+            item_id = "MLA12345"
+            context = "/vip"
+            question_id = "12346"
+            failed = true
+			error = 403
+			error_cause = "Question quota exceeded for the day"
         }
 
         "/questions/answer/post"(platform: "/mobile") {
@@ -71,6 +81,12 @@ trackTests {
         "/questions/back"(platform: "/mobile") {
             item_id = "MLA12345"
             context = "/vip"
+        }
+
+        "/questions/input_focus"(platform: "/mobile") {
+            item_id = "MLA12345"
+            catalog_product_id = "MLA15183"
+            context = "PDP"
         }
     }
 

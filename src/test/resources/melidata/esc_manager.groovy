@@ -31,6 +31,8 @@ trackTests {
         "/esc_manager/delete"(platform: "/mobile", type: TrackType.Event) {
             key = "1234"
             flow = "/instore"
+            reason = "unexpected_tokenization_error"
+            detail = "123;456;789"
         }
 
         // Delete all without session id
@@ -61,7 +63,13 @@ trackTests {
 
         "/esc_manager/invalid/key"(platform: "/mobile", type: TrackType.Event) {
             session_id = "id"
+        }
 
+        "/esc_manager/sync"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "id"
+            flow = "flow"
+            type = "single_esc_sync_request"
+            quantity = 1
         }
     }
 
@@ -92,6 +100,8 @@ trackTests {
         "/esc_manager/delete"(platform: "/mobile", type: TrackType.Event) {
             key = "1234"
             flow = "/instore"
+            reason = "unexpected_tokenization_error"
+            detail = "123;456;789"
         }
 
         // Delete all without session id
@@ -122,7 +132,13 @@ trackTests {
 
         "/esc_manager/invalid/key"(platform: "/mobile", type: TrackType.Event) {
             session_id = "id"
+        }
 
+        "/esc_manager/sync"(platform: "/mobile", type: TrackType.Event) {
+            session_id = "id"
+            flow = "flow"
+            type = "single_esc_sync_request"
+            quantity = 1
         }
     }
 }

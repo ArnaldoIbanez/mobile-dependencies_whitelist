@@ -117,6 +117,14 @@ trackTests {
             warehouse_id = "BRWT01"
         }
 
+        "/wms/receiving/inbound_rejection"(platform: "/mobile/android") {
+            trackData()
+            inbound_id = 1234
+            receiving_id = "1234abv"
+            rejection_reason = "key01"
+            warehouse_id = "BRWT01"
+        }
+
         "/wms/receiving/receiving_finished"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
@@ -158,13 +166,13 @@ trackTests {
         "/wms/put_away/scan_product/cancel"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            put_away_id = 111
+            putaway_id = 111
         }
 
         "/wms/put_away/scan_product/finish"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRWT01"
-            put_away_id = 111
+            putaway_id = 111
             inventory_id = "ABCD12345"
         }
 
@@ -475,22 +483,7 @@ trackTests {
             warehouse_id = "BRTW01"
         }
 
-        "/wms/problem_solver/scan_inbound_destination"(platform: "/mobile/android") {
-            trackData()
-            warehouse_id = "BRTW01"
-        }
-
-        "/wms/problem_solver/scan_finish_transactions"(platform: "/mobile/android") {
-            trackData()
-            warehouse_id = "BRTW01"
-        }
-
         "/wms/problem_solver/scan_transaction_destination"(platform: "/mobile/android") {
-            trackData()
-            warehouse_id = "BRTW01"
-        }
-
-        "/wms/problem_solver/scan_oriented_origin"(platform: "/mobile/android") {
             trackData()
             warehouse_id = "BRTW01"
         }
@@ -711,6 +704,12 @@ trackTests {
             warehouse_id = "BRWT01"
         }
         "/wms/stock_audit/scan_inventory/empty_address"(platform: "/mobile/android") {
+            task_id = 123
+            address_id = "RS-0-001-001-01-01"
+            cross_counting = false
+            warehouse_id = "BRWT01"
+        }
+        "/wms/stock_audit/scan_address/empty_address"(platform: "/mobile/android") {
             task_id = 123
             address_id = "RS-0-001-001-01-01"
             cross_counting = false

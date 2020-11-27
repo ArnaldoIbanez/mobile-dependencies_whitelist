@@ -35,7 +35,7 @@ tracks {
     "/transport/error"(platform: "/mobile", type: TrackType.View) {}
 
     // Transport Marketing Performance Landing
-    "/transport/mkt_landing"(platform: "/web", type: TrackType.View) {
+    "/transport/mkt_landing"(platform: "/web", type: TrackType.View, initiative: "1176") {
         campaign (require: true, type: PropertyType.String, description: "Indicates de campaign of landing")
     }
     "/transport/mkt_landing/sms"(platform: "/web", type: TrackType.Event) {

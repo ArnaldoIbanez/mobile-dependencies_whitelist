@@ -6,99 +6,98 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
 
-    defaultBusiness = "mercadolibre"
+    ["mercadolibre", "mercadopago"].each { business ->
+        defaultBusiness = business
+        //Modal Events
+        test("Merchengine Modals tracking / [${business}]") {
+            "/merchengine/modal"(platform: "/mobile", type: TrackType.View) {
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                position = 0
+                logic = "user_journey"
+                flow = "default"
+            }
 
-    test("Merchengine ML track") {
+            "/merchengine/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                position = 0
+                logic = "user_journey"
+                flow = "default"
+            }
 
-	    //Modal Events
-    	"/merchengine/modal"(platform: "/mobile", type: TrackType.View) {
-			content_id = "ftu_recarga_discount"
-			position = 1.0
-			component_id="user_secondary_actions"
-			audience = "all"
-			bu_line = "default"
-			flow = "default"
-			logic = "campaigns"
-		}
+            "/merchengine/modal/cta"(platform: "/mobile", type: TrackType.Event) {
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                position = 0
+                logic = "user_journey"
+                flow = "default"
+                action_id = "cta1"
+                type = "primary"
+                link = "mercadopago://wallet"
+            }
 
-    	"/merchengine/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {
-			content_id = "ftu_recarga_discount"
-			position = 1.0
-			component_id="user_secondary_actions"
-			audience = "all"
-			bu_line = "default"
-			flow = "default"
-			logic = "campaigns"
-		}
+            "/merchengine/modal/swipe"(platform: "/mobile", type: TrackType.Event) {
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                position = 3
+                logic = "user_journey"
+                flow = "default"
+            }
+            "/merchengine/modal"(platform: "/mobile", type: TrackType.View) {
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                position = 0
+                logic = "user_journey"
+				audience = "all"
+                flow = "default"
+            }
 
-		"/merchengine/modal/cta"(platform: "/mobile", type: TrackType.Event) {
-			content_id = "ftu_recarga_discount"
-			type = "primary"
-			link = "mercadopago://asset-management/"
-			position = 1.0
-			component_id="user_secondary_actions"
-			audience = "all"
-			bu_line = "default"
-			flow = "default"
-			logic = "campaigns"
-		}
+            "/merchengine/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                position = 0
+                logic = "user_journey"
+				audience = "all"
+                flow = "default"
+            }
 
-		"/merchengine/modal/swipe"(platform: "/mobile", type: TrackType.Event) {
-			content_id = "ftu_recarga_discount"
-			position = 1.0
-			component_id="user_secondary_actions"
-			audience = "all"
-			bu_line = "default"
-			flow = "default"
-			logic = "campaigns"
-		}
-    }
+            "/merchengine/modal/cta"(platform: "/mobile", type: TrackType.Event) {
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                position = 0
+                logic = "user_journey"
+                flow = "default"
+                action_id = "cta1"
+                type = "primary"
+				audience = "all"
+                link = "mercadopago://wallet"
+            }
 
-    defaultBusiness = "mercadopago"
-
-    test("Merchengine MP tracks") {
-
-		//Modal Events
-		"/merchengine/modal"(platform: "/mobile", type: TrackType.View) {
-			content_id = "ftu_recarga_discount"
-			position = 1.0
-			component_id="user_secondary_actions"
-			audience = "all"
-			bu_line = "default"
-			flow = "default"
-			logic = "campaigns"
-		}
-
-		"/merchengine/modal/dismiss"(platform: "/mobile", type: TrackType.Event) {
-			content_id = "ftu_recarga_discount"
-			position = 1.0
-			component_id="user_secondary_actions"
-			audience = "all"
-			bu_line = "default"
-			flow = "default"
-			logic = "campaigns"
-		}
-
-		"/merchengine/modal/cta"(platform: "/mobile", type: TrackType.Event) {
-			content_id = "ftu_recarga_discount"
-			type = "primary"
-			link = "mercadopago://asset-management/"
-			position = 1.0
-			component_id="user_secondary_actions"
-			audience = "all"
-			bu_line = "default"
-			flow = "default"
-			logic = "campaigns"
-		}
-
-		"/merchengine/modal/swipe"(platform: "/mobile", type: TrackType.Event) {
-			content_id = "ftu_recarga_discount"
-			position = 1.0
-			component_id="user_secondary_actions"
-			audience = "all"
-			bu_line = "default"
-			flow = "default"
-			logic = "campaigns"
+            "/merchengine/modal/swipe"(platform: "/mobile", type: TrackType.Event) {
+                component_id = "secondary_actions_payers_recharge_sube_mp"
+                content_id = "recharge_sube"
+                bu = "mp"
+                bu_line = "default"
+                position = 3
+ 				audience = "all"
+                logic = "user_journey"
+                flow = "default"
+            }        
 		}
     }
 }

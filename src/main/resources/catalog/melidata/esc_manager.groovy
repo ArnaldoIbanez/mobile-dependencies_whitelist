@@ -34,6 +34,8 @@ tracks {
     "/esc_manager/delete"(platform: "/mobile", type: TrackType.Event) {
         externalData
         key(required: true, type: PropertyType.String , description: "Key being deleted")
+        reason(required: false, type: PropertyType.String , description: "Reason to delete the key", values: ["invalid_esc", "invalid_fingerprint", "unexpected_tokenization_error", "rejected_payment", "esc_cap", "no_esc", "no_reason"])
+        detail(required: false, type: PropertyType.String , description: "Detail of the reason to delete the key")
     }
 
     // Delete all events
@@ -58,5 +60,12 @@ tracks {
 
     "/esc_manager/invalid/key"(platform: "/mobile", type: TrackType.Event) {
         externalData
+    }
+
+    // Sync ESC event
+    "/esc_manager/sync"(platform: "/mobile", type: TrackType.Event) {
+        externalData
+        type(required: true, type: PropertyType.String , description: "Type of synchronization", values: ["single_esc_sync_request", "single_esc_sync_done", "all_esc_sync_request", "all_esc_sync_done"])
+        quantity(required: true, type: PropertyType.Numeric, description: "Quantity of esc synchonized")
     }
 }

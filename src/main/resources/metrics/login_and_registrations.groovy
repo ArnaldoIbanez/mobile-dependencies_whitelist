@@ -13,7 +13,7 @@ metrics {
         }
     }
 
-    "registrations"(description: "registrations count") {
+    "registrations"(description: "registrations count", categorization:"important") {
         countsOn {
             condition {
                 path("/register/success")
