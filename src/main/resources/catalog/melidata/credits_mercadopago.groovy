@@ -1682,16 +1682,6 @@ tracks {
                 description: "Total debt amount",
                 type: PropertyType.Boolean
             )
-            user_type(
-                 required: true,
-                 description: "User type (merchant, consumer or mix)",
-                 type: PropertyType.String,
-                 values: [
-                     "merchant",
-                     "consumer",
-                     "mix"
-                 ]
-             )
         }
 
     "/credits/self_service/debt_relief/accept_summary"(platform: "/", type: TrackType.Event) {
@@ -1710,31 +1700,9 @@ tracks {
                 description: "Total debt amount",
                 type: PropertyType.ArrayList
             )
-            user_type(
-                 required: true,
-                 description: "User type (merchant, consumer or mix)",
-                 type: PropertyType.String,
-                 values: [
-                     "merchant",
-                     "consumer",
-                     "mix"
-                 ]
-             )
-
         }
 
     "/credits/self_service/debt_relief/without_offer"(platform: "/", type: TrackType.View) {
-            user_type(
-                required: true,
-                description: "User type (merchant, consumer, mix or no credit)",
-                type: PropertyType.String,
-                values: [
-                    "merchant",
-                    "consumer",
-                    "mix",
-                    "no_credit"
-                ]
-            )
         }
      /******************************************
      *    End: Self service
