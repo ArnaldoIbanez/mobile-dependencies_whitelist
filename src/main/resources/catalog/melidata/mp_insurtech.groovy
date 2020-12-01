@@ -28,7 +28,7 @@ tracks {
         check(required: true, type: PropertyType.String, description: "Check HW required. For ex: total.")
         gtin(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "GLobal Trade Item Numer")
     }
-          
+
     def roda_option_short = objectSchemaDefinitions {
         coverage(required: true, type: PropertyType.String, description: "Coverage of the option. For ex: theft_break, theft, break, accident.")
         price(required: true, type: PropertyType.Numeric, description: "Price of the option.")
@@ -91,22 +91,56 @@ tracks {
         buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
     }
 
-    "/insurtech/roda/qpage/fallback"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+    "/insurtech/roda/qpage/fallback"(platform: "/", isAbstract: true) {}
+
+    "/insurtech/roda/qpage/fallback/default"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
         buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
     }
 
-    "/insurtech/roda/qpage/quoting_fallback"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+    "/insurtech/roda/qpage/fallback/skip_expired"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
-        quotable(required: false, type: PropertyType.Boolean, description:"If a device is tradable or not")
-        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")    
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+    }
+
+    "/insurtech/roda/qpage/quoting_fallback"(platform: "/", isAbstract: true) {}
+    "/insurtech/roda/qpage/quoting_fallback/default"(platform: "/", isAbstract: true) {}
+
+    "/insurtech/roda/qpage/quoting_fallback/default/quotable"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
+        quotable(required: true, type: PropertyType.Boolean, description:"If a device is tradable or not")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+    }
+
+    "/insurtech/roda/qpage/quoting_fallback/default/not_quotable"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
+        quotable(required: true, type: PropertyType.Boolean, description:"If a device is tradable or not")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+    }
+
+    "/insurtech/roda/qpage/quoting_fallback/order_cancelled"(platform: "/", isAbstract: true) {}
+
+    "/insurtech/roda/qpage/quoting_fallback/order_cancelled/quotable"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
+        quotable(required: true, type: PropertyType.Boolean, description:"If a device is tradable or not")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+    }
+
+    "/insurtech/roda/qpage/quoting_fallback/order_cancelled/not_quotable"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
+        quotable(required: true, type: PropertyType.Boolean, description:"If a device is tradable or not")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
     }
 
     "/insurtech/roda/qpage/deductible"(platform:"/", type: TrackType.Event) {
         client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
-        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")    
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
     }
 
     "/insurtech/roda/qpage/faq"(platform:"/", type: TrackType.Event) {
@@ -137,13 +171,20 @@ tracks {
         entity_type (required: true, type: PropertyType.String, description: "Entity type insurtech product", values: ["device", "order"])
         entity_id (required: true, type:  PropertyType.String, description: "Entity id insurtech product")
         item_id (required: false, type: PropertyType.String, description: "id of the item that is offered protection")
-        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")    
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
     }
-    
-    "/insurtech/roda/qpage/quoting_fallback/select"(platform:"/", type: TrackType.Event) {
+
+    "/insurtech/roda/qpage/quoting_fallback/default/quotable/select"(platform:"/", type: TrackType.Event) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
-        quotable(required: false, type: PropertyType.Boolean, description:"If a device is tradable or not")
+        quotable(required: true, type: PropertyType.Boolean, description:"If a device is tradable or not")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+    }
+
+    "/insurtech/roda/qpage/quoting_fallback/order_cancelled/quotable/select"(platform:"/", type: TrackType.Event) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
+        quotable(required: true, type: PropertyType.Boolean, description:"If a device is tradable or not")
         buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
     }
 
