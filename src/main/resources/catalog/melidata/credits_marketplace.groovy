@@ -9,7 +9,7 @@ tracks {
 
     initiative = "1205"
 
-    propertyDefinitions {        
+    propertyDefinitions {
         installments_qty( type: PropertyType.Numeric, required: true, description: "The total number of installments to pay")
     }
 
@@ -29,6 +29,7 @@ tracks {
     "/credits/consumer/opensea"(platform: "/", isAbstract: true) {}
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
+    "/credits/self_service/debt-relief"(platform: "/", isAbstract: true) {}
 
     "/vip"(platform: "/", isAbstract: true) {}
     "/vip/credits"(platform: "/", isAbstract: true) {}
@@ -169,11 +170,11 @@ tracks {
     "/credits/consumer/administrator_v2/dashboard"(platform: "/", type: TrackType.View) {
         dashboard_status(
                             required: true,
-                            description: "Current status of the Dashboard", 
-                            type: PropertyType.String, 
-                            values: [ 
-                                        "empty_state", 
-                                        "on_time", 
+                            description: "Current status of the Dashboard",
+                            type: PropertyType.String,
+                            values: [
+                                        "empty_state",
+                                        "on_time",
                                         "overdue"
                                     ]
                         )
@@ -195,9 +196,9 @@ tracks {
     "/credits/consumer/administrator_v2/error_message"(platform: "/mobile", type: TrackType.View) {
         user_status(
                             required: true,
-                            description: "Credit line's current status", 
-                            type: PropertyType.String, 
-                            values: [ 
+                            description: "Credit line's current status",
+                            type: PropertyType.String,
+                            values: [
                                         "manually_paused"
                                     ]
                     )
@@ -218,13 +219,15 @@ tracks {
     "/credits/consumer/administrator_v2/suggested_modal/suggested_product_modal"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/suggested_modal/weekly_deals_link"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/suggested_modal/close_product_modal"(platform: "/", type: TrackType.Event) {}
-    
+
     "/credits/consumer/administrator_v2/promises"(platform: "/", isAbstract: true) {}
     "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/debt_relief"(platform: "/mobile", isAbstract: true) {}
+    "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
 
-    //Mobile Events 
+    //Mobile Events
     "/credits/consumer/administrator_v2/dashboard/payment_intention_all"(platform: "/mobile", type: TrackType.Event) {
         installments_group
     }
@@ -729,7 +732,7 @@ tracks {
     }
 
     "/credits/consumer/duedate_selection/not_allowed"(platform: "/", type: TrackType.View) {}
-    
+
     "/credits/consumer/duedate_selection/error"(platform: "/", type: TrackType.View) {}
 
     "/credits/consumer/duedate_selection/cancel"(platform: "/", type: TrackType.Event) {}
@@ -737,7 +740,7 @@ tracks {
      /******************************************
      *    End: Consumers Change Due Date FLow
      ******************************************/
-     
+
      /******************************************
      *    Start: Self service
      ******************************************/
@@ -754,7 +757,7 @@ tracks {
             ]
         )
     }
-        
+
     "/credits/self_service/promises/create_form/submit"(platform: "/", type: TrackType.Event) {
         is_partial_amount(
             required: true,
@@ -784,7 +787,7 @@ tracks {
     }
 
     "/credits/self_service/promises/create_form/cancel"(platform: "/", type: TrackType.Event) {}
-    
+
     "/credits/self_service/promises/congrats"(platform: "/", type: TrackType.View) {
         user_type(
             required: true,
@@ -826,6 +829,58 @@ tracks {
             ]
         )
     }
+
+    "/credits/self_service/debt_relief"(platform: "/", type: TrackType.View) {
+            user_type(
+                required: true,
+                description: "User type (merchant, consumer or mix)",
+                type: PropertyType.String,
+                values: [
+                    "merchant",
+                    "consumer",
+                    "mix"
+                ]
+            )
+        }
+
+        "/credits/self_service/debt_relief/summary"(platform: "/", type: TrackType.View) {
+                bulk_amount(
+                    required: true,
+                    description: "Bulk amount of the debt relief proposed by the user",
+                    type: PropertyType.Numeric
+                )
+                total_amount(
+                    required: true,
+                    description: "Total debt amount",
+                    type: PropertyType.Numeric
+                )
+                min_amount(
+                    required: false,
+                    description: "Total debt amount",
+                    type: PropertyType.Boolean
+                )
+            }
+
+        "/credits/self_service/debt_relief/accept_summary"(platform: "/", type: TrackType.Event) {
+                bulk_amount(
+                    required: true,
+                    description: "Bulk amount of the debt relief proposed by the user",
+                    type: PropertyType.Numeric
+                )
+                total_amount(
+                    required: true,
+                    description: "Total debt amount",
+                    type: PropertyType.Numeric
+                )
+                installments_id(
+                    required: true,
+                    description: "Total debt amount",
+                    type: PropertyType.ArrayList
+                )
+            }
+
+        "/credits/self_service/debt_relief/without_offer"(platform: "/", type: TrackType.View) {
+            }
      /******************************************
      *    End: Self service
      ******************************************/
