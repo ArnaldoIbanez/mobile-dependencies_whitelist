@@ -8319,6 +8319,12 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
         }
+
+        "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {
+            news_id = "card_transactions_payment_reject_whit_contactless-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -8578,6 +8584,12 @@ trackTests {
         "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
+        }
+
+        "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {
+            news_id = "card_transactions_payment_reject_whit_contactless-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
         }
     }
 
