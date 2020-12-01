@@ -394,6 +394,9 @@ trackTests {
             step_information()
         }
 
+        "/single_player/prepaid/one_tap/more_information"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
         "/single_player/prepaid/one_tap/pay"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
         }
@@ -409,6 +412,10 @@ trackTests {
             payment_id = "252"
         }
 
+        "/single_player/prepaid/congrats_success/copy_to_clipboard"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+            payment_id = "252"
+        }
         "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", type: TrackType.Event) {
             mandatory()
             payment_id = "252"
@@ -1002,6 +1009,9 @@ trackTests {
             step_information()
         }
 
+        "/single_player/prepaid/one_tap/more_information"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+        }
         "/single_player/prepaid/one_tap/pay"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
         }
@@ -1017,6 +1027,10 @@ trackTests {
             payment_id = "232"
         }
 
+        "/single_player/prepaid/congrats_success/copy_to_clipboard"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
+            mandatory()
+            payment_id = "252"
+        }
         "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", business: "mercadolibre", type: TrackType.Event) {
             mandatory()
             payment_id = "232"
