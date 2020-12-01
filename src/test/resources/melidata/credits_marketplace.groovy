@@ -184,7 +184,7 @@ trackTests {
 
         "/credits/consumer/administrator_v2/promises/create"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/promises/view"(platform: "/", type: TrackType.Event) {}
-        "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/mobile", type: TrackType.Event) {}
+        "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/", type: TrackType.Event) {}
         "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/", type: TrackType.Event) {}
 
         //Event Mobile
