@@ -1259,6 +1259,16 @@ tracks {
         product_title(required: true, description: "title of catalog product", type: PropertyType.String)
     }
 
+     "/seller_central/catalog/optin/v0_product_bullet_resume"(platform: "/web", isAbstract: true) {}
+
+    "/seller_central/catalog/optin/v0_product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN_V0_PRODUCT"])
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+        product_title(required: true, description: "title of catalog product", type: PropertyType.String)
+    }
+
     "/seller_central/catalog/optin/invalid_product"(platform: "/web", type: TrackType.View) {
         sellerCentralCatalogOptinGroup
     }
@@ -1315,6 +1325,15 @@ tracks {
     "/seller_central/catalog/optin/optin_moderated/product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
         sellerCentralCatalogOptinGroup
         list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN"])
+        attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
+        attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
+        product_title(required: true, description: "title of catalog product", type: PropertyType.String)
+    }
+
+    "/seller_central/catalog/optin/optin_moderated/v0_product_bullet_resume"(platform: "/web", isAbstract: true) {}
+    "/seller_central/catalog/optin/optin_moderated/v0_product_bullet_resume/show"(platform: "/web", type: TrackType.Event) {
+        sellerCentralCatalogOptinGroup
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN_V0_PRODUCT"])
         attribute_id(required: true, description: "Attribute id submitted", PropertyType.String)
         attribute_values(required: true, description: "Original item's attribute values", PropertyType.ArrayList(PropertyType.Map(attributes_values_map)))
         product_title(required: true, description: "title of catalog product", type: PropertyType.String)

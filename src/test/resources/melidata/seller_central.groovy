@@ -2226,6 +2226,36 @@ trackTests {
     }
   }
 
+   test("seller central catalog optin product v0 resume card showed"){
+    "/seller_central/catalog/optin/v0_product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN_V0_PRODUCT"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
+    }
+  }
+
   test("seller central catalog invalid product page view") {
     "/seller_central/catalog/optin/invalid_product"(platform: "/web", type: TrackType.View) {
       item_id = "MLA123"
@@ -2358,6 +2388,36 @@ trackTests {
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
       list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
+    }
+  }
+
+  test("seller central catalog optin moderated product resume card showed"){
+    "/seller_central/catalog/optin/optin_moderated/v0_product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN_V0_PRODUCT"
       attribute_id = "COLOR"
       attribute_values = [
               [
