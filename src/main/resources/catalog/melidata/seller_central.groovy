@@ -842,6 +842,11 @@ tracks {
         pictureIntentGroup
     }
 
+    "/seller_central/modify/detail/consequences_modal"(platform: "/", type: TrackType.Event) {
+        goal(required: true, type: PropertyType.String, description: "Goal that is losing")
+        action(required: true, type: PropertyType.String, description: "Modal action", values:["show", "confirm", "cancel"])
+    }
+
 
     "/seller_central/modify/detail/seller_contact"(platform: "/", isAbstract: true) {}
     "/seller_central/modify/detail/seller_contact/show"(platform: "/", type: TrackType.Event) {}
