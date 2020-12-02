@@ -310,6 +310,9 @@ tracks {
         sll_total(required: true, type: PropertyType.String, description: "Indicates the number total of sll")
     }
     // Budget Dynamic 
+    "/advertising/pads2/manager/update/budget"(platform: "/", type: TrackType.Event) {
+        
+    }
       "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
