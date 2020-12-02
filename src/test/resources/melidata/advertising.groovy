@@ -486,8 +486,8 @@ trackTests {
         }
         "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
             budget= 3990.0
-            campaign_id = 301191173
-            suggested_budget = 87888
+            campaign_id = 898766
+            suggested_budget = "87888"
             suggested_budget_pct= "676"
             budget_type= "D"
             selected_budget="8766"
@@ -497,14 +497,14 @@ trackTests {
 
         "/advertising/pads2/manager/budget/tooltip"(platform: "/", type: TrackType.Event) {
             budget= 3990.0
-            campaign_id = 301191173
+            campaign_id = 898766
             budget_type= "D"
             
         }
         "/advertising/pads2/manager/update/budget/go"(platform: "/", type: TrackType.Event) {
             budget= 3990.0
-            campaign_id = 301191173
-            suggested_budget = 87888
+            campaign_id = 898766
+            suggested_budget = "87888"
             suggested_budget_pct= "676"
             budget_type= "D"
             selected_budget="8766"
@@ -513,8 +513,8 @@ trackTests {
         }
         "/advertising/pads2/manager/update/budget/close"(platform: "/", type: TrackType.Event) {
             budget= 3990.0
-            campaign_id = 301191173
-            suggested_budget = 87888
+            campaign_id = 898766
+            suggested_budget = "87888"
             suggested_budget_pct= "676"
             budget_type= "D"
             selected_budget="8766"
@@ -523,7 +523,7 @@ trackTests {
         }
         "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
             budget= 3990.0
-            campaign_id = 301191173
+            campaign_id = 898766
             budget_type= "D"
             
         }
