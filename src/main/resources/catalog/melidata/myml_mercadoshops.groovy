@@ -281,6 +281,10 @@ tracks {
         mshopsEventGroup
     }
 
+    "/mercado_shops/domains/partial_migration_start"(platform: "/", type: TrackType.Event){
+        mshopsEventGroup
+    }
+
     "/mercado_shops/domains/subdomain_change"(platform: "/", type: TrackType.Event){
         subdomain(required: true, type: PropertyType.String)
         mshopsEventGroup
