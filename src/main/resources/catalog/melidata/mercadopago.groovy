@@ -123,8 +123,12 @@ tracks {
         groupCheckoutProperties
     }
 
-     "/point/buyingflow/complete_phone"(platform: "/", type: TrackType.View) {
+    "/point/buyingflow/complete_phone"(platform: "/", type: TrackType.View) {
         groupCheckoutProperties
+    }
+
+    "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {
+        user_id (type: PropertyType.Numeric, required: true, description: "User ID")
     }
 
     // Merchant Acquisition Point Landings
