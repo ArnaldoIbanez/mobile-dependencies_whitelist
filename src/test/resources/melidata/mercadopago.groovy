@@ -860,9 +860,7 @@ trackTests {
           e2e_test = false
         }
 
-        "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {
-          user_id = 5010815
-        }
+        "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
     }
 
     test("MP-MA Landing QR") {

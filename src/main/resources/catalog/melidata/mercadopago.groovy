@@ -127,9 +127,7 @@ tracks {
         groupCheckoutProperties
     }
 
-    "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {
-        user_id (type: PropertyType.Numeric, required: true, description: "User ID")
-    }
+    "/point/buyingflow/regret"(platform: "/", type: TrackType.View) {}
 
     // Merchant Acquisition Point Landings
     "/point/landings"(platform: "/") {
