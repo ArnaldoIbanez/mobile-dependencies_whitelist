@@ -309,6 +309,53 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
         sll_total(required: true, type: PropertyType.String, description: "Indicates the number total of sll")
     }
+    // Budget Dynamic 
+      "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
+        budget(required: true, description: "current budget related to the campaign")
+        campaign_id(required: true, description: "Id related to the campaign")
+        suggested_budget(required: false, description: "suggested budget")
+        suggested_budget_pct(required: false, description: "suggested budget pct")
+        budget_type(required: true, description: "budget type",values: ['D', 'F'])
+        selected_budget(required: false, description: "selected budget")
+        select_budget_pct(required: false, description: "select budget pct")
+        selected_budget_type(required: false, description: "selected budget type")
+        
+    }
+      "/advertising/pads2/manager/budget/tooltip"(platform: "/", type: TrackType.Event) {
+        budget(required: true, description: "current budget related to the campaign")
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget_type(required: true, description: "budget type",values: ['D', 'F'])
+
+    }
+
+     "/advertising/pads2/manager/update/budget/go"(platform: "/", type: TrackType.Event) {
+        budget(required: true, description: "current budget related to the campaign")
+        campaign_id(required: true, description: "Id related to the campaign")
+        suggested_budget(required: false, description: "suggested budget")
+        suggested_budget_pct(required: false, description: "suggested budget pct")
+        budget_type(required: true, description: "budget type",values: ['D', 'F'])
+        selected_budget(required: false, description: "selected budget")
+        select_budget_pct(required: false, description: "select budget pct")
+        selected_budget_type(required: false, description: "selected budget type")
+        
+    }
+     "/advertising/pads2/manager/update/budget/close"(platform: "/", type: TrackType.Event) {
+        budget(required: true, description: "current budget related to the campaign")
+        campaign_id(required: true, description: "Id related to the campaign")
+        suggested_budget(required: false, description: "suggested budget")
+        suggested_budget_pct(required: false, description: "suggested budget pct")
+        budget_type(required: true, description: "budget type",values: ['D', 'F'])
+        selected_budget(required: false, description: "selected budget")
+        select_budget_pct(required: false, description: "select budget pct")
+        selected_budget_type(required: false, description: "selected budget type")
+    }
+    "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
+        budget(required: true, description: "current budget related to the campaign")
+        campaign_id(required: true, description: "Id related to the campaign")
+        budget_type(required: true, description: "budget type",values: ['D', 'F'])
+        
+    }
+
 
     //Buybox
     "/advertising/pads2/manager/buybox_winners"(platform: "/", isAbstract: true) {}
