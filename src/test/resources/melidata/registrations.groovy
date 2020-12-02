@@ -21,11 +21,6 @@ trackTests {
             user_birthday = true
             user_likes = true
         }
-
-        "/register/user_delete"(platform: "/"){
-            application_source = "registration"
-            reason = "register_not_validated"
-        }
     }
 
     test("Progressive registration") {
@@ -155,38 +150,6 @@ trackTests {
             captcha_showed = true
             prog_reg_version = 0
             geo_location_code = 1
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/facebook-connect"(platform:"/web/mobile") {
-            app = "registration"
-            source = "email"
-            captcha_showed = false
-            prog_reg_version = 0
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/facebook-connect/facebook-register-selected"(platform:"/web/desktop") {
-            app = "registration"
-            source = "facebook"
-            captcha_showed = false
-            prog_reg_version = 0
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/facebook-connect/email-register-selected"(platform:"/web/mobile") {
-            app = "registration"
-            source = "email"
-            captcha_showed = false
-            prog_reg_version = 0
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/facebook-connect/login-selected"(platform:"/web/desktop") {
-            app = "registration"
-            source = "email"
-            captcha_showed = false
-            prog_reg_version = 0
             registration_version = "regi_v0_web"
         }
 
@@ -525,16 +488,6 @@ trackTests {
             item_id = "MLM23143"
         }
 
-        "/register/form/company-link"(platform: "/mobile"){
-            app = "normal"
-            registration_version = "regi_v0_web"
-        }
-
-        "/register/form/person-link"(platform: "/mobile"){
-            app = "normal"
-            registration_version = "regi_v0_web"
-        }
-
         "/register/congrats/complete-fiscal-data"(platform: "/mobile"){
             app = "normal"
             register_type = "company"
@@ -581,104 +534,6 @@ trackTests {
 
         "/register/accountRecovery"(platform: "/mobile", type: TrackType.Event) {
             error_type = "connectionError/invalidOneTimePassword/operatorNotSupported"
-        }
-    }
-
-    test("Phone registration") {
-        "/register/phone_registration/get_phone"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/get_phone/error"(platform: "/mobile") {
-            app = "mp"
-            errors_validation = "back"
-            errors = [
-                    [
-                            code:00,
-                            field: 'identification_phone'
-                    ]
-            ]
-        }
-
-        "/register/phone_registration/additional_data"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/additional_data/error"(platform: "/mobile") {
-            app = "mp"
-            errors_validation = "back"
-            errors = [
-                    [
-                            code:00,
-                            field: 'first_name'
-                    ]
-            ]
-        }
-
-        "/register/phone_registration/get_email"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/get_email/error"(platform: "/mobile") {
-            app = "mp"
-            errors_validation = "back"
-            errors = [
-                    [
-                            code:00,
-                            field: 'email'
-                    ]
-            ]
-        }
-
-        "/register/phone_registration/verification"(platform: "/mobile") {
-            app = "mp"
-            channel = "sms"
-        }
-
-        "/register/phone_registration/verification/error"(platform: "/mobile") {
-            app = "mp"
-            channel = "sms"
-            errors_validation = "back"
-            errors = [
-                    [
-                            code:00,
-                            field: 'verification_code'
-                    ]
-            ]
-        }
-
-        "/register/phone_registration/phone_already_registered"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/send_code"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/resend_code"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/email_link"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/verification/autodetect_code"(platform: "/mobile") {
-            app = "mp"
-            channel = "sms"
-        }
-
-        "/register/phone_registration/sign_in"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/phone_registration/create_account"(platform: "/mobile") {
-            app = "mp"
-        }
-
-        "/register/success"(platform:"/mobile") {
-            app = "mp"
-            source = "phone"
         }
     }
 
