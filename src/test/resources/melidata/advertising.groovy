@@ -485,46 +485,46 @@ trackTests {
         
         }
         "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
-            budget= 3990.0
-            campaign_id = 898766
+            budget= "3990"
+            campaign_id = "898766"
             suggested_budget = "87888"
             suggested_budget_pct= "676"
-            budget_type= "D"
+            budget_type=['D','F']
             selected_budget="8766"
             select_budget_pct="987877"
             select_budget_pct="87787"
         }
 
         "/advertising/pads2/manager/budget/tooltip"(platform: "/", type: TrackType.Event) {
-            budget= 3990.0
-            campaign_id = 898766
-            budget_type= "D"
+            budget= "3990"
+            campaign_id = "898766"
+            budget_type=['D','F']
             
         }
         "/advertising/pads2/manager/update/budget/go"(platform: "/", type: TrackType.Event) {
-            budget= 3990.0
-            campaign_id = 898766
-            suggested_budget = "87888"
-            suggested_budget_pct= "676"
-            budget_type= "D"
-            selected_budget="8766"
-            select_budget_pct="987877"
-            select_budget_pct="87787"
+            budget= "3990"
+            campaign_id = "898766"
+            suggested_budget = "HJHGF"
+            suggested_budget_pct= "JKHHK"
+            budget_type=['D','F']
+            selected_budget=""
+            select_budget_pct=""
+            select_budget_pct=""
         }
         "/advertising/pads2/manager/update/budget/close"(platform: "/", type: TrackType.Event) {
-            budget= 3990.0
-            campaign_id = 898766
-            suggested_budget = "87888"
-            suggested_budget_pct= "676"
-            budget_type= "D"
-            selected_budget="8766"
-            select_budget_pct="987877"
-            select_budget_pct="87787"
+            budget= "3990"
+            campaign_id = "898766"
+            suggested_budget = "asdf"
+            suggested_budget_pct= "7655"
+            budget_type=['D','F']
+            selected_budget="89876"
+            select_budget_pct="87454"
+            select_budget_pct="6765"
         }
         "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
-            budget= 3990.0
-            campaign_id = 898766
-            budget_type= "D"
+            budget= "3990"
+            campaign_id = "898766"
+            budget_type=['D','F']
             
         }
     }
