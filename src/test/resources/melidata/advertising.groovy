@@ -480,52 +480,6 @@ trackTests {
 
     }
 
-    test("Advertising Dynamic budget "){
-        "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
-            budget= 3990
-            campaign_id = 2222222
-            suggested_budget = ""
-            suggested_budget_pct= ""
-            budget_type="D"
-            selected_budget=""
-            select_budget_pct=""
-            select_budget_pct=""
-        }
-
-        "/advertising/pads2/manager/budget/tooltip"(platform: "/", type: TrackType.Event) {
-            budget= 3990
-            campaign_id = 2222222
-            budget_type="D"
-            
-        }
-        "/advertising/pads2/manager/update/budget/go"(platform: "/", type: TrackType.Event) {
-            budget= 3990
-            campaign_id = 2222222
-            suggested_budget = ""
-            suggested_budget_pct= ""
-            budget_type="D"
-            selected_budget=""
-            select_budget_pct=""
-            select_budget_pct=""
-        }
-        "/advertising/pads2/manager/update/budget/close"(platform: "/", type: TrackType.Event) {
-            budget= 3990
-            campaign_id = 2222222
-            suggested_budget = ""
-            suggested_budget_pct= ""
-            budget_type="D"
-            selected_budget=""
-            select_budget_pct=""
-            select_budget_pct=""
-        }
-        "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
-            budget= 3990
-            campaign_id = 2222222
-            budget_type="D"
-            
-        }
-    }
-
     test("Advertising buybox opportunity") {
         "/advertising/pads2/manager/card/buy_box_winner"(platform: "/web", type: TrackType.View) {
             winners_suggested = "20"
