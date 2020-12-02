@@ -232,6 +232,18 @@ tracks {
         claim_type (required:false, description: "Request type", values: ["ownership", "portability"])
         claim_status (required:false, description: "Claim status", values: ["Completed", "Canceled", "waiting_resolution"])
     }
+    "/money_in/pix_keys/delete_confirm/continue"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/money_in/pix_keys/delete_confirm"(platform: "/", type: TrackType.View) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/money_in/pix_keys/delete_confirm/cancel"(platform: "/", type: TrackType.Event) {
+        key_type (required:false, description: "key type", values: ["cpf", "cnpj", "telephone", "email", "evp"])
+    }
+    "/money_in/pix_keys/cpf_confirm"(platform: "/", type: TrackType.View) {
+        key_value_from_profile (required:false, description: "Indicate if the key is loaded from vault")
+    }
 
 
     "/money_in/pix"(platform:"/", isAbstract: true){}

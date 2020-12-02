@@ -225,6 +225,7 @@ trackTests {
             content = "Game of thrones"
             type = "content"
             name = "Game of thrones"
+            subscription_type = "pack-6-months"
         }
 
         "/loyalty/partners/vdp"(platform: "/", type: TrackType.View, business: "mercadolibre") {
@@ -305,6 +306,7 @@ trackTests {
             payment_status_detail = "freetrial-activated"
             is_free_trial = "true"
             discount_percent = 40
+            subscription_type = "pack-6-months"
         }
 
         "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.Event, business: "mercadolibre") {
@@ -316,6 +318,7 @@ trackTests {
             is_free_trial = "false"
             discount_percent = 0
             type = "tyc"
+            subscription_type = "pack-6-months"
         }
 
         "/loyalty/partners/checkout/congrats/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
@@ -364,7 +367,6 @@ trackTests {
         "/loyalty/partners/login/action"(platform: "/", type: TrackType.Event, business: "mercadopago") {
             subscription_partner = "HBO"
         }
-
 
         "/loyalty/partners/login/verify"(platform: "/", type: TrackType.View, business: "mercadolibre") {
             subscription_partner = "HBO"
@@ -457,6 +459,16 @@ trackTests {
         }
 
         "/loyalty/partners/summary"(platform: "/", type: TrackType.View, business: "mercadopago") {
+        }
+
+        "/loyalty/partners/teaser"(platform: "/", type: TrackType.View, business: "mercadolibre") {
+            subscription_partner = "Disney"
+            origin = "home"
+        }
+
+        "/loyalty/partners/teaser"(platform: "/", type: TrackType.View, business: "mercadopago") {
+            subscription_partner = "HBO Go"
+            discount_percent = 30
         }
     }
 }

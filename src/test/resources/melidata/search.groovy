@@ -50,6 +50,12 @@ trackTests {
         meli_choice : [
                 [item_id: "MLB510446223", position: 1, origin:"killer_matched"],
                 [item_id: "MLB510446224", position: 4, product_id:"MLB1333", origin:"killer_matched"]
+        ],
+        highlights :[
+                [item_id: "MLB510446223", position: 1, "type": "MLB3722"],
+                [item_id: "MLB510446223", position: 2, "type": "MLB3722"],
+                [item_id: "MLB510446223", position: 3, "type": "MLB3722"],
+                [item_id: "MLB510446224", position: 4, product_id:"MLB1333", "type": "MLB3722"]
         ]
     ]
 
@@ -432,7 +438,6 @@ trackTests {
         }
 
         "/search/breadcrumb/click"(platform: "/web", type: TrackType.Event) {
-            defaultWebTrack()
             url = "https://www.mercadolibre.com.ar/tienda/nike"
         }
 
@@ -504,6 +509,9 @@ trackTests {
         "/search/alert_intention"(platform: "/") {
             defaultSearchInformation()
         }
+        "/search/map_link"(platform: "/") {
+            defaultSearchInformation()
+        }
         "/search/official_stores_carousel"(platform: "/") {
             defaultSearchInformation()
         }
@@ -513,12 +521,10 @@ trackTests {
             to_position = 2
         }
         "/search/official_store_logo/click"(platform: "/mobile") {
-            defaultSearchInformation()
             store = "Maybelline"
             url = "https://www.mercadolibre.com.pe/tienda/maybelline"
         }
         "/search/official_store_logo/click"(platform: "/web") {
-            defaultWebTrack()
             store = "Maybelline"
             url = "https://www.mercadolibre.com.pe/tienda/maybelline"
         }

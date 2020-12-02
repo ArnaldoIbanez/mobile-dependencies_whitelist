@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = '1139'
+    initiative = '1218'
 
     def propertyCampaignDetail  = objectSchemaDefinitions {
         source(required: false, type: PropertyType.String, description:  "indicates the component that starts capaign")

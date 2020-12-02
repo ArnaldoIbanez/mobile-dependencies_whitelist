@@ -70,7 +70,6 @@ tracks {
     "/garex/checkout/not_selected_garex"(platform:"/mobile", type: TrackType.Event) {}
     "/garex/checkout/delete"(platform:"/mobile", type: TrackType.Event) {
         garex_id(required: true, type: PropertyType.String, description: "Warranty id removed")
-        session_id(required: false, type: PropertyType.String, description: "Session in which the checkout is being held")
         cost(required: true, type: PropertyType.Numeric, description: "Warranty cost")
         currency_id(required: true, type: PropertyType.String, description: "Currency id")
     }
@@ -99,4 +98,17 @@ tracks {
         session_id(required: false, type: PropertyType.String, description: "Session id of the user")
     }
     "/garex/skeleton/back"(platform:"/mobile", type: TrackType.Event) {}
+
+    "/garex/checkout/quote_creation_success"(platform: "/mobile", type: TrackType.Event) {
+        quote_id(required: true, type: PropertyType.String, description: "Quotation id for the garex")
+    }
+
+    "/garex/checkout/quote_creation_error"(platform: "/mobile", type: TrackType.Event) {
+        garex_id(required: true, type: PropertyType.String, description: "Selected warranty id")
+        period(required: true, type: PropertyType.Numeric, description: "Contracted warranty period")
+        cost(required: true, type: PropertyType.Numeric, description: "Warranty cost")
+        revenue_share_fee(required: true, type: PropertyType.Numeric, description: "Percentage of revenue for mercado libre")
+        revenue(required: true, type: PropertyType.Numeric, description: "Revenue value for mercado libre")
+        currency_id(required: true, type: PropertyType.String, description: "Currency id")
+    }
 }

@@ -206,6 +206,9 @@ trackTests {
         "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'overdue'
         }
+        "/credits/consumer/administrator_v2/dashboard/cx_contact"(platform: "/web/desktop", type: TrackType.Event) {
+            dashboard_status = 'overdue'
+        }
         "/credits/consumer/administrator_v2/dashboard/go_shopping"(platform: "/mobile", type: TrackType.Event) {
             dashboard_status = 'on_time'
         }

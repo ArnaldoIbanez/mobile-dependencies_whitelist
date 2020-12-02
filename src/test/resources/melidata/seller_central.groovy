@@ -635,6 +635,42 @@ trackTests {
     }
   }
 
+  test("seller central showing detail modal consequences for motors"){
+    "/seller_central/modify/detail/consequences_modal"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      item_id = "MLA123456789"
+      listing_type = "gold"
+      session_id = "123-update-abc123"
+      category_id = "MLM27420"
+      goal = "picture"
+      action = "show"
+    }
+  }
+
+  test("seller central confirm detail modal consequences for motors"){
+    "/seller_central/modify/detail/consequences_modal"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      item_id = "MLA123456789"
+      listing_type = "gold"
+      session_id = "123-update-abc123"
+      category_id = "MLM27420"
+      goal = "picture"
+      action = "confirm"
+    }
+  }
+
+  test("seller central cancel detail modal consequences for motors"){
+    "/seller_central/modify/detail/consequences_modal"(platform: "/", type: TrackType.Event){
+      item_type = "default"
+      item_id = "MLA123456789"
+      listing_type = "gold"
+      session_id = "123-update-abc123"
+      category_id = "MLM27420"
+      goal = "picture"
+      action = "cancel"
+    }
+  }
+
   test("seller central render detail quick_edit_standard for motors"){
     "/seller_central/modify/detail/quick_edit_standard/confirm"(platform: "/", type: TrackType.Event){
       item_type = "default"
@@ -1049,8 +1085,10 @@ trackTests {
       seller_reputation = "5_green"
       listing_type = "gold_pro"
       shipping_local_pickup = true
+      from = "true"
+      to = "false"
       marketplace = true
-      mshops = true
+      mshops = false
     }
   }
 
@@ -2188,6 +2226,36 @@ trackTests {
     }
   }
 
+   test("seller central catalog optin product v0 resume card showed"){
+    "/seller_central/catalog/optin/v0_product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN_V0_PRODUCT"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
+    }
+  }
+
   test("seller central catalog invalid product page view") {
     "/seller_central/catalog/optin/invalid_product"(platform: "/web", type: TrackType.View) {
       item_id = "MLA123"
@@ -2320,6 +2388,36 @@ trackTests {
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
       list_mode = "OPTIN"
+      attribute_id = "COLOR"
+      attribute_values = [
+              [
+                      "name": "test",
+                      "id": "TEST",
+                      "value_id": "123",
+                      "value_name": "TEST"
+              ]
+      ]
+      product_title = "Iphone X"
+    }
+  }
+
+  test("seller central catalog optin moderated product resume card showed"){
+    "/seller_central/catalog/optin/optin_moderated/v0_product_bullet_resume/show"(platform: "/web", type: TrackType.Event){
+      item_id = "MLA123"
+      session_id = "123-product_optin-abc123"
+      category_id = "MLA390784"
+      category_domain = "MLA-FRAGRANCES"
+      original_catalog_product_id = "MLA1055"
+      variation_id = 1234567
+      has_variations_already_opt_in = true
+      rejected_products = ["MLA1055"]
+      has_variations = true
+      seller_profile = "ADVANCED"
+      reputation_level= "yellow"
+      selected_catalog_product_id = "MLA1055"
+      opt_in_item_id = "MLA234567"
+      invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN_V0_PRODUCT"
       attribute_id = "COLOR"
       attribute_values = [
               [
@@ -2793,6 +2891,12 @@ trackTests {
     }
   }
 
+  test("seller central listing promos error action") {
+    "/seller_central/promotions/action/error"(platform: "/", type: TrackType.Event) {
+      action_id = "CREATE"
+    }
+  }
+
   test("seller central listing secondary_actions") {
     "/seller_central/promotions/list/secondary_actions"(platform: "/", type: TrackType.Event) {}
   }
@@ -2816,6 +2920,70 @@ trackTests {
     }
 
     "/seller_central/promotions/search"(platform: "/", type: TrackType.Event) {}
+  }
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central Questions
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Seller central render Questions") {
+    "/seller_central/questions"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("Seller central render Item Questions") {
+    "/seller_central/questions/item"(platform: "/", type: TrackType.View) {}
+  }
+
+  test("Seller central response Questions") {
+    "/seller_central/questions/response"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central delete Questions") {
+    "/seller_central/questions/delete"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central denunciation Questions") {
+    "/seller_central/questions/denunciation"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
+  }
+
+  test("Seller central block buyer Questions") {
+    "/seller_central/questions/blockBuyer"(platform: "/", type: TrackType.Event) {
+      seller_profile = "NEWBIE"
+      seller_segment = "MEDIUM_SELLERS_III"
+      question_id = "789456"
+      item_id = "MLC529811446"
+      site_id = "MCO"
+      item_status = "inactivo"
+      question_date_created = "2020-11-08T05:00:00"
+      question_date_action = "2020-11-08T10:00:00"
+    }
   }
 
   //------------------------------------------------------------------------------------------------------------------------------------------------------

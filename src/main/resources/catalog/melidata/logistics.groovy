@@ -220,19 +220,19 @@ tracks {
         driver_id(required: false, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
     }
     "/logistics/last_mile/congrats/ok"(platform: "/mobile", type: TrackType.View) {
-        context(required: true, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't")
+        context(required: false, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't")
         driver_id(required: true, type: PropertyType.String, description: "Specifies the ID of the driver that made the deliver")
-        shipment_id(required: true, type: PropertyType.String, description: "Specifies the ID of the shipment that was delivered")
-        receiver_latitude(required: true, type: PropertyType.String, description: "Specifies the latitude of the receiver when the delivery was made")
-        receiver_longitude(required: true, type: PropertyType.String, description: "Specifies the longitude of the receiver when the delivery was made")
+        shipment_id(required: false, type: PropertyType.String, description: "Specifies the ID of the shipment that was delivered")
+        latitude(required: false, type: PropertyType.String, description: "Specifies the latitude from driver")
+        longitude(required: false, type: PropertyType.String, description: "Specifies the longitude from driver")
         receiver_relationship(required: false, type: PropertyType.String, description: "Specifies the receiver relationship")
     }
     "/logistics/last_mile/congrats/fail"(platform: "/mobile", type: TrackType.View) {
-        context(required: true, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't")
+        context(required: false, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't")
         driver_id(required: true, type: PropertyType.String, description: "Specifies the ID of the driver that made the deliver")
-        shipment_id(required: true, type: PropertyType.String, description: "Specifies the ID of the shipment that was delivered")
-        receiver_latitude(required: true, type: PropertyType.String, description: "Specifies the latitude of the receiver when the delivery was made")
-        receiver_longitude(required: true, type: PropertyType.String, description: "Specifies the longitude of the receiver when the delivery was made")
+        shipment_id(required: false, type: PropertyType.String, description: "Specifies the ID of the shipment that was delivered")
+        latitude(required: false, type: PropertyType.String, description: "Specifies the latitude from driver")
+        longitude(required: false, type: PropertyType.String, description: "Specifies the longitude from driver")
     }
     "/logistics/last_mile/detail"(platform: "/mobile", type: TrackType.View) {
         is_next_destination(required: true, type: PropertyType.Boolean, description: "Specifies if the detail is from the next destination shipment", inheritable: false)
@@ -248,6 +248,7 @@ tracks {
         context(required: true, type: PropertyType.String, description: "Specifies if the view has been show when the driver delivers the package or when he couldn't",
                 values: ["deliver", "could_not_deliver"])
         is_blocking(required: false, type: PropertyType.Boolean, description: "Specifies if the view is blocking for the user or not")
+        shipment_id(required: true, type: PropertyType.String, description: "Specifies the current shipment id", inheritable: false)
     }
     "/logistics/last_mile/detail/call_buyer"(platform: "/mobile", type: TrackType.Event) {
         packs_info(required: true, type: PropertyType.String, description: "Specifies the pack that will be delivered")
@@ -419,6 +420,13 @@ tracks {
         driver_id(required: true, type: PropertyType.String, description: "Specifies the current driver id", inheritable: false)
         packages(required: true, type: PropertyType.ArrayList(PropertyType.String), description: "Specifies the packages being picked up")
     }
+    "/logistics/first_mile/pickup/partial"(platform: "/mobile", type: TrackType.View) {
+        route_id(required: true, type: PropertyType.String, description: "Specifies the current route id", inheritable: true)
+        driver_id(required: true, type: PropertyType.Numeric, description: "Specifies the current driver id", inheritable: true)
+        pickup_point_id(required: true, type: PropertyType.String, description: "Specifies the current pickup point id", inheritable: true)
+    }
+    "/logistics/first_mile/pickup/partial/full_vehicle"(platform: "/mobile", type: TrackType.Event) {}
+    "/logistics/first_mile/pickup/partial/all_picked"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/first_mile/pickup/seller_document_form/pull_to_refresh"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/first_mile/pickup/seller_document_form/view_list"(platform: "/mobile", type: TrackType.Event) {}
     "/logistics/first_mile/pickup/signature"(platform: "/mobile", type: TrackType.View) {

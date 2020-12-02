@@ -177,7 +177,6 @@ trackTests {
         }
         "/garex/checkout/delete"(platform:"/mobile", type: TrackType.Event) {
             garex_id = "MLA390289_GAR16001"
-            session_id = "5ff342a5-1437-465e-a6ae-316cd780193"
             cost = 1234
             currency_id = "ARS"
             session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
@@ -222,6 +221,21 @@ trackTests {
         "/garex/skeleton/back"(platform:"/mobile", type: TrackType.Event) {
             session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
         }
+
+        "/garex/checkout/quote_creation_success"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+            quote_id = "ed3506b2-b41c-442d-9981-b49eb65d57a4"
+        }
+
+        "/garex/checkout/quote_creation_error"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "B1955F95-8C0C-4585-B970-DA6DBF0CEADE"
+            garex_id = "MLA390289_GAR16001"
+            period = 24
+            cost = 1234
+            revenue_share_fee = 71.3
+            revenue = 863.80
+            currency_id = "ARS"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -235,19 +249,37 @@ trackTests {
                 model_code: "SM-J700M",
                 size: "64GB",
             ]
+            order_device = [
+                brand: "Sony",
+                model: "Xperia",
+                model_code: "Xa1",
+                size: "32GB",
+                device_code: "diw387_1u1",
+            ]
             options = [
                 [
                     coverage: "theft_break",
                     price: 123.33,
                     deductible_amount: 12.33,
+                    gtin:[
+                        "7899403636915",
+                        "7893299910425"
+                    ],
                 ],
                 [
                     coverage: "theft_break",
                     price: 100.33,
                     deductible_amount: 12.33,
+                    gtin:[
+                        "7899403636915",
+                        "7893299910425"
+                    ],
                 ]
             ]
-            financing_type = null
+            entity_type = "order"
+            entity_id = "MLB789078907890"
+            item_id = "MLB123124"
+            buying_mode = 'buy_it_now'
         }
 
         "/insurtech/roda/qpage"(platform:"/mobile", type: TrackType.View) {
@@ -257,17 +289,28 @@ trackTests {
                 model_code: "SM-J700M",
                 size: "64GB",
             ]
+            order_device = [
+                brand: "Sony",
+                model: "Xperia",
+                model_code: "Xa1",
+                size: "32GB",
+                device_code: "diw387_1u1",
+            ]
             options = [
                 [
                     coverage: "total",
                     price: 123.33,
                     deductible_amount: 12.33,
+                    gtin:[
+                        "7899403636915",
+                        "7893299910425"
+                    ]
                 ],
             ]
-            financing_type = [
-                no_interest_allowed : true,
-                installments: 12
-            ]
+            entity_type = "order"
+            entity_id = "MLB789078907890"
+            item_id = "MLB123124"
+            buying_mode = 'buy_it_now'
         }
 
         "/insurtech/roda/qpage/error"(platform:"/mobile", type: TrackType.View) {
@@ -276,20 +319,103 @@ trackTests {
                 model_code: "SM-J700M",
                 size: "64GB",
             ]
+            buying_mode = 'buy_it_now'
         }
 
         "/insurtech/roda/qpage/error"(platform:"/web", type: TrackType.View) {
+            buying_mode = 'subscription'
         }
 
-        "/insurtech/roda/qpage/fallback"(platform:"/mobile", type: TrackType.View) {
+        "/insurtech/roda/qpage/fallback/default"(platform:"/mobile", type: TrackType.View) {
             client_device = [
                 brand: "Samsung",
                 model_code: "SM-J700M",
                 size: "64GB",
             ]
+            fallback_type= "default"
+            buying_mode = 'buy_it_now'
         }
 
-        "/insurtech/roda/qpage/fallback"(platform:"/web", type: TrackType.View) {
+        "/insurtech/roda/qpage/fallback/default"(platform:"/web", type: TrackType.View) {
+            buying_mode = 'subscription'
+        }
+
+        "/insurtech/roda/qpage/fallback/skip_expired"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            fallback_type = "skip_hardware_check_expired"
+            buying_mode = 'buy_it_now'
+        }
+
+        "/insurtech/roda/qpage/fallback/skip_expired"(platform:"/web", type: TrackType.View) {
+            buying_mode = 'subscription'
+        }
+
+        "/insurtech/roda/qpage/quoting_fallback/default/quotable"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            fallback_type= "default"
+            quotable= true
+            buying_mode = 'buy_it_now'
+        }
+
+        "/insurtech/roda/qpage/quoting_fallback/default/quotable"(platform:"/web", type: TrackType.View) {
+            buying_mode = 'subscription'
+            quotable= true
+        }
+
+        "/insurtech/roda/qpage/quoting_fallback/default/not_quotable"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            fallback_type= "default"
+            quotable= false
+            buying_mode = 'buy_it_now'
+        }
+
+        "/insurtech/roda/qpage/quoting_fallback/default/not_quotable"(platform:"/web", type: TrackType.View) {
+            buying_mode = 'subscription'
+            quotable = false
+        }
+
+        "/insurtech/roda/qpage/quoting_fallback/order_cancelled/quotable"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            fallback_type= "order_cancelled"
+            quotable= true
+            buying_mode = 'buy_it_now'
+        }
+
+        "/insurtech/roda/qpage/quoting_fallback/order_cancelled/quotable"(platform:"/web", type: TrackType.View) {
+            buying_mode = 'subscription'
+            quotable= true
+        }
+
+        "/insurtech/roda/qpage/quoting_fallback/order_cancelled/not_quotable"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            fallback_type= "order_cancelled"
+            quotable= false
+            buying_mode = 'buy_it_now'
+        }
+
+        "/insurtech/roda/qpage/quoting_fallback/order_cancelled/not_quotable"(platform:"/web", type: TrackType.View) {
+            buying_mode = 'subscription'
+            quotable= false
         }
 
         "/insurtech/roda/qpage/deductible"(platform:"/mobile", type: TrackType.View) {
@@ -299,6 +425,16 @@ trackTests {
                 model_code: "SM-J700M",
                 size: "64GB",
             ]
+            order_device = [
+                brand: "Sony",
+                model: "Xperia",
+                model_code: "Xa1",
+                size: "32GB",
+            ]
+            entity_type = "order"
+            entity_id = "MLB789078907890"
+            item_id = "MLB123124"
+            buying_mode = 'buy_it_now'
         }
 
         "/insurtech/roda/qpage/faq"(platform:"/mobile", type: TrackType.View) {
@@ -308,7 +444,53 @@ trackTests {
                 model_code: "SM-J700M",
                 size: "64GB",
             ]
+            order_device = [
+                brand: "Sony",
+                model: "Xperia",
+                model_code: "Xa1",
+                size: "32GB",
+                device_code: "diw387_1u1",
+            ]
+            entity_type = "order"
+            entity_id = "789078907890"
+            item_id = "MLB123124"
             faq = "protection-cancel"
+            buying_mode = 'buy_it_now'
+        }
+
+        "/insurtech/roda/qpage/buy"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            order_device = [
+                brand: "Sony",
+                model: "Xperia",
+                model_code: "Xa1",
+                size: "32GB",
+                device_code: "diw387_1u1",
+            ]
+            option = [
+                id: "123123-asdad",
+                coverage: "theft_break",
+                price: 123.44,
+                monthly_price: 15.44,
+                fee_price: 10.44,
+                currency_id: "BRL",
+                deductible_amount: 20.00,
+                check: "total",
+                gtin:[
+                    "7899403636915",
+                    "7893299910425"
+                ],
+            ]
+            entity_type = "order"
+            entity_id = "789078907890"
+            item_id = "MLB123124"
+            hardware_check = false
+            buying_mode = 'buy_it_now'
         }
 
         "/insurtech/roda/qpage/buy"(platform:"/mobile", type: TrackType.View) {
@@ -326,32 +508,24 @@ trackTests {
                 fee_price: 10.44,
                 currency_id: "BRL",
                 deductible_amount: 20.00,
-                check: "total"
+                check: "total",
+                gtin:[
+                    "7899403636915",
+                    "7893299910425"
+                ],
             ]
-            financing_type = [
-                no_interest_allowed : true,
-                installments: 12
+            order_device = [
+                brand: "Sony",
+                model: "Xperia",
+                model_code: "Xa1",
+                size: "32GB",
+                device_code: "diw387_1u1",
             ]
-        }
-
-        "/insurtech/roda/qpage/buy"(platform:"/mobile", type: TrackType.View) {
-            client_device = [
-                brand: "Samsung",
-                model: "J7",
-                model_code: "SM-J700M",
-                size: "64GB",
-            ]
-            option = [
-                id: "123123-asdad",
-                coverage: "theft_break",
-                price: 123.44,
-                monthly_price: 15.44,
-                fee_price: 10.44,
-                currency_id: "BRL",
-                deductible_amount: 20.00,
-                check: "total"
-            ]
-            financing_type = null
+            entity_type = "order"
+            entity_id = "789078907890"
+            item_id = "MLB123124"
+            hardware_check = true
+            buying_mode = 'subscription'
         }
 
         "/insurtech/roda/qpage/option_selected"(platform:"/mobile", type: TrackType.View) {
@@ -361,6 +535,13 @@ trackTests {
                 model_code: "SM-J700M",
                 size: "64GB",
             ]
+            order_device = [
+                brand: "Sony",
+                model: "Xperia",
+                model_code: "Xa1",
+                size: "32GB",
+                device_code: "diw387_1u1",
+            ]
             option = [
                 id: "123123-asdad",
                 coverage: "theft_break",
@@ -369,8 +550,38 @@ trackTests {
                 fee_price: 10.44,
                 currency_id: "BRL",
                 deductible_amount: 20.00,
-                check: "total"
+                check: "total",
+                gtin:[
+                    "7899403636915",
+                    "7893299910425"
+                ],
             ]
+            entity_type = "order"
+            entity_id = "789078907890"
+            item_id = "MLB123124"
+            buying_mode = 'subscription'
+        }
+
+       "/insurtech/roda/qpage/quoting_fallback/default/quotable/select"(platform:"/", type: TrackType.Event) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            fallback_type= "default"
+            quotable= true
+            buying_mode = 'buy_it_now'
+        }
+
+       "/insurtech/roda/qpage/quoting_fallback/order_cancelled/quotable/select"(platform:"/", type: TrackType.Event) {
+            client_device = [
+                brand: "Samsung",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            fallback_type= "order_cancelled"
+            quotable= true
+            buying_mode = 'buy_it_now'
         }
 
         //Mobile
@@ -977,7 +1188,6 @@ trackTests {
     test("Insurtech - ${business} tests roda claims tacking ") {
         // INSURTECH Claims
 
- 
         "/insurtech/protections/claims"(platform:"/", type: TrackType.View) {
             product_data =[
                 entity_type:"quote",
@@ -1004,7 +1214,7 @@ trackTests {
                 product_id:"MLB_RD00000000000065134TEST"
             ]
         }
- 
+
         "/insurtech/protections/claims/use_service"(platform:"/", type: TrackType.Event) {
             product_data =[
                 entity_type:"quote",
@@ -1032,7 +1242,7 @@ trackTests {
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
             ]
         }
-        
+
         "/insurtech/protections/claims/help"(platform:"/", type: TrackType.Event) {
             product_data =[
                 entity_type:"quote",
@@ -1106,7 +1316,7 @@ trackTests {
                 product_id:"MLB_RD00000000000065134TEST"
             ]
         }
-        
+
         "/insurtech/protections/claims/cancel/review/keep_protection"(platform:"/", type: TrackType.Event){
             product_data =[
                 entity_type:"quote",
@@ -1230,7 +1440,7 @@ trackTests {
                 product_id:"MLB_RD00000000000065134TEST"
             ]
         }
-        
+
         "/insurtech/protections/claims/execute/review/confirm"(platform:"/", type: TrackType.Event) {
             product_data =[
                 entity_type:"quote",
@@ -1283,7 +1493,7 @@ trackTests {
                 entity_id:"f834aea8-8be2-4b7c-ba0e-7b4d6b432d5a",
                 product_type:"roda",
                 product_id:"MLB_RD00000000000065134TEST"
-            ]  
+            ]
         }
         "/insurtech/protections/claims/execute/franchise/confirm"(platform:"/", type: TrackType.Event) {
             product_data =[

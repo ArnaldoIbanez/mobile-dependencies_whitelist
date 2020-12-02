@@ -682,4 +682,56 @@ trackTests {
         }
     }
 
+    test("Registration v3 HUB") {
+
+        // ML
+        "/register/v3/hub/landing"(platform: "/mobile"){
+        }
+        "/register/v3/hub/main"(platform: "/mobile"){
+            status = "in_progress"
+            steps = [
+                [
+                    id: "email_validation",
+                    status: "completed",
+                ],
+                [
+                    id: "phone_validation",
+                    status: "pending",
+                ],
+                [
+                    id: "kyc",
+                    status: "pending",
+                ],
+            ]
+        }
+        "/register/v3/hub/email_validation/congrats"(platform: "/mobile"){}
+        "/register/v3/hub/phone_validation/congrats"(platform: "/mobile"){}
+        "/register/v3/hub/kyc/congrats"(platform: "/mobile"){}
+        "/register/v3/hub/congrats"(platform: "/mobile"){}
+
+        // MP
+         "/register/v3/hub/landing"(platform: "/mobile/android", business: "mercadopago"){
+        }
+        "/register/v3/hub/main"(platform: "/mobile", business: "mercadopago"){
+            status = "in_progress"
+            steps = [
+                [
+                    id: "email_validation",
+                    status: "completed",
+                ],
+                [
+                    id: "phone_validation",
+                    status: "pending",
+                ],
+                [
+                    id: "kyc",
+                    status: "pending",
+                ],
+            ]
+        }
+        "/register/v3/hub/email_validation/congrats"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/hub/phone_validation/congrats"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/hub/kyc/congrats"(platform: "/mobile", business: "mercadopago"){}
+        "/register/v3/hub/congrats"(platform: "/mobile", business: "mercadopago"){}
+    }
 }

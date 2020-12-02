@@ -21,6 +21,10 @@ trackTests {
         "/banking/activities"(platform: "/", type: TrackType.View) {}
     }
 
+    test("Balance Cerc") {
+        "/banking/cerc"(platform: "/", type: TrackType.View) {}
+    }
+
     test("Movements") {
         "/banking/movements"(platform: "/", type: TrackType.View) {}
     }

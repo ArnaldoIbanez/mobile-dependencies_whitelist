@@ -176,6 +176,18 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -338,6 +350,18 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -408,16 +432,16 @@ trackTests {
         }
 
         // MP personalFrontend
-        "/tools/list"(platform: "/web"){
+        "/tools/list"(platform: "/"){
         }
 
-        "/tools/list/button_create"(platform: "/web"){
+        "/tools/list/button_create"(platform: "/"){
         }
 
-        "/tools/create"(platform: "/web"){
+        "/tools/create"(platform: "/"){
         }
 
-        "/tools/confirm_create_edit"(platform: "/web"){
+        "/tools/confirm_create_edit"(platform: "/"){
         }
 
         "/balance/reports"(platform: "/web"){
@@ -598,6 +622,18 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -758,6 +794,18 @@ trackTests {
 
         "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
         }
 
         "/checkout_off/payment/review_express"(platform: "/web/mobile") {

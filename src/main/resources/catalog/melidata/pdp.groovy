@@ -98,7 +98,6 @@ tracks {
         official_store_id(required: false, type: PropertyType.Numeric, description: "Id of item's official store")
         seller_id(required: false, type: PropertyType.Numeric, description: "ID for seller")
         seller_name(required: false, type: PropertyType.String, description: "Name of seller")
-        seller_fraudulent(required: false, type: PropertyType.Boolean, description: "Indicates if the seller is fraudulent")
         subtitle_types(required: false, type: PropertyType.ArrayList, description: "seller subtitles types")
         available_quantity(required: false, type: PropertyType.Numeric, description: "Available product quantity at this pdp")
         cart_content(required: false, type: PropertyType.Boolean, description: "Content of cart")
@@ -117,6 +116,7 @@ tracks {
     }
 
     def highlights_definition  = objectSchemaDefinitions {
+        id(required: false, type: PropertyType.String, description: "Id of the highlight")
         best_seller_position(required: false, type: PropertyType.Numeric, description: "Position of Best Seller Product")
         melichoice_score(required: false, type: PropertyType.Numeric, description: "Score of Melichoice Product")
         melichoice_origin(required: false, type: PropertyType.String, description: "Origin of Melichoice Product")

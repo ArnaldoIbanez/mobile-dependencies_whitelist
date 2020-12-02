@@ -4,7 +4,31 @@ import static com.melidata.definitions.parsers.dsl.TrackTestDsl.trackTests
 
 trackTests {
     test("Security Settings") {
-        "/security_settings"(platform: "/", type: TrackType.View) {}
+        "/security_settings"(platform: "/", type: TrackType.View) { }
+
+        "/security_settings"(platform: "/", type: TrackType.View) {
+            registered_by_phone = true
+            two_factor_enabled = true
+        }
+
+        "/security_settings"(platform: "/", type: TrackType.View) {
+            registered_by_phone = false
+            two_factor_enabled = false
+        }
+
+        "/security_settings/action"(platform: "/", type: TrackType.Event) {
+            registered_by_phone = false
+            two_factor_enabled = true
+            event_type = "click"
+            target = "nickname"
+        }
+
+        "/security_settings/action"(platform: "/", type: TrackType.Event) {
+            registered_by_phone = true
+            two_factor_enabled = false
+            event_type = "click"
+            target = "phone"
+        }
 
         "/security_settings/2fa"(platform: "/", type: TrackType.View) {}
 

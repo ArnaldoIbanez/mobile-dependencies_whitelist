@@ -6,7 +6,7 @@ import com.ml.melidata.TrackType
 
 tracks {
 
-    initiative = "1109"
+    initiative = "1254"
 
     // REGISTER
 
@@ -265,5 +265,21 @@ tracks {
     "/register/phone_registration/verification/autodetect_code"(platform: "/mobile", type: TrackType.Event){}
     "/register/phone_registration/sign_in"(platform: "/mobile", type: TrackType.Event){}
     "/register/phone_registration/create_account"(platform: "/mobile", type: TrackType.Event){}
-}
 
+    // Registro V3 HUB
+    "/register/v3"(platform: "/", isAbstract: true){}
+    "/register/v3/hub"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/landing"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/main"(platform: "/", type: TrackType.View){
+      status(type: PropertyType.String, required: true, values: ["finished", "in_progress"], description: "Registration HUB global status")
+      steps(type: PropertyType.ArrayList, , required:true, description: "Array of objects indicating each step id and status")
+    }
+    
+    "/register/v3/hub/email_validation"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/phone_validation"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/kyc"(platform: "/", isAbstract: true){}
+    "/register/v3/hub/email_validation/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/phone_validation/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/kyc/congrats"(platform: "/", type: TrackType.View){}
+    "/register/v3/hub/congrats"(platform: "/", type: TrackType.View){}
+}

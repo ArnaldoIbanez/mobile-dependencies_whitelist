@@ -2708,6 +2708,120 @@ trackTests {
             order_id = 1234321
         }
 
+        /* ============================================================ */
+        /* Team: IT Payments - Payroll | Initiative: Salary Portability */
+        /*                       contact: payroll-devs@mercadolibre.com */
+        // Portability Request
+        "/notification/payroll_portability_request_accepted"(platform: "/mobile") {
+            news_id = "payroll-portability_request_accepted-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_accepted"(platform: "/mobile") {
+            news_id = "payroll-portability_request_accepted-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_accepted"(platform: "/mobile") {
+            news_id = "payroll-portability_request_accepted-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "auto_dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_denied"(platform: "/mobile") {
+            news_id = "payroll-portability_request_denied-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_denied"(platform: "/mobile") {
+            news_id = "payroll-portability_request_denied-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_denied"(platform: "/mobile") {
+            news_id = "payroll-portability_request_denied-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "auto_dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_failed"(platform: "/mobile") {
+            news_id = "payroll-portability_request_failed-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_failed"(platform: "/mobile") {
+            news_id = "payroll-portability_request_failed-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_failed"(platform: "/mobile") {
+            news_id = "payroll-portability_request_failed-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "auto_dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_integrated"(platform: "/mobile") {
+            news_id = "payroll-portability_request_integrated-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_integrated"(platform: "/mobile") {
+            news_id = "payroll-portability_request_integrated-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_integrated"(platform: "/mobile") {
+            news_id = "payroll-portability_request_integrated-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "auto_dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        // Portability
+        "/notification/payroll_portability_first_salary"(platform: "/mobile") {
+            news_id = "payroll-portability_first_salary-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
+            portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_first_salary"(platform: "/mobile") {
+            news_id = "payroll-portability_first_salary-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "dismiss"
+            portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_first_salary"(platform: "/mobile") {
+            news_id = "payroll-portability_first_salary-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "auto_dismiss"
+            portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_ted_rejected"(platform: "/mobile") {
+            news_id = "payroll-portability_ted_rejected-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
+            portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_ted_rejected"(platform: "/mobile") {
+            news_id = "payroll-portability_ted_rejected-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "dismiss"
+            portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_ted_rejected"(platform: "/mobile") {
+            news_id = "payroll-portability_ted_rejected-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "auto_dismiss"
+            portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+        /* ------------------------------------------------------------ */
+
         "/notification/messages_new"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -6755,6 +6869,119 @@ trackTests {
             order_id = 1234321
         }
 
+        /* ============================================================ */
+        /* Team: IT Payments - Payroll | Initiative: Salary Portability */
+        /*                       contact: payroll-devs@mercadolibre.com */
+        "/notification/payroll_portability_request_accepted"(platform: "/mobile") {
+            news_id = "payroll-portability_request_accepted-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_accepted"(platform: "/mobile") {
+            news_id = "payroll-portability_request_accepted-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_accepted"(platform: "/mobile") {
+            news_id = "payroll-portability_request_accepted-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "auto_dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_denied"(platform: "/mobile") {
+            news_id = "payroll-portability_request_denied-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_denied"(platform: "/mobile") {
+            news_id = "payroll-portability_request_denied-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_denied"(platform: "/mobile") {
+            news_id = "payroll-portability_request_denied-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "auto_dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_failed"(platform: "/mobile") {
+            news_id = "payroll-portability_request_failed-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_failed"(platform: "/mobile") {
+            news_id = "payroll-portability_request_failed-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_failed"(platform: "/mobile") {
+            news_id = "payroll-portability_request_failed-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "auto_dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_integrated"(platform: "/mobile") {
+            news_id = "payroll-portability_request_integrated-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_integrated"(platform: "/mobile") {
+            news_id = "payroll-portability_request_integrated-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_request_integrated"(platform: "/mobile") {
+            news_id = "payroll-portability_request_integrated-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "auto_dismiss"
+            portability_request_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        // Portability
+        "/notification/payroll_portability_first_salary"(platform: "/mobile") {
+            news_id = "payroll-portability_first_salary-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
+            portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_first_salary"(platform: "/mobile") {
+            news_id = "payroll-portability_first_salary-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "dismiss"
+            portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_first_salary"(platform: "/mobile") {
+            news_id = "payroll-portability_first_salary-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "auto_dismiss"
+            portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_ted_rejected"(platform: "/mobile") {
+            news_id = "payroll-portability_ted_rejected-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "open"
+            portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_ted_rejected"(platform: "/mobile") {
+            news_id = "payroll-portability_ted_rejected-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "dismiss"
+            portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+
+        "/notification/payroll_portability_ted_rejected"(platform: "/mobile") {
+            news_id = "payroll-portability_ted_rejected-d869c411-b7c5-4b1b-944f-7b90b15912c0"
+            event_type = "auto_dismiss"
+            portability_id = "d869c411-b7c5-4b1b-944f-7b90b15912c0"
+        }
+        /* ------------------------------------------------------------ */
+
         "/notification/messages_new"(platform: "/mobile") {
             news_id = "123"
             event_type = "open"
@@ -8092,6 +8319,12 @@ trackTests {
             news_id = "12332323"
             event_type = "open"
         }
+
+        "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {
+            news_id = "card_transactions_payment_reject_whit_contactless-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
+        }
     }
 
     defaultBusiness = "mercadopago"
@@ -8351,6 +8584,12 @@ trackTests {
         "/notification/protected_purchase_order_reminder_purchase_protection"(platform: "/mobile") {
             news_id = "12332323"
             event_type = "open"
+        }
+
+        "/notification/card_transactions_payment_reject_whit_contactless"(platform: "/mobile") {
+            news_id = "card_transactions_payment_reject_whit_contactless-186785675"
+            event_type = "open"
+            notification_type= "deep_linking"
         }
     }
 
