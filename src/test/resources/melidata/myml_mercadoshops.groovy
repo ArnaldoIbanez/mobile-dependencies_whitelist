@@ -434,6 +434,14 @@ trackTests {
             dns_list = ["dnsps1.mercadolibre.com", "dnsps2.mercadolibre.com"]
             ref = ""
         }
+        "/mercado_shops/domains/migration_delegation_instructions"(platform: "/", type: TrackType.View) {
+            shop_id = 158689680
+            shop_domain = "www.test-shop.mercadoshops.com.ar"
+            shop_name = "Test Shop"
+            delegation_status = "REGISTERED"
+            dns_list = ["dnsps1.mercadolibre.com", "dnsps2.mercadolibre.com"]
+            ref = ""
+        }
         "/mercado_shops/domains/congrats"(platform: "/", type: TrackType.View) {
             shop_id = 158689680
             shop_domain = "www.test-shop.mercadoshops.com.ar"

@@ -268,6 +268,10 @@ tracks {
         dns_list(required: true, type: PropertyType.ArrayList, description: "Array of dns registers to copy")
     }
 
+    "/mercado_shops/domains/migration_delegation_instructions"(platform: "/", type: TrackType.View){
+        dns_list(required: true, type: PropertyType.ArrayList, description: "Array of dns registers to copy")
+    }
+
     "/mercado_shops/domains/congrats"(platform: "/", type: TrackType.View){}
 
     "/mercado_shops/domains/error_details"(platform: "/", type: TrackType.View){}
