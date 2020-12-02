@@ -320,40 +320,47 @@ tracks {
 
     "/insurtech/payments/px_checkout/pay"(platform:"/mobile", type: TrackType.Event) {}
 
-    "/insurtech/payments/congrats_approved"(platform:"/mobile", type: TrackType.View) {
+    "/insurtech/payments/px_checkout/congrats_in_process"(platform:"/mobile", type: TrackType.View) {
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
         flow(required: true, type: PropertyType.String, description: "Indicate which initiative you belong to.")
         preference_id(required: true, type: PropertyType.String, description: "Payment preference.")
         purchase_id(required: true, type: PropertyType.String, description: "Payment entity id")
     }
 
-    "/insurtech/payments/congrats_approved/go_to_insurance"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/payments/px_checkout/congrats_approved"(platform:"/mobile", type: TrackType.View) {
+        quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
+        flow(required: true, type: PropertyType.String, description: "Indicate which initiative you belong to.")
+        preference_id(required: true, type: PropertyType.String, description: "Payment preference.")
+        purchase_id(required: true, type: PropertyType.String, description: "Payment entity id")
+    }
+
+    "/insurtech/payments/px_checkout/congrats_approved/go_to_insurance"(platform:"/mobile", type: TrackType.Event) {
         action_description(required: true, type: PropertyType.String, description: "Description of the main action shown in the fragment.")
     }
 
-    "/insurtech/payments/congrats_approved/go_to_home"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/payments/px_checkout/congrats_approved/go_to_home"(platform:"/mobile", type: TrackType.Event) {
         action_description(required: true, type: PropertyType.String, description: "Description of the button that appears at the end of the congrats.")
     }
 
-    "/insurtech/payments/congrats_rejected"(platform:"/mobile", type: TrackType.View) {
+    "/insurtech/payments/px_checkout/congrats_rejected"(platform:"/mobile", type: TrackType.View) {
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
         flow(required: true, type: PropertyType.String, description: "Indicate which initiative you belong to.")
         preference_id(required: true, type: PropertyType.String, description: "Payment preference.")
         purchase_id(required: true, type: PropertyType.String, description: "Payment entity id")
     }
 
-    "/insurtech/payments/congrats_rejected/go_to_home"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/payments/px_checkout/congrats_rejected/go_to_home"(platform:"/mobile", type: TrackType.Event) {
         action_description(required: true, type: PropertyType.String, description: "Description of the button that appears at the end of the congrats.")
     }
 
-    "/insurtech/payments/congrats_pending"(platform:"/mobile", type: TrackType.View) {
+    "/insurtech/payments/px_checkout/congrats_pending"(platform:"/mobile", type: TrackType.View) {
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
         flow(required: true, type: PropertyType.String, description: "Indicate which initiative you belong to.")
         preference_id(required: true, type: PropertyType.String, description: "Payment preference.")
         purchase_id(required: true, type: PropertyType.String, description: "Payment entity id")
     }
 
-    "/insurtech/payments/congrats_pending/go_to_home"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/payments/px_checkout/congrats_pending/go_to_home"(platform:"/mobile", type: TrackType.Event) {
         action_description(required: true, type: PropertyType.String, description: "Description of the button that appears at the end of the congrats.")
     }
 

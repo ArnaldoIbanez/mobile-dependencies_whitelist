@@ -763,14 +763,21 @@ trackTests {
             purchase_id = "1e149d2f-f6ff-4693-8e63-a85c12b32358"
         }
 
-        "/insurtech/payments/congrats_approved"(platform:"/mobile", type: TrackType.View) {
+        "/insurtech/payments/px_checkout/congrats_in_process"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
             purchase_id = "1e149d2f-f6ff-4693-8e63-a85c12b32358"
         }
 
-        "/insurtech/payments/congrats_approved/go_to_insurance"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/payments/px_checkout/congrats_approved"(platform:"/mobile", type: TrackType.View) {
+            quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
+            flow = "RODA"
+            preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
+            purchase_id = "1e149d2f-f6ff-4693-8e63-a85c12b32358"
+        }
+
+        "/insurtech/payments/px_checkout/congrats_approved/go_to_insurance"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
@@ -778,7 +785,7 @@ trackTests {
             action_description = "Administrar mis seguros"
         }
 
-        "/insurtech/payments/congrats_approved/go_to_home"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/payments/px_checkout/congrats_approved/go_to_home"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
@@ -786,14 +793,14 @@ trackTests {
             action_description = "Ir al inicio"
         }
 
-        "/insurtech/payments/congrats_rejected"(platform:"/mobile", type: TrackType.View) {
+        "/insurtech/payments/px_checkout/congrats_rejected"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
             purchase_id = "1e149d2f-f6ff-4693-8e63-a85c12b32358"
         }
 
-        "/insurtech/payments/congrats_rejected/go_to_home"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/payments/px_checkout/congrats_rejected/go_to_home"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
@@ -801,14 +808,14 @@ trackTests {
             action_description = "Ir al inicio"
         }
 
-        "/insurtech/payments/congrats_pending"(platform:"/mobile", type: TrackType.View) {
+        "/insurtech/payments/px_checkout/congrats_pending"(platform:"/mobile", type: TrackType.View) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
             purchase_id = "1e149d2f-f6ff-4693-8e63-a85c12b32358"
         }
 
-        "/insurtech/payments/congrats_pending/go_to_home"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/payments/px_checkout/congrats_pending/go_to_home"(platform:"/mobile", type: TrackType.Event) {
             quote_id = "56202953-4195-432c-bb0b-8f204f8c97b1"
             flow = "RODA"
             preference_id = "555872442-f4ae3371-b640-45cc-9be8-6ei627f18f599"
