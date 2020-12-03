@@ -498,16 +498,6 @@ trackTests {
             campaign_id = 235666
             budget_type = "D"
         }
-        "/advertising/pads2/manager/update/budget/go"(platform: "/", type: TrackType.Event) {
-            budget = 3990
-            campaign_id = 235666
-            suggested_budget =  ""
-            suggested_budget_pct= ""
-            budget_type = "D"
-            selected_budget = ""
-            select_budget_pct = ""
-            selected_budget_type = ""
-        }
     }
 
 
