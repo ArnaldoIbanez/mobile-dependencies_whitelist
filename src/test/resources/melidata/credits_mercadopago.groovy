@@ -1007,7 +1007,7 @@ trackTests {
         "/credits/mp-hub"(platform: "/", type: TrackType.View) {}
 
         "/credits/mp-hub/redirect"(platform: "/", type: TrackType.View) {
-            flow = "open_sea_mp"
+            flow = "fixed_term_loan_collect"
         }
 
         "/credits/mp-hub/no-credit-line"(platform: "/", type: TrackType.View) {}
