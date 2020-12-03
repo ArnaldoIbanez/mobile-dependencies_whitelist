@@ -761,46 +761,46 @@ trackTests {
 
         "/advertising/pads2/createcampaign/step1"(platform: "/web", type: TrackType.View) {
         campaign_name = "celulares"
-        budget = "4000"
+        budget = 4000
         }
 
         "/advertising/pads2/createcampaign/step1/next"(platform: "/web", type: TrackType.Event) {
         campaign_name = "celulares"
-        budget = "4000"
+        budget = 4000
         }
 
         "/advertising/pads2/createcampaign/step1/breadcrumb"(platform: "/web", type: TrackType.Event) {
         campaign_name = "celulares"
-        budget = "4000"
+        budget = 4000
         }
 
         "/advertising/pads2/createcampaign/step1/helperbudget"(platform: "/web", type: TrackType.Event) {
         campaign_name = "celulares"
-        budget = "4000"
+        budget = 4000
         }
 
         "/advertising/pads2/createcampaign/step2"(platform: "/web", type: TrackType.Event) {
         campaign_name = "celulares"
-        budget = "4000"
+        budget = 4000
         }
 
         "/advertising/pads2/createcampaign/step2/createcampaign"(platform: "/web", type: TrackType.Event) {
         campaign_name = "celulares"
-        budget = "4000"
+        budget = 4000
         ads = "ads_1"
         check_active = "true"
         }
 
         "/advertising/pads2/createcampaign/step2/breadcrumb"(platform: "/web", type: TrackType.Event) {
         campaign_name = "celulares"
-        budget = "4000"
+        budget = 4000
         ads = "ads_1"
         check_active = "true"
         }
 
         "/advertising/pads2/createcampaign/step2/helperbudget"(platform: "/web", type: TrackType.Event) {
         campaign_name = "celulares"
-        budget = "4000"
+        budget = 4000
         ads = "ads_1"
         check_active = "true"
         }
@@ -849,7 +849,7 @@ trackTests {
 
         "/advertising/pads2/createcampaign/step2/editads"(platform: "/web", type: TrackType.Event) {
             campaign_name = "celulares"
-            budget = "4000"
+            budget = 4000
         }
 
         "/advertising/pads2/createcampaign/step2/editads/deleteall"(platform: "/web", type: TrackType.Event) {
@@ -893,7 +893,7 @@ trackTests {
         "/advertising/pads2/createcampaign/confirm"(platform: "/web", type: TrackType.Event) {
             status_check = "true"
             campaign_name = "celulares"
-            budget = "4000"
+            budget = 4000
             ads = 1
         }
 
@@ -1448,6 +1448,70 @@ trackTests {
         "/advertising/pads2/createcampaign/step1/helper/trtarget"(platform: "/", type: TrackType.Event) {}
 
         "/advertising/pads2/createcampaign/step1/helper/strategy"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/createcampaign/step2/trtarget"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/createcampaign/step2/trtarget/pencil"(platform: "/", type: TrackType.Event) {
+            campaign_name = "track"
+            budget = 900
+            strategy = "LAUNCHING"
+            trtarget = 20
+        }
+        "/advertising/pads2/createcampaign/step2/modal"(platform: "/", type: TrackType.Event) {}
+        "/advertising/pads2/createcampaign/step2/modal/bidding"(platform: "/", type: TrackType.Event) {}
+        "/advertising/pads2/createcampaign/step2/modal/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/createcampaign/step2/modal/bidding/trtarget/changestrategy"(platform: "/", type: TrackType.Event) {
+            campaign_name = "track"
+            budget = 900
+            strategy = "LAUNCHING"
+            trtarget = 20
+        }
+        "/advertising/pads2/createcampaign/step2/modal/bidding/strategy"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/createcampaign/step2/modal/bidding/strategy/show"(platform: "/", type: TrackType.View) {
+            campaign_name = "track"
+            budget = 900
+            strategy = "LAUNCHING"
+            trtarget = 20
+        }
+        "/advertising/pads2/createcampaign/step2/modal/bidding/strategy/helper"(platform: "/", type: TrackType.Event) {
+            campaign_name = "track"
+            budget = 900
+            strategy = "LAUNCHING"
+        }
+        "/advertising/pads2/createcampaign/step2/modal/bidding/strategy/go"(platform: "/", type: TrackType.Event) {
+            campaign_name = "track"
+            budget = 900
+            strategy_previous = "LAUNCHING"
+            strategy_new = "PROFITABILITY"
+        }
+        "/advertising/pads2/createcampaign/step2/modal/bidding/trtarget/show"(platform: "/", type: TrackType.View) {
+            campaign_name = "track"
+            budget = 900
+            strategy = "LAUNCHING"
+            trtarget = 20
+        }
+        "/advertising/pads2/createcampaign/step2/modal/bidding/trtarget/helper"(platform: "/", type: TrackType.Event) {
+            campaign_name = "track"
+            budget = 900
+            strategy = "LAUNCHING"
+            trtarget = 20
+        }
+        "/advertising/pads2/createcampaign/step2/modal/bidding/impact"(platform: "/", type: TrackType.Event) {}
+        "/advertising/pads2/createcampaign/step2/modal/bidding/impact/helper"(platform: "/", type: TrackType.Event) {
+            campaign_name = "track"
+            budget = 900
+            strategy = "LAUNCHING"
+            trtarget = 20
+        }
+        "/advertising/pads2/createcampaign/step2/modal/bidding/trtarget/go"(platform: "/", type: TrackType.Event) {
+            campaign_name = "track"
+            budget = 900
+            strategy = "PROFITABILITY"
+            trtarget_previous = 35
+            trtarget_new = 40
+        }
     }
 
     test("Bidding HUB") {
@@ -1498,26 +1562,26 @@ trackTests {
         "/advertising/pads2/hub/modal/bidding/trtarget/show"(platform: "/", type: TrackType.View) {
             campaign_id = 1
             strategy = "LAUNCHING"
-            trtarget = "35"
+            trtarget = 35
         }
 
         "/advertising/pads2/hub/modal/bidding/trtarget/go"(platform: "/", type: TrackType.Event) {
             campaign_id = 35
             strategy = "PROFITABILITY"
-            trtarget_previous = "35"
-            trtarget_new = "40"
+            trtarget_previous = 35
+            trtarget_new = 40
         }
 
         "/advertising/pads2/hub/modal/bidding/trtarget/helper"(platform: "/", type: TrackType.Event) {
             campaign_id = 1
             strategy = "LAUNCHING"
-            trtarget = "35"
+            trtarget = 35
         }
 
         "/advertising/pads2/hub/modal/bidding/trtarget/changestrategy"(platform: "/", type: TrackType.Event) {
             campaign_id = 1
             strategy = "LAUNCHING"
-            trtarget = "35"
+            trtarget = 35
         }
 
         "/advertising/pads2/hub/update"(platform: "/", type: TrackType.Event) {}
@@ -1529,7 +1593,7 @@ trackTests {
         "/advertising/pads2/hub/update/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
             campaign_id = 1
             strategy = "LAUNCHING"
-            trtarget = "35"
+            trtarget = 5
         }
     }
 
@@ -1541,15 +1605,15 @@ trackTests {
             multi = true
             campaign_id = 34
             strategy = "LAUNCHING"
-            trtarget = "3"
+            trtarget = 3
         }
 
         "/advertising/pads2/manager/bidding/trtarget"(platform: "/", type: TrackType.Event) {}
         "/advertising/pads2/manager/bidding/trtarget/pencil"(platform: "/", type: TrackType.Event) {
             multi = true
             campaign_id = 1
-            name_previous = "Test"
-            name_new = "Celular"
+            strategy = "LAUNCHING"
+            trtarget = 3
         }
 
         "/advertising/pads2/manager/modal"(platform: "/", type: TrackType.Event) {}
@@ -1580,29 +1644,121 @@ trackTests {
             multi = true
             campaign_id = 34
             strategy = "LAUNCHING"
-            trtarget = "3"
+            trtarget = 3
         }
 
         "/advertising/pads2/manager/modal/bidding/trtarget/go"(platform: "/", type: TrackType.Event) {
             multi = true
             campaign_id = 34
             strategy = "LAUNCHING"
-            trtarget_previous = "20"
-            trtarget_new = "45"
+            trtarget_previous = 20
+            trtarget_new = 45
         }
 
         "/advertising/pads2/manager/modal/bidding/trtarget/helper"(platform: "/", type: TrackType.Event) {
             multi = true
             campaign_id = 34
             strategy = "LAUNCHING"
-            trtarget = "3"
+            trtarget = 3
+        }
+
+        "/advertising/pads2/manager/modal/bidding/impact"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/manager/modal/bidding/impact/helper"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget = 3
         }
 
         "/advertising/pads2/manager/modal/bidding/trtarget/changestrategy"(platform: "/", type: TrackType.Event) {
             multi = true
             campaign_id = 34
             strategy = "LAUNCHING"
-            trtarget = "3"
+            trtarget = 3
         }
+    }
+
+    test("Opportunities Bidding (Hub)") {
+
+        "/advertising/pads2/hub/bidding"(platform: "/", type: TrackType.Event){}
+        "/advertising/pads2/hub/bidding/upgrade"(platform: "/", type: TrackType.Event){}
+        "/advertising/pads2/hub/bidding/upgrade/row"(platform: "/", type: TrackType.Event){}
+
+        "/advertising/pads2/hub/bidding/upgrade/row/show"(platform: "/", type: TrackType.View) {
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget = 3
+        }
+
+        "/advertising/pads2/hub/bidding/upgrade/row/go"(platform: "/", type: TrackType.Event) {
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget = 3
+        }
+
+        "/advertising/pads2/hub/bidding/upgrade/tooltip"(platform: "/", type: TrackType.Event){}
+
+        "/advertising/pads2/hub/bidding/upgrade/tooltip/go"(platform: "/", type: TrackType.Event) {
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget = 3
+        }
+
+        "/advertising/pads2/hub/bidding/upgrade/modal"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/hub/bidding/upgrade/modal/show"(platform: "/", type: TrackType.View) {
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget_previous = 20
+            trtarget_new = 45
+        }
+
+        "/advertising/pads2/hub/bidding/upgrade/modal/go"(platform: "/", type: TrackType.Event) {
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget_previous = 20
+            trtarget_new = 45
+        }
+
+    }
+
+    test("Opportunities Bidding (Dashboard)"){
+
+        "/advertising/pads2/manager/bidding/upgrade"(platform: "/", type: TrackType.Event) {}
+        "/advertising/pads2/manager/bidding/upgrade/box"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/manager/bidding/upgrade/box/show"(platform: "/", type: TrackType.View) {
+            multi = true
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget = 3
+        }
+
+        "/advertising/pads2/manager/bidding/upgrade/box/go"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget = 3
+        }
+ 
+        "/advertising/pads2/manager/bidding/upgrade/modal"(platform: "/", type: TrackType.Event) {}
+
+        "/advertising/pads2/manager/bidding/upgrade/modal/show"(platform: "/", type: TrackType.View) {
+            multi = true
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget_previous = 20
+            trtarget_new = 45
+        }
+
+        "/advertising/pads2/manager/bidding/upgrade/modal/go"(platform: "/", type: TrackType.Event) {
+            multi = true
+            campaign_id = 34
+            strategy = "LAUNCHING"
+            trtarget_previous = 20
+            trtarget_new = 45
+        }
+
     }
 }
