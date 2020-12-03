@@ -311,9 +311,7 @@ tracks {
     }
 
     //Budget Dynamic
-    "/advertising/pads2/manager/update/budget"(platform: "/", type: TrackType.Event) {
-        parentPropertiesInherited: false
-    }
+    "/advertising/pads2/manager/update/budget"(platform: "/", type: TrackType.Event , parentPropertiesInherited: false) {}
     "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
