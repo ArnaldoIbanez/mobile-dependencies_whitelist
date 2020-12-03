@@ -324,6 +324,10 @@ tracks {
         selected_budget_type(required: true, description: "selected budget type")
 
     }
+    "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
+        budget(required: true, description: "current budget related to the campaign")
+        campaign_id(required: true, description: "Id related to the campaign")
+    }
     //Buybox
     "/advertising/pads2/manager/buybox_winners"(platform: "/", isAbstract: true) {}
     "/advertising/pads2/manager/buybox_winners/landing"(platform: "/", isAbstract: true) {}

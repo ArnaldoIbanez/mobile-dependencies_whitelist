@@ -492,6 +492,10 @@ trackTests {
             select_budget_pct = ""
             selected_budget_type = ""
         }
+        "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
+            budget = 3990
+            campaign_id = 235666
+        }
 
     }
     test("Advertising buybox opportunity") {
