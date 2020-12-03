@@ -480,7 +480,7 @@ trackTests {
 
     }
     test("Advertising Dynamic budget "){
-        "/advertising/pads2/manager/update/budget"(platform: "/", type: TrackType.Event) {
+        "/advertising/pads2/manager/update/budget"(platform: "/", parentPropertiesInherited: false) {
 
         }
         "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
