@@ -492,11 +492,12 @@ trackTests {
             select_budget_pct = ""
             selected_budget_type = ""
         }
-        "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event,parentPropertiesInherited: false) {
+    }
+    test("Advertising Dynamic budget ") {
+        "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
             budget = 3990
             campaign_id = 235666
         }
-
     }
     test("Advertising buybox opportunity") {
         "/advertising/pads2/manager/card/buy_box_winner"(platform: "/web", type: TrackType.View) {
