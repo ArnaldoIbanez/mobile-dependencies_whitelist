@@ -324,7 +324,7 @@ tracks {
         selected_budget_type(required: true, description: "selected budget type")
 
     }
-    "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
+    "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
     }
