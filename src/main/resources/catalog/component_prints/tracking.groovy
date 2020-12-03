@@ -13,6 +13,8 @@ tracks {
         c_event (required:false)
         c_campaign (required:false)
         c_element_order (required:false)
+        c_original_target (required:false)
+        merch_data (required:false, type: PropertyType.Map)
     }
 
     "/wallet_home"(platform: "/" , isAbstract: true) {}

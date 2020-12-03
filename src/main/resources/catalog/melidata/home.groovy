@@ -10,6 +10,19 @@ tracks {
 
     initiative = "1171"
 
+    "/home"(platform: "/web") {
+        realestates(required: false, type: PropertyType.ArrayList)
+        //discovery
+            //audience
+            //bu
+            //bu_line
+            //component_id
+            //content_id
+            //flow
+            //logic
+            //position
+    }
+
     "/home"(platform: "/mobile") {
         retry_after_error(required: false)
         component_count(required: false, type: PropertyType.Numeric)

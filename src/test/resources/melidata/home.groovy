@@ -196,6 +196,29 @@ trackTests {
         "/korriban"(platform: "/web/desktop", dataSet2)
     }
 
+    .test("Home Discovery") {
+        def dataSet = {
+            component_count = 25
+            newbie = true
+            home_version = 'new'
+            is_logged = true
+        }
+        def realestates = {
+            discovery = [{
+                audience = 1
+                bu = 1
+                bu_line = 1
+                component_id = 2
+                content_id = 1
+                flow = 2
+                logic = 2
+                position = 2
+            }]
+        }
+        "/home"(platform: "/web", dataSet)
+        "/home"(platform: "/web") {realestates}
+    }
+
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
     }
