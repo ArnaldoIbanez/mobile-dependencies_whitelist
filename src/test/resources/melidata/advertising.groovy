@@ -479,7 +479,7 @@ trackTests {
         }
 
     }
-    test("Advertising Dynamic budget "){
+    test("Advertising Dynamic budget update "){
         "/advertising/pads2/manager/update/budget"(platform: "/", type: TrackType.Event) {
         }
         "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
@@ -492,7 +492,7 @@ trackTests {
             select_budget_pct = ""
             selected_budget_type = ""
         }
-        "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event) {
+        "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event,parentPropertiesInherited: false) {
             budget = 3990
             campaign_id = 235666
         }
