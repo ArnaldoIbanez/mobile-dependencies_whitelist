@@ -493,8 +493,11 @@ trackTests {
             select_budget_pct = ""
             selected_budget_type = ""
         }
+
+    }
+    test("Dynamic budget") {
         "/advertising/pads2/manager/budget"(platform: "/", type: TrackType.Event) {
-            
+
         }
         "/advertising/pads2/manager/budget/tooltip"(platform: "/", type: TrackType.Event) {
             budget = 3990
@@ -502,7 +505,6 @@ trackTests {
             budget_type = "D"
         }
     }
-
 
     test("Advertising buybox opportunity") {
         "/advertising/pads2/manager/card/buy_box_winner"(platform: "/web", type: TrackType.View) {
