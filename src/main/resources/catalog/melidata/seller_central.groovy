@@ -242,6 +242,7 @@ tracks {
 
         // Seller Questions
         sellerCentralActionQuestionsGroup(seller_profile, seller_segment, question_id, item_id, site_id, item_status, question_date_created, question_date_action)
+        sellerCentralModalQuestionsGroup(seller_profile, seller_segment, question_date_action)
     }
 
     // Summary
@@ -1532,6 +1533,14 @@ tracks {
 
     "/seller_central/questions/blockBuyer"(platform: "/", type: TrackType.Event) {
         sellerCentralActionQuestionsGroup
+    }
+
+    "/seller_central/questions/modalAdvice"(platform: "/", type: TrackType.Event) {
+        sellerCentralModalQuestionsGroup
+    }
+
+    "/seller_central/questions/modalStock"(platform: "/", type: TrackType.Event) {
+        sellerCentralModalQuestionsGroup
     }
 
 }
