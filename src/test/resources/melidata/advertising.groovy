@@ -486,12 +486,12 @@ trackTests {
         "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
             budget = 3990
             campaign_id = 235666
-            suggested_budget: "seggested"
-            suggested_budget_pct: "seggested"
+            suggested_budget =  ""
+            suggested_budget_pct: ""
             budget_type = "D" 
-            selected_budget = "selected"
-            select_budget_pct = "selected"
-            selected_budget_type = "selected"
+            selected_budget = ""
+            select_budget_pct = ""
+            selected_budget_type = ""
         }
     }
 
