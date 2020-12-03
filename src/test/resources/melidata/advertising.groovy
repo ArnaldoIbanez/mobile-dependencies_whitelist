@@ -487,7 +487,7 @@ trackTests {
             budget = 3990
             campaign_id = 235666
             suggested_budget =  ""
-            suggested_budget_pct: ""
+            suggested_budget_pct= ""
             budget_type = "D" 
             selected_budget = ""
             select_budget_pct = ""
