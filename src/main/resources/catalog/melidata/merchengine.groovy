@@ -17,6 +17,7 @@ tracks {
         flow(required: true, type: PropertyType.String, description: "The flow related to the content - Ex: cellphone_recharge")
         logic(required: true, type: PropertyType.String, description: "Origin of the content - Ex: priority_messages")
         position(required: false, type: PropertyType.Numeric, description: "Position starting at 1 where it was shown")
+        audience(required: false, type: PropertyType.String, description: "The audience for which this content was prepared")
 
         link(required: true, type: PropertyType.String, description: "deeplink to execute")
         action_id(required: true, type: PropertyType.String, description: "The action executed")
@@ -24,10 +25,10 @@ tracks {
     }
     propertyGroups {
         modalV2Fields (
-           component_id, bu, content_id, bu_line,position, logic, flow
+           component_id, bu, content_id, bu_line,position, logic, flow, audience
         )
         modalV2FieldsCTA (
-           component_id, bu, content_id, bu_line,position, logic, flow, link, action_id, type
+           component_id, bu, content_id, bu_line,position, logic, flow, link, action_id, type, audience
         )
     }
     /**

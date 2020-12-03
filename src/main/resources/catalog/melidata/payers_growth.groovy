@@ -36,6 +36,15 @@ tracks {
         position (require: true, type: PropertyType.String, values: ["hero", "fixed", "footer"], description: "Indicates position of button in landing")
     }
 
+    // Experiment landing - Ukraine Lab
+    "/payers_growth/xp_landing"(platform: "/", type: TrackType.View) {
+        landing_id (required: true, type: PropertyType.String, description: "Indicate landing id")
+    }
+    "/payers_growth/xp_landing/button"(platform: "/", type: TrackType.Event) {
+        landing_id (required: true, type: PropertyType.String, description: "Indicate landing id")
+        action (required: true, type: PropertyType.String, values: ["recharge_mp", "recharge_ml"], description: "Indicates button action: recharge on mp or recharge on ml")
+    }
+
     "/payers_growth"(platform: "/mobile", isAbstract: true) {}
 
     // Shake It Screens

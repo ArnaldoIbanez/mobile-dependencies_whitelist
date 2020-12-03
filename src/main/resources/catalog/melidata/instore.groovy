@@ -7,7 +7,7 @@ import static com.ml.melidata.catalog.parsers.dsl.TrackDsl.tracks
 
 tracks {
 
-    initiative = '1139'
+    initiative = '1218'
 
     def propertyCampaignDetail  = objectSchemaDefinitions {
         source(required: false, type: PropertyType.String, description:  "indicates the component that starts capaign")
@@ -75,6 +75,8 @@ tracks {
     }
     "/instore/amount/calculator"(platform: "/mobile", type: TrackType.View) {}
     "/instore/amount/calculator/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/amount/calculator/error"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/amount/calculator/error/retry"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/amount/price_list"(platform: "/mobile", type: TrackType.View) {
         available_prices(required: false, PropertyType.String)
@@ -82,6 +84,8 @@ tracks {
         visible_prices(required: false, PropertyType.Numeric)
     }
     "/instore/amount/price_list/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/amount/price_list/error"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/amount/price_list/error/retry"(platform: "/mobile", type: TrackType.Event) {}
 
 
     // Generic Error
@@ -160,6 +164,19 @@ tracks {
     "/instore/error/cant_pay_buyer_qr"(platform: "/mobile", type: TrackType.View) {}
     "/instore/error/cant_pay_buyer_qr/back"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/error/cant_pay_buyer_qr/abort"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/unsupported_payment_method"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/unsupported_payment_method/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/unsupported_payment_method/abort"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/unsupported_payment_method/retry"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/invalid_user_point_uif"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/invalid_user_point_uif/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/invalid_user_point_uif/abort"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/error/invalid_user_seller_uif"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/error/invalid_user_seller_uif/back"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/error/invalid_user_seller_uif/abort"(platform: "/mobile", type: TrackType.Event) {}
 
     // Permissions
     "/ask_device_permission"(platform: "/mobile", isAbstract: true) {
@@ -275,6 +292,42 @@ tracks {
     "/instore/waiting/generic_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
     "/instore/waiting/generic_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/waiting/supermarket_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/supermarket_cashier/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/supermarket_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/supermarket_ticket"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/supermarket_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/supermarket_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/pharmacy_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/pharmacy_cashier/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/pharmacy_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/pharmacy_ticket"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/pharmacy_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/pharmacy_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/clothing_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/clothing_cashier/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/clothing_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/clothing_ticket"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/clothing_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/clothing_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/retail_cashier"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/retail_cashier/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/retail_cashier/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/retail_ticket"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/retail_ticket/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/retail_ticket/back"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/waiting/vending_dispatching"(platform: "/mobile", type: TrackType.View) {}
+    "/instore/waiting/vending_dispatching/next"(platform: "/mobile", type: TrackType.Event) {}
+    "/instore/waiting/vending_dispatching/back"(platform: "/mobile", type: TrackType.Event) {}
+
     "/instore/waiting/add_card"(platform: "/mobile", isAbstract: true) {}
     "/instore/waiting/add_card/cielo"(platform: "/mobile", type: TrackType.View) {}
     "/instore/waiting/add_card/cielo/add"(platform: "/mobile", type: TrackType.Event) {}
@@ -386,6 +439,12 @@ tracks {
         payment_info_tag(required: false, "Execute post payment")
         remaining_attempts(required: false, PropertyType.Numeric)
     }
+    "/instore/payment_error"(platform: "/mobile", type: TrackType.Event) {
+        error(required: true, PropertyType.String, description: "payment error description")
+        retrying(required: true, PropertyType.Boolean, description: "indicates if the error occurred when retrying automatically")
+        remaining_attempts(required: false, PropertyType.Numeric, description: "remaining attemps to retry when possible")
+        status_code(required: false, PropertyType.Numeric, description: "error code sent when payement service fail")
+    }
 
 
     // Discovery
@@ -399,7 +458,7 @@ tracks {
     "/instore/map/first_user_location"(platform: "/mobile", type: TrackType.Event) {
         northeast(required: true, PropertyType.String, description: "latitude and longitude of the northeast corner of the visible area on the map")
         southwest(required: true, PropertyType.String, description: "latitude and longitude of the southwest corner of the visible area on the map")
-        location(required: true, PropertyType.String)
+        location(required: false, PropertyType.String)
     }
     "/instore/map/data_retrieved"(platform: "/mobile", type: TrackType.Event) {
         action_type(required: true, PropertyType.String, description: "type of action that triggered the data request", values: ["init", "search_in_this_area", "filters_applied", "text_search"])
@@ -443,6 +502,28 @@ tracks {
         message(required: true, PropertyType.String, description: "server error description")
         attributable_to(required: true, PropertyType.String)
     }
+    "/instore/map/marketplace"(platform: "/mobile", isAbstract: true) {}
+    "/instore/map/marketplace/filter_bar_result"(platform: "/mobile", type: TrackType.Event) {
+        filter_result(required:false, type: PropertyType.ArrayList, description: "The list of filter bar result. Represents the filter selection")
+        session_id(required: true, type: PropertyType.String, description: "The user session id")
+        from(required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/instore/map/marketplace/filter_cell_result"(platform: "/mobile", type: TrackType.Event) {
+        filter_result(required:false, type: PropertyType.ArrayList, description: "The list of filter cell result. Represents the filter selection")
+        session_id(required: true, type: PropertyType.String, description: "The user session id")
+        from(required:false, type: PropertyType.String, description: "Where the flow start")
+    }
+    "/instore/map/marketplace/filter_cell_view"(platform: "/mobile", type: TrackType.View) {
+        from(required: false, type: PropertyType.String, description: "Where the flow start")
+        session_id(required: true, type: PropertyType.String, description: "The user session id")
+        filter_list(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "The list of filter values used in the filter cell view")
+    }
+    "/instore/map/marketplace/store_selected"(platform: "/mobile", type: TrackType.Event) {
+        from(required: false, type: PropertyType.String, description: "Where the flow start")
+        session_id(required: true, type: PropertyType.String, description: "The user session id")
+        store_name(required: true, PropertyType.String, description: "the name of the selected store")
+        store_id(required: true, PropertyType.String, description: "the store's id")
+    }
 
     //QR Tip
     "/instore/tip"(platform: "/mobile", type: TrackType.View) {
@@ -478,6 +559,12 @@ tracks {
 
     "/instore/geofence/permission_already_granted"(platform: "/mobile", type: TrackType.Event) {}
 
+    "/instore/geofence/gps_request"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/geofence/gps_response"(platform: "/mobile", type: TrackType.Event) {
+        type(required: true, PropertyType.String, description: "The user interaction with the GPS", values: ["already_on", "granted", "rejected"])
+    }
+
     "/instore/geofence/updated"(platform: "/mobile", type: TrackType.Event) {}
 
     "/instore/geofence/enter"(platform: "/mobile", type: TrackType.Event) {
@@ -492,9 +579,40 @@ tracks {
         geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
     }
 
-    "/instore/geofence/notify_dwell"(platform: "/mobile", type: TrackType.Event) {
+    "/instore/geofence/notify_push"(platform: "/mobile", type: TrackType.Event) {
         geofence_id(required: true, PropertyType.String, description: "Geofence Identifier")
+        type(required: true, PropertyType.String, description: "The type of tevent", values: ["enter", "dwell"])
     }
+
+    "/instore/geofence/push_sent"(platform: "/mobile", type: TrackType.Event) {
+        status(required: true, PropertyType.String, description: "The status of the push", values: ["sent", "filter_audience", "filter_already_sent", "filter_range_time", "filter_no_campaign", "unavailable"])
+    }
+
+    "/instore/geofence/clear"(platform: "/mobile", type: TrackType.Event) { }
+
+    //Reviews
+    "/instore/reviews"(platform: "/mobile", parentPropertiesInherited: false, isAbstract: true) {
+        id(required: true, PropertyType.String, description: "The id of entity that will be reviewed")
+        type(required: true, PropertyType.String, description: "The type of entity that will be reviewed")
+        payment_id(required: false, PropertyType.String, description: "The id of the payment that trigger the review")
+    }    
+
+    "/instore/reviews/ask"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/send"(platform: "/mobile", type: TrackType.Event) { 
+        stars(required: true, PropertyType.Numeric, description: "The number of stars given as review")
+        has_comment(required: true, PropertyType.Boolean, description: "True if the review has a comment, false if not")
+    }
+
+    "/instore/reviews/comment"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/comment/back"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/back"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/error"(platform: "/mobile", type: TrackType.Event) { }
+
+    "/instore/reviews/already-asked"(platform: "/mobile", type: TrackType.Event) { }
 
     //Buyer QR
 
@@ -520,18 +638,27 @@ tracks {
         payment_method_disabled(required: true, PropertyType.Boolean, description: "feature flag to check if payment method is disabled")
     }
 
-    //Buyer QR - FTU/Landings
+    
+	//Buyer QR - FTU/Landings
 
     "/instore/buyer_qr/landing"(platform: "/mobile", isAbstract: true) {}
 
-    "/instore/buyer_qr/landing/brief"(platform: "/mobile", type: TrackType.View) {}
+	"/instore/buyer_qr/landing/biometric_security"(platform: "/mobile", type: TrackType.View) {}
+	
+	"/instore/buyer_qr/security"(platform: "/mobile", type: TrackType.Event) {
+		view_time_in_millis(required: true, PropertyType.Numeric, description: "time that the user kept in the security validation screen")
+		result(required: true, PropertyType.Boolean, description: "security validation has succeeded or failed")
+	}
+    
+	"/instore/buyer_qr/landing/brief"(platform: "/mobile", type: TrackType.View) {}
 
     "/instore/buyer_qr/landing/no_seed"(platform: "/mobile", type: TrackType.View) {}
 
     "/instore/buyer_qr/landing/codes_expired"(platform: "/mobile", type: TrackType.View) {}
 
     "/instore/buyer_qr/button_pressed"(platform: "/mobile", type: TrackType.Event) {
-        button_type(required: true, PropertyType.String, description: "'show_codes' | 'understood' | 'retry' | 'add_money' | 'add_card' | 'maybe_later'")
+        button_type(required: false, PropertyType.String, description: "an array of strings used to know what actions the button has triggered if exists")
+        deeplink(required: false, PropertyType.String, description: "the deeplink triggered by the button if exists")
     }
 
     "/instore/buyer_qr/landing/funding_mandatory"(platform: "/mobile", type: TrackType.View) {}
@@ -566,9 +693,29 @@ tracks {
         status(required: true, PropertyType.String)
     }
 
+    "/instore/buyer_qr/landing/offline"(platform: "/mobile", type: TrackType.View) {}
+
     "/instore/buyer_qr/landing/wrong_time"(platform: "/mobile", type: TrackType.View) {
         device_time_difference(required: true, PropertyType.Numeric, description: "Time difference between the server and the device in millis")
         device_time_range_status(required: true, PropertyType.String, values:["below_time_range", "above_time_range"], description:  "if the time difference is below or above the servers")
+    }
+
+    "/instore/buyer_qr/landing/back_office_pending"(platform: "/mobile", type: TrackType.View) {
+        regulation_name(required: true, PropertyType.String, description: "The name of the regulation corresponding to the landing")
+        regulation_user_status(required: true, PropertyType.String, description:  "The user status in the regulation")
+        regulation_evaluation_result(required: true, PropertyType.String, description: "The evaluation result according the regulation landing")
+    }
+
+    "/instore/buyer_qr/landing/no_terms_and_conditions"(platform: "/mobile", type: TrackType.View) {
+        regulation_name(required: true, PropertyType.String, description: "The name of the regulation corresponding to the landing")
+        regulation_user_status(required: true, PropertyType.String, description:  "The user status in the regulation")
+        regulation_evaluation_result(required: true, PropertyType.String, description: "The evaluation result according the regulation landing")
+    }
+
+    "/instore/buyer_qr/landing/ifpe_no_apliance"(platform: "/mobile", type: TrackType.View) {
+        regulation_name(required: true, PropertyType.String, description: "The name of the regulation corresponding to the landing")
+        regulation_user_status(required: true, PropertyType.String, description:  "The user status in the regulation")
+        regulation_evaluation_result(required: true, PropertyType.String, description: "The evaluation result according the regulation landing")
     }
 
     //Buyer QR - Generic Error
@@ -589,6 +736,40 @@ tracks {
         collector_id(required:false, PropertyType.Numeric, description: "collector identifier")
         collector_name(required:false, PropertyType.String, description: "collector name")
     }
+
+    //Buyer QR - CVV
+
+    "/instore/buyer_qr/cvv"(platform: "/mobile", type: TrackType.View ) {
+        payment_method_id(required: true, PropertyType.String, description: "payment method id (visa, master, account_money, etc)")
+        payment_method_disabled(required: true, PropertyType.Boolean, description: "feature flag to check if payment method is disabled")
+    }
+
+    "/instore/buyer_qr/cvv/confirm"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        view_time_in_millis(required: true, PropertyType.Numeric)
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+    }
+
+    "/instore/buyer_qr/cvv/dismiss"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        view_time_in_millis(required: true, PropertyType.Numeric)
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+    }
+
+    "/instore/buyer_qr/save_esc"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/instore/buyer_qr/delete_esc"(platform: "/mobile", type: TrackType.Event) {
+        from(required: true, PropertyType.String, values: ["lease", "payment"])
+    }
+
+    "/instore/buyer_qr/request_card_token"(platform: "/mobile", type: TrackType.Event) {
+        event_time_in_millis(required: true, PropertyType.Numeric)
+        status_code(required: true, PropertyType.Numeric)
+    }
+
+    "/instore/buyer_qr/request_card_token/max_delay_reached"(platform: "/mobile", type: TrackType.Event, parentPropertiesInherited: false) {
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow through the app since they enters the view until they exist")
+    }
+
+    "/instore/buyer_qr/no_payment_method_selected"(platform: "/mobile", type: TrackType.Event) {}
 
     // Scale Features
     // QR Assignment
@@ -641,11 +822,63 @@ tracks {
     }
 
     // Instore shortcut
-    "/instore/create_shortcut"(platform:"/mobile/android", type: TrackType.View) {}
+    "/instore/create_shortcut"(platform:"/mobile/android", type: TrackType.View, parentPropertiesInherited: false) {}
 
     "/qr_code"(platform: "/mobile", isAbstract: true) {
         flow (required:true, type: PropertyType.String, description: "Use case that has been executed")
         from (required:false, type: PropertyType.String, description: "Where the flow start")
     }
     "/qr_code/qr_reader"(platform: "/mobile") {}
+
+    // MLScanner
+    "/scanner"(platform: "/mobile", isAbstract: true) {
+        session_id(required: true, PropertyType.String, description: "a unique identifier to track the users flow")
+        context(required: true, PropertyType.String, description: "the content where scanner is using")
+    }
+
+    "/scanner/setup"(platform: "/mobile", type: TrackType.Event) {
+        mode(required: true, PropertyType.String, description: "how the scanner will use", values: ["scanner", "resolver", "scanner+resolver"])
+        inputs(required: true, PropertyType.ArrayList(PropertyType.String), description: "which inputs the scanner will scan")
+        focus_mode(required: false, PropertyType.String, description: "how the focus will work - iOS only")
+        torch_enabled(required: true, PropertyType.Boolean)
+        spinner_enabled(required: true, PropertyType.Boolean)
+        smart_context_enabled(required: true, PropertyType.Boolean, description: "scanner built with smart context enabled")
+        auto_start(required: true, PropertyType.Boolean, description: "automatically start after inizialitation")
+        auto_stop(required: true, PropertyType.Boolean, description: "automatically stop after resolve or scan")
+        auto_resolve(required: true, PropertyType.Boolean, description: "automatically resolve code after scan")
+        listen_events(required: true, PropertyType.ArrayList(PropertyType.String), description: "events the client are listening")
+    }
+
+    "/scanner/discovery"(platform: "/mobile", type: TrackType.Event) {
+        data(required: true, PropertyType.String, description: "data scanned")
+        torch_on(required: true, PropertyType.Boolean, description: "if torch was on when scanned")
+    }
+
+     "/scanner/resolve"(platform: "/mobile", type: TrackType.Event) {
+        data(required: true, PropertyType.String)
+        status(required: true, PropertyType.String)
+    }
+
+    // MLScanner - Smart Context
+    "/scanner/smart_context"(platform: "/mobile", isAbstract: true) {}
+    
+    "/scanner/smart_context/tooltip"(platform: "/mobile", isAbstract: true) {
+        text(required: true, PropertyType.String)
+    }
+
+    "/scanner/smart_context/tooltip/updated"(platform: "/mobile", type: TrackType.Event) {
+        ttl(required: true, PropertyType.Numeric, description: "how many seconds will be this text on screen")
+    }
+
+    "/scanner/smart_context/tooltip/tapped"(platform: "/mobile", type: TrackType.Event) {
+        url(required: false, PropertyType.String, description: "url as link to open in text")
+    }
+
+    "/scanner/smart_context/torch"(platform: "/mobile", isAbstract: true) {}
+
+    "/scanner/smart_context/torch/displayed"(platform: "/mobile", type: TrackType.Event) {}
+
+    "/scanner/smart_context/torch/tapped"(platform: "/mobile", type: TrackType.Event) {
+        enabled(required: true, PropertyType.Boolean)
+    }
 }

@@ -6,7 +6,7 @@ trackTests {
 
     defaultBusiness = "mercadopago"
 
-    test("Checkout Off") {
+    test("Checkout Off - MercadoPago") {
         def defaultProperties = {
             checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
             product_id = "BC32A4JU643001OI3920"
@@ -21,9 +21,15 @@ trackTests {
             payment_quantity = 1
             collector_id = 1010101001
             available_methods = ["credit_card", "account_money"]
-            payment_amount_local = 100.00
+            total_amount = 100.00
+            currency_id = "ARS"
             flow_context = "init"
             flow_type = "card_express"
+            is_free_trial = false
+            subscription_partner = "hbogo"
+            loyalty_level = 1
+            discount_type = "cosmetic"
+            discount_percent = 10
         }
 
         def finishDefaultProperties = {
@@ -31,6 +37,9 @@ trackTests {
             payment_status_detail = "accredited"
             payment_status = "approved"
             payment_id = "5408994392"
+            total_amount = 100.00
+            currency_id = "ARS"
+            total_amount_usd = 1000.00
         }
 
         def onlyRequiredProperties = {
@@ -39,12 +48,17 @@ trackTests {
             productive = true
             is_split = false
             payment_quantity = 1
-            payment_amount_local = 100.00
+            total_amount = 100.00
+            currency_id = "ARS"
         }
 
         def finishOnlyRequiredProperties = {
             payment_status_detail = "accredited"
             payment_status = "approved"
+            payment_id = "5408994392"
+            total_amount = 100.00
+            currency_id = "ARS"
+            total_amount_usd = 1000.00
         }
 
         // ALL PROPERTIES TESTS
@@ -130,6 +144,18 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/review/shield_kyc"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/review/challenge_kyc"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/review/challenge_second_factor_auth"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/agencies"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -138,8 +164,66 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/paypal_ftu"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/review_express"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/review"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/input_zip_code"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/input_address"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_user_type"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_option"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_address"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/zipcode_finder"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -220,7 +304,7 @@ trackTests {
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
-        
+
         // Tokenizer product final screen.
         "/checkout_off/payment/processing"(platform: "/web/mobile") {
             onlyRequiredProperties()
@@ -234,6 +318,18 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/review/shield_kyc"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/review/challenge_kyc"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/review/challenge_second_factor_auth"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
         "/checkout_off/agencies"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -242,8 +338,66 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/payment/paypal_ftu"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/review_express"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/review"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/input_zip_code"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/input_address"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_user_type"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_option"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_address"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/zipcode_finder"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
@@ -273,17 +427,21 @@ trackTests {
         "/checkout_off/error"(platform: "/web/mobile") {
         }
 
+        // Properties not necessary
+        "/checkout_off/loading"(platform: "/web/mobile") {
+        }
+
         // MP personalFrontend
-        "/tools/list"(platform: "/web"){
+        "/tools/list"(platform: "/"){
         }
 
-        "/tools/list/button_create"(platform: "/web"){
+        "/tools/list/button_create"(platform: "/"){
         }
 
-        "/tools/create"(platform: "/web"){
+        "/tools/create"(platform: "/"){
         }
 
-        "/tools/confirm_create_edit"(platform: "/web"){
+        "/tools/confirm_create_edit"(platform: "/"){
         }
 
         "/balance/reports"(platform: "/web"){
@@ -293,7 +451,7 @@ trackTests {
 
     defaultBusiness = "mercadolibre"
 
-    test("Checkout Off") {
+    test("Checkout Off - MercadoLibre") {
         def defaultProperties = {
             checkout_flow_id = "b24bcffe-4b26-46c9-8646-61891dbd978b"
             product_id = "BC32A4JU643001OI3920"
@@ -308,9 +466,15 @@ trackTests {
             payment_quantity = 1
             collector_id = 1010101001
             available_methods = ["credit_card", "account_money"]
-            payment_amount_local = 100.00
+            total_amount = 100.00
+            currency_id = "ARS"
             flow_context = "init"
             flow_type = "card_express"
+            is_free_trial = false
+            subscription_partner = "hbogo"
+            loyalty_level = 1
+            discount_type = "cosmetic"
+            discount_percent = 10
         }
 
         def finishDefaultProperties = {
@@ -318,6 +482,10 @@ trackTests {
             payment_status_detail = "accredited"
             payment_status = "approved"
             payment_id = "5408994392"
+            
+            total_amount = 100.00
+            currency_id = "ARS"
+            total_amount_usd = 1000.00
         }
 
         def onlyRequiredProperties = {
@@ -326,12 +494,17 @@ trackTests {
             productive = true
             is_split = false
             payment_quantity = 1
-            payment_amount_local = 100.00
+            total_amount = 100.00
+            currency_id = "ARS"
         }
 
         def finishOnlyRequiredProperties = {
             payment_status_detail = "accredited"
             payment_status = "approved"
+            payment_id = "5408994392"        
+            total_amount = 100.00
+            currency_id = "ARS"
+            total_amount_usd = 1000.00
         }
 
         // ALL PROPERTIES TESTS
@@ -417,6 +590,18 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/review/shield_kyc"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/review/challenge_kyc"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/review/challenge_second_factor_auth"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         "/checkout_off/agencies"(platform: "/web/mobile") {
             defaultProperties()
         }
@@ -425,8 +610,66 @@ trackTests {
             defaultProperties()
         }
 
+        "/checkout_off/payment/paypal_ftu"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/review_express"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/review"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/input_zip_code"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/input_address"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_user_type"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_option"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/select_address"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+        "/checkout_off/shipping/zipcode_finder"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            defaultProperties()
+            finishDefaultProperties()
+        }
+
+        "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             defaultProperties()
             finishDefaultProperties()
         }
@@ -507,7 +750,7 @@ trackTests {
         "/checkout_off/payment/input_credits/select_installment/terms_conditions"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
-        
+
         // Tokenizer product final screen.
         "/checkout_off/payment/processing"(platform: "/web/mobile") {
             onlyRequiredProperties()
@@ -521,6 +764,18 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/review/shield_kyc"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/review/challenge_kyc"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/review/challenge_second_factor_auth"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
         "/checkout_off/agencies"(platform: "/web/mobile") {
             onlyRequiredProperties()
         }
@@ -529,8 +784,66 @@ trackTests {
             onlyRequiredProperties()
         }
 
+        "/checkout_off/payment/paypal_ftu"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/paypal_login"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/paypal_login/no_display"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_redirect"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/payment/one_click_processing"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/one_click_return"(platform: "/web/mobile") {
+            defaultProperties()
+        }
+
+        "/checkout_off/payment/review_express"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
+        "/checkout_off/shipping/select_method"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/review"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/input_zip_code"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/input_address"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_user_type"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_option"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/select_address"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+        "/checkout_off/shipping/zipcode_finder"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+        }
+
         //Final Views
         "/checkout_off/congrats"(platform: "/web/mobile") {
+            onlyRequiredProperties()
+            finishOnlyRequiredProperties()
+        }
+
+        "/checkout_off/congrats/no_display"(platform: "/web/mobile") {
             onlyRequiredProperties()
             finishOnlyRequiredProperties()
         }
@@ -558,6 +871,10 @@ trackTests {
 
         // Properties not necessary
         "/checkout_off/error"(platform: "/web/mobile") {
+        }
+
+        // Properties not necessary
+        "/checkout_off/loading"(platform: "/web/mobile") {
         }
 
         // MP personalFrontend

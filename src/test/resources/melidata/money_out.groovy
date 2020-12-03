@@ -44,6 +44,13 @@ trackTests {
          amount = "500"
       }
 
+      "/money_out/kyc"(platform: "/", type: TrackType.View) {}
+      "/money_out/kyc/onboarding"(platform: "/", type: TrackType.View) {}
+
+      "/money_out/cashout/map"(platform: "/", type: TrackType.View) {}
+
+      // New Cashout Onobaording
+      "/money_out/cashout/onboarding"(platform: "/", type: TrackType.View) {}
       // Cashout onboarding
 
       "/money_out/cashout/onboarding/withdraw_limit"(platform: "/", type: TrackType.View) {}
@@ -62,6 +69,7 @@ trackTests {
 
       // Tecban
       "/money_detail/tecban"(platform: "/", type: TrackType.Event) {}
+      "/money_out/tecban/network_error"(platform: "/", type: TrackType.View) {}
       "/money_out/tecban/onboarding"(platform: "/", type: TrackType.View) {}
       "/money_out/tecban"(platform: "/", type: TrackType.View) {}
       "/money_out/tecban/onboarding/continue"(platform: "/", type: TrackType.Event) {}
@@ -107,6 +115,9 @@ trackTests {
 
       //Transfer Hub - Dashboard
       "/money_out/transfers"(platform: "/", type: TrackType.View) {}
+      "/money_out/transfers/home/transfer_mp"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/transfer_bank"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/transfer_pix"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/home/send_money"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/transfer_ted"(platform: "/", type: TrackType.Event) {}
@@ -125,6 +136,7 @@ trackTests {
       "/money_out/transfers/home/recents_tab_selected"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/favs_tab_selected"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/faq_button_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/profile_button_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/scheduled_transfers_selected"(platform: "/", type: TrackType.Event) {}
 
       //Transfer Hub - Scheduled Transfers
@@ -139,7 +151,9 @@ trackTests {
 
       //Transfer Hub - Add Bank Account Form
       "/money_out/transfers/new_account_form"(platform: "/", type: TrackType.View) {}
+      "/money_out/transfers/new_account_form/recipient_account"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/new_account_form/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/new_account_form/recipient_account/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
 
       //Transfer Hub - Transfer Amount
       "/money_out/transfers/amount"(platform: "/", type: TrackType.View) {}
@@ -172,6 +186,7 @@ trackTests {
       }
       "/money_out/transfers/result/view_receipt_button_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/result/go_to_home_button_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/result/complete_bacen_information_button_clicked"(platform: "/", type: TrackType.Event) {}
       
       //Transfer Hub - Receipt
       "/money_out/transfers/receipt"(platform: "/", type: TrackType.View) {
@@ -195,6 +210,40 @@ trackTests {
       "/money_out/transfers/home/scheduled_warning_modal"(platform: "/", type: TrackType.View) {}
       "/money_out/transfers/home/scheduled_warning_modal/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
       "/money_out/transfers/home/scheduled_warning_modal/cancel_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+      //Transfer Hub - TED Campaign Modal
+      "/money_out/transfers/home/ted_campaign_modal"(platform:"/", type: TrackType.View){}
+      "/money_out/transfers/home/ted_campaign_modal/ted_button_clicked"(platform: "/", type: TrackType.Event) {}
+      "/money_out/transfers/home/ted_campaign_modal/withdraw_legacy_button_clicked"(platform: "/", type: TrackType.Event) {}
+      
+      //Transfer Hub - Coelsa Error
+      "/money_out/transfers/home/coelsa_error"(platform: "/", type: TrackType.View) {}
+      "/money_out/transfers/home/coelsa_error/continue_button_clicked"(platform: "/", type: TrackType.Event) {}
+
+      //Transfer Hub - Pix
+      "/money_out/transfers/pix_dashboard"(platform: "/", type: TrackType.View) {}
+      "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
+        type = "cpf"
+      }
+      "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
+        type = "cnpj"
+      }
+      "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
+        type = "email"
+      }
+      "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
+        type = "telefone"
+      }
+      "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
+        type = "chave_aleatoria"
+      }
+      "/money_out/transfers/pix_dashboard/type_selected"(platform: "/", type: TrackType.Event){
+        type = "datos_conta"
+      }
+
+      //Cashout - Modals
+      "/money_out/cashout/insufficient_amount_modal"(platform:"/", type: TrackType.View){}
+      "/money_out/cashout/insufficient_balance_modal"(platform:"/", type: TrackType.View){}
 
     }
 }
