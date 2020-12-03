@@ -224,10 +224,6 @@ tracks {
 
     "/home/backend/take_over"(platform: "/web", type: TrackType.Event) {}
 
-<<<<<<< HEAD
-    "/home/backend/top_sales_first_recommendations"(platform: "/mobile", type: TrackType.Event) {}
-=======
-
     "/home_com"(platform: "/", type: TrackType.View) {}
 
     "/home_com/site_click"(platform: "/", type: TrackType.Event) {
@@ -240,5 +236,4 @@ tracks {
 
     "/home/advertising/billboard"(platform: "/", type: TrackType.Event) {}
 
->>>>>>> upstream/master
 }

@@ -49,7 +49,7 @@ trackTests {
 
     test("Home core tracking") {
         "/home"(platform: "/mobile") {
-            mp_installed = true 
+            mp_installed = true
         }
 
         "/home/navigation_history"(platform: "/") {
@@ -196,24 +196,13 @@ trackTests {
         "/korriban"(platform: "/web/desktop", dataSet2)
     }
 
-    .test("Home Top Sales First Recommendations Component") {
-        def dataSet = {
-            component_count = 25
-            newbie = true
-            home_version = 'new'
-            is_logged = true
-        }
-        "/backend/home"(platform: "/web/mobile", dataSet)
-        "/home/backend/top_sales_first_recommendations"(platform: "/mobile") {}
-    }
-
     test("Supermarket home tracking") {
         "/home/supermarket"(platform: "/") {}
     }
 
     test("Home.com tracking") {
         "/home_com"(platform: "/", type: TrackType.View) {}
-        
+
         "/home_com/site_click"(platform: "/") {
             site_click = 'AR'
         }
