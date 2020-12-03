@@ -459,6 +459,10 @@ trackTests {
         "/cards/engagement/error"(platform: "/", type: TrackType.View) {
             screen = "dashboard"
         }
+        "/cards/engagement/decrypting/error" (platform: "/", type: TrackType.Event) {
+            error = "keyGenerationError"
+            from = "CEEncryptTextBrickPresenter"
+        }
     }
 
     // SETUP VIRTUAL

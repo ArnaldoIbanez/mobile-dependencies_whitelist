@@ -931,4 +931,13 @@ trackTests {
             id = "dashboard_physical"
         }
     }
+
+    //Contingency
+    test("Cards contingency tests"){
+        "/cards/mpcard/contingency/nip/physical"(platform: "/mobile", type: TrackType.View) {}
+
+        "/cards/mpcard/contingency/nip/physical/tap"(platform: "/mobile", type: TrackType.Event) {
+            action = "back_button"
+        }
+    }
 }
