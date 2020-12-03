@@ -479,6 +479,19 @@ trackTests {
         }
 
     }
+    est("Advertising Dynamic budget "){
+        "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
+            budget = 3990
+            campaign_id = 235666
+            suggested_budget: "seggested"
+            suggested_budget_pct: "seggested"
+            budget_type = "D"
+            selected_budget = "selected"
+            select_budget_pct = "selected"
+            selected_budget_type = "selected"
+        }
+    }
+
 
     test("Advertising buybox opportunity") {
         "/advertising/pads2/manager/card/buy_box_winner"(platform: "/web", type: TrackType.View) {
