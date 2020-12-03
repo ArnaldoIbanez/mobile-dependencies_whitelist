@@ -479,7 +479,7 @@ trackTests {
         }
 
     }
-    est("Advertising Dynamic budget "){
+    test("Advertising Dynamic budget "){
         "/advertising/pads2/manager/update/budget"(platform: "/", type: TrackType.Event) {
 
         }
@@ -488,7 +488,7 @@ trackTests {
             campaign_id = 235666
             suggested_budget: "seggested"
             suggested_budget_pct: "seggested"
-            budget_type = "D"
+            budget_type = "D" 
             selected_budget = "selected"
             select_budget_pct = "selected"
             selected_budget_type = "selected"
