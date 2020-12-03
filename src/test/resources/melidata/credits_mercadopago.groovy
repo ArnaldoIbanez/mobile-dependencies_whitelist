@@ -1010,25 +1010,25 @@ trackTests {
             flow = "fixed_term_loan_collect"
         }
 
-        "/credits/mp-hub/no-credit-line"(platform: "/", type: TrackType.View) {}
+        "/credits/mp-hub"(platform: "/", type: TrackType.View) {}
 
-        "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+        "/credits/mp-hub/access_click"(platform: "/", type: TrackType.Event) {
             flow = "consumer"
         }
 
-        "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+        "/credits/mp-hub/access_click"(platform: "/", type: TrackType.Event) {
             flow = "merchant"
         }
 
-        "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+        "/credits/mp-hub/stop"(platform: "/", type: TrackType.View) {
             flow = "merchant"
         }
 
-        "/credits/mp-hub/no-credit-line/stop/faqs_click"(platform: "/", type: TrackType.Event) {
+        "/credits/mp-hub/stop/faqs_click"(platform: "/", type: TrackType.Event) {
             flow = "merchant"
         }
 
-        "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+        "/credits/mp-hub/stop"(platform: "/", type: TrackType.View) {
             flow = "generic"
         }
 
