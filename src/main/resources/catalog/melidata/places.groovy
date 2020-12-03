@@ -22,7 +22,6 @@ tracks {
         invalid_data(required: false, type: PropertyType.String,
                 description: "Specifies the value sent that caused a validation error.")
         camera_error(required: true, type: PropertyType.String,
-                values: ["not_allowed", "blocked"],
                 description: "Specifies what kind of camera error happened.")
         code_type(required: true, type: PropertyType.String,
                 values: ["QR", "Datamatrix", "Barcode", "Unknown"],
