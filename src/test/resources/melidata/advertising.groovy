@@ -1050,9 +1050,9 @@ trackTests {
             budget_previous = 4000
             budget_new = 5600
             budget_type = "D"
-            selected_budget = ""
-            select_budget_pct = ""
-            selected_budget_type = ""
+            selected_budget = 2500
+            select_budget_pct = "18.8"
+            selected_budget_type = "D"
         }
 
         "/advertising/pads2/manager/update/budget/close"(platform: "/web", type: TrackType.Event) {
