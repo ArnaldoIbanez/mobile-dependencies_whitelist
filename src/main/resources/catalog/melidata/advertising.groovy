@@ -849,6 +849,10 @@ tracks {
         multi(required: true, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
         campaign_id(required: true, description: "Id related to the campaign")
         budget(required: true, type: PropertyType.String, description: "Budget related to the campaign")
+        budget_type(required: true, description: "budget type",values: ['D', 'F'])
+        selected_budget(required: true, description: "selected budget")
+        select_budget_pct(required: true, description: "select budget pct")
+        selected_budget_type(required: true, description: "selected budget type")
     }
 
     // Multicampaña - Sads New

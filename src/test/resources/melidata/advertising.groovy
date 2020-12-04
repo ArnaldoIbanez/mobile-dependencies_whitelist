@@ -1055,6 +1055,10 @@ trackTests {
             multi = true
             campaign_id = "2222222"
             budget = "4000"
+            budget_type = "D"
+            selected_budget = ""
+            select_budget_pct = ""
+            selected_budget_type = ""
         }
 
         "/advertising/pads2/manager/massive_actions"(platform: "/web", type: TrackType.Event) {
