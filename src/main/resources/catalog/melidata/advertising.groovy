@@ -331,7 +331,7 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
         budget_type(required: true, description: "budget type",values: ['D', 'F'])
     }
-    /advertising/pads2/manager/budget/tooltip/edit_new(platform: "/", type: TrackType.Event) {
+    /advertising/pads2/manager/budget/tooltip/edit_new(platform: "/", type: TrackType.Event, isAbstract: true ,) {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
     }
