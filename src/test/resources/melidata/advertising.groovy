@@ -485,10 +485,10 @@ trackTests {
         "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
             budget = 3990
             campaign_id = 235666
-            budget_type = "D" 
-            selected_budget = ""
-            select_budget_pct = ""
-            selected_budget_type = ""
+            budget_type = "D"
+            selected_budget = 2500
+            select_budget_pct = "18.8"
+            selected_budget_type = "D"
         }
     }
     test("Advertising Dynamic budget ") {
