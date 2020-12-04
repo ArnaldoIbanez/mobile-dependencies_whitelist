@@ -316,10 +316,10 @@ tracks {
     "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
-        budget_type(required: true, description: "budget type",values: ['D', 'F'])
-        selected_budget(required: true, description: "selected budget")
-        select_budget_pct(required: true, description: "select budget pct")
-        selected_budget_type(required: true, description: "selected budget type")
+        budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
+        selected_budget(required: true, description: "selected budget campaign Modal campaign")
+        select_budget_pct(required: true, description: "select budget pct Modal campaign")
+        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign")
 
     }
     "/advertising/pads2/manager/budget/edit_pencil"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
@@ -329,7 +329,7 @@ tracks {
     "/advertising/pads2/manager/budget/tooltip"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
-        budget_type(required: true, description: "budget type",values: ['D', 'F'])
+        budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
     }
     "/advertising/pads2/manager/budget/tooltip/edit_new"(platform: "/", type: TrackType.Event, parentPropertiesInherited: false) {
         budget(required: true, description: "current budget related to the campaign")
@@ -843,21 +843,20 @@ tracks {
         campaign_id(required: true, description: "Id related to the campaign")
         budget_previous(required: true, description: "Previous budget related to the campaign")
         budget_new(required: true, type: PropertyType.Numeric, description: "New budget related to the campaign.")
-        budget(required: false, description: "New budget related to the campaign.")
-        budget_type(required: true, description: "budget type",values: ['D', 'F'])
-        selected_budget(required: true, description: "selected budget")
-        select_budget_pct(required: true, description: "select budget pct")
-        selected_budget_type(required: true, description: "selected budget type")
-    }
+        budget(required: false, description: "Current budget related to the campaign")
+        budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
+        selected_budget(required: true, description: "selected budget campaign Modal campaign")
+        select_budget_pct(required: true, description: "select budget pct Modal campaign")
+        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign")
 
     "/advertising/pads2/manager/update/budget/close"(platform: "/web", type: TrackType.Event) {
         multi(required: true, type: PropertyType.Boolean, description: "Indicates if it is a multicampaign dashboard")
         campaign_id(required: true, description: "Id related to the campaign")
-        budget(required: true, description: "Budget related to the campaign")
-        budget_type(required: true, description: "budget type",values: ['D', 'F'])
-        selected_budget(required: true, description: "selected budget")
-        select_budget_pct(required: true, description: "select budget pct")
-        selected_budget_type(required: true, description: "selected budget type")
+        budget(required: true, description: "Current budget related to the campaign")
+        budget_type(required: true, description: "Budget type related to the Modal campaign",values: ['D', 'F'])
+        selected_budget(required: true, description: "selected budget campaign Modal campaign")
+        select_budget_pct(required: true, description: "select budget pct Modal campaign")
+        selected_budget_type(required: true, description: "selected budget type  F  or  D Modal campaign")
     }
 
     // Multicampaña - Sads New
