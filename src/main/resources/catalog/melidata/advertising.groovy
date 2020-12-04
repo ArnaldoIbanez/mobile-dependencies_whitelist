@@ -316,6 +316,8 @@ tracks {
     "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
         budget(required: true, description: "current budget related to the campaign")
         campaign_id(required: true, description: "Id related to the campaign")
+        suggested_budget(required: true, description: "suggested budget")
+        suggested_budget_pct(required: true, description: "suggested budget pct")
         budget_type(required: true, description: "budget type",values: ['D', 'F'])
         selected_budget(required: true, description: "selected budget")
         select_budget_pct(required: true, description: "select budget pct")
