@@ -9,12 +9,13 @@ tracks {
 
     "/liveness"(platform: "/mobile", isAbstract: true) {
         transaction_id(type: PropertyType.String, required: false, description: "Transaction id for user identifier")
+        transaction_user_id(type: PropertyType.Numeric, required: false, description: "Indicates the user of the actual transaction")
     }
 
     "/liveness"(platform: "/web", isAbstract: true) {
         transaction_id(type: PropertyType.String, required: true, description: "Transaction id for user identifier")
+        transaction_user_id(type: PropertyType.Numeric, required: true, description: "Indicates the user of the actual transaction")
     }
-
 
     "/liveness/enrollment"(platform: "/", type: TrackType.Event) {
         params(type: PropertyType.String, required: true, description: "Params with which the flow was invoked")
@@ -34,6 +35,7 @@ tracks {
         time(type: PropertyType.Numeric, required: true, description: "Time to complete challenge")
         challenge_result(type: PropertyType.Numeric, required: true, description: "Result of client validation")
         challenge_result_description(type: PropertyType.String, required: true, description: "Description of validation")
+        is_low_light_mode_active(type: PropertyType.Boolean, required: false, description: "Status type of customization")
     }
 
     "/liveness/result"(platform: "/", type: TrackType.Event) {

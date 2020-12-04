@@ -11,6 +11,7 @@ trackTests {
         "/liveness/enrollment"(platform: "/mobile/android") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/authentication"(platform: "/mobile/android") {
@@ -22,12 +23,14 @@ trackTests {
             initialization_status = 0
             initialization_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/challenge"(platform: "/mobile/android") {
             time = 1241
             challenge_result = 0
             challenge_result_description = "test"
+            is_low_light_mode_active = false
         }
 
         "/liveness/result"(platform: "/mobile/android") {
@@ -35,6 +38,7 @@ trackTests {
             upload_time = 1413
             liveness_result = 0 
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/redirect"(platform: "/mobile/android") {
@@ -76,6 +80,7 @@ trackTests {
             initialization_status = 0
             initialization_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/challenge"(platform: "/mobile/ios") {
@@ -97,6 +102,7 @@ trackTests {
         "/liveness/bussines_error"(platform: "/mobile/ios") {
             error_message = "error 200"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/generic_error"(platform: "/mobile/ios") {
@@ -119,11 +125,13 @@ trackTests {
         "/liveness/enrollment"(platform: "/web") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/authentication"(platform: "/web") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/initialization"(platform: "/web") {
@@ -131,6 +139,7 @@ trackTests {
             initialization_status = 0
             initialization_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/challenge"(platform: "/web") {
@@ -138,6 +147,8 @@ trackTests {
             challenge_result = 0
             challenge_result_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
+            is_low_light_mode_active = true
         }
 
         "/liveness/result"(platform: "/web") {
@@ -145,39 +156,47 @@ trackTests {
             upload_time = 1413
             liveness_result = 0 
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/redirect"(platform: "/web") {
             url = "www.mercadolibre.com"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/bussines_error"(platform: "/web") {
             error_message = "error 200"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/generic_error"(platform: "/web") {
             error_type = "test"
             error_cause = "true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/action"(platform: "/web") {
             type = "close"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/landing"(platform: "/web") {
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/fallback"(platform: "/web") {
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/unsupported"(platform: "/web") {
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
     }
 
@@ -314,11 +333,13 @@ trackTests {
         "/liveness/enrollment"(platform: "/web") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/authentication"(platform: "/web") {
             params = "test=true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/initialization"(platform: "/web") {
@@ -326,6 +347,7 @@ trackTests {
             initialization_status = 0
             initialization_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/challenge"(platform: "/web") {
@@ -333,6 +355,7 @@ trackTests {
             challenge_result = 0
             challenge_result_description = "test"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/result"(platform: "/web") {
@@ -340,49 +363,59 @@ trackTests {
             upload_time = 1413
             liveness_result = 0 
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/redirect"(platform: "/web") {
             url = "www.mercadopago.com"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/bussines_error"(platform: "/web") {
             error_message = "error 200"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/generic_error"(platform: "/web") {
             error_type = "test"
             error_cause = "true"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/action"(platform: "/web") {
             type = "close"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/action"(platform: "/web") {
             type = "back"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/action"(platform: "/web") {
             type = "start_liveness"
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/landing"(platform: "/web") {
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/fallback"(platform: "/web") {
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
 
         "/liveness/unsupported"(platform: "/web") {
             transaction_id = "fdsf21341fdsf13123"
+            transaction_user_id = 124123123
         }
     }
 }
