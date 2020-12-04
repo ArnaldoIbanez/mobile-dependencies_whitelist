@@ -10,17 +10,23 @@ tracks {
 
     initiative = "1171"
 
+    def discoverys = objectSchemaDefinitions {
+        audience(type: PropertyType.String, required: true)
+        bu(type: PropertyType.String, required: true)
+        bu_line(type: PropertyType.String, required: true)
+        component_id(type: PropertyType.String, required: true)
+        content_id(type: PropertyType.String, required: true)
+        flow(type: PropertyType.String, required: true)
+        logic(type: PropertyType.String, required: true)
+        position(type: PropertyType.String, required: true)
+    }
+
+    def realestate = objectSchemaDefinitions {
+        discovery(required: true, type: PropertyType.ArrayList(PropertyType.Map(discoverys)))
+    }
+
     "/home"(platform: "/web") {
-        realestates(required: false, type: PropertyType.ArrayList)
-        //discovery
-            //audience
-            //bu
-            //bu_line
-            //component_id
-            //content_id
-            //flow
-            //logic
-            //position
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
     }
 
     "/home"(platform: "/mobile") {
@@ -32,6 +38,7 @@ tracks {
         should_hide_onboarding_close(required: false, type: PropertyType.Boolean)
         should_hide_onboarding_close_date(required: false, type: PropertyType.String)
         mp_installed(required: false, type: PropertyType.Boolean)
+        realestates(required: false, type: PropertyType.ArrayList(PropertyType.Map(realestate)))
     }
 
     "/home/failure"(platform: "/mobile", type: TrackType.Event) {
