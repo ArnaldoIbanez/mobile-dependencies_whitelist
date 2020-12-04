@@ -188,6 +188,18 @@ tracks {
         buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
     }
 
+    "/insurtech/roda/qpage/congrats_subscription"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        preference_id(required: true, type: PropertyType.String, description: "Subscription payment preference id")
+        payment_id(required: true, type: PropertyType.Numeric,  description: "Subscription payment id")
+        status(required: true, type: PropertyType.String, values: ['success', 'failure', 'pending'], description:"Subscription payment status")
+    }
+
+     "/insurtech/roda/qpage/congrats_subscription/go_to_protection"(platform:"/", type: TrackType.Event) {
+        preference_id(required: true, type: PropertyType.String, description: "Subscription payment preference id")
+        payment_id(required: true, type: PropertyType.Numeric,  description: "Subscription payment id")
+        status(required: true, type: PropertyType.String, values: ['success', 'failure', 'pending'], description:"Subscription payment status")
+    }
+
     // INSURTECH RODA Hardware Check
 
     "/insurtech/hardware_check"(platform: "/", isAbstract: true) {}
