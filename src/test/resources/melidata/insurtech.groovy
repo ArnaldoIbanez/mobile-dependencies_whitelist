@@ -314,6 +314,7 @@ trackTests {
             entity_id = "MLB789078907890"
             item_id = "MLB123124"
             buying_mode = 'buy_it_now'
+            discount_code = 'CODE TEST'
         }
 
         "/insurtech/roda/qpage/error"(platform:"/mobile", type: TrackType.View) {
@@ -438,6 +439,47 @@ trackTests {
             entity_id = "MLB789078907890"
             item_id = "MLB123124"
             buying_mode = 'buy_it_now'
+            discount_code = 'CODE TEST'
+        }
+         "/insurtech/roda/qpage/deductible"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            order_device = [
+                brand: "Sony",
+                model: "Xperia",
+                model_code: "Xa1",
+                size: "32GB",
+            ]
+            entity_type = "order"
+            entity_id = "MLB789078907890"
+            item_id = "MLB123124"
+            buying_mode = 'buy_it_now'
+        }
+
+        "/insurtech/roda/qpage/faq"(platform:"/mobile", type: TrackType.View) {
+            client_device = [
+                brand: "Samsung",
+                model: "J7",
+                model_code: "SM-J700M",
+                size: "64GB",
+            ]
+            order_device = [
+                brand: "Sony",
+                model: "Xperia",
+                model_code: "Xa1",
+                size: "32GB",
+                device_code: "diw387_1u1",
+            ]
+            entity_type = "order"
+            entity_id = "789078907890"
+            item_id = "MLB123124"
+            faq = "protection-cancel"
+            buying_mode = 'buy_it_now'
+            discount_code = 'CODE TEST'
         }
 
         "/insurtech/roda/qpage/faq"(platform:"/mobile", type: TrackType.View) {
@@ -495,6 +537,7 @@ trackTests {
             item_id = "MLB123124"
             hardware_check = false
             buying_mode = 'buy_it_now'
+            discount_code = 'CODE TEST'
         }
 
         "/insurtech/roda/qpage/buy"(platform:"/mobile", type: TrackType.View) {
@@ -566,6 +609,7 @@ trackTests {
             entity_id = "789078907890"
             item_id = "MLB123124"
             buying_mode = 'subscription'
+            discount_code = 'CODE TEST'
         }
 
        "/insurtech/roda/qpage/quoting_fallback/default/quotable/select"(platform:"/", type: TrackType.Event) {
