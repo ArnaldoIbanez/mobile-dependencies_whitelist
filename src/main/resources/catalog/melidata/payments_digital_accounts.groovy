@@ -55,7 +55,7 @@ tracks {
 
     // MP Balance - Merch Engine Events Credits
 
-    "/banking/balance/credits"(platform: "/" , isAbstract: true) {}
+    "/banking/balance/credits"(platform: "/" , , isAbstract: true) {}
     "/banking/balance/credits/print"(platform: "/", type: TrackType.Event) { eventDataTrack }
     "/banking/balance/credits/tap"(platform: "/", type: TrackType.Event) { actionEventDataTrack }
 }
