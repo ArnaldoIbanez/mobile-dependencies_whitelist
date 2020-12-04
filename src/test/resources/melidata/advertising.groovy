@@ -485,9 +485,7 @@ trackTests {
         "/advertising/pads2/manager/update/budget/tooltip"(platform: "/", type: TrackType.Event) {
             budget = 3990
             campaign_id = 235666
-            suggested_budget =  ""
-            suggested_budget_pct= ""
-            budget_type = "D" 
+            budget_type = "D"
             selected_budget = ""
             select_budget_pct = ""
             selected_budget_type = ""
@@ -746,6 +744,11 @@ trackTests {
         budget = "4000"
         budget_new = "5600"
         status = "active"
+        budget_type = "D"
+        selected_budget = ""
+        select_budget_pct = ""
+        selected_budget_type = ""
+
         }
 
         "/advertising/pads2/hub/metrics_range"(platform: "/web", type: TrackType.Event) {
