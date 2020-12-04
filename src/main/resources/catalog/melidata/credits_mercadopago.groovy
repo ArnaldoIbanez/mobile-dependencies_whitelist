@@ -383,25 +383,36 @@ tracks {
             required: true,
             description: "Flow which the user is being redirected",
             values: [
-                'merchant_administrator',
-                'express_money_enrollment',
-                'personal_loan_adoption_ml',
-                'personal_loan_adoption_mp',
-                'personal_loan_collection',
-                'merchant_enrollment',
+                'fixed_term_loan_collect', 
+                'sales_percentage_loan_collect', 
+                'express_money_collect', 
+                'personal_loan_collect', 
+                'consumer_loan_collect', 
+                'fixed_term_loan_prior_to_collect', 
+                'sales_percentage_loan_prior_to_collect', 
+                'express_money_prior_to_collect', 
+                'personal_loan_prior_to_collect', 
+                'consumer_loan_prior_to_collect', 
+                'fixed_term_loan_adoption', 
+                'sales_percentage_loan_adoption', 
+                'express_money_adoption', 
+                'personal_loan_adoption', 
+                'express_money_on_time', 
+                'fixed_term_loan_on_time', 
+                'sales_percentage_loan_on_time', 
+                'personal_loan_on_time', 
+                'consumer_loan_on_time', 
+                'sales_percentage_loan_finished', 
+                'fixed_term_loan_finished', 
+                'express_money_finished', 
+                'personal_loan_finished', 
+                'consumer_loan_finished', 
                 'consumer_loan_adoption',
-                'consumer_loan_collection',
-                'consumer_native_admin_mp',
-                'open_sea_mp',
-                'app_store_mp',
-                'app_store_ml',
             ]
         )
     }
 
-    "/credits/mp-hub/no-credit-line"(platform: "/", type: TrackType.View) {}
-
-    "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+    "/credits/mp-hub/access_click"(platform: "/", type: TrackType.Event) {
         flow(
             type: PropertyType.String,
             required: true,
@@ -413,7 +424,7 @@ tracks {
         )
     }
 
-    "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+    "/credits/mp-hub/stop"(platform: "/", type: TrackType.View) {
         flow(
             type: PropertyType.String,
             required: true,
@@ -425,7 +436,7 @@ tracks {
         )
     }
 
-    "/credits/mp-hub/no-credit-line/stop/faqs_click"(platform: "/", type: TrackType.Event) {
+    "/credits/mp-hub/stop/faqs_click"(platform: "/", type: TrackType.Event) {
         flow(
             type: PropertyType.String,
             required: true,
