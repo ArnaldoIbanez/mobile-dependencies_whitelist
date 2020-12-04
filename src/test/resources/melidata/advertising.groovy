@@ -501,6 +501,10 @@ trackTests {
             campaign_id = 235666
             budget_type = "D"
         }
+        "/advertising/pads2/manager/budget/tooltip/edit_new"(platform: "/", type: TrackType.Event) {
+            budget = 3990
+            campaign_id = 235666
+        }
     }
     test("Advertising buybox opportunity") {
         "/advertising/pads2/manager/card/buy_box_winner"(platform: "/web", type: TrackType.View) {
