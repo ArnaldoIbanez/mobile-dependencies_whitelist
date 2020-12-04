@@ -265,6 +265,7 @@ trackTests {
                         "7899403636915",
                         "7893299910425"
                     ],
+                    discount_rate: 10,
                 ],
                 [
                     coverage: "theft_break",
@@ -274,6 +275,7 @@ trackTests {
                         "7899403636915",
                         "7893299910425"
                     ],
+                    discount_rate: 0,
                 ]
             ]
             entity_type = "order"
@@ -304,7 +306,8 @@ trackTests {
                     gtin:[
                         "7899403636915",
                         "7893299910425"
-                    ]
+                    ],
+                    discount_rate: 0,
                 ],
             ]
             entity_type = "order"
@@ -485,6 +488,7 @@ trackTests {
                     "7899403636915",
                     "7893299910425"
                 ],
+                discount_rate: 30,
             ]
             entity_type = "order"
             entity_id = "789078907890"
@@ -513,6 +517,7 @@ trackTests {
                     "7899403636915",
                     "7893299910425"
                 ],
+                discount_rate: 0,
             ]
             order_device = [
                 brand: "Sony",
@@ -555,6 +560,7 @@ trackTests {
                     "7899403636915",
                     "7893299910425"
                 ],
+                discount_rate: 20,
             ]
             entity_type = "order"
             entity_id = "789078907890"

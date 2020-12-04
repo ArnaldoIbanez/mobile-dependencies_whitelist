@@ -27,13 +27,15 @@ tracks {
         deductible_amount(required: true, type: PropertyType.Numeric, description: "Deductible amount of the option.")
         check(required: true, type: PropertyType.String, description: "Check HW required. For ex: total.")
         gtin(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "GLobal Trade Item Numer")
+        discount_rate(required: true, type: PropertyType.Numeric, description: "Discount rate applied to the option. If 0 then, no discount.")
     }
 
     def roda_option_short = objectSchemaDefinitions {
         coverage(required: true, type: PropertyType.String, description: "Coverage of the option. For ex: theft_break, theft, break, accident.")
         price(required: true, type: PropertyType.Numeric, description: "Price of the option.")
         deductible_amount(required: true, type: PropertyType.Numeric, description: "Deductible amount of the option.")
-        gtin(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "GLobal Trade Item Numer")
+        gtin(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Global Trade Item Numer")
+        discount_rate(required: true, type: PropertyType.Numeric, description: "Discount rate applied to the option. If 0 then, no discount.")
     }
 
     def protection_short = objectSchemaDefinitions {
