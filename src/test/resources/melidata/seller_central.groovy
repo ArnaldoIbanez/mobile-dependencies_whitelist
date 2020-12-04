@@ -3387,4 +3387,41 @@ trackTests {
       platform = "pi"
     }
   }
+
+
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+  // TRACKS Seller Central Optinator New Listing
+  //------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  test("Seller Central - Optinator - New Listing - Optined item") {
+    "/seller_central/optinator/new_listing/end"(platform: "/web", type: TrackType.Event) {
+      flow = "new_listing"
+      domain_id = "MLA-CELLPHONES"
+      item_mk_id = "MLA899085795"
+      item_mk_status = "active"
+      item_mk_sub_status = []
+      item_mk_tags = ["test_item", "immediate_payment", "cart_eligible"]
+      processing_data = [
+              item_cat_id: "MLA899086757",
+              catalog_product_id: "MLA15149561",
+              match_type: "SELLER",
+              safe_match: true,
+              status: "success",
+              is_already_optined: false
+      ]
+      variations = [
+              [
+                      id: "67914990318",
+                      processing_data: [
+                              item_cat_id: "MLA896825803",
+                              catalog_product_id: "MLA10205674",
+                              match_type: "SELLER",
+                              safe_match: true,
+                              status: "success",
+                              is_already_optined: false
+                      ]
+              ]
+      ]
+    }
+  }
 }
