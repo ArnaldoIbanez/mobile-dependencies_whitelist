@@ -238,6 +238,102 @@ trackTests {
         }
     }
 
+    defaultBusiness = "mercadolibre"
+
+    test('Insurtech - test qpage_on tacking on checkout') {
+
+        //Mobile
+        "/insurtech/qpage_on/skeleton"(platform:"/mobile", type: TrackType.View) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+        }
+        "/insurtech/qpage_on/skeleton/back"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+        }
+
+        "/insurtech/qpage_on"(platform:"/mobile", type: TrackType.View) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+        }
+
+        "/insurtech/qpage_on/slide"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+            option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
+            period = 12
+            cost = 270
+            original_cost = 300
+            discount_rate = 10
+            revenue_share_fee = 30
+            revenue = 78
+            currency_id = "BR"
+        }
+
+        "/insurtech/qpage_on/faq"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+        }
+
+        "/insurtech/qpage_on/selected"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+            option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
+            period = 12
+            cost = 270
+            original_cost = 300
+            discount_rate = 10
+            revenue_share_fee = 30
+            revenue = 78
+            currency_id = "BR"
+        }
+
+        "/insurtech/qpage_on/not_selected"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+        }
+
+        "/insurtech/qpage_on/quote_creation_error"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+            option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
+            period = 12
+            cost = 270
+            original_cost = 300
+            discount_rate = 10
+            revenue_share_fee = 30
+            revenue = 78
+            currency_id = "BR"
+        }
+
+        "/insurtech/qpage_on/quote_creation_success"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+            quote_id = "343cae11-d2ef-4115-b284-96c7e69fb1d8"
+        }
+
+        "/insurtech/qpage_on/back"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+        }
+
+
+        "/insurtech/qpage_on/error"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+            error_type = "timeout"
+        }
+
+        "/garex/checkout/delete"(platform:"/mobile", type: TrackType.Event) {
+            session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
+            flow_id = "RODA"
+            option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
+            quote_id = "343cae11-d2ef-4115-b284-96c7e69fb1d8"
+            cost = 270
+            currency_id = "BR"
+        }
+    }
+
+
+
     defaultBusiness = "mercadopago"
 
     test('Insurtech - test roda tacking') {
