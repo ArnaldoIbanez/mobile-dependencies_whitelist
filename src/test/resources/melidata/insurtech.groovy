@@ -322,7 +322,7 @@ trackTests {
             error_type = "timeout"
         }
 
-        "/garex/checkout/delete"(platform:"/mobile", type: TrackType.Event) {
+        "/insurtech/qpage_on/delete"(platform:"/mobile", type: TrackType.Event) {
             session_id = "F5KDDRSA-ARR3-8C0C-4585-455AGAFCEADE"
             flow_id = "RODA"
             option_id = "mlb-9a85a2f9-116b-4a10-8ac4-979c4e1fae4a-option_middle_high"
