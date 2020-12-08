@@ -39,67 +39,66 @@ trackTests {
         }
     }
 
-    // DETAIL
-
-    test("Mercado Pago discount center payers detail") {
-        "/discount_center/payers/detail" (platform: "/mobile", type: TrackType.View) {
-            title = "Angus"
-            enabled = true
-            availability = "full"
-            level = 1
-            blocked = false
-            amount = 20.0
-            amount_type = "percent"
-            status = "active"
-            stores_id = [
-                    30091700
+    test("Mercado Pago discount center payers vsp tap") {
+        "/discount_center/payers/vsp/components/tap" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                actionable_info: [
+                        marketplace_type: "actionable_info",
+                        segment_id: "delivery_whatsapp",
+                        marketplace_index: 0,
+                        items: [
+                            [
+                                index: 0,
+                                tracking_id: "delivery_whatsapp",
+                                store_id: 1235123,
+                                collector_id: 1231415,
+                            ]
+                        ]
+                ]
             ]
-            has_logo = false
-            coupon_used = true
-            sections= [
-                    [
-                        id: "header",
-                        type: "header",
-                        position: 0
-                    ]
-            ]
-            tracking_id= "1004194"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-            referer_origin= "12341234"
-            category="Restaurant"
-            collector_id="1234"
-            store_id="1234"
         }
     }
 
-    test("Mercado Pago discount center payers detail tap") {
-        "/discount_center/payers/detail/tap" (platform: "/mobile", type: TrackType.Event) {
-            title = "Angus"
-            enabled = true
-            availability = "full"
-            level = 1
-            blocked = false
-            amount = 20.0
-            amount_type = "percent"
-            status = "active"
-            stores_id = [
-                    30091700
+    test("Mercado Pago discount center payers vsp print") {
+        "/discount_center/payers/vsp/components/print" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                actionable_info: [
+                        marketplace_type: "actionable_info",
+                        segment_id: "delivery_whatsapp",
+                        marketplace_index: 0,
+                        items: [
+                            [
+                                index: 0,
+                                tracking_id: "delivery_whatsapp",
+                                store_id: 1235123,
+                                collector_id: 1231415,
+                            ]
+                        ]
+                ]
             ]
-            has_logo = false
-            coupon_used = true
-            sections= [
-                    [
-                            id: "header",
-                            type: "header",
-                            position: 0
-                    ]
-            ]
-            tracking_id= "1004194"
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-            referer_origin= "12341234"
-            category="Restaurant"
-            collector_id="1234"
-            store_id="1234"
+        }
+    }
+
+    test("Mercado Pago discount center payers vsp show") {
+        "/discount_center/payers/vsp/components/show" (platform: "/mobile", type: TrackType.Event) {
+            components = [
+                actionable_info: [
+                        marketplace_type: "actionable_info",
+                        segment_id: "delivery_whatsapp",
+                        marketplace_index: 0,
+                        items: [
+                            [
+                                index: 0,
+                                tracking_id: "delivery_whatsapp",
+                                store_id: 1235123,
+                                collector_id: 1231415,
+                            ]
+                        ]
+                ]
+            ]
+            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
 
@@ -195,12 +194,6 @@ trackTests {
 
     test("Mercado Pago discount center payers marketplace") {
         "/discount_center/payers/marketplace" (platform: "/mobile", type: TrackType.View) {
-            session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
-        }
-    }
-
-    test("Mercado Pago discount center payers marketplace components") {
-        "/discount_center/payers/marketplace/components" (platform: "/mobile", type: TrackType.View) {
             session_id= "27131d31-6910-4855-85fe-70ad2d97f7ed"
         }
     }
