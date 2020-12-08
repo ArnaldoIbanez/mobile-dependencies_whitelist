@@ -25,6 +25,9 @@ tracks {
     "/wallet/cards/activation_modal/activate_card"(platform: "/", type: TrackType.Event) {} 
     "/wallet/cards/activation_modal/not_receive_card"(platform: "/", type: TrackType.Event) {} 
 
+	"/cards"(platform: "/", isAbstract: true) { }
+	"/cards/prepaid-detail"(platform: "/", isAbstract: true) { }
+    "/cards/prepaid-detail/click-ask-for-card"(platform: "/", isAbstract: true) { }
 
     "/prepaid"(platform: "/", isAbstract: true) {
         user_profile(
@@ -159,6 +162,20 @@ tracks {
     "/prepaid/challenge/delivery"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/challenge/money_in"(platform: "/mobile", isAbstract: true) {}
     "/prepaid/challenge/money_in/onboarding"(platform: "/mobile", type: TrackType.View) {}
+    "/prepaid/challenge/money_in/onboarding/slide"(platform: "/mobile", isAbstract: true) {}
+    "/prepaid/challenge/money_in/onboarding/slide/exit"(platform: "/mobile", type: TrackType.Event) {
+        slide(
+                required: true,
+                type: PropertyType.Numeric,
+                description: "Slide number where ocurre the event"
+        )
+        cause(
+                required: true,
+                type: PropertyType.String,
+                values: ["close", "back"],
+                description: "The quit reason"
+        )
+    }
     "/prepaid/challenge/onboarding"(platform: "/mobile", type: TrackType.View) {}
     "/prepaid/challenge/onboarding/slide"(platform: "/mobile", isAbstract: true) {}
     "/prepaid/challenge/onboarding/slide/first"(platform: "/mobile", type: TrackType.View) {}
@@ -333,4 +350,25 @@ tracks {
         deeplink (required:true, type: PropertyType.String, description: "Screen pushed by the action")
     }
     "/prepaid/acquisition/adapt_kyc/congrats/error"(platform: "/", type: TrackType.Event) {}
+
+    //Prepaid click ask for card
+    "/cards/prepaid-detail/click-ask-for-card" (platform: "/web", type: TrackType.Event) {
+         osName (
+            required: false,
+            type: PropertyType.String,
+            description: "Device type click ask for card"
+        )
+    }
+
+    //Prepaid regret flow
+    "/prepaid/regret" (platform: "/", type: TrackType.View) {}
+    "/prepaid/regret/tap" (platform: "/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["cancel_card","back"],
+            description: "user regrets having the prepaid"
+            )
+    }
+
 }

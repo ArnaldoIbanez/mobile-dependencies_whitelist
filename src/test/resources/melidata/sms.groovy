@@ -14,6 +14,7 @@ trackTests {
             segment_name="default"
             experiment_name="exp1"
             communication_data = "Test"
+            event_type = "sent"
         }
 
         "/sms/generic"(platform: "/") {

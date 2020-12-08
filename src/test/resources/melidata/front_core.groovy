@@ -444,6 +444,10 @@ trackTests {
                     ordinal: 15,
                     content_type : 'complete'
             ]
+            repentance_button= [
+                    ordinal: 16,
+                    content_type : 'complete'
+            ]
             metadata = [
                 accessibility_voice: false
             ]
@@ -618,6 +622,10 @@ trackTests {
                     ordinal: 15,
                     content_type : 'complete'
             ]
+            repentance_button= [
+                    ordinal: 16,
+                    content_type : 'complete'
+            ]
             metadata = [
                 accessibility_voice: true
             ]
@@ -661,6 +669,9 @@ trackTests {
         "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
             loyalty = [
                     level: 9
+            ]
+            metadata_user = [
+                type: "newbie"
             ]
         }
     }
@@ -740,6 +751,7 @@ trackTests {
             link = "mercadopago://loyalty"
             section_id="subscription"
             component_id="cta"
+            level=4
         }
     }
 
@@ -748,6 +760,14 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="survey"
             component_id="user_survey"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Repentance button") {
+        "/wallet_home/section/tap/repentance_button" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="repentance_button"
+            component_id="repentance_button"
         }
     }
 
@@ -770,7 +790,7 @@ trackTests {
             bu_line="10"
             flow="1"
             logic="default"
-            user_profile="seller"
+            user_profile="newbie"
         }
     }
 
@@ -1297,6 +1317,10 @@ trackTests {
                     level: 3,
                     partner: "HBO"
             ]
+            repentance_button= [
+                    ordinal: 15,
+                    content_type : 'complete'
+            ]
             metadata = [
                 accessibility_voice: false
             ]
@@ -1468,6 +1492,10 @@ trackTests {
                     level: 3,
                     partner: "HBO"
             ]
+            repentance_button= [
+                    ordinal: 15,
+                    content_type : 'complete'
+            ]
             metadata = [
                 accessibility_voice: true
             ]
@@ -1511,6 +1539,9 @@ trackTests {
         "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
             loyalty = [
                     level: 9
+            ]
+            metadata_user = [
+                type: "seller"
             ]
         }
     }
@@ -1598,6 +1629,14 @@ trackTests {
             link = "mercadopago://instore/scan_qr"
             section_id="survey"
             component_id="user_survey"
+        }
+    }
+
+    test("Mercadopago Home Tap v3 - Survey") {
+        "/wallet_home/section/tap/repentance_button" (platform: "/mobile", type: TrackType.Event) {
+            link = "mercadopago://instore/scan_qr"
+            section_id="repentance_button"
+            component_id="repentance_button"
         }
     }
 

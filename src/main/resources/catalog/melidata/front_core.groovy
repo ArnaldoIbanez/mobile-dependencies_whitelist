@@ -124,6 +124,11 @@ tracks {
         content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'])
     }
 
+    def repentance_button_definition = objectSchemaDefinitions {
+        ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
+        content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'])
+    }
+
     def qr_map_definition = objectSchemaDefinitions {
         content_type( type: PropertyType.String, required: true, values: ['partial','default','complete'] )
         ordinal(type: PropertyType.Numeric, required: true, description: "The identification of shown content")
@@ -167,7 +172,7 @@ tracks {
     }
 
     def metadata_user_definition = objectSchemaDefinitions {
-        type(type: PropertyType.String, required: true, values: ['payer', 'seller', 'undefined'], description: "The user's type seller or payer")
+        type(type: PropertyType.String, required: true, values: ['payer', 'seller', 'newbie'], description: "The user profile")
     }
 
     def loyalty_section_definition = objectSchemaDefinitions {
@@ -196,7 +201,7 @@ tracks {
 
     def header_definition = objectSchemaDefinitions {
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty current info")
-        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user's type seller or payer")
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
 
     def metadata_definition = objectSchemaDefinitions {
@@ -377,6 +382,7 @@ tracks {
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
+        repentance_button(required: false, type: PropertyType.Map(repentance_button_definition), description: "The repentance button definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         ifpe_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         metadata(required: false, type: PropertyType.Map(metadata_definition), description: "this tracking section will contain multiple information about the user metadata(location, accessibility, info, etc)")
@@ -400,6 +406,7 @@ tracks {
         activities_link(required: false, type: PropertyType.Map(activities_link_definition), description: "The activities_link section information")
         discount_center(required: false, type: PropertyType.Map(discount_center_definition), description: "The discount_center section information")
         survey(required: false, type: PropertyType.Map(survey_definition), description: "The survey definition section information")
+        repentance_button(required: false, type: PropertyType.Map(repentance_button_definition), description: "The repentance button definition section information")
         bcra_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         ifpe_regulation(required: false, type: PropertyType.Map(paragraph_definition), description: "The section that show only text")
         metadata(required: false, type: PropertyType.Map(metadata_definition), description: "this tracking section will contain multiple information about the user metadata(location, accessibility, info, etc)")
@@ -436,6 +443,7 @@ tracks {
 
     "/wallet_home/loyalty/tap" (platform: "/mobile", type: TrackType.Event) {
         loyalty(required: false, type: PropertyType.Map(loyalty_header_definition), description: "The loyalty header information")
+        metadata_user(required: false, type: PropertyType.Map(metadata_user_definition), description: "The user metadata")
     }
 
     /**********************************/
@@ -467,7 +475,9 @@ tracks {
         percentage(type: PropertyType.Numeric, required: true, description: "The user's loyalty level percentage")
     }
 
-    "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {}
+    "/wallet_home/section/tap/subscription" (platform: "/mobile", type: TrackType.Event) {
+        level(required: false, type: PropertyType.Numeric, description: "Loyalty level")
+    }
 
     "/wallet_home/section/tap/shortcuts"(platform: "/mobile", type: TrackType.Event) {
         from(type: PropertyType.String, required: true, values: ['section', 'sheet'])
@@ -487,10 +497,12 @@ tracks {
         bu_line(type: PropertyType.String, required: false, description: "The business unit's line of the shortcut")
         flow(type: PropertyType.String, required: false, description: "The business unit line's flow of the shortcut")
         logic(type: PropertyType.String, required: false, description: "The logic applied for showing the shortcut")
-        user_profile(type: PropertyType.String, required: false, description: "The user profile: seller or payer", values: ["seller", "payer"])
+        user_profile(type: PropertyType.String, required: false, description: "The user profile", values: ["seller", "payer", "newbie"])
     }
 
     "/wallet_home/section/tap/survey" (platform: "/mobile", type: TrackType.Event) {}
+
+    "/wallet_home/section/tap/repentance_button" (platform: "/mobile", type: TrackType.Event) {}
 
     "/wallet_home/section/tap/secondary_actions" (platform: "/mobile", type: TrackType.Event, initiative: "1176") {
         walletHomeMerchEngineFields

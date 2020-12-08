@@ -30,6 +30,8 @@ class S3Controller {
         this.bucket = bucket
         this.credentials = new BasicAWSCredentials(accessKey, secretKey)
         ClientConfiguration config = new ClientConfiguration();
+        config.setConnectionTimeout(1000 * 60 * 60 *15) // 15 minutes
+        config.setSocketTimeout(1000 * 60 * 60 *15)
         if(System.getenv().containsKey("proxyHost")){
             config.setProxyHost(System.getenv().get("proxyHost"))
         }

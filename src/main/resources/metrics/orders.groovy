@@ -48,6 +48,9 @@ metrics {
 				)
 			}
 		}
+		divisionBy {
+			divisionMetric("bids")
+		}
 	}
 	
 	"bids.pdp.paid"(description: "/orders/ordercreated from feed with Orders-API confirmation", compute_order: true) {
@@ -99,6 +102,9 @@ metrics {
 				)
 			}
 		}
+		divisionBy {
+			divisionMetric("bids")
+		}
 	}
 
 	"bids.official_stores"(description: "Checkout congrats for items in any official store", compute_order: true) {
@@ -110,19 +116,6 @@ metrics {
 			condition {
 				path("/orders/ordercreated")
 				empty("event_data.items.item.official_store_id", false)
-			}
-		}
-	}
-
-	"bids.samedeal"(description: "Checkout congrats for items in the same deal of exposition", compute_order: true) {
-		startWith {
-			experiment("/search/test")
-		}
-		
-		countsOn {
-			condition {
-				path("/orders/ordercreated")
-				sameDeal("event_data.items.item.deal_ids", true)
 			}
 		}
 	}
@@ -164,42 +157,6 @@ metrics {
 					and (
 						equals("path","/purchases/purchasecreated")
 					)
-				)
-			}
-		}
-	}
-
-	"bids|new_buyers"(description: "New buyers from feed", compute_order: true) {
-		countsOn {
-			condition {
-				and (
-					equals("path", "/orders/ordercreated"),
-					equals("event_data.buyer_segment", "new_buyer")
-				)
-			}
-		}
-	}
-
-	"bids|inactive_buyers"(description: "New buyer and buyers without more than 1-year buys (New & Recovered buyers)", compute_order: true) {
-		countsOn {
-			condition {
-				and (
-					equals("path", "/orders/ordercreated"),
-					or(
-						equals("event_data.buyer_segment", "new_buyer"),
-						equals("event_data.buyer_segment", "recovered_buyer")
-					)
-				)
-			}
-		}
-	}
-
-	"bids|active_buyers"(description: "Active buyers from feed", compute_order: true) {
-		countsOn {
-			condition {
-				and (
-					equals("path", "/orders/ordercreated"),
-					equals("event_data.buyer_segment", "active_buyer")
 				)
 			}
 		}

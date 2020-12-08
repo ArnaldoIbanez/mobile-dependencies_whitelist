@@ -170,10 +170,13 @@ tracks {
 
     "/my_purchases/status/return_purchase"(platform:"/", type: TrackType.View) {}
 
-    "/my_purchases/status/return_purchase/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+    "/my_purchases/status/cancel_purchase/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
         newPurchasesEventGroup
     }
 
+    "/my_purchases/status/return_purchase/click_action"(platform:"/", type: TrackType.Event, parentPropertiesInherited: false) {
+        newPurchasesEventGroup
+    }
 
     //------------------------------------------------------------------------------------------------------------------------------------------------------
     // TRACKS MY PURCHASES STATUS PLACES

@@ -15,6 +15,7 @@ tracks {
 
     propertyDefinitions {
         tab_context(required: true, type: PropertyType.String, description: "the tab where the actions are clicked", values: ["/stores/details_pos", "/stores/details_devices"])
+        types(required: true, type: PropertyType.String, description: "the delivery types selected by the user", values: ['none', 'pickup', 'delivery', 'both'])
     }
 
     //Account mydata
@@ -48,9 +49,20 @@ tracks {
     //Stores
     "/stores"(platform: "/", isAbstract: true) {}
     "/stores/create"(platform: "/", type: TrackType.View) {}
+    "/stores/create_poses"(platform: "/", type: TrackType.View) {}
+    "/stores/create_delivery"(platform: "/", isAbstract: true) {}
+    "/stores/create_delivery/start"(platform: "/", type: TrackType.View) {}
+    "/stores/create_delivery/end"(platform: "/", type: TrackType.Event) {
+        types(required: true, type: PropertyType.String, description: "the delivery types selected by the user", values: ['none', 'pickup', 'delivery', 'both'])
+    }
     "/stores/link_operators"(platform: "/", type: TrackType.View) {}
     "/stores/list"(platform: "/", type: TrackType.View) {}
     "/stores/update"(platform: "/", type: TrackType.View) {}
+    "/stores/update_delivery"(platform: "/", isAbstract: true) {}
+    "/stores/update_delivery/start"(platform: "/", type: TrackType.View) {}
+    "/stores/update_delivery/end"(platform: "/", type: TrackType.Event) {
+        types(required: true, type: PropertyType.String, description: "the delivery types selected by the user", values: ['none', 'pickup', 'delivery', 'both'])
+    }
     "/stores/details"(platform: "/", type: TrackType.View) {}
     "/stores/details_pos"(platform: "/", type: TrackType.View) {}
     "/stores/details_devices"(platform: "/", type: TrackType.View) {}
@@ -82,7 +94,9 @@ tracks {
 
     //Tu negocio
     "/your_business"(platform: "/web", isAbstract: true) {}
-    "/your_business/home"(platform: "/web", type: TrackType.View) {}
+    "/your_business/home"(platform: "/web", type: TrackType.View) {
+        show_tax_warning(required: false, description: "the name of the tax card", type: PropertyType.String)
+    }
     "/your_business/image_upload"(platform:"/web", type: TrackType.Event) {}
     "/your_business/mydata_edit"(platform:"/web", type: TrackType.Event) {}
     "/your_business/confirm_action"(platform:"/web", type: TrackType.Event) {
@@ -161,7 +175,7 @@ tracks {
     }
     // release-options-frontend
     "/settings/release_options"(platform: "/", type:TrackType.View) {
-        referrer (required: true, type: PropertyType.String, description: "Referrer to the page")
+        referrer (required: false, type: PropertyType.String, description: "Referrer to the page")
     }
     // release-options-ui LIB
     "/release_options_ui"(platform: "/", isAbstract: true) {}

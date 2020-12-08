@@ -140,12 +140,6 @@ trackTests {
             is_otp = false
             is_admin_otp = false
         }
-        "/login/auth/challenge_decline"(platform: "/", type: TrackType.View) {
-            challenge = "pass"
-            source = "QUESTION"
-            tx = "tx"
-            operator_id = null
-        }
         "/login/auth/challenge/submit"(platform: "/web", type: TrackType.Event) {
             challenge = "pass"
             source = "QUESTION"
@@ -163,16 +157,6 @@ trackTests {
         }
         "/logout"(platform: "/", type: TrackType.Event) {
             source = "MSL"
-        }
-    }
-
-    test("App authorization tracks") {
-        "/oauth/authorization/form"(platform: "/", type: TrackType.Event) {
-            source = "LFE"
-        }
-        "/oauth/authorization/form/access"(platform: "/", type: TrackType.Event) {
-            source = "LFE"
-            authorize = true
         }
     }
 
@@ -259,10 +243,6 @@ trackTests {
             id = "id--fury"
             is_webview = true
         }
-        "/auth/account_recovery/phone_number_verification"(platform: "/web", type: TrackType.View) {
-            id = "id--fury"
-            is_webview = true
-        }
         "/auth/account_recovery/on_hold"(platform: "/web", type: TrackType.View) {
             id = "id--fury"
             is_webview = true
@@ -283,26 +263,6 @@ trackTests {
             id = "id--fury"
             event_type = "click"
             target = "go_home_button"
-            is_webview = true
-        }
-        "/auth/account_recovery/phone_number_verification/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "continue_button"
-            is_webview = true
-        }
-        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
-            status_code = "429"
-            is_webview = true
-        }
-        "/auth/account_recovery/on_hold/action"(platform: "/web", type: TrackType.Event) {
-            id = "id--fury"
-            event_type = "click"
-            target = "go_home_button"
-            status_code = "403"
             is_webview = true
         }
     }
@@ -399,37 +359,7 @@ trackTests {
         }
     }
 
-    test("Phone Enrollment flow") {
-        "/auth/recovery/phone/registration"(platform: "/web", type: TrackType.Event) {
-            redirect_url = 'www.mercadolibre.com'
-            flow_type = 'sms_enrollment'
-            flow_sub_type = 'ULTIMATUM'
-        }
-        "/auth/recovery/phone/save"(platform: "/web", type: TrackType.Event) {
-            redirect_url = "www.mercadolibre.com"
-            selected_phone_source = "manual"
-            verified = false
-            flow_type = "sms_enrollment"
-            flow_sub_type = "LOGIN"
-            visual_validation_allowed = true
-        }
-        "/auth/recovery/phone/verified"(platform: "/web", type: TrackType.Event) {
-            redirect_url = "www.mercadolibre.com"
-            selected_phone_source = "manual"
-            flow_type = "sms_enrollment"
-            flow_sub_type = "LOGIN_NOTIF"
-        }
-        "/auth/phone_confirmation"(platform: "/", type: TrackType.Event) {
-            event = "confirm"
-        }
-    }
 
-    test("Push Notification") {
-        "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {}
-        "/auth/push_notification"(platform: "/mobile", type: TrackType.Event) {
-            notified_user = "123"
-        }
-    }
 
     test("Multi Step Login Android") {
         "/login/auth/challenge"(platform: "/mobile", type: TrackType.View) {
@@ -499,42 +429,6 @@ trackTests {
         "/login/auth/phone_validation/sms_detection/autodetect_code_success"(platform: "/mobile", type: TrackType.Event) {}
 
         "/login/auth/phone_validation/sms_detection/autodetect_code_failure"(platform: "/mobile", type: TrackType.Event) {}
-    }
-
-    test("Authenticators") {
-        "/auth/authentication_factors/sms"(platform: "/web", type: TrackType.Event) {
-            event = "method_selector"
-            flow_type = 'sms_enrollment'
-            risk_context = false
-            reauthentication = false
-            sms_option = true
-            call_option = true
-            push_option = false
-            option_selected = "sms"
-            authenticator = "phoneValidation"
-        }
-        "/auth/authentication_factors/primary_email"(platform: "/web", type: TrackType.Event) {
-            event = "start_validation"
-            flow_type = 'sms_enrollment'
-            risk_context = true
-            reauthentication = true
-            option_selected = "primary_email"
-            primary_email_option = true
-            domain = "gmail"
-            authenticator = "emailValidation"
-            email_id = "123465789"
-        }
-        "/auth/authentication_factors/social_connect"(platform: "/web", type: TrackType.Event) {
-            event = "close_validation"
-            flow_type = 'sms_enrollment'
-            risk_context = true
-            reauthentication = false
-            option_selected = "microsoft_connect"
-            google_connect_option = true
-            domain = "gmail"
-            is_google_account_of_different_user = "false"
-            authenticator = "emailValidation"
-        }
     }
 
     test("Device Attestation"){
@@ -703,6 +597,82 @@ trackTests {
         }
     }
 
+    test("Phone Validation - Registration v3") {
+        "/authenticators/phone_validation/input_phone"(platform: "/mobile", type: TrackType.View) {
+            enrollment = false
+            flow_type=  "registration_v3"
+        }
+
+         "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
+            enrollment = false
+            flow_type = "registration_v3"
+            validation_status = "success"
+        }
+        "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
+            enrollment = false
+            flow_type = "registration_v3"
+            validation_status = "user_exists"
+        }
+        "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
+            enrollment = false
+            flow_type = "registration_v3"
+            validation_status = "invalid_phone_format"
+        }
+        "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
+            enrollment = false
+            flow_type = "registration_v3"
+            validation_status = "empty"
+        }
+        "/authenticators/phone_validation/input_phone/submit"(platform: "/mobile", type: TrackType.Event) {
+            enrollment = false
+            flow_type = "registration_v3"
+            validation_status = "server_error"
+        }
+
+        "/authenticators/phone_validation/enter_code"(platform: "/mobile", type: TrackType.View) {
+            enrollment = false
+            flow_type = "registration_v3"
+            selected_channel = "sms"
+        }
+
+        "/authenticators/phone_validation/enter_code"(platform: "/mobile", type: TrackType.View) {
+            enrollment = false
+            flow_type = "registration_v3"
+            selected_channel = "whatsapp"
+        }
+
+        "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
+            enrollment = false
+            flow_type = "registration_v3"
+            validation_status = "success"
+            selected_channel = "sms"
+        }
+        "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
+            enrollment = false
+            flow_type = "registration_v3"
+            validation_status = "invalid_code_length"
+            selected_channel = "sms"
+        }
+        "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
+            enrollment = false
+            flow_type = "registration_v3"
+            validation_status = "empty"
+            selected_channel = "sms"
+        }
+        "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
+            enrollment = false
+            flow_type = "registration_v3"
+            validation_status = "server_error"
+            selected_channel = "whatsapp"
+        }
+        "/authenticators/phone_validation/enter_code/submit"(platform: "/mobile", type: TrackType.Event) {
+            enrollment = false
+            flow_type = "registration_v3"
+            validation_status = "failure"
+            selected_channel = "whatsapp"
+        }
+    }
+
     ["mercadolibre", "mercadopago"].each { business ->
 
         defaultBusiness = business
@@ -711,17 +681,43 @@ trackTests {
 
             "/authenticators/email_validation/max_attempts"(platform: "/", type: TrackType.View) {}
 
-            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {}
+            "/authenticators/email_validation/enter_email"(platform: "/", type: TrackType.View) {
+                flow = "registration"
+                client_type = "mobile"
+            }
+
+            "/authenticators/email_validation/enter_email/submit"(platform: "/", type: TrackType.Event) {
+                flow = "registration"
+                client_type = "mobile"
+                validation_status = "success"
+            }
+
+            "/authenticators/email_validation/enter_email/submit"(platform: "/", type: TrackType.Event) {
+                flow = "registration"
+                client_type = "mobile"
+                validation_status = "user_exists"
+            }
+
+            "/authenticators/email_validation/enter_code"(platform: "/", type: TrackType.View) {
+                flow = "registration"
+                client_type = "mobile"
+            }
 
             "/authenticators/email_validation/enter_code/submit"(platform: "/", type: TrackType.Event) {
+                flow = "registration"
+                client_type = "mobile"
                 validation_status = "success"
             }
 
             "/authenticators/email_validation/social_oauth"(platform: "/", type: TrackType.View) {
+                flow = "login"
+                client_type = "web"
                 social_option = "Google"
             }
 
             "/authenticators/email_validation/social_oauth/submit"(platform: "/", type: TrackType.Event) {
+                flow = "login"
+                client_type = "web"
                 validation_status = "success"
                 social_option = "Microsoft"
                 email_sign_in = false
@@ -747,6 +743,16 @@ trackTests {
                 os_status = "biometrics"
                 elapsed_time = 50
                 result = "success"
+                transaction_information = [
+                    "amount": "100.0",
+                    "type": "transactional"
+                ]
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
             }
 
             "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -756,6 +762,16 @@ trackTests {
                 elapsed_time = 50
                 result = "error"
                 errors = ["user_cancelled"]
+                transaction_information = [
+                    "amount": "0",
+                    "type": "non_transactional"
+                ]
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
             }
 
             "/screenlock/validation_end"(platform: "/mobile/ios", type: TrackType.Event) {
@@ -764,6 +780,16 @@ trackTests {
                 os_status = "basic_screenlock"
                 elapsed_time = 50
                 result = "success"
+                transaction_information = [
+                    "amount": "0",
+                    "type": "other"
+                ]
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
             }
 
             "/screenlock/biometrics/failure"(platform: "/mobile/android", type: TrackType.Event) {
@@ -815,6 +841,13 @@ trackTests {
                 ]
                 scenario = "never_auto_enrolled"
             }
+
+            "/screenlock/multiple_sessions_shield"(platform: "/mobile/android", type: TrackType.View) {
+            }
+
+            "/screenlock/multiple_sessions_shield"(platform: "/mobile/ios", type: TrackType.View) {
+            }
+
         }
 
         test("Screenlock app opening lock feature") {
@@ -853,6 +886,28 @@ trackTests {
             }
 
             "/screenlock/opening_lock/retry"(platform: "/mobile/ios", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/status"(platform: "/mobile/android", type: TrackType.Event) {
+                enrollment_status = "enabled"
+                os_status = "biometrics"
+                config = [
+                        "transaction": "disabled",
+                        "opening_lock": "enabled",
+                        "transaction_custom": "0",
+                        "opening_custom": "0"
+                ]
+            }
+
+            "/screenlock/status"(platform: "/mobile/ios", type: TrackType.Event) {
                 enrollment_status = "enabled"
                 os_status = "biometrics"
                 config = [
