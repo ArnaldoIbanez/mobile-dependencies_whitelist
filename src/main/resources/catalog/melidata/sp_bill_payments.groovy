@@ -226,4 +226,13 @@ tracks {
     // search
     "/bill_payments/search"(platform: "/mobile", type: TrackType.View) {}
     "/bill_payments/search_error"(platform: "/mobile", type: TrackType.View) {}
+
+    // Contingency screen
+    "/bill_payments/contingency_screen"(platform: "/mobile", type: TrackType.View) {
+        label(required: false, type: PropertyType.String, description: "the label of contingency screen")
+    }
+
+    "/bill_payments/contingency_screen/continue"(platform: "/mobile", type: TrackType.Event) {}
+    "/bill_payments/contingency_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {}
+
 }
