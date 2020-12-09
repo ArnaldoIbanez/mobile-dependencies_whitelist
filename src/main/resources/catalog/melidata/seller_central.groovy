@@ -1258,6 +1258,7 @@ tracks {
     "/seller_central/catalog"(platform: "/web", isAbstract: true) {}
 
     "/seller_central/catalog/optin"(platform: "/web", type: TrackType.View) {
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "OPTIN_V0_PRODUCT"])
         sellerCentralCatalogOptinGroup
     }
 
@@ -1297,10 +1298,12 @@ tracks {
     }
 
     "/seller_central/catalog/optin/invalid_product"(platform: "/web", type: TrackType.View) {
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "OPTIN_V0_PRODUCT"])
         sellerCentralCatalogOptinGroup
     }
 
     "/seller_central/catalog/optin/congrats"(platform: "/web", type: TrackType.View) {
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "OPTIN_V0_PRODUCT"])
         sellerCentralCatalogOptinGroup
     }
 
@@ -1322,14 +1325,17 @@ tracks {
     }
 
     "/seller_central/catalog/optin/other_product_problem"(platform: "/web", type: TrackType.View) {
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "OPTIN_V0_PRODUCT"])
         sellerCentralCatalogOptinGroup
     }
 
     "/seller_central/catalog/optin/variation_selection"(platform: "/web", type: TrackType.View) {
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "OPTIN_V0_PRODUCT"])
         sellerCentralCatalogOptinGroup
     }
 
     "/seller_central/catalog/optin/optin_moderated"(platform: "/web", type: TrackType.View) {
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "OPTIN_V0_PRODUCT"])
         sellerCentralCatalogOptinGroup
     }
 
@@ -1367,10 +1373,12 @@ tracks {
     }
 
     "/seller_central/catalog/optin/optin_moderated/congrats"(platform: "/web", type: TrackType.View) {
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "OPTIN_V0_PRODUCT"])
         sellerCentralCatalogOptinGroup
     }
 
     "/seller_central/catalog/optin/item_plus"(platform: "/web", type: TrackType.View) {
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "OPTIN_V0_PRODUCT"])
         sellerCentralCatalogOptinGroup
     }
 
@@ -1390,6 +1398,7 @@ tracks {
     }
 
     "/seller_central/catalog/optin/item_plus/congrats"(platform: "/web", type: TrackType.View) {
+        list_mode(required: true, type: PropertyType.String, description: "Listing mode", values: ["OPTIN", "OPTIN_V0_PRODUCT"])
         sellerCentralCatalogOptinGroup
     }
 

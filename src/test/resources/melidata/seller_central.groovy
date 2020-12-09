@@ -2116,6 +2116,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2135,6 +2136,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2272,6 +2274,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2291,6 +2294,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "INVALID_CARRIER"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2310,6 +2314,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2448,6 +2453,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2469,6 +2475,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2549,6 +2556,7 @@ trackTests {
       selected_catalog_product_id = "MLA1055"
       opt_in_item_id = "MLA234567"
       invalid_product_cause = "NONE"
+      list_mode = "OPTIN"
     }
   }
 
@@ -2655,6 +2663,7 @@ trackTests {
       variation_id = 49478478975
       seller_profile = "INTERMEDIATE"
       invalid_product_cause = null
+      list_mode = "OPTIN"
     }
   }
 
