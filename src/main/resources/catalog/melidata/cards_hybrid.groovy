@@ -28,6 +28,8 @@ tracks {
     "/cards/nfc"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment"(platform: "/", isAbstract: true) { }
     "/cards/nfc/enrollment/hub/step"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/enrollment/tokenization"(platform: "/", isAbstract: true) { }
+    "/cards/nfc/payment"(platform: "/", isAbstract: true) { }
 
 
 
@@ -1029,6 +1031,78 @@ tracks {
             type: PropertyType.String,
             values: ["success_redirect"],
             description: "Redirection Done"
+        )
+    }
+    // ENROLLMENT-NFC-TOKENIZATION
+    // -------------------
+    "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["success_enrollment","error_enrollment","success_callback"],
+            description: "Tokenization status for nfc enrollment"
+        )
+        result (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "missing enrollment push notification",
+                "cardInfo error",
+                "checkCardEligibility error",
+                "partial enrollment CardDeleteResult UNKNOWN_DIGITAL_CARD_ID",
+                "partial enrollment CardDeleteResult error",
+                "partial enrollment deleteCard DELETE_RETRIES exceeded",
+                "partial enrollment deleteCard error",
+                "digitize error",
+                "fetchTokenizationDataWorker HTTP_NOT_FOUND or HTTP_UNAVAILABLE error",
+                "fetchTokenizationDataWorker error",
+                "checkCardEligibility success",
+                "checkCardEligibility partial enrollment",
+                "partial enrollment CardDeleteResult success",
+                "digitize success",
+                "fetchTokenizationDataWorker success",
+                "tokenization completed event"
+            ],
+            description: "Tokenization callback for nfc enrollment"
+        )
+    }
+    "/cards/nfc/enrollment/tokenization/time"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["success_enrollment","success_async_callback","success_push_received"],
+            description: "Type of NFC tokenization time"
+        )
+        result (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Time in milliseconds for NFC tokenization completed"
+        )
+    }
+    "/cards/nfc/enrollment/tokenization/attempts"(platform:"/", type: TrackType.Event) {
+        result (
+            required: true,
+            type: PropertyType.Numeric,
+            description: "Number Of Attempts To Tokenize NFC Successfully"
+        )
+    }
+    // PAYMENTS-NFC
+    // -------------------
+    "/cards/nfc/payment/tap"(platform:"/", type: TrackType.Event) {
+        result (
+            required: true,
+            type: PropertyType.String,
+            values: ["error_payment"],
+            description: "Tap payment error transaction"
+        )
+        reasons (
+            required: true,
+            type: PropertyType.String,
+            values: [
+                "payment is not allowed as SDK initialization is ongoing",
+                "payment is not allowed as SDK is not initialized"
+            ],
+            description: "Reasons that one tap payment failed with closed application"
         )
     }
 }
