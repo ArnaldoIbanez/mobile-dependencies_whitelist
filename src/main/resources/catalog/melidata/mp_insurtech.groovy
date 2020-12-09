@@ -11,9 +11,10 @@ tracks {
     // INSURTECH RODA Structures
     def roda_device = objectSchemaDefinitions {
         brand(required: true, type: PropertyType.String, description: "Brand of device. For ex: Samsung.")
-        model(required: false, type: PropertyType.String, description: "Model of the device. For ex: J7.")
-        model_code(required: true, type: PropertyType.String, description: "Model code of the device. For ex: SM-J700M.")
+        model(required: false, type: PropertyType.String, description: "Model of the device. For ex: J7. Send by provider.")
+        model_code(required: false, type: PropertyType.String, description: "Model code of the device. For ex: SM-J700M. Get from native.")
         size(required: true, type: PropertyType.String, description: "Size of the device. For ex: 64GB.")
+        device_code(required: false, type: PropertyType.String, description: "device code to quote. For ex: diw387_1u1")
     }
 
     def roda_option = objectSchemaDefinitions {
@@ -25,12 +26,16 @@ tracks {
         currency_id(required: true, type: PropertyType.String, description: "Currency id of the option. For ex: BRL.")
         deductible_amount(required: true, type: PropertyType.Numeric, description: "Deductible amount of the option.")
         check(required: true, type: PropertyType.String, description: "Check HW required. For ex: total.")
+        gtin(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "GLobal Trade Item Numer")
+        discount_rate(required: true, type: PropertyType.Numeric, description: "Discount rate applied to the option. If 0 then, no discount.")
     }
 
     def roda_option_short = objectSchemaDefinitions {
         coverage(required: true, type: PropertyType.String, description: "Coverage of the option. For ex: theft_break, theft, break, accident.")
         price(required: true, type: PropertyType.Numeric, description: "Price of the option.")
         deductible_amount(required: true, type: PropertyType.Numeric, description: "Deductible amount of the option.")
+        gtin(required: false, type: PropertyType.ArrayList(PropertyType.String), description: "Global Trade Item Numer")
+        discount_rate(required: true, type: PropertyType.Numeric, description: "Discount rate applied to the option. If 0 then, no discount.")
     }
 
     def protection_short = objectSchemaDefinitions {
@@ -74,37 +79,132 @@ tracks {
     "/insurtech/roda/qpage"(platform: "/", isAbstract: true) {}
 
     "/insurtech/roda/qpage"(platform:"/", type: TrackType.View) {
-        client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data entering qpage")
+        order_device(required:false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         options(required: false, type: PropertyType.ArrayList(PropertyType.Map(roda_option_short)), description: "Options presented in the qpage for quotation")
-        financing_type(required: false, type: PropertyType.Map(financing_type_track_structure), description: "Financing data of item if it has")
+        entity_type(required: true, type: PropertyType.String, description: "Entity type insurtech product", values: ['device', 'order'])
+        entity_id(required: true, type:  PropertyType.String, description: "Entity id insurtech product")
+        item_id(required: false, type: PropertyType.String, description: "id of the item that is offered protection")
+        buying_mode(required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "Type of payment method for purchase")
+        discount_code(required: false, type: PropertyType.String, description: "Discount code")
     }
 
     "/insurtech/roda/qpage/error"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
     }
 
-    "/insurtech/roda/qpage/fallback"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+    "/insurtech/roda/qpage/fallback"(platform: "/", isAbstract: true) {}
+
+    "/insurtech/roda/qpage/fallback/default"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
         client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+    }
+
+    "/insurtech/roda/qpage/fallback/skip_expired"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+    }
+
+    "/insurtech/roda/qpage/quoting_fallback"(platform: "/", isAbstract: true) {}
+    "/insurtech/roda/qpage/quoting_fallback/default"(platform: "/", isAbstract: true) {}
+
+    "/insurtech/roda/qpage/quoting_fallback/default/quotable"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
+        quotable(required: true, type: PropertyType.Boolean, description:"If a device is tradable or not")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+    }
+
+    "/insurtech/roda/qpage/quoting_fallback/default/not_quotable"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
+        quotable(required: true, type: PropertyType.Boolean, description:"If a device is tradable or not")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+    }
+
+    "/insurtech/roda/qpage/quoting_fallback/order_cancelled"(platform: "/", isAbstract: true) {}
+
+    "/insurtech/roda/qpage/quoting_fallback/order_cancelled/quotable"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
+        quotable(required: true, type: PropertyType.Boolean, description:"If a device is tradable or not")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+    }
+
+    "/insurtech/roda/qpage/quoting_fallback/order_cancelled/not_quotable"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
+        quotable(required: true, type: PropertyType.Boolean, description:"If a device is tradable or not")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
     }
 
     "/insurtech/roda/qpage/deductible"(platform:"/", type: TrackType.Event) {
         client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        buying_mode(required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+        discount_code(required: false, type: PropertyType.String, description: "Discount code")
     }
 
     "/insurtech/roda/qpage/faq"(platform:"/", type: TrackType.Event) {
-        client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data entering qpage")
+        order_device(required:false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        entity_type (required: true, type: PropertyType.String, description: "Entity type insurtech product", values: ["device", "order"])
+        entity_id (required: true, type:  PropertyType.String, description: "Entity id insurtech product")
+        item_id (required: false, type: PropertyType.String, description: "id of the item that is offered protection")
         faq(required: true, type: PropertyType.String, description: "Name of the FAQ viewed. For ex: protection-cancel, deductible-fee")
+        buying_mode(required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+        discount_code(required: false, type: PropertyType.String, description: "Discount code")
     }
 
     "/insurtech/roda/qpage/buy"(platform:"/", type: TrackType.Event) {
-        client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data entering qpage")
+        order_device(required:false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         option(required: true, type: PropertyType.Map(roda_option), description: "Option plan selected on purchase.")
-        financing_type(required: false, type: PropertyType.Map(financing_type_track_structure), description: "Financing data of item if it has")
+        entity_type(required: true, type: PropertyType.String, description: "Entity type insurtech product", values: ["device", "order"])
+        entity_id(required: true, type:  PropertyType.String, description: "Entity id insurtech product")
+        item_id(required: false, type: PropertyType.String, description: "id of the item that is offered protection")
+        hardware_check(required: true, type: PropertyType.Boolean, description: "If you require hardware check")
+        buying_mode(required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+        discount_code(required: false, type: PropertyType.String, description: "Discount code")
     }
 
     "/insurtech/roda/qpage/option_selected"(platform:"/", type: TrackType.Event) {
-        client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        client_device(required: true, type: PropertyType.Map(roda_device), description: "Device data entering qpage")
+        order_device(required:false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
         option(required: true, type: PropertyType.Map(roda_option), description: "Option plan selected.")
+        entity_type(required: true, type: PropertyType.String, description: "Entity type insurtech product", values: ["device", "order"])
+        entity_id(required: true, type:  PropertyType.String, description: "Entity id insurtech product")
+        item_id(required: false, type: PropertyType.String, description: "id of the item that is offered protection")
+        buying_mode(required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+        discount_code(required: false, type: PropertyType.String, description: "Discount code")
+    }
+
+    "/insurtech/roda/qpage/quoting_fallback/default/quotable/select"(platform:"/", type: TrackType.Event) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
+        quotable(required: true, type: PropertyType.Boolean, description:"If a device is tradable or not")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+    }
+
+    "/insurtech/roda/qpage/quoting_fallback/order_cancelled/quotable/select"(platform:"/", type: TrackType.Event) {
+        client_device(required: false, type: PropertyType.Map(roda_device), description: "Device data of the track accessing the qpage for quotation")
+        fallback_type(required: false, type: PropertyType.String, values: ['default', 'order_cancelled', 'skip_hardware_check_expired'], description: "Type of fallback with which I enter the view")
+        quotable(required: true, type: PropertyType.Boolean, description:"If a device is tradable or not")
+        buying_mode (required: true, type: PropertyType.String, values:['buy_it_now', 'subscription'], description: "type of purchase made")
+    }
+
+    "/insurtech/roda/qpage/congrats_subscription"(platform:"/", type: TrackType.View, parentPropertiesInherited:false) {
+        preference_id(required: true, type: PropertyType.String, description: "Subscription payment preference id")
+        payment_id(required: true, type: PropertyType.Numeric,  description: "Subscription payment id")
+        status(required: true, type: PropertyType.String, values: ['success', 'failure', 'pending'], description:"Subscription payment status")
+    }
+
+     "/insurtech/roda/qpage/congrats_subscription/go_to_protection"(platform:"/", type: TrackType.Event) {
+        preference_id(required: true, type: PropertyType.String, description: "Subscription payment preference id")
+        payment_id(required: true, type: PropertyType.Numeric,  description: "Subscription payment id")
+        status(required: true, type: PropertyType.String, values: ['success', 'failure', 'pending'], description:"Subscription payment status")
     }
 
     // INSURTECH RODA Hardware Check
@@ -239,40 +339,47 @@ tracks {
 
     "/insurtech/payments/px_checkout/pay"(platform:"/mobile", type: TrackType.Event) {}
 
-    "/insurtech/payments/congrats_approved"(platform:"/mobile", type: TrackType.View) {
+    "/insurtech/payments/px_checkout/congrats_in_process"(platform:"/mobile", type: TrackType.View) {
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
         flow(required: true, type: PropertyType.String, description: "Indicate which initiative you belong to.")
         preference_id(required: true, type: PropertyType.String, description: "Payment preference.")
         purchase_id(required: true, type: PropertyType.String, description: "Payment entity id")
     }
 
-    "/insurtech/payments/congrats_approved/go_to_insurance"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/payments/px_checkout/congrats_approved"(platform:"/mobile", type: TrackType.View) {
+        quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
+        flow(required: true, type: PropertyType.String, description: "Indicate which initiative you belong to.")
+        preference_id(required: true, type: PropertyType.String, description: "Payment preference.")
+        purchase_id(required: true, type: PropertyType.String, description: "Payment entity id")
+    }
+
+    "/insurtech/payments/px_checkout/congrats_approved/go_to_insurance"(platform:"/mobile", type: TrackType.Event) {
         action_description(required: true, type: PropertyType.String, description: "Description of the main action shown in the fragment.")
     }
 
-    "/insurtech/payments/congrats_approved/go_to_home"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/payments/px_checkout/congrats_approved/go_to_home"(platform:"/mobile", type: TrackType.Event) {
         action_description(required: true, type: PropertyType.String, description: "Description of the button that appears at the end of the congrats.")
     }
 
-    "/insurtech/payments/congrats_rejected"(platform:"/mobile", type: TrackType.View) {
+    "/insurtech/payments/px_checkout/congrats_rejected"(platform:"/mobile", type: TrackType.View) {
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
         flow(required: true, type: PropertyType.String, description: "Indicate which initiative you belong to.")
         preference_id(required: true, type: PropertyType.String, description: "Payment preference.")
         purchase_id(required: true, type: PropertyType.String, description: "Payment entity id")
     }
 
-    "/insurtech/payments/congrats_rejected/go_to_home"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/payments/px_checkout/congrats_rejected/go_to_home"(platform:"/mobile", type: TrackType.Event) {
         action_description(required: true, type: PropertyType.String, description: "Description of the button that appears at the end of the congrats.")
     }
 
-    "/insurtech/payments/congrats_pending"(platform:"/mobile", type: TrackType.View) {
+    "/insurtech/payments/px_checkout/congrats_pending"(platform:"/mobile", type: TrackType.View) {
         quote_id(required: true, type: PropertyType.String, description: "Unique identifier of the quote selected in QPage.")
         flow(required: true, type: PropertyType.String, description: "Indicate which initiative you belong to.")
         preference_id(required: true, type: PropertyType.String, description: "Payment preference.")
         purchase_id(required: true, type: PropertyType.String, description: "Payment entity id")
     }
 
-    "/insurtech/payments/congrats_pending/go_to_home"(platform:"/mobile", type: TrackType.Event) {
+    "/insurtech/payments/px_checkout/congrats_pending/go_to_home"(platform:"/mobile", type: TrackType.Event) {
         action_description(required: true, type: PropertyType.String, description: "Description of the button that appears at the end of the congrats.")
     }
 

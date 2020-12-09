@@ -246,12 +246,25 @@ tracks {
         screen (required: true, type: PropertyType.String, description: "The screen that showed error")
     }
 
-    // Dashboard Error
+    // Engagement Error
     // --------
     "/cards/engagement/error"(platform: "/", type: TrackType.View) {
         screen (required: true, type: PropertyType.String, description: "The screen that showed error")
     }
-    
+    "/cards/engagement/decrypting"(platform: "/", isAbstract: true) {}
+    "/cards/engagement/decrypting/error"(platform: "/", type: TrackType.Event) {
+        error(
+            required: true,
+            type: PropertyType.String,
+            description: "User sensitive data decryption errors"
+            )
+        from(
+            required: true,
+            type: PropertyType.String,
+            description: "Component where the error occurred"
+            )
+    }
+
     // DASHBOARD
     // --------
      "/cards/hybrid/dashboard"(platform: "/", type: TrackType.View) {
@@ -1033,6 +1046,19 @@ tracks {
             description: "Redirection Done"
         )
     }
+
+    // ONBOARDING-NFC
+    //-------------------
+    "/cards/nfc/enrollment/hub/onboarding"(platform: "/", type: TrackType.View) {}
+    "/cards/nfc/enrollment/hub/onboarding/tap"(platform:"/", type: TrackType.Event) {
+        action (
+            required: true,
+            type: PropertyType.String,
+            values: ["main"],
+            description: "Main Button Tapped"
+        )
+    }
+
     // ENROLLMENT-NFC-TOKENIZATION
     // -------------------
     "/cards/nfc/enrollment/tokenization/callback"(platform:"/", type: TrackType.Event) {

@@ -172,6 +172,7 @@ tracks {
     "/credits/mp-hub"(platform: "/", isAbstract: true) {}
     "/credits/self_service"(platform: "/", isAbstract: true) {}
     "/credits/self_service/promises"(platform: "/", isAbstract: true) {}
+    "/credits/self_service/debt-relief"(platform: "/", isAbstract: true) {}
     "/credits/merchant/open-market/financial-scraping"(platform: "/", isAbstract: true) {}
 
     /******************************************
@@ -222,6 +223,8 @@ tracks {
             values: [
                 'create_promise',
                 'view_promise',
+                'create_debt_relief',
+                'view_debt_relief',
                 'none',
             ],
             inheritable: false
@@ -273,6 +276,10 @@ tracks {
                 required: false,
                 inheritable: false
         )
+    }
+
+    "/credits/merchant/administrator/contextual_help_click"(platform: "/", type: TrackType.Event) {
+
     }
 
     //Detail
@@ -376,25 +383,36 @@ tracks {
             required: true,
             description: "Flow which the user is being redirected",
             values: [
-                'merchant_administrator',
-                'express_money_enrollment',
-                'personal_loan_adoption_ml',
-                'personal_loan_adoption_mp',
-                'personal_loan_collection',
-                'merchant_enrollment',
+                'fixed_term_loan_collect', 
+                'sales_percentage_loan_collect', 
+                'express_money_collect', 
+                'personal_loan_collect', 
+                'consumer_loan_collect', 
+                'fixed_term_loan_prior_to_collect', 
+                'sales_percentage_loan_prior_to_collect', 
+                'express_money_prior_to_collect', 
+                'personal_loan_prior_to_collect', 
+                'consumer_loan_prior_to_collect', 
+                'fixed_term_loan_adoption', 
+                'sales_percentage_loan_adoption', 
+                'express_money_adoption', 
+                'personal_loan_adoption', 
+                'express_money_on_time', 
+                'fixed_term_loan_on_time', 
+                'sales_percentage_loan_on_time', 
+                'personal_loan_on_time', 
+                'consumer_loan_on_time', 
+                'sales_percentage_loan_finished', 
+                'fixed_term_loan_finished', 
+                'express_money_finished', 
+                'personal_loan_finished', 
+                'consumer_loan_finished', 
                 'consumer_loan_adoption',
-                'consumer_loan_collection',
-                'consumer_native_admin_mp',
-                'open_sea_mp',
-                'app_store_mp',
-                'app_store_ml',
             ]
         )
     }
 
-    "/credits/mp-hub/no-credit-line"(platform: "/", type: TrackType.View) {}
-
-    "/credits/mp-hub/no-credit-line/access_click"(platform: "/", type: TrackType.Event) {
+    "/credits/mp-hub/access_click"(platform: "/", type: TrackType.Event) {
         flow(
             type: PropertyType.String,
             required: true,
@@ -406,7 +424,7 @@ tracks {
         )
     }
 
-    "/credits/mp-hub/no-credit-line/stop"(platform: "/", type: TrackType.View) {
+    "/credits/mp-hub/stop"(platform: "/", type: TrackType.View) {
         flow(
             type: PropertyType.String,
             required: true,
@@ -418,7 +436,7 @@ tracks {
         )
     }
 
-    "/credits/mp-hub/no-credit-line/stop/faqs_click"(platform: "/", type: TrackType.Event) {
+    "/credits/mp-hub/stop/faqs_click"(platform: "/", type: TrackType.Event) {
         flow(
             type: PropertyType.String,
             required: true,
@@ -497,7 +515,6 @@ tracks {
             values: [
                 'financial_files',
                 'financial_scraping',
-                'finished_flow',
             ]
         )
     }
@@ -535,8 +552,9 @@ tracks {
             required: true,
             description: "From which flow was stop page accessed",
             values: [
-                'financial_files_uploaded',
-                'financial_scraping_done',
+                'financial_files',
+                'financial_scraping',
+                'finished_flow',
             ]
         )
     }
@@ -1495,6 +1513,8 @@ tracks {
     "/credits/consumer/administrator_v2/promises"(platform: "/mobile", isAbstract: true) {}
     "/credits/consumer/administrator_v2/promises/create"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/promises/view"(platform: "/mobile", type: TrackType.Event) {}
+    "/credits/consumer/administrator_v2/debt_relief"(platform: "/mobile", isAbstract: true) {}
+    "/credits/consumer/administrator_v2/debt_relief/create"(platform: "/mobile", type: TrackType.Event) {}
     "/credits/consumer/administrator_v2/payment_not_credited"(platform: "/mobile", type: TrackType.Event) {}
 
     /******************************************
@@ -1647,6 +1667,58 @@ tracks {
             ]
         )
     }
+
+    "/credits/self_service/debt_relief"(platform: "/", type: TrackType.View) {
+        user_type(
+            required: true,
+            description: "User type (merchant, consumer or mix)",
+            type: PropertyType.String,
+            values: [
+                "merchant",
+                "consumer",
+                "mix"
+            ]
+        )
+    }
+
+    "/credits/self_service/debt_relief/summary"(platform: "/", type: TrackType.View) {
+            bulk_amount(
+                required: true,
+                description: "Bulk amount of the debt relief proposed by the user",
+                type: PropertyType.Numeric
+            )
+            total_amount(
+                required: true,
+                description: "Total debt amount",
+                type: PropertyType.Numeric
+            )
+            min_amount(
+                required: false,
+                description: "Total debt amount",
+                type: PropertyType.Boolean
+            )
+        }
+
+    "/credits/self_service/debt_relief/accept_summary"(platform: "/", type: TrackType.Event) {
+            bulk_amount(
+                required: true,
+                description: "Bulk amount of the debt relief proposed by the user",
+                type: PropertyType.Numeric
+            )
+            total_amount(
+                required: true,
+                description: "Total debt amount",
+                type: PropertyType.Numeric
+            )
+            installments_id(
+                required: true,
+                description: "Total debt amount",
+                type: PropertyType.ArrayList
+            )
+        }
+
+    "/credits/self_service/debt_relief/without_offer"(platform: "/", type: TrackType.View) {
+        }
      /******************************************
      *    End: Self service
      ******************************************/

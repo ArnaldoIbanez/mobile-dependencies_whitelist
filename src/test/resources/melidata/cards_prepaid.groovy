@@ -325,4 +325,14 @@ trackTests {
              osName = "android"
         }
     }
+
+    test ("Prepaid Detail Regret") {
+        "/prepaid/regret" (platform: "/", type: TrackType.View) { }
+        "/prepaid/regret/tap" (platform: "/", type: TrackType.Event) {
+             action = "cancel_card"
+        }
+        "/prepaid/regret/tap" (platform: "/", type: TrackType.Event) {
+             action = "back"
+        }
+    }
 }

@@ -340,6 +340,7 @@ tracks {
     // One Tap
     "/single_player/prepaid/one_tap"(platform: "/mobile", type: TrackType.View) {}
 
+    "/single_player/prepaid/one_tap/more_information"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/one_tap/pay"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/one_tap/back"(platform: "/mobile", type: TrackType.Event) {}
 
@@ -349,6 +350,7 @@ tracks {
         payment_id(required: true, PropertyType.String, description: "ID of the payment")
     }
 
+    "/single_player/prepaid/congrats_success/copy_to_clipboard"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_success/show_receipt"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_success/add_alias"(platform: "/mobile", type: TrackType.Event) {}
     "/single_player/prepaid/congrats_success/another_recharge"(platform: "/mobile", type: TrackType.Event) {}
