@@ -720,4 +720,16 @@ trackTests {
             category_path = ["MLA1234", "MLA6789"]
         }
     }
+
+    test("Technical Specs Features View More") {
+        "/pdp/technical_specs_features/view_more"(platform: "/", type: TrackType.Event) {
+            catalog_product_id = "MLA1234"
+            item_id = "MLA533657947"
+            domain_id = "MLA-CELLPHONES"
+            is_highlighted = true
+            category_id = "MLA43718"
+            seller_id = 131662738
+            category_path = ["MLA1234", "MLA6789"]
+        }
+    }
 }
