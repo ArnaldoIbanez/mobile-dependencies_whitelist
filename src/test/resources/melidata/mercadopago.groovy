@@ -2945,6 +2945,19 @@ trackTests {
         "/bill_payments/search_error"(platform: "/mobile") {
             mandatory()
         }
+
+        // Contingency screen
+        "/bill_payments/contingency_screen"(platform: "/mobile") {
+            mandatory()
+        }
+
+        "/bill_payments/contingency_screen/continue"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
+
+        "/bill_payments/contingency_screen/back_to_home"(platform: "/mobile", type: TrackType.Event) {
+            mandatory()
+        }
     }
 
     test("Fund account") {
